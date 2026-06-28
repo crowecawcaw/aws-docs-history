@@ -420,9 +420,9 @@ Value indicating whether the game session accepts new players.
 Type: `EPlayerSessionCreationPolicy` enum. Valid values
 include:
 
-- **ACCEPT_ALL** – Accept all
+- **ACCEPT\_ALL** – Accept all
   new player sessions.
-- **DENY_ALL** – Deny all new
+- **DENY\_ALL** – Deny all new
   player sessions.
 
 Required: Yes

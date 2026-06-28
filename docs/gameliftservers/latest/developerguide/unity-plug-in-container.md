@@ -254,19 +254,18 @@ resources.
 - Backend service to make requests to the Amazon GameLift Servers service on behalf of
   game clients, such as to request game sessions and join games:
 
-      + API Gateway + Lambda function for players to request a game
-       session slot. This function calls
-       `CreateGameSession()` if no open slots
-       are available.
-      + API Gateway + Lambda function for players to get
-       connection info for their game request.
-
-  This scenario deploys your game server to a container fleet,
-  configures game session placement, and sets up FlexMatch matchmaking. This
-  scenario is useful when you're ready to start designing a custom
-  matchmaker for your hosting solution. Use this scenario to create the
-  basic resources for this solution, which you can customize later as
-  needed. It deploys the following resources:
+  - API Gateway + Lambda function for players to request a game
+    session slot. This function calls
+    `CreateGameSession()` if no open slots
+    are available.
+  - API Gateway + Lambda function for players to get
+    connection info for their game request.
+    This scenario deploys your game server to a container fleet,
+    configures game session placement, and sets up FlexMatch matchmaking. This
+    scenario is useful when you're ready to start designing a custom
+    matchmaker for your hosting solution. Use this scenario to create the
+    basic resources for this solution, which you can customize later as
+    needed. It deploys the following resources:
 
 - Amazon GameLift Servers container group definition that describes how to
   deploy and run your container images on a container fleet.

@@ -150,7 +150,7 @@ aws gamelift upload-build \
 
 ###### Note
 
-For Mac and Linux builds, use --operating-system AMAZON_LINUX_2023
+For Mac and Linux builds, use --operating-system AMAZON\_LINUX\_2023
 
 When you create the build, record the build ID from the API response to use it for fleet creation.
 

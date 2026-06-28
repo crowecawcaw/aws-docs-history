@@ -121,8 +121,9 @@ your game with Amazon GameLift Servers.
 ###### Step 1: Update the `GameMode` header file
 
 1. Open your game project's code files and locate the file
-   ``Your-application-name`GameMode.h`file. Example:`GameLiftUnrealAppGameMode.h`. 
-If you use Visual Studio, open the `.sln` file for your
+   ``Your-application-name`GameMode.h`
+   file. Example: `GameLiftUnrealAppGameMode.h`.
+   If you use Visual Studio, open the `.sln` file for your
    game project.
 2. Change the header file to include the following example code. Be sure to
    replace "GameLiftUnrealApp" with your own application name.
@@ -173,7 +174,8 @@ The `WITH_GAMELIFT` preprocessor flag serves two purposes:
 - Ensures compatibility across different Unreal build targets
 
 1. Open the related source file
-   ``Your-application-name`GameMode.cpp`file. In our example:`GameLiftUnrealAppGameMode.cpp`.
+   ``Your-application-name`GameMode.cpp`
+   file. In our example: `GameLiftUnrealAppGameMode.cpp`.
 2. Change the code to align with the following example code. Be sure to replace
    any instance of "GameLiftUnrealApp" with your own application name.
 
@@ -469,34 +471,33 @@ functionality, you're ready to package your game server build using the Unreal E
 
 ###### To package the game server build
 
-1.  Open the game project in the Unreal Editor.
-2.  Follow the Unreal Editor steps to package your game server:
+1. Open the game project in the Unreal Editor.
+2. Follow the Unreal Editor steps to package your game server:
 
-        * Choose your target platform (Windows or Linux).
-        * Select your server build target (``[your
-         application name]`Server`.
+   - Choose your target platform (Windows or Linux).
+   - Select your server build target (``[your
+  application name]`Server`.
+The packaging process generates your game server executable:
+ ``[your application
+     name]`Server.exe`.
 
-    The packaging process generates your game server executable:
-    ``[your application
- name]`Server.exe`.
+3. Prepare your game server build for deployment to hosting resources. The build
+   should include the following files:
 
-3.  Prepare your game server build for deployment to hosting resources. The build
-    should include the following files:
+   - Your game server executable
+   - If you're using Unreal Engine version 5.5 or older, include the
+     following files for Windows builds. You can find them in your
+     source-built version of the Unreal Engine:
 
-    - Your game server executable
-    - If you're using Unreal Engine version 5.5 or older, include the
-      following files for Windows builds. You can find them in your
-      source-built version of the Unreal Engine:
+     - `VC_redist.x64.exe`
+       (`UnrealEngine\Engine\Source\Programs\PrereqInstaller\Resources\VCRedist\`)
+     - `UEPrereqSetup_x64.exe or
+   UE5PrereqSetup_x64.exe`
+       (`UnrealEngine\Engine\Extras\Redist\en-us\`)
 
-      - `VC_redist.x64.exe`
-        (`UnrealEngine\Engine\Source\Programs\PrereqInstaller\Resources\VCRedist\`)
-      - `UEPrereqSetup_x64.exe or
-UE5PrereqSetup_x64.exe`
-        (`UnrealEngine\Engine\Extras\Redist\en-us\`)
-
-    - All other required dependencies for your game server.
-    - OpenSSL libraries, if needed. You can skip this step if your game
-      server is integrated with Amazon GameLift Servers server SDK version 5.3 or later. [The latest server SDK version is available here.](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal")
+   - All other required dependencies for your game server.
+   - OpenSSL libraries, if needed. You can skip this step if your game
+     server is integrated with Amazon GameLift Servers server SDK version 5.3 or later. [The latest server SDK version is available here.](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal")
 
 You must include the same version of OpenSSL libraries that were used when packaging the game server in Unreal. These libraries are
 located in your game engine source. The location varies depending on your development environment:

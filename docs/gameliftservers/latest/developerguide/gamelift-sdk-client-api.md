@@ -81,7 +81,7 @@ Use search criteria to get a filtered list of active game sessions for players t
 join. For example, you can filter sessions as follows:
 
 - Exclude game sessions that are full: `CurrentPlayerSessionCount =
-MaximumPlayerSessionCount`.
+ MaximumPlayerSessionCount`.
 - Choose game sessions based on length of time that the session has been
   running: Evaluate `CreationTime`.
 - Find game sessions based on a custom game property:

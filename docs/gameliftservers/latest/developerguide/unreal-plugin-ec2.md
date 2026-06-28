@@ -61,7 +61,7 @@ additions:
    using Unreal Engine version 5.6 or later. This file is
    included in your Visual Studio installation. It is commonly
    located at `C:/Program Files (x86)/Microsoft Visual
-Studio/2019/Professional/VC/Redist/MSVC/v142`.
+ Studio/2019/Professional/VC/Redist/MSVC/v142`.
 3. **Add the OpenSSL library files to your game server build.**. You
    can skip this step if your game server is integrated with server SDK
    5.3 or later. This version is included in the Amazon GameLift Servers plugin for Unreal, version 3.0 or later.

@@ -8,26 +8,26 @@ Server SDK limits are enforced using specific throttling keys that include accou
 
 This table is subject to change. The authoritative source for current limits is the internal SDC configuration. Contact AWS Support for the most up-to-date information if needed.
 
-| Server SDK API limits reference   | API action | Burst limit | Rate limit                               | Throttling key                                                                              | Notes |
-| --------------------------------- | ---------- | ----------- | ---------------------------------------- | ------------------------------------------------------------------------------------------- | ----- |
-| AcceptPlayerSession               | 3          | 1           | aws-account-and-process-id-and-player-id | Limit is per player and per process. Should never need a limit increase as it's per-player. |
-| RemovePlayerSession               | 3          | 1           | aws-account-and-process-id-and-player-id | Limit is per player and per process. Should never need a limit increase as it's per-player. |
-| ActivateGameSession               | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| ActivateHostProcessV2             | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| StartMatchBackfill                | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| DescribePlayerSessions            | 10         | 5           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| GetComputeCertificate             | 3          | 0.1         | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| GetCustomerRoleCredentials        | 3          | 0.1         | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| InitSDK                           | 3          | 0.1         | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| RefreshHostProcess                | 3          | 0.1         | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| StopMatchmaking                   | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| ProcessEnding                     | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| ProcessReady                      | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| UpdateGameSession                 | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| UpdateHostProcess                 | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| GetGameSessionId                  | 10         | 5           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| GetTerminationTime                | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| UpdatePlayerSessionCreationPolicy | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
+Server SDK API limits reference| API action | Burst limit | Rate limit | Throttling key | Notes |
+| --- | --- | --- | --- | --- |
+| AcceptPlayerSession | 3 | 1 | aws-account-and-process-id-and-player-id | Limit is per player and per process. Should never need a limit increase as it's per-player. |
+| RemovePlayerSession | 3 | 1 | aws-account-and-process-id-and-player-id | Limit is per player and per process. Should never need a limit increase as it's per-player. |
+| ActivateGameSession | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| ActivateHostProcessV2 | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| StartMatchBackfill | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| DescribePlayerSessions | 10 | 5 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| GetComputeCertificate | 3 | 0.1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| GetCustomerRoleCredentials | 3 | 0.1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| InitSDK | 3 | 0.1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| RefreshHostProcess | 3 | 0.1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| StopMatchmaking | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| ProcessEnding | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| ProcessReady | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| UpdateGameSession | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| UpdateHostProcess | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| GetGameSessionId | 10 | 5 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| GetTerminationTime | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
+| UpdatePlayerSessionCreationPolicy | 3 | 1 | aws-account-and-process-id | Limit is per server process. Should never need a limit increase as it's per-process. |
 
 ###### Note
 

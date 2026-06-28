@@ -72,6 +72,6 @@ Use the following AWS CLI commands to retrieve information about this resource:
   - [DescribeContainerGroupDefinition](../apireference/API_DescribeContainerGroupDefinition.md "../apireference/API_DescribeContainerGroupDefinition.md")
 
 - - [ListFleets](../apireference/API_ListFeets.md "../apireference/API_ListFeets.md")
-  - [ListCompute](../apireference/API_ListCompute.md "../apireference/API_ListCompute.md")
-  - [DescribeFleetAttributes](../apireference/API_DescribeFleetAttributes.md "../apireference/API_DescribeFleetAttributes.md")
-  - [DescribeCompute](../apireference/API_DescribeCompute.md "../apireference/API_DescribeCompute.md")
+    - [ListCompute](../apireference/API_ListCompute.md "../apireference/API_ListCompute.md")
+    - [DescribeFleetAttributes](../apireference/API_DescribeFleetAttributes.md "../apireference/API_DescribeFleetAttributes.md")
+    - [DescribeCompute](../apireference/API_DescribeCompute.md "../apireference/API_DescribeCompute.md")

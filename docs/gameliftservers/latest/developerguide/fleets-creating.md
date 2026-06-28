@@ -197,7 +197,7 @@ can update these fleet settings at any time.
    2. Enter optional **Launch
       parameters** to pass to your game
       executable. Example: `+sv_port 33435
-+start_lobby`.
+  +start_lobby`.
    3. Specify the number of **Concurrent
       processes** to run on each instance. For
       a game server executable, each process can host one
@@ -262,7 +262,7 @@ time after deployment.
      during a specified time span.
 
 5. Choose **Next** to continue the
-   workflow.
+workflow.
 
 **Step 5 Review and create**
 

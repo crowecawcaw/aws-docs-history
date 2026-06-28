@@ -41,7 +41,7 @@ and configuring the new queue. You can use the Amazon GameLift Servers console o
      a custom placement priority. See [Prioritize game session placement](queues-design-priority.md "queues-design-priority.md").
 
 3. **Update other components in your solution to use the new
-   queue.**
+queue.**
 
 When your solution uses a Spot-optimized queue to start new game sessions, the
 queue automatically avoids placing game sessions with fleets that have a high
@@ -64,7 +64,7 @@ destination order.
      using the AWS CLI or the Amazon GameLift Servers console (see [Edit a matchmaking configuration](../flexmatchguide/match-create-configuration-edit.md "../flexmatchguide/match-create-configuration-edit.md")).
 
 4. **Review the performance of your Spot fleets and
-   queues.**
+queues.**
 
 View Amazon GameLift Servers metrics in the Amazon GameLift Servers console or with Amazon CloudWatch to review performance.
 For more information about Amazon GameLift Servers metrics, see [Monitor Amazon GameLift Servers with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"). Key metrics include:

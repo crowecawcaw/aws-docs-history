@@ -7,11 +7,13 @@ Use these topics to get help with these tasks:
 - Get a new AWS account for use with Amazon GameLift Servers.
 - Create a user or group with permissions to work with Amazon GameLift Servers resources.
 - Set up security credentials (you need these to use the AWS CLI tools and the Amazon GameLift Servers plugins for Unreal and Unity)
-- As with all AWS services, you need an AWS account to use the Amazon GameLift Servers service and tools.
-  An AWS account serves two primary functions: (1) it gives you a container for all the
-  AWS resources that you create with the account; and (2) it lets you manage security for
-  your AWS resources, including setting up user authentication and controlling user access
-  permissions. There's no cost for creating an AWS account.
+-
+
+As with all AWS services, you need an AWS account to use the Amazon GameLift Servers service and tools.
+An AWS account serves two primary functions: (1) it gives you a container for all the
+AWS resources that you create with the account; and (2) it lets you manage security for
+your AWS resources, including setting up user authentication and controlling user access
+permissions. There's no cost for creating an AWS account.
 
 ###### Explore Amazon GameLift Servers with or without an AWS account
 

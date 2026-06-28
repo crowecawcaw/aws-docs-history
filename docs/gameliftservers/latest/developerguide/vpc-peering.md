@@ -185,13 +185,13 @@ following operations:
      `delete-vpc-peering-authorization`).
 
 4. Follow the instructions for [creating a
-   new fleet using the AWS CLI](fleets-creating.md "fleets-creating.md"). Include the following additional
-   parameters:
+new fleet using the AWS CLI](fleets-creating.md "fleets-creating.md"). Include the following additional
+parameters:
 
-   - _peer-vpc-aws-account-id_ – ID
+    * *peer-vpc-aws-account-id* – ID
      for the account that you use to manage the VPC with your non-Amazon GameLift Servers
      resources.
-   - _peer-vpc-id_ – ID of the VPC
+    * *peer-vpc-id* – ID of the VPC
      with your non-Amazon GameLift Servers account.
 
 A successful call to [create-fleet](../../../cli/latest/reference/gamelift/create-fleet.md "../../../cli/latest/reference/gamelift/create-fleet.md") with the VPC peering parameters generates both a new fleet and

@@ -51,39 +51,39 @@ upload and store after the game session ends. The game server provides
 `LogParameters` to Amazon GameLift Servers as part of a `ProcessParameters`
 object in a [ProcessReady()](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-processready "integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-processready") call.
 
-|                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Properties** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| LogPaths       | The list of directory paths to game server log files you want<br>Amazon GameLift Servers to store for future access. The server process generates these<br>files during each game session. You define file paths and names in<br>your game server and store them in the root game build directory.<br>The log paths must be absolute. For example, if your game build<br>stores game session logs in a path like<br>`MyGame\sessionLogs\`, then the path would be<br>`c:\game\MyGame\sessionLogs` on a Windows<br>instance.<br>**Type:**<br>`std:vector<std::string>`<br>\*_Required:_<br>• No |
+|                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Properties** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| LogPaths       | The list of directory paths to game server log files you want<br>Amazon GameLift Servers to store for future access. The server process generates these<br>files during each game session. You define file paths and names in<br>your game server and store them in the root game build directory.<br>The log paths must be absolute. For example, if your game build<br>stores game session logs in a path like<br>`MyGame\sessionLogs\`, then the path would be<br>`c:\game\MyGame\sessionLogs` on a Windows<br>instance.<br>**Type:**<br>`std:vector<std::string>`<br>**Required:*<br>• No |
 
 ## MetricsParameters
 
 Use this data type to configure metrics collection and crash reporting for the game server.
 The game server communicates `MetricsParameters` to Amazon GameLift Servers in an [InitMetrics()](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-initmetrics "integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-initmetrics") call.
 
-|                   |                                                                                                                                |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| **Properties**    | **Description**                                                                                                                |
-| StatsdHost        | The hostname or IP address of the StatsD server for metrics collection.<br>**Type:**<br>`std::string`<br>\*_Required:_<br>• No |
-| StatsdPort        | The port number of the StatsD server for metrics collection.<br>**Type:**<br>`int`<br>\*_Required:_<br>• No                    |
-| CrashReporterHost | The hostname or IP address of the crash reporter server.<br>**Type:**<br>`std::string`<br>\*_Required:_<br>• No                |
-| CrashReporterPort | The port number of the crash reporter server.<br>**Type:**<br>`int`<br>\*_Required:_<br>• No                                   |
-| FlushIntervalMs   | The interval in milliseconds for flushing metrics data to the server.<br>**Type:**<br>`int`<br>\*_Required:_<br>• No           |
-| MaxPacketSize     | The maximum size in bytes for metrics packets sent to the server.<br>**Type:**<br>`int`<br>\*_Required:_<br>• No               |
+|                   |                                                                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Properties**    | **Description**                                                                                                               |
+| StatsdHost        | The hostname or IP address of the StatsD server for metrics collection.<br>**Type:**<br>`std::string`<br>**Required:*<br>• No |
+| StatsdPort        | The port number of the StatsD server for metrics collection.<br>**Type:**<br>`int`<br>**Required:*<br>• No                    |
+| CrashReporterHost | The hostname or IP address of the crash reporter server.<br>**Type:**<br>`std::string`<br>**Required:*<br>• No                |
+| CrashReporterPort | The port number of the crash reporter server.<br>**Type:**<br>`int`<br>**Required:*<br>• No                                   |
+| FlushIntervalMs   | The interval in milliseconds for flushing metrics data to the server.<br>**Type:**<br>`int`<br>**Required:*<br>• No           |
+| MaxPacketSize     | The maximum size in bytes for metrics packets sent to the server.<br>**Type:**<br>`int`<br>**Required:*<br>• No               |
 
 ## ProcessParameters
 
 This data type contains the set of parameters sent to Amazon GameLift Servers in a [ProcessReady()](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-processready "integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-processready").
 
-|                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Properties**      | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| LogParameters       | An object with directory paths to files that are generated during a game<br>session. Amazon GameLift Servers copies and stores the files for future<br>access.**Type:**<br>`Aws::GameLift::Server::LogParameters`**Required:**<br>No                                                                                                                                                                                                                                                                                                                                                                                 |
-| OnHealthCheck       | The callback function that Amazon GameLift Servers invokes to request a health status<br>report from the server process. Amazon GameLift Servers calls this function every 60<br>seconds and waits 60 seconds for a response. The server process returns<br>`TRUE` if healthy, `FALSE` if not healthy. If<br>no response is returned, Amazon GameLift Servers records the server process as not<br>healthy.**Type:**<br>`std::function<bool()><br>onHealthCheck`\*_Required:_<br>• No                                                                                                                                |
-| OnProcessTerminate  | The callback function that Amazon GameLift Servers invokes to force the server process to<br>shut down. After calling this function, Amazon GameLift Servers waits 5 minutes for the<br>server process to shut down and respond with a [ProcessEnding()](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-processending "integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-processending") call<br>before it shuts down the server process.**Type:**<br>`std::function<void()><br>onProcessTerminate`\*_Required:_<br>• Yes                                                       |
-| OnStartGameSession  | The callback function that Amazon GameLift Servers invokes to activate a new game session.<br>Amazon GameLift Servers calls this function in response to a client request [CreateGameSession](../apireference/API_CreateGameSession.md "../apireference/API_CreateGameSession.md").<br>The callback function passes a [GameSession](#integration-server-sdk5-cpp-dataypes-gamesession "#integration-server-sdk5-cpp-dataypes-gamesession") object.**Type:**<br>`const<br>std::function<void(Aws::GameLift::Model::GameSession)><br>onStartGameSession`\*_Required:_<br>• Yes                                         |
-| OnUpdateGameSession | The callback function that Amazon GameLift Servers invokes to pass an updated game session<br>object to the server process. Amazon GameLift Servers calls this function when a match<br>backfill request has been processed to provide updated matchmaker data.<br>It passes a [GameSession](#integration-server-sdk5-cpp-dataypes-gamesession "#integration-server-sdk5-cpp-dataypes-gamesession") object, a status update<br>(`updateReason`), and the match backfill ticket<br>ID.**Type:**<br>`std::function<void(Aws::GameLift::Server::Model::UpdateGameSession)><br>onUpdateGameSession`\*_Required:_<br>• No |
-| Port                | The port number the server process listens on for new player<br>connections. The value must fall into the port range configured for any<br>fleet deploying this game server build. This port number is included in<br>game session and player session objects, which game sessions use when<br>connecting to a server process.**Type:**<br>`Integer`\*_Required:_<br>• Yes                                                                                                                                                                                                                                           |
+|                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Properties**      | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| LogParameters       | An object with directory paths to files that are generated during a game<br>session. Amazon GameLift Servers copies and stores the files for future<br>access.**Type:**<br>`Aws::GameLift::Server::LogParameters`**Required:**<br>No                                                                                                                                                                                                                                                                                                                                                                                |
+| OnHealthCheck       | The callback function that Amazon GameLift Servers invokes to request a health status<br>report from the server process. Amazon GameLift Servers calls this function every 60<br>seconds and waits 60 seconds for a response. The server process returns<br>`TRUE` if healthy, `FALSE` if not healthy. If<br>no response is returned, Amazon GameLift Servers records the server process as not<br>healthy.**Type:**<br>`std::function<bool()><br>onHealthCheck`**Required:*<br>• No                                                                                                                                |
+| OnProcessTerminate  | The callback function that Amazon GameLift Servers invokes to force the server process to<br>shut down. After calling this function, Amazon GameLift Servers waits 5 minutes for the<br>server process to shut down and respond with a [ProcessEnding()](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-processending "integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-processending") call<br>before it shuts down the server process.**Type:**<br>`std::function<void()><br>onProcessTerminate`**Required:*<br>• Yes                                                       |
+| OnStartGameSession  | The callback function that Amazon GameLift Servers invokes to activate a new game session.<br>Amazon GameLift Servers calls this function in response to a client request [CreateGameSession](../apireference/API_CreateGameSession.md "../apireference/API_CreateGameSession.md").<br>The callback function passes a [GameSession](#integration-server-sdk5-cpp-dataypes-gamesession "#integration-server-sdk5-cpp-dataypes-gamesession") object.**Type:**<br>`const<br>std::function<void(Aws::GameLift::Model::GameSession)><br>onStartGameSession`**Required:*<br>• Yes                                         |
+| OnUpdateGameSession | The callback function that Amazon GameLift Servers invokes to pass an updated game session<br>object to the server process. Amazon GameLift Servers calls this function when a match<br>backfill request has been processed to provide updated matchmaker data.<br>It passes a [GameSession](#integration-server-sdk5-cpp-dataypes-gamesession "#integration-server-sdk5-cpp-dataypes-gamesession") object, a status update<br>(`updateReason`), and the match backfill ticket<br>ID.**Type:**<br>`std::function<void(Aws::GameLift::Server::Model::UpdateGameSession)><br>onUpdateGameSession`**Required:*<br>• No |
+| Port                | The port number the server process listens on for new player<br>connections. The value must fall into the port range configured for any<br>fleet deploying this game server build. This port number is included in<br>game session and player session objects, which game sessions use when<br>connecting to a server process.**Type:**<br>`Integer`**Required:*<br>• Yes                                                                                                                                                                                                                                           |
 
 ## UpdateGameSession
 
@@ -91,11 +91,11 @@ This data type updates to a game session object, which includes the reason that 
 game session was updated and the related backfill ticket ID if backfill is used to fill
 player sessions in the game session.
 
-| Properties       | **Description**                                                                                                                                                                                                                                                                      |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| GameSession      | A [GameSession](#integration-server-sdk5-cpp-dataypes-gamesession "#integration-server-sdk5-cpp-dataypes-gamesession") object. The<br>`GameSession` object contains properties describing a<br>game session. **Type:**<br>`Aws::GameLift::Server::GameSession`\*_Required:_<br>• Yes |
-| UpdateReason     | The reason that the game session is being updated.**Type:**<br>`Aws::GameLift::Server::UpdateReason`\*_Required:_<br>• Yes                                                                                                                                                           |
-| BackfillTicketId | The ID of the backfill ticket attempting to update the game<br>session.**Type:**<br>`std::string`\*_Required:_<br>• No                                                                                                                                                               |
+| Properties       | **Description**                                                                                                                                                                                                                                                                     |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GameSession      | A [GameSession](#integration-server-sdk5-cpp-dataypes-gamesession "#integration-server-sdk5-cpp-dataypes-gamesession") object. The<br>`GameSession` object contains properties describing a<br>game session. **Type:**<br>`Aws::GameLift::Server::GameSession`**Required:*<br>• Yes |
+| UpdateReason     | The reason that the game session is being updated.**Type:**<br>`Aws::GameLift::Server::UpdateReason`**Required:*<br>• Yes                                                                                                                                                           |
+| BackfillTicketId | The ID of the backfill ticket attempting to update the game<br>session.**Type:**<br>`std::string`**Required:*<br>• No                                                                                                                                                               |
 
 ## GameSession
 
@@ -186,200 +186,200 @@ Use these values in [Player](#integration-server-sdk5-cpp-dataypes-player "#inte
 This object lets you specify an attribute value using any of the valid data types: string, number, string array, or data map.
 Each `AttributeValue` object must use exactly one of the available properties: `S`, `N`, `SL`, or `SDM`.
 
-| Properties | Description                                                                                                                                                                                              |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AttrType   | Specifies the type of attribute value.<br>Possible attribute value types include:<br>• **NONE**<br>• **STRING**<br>• **DOUBLE**<br>• **STRING_LIST**<br>• **STRING_DOUBLE_MAP**<br>\*_Required:_<br>• No |
-| S          | Represents a string attribute value.<br>**Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                            |
-| N          | Represents a numeric attribute value.<br>**Type:\*<br>• `double`<br>**Required:\*<br>• No                                                                                                                |
-| SL         | Represents an array of string attribute values.<br>**Type:\*<br>• `std::vector<std::string>`<br>**Required:\*<br>• No                                                                                    |
-| SDM        | Represents a dictionary of string keys and double values.<br>**Type:\*<br>• `std::map<std::string, double>`<br>**Required:\*<br>• No                                                                     |
+| Properties | Description                                                                                                                                                                                                |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AttrType   | Specifies the type of attribute value.<br>Possible attribute value types include:<br>• **NONE**<br>• **STRING**<br>• **DOUBLE**<br>• **STRING\_LIST**<br>• **STRING\_DOUBLE\_MAP**<br>**Required:*<br>• No |
+| S          | Represents a string attribute value.<br>**Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                |
+| N          | Represents a numeric attribute value.<br>**Type:_<br>• `double`<br>**Required:_<br>• No                                                                                                                    |
+| SL         | Represents an array of string attribute values.<br>**Type:_<br>• `std::vector<std::string>`<br>**Required:_<br>• No                                                                                        |
+| SDM        | Represents a dictionary of string keys and double values.<br>**Type:_<br>• `std::map<std::string, double>`<br>**Required:_<br>• No                                                                         |
 
 ## GetFleetRoleCredentialsRequest
 
 This data type gives the game server limited access to your other AWS resources.
 For more information see, [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md").
 
-| Properties      | **Description**                                                                                                                                                                                                                                                                                                                                   |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RoleArn         | The Amazon Resource Name (ARN) of the service role that extends<br>limited access to your AWS resources.**Type:**<br>`std::string`**Required**: No                                                                                                                                                                                                |
-| RoleSessionName | The role session name that you can use to uniquely identify an AWS Security Token Service [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") session.<br>This name is exposed in audit logs such as those in CloudTrail.<br>**Type:\*<br>• `std::string`<br>**Required\*\*: No |
+| Properties      | **Description**                                                                                                                                                                                                                                                                                                                                |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RoleArn         | The Amazon Resource Name (ARN) of the service role that extends<br>limited access to your AWS resources.**Type:**<br>`std::string`**Required**: No                                                                                                                                                                                             |
+| RoleSessionName | The role session name that you can use to uniquely identify an AWS Security Token Service [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") session.<br>This name is exposed in audit logs such as those in CloudTrail.<br>**Type:*<br>• `std::string`<br>**Required**: No |
 
 ## AwsLongOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                     |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• `long`<br>**Required:\*<br>• No                                                                                                                                                     |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `long&&`<br>**Required\*\*: No                                                                        |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                       |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties          | Description                                                                                                                                                                                                                   |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• `long`<br>**Required:_<br>• No                                                                                                                                                     |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `long&&`<br>**Required**: No                                                                         |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                        |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## AwsStringOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                     |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                              |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `long&&`<br>**Required\*\*: No                                                                        |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                       |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties          | Description                                                                                                                                                                                                                   |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                              |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `long&&`<br>**Required**: No                                                                         |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                        |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## DescribePlayerSessionsOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                                    |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• [DescribePlayerSessionsResult](#integration-server-sdk5-cpp-datatypes-describeplayersessionsresult "#integration-server-sdk5-cpp-datatypes-describeplayersessionsresult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `Aws::GameLift::Server::Model::DescribePlayerSessionsResult&&`<br>**Required\*\*: No                                 |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                      |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No                |
+| Properties          | Description                                                                                                                                                                                                                                  |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• [DescribePlayerSessionsResult](#integration-server-sdk5-cpp-datatypes-describeplayersessionsresult "#integration-server-sdk5-cpp-datatypes-describeplayersessionsresult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `Aws::GameLift::Server::Model::DescribePlayerSessionsResult&&`<br>**Required**: No                                  |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                       |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No                |
 
 ## DescribePlayerSessionsResult
 
 A collection of objects containing properties for each player session that matches the request.
 
-| Properties          | Description                                                                                                                                                                                                                                                                                                                                             |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NextToken           | A token that indicates the start of the next sequential page of results.<br>Use the token that is returned with a previous call to this operation.<br>To start at the beginning of the result set, do not specify a value.<br>If a player session ID is specified, this parameter is ignored.<br>**Type:\*<br>• `std::string`<br>**Required:\*<br>• Yes |
-| PlayerSessions      | **Type:\*<br>• `IList<PlayerSession>`<br>**Required:\*\*                                                                                                                                                                                                                                                                                                |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `std::string&&`<br>**Required\*\*: No                                                                                                                                                                                         |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                                                                                                               |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No                                                                                                                         |
+| Properties          | Description                                                                                                                                                                                                                                                                                                                                           |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NextToken           | A token that indicates the start of the next sequential page of results.<br>Use the token that is returned with a previous call to this operation.<br>To start at the beginning of the result set, do not specify a value.<br>If a player session ID is specified, this parameter is ignored.<br>**Type:_<br>• `std::string`<br>**Required:_<br>• Yes |
+| PlayerSessions      | **Type:*<br>• `IList<PlayerSession>`<br>**Required:**                                                                                                                                                                                                                                                                                                 |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `std::string&&`<br>**Required**: No                                                                                                                                                                                          |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                                                                                                                |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No                                                                                                                         |
 
 ## GenericOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                     |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                       |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties | Description                                                                                                                                                                                                                   |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                        |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## GenericOutcomeCallable
 
 This data type is an asynchronous generic outcome.
 It has the following properties:
 
-| Properties | Description                                                                                                                                                                                                                     |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                       |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties | Description                                                                                                                                                                                                                   |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                        |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## PlayerSession
 
 This data type represents a player session that Amazon GameLift Servers passes to the game server.
 For more information, see [PlayerSession](../apireference/API_PlayerSession.md "../apireference/API_PlayerSession.md").
 
-| Properties      | Description                                                                                                                                                                                                                                                                                                                                                                 |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CreationTime    | **Type:\*<br>• `long`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                              |
-| FleetId         | **Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                       |
-| GameSessionId   | **Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                       |
-| IpAddress       | **Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                       |
-| PlayerData      | **Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                       |
-| PlayerId        | **Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                       |
-| PlayerSessionId | **Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                       |
-| Port            | **Type:\*<br>• `int`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                               |
-| Status          | Player session status to filter results on.<br>When a PlayerSessionId or PlayerId is provided, then the PlayerSessionStatusFilter has no effect on the response.<br>**Type:\*<br>• A `PlayerSessionStatus` enum.<br>Possible values include the following:<br>• **ACTIVE**<br>• **COMPLETED**<br>• **NOT_SET**<br>• **RESERVED**<br>• **TIMEDOUT**<br>**Required:\*<br>• No |
-| TerminationTime | **Type:\*<br>• `long`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                              |
-| DnsName         | **Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                       |
+| Properties      | Description                                                                                                                                                                                                                                                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CreationTime    | **Type:_<br>• `long`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                               |
+| FleetId         | **Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                        |
+| GameSessionId   | **Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                        |
+| IpAddress       | **Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                        |
+| PlayerData      | **Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                        |
+| PlayerId        | **Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                        |
+| PlayerSessionId | **Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                        |
+| Port            | **Type:_<br>• `int`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                                |
+| Status          | Player session status to filter results on.<br>When a PlayerSessionId or PlayerId is provided, then the PlayerSessionStatusFilter has no effect on the response.<br>**Type:_<br>• A `PlayerSessionStatus` enum.<br>Possible values include the following:<br>• **ACTIVE**<br>• **COMPLETED**<br>• **NOT\_SET**<br>• **RESERVED**<br>• **TIMEDOUT**<br>**Required:_<br>• No |
+| TerminationTime | **Type:_<br>• `long`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                               |
+| DnsName         | **Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                        |
 
 ## StartMatchBackfillOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• [StartMatchBackfillResult](#integration-server-sdk5-cpp-datatypes-startmatchbackfillresult "#integration-server-sdk5-cpp-datatypes-startmatchbackfillresult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `StartMatchBackfillResult&&`<br>**Required\*\*: No                                                       |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                          |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No    |
+| Properties          | Description                                                                                                                                                                                                                      |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• [StartMatchBackfillResult](#integration-server-sdk5-cpp-datatypes-startmatchbackfillresult "#integration-server-sdk5-cpp-datatypes-startmatchbackfillresult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `StartMatchBackfillResult&&`<br>**Required**: No                                                        |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                           |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No    |
 
 ## StartMatchBackfillResult
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                                                                                                |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TicketId   | A unique identifier for a matchmaking ticket.<br>If no ticket ID is specified here, Amazon GameLift Servers will generate one in the form of a UUID.<br>Use this identifier to track the match backfill ticket status and retrieve match results.<br>**Type:\*<br>• `std::string`<br>**Required:\*<br>• No |
+| Properties | Description                                                                                                                                                                                                                                                                                              |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TicketId   | A unique identifier for a matchmaking ticket.<br>If no ticket ID is specified here, Amazon GameLift Servers will generate one in the form of a UUID.<br>Use this identifier to track the match backfill ticket status and retrieve match results.<br>**Type:_<br>• `std::string`<br>**Required:_<br>• No |
 
 ## GetComputeCertificateOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• [GetComputeCertificateResult](#integration-server-sdk5-cpp-datatypes-getcomputecertificateresult "#integration-server-sdk5-cpp-datatypes-getcomputecertificateresult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `Aws::GameLift::Server::Model::GetComputeCertificateResult&&`<br>**Required\*\*: No                               |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                   |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No             |
+| Properties          | Description                                                                                                                                                                                                                               |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• [GetComputeCertificateResult](#integration-server-sdk5-cpp-datatypes-getcomputecertificateresult "#integration-server-sdk5-cpp-datatypes-getcomputecertificateresult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `Aws::GameLift::Server::Model::GetComputeCertificateResult&&`<br>**Required**: No                                |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                    |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No             |
 
 ## GetComputeCertificateResult
 
 The path to the TLS certificate on your compute and the compute's host name.
 
-| Properties      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CertificatePath | The path to the TLS certificate on your compute resource.<br>When using an Amazon GameLift Servers managed fleet, this path contains:<br>• `certificate.pem`: The end-user certificate. The full certificate chain is the combination of `certificateChain.pem` appended to this certificate.<br>• `certificateChain.pem`: The certificate chain that contains the root certificate and intermediate certificates.<br>• `rootCertificate.pem`: The root certificate.<br>• `privateKey.pem`: The private key for the end-user certificate.<br>**Type:\*<br>• `std::string`<br>**Required:\*<br>• No |
-| ComputeName     | The name of your compute resource.<br>**Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Properties      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| CertificatePath | The path to the TLS certificate on your compute resource.<br>When using an Amazon GameLift Servers managed fleet, this path contains:<br>• `certificate.pem`: The end-user certificate. The full certificate chain is the combination of `certificateChain.pem` appended to this certificate.<br>• `certificateChain.pem`: The certificate chain that contains the root certificate and intermediate certificates.<br>• `rootCertificate.pem`: The root certificate.<br>• `privateKey.pem`: The private key for the end-user certificate.<br>**Type:_<br>• `std::string`<br>**Required:_<br>• No |
+| ComputeName     | The name of your compute resource.<br>**Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ## GetFleetRoleCredentialsOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                                       |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• [GetFleetRoleCredentialsResult](#integration-server-sdk5-cpp-datatypes-getfleetrolecredentialsresult "#integration-server-sdk5-cpp-datatypes-getfleetrolecredentialsresult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `Aws::GameLift::Server::Model::GetFleetRoleCredentialsResult`<br>**Required\*\*: No                                     |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                         |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No                   |
+| Properties          | Description                                                                                                                                                                                                                                     |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• [GetFleetRoleCredentialsResult](#integration-server-sdk5-cpp-datatypes-getfleetrolecredentialsresult "#integration-server-sdk5-cpp-datatypes-getfleetrolecredentialsresult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `Aws::GameLift::Server::Model::GetFleetRoleCredentialsResult`<br>**Required**: No                                      |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                          |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No                   |
 
 ## GetFleetRoleCredentialsResult
 
-| Properties         | Description                                                                                                                                                                                                                                                                                                                 |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AccessKeyId        | The access key ID to authenticate and provide access to your<br>AWS resources.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                                                                          |
-| AssumedRoleId      | The ID of the user that the service role belongs to.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                                                                                                    |
-| AssumedRoleUserArn | The Amazon Resource Name (ARN) of the user that the<br>service role belongs to.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                                                                         |
-| Expiration         | The amount of time until your session credentials<br>expire.<br>**Type:\*<br>• `DateTime`<br>**Required:\*<br>• No                                                                                                                                                                                                          |
-| SecretAccessKey    | The secret access key ID for authentication.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                                                                                                            |
-| SessionToken       | A token to identify the current active session interacting<br>with your AWS resources.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                                                                  |
-| Success            | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                                                                                   |
-| Error              | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties         | Description                                                                                                                                                                                                                                                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AccessKeyId        | The access key ID to authenticate and provide access to your<br>AWS resources.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                                                                                          |
+| AssumedRoleId      | The ID of the user that the service role belongs to.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                                                                                                                    |
+| AssumedRoleUserArn | The Amazon Resource Name (ARN) of the user that the<br>service role belongs to.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                                                                                         |
+| Expiration         | The amount of time until your session credentials<br>expire.<br>**Type:_<br>• `DateTime`<br>**Required:_<br>• No                                                                                                                                                                                                          |
+| SecretAccessKey    | The secret access key ID for authentication.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                                                                                                                            |
+| SessionToken       | A token to identify the current active session interacting<br>with your AWS resources.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                                                                                  |
+| Success            | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                                                                                    |
+| Error              | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## ListContainersNetworkInfoOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                                             |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• [ListContainersNetworkInfoResult](#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinforesult "#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinforesult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `Aws::GameLift::Server::Model::ListContainersNetworkInfoResult&&`<br>**Required\*\*: No                                       |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                               |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No                         |
+| Properties          | Description                                                                                                                                                                                                                                           |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• [ListContainersNetworkInfoResult](#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinforesult "#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinforesult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `Aws::GameLift::Server::Model::ListContainersNetworkInfoResult&&`<br>**Required**: No                                        |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No                         |
 
 ## ListContainersNetworkInfoResult
 
 Network information for all containers running on the same instance as the calling
 game server process.
 
-| Properties            | Description                                                                                                                                                                                                                                                                      |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:\*<br>• `std::vector<ContainerNetworkInfo>` when `GAMELIFT_USE_STD` is defined; otherwise a fixed array with an accessor named `GetContainersNetworkInfoCount()`.<br>**Required:\*<br>• No |
+| Properties            | Description                                                                                                                                                                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:_<br>• `std::vector<ContainerNetworkInfo>` when `GAMELIFT_USE_STD` is defined; otherwise a fixed array with an accessor named `GetContainersNetworkInfoCount()`.<br>**Required:_<br>• No |
 
 ## ContainerNetworkInfo
 
 Network information for a single container running on the instance.
 
-| Properties         | Description                                                                                                                                                                                                                     |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ContainerName      | The name of the container, as defined in the container group<br>definition.<br>**Type:\*<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:\*<br>• No                                    |
-| ContainerId        | The unique identifier of the container.<br>**Type:\*<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:\*<br>• No                                                                        |
-| IpAddress          | The container's local IPv4 address on the Docker bridge<br>network.<br>**Type:\*<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:\*<br>• No                                            |
-| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:\*<br>• A `ContainerGroupType` [enum](#integration-server-sdk5-cpp-dataypes-enums "#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:\*<br>• No |
+| Properties         | Description                                                                                                                                                                                                                   |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainerName      | The name of the container, as defined in the container group<br>definition.<br>**Type:_<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:_<br>• No                                    |
+| ContainerId        | The unique identifier of the container.<br>**Type:_<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:_<br>• No                                                                        |
+| IpAddress          | The container's local IPv4 address on the Docker bridge<br>network.<br>**Type:_<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:_<br>• No                                            |
+| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:_<br>• A `ContainerGroupType` [enum](#integration-server-sdk5-cpp-dataypes-enums "#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:_<br>• No |
 
 ## InitSDKOutcome
 
@@ -388,18 +388,18 @@ Network information for a single container running on the instance.
 `InitSDKOutcome` is returned only when you build the SDK with the `std` flag.
 If you build with the `nostd` flag, then [GenericOutcome](#integration-server-sdk5-cpp-datatypes-genericoutcome "#integration-server-sdk5-cpp-datatypes-genericoutcome") is returned instead.
 
-| Properties | Description                                                                                                                                                                                                                     |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                       |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties | Description                                                                                                                                                                                                                   |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                        |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## GameLiftError
 
-| Properties   | Description                                                                                                                                                                            |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ErrorType    | The type of error.<br>**Type:\*<br>• A `GameLiftErrorType` [enum](#integration-server-sdk5-cpp-dataypes-enums "#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:\*<br>• No |
-| ErrorName    | The name of the error.<br>**Type:**<br>`std::string`<br>\*_Required:_<br>• No                                                                                                          |
-| ErrorMessage | The error message.<br>**Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                            |
+| Properties   | Description                                                                                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ErrorType    | The type of error.<br>**Type:_<br>• A `GameLiftErrorType` [enum](#integration-server-sdk5-cpp-dataypes-enums "#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:_<br>• No |
+| ErrorName    | The name of the error.<br>**Type:**<br>`std::string`<br>**Required:*<br>• No                                                                                                         |
+| ErrorMessage | The error message.<br>**Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                            |
 
 ## Enums
 
@@ -409,58 +409,58 @@ Enums defined for the server SDK for Amazon GameLift Servers (C++) are defined a
 
 String value indicating the error type. Valid values include:
 
-- **BAD_REQUEST_EXCEPTION**
-- **GAMESESSION_ID_NOT_SET** – The game session ID has not been set.
-- **INTERNAL_SERVICE_EXCEPTION**
-- **UNSUPPORTED_COMPUTE_TYPE_EXCEPTION** – The API that was called was unsupported on the compute type.
-- **LOCAL_CONNECTION_FAILED** – The local connection to Amazon GameLift Servers failed.
-- **NETWORK_NOT_INITIALIZED** – The network has not been initialized.
-- **SERVICE_CALL_FAILED** – A call to an AWS service has failed.
-- **WEBSOCKET_CONNECT_FAILURE**
-- **WEBSOCKET_CONNECT_FAILURE_FORBIDDEN**
-- **WEBSOCKET_CONNECT_FAILURE_INVALID_URL**
-- **WEBSOCKET_CONNECT_FAILURE_TIMEOUT**
-- **ALREADY_INITIALIZED** – The Amazon GameLift Servers Server or Client has already been initialized with Initialize().
-- **FLEET_MISMATCH** – The target fleet does not match the fleet of a gameSession or playerSession.
-- **GAMELIFT_CLIENT_NOT_INITIALIZED** – The Amazon GameLift Servers client has not been initialized.
-- **GAMELIFT_SERVER_NOT_INITIALIZED** – The Amazon GameLift Servers server has not been initialized.
-- **GAME_SESSION_ENDED_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session ended.
-- **GAME_SESSION_NOT_READY** – The Amazon GameLift Servers Server Game Session was not activated.
-- **GAME_SESSION_READY_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session is ready.
-- **INITIALIZATION_MISMATCH** – A client method was called after Server::Initialize(), or vice versa.
-- **NOT_INITIALIZED** – The Amazon GameLift Servers Server or Client has not been initialized with Initialize().
-- **NO_TARGET_ALIASID_SET** – A target aliasId has not been set.
-- **NO_TARGET_FLEET_SET** – A target fleet has not been set.
-- **PROCESS_ENDING_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ending.
-- **PROCESS_NOT_ACTIVE** – The server process is not yet active, not bound to a GameSession, and cannot accept or process PlayerSessions.
-- **PROCESS_NOT_READY** – The server process is not yet ready to be activated.
-- **PROCESS_READY_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ready.
-- **SDK_VERSION_DETECTION_FAILED** – SDK version detection failed.
-- **STX_CALL_FAILED** – A call to the XStx server backend component has failed.
-- **STX_INITIALIZATION_FAILED** – The XStx server backend component has failed to initialize.
-- **UNEXPECTED_PLAYER_SESSION** – An unregistered player session was encountered by the server.
-- **WEBSOCKET_CONNECT_FAILURE**
-- **WEBSOCKET_CONNECT_FAILURE_FORBIDDEN**
-- **WEBSOCKET_CONNECT_FAILURE_INVALID_URL**
-- **WEBSOCKET_CONNECT_FAILURE_TIMEOUT**
-- **WEBSOCKET_RETRIABLE_SEND_MESSAGE_FAILURE** – Retriable failure to send a message to the GameLift Service WebSocket.
-- **WEBSOCKET_SEND_MESSAGE_FAILURE** – Failure to send a message to the GameLift Service WebSocket.
-- **MATCH_BACKFILL_REQUEST_VALIDATION** – Validation of the request failed.
-- **PLAYER_SESSION_REQUEST_VALIDATION** – Validation of the request failed.
+- **BAD\_REQUEST\_EXCEPTION**
+- **GAMESESSION\_ID\_NOT\_SET** – The game session ID has not been set.
+- **INTERNAL\_SERVICE\_EXCEPTION**
+- **UNSUPPORTED\_COMPUTE\_TYPE\_EXCEPTION** – The API that was called was unsupported on the compute type.
+- **LOCAL\_CONNECTION\_FAILED** – The local connection to Amazon GameLift Servers failed.
+- **NETWORK\_NOT\_INITIALIZED** – The network has not been initialized.
+- **SERVICE\_CALL\_FAILED** – A call to an AWS service has failed.
+- **WEBSOCKET\_CONNECT\_FAILURE**
+- **WEBSOCKET\_CONNECT\_FAILURE\_FORBIDDEN**
+- **WEBSOCKET\_CONNECT\_FAILURE\_INVALID\_URL**
+- **WEBSOCKET\_CONNECT\_FAILURE\_TIMEOUT**
+- **ALREADY\_INITIALIZED** – The Amazon GameLift Servers Server or Client has already been initialized with Initialize().
+- **FLEET\_MISMATCH** – The target fleet does not match the fleet of a gameSession or playerSession.
+- **GAMELIFT\_CLIENT\_NOT\_INITIALIZED** – The Amazon GameLift Servers client has not been initialized.
+- **GAMELIFT\_SERVER\_NOT\_INITIALIZED** – The Amazon GameLift Servers server has not been initialized.
+- **GAME\_SESSION\_ENDED\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session ended.
+- **GAME\_SESSION\_NOT\_READY** – The Amazon GameLift Servers Server Game Session was not activated.
+- **GAME\_SESSION\_READY\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session is ready.
+- **INITIALIZATION\_MISMATCH** – A client method was called after Server::Initialize(), or vice versa.
+- **NOT\_INITIALIZED** – The Amazon GameLift Servers Server or Client has not been initialized with Initialize().
+- **NO\_TARGET\_ALIASID\_SET** – A target aliasId has not been set.
+- **NO\_TARGET\_FLEET\_SET** – A target fleet has not been set.
+- **PROCESS\_ENDING\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ending.
+- **PROCESS\_NOT\_ACTIVE** – The server process is not yet active, not bound to a GameSession, and cannot accept or process PlayerSessions.
+- **PROCESS\_NOT\_READY** – The server process is not yet ready to be activated.
+- **PROCESS\_READY\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ready.
+- **SDK\_VERSION\_DETECTION\_FAILED** – SDK version detection failed.
+- **STX\_CALL\_FAILED** – A call to the XStx server backend component has failed.
+- **STX\_INITIALIZATION\_FAILED** – The XStx server backend component has failed to initialize.
+- **UNEXPECTED\_PLAYER\_SESSION** – An unregistered player session was encountered by the server.
+- **WEBSOCKET\_CONNECT\_FAILURE**
+- **WEBSOCKET\_CONNECT\_FAILURE\_FORBIDDEN**
+- **WEBSOCKET\_CONNECT\_FAILURE\_INVALID\_URL**
+- **WEBSOCKET\_CONNECT\_FAILURE\_TIMEOUT**
+- **WEBSOCKET\_RETRIABLE\_SEND\_MESSAGE\_FAILURE** – Retriable failure to send a message to the GameLift Service WebSocket.
+- **WEBSOCKET\_SEND\_MESSAGE\_FAILURE** – Failure to send a message to the GameLift Service WebSocket.
+- **MATCH\_BACKFILL\_REQUEST\_VALIDATION** – Validation of the request failed.
+- **PLAYER\_SESSION\_REQUEST\_VALIDATION** – Validation of the request failed.
 
 **ContainerGroupType**
 
 The type of container group that a container belongs to. Valid values
 include:
 
-- **GAME_SERVER** – A game server replica container group. An instance can have multiple game server container groups.
-- **PER_INSTANCE** – A per-instance daemon container group. An instance has exactly one per-instance container group.
+- **GAME\_SERVER** – A game server replica container group. An instance can have multiple game server container groups.
+- **PER\_INSTANCE** – A per-instance daemon container group. An instance has exactly one per-instance container group.
 
 **PlayerSessionCreationPolicy**
 
 String value indicating whether the game session accepts new players.
 Valid values include:
 
-- **ACCEPT_ALL** – Accept all new player sessions.
-- **DENY_ALL** – Deny all new player sessions.
-- **NOT_SET** – The game session is not set to accept or deny new player sessions.
+- **ACCEPT\_ALL** – Accept all new player sessions.
+- **DENY\_ALL** – Deny all new player sessions.
+- **NOT\_SET** – The game session is not set to accept or deny new player sessions.

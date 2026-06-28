@@ -461,14 +461,14 @@ The startup map has the following characteristics:
    expand the **Default Maps** section.
 2. For **Editor Startup Map**, select "StartupMap" from the dropdown list. You
    might need to search for the file, which is located in `... >
-Unreal Projects/[project-name]/Plugins/Amazon GameLift Servers Plugin
-Content/Maps`.
+ Unreal Projects/[project-name]/Plugins/Amazon GameLift Servers Plugin
+ Content/Maps`.
 
 ###### Note
 
 To find the sample startup map, select the settings icon and choose
 **Show Plugin Content**. 3. For **Game Default Map**, select the same "StartupMap" from the dropdown
-list. 4. For **Server Default Map**, select "Lv1_ThirdPerson" for Unreal Engine 5.6
+list. 4. For **Server Default Map**, select "Lv1\_ThirdPerson" for Unreal Engine 5.6
 or later, or "ThirdPersonMap" for earlier versions. This is a default map
 included in your game project. This map is designed for two players
 in the game. 5. Open the details panel for the server default map. Set **GameMode Override**
@@ -481,7 +481,7 @@ After you've made these changes to your project, you're ready to build your game
 ###### Note
 
 For Unreal Engine 5.6 or later, if you cannot move the character after connecting to the game
-server, update the BP_ThirdPersonCharacter blueprint to add input mapping context for
+server, update the BP\_ThirdPersonCharacter blueprint to add input mapping context for
 `IMC_Default` and `IMC_MouseLook` as shown below:
 
 ![Blueprint nodes showing Event BeginPlay connected to Cast To PlayerController and Add Mapping Context nodes for IMC_Default and IMC_MouseLook.](images/unreal-enhanced-input-blueprint.png)

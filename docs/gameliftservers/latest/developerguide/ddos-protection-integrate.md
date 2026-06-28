@@ -100,8 +100,8 @@ every 60 seconds ensures players receive updated endpoints regularly.
 ## Client integration
 
 Your game client must prepend player gateway tokens to all outgoing UDP packets and
-send the packets to the provided relay endpoints. The Amazon GameLift Servers client SDK for C++ and Unreal
-Engine provides utilities to simplify this integration.
+send the packets to the provided relay endpoints. The Amazon GameLift Servers client SDK for C++, C#, Unreal
+Engine, and Unity provides utilities to simplify this integration.
 
 ### Client requirements
 
@@ -123,7 +123,7 @@ To route traffic through player gateway, your game client must:
 
 ### Client SDK
 
-The Amazon GameLift Servers client SDK for C++ and Unreal Engine provides utilities to simplify
+The Amazon GameLift Servers client SDK for C++, C#, Unreal Engine, and Unity provides utilities to simplify
 player gateway integration:
 
 - **Token management** – Prepends player gateway
@@ -165,12 +165,22 @@ C++
 A client SDK for C++ is available at [Amazon GameLift Servers
 client SDK for C++](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp").
 
+C#
+
+A client SDK for C# is available at [Amazon GameLift Servers
+client SDK for C#](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-csharp "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-csharp").
+
 Unreal Engine
 
 A plugin for Unreal Engine is available at [Amazon GameLift Servers
 client SDK for Unreal Engine](https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal "https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal"). Access requires membership in the Epic Games
 organization on GitHub. See [Unreal
 Engine on GitHub](https://www.unrealengine.com/en-US/ue-on-github "https://www.unrealengine.com/en-US/ue-on-github") for details.
+
+Unity
+
+A client SDK for Unity is available at [Amazon GameLift Servers
+client SDK for Unity](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-unity "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-unity").
 
 ## Test your integration
 

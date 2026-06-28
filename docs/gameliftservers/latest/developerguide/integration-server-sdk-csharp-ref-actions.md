@@ -643,9 +643,9 @@ String value indicating whether the game session accepts new players.
 Type: [PlayerSessionCreationPolicy](https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_game_lift_1_1_model.html#afa8a7527defe9e7ca0caebc239182c43 "https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_game_lift_1_1_model.html#afa8a7527defe9e7ca0caebc239182c43") enum. Valid values
 include:
 
-- **ACCEPT_ALL** – Accept all
+- **ACCEPT\_ALL** – Accept all
   new player sessions.
-- **DENY_ALL** – Deny all new
+- **DENY\_ALL** – Deny all new
   player sessions.
 
 Required: Yes

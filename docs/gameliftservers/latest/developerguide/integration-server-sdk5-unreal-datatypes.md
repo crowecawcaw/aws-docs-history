@@ -43,15 +43,15 @@ Specifically, this documentation applies to code that you compile with the `-DBU
 
 This data type contains the set of parameters sent to Amazon GameLift Servers in a [ProcessReady()](integration-server-sdk5-unreal-actions.md#integration-server-sdk5-unreal-processready "integration-server-sdk5-unreal-actions.md#integration-server-sdk5-unreal-processready").
 
-|                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Properties**      | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| LogParameters       | An object with directory paths to files that are generated during a game<br>session. Amazon GameLift Servers copies and stores the files for future<br>access.**Type:**<br>`TArray<FString>`**Required:**<br>No                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| OnHealthCheck       | The callback function that Amazon GameLift Servers invokes to request a health status<br>report from the server process. Amazon GameLift Servers calls this function every 60<br>seconds and waits 60 seconds for a response. The server process returns<br>`TRUE` if healthy, `FALSE` if not healthy. If<br>no response is returned, Amazon GameLift Servers records the server process as not<br>healthy.<br>This property is a delegate function defined as `DECLARE_DELEGATE_RetVal(bool, FOnHealthCheck)`;<br>**Type:**<br>`FOnHealthCheck`\*_Required:_<br>• No                                                                                                                                          |
-| OnProcessTerminate  | The callback function that Amazon GameLift Servers invokes to force the server process to<br>shut down. After calling this function, Amazon GameLift Servers waits 5 minutes for the<br>server process to shut down and respond with a [ProcessEnding()](integration-server-sdk5-unreal-actions.md#integration-server-sdk5-unreal-processending "integration-server-sdk5-unreal-actions.md#integration-server-sdk5-unreal-processending") call<br>before it shuts down the server process.**Type:**<br>`FSimpleDelegate`\*_Required:_<br>• Yes                                                                                                                                                                 |
-| OnStartGameSession  | The callback function that Amazon GameLift Servers invokes to activate a new game session.<br>Amazon GameLift Servers calls this function in response to a client request [CreateGameSession](../apireference/API_CreateGameSession.md "../apireference/API_CreateGameSession.md"). The callback function passes a [GameSession](#integration-server-sdk5-unreal-dataypes-gamesession "#integration-server-sdk5-unreal-dataypes-gamesession") object.<br>This property is a delegate function defined as `DECLARE_DELEGATE_OneParam(FOnStartGameSession, Aws::GameLift::Server::Model::GameSession);`<br>**Type:**<br>`FOnStartGameSession`\*_Required:_<br>• Yes                                              |
-| OnUpdateGameSession | The callback function that Amazon GameLift Servers invokes to pass an updated game session<br>object to the server process. Amazon GameLift Servers calls this function when a match<br>backfill request has been processed to provide updated matchmaker data.<br>It passes a [GameSession](#integration-server-sdk5-unreal-dataypes-gamesession "#integration-server-sdk5-unreal-dataypes-gamesession") object, a status update<br>(`updateReason`), and the match backfill ticket<br>ID.<br>This property is a delegate function defined as `DECLARE_DELEGATE_OneParam(FOnUpdateGameSession, Aws::GameLift::Server::Model::UpdateGameSession);`<br>**Type:**<br>`FOnUpdateGameSession`\*_Required:_<br>• No |
-| Port                | The port number the server process listens on for new player<br>connections. The value must fall into the port range configured for any<br>fleet deploying this game server build. This port number is included in<br>game session and player session objects, which game sessions use when<br>connecting to a server process.**Type:**<br>`int`\*_Required:_<br>• Yes                                                                                                                                                                                                                                                                                                                                         |
+|                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Properties**      | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| LogParameters       | An object with directory paths to files that are generated during a game<br>session. Amazon GameLift Servers copies and stores the files for future<br>access.**Type:**<br>`TArray<FString>`**Required:**<br>No                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| OnHealthCheck       | The callback function that Amazon GameLift Servers invokes to request a health status<br>report from the server process. Amazon GameLift Servers calls this function every 60<br>seconds and waits 60 seconds for a response. The server process returns<br>`TRUE` if healthy, `FALSE` if not healthy. If<br>no response is returned, Amazon GameLift Servers records the server process as not<br>healthy.<br>This property is a delegate function defined as `DECLARE_DELEGATE_RetVal(bool, FOnHealthCheck)`;<br>**Type:**<br>`FOnHealthCheck`**Required:*<br>• No                                                                                                                                          |
+| OnProcessTerminate  | The callback function that Amazon GameLift Servers invokes to force the server process to<br>shut down. After calling this function, Amazon GameLift Servers waits 5 minutes for the<br>server process to shut down and respond with a [ProcessEnding()](integration-server-sdk5-unreal-actions.md#integration-server-sdk5-unreal-processending "integration-server-sdk5-unreal-actions.md#integration-server-sdk5-unreal-processending") call<br>before it shuts down the server process.**Type:**<br>`FSimpleDelegate`**Required:*<br>• Yes                                                                                                                                                                 |
+| OnStartGameSession  | The callback function that Amazon GameLift Servers invokes to activate a new game session.<br>Amazon GameLift Servers calls this function in response to a client request [CreateGameSession](../apireference/API_CreateGameSession.md "../apireference/API_CreateGameSession.md"). The callback function passes a [GameSession](#integration-server-sdk5-unreal-dataypes-gamesession "#integration-server-sdk5-unreal-dataypes-gamesession") object.<br>This property is a delegate function defined as `DECLARE_DELEGATE_OneParam(FOnStartGameSession, Aws::GameLift::Server::Model::GameSession);`<br>**Type:**<br>`FOnStartGameSession`**Required:*<br>• Yes                                              |
+| OnUpdateGameSession | The callback function that Amazon GameLift Servers invokes to pass an updated game session<br>object to the server process. Amazon GameLift Servers calls this function when a match<br>backfill request has been processed to provide updated matchmaker data.<br>It passes a [GameSession](#integration-server-sdk5-unreal-dataypes-gamesession "#integration-server-sdk5-unreal-dataypes-gamesession") object, a status update<br>(`updateReason`), and the match backfill ticket<br>ID.<br>This property is a delegate function defined as `DECLARE_DELEGATE_OneParam(FOnUpdateGameSession, Aws::GameLift::Server::Model::UpdateGameSession);`<br>**Type:**<br>`FOnUpdateGameSession`**Required:*<br>• No |
+| Port                | The port number the server process listens on for new player<br>connections. The value must fall into the port range configured for any<br>fleet deploying this game server build. This port number is included in<br>game session and player session objects, which game sessions use when<br>connecting to a server process.**Type:**<br>`int`**Required:*<br>• Yes                                                                                                                                                                                                                                                                                                                                         |
 
 ## UpdateGameSession
 
@@ -59,11 +59,11 @@ This data type updates to a game session object, which includes the reason that 
 game session was updated and the related backfill ticket ID if backfill is used to fill
 player sessions in the game session.
 
-| Properties       | **Description**                                                                                                                                                                                                                                                                           |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GameSession      | A [GameSession](#integration-server-sdk5-unreal-dataypes-gamesession "#integration-server-sdk5-unreal-dataypes-gamesession") object. The<br>`GameSession` object contains properties describing a<br>game session. **Type:**<br>`Aws::GameLift::Server::GameSession`\*_Required:_<br>• No |
-| UpdateReason     | The reason that the game session is being updated.<br>**Type:\*<br>• `enum class UpdateReason`<br>• MATCHMAKING_DATA_UPDATED<br>• BACKFILL_FAILED<br>• BACKFILL_TIMED_OUT<br>• BACKFILL_CANCELLED<br>**Required:\*<br>• No                                                                |
-| BackfillTicketId | The ID of the backfill ticket attempting to update the game<br>session.**Type:**<br>`char[]`\*_Required:_<br>• No                                                                                                                                                                         |
+| Properties       | **Description**                                                                                                                                                                                                                                                                          |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GameSession      | A [GameSession](#integration-server-sdk5-unreal-dataypes-gamesession "#integration-server-sdk5-unreal-dataypes-gamesession") object. The<br>`GameSession` object contains properties describing a<br>game session. **Type:**<br>`Aws::GameLift::Server::GameSession`**Required:*<br>• No |
+| UpdateReason     | The reason that the game session is being updated.<br>**Type:_<br>• `enum class UpdateReason`<br>• MATCHMAKING\_DATA\_UPDATED<br>• BACKFILL\_FAILED<br>• BACKFILL\_TIMED\_OUT<br>• BACKFILL\_CANCELLED<br>**Required:_<br>• No                                                           |
+| BackfillTicketId | The ID of the backfill ticket attempting to update the game<br>session.**Type:**<br>`char[]`**Required:*<br>• No                                                                                                                                                                         |
 
 ## GameSession
 
@@ -153,13 +153,13 @@ Use these values in [FPlayer](#integration-server-sdk5-unreal-dataypes-player "#
 This object lets you specify an attribute value using any of the valid data types: string, number, string array, or data map.
 Each `AttributeValue` object can use only one of the available properties.
 
-| Properties | Description                                                                                                                                                                                                          |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| attrType   | Specifies the type of attribute value.<br>**Type:\*<br>• An `FAttributeType` [enum](#integration-server-sdk5-unreal-dataypes-enums "#integration-server-sdk5-unreal-dataypes-enums") value.<br>**Required:\*<br>• No |
-| S          | Represents a string attribute value.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                            |
-| N          | Represents a numeric attribute value.<br>**Type:\*<br>• `double`<br>**Required:\*<br>• No                                                                                                                            |
-| SL         | Represents an array of string attribute values.<br>**Type:\*<br>• `TArray<FString>`<br>**Required:\*<br>• No                                                                                                         |
-| SDM        | Represents a dictionary of string keys and double values.<br>**Type:\*<br>• `TMap<FString, double>`<br>**Required:\*<br>• No                                                                                         |
+| Properties | Description                                                                                                                                                                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| attrType   | Specifies the type of attribute value.<br>**Type:_<br>• An `FAttributeType` [enum](#integration-server-sdk5-unreal-dataypes-enums "#integration-server-sdk5-unreal-dataypes-enums") value.<br>**Required:_<br>• No |
+| S          | Represents a string attribute value.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                            |
+| N          | Represents a numeric attribute value.<br>**Type:_<br>• `double`<br>**Required:_<br>• No                                                                                                                            |
+| SL         | Represents an array of string attribute values.<br>**Type:_<br>• `TArray<FString>`<br>**Required:_<br>• No                                                                                                         |
+| SDM        | Represents a dictionary of string keys and double values.<br>**Type:_<br>• `TMap<FString, double>`<br>**Required:_<br>• No                                                                                         |
 
 ## FGameLiftGetFleetRoleCredentialsRequest
 
@@ -175,151 +175,151 @@ resources to the game server. For more information see, [Set up an IAM service r
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Result              | The result of the action.<br>**Type:\*<br>• `long`<br>**Required:\*<br>• No                                                                                                                                                          |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `long&&`<br>**Required\*\*: No                                                                             |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                            |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties          | Description                                                                                                                                                                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• `long`<br>**Required:_<br>• No                                                                                                                                                          |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `long&&`<br>**Required**: No                                                                              |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                             |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## FGameLiftStringOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Result              | The result of the action.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                                                       |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `FString&&`<br>**Required\*\*: No                                                                          |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                            |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties          | Description                                                                                                                                                                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                                                       |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `FString&&`<br>**Required**: No                                                                           |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                             |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## FGameLiftDescribePlayerSessionsOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                                               |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• [FGameLiftDescribePlayerSessionsResult](#integration-server-sdk5-unreal-dataypes-describeplayersessionresult "#integration-server-sdk5-unreal-dataypes-describeplayersessionresult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `FGameLiftDescribePlayerSessionsResult&&`<br>**Required\*\*: No                                                                 |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                 |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No                      |
+| Properties          | Description                                                                                                                                                                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• [FGameLiftDescribePlayerSessionsResult](#integration-server-sdk5-unreal-dataypes-describeplayersessionresult "#integration-server-sdk5-unreal-dataypes-describeplayersessionresult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `FGameLiftDescribePlayerSessionsResult&&`<br>**Required**: No                                                                  |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                  |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:_<br>• No                      |
 
 ## FGameLiftDescribePlayerSessionsResult
 
 | Properties     | Description                                                                                                                                                                                                                                   |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PlayerSessions | **Type:\*<br>• `TArray<FGameLiftPlayerSession>`<br>**Required:\*<br>• Yes                                                                                                                                                                     |
+| PlayerSessions | **Type:_<br>• `TArray<FGameLiftPlayerSession>`<br>**Required:_<br>• Yes                                                                                                                                                                       |
 | NextToken      | The token indicating the start of the next page of results. To<br>specify the start of the result set, don't provide a value. If you<br>provide a player session ID, this parameter is ignored.<br>**Type:**<br>`FString`<br>**Required**: No |
-| Success        | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                     |
-| Error          | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No          |
+| Success        | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                        |
+| Error          | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:_<br>• No            |
 
 ## FGenericOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                          |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                            |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties | Description                                                                                                                                                                                                                        |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                             |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## FGameLiftPlayerSession
 
-| Properties      | Description                                                                                                                                                                                                                                         |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CreationTime    | **Type:\*<br>• `long`<br>**Required:\*<br>• Yes                                                                                                                                                                                                     |
-| FleetId         | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes                                                                                                                                                                                                  |
-| GameSessionId   | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes                                                                                                                                                                                                  |
-| IpAddress       | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes                                                                                                                                                                                                  |
-| PlayerData      | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes                                                                                                                                                                                                  |
-| PlayerId        | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes                                                                                                                                                                                                  |
-| PlayerSessionId | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes                                                                                                                                                                                                  |
-| Port            | **Type:\*<br>• `int`<br>**Required:\*<br>• Yes                                                                                                                                                                                                      |
-| Status          | **Type:\*<br>• A `PlayerSessionStatus` [enum](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-enums "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:\*<br>• Yes |
-| TerminationTime | **Type:\*<br>• `long`<br>**Required:\*<br>• Yes                                                                                                                                                                                                     |
-| DnsName         | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes                                                                                                                                                                                                  |
+| Properties      | Description                                                                                                                                                                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CreationTime    | **Type:_<br>• `long`<br>**Required:_<br>• Yes                                                                                                                                                                                                     |
+| FleetId         | **Type:_<br>• `FString`<br>**Required:_<br>• Yes                                                                                                                                                                                                  |
+| GameSessionId   | **Type:_<br>• `FString`<br>**Required:_<br>• Yes                                                                                                                                                                                                  |
+| IpAddress       | **Type:_<br>• `FString`<br>**Required:_<br>• Yes                                                                                                                                                                                                  |
+| PlayerData      | **Type:_<br>• `FString`<br>**Required:_<br>• Yes                                                                                                                                                                                                  |
+| PlayerId        | **Type:_<br>• `FString`<br>**Required:_<br>• Yes                                                                                                                                                                                                  |
+| PlayerSessionId | **Type:_<br>• `FString`<br>**Required:_<br>• Yes                                                                                                                                                                                                  |
+| Port            | **Type:_<br>• `int`<br>**Required:_<br>• Yes                                                                                                                                                                                                      |
+| Status          | **Type:_<br>• A `PlayerSessionStatus` [enum](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-enums "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:_<br>• Yes |
+| TerminationTime | **Type:_<br>• `long`<br>**Required:_<br>• Yes                                                                                                                                                                                                     |
+| DnsName         | **Type:_<br>• `FString`<br>**Required:_<br>• Yes                                                                                                                                                                                                  |
 
 ## FGameLiftGetComputeCertificateOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                                              |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• [FGameLiftGetComputeCertificateResult](#integration-server-sdk5-unreal-dataypes-getcomputecertificateresult "#integration-server-sdk5-unreal-dataypes-getcomputecertificateresult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `FGameLiftGetComputeCertificateResult&&`<br>**Required\*\*: No                                                                 |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No                     |
+| Properties          | Description                                                                                                                                                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Result              | The result of the action.<br>**Type:_<br>• [FGameLiftGetComputeCertificateResult](#integration-server-sdk5-unreal-dataypes-getcomputecertificateresult "#integration-server-sdk5-unreal-dataypes-getcomputecertificateresult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `FGameLiftGetComputeCertificateResult&&`<br>**Required**: No                                                                  |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                 |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:_<br>• No                     |
 
 ## FGameLiftGetComputeCertificateResult
 
 The path to the TLS certificate on your compute and the compute's host name.
 
-| Properties      | Description                                        |
-| --------------- | -------------------------------------------------- |
-| CertificatePath | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes |
-| ComputeName     | **Type:\*<br>• `FString`<br>**Required:\*<br>• Yes |
+| Properties      | Description                                      |
+| --------------- | ------------------------------------------------ |
+| CertificatePath | **Type:_<br>• `FString`<br>**Required:_<br>• Yes |
+| ComputeName     | **Type:_<br>• `FString`<br>**Required:_<br>• Yes |
 
 ## FGameLiftGetFleetRoleCredentialsOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                                            |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Result              | The result of the action.<br>**Type:\*<br>• [FGetFleetRoleCredentialsResult](#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsresult "#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsresult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `FGameLiftGetFleetRoleCredentialsResult&&`<br>**Required\*\*: No                                                             |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                              |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No                   |
+| Properties          | Description                                                                                                                                                                                                                                          |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:_<br>• [FGetFleetRoleCredentialsResult](#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsresult "#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsresult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `FGameLiftGetFleetRoleCredentialsResult&&`<br>**Required**: No                                                              |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                               |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:_<br>• No                   |
 
 ## FGetFleetRoleCredentialsResult
 
-| Properties         | Description                                                                                                                                                                                                                                                                                                                 |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AccessKeyId        | The access key ID to authenticate and provide access to your<br>AWS resources.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                                                                                         |
-| AssumedRoleId      | The ID of the user that the service role belongs to.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                                                                                                                   |
-| AssumedRoleUserArn | The Amazon Resource Name (ARN) of the user that the<br>service role belongs to.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                                                                                        |
-| Expiration         | The amount of time until your session credentials<br>expire.<br>**Type:\*<br>• `FDateTime`<br>**Required:\*<br>• No                                                                                                                                                                                                         |
-| SecretAccessKey    | The secret access key ID for authentication.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                                                                                                                           |
-| SessionToken       | A token to identify the current active session interacting<br>with your AWS resources.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                                                                                 |
-| Success            | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                                                                                   |
-| Error              | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties         | Description                                                                                                                                                                                                                                                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AccessKeyId        | The access key ID to authenticate and provide access to your<br>AWS resources.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                                                                                         |
+| AssumedRoleId      | The ID of the user that the service role belongs to.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                                                                                                                   |
+| AssumedRoleUserArn | The Amazon Resource Name (ARN) of the user that the<br>service role belongs to.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                                                                                        |
+| Expiration         | The amount of time until your session credentials<br>expire.<br>**Type:_<br>• `FDateTime`<br>**Required:_<br>• No                                                                                                                                                                                                         |
+| SecretAccessKey    | The secret access key ID for authentication.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                                                                                                                           |
+| SessionToken       | A token to identify the current active session interacting<br>with your AWS resources.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                                                                                 |
+| Success            | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                                                                                    |
+| Error              | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## FGameLiftListContainersNetworkInfoOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties          | Description                                                                                                                                                                                                                                                          |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result              | The result of the action.<br>**Type:\*<br>• [FGameLiftListContainersNetworkInfoResult](#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinforesult "#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinforesult")<br>**Required:\*<br>• No |
-| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `FGameLiftListContainersNetworkInfoResult&&`<br>**Required\*\*: No                                                                         |
-| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                            |
-| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No                                 |
+| Properties          | Description                                                                                                                                                                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Result              | The result of the action.<br>**Type:_<br>• [FGameLiftListContainersNetworkInfoResult](#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinforesult "#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinforesult")<br>**Required:_<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:*<br>• `FGameLiftListContainersNetworkInfoResult&&`<br>**Required**: No                                                                          |
+| Success             | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                             |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:_<br>• No                                 |
 
 ## FGameLiftListContainersNetworkInfoResult
 
 Network information for all containers running on the same instance as the calling
 game server process.
 
-| Properties            | Description                                                                                                                                            |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:\*<br>• `TArray<FContainerNetworkInfo>`<br>**Required:\*<br>• No |
+| Properties            | Description                                                                                                                                          |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:_<br>• `TArray<FContainerNetworkInfo>`<br>**Required:_<br>• No |
 
 ## FContainerNetworkInfo
 
 Network information for a single container running on the instance.
 
-| Properties         | Description                                                                                                                                                                                                                             |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ContainerName      | The name of the container, as defined in the container group<br>definition.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                        |
-| ContainerId        | The unique identifier of the container.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                                            |
-| IpAddress          | The container's local IPv4 address on the Docker bridge<br>network.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                |
-| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:\*<br>• An `EContainerGroupType` [enum](#integration-server-sdk5-unreal-dataypes-enums "#integration-server-sdk5-unreal-dataypes-enums").<br>**Required:\*<br>• No |
+| Properties         | Description                                                                                                                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainerName      | The name of the container, as defined in the container group<br>definition.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                        |
+| ContainerId        | The unique identifier of the container.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                                            |
+| IpAddress          | The container's local IPv4 address on the Docker bridge<br>network.<br>**Type:_<br>• `FString`<br>**Required:_<br>• No                                                                                                                |
+| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:_<br>• An `EContainerGroupType` [enum](#integration-server-sdk5-unreal-dataypes-enums "#integration-server-sdk5-unreal-dataypes-enums").<br>**Required:_<br>• No |
 
 ## FGameLiftError
 
-| Properties   | Description                                                                                                                                                                                                                                                            |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ErrorType    | The type of error.<br>**Type:\*<br>• A `GameLiftErrorType` [enum](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-enums "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:\*<br>• No |
-| ErrorName    | The name of the error.<br>**Type:**<br>`std::string`<br>\*_Required:_<br>• No                                                                                                                                                                                          |
-| ErrorMessage | The error message.<br>**Type:\*<br>• `std::string`<br>**Required:\*<br>• No                                                                                                                                                                                            |
+| Properties   | Description                                                                                                                                                                                                                                                          |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ErrorType    | The type of error.<br>**Type:_<br>• A `GameLiftErrorType` [enum](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-enums "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:_<br>• No |
+| ErrorName    | The name of the error.<br>**Type:**<br>`std::string`<br>**Required:*<br>• No                                                                                                                                                                                         |
+| ErrorMessage | The error message.<br>**Type:_<br>• `std::string`<br>**Required:_<br>• No                                                                                                                                                                                            |
 
 ## Enums
 
@@ -330,62 +330,62 @@ Enums defined for the server SDK for Amazon GameLift Servers (Unreal) are define
 - **NONE**
 - **STRING**
 - **DOUBLE**
-- **STRING_LIST**
-- **STRING_DOUBLE_MAP**
+- **STRING\_LIST**
+- **STRING\_DOUBLE\_MAP**
 
 **GameLiftErrorType**
 
 String value indicating the error type. Valid values include:
 
-- **SERVICE_CALL_FAILED** – A call to an AWS service has failed.
-- **LOCAL_CONNECTION_FAILED** – The local connection to Amazon GameLift Servers failed.
-- **NETWORK_NOT_INITIALIZED** – The network has not been initialized.
-- **GAMESESSION_ID_NOT_SET** – The game session ID has not been set.
-- **BAD_REQUEST_EXCEPTION**
-- **INTERNAL_SERVICE_EXCEPTION**
-- **ALREADY_INITIALIZED** – The Amazon GameLift Servers Server or Client has already been initialized with Initialize().
-- **FLEET_MISMATCH** – The target fleet does not match the fleet of a gameSession or playerSession.
-- **GAMELIFT_CLIENT_NOT_INITIALIZED** – The Amazon GameLift Servers client has not been initialized.
-- **GAMELIFT_SERVER_NOT_INITIALIZED** – The Amazon GameLift Servers server has not been initialized.
-- **GAME_SESSION_ENDED_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session ended.
-- **GAME_SESSION_NOT_READY** – The Amazon GameLift Servers Server Game Session was not activated.
-- **GAME_SESSION_READY_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session is ready.
-- **INITIALIZATION_MISMATCH** – A client method was called after Server::Initialize(), or vice versa.
-- **NOT_INITIALIZED** – The Amazon GameLift Servers Server or Client has not been initialized with Initialize().
-- **NO_TARGET_ALIASID_SET** – A target aliasId has not been set.
-- **NO_TARGET_FLEET_SET** – A target fleet has not been set.
-- **PROCESS_ENDING_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ending.
-- **PROCESS_NOT_ACTIVE** – The server process is not yet active, not bound to a GameSession, and cannot accept or process PlayerSessions.
-- **PROCESS_NOT_READY** – The server process is not yet ready to be activated.
-- **PROCESS_READY_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ready.
-- **SDK_VERSION_DETECTION_FAILED** – SDK version detection failed.
-- **STX_CALL_FAILED** – A call to the XStx server backend component has failed.
-- **STX_INITIALIZATION_FAILED** – The XStx server backend component has failed to initialize.
-- **UNEXPECTED_PLAYER_SESSION** – An unregistered player session was encountered by the server.
-- **WEBSOCKET_CONNECT_FAILURE**
-- **WEBSOCKET_CONNECT_FAILURE_FORBIDDEN**
-- **WEBSOCKET_CONNECT_FAILURE_INVALID_URL**
-- **WEBSOCKET_CONNECT_FAILURE_TIMEOUT**
-- **WEBSOCKET_RETRIABLE_SEND_MESSAGE_FAILURE** – Retriable failure to send a message to the GameLift Service WebSocket.
-- **WEBSOCKET_SEND_MESSAGE_FAILURE** – Failure to send a message to the GameLift Service WebSocket.
-- **MATCH_BACKFILL_REQUEST_VALIDATION** – Validation of the request failed.
-- **PLAYER_SESSION_REQUEST_VALIDATION** – Validation of the request failed.
-- **UNSUPPORTED_COMPUTE_TYPE_EXCEPTION** – The API that was called was unsupported on the compute type.
+- **SERVICE\_CALL\_FAILED** – A call to an AWS service has failed.
+- **LOCAL\_CONNECTION\_FAILED** – The local connection to Amazon GameLift Servers failed.
+- **NETWORK\_NOT\_INITIALIZED** – The network has not been initialized.
+- **GAMESESSION\_ID\_NOT\_SET** – The game session ID has not been set.
+- **BAD\_REQUEST\_EXCEPTION**
+- **INTERNAL\_SERVICE\_EXCEPTION**
+- **ALREADY\_INITIALIZED** – The Amazon GameLift Servers Server or Client has already been initialized with Initialize().
+- **FLEET\_MISMATCH** – The target fleet does not match the fleet of a gameSession or playerSession.
+- **GAMELIFT\_CLIENT\_NOT\_INITIALIZED** – The Amazon GameLift Servers client has not been initialized.
+- **GAMELIFT\_SERVER\_NOT\_INITIALIZED** – The Amazon GameLift Servers server has not been initialized.
+- **GAME\_SESSION\_ENDED\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session ended.
+- **GAME\_SESSION\_NOT\_READY** – The Amazon GameLift Servers Server Game Session was not activated.
+- **GAME\_SESSION\_READY\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session is ready.
+- **INITIALIZATION\_MISMATCH** – A client method was called after Server::Initialize(), or vice versa.
+- **NOT\_INITIALIZED** – The Amazon GameLift Servers Server or Client has not been initialized with Initialize().
+- **NO\_TARGET\_ALIASID\_SET** – A target aliasId has not been set.
+- **NO\_TARGET\_FLEET\_SET** – A target fleet has not been set.
+- **PROCESS\_ENDING\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ending.
+- **PROCESS\_NOT\_ACTIVE** – The server process is not yet active, not bound to a GameSession, and cannot accept or process PlayerSessions.
+- **PROCESS\_NOT\_READY** – The server process is not yet ready to be activated.
+- **PROCESS\_READY\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ready.
+- **SDK\_VERSION\_DETECTION\_FAILED** – SDK version detection failed.
+- **STX\_CALL\_FAILED** – A call to the XStx server backend component has failed.
+- **STX\_INITIALIZATION\_FAILED** – The XStx server backend component has failed to initialize.
+- **UNEXPECTED\_PLAYER\_SESSION** – An unregistered player session was encountered by the server.
+- **WEBSOCKET\_CONNECT\_FAILURE**
+- **WEBSOCKET\_CONNECT\_FAILURE\_FORBIDDEN**
+- **WEBSOCKET\_CONNECT\_FAILURE\_INVALID\_URL**
+- **WEBSOCKET\_CONNECT\_FAILURE\_TIMEOUT**
+- **WEBSOCKET\_RETRIABLE\_SEND\_MESSAGE\_FAILURE** – Retriable failure to send a message to the GameLift Service WebSocket.
+- **WEBSOCKET\_SEND\_MESSAGE\_FAILURE** – Failure to send a message to the GameLift Service WebSocket.
+- **MATCH\_BACKFILL\_REQUEST\_VALIDATION** – Validation of the request failed.
+- **PLAYER\_SESSION\_REQUEST\_VALIDATION** – Validation of the request failed.
+- **UNSUPPORTED\_COMPUTE\_TYPE\_EXCEPTION** – The API that was called was unsupported on the compute type.
 
 **EPlayerSessionCreationPolicy**
 
 String value indicating whether the game session accepts new players.
 Valid values include:
 
-- **ACCEPT_ALL** – Accept all new player sessions.
-- **DENY_ALL** – Deny all new player sessions.
-- **NOT_SET** – The game session is not set to accept or deny new player sessions.
+- **ACCEPT\_ALL** – Accept all new player sessions.
+- **DENY\_ALL** – Deny all new player sessions.
+- **NOT\_SET** – The game session is not set to accept or deny new player sessions.
 
 **EPlayerSessionStatus**
 
 - **ACTIVE**
 - **COMPLETED**
-- **NOT_SET**
+- **NOT\_SET**
 - **RESERVED**
 - **TIMEDOUT**
 
@@ -394,9 +394,9 @@ Valid values include:
 The type of container group that a container belongs to. Valid values
 include:
 
-- **GAME_SERVER** – A game server
+- **GAME\_SERVER** – A game server
   replica container group. An instance can run multiple game server
   container groups.
-- **PER_INSTANCE** – A per-instance
+- **PER\_INSTANCE** – A per-instance
   daemon container group. An instance runs exactly one per-instance
   container group.

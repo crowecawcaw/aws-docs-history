@@ -8,6 +8,7 @@ costs while maintaining high performance and player experience.
 Follow these tips to incorporate cost optimization practices for your game hosting. At
 a minimum, we recommend that you schedule regular reviews of your Amazon GameLift Servers costs and
 usage patterns. If you have pricing-related questions, reach out to your
+account manager.
 
 ###### Fleet configuration
 

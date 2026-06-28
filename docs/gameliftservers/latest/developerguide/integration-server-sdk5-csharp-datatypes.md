@@ -45,39 +45,39 @@ Use this data type to identify which files generated during a game session that 
 want the game server to upload to Amazon GameLift Servers after the game session ends. The game server
 communicates `LogParameters to` Amazon GameLift Servers in a [ProcessReady()](integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-processready "integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-processready") call.
 
-|                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Properties** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| LogPaths       | The list of directory paths to game server log files you want<br>Amazon GameLift Servers to store for future access. The server process generates these<br>files during each game session. You define file paths and names in<br>your game server and store them in the root game build directory.<br>The log paths must be absolute. For example, if your game build<br>stores game session logs in a path like<br>`MyGame\sessionLogs\`, then the path would be<br>`c:\game\MyGame\sessionLogs` on a Windows<br>instance.<br>**Type:**<br>`List<String>`<br>\*_Required:_<br>• No |
+|                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Properties** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| LogPaths       | The list of directory paths to game server log files you want<br>Amazon GameLift Servers to store for future access. The server process generates these<br>files during each game session. You define file paths and names in<br>your game server and store them in the root game build directory.<br>The log paths must be absolute. For example, if your game build<br>stores game session logs in a path like<br>`MyGame\sessionLogs\`, then the path would be<br>`c:\game\MyGame\sessionLogs` on a Windows<br>instance.<br>**Type:**<br>`List<String>`<br>**Required:*<br>• No |
 
 ## MetricsParameters
 
 Use this data type to configure metrics collection and crash reporting for the game server.
 The game server communicates `MetricsParameters` to Amazon GameLift Servers in an [InitMetrics()](integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-initmetrics "integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-initmetrics") call.
 
-|                   |                                                                                                                           |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **Properties**    | **Description**                                                                                                           |
-| StatsdHost        | The hostname or IP address of the StatsD server for metrics collection.<br>**Type:**<br>`String`<br>\*_Required:_<br>• No |
-| StatsdPort        | The port number of the StatsD server for metrics collection.<br>**Type:**<br>`Integer`<br>\*_Required:_<br>• No           |
-| CrashReporterHost | The hostname or IP address of the crash reporter server.<br>**Type:**<br>`String`<br>\*_Required:_<br>• No                |
-| CrashReporterPort | The port number of the crash reporter server.<br>**Type:**<br>`Integer`<br>\*_Required:_<br>• No                          |
-| FlushIntervalMs   | The interval in milliseconds for flushing metrics data to the server.<br>**Type:**<br>`Integer`<br>\*_Required:_<br>• No  |
-| MaxPacketSize     | The maximum size in bytes for metrics packets sent to the server.<br>**Type:**<br>`Integer`<br>\*_Required:_<br>• No      |
+|                   |                                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **Properties**    | **Description**                                                                                                          |
+| StatsdHost        | The hostname or IP address of the StatsD server for metrics collection.<br>**Type:**<br>`String`<br>**Required:*<br>• No |
+| StatsdPort        | The port number of the StatsD server for metrics collection.<br>**Type:**<br>`Integer`<br>**Required:*<br>• No           |
+| CrashReporterHost | The hostname or IP address of the crash reporter server.<br>**Type:**<br>`String`<br>**Required:*<br>• No                |
+| CrashReporterPort | The port number of the crash reporter server.<br>**Type:**<br>`Integer`<br>**Required:*<br>• No                          |
+| FlushIntervalMs   | The interval in milliseconds for flushing metrics data to the server.<br>**Type:**<br>`Integer`<br>**Required:*<br>• No  |
+| MaxPacketSize     | The maximum size in bytes for metrics packets sent to the server.<br>**Type:**<br>`Integer`<br>**Required:*<br>• No      |
 
 ## ProcessParameters
 
 This data type contains the set of parameters sent to Amazon GameLift Servers in a [ProcessReady()](integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-processready "integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-processready") call.
 
-|                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Properties**      | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| LogParameters       | The object with a list of directory paths to game session log<br>files.**Type:**<br>`Aws::GameLift::Server::LogParameters`**Required:**<br>Yes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| OnHealthCheck       | The name of callback function that Amazon GameLift Servers invokes to request a health<br>status report from the server process. Amazon GameLift Servers calls this function every<br>60 seconds. After calling this function Amazon GameLift Servers waits 60 seconds for a<br>response, if none is received, Amazon GameLift Servers records the server process as<br>unhealthy.**Type:**<br>`void OnHealthCheckDelegate()`\*_Required:_<br>• Yes                                                                                                                                                                                                                                                                      |
-| OnProcessTerminate  | The name of callback function that Amazon GameLift Servers invokes to force the server<br>process to shut down. After calling this function, Amazon GameLift Servers waits five<br>minutes for the server process to shut down and respond with a [ProcessEnding()](integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-processending "integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-processending") call<br>before it shuts down the server process.**Type:**<br>`void OnProcessTerminateDelegate()`\*_Required:_<br>• Yes                                                                                                                                              |
-| OnStartGameSession  | The name of callback function that Amazon GameLift Servers invokes to activate a new<br>game session. Amazon GameLift Servers calls this function in response to the client<br>request [CreateGameSession](../apireference/API_CreateGameSession.md "../apireference/API_CreateGameSession.md"). The callback function takes a [GameSession](#integration-server-sdk5-csharp-dataypes-gamesession "#integration-server-sdk5-csharp-dataypes-gamesession") object.**Type:**<br>`void OnStartGameSessionDelegate(GameSession)`\*_Required:_<br>• Yes                                                                                                                                                                       |
-| OnUpdateGameSession | The name of callback function that Amazon GameLift Servers invokes to pass an updated<br>game session object to the server process. Amazon GameLift Servers calls this function<br>when a match backfill request has been processed to provide updated<br>matchmaker data. It passes a [GameSession](#integration-server-sdk5-csharp-dataypes-gamesession "#integration-server-sdk5-csharp-dataypes-gamesession") object, a status update<br>(`updateReason`), and the match backfill ticket<br>ID.**Type:\*<br>• void<br>OnUpdateGameSessionDelegate([UpdateGameSession](#integration-server-sdk5-csharp-dataypes-updategamesession "#integration-server-sdk5-csharp-dataypes-updategamesession"))**Required:\*\*<br>No |
-| Port                | The port number that the server process listens on for new player<br>connections. The value must fall into the port range configured for any<br>fleet deploying this game server build. This port number is included in<br>game session and player session objects, which game sessions use when<br>connecting to a server process.**Type:**<br>`Integer`\*_Required:_<br>• Yes                                                                                                                                                                                                                                                                                                                                          |
+|                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Properties**      | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| LogParameters       | The object with a list of directory paths to game session log<br>files.**Type:**<br>`Aws::GameLift::Server::LogParameters`**Required:**<br>Yes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| OnHealthCheck       | The name of callback function that Amazon GameLift Servers invokes to request a health<br>status report from the server process. Amazon GameLift Servers calls this function every<br>60 seconds. After calling this function Amazon GameLift Servers waits 60 seconds for a<br>response, if none is received, Amazon GameLift Servers records the server process as<br>unhealthy.**Type:**<br>`void OnHealthCheckDelegate()`**Required:*<br>• Yes                                                                                                                                                                                                                                                                    |
+| OnProcessTerminate  | The name of callback function that Amazon GameLift Servers invokes to force the server<br>process to shut down. After calling this function, Amazon GameLift Servers waits five<br>minutes for the server process to shut down and respond with a [ProcessEnding()](integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-processending "integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-processending") call<br>before it shuts down the server process.**Type:**<br>`void OnProcessTerminateDelegate()`**Required:*<br>• Yes                                                                                                                                            |
+| OnStartGameSession  | The name of callback function that Amazon GameLift Servers invokes to activate a new<br>game session. Amazon GameLift Servers calls this function in response to the client<br>request [CreateGameSession](../apireference/API_CreateGameSession.md "../apireference/API_CreateGameSession.md"). The callback function takes a [GameSession](#integration-server-sdk5-csharp-dataypes-gamesession "#integration-server-sdk5-csharp-dataypes-gamesession") object.**Type:**<br>`void OnStartGameSessionDelegate(GameSession)`**Required:*<br>• Yes                                                                                                                                                                     |
+| OnUpdateGameSession | The name of callback function that Amazon GameLift Servers invokes to pass an updated<br>game session object to the server process. Amazon GameLift Servers calls this function<br>when a match backfill request has been processed to provide updated<br>matchmaker data. It passes a [GameSession](#integration-server-sdk5-csharp-dataypes-gamesession "#integration-server-sdk5-csharp-dataypes-gamesession") object, a status update<br>(`updateReason`), and the match backfill ticket<br>ID.**Type:*<br>• void<br>OnUpdateGameSessionDelegate([UpdateGameSession](#integration-server-sdk5-csharp-dataypes-updategamesession "#integration-server-sdk5-csharp-dataypes-updategamesession"))**Required:**<br>No |
+| Port                | The port number that the server process listens on for new player<br>connections. The value must fall into the port range configured for any<br>fleet deploying this game server build. This port number is included in<br>game session and player session objects, which game sessions use when<br>connecting to a server process.**Type:**<br>`Integer`**Required:*<br>• Yes                                                                                                                                                                                                                                                                                                                                        |
 
 ## UpdateGameSession
 
@@ -85,11 +85,11 @@ Updated information for a game session object, includes the reason that the game
 session was updated. If the update is related to a match backfill action, this data type
 includes the backfill ticket ID.
 
-| Properties       | **Description**                                                                                                                                                                                                                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GameSession      | A [GameSession](#integration-server-sdk5-csharp-dataypes-gamesession "#integration-server-sdk5-csharp-dataypes-gamesession") object. The<br>`GameSession` object contains properties describing a<br>game session. **Type:**<br>`GameSession GameSession()`\*_Required:_<br>• Yes |
-| UpdateReason     | The reason that the game session is being updated.**Type:**<br>`UpdateReason UpdateReason()`\*_Required:_<br>• Yes                                                                                                                                                                |
-| BackfillTicketId | The ID of the backfill ticket attempting to update the game<br>session.**Type:**<br>`String`\*_Required:_<br>• Yes                                                                                                                                                                |
+| Properties       | **Description**                                                                                                                                                                                                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GameSession      | A [GameSession](#integration-server-sdk5-csharp-dataypes-gamesession "#integration-server-sdk5-csharp-dataypes-gamesession") object. The<br>`GameSession` object contains properties describing a<br>game session. **Type:**<br>`GameSession GameSession()`**Required:*<br>• Yes |
+| UpdateReason     | The reason that the game session is being updated.**Type:**<br>`UpdateReason UpdateReason()`**Required:*<br>• Yes                                                                                                                                                                |
+| BackfillTicketId | The ID of the backfill ticket attempting to update the game<br>session.**Type:**<br>`String`**Required:*<br>• Yes                                                                                                                                                                |
 
 ## GameSession
 
@@ -192,184 +192,184 @@ Use these values in [Player](#integration-server-sdk5-csharp-dataypes-player "#i
 This object lets you specify an attribute value using any of the valid data types: string, number, string array, or data map.
 Each `AttributeValue` object can use only one of the available properties.
 
-| Properties | Description                                                                                                                                                                                                      |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| attrType   | Specifies the type of attribute value.<br>**Type:\*<br>• An `AttrType` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums") value.<br>**Required:\*<br>• No |
-| S          | Represents a string attribute value.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• Yes                                                                                                                        |
-| N          | Represents a numeric attribute value.<br>**Type:\*<br>• `double`<br>**Required:\*<br>• Yes                                                                                                                       |
-| SL         | Represents an array of string attribute values.<br>**Type:\*<br>• `string[]`<br>**Required:\*<br>• Yes                                                                                                           |
-| SDM        | Represents a dictionary of string keys and double values.<br>**Type:\*<br>• `Dictionary<string, double>`<br>**Required:\*<br>• Yes                                                                               |
+| Properties | Description                                                                                                                                                                                                    |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| attrType   | Specifies the type of attribute value.<br>**Type:_<br>• An `AttrType` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums") value.<br>**Required:_<br>• No |
+| S          | Represents a string attribute value.<br>**Type:_<br>• `string`<br>**Required:_<br>• Yes                                                                                                                        |
+| N          | Represents a numeric attribute value.<br>**Type:_<br>• `double`<br>**Required:_<br>• Yes                                                                                                                       |
+| SL         | Represents an array of string attribute values.<br>**Type:_<br>• `string[]`<br>**Required:_<br>• Yes                                                                                                           |
+| SDM        | Represents a dictionary of string keys and double values.<br>**Type:_<br>• `Dictionary<string, double>`<br>**Required:_<br>• Yes                                                                               |
 
 ## AwsStringOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                           |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result     | The result of the action.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                                         |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                             |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties | Description                                                                                                                                                                                                                         |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result     | The result of the action.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                                                         |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                              |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## GenericOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                           |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                             |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties | Description                                                                                                                                                                                                                         |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                              |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## MetricsManagerOutcome
 
 Represents the result of an [InitMetrics()](integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-initmetrics "integration-server-sdk5-csharp-actions.md#integration-server-sdk5-csharp-initmetrics") call. Contains either a
 MetricsManager instance on success or error information on failure.
 
-|         |                                                                                                                                                                                                                                       |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result  | The MetricsManager instance for collecting and reporting metrics.<br>**Type:\*<br>• `MetricsManager`<br>**Required:\*<br>• No                                                                                                         |
-| Success | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                             |
-| Error   | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+|         |                                                                                                                                                                                                                                     |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result  | The MetricsManager instance for collecting and reporting metrics.<br>**Type:_<br>• `MetricsManager`<br>**Required:_<br>• No                                                                                                         |
+| Success | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                              |
+| Error   | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## DescribePlayerSessionsOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                                          |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result     | The result of the action.<br>**Type:\*<br>• [DescribePlayerSessionsResult](#integration-server-sdk5-csharp-datatypes-describeplayersessionsresult "#integration-server-sdk5-csharp-datatypes-describeplayersessionsresult")<br>**Required:\*<br>• No |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                            |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No                |
+| Properties | Description                                                                                                                                                                                                                                        |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result     | The result of the action.<br>**Type:_<br>• [DescribePlayerSessionsResult](#integration-server-sdk5-csharp-datatypes-describeplayersessionsresult "#integration-server-sdk5-csharp-datatypes-describeplayersessionsresult")<br>**Required:_<br>• No |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                             |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No                |
 
 ## DescribePlayerSessionsResult
 
-| Properties     | Description                                                                                                                                                                                                                                          |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NextToken      | The token indicating the start of the next page of results. To<br>specify the start of the result set, don't provide a value. If you<br>provide a player session ID, this parameter is ignored.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• Yes |
-| PlayerSessions | A collection of objects containing properties for each player session that matches the request.<br>**Type:\*<br>• `IList<PlayerSession>`<br>**Required:\*\*                                                                                          |
-| Success        | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                            |
-| Error          | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No                |
+| Properties     | Description                                                                                                                                                                                                                                        |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NextToken      | The token indicating the start of the next page of results. To<br>specify the start of the result set, don't provide a value. If you<br>provide a player session ID, this parameter is ignored.<br>**Type:_<br>• `string`<br>**Required:_<br>• Yes |
+| PlayerSessions | A collection of objects containing properties for each player session that matches the request.<br>**Type:*<br>• `IList<PlayerSession>`<br>**Required:**                                                                                           |
+| Success        | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                             |
+| Error          | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No                |
 
 ## PlayerSession
 
-| Properties      | Description                                                                                                                                                                 |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CreationTime    | **Type:\*<br>• `long`<br>**Required:\*<br>• Yes                                                                                                                             |
-| FleetId         | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes                                                                                                                           |
-| GameSessionId   | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes                                                                                                                           |
-| IpAddress       | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes                                                                                                                           |
-| PlayerData      | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes                                                                                                                           |
-| PlayerId        | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes                                                                                                                           |
-| PlayerSessionId | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes                                                                                                                           |
-| Port            | **Type:\*<br>• `int`<br>**Required:\*<br>• Yes                                                                                                                              |
-| Status          | **Type:\*<br>• A `PlayerSessionStatus` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums").<br>**Required:\*<br>• Yes |
-| TerminationTime | **Type:\*<br>• `long`<br>**Required:\*<br>• Yes                                                                                                                             |
-| DnsName         | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes                                                                                                                           |
+| Properties      | Description                                                                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CreationTime    | **Type:_<br>• `long`<br>**Required:_<br>• Yes                                                                                                                             |
+| FleetId         | **Type:_<br>• `string`<br>**Required:_<br>• Yes                                                                                                                           |
+| GameSessionId   | **Type:_<br>• `string`<br>**Required:_<br>• Yes                                                                                                                           |
+| IpAddress       | **Type:_<br>• `string`<br>**Required:_<br>• Yes                                                                                                                           |
+| PlayerData      | **Type:_<br>• `string`<br>**Required:_<br>• Yes                                                                                                                           |
+| PlayerId        | **Type:_<br>• `string`<br>**Required:_<br>• Yes                                                                                                                           |
+| PlayerSessionId | **Type:_<br>• `string`<br>**Required:_<br>• Yes                                                                                                                           |
+| Port            | **Type:_<br>• `int`<br>**Required:_<br>• Yes                                                                                                                              |
+| Status          | **Type:_<br>• A `PlayerSessionStatus` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums").<br>**Required:_<br>• Yes |
+| TerminationTime | **Type:_<br>• `long`<br>**Required:_<br>• Yes                                                                                                                             |
+| DnsName         | **Type:_<br>• `string`<br>**Required:_<br>• Yes                                                                                                                           |
 
 ## StartMatchBackfillOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                              |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result     | The result of the action.<br>**Type:\*<br>• [StartMatchBackfillResult](#integration-server-sdk5-csharp-datatypes-startmatchbackfillresult "#integration-server-sdk5-csharp-datatypes-startmatchbackfillresult")<br>**Required:\*<br>• No |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No    |
+| Properties | Description                                                                                                                                                                                                                            |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result     | The result of the action.<br>**Type:_<br>• [StartMatchBackfillResult](#integration-server-sdk5-csharp-datatypes-startmatchbackfillresult "#integration-server-sdk5-csharp-datatypes-startmatchbackfillresult")<br>**Required:_<br>• No |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                 |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No    |
 
 ## StartMatchBackfillResult
 
-| Properties | Description                                       |
-| ---------- | ------------------------------------------------- |
-| TicketId   | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes |
+| Properties | Description                                     |
+| ---------- | ----------------------------------------------- |
+| TicketId   | **Type:_<br>• `string`<br>**Required:_<br>• Yes |
 
 ## GetComputeCertificateOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result     | The result of the action.<br>**Type:\*<br>• [GetComputeCertificateResult](#integration-server-sdk5-csharp-datatypes-getcomputecertificateresult "#integration-server-sdk5-csharp-datatypes-getcomputecertificateresult")<br>**Required:\*<br>• No |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                         |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No             |
+| Properties | Description                                                                                                                                                                                                                                     |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result     | The result of the action.<br>**Type:_<br>• [GetComputeCertificateResult](#integration-server-sdk5-csharp-datatypes-getcomputecertificateresult "#integration-server-sdk5-csharp-datatypes-getcomputecertificateresult")<br>**Required:_<br>• No |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                          |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No             |
 
 ## GetComputeCertificateResult
 
 The path to the TLS certificate on your compute and the compute's host name.
 
-| Properties      | Description                                       |
-| --------------- | ------------------------------------------------- |
-| CertificatePath | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes |
-| ComputeName     | **Type:\*<br>• `string`<br>**Required:\*<br>• Yes |
+| Properties      | Description                                     |
+| --------------- | ----------------------------------------------- |
+| CertificatePath | **Type:_<br>• `string`<br>**Required:_<br>• Yes |
+| ComputeName     | **Type:_<br>• `string`<br>**Required:_<br>• Yes |
 
 ## GetFleetRoleCredentialsOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result     | The result of the action.<br>**Type:\*<br>• [GetFleetRoleCredentialsResult](#integration-server-sdk5-csharp-datatypes-getfleetrolecredentialsresult "#integration-server-sdk5-csharp-datatypes-getfleetrolecredentialsresult")<br>**Required:\*<br>• No |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                               |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No                   |
+| Properties | Description                                                                                                                                                                                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result     | The result of the action.<br>**Type:_<br>• [GetFleetRoleCredentialsResult](#integration-server-sdk5-csharp-datatypes-getfleetrolecredentialsresult "#integration-server-sdk5-csharp-datatypes-getfleetrolecredentialsresult")<br>**Required:_<br>• No |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No                   |
 
 ## GetFleetRoleCredentialsResult
 
-| Properties         | Description                                                                                                                                                                                                                           |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AccessKeyId        | The access key ID to authenticate and provide access to your<br>AWS resources.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                    |
-| AssumedRoleId      | The ID of the user that the service role belongs to.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                              |
-| AssumedRoleUserArn | The Amazon Resource Name (ARN) of the user that the<br>service role belongs to.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                   |
-| Expiration         | The amount of time until your session credentials<br>expire.<br>**Type:\*<br>• `DateTime`<br>**Required:\*<br>• No                                                                                                                    |
-| SecretAccessKey    | The secret access key ID for authentication.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                      |
-| SessionToken       | A token to identify the current active session interacting<br>with your AWS resources.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                            |
-| Success            | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                             |
-| Error              | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties         | Description                                                                                                                                                                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AccessKeyId        | The access key ID to authenticate and provide access to your<br>AWS resources.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                    |
+| AssumedRoleId      | The ID of the user that the service role belongs to.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                              |
+| AssumedRoleUserArn | The Amazon Resource Name (ARN) of the user that the<br>service role belongs to.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                   |
+| Expiration         | The amount of time until your session credentials<br>expire.<br>**Type:_<br>• `DateTime`<br>**Required:_<br>• No                                                                                                                    |
+| SecretAccessKey    | The secret access key ID for authentication.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                                      |
+| SessionToken       | A token to identify the current active session interacting<br>with your AWS resources.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                            |
+| Success            | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                              |
+| Error              | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## ListContainersNetworkInfoOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result     | The result of the action.<br>**Type:\*<br>• [ListContainersNetworkInfoResult](#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinforesult "#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinforesult")<br>**Required:\*<br>• No |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                     |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No                         |
+| Properties | Description                                                                                                                                                                                                                                                 |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result     | The result of the action.<br>**Type:_<br>• [ListContainersNetworkInfoResult](#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinforesult "#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinforesult")<br>**Required:_<br>• No |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                                                      |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No                         |
 
 ## ListContainersNetworkInfoResult
 
 Network information for all containers running on the same instance as the calling
 game server process.
 
-| Properties            | Description                                                                                                                                                                                                                                                                                      |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:\*<br>• A list of [ContainerNetworkInfo](#integration-server-sdk5-csharp-datatypes-containernetworkinfo "#integration-server-sdk5-csharp-datatypes-containernetworkinfo") objects<br>**Required:\*<br>• No |
+| Properties            | Description                                                                                                                                                                                                                                                                                    |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:_<br>• A list of [ContainerNetworkInfo](#integration-server-sdk5-csharp-datatypes-containernetworkinfo "#integration-server-sdk5-csharp-datatypes-containernetworkinfo") objects<br>**Required:_<br>• No |
 
 ## ContainerNetworkInfo
 
 Network information for a single container running on the instance.
 
-| Properties         | Description                                                                                                                                                                                                                             |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ContainerName      | The name of the container, as defined in the container group definition.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                            |
-| ContainerId        | The unique identifier of the container.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                             |
-| IpAddress          | The container's local IPv4 address on the Docker bridge network.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                    |
-| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:\*<br>• A `ContainerGroupType` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums").<br>**Required:\*<br>• No |
+| Properties         | Description                                                                                                                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainerName      | The name of the container, as defined in the container group definition.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                            |
+| ContainerId        | The unique identifier of the container.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                                             |
+| IpAddress          | The container's local IPv4 address on the Docker bridge network.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                    |
+| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:_<br>• A `ContainerGroupType` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums").<br>**Required:_<br>• No |
 
 ## AwsDateTimeOutcome
 
 This data type results from an action and produces an object with the following properties:
 
-| Properties | Description                                                                                                                                                                                                                           |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Result     | The result of the action.<br>**Type:\*<br>• `DateTime`<br>**Required:\*<br>• No                                                                                                                                                       |
-| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                             |
-| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
+| Properties | Description                                                                                                                                                                                                                         |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result     | The result of the action.<br>**Type:_<br>• `DateTime`<br>**Required:_<br>• No                                                                                                                                                       |
+| Success    | Whether the action was successful or not.<br>**Type:*<br>• `bool`<br>**Required**: Yes                                                                                                                                              |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:_<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:_<br>• No |
 
 ## GameLiftError
 
-| Properties   | Description                                                                                                                                                                                    |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ErrorType    | The type of error.<br>**Type:\*<br>• A `GameLiftErrorType` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums").<br>**Required:\*<br>• No |
-| ErrorName    | The name of the error.<br>**Type:**<br>`string`<br>\*_Required:_<br>• No                                                                                                                       |
-| ErrorMessage | The error message.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                         |
+| Properties   | Description                                                                                                                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ErrorType    | The type of error.<br>**Type:_<br>• A `GameLiftErrorType` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums").<br>**Required:_<br>• No |
+| ErrorName    | The name of the error.<br>**Type:**<br>`string`<br>**Required:*<br>• No                                                                                                                      |
+| ErrorMessage | The error message.<br>**Type:_<br>• `string`<br>**Required:_<br>• No                                                                                                                         |
 
 ## Enums
 
@@ -380,62 +380,62 @@ Enums defined for the server SDK for Amazon GameLift Servers (C#) are defined as
 - **NONE**
 - **STRING**
 - **DOUBLE**
-- **STRING_LIST**
-- **STRING_DOUBLE_MAP**
+- **STRING\_LIST**
+- **STRING\_DOUBLE\_MAP**
 
 **GameLiftErrorType**
 
 String value indicating the error type. Valid values include:
 
-- **SERVICE_CALL_FAILED** – A call to an AWS service has failed.
-- **LOCAL_CONNECTION_FAILED** – The local connection to Amazon GameLift Servers failed.
-- **NETWORK_NOT_INITIALIZED** – The network has not been initialized.
-- **GAMESESSION_ID_NOT_SET** – The game session ID has not been set.
-- **BAD_REQUEST_EXCEPTION**
-- **INTERNAL_SERVICE_EXCEPTION**
-- **UNSUPPORTED_COMPUTE_TYPE_EXCEPTION** – The API that was called was unsupported on the compute type.
-- **ALREADY_INITIALIZED** – The Amazon GameLift Servers Server or Client has already been initialized with Initialize().
-- **FLEET_MISMATCH** – The target fleet does not match the fleet of a gameSession or playerSession.
-- **GAMELIFT_CLIENT_NOT_INITIALIZED** – The Amazon GameLift Servers client has not been initialized.
-- **GAMELIFT_SERVER_NOT_INITIALIZED** – The Amazon GameLift Servers server has not been initialized.
-- **GAME_SESSION_ENDED_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session ended.
-- **GAME_SESSION_NOT_READY** – The Amazon GameLift Servers Server Game Session was not activated.
-- **GAME_SESSION_READY_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session is ready.
-- **INITIALIZATION_MISMATCH** – A client method was called after Server::Initialize(), or vice versa.
-- **NOT_INITIALIZED** – The Amazon GameLift Servers Server or Client has not been initialized with Initialize().
-- **NO_TARGET_ALIASID_SET** – A target aliasId has not been set.
-- **NO_TARGET_FLEET_SET** – A target fleet has not been set.
-- **PROCESS_ENDING_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ending.
-- **PROCESS_NOT_ACTIVE** – The server process is not yet active, not bound to a GameSession, and cannot accept or process PlayerSessions.
-- **PROCESS_NOT_READY** – The server process is not yet ready to be activated.
-- **PROCESS_READY_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ready.
-- **SDK_VERSION_DETECTION_FAILED** – SDK version detection failed.
-- **STX_CALL_FAILED** – A call to the XStx server backend component has failed.
-- **STX_INITIALIZATION_FAILED** – The XStx server backend component has failed to initialize.
-- **UNEXPECTED_PLAYER_SESSION** – An unregistered player session was encountered by the server.
-- **WEBSOCKET_CONNECT_FAILURE**
-- **WEBSOCKET_CONNECT_FAILURE_FORBIDDEN**
-- **WEBSOCKET_CONNECT_FAILURE_INVALID_URL**
-- **WEBSOCKET_CONNECT_FAILURE_TIMEOUT**
-- **WEBSOCKET_RETRIABLE_SEND_MESSAGE_FAILURE** – Retriable failure to send a message to the GameLift Service WebSocket.
-- **WEBSOCKET_SEND_MESSAGE_FAILURE** – Failure to send a message to the GameLift Service WebSocket.
-- **MATCH_BACKFILL_REQUEST_VALIDATION** – Validation of the request failed.
-- **PLAYER_SESSION_REQUEST_VALIDATION** – Validation of the request failed.
+- **SERVICE\_CALL\_FAILED** – A call to an AWS service has failed.
+- **LOCAL\_CONNECTION\_FAILED** – The local connection to Amazon GameLift Servers failed.
+- **NETWORK\_NOT\_INITIALIZED** – The network has not been initialized.
+- **GAMESESSION\_ID\_NOT\_SET** – The game session ID has not been set.
+- **BAD\_REQUEST\_EXCEPTION**
+- **INTERNAL\_SERVICE\_EXCEPTION**
+- **UNSUPPORTED\_COMPUTE\_TYPE\_EXCEPTION** – The API that was called was unsupported on the compute type.
+- **ALREADY\_INITIALIZED** – The Amazon GameLift Servers Server or Client has already been initialized with Initialize().
+- **FLEET\_MISMATCH** – The target fleet does not match the fleet of a gameSession or playerSession.
+- **GAMELIFT\_CLIENT\_NOT\_INITIALIZED** – The Amazon GameLift Servers client has not been initialized.
+- **GAMELIFT\_SERVER\_NOT\_INITIALIZED** – The Amazon GameLift Servers server has not been initialized.
+- **GAME\_SESSION\_ENDED\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session ended.
+- **GAME\_SESSION\_NOT\_READY** – The Amazon GameLift Servers Server Game Session was not activated.
+- **GAME\_SESSION\_READY\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the game session is ready.
+- **INITIALIZATION\_MISMATCH** – A client method was called after Server::Initialize(), or vice versa.
+- **NOT\_INITIALIZED** – The Amazon GameLift Servers Server or Client has not been initialized with Initialize().
+- **NO\_TARGET\_ALIASID\_SET** – A target aliasId has not been set.
+- **NO\_TARGET\_FLEET\_SET** – A target fleet has not been set.
+- **PROCESS\_ENDING\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ending.
+- **PROCESS\_NOT\_ACTIVE** – The server process is not yet active, not bound to a GameSession, and cannot accept or process PlayerSessions.
+- **PROCESS\_NOT\_READY** – The server process is not yet ready to be activated.
+- **PROCESS\_READY\_FAILED** – the server SDK for Amazon GameLift Servers could not contact the service to report the process is ready.
+- **SDK\_VERSION\_DETECTION\_FAILED** – SDK version detection failed.
+- **STX\_CALL\_FAILED** – A call to the XStx server backend component has failed.
+- **STX\_INITIALIZATION\_FAILED** – The XStx server backend component has failed to initialize.
+- **UNEXPECTED\_PLAYER\_SESSION** – An unregistered player session was encountered by the server.
+- **WEBSOCKET\_CONNECT\_FAILURE**
+- **WEBSOCKET\_CONNECT\_FAILURE\_FORBIDDEN**
+- **WEBSOCKET\_CONNECT\_FAILURE\_INVALID\_URL**
+- **WEBSOCKET\_CONNECT\_FAILURE\_TIMEOUT**
+- **WEBSOCKET\_RETRIABLE\_SEND\_MESSAGE\_FAILURE** – Retriable failure to send a message to the GameLift Service WebSocket.
+- **WEBSOCKET\_SEND\_MESSAGE\_FAILURE** – Failure to send a message to the GameLift Service WebSocket.
+- **MATCH\_BACKFILL\_REQUEST\_VALIDATION** – Validation of the request failed.
+- **PLAYER\_SESSION\_REQUEST\_VALIDATION** – Validation of the request failed.
 
 **PlayerSessionCreationPolicy**
 
 String value indicating whether the game session accepts new players.
 Valid values include:
 
-- **ACCEPT_ALL** – Accept all new player sessions.
-- **DENY_ALL** – Deny all new player sessions.
-- **NOT_SET** – The game session is not set to accept or deny new player sessions.
+- **ACCEPT\_ALL** – Accept all new player sessions.
+- **DENY\_ALL** – Deny all new player sessions.
+- **NOT\_SET** – The game session is not set to accept or deny new player sessions.
 
 **PlayerSessionStatus**
 
 - **ACTIVE**
 - **COMPLETED**
-- **NOT_SET**
+- **NOT\_SET**
 - **RESERVED**
 - **TIMEDOUT**
 

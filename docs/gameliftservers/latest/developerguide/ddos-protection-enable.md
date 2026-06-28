@@ -48,7 +48,7 @@ Your game server only accepts incoming IPv4 traffic. Lightweight IP translation
 software will be installed and executed on your instances to receive and transform
 the incoming IPv6 traffic to IPv4.
 
-DUAL_STACK
+DUAL\_STACK
 
 Your game server is compatible with incoming IPv6 traffic. IP translation software
 will not be installed or executed on your instances. Game servers that support IPv6

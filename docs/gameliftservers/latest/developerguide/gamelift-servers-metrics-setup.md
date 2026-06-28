@@ -22,7 +22,7 @@ Select your implementation path based on your development environment:
 Each implementation follows a two-step process:
 
 1. **Complete Setup Guide (METRICS.md)** — Infrastructure deployment, AWS infrastructure configuration, fleet setup, and Grafana dashboard configuration.
-2. **API Implementation Guide (CUSTOM_METRICS.md)** — Language-specific SDK usage, metric types, custom metrics creation, and advanced configuration.
+2. **API Implementation Guide (CUSTOM\_METRICS.md)** — Language-specific SDK usage, metric types, custom metrics creation, and advanced configuration.
 
 ### Verification
 

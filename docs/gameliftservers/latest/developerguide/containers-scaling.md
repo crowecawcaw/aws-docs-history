@@ -33,30 +33,28 @@ based on player demand:
   server container, then game sessions per instance equal the number of game server
   container groups per instance.
 
-      - For game server container groups per instance, call [DescribeContainerFleet](../apireference/API_DescribeContainerFleet.md "../apireference/API_DescribeContainerFleet.md") to get the
-       `GameServerContainerGroupsPerInstance` or `MaximumGameServerContainerGroupsPerInstance` value.
-      - The number of game server container groups that fit on an instance depends on
-       how much memory is available after Amazon GameLift Servers reserves a portion for the operating system
-       and supporting services. For details on how available memory is calculated and a
-       reference table of common instance types, see
-       [Understand container fleet memory allocation](containers-design-fleet.md#containers-design-fleet-memory-allocation "containers-design-fleet.md#containers-design-fleet-memory-allocation").
+        - For game server container groups per instance, call [DescribeContainerFleet](../apireference/API_DescribeContainerFleet.md "../apireference/API_DescribeContainerFleet.md") to get the
+         `GameServerContainerGroupsPerInstance` or `MaximumGameServerContainerGroupsPerInstance` value.
+        - The number of game server container groups that fit on an instance depends on
+         how much memory is available after Amazon GameLift Servers reserves a portion for the operating system
+         and supporting services. For details on how available memory is calculated and a
+         reference table of common instance types, see
+         [Understand container fleet memory allocation](containers-design-fleet.md#containers-design-fleet-memory-allocation "containers-design-fleet.md#containers-design-fleet-memory-allocation").
 
 - Players per instance
 
-      + You decide the number of player slots to allow in each game session. Depending on
-       how your hosting solution handles game session placement, you might define players per
-       game session in your matchmaking configuration or in your calls to start a game session
-       placement.
-      + Use this formula to calculate the number of players that can play your game
-       concurrently on a container fleet instance:
+  - You decide the number of player slots to allow in each game session. Depending on
+    how your hosting solution handles game session placement, you might define players per
+    game session in your matchmaking configuration or in your calls to start a game session
+    placement.
+  - Use this formula to calculate the number of players that can play your game
+    concurrently on a container fleet instance:
 
+  ```
+  [Players per instance] = [# of game sessions per instance] * [# of player slots per game session]
+  ```
 
-
-      ```
-      [Players per instance] = [# of game sessions per instance] * [# of player slots per game session]
-      ```
-
-  To get the current total capacity of a container fleet, call [DescribeFleetCapacity](../apireference/API_DescribeFleetCapacity.md "../apireference/API_DescribeFleetCapacity.md") or [DescribeFleetLocation Capacity](../apireference/API_DescribeFleetLocationCapacity.md "../apireference/API_DescribeFleetLocationCapacity.md") to get the number of game server container groups in
-  the fleet. Active groups are those that are currently hosting game sessions. Idle groups are
-  ready to host a new game session. Multiply these values by the number of server processes per
-  game server container group.
+To get the current total capacity of a container fleet, call [DescribeFleetCapacity](../apireference/API_DescribeFleetCapacity.md "../apireference/API_DescribeFleetCapacity.md") or [DescribeFleetLocation Capacity](../apireference/API_DescribeFleetLocationCapacity.md "../apireference/API_DescribeFleetLocationCapacity.md") to get the number of game server container groups in
+the fleet. Active groups are those that are currently hosting game sessions. Idle groups are
+ready to host a new game session. Multiply these values by the number of server processes per
+game server container group.

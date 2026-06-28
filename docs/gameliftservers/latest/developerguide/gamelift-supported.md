@@ -171,6 +171,10 @@ UDP ping beacons.
   built-in endpoint selection algorithms. Requires source-built Unreal Engine 5.1
   or later. Access requires membership in the [Epic Games
   organization on GitHub](https://www.unrealengine.com/en-US/ue-on-github "https://www.unrealengine.com/en-US/ue-on-github").
+- [Client SDK for C#](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-csharp "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-csharp") – Includes player gateway and UDP ping beacons
+  utilities with built-in endpoint selection algorithms. Works in any .NET Standard 2.1–compatible project.
+- [Client SDK for Unity](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-unity "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-unity") – Builds on the C# client SDK to provide
+  player gateway and UDP ping beacons integration for Unity game clients. Requires Unity 2021.3 LTS or later.
 
 For integration guides, see the documentation in each GitHub repository.
 

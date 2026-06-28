@@ -219,7 +219,7 @@ instance type.
 On d-type instances, the NVMe drive automatically mounts to the `/data` directory during host startup. To enable containers to access the SSD storage, set the following `ContainerGroupDefinition` property `MountPoints`:
 
 - `InstancePath` – Set to `/data` to reference the auto-mounted NVMe drive on the host instance.
-- `AccessLevel` – Choose the appropriate access level for your container's needs (e.g., READ_ONLY or READ_WRITE).
+- `AccessLevel` – Choose the appropriate access level for your container's needs (e.g., READ\_ONLY or READ\_WRITE).
 - `ContainerPath` – (Optional) Specify the path where the instance path will be mounted inside the container. If not specified, it defaults to the instance path.
 
 For more information about mount points, see [ContainerMountPoint](../apireference/API_ContainerMountPoint.md "../apireference/API_ContainerMountPoint.md") in the Amazon GameLift Servers API Reference.
@@ -347,14 +347,13 @@ In the game server container group definition, we set the
   Given this information, we can use the formula to calculate the number of connection
   ports we need:
 
-      + Minimum: **21 ports** [1 game server container
-       ports \* 20 game server container groups per instance + 1 per-instance container
-       port]
-      + Best practice: **42 ports** [minimum ports \*
-       2]
-
-  When creating the container fleet, we set the `InstanceConnectionPortRange`
-  parameter as follows:
+  - Minimum: **21 ports** [1 game server container
+    ports \* 20 game server container groups per instance + 1 per-instance container
+    port]
+  - Best practice: **42 ports** [minimum ports \*
+    2]
+    When creating the container fleet, we set the `InstanceConnectionPortRange`
+    parameter as follows:
 
 ```
 "InstanceConnectionPortRange": { "FromPort": 1010, "ToPort": 1071 }

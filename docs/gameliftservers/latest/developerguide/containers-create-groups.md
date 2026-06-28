@@ -77,11 +77,11 @@ definition.
    can use any of the following formats:
 
    - Image URI only: `[AWS account].dkr.ecr.[AWS Region].amazonaws.com/[repository
-ID]`
+  ID]`
    - Image URI + digest: `[AWS account].dkr.ecr.[AWS Region].amazonaws.com/[repository
-ID]@[digest]`
+  ID]@[digest]`
    - Image URI + tag: `[AWS account].dkr.ecr.[AWS Region].amazonaws.com/[repository
-ID]:[tag]`
+  ID]:[tag]`
 
 3. Specify the Amazon GameLift Servers **Server SDK version** that the game server
    build uses. For a container fleet, this value must be 5.2.0 or greater.
