@@ -46,17 +46,17 @@ results.
 
 **The supported result types for different providers:**
 
-|                        |           |     |     |     |     |      |     |         |
-| ---------------------- | --------- | --- | --- | --- | --- | ---- | --- | ------- |
-|                        | Local sim | SV1 | DM1 | TN1 | AQT | IonQ | IQM | Rigetti |
-| Adjoint gradient       | N         | Y   | N   | N   | N   | N    | N   | N       |
-| Amplitude              | Y         | Y   | N   | N   | N   | N    | N   | N       |
-| Expectation            | Y         | Y   | Y   | Y   | Y   | Y    | Y   | Y       |
-| Probability            | Y         | Y   | Y   | N   | Y   | Y    | Y   | Y       |
-| Reduced density matrix | Y         | N   | Y   | N   | N   | N    | N   | N       |
-| State vector           | Y         | N   | N   | N   | N   | N    | N   | N       |
-| Sample                 | Y         | Y   | Y   | Y   | Y   | Y    | Y   | Y       |
-| Variance               | Y         | Y   | Y   | Y   | Y   | Y    | Y   | Y       |
+|                        |           |     |     |     |      |     |         |
+| ---------------------- | --------- | --- | --- | --- | ---- | --- | ------- |
+|                        | Local sim | SV1 | DM1 | AQT | IonQ | IQM | Rigetti |
+| Adjoint gradient       | N         | Y   | N   | N   | N    | N   | N       |
+| Amplitude              | Y         | Y   | N   | N   | N    | N   | N       |
+| Expectation            | Y         | Y   | Y   | Y   | Y    | Y   | Y       |
+| Probability            | Y         | Y   | Y   | Y   | Y    | Y   | Y       |
+| Reduced density matrix | Y         | N   | Y   | N   | N    | N   | N       |
+| State vector           | Y         | N   | N   | N   | N    | N   | N       |
+| Sample                 | Y         | Y   | Y   | Y   | Y    | Y   | Y       |
+| Variance               | Y         | Y   | Y   | Y   | Y    | Y   | Y       |
 
 You can check the supported result types by examining the device properties, as shown
 in the following example.
@@ -104,7 +104,7 @@ SDK offers a measurements property for all results. However, for devices that re
 these measurements are post-computed and based on the probabilities, as per-shot measurements are not
 available. To determine if a result has been post-computed, check the
 `measurements_copied_from_device` on the result object. This operation is detailed in the
-[gate_model_quantum_task_result.py](https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72 "https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72")
+[gate\_model\_quantum\_task\_result.py](https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72 "https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72")
 file in the Amazon Braket SDK GitHub repository.
 
 ## Observables

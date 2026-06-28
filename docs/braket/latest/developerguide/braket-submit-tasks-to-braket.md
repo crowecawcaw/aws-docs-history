@@ -137,8 +137,7 @@ shots. Simulators such as SV1 support two simulation
 modes.
 
 - For shots = 0, the simulator performs an exact simulation,
-  returning the true values for all result types. (Not available on
-  TN1.)
+  returning the true values for all result types.
 - For non-zero values of shots, the simulator samples from the
   output distribution to emulate the shot noise of real QPUs. QPU
   devices only allow shots > 0.

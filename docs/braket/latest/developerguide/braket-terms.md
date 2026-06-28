@@ -225,7 +225,7 @@ role and assume the permissions of the new role.
   situations in which access to services or resources needs to be granted
   temporarily, instead of long-term.
 
-  **Amazon S3 bucket**
+**Amazon S3 bucket**
 
 Amazon Simple Storage Service (Amazon S3) is an AWS service that lets you store data as
 _objects_ in _buckets_. Amazon S3 buckets

@@ -68,5 +68,4 @@ devices:
 - To restrict access to devices from a certain provider (for example, to
   Rigetti
   QPU devices): `arn:aws:braket:*:*:device/qpu/rigetti/*`
-- To restrict access to the TN1 device: `arn:aws:braket:*:*:device/quantum-simulator/amazon/tn1`
 - To restrict access to all `Create` actions: `braket:Create*`

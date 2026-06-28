@@ -19,8 +19,8 @@ hyperparameters = {"shots": 1_000}
 Then pass the hyperparameters defined in the code snippet given above to be used in the algorithm
 of your choice. To run the following code example, create a directory named “src” in the same path as
 your hyperparameter file. Inside of the "src" directory, add
-[0_Getting_started_papermill.ipynb](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/0_Getting_started_papermill.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/0_Getting_started_papermill.ipynb"),
-[notebook_runner.py](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py"),
+[0\_Getting\_started\_papermill.ipynb](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/0_Getting_started_papermill.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/0_Getting_started_papermill.ipynb"),
+[notebook\_runner.py](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py"),
 and [requirements.txt](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/requirements.txt "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/requirements.txt")
 code files.
 
@@ -43,7 +43,7 @@ print(job)
 
 To access your hyperparameters from _within_ your hybrid job script, see the
 `load_jobs_hyperparams()` function in the
-[notebook_runner.py](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py")
+[notebook\_runner.py](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py")
 python file. To access your hyperparameters _outside_ of your hybrid job script, run the following code.
 
 ```

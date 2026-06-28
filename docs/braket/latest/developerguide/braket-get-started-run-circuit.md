@@ -81,7 +81,7 @@ Amazon Braket also provides access to an on-demand, high-performance
 simulator, SV1, for running larger circuits. SV1 is an
 on-demand state-vector simulator that allows for simulation of quantum circuits of up to 34
 qubits. You can find more information on SV1 in the [Supported Devices](braket-devices.md "braket-devices.md") section and in the AWS console. When
-running quantum tasks on SV1 (and on TN1 or any QPU), the results of
+running quantum tasks on SV1 (or on any QPU), the results of
 your quantum task are stored in an S3 bucket in your account. If you do not specify a bucket, the
 Braket SDK creates a default bucket `amazon-braket-{region}-{accountID}` for
 you. To learn more, see [Managing access to

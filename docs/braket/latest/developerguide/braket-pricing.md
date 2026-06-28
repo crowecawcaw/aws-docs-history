@@ -226,10 +226,6 @@ print(tracker.qpu_tasks_cost(), "USD")
 1.4400000000 USD
 ```
 
-###### Note
-
-The cost tracker will not track duration for failed TN1 quantum tasks. During a TN1 simulation, if your rehearsal completes, but the contraction step fails, your rehearsal charge will not be shown in the cost tracker.
-
 ## Best practices for cost savings
 
 Consider the following best practices for using Amazon Braket. Save time, minimize costs, and avoid common errors.
@@ -250,10 +246,6 @@ Consider the following best practices for using Amazon Braket. Save time, minimi
   The recommended way to set up an alarm is through AWS Budgets. You can set custom
   budgets and receive alerts when your costs or usage may exceed your budgeted amount.
   Information is available at [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/ "https://aws.amazon.com/aws-cost-management/aws-budgets/").
-
-**Test TN1 quantum tasks with low shot counts**
-
-- Simulators cost less than QPUs, but certain simulators can be expensive if quantum tasks are run with high shot counts. We recommend that you test your TN1 tasks with a low shot count. Shot count does not affect the cost for SV1 and local simulator tasks.
 
 **Check all Regions for quantum tasks**
 

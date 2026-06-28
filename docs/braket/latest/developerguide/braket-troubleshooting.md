@@ -28,7 +28,7 @@ If your role does not have access to a given region when using Braket, then you 
 ## An error occurred (ValidationException) when calling the CreateQuantumTask operation
 
 If you receive an error similar to: `An error occurred (ValidationException) when calling the CreateQuantumTask 
- operation: Caller doesn't have access to amazon-braket-…​` Check that you are referring to an existing s3_folder.
+ operation: Caller doesn't have access to amazon-braket-…​` Check that you are referring to an existing s3\_folder.
 Braket does not auto create new Amazon S3 buckets and prefixes for you.
 
 If you are accessing the API directly and receiving an error similar to: `Failed to create quantum 

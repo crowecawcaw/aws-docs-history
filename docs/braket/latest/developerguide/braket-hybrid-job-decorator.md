@@ -150,7 +150,7 @@ def run_hybrid_job(num_tasks=1):
 ```
 
 All other hybrid job options are supported. For a list of options see the
-[braket.jobs.quantum_job_creation module](https://amazon-braket-sdk-python.readthedocs.io/en/stable/_apidoc/braket.jobs.quantum_job_creation.html "https://amazon-braket-sdk-python.readthedocs.io/en/stable/_apidoc/braket.jobs.quantum_job_creation.html").
+[braket.jobs.quantum\_job\_creation module](https://amazon-braket-sdk-python.readthedocs.io/en/stable/_apidoc/braket.jobs.quantum_job_creation.html "https://amazon-braket-sdk-python.readthedocs.io/en/stable/_apidoc/braket.jobs.quantum_job_creation.html").
 
 ## Install additional Python packages and source code
 

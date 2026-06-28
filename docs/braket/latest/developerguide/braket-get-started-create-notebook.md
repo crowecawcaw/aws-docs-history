@@ -14,37 +14,36 @@ notebook instance for new and existing customers.
 
 **New Amazon Braket customers:**
 
-1.  Open the [Amazon Braket
-    console](https://console.aws.amazon.com/braket/home "https://console.aws.amazon.com/braket/home") and navigate to the **Dashboard** page in the left pane.
-2.  Click **Get Started** on the
-    **Welcome to Amazon Braket** modal in the center of your dashboard page.
-    Provide a notebook name to create a default Jupyter notebook.
+1. Open the [Amazon Braket
+   console](https://console.aws.amazon.com/braket/home "https://console.aws.amazon.com/braket/home") and navigate to the **Dashboard** page in the left pane.
+2. Click **Get Started** on the
+   **Welcome to Amazon Braket** modal in the center of your dashboard page.
+   Provide a notebook name to create a default Jupyter notebook.
 
-        1. It may take several minutes to create your notebook.
-        2. Your notebook
-         will be listed on the **Notebooks** page with a
-         status of **Pending**.
-        3. When your notebook instance
-         is ready to use, the status changes to **InService**.
-        4. Refresh the page to display the updated status for the notebook.
+   1. It may take several minutes to create your notebook.
+   2. Your notebook
+      will be listed on the **Notebooks** page with a
+      status of **Pending**.
+   3. When your notebook instance
+      is ready to use, the status changes to **InService**.
+   4. Refresh the page to display the updated status for the notebook.
+      **Existing Amazon Braket customers:**
 
-    **Existing Amazon Braket customers:**
+3. Open the [Amazon Braket
+   console](https://console.aws.amazon.com/braket/home "https://console.aws.amazon.com/braket/home") and select **Notebooks** in the left pane.
+4. Select **Create notebook instance**.
 
-3.  Open the [Amazon Braket
-    console](https://console.aws.amazon.com/braket/home "https://console.aws.amazon.com/braket/home") and select **Notebooks** in the left pane.
-4.  Select **Create notebook instance**.
+   1. If you have zero notebooks, select the **Standard setup** to create a default Jupyter notebook.
 
-    1. If you have zero notebooks, select the **Standard setup** to create a default Jupyter notebook.
+5. Enter a **Notebook instance name**, using only alphanumeric and hyphen characters,
+   and select your preferred **Visual Mode**.
+6. Enable or disable the **Notebook inactivity manager** for your notebook.
 
-5.  Enter a **Notebook instance name**, using only alphanumeric and hyphen characters,
-    and select your preferred **Visual Mode**.
-6.  Enable or disable the **Notebook inactivity manager** for your notebook.
-
-    1. If enabled, select the desired idle duration time before the notebook is reset. When a notebook is reset,
-       the compute charges stop incurring, but the storage charges will continue.
-    2. To check how much idle time remains for your notebook instance, navigate to the command bar, select
-       the **Braket** tab, and then the **Inactivity
-       Manager** tab.
+   1. If enabled, select the desired idle duration time before the notebook is reset. When a notebook is reset,
+      the compute charges stop incurring, but the storage charges will continue.
+   2. To check how much idle time remains for your notebook instance, navigate to the command bar, select
+      the **Braket** tab, and then the **Inactivity
+      Manager** tab.
 
 ###### Note
 
@@ -73,7 +72,7 @@ access permissions, additional configurations, and network access settings:
      for your Jupyter Notebook instance.
 
 6. Review your settings, and set any tags to identify your notebook instance. Click
-   **Launch**.
+**Launch**.
 
 ###### Note
 

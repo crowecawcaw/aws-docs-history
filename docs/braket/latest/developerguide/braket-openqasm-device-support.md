@@ -231,23 +231,23 @@ functions. To see examples of using the OpenPulse functions, see the
 [OpenPulse
 specification](https://openqasm.com/language/openpulse.html "https://openqasm.com/language/openpulse.html"). At this time, Braket supports:
 
-- shift_phase
+- shift\_phase
 
   - Shifts the phase of a frame by a specified value
 
-- set_phase
+- set\_phase
 
   - Sets the phase of frame to the specified value
 
-- swap_phases
+- swap\_phases
 
   - Swaps the phases between two frames.
 
-- shift_frequency
+- shift\_frequency
 
   - Shifts the frequency of a frame by a specified value
 
-- set_frequency
+- set\_frequency
 
   - Sets the frequency of frame to the specified value
 
@@ -255,7 +255,7 @@ specification](https://openqasm.com/language/openpulse.html "https://openqasm.co
 
   - Schedules a waveform
 
-- capture_v0
+- capture\_v0
 
   - Returns the value on a capture frame to a bit register
 
@@ -265,7 +265,7 @@ Describes the pre-built waveform functions available on the device and the assoc
 arguments and types. By default, Braket Pulse offers pre-built waveform routines on
 all devices, which are:
 
-**_Constant_**
+_**Constant**_
 
 ![Mathematical equation showing a constant function with parameters t, tau, and iq where the output is always equal to iq.](images/ConstantFunction.png)
 
@@ -276,7 +276,7 @@ number.
 def constant(length, iq)
 ```
 
-**_Gaussian_**
+_**Gaussian**_
 
 ![Mathematical equation showing the Gaussian function with parameters t, tau, sigma, A=1, and ZaE=0.](images/GaussianFunction.png)
 
@@ -289,7 +289,7 @@ at the start and end of the waveform, and reaches `A` at maximum.
 def gaussian(length, sigma, amplitude=1, zero_at_edges=False)
 ```
 
-**_DRAG Gaussian_**
+_**DRAG Gaussian**_
 
 ![Mathematical equation for DRAG Gaussian distribution with parameters t, tau, sigma, beta, A=1, and ZaE=0.](images/DRAGGaussianFunction.png)
 
@@ -305,7 +305,7 @@ Leakage in Weakly Nonlinear Qubits](https://doi.org/10.1103/PhysRevLett.103.1105
 def drag_gaussian(length, sigma, beta, amplitude=1, zero_at_edges=False)
 ```
 
-**_Erf Square_**
+_**Erf Square**_
 
 ![Mathematical equation for Erf Square distribution with parameters t, Length, Width, sigma, A=1, and ZaE=0.](images/ErfSquareFunction.PNG)
 Where `L` is the length, `W` is the width of the waveform,

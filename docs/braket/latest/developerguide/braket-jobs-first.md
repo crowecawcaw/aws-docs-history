@@ -51,19 +51,19 @@ def start_here():
     print("Test job completed!")
 ```
 
-Save this file with the name _algorithm_script.py_ in your current
-working directory on your Braket notebook or local environment. The algorithm_script.py
+Save this file with the name _algorithm\_script.py_ in your current
+working directory on your Braket notebook or local environment. The algorithm\_script.py
 file has `start_here()` as the planned entry point.
 
 Next, create a Python file or Python notebook in the same directory as the
-algorithm_script.py file. This script kicks off the hybrid job and handles any asynchronous
+algorithm\_script.py file. This script kicks off the hybrid job and handles any asynchronous
 processing, such as printing the status or key outcomes that we are interested in. At a
 minimum, this script needs to specify your hybrid job script and your primary device.
 
 ###### Note
 
 For more information about how to create a Braket notebook or upload a file, such
-as the _algorithm_script.py_ file, in the same directory as the
+as the _algorithm\_script.py_ file, in the same directory as the
 notebooks, see [Run your first circuit
 using the Amazon Braket Python SDK](braket-get-started-run-circuit.md "braket-get-started-run-circuit.md")
 
@@ -77,7 +77,7 @@ to the algorithm scripts as the environment variable
 
 You can only use devices that are available in the AWS Region of your hybrid job. The
 Amazon Braket SDK auto selects this AWS Region. For example, a hybrid job in us-east-1 can use
-IonQ, SV1, DM1, and TN1
+IonQ, SV1, and DM1
 devices, but not Rigetti devices.
 
 If you choose a quantum computer instead of a simulator, Braket schedules your hybrid jobs to
@@ -128,7 +128,7 @@ Code Run Finished
 You can also use your custom-made module with the
 [AwsQuantumJob.create](https://amazon-braket-sdk-python.readthedocs.io/en/latest/_apidoc/braket.aws.aws_quantum_job.html#braket.aws.aws_quantum_job.AwsQuantumJob.create "https://amazon-braket-sdk-python.readthedocs.io/en/latest/_apidoc/braket.aws.aws_quantum_job.html#braket.aws.aws_quantum_job.AwsQuantumJob.create")
 method by passing its location (either the path to a local directory or file, or an S3 URI of a tar.gz file). For a working example, see
-[Parallelize_training_for_QML.ipynb](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/5_Parallelize_training_for_QML/Parallelize_training_for_QML.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/5_Parallelize_training_for_QML/Parallelize_training_for_QML.ipynb")
+[Parallelize\_training\_for\_QML.ipynb](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/5_Parallelize_training_for_QML/Parallelize_training_for_QML.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/5_Parallelize_training_for_QML/Parallelize_training_for_QML.ipynb")
 file in the hybrid jobs folder in the [Amazon Braket examples Github repo](https://github.com/amazon-braket/amazon-braket-examples/tree/main "https://github.com/amazon-braket/amazon-braket-examples/tree/main").
 
 ## Monitor your results
@@ -170,11 +170,11 @@ tar-zipped file named model.tar.gz).
 The output must be saved in a file using a JavaScript Object
 Notation (JSON) format. If the data can not be readily serialized to text, as in the case of a
 numpy array, you could pass in an option to serialize using a pickled data format.
-See the [braket.jobs.data_persistence module](https://amazon-braket-sdk-python.readthedocs.io/en/latest/_apidoc/braket.jobs.data_persistence.html#braket.jobs.data_persistence.save_job_result "https://amazon-braket-sdk-python.readthedocs.io/en/latest/_apidoc/braket.jobs.data_persistence.html#braket.jobs.data_persistence.save_job_result")
+See the [braket.jobs.data\_persistence module](https://amazon-braket-sdk-python.readthedocs.io/en/latest/_apidoc/braket.jobs.data_persistence.html#braket.jobs.data_persistence.save_job_result "https://amazon-braket-sdk-python.readthedocs.io/en/latest/_apidoc/braket.jobs.data_persistence.html#braket.jobs.data_persistence.save_job_result")
 for more details.
 
 To save the results of the hybrid jobs, add the following lines
-commented with #ADD to the algorithm_script.py file.
+commented with #ADD to the algorithm\_script.py file.
 
 ```
 import os
@@ -305,7 +305,7 @@ to `checkpoint-1`.
 
 ###### Note
 
-The _checkpoint_file_suffix_ must match the suffix previously
+The _checkpoint\_file\_suffix_ must match the suffix previously
 specified when creating the checkpoint.
 
 Your orchestration script needs to specify the `job-arn` from the previous

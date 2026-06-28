@@ -38,7 +38,7 @@ name.
 
   - `#pragma braket unitary [[0, -1im], [1im, 0]] q[0]`
   - `#pragma braket result expectation hermitian([[0, -1im], [1im, 0]])
-q[0]`
+   q[0]`
 
 ## Supported OpenQASM statements
 
@@ -54,7 +54,7 @@ The following OpenQASM statements are supported by Amazon Braket.
 
   - `qubit b1;` (equivalently, `qreg b1;`)
   - `qubit[10] b2;` (equivalently, `qreg
-b2[10];`)
+   b2[10];`)
 
 - Indexing within arrays: `q[0]`
 - Input: `input float alpha;`
@@ -115,25 +115,25 @@ The following OpenQASM pragma instructions are supported by Amazon Braket.
 
     - State vector: `#pragma braket result state_vector`
     - Density matrix: `#pragma braket result
-density_matrix`
+   density_matrix`
 
   - Gradient computation pragmas:
 
     - Adjoint gradient: `#pragma braket result adjoint_gradient
-expectation(2.2 * x[0] @ x[1]) all`
+   expectation(2.2 * x[0] @ x[1]) all`
 
   - Z basis result types:
 
     - Amplitude: `#pragma braket result amplitude "01"`
     - Probability: `#pragma braket result probability q[0],
-q[1]`
+   q[1]`
 
   - Basis rotated result types
 
     - Expectation: `#pragma braket result expectation x(q[0]) @
-y([q1])`
+   y([q1])`
     - Variance: `#pragma braket result variance hermitian([[0,
--1im], [1im, 0]]) $0`
+   -1im], [1im, 0]]) $0`
     - Sample: `#pragma braket result sample h($1)`
 
 ###### Note

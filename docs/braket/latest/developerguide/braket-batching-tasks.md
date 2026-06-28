@@ -43,8 +43,8 @@ section in the _Amazon Braket Developer Guide_ and the
 in the Braket examples Github repository.
 
 **Quantum task batching** is available on every Amazon Braket device.
-Batching is especially useful for quantum tasks you run on the on-demand simulators (SV1,
-DM1 or TN1) because they can process multiple quantum tasks in parallel.
+Batching is especially useful for quantum tasks you run on the on-demand simulators (SV1 or
+DM1) because they can process multiple quantum tasks in parallel.
 Batching allows you to launch quantum tasks in parallel. For example, if you wish to make a calculation
 that requires 10 quantum tasks and the programs in those quantum tasks are independent of each other,
 it is recommended to use task batching. Use quantum task batching when running workloads with multiple
@@ -96,11 +96,7 @@ A few caveats to keep in mind regarding quantum task batching and billing costs:
 - A batch of long running quantum tasks, such as 34 qubits for
   SV1, can incur large costs. Be sure to double check the
   `run_batch` assignment values carefully before you start a batch
-  of quantum tasks. We do not recommend using TN1 with
-  `run_batch`.
-- TN1 can incur costs for failed rehearsal phase tasks (see [the TN1 description](braket-devices.md#braket-simulator-tn1 "braket-devices.md#braket-simulator-tn1") for more information). Automatic retries can
-  add to the cost and so we recommend setting the number of 'max_retries' on
-  batching to 0 when using TN1 (see [Quantum Task Batching, Line 186](https://github.com/aws/amazon-braket-sdk-python/blob/4c7c3b28e5a17b8f0cddf94377b7734fcbe2ebfc/src/braket/aws/aws_quantum_task_batch.py#L186 "https://github.com/aws/amazon-braket-sdk-python/blob/4c7c3b28e5a17b8f0cddf94377b7734fcbe2ebfc/src/braket/aws/aws_quantum_task_batch.py#L186")).
+  of quantum tasks.
 
 ## Quantum task batching and PennyLane
 

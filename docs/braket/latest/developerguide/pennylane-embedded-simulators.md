@@ -80,7 +80,7 @@ the `ml.g4dn.xlarge` instance it is about 0.6 seconds. For this 21-qubit workflo
 GPU instance gives us a 100x speedup. If you look at the Amazon Braket Hybrid Jobs
 [pricing page](https://aws.amazon.com/braket/pricing/ "https://aws.amazon.com/braket/pricing/"), you can see that the cost per
 minute for an `m5.2xlarge` instance is $0.00768, while for the `ml.g4dn.xlarge` instance
-it is $0.01227. In this instance it is faster and cheaper to run on the GPU instance.
+ it is $0.01227. In this instance it is faster and cheaper to run on the GPU instance.
 
 ## Quantum machine learning and data parallelism
 

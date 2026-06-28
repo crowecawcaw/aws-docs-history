@@ -85,7 +85,7 @@ the strength of the Rydberg-Rydberg interaction coefficient
 
 ## Braket AHS program schema
 
-**braket.ir.ahs.program_v1.Program object**
+**braket.ir.ahs.program\_v1.Program object**
 (example)
 
 ###### Note
@@ -214,31 +214,31 @@ feature is not enabled for your account, use `"localDetuning": []` in the follow
 }
 ```
 
-| Main fields                                              | Program field       | type                                                                                                                 | description |
-| -------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------- |
-| setup.ahs_register.sites                                 | List[List[Decimal]] | List of 2-d coordinates where the tweezers trap atoms                                                                |
-| setup.ahs_register.filling                               | List[int]           | Marks atoms that occupy the trap sites with 1, and empty sites with<br>0                                             |
-| hamiltonian.drivingFields[].amplitude.time_series.times  | List[Decimal]       | time points of driving amplitude, Omega(t)                                                                           |
-| hamiltonian.drivingFields[].amplitude.time_series.values | List[Decimal]       | values of driving amplitude, Omega(t)                                                                                |
-| hamiltonian.drivingFields[].amplitude.pattern            | str                 | spatial pattern of driving amplitude, Omega(t); must be<br>'uniform'                                                 |
-| hamiltonian.drivingFields[].phase.time_series.times      | List[Decimal]       | time points of driving phase, phi(t)                                                                                 |
-| hamiltonian.drivingFields[].phase.time_series.values     | List[Decimal]       | values of driving phase, phi(t)                                                                                      |
-| hamiltonian.drivingFields[].phase.pattern                | str                 | spatial pattern of driving phase, phi(t); must be 'uniform'                                                          |
-| hamiltonian.drivingFields[].detuning.time_series.times   | List[Decimal]       | time points of driving detuning, Delta_global(t)                                                                     |
-| hamiltonian.drivingFields[].detuning.time_series.values  | List[Decimal]       | values of driving detuning, Delta_global(t)                                                                          |
-| hamiltonian.drivingFields[].detuning.pattern             | str                 | spatial pattern of driving detuning, Delta_global(t); must be<br>'uniform'                                           |
-| hamiltonian.localDetuning[].magnitude.time_series.times  | List[Decimal]       | time points of the time-dependent factor of the local detuning magnitude, Delta_local(t)                             |
-| hamiltonian.localDetuning[].magnitude.time_series.values | List[Decimal]       | values of the time-dependent factor of the local detuning magnitude, Delta_local(t)                                  |
-| hamiltonian.localDetuning[].magnitude.pattern            | List[Decimal]       | site-dependent factor of the local detuning magnitude, h_k (values corresponds to sites in setup.ahs_register.sites) |
+Main fields| Program field | type | description |
+| --- | --- | --- |
+| setup.ahs\_register.sites | List[List[Decimal]] | List of 2-d coordinates where the tweezers trap atoms |
+| setup.ahs\_register.filling | List[int] | Marks atoms that occupy the trap sites with 1, and empty sites with<br>0 |
+| hamiltonian.drivingFields[].amplitude.time\_series.times | List[Decimal] | time points of driving amplitude, Omega(t) |
+| hamiltonian.drivingFields[].amplitude.time\_series.values | List[Decimal] | values of driving amplitude, Omega(t) |
+| hamiltonian.drivingFields[].amplitude.pattern | str | spatial pattern of driving amplitude, Omega(t); must be<br>'uniform' |
+| hamiltonian.drivingFields[].phase.time\_series.times | List[Decimal] | time points of driving phase, phi(t) |
+| hamiltonian.drivingFields[].phase.time\_series.values | List[Decimal] | values of driving phase, phi(t) |
+| hamiltonian.drivingFields[].phase.pattern | str | spatial pattern of driving phase, phi(t); must be 'uniform' |
+| hamiltonian.drivingFields[].detuning.time\_series.times | List[Decimal] | time points of driving detuning, Delta\_global(t) |
+| hamiltonian.drivingFields[].detuning.time\_series.values | List[Decimal] | values of driving detuning, Delta\_global(t) |
+| hamiltonian.drivingFields[].detuning.pattern | str | spatial pattern of driving detuning, Delta\_global(t); must be<br>'uniform' |
+| hamiltonian.localDetuning[].magnitude.time\_series.times | List[Decimal] | time points of the time-dependent factor of the local detuning magnitude, Delta\_local(t) |
+| hamiltonian.localDetuning[].magnitude.time\_series.values | List[Decimal] | values of the time-dependent factor of the local detuning magnitude, Delta\_local(t) |
+| hamiltonian.localDetuning[].magnitude.pattern | List[Decimal] | site-dependent factor of the local detuning magnitude, h\_k (values corresponds to sites in setup.ahs\_register.sites) |
 
-| Metadata fields            | Program field | type                                                | description |
-| -------------------------- | ------------- | --------------------------------------------------- | ----------- |
-| braketSchemaHeader.name    | str           | name of the schema; must be 'braket.ir.ahs.program' |
-| braketSchemaHeader.version | str           | version of the schema                               |
+Metadata fields| Program field | type | description |
+| --- | --- | --- |
+| braketSchemaHeader.name | str | name of the schema; must be 'braket.ir.ahs.program' |
+| braketSchemaHeader.version | str | version of the schema |
 
 ## Braket AHS task result schema
 
-**braket.tasks.analog_hamiltonian_simulation_quantum_task_result.AnalogHamiltonianSimulationQuantumTaskResult**
+**braket.tasks.analog\_hamiltonian\_simulation\_quantum\_task\_result.AnalogHamiltonianSimulationQuantumTaskResult**
 (example)
 
 ```
@@ -326,33 +326,33 @@ AnalogHamiltonianSimulationQuantumTaskResult(
 }
 ```
 
-| Main fields                            | Task result field | type                                                                                                                                                                                                            | description |
-| -------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| measurements[].shotResult.preSequence  | List[int]         | Pre-sequence measurement bits (one for each atomic site) for each<br>shot: 0 if site is empty, 1 if site is filled, measured before the<br>sequences of pulses that run the quantum evolution                   |
-| measurements[].shotResult.postSequence | List[int]         | Post-sequence measurement bits for each shot: 0 if atom is in Rydberg<br>state or site is empty, 1 if atom is in ground state, measured at the end<br>of the sequences of pulses that run the quantum evolution |
+Main fields| Task result field | type | description |
+| --- | --- | --- |
+| measurements[].shotResult.preSequence | List[int] | Pre-sequence measurement bits (one for each atomic site) for each<br>shot: 0 if site is empty, 1 if site is filled, measured before the<br>sequences of pulses that run the quantum evolution |
+| measurements[].shotResult.postSequence | List[int] | Post-sequence measurement bits for each shot: 0 if atom is in Rydberg<br>state or site is empty, 1 if atom is in ground state, measured at the end<br>of the sequences of pulses that run the quantum evolution |
 
-| Metadata fields                                                    | Task result field                | type                                                                                                                                                | description |
-| ------------------------------------------------------------------ | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| braketSchemaHeader.name                                            | str                              | name of the schema; must be<br>'braket.task_result.analog_hamiltonian_simulation_task_result'                                                       |
-| braketSchemaHeader.version                                         | str                              | version of the schema                                                                                                                               |
-| taskMetadata.braketSchemaHeader.name                               | str                              | name of the schema; must be ‘braket.task_result.task_metadata'                                                                                      |
-| taskMetadata.braketSchemaHeader.version                            | str                              | version of the schema                                                                                                                               |
-| taskMetadata.id                                                    | str                              | The ID of the quantum task. For AWS quantum tasks, this is the quantum task ARN.                                                                    |
-| taskMetadata.shots                                                 | int                              | The number of shots for the quantum task                                                                                                            |
-| taskMetadata.shots.deviceId                                        | str                              | The ID of the device on which the quantum task ran. For AWS devices, this is<br>the device ARN.                                                     |
-| taskMetadata.shots.createdAt                                       | str                              | The timestamp of creation; the format must be in ISO-8601/RFC3339<br>string format YYYY-MM-DDTHH:mm:ss.sssZ. Default is None.                       |
-| taskMetadata.shots.endedAt                                         | str                              | The timestamp of when the quantum task ended; the format must be in<br>ISO-8601/RFC3339 string format YYYY-MM-DDTHH:mm:ss.sssZ. Default is<br>None. |
-| taskMetadata.shots.status                                          | str                              | The status of the quantum task (CREATED, QUEUED, RUNNING, COMPLETED, FAILED).<br>Default is None.                                                   |
-| taskMetadata.shots.failureReason                                   | str                              | The failure reason of the quantum task. Default is None.                                                                                            |
-| additionalMetadata.action                                          | braket.ir.ahs.program_v1.Program | (See the [Braket AHS<br>program schema](#braket-quera-ahs-program-schema "#braket-quera-ahs-program-schema") section)                               |
-| additionalMetadata.action.braketSchemaHeader.queraMetadata.name    | str                              | name of the schema; must be 'braket.task_result.quera_metadata'                                                                                     |
-| additionalMetadata.action.braketSchemaHeader.queraMetadata.version | str                              | version of the schema                                                                                                                               |
-| additionalMetadata.action.numSuccessfulShots                       | int                              | number of completely successful shots; must be equal to the requested<br>number of shots                                                            |
-| measurements[].shotMetadata.shotStatus                             | int                              | The status of the shot, (Success, Partial success, Failure); must be<br>"Success"                                                                   |
+Metadata fields| Task result field | type | description |
+| --- | --- | --- |
+| braketSchemaHeader.name | str | name of the schema; must be<br>'braket.task\_result.analog\_hamiltonian\_simulation\_task\_result' |
+| braketSchemaHeader.version | str | version of the schema |
+| taskMetadata.braketSchemaHeader.name | str | name of the schema; must be ‘braket.task\_result.task\_metadata' |
+| taskMetadata.braketSchemaHeader.version | str | version of the schema |
+| taskMetadata.id | str | The ID of the quantum task. For AWS quantum tasks, this is the quantum task ARN. |
+| taskMetadata.shots | int | The number of shots for the quantum task |
+| taskMetadata.shots.deviceId | str | The ID of the device on which the quantum task ran. For AWS devices, this is<br>the device ARN. |
+| taskMetadata.shots.createdAt | str | The timestamp of creation; the format must be in ISO-8601/RFC3339<br>string format YYYY-MM-DDTHH:mm:ss.sssZ. Default is None. |
+| taskMetadata.shots.endedAt | str | The timestamp of when the quantum task ended; the format must be in<br>ISO-8601/RFC3339 string format YYYY-MM-DDTHH:mm:ss.sssZ. Default is<br>None. |
+| taskMetadata.shots.status | str | The status of the quantum task (CREATED, QUEUED, RUNNING, COMPLETED, FAILED).<br>Default is None. |
+| taskMetadata.shots.failureReason | str | The failure reason of the quantum task. Default is None. |
+| additionalMetadata.action | braket.ir.ahs.program\_v1.Program | (See the [Braket AHS<br>program schema](#braket-quera-ahs-program-schema "#braket-quera-ahs-program-schema") section) |
+| additionalMetadata.action.braketSchemaHeader.queraMetadata.name | str | name of the schema; must be 'braket.task\_result.quera\_metadata' |
+| additionalMetadata.action.braketSchemaHeader.queraMetadata.version | str | version of the schema |
+| additionalMetadata.action.numSuccessfulShots | int | number of completely successful shots; must be equal to the requested<br>number of shots |
+| measurements[].shotMetadata.shotStatus | int | The status of the shot, (Success, Partial success, Failure); must be<br>"Success" |
 
 ## QuEra device properties schema
 
-**braket.device_schema.quera.quera_device_capabilities_v1.QueraDeviceCapabilities**
+**braket.device\_schema.quera.quera\_device\_capabilities\_v1.QueraDeviceCapabilities**
 (example)
 
 ```
@@ -506,23 +506,23 @@ QueraDeviceCapabilities(
 }
 ```
 
-| Service properties fields                         | Service properties field | type                                                                                                                                                         | description |
-| ------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| service.executionWindows[].executionDay           | ExecutionDay             | Days of the execution window; must be 'Everyday', 'Weekdays',<br>'Weekend', 'Monday', 'Tuesday', 'Wednesday', Thursday', 'Friday',<br>'Saturday' or 'Sunday' |
-| service.executionWindows[].windowStartHour        | datetime.time            | UTC 24-hour format of the time when the execution window starts                                                                                              |
-| service.executionWindows[].windowEndHour          | datetime.time            | UTC 24-hour format of the time when the execution window ends                                                                                                |
-| service.qpu_capabilities.service.shotsRange       | Tuple[int, int]          | Minimum and maximum number of shots for the device                                                                                                           |
-| service.qpu_capabilities.service.deviceCost.price | float                    | Price of the device in terms of US dollars                                                                                                                   |
-| service.qpu_capabilities.service.deviceCost.unit  | str                      | unit for charging the price, e.g: 'minute', 'hour', 'shot',<br>'task'                                                                                        |
+Service properties fields| Service properties field | type | description |
+| --- | --- | --- |
+| service.executionWindows[].executionDay | ExecutionDay | Days of the execution window; must be 'Everyday', 'Weekdays',<br>'Weekend', 'Monday', 'Tuesday', 'Wednesday', Thursday', 'Friday',<br>'Saturday' or 'Sunday' |
+| service.executionWindows[].windowStartHour | datetime.time | UTC 24-hour format of the time when the execution window starts |
+| service.executionWindows[].windowEndHour | datetime.time | UTC 24-hour format of the time when the execution window ends |
+| service.qpu\_capabilities.service.shotsRange | Tuple[int, int] | Minimum and maximum number of shots for the device |
+| service.qpu\_capabilities.service.deviceCost.price | float | Price of the device in terms of US dollars |
+| service.qpu\_capabilities.service.deviceCost.unit | str | unit for charging the price, e.g: 'minute', 'hour', 'shot',<br>'task' |
 
-| Metadata fields                                      | Metadata field | type                                                                            | description |
-| ---------------------------------------------------- | -------------- | ------------------------------------------------------------------------------- | ----------- |
-| action[].version                                     | str            | version of the AHS program schema                                               |
-| action[].actionType                                  | ActionType     | AHS program schema name; must be 'braket.ir.ahs.program'                        |
-| service.braketSchemaHeader.name                      | str            | name of the schema; must be<br>'braket.device_schema.device_service_properties' |
-| service.braketSchemaHeader.version                   | str            | version of the schema                                                           |
-| service.deviceDocumentation.imageUrl                 | str            | URL for the image of the device                                                 |
-| service.deviceDocumentation.summary                  | str            | brief description on the device                                                 |
-| service.deviceDocumentation.externalDocumentationUrl | str            | external documentation URL                                                      |
-| service.deviceLocation                               | str            | geographic location fo the device                                               |
-| service.updatedAt                                    | datetime       | time when the device properties were last updated                               |
+Metadata fields| Metadata field | type | description |
+| --- | --- | --- |
+| action[].version | str | version of the AHS program schema |
+| action[].actionType | ActionType | AHS program schema name; must be 'braket.ir.ahs.program' |
+| service.braketSchemaHeader.name | str | name of the schema; must be<br>'braket.device\_schema.device\_service\_properties' |
+| service.braketSchemaHeader.version | str | version of the schema |
+| service.deviceDocumentation.imageUrl | str | URL for the image of the device |
+| service.deviceDocumentation.summary | str | brief description on the device |
+| service.deviceDocumentation.externalDocumentationUrl | str | external documentation URL |
+| service.deviceLocation | str | geographic location fo the device |
+| service.updatedAt | datetime | time when the device properties were last updated |

@@ -8,7 +8,6 @@ tasks. You can submit quantum tasks individually or you can
 
 - **Density matrix simulator, DM1** : `arn:aws:braket:::device/quantum-simulator/amazon/dm1`
 - **State vector simulator, SV1** : `arn:aws:braket:::device/quantum-simulator/amazon/sv1`
-- **Tensor network simulator, TN1** : `arn:aws:braket:::device/quantum-simulator/amazon/tn1`
 - **The local simulator** :
   `LocalSimulator()`
 
@@ -21,12 +20,11 @@ to be cancelled successfully during QPU availability windows.
 
 ###### In this section:
 
-- [Local state vector simulator (braket_sv)](#braket-simulator-sv "#braket-simulator-sv")
-- [Local density matrix simulator (braket_dm)](#braket-simulator-dm "#braket-simulator-dm")
-- [Local AHS simulator (braket_ahs)](#braket-simulator-ahs-local "#braket-simulator-ahs-local")
+- [Local state vector simulator (braket\_sv)](#braket-simulator-sv "#braket-simulator-sv")
+- [Local density matrix simulator (braket\_dm)](#braket-simulator-dm "#braket-simulator-dm")
+- [Local AHS simulator (braket\_ahs)](#braket-simulator-ahs-local "#braket-simulator-ahs-local")
 - [State vector simulator (SV1)](#braket-simulator-sv1 "#braket-simulator-sv1")
 - [Density matrix simulator (DM1)](#braket-simulator-dm1 "#braket-simulator-dm1")
-- [Tensor network simulator (TN1)](#braket-simulator-tn1 "#braket-simulator-tn1")
 - [About embedded simulators](embedded-simulator.md "embedded-simulator.md")
 - [Compare Amazon Braket simulators](choose-a-simulator.md "choose-a-simulator.md")
 - [Example quantum tasks on Amazon Braket](braket-submit-tasks-to-braket.md "braket-submit-tasks-to-braket.md")
@@ -179,52 +177,3 @@ TwoQubitDephasing
 TwoQubitDepolarizing
     Probability has to be within [0,0.9375]
 ```
-
-## Tensor network simulator (TN1)
-
-TN1 is an on-demand, high-performance, tensor network simulator.
-TN1 can simulate certain circuit types with up to 50
-qubits and a circuit depth of 100 or smaller. TN1 is
-particularly powerful for sparse circuits, circuits with local gates, and other circuits
-with special structure, such as quantum Fourier transform (QFT) circuits.
-TN1 operates in two phases. First, the _rehearsal
-phase_ attempts to identify an efficient computational path for your circuit,
-so TN1 can estimate the runtime of the next stage, which is called the
-_contraction phase_. If the estimated contraction time exceeds the
-TN1 simulation runtime limit, TN1 does not attempt
-contraction.
-
-TN1 has a runtime limit of 6 hours. It is limited to a maximum of 10 (5 in
-eu-west-2) concurrent quantum tasks.
-
-**TN1 results**
-
-The contraction phase consists of a series of matrix multiplications. The series of
-multiplications continues until a result is reached or until it is determined that a result
-cannot be reached.
-
-**Note**: Shots must be > 0.
-
-Result types include:
-
-- Sample
-- Expectation
-- Variance
-
-For more about results, see [Result types](braket-result-types.md "braket-result-types.md").
-
-TN1 is always available, it runs your circuits on demand, and it can run
-multiple circuits in parallel. To learn more, see [Compare simulators](braket-devices.md#choose-a-simulator "braket-devices.md#choose-a-simulator").
-
-Simulators support all gates in the Braket SDK, but QPU devices support a smaller
-subset. You can find the supported gates of a device in the device properties.
-
-Visit the Amazon Braket GitHub repository for a [TN1 example notebook](https://github.com/aws/amazon-braket-examples/blob/main/examples/braket_features/Using_the_tensor_network_simulator_TN1.ipynb "https://github.com/aws/amazon-braket-examples/blob/main/examples/braket_features/Using_the_tensor_network_simulator_TN1.ipynb") to help you get started with TN1.
-
-**Best practices for working with TN1**
-
-- Avoid all-to-all circuits.
-- Test a new circuit or class of circuits with a small number of
-  shots, to learn the circui's "hardness" for
-  TN1.
-- Split large shot simulations over multiple quantum tasks.

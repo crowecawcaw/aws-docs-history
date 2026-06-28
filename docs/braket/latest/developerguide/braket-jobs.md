@@ -80,8 +80,7 @@ API, where you provide your algorithm script or container, select the
 target quantum device the hybrid job is to use, and then choose from a variety of optional
 settings. The default values provided for these optional settings work for the majority of
 use cases. For the target device to run your Hybrid Job, you have a choice between a QPU,
-an on-demand simulator (such as SV1, DM1 or
-TN1), or the classical hybrid job instance itself. With an on-demand simulator
+an on-demand simulator (such as SV1 or DM1), or the classical hybrid job instance itself. With an on-demand simulator
 or QPU, your hybrid jobs container makes API calls to a remote device. With the embedded
 simulators, the simulator is embedded in the same container as your algorithm script. The
 [lightning
