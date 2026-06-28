@@ -100,15 +100,15 @@ If you see one of the following error messages, you can request an increase in o
 the Amazon Managed Service for Prometheus quotas to solve the issue. For more information, see [Amazon Managed Service for Prometheus service quotas](AMP_quotas.md "AMP_quotas.md").
 
 - **`per-user series limit of `<value>` exceeded, please contact
-administrator to raise it`**
+ administrator to raise it`**
 - **`per-metric series limit of `<value>` exceeded, please contact
-administrator to raise it`**
+ administrator to raise it`**
 - **`ingestion rate limit (...) exceeded`**
 - **`series has too many labels (...) series: '%s'`**
 - **`the query time range exceeds the limit (query length: xxx, limit:
-yyy)`**
+ yyy)`**
 - **`the query hit the max number of chunks limit while fetching chunks
-from ingesters`**
+ from ingesters`**
 - **`Limit exceeded. Maximum workspaces per account.`**
 
 ## Your local Prometheus server output exceeds the limit.
@@ -119,12 +119,12 @@ Amazon Managed Service for Prometheus, you can run the following queries on your
 your Prometheus output is exceeding a Amazon Managed Service for Prometheus limit, you can request an increase of
 the corresponding service quota. For more information, see [Amazon Managed Service for Prometheus service quotas](AMP_quotas.md "AMP_quotas.md").
 
-| Queries against your local self-run Prometheus server to find the output limits. | Type of data                                            | Query to use |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------ |
-| Current active series                                                            | `prometheus_tsdb_head_series`                           |
-| Current ingestion rate                                                           | `rate(prometheus_tsdb_head_samples_appended_total[5m])` |
-| Most-to-least list of active series per metric name                              | `sort_desc(count by(__name__) ({__name__!=""}))`        |
-| Number of labels per metric series                                               | `group by(mylabelname) ({__name__!=""})`                |
+Queries against your local self-run Prometheus server to find the output limits.| Type of data | Query to use |
+| --- | --- |
+| Current active series | `prometheus_tsdb_head_series` |
+| Current ingestion rate | `rate(prometheus_tsdb_head_samples_appended_total[5m])` |
+| Most-to-least list of active series per metric name | `sort_desc(count by(__name__) ({__name__!=""}))` |
+| Number of labels per metric series | `group by(mylabelname) ({__name__!=""})` |
 
 ## Some of my data isn't appearing
 
@@ -134,25 +134,25 @@ table shows reasons that data might be discarded rather than being ingested.
 You can track the amount and reasons that data is discarded using Amazon CloudWatch. For more
 information, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
 
-| Reason                                      | Meaning                                                                                                                                                                                                         |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| greater_than_max_sample_age                 | Discarding log lines which are older than the current time                                                                                                                                                      |
-| new-value-for-timestamp                     | Duplicate samples are sent with the same timestamp as the previous sample<br>but with different values.                                                                                                         |
-| per_metric_series_limit                     | User has hit the active series per metric limit                                                                                                                                                                 |
-| per_user_series_limit                       | User has hit the total number of active series limit                                                                                                                                                            |
-| rate_limited                                | Ingestion rate limited                                                                                                                                                                                          |
-| sample-out-of-order                         | Samples are sent out of order and cannot be processed. This reason is only emitted when the out-of-order time window is set to 0.                                                                               |
-| sample-too-old                              | Sample is older than the configured out-of-order time window and cannot be processed.                                                                                                                           |
-| out-of-order-rate-limit                     | Out-of-order ingestion rate limit was reached and the sample cannot be processed. For more information, see [Amazon Managed Service for Prometheus service quotas](AMP_quotas.md "AMP_quotas.md").              |
-| label_value_too_long                        | Label value is longer than allowed character limit                                                                                                                                                              |
-| max_label_names_per_series                  | User has hit the label names per metric                                                                                                                                                                         |
-| missing_metric_name                         | Metric name is not provided                                                                                                                                                                                     |
-| metric_name_invalid                         | Invalid metric name provided                                                                                                                                                                                    |
-| label_invalid                               | Invalid label provided                                                                                                                                                                                          |
-| duplicate_label_names                       | Duplicate label names provided                                                                                                                                                                                  |
-| native_histogram_sample_size_bytes_exceeded | Native histogram sample exceeds the maximum allowed sample size.<br>Reduce the number of buckets or spans in the histogram on the client<br>side.                                                               |
-| native_histogram_invalid_schema             | Native histogram has an invalid schema value. Valid schemas range<br>from -4 to 8. Check your Prometheus client configuration for the<br>`NativeHistogramBucketFactor` setting.                                 |
-| native_histogram_invalid                    | Native histogram fails validation (for example, negative bucket<br>counts, mismatched bucket counts, or malformed bucket spans). This<br>typically indicates a bug in the instrumentation library.              |
-| native_histogram_buckets_exceeded           | Native histogram exceeds the maximum bucket count limit and<br>resolution cannot be automatically reduced. Reduce the number of<br>buckets on the client side using<br>`NativeHistogramMaxBucketNumber`.        |
-| native_histogram_rate_limited               | Native histogram sample was rejected because the native histogram<br>ingestion rate limit was reached. Reduce the number of native<br>histogram series or the scrape frequency, or request a limit<br>increase. |
-| per_user_native_histogram_series_limit      | User has hit the native histogram active series limit per<br>workspace. Reduce the number of native histogram series or request a<br>limit increase.                                                            |
+| Reason                                           | Meaning                                                                                                                                                                                                         |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| greater\_than\_max\_sample\_age                  | Discarding log lines which are older than the current time                                                                                                                                                      |
+| new-value-for-timestamp                          | Duplicate samples are sent with the same timestamp as the previous sample<br>but with different values.                                                                                                         |
+| per\_metric\_series\_limit                       | User has hit the active series per metric limit                                                                                                                                                                 |
+| per\_user\_series\_limit                         | User has hit the total number of active series limit                                                                                                                                                            |
+| rate\_limited                                    | Ingestion rate limited                                                                                                                                                                                          |
+| sample-out-of-order                              | Samples are sent out of order and cannot be processed. This reason is only emitted when the out-of-order time window is set to 0.                                                                               |
+| sample-too-old                                   | Sample is older than the configured out-of-order time window and cannot be processed.                                                                                                                           |
+| out-of-order-rate-limit                          | Out-of-order ingestion rate limit was reached and the sample cannot be processed. For more information, see [Amazon Managed Service for Prometheus service quotas](AMP_quotas.md "AMP_quotas.md").              |
+| label\_value\_too\_long                          | Label value is longer than allowed character limit                                                                                                                                                              |
+| max\_label\_names\_per\_series                   | User has hit the label names per metric                                                                                                                                                                         |
+| missing\_metric\_name                            | Metric name is not provided                                                                                                                                                                                     |
+| metric\_name\_invalid                            | Invalid metric name provided                                                                                                                                                                                    |
+| label\_invalid                                   | Invalid label provided                                                                                                                                                                                          |
+| duplicate\_label\_names                          | Duplicate label names provided                                                                                                                                                                                  |
+| native\_histogram\_sample\_size\_bytes\_exceeded | Native histogram sample exceeds the maximum allowed sample size.<br>Reduce the number of buckets or spans in the histogram on the client<br>side.                                                               |
+| native\_histogram\_invalid\_schema               | Native histogram has an invalid schema value. Valid schemas range<br>from -4 to 8. Check your Prometheus client configuration for the<br>`NativeHistogramBucketFactor` setting.                                 |
+| native\_histogram\_invalid                       | Native histogram fails validation (for example, negative bucket<br>counts, mismatched bucket counts, or malformed bucket spans). This<br>typically indicates a bug in the instrumentation library.              |
+| native\_histogram\_buckets\_exceeded             | Native histogram exceeds the maximum bucket count limit and<br>resolution cannot be automatically reduced. Reduce the number of<br>buckets on the client side using<br>`NativeHistogramMaxBucketNumber`.        |
+| native\_histogram\_rate\_limited                 | Native histogram sample was rejected because the native histogram<br>ingestion rate limit was reached. Reduce the number of native<br>histogram series or the scrape frequency, or request a limit<br>increase. |
+| per\_user\_native\_histogram\_series\_limit      | User has hit the native histogram active series limit per<br>workspace. Reduce the number of native histogram series or request a<br>limit increase.                                                            |

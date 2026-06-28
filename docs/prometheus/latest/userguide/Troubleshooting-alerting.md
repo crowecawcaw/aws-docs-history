@@ -258,7 +258,7 @@ KMS Permissions for SNS Topic](../../../sns/latest/dg/sns-key-management.md#sns-
 
 This means that there is an error in a template being used in the AlertManager
 definition. The error entry contains directions about what receiver, the position in
-the sns_configs and the property that contains errors.
+the sns\_configs and the property that contains errors.
 
 **Action to take**
 

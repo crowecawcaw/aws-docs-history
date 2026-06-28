@@ -3,7 +3,7 @@
 Amazon Managed Service for Prometheus supports ingesting metrics from Prometheus servers in self-managed
 Kubernetes clusters running on Fargate. To ingest metrics from Prometheus servers
 in Amazon EKS clusters running on Fargate, override the default configs in a config
-file named amp_ingest_override_values.yaml as follows:
+file named amp\_ingest\_override\_values.yaml as follows:
 
 ```
 prometheus-node-exporter:

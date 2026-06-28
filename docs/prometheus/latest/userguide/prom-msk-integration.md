@@ -124,7 +124,7 @@ dns_sd_configs:
 Replace `clusterName.xxx.xxx.xxx` with your actual MSK
 cluster endpoint from the AWS Console.
 
-For more information, see [<dns_sd_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#dns_sd_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#dns_sd_config") in the
+For more information, see [<dns\_sd\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#dns_sd_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#dns_sd_config") in the
 _Prometheus_ documentation.
 
 The following is an example of the scraper configuration file:
@@ -409,94 +409,94 @@ aws amp delete-scraper --scraper-id `scraperId`
 When you integrate with Amazon MSK, the Amazon Managed Service for Prometheus collector automatically scrapes the
 following metrics:
 
-| Metric                                                                 | Description / Purpose                                                                                    |
-| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| jmx_config_reload_failure_total                                        | Total number of times the JMX exporter failed to<br>reload its configuration file.                       |
-| jmx_scrape_duration_seconds                                            | Time taken to scrape JMX metrics in seconds for the<br>current collection cycle.                         |
-| jmx_scrape_error                                                       | Indicates whether an error occurred during JMX metric<br>scraping (1 = error, 0 = success).              |
-| java_lang_Memory_HeapMemoryUsage_used                                  | Amount of heap memory (in bytes) currently used by the<br>JVM.                                           |
-| java_lang_Memory_HeapMemoryUsage_max                                   | Maximum amount of heap memory (in bytes) that can be<br>used for memory management.                      |
-| java_lang_Memory_NonHeapMemoryUsage_used                               | Amount of non-heap memory (in bytes) currently used by<br>the JVM.                                       |
-| kafka_cluster_Partition_Value                                          | Current state or value related to Kafka cluster<br>partitions, broken down by partition ID and<br>topic. |
-| kafka_consumer_consumer_coordinator_metrics_assigned_partitions        | Number of partitions currently assigned to this<br>consumer.                                             |
-| kafka_consumer_consumer_coordinator_metrics_commit_latency_avg         | Average time taken to commit offsets in<br>milliseconds.                                                 |
-| kafka_consumer_consumer_coordinator_metrics_commit_rate                | Number of offset commits per second.                                                                     |
-| kafka_consumer_consumer_coordinator_metrics_failed_rebalance_total     | Total number of failed consumer group<br>rebalances.                                                     |
-| kafka_consumer_consumer_coordinator_metrics_last_heartbeat_seconds_ago | Number of seconds since the last heartbeat was sent to<br>the coordinator.                               |
-| kafka_consumer_consumer_coordinator_metrics_rebalance_latency_avg      | Average time taken for consumer group rebalances in<br>milliseconds.                                     |
-| kafka_consumer_consumer_coordinator_metrics_rebalance_total            | Total number of consumer group rebalances.                                                               |
-| kafka_consumer_consumer_fetch_manager_metrics_bytes_consumed_rate      | Average number of bytes consumed per second by the<br>consumer.                                          |
-| kafka_consumer_consumer_fetch_manager_metrics_fetch_latency_avg        | Average time taken for a fetch request in<br>milliseconds.                                               |
-| kafka_consumer_consumer_fetch_manager_metrics_fetch_rate               | Number of fetch requests per second.                                                                     |
-| kafka_consumer_consumer_fetch_manager_metrics_records_consumed_rate    | Average number of records consumed per second.                                                           |
-| kafka_consumer_consumer_fetch_manager_metrics_records_lag_max          | Maximum lag in terms of number of records for any<br>partition in this consumer.                         |
-| kafka_consumer_consumer_metrics_connection_count                       | Current number of active connections.                                                                    |
-| kafka_consumer_consumer_metrics_incoming_byte_rate                     | Average number of bytes received per second from all<br>servers.                                         |
-| kafka_consumer_consumer_metrics_last_poll_seconds_ago                  | Number of seconds since the last consumer poll()<br>call.                                                |
-| kafka_consumer_consumer_metrics_request_rate                           | Number of requests sent per second.                                                                      |
-| kafka_consumer_consumer_metrics_response_rate                          | Number of responses received per second.                                                                 |
-| kafka_consumer_group_ConsumerLagMetrics_Value                          | Current consumer lag value for a consumer group,<br>indicating how far behind the consumer is.           |
-| kafka_controller_KafkaController_Value                                 | Current state or value of the Kafka controller (1 =<br>active controller, 0 = not active).               |
-| kafka_controller_ControllerEventManager_Count                          | Total number of controller events processed.                                                             |
-| kafka_controller_ControllerEventManager_Mean                           | Mean (average) time taken to process controller<br>events.                                               |
-| kafka_controller_ControllerStats_MeanRate                              | Mean rate of controller statistics operations per<br>second.                                             |
-| kafka_coordinator_group_GroupMetadataManager_Value                     | Current state or value of the group metadata manager<br>for consumer groups.                             |
-| kafka_log_LogFlushStats_Count                                          | Total number of log flush operations.                                                                    |
-| kafka_log_LogFlushStats_Mean                                           | Mean (average) time taken for log flush<br>operations.                                                   |
-| kafka_log_LogFlushStats_MeanRate                                       | Mean rate of log flush operations per second.                                                            |
-| kafka_network_RequestMetrics_Count                                     | Total count of network requests processed.                                                               |
-| kafka_network_RequestMetrics_Mean                                      | Mean (average) time taken to process network<br>requests.                                                |
-| kafka_network_RequestMetrics_MeanRate                                  | Mean rate of network requests per second.                                                                |
-| kafka_network_Acceptor_MeanRate                                        | Mean rate of accepted connections per second.                                                            |
-| kafka_server_Fetch_queue_size                                          | Current size of the fetch request queue.                                                                 |
-| kafka_server_Produce_queue_size                                        | Current size of the produce request queue.                                                               |
-| kafka_server_Request_queue_size                                        | Current size of the general request queue.                                                               |
-| kafka_server_BrokerTopicMetrics_Count                                  | Total count of broker topic operations (messages<br>in/out, bytes in/out).                               |
-| kafka_server_BrokerTopicMetrics_MeanRate                               | Mean rate of broker topic operations per<br>second.                                                      |
-| kafka_server_BrokerTopicMetrics_OneMinuteRate                          | One-minute moving average rate of broker topic<br>operations.                                            |
-| kafka_server_DelayedOperationPurgatory_Value                           | Current number of delayed operations in the purgatory<br>(waiting to be completed).                      |
-| kafka_server_DelayedFetchMetrics_MeanRate                              | Mean rate of delayed fetch operations per<br>second.                                                     |
-| kafka_server_FetcherLagMetrics_Value                                   | Current lag value for replica fetcher threads (how far<br>behind the leader).                            |
-| kafka_server_FetcherStats_MeanRate                                     | Mean rate of fetcher operations per second.                                                              |
-| kafka_server_ReplicaManager_Value                                      | Current state or value of the replica manager.                                                           |
-| kafka_server_ReplicaManager_MeanRate                                   | Mean rate of replica manager operations per<br>second.                                                   |
-| kafka_server_LeaderReplication_byte_rate                               | Rate of bytes replicated per second for partitions<br>where this broker is the leader.                   |
-| kafka_server_group_coordinator_metrics_group_completed_rebalance_count | Total number of completed consumer group<br>rebalances.                                                  |
-| kafka_server_group_coordinator_metrics_offset_commit_count             | Total number of offset commit operations.                                                                |
-| kafka_server_group_coordinator_metrics_offset_commit_rate              | Rate of offset commit operations per second.                                                             |
-| kafka_server_socket_server_metrics_connection_count                    | Current number of active connections.                                                                    |
-| kafka_server_socket_server_metrics_connection_creation_rate            | Rate of new connection creation per second.                                                              |
-| kafka_server_socket_server_metrics_connection_close_rate               | Rate of connection closures per second.                                                                  |
-| kafka_server_socket_server_metrics_failed_authentication_total         | Total number of failed authentication attempts.                                                          |
-| kafka_server_socket_server_metrics_incoming_byte_rate                  | Rate of incoming bytes per second.                                                                       |
-| kafka_server_socket_server_metrics_outgoing_byte_rate                  | Rate of outgoing bytes per second.                                                                       |
-| kafka_server_socket_server_metrics_request_rate                        | Rate of requests per second.                                                                             |
-| kafka_server_socket_server_metrics_response_rate                       | Rate of responses per second.                                                                            |
-| kafka_server_socket_server_metrics_network_io_rate                     | Rate of network I/O operations per second.                                                               |
-| kafka_server_socket_server_metrics_io_ratio                            | Fraction of time spent in I/O operations.                                                                |
-| kafka_server_controller_channel_metrics_connection_count               | Current number of active connections for controller<br>channels.                                         |
-| kafka_server_controller_channel_metrics_incoming_byte_rate             | Rate of incoming bytes per second for controller<br>channels.                                            |
-| kafka_server_controller_channel_metrics_outgoing_byte_rate             | Rate of outgoing bytes per second for controller<br>channels.                                            |
-| kafka_server_controller_channel_metrics_request_rate                   | Rate of requests per second for controller<br>channels.                                                  |
-| kafka_server_replica_fetcher_metrics_connection_count                  | Current number of active connections for replica<br>fetcher.                                             |
-| kafka_server_replica_fetcher_metrics_incoming_byte_rate                | Rate of incoming bytes per second for replica<br>fetcher.                                                |
-| kafka_server_replica_fetcher_metrics_request_rate                      | Rate of requests per second for replica<br>fetcher.                                                      |
-| kafka_server_replica_fetcher_metrics_failed_authentication_total       | Total number of failed authentication attempts for<br>replica fetcher.                                   |
-| kafka_server_ZooKeeperClientMetrics_Count                              | Total count of ZooKeeper client operations.                                                              |
-| kafka_server_ZooKeeperClientMetrics_Mean                               | Mean latency of ZooKeeper client operations.                                                             |
-| kafka_server_KafkaServer_Value                                         | Current state or value of the Kafka server (typically<br>indicates server is running).                   |
-| node_cpu_seconds_total                                                 | Total seconds the CPUs spent in each mode (user,<br>system, idle, etc.), broken down by CPU and mode.    |
-| node_disk_read_bytes_total                                             | Total number of bytes read successfully from disks,<br>broken down by device.                            |
-| node_disk_reads_completed_total                                        | Total number of reads completed successfully for<br>disks, broken down by device.                        |
-| node_disk_writes_completed_total                                       | Total number of writes completed successfully for<br>disks, broken down by device.                       |
-| node_disk_written_bytes_total                                          | Total number of bytes written successfully to disks,<br>broken down by device.                           |
-| node_filesystem_avail_bytes                                            | Available filesystem space in bytes for non-root<br>users, broken down by device and mount point.        |
-| node_filesystem_size_bytes                                             | Total size of the filesystem in bytes, broken down by<br>device and mount point.                         |
-| node_filesystem_free_bytes                                             | Free filesystem space in bytes, broken down by device<br>and mount point.                                |
-| node_filesystem_files                                                  | Total number of file nodes (inodes) on the filesystem,<br>broken down by device and mount point.         |
-| node_filesystem_files_free                                             | Number of free file nodes (inodes) on the filesystem,<br>broken down by device and mount point.          |
-| node_filesystem_readonly                                               | Indicates whether the filesystem is mounted read-only<br>(1 = read-only, 0 = read-write).                |
-| node_filesystem_device_error                                           | Indicates whether an error occurred while getting<br>filesystem statistics (1 = error, 0 = success).     |
+| Metric                                                                         | Description / Purpose                                                                                    |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| jmx\_config\_reload\_failure\_total                                            | Total number of times the JMX exporter failed to<br>reload its configuration file.                       |
+| jmx\_scrape\_duration\_seconds                                                 | Time taken to scrape JMX metrics in seconds for the<br>current collection cycle.                         |
+| jmx\_scrape\_error                                                             | Indicates whether an error occurred during JMX metric<br>scraping (1 = error, 0 = success).              |
+| java\_lang\_Memory\_HeapMemoryUsage\_used                                      | Amount of heap memory (in bytes) currently used by the<br>JVM.                                           |
+| java\_lang\_Memory\_HeapMemoryUsage\_max                                       | Maximum amount of heap memory (in bytes) that can be<br>used for memory management.                      |
+| java\_lang\_Memory\_NonHeapMemoryUsage\_used                                   | Amount of non-heap memory (in bytes) currently used by<br>the JVM.                                       |
+| kafka\_cluster\_Partition\_Value                                               | Current state or value related to Kafka cluster<br>partitions, broken down by partition ID and<br>topic. |
+| kafka\_consumer\_consumer\_coordinator\_metrics\_assigned\_partitions          | Number of partitions currently assigned to this<br>consumer.                                             |
+| kafka\_consumer\_consumer\_coordinator\_metrics\_commit\_latency\_avg          | Average time taken to commit offsets in<br>milliseconds.                                                 |
+| kafka\_consumer\_consumer\_coordinator\_metrics\_commit\_rate                  | Number of offset commits per second.                                                                     |
+| kafka\_consumer\_consumer\_coordinator\_metrics\_failed\_rebalance\_total      | Total number of failed consumer group<br>rebalances.                                                     |
+| kafka\_consumer\_consumer\_coordinator\_metrics\_last\_heartbeat\_seconds\_ago | Number of seconds since the last heartbeat was sent to<br>the coordinator.                               |
+| kafka\_consumer\_consumer\_coordinator\_metrics\_rebalance\_latency\_avg       | Average time taken for consumer group rebalances in<br>milliseconds.                                     |
+| kafka\_consumer\_consumer\_coordinator\_metrics\_rebalance\_total              | Total number of consumer group rebalances.                                                               |
+| kafka\_consumer\_consumer\_fetch\_manager\_metrics\_bytes\_consumed\_rate      | Average number of bytes consumed per second by the<br>consumer.                                          |
+| kafka\_consumer\_consumer\_fetch\_manager\_metrics\_fetch\_latency\_avg        | Average time taken for a fetch request in<br>milliseconds.                                               |
+| kafka\_consumer\_consumer\_fetch\_manager\_metrics\_fetch\_rate                | Number of fetch requests per second.                                                                     |
+| kafka\_consumer\_consumer\_fetch\_manager\_metrics\_records\_consumed\_rate    | Average number of records consumed per second.                                                           |
+| kafka\_consumer\_consumer\_fetch\_manager\_metrics\_records\_lag\_max          | Maximum lag in terms of number of records for any<br>partition in this consumer.                         |
+| kafka\_consumer\_consumer\_metrics\_connection\_count                          | Current number of active connections.                                                                    |
+| kafka\_consumer\_consumer\_metrics\_incoming\_byte\_rate                       | Average number of bytes received per second from all<br>servers.                                         |
+| kafka\_consumer\_consumer\_metrics\_last\_poll\_seconds\_ago                   | Number of seconds since the last consumer poll()<br>call.                                                |
+| kafka\_consumer\_consumer\_metrics\_request\_rate                              | Number of requests sent per second.                                                                      |
+| kafka\_consumer\_consumer\_metrics\_response\_rate                             | Number of responses received per second.                                                                 |
+| kafka\_consumer\_group\_ConsumerLagMetrics\_Value                              | Current consumer lag value for a consumer group,<br>indicating how far behind the consumer is.           |
+| kafka\_controller\_KafkaController\_Value                                      | Current state or value of the Kafka controller (1 =<br>active controller, 0 = not active).               |
+| kafka\_controller\_ControllerEventManager\_Count                               | Total number of controller events processed.                                                             |
+| kafka\_controller\_ControllerEventManager\_Mean                                | Mean (average) time taken to process controller<br>events.                                               |
+| kafka\_controller\_ControllerStats\_MeanRate                                   | Mean rate of controller statistics operations per<br>second.                                             |
+| kafka\_coordinator\_group\_GroupMetadataManager\_Value                         | Current state or value of the group metadata manager<br>for consumer groups.                             |
+| kafka\_log\_LogFlushStats\_Count                                               | Total number of log flush operations.                                                                    |
+| kafka\_log\_LogFlushStats\_Mean                                                | Mean (average) time taken for log flush<br>operations.                                                   |
+| kafka\_log\_LogFlushStats\_MeanRate                                            | Mean rate of log flush operations per second.                                                            |
+| kafka\_network\_RequestMetrics\_Count                                          | Total count of network requests processed.                                                               |
+| kafka\_network\_RequestMetrics\_Mean                                           | Mean (average) time taken to process network<br>requests.                                                |
+| kafka\_network\_RequestMetrics\_MeanRate                                       | Mean rate of network requests per second.                                                                |
+| kafka\_network\_Acceptor\_MeanRate                                             | Mean rate of accepted connections per second.                                                            |
+| kafka\_server\_Fetch\_queue\_size                                              | Current size of the fetch request queue.                                                                 |
+| kafka\_server\_Produce\_queue\_size                                            | Current size of the produce request queue.                                                               |
+| kafka\_server\_Request\_queue\_size                                            | Current size of the general request queue.                                                               |
+| kafka\_server\_BrokerTopicMetrics\_Count                                       | Total count of broker topic operations (messages<br>in/out, bytes in/out).                               |
+| kafka\_server\_BrokerTopicMetrics\_MeanRate                                    | Mean rate of broker topic operations per<br>second.                                                      |
+| kafka\_server\_BrokerTopicMetrics\_OneMinuteRate                               | One-minute moving average rate of broker topic<br>operations.                                            |
+| kafka\_server\_DelayedOperationPurgatory\_Value                                | Current number of delayed operations in the purgatory<br>(waiting to be completed).                      |
+| kafka\_server\_DelayedFetchMetrics\_MeanRate                                   | Mean rate of delayed fetch operations per<br>second.                                                     |
+| kafka\_server\_FetcherLagMetrics\_Value                                        | Current lag value for replica fetcher threads (how far<br>behind the leader).                            |
+| kafka\_server\_FetcherStats\_MeanRate                                          | Mean rate of fetcher operations per second.                                                              |
+| kafka\_server\_ReplicaManager\_Value                                           | Current state or value of the replica manager.                                                           |
+| kafka\_server\_ReplicaManager\_MeanRate                                        | Mean rate of replica manager operations per<br>second.                                                   |
+| kafka\_server\_LeaderReplication\_byte\_rate                                   | Rate of bytes replicated per second for partitions<br>where this broker is the leader.                   |
+| kafka\_server\_group\_coordinator\_metrics\_group\_completed\_rebalance\_count | Total number of completed consumer group<br>rebalances.                                                  |
+| kafka\_server\_group\_coordinator\_metrics\_offset\_commit\_count              | Total number of offset commit operations.                                                                |
+| kafka\_server\_group\_coordinator\_metrics\_offset\_commit\_rate               | Rate of offset commit operations per second.                                                             |
+| kafka\_server\_socket\_server\_metrics\_connection\_count                      | Current number of active connections.                                                                    |
+| kafka\_server\_socket\_server\_metrics\_connection\_creation\_rate             | Rate of new connection creation per second.                                                              |
+| kafka\_server\_socket\_server\_metrics\_connection\_close\_rate                | Rate of connection closures per second.                                                                  |
+| kafka\_server\_socket\_server\_metrics\_failed\_authentication\_total          | Total number of failed authentication attempts.                                                          |
+| kafka\_server\_socket\_server\_metrics\_incoming\_byte\_rate                   | Rate of incoming bytes per second.                                                                       |
+| kafka\_server\_socket\_server\_metrics\_outgoing\_byte\_rate                   | Rate of outgoing bytes per second.                                                                       |
+| kafka\_server\_socket\_server\_metrics\_request\_rate                          | Rate of requests per second.                                                                             |
+| kafka\_server\_socket\_server\_metrics\_response\_rate                         | Rate of responses per second.                                                                            |
+| kafka\_server\_socket\_server\_metrics\_network\_io\_rate                      | Rate of network I/O operations per second.                                                               |
+| kafka\_server\_socket\_server\_metrics\_io\_ratio                              | Fraction of time spent in I/O operations.                                                                |
+| kafka\_server\_controller\_channel\_metrics\_connection\_count                 | Current number of active connections for controller<br>channels.                                         |
+| kafka\_server\_controller\_channel\_metrics\_incoming\_byte\_rate              | Rate of incoming bytes per second for controller<br>channels.                                            |
+| kafka\_server\_controller\_channel\_metrics\_outgoing\_byte\_rate              | Rate of outgoing bytes per second for controller<br>channels.                                            |
+| kafka\_server\_controller\_channel\_metrics\_request\_rate                     | Rate of requests per second for controller<br>channels.                                                  |
+| kafka\_server\_replica\_fetcher\_metrics\_connection\_count                    | Current number of active connections for replica<br>fetcher.                                             |
+| kafka\_server\_replica\_fetcher\_metrics\_incoming\_byte\_rate                 | Rate of incoming bytes per second for replica<br>fetcher.                                                |
+| kafka\_server\_replica\_fetcher\_metrics\_request\_rate                        | Rate of requests per second for replica<br>fetcher.                                                      |
+| kafka\_server\_replica\_fetcher\_metrics\_failed\_authentication\_total        | Total number of failed authentication attempts for<br>replica fetcher.                                   |
+| kafka\_server\_ZooKeeperClientMetrics\_Count                                   | Total count of ZooKeeper client operations.                                                              |
+| kafka\_server\_ZooKeeperClientMetrics\_Mean                                    | Mean latency of ZooKeeper client operations.                                                             |
+| kafka\_server\_KafkaServer\_Value                                              | Current state or value of the Kafka server (typically<br>indicates server is running).                   |
+| node\_cpu\_seconds\_total                                                      | Total seconds the CPUs spent in each mode (user,<br>system, idle, etc.), broken down by CPU and mode.    |
+| node\_disk\_read\_bytes\_total                                                 | Total number of bytes read successfully from disks,<br>broken down by device.                            |
+| node\_disk\_reads\_completed\_total                                            | Total number of reads completed successfully for<br>disks, broken down by device.                        |
+| node\_disk\_writes\_completed\_total                                           | Total number of writes completed successfully for<br>disks, broken down by device.                       |
+| node\_disk\_written\_bytes\_total                                              | Total number of bytes written successfully to disks,<br>broken down by device.                           |
+| node\_filesystem\_avail\_bytes                                                 | Available filesystem space in bytes for non-root<br>users, broken down by device and mount point.        |
+| node\_filesystem\_size\_bytes                                                  | Total size of the filesystem in bytes, broken down by<br>device and mount point.                         |
+| node\_filesystem\_free\_bytes                                                  | Free filesystem space in bytes, broken down by device<br>and mount point.                                |
+| node\_filesystem\_files                                                        | Total number of file nodes (inodes) on the filesystem,<br>broken down by device and mount point.         |
+| node\_filesystem\_files\_free                                                  | Number of free file nodes (inodes) on the filesystem,<br>broken down by device and mount point.          |
+| node\_filesystem\_readonly                                                     | Indicates whether the filesystem is mounted read-only<br>(1 = read-only, 0 = read-write).                |
+| node\_filesystem\_device\_error                                                | Indicates whether an error occurred while getting<br>filesystem statistics (1 = error, 0 = success).     |
 
 ## Limitations
 

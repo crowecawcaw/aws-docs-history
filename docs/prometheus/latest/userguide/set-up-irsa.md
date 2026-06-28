@@ -162,7 +162,7 @@ following permissions:
 
 1. Create a file named `createIRSA-AMPQuery.sh` with the
    following content. Replace `<my_amazon_eks_clustername>` with
-   the name of your cluster, and replace <my_prometheus_namespace> with your
+   the name of your cluster, and replace <my\_prometheus\_namespace> with your
    Prometheus namespace.
 
 ```

@@ -27,7 +27,7 @@ ingestion usage by half.
 
 You can also filter the metrics sent to Amazon Managed Service for Prometheus by using the
 `<relabel_config>`. For more information about relabeling in the
-Prometheus agent configuration, see [https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config")
+Prometheus agent configuration, see [https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel\_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config")
 in the Prometheus documentation.
 
 ## What is the best way to lower my query costs?

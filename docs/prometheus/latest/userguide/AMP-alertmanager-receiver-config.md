@@ -6,7 +6,7 @@ Alert manager can forward your alerts to a configured alert receiver. To
 complete this, you must know the Amazon Resource Name (ARN) of your Amazon SNS
 topic.
 
-For more information about Amazon SNS receiver configuration, see [<sns_configs>](https://prometheus.io/docs/alerting/latest/configuration/#sns_configs "https://prometheus.io/docs/alerting/latest/configuration/#sns_configs") in the Prometheus configuration documentation.
+For more information about Amazon SNS receiver configuration, see [<sns\_configs>](https://prometheus.io/docs/alerting/latest/configuration/#sns_configs "https://prometheus.io/docs/alerting/latest/configuration/#sns_configs") in the Prometheus configuration documentation.
 
 **Unsupported properties**
 

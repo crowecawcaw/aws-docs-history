@@ -14,7 +14,7 @@ answer is no, it is not recommended.  Doing so may cause issues like:
   leader.
 - The number of `active series` gets increased during
   a period of electing a new leader and it reaches the `active
-series limits`. See [AMP Quotas](AMP_quotas.md "AMP_quotas.md") for more info.
+ series limits`. See [AMP Quotas](AMP_quotas.md "AMP_quotas.md") for more info.
 
 ## Kubernetes seems to have it's own _cluster_ label, and is not deduplicating my metrics. How can I fix this?
 
@@ -32,6 +32,6 @@ metric before ingesting it into Amazon Managed Service for Prometheus.
 ###### Note
 
 For more details about the change to Kubernetes, see [Rename Label
-cluster to storage_cluster_id for apiserver_storage_size_bytes
+cluster to storage\_cluster\_id for apiserver\_storage\_size\_bytes
 metric](https://github.com/kubernetes/kubernetes/pull/124283 "https://github.com/kubernetes/kubernetes/pull/124283") in the _Kubernetes GitHub
 project_.

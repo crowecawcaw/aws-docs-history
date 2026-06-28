@@ -33,68 +33,65 @@ integration key in Secrets Manager. Follow these steps:
 You must grant Amazon Managed Service for Prometheus permission to access your secret and its encryption
 key:
 
-1.  **Secret resource policy**: Open your
-    secret in the [Secrets Manager
-    console](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+1. **Secret resource policy**: Open your
+   secret in the [Secrets Manager
+   console](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 
-    1. Choose **Resource permissions**.
-    2. Choose **Edit permissions**.
-    3. Add the following policy statement. In the statement, replace
-       the `highlighted values` with your
-       specific values.
+   1. Choose **Resource permissions**.
+   2. Choose **Edit permissions**.
+   3. Add the following policy statement. In the statement, replace
+      the `highlighted values` with your
+      specific values.
 
-    ```
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "aps.amazonaws.com"
-      },
-      "Action": "secretsmanager:GetSecretValue",
-      "Resource": "*",
-      "Condition": {
-        "ArnEquals": {
-          "aws:SourceArn": "arn:aws:aps:`aws-region`:`123456789012`:workspace/`WORKSPACE_ID`"
-        },
-        "StringEquals": {
-          "aws:SourceAccount": "`123456789012`"
-        }
-      }
-    }
+   ```
+   {
+     "Effect": "Allow",
+     "Principal": {
+       "Service": "aps.amazonaws.com"
+     },
+     "Action": "secretsmanager:GetSecretValue",
+     "Resource": "*",
+     "Condition": {
+       "ArnEquals": {
+         "aws:SourceArn": "arn:aws:aps:`aws-region`:`123456789012`:workspace/`WORKSPACE_ID`"
+       },
+       "StringEquals": {
+         "aws:SourceAccount": "`123456789012`"
+       }
+     }
+   }
 
-    ```
-    4. Choose **Save**.
+   ```
+   4. Choose **Save**.
 
-2.  **KMS key policy**: Open your AWS KMS key
-    in the [AWS KMS console](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
+2. **KMS key policy**: Open your AWS KMS key
+   in the [AWS KMS console](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 
-        1. Choose **Key policy**.
-        2. Choose **Edit**.
-        3. Add the following policy statement. In the statement, replace
-         the `highlighted values` with your
-         specific values.
+   1. Choose **Key policy**.
+   2. Choose **Edit**.
+   3. Add the following policy statement. In the statement, replace
+      the `highlighted values` with your
+      specific values.
 
+   ```
+   {
+     "Effect": "Allow",
+     "Principal": {
+       "Service": "aps.amazonaws.com"
+     },
+     "Action": "kms:Decrypt",
+     "Resource": "*",
+     "Condition": {
+       "ArnEquals": {
+         "aws:SourceArn": "arn:aws:aps:`aws-region`:`123456789012`:workspace/`WORKSPACE_ID`"
+       },
+       "StringEquals": {
+         "aws:SourceAccount": "`123456789012`"
+       }
+     }
+   }
 
-
-        ```
-        {
-          "Effect": "Allow",
-          "Principal": {
-            "Service": "aps.amazonaws.com"
-          },
-          "Action": "kms:Decrypt",
-          "Resource": "*",
-          "Condition": {
-            "ArnEquals": {
-              "aws:SourceArn": "arn:aws:aps:`aws-region`:`123456789012`:workspace/`WORKSPACE_ID`"
-            },
-            "StringEquals": {
-              "aws:SourceAccount": "`123456789012`"
-            }
-          }
-        }
-
-        ```
-        4. Choose **Save**.
-
-    **Next steps** – Continue to the next
-    topic, [Configure alert manager to send alerts to PagerDuty](AMP-alertmanager-pagerduty-configure-alertmanager.md "AMP-alertmanager-pagerduty-configure-alertmanager.md").
+   ```
+   4. Choose **Save**.
+      **Next steps** – Continue to the next
+      topic, [Configure alert manager to send alerts to PagerDuty](AMP-alertmanager-pagerduty-configure-alertmanager.md "AMP-alertmanager-pagerduty-configure-alertmanager.md").

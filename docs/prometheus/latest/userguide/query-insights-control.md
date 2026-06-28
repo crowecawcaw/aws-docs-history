@@ -100,9 +100,9 @@ API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
 To configure QSP thresholds, you must provide the query parameters in the [QueryMetrics API](AMP-APIReference-QueryMetrics.md "AMP-APIReference-QueryMetrics.md").
 
-- max_samples_processed_warning_threshold – Sets the warning
+- max\_samples\_processed\_warning\_threshold – Sets the warning
   threshold for query samples processed
-- max_samples_processed_error_threshold – Sets the error threshold
+- max\_samples\_processed\_error\_threshold – Sets the error threshold
   for query samples processed
 
 For Amazon Managed Grafana users, you can use grafana data source configuration to apply limits to

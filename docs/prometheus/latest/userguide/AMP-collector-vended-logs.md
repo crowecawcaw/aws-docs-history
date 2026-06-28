@@ -174,7 +174,7 @@ fields.
 
 **component**
 
-The component that generated the log (SERVICE_DISCOVERY, COLLECTOR, or
+The component that generated the log (SERVICE\_DISCOVERY, COLLECTOR, or
 EXPORTER)
 
 ### Using vended logs for troubleshooting
@@ -184,7 +184,7 @@ collection:
 
 1. Service discovery issues
 
-   - Check **SERVICE_DISCOVERY** logs for
+   - Check **SERVICE\_DISCOVERY** logs for
      authentication or permission errors.
    - Verify that the collector has the necessary permissions to access
      Kubernetes resources.

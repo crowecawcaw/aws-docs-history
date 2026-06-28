@@ -25,7 +25,7 @@ There are two methods of ingesting metrics into your Amazon Managed Service for 
 Collectors send metrics to Amazon Managed Service for Prometheus using Prometheus remote write functionality.
 You can directly send metrics to Amazon Managed Service for Prometheus by using Prometheus remote write in your
 own application. For more details about directly using remote write, and remote
-write configurations, see [remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write") in the Prometheus documentation.
+write configurations, see [remote\_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write") in the Prometheus documentation.
 
 ###### Topics
 

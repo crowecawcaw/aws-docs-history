@@ -38,7 +38,8 @@ The following basic restrictions apply to tags:
 - If your tagging schema is used across multiple AWS services and resources,
   remember that other services may have restrictions on allowed characters. Generally
   allowed characters are letters, numbers, spaces representable in UTF-8, and the
-  following characters: **_. : + = @ \_ / -_** (hyphen).
+  following characters: _**. : + = @ \_ /
+  -**_ (hyphen).
 - Tag keys and values are case sensitive. As a best practice, decide on a strategy
   for capitalizing tags and consistently implement that strategy across all resource
   types. For example, decide whether to use `Costcenter`,

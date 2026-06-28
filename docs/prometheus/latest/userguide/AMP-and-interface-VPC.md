@@ -43,7 +43,7 @@ in the _Amazon Managed Service for Prometheus User Guide_.
 
 ###### Note
 
-If you are using remote_write in a VPC without direct internet access, you
+If you are using remote\_write in a VPC without direct internet access, you
 must also create an interface VPC endpoint for AWS Security Token Service, to allow sigv4 to work
 through the endpoint. For information
 about creating a VPC endpoint for AWS STS, see [Using AWS STS

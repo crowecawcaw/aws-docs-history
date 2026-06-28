@@ -190,12 +190,14 @@ For more information about setting up your default provider chain, see
 
 9. Test a PromQL query against the new data source:
 
-   1. Choose **Explore**.
-   2. Run a sample PromQL query such as:
+    1. Choose **Explore**.
+    2. Run a sample PromQL query such as:
 
-   ```
-   prometheus_tsdb_head_series
-   ```
+
+
+    ```
+    prometheus_tsdb_head_series
+    ```
 
 ## Step 3: (optional) Troubleshooting if Save & Test doesn't work
 

@@ -56,10 +56,10 @@ This command returns the following data:
      any.
 
 2. If your `create-workspace` command returns a status of
-   `CREATING`, you can then enter the following command to determine
-   when the workspace is ready. Replace `my-workspace-id`
-   with the value that the `create-workspace` command returned for
-   `workspaceId`.
+`CREATING`, you can then enter the following command to determine
+when the workspace is ready. Replace `my-workspace-id`
+with the value that the `create-workspace` command returned for
+`workspaceId`.
 
 ```
 aws amp describe-workspace --workspace-id `my-workspace-id`

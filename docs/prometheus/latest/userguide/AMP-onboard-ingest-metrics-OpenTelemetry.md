@@ -29,7 +29,7 @@ data will be signed with AWS SigV4, the AWS protocol for secure authentication,
 with the Sigv4 Authentication Extension. For more information, see [Signature Version 4 signing process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md").
 
 The collector automatically discovers Prometheus metrics endpoints on Amazon EKS and
-uses the configuration found in [<kubernetes_sd_config>.](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config")
+uses the configuration found in [<kubernetes\_sd\_config>.](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config")
 
 The following demo is an example of this configuration on a cluster running
 Amazon Elastic Kubernetes Service or self-managed Kubernetes. To perform these steps, you must have AWS
@@ -152,9 +152,9 @@ curl https://raw.githubusercontent.com/aws-observability/aws-otel-collector/main
 ```
 
 Then edit the template file, substituting the
-**remote_write** endpoint for your Amazon Managed Service for Prometheus
+**remote\_write** endpoint for your Amazon Managed Service for Prometheus
 workspace for `YOUR_ENDPOINT` and your Region for
-`YOUR_REGION`. Use the **remote_write**
+`YOUR_REGION`. Use the **remote\_write**
 endpoint that is displayed in the Amazon Managed Service for Prometheus console when you look at
 your workspace details.
 
@@ -282,8 +282,8 @@ receivers:
 If you have an existing Prometheus configuration, you must replace the
 `$` characters with `$$` to avoid having the values
 replaced with environment variables. \*This is especially important for the
-replacement value of the relabel_configurations. For example, if you start with
-the following relabel_configuration:
+replacement value of the relabel\_configurations. For example, if you start with
+the following relabel\_configuration:
 
 ```
 relabel_configs:

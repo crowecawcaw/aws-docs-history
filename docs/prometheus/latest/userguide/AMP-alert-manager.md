@@ -26,7 +26,7 @@ routing tree in the alert manager configuration file. For more information, see
   example, if an alert is firing about a cluster being unreachable, you can configure
   alert manager to mute all other alerts concerning this cluster. This prevents
   notifications for hundreds or thousands of firing alerts that are unrelated to the
-  actual issue. For more information about how to write inhibition rules, see [<inhibit_rule>](https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule "https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule").
+  actual issue. For more information about how to write inhibition rules, see [<inhibit\_rule>](https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule "https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule").
 - **Silences** – Silences mute alerts for a
   specified time, such as during a maintenance window. Incoming alerts are checked for
   whether they match all the equality or regular expression matchers of an active

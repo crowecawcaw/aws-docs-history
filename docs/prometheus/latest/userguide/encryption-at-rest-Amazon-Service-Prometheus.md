@@ -23,20 +23,19 @@ workspace:
   full control of this encryption, you can perform such tasks
   as:
 
-      + Establishing and maintaining key policies
-      + Establishing and maintaining IAM policies and grants
-      + Enabling and disabling key policies
-      + Rotating key cryptographic material
-      + Adding tags
-      + Creating key aliases
-      + Scheduling keys for deletion
-
-  For more information, see [customer
-  managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer
-  Guide._
-  Choose whether to use customer managed keys or AWS owned keys
-  carefully. Workspaces created with customer managed keys can't be
-  converted to use AWS owned keys later (and vice versa).
+  - Establishing and maintaining key policies
+  - Establishing and maintaining IAM policies and grants
+  - Enabling and disabling key policies
+  - Rotating key cryptographic material
+  - Adding tags
+  - Creating key aliases
+  - Scheduling keys for deletion
+    For more information, see [customer
+    managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer
+    Guide._
+    Choose whether to use customer managed keys or AWS owned keys
+    carefully. Workspaces created with customer managed keys can't be
+    converted to use AWS owned keys later (and vice versa).
 
 ###### Note
 

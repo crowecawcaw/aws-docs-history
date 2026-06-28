@@ -33,9 +33,9 @@ When enabled, it analyzes historical data to establish baseline patterns and sea
 trends, then generates predictions for expected values and identifies deviations. The
 algorithm produces four key outputs:
 
-- _upper_band_ - The upper boundary of expected normal
+- _upper\_band_ - The upper boundary of expected normal
   values
-- _lower_band_ - The lower boundary of expected normal
+- _lower\_band_ - The lower boundary of expected normal
   values
 - _score_ - A numerical anomaly score indicating how unusual
   the data point is

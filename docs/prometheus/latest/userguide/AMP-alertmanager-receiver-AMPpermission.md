@@ -92,15 +92,15 @@ with the non-opt-in Region you want to use:
 The following table lists the opt-in Regions and their corresponding
 Regional service principals:
 
-| Opt-in Regions and their Regional service principals | Region name    | Region                           | Regional service principal |
-| ---------------------------------------------------- | -------------- | -------------------------------- | -------------------------- |
-| Africa (Cape Town)                                   | af-south-1     | af-south-1.aps.amazonaws.com     |
-| Asia Pacific (Hong Kong)                             | ap-east-1      | ap-east-1.aps.amazonaws.com      |
-| Asia Pacific (Thailand)                              | ap-southeast-7 | ap-southeast-7.aps.amazonaws.com |
-| Europe (Milan)                                       | eu-south-1     | eu-south-1.aps.amazonaws.com     |
-| Europe (Zurich)                                      | eu-central-2   | eu-central-2.aps.amazonaws.com   |
-| Middle East (UAE)                                    | me-central-1   | me-central-1.aps.amazonaws.com   |
-| Asia Pacific (Malaysia)                              | ap-southeast-5 | ap-southeast-5.aps.amazonaws.com |
+Opt-in Regions and their Regional service principals| Region name | Region | Regional service principal |
+| --- | --- | --- |
+| Africa (Cape Town) | af-south-1 | af-south-1.aps.amazonaws.com |
+| Asia Pacific (Hong Kong) | ap-east-1 | ap-east-1.aps.amazonaws.com |
+| Asia Pacific (Thailand) | ap-southeast-7 | ap-southeast-7.aps.amazonaws.com |
+| Europe (Milan) | eu-south-1 | eu-south-1.aps.amazonaws.com |
+| Europe (Zurich) | eu-central-2 | eu-central-2.aps.amazonaws.com |
+| Middle East (UAE) | me-central-1 | me-central-1.aps.amazonaws.com |
+| Asia Pacific (Malaysia) | ap-southeast-5 | ap-southeast-5.aps.amazonaws.com |
 
 For information on enabling an opt-in Region, see [Managing
 AWS Regions](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _IAM User Guide_ in
