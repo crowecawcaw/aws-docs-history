@@ -129,5 +129,5 @@ command in the directory where you extracted the Prometheus files and saved
 8. To access the Prometheus web UI, open a browser that can access your Amazon EC2
    instance, and go to
    ``Prometheus-Instance-Public-IP`:9090`,
-where `Prometheus-Instance-Public-IP` is the public
+   where `Prometheus-Instance-Public-IP` is the public
    IP address you got in the previous step.

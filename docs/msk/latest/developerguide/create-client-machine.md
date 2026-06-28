@@ -19,34 +19,29 @@ To create a new key pair, do the following:
     3. For **Key pair type** and **Private key file format**, keep the default selections.
     4. Choose **Create key pair**.Alternatively, you can use an existing key pair.
 
-7.  Scroll down the page and expand the **Advanced details** section, then do the following:
+7. Scroll down the page and expand the **Advanced details** section, then do the following:
 
     1. For **IAM instance profile**, choose an IAM role that you want the client machine to assume.
 
+
     If you don't have an IAM role, do the following:
 
-        1. Choose **Create new IAM profile**.
-        2. Perform the steps mentioned in [Step 2: Create an IAM role](create-client-iam-role.md "create-client-iam-role.md").
 
-8.  Choose **Launch instance**.
-9.  Choose **View Instances**. Then, in the **Security
-    Groups** column, choose the security group that is associated with
-    your new instance. Copy the ID of the security group, and save it for
-    later.
-10. Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-11. In the navigation pane, choose **Security Groups**. Find the
-    security group whose ID you saved in [Step 1: Create an MSK Provisioned cluster](create-cluster.md "create-cluster.md").
-12. In the **Inbound Rules** tab, choose **Edit inbound
-    rules**.
-13. Choose **Add rule**.
-14. In the new rule, choose **All traffic** in the
-    **Type** column. In the second field in the
-    **Source** column, select the security group of your client
-    machine. This is the group whose name you saved after you launched the client
-    machine instance.
-15. Choose **Save rules**. Now the cluster's security group can
-    accept traffic that comes from the client machine's security group.
-    **Next Step**
+    	1. Choose **Create new IAM profile**.
+    	2. Perform the steps mentioned in [Step 2: Create an IAM role](create-client-iam-role.md "create-client-iam-role.md").
+
+8. Choose **Launch instance**. 9. Choose **View Instances**. Then, in the **Security
+Groups** column, choose the security group that is associated with
+your new instance. Copy the ID of the security group, and save it for
+later. 10. Open the Amazon VPC console at
+[https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 11. In the navigation pane, choose **Security Groups**. Find the
+security group whose ID you saved in [Step 1: Create an MSK Provisioned cluster](create-cluster.md "create-cluster.md"). 12. In the **Inbound Rules** tab, choose **Edit inbound
+rules**. 13. Choose **Add rule**. 14. In the new rule, choose **All traffic** in the
+**Type** column. In the second field in the
+**Source** column, select the security group of your client
+machine. This is the group whose name you saved after you launched the client
+machine instance. 15. Choose **Save rules**. Now the cluster's security group can
+accept traffic that comes from the client machine's security group.
+**Next Step**
 
 [Step 4: Create a topic in the Amazon MSK cluster](create-topic.md "create-topic.md")

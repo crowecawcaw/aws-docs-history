@@ -215,7 +215,7 @@ implementation of rack awareness provided by Apache Kafka.
 
 When you use this version of Apache Kafka, the metrics in the
 `PER_TOPIC_PER_BROKER` monitoring level appear only after their values
-become nonzero for the first time. For more information about this, see [PER_TOPIC_PER_BROKER Level monitoring](metrics-details.md#broker-topic-metrics "metrics-details.md#broker-topic-metrics").
+become nonzero for the first time. For more information about this, see [PER\_TOPIC\_PER\_BROKER Level monitoring](metrics-details.md#broker-topic-metrics "metrics-details.md#broker-topic-metrics").
 
 For information about how to find Availability Zone IDs, see [AZ IDs for Your Resource](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") in the AWS Resource Access Manager user
 guide.

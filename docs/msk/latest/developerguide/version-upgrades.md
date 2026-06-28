@@ -6,26 +6,27 @@ For information about how to make a cluster highly available during an upgrade, 
 
 ###### Upgrade the Apache Kafka version using the AWS Management Console
 
-1.  Open the Amazon MSK console at [https://console.aws.amazon.com/msk/](https://console.aws.amazon.com/msk/ "https://console.aws.amazon.com/msk/").
-2.  In the navigation bar, choose the Region where you created the MSK cluster.
-3.  Choose the MSK cluster which you want to upgrade.
-4.  On the **Properties** tab, choose **Upgrade** in the **Apache Kafka version** section.
-5.  In the **Apache Kafka version** section, do the following:
+1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/](https://console.aws.amazon.com/msk/ "https://console.aws.amazon.com/msk/").
+2. In the navigation bar, choose the Region where you created the MSK cluster.
+3. Choose the MSK cluster which you want to upgrade.
+4. On the **Properties** tab, choose **Upgrade** in the **Apache Kafka version** section.
+5. In the **Apache Kafka version** section, do the following:
 
-    1. In the _Choose Apache Kafka version_ dropdown list, choose the target version to which you want to upgrade. For example, choose `3.9.x`.
-    2. (Optional) Choose **View version compatibility** to verify compatibility between your cluster's current version and the available upgrade versions. Then, select **Choose** to proceed.
+   1. In the _Choose Apache Kafka version_ dropdown list, choose the target version to which you want to upgrade. For example, choose `3.9.x`.
+   2. (Optional) Choose **View version compatibility** to verify compatibility between your cluster's current version and the available upgrade versions. Then, select **Choose** to proceed.
 
-    ###### Note
+   ###### Note
 
-    Amazon MSK supports in-place upgrades to most Apache Kafka versions. However, when upgrading from a ZooKeeper-based Kafka version to a KRaft-based version, you must create a new cluster. Then, copy your data to the new cluster, and switch clients to the new cluster. 3. (Optional) Choose the **Update cluster configuration** checkbox to apply configuration updates compatible with the new version. This enables the new version’s features and improvements.
+   Amazon MSK supports in-place upgrades to most Apache Kafka versions. However, when upgrading from a ZooKeeper-based Kafka version to a KRaft-based version, you must create a new cluster. Then, copy your data to the new cluster, and switch clients to the new cluster. 3. (Optional) Choose the **Update cluster configuration** checkbox to apply configuration updates compatible with the new version. This enables the new version’s features and improvements.
 
-    You can skip this step if you need to maintain your existing custom configurations.
+   You can skip this step if you need to maintain your existing custom configurations.
 
-    ###### Note
+   ###### Note
 
         * Server-side upgrades don't automatically update client applications.
         * To maintain cluster stability, version downgrades aren't supported.
-    4. Choose **Upgrade** to start the process.
+
+   4. Choose **Upgrade** to start the process.
 
 ###### Upgrade the Apache Kafka version using the AWS CLI
 

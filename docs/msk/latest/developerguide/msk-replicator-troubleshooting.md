@@ -45,18 +45,13 @@ MSK Replicator optimizes consumer group offset syncing for consumers reading fro
 
 1. Verify that you have the right number of partitions. The following table shows the recommended minimum number of partitions for your desired throughput.
 
-| Throughput and recommended minimum number of partitions | Throughput (MB/s) | Minimum partitions required |
-| ------------------------------------------------------- | ----------------- | --------------------------- |
-| 50                                                      | 167               |
-| 100                                                     | 334               |
-| 250                                                     | 833               |
-| 500                                                     | 1666              |
-| 1000                                                    | 3333              |
-
-2. Verify that you have enough read and write capacity in your clusters. MSK Replicator acts as a consumer for your source cluster (egress) and as a producer for your target cluster (ingress). Provision cluster capacity to support replication traffic in addition to other traffic.
-3. Replication latency varies by Region pair distance.
-4. Verify that your Replicator is not getting throttled using the `ThrottleTime` metric. If above 0, adjust Kafka quotas. See [Managing throughput with Kafka quotas](msk-replicator-bp-quotas.md "msk-replicator-bp-quotas.md").
-5. Check the [AWS Service Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") for MSK service events in your Region.
+Throughput and recommended minimum number of partitions| Throughput (MB/s) | Minimum partitions required |
+| --- | --- |
+| 50 | 167 |
+| 100 | 334 |
+| 250 | 833 |
+| 500 | 1666 |
+| 1000 | 3333 | 2. Verify that you have enough read and write capacity in your clusters. MSK Replicator acts as a consumer for your source cluster (egress) and as a producer for your target cluster (ingress). Provision cluster capacity to support replication traffic in addition to other traffic. 3. Replication latency varies by Region pair distance. 4. Verify that your Replicator is not getting throttled using the `ThrottleTime` metric. If above 0, adjust Kafka quotas. See [Managing throughput with Kafka quotas](msk-replicator-bp-quotas.md "msk-replicator-bp-quotas.md"). 5. Check the [AWS Service Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") for MSK service events in your Region.
 
 ## Troubleshooting using the ReplicatorFailure metric
 
@@ -229,16 +224,16 @@ If the `ReplicatorFailure` metric continues to emit non-zero values after applyi
 Perform the following checks if MSK Replicator cannot connect to your self-managed Kafka cluster:
 
 1. Verify that your VPN or Direct Connect connection is active and the route tables are correct.
-2. Verify that security groups allow inbound traffic from MSK Replicator subnets on the SASL_SSL port (typically 9096).
+2. Verify that security groups allow inbound traffic from MSK Replicator subnets on the SASL\_SSL port (typically 9096).
 3. Verify DNS resolution from the VPC to the self-managed cluster broker hostnames.
 4. Check the `KafkaClusterPingSuccessCount` metric in Amazon CloudWatch — a value of 0 indicates a connectivity failure.
 
-### SASL/SCRAM authentication failures
+### SASL/SCRAM or mTLS authentication failures
 
-If the `AuthError` metric is non-zero or the Replicator logs show SASL/SCRAM errors:
+If the `AuthError` metric is non-zero or the Replicator logs show SASL/SCRAM or mTLS errors:
 
-1. Verify that the credentials stored in AWS Secrets Manager match the SCRAM user credentials on the self-managed cluster.
-2. Verify that the SCRAM user has the required ACL permissions (Read, Describe on topics; Read, Describe on consumer groups; Describe on cluster).
+1. Verify that the credentials stored in AWS Secrets Manager match the SCRAM user credentials on the self-managed cluster (for SASL/SCRAM) or that the client certificate and private key are correct (for mTLS).
+2. Verify that the SCRAM user or certificate principal has the required ACL permissions (Read, Describe on topics; Read, Describe on consumer groups; Describe on cluster).
 3. Check the `AuthError` metric to confirm authentication errors and identify whether the source or target cluster is affected using the `ClusterAlias` dimension.
 
 ### SSL certificate issues

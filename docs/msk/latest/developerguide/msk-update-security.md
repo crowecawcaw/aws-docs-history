@@ -14,8 +14,8 @@ combinations.
 
 | Authentication  | Client-broker encryption options | Broker-broker encryption |
 | --------------- | -------------------------------- | ------------------------ |
-| Unauthenticated | TLS, PLAINTEXT, TLS_PLAINTEXT    | Can be on or off.        |
-| mTLS            | TLS, TLS_PLAINTEXT               | Must be on.              |
+| Unauthenticated | TLS, PLAINTEXT, TLS\_PLAINTEXT   | Can be on or off.        |
+| mTLS            | TLS, TLS\_PLAINTEXT              | Must be on.              |
 | SASL/SCRAM      | TLS                              | Must be on.              |
 | SASL/IAM        | TLS                              | Must be on.              |
 

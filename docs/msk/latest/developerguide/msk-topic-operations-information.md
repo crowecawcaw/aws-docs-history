@@ -17,14 +17,14 @@ These topic API responses reflect data that updates approximately every minute. 
 
 To call these APIs, you must have the appropriate IAM permissions. The following table lists the required permissions for each API.
 
-| Required permissions for topic operations APIs | API                                                                                                                                      | Required Permissions   | Resource |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | -------- |
-| ListTopics                                     | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`                                                                                 | Cluster ARN, Topic ARN |
-| DescribeTopic                                  | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:DescribeTopicDynamicConfiguration`                            | Cluster ARN, Topic ARN |
-| DescribeTopicPartitions                        | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:DescribeTopicDynamicConfiguration`                            | Cluster ARN, Topic ARN |
-| CreateTopic                                    | `kafka-cluster:Connect`<br>`kafka-cluster:CreateTopic`                                                                                   | Cluster ARN, Topic ARN |
-| DeleteTopic                                    | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:DeleteTopic`                                                  | Cluster ARN, Topic ARN |
-| UpdateTopic                                    | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:AlterTopic`<br>`kafka-cluster:AlterTopicDynamicConfiguration` | Cluster ARN, Topic ARN |
+Required permissions for topic operations APIs| API | Required Permissions | Resource |
+| --- | --- | --- |
+| ListTopics | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic` | Cluster ARN, Topic ARN |
+| DescribeTopic | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:DescribeTopicDynamicConfiguration` | Cluster ARN, Topic ARN |
+| DescribeTopicPartitions | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:DescribeTopicDynamicConfiguration` | Cluster ARN, Topic ARN |
+| CreateTopic | `kafka-cluster:Connect`<br>`kafka-cluster:CreateTopic` | Cluster ARN, Topic ARN |
+| DeleteTopic | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:DeleteTopic` | Cluster ARN, Topic ARN |
+| UpdateTopic | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:AlterTopic`<br>`kafka-cluster:AlterTopicDynamicConfiguration` | Cluster ARN, Topic ARN |
 
 ###### Note
 

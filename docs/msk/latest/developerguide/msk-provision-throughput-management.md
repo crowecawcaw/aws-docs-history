@@ -53,7 +53,7 @@ Average storage throughput in MiB/s = (Sum(VolumeReadBytes) + Sum(VolumeWriteByt
 ```
 
 For information about the `VolumeReadBytes` and
-`VolumeWriteBytes` metrics, see [PER_BROKER Level monitoring](metrics-details.md#broker-metrics "metrics-details.md#broker-metrics").
+`VolumeWriteBytes` metrics, see [PER\_BROKER Level monitoring](metrics-details.md#broker-metrics "metrics-details.md#broker-metrics").
 
 ## Configuration update values for provisioned storage in a Amazon MSK cluster
 

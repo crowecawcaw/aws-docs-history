@@ -75,7 +75,7 @@ in the previous step.
 tar -xzf kafka_2.12-2.2.1.tgz
 ```
 
-7. Go to the **kafka_2.12-2.2.1** directory.
+7. Go to the **kafka\_2.12-2.2.1** directory.
 8. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/ "https://console.aws.amazon.com/msk/home?region=us-east-1#/home/").
 9. In the left pane choose **Clusters**, then choose the name
    `mkc-tutorial-cluster`.

@@ -17,8 +17,8 @@ on IAM access control for an existing cluster, see [Update security settings of 
 
 - To create a cluster with IAM access control enabled, use the [CreateCluster](../../1.0/apireference/clusters.md#CreateCluster "../../1.0/apireference/clusters.md#CreateCluster") API or the [create-cluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kafka/create-cluster.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kafka/create-cluster.html") CLI command, and pass the following JSON for the
   `ClientAuthentication` parameter: `"ClientAuthentication": {
-"Sasl": {
-"Iam": {
-"Enabled": true
-}
-}`.
+ "Sasl": {
+ "Iam": {
+ "Enabled": true
+ }
+ }`.

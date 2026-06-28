@@ -162,7 +162,7 @@ You can use [Amazon CloudWatch metric math](../../../AmazonCloudWatch/latest/mon
   that use round-robin writes (in other words, messages aren't keyed and
   ordering isn't important to consumers), [expand your cluster](msk-update-broker-count.md "msk-update-broker-count.md") by adding brokers. Also add partitions to
   existing topics with the highest throughput. Next, use `kafka-topics.sh
---describe` to ensure that newly added partitions are assigned to
+ --describe` to ensure that newly added partitions are assigned to
   the new brokers. The main benefit of this option compared to the previous
   one is that you can manage resources and costs more granularly.
   Additionally, you can use this option if CPU load significantly exceeds 60%
@@ -189,7 +189,7 @@ Other recommendations:
   increase linearly with CPU utilization.
 - **JMX scrape interval**: If you enable open
   monitoring with the [Prometheus feature](open-monitoring.md "open-monitoring.md"), it is recommended that you use a 60 second
-  or higher scrape interval (scrape_interval: 60s) for your Prometheus host
+  or higher scrape interval (scrape\_interval: 60s) for your Prometheus host
   configuration (prometheus.yml). Lowering the scrape interval can lead to
   high CPU usage on your cluster.
 

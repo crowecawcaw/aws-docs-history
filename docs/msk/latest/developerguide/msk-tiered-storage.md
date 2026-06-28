@@ -49,7 +49,7 @@ Here are some of the features of tiered storage:
 
 Tiered storage has the following constraints and limitations:
 
-- Make sure clients are not configured to `read_committed` when reading from the remote_tier in Amazon MSK, unless the application is actively using the transactions feature.
+- Make sure clients are not configured to `read_committed` when reading from the remote\_tier in Amazon MSK, unless the application is actively using the transactions feature.
 - Tiered storage isn't available in AWS GovCloud (US) regions.
 - Tiered storage applies only to provisioned mode clusters.
 - Tiered storage doesn’t support broker size t3.small.

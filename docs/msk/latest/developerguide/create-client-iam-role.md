@@ -72,40 +72,39 @@ For instructions about how to write secure policies, see [IAM access control](ia
 
 ###### To create an IAM role and attach the policy to it
 
-1.  On the navigation pane, choose **Roles**, and then choose **Create role**.
-2.  On the **Select trusted entity** page, do the following:
+1. On the navigation pane, choose **Roles**, and then choose **Create role**.
+2. On the **Select trusted entity** page, do the following:
 
-    1. For **Trusted entity type**, choose **AWS service**.
-    2. For **Service or use case**, choose **EC2**.
-    3. Under **Use case**, choose **EC2**.
+   1. For **Trusted entity type**, choose **AWS service**.
+   2. For **Service or use case**, choose **EC2**.
+   3. Under **Use case**, choose **EC2**.
 
-3.  Choose **Next**.
-4.  On the **Add permissions** page, do the following:
+3. Choose **Next**.
+4. On the **Add permissions** page, do the following:
 
-    1. In the search box under **Permissions policies**, enter the name of the policy that you previously created for this tutorial. Then, choose the box to the left of the policy name.
-    2. (Optional) Set a [permissions boundary](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md"). This is an advanced feature that is available for service roles, but not service-linked roles. For information about setting a permissions boundary, see [Creating roles and attaching policies (console)](../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md "../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md") in the _IAM User Guide_.
+   1. In the search box under **Permissions policies**, enter the name of the policy that you previously created for this tutorial. Then, choose the box to the left of the policy name.
+   2. (Optional) Set a [permissions boundary](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md"). This is an advanced feature that is available for service roles, but not service-linked roles. For information about setting a permissions boundary, see [Creating roles and attaching policies (console)](../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md "../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md") in the _IAM User Guide_.
 
-5.  Choose **Next**.
-6.  On the **Name, review, and create** page, do the following:
+5. Choose **Next**.
+6. On the **Name, review, and create** page, do the following:
 
-    1. For **Role name**, enter a descriptive name, such as `msk-tutorial-role`.
+   1. For **Role name**, enter a descriptive name, such as `msk-tutorial-role`.
 
-    ###### Important
+   ###### Important
 
-    When you name a role, note the following:
+   When you name a role, note the following:
 
         * Role names must be unique within your AWS account, and can't be made unique by case.
 
 
         For example, don't create roles named both `PRODROLE` and `prodrole`. When a role name is used in a policy or as part of an ARN, the role name is case sensitive, however when a role name appears to customers in the console, such as during the sign-in process, the role name is case insensitive.
         * You can't edit the name of the role after it's created because other entities might reference the role.
-    2. (Optional) For **Description**, enter a description for the role.
-    3. (Optional) To edit the use cases and permissions for the role, in **Step 1: Select trusted entities** or **Step 2: Add permissions** sections, choose **Edit**.
-    4. (Optional) To help identify, organize, or search for the role, choose **Add new tag** to add tags as key-value pairs. For example, add a tag to your role with the key-value pair of `ProductManager` and `John`.
 
-    For more information about using tags, see [Tags for AWS Identity and Access Management resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
+   2. (Optional) For **Description**, enter a description for the role. 3. (Optional) To edit the use cases and permissions for the role, in **Step 1: Select trusted entities** or **Step 2: Add permissions** sections, choose **Edit**. 4. (Optional) To help identify, organize, or search for the role, choose **Add new tag** to add tags as key-value pairs. For example, add a tag to your role with the key-value pair of `ProductManager` and `John`.
 
-7.  Review the role, and then choose **Create role**.
-    **Next Step**
+   For more information about using tags, see [Tags for AWS Identity and Access Management resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
+
+7. Review the role, and then choose **Create role**.
+   **Next Step**
 
 [Step 3: Create a client machine](create-client-machine.md "create-client-machine.md")

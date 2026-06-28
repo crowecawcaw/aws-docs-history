@@ -37,24 +37,22 @@ Make sure you have the following items.
       [Work with route tables](../../../vpc/latest/userguide/WorkWithRouteTables.md "../../../vpc/latest/userguide/WorkWithRouteTables.md") in the _Amazon Virtual Private Cloud_
       _User Guide_.
 
-   | Private MSKC route table                          | Property                                                                                                                      | Value |
-   | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----- |
-   | Name tag                                          | We recommend that you give this route table a descriptive<br>name tag to help you identify it. For example, **Private MSKC**. |
-   | Associated subnets                                | Your private subnets                                                                                                          |
-   | A route to enable internet access for MSK Connect | • **Destination**:<br>0.0.0.0/0<br>• **Target**: Your NAT<br>gateway ID. For example, _nat-12a345bc6789efg1h_.                |
-   | A local route for internal traffic                | • **Destination**:<br>10.0.0.0/16. This value may differ depending on your<br>VPC's CIDR block.<br>• **Target**:<br>Local     |
-   2. Follow the instructions in [Create
-      a custom route table](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing") to create a route table for your public subnet.
-      When you create the table, enter a descriptive name in the **Name
-      tag** field to help you identify which subnet the table is
-      associated with. For example, **Public
-      MSKC**.
-   3. Configure your **Public MSKC** route table using
-      the following settings.
+   Private MSKC route table| Property | Value |
+   | --- | --- |
+   | Name tag | We recommend that you give this route table a descriptive<br>name tag to help you identify it. For example, **Private MSKC**. |
+   | Associated subnets | Your private subnets |
+   | A route to enable internet access for MSK Connect | • **Destination**:<br>0.0.0.0/0<br>• **Target**: Your NAT<br>gateway ID. For example, _nat-12a345bc6789efg1h_. |
+   | A local route for internal traffic | • **Destination**:<br>10.0.0.0/16. This value may differ depending on your<br>VPC's CIDR block.<br>• **Target**:<br>Local | 2. Follow the instructions in [Create
+   a custom route table](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing") to create a route table for your public subnet.
+   When you create the table, enter a descriptive name in the **Name
+   tag** field to help you identify which subnet the table is
+   associated with. For example, **Public
+   MSKC**. 3. Configure your **Public MSKC** route table using
+   the following settings.
 
    | Property                                          | Value                                                                                                                     |
    | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-   | Name tag                                          | \*_Public MSKC_<br>• or a different<br>descriptive name that you choose                                                   |
+   | Name tag                                          | *_Public MSKC_<br>• or a different<br>descriptive name that you choose                                                    |
    | Associated subnets                                | Your public subnet with NAT gateway                                                                                       |
    | A route to enable internet access for MSK Connect | • **Destination**:<br>0.0.0.0/0<br>• **Target**: Your<br>internet gateway ID. For example, _igw-1a234bc5_.                |
    | A local route for internal traffic                | • **Destination**:<br>10.0.0.0/16. This value may differ depending on your<br>VPC's CIDR block.<br>• **Target**:<br>Local |

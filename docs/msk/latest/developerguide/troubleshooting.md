@@ -18,7 +18,7 @@ Amazon MSK cluster. You can also post your issue to [AWS re:Post](https://repost
 - [Memory running low](#troubleshooting-lowmemory "#troubleshooting-lowmemory")
 - [Producer gets NotLeaderForPartitionException](#troubleshooting-NotLeaderForPartitionException "#troubleshooting-NotLeaderForPartitionException")
 - [Under-replicated partitions (URP) greater than zero](#troubleshooting-urp "#troubleshooting-urp")
-- [Cluster has topics called \_\_amazon_msk_canary and \_\_amazon_msk_canary_state](#amazon_msk_canary "#amazon_msk_canary")
+- [Cluster has topics called \_\_amazon\_msk\_canary and \_\_amazon\_msk\_canary\_state](#amazon_msk_canary "#amazon_msk_canary")
 - [Partition replication fails](#partition_replication_fails "#partition_replication_fails")
 - [Unable to access cluster that has public access turned on](#public-access-issues "#public-access-issues")
 - [Unable to access cluster through IPv6 bootstrap](#dualstack-issues "#dualstack-issues")
@@ -183,14 +183,14 @@ be for one of the following reasons.
   about setting ACLs, see [Authorization
   and ACLs](https://kafka.apache.org/documentation/#security_authz "https://kafka.apache.org/documentation/#security_authz") in the Apache Kafka documentation.
 
-## Cluster has topics called \_\_amazon_msk_canary and \_\_amazon_msk_canary_state
+## Cluster has topics called \_\_amazon\_msk\_canary and \_\_amazon\_msk\_canary\_state
 
 You might see that your MSK cluster has a topic with the name `__amazon_msk_canary` and another with the name `__amazon_msk_canary_state`. These are internal topics that Amazon MSK creates and uses for cluster health and diagnostic metrics.
 These topics are negligible in size and can't be deleted.
 
 ## Partition replication fails
 
-Ensure that you haven't set ACLs on CLUSTER_ACTIONS.
+Ensure that you haven't set ACLs on CLUSTER\_ACTIONS.
 
 ## Unable to access cluster that has public access turned on
 
@@ -306,7 +306,7 @@ MSK cluster using Site-to-Site VPN, ensure the following:
   check the VPN connection status, see [How do I check the current status of my VPN tunnel?](https://aws.amazon.com/premiumsupport/knowledge-center/check-vpn-tunnel-status/ "https://aws.amazon.com/premiumsupport/knowledge-center/check-vpn-tunnel-status/").
 - The route table of the cluster's VPC contains the route for an on-premises
   CIDR whose target has the format `Virtual private
-gateway(vgw-xxxxxxxx)`.
+ gateway(vgw-xxxxxxxx)`.
 - The MSK cluster's security group allows traffic on port 2181,
   port 9092 (if your cluster accepts plaintext traffic), and port 9094 (if
   your cluster accepts TLS-encrypted traffic).

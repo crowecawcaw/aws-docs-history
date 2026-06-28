@@ -23,12 +23,12 @@ The output of this command looks like the following JSON example.
 
 The `status` field indicates the current state of the topic. The following table describes the possible status values.
 
-| Topic status values | Status                                    | Description |
-| ------------------- | ----------------------------------------- | ----------- |
-| CREATING            | The topic is being created.               |
-| ACTIVE              | The topic is active and ready for use.    |
-| UPDATING            | The topic configuration is being updated. |
-| DELETING            | The topic is being deleted.               |
+Topic status values| Status | Description |
+| --- | --- |
+| CREATING | The topic is being created. |
+| ACTIVE | The topic is active and ready for use. |
+| UPDATING | The topic configuration is being updated. |
+| DELETING | The topic is being deleted. |
 
 ## Understanding topic configurations
 

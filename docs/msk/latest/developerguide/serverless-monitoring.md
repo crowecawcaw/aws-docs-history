@@ -11,16 +11,16 @@ This means that the 'SUM' statistic for a one-minute period accurately represent
 data for `PerSec` metrics. To collect per-second data for a period of longer than
 one minute, use the following CloudWatch math expression: `m1 * 60/PERIOD(m1)`.
 
-| Metrics available at the DEFAULT monitoring level | Name                                         | When visible                        | Dimensions                                                                                        | Description |
-| ------------------------------------------------- | -------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
-| `BytesInPerSec`                                   | After a producer writes to a topic           | Cluster Name, Topic                 | The number of bytes per second received from clients. This metric is<br>available for each topic. |
-| `BytesOutPerSec`                                  | After a consumer group consumes from a topic | Cluster Name, Topic                 | The number of bytes per second sent to clients. This metric is<br>available for each topic.       |
-| `FetchMessageConversionsPerSec`                   | After a consumer group consumes from a topic | Cluster Name, Topic                 | The number of fetch message conversions per second for the<br>topic.                              |
-| `EstimatedMaxTimeLag`                             | After a consumer group consumes from a topic | Cluster Name, Consumer Group, Topic | A time estimate of the MaxOffsetLag metric.                                                       |
-| `MaxOffsetLag`                                    | After a consumer group consumes from a topic | Cluster Name, Consumer Group, Topic | The maximum offset lag across all partitions in a topic.                                          |
-| `MessagesInPerSec`                                | After a producer writes to a topic           | Cluster Name, Topic                 | The number of incoming messages per second for the topic.                                         |
-| `ProduceMessageConversionsPerSec`                 | After a producer writes to a topic           | Cluster Name, Topic                 | The number of produce message conversions per second for the<br>topic.                            |
-| `SumOffsetLag`                                    | After a consumer group consumes from a topic | Cluster Name, Consumer Group, Topic | The aggregated offset lag for all the partitions in a topic.                                      |
+Metrics available at the DEFAULT monitoring level| Name | When visible | Dimensions | Description |
+| --- | --- | --- | --- |
+| `BytesInPerSec` | After a producer writes to a topic | Cluster Name, Topic | The number of bytes per second received from clients. This metric is<br>available for each topic. |
+| `BytesOutPerSec` | After a consumer group consumes from a topic | Cluster Name, Topic | The number of bytes per second sent to clients. This metric is<br>available for each topic. |
+| `FetchMessageConversionsPerSec` | After a consumer group consumes from a topic | Cluster Name, Topic | The number of fetch message conversions per second for the<br>topic. |
+| `EstimatedMaxTimeLag` | After a consumer group consumes from a topic | Cluster Name, Consumer Group, Topic | A time estimate of the MaxOffsetLag metric. |
+| `MaxOffsetLag` | After a consumer group consumes from a topic | Cluster Name, Consumer Group, Topic | The maximum offset lag across all partitions in a topic. |
+| `MessagesInPerSec` | After a producer writes to a topic | Cluster Name, Topic | The number of incoming messages per second for the topic. |
+| `ProduceMessageConversionsPerSec` | After a producer writes to a topic | Cluster Name, Topic | The number of produce message conversions per second for the<br>topic. |
+| `SumOffsetLag` | After a consumer group consumes from a topic | Cluster Name, Consumer Group, Topic | The aggregated offset lag for all the partitions in a topic. |
 
 ###### To view MSK Serverless metrics
 

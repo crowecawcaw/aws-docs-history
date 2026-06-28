@@ -11,7 +11,7 @@ Kafka uses exceptions to control this flow:
 ###### An example procedure
 
 1. Broker A enters an offline state.
-2. Kafka client receives an exception (typically network disconnect or not_leader_for_partition).
+2. Kafka client receives an exception (typically network disconnect or not\_leader\_for\_partition).
 3. These exceptions trigger the Kafka client to update its metadata so that it knows about the latest leaders.
 4. Kafka client resumes sending requests to the new partition leaders on other brokers.
    This process typically takes less than 2 seconds with the vended Java client and default configurations. The client side errors are verbose and repetitive but not cause for concern, as denoted by the “WARN” level.
@@ -48,5 +48,5 @@ The above flow can be disrupted by breaking the client-server contract. The most
 - Some client libraries are lower level than others and expect the application developer to implement retry logic and exception handling themselves. Please refer to client lib specific documentation for example usage, and ensure that correct reconnect/retry logic is followed.
 - We recommend monitoring client side latency for produces, successful request count, and error count for non-retryable errors.
 - We have observed that older 3rd party golang and ruby libraries remain verbose during an entire broker offline time period despite produces and consume requests being unaffected. We recommend you always monitor your business level metrics besides request metrics for success and errors to determine if there is real impact vs noise in your logs.
-- Customers should not alarm on transient exceptions for network/not_leader as they are normal, non-impacting, and expected as part of the kafka protocol.
+- Customers should not alarm on transient exceptions for network/not\_leader as they are normal, non-impacting, and expected as part of the kafka protocol.
 - Customers should not alarm on UnderReplicatedPartitions as they are normal, non-impacting, and expected during a single offline broker.

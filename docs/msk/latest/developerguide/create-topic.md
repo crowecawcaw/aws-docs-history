@@ -32,43 +32,43 @@ For detailed information about creating topics using the AWS tools, see the [Cre
 
 ## Creating a topic on the client machine
 
-1.  **Connect to your client machine.**
+1. **Connect to your client machine.**
 
-    1. Open the Amazon EC2 console at
-       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-    2. In the navigation pane, choose **Instances**. Then, select the check box beside the name of the client machine that you created in [Step 3: Create a client machine](create-client-machine.md "create-client-machine.md").
-    3. Choose **Actions**, and then choose **Connect**. Follow the instructions in the console to connect to your client machine.
+   1. Open the Amazon EC2 console at
+      [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+   2. In the navigation pane, choose **Instances**. Then, select the check box beside the name of the client machine that you created in [Step 3: Create a client machine](create-client-machine.md "create-client-machine.md").
+   3. Choose **Actions**, and then choose **Connect**. Follow the instructions in the console to connect to your client machine.
 
-2.  **Install Java and set up the Kafka version environment variable.**
+2. **Install Java and set up the Kafka version environment variable.**
 
-    1. Install Java on the client machine by running the following command.
+   1. Install Java on the client machine by running the following command.
 
-    ```
-    sudo yum -y install java-11
-    ```
-    2. Store the [Kafka version](#find-msk-cluster-version "#find-msk-cluster-version") of your MSK cluster in the environment variable, `KAFKA_VERSION`, as shown in the following command. You'll need this information throughout the setup.
+   ```
+   sudo yum -y install java-11
+   ```
+   2. Store the [Kafka version](#find-msk-cluster-version "#find-msk-cluster-version") of your MSK cluster in the environment variable, `KAFKA_VERSION`, as shown in the following command. You'll need this information throughout the setup.
 
-    ```
-    export KAFKA_VERSION=`{KAFKA VERSION}`
-    ```
+   ```
+   export KAFKA_VERSION=`{KAFKA VERSION}`
+   ```
 
-    For example, if you're using version 3.6.0, use the following command.
+   For example, if you're using version 3.6.0, use the following command.
 
-    ```
-    export KAFKA_VERSION=3.6.0
-    ```
+   ```
+   export KAFKA_VERSION=3.6.0
+   ```
 
-3.  **Download and extract Apache Kafka.**
+3. **Download and extract Apache Kafka.**
 
-    1. Run the following command to download Apache Kafka.
+   1. Run the following command to download Apache Kafka.
 
-    ```
-    wget https://archive.apache.org/dist/kafka/$KAFKA_VERSION/kafka_2.13-$KAFKA_VERSION.tgz
-    ```
+   ```
+   wget https://archive.apache.org/dist/kafka/$KAFKA_VERSION/kafka_2.13-$KAFKA_VERSION.tgz
+   ```
 
-    ###### Note
+   ###### Note
 
-    The following list presents some alternative Kafka download information that you can use, if you encounter any issues.
+   The following list presents some alternative Kafka download information that you can use, if you encounter any issues.
 
         * If you encounter connectivity issues or want to use a mirror site, try using the Apache mirror selector, as shown in the following command.
 
@@ -78,53 +78,54 @@ For detailed information about creating topics using the AWS tools, see the [Cre
         wget https://www.apache.org/dyn/closer.cgi?path=/kafka/$KAFKA_VERSION/kafka_2.13-$KAFKA_VERSION.tgz
         ```
         * Download an appropriate version directly from the [Apache Kafka website](https://kafka.apache.org/downloads "https://kafka.apache.org/downloads").
-    2. Run the following command in the directory where you downloaded the TAR file in the previous step.
 
-    ```
-    tar -xzf kafka_2.13-$KAFKA_VERSION.tgz
-    ```
-    3. Store the full path to the newly created directory inside the `KAFKA_ROOT` environment variable.
+   2. Run the following command in the directory where you downloaded the TAR file in the previous step.
 
-    ```
-    export KAFKA_ROOT=$(pwd)/kafka_2.13-$KAFKA_VERSION
-    ```
+   ```
+   tar -xzf kafka_2.13-$KAFKA_VERSION.tgz
+   ```
+   3. Store the full path to the newly created directory inside the `KAFKA_ROOT` environment variable.
 
-4.  **Set up authentication for your MSK cluster.**
+   ```
+   export KAFKA_ROOT=$(pwd)/kafka_2.13-$KAFKA_VERSION
+   ```
 
-    1. [Find the latest version](https://github.com/aws/aws-msk-iam-auth/releases/latest "https://github.com/aws/aws-msk-iam-auth/releases/latest") of the Amazon MSK IAM client library. This library allows your client machine to access the MSK cluster using IAM authentication.
-    2. Using the following commands, navigate to the `$KAFKA_ROOT/libs` directory and download the associated Amazon MSK IAM JAR that you found in the previous step. Make sure to replace `{LATEST VERSION}` with the actual version number you're downloading.
+4. **Set up authentication for your MSK cluster.**
 
-    ```
-    cd $KAFKA_ROOT/libs
-    ```
+   1. [Find the latest version](https://github.com/aws/aws-msk-iam-auth/releases/latest "https://github.com/aws/aws-msk-iam-auth/releases/latest") of the Amazon MSK IAM client library. This library allows your client machine to access the MSK cluster using IAM authentication.
+   2. Using the following commands, navigate to the `$KAFKA_ROOT/libs` directory and download the associated Amazon MSK IAM JAR that you found in the previous step. Make sure to replace `{LATEST VERSION}` with the actual version number you're downloading.
 
-    ```
-    wget https://github.com/aws/aws-msk-iam-auth/releases/latest/download/aws-msk-iam-auth-`{LATEST VERSION}`-all.jar
-    ```
+   ```
+   cd $KAFKA_ROOT/libs
+   ```
 
-    ###### Note
+   ```
+   wget https://github.com/aws/aws-msk-iam-auth/releases/latest/download/aws-msk-iam-auth-`{LATEST VERSION}`-all.jar
+   ```
 
-    Before running any Kafka commands that interact with your MSK cluster, you might need to add the Amazon MSK IAM JAR file to your Java classpath. Set the `CLASSPATH` environment variable, as shown in the following example.
+   ###### Note
 
-    ```
-    export CLASSPATH=$KAFKA_ROOT/libs/aws-msk-iam-auth-`{LATEST VERSION}`-all.jar
-    ```
+   Before running any Kafka commands that interact with your MSK cluster, you might need to add the Amazon MSK IAM JAR file to your Java classpath. Set the `CLASSPATH` environment variable, as shown in the following example.
 
-    This sets the `CLASSPATH` for your entire session, making the JAR available to all subsequent Kafka commands. 3. Go to the `$KAFKA_ROOT/config` directory to create the client configuration file.
+   ```
+   export CLASSPATH=$KAFKA_ROOT/libs/aws-msk-iam-auth-`{LATEST VERSION}`-all.jar
+   ```
 
-    ```
-    cd $KAFKA_ROOT/config
-    ```
-    4. Copy the following property settings and paste them into a new file. Save the file as `client.properties`.
+   This sets the `CLASSPATH` for your entire session, making the JAR available to all subsequent Kafka commands. 3. Go to the `$KAFKA_ROOT/config` directory to create the client configuration file.
 
-    ```
-    security.protocol=SASL_SSL
-    sasl.mechanism=AWS_MSK_IAM
-    sasl.jaas.config=software.amazon.msk.auth.iam.IAMLoginModule required;
-    sasl.client.callback.handler.class=software.amazon.msk.auth.iam.IAMClientCallbackHandler
-    ```
+   ```
+   cd $KAFKA_ROOT/config
+   ```
+   4. Copy the following property settings and paste them into a new file. Save the file as `client.properties`.
 
-5.  **(Optional) Adjust the Java heap size for Kafka tools.**
+   ```
+   security.protocol=SASL_SSL
+   sasl.mechanism=AWS_MSK_IAM
+   sasl.jaas.config=software.amazon.msk.auth.iam.IAMLoginModule required;
+   sasl.client.callback.handler.class=software.amazon.msk.auth.iam.IAMClientCallbackHandler
+   ```
+
+5. **(Optional) Adjust the Java heap size for Kafka tools.**
 
 If you encounter any memory-related issues or you're working with a large number of topics or partitions, you can adjust the Java heap size. To do this, set the `KAFKA_HEAP_OPTS` environment variable before running Kafka commands.
 

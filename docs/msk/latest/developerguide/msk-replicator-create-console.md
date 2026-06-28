@@ -23,14 +23,14 @@ You can look up a cluster's Region by going to **MSK Clusters** and looking at t
 arn:aws:kafka:ap-southeast-2:123456789012:cluster/cluster-11/eec93c7f-4e8b-4baf-89fb-95de01ee639c-s1
 ```
 
-2.  Select **MSK cluster** as the cluster type, then enter the ARN of your source cluster or choose **Browse** to select it.
-3.  Choose subnet(s) for your source cluster. The subnets will auto-populate based on your cluster selection. If they do not populate, or if you want to use different ones, you can select them manually. You must select a minimum of two subnets. For a same-region MSK Replicator, the subnets you select to access the source cluster and the subnets to access the target cluster must be in the same Availability Zone.
-4.  Choose security group(s) for the MSK Replicator to access your source cluster. The security groups will auto-populate based on your cluster selection. If they do not populate, or if you want to use different ones, you can select them manually.
+2. Select **MSK cluster** as the cluster type, then enter the ARN of your source cluster or choose **Browse** to select it.
+3. Choose subnet(s) for your source cluster. The subnets will auto-populate based on your cluster selection. If they do not populate, or if you want to use different ones, you can select them manually. You must select a minimum of two subnets. For a same-region MSK Replicator, the subnets you select to access the source cluster and the subnets to access the target cluster must be in the same Availability Zone.
+4. Choose security group(s) for the MSK Replicator to access your source cluster. The security groups will auto-populate based on your cluster selection. If they do not populate, or if you want to use different ones, you can select them manually.
 
-    - For cross-region replication (CRR), you do not need to provide security group(s) for your source cluster.
-    - For same-region replication (SRR), go to the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/") and ensure that the security groups you will provide for the Replicator have outbound rules to allow traffic to your source cluster's security groups. Also, ensure that your source cluster's security groups have inbound rules that allow traffic from the Replicator security groups provided for the source.
+   - For cross-region replication (CRR), you do not need to provide security group(s) for your source cluster.
+   - For same-region replication (SRR), go to the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/") and ensure that the security groups you will provide for the Replicator have outbound rules to allow traffic to your source cluster's security groups. Also, ensure that your source cluster's security groups have inbound rules that allow traffic from the Replicator security groups provided for the source.
 
-    ###### To add inbound rules to your source cluster's security group:
+   ###### To add inbound rules to your source cluster's security group:
 
         1. In the AWS console, go to your source cluster's details by selecting the **Cluster name**.
         2. Select the **Properties** tab, then scroll down to the **Network settings** pane to select the name of the **Security group** applied.
@@ -40,7 +40,7 @@ arn:aws:kafka:ap-southeast-2:123456789012:cluster/cluster-11/eec93c7f-4e8b-4baf-
         6. In the **Port range** column, type `9098`. MSK Replicator uses IAM access control to connect to your cluster which uses port 9098.
         7. In the **Source** column, type the name of the security group that you will provide during Replicator creation for the source cluster (this may be the same as the MSK source cluster's security group), and then select **Save rules**.
 
-    ###### To add outbound rules to Replicator's security group provided for the source:
+   ###### To add outbound rules to Replicator's security group provided for the source:
 
         1. In the AWS console for Amazon EC2, go to the security group that you will provide during Replicator creation for the source.
         2. Go to the outbound rules and select **Edit outbound rules**.
@@ -110,22 +110,21 @@ You can also configure the **Consumer group offset sync mode**:
     * **Legacy** (default) — Offsets are synchronized when producers write to the source cluster (unidirectional).
     * **Enhanced** — Consumer offsets are synchronized regardless of producer location (bidirectional). Requires a corresponding Replicator that replicates data from the target cluster back to the source cluster. Use this mode when setting up bidirectional replication for migration or active-active architectures. For more information, see [Consumer group offset synchronization](msk-replicator-bidirectional-offset-sync.md "msk-replicator-bidirectional-offset-sync.md").
 
-6.  In the **Compression** pane, you can optionally choose to compress the data written to the target cluster. If you use compression, we recommend using the same compression method as the data in your source cluster.
-7.  In the **Access permissions** pane, do either of the following:
+6. In the **Compression** pane, you can optionally choose to compress the data written to the target cluster. If you use compression, we recommend using the same compression method as the data in your source cluster. 7. In the **Access permissions** pane, do either of the following:
 
     1. Select **Create or update IAM role with required policies**. The MSK console will automatically attach the necessary permissions and trust policy to the service execution role.
 
-    ![MSK console to create or update replicator IAM role](images/msk-replicator-ezCRC.png) 2. Provide your own IAM role by selecting **Choose from IAM roles that Amazon MSK can assume**. We recommend attaching the [`AWSMSKReplicatorExecutionRole`](security-iam-awsmanpol-AWSMSKReplicatorExecutionRole.md "security-iam-awsmanpol-AWSMSKReplicatorExecutionRole.md") managed IAM policy to your service execution role. See [Service execution role (SER)](msk-replicator-ser.md "msk-replicator-ser.md").
 
-8.  In the **Log delivery** pane, you can optionally configure log delivery to capture and route replication logs to your chosen destinations. By default, log delivery is not enabled. You can enable one or more of the following destinations:
 
-        * **Deliver to Amazon CloudWatch Logs** — Analyze, query, and set alarms on the logs.
-        * **Deliver to Amazon S3** — Store and retrieve raw logs in object storage.
-        * **Deliver to Amazon Data Firehose** — Capture, transform, and deliver logs to Amazon OpenSearch Service or other Amazon Data Firehose destinations.
+    ![MSK console to create or update replicator IAM role](images/msk-replicator-ezCRC.png)
+    2. Provide your own IAM role by selecting **Choose from IAM roles that Amazon MSK can assume**. We recommend attaching the [`AWSMSKReplicatorExecutionRole`](security-iam-awsmanpol-AWSMSKReplicatorExecutionRole.md "security-iam-awsmanpol-AWSMSKReplicatorExecutionRole.md") managed IAM policy to your service execution role. See [Service execution role (SER)](msk-replicator-ser.md "msk-replicator-ser.md").
 
-    For more information, see [MSK Replicator logs](msk-replicator-logs.md "msk-replicator-logs.md").
+8. In the **Log delivery** pane, you can optionally configure log delivery to capture and route replication logs to your chosen destinations. By default, log delivery is not enabled. You can enable one or more of the following destinations:
 
-9.  In the **Replicator tags** pane, you can optionally assign tags to the MSK Replicator resource. For a cross-region MSK Replicator, tags are synced to the remote Region automatically when the Replicator is created.
-10. Select **Create**.
+    * **Deliver to Amazon CloudWatch Logs** — Analyze, query, and set alarms on the logs.
+    * **Deliver to Amazon S3** — Store and retrieve raw logs in object storage.
+    * **Deliver to Amazon Data Firehose** — Capture, transform, and deliver logs to Amazon OpenSearch Service or other Amazon Data Firehose destinations.
+
+For more information, see [MSK Replicator logs](msk-replicator-logs.md "msk-replicator-logs.md"). 9. In the **Replicator tags** pane, you can optionally assign tags to the MSK Replicator resource. For a cross-region MSK Replicator, tags are synced to the remote Region automatically when the Replicator is created. 10. Select **Create**.
 
 It takes approximately 30 minutes for the MSK Replicator to be successfully created and transition to RUNNING status. If your MSK Replicator transitions to a FAILED status, see [Troubleshoot Amazon MSK Replicator](msk-replicator-troubleshooting.md "msk-replicator-troubleshooting.md").

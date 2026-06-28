@@ -2,10 +2,10 @@
 
 To enable clients to communicate with an MSK cluster that uses IAM access control, you can use either of these mechanisms:
 
-- Non-Java client configuration using SASL_OAUTHBEARER mechanism
-- Java client configuration using SASL_OAUTHBEARER mechanism or AWS_MSK_IAM mechanism
+- Non-Java client configuration using SASL\_OAUTHBEARER mechanism
+- Java client configuration using SASL\_OAUTHBEARER mechanism or AWS\_MSK\_IAM mechanism
 
-## Use the SASL_OAUTHBEARER mechanism to configure IAM
+## Use the SASL\_OAUTHBEARER mechanism to configure IAM
 
 1. Edit your client.properties configuration file using the following Python Kafka client example. Configuration changes are similar in other languages.
 
@@ -51,9 +51,9 @@ producer.close()
    - Python: [https://github.com/aws/aws-msk-iam-sasl-signer-python#get-started](https://github.com/aws/aws-msk-iam-sasl-signer-python#get-started "https://github.com/aws/aws-msk-iam-sasl-signer-python#get-started")
    - Go: [https://github.com/aws/aws-msk-iam-sasl-signer-go#getting-started](https://github.com/aws/aws-msk-iam-sasl-signer-go#getting-started "https://github.com/aws/aws-msk-iam-sasl-signer-go#getting-started")
    - .NET: [https://github.com/aws/aws-msk-iam-sasl-signer-net#getting-started](https://github.com/aws/aws-msk-iam-sasl-signer-net#getting-started "https://github.com/aws/aws-msk-iam-sasl-signer-net#getting-started")
-   - JAVA: SASL_OAUTHBEARER support for Java is available through the [`aws-msk-iam-auth`](https://github.com/aws/aws-msk-iam-auth/releases "https://github.com/aws/aws-msk-iam-auth/releases") jar file
+   - JAVA: SASL\_OAUTHBEARER support for Java is available through the [`aws-msk-iam-auth`](https://github.com/aws/aws-msk-iam-auth/releases "https://github.com/aws/aws-msk-iam-auth/releases") jar file
 
-## Use the MSK custom AWS_MSK_IAM mechanism to configure IAM
+## Use the MSK custom AWS\_MSK\_IAM mechanism to configure IAM
 
 1. Add the following to the `client.properties` file. Replace
    `<PATH_TO_TRUST_STORE_FILE>` with the
@@ -62,8 +62,9 @@ producer.close()
 ###### Note
 
 If you don't want to use a specific certificate, you can remove
-`ssl.truststore.location=`<PATH_TO_TRUST_STORE_FILE>`` from your`client.properties`file. When you don't specify a
- value for`ssl.truststore.location`, the Java process uses
+`ssl.truststore.location=`<PATH_TO_TRUST_STORE_FILE>``
+from your `client.properties` file. When you don't specify a
+value for `ssl.truststore.location`, the Java process uses
 the default certificate.
 
 ```

@@ -13,38 +13,33 @@ The procedures in this topic describe the common task of creating an MSK Provisi
 - [Step 5: Configure monitoring options](#cluster-monitoring-config "#cluster-monitoring-config")
 - [Step 6: Review the cluster configuration](#review-cluster-custom-create "#review-cluster-custom-create")
 
-1.  Open the Amazon MSK console at [https://console.aws.amazon.com/msk/](https://console.aws.amazon.com/msk/ "https://console.aws.amazon.com/msk/").
-2.  Choose **Create cluster**.
-3.  For **Cluster creation method**, choose **Custom create**.
-4.  For **Cluster name**, specify a name that is unique and contains no more than 64 characters.
-5.  For **Cluster type**, choose **Provisioned**.
-6.  For **Apache Kafka version**, choose a version to run on the brokers. To see a comparison of Amazon MSK features that are supported by each Apache Kafka
-    version, choose **View version compatibility**.
-7.  In the **Brokers** section, do the following:
+1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/](https://console.aws.amazon.com/msk/ "https://console.aws.amazon.com/msk/").
+2. Choose **Create cluster**.
+3. For **Cluster creation method**, choose **Custom create**.
+4. For **Cluster name**, specify a name that is unique and contains no more than 64 characters.
+5. For **Cluster type**, choose **Provisioned**.
+6. For **Apache Kafka version**, choose a version to run on the brokers. To see a comparison of Amazon MSK features that are supported by each Apache Kafka
+   version, choose **View version compatibility**.
+7. In the **Brokers** section, do the following:
 
-        1. For **Broker type**, choose one of the following options:
+   1. For **Broker type**, choose one of the following options:
 
-
-
-
-        	* **Express brokers**: High-performance, scalable brokers with fully managed virtual storage. Choose this broker type for demanding, high-throughput applications.
-        	* **Standard brokers**: Traditional Kafka broker with full configuration control. Choose this broker type for general-purpose workloads with moderate throughput requirements.
+      - **Express brokers**: High-performance, scalable brokers with fully managed virtual storage. Choose this broker type for demanding, high-throughput applications.
+      - **Standard brokers**: Traditional Kafka broker with full configuration control. Choose this broker type for general-purpose workloads with moderate throughput requirements.
         For more information about these broker types, see [Amazon MSK broker types](broker-instance-types.md "broker-instance-types.md").
-        2. For **Broker size**, choose a size to use for the cluster based on the cluster’s compute, memory, and storage needs.
-        3. For **Number of zones**, choose the number of [AWS Availability Zones](../../../global-infrastructure/latest/regions/aws-availability-zones.md "../../../global-infrastructure/latest/regions/aws-availability-zones.md") across which brokers are distributed.
 
+   2. For **Broker size**, choose a size to use for the cluster based on the cluster’s compute, memory, and storage needs.
+   3. For **Number of zones**, choose the number of [AWS Availability Zones](../../../global-infrastructure/latest/regions/aws-availability-zones.md "../../../global-infrastructure/latest/regions/aws-availability-zones.md") across which brokers are distributed.
 
-        Express brokers require three Availability Zones for higher availability.
-        4. For **Brokers per zone**, specify the number of brokers you want Amazon MSK to create in each Availability Zone. The minimum is one broker per Availability Zone and the maximum is 30 brokers per cluster for ZooKeeper-based clusters and 60 brokers per cluster for [KRaft-based clusters](metadata-management.md#kraft-intro "metadata-management.md#kraft-intro").
+   Express brokers require three Availability Zones for higher availability. 4. For **Brokers per zone**, specify the number of brokers you want Amazon MSK to create in each Availability Zone. The minimum is one broker per Availability Zone and the maximum is 30 brokers per cluster for ZooKeeper-based clusters and 60 brokers per cluster for [KRaft-based clusters](metadata-management.md#kraft-intro "metadata-management.md#kraft-intro").
+   This procedure describes how you can configure your data storage needs across all brokers and specify the storage mode. This helps you define your data storage requirements based on your workload needs. Additionally, this procedure describes the cluster configuration settings that control how your brokers operate. These settings include broker configurations, default topic settings, and tiered storage policy.
 
-    This procedure describes how you can configure your data storage needs across all brokers and specify the storage mode. This helps you define your data storage requirements based on your workload needs. Additionally, this procedure describes the cluster configuration settings that control how your brokers operate. These settings include broker configurations, default topic settings, and tiered storage policy.
+8. If you selected the broker type as **Standard**, do the following in the **Storage** section:
 
-8.  If you selected the broker type as **Standard**, do the following in the **Storage** section:
+   1. For **Storage**, choose the initial amount of storage you want your cluster to have. You can't decrease storage capacity after you create the cluster.
+   2. (Optional) Depending on the broker size (instance size) you selected, you can also specify **Provisioned storage throughput per broker**. This option allows you to allocate dedicated input and output (I/O) performance for the Amazon EBS volumes of each broker.
 
-    1. For **Storage**, choose the initial amount of storage you want your cluster to have. You can't decrease storage capacity after you create the cluster.
-    2. (Optional) Depending on the broker size (instance size) you selected, you can also specify **Provisioned storage throughput per broker**. This option allows you to allocate dedicated input and output (I/O) performance for the Amazon EBS volumes of each broker.
-
-    To enable this option, choose broker size (instance size) kafka.m5.4xlarge or larger for x86, and kafka.m7g.2xlarge or larger for Graviton-based instances. Then, choose the **Enable provisioned storage throughput** checkbox. By selecting this checkbox, you can manually set a minimum of 250 MiB per second of throughput. This is helpful for I/O-intensive workloads or applications that require high-speed, predictable storage performance. For more information, see [Provision storage throughput for Standard brokers in a Amazon MSK cluster](msk-provision-throughput.md "msk-provision-throughput.md"). 3. For **Cluster storage mode**, specify how data is stored and managed within your cluster. This option determines the type and configuration of storage used for your brokers. Choose one of the following options:
+   To enable this option, choose broker size (instance size) kafka.m5.4xlarge or larger for x86, and kafka.m7g.2xlarge or larger for Graviton-based instances. Then, choose the **Enable provisioned storage throughput** checkbox. By selecting this checkbox, you can manually set a minimum of 250 MiB per second of throughput. This is helpful for I/O-intensive workloads or applications that require high-speed, predictable storage performance. For more information, see [Provision storage throughput for Standard brokers in a Amazon MSK cluster](msk-provision-throughput.md "msk-provision-throughput.md"). 3. For **Cluster storage mode**, specify how data is stored and managed within your cluster. This option determines the type and configuration of storage used for your brokers. Choose one of the following options:
 
         * **EBS storage only**: Stores all topic data locally on Amazon Elastic Block Store (Amazon EBS) volumes attached to each broker. Choose this mode for consistent performance needs and fast access to recent messages.
         * **Tiered storage and EBS storage**: Combines local Amazon EBS data with remote, cost-efficient storage for large datasets in Amazon S3. This mode reduces Amazon EBS storage costs, supports longer data retention, and scales storage automatically without manual intervention. Choose this mode when you want to retain data for longer periods at lower cost, or expect your storage needs to grow significantly.###### Note
@@ -55,7 +50,7 @@ You don't need to manage storage for Express brokers. 2. For **Cluster configura
     * **Custom configuration**: Lets you specify your own broker and topic settings. You can either choose an existing, custom configuration from the list or create a new custom configuration. Choose this option for fine-tuned control for your brokers, such as specific performance tuning, security settings, and more.
 
 3. Choose **Next** to proceed.
-   Network configuration defines how your cluster is deployed within your AWS infrastructure. This includes VPC, Availability Zones and subnets, and security groups that control networking, availability, and access.
+Network configuration defines how your cluster is deployed within your AWS infrastructure. This includes VPC, Availability Zones and subnets, and security groups that control networking, availability, and access.
 
 1. For **Networking**, do the following:
 
@@ -70,8 +65,8 @@ You don't need to manage storage for Express brokers. 2. For **Cluster configura
 
    If you specify security groups that are shared with you, you must ensure that you have permissions to use them. Specifically, you need the `ec2:DescribeSecurityGroups` permission. For more information, see [Connecting to an MSK cluster](client-access.md#public-access "client-access.md#public-access").
 
-1. Choose **Next** to proceed.
-1. In the **Security settings** section, do the following:
+2. Choose **Next** to proceed.
+3. In the **Security settings** section, do the following:
 
    1. Choose one or more of the following authentication and authorization methods to control client access to your Kafka clusters:
 
@@ -84,7 +79,7 @@ You don't need to manage storage for Express brokers. 2. For **Cluster configura
 
       We strongly recommend using independent AWS Private CAs for each MSK cluster when implementing mTLS. This ensures that TLS certificates signed by PCAs only authenticate with a single MSK cluster, thereby maintaining strict access control.
 
-1. In **Encryption**, choose the kind of KMS key that you want to use for encrypting data at rest. For more information, see [Amazon MSK encryption at rest](msk-encryption.md#msk-encryption-at-rest "msk-encryption.md#msk-encryption-at-rest").
+4. In **Encryption**, choose the kind of KMS key that you want to use for encrypting data at rest. For more information, see [Amazon MSK encryption at rest](msk-encryption.md#msk-encryption-at-rest "msk-encryption.md#msk-encryption-at-rest").
 
 Encrypting data at rest protects stored data integrity, while encrypting in transit protects data confidentiality from network monitoring during transfer. 3. Choose **Next** to proceed.
 This procedure describes how to set up your broker metrics, and collect and deliver broker logs. With these settings, you can observe and analyze your cluster's health, performance, and troubleshoot issues. For more information, see [Monitor an Amazon MSK Provisioned cluster](monitoring.md "monitoring.md").

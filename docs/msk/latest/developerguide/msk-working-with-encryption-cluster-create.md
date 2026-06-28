@@ -9,7 +9,7 @@ This process describes how to specify encryption settings when creating a Amazon
 2. Run the `create-cluster` command and use the
    `encryption-info` option to point to the file where you saved your
    configuration JSON. The following is an example. Replace `{YOUR MSK
-VERSION}` with a version that matches the Apache Kafka client
+ VERSION}` with a version that matches the Apache Kafka client
    version. For information on how to find your MSK cluster version, see [Determining your MSK cluster version](create-topic.md#find-msk-cluster-version "create-topic.md#find-msk-cluster-version"). Be aware
    that using an Apache Kafka client version that is not the same as your MSK cluster
    version may lead to Apache Kafka data corruption, loss and down time.

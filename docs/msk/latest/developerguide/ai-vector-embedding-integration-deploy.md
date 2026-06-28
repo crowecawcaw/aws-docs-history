@@ -49,7 +49,13 @@ If your provisioned cluster is public, ensure your MSF application can access th
 type="documentation"
 url="managed-flink/latest/java/vpc-internet.html"
 
-> Internet and service access for a VPC-connected Managed Service for Apache Flink application. 12. Once you are satisfied with all the configurations, select `Run`. The application will start running. 13. Pump messages in your MSK cluster. 14. Navigate to the Opensearch cluster and go to the OpenSearch dashboard. 15. On the dashboard, select **Discover** in the left menu. You should see persisted documents along with their vector embeddings. 16. Refer to [Working with vector search collections](../../../opensearch-service/latest/developerguide/serverless-vector-search.md "../../../opensearch-service/latest/developerguide/serverless-vector-search.md") to see how you can use the vectors stored in the index.
+> Internet and service access for a VPC-connected Managed Service for Apache Flink application.
+
+12. Once you are satisfied with all the configurations, select `Run`. The application will start running.
+13. Pump messages in your MSK cluster.
+14. Navigate to the Opensearch cluster and go to the OpenSearch dashboard.
+15. On the dashboard, select **Discover** in the left menu. You should see persisted documents along with their vector embeddings.
+16. Refer to [Working with vector search collections](../../../opensearch-service/latest/developerguide/serverless-vector-search.md "../../../opensearch-service/latest/developerguide/serverless-vector-search.md") to see how you can use the vectors stored in the index.
 
 ## Create page configurations
 

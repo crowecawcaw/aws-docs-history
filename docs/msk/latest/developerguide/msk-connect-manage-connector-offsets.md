@@ -37,10 +37,10 @@ Consider the following when you manage source connector offsets.
   can be reused among connectors. However, you can manually delete unused
   internal topics created by MSK Connect. The internal topics are named
   following the format
-  `__amazon_msk_connect_<offsets|status|configs>_`connector*name`*`connector_id``.
+  `__amazon_msk_connect_<offsets|status|configs>_`connector_name`_`connector_id``.
 
 The regular expression
-`__amazon_msk_connect_<offsets|status|configs>_`connector*name`*`connector_id``
+`__amazon_msk_connect_<offsets|status|configs>_`connector_name`_`connector_id``
 can be used to delete the internal topics. You should not delete an internal topic that is currently in use by a running connector.
 
 - Using the same name for the internal topics created
@@ -55,5 +55,5 @@ can be used to delete the internal topics. You should not delete an internal top
   `status.storage.topic`. Those topics are created each time
   you create a new connector in MSKC. They are automatically named following
   the format
-  `__amazon_msk_connect_<status|configs>_`connector*name`*`connector_id``,
+  `__amazon_msk_connect_<status|configs>_`connector_name`_`connector_id``,
   and so are different across the different connectors that you create.
