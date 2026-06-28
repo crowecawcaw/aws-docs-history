@@ -244,14 +244,14 @@ The following table is an example recommendation of NFS options for different IB
 
 IBM Db2
 
-|                    |                               |
-| ------------------ | ----------------------------- | ----------------------------- | -------------------------- | ---------- |
-| **File systems**   | **NFS mount options**         |
-| \***\*Common\*\*** | \***\*NFS version\*\***       | \***\*NFS transfer size\*\*** | \***\*nconnect\*\***       |
-| Db2 data           | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock,   | rsize=262144,wsize=262144, | nconnect=8 |
-| Db2 log            | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock,   | rsize=262144,wsize=262144, | nconnect=2 |
-| Backup             | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock,   | rsize=262144,wsize=262144, | nconnect=2 |
-| Db2 binary         | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock,   | rsize=262144,wsize=262144, | nconnect=2 |
+|                  |                               |
+| ---------------- | ----------------------------- |
+| **File systems** | **NFS mount options**         |
+| ****Common****   | ****NFS version****           | ****NFS transfer size****   | ****nconnect****           |
+| Db2 data         | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=8 |
+| Db2 log          | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2 |
+| Backup           | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2 |
+| Db2 binary       | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2 |
 
 **Example**
 
@@ -277,7 +277,7 @@ The following table is an example recommendation of NFS options for different SA
 SAP MaxDB
 
 |                  |                               |
-| ---------------- | ----------------------------- | --------------------------- | -------------------------- | ---------- |
+| ---------------- | ----------------------------- |
 | **File systems** | **NFS mount options**         |
 | **Common**       | **NFS version**               | **NFS transfer size**       | **nconnect**               |
 | SAP MaxDB data   | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=8 |
@@ -303,7 +303,7 @@ The following table is an example recommendation of NFS options for different SA
 SAP ASE
 
 |                  |                               |
-| ---------------- | ----------------------------- | --------------------------- | -------------------------- | ---------- |
+| ---------------- | ----------------------------- |
 | **File systems** | **NFS mount options**         |
 | **Common**       | **NFS version**               | **NFS transfer size**       | **nconnect**               |
 | SAP ASE data     | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=8 |
@@ -333,7 +333,7 @@ The following table is an example recommendation of NFS options for different SA
 Oracle
 
 |                  |                               |
-| ---------------- | ----------------------------- | --------------------------- | -------------------------- | ---------- |
+| ---------------- | ----------------------------- |
 | **File systems** | **NFS mount options**         |
 | **Common**       | **NFS version**               | **NFS transfer size**       | **nconnect**               |
 | Oracle data      | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=8 |

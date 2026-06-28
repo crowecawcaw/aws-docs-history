@@ -173,7 +173,7 @@ If further analysis from Red Hat is required, they may request an sos report, or
 
 **sos report** – The sos report command is a tool that collects configuration details, system information, and diagnostic information from a Red Hat Enterprise Linux system. For instance, the running kernel version, loaded modules, and system and service configuration files. The command also runs external programs to collect further information, and stores this output in the resulting archive. For more information, see Red Hat documentation [What is an sos report and is it different from an sosreport?](https://access.redhat.com/solutions/3592#sos_report "https://access.redhat.com/solutions/3592#sos_report")
 
-**crm report** – collects the cluster logs/information from the node where the command is being run. For more information, see Red Hat documentation [How do I generate a crm_report from a RHEL 6 or 7 High Availability cluster node using pacemaker?](https://access.redhat.com/solutions/787853 "https://access.redhat.com/solutions/787853")
+**crm report** – collects the cluster logs/information from the node where the command is being run. For more information, see Red Hat documentation [How do I generate a crm\_report from a RHEL 6 or 7 High Availability cluster node using pacemaker?](https://access.redhat.com/solutions/787853 "https://access.redhat.com/solutions/787853")
 
 ```
 crm_report

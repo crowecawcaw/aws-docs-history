@@ -105,7 +105,7 @@ stripe on "awsbackint::<MY_PREFIX/MY_S3_LOCATION>"
 ## Create Backup Configuration
 
 SAP ASE provides several methods to configure backup operations.
-The stored procedure [sp_config_dump](https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36273.1600/doc/html/san1393051993446.html "https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36273.1600/doc/html/san1393051993446.html") offers a straightforward way to set backup parameters and specify AWS Backint Agent as the backup target.
+The stored procedure [sp\_config\_dump](https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36273.1600/doc/html/san1393051993446.html "https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36273.1600/doc/html/san1393051993446.html") offers a straightforward way to set backup parameters and specify AWS Backint Agent as the backup target.
 
 ###### Note
 

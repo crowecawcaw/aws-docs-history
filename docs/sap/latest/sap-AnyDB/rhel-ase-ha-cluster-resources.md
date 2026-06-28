@@ -9,7 +9,7 @@ This section covers the following topics.
 - [Check cluster status](#cluster-status "#cluster-status")
 - [Prepare for resource creation](#resource-creation "#resource-creation")
 - [Cluster bootstrap](#cluster-bootstrap "#cluster-bootstrap")
-- [Create fence_aws STONITH resource](#create-stonith "#create-stonith")
+- [Create fence\_aws STONITH resource](#create-stonith "#create-stonith")
 - [Create file system resources](#filesystem-resources "#filesystem-resources")
 - [Create overlay IP resources](#overlay-ip-resources "#overlay-ip-resources")
 - [Create SAP ASE database resource](#ase-database-resource "#ase-database-resource")
@@ -144,14 +144,14 @@ Modify and run the following commands to create these file system resources.
 pcs resource create rsc_fs_<DBSID>_sybase ocf:heartbeat:Filesystem params device="<nfs.fqdn>:/sybase" directory="/sybase" fstype="nfs4" options=" rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,nconnect=2,timeo=600,retrans=2" op start timeout=60s interval=0 op stop timeout=60s interval=0 op monitor interval=20s timeout=40s
 ```
 
-**/sybase/<DBSID>/sapdata_1**
+**/sybase/<DBSID>/sapdata\_1**
 
 ```
 pcs resource create rsc_fs_<DBSID>_data ocf:heartbeat:Filesystem params device="<nfs.fqdn>:/asedata" directory="/sybase/<DBSID>/sapdata_1" fstype="nfs4"
 options="rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,nconnect=8,timeo=600,retrans=2" op start timeout=60s interval=0 op stop timeout=60s interval=0 op monitor interval=20s timeout=40s
 ```
 
-**/sybase/<DBSID>/saplog_1**
+**/sybase/<DBSID>/saplog\_1**
 
 ```
 pcs resource create rsc_fs_<DBSID>_log ocf:heartbeat:Filesystem params device="<nfs.fqdn>:/aselog" directory="/sybase/<DBSID>/saplog_1" fstype="nfs4"

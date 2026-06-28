@@ -108,11 +108,11 @@ A single FSx for ONTAP file system can provide a maximum output of 80,000 IOPS. 
 
 You can configure the throughput capacity of FSx for ONTAP when you create a new file system by scaling up to 4 GB/s of read throughput and 1000 MB/s of write throughput in a single Availability Zone deployment. In a multi-Availability Zone deployment, you can create a file system by scaling up to 4 GB/s of read throughput and 1800 MB/s of write throughput. For more information, see [Performance details](../../../fsx/latest/ONTAPGuide/performance.md#performance-details-fsxw "../../../fsx/latest/ONTAPGuide/performance.md#performance-details-fsxw").
 
-**_Oracle_**
+_**Oracle**_
 
 You can calculate the IOPS required by your database by querying the system tables over a period of time and selecting the highest value. You can get this information from the GV$SYSSTAT dynamic performance view from Oracle. This view is continuously updated while the database is open and in use. IOPS requirements can also be validated through Oracle Enterprise Manager and Automatic Workload Repository reports which use these views to gather data. For more information, see [Estimating IOPS for an existing database](../../../whitepapers/latest/determining-iops-needs-oracle-db-on-aws/estimating-iops-for-an-existing-database.md "../../../whitepapers/latest/determining-iops-needs-oracle-db-on-aws/estimating-iops-for-an-existing-database.md").
 
-**_MSSQL_**
+_**MSSQL**_
 
 For migrating your existing SAP applications based on SQL Server to AWS, use Windows Performance Monitor to get information about IOPS and throughput required for FSx for ONTAP file system. To open Windows Performance Monitor, run `perfmon` at command prompt. IOPS and throughput data is provided by the following performance counters:
 
@@ -149,8 +149,8 @@ IBM Db2| **Volume name** | **Junction name** | **Linux mount points** |
 | <DBSID>-sapdata<x> | /<DBSID>-sapdata<x> | /db2/<DBSID>/sapdata<x> |
 | <DBSID>-saptmp1 | /<DBSID>-saptmp1 | /db2/<DBSID>/saptmp1 |
 | <DBSID>-saptmp<x> | /<DBSID>-saptmp<x> | /db2/<DBSID>/saptmp<x> |
-| <DBSID>-logdir | /<DBSID>-logdir | /db2/<DBSID>/log_dir |
-| <DBSID>-logarch | /<DBSID>-logarch | /db2/<DBSID>/log_arch |
+| <DBSID>-logdir | /<DBSID>-logdir | /db2/<DBSID>/log\_dir |
+| <DBSID>-logarch | /<DBSID>-logarch | /db2/<DBSID>/log\_arch |
 | <DBSID>-db2dump | /<DBSID>-db2dump | /db2/<DBSID>/db2dump |
 | <DBSID>-backup | /<DBSID>-backup | /db2backup |
 
@@ -166,8 +166,8 @@ SAP ASE| **Volume name** | **Junction name** | **Linux mount points** |
 | <SID>-sapmnt | <SID>-sapmnt | /sapmnt/ |
 | <SID>-usrsap | <SID>-usrsap | /usr/sap |
 | <SID>-sysbase | <SID>-sysbase | /sysbase |
-| <SID>-sapdata_1 | <SID>-sapdata_1 | /sysbase/<SID>/sapdata_1 |
-| <SID>-saplog_1 | <SID>-saplog_1 | /sysbase/<SID>/saplog_1 |
+| <SID>-sapdata\_1 | <SID>-sapdata\_1 | /sysbase/<SID>/sapdata\_1 |
+| <SID>-saplog\_1 | <SID>-saplog\_1 | /sysbase/<SID>/saplog\_1 |
 | <SID>-sapdiag | <SID>-sapdiag | /sysbase/<SID>/sapdiag |
 | <SID>-saptmp | <SID>-saptmp | /sysbase/<SID>/saptmp |
 | <SID>-backup | <SID>-backup | /sysbasebackup |
@@ -254,11 +254,11 @@ NetApp recommends that storage space be dynamically allocated to each volume or 
 | --------------------- | --------------------- |
 | Volume guarantee      | None (set by default) |
 | LUN reservation       | Enabled               |
-| fractional_reserve    | 0% (set by default)   |
+| fractional\_reserve   | 0% (set by default)   |
 | snap reserve          | 0%                    |
-| Autodelete            | volume/oldest_first   |
+| Autodelete            | volume/oldest\_first  |
 | Autosize              | On                    |
-| try_first             | Autogrow              |
+| try\_first            | Autogrow              |
 | Volume tiering policy | Snapshot only         |
 | Snapshot policy       | None                  |
 | space allocation      | Enabled               |

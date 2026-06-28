@@ -180,10 +180,10 @@ A security group controls the traffic that is allowed to reach and leave the res
 
 In addition to the standard ports required to access SAP and administrative functions, the following rules must be applied to the security groups assigned to both Amazon EC2 instances in the cluster.
 
-| Inbound                                                      | Source  | Protocol | Port range                                                                                                                                                                                                                                                                                                                                                                                 | Description |
-| ------------------------------------------------------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| The security group ID (its own resource ID)                  | **UDP** | 5405     | Allows UDP traffic between cluster resources for corosync communication                                                                                                                                                                                                                                                                                                                    |
-| Bastion host security group or CIDR range for administration | **TCP** | 7630     | \*optional<br>• Used for SLES Hawk2 Interface for monitoring and administration using a Web Interface<br>For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html "https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html") in the SUSE documentation. |
+Inbound| Source | Protocol | Port range | Description |
+| --- | --- | --- | --- |
+| The security group ID (its own resource ID) | **UDP** | 5405 | Allows UDP traffic between cluster resources for corosync communication |
+| Bastion host security group or CIDR range for administration | **TCP** | 7630 | *optional<br>• Used for SLES Hawk2 Interface for monitoring and administration using a Web Interface<br>For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html "https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html") in the SUSE documentation. |
 
 ###### Note
 
@@ -561,15 +561,15 @@ You can review the following resources to understand the FSx for ONTAP mount poi
 
 The following are the FSx for ONTAP mount points covered in this topic.
 
-| Unique NFS Location (example) | File system location      |
-| ----------------------------- | ------------------------- |
-| SVM-xxx:/sybase               | /sybase                   |
-| SVM-xxx:/asedata              | /sybase/<DBSID>/sapdata_1 |
-| SVM-xxx:/aselog               | /sybase/<DBSID>/saplog_1  |
-| SVM-xxx:/sapdiag              | /sybase/<DBSID>/sapdiag   |
-| SVM-xxx:/saptmp               | /sybase/<DBSID>/saptmp    |
-| SVM-xxx:/backup               | /sybasebackup             |
-| SVM-xxx:/usrsap               | /usr/sap                  |
+| Unique NFS Location (example) | File system location       |
+| ----------------------------- | -------------------------- |
+| SVM-xxx:/sybase               | /sybase                    |
+| SVM-xxx:/asedata              | /sybase/<DBSID>/sapdata\_1 |
+| SVM-xxx:/aselog               | /sybase/<DBSID>/saplog\_1  |
+| SVM-xxx:/sapdiag              | /sybase/<DBSID>/sapdiag    |
+| SVM-xxx:/saptmp               | /sybase/<DBSID>/saptmp     |
+| SVM-xxx:/backup               | /sybasebackup              |
+| SVM-xxx:/usrsap               | /usr/sap                   |
 
 Ensure that you have properly mounted the file systems, and the necessary adjustments for host setup have been performed. See [Host setup for SAP ASE](host-setup-fsx-sap-ase.md "host-setup-fsx-sap-ase.md"). You can temporarily add the entries to `/etc/fstab` to not lose them during a reboot. The entries must be removed prior to configuring the cluster. The cluster resource manages the mounting of the NFS.
 
@@ -603,8 +603,8 @@ This section covers the following topics.
 
 The latest version of the `aws-vpc-move-ip` agent shipped with SLES15 SP3 supports the shared VPC setup by default. The following are the minimum version required to support a shared VPC Setup:
 
-- SLES 12 SP5 - resource-agents-4.3.018.a7fb5035-3.79.1.x86_64
-- SLES 15 SP2 - resource-agents-4.4.0+git57.70549516-3.30.1.x86_64
+- SLES 12 SP5 - resource-agents-4.3.018.a7fb5035-3.79.1.x86\_64
+- SLES 15 SP2 - resource-agents-4.4.0+git57.70549516-3.30.1.x86\_64
 - SLES 15 SP3 - resource-agents-4.8.0+git30.d0077df0-8.5.1
 
 ### IAM roles and policies
@@ -694,8 +694,8 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
 
 The cluster resource agent `aws-vpc-move-ip` also uses a different configuration syntax. When configuring the `aws-vpc-move-ip` resource agent, the following new parameters must be used:
 
-- lookup_type=NetworkInterfaceId
-- routing_table_role="arn:aws:iam::<account_id>:role/<VPC-Account-Cluster-Role>"
+- lookup\_type=NetworkInterfaceId
+- routing\_table\_role="arn:aws:iam::<account\_id>:role/<VPC-Account-Cluster-Role>"
 
 The following IP Resource for SAP ASE database needs to be created.
 

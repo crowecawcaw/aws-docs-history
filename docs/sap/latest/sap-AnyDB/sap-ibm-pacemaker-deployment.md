@@ -269,14 +269,13 @@ Here’s an example configuration:
       HADR SSL certificate label             (HADR_SSL_LABEL) =
 ```
 
-5.  When using Linux pacemaker, use the following Db2 HADR parameters:
+5. When using Linux pacemaker, use the following Db2 HADR parameters:
 
-        * `HADR peer window duration (seconds) (HADR_PEER_WINDOW) = 300`
-        * `HADR timeout value (HADR_TIMEOUT) = 60`
+   - `HADR peer window duration (seconds) (HADR_PEER_WINDOW) = 300`
+   - `HADR timeout value (HADR_TIMEOUT) = 60`
+     We recommend that you tune these parameters after testing the failover and takeover functionality. Because individual configuration can vary, the parameter might need adjustment.
 
-    We recommend that you tune these parameters after testing the failover and takeover functionality. Because individual configuration can vary, the parameter might need adjustment.
-
-6.  After your primary and standby databases have been configured, start HADR on the standby server as the HADR standby.
+6. After your primary and standby databases have been configured, start HADR on the standby server as the HADR standby.
 
 ```
      db2 start hadr on database STJ as standby

@@ -71,7 +71,7 @@ passwd hacluster
 
 ### Setup passwordless authentication between nodes
 
-For a more comprehensive and easily consumable view of cluster activity, SUSE provides additional reporting tools. Many of these tools require access to both nodes without entering a password. SUSE recommends performing this setup for root user. For more details, see _Configuration to collect cluster report as root with root SSH access between cluster nodes_ section in SUSE Documentation https://www.suse.com/support/kb/doc/?id=000017501#:~:text=The%20hb\_report%20utility%20(on%20newer,an%20incident%20to%20be%20investigated.[Usage of hb_report for SLES HAE].
+For a more comprehensive and easily consumable view of cluster activity, SUSE provides additional reporting tools. Many of these tools require access to both nodes without entering a password. SUSE recommends performing this setup for root user. For more details, see _Configuration to collect cluster report as root with root SSH access between cluster nodes_ section in SUSE Documentation https://www.suse.com/support/kb/doc/?id=000017501#:~:text=The%20hb\_report%20utility%20(on%20newer,an%20incident%20to%20be%20investigated.[Usage of hb\_report for SLES HAE].
 
 ### Create an authentication key for `corosync`
 
@@ -185,12 +185,12 @@ quorum {
 }
 ```
 
-The following table displays example substitutions for IP addresses using the sample IP addresses provided in this document. The <local_ip> configuration differs between hosts.
+The following table displays example substitutions for IP addresses using the sample IP addresses provided in this document. The <local\_ip> configuration differs between hosts.
 
-| IP address type                | Primary host  | Secondary host |
-| ------------------------------ | ------------- | -------------- |
-| <local_ip>                     | **10.1.10.1** | **10.1.20.1**  |
-| <primary_host_ip>              | 10.1.10.1     | 10.1.10.1      |
-| <primary_host_additional_ip>   | 10.1.10.2     | 10.1.10.2      |
-| <secondary_host_ip>            | 10.1.20.1     | 10.1.20.1      |
-| <secondary_host_additional_ip> | 10.1.20.2     | 10.1.20.2      |
+| IP address type                   | Primary host  | Secondary host |
+| --------------------------------- | ------------- | -------------- |
+| <local\_ip>                       | **10.1.10.1** | **10.1.20.1**  |
+| <primary\_host\_ip>               | 10.1.10.1     | 10.1.10.1      |
+| <primary\_host\_additional\_ip>   | 10.1.10.2     | 10.1.10.2      |
+| <secondary\_host\_ip>             | 10.1.20.1     | 10.1.20.1      |
+| <secondary\_host\_additional\_ip> | 10.1.20.2     | 10.1.20.2      |
