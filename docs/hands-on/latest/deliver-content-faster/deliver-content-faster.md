@@ -42,7 +42,8 @@ files. Create an HTML file.
 
 When you click
 [here](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26region%3Dus-east-1%26state%3DhashArgsFromTB_us-east-1_117fa3b00b737cf8&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=3ReS1sAnk_egpuBAfZpFgASo4nqcngckg7qPCO3WQI8&code_challenge_method=SHA-256 "https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26region%3Dus-east-1%26state%3DhashArgsFromTB_us-east-1_117fa3b00b737cf8&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=3ReS1sAnk_egpuBAfZpFgASo4nqcngckg7qPCO3WQI8&code_challenge_method=SHA-256"),
-the AWS Management Console will open in a new browser window. Type \***\*S3\*\*** in the
+the AWS Management Console will open in a new browser window. Type
+****S3**** in the
 search bar and select **S3** to
 open the console.
 
