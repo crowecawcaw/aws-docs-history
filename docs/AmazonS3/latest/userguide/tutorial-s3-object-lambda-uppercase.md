@@ -72,7 +72,7 @@ Your IAM user requires the following policies:
 
 - [AmazonS3FullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonS3FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonS3FullAccess$jsonEditor") – Grants permissions to all Amazon S3
   actions, including permissions to create and use an Object Lambda Access Point.
-- [AWSLambda_FullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor") – Grants permissions to all Lambda
+- [AWSLambda\_FullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor") – Grants permissions to all Lambda
   actions.
 - [IAMFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/IAMFullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/IAMFullAccess$jsonEditor") – Grants permissions to all IAM actions.
 - [IAMAccessAnalyzerReadOnlyAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/IAMAccessAnalyzerReadOnlyAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/IAMAccessAnalyzerReadOnlyAccess$jsonEditor") – Grants permissions to
@@ -837,7 +837,7 @@ AWS resources that you allocated so that you no longer accrue charges.
 6. On the **Delete objects** page, in the
    **Permanently delete objects?** section, confirm that
    you want to delete this object by entering `permanently
-delete` in the text box.
+ delete` in the text box.
 7. Choose **Delete objects**.
 
 ### Delete the S3 source bucket

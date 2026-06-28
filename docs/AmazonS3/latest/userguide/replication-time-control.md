@@ -68,7 +68,7 @@ While Amazon S3 is internally optimizing for the new request rate, you might rec
 503 request responses temporarily until the optimization is complete. This behavior
 might occur with increases in request per second rates, or when you first enable
 S3 RTC. During these periods, your replication latency might increase. The
-S3 RTC service level agreement (SLA) doesn’t apply to time periods when Amazon S3
+S3 RTC service level agreement (SLA) doesn't apply to time periods when Amazon S3
 performance guidelines on requests per second are exceeded.
 
 The S3 RTC SLA also doesn't apply during time periods where your replication

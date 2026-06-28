@@ -194,9 +194,9 @@ the [prerequisites](#annotation-table-config-prereqs "#annotation-table-config-p
      resumed**, select the checkbox.
 
 7. Choose **Save changes**.
-   To run the following commands, you must have the AWS CLI installed and configured. If you don't
-   have the AWS CLI installed, see [Install or update to the latest version
-   of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
+To run the following commands, you must have the AWS CLI installed and configured. If you don't
+have the AWS CLI installed, see [Install or update to the latest version
+of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
 
 Alternatively, you can run AWS CLI commands from the console by using AWS CloudShell. AWS CloudShell is a
 browser-based, pre-authenticated shell that you can launch directly from the AWS Management Console. For more

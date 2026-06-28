@@ -74,7 +74,7 @@ is automatically assigned for use. An Object Lambda Access Point alias name meet
 Amazon S3 bucket name and consists of the following parts:
 
 ``Object Lambda Access Point
- name prefix`-`metadata`--ol-s3`
+name prefix`-`metadata`--ol-s3`
 
 ###### Note
 

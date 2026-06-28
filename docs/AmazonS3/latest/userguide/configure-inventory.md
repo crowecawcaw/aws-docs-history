@@ -74,7 +74,7 @@ use SSE-KMS encryption, see Step 3.
      equivalent from the AWS CLI or AWS SDKs.
 
 3. **To encrypt the inventory list file with SSE-KMS, grant Amazon S3
-   permission to use the AWS KMS key.**
+permission to use the AWS KMS key.**
 
 You can configure encryption for the inventory list file by using the Amazon S3 console,
 Amazon S3 REST API, AWS CLI, or AWS SDKs. Whichever way you choose, you must grant Amazon S3
@@ -298,10 +298,9 @@ configuration**. 6. For **Inventory configuration name**, enter a name. 7. For *
      only** or **Include all versions**.
 
 8. Under **Report details**, choose the location of the AWS account
-   that you want to save the reports to: **This account** or **A
-   different account**.
-9. Under **Destination**, choose the destination bucket where you want
-   the inventory reports to be saved.
+that you want to save the reports to: **This account** or **A
+different account**. 9. Under **Destination**, choose the destination bucket where you want
+the inventory reports to be saved.
 
 The destination bucket must be in the same AWS Region as the bucket for which you
 are setting up the inventory. The destination bucket can be in a different AWS account.
@@ -322,123 +321,132 @@ report:
     * **Apache Parquet**
 
 12. Under **Status**, choose **Enable** or
-    **Disable**.
-13. To configure server-side encryption, under **Inventory report
-    encryption**, follow these steps:
+**Disable**. 13. To configure server-side encryption, under **Inventory report
+encryption**, follow these steps:
 
-    1.  Under **Server-side encryption**, choose either **Do not
-        specify an encryption key** or **Specify an encryption
-        key** to encrypt data.
+    1. Under **Server-side encryption**, choose either **Do not
+     specify an encryption key** or **Specify an encryption
+     key** to encrypt data.
 
-        - To keep the bucket settings for default server-side encryption of objects when
-          storing them in Amazon S3, choose **Do not specify an encryption
-          key**. As long as the bucket destination has S3 Bucket Keys enabled, the copy
-          operation applies an S3 Bucket Key at the destination bucket.
 
-        ###### Note
 
-        If the bucket policy for the specified destination requires objects to be
-        encrypted before storing them in Amazon S3, you must choose **Specify an
-        encryption key**. Otherwise, copying objects to the destination will
-        fail.
-        - To encrypt objects before storing them in Amazon S3, choose **Specify an
-          encryption key**.
 
-    2.  If you chose **Specify an encryption key**, under
-        **Encryption type**, you must choose either **Amazon S3 managed
-        key (SSE-S3)** or **AWS Key Management Service key (SSE-KMS)**.
+    	* To keep the bucket settings for default server-side encryption of objects when
+    	 storing them in Amazon S3, choose **Do not specify an encryption
+    	 key**. As long as the bucket destination has S3 Bucket Keys enabled, the copy
+    	 operation applies an S3 Bucket Key at the destination bucket.
+
+
+    	###### Note
+
+    	If the bucket policy for the specified destination requires objects to be
+    	 encrypted before storing them in Amazon S3, you must choose **Specify an
+    	 encryption key**. Otherwise, copying objects to the destination will
+    	 fail.
+    	* To encrypt objects before storing them in Amazon S3, choose **Specify an
+    	 encryption key**.
+    2. If you chose **Specify an encryption key**, under
+     **Encryption type**, you must choose either **Amazon S3 managed
+     key (SSE-S3)** or **AWS Key Management Service key (SSE-KMS)**.
+
 
     SSE-S3 uses one of the strongest block ciphers—256-bit Advanced Encryption
-    Standard (AES-256) to encrypt each object. SSE-KMS provides you with more control over
-    your key. For more information about SSE-S3, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md"). For
-    more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+     Standard (AES-256) to encrypt each object. SSE-KMS provides you with more control over
+     your key. For more information about SSE-S3, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md"). For
+     more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+
 
     ###### Note
 
     To encrypt the inventory list file with SSE-KMS, you must grant Amazon S3 permission
-    to use the customer managed key. For instructions, see [Grant Amazon S3 Permission to Encrypt
-    Using Your KMS Keys](#configure-inventory-kms-key-policy "#configure-inventory-kms-key-policy"). 3. If you chose **AWS Key Management Service key (SSE-KMS)**, under
-    **AWS KMS key**, you can specify your AWS KMS key through one of
-    the following options.
+     to use the customer managed key. For instructions, see [Grant Amazon S3 Permission to Encrypt
+     Using Your KMS Keys](#configure-inventory-kms-key-policy "#configure-inventory-kms-key-policy").
+    3. If you chose **AWS Key Management Service key (SSE-KMS)**, under
+     **AWS KMS key**, you can specify your AWS KMS key through one of
+     the following options.
+
 
     ###### Note
 
     If the destination bucket that stores the inventory list file is owned by a
-    different AWS account, make sure that you use a fully qualified KMS key ARN to
-    specify your KMS key.
-
-        * To choose from a list of available KMS keys, choose **Choose from
-         your AWS KMS keys**, and choose a symmetric encryption KMS key from the
-         list of available keys. Make sure the KMS key is in the same Region as your
-         bucket.
+     different AWS account, make sure that you use a fully qualified KMS key ARN to
+     specify your KMS key.
 
 
-        ###### Note
 
-        Both the AWS managed key (`aws/s3`) and your customer managed keys appear
-         in the list. However, the AWS managed key (`aws/s3`) is not
-         supported for SSE-KMS encryption with S3 Inventory.
-        * To enter the KMS key ARN, choose **Enter AWS KMS key ARN**,
-         and enter your KMS key ARN in the field that appears.
-        * To create a new customer managed key in the AWS KMS console, choose **Create a
-         KMS key**.
+
+    	* To choose from a list of available KMS keys, choose **Choose from
+    	 your AWS KMS keys**, and choose a symmetric encryption KMS key from the
+    	 list of available keys. Make sure the KMS key is in the same Region as your
+    	 bucket.
+
+
+    	###### Note
+
+    	Both the AWS managed key (`aws/s3`) and your customer managed keys appear
+    	 in the list. However, the AWS managed key (`aws/s3`) is not
+    	 supported for SSE-KMS encryption with S3 Inventory.
+    	* To enter the KMS key ARN, choose **Enter AWS KMS key ARN**,
+    	 and enter your KMS key ARN in the field that appears.
+    	* To create a new customer managed key in the AWS KMS console, choose **Create a
+    	 KMS key**.
 
 14. For **Additional metadata fields**, select one or more of the
-    following to add to the inventory report:
+following to add to the inventory report:
 
-        * **Size** – The object size in bytes, not including the
-         size of incomplete multipart uploads, object metadata, and delete markers.
-        * **Last modified date** – The object creation date or the
-         last modified date, whichever is the latest.
-        * **Multipart upload** – Specifies that the object was uploaded
-         as a multipart upload. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
-        * **Replication status** – The replication status of the
-         object. For more information, see [Getting replication status information](replication-status.md "replication-status.md").
-        * **Encryption status** – The server-side encryption type
-         that's used to encrypt the object. For more information, see [Protecting data with server-side encryption](serv-side-encryption.md "serv-side-encryption.md").
-        * **Bucket Key status** – Indicates whether a
-         bucket-level key generated by AWS KMS applies to the object. For more information, see
-         [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md").
-        * **Object access control list** – An access
-         control list (ACL) for each object that defines which AWS accounts or groups are
-         granted access to this object and the type of access that is granted. For more
-         information about this field, see [Working with the Object ACL field](objectacl.md "objectacl.md"). For more information about ACLs, see [Access control list (ACL) overview](acl-overview.md "acl-overview.md").
-        * **Object owner** – The owner of the
-         object.
-        * **Storage class** – The storage class that's used for
-         storing the object.
-        * **Intelligent-Tiering: Access tier** –
-         Indicates the access tier (frequent or infrequent) of the object if it was stored in
-         the S3 Intelligent-Tiering storage class. For more information, see [Storage class for automatically optimizing data with changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access").
-        * **ETag** – The entity tag (ETag) is a hash of the object.
-         The ETag reflects changes only to the contents of an object, not to its metadata. The
-         ETag might or might not be an MD5 digest of the object data. Whether it is depends on
-         how the object was created and how it is encrypted. For more information, see [Object](../API/API_Object.md "../API/API_Object.md") in the *Amazon Simple Storage Service API Reference*.
-        * **Checksum algorithm** – Indicates the
-         algorithm that is used to create the checksum for the object. Supported values include
-         `CRC64NVME`, `CRC32`, `CRC32C`, `SHA1`,
-         `SHA256`, `MD5`, `XXHASH64`, `XXHASH3`,
-         `XXHASH128`, and `SHA512`. For more information, see [Using supported checksum algorithms](checking-object-integrity-upload.md#using-additional-checksums "checking-object-integrity-upload.md#using-additional-checksums").
-        * **All Object Lock configurations** – The Object Lock
-         status of the object, including the following settings:
-
-
+    * **Size** – The object size in bytes, not including the
+     size of incomplete multipart uploads, object metadata, and delete markers.
+    * **Last modified date** – The object creation date or the
+     last modified date, whichever is the latest.
+    * **Multipart upload** – Specifies that the object was uploaded
+     as a multipart upload. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
+    * **Replication status** – The replication status of the
+     object. For more information, see [Getting replication status information](replication-status.md "replication-status.md").
+    * **Encryption status** – The server-side encryption type
+     that's used to encrypt the object. For more information, see [Protecting data with server-side encryption](serv-side-encryption.md "serv-side-encryption.md").
+    * **Bucket Key status** – Indicates whether a
+     bucket-level key generated by AWS KMS applies to the object. For more information, see
+     [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md").
+    * **Object access control list** – An access
+     control list (ACL) for each object that defines which AWS accounts or groups are
+     granted access to this object and the type of access that is granted. For more
+     information about this field, see [Working with the Object ACL field](objectacl.md "objectacl.md"). For more information about ACLs, see [Access control list (ACL) overview](acl-overview.md "acl-overview.md").
+    * **Object owner** – The owner of the
+     object.
+    * **Storage class** – The storage class that's used for
+     storing the object.
+    * **Intelligent-Tiering: Access tier** –
+     Indicates the access tier (frequent or infrequent) of the object if it was stored in
+     the S3 Intelligent-Tiering storage class. For more information, see [Storage class for automatically optimizing data with changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access").
+    * **ETag** – The entity tag (ETag) is a hash of the object.
+     The ETag reflects changes only to the contents of an object, not to its metadata. The
+     ETag might or might not be an MD5 digest of the object data. Whether it is depends on
+     how the object was created and how it is encrypted. For more information, see [Object](../API/API_Object.md "../API/API_Object.md") in the *Amazon Simple Storage Service API Reference*.
+    * **Checksum algorithm** – Indicates the
+     algorithm that is used to create the checksum for the object. Supported values include
+     `CRC64NVME`, `CRC32`, `CRC32C`, `SHA1`,
+     `SHA256`, `MD5`, `XXHASH64`, `XXHASH3`,
+     `XXHASH128`, and `SHA512`. For more information, see [Using supported checksum algorithms](checking-object-integrity-upload.md#using-additional-checksums "checking-object-integrity-upload.md#using-additional-checksums").
+    * **All Object Lock configurations** – The Object Lock
+     status of the object, including the following settings:
 
 
-        	+ **Object Lock: Retention mode** – The level of
-        	 protection applied to the object, either *Governance* or
-        	 *Compliance*.
-        	+ **Object Lock: Retain until date** – The date until
-        	 which the locked object cannot be deleted.
-        	+ **Object Lock: Legal hold status** – The legal hold
-        	 status of the locked object.
-        For information about S3 Object Lock, see [How S3 Object Lock works](object-lock.md#object-lock-overview "object-lock.md#object-lock-overview").
-        * **Lifecycle Expiration Date** – The lifecycle expiration
-         timestamp for objects in your Inventory report. This field will only be populated, if
-         the object is to be expired by an applicable lifecycle rule. In other cases, the
-         field will be empty. For more information, see [Expiring objects](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md").
 
-    For more information about the contents of an inventory report, see [Amazon S3 Inventory list](storage-inventory.md#storage-inventory-contents "storage-inventory.md#storage-inventory-contents").
+
+    	+ **Object Lock: Retention mode** – The level of
+    	 protection applied to the object, either *Governance* or
+    	 *Compliance*.
+    	+ **Object Lock: Retain until date** – The date until
+    	 which the locked object cannot be deleted.
+    	+ **Object Lock: Legal hold status** – The legal hold
+    	 status of the locked object.
+    For information about S3 Object Lock, see [How S3 Object Lock works](object-lock.md#object-lock-overview "object-lock.md#object-lock-overview").
+    * **Lifecycle Expiration Date** – The lifecycle expiration
+     timestamp for objects in your Inventory report. This field will only be populated, if
+     the object is to be expired by an applicable lifecycle rule. In other cases, the
+     field will be empty. For more information, see [Expiring objects](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md").
+
+For more information about the contents of an inventory report, see [Amazon S3 Inventory list](storage-inventory.md#storage-inventory-contents "storage-inventory.md#storage-inventory-contents").
 
 For more information about restricting access to certain optional metadata fields in
 an inventory configuration, see [Control S3 Inventory report configuration creation](example-bucket-policies.md#example-bucket-policies-s3-inventory-2 "example-bucket-policies.md#example-bucket-policies-s3-inventory-2"). 15. Choose **Create**.

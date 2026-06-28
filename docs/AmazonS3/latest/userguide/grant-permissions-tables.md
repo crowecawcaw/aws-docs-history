@@ -66,14 +66,11 @@ do one of the following:
     * For AWS Glue Iceberg REST endpoint access, choose **IAM users and roles** then select the IAM role you created for you client. For more information, see [Create an IAM role for your client](s3-tables-integrating-glue-endpoint.md#glue-endpoint-create-iam-role "s3-tables-integrating-glue-endpoint.md#glue-endpoint-create-iam-role")
 
 4. Under **LF-Tags or catalog resources**, choose **Named Data Catalog
-   resources**.
-5. For **Catalogs**, choose the subcatalog that you created when you integrated your table
-   bucket, for example,
-   ``account-id`:s3tablescatalog/`amzn-s3-demo-bucket``.
-6. For **Databases**, choose the S3
-   table bucket namespace that you created.
-7. (Optional) For **Tables**, choose the S3 table that you created
-   in your table bucket.
+resources**. 5. For **Catalogs**, choose the subcatalog that you created when you integrated your table
+bucket, for example,
+``account-id`:s3tablescatalog/`amzn-s3-demo-bucket``. 6. For **Databases**, choose the S3
+table bucket namespace that you created. 7. (Optional) For **Tables**, choose the S3 table that you created
+in your table bucket.
 
 ###### Note
 
@@ -97,7 +94,7 @@ CLI
    Guide_.
 2. Run the following command to grant Lake Formation permissions on table in S3 table bucket to an IAM principal to
    access the table. To use this example, replace the `user input
-placeholders` with your own information.
+ placeholders` with your own information.
 
 ```
 aws lakeformation grant-permissions \

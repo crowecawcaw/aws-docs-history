@@ -19,8 +19,8 @@ For more information about the S3 Block Public Access feature, see [Blocking pub
 
 ###### Example
 
-**_Example: Create an access point with
-Custom Block Public Access Settings_**
+_**Example: Create an access point with
+Custom Block Public Access Settings**_
 
 This example creates an access point named `example-ap` for bucket
 `amzn-s3-demo-bucket` in account `123456789012` with

@@ -430,20 +430,15 @@ manifest.
      For this example, choose **Generate an object list**.
 
 6. For **Source account**, choose the account that owns the source
-   objects.
-7. Under **Source**, enter the path to your source, for example,
-   `s3://``amzn-s3-demo-bucket`.
-8. Under **Object filters**, you can use filters to filter by any portion
-   of the object key or to filter by the end of the object key. The **Object key
-   filters** assist in refining the list of objects to be used in the manifest. For
-   **Object metadata filters**, choose filters to further define the scope
-   of objects to include in the manifest.
-9. Under **Choose operation**, choose the operation type that you want to
-   perform on all objects listed in the manifest. If your manifest references objects stored in
-   a directory bucket, only use the copy or invoke AWS Lambda function operations. All other
-   operations aren't supported.
-10. After selecting your operation type, choose **Next**.
-11. Fill out the information for **Configure additional options**.
+objects. 7. Under **Source**, enter the path to your source, for example,
+`s3://``amzn-s3-demo-bucket`. 8. Under **Object filters**, you can use filters to filter by any portion
+of the object key or to filter by the end of the object key. The **Object key
+filters** assist in refining the list of objects to be used in the manifest. For
+**Object metadata filters**, choose filters to further define the scope
+of objects to include in the manifest. 9. Under **Choose operation**, choose the operation type that you want to
+perform on all objects listed in the manifest. If your manifest references objects stored in
+a directory bucket, only use the copy or invoke AWS Lambda function operations. All other
+operations aren't supported. 10. After selecting your operation type, choose **Next**. 11. Fill out the information for **Configure additional options**.
 
 For **Permissions**, specify the AWS Identity and Access Management (IAM) role that you want
 the job to use. This can be an existing role, or a role that Amazon S3 creates automatically for
@@ -464,47 +459,47 @@ existing manifest file.
 
 ###### To create a Batch Operations `S3PutObjectTagging` job by specifying a manifest
 
-1.  Use the following commands to create an AWS Identity and Access Management (IAM) role, and then
-    create an IAM policy to assign the relevant permissions. The following role
-    and policy grant Amazon S3 permission to add object tags, which you will need when
-    you create the job in a subsequent step.
+1. Use the following commands to create an AWS Identity and Access Management (IAM) role, and then
+   create an IAM policy to assign the relevant permissions. The following role
+   and policy grant Amazon S3 permission to add object tags, which you will need when
+   you create the job in a subsequent step.
 
-    1. Use the following example command to create an IAM role for Batch Operations
-       to use. To use this example command, replace
-       `S3BatchJobRole` with the name
-       that you want to give to the role.
+   1. Use the following example command to create an IAM role for Batch Operations
+      to use. To use this example command, replace
+      `S3BatchJobRole` with the name
+      that you want to give to the role.
 
-    ```
-    aws iam create-role \
-     --role-name `S3BatchJobRole` \
-     --assume-role-policy-document '{
-       "Version": "2012-10-17",
-       "Statement":[
-          {
-             "Effect":"Allow",
-             "Principal":{
-                "Service":"batchoperations.s3.amazonaws.com"
-             },
-             "Action":"sts:AssumeRole"
-          }
-       ]
-    }'
-    ```
+   ```
+   aws iam create-role \
+    --role-name `S3BatchJobRole` \
+    --assume-role-policy-document '{
+      "Version": "2012-10-17",
+      "Statement":[
+         {
+            "Effect":"Allow",
+            "Principal":{
+               "Service":"batchoperations.s3.amazonaws.com"
+            },
+            "Action":"sts:AssumeRole"
+         }
+      ]
+   }'
+   ```
 
-    Record the role's Amazon Resource Name (ARN). You will need the ARN when
-    you create a job. 2. Use the following example command to create an IAM policy with the
-    necessary permissions and attach it to the IAM role that you created in
-    the previous step. For more information about the necessary permissions, see
-    [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md").
+   Record the role's Amazon Resource Name (ARN). You will need the ARN when
+   you create a job. 2. Use the following example command to create an IAM policy with the
+   necessary permissions and attach it to the IAM role that you created in
+   the previous step. For more information about the necessary permissions, see
+   [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md").
 
-    ###### Note
+   ###### Note
 
-    Batch Operations jobs that perform actions on directory buckets require
-    specific permissions. For more information, see [AWS Identity and Access Management
-    (IAM) for S3 Express One Zone](s3-express-security-iam.md "s3-express-security-iam.md").
+   Batch Operations jobs that perform actions on directory buckets require
+   specific permissions. For more information, see [AWS Identity and Access Management
+   (IAM) for S3 Express One Zone](s3-express-security-iam.md "s3-express-security-iam.md").
 
-    To use this example command, replace the `user input
- placeholders` as follows:
+   To use this example command, replace the `user input
+  placeholders` as follows:
 
         * Replace ``S3BatchJobRole`` with
          the name of your IAM role. Make sure that this name matches the name
@@ -523,50 +518,50 @@ existing manifest file.
          with the name of the bucket where you want the completion report to be
          delivered to.
 
-    ```
-    aws iam put-role-policy \
-      --role-name `S3BatchJobRole` \
-      --policy-name `PutObjectTaggingBatchJobPolicy` \
-      --policy-document '{
-      "Version": "2012-10-17",TCX5-2025-waiver;,
-      "Statement":[
-        {
-          "Effect":"Allow",
-          "Action":[
-            "s3:PutObjectTagging",
-            "s3:PutObjectVersionTagging"
-          ],
-          "Resource": "arn:aws:s3:::``amzn-s3-demo-destination-bucket``/*"
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "s3:GetObject",
-            "s3:GetObjectVersion",
-            "s3:GetBucketLocation"
-          ],
-          "Resource": [
-            "arn:aws:s3:::`amzn-s3-demo-manifest-bucket`",
-            "arn:aws:s3:::`amzn-s3-demo-manifest-bucket`/*"
-          ]
-        },
-        {
-          "Effect":"Allow",
-          "Action":[
-            "s3:PutObject",
-            "s3:GetBucketLocation"
-          ],
-          "Resource":[
-            "arn:aws:s3:::`amzn-s3-demo-completion-report-bucket`",
-            "arn:aws:s3:::`amzn-s3-demo-completion-report-bucket`/*"
-          ]
-        }
-      ]
-    }'
-    ```
+   ```
+   aws iam put-role-policy \
+     --role-name `S3BatchJobRole` \
+     --policy-name `PutObjectTaggingBatchJobPolicy` \
+     --policy-document '{
+     "Version": "2012-10-17",TCX5-2025-waiver;,
+     "Statement":[
+       {
+         "Effect":"Allow",
+         "Action":[
+           "s3:PutObjectTagging",
+           "s3:PutObjectVersionTagging"
+         ],
+         "Resource": "arn:aws:s3:::``amzn-s3-demo-destination-bucket``/*"
+       },
+       {
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetObject",
+           "s3:GetObjectVersion",
+           "s3:GetBucketLocation"
+         ],
+         "Resource": [
+           "arn:aws:s3:::`amzn-s3-demo-manifest-bucket`",
+           "arn:aws:s3:::`amzn-s3-demo-manifest-bucket`/*"
+         ]
+       },
+       {
+         "Effect":"Allow",
+         "Action":[
+           "s3:PutObject",
+           "s3:GetBucketLocation"
+         ],
+         "Resource":[
+           "arn:aws:s3:::`amzn-s3-demo-completion-report-bucket`",
+           "arn:aws:s3:::`amzn-s3-demo-completion-report-bucket`/*"
+         ]
+       }
+     ]
+   }'
+   ```
 
-2.  Use the following example command to create an
-    `S3PutObjectTagging` job.
+2. Use the following example command to create an
+   `S3PutObjectTagging` job.
 
 The `manifest.csv` file provides a list of bucket and
 object key values. The job applies the specified tags to the objects that are
@@ -607,47 +602,47 @@ name, size, storage class, and tags.
 
 ###### To create a Batch Operations `S3DeleteObjectTagging` job by generating a manifest
 
-1.  Use the following commands to create an AWS Identity and Access Management (IAM) role, and then
-    create an IAM policy to assign permissions. The following role and policy
-    grant Amazon S3 permission to delete object tags, which you will need when you create
-    the job in a subsequent step.
+1. Use the following commands to create an AWS Identity and Access Management (IAM) role, and then
+   create an IAM policy to assign permissions. The following role and policy
+   grant Amazon S3 permission to delete object tags, which you will need when you create
+   the job in a subsequent step.
 
-    1. Use the following example command to create an IAM role for Batch Operations
-       to use. To use this example command, replace
-       `S3BatchJobRole` with the name
-       that you want to give to the role.
+   1. Use the following example command to create an IAM role for Batch Operations
+      to use. To use this example command, replace
+      `S3BatchJobRole` with the name
+      that you want to give to the role.
 
-    ```
-    aws iam create-role \
-     --role-name `S3BatchJobRole` \
-     --assume-role-policy-document '{
-       "Version": "2012-10-17",TCX5-2025-waiver;,
-       "Statement":[
-          {
-             "Effect":"Allow",
-             "Principal":{
-                "Service":"batchoperations.s3.amazonaws.com"
-             },
-             "Action":"sts:AssumeRole"
-          }
-       ]
-    }'
-    ```
+   ```
+   aws iam create-role \
+    --role-name `S3BatchJobRole` \
+    --assume-role-policy-document '{
+      "Version": "2012-10-17",TCX5-2025-waiver;,
+      "Statement":[
+         {
+            "Effect":"Allow",
+            "Principal":{
+               "Service":"batchoperations.s3.amazonaws.com"
+            },
+            "Action":"sts:AssumeRole"
+         }
+      ]
+   }'
+   ```
 
-    Record the role's Amazon Resource Name (ARN). You will need the ARN when
-    you create a job. 2. Use the following example command to create an IAM policy with the
-    necessary permissions and attach it to the IAM role that you created in
-    the previous step. For more information about the necessary permissions, see
-    [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md").
+   Record the role's Amazon Resource Name (ARN). You will need the ARN when
+   you create a job. 2. Use the following example command to create an IAM policy with the
+   necessary permissions and attach it to the IAM role that you created in
+   the previous step. For more information about the necessary permissions, see
+   [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md").
 
-    ###### Note
+   ###### Note
 
-    Batch Operations jobs that perform actions on directory buckets require
-    specific permissions. For more information, see [AWS Identity and Access Management
-    (IAM) for S3 Express One Zone](s3-express-security-iam.md "s3-express-security-iam.md").
+   Batch Operations jobs that perform actions on directory buckets require
+   specific permissions. For more information, see [AWS Identity and Access Management
+   (IAM) for S3 Express One Zone](s3-express-security-iam.md "s3-express-security-iam.md").
 
-    To use this example command, replace the `user input
- placeholders` as follows:
+   To use this example command, replace the `user input
+  placeholders` as follows:
 
         * Replace ``S3BatchJobRole`` with
          the name of your IAM role. Make sure that this name matches the name
@@ -667,58 +662,58 @@ name, size, storage class, and tags.
          with the name of the bucket where you want the completion report to be
          delivered to.
 
-    ```
-    aws iam put-role-policy \
-      --role-name ``S3BatchJobRole`` \
-      --policy-name ``DeleteObjectTaggingBatchJobPolicy`` \
-      --policy-document '{
-      "Version": "2012-10-17",TCX5-2025-waiver;,
-      "Statement":[
-        {
-          "Effect":"Allow",
-          "Action":[
-            "s3:DeleteObjectTagging",
-            "s3:DeleteObjectVersionTagging"
-          ],
-          "Resource": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
-        },
-        {
-          "Effect":"Allow",
-          "Action":[
-            "s3:PutInventoryConfiguration"
-          ],
-          "Resource": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`"
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "s3:GetObject",
-            "s3:GetObjectVersion",
-            "s3:ListBucket"
-          ],
-          "Resource": [
-            "arn:aws:s3:::``amzn-s3-demo-manifest-bucket``",
-            "arn:aws:s3:::``amzn-s3-demo-manifest-bucket``/*"
-          ]
-        },
-        {
-          "Effect":"Allow",
-          "Action":[
-            "s3:PutObject",
-            "s3:ListBucket"
-          ],
-          "Resource":[
-            "arn:aws:s3:::``amzn-s3-demo-completion-report-bucket``",
-            "arn:aws:s3:::``amzn-s3-demo-completion-report-bucket``/*",
-            "arn:aws:s3:::``amzn-s3-demo-manifest-bucket``/*"
-          ]
-        }
-      ]
-    }'
-    ```
+   ```
+   aws iam put-role-policy \
+     --role-name ``S3BatchJobRole`` \
+     --policy-name ``DeleteObjectTaggingBatchJobPolicy`` \
+     --policy-document '{
+     "Version": "2012-10-17",TCX5-2025-waiver;,
+     "Statement":[
+       {
+         "Effect":"Allow",
+         "Action":[
+           "s3:DeleteObjectTagging",
+           "s3:DeleteObjectVersionTagging"
+         ],
+         "Resource": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
+       },
+       {
+         "Effect":"Allow",
+         "Action":[
+           "s3:PutInventoryConfiguration"
+         ],
+         "Resource": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`"
+       },
+       {
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetObject",
+           "s3:GetObjectVersion",
+           "s3:ListBucket"
+         ],
+         "Resource": [
+           "arn:aws:s3:::``amzn-s3-demo-manifest-bucket``",
+           "arn:aws:s3:::``amzn-s3-demo-manifest-bucket``/*"
+         ]
+       },
+       {
+         "Effect":"Allow",
+         "Action":[
+           "s3:PutObject",
+           "s3:ListBucket"
+         ],
+         "Resource":[
+           "arn:aws:s3:::``amzn-s3-demo-completion-report-bucket``",
+           "arn:aws:s3:::``amzn-s3-demo-completion-report-bucket``/*",
+           "arn:aws:s3:::``amzn-s3-demo-manifest-bucket``/*"
+         ]
+       }
+     ]
+   }'
+   ```
 
-2.  Use the following example command to create the
-    `S3DeleteObjectTagging` job.
+2. Use the following example command to create the
+   `S3DeleteObjectTagging` job.
 
 In this example, the values in the `--report` section specify the
 bucket, prefix, format, and scope of the job report that will be generated.

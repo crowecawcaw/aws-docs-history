@@ -98,7 +98,7 @@ Before you configure permissions, note the following:
   `s3:PutObjectAcl` permission in the IAM policy of the IAM role configured
   for the batch job. If you don't include this permission, the batch job fails with the
   error `Error occurred when preparing manifest: Failed to write
-manifest`.
+ manifest`.
 
 ### Copy objects: PutObject
 

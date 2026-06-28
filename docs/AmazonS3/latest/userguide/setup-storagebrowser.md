@@ -139,12 +139,12 @@ To enable IAM Identity Center for your AWS Organizations, perform the following 
 
 1. Sign in to the AWS Management Console, using one of these methods:
 
-   1. \***\*New to AWS (root user)**
-      –\*\* Sign in as the account owner by choosing Root user and
+   1. ****New to AWS (root user)**
+      –** Sign in as the account owner by choosing Root user and
       entering your AWS account email address. On the next page, enter your
       password.
-   2. \***\*Already using AWS (IAM
-      credentials)** –\*\* Sign in using your IAM
+   2. ****Already using AWS (IAM
+      credentials)** –** Sign in using your IAM
       credentials with administrative permissions.
 
 2. Open the [IAM Identity
@@ -407,8 +407,8 @@ the following steps:
       **Edit access**. In **Level of access to
       apply**, change the access levels as needed, and then choose
       **Save changes**.
-    - \***\*Apply same level of access to all
-      applications** –\*\* Select this option if you don't
+    - ****Apply same level of access to all
+      applications** –** Select this option if you don't
       need to configure access levels on a per-application basis.
 
 11. Choose **Next**.

@@ -72,11 +72,10 @@ point will fail.
      mount.
 
 10. (Optional) Under **Tags**, you can
-    choose to add tags to your access point.
-11. Choose **Create access
-    point**.
-    The following `create-access-point` example command shows how you can
-    use the AWS CLI to create an access point for an S3 file system.
+choose to add tags to your access point. 11. Choose **Create access
+point**.
+The following `create-access-point` example command shows how you can
+use the AWS CLI to create an access point for an S3 file system.
 
 ```
 aws s3files create-access-point --file-system-id `file-system-id` --root-directory `root-directory` --posix-user `posix-user`

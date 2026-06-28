@@ -124,7 +124,7 @@ a session on your behalf. For more information, see [`CreateSession` authorizati
    operation for use with all directory buckets, but the Regional endpoint API
    operations are allowed only for use with the specified directory bucket. To
    use this example policy, replace the `user input
-placeholders` with your own information.
+ placeholders` with your own information.
 
 JSON
 

@@ -34,7 +34,7 @@ following:
 5. Choose
    **Delete**.
 6. On the **Delete objects** page, enter `permanently
-delete` in the text box.
+ delete` in the text box.
 7. Choose **Delete objects**.
 
 SDK for Java 2.x

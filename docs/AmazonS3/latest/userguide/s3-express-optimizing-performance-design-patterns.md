@@ -258,7 +258,7 @@ The following shows three examples about how directory buckets work.
 ### Example 1: How S3 `PutObject` requests to a directory bucket interact with directories
 
 1. When the operation `PUT(<bucket>,
-"documents/reports/quarterly.txt")` is executed in an empty
+ "documents/reports/quarterly.txt")` is executed in an empty
    bucket, the directory `documents/` within the root of the bucket is created,
    the directory `reports/` within `documents/` is created, and the object
    `quarterly.txt` within `reports/` is created. For this operation, two
@@ -297,7 +297,7 @@ In this example, `logs/` is ordered before `readme.txt` and `readme.txt` is orde
 ![Initial directory structure before DELETE operations.](images/directory-examples-delete-before.png)
 
 1. In that same bucket, when the operation `DELETE(<bucket>,
-"documents/reports/quarterly.txt")` is executed, the object
+ "documents/reports/quarterly.txt")` is executed, the object
    `quarterly.txt` is deleted, leaving the directory `reports/` empty and
    causing it to be deleted immediately. The `documents/` directory is not empty because it
    has both the directory `logs/` and the object `readme.txt` within it, so

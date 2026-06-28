@@ -67,29 +67,28 @@ bucket.
 
 ###### To download an object from an S3 bucket
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  In the left navigation pane, choose **General purpose buckets** or **Directory buckets**.
-3.  In the buckets list, choose the name of the bucket that you
-    want to download an object from.
-4.  You can download an object from an S3 bucket in any of the following ways:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **General purpose buckets** or **Directory buckets**.
+3. In the buckets list, choose the name of the bucket that you
+   want to download an object from.
+4. You can download an object from an S3 bucket in any of the following ways:
 
-        * Select the check box next to the object, and choose
-         **Download**. If you want to download the object to a
-         specific folder, on the **Actions** menu, choose
-         **Download as**.
-        * If you want to download a specific version of the object, turn on
-         **Show versions** (located next to the search box).
-         Select the check box next to the version of the object that you want, and
-         choose **Download**. If you want to download the object to
-         a specific folder, on the **Actions** menu, choose
-         **Download as**.
-
-    The following `get-object` example command shows how you can use the AWS CLI
-    to download an object from Amazon S3. This command gets the object
-    `folder/my_image` from the bucket
-    `amzn-s3-demo-bucket1`. You must include an `outfile`, which is a file name for the downloaded object, such as
-    `my_downloaded_image.jpg`.
+   - Select the check box next to the object, and choose
+     **Download**. If you want to download the object to a
+     specific folder, on the **Actions** menu, choose
+     **Download as**.
+   - If you want to download a specific version of the object, turn on
+     **Show versions** (located next to the search box).
+     Select the check box next to the version of the object that you want, and
+     choose **Download**. If you want to download the object to
+     a specific folder, on the **Actions** menu, choose
+     **Download as**.
+     The following `get-object` example command shows how you can use the AWS CLI
+     to download an object from Amazon S3. This command gets the object
+     `folder/my_image` from the bucket
+     `amzn-s3-demo-bucket1`. You must include an `outfile`, which is a file name for the downloaded object, such as
+     `my_downloaded_image.jpg`.
 
 ```
 aws s3api get-object --bucket ``amzn-s3-demo-bucket1`` --key `folder/my_image` `my_downloaded_image.jpg`

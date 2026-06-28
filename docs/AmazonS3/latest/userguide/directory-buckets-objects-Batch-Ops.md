@@ -79,7 +79,7 @@ For more information about using SSE-KMS on directory buckets, see [Setting and 
 - Objects in directory buckets can't be tagged. You can only specify an empty
   tag set. By default, Batch Operations copies tags. If you copy an object that has tags
   between general purpose buckets and directory buckets, you receive a `501 (Not
-Implemented)` response.
+ Implemented)` response.
 - S3 Express One Zone offers you the option to choose the checksum algorithm that is
   used to validate your data during uploads or downloads. You can select one of
   the following Secure Hash Algorithms (SHA) or Cyclic Redundancy Check (CRC)

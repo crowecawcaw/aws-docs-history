@@ -16,39 +16,39 @@ S3 Vectors endpoints are dual-stack endpoints that support requests over IPv6 an
 
 S3 Vectors supports private connectivity with AWS PrivateLink interface endpoints. For more information, see [VPC endpoints for S3 Vectors](s3-vectors-privatelink.md "s3-vectors-privatelink.md").
 
-| S3 Vectors AWS Regions and endpoints | Region Name    | Region                           | Endpoint | Protocol | Signature Version(s) Support |
-| ------------------------------------ | -------------- | -------------------------------- | -------- | -------- | ---------------------------- |
-| Africa (Cape Town)                   | af-south-1     | s3vectors.af-south-1.api.aws     | HTTPS    | 4        |
-| Asia Pacific (Hong Kong)             | ap-east-1      | s3vectors.ap-east-1.api.aws      | HTTPS    | 4        |
-| Asia Pacific (Hyderabad)             | ap-south-2     | s3vectors.ap-south-2.api.aws     | HTTPS    | 4        |
-| Asia Pacific (Jakarta)               | ap-southeast-3 | s3vectors.ap-southeast-3.api.aws | HTTPS    | 4        |
-| Asia Pacific (Malaysia)              | ap-southeast-5 | s3vectors.ap-southeast-5.api.aws | HTTPS    | 4        |
-| Asia Pacific (Melbourne)             | ap-southeast-4 | s3vectors.ap-southeast-4.api.aws | HTTPS    | 4        |
-| Asia Pacific (Mumbai)                | ap-south-1     | s3vectors.ap-south-1.api.aws     | HTTPS    | 4        |
-| Asia Pacific (New Zealand)           | ap-southeast-6 | s3vectors.ap-southeast-6.api.aws | HTTPS    | 4        |
-| Asia Pacific (Osaka)                 | ap-northeast-3 | s3vectors.ap-northeast-3.api.aws | HTTPS    | 4        |
-| Asia Pacific (Seoul)                 | ap-northeast-2 | s3vectors.ap-northeast-2.api.aws | HTTPS    | 4        |
-| Asia Pacific (Singapore)             | ap-southeast-1 | s3vectors.ap-southeast-1.api.aws | HTTPS    | 4        |
-| Asia Pacific (Sydney)                | ap-southeast-2 | s3vectors.ap-southeast-2.api.aws | HTTPS    | 4        |
-| Asia Pacific (Taipei)                | ap-east-2      | s3vectors.ap-east-2.api.aws      | HTTPS    | 4        |
-| Asia Pacific (Thailand)              | ap-southeast-7 | s3vectors.ap-southeast-7.api.aws | HTTPS    | 4        |
-| Asia Pacific (Tokyo)                 | ap-northeast-1 | s3vectors.ap-northeast-1.api.aws | HTTPS    | 4        |
-| Canada (Central)                     | ca-central-1   | s3vectors.ca-central-1.api.aws   | HTTPS    | 4        |
-| Canada West (Calgary)                | ca-west-1      | s3vectors.ca-west-1.api.aws      | HTTPS    | 4        |
-| Europe (Frankfurt)                   | eu-central-1   | s3vectors.eu-central-1.api.aws   | HTTPS    | 4        |
-| Europe (Ireland)                     | eu-west-1      | s3vectors.eu-west-1.api.aws      | HTTPS    | 4        |
-| Europe (London)                      | eu-west-2      | s3vectors.eu-west-2.api.aws      | HTTPS    | 4        |
-| Europe (Milan)                       | eu-south-1     | s3vectors.eu-south-1.api.aws     | HTTPS    | 4        |
-| Europe (Paris)                       | eu-west-3      | s3vectors.eu-west-3.api.aws      | HTTPS    | 4        |
-| Europe (Spain)                       | eu-south-2     | s3vectors.eu-south-2.api.aws     | HTTPS    | 4        |
-| Europe (Stockholm)                   | eu-north-1     | s3vectors.eu-north-1.api.aws     | HTTPS    | 4        |
-| Europe (Zurich)                      | eu-central-2   | s3vectors.eu-central-2.api.aws   | HTTPS    | 4        |
-| Mexico (Central)                     | mx-central-1   | s3vectors.mx-central-1.api.aws   | HTTPS    | 4        |
-| South America (Sao Paulo)            | sa-east-1      | s3vectors.sa-east-1.api.aws      | HTTPS    | 4        |
-| US East (N. Virginia)                | us-east-1      | s3vectors.us-east-1.api.aws      | HTTPS    | 4        |
-| US East (Ohio)                       | us-east-2      | s3vectors.us-east-2.api.aws      | HTTPS    | 4        |
-| US West (N. California)              | us-west-1      | s3vectors.us-west-1.api.aws      | HTTPS    | 4        |
-| US West (Oregon)                     | us-west-2      | s3vectors.us-west-2.api.aws      | HTTPS    | 4        |
+S3 Vectors AWS Regions and endpoints| Region Name | Region | Endpoint | Protocol | Signature Version(s) Support |
+| --- | --- | --- | --- | --- |
+| Africa (Cape Town) | af-south-1 | s3vectors.af-south-1.api.aws | HTTPS | 4 |
+| Asia Pacific (Hong Kong) | ap-east-1 | s3vectors.ap-east-1.api.aws | HTTPS | 4 |
+| Asia Pacific (Hyderabad) | ap-south-2 | s3vectors.ap-south-2.api.aws | HTTPS | 4 |
+| Asia Pacific (Jakarta) | ap-southeast-3 | s3vectors.ap-southeast-3.api.aws | HTTPS | 4 |
+| Asia Pacific (Malaysia) | ap-southeast-5 | s3vectors.ap-southeast-5.api.aws | HTTPS | 4 |
+| Asia Pacific (Melbourne) | ap-southeast-4 | s3vectors.ap-southeast-4.api.aws | HTTPS | 4 |
+| Asia Pacific (Mumbai) | ap-south-1 | s3vectors.ap-south-1.api.aws | HTTPS | 4 |
+| Asia Pacific (New Zealand) | ap-southeast-6 | s3vectors.ap-southeast-6.api.aws | HTTPS | 4 |
+| Asia Pacific (Osaka) | ap-northeast-3 | s3vectors.ap-northeast-3.api.aws | HTTPS | 4 |
+| Asia Pacific (Seoul) | ap-northeast-2 | s3vectors.ap-northeast-2.api.aws | HTTPS | 4 |
+| Asia Pacific (Singapore) | ap-southeast-1 | s3vectors.ap-southeast-1.api.aws | HTTPS | 4 |
+| Asia Pacific (Sydney) | ap-southeast-2 | s3vectors.ap-southeast-2.api.aws | HTTPS | 4 |
+| Asia Pacific (Taipei) | ap-east-2 | s3vectors.ap-east-2.api.aws | HTTPS | 4 |
+| Asia Pacific (Thailand) | ap-southeast-7 | s3vectors.ap-southeast-7.api.aws | HTTPS | 4 |
+| Asia Pacific (Tokyo) | ap-northeast-1 | s3vectors.ap-northeast-1.api.aws | HTTPS | 4 |
+| Canada (Central) | ca-central-1 | s3vectors.ca-central-1.api.aws | HTTPS | 4 |
+| Canada West (Calgary) | ca-west-1 | s3vectors.ca-west-1.api.aws | HTTPS | 4 |
+| Europe (Frankfurt) | eu-central-1 | s3vectors.eu-central-1.api.aws | HTTPS | 4 |
+| Europe (Ireland) | eu-west-1 | s3vectors.eu-west-1.api.aws | HTTPS | 4 |
+| Europe (London) | eu-west-2 | s3vectors.eu-west-2.api.aws | HTTPS | 4 |
+| Europe (Milan) | eu-south-1 | s3vectors.eu-south-1.api.aws | HTTPS | 4 |
+| Europe (Paris) | eu-west-3 | s3vectors.eu-west-3.api.aws | HTTPS | 4 |
+| Europe (Spain) | eu-south-2 | s3vectors.eu-south-2.api.aws | HTTPS | 4 |
+| Europe (Stockholm) | eu-north-1 | s3vectors.eu-north-1.api.aws | HTTPS | 4 |
+| Europe (Zurich) | eu-central-2 | s3vectors.eu-central-2.api.aws | HTTPS | 4 |
+| Mexico (Central) | mx-central-1 | s3vectors.mx-central-1.api.aws | HTTPS | 4 |
+| South America (Sao Paulo) | sa-east-1 | s3vectors.sa-east-1.api.aws | HTTPS | 4 |
+| US East (N. Virginia) | us-east-1 | s3vectors.us-east-1.api.aws | HTTPS | 4 |
+| US East (Ohio) | us-east-2 | s3vectors.us-east-2.api.aws | HTTPS | 4 |
+| US West (N. California) | us-west-1 | s3vectors.us-west-1.api.aws | HTTPS | 4 |
+| US West (Oregon) | us-west-2 | s3vectors.us-west-2.api.aws | HTTPS | 4 |
 
 ## S3 Vectors service quotas
 

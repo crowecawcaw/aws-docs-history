@@ -275,7 +275,7 @@ aws s3api put-bucket-versioning \
 
    1. Save the following policy to a file named
       ``destination-bucket-policy`.json`.
-Make sure to replace the ``user input
+  Make sure to replace the ``user input
       placeholders`` with your own
       information.
 
@@ -426,8 +426,9 @@ Make sure to replace the ``user input
 
    1. The AWS CLI requires specifying the replication configuration as
       JSON. Save the following JSON in a file named
-      ``replication`.json`in the current directory on your local computer. In the
-configuration, the`AccessControlTranslation` specifies
+      ``replication`.json`
+      in the current directory on your local computer. In the
+      configuration, the `AccessControlTranslation` specifies
       the change in replica ownership from the source bucket owner to the
       destination bucket owner.
 

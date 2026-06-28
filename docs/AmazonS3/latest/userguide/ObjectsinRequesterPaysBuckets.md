@@ -7,7 +7,7 @@ To access objects in Requester Pays buckets, requests must include one of the
 following.
 
 - For DELETE, GET, HEAD, POST, and PUT requests, include `x-amz-request-payer :
-requester` in the header
+ requester` in the header
 - For signed URLs, include `x-amz-request-payer=requester` in the
   request
   If the request succeeds and the requester is charged, the response includes the

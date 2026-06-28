@@ -100,7 +100,7 @@ how to grant cross-account access, see [Example 2: Bucket owner granting cross-a
 
 - Enhanced access denied error messages aren't returned for requests made to
   directory buckets. Directory bucket requests return a generic `Access
-Denied` message.
+ Denied` message.
 - If multiple policies of the same policy type deny an authorization
   request, the access denied error message doesn't specify the number of
   policies.
@@ -418,18 +418,17 @@ The four settings provided by Amazon S3 Block Public Access are as follows:
   `CopyObject`, and `POST Object` requests. The
   `BlockPublicAcls` setting causes the following behavior:
 
-      + `PutBucketAcl` and `PutObjectAcl` calls fail
-       if the specified access control list (ACL) is public.
-      + `PutObject` calls fail if the request includes a public
-       ACL.
-      + If this setting is applied to an account, then
-       `CreateBucket` calls fail with an HTTP
-       `400` (`Bad Request`) response if the
-       request includes a public ACL.
-
-  For example, when access is denied for a `CopyObject` request
-  because of the `BlockPublicAcls` setting, you receive the
-  following message:
+  - `PutBucketAcl` and `PutObjectAcl` calls fail
+    if the specified access control list (ACL) is public.
+  - `PutObject` calls fail if the request includes a public
+    ACL.
+  - If this setting is applied to an account, then
+    `CreateBucket` calls fail with an HTTP
+    `400` (`Bad Request`) response if the
+    request includes a public ACL.
+    For example, when access is denied for a `CopyObject` request
+    because of the `BlockPublicAcls` setting, you receive the
+    following message:
 
 ```
 An error occurred (AccessDenied) when calling the CopyObject operation:

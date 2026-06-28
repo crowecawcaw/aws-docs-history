@@ -22,54 +22,49 @@ For guidance on troubleshooting errors with a policy, see [Troubleshoot access d
 
 ###### To create or edit a bucket policy
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  In the left navigation pane, choose **General purpose buckets** or **Directory buckets**.
-3.  In the list of buckets, choose the name of the bucket that you
-    want to create a bucket policy for or whose bucket policy you want to edit.
-4.  Choose the **Permissions** tab.
-5.  Under **Bucket policy**, choose **Edit**. The
-    **Edit bucket policy** page appears.
-6.  On the **Edit bucket policy** page, do one of the following:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **General purpose buckets** or **Directory buckets**.
+3. In the list of buckets, choose the name of the bucket that you
+   want to create a bucket policy for or whose bucket policy you want to edit.
+4. Choose the **Permissions** tab.
+5. Under **Bucket policy**, choose **Edit**. The
+   **Edit bucket policy** page appears.
+6. On the **Edit bucket policy** page, do one of the following:
 
-        * To see examples of bucket policies, choose **Policy
-         examples**. Or see [Examples of Amazon S3 bucket policies](example-bucket-policies.md "example-bucket-policies.md") in the
-         *Amazon S3 User Guide*.
-        * To generate a policy automatically, or edit the JSON in the
-         **Policy** section, choose **Policy
-         generator**.
+   - To see examples of bucket policies, choose **Policy
+     examples**. Or see [Examples of Amazon S3 bucket policies](example-bucket-policies.md "example-bucket-policies.md") in the
+     _Amazon S3 User Guide_.
+   - To generate a policy automatically, or edit the JSON in the
+     **Policy** section, choose **Policy
+     generator**.
+     If you choose **Policy generator**, the AWS Policy Generator
+     opens in a new window.
+   1. On the **AWS Policy Generator** page, for
+      **Select Type of Policy**, choose **S3 Bucket
+      Policy**.
+   2. Add a statement by entering the information in the provided fields, and
+      then choose **Add Statement**. Repeat this step for as many
+      statements as you would like to add. For more information about these
+      fields, see the [IAM JSON
+      policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
+      _IAM User Guide_.
 
-    If you choose **Policy generator**, the AWS Policy Generator
-    opens in a new window.
+   ###### Note
 
-        1. On the **AWS Policy Generator** page, for
-         **Select Type of Policy**, choose **S3 Bucket
-         Policy**.
-        2. Add a statement by entering the information in the provided fields, and
-         then choose **Add Statement**. Repeat this step for as many
-         statements as you would like to add. For more information about these
-         fields, see the [IAM JSON
-         policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
-         *IAM User Guide*.
+   For your convenience, the **Edit bucket policy** page
+   displays the **Bucket ARN** (Amazon Resource Name) of
+   the current bucket above the **Policy** text field. You
+   can copy this ARN for use in the statements on the **AWS
+   Policy Generator** page. 3. After you finish adding statements, choose **Generate
+   Policy**. 4. Copy the generated policy text, choose **Close**, and
+   return to the **Edit bucket policy** page in the Amazon S3
+   console.
 
-
-        ###### Note
-
-        For your convenience, the **Edit bucket policy** page
-         displays the **Bucket ARN** (Amazon Resource Name) of
-         the current bucket above the **Policy** text field. You
-         can copy this ARN for use in the statements on the **AWS
-         Policy Generator** page.
-        3. After you finish adding statements, choose **Generate
-         Policy**.
-        4. Copy the generated policy text, choose **Close**, and
-         return to the **Edit bucket policy** page in the Amazon S3
-         console.
-
-7.  In the **Policy** box, edit the existing policy or paste the
-    bucket policy from the AWS Policy Generator. Make sure to resolve security
-    warnings, errors, general warnings, and suggestions before you save your
-    policy.
+7. In the **Policy** box, edit the existing policy or paste the
+   bucket policy from the AWS Policy Generator. Make sure to resolve security
+   warnings, errors, general warnings, and suggestions before you save your
+   policy.
 
 ###### Note
 

@@ -30,15 +30,15 @@ You can't change the following:
     * The home Region
 
 6. On the **Dashboard** page, in the **General**
-   section, you can make changes to the following:
+section, you can make changes to the following:
 
-   - Choose **Enabled** or **Disabled** to update
+    * Choose **Enabled** or **Disabled** to update
      whether you're receiving daily metrics in your dashboard.
-   - (Optional) You can choose to add **Tags** to your dashboard.
+    * (Optional) You can choose to add **Tags** to your dashboard.
      You can use tags to manage permissions for your dashboard and track costs for
      S3 Storage Lens. For more information, see [Controlling access to AWS resources
-     using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User Guide_ and
-     [Using AWS-generated tags](../../../awsaccountbilling/latest/aboutv2/aws-tags.md "../../../awsaccountbilling/latest/aboutv2/aws-tags.md") in the _AWS Billing User Guide_.
+     using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the *IAM User Guide* and
+     [Using AWS-generated tags](../../../awsaccountbilling/latest/aboutv2/aws-tags.md "../../../awsaccountbilling/latest/aboutv2/aws-tags.md") in the *AWS Billing User Guide*.
 
 ###### Note
 
@@ -57,8 +57,8 @@ You can add up to 50 tags to your dashboard configuration. 7. Choose **Next** to
     * You can choose up to 50 buckets to include or exclude.
 
 2. Choose the buckets in your selected Regions that you want S3 Storage Lens to include or
-   exclude. You can either include or exclude buckets, but not both. This option isn't
-   available when you create organization-level dashboards.
+exclude. You can either include or exclude buckets, but not both. This option isn't
+available when you create organization-level dashboards.
 
 ###### Note
 
@@ -89,11 +89,10 @@ You can add up to 50 tags to your dashboard configuration. 7. Choose **Next** to
      tier** metric categories.
 
 2. To include free metrics aggregated at the bucket level and available for queries for
-   14 days, choose **Free tier**.
-3. To enable advanced metrics, choose **Advanced tier**. These options
-   include prefix aggregation, Amazon CloudWatch publishing, and contextual recommendations. Data is
-   available for queries for 15 months. Advanced metrics and recommendations have an
-   additional cost. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+14 days, choose **Free tier**. 3. To enable advanced metrics, choose **Advanced tier**. These options
+include prefix aggregation, Amazon CloudWatch publishing, and contextual recommendations. Data is
+available for queries for 15 months. Advanced metrics and recommendations have an
+additional cost. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 For more information about advanced metrics and free metrics, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection"). 4. Under **Advanced metric categories**, choose the category of
 metrics that you want to enable:
@@ -149,11 +148,11 @@ you want exported daily:
     * **Expanded prefixes metrics report**
 
 3. (Optional) If you chose **Default metrics report**, in the
-   **Default metrics report** settings, choose the bucket type. You can
-   export the report to either a general purpose S3 bucket or a read-only S3 table bucket.
-   Based on the selected bucket type, update the **General purpose bucket
-   destination settings** or **Table bucket destination
-   settings** options.
+**Default metrics report** settings, choose the bucket type. You can
+export the report to either a general purpose S3 bucket or a read-only S3 table bucket.
+Based on the selected bucket type, update the **General purpose bucket
+destination settings** or **Table bucket destination
+settings** options.
 
 ###### Note
 
@@ -166,13 +165,12 @@ you want exported daily:
      encryption, you must provide an encryption key for your metrics export. Without
      the encryption key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md").
 
-4. Choose **Next** to save your changes and proceed.
-5. (Optional) If you chose **Expanded prefixes metrics report**, in
-   the **Expanded prefixes metrics report** settings, choose the bucket
-   type. You can export the report to either a general purpose S3 bucket or a read-only S3
-   table bucket. Based on the selected bucket type, update the **General purpose
-   bucket destination settings** or **Table bucket destination
-   settings**.
+4. Choose **Next** to save your changes and proceed. 5. (Optional) If you chose **Expanded prefixes metrics report**, in
+the **Expanded prefixes metrics report** settings, choose the bucket
+type. You can export the report to either a general purpose S3 bucket or a read-only S3
+table bucket. Based on the selected bucket type, update the **General purpose
+bucket destination settings** or **Table bucket destination
+settings**.
 
 ###### Note
 

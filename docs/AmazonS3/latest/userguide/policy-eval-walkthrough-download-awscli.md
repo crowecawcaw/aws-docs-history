@@ -28,30 +28,26 @@ aws_secret_access_key = `secret access key`
 region = us-west-2
 ```
 
-3.  Verify the setup by entering the following command at the command prompt. Both these
-    commands don't provide credentials explicitly, so the credentials of the default
-    profile are used.
+3. Verify the setup by entering the following command at the command prompt. Both these
+   commands don't provide credentials explicitly, so the credentials of the default
+   profile are used.
 
-        * Try the `help` command.
+   - Try the `help` command.
 
+   ```
+   aws help
+   ```
+   - To get a list of buckets on the configured account, use the `aws s3 ls`
+     command.
 
+   ```
+   aws s3 ls
+   ```
 
-        ```
-        aws help
-        ```
-        * To get a list of buckets on the configured account, use the `aws s3 ls`
-         command.
-
-
-
-        ```
-        aws s3 ls
-        ```
-
-    As you go through the walkthroughs, you will create users, and you will save user
-    credentials in the config files by creating profiles, as the following example shows.
-    These profiles have the names of `AccountAadmin` and
-    `AccountBadmin`.
+As you go through the walkthroughs, you will create users, and you will save user
+credentials in the config files by creating profiles, as the following example shows.
+These profiles have the names of `AccountAadmin` and
+`AccountBadmin`.
 
 ```
 [profile AccountAadmin]
@@ -101,28 +97,24 @@ to a persistent store (`-StoreAs` parameter).
 Set-AWSCredentials -AccessKey `AccessKeyID` -SecretKey `SecretAccessKey` -storeas `string`
 ```
 
-3.  Verify the setup.
+3. Verify the setup.
 
-        * To retrieve a list of available commands that you can use for Amazon S3 operations, run the
-         `Get-Command` command.
+   - To retrieve a list of available commands that you can use for Amazon S3 operations, run the
+     `Get-Command` command.
 
+   ```
+   Get-Command -module awspowershell -noun s3* -StoredCredentials `string`
+   ```
+   - To retrieve a list of objects in a bucket, run the `Get-S3Object`
+     command.
 
+   ```
+   Get-S3Object -BucketName `bucketname` -StoredCredentials `string`
+   ```
 
-        ```
-        Get-Command -module awspowershell -noun s3* -StoredCredentials `string`
-        ```
-        * To retrieve a list of objects in a bucket, run the `Get-S3Object`
-         command.
-
-
-
-        ```
-        Get-S3Object -BucketName `bucketname` -StoredCredentials `string`
-        ```
-
-    For a list of commands, see [AWS Tools for PowerShell
-    Cmdlet
-    Reference](../../../powershell/latest/reference/Index.md "../../../powershell/latest/reference/Index.md").
+For a list of commands, see [AWS Tools for PowerShell
+Cmdlet
+Reference](../../../powershell/latest/reference/Index.md "../../../powershell/latest/reference/Index.md").
 
 Now you're ready to try the walkthroughs.
 Follow

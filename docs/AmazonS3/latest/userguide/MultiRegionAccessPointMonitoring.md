@@ -70,7 +70,7 @@ NEW
 
 Amazon S3 has received the request and is preparing to perform the operation.
 
-IN_PROGRESS
+IN\_PROGRESS
 
 Amazon S3 is currently performing the operation.
 

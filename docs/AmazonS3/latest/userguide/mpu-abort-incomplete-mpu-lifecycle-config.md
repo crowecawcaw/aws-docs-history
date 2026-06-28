@@ -74,18 +74,15 @@ The name must be unique within the bucket. 5. Choose the scope of the lifecycle 
      bucket**.
 
 6. Under **Lifecycle rule actions**, select
-   **Delete expired object delete markers or incomplete
-   multipart uploads**.
-7. Under **Delete expired object delete markers or
-   incomplete multipart uploads**, select **Delete incomplete multipart uploads**.
-8. In the **Number of days** field, enter the
-   number of days after which to delete incomplete multipart uploads (for this
-   example, 7 days).
-9. Choose **Create rule**.
-   The following `put-bucket-lifecycle-configuration` AWS Command Line Interface (AWS CLI)
-   command adds the lifecycle configuration for the specified bucket. To use this
-   command, replace the `user input placeholders`
-   with your information.
+**Delete expired object delete markers or incomplete
+multipart uploads**. 7. Under **Delete expired object delete markers or
+incomplete multipart uploads**, select **Delete incomplete multipart uploads**. 8. In the **Number of days** field, enter the
+number of days after which to delete incomplete multipart uploads (for this
+example, 7 days). 9. Choose **Create rule**.
+The following `put-bucket-lifecycle-configuration` AWS Command Line Interface (AWS CLI)
+command adds the lifecycle configuration for the specified bucket. To use this
+command, replace the `user input placeholders`
+with your information.
 
 ```
 aws s3api put-bucket-lifecycle-configuration  \

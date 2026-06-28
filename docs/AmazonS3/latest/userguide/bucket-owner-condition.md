@@ -92,8 +92,8 @@ the AWS CLI or the AWS SDK for Java 2.x.
 
 ###### Example
 
-**_Example: Upload an
-object_**
+_**Example: Upload an
+object**_
 
 The following example uploads an object to S3 bucket
 `amzn-s3-demo-bucket1`, using bucket owner condition to ensure that
@@ -125,8 +125,8 @@ public void putObjectExample() {
 
 ###### Example
 
-**_Example: Copy an
-object_**
+_**Example: Copy an
+object**_
 
 The following example copies the object `object1` from S3 bucket
 `amzn-s3-demo-bucket1` to S3 bucket
@@ -165,8 +165,8 @@ public void copyObjectExample() {
 
 ###### Example
 
-**_Example: Retrieve a bucket
-policy_**
+_**Example: Retrieve a bucket
+policy**_
 
 The following example retrieves the access policy for S3 bucket
 `amzn-s3-demo-bucket1`, using bucket owner condition to ensure that

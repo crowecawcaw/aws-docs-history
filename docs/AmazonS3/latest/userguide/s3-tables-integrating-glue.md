@@ -80,28 +80,28 @@ Prerequisites use the Amazon S3 Tables Catalog for Apache Iceberg to run AWS Glu
 
   ###### **Downloading the catalog JAR**
 
-      1. Check for the latest version on [Maven Central](https://mvnrepository.com/artifact/software.amazon.s3tables/s3-tables-catalog-for-iceberg-runtime "https://mvnrepository.com/artifact/software.amazon.s3tables/s3-tables-catalog-for-iceberg-runtime"). You can download the JAR from
-       Maven central using your browser, or using the following command. Make
-       sure to replace the `version number` with the
-       latest version.
+        1. Check for the latest version on [Maven Central](https://mvnrepository.com/artifact/software.amazon.s3tables/s3-tables-catalog-for-iceberg-runtime "https://mvnrepository.com/artifact/software.amazon.s3tables/s3-tables-catalog-for-iceberg-runtime"). You can download the JAR from
+         Maven central using your browser, or using the following command. Make
+         sure to replace the `version number` with the
+         latest version.
 
 
 
-      ```
-      wget https://repo1.maven.org/maven2/software/amazon/s3tables/s3-tables-catalog-for-iceberg-runtime/`0.1.5`/s3-tables-catalog-for-iceberg-runtime-`0.1.5.jar`
-      ```
-      2. Upload the downloaded JAR to an S3 bucket that your
-       AWS Glue IAM role can access. You can use the following AWS CLI command to
-       upload the JAR. Make sure to replace the
-       `version number` with the latest version,
-       and the `bucket name` and
-       `path` with your own.
+        ```
+        wget https://repo1.maven.org/maven2/software/amazon/s3tables/s3-tables-catalog-for-iceberg-runtime/`0.1.5`/s3-tables-catalog-for-iceberg-runtime-`0.1.5.jar`
+        ```
+        2. Upload the downloaded JAR to an S3 bucket that your
+         AWS Glue IAM role can access. You can use the following AWS CLI command to
+         upload the JAR. Make sure to replace the
+         `version number` with the latest version,
+         and the `bucket name` and
+         `path` with your own.
 
 
 
-      ```
-      aws s3 cp s3-tables-catalog-for-iceberg-runtime-`0.1.5`.jar s3://`amzn-s3-demo-bucket``/jars/`
-      ```
+        ```
+        aws s3 cp s3-tables-catalog-for-iceberg-runtime-`0.1.5`.jar s3://`amzn-s3-demo-bucket``/jars/`
+        ```
 
 ## Step 2 – Create a script to connect to table buckets
 

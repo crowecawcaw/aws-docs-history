@@ -624,19 +624,19 @@ procedure.
 2. Later in these steps, you will enable server access logging as follows:
 
    - ``amzn-s3-demo-source-bucket`-us-east-1` logs to the S3 bucket
-``amzn-s3-demo-destination-bucket`-logs-us-east-1` with the prefix
+  ``amzn-s3-demo-destination-bucket`-logs-us-east-1` with the prefix
      ``amzn-s3-demo-source-bucket`-us-east-1`
    - ``amzn-s3-demo-source-bucket1`-us-east-1` logs to the S3
-bucket ``amzn-s3-demo-destination-bucket`-logs-us-east-1` with the
+  bucket ``amzn-s3-demo-destination-bucket`-logs-us-east-1` with the
      prefix ``amzn-s3-demo-source-bucket1`-us-east-1`
    - ``amzn-s3-demo-source-bucket2`-us-east-1` logs to the S3 bucket
-``amzn-s3-demo-destination-bucket`-logs-us-east-1` with the prefix
+  ``amzn-s3-demo-destination-bucket`-logs-us-east-1` with the prefix
      ``amzn-s3-demo-source-bucket2`-us-east-1`
    - ``amzn-s3-demo-bucket1`-us-west-2` logs to the S3 bucket
-``amzn-s3-demo-destination-bucket1`-logs-us-west-2` with the prefix
+  ``amzn-s3-demo-destination-bucket1`-logs-us-west-2` with the prefix
      ``amzn-s3-demo-bucket1`-us-west-2`
    - ``amzn-s3-demo-bucket2`-us-west-2` logs to the S3
-bucket ``amzn-s3-demo-destination-bucket1`-logs-us-west-2` with the
+  bucket ``amzn-s3-demo-destination-bucket1`-logs-us-west-2` with the
      prefix ``amzn-s3-demo-bucket2`-us-west-2`
 
 3. For each destination logging bucket, grant permissions for server access log
@@ -657,10 +657,9 @@ bucket ``amzn-s3-demo-destination-bucket1`-logs-us-west-2` with the
    that contains the following bucket policy. To use this bucket policy, replace
    the `user input placeholders` with your
    own information. In the following policy,
-   ```amzn-s3-demo-destination-bucket`-logs``
-   is the destination bucket where server access logs will be delivered, and
-   `amzn-s3-demo-source-bucket` is the source bucket.
-   `SOURCE-ACCOUNT-ID` is the
+   ```amzn-s3-demo-destination-bucket`-logs`   is the destination bucket where server access logs will be delivered, and
+  `amzn-s3-demo-source-bucket`is the source bucket.
+ `SOURCE-ACCOUNT-ID`` is the
    AWS account that owns the source bucket.
 
    JSON
@@ -831,9 +830,8 @@ format, see [How do I enable log delivery?](ServerLogs.md#server-access-logging-
 
 5. Use one of the following bash scripts to add access logging for all the buckets
    in your account. Replace
-   ```amzn-s3-demo-destination-bucket`-logs``
-   with the name of your destination (target) bucket, and replace
-   `us-west-2` with the name of the Region
+   ```amzn-s3-demo-destination-bucket`-logs`  with the name of your destination (target) bucket, and replace
+ `us-west-2`` with the name of the Region
    that
    your
    buckets are located in.

@@ -179,13 +179,13 @@ df.filter("record_type = 'BUCKET'") \
 
 Follow these best practices to optimize query performance and reduce costs:
 
-- **Filter by report_time** – Always include date filters to reduce the amount of data scanned. This is especially important for tables with long retention periods.
+- **Filter by report\_time** – Always include date filters to reduce the amount of data scanned. This is especially important for tables with long retention periods.
 
 ```
 WHERE report_time >= current_date - interval '7' day
 ```
 
-- **Use record_type filters** – Specify the appropriate aggregation level (ACCOUNT, BUCKET, PREFIX) to query only the data you need.
+- **Use record\_type filters** – Specify the appropriate aggregation level (ACCOUNT, BUCKET, PREFIX) to query only the data you need.
 
 ```
 WHERE record_type = 'BUCKET'
@@ -203,7 +203,7 @@ LIMIT 100
 WHERE storage_bytes > 0
 ```
 
-- **Use the latest data** – When analyzing current state, filter for the most recent report_time to avoid scanning historical data.
+- **Use the latest data** – When analyzing current state, filter for the most recent report\_time to avoid scanning historical data.
 
 ```
 WHERE report_time = (SELECT MAX(report_time) FROM table_name)
@@ -235,7 +235,7 @@ LIMIT 100;                                             -- Result limit
 
 **Solution:**
 
-- Verify that data is available by checking the latest report_time:
+- Verify that data is available by checking the latest report\_time:
 
 ```
 SELECT MAX(report_time) AS latest_data

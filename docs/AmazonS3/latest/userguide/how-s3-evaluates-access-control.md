@@ -13,43 +13,36 @@ Forbidden)permission denied error is returned. For more information, see [Troubl
 To determine whether the requester has permission to perform the specific operation, Amazon S3
 does the following, in order, when it receives a request:
 
-1.  Converts all the relevant access policies (user policy, bucket policy, and ACLs) at run
-    time into a set of policies for evaluation.
-2.  Evaluates the resulting set of policies in the following steps. In each step, Amazon S3
-    evaluates a subset of policies in a specific context, based on the context
-    authority.
+1. Converts all the relevant access policies (user policy, bucket policy, and ACLs) at run
+   time into a set of policies for evaluation.
+2. Evaluates the resulting set of policies in the following steps. In each step, Amazon S3
+   evaluates a subset of policies in a specific context, based on the context
+   authority.
 
-        1. User context – In the user context, the parent
-         account to which the user belongs is the context authority.
+   1. User context – In the user context, the parent
+      account to which the user belongs is the context authority.
 
+   Amazon S3 evaluates a subset of policies owned by the parent account. This subset includes
+   the user policy that the parent attaches to the user. If the parent also
+   owns the resource in the request (bucket or object), Amazon S3 also evaluates the
+   corresponding resource policies (bucket policy, bucket ACL, and object ACL)
+   at the same time.
 
-        Amazon S3 evaluates a subset of policies owned by the parent account. This subset includes
-         the user policy that the parent attaches to the user. If the parent also
-         owns the resource in the request (bucket or object), Amazon S3 also evaluates the
-         corresponding resource policies (bucket policy, bucket ACL, and object ACL)
-         at the same time.
+   A user must have permission from the parent account to perform the
+   operation.
 
+   This step applies only if the request is made by a user in an AWS account. If the
+   request is made by using the root user credentials of an AWS account, Amazon S3
+   skips this step. 2. Bucket context – In the bucket context, Amazon S3
+   evaluates policies owned by the AWS account that owns the bucket.
 
-        A user must have permission from the parent account to perform the
-         operation.
-
-
-        This step applies only if the request is made by a user in an AWS account. If the
-         request is made by using the root user credentials of an AWS account, Amazon S3
-         skips this step.
-        2. Bucket context – In the bucket context, Amazon S3
-         evaluates policies owned by the AWS account that owns the bucket.
-
-
-        If the request is for a bucket operation, the requester must have permission from the
-         bucket owner. If the request is for an object, Amazon S3 evaluates all the
-         policies owned by the bucket owner to check if the bucket owner has not
-         explicitly denied access to the object. If there is an explicit deny set,
-         Amazon S3 does not authorize the request.
-        3. Object context – If the request is for an object,
-         Amazon S3 evaluates the subset of policies owned by the object owner.
-
-    Following are some example scenarios that illustrate how Amazon S3 authorizes a request.
+   If the request is for a bucket operation, the requester must have permission from the
+   bucket owner. If the request is for an object, Amazon S3 evaluates all the
+   policies owned by the bucket owner to check if the bucket owner has not
+   explicitly denied access to the object. If there is an explicit deny set,
+   Amazon S3 does not authorize the request. 3. Object context – If the request is for an object,
+   Amazon S3 evaluates the subset of policies owned by the object owner.
+   Following are some example scenarios that illustrate how Amazon S3 authorizes a request.
 
 ###### Example– Requester is an IAM principal
 

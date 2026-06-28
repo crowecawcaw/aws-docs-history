@@ -516,11 +516,11 @@ want to keep all versions of objects in this bucket, select
 **Enable Bucket Versioning**. You can also view the
 default encryption and Object Lock properties in **Destination
 details**. 7. Under **Additional copy settings**, choose whether
-you want to **Copy source settings**, **Don’t
+you want to **Copy source settings**, **Don't
 specify settings**, or **Specify
 settings**. **Copy source settings** is
 the default option. If you only want to copy the object without the
-source settings attributes, choose **Don’t specify
+source settings attributes, choose **Don't specify
 settings**. Choose **Specify settings** to
 specify settings for storage class, ACLs, object tags, metadata,
 server-side encryption, and additional checksums. 8. Choose **Move** in the bottom-right corner. Amazon S3
@@ -568,11 +568,11 @@ To rename an object, use the following procedure.
 5. In the **New object name** box, enter the new name for the
    object.
 6. Under **Additional copy settings**, choose whether you want
-   to **Copy source settings**, **Don’t specify
+   to **Copy source settings**, **Don't specify
    settings**, or **Specify settings**.
    **Copy source settings** is the default option. If you only
    want to copy the object without the source settings attributes, choose
-   **Don’t specify settings**. Choose **Specify
+   **Don't specify settings**. Choose **Specify
    settings** to specify settings for storage class, ACLs, object
    tags, metadata, server-side encryption, and additional checksums.
 7. Choose **Save changes**. Amazon S3 renames your object.

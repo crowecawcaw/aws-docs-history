@@ -133,8 +133,9 @@ The operation listed here is declared as
 `SOAP.`operation``,
  `REST.`HTTP_method`.`resource_type``,
 `WEBSITE.`HTTP_method`.`resource_type``,
- or `BATCH.DELETE.OBJECT`, or `S3.action.resource_type` for [S3 Lifecycle and logging](lifecycle-and-other-bucket-config.md#lifecycle-general-considerations-logging "lifecycle-and-other-bucket-config.md#lifecycle-general-considerations-logging"). For [Compute checksum](batch-ops-compute-checksums.md "batch-ops-compute-checksums.md") job requests, the operation
- is listed as`S3.COMPUTE.OBJECT.CHECKSUM`.
+or `BATCH.DELETE.OBJECT`, or `S3.action.resource_type`
+for [S3 Lifecycle and logging](lifecycle-and-other-bucket-config.md#lifecycle-general-considerations-logging "lifecycle-and-other-bucket-config.md#lifecycle-general-considerations-logging"). For [Compute checksum](batch-ops-compute-checksums.md "batch-ops-compute-checksums.md") job requests, the operation
+is listed as `S3.COMPUTE.OBJECT.CHECKSUM`.
 
 **Example entry**
 
@@ -470,7 +471,7 @@ The operation listed here is declared as
 `SOAP.`operation``,
  `REST.`HTTP_method`.`resource_type``,
 `WEBSITE.`HTTP_method`.`resource_type``,
- or `BATCH.DELETE.OBJECT`.
+or `BATCH.DELETE.OBJECT`.
 
 **Example entry**
 

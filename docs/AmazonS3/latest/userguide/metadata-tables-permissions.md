@@ -85,24 +85,23 @@ If you also want to integrate your table bucket with AWS analytics services so t
 To encrypt your metadata tables with server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS),
 you must have additional permissions.
 
-1.  The user or AWS Identity and Access Management (IAM) role needs the following permissions. You can grant these
-    permissions by using the IAM console: [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+1. The user or AWS Identity and Access Management (IAM) role needs the following permissions. You can grant these
+   permissions by using the IAM console: [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 
-    1. `s3tables:PutTableEncryption` to configure table encryption
-    2. `kms:DescribeKey` on the AWS KMS key used
+   1. `s3tables:PutTableEncryption` to configure table encryption
+   2. `kms:DescribeKey` on the AWS KMS key used
 
-2.  On the resource policy for the KMS key, you need the following permissions. You can grant
-    these permissions by using the AWS KMS console: [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
+2. On the resource policy for the KMS key, you need the following permissions. You can grant
+   these permissions by using the AWS KMS console: [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 
-        1. Grant `kms:GenerateDataKey` permission to
-         `metadata.s3.amazonaws.com` and
-         `maintenance.s3tables.amazonaws.com`.
-        2. Grant `kms:Decrypt` permission to `metadata.s3.amazonaws.com` and
-         `maintenance.s3tables.amazonaws.com`.
-        3. Grant `kms:DescribeKey` permission to the invoking AWS principal.
-
-    In addition to these permissions, make sure that the customer managed KMS key used to encrypt the
-    tables still exists, is active, is in the same Region as your general purpose bucket.
+   1. Grant `kms:GenerateDataKey` permission to
+      `metadata.s3.amazonaws.com` and
+      `maintenance.s3tables.amazonaws.com`.
+   2. Grant `kms:Decrypt` permission to `metadata.s3.amazonaws.com` and
+      `maintenance.s3tables.amazonaws.com`.
+   3. Grant `kms:DescribeKey` permission to the invoking AWS principal.
+      In addition to these permissions, make sure that the customer managed KMS key used to encrypt the
+      tables still exists, is active, is in the same Region as your general purpose bucket.
 
 ###### Example policy
 

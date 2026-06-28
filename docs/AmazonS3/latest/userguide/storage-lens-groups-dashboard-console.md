@@ -47,8 +47,8 @@ the data aggregation. You can use the following filtering options:
      Storage Lens groups that you want to exclude.
 
 8. Choose **Save changes**. If you've configured your Storage
-   Lens groups correctly, you will see the additional Storage Lens group
-   aggregation data in your dashboard within 48 hours.
+Lens groups correctly, you will see the additional Storage Lens group
+aggregation data in your dashboard within 48 hours.
 
 ###### To remove a Storage Lens group from an S3 Storage Lens dashboard
 

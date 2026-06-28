@@ -126,7 +126,7 @@ You can add up to 50 tags to your dashboard configuration. 6. Define the scope f
     	You can choose up to 50 buckets.
 
 7. For **Metrics selection**, choose **Advanced
-   metrics and recommendations**.
+metrics and recommendations**.
 
 For more information about advanced metrics and recommendations pricing, see
 [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"). 8. Under **Advanced metrics and recommendations features**,

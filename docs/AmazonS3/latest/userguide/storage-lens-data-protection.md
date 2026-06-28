@@ -57,9 +57,8 @@ chart updates to display trends for SSE-KMS and encrypted bytes. 5. To view more
      **Apply**.
 
 6. In the **Distribution by buckets for _date_** chart, choose the **SSE-KMS
-   enabled bucket count** metric.
-7. You can now see which buckets have SSE-KMS enabled and which do
-   not.
+enabled bucket count** metric. 7. You can now see which buckets have SSE-KMS enabled and which do
+not.
 
 ### Step 2: Update bucket default encryption settings
 
@@ -106,9 +105,9 @@ chart so that you can perform a deeper analysis, do the following:
      **Apply**.
 
 6. In the **Bubble analysis by buckets for _date_** section, choose the
-   **Versioning-enabled bucket count**,
-   **Buckets**, and **Active buckets**
-   metrics.
+**Versioning-enabled bucket count**,
+**Buckets**, and **Active buckets**
+metrics.
 
 The **Bubble analysis by buckets for _date_** section updates to display data for the
 metrics that you selected. You can use this data to see which buckets have
@@ -198,8 +197,7 @@ metrics remain selected:
     * **% all unsupported signature requests**
 
 8. (Optional) Under **Page size**, choose the number of
-   buckets to display in the list.
-9. Choose **Confirm**.
+buckets to display in the list. 9. Choose **Confirm**.
 
 The **Buckets** list updates to display bucket-level
 metrics for SigV2 requests. You can use this data to identify specific

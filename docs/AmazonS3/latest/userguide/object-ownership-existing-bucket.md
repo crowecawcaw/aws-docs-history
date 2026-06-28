@@ -77,11 +77,11 @@ For more information about the permissions to S3 API operations by S3 resource t
      access to it through ACLs.
 
 6. Choose **Save**.
-   To apply an Object Ownership setting for an existing bucket, use the
-   `put-bucket-ownership-controls` command with the
-   `--ownership-controls` parameter. Valid values for ownership are
-   `BucketOwnerEnforced`, `BucketOwnerPreferred`, or
-   `ObjectWriter`.
+To apply an Object Ownership setting for an existing bucket, use the
+`put-bucket-ownership-controls` command with the
+`--ownership-controls` parameter. Valid values for ownership are
+`BucketOwnerEnforced`, `BucketOwnerPreferred`, or
+`ObjectWriter`.
 
 This example applies the Bucket owner enforced setting for an existing bucket by using the
 AWS CLI:

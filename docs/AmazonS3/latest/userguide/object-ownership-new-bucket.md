@@ -59,9 +59,7 @@ them using policies.
      you. Objects stored in a Region never leave that Region unless you explicitly transfer them to
      another Region. For a list of Amazon S3 AWS Regions, see [AWS service endpoints](../../../general/latest/gr/rande.md#s3_region "../../../general/latest/gr/rande.md#s3_region") in the *Amazon Web Services General Reference*.
 
-3. In the left navigation pane, choose **General purpose buckets**.
-4. Choose **Create bucket**. The **Create bucket** page opens.
-5. For **Bucket name**, enter a name for your bucket.
+3. In the left navigation pane, choose **General purpose buckets**. 4. Choose **Create bucket**. The **Create bucket** page opens. 5. For **Bucket name**, enter a name for your bucket.
 
 The bucket name must:
 
@@ -83,8 +81,8 @@ The bucket name must:
      that point to the objects in the bucket.
 
 6. (Optional) Under **General configuration**, you can choose to copy an existing
-   bucket's settings to your new bucket. If you don't want to copy the settings of an existing bucket, skip
-   to the next step.
+bucket's settings to your new bucket. If you don't want to copy the settings of an existing bucket, skip
+to the next step.
 
 ###### Note
 
@@ -233,17 +231,19 @@ following:
      **Disable**.
 
 13. (Optional) S3 Object Lock helps protect new objects from being deleted or overwritten. For
-    more information, see [Locking objects with Object Lock](object-lock.md "object-lock.md"). If you want to enable
-    S3 Object Lock, do the following:
+more information, see [Locking objects with Object Lock](object-lock.md "object-lock.md"). If you want to enable
+S3 Object Lock, do the following:
 
-    1.  Choose **Advanced settings**.
+    1. Choose **Advanced settings**.
+
 
     ###### Important
 
     Enabling Object Lock automatically enables versioning for the bucket. After you've
-    enabled and successfully created the bucket, you must also configure the Object Lock default
-    retention and legal hold settings on the bucket's **Properties** tab. 2. If you want to enable Object Lock, choose
-    **Enable**, read the warning that appears, and acknowledge it.###### Note
+     enabled and successfully created the bucket, you must also configure the Object Lock default
+     retention and legal hold settings on the bucket's **Properties** tab.
+    2. If you want to enable Object Lock, choose
+     **Enable**, read the warning that appears, and acknowledge it.###### Note
 
 To create an Object Lock enabled bucket, you must have the following permissions:
 `s3:CreateBucket`, `s3:PutBucketVersioning`, and

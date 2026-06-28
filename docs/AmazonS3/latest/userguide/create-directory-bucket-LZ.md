@@ -45,7 +45,7 @@ where your bucket will be created. 6. Under **Bucket type**, choose
      type.
 
 7. Under **Bucket location**, choose a Local Zone that you want to
-   use.
+use.
 
 ###### Note
 

@@ -192,8 +192,8 @@ After an AWS managed table is created, you can't change its encryption setting.
      SSE-KMS](metadata-tables-permissions.md#metadata-kms-permissions "metadata-tables-permissions.md#metadata-kms-permissions").
 
 7. (Optional) By default, the records in your journal table don't expire. To help minimize
-   the storage costs for your journal table, choose **Enabled** for
-   **Record expiration**.
+the storage costs for your journal table, choose **Enabled** for
+**Record expiration**.
 
 If you enable journal table record expiration, you can set the number of days to retain
 your journal table records. To set the **Days after which records expire**
@@ -240,8 +240,8 @@ After an AWS managed table is created, you can't change its encryption setting.
      SSE-KMS](metadata-tables-permissions.md#metadata-kms-permissions "metadata-tables-permissions.md#metadata-kms-permissions").
 
 9. (Optional) If you want to add an annotation table to your metadata table configuration,
-   under **Annotation table**, choose **Enabled** for
-   **Configuration status**.
+under **Annotation table**, choose **Enabled** for
+**Configuration status**.
 
 Under **IAM role**, choose one of the following IAM role selection
 methods:
@@ -286,9 +286,9 @@ After an AWS managed table is created, you can't change its encryption setting.
      SSE-KMS](metadata-tables-permissions.md#metadata-kms-permissions "metadata-tables-permissions.md#metadata-kms-permissions").
 
 10. Choose **Create metadata table configuration**.
-    If your metadata table configuration was successful, the names and ARNs for your metadata
-    tables are displayed on the **Metadata** tab, along with the name of your AWS
-    managed table bucket and namespace.
+If your metadata table configuration was successful, the names and ARNs for your metadata
+tables are displayed on the **Metadata** tab, along with the name of your AWS
+managed table bucket and namespace.
 
 If you chose to enable an inventory table for your metadata table configuration, the table
 goes through a process known as _backfilling_, during which Amazon S3
@@ -303,7 +303,7 @@ To monitor updates to your metadata table configuration, you can use AWS CloudTr
 more information, see [Amazon S3 bucket-level actions that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
 
 To run the following commands, you must have the AWS CLI installed and configured. If
-you don’t have the AWS CLI installed, see [Install or update to the
+you don't have the AWS CLI installed, see [Install or update to the
 latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
 
 Alternatively, you can run AWS CLI commands from the console by using AWS CloudShell.

@@ -20,7 +20,7 @@ The following basic restrictions apply to tags:
   UTF-8
 - The allowed characters are: letters, numbers, and spaces representable
   in UTF-8, and the following characters: `+ - = . _ : /
-@`.
+ @`.
 - Tag keys and values are case-sensitive.
 - The `aws:` prefix is reserved for AWS use. If a tag has a
   tag key with this prefix, then you can't edit or delete the tag's key or value.

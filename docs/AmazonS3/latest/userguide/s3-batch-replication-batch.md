@@ -36,16 +36,15 @@ Before using S3 Batch Replication, review the following list of considerations:
   buckets could diverge, and the destination bucket won't be an exact replica of
   the source bucket. For example, consider the following scenario:
 
-      + Your source bucket has multiple versions of an object and a delete
-       marker on that object.
-      + Your source and destination buckets have a lifecycle configuration to
-       remove expired delete markers.
-
-  In this scenario, Batch Replication might replicate the delete marker to the
-  destination bucket before replicating the object versions. This behavior could
-  result in your lifecycle configuration marking the delete marker as expired and
-  the delete marker being removed from the destination bucket before the object
-  versions are replicated.
+  - Your source bucket has multiple versions of an object and a delete
+    marker on that object.
+  - Your source and destination buckets have a lifecycle configuration to
+    remove expired delete markers.
+    In this scenario, Batch Replication might replicate the delete marker to the
+    destination bucket before replicating the object versions. This behavior could
+    result in your lifecycle configuration marking the delete marker as expired and
+    the delete marker being removed from the destination bucket before the object
+    versions are replicated.
 
 - The AWS Identity and Access Management (IAM) role that you specify to run the Batch Operations job must
   have the necessary permissions to perform the underlying Batch Replication

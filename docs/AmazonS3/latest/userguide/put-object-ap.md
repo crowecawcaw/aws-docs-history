@@ -87,11 +87,11 @@ settings**, do the following.
     	 asymmetric KMS keys](../../../kms/latest/developerguide/find-symm-asymm.md "../../../kms/latest/developerguide/find-symm-asymm.md") in the *AWS Key Management Service Developer Guide*.
 
 13. To use additional checksums, choose **On**. Then for
-    **Checksum function**, choose the function that you would like to use.
-    Amazon S3 calculates and stores the checksum value after it receives the entire object. You can
-    use the **Precalculated value** box to supply a precalculated value. If you
-    do, Amazon S3 compares the value that you provided to the value that it calculates. If the two
-    values do not match, Amazon S3 generates an error.
+**Checksum function**, choose the function that you would like to use.
+Amazon S3 calculates and stores the checksum value after it receives the entire object. You can
+use the **Precalculated value** box to supply a precalculated value. If you
+do, Amazon S3 compares the value that you provided to the value that it calculates. If the two
+values do not match, Amazon S3 generates an error.
 
 Additional checksums enable you to specify the checksum algorithm that you would
 like to use to verify your data. For more information about additional checksums, see [Checking object integrity in Amazon S3](checking-object-integrity.md "checking-object-integrity.md"). 14. To add tags to all of the objects that you are uploading, choose **Add

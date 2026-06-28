@@ -1001,8 +1001,8 @@ following benefits:
 - Use multiple threads for uploading parts of large objects in parallel.
   Alternatively, you can use the following multipart upload client operations directly:
 
-- [create_multipart_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#create_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#create_multipart_upload-instance_method") – Initiates a multipart upload and returns an upload ID.
-- [upload_part](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part-instance_method") – Uploads a part in a multipart upload.
-- [upload_part_copy](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part_copy-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part_copy-instance_method") – Uploads a part by copying data from an existing object as data source.
-- [complete_multipart_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#complete_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#complete_multipart_upload-instance_method") – Completes a multipart upload by assembling previously uploaded parts.
-- [abort_multipart_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#abort_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#abort_multipart_upload-instance_method") – Stops a multipart upload.
+- [create\_multipart\_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#create_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#create_multipart_upload-instance_method") – Initiates a multipart upload and returns an upload ID.
+- [upload\_part](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part-instance_method") – Uploads a part in a multipart upload.
+- [upload\_part\_copy](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part_copy-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part_copy-instance_method") – Uploads a part by copying data from an existing object as data source.
+- [complete\_multipart\_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#complete_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#complete_multipart_upload-instance_method") – Completes a multipart upload by assembling previously uploaded parts.
+- [abort\_multipart\_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#abort_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#abort_multipart_upload-instance_method") – Stops a multipart upload.

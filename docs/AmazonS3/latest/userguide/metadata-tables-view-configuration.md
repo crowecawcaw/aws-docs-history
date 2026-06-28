@@ -24,7 +24,7 @@ console, the AWS Command Line Interface (AWS CLI), the AWS SDKs, or the Amazon S
    you can view various information for these configurations, such as their Amazon Resource
    Names (ARNs), the status of your tables, and whether you've enabled journal table record
    expiration, an inventory table, or an annotation table.
-   To run the following commands, you must have the AWS CLI installed and configured. If you don’t
+   To run the following commands, you must have the AWS CLI installed and configured. If you don't
    have the AWS CLI installed, see [Install or update to the latest version
    of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
 

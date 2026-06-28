@@ -35,7 +35,7 @@ If your use case requires you to register multiple locations in your S3 Access G
 
 - The default S3 location (`s3://`)
 - A bucket (for example, `amzn-s3-demo-bucket`) or multiple buckets
-- A bucket and a prefix (for example, ``amzn-s3-demo-bucket`/prefix\*`) or multiple prefixes
+- A bucket and a prefix (for example, ``amzn-s3-demo-bucket`/prefix*`) or multiple prefixes
 
 For the maximum number of locations that you can register in your S3 Access Grants instance, see [S3 Access Grants limitations](access-grants-limitations.md "access-grants-limitations.md"). For more information about registering an S3 Access Grants location, see [Register a location](access-grants-location-register.md "access-grants-location-register.md").
 

@@ -56,27 +56,27 @@ bucket policy, see [Granting permissions for cross-account access points](access
 
 6. To create an access point for a directory bucket in your account:
 
-   1. In the **Directory bucket** field, choose **Choose a bucket in this account**.
-   2. In the **Bucket name** field, enter the name of the bucket, including the base name and the zone ID.
-      For example, ``bucket-base-name`--`zone-id`--x-s3`. To choose the bucket from a list, choose **Browse S3** and choose the directory bucket.
+    1. In the **Directory bucket** field, choose **Choose a bucket in this account**.
+    2. In the **Bucket name** field, enter the name of the bucket, including the base name and the zone ID.
+     For example, ``bucket-base-name`--`zone-id`--x-s3`. To choose the bucket from a list, choose **Browse S3** and choose the directory bucket.
 
 7. In **Access point name**, in the **Base name** field, enter the base name
-   for the access point. The zone ID and full access point name appear. For more information about naming access points, see [Naming rules for access points for directory buckets](access-points-directory-buckets-restrictions-limitations-naming-rules.md#access-points-directory-buckets-names "access-points-directory-buckets-restrictions-limitations-naming-rules.md#access-points-directory-buckets-names").
-8. In **Network origin**, choose either **virtual private cloud (VPC)** or **Internet**.
-   If you choose **virtual private cloud (VPC)**, in the **VPC ID** field, enter the ID of the VPC that you want to use with the access point.
-9. (Optional) In **Access point scope**, to apply a scope to this access point, choose **Limit the scope of this access point using prefixes or permissions**.
+for the access point. The zone ID and full access point name appear. For more information about naming access points, see [Naming rules for access points for directory buckets](access-points-directory-buckets-restrictions-limitations-naming-rules.md#access-points-directory-buckets-names "access-points-directory-buckets-restrictions-limitations-naming-rules.md#access-points-directory-buckets-names"). 8. In **Network origin**, choose either **virtual private cloud (VPC)** or **Internet**.
+If you choose **virtual private cloud (VPC)**, in the **VPC ID** field, enter the ID of the VPC that you want to use with the access point. 9. (Optional) In **Access point scope**, to apply a scope to this access point, choose **Limit the scope of this access point using prefixes or permissions**.
 
-   1. To limit access to prefixes in the directory bucket, in **Prefixes**, enter one or more prefixes. To add another prefix, choose **Add prefix**. To remove a prefix, choose **Remove**.
+    1. To limit access to prefixes in the directory bucket, in **Prefixes**, enter one or more prefixes. To add another prefix, choose **Add prefix**. To remove a prefix, choose **Remove**.
 
-   ###### Note
 
-   An access point scope has a character limit of 512 total characters for all prefixes. You can see the quantity of characters remaining below **Add prefix**. 2. In **Permissions**, choose one or more API operations that the access point will allow. To remove a data operation, choose the **X** next to the data operation name.
+    ###### Note
 
-10. To not apply a scope to the access point and allow access to all prefixes in the directory bucket and all API operations through the access point, in **Access point scope**, choose **Apply access to the entire bucket**.
-11. Choose **Create access point for directory bucket**. The access point name and other information about it appear in the **Access points for directory buckets** list.
-    The following example command creates an access point named
-    `example-ap` for the bucket
-    ``amzn-s3-demo-bucket`--`zone-id`--x-s3` in the account`111122223333`.
+    An access point scope has a character limit of 512 total characters for all prefixes. You can see the quantity of characters remaining below **Add prefix**.
+    2. In **Permissions**, choose one or more API operations that the access point will allow. To remove a data operation, choose the **X** next to the data operation name.
+
+10. To not apply a scope to the access point and allow access to all prefixes in the directory bucket and all API operations through the access point, in **Access point scope**, choose **Apply access to the entire bucket**. 11. Choose **Create access point for directory bucket**. The access point name and other information about it appear in the **Access points for directory buckets** list.
+The following example command creates an access point named
+`example-ap` for the bucket
+``amzn-s3-demo-bucket`--`zone-id`--x-s3`
+in the account `111122223333`.
 
 ```
 aws s3control create-access-point --name `example-ap`--`zoneID`--xa-s3 --account-id `111122223333` --bucket ``amzn-s3-demo-bucket`--`zone-id`--x-s3`
@@ -93,7 +93,7 @@ command creates an access point in the AWS account
 `111122223333`, for
 the bucket
 ``amzn-s3-demo-bucket`--`zone-id`--x-s3`,
- owned by the AWS account `444455556666`.
+owned by the AWS account `444455556666`.
 
 ```
 aws s3control create-access-point --name `example-ap`--`zoneID`--xa-s3 --account-id `111122223333` --bucket ``amzn-s3-demo-bucket`--`zone-id`--x-s3` --bucket-account-id `444455556666`
@@ -103,7 +103,8 @@ For more information and examples, see [create-access-point](https://awscli.amaz
 
 The following example command creates an access point named
 `example-ap` for the bucket
-``amzn-s3-demo-bucket`--`zone-id`--x-s3` in the account`111122223333`and access restricted through the VPC`vpc-id` (optional).
+``amzn-s3-demo-bucket`--`zone-id`--x-s3`
+in the account `111122223333` and access restricted through the VPC `vpc-id` (optional).
 
 ```
 

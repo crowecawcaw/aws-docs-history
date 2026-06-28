@@ -482,8 +482,7 @@ the following:
      value for your CloudFront distribution.
 
 10. On the **Create record** page in the Route 53 console, for
-    the remaining settings, keep the defaults.
-11. Choose **Create records**.
+the remaining settings, keep the defaults. 11. Choose **Create records**.
 
 ### Check whether IPv6 is enabled for your distribution and create another DNS record if needed
 

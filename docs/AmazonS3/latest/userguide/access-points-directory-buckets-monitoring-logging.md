@@ -8,8 +8,9 @@ manage access points, such as `CreateAccessPoint` and
 For example, suppose you have the following configuration:
 
 - A bucket named
-  ``amzn-s3-demo-bucket`--`zone-id`--x-s3`in Region`region`that contains an
-object named`my-image.jpg`.
+  ``amzn-s3-demo-bucket`--`zone-id`--x-s3`
+  in Region `region` that contains an
+  object named `my-image.jpg`.
 - An access point named `my-bucket-ap--zoneID--xa-s3` that is
   associated with
   ``amzn-s3-demo-bucket`--`zone-id`--x-s3`

@@ -237,28 +237,27 @@ Frequent Access tier.
 
 ###### To check an object's restore status and expiration date in the Amazon S3 console
 
-1.  Open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  In the left navigation pane, choose **General purpose buckets**.
-3.  In the buckets list, choose the name of the bucket that contains
-    the object that you are restoring.
-4.  In the **Objects** list, select the object that you are restoring.
-    The object's details page appears.
+1. Open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **General purpose buckets**.
+3. In the buckets list, choose the name of the bucket that contains
+   the object that you are restoring.
+4. In the **Objects** list, select the object that you are restoring.
+   The object's details page appears.
 
-        * If the restoration isn't finished, at the top of the page, you see a section that
-         says **Restoration in progress**.
-        * If the restoration is finished, at the top of the page, you see a section that
-         says **Restoration complete**. If you're restoring from
-         S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive, this section also
-         displays the **Restoration expiry date**. Amazon S3 will remove the
-         restored copy of your archived object on this date.
-
-    You can be notified of object restoration completion by using the
-    `s3:ObjectRestore:Completed` action with the Amazon S3 Event
-    Notifications feature. For more information about enabling event
-    notifications, see [Enabling notifications by using Amazon SQS, Amazon SNS, and AWS Lambda](how-to-enable-disable-notification-intro.md "how-to-enable-disable-notification-intro.md"). For
-    more information about the various `ObjectRestore` event types,
-    see [Supported event types for SQS, SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
+   - If the restoration isn't finished, at the top of the page, you see a section that
+     says **Restoration in progress**.
+   - If the restoration is finished, at the top of the page, you see a section that
+     says **Restoration complete**. If you're restoring from
+     S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive, this section also
+     displays the **Restoration expiry date**. Amazon S3 will remove the
+     restored copy of your archived object on this date.
+     You can be notified of object restoration completion by using the
+     `s3:ObjectRestore:Completed` action with the Amazon S3 Event
+     Notifications feature. For more information about enabling event
+     notifications, see [Enabling notifications by using Amazon SQS, Amazon SNS, and AWS Lambda](how-to-enable-disable-notification-intro.md "how-to-enable-disable-notification-intro.md"). For
+     more information about the various `ObjectRestore` event types,
+     see [Supported event types for SQS, SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
 
 ###### Check an object's restore status and expiration date with the AWS CLI
 

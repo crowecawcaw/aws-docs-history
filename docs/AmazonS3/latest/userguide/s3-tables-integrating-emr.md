@@ -136,7 +136,7 @@ InstanceProfile=`EMR_EC2_DefaultRole`,SubnetId=`subnet-1234567890abcdef0`,KeyNam
    to the Spark primary node using SSH](../../../emr/latest/ManagementGuide/emr-connect-master-node-ssh.md#emr-connect-cli "../../../emr/latest/ManagementGuide/emr-connect-master-node-ssh.md#emr-connect-cli").
 3. Enter the following command to initialize a Spark session for
    Iceberg that connects to your tables. Replace the `user
-input placeholders` for Region, account ID and table bucket name with your own information.
+ input placeholders` for Region, account ID and table bucket name with your own information.
 
 ```
 spark-shell \

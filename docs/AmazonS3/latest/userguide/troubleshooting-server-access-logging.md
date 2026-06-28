@@ -111,7 +111,7 @@ owner enforced setting for Object Ownership, be aware of the following:
   of the
   destination
   bucket. Search the bucket policy for any statements that contain `"Effect":
-"Deny"`. Then, verify that the `Deny` statement isn't
+ "Deny"`. Then, verify that the `Deny` statement isn't
   preventing access logs from being written to the bucket.
 - **S3 Object Lock isn't enabled on the
   destination

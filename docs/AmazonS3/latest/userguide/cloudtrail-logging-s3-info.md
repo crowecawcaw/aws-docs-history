@@ -12,7 +12,7 @@ This section provides information about the events that S3 logs to CloudTrail.
 performed on or in a resource (for example, reading or writing to an Amazon S3
 object). These are also
 known as data plane operations. Data events are often high-volume activities. By
-default, CloudTrail doesn’t log data events. The CloudTrail **Event
+default, CloudTrail doesn't log data events. The CloudTrail **Event
 history** doesn't record data events.
 
 Additional charges apply for data events. For more information about CloudTrail

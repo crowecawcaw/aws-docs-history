@@ -91,12 +91,11 @@ data, do the following:
     4. To remove a filter, click on the **X** next to the filter.
 
 6. In any section in your S3 Storage Lens dashboard, to see data for a specific metric, for
-   **Metric**, choose the metric name.
-7. In any chart or visualization in your S3 Storage Lens dashboard, you can drill down into
-   deeper levels of aggregation by using the **Accounts**,
-   **AWS Regions**, **Storage classes**,
-   **Buckets**, **Prefixes**, or **Storage Lens
-   groups** tabs. For an example, see [Uncover cold Amazon S3 buckets](storage-lens-optimize-storage.md#uncover-cold-buckets "storage-lens-optimize-storage.md#uncover-cold-buckets").
+**Metric**, choose the metric name. 7. In any chart or visualization in your S3 Storage Lens dashboard, you can drill down into
+deeper levels of aggregation by using the **Accounts**,
+**AWS Regions**, **Storage classes**,
+**Buckets**, **Prefixes**, or **Storage Lens
+groups** tabs. For an example, see [Uncover cold Amazon S3 buckets](storage-lens-optimize-storage.md#uncover-cold-buckets "storage-lens-optimize-storage.md#uncover-cold-buckets").
 
 ## Understanding your S3 Storage Lens dashboard
 

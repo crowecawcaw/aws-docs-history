@@ -824,22 +824,22 @@ bucket, do the following:
     --profile `acctA`
     ```
 
-6.  Test the configuration to verify that encrypted objects are replicated. In
-    the Amazon S3 console, do the following:
+6. Test the configuration to verify that encrypted objects are replicated. In
+the Amazon S3 console, do the following:
 
-        1. Sign in to the AWS Management Console and open the Amazon S3 console at
-         [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-        2. In the
-         ```amzn-s3-demo-source-bucket```
-         bucket, create a folder named
-         ``Tax``.
-        3. Add sample objects to the folder. Be sure to choose the encryption
-         option and specify your KMS key to encrypt the objects.
-        4. Verify that the
-         ```amzn-s3-demo-destination-bucket```
-         bucket contains the object replicas and that they are encrypted by
-         using the KMS key that you specified in the configuration. For
-         more information, see [Getting replication status information](replication-status.md "replication-status.md").
+    1. Sign in to the AWS Management Console and open the Amazon S3 console at
+     [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+    2. In the
+     ```amzn-s3-demo-source-bucket```
+     bucket, create a folder named
+     ``Tax``.
+    3. Add sample objects to the folder. Be sure to choose the encryption
+     option and specify your KMS key to encrypt the objects.
+    4. Verify that the
+     ```amzn-s3-demo-destination-bucket```
+     bucket contains the object replicas and that they are encrypted by
+     using the KMS key that you specified in the configuration. For
+     more information, see [Getting replication status information](replication-status.md "replication-status.md").
 
-    For a code example that shows how to add a replication configuration, see [Using the AWS SDKs](replication-walkthrough1.md#replication-ex1-sdk "replication-walkthrough1.md#replication-ex1-sdk"). You must
-    modify the replication configuration appropriately.
+For a code example that shows how to add a replication configuration, see [Using the AWS SDKs](replication-walkthrough1.md#replication-ex1-sdk "replication-walkthrough1.md#replication-ex1-sdk"). You must
+modify the replication configuration appropriately.

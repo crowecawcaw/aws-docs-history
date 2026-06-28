@@ -50,7 +50,7 @@ options:
      between vectors. Best when both direction and magnitude are important.
 
 8. (Optional) Under **Non-filterable metadata**, configure
-   metadata keys that will be stored but not used for filtering:
+metadata keys that will be stored but not used for filtering:
 
 To add non-filterable metadata keys:
 

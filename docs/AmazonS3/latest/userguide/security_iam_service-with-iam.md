@@ -3,19 +3,19 @@
 Before you use IAM to manage access to Amazon S3, learn what IAM features are
 available to use with Amazon S3.
 
-| IAM features you can use with Amazon S3                                                                                                                                     | IAM feature | Amazon S3 support |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                                              | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")                                  | Yes         |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                                       | Yes         |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")                                 | Yes         |
-| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                                           | Yes         |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                                     | Partial     |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                                 | Yes         |
-| [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                                | Yes         |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                                             | Yes         |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                                           | Partial     |
+IAM features you can use with Amazon S3| IAM feature | Amazon S3 support |
+| --- | --- |
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | Yes |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
+| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
+| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | Yes |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Partial |
+| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Yes |
+| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | Yes |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | Partial |
 
 To get a high-level view of how Amazon S3 and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
@@ -459,8 +459,8 @@ use access point policies. When you use access point policies, S3 policy actions
 operations require you to use the access point ARN for the `Resource`
 element in the following format:
 `arn:aws:s3:`region`:`account-id`:accesspoint/`access-point-name`/object/`resource``.
- For object operations that use access points, you must include the
- `/object/`value after the whole access point ARN in the
+For object operations that use access points, you must include the
+`/object/` value after the whole access point ARN in the
 `Resource` element. Here are some examples.
 
 ```
@@ -512,8 +512,8 @@ use access point policies. When you use access point policies, S3 policy actions
 operations require you to use the access point ARN for the `Resource`
 element in the following format:
 `arn:aws:s3:`region`:`account-id`:accesspoint/`access-point-name`/object/`resource``.
- For object operations that use access points, you must include the
- `/object/`value after the whole access point ARN in the
+For object operations that use access points, you must include the
+`/object/` value after the whole access point ARN in the
 `Resource` element. Here are some examples.
 
 ```

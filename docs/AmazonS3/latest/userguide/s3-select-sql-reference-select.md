@@ -64,7 +64,8 @@ Using this form of the `FROM` clause, you can select from arrays or objects
 within a JSON object. You can specify `path` by using one of the following
 forms:
 
-- By name (in an object): `.`name``or`['`name`']`
+- By name (in an object): `.`name`` or
+  `['`name`']`
 - By index (in an array): `[`index`]`
 - By wildcard character (in an object): `.*`
 - By wildcard character (in an array): `[*]`
@@ -83,22 +84,22 @@ forms:
 - If you don't provide an alias when using a wildcard character, you can refer to the row
   by using the last element in the path. For example, you could select all
   prices from a list of books by using the query `SELECT price FROM
-S3Object[*].books[*].price`. If the path ends in a wildcard
+ S3Object[*].books[*].price`. If the path ends in a wildcard
   character instead of a name, then you can use the value `_1` to
   refer to the row. For example, instead of `SELECT price FROM
-S3Object[*].books[*].price`, you could use the query `SELECT
-_1.price FROM S3Object[*].books[*]`.
+ S3Object[*].books[*].price`, you could use the query `SELECT
+ _1.price FROM S3Object[*].books[*]`.
 - Amazon S3 Select always treats a JSON document as an array of root-level values. Thus, even if
   the JSON object that you are querying has only one root element, the
   `FROM` clause must begin with `S3Object[*]`.
   However, for compatibility reasons, Amazon S3 Select allows you to omit the
   wildcard character if you don't include a path. Thus, the complete clause
   `FROM S3Object` is equivalent to `FROM S3Object[*] as
-S3Object`. If you include a path, you must also use the wildcard
+ S3Object`. If you include a path, you must also use the wildcard
   character. So, `FROM S3Object` and `FROM
-S3Object[*].*`path`*`
+ S3Object[*].*`path`*`
   are both valid clauses, but `FROM
-S3Object.*`path`*`
+ S3Object.*`path`*`
   is not.
 
 ###### Example
@@ -212,14 +213,15 @@ being queried is in CSV or JSON format.
 - **Column Numbers** – You can refer to the
   _Nth_ column of a row with the column name
   `_`N`, where
-`N``is the column
-position. The position count starts at 1. For example, the first column
-is named`\_1`and the second column is named`\_2`.
+ `N`` is the column
+  position. The position count starts at 1. For example, the first column
+  is named `_1` and the second column is named
+  `_2`.
 
 You can refer to a column as `_`N`or
 `alias`._`N``.
- For example, `\_2`and`myAlias.\_2`are both valid
- ways to refer to a column in the`SELECT`list and
+For example, `_2` and `myAlias._2` are both valid
+ways to refer to a column in the `SELECT` list and
 `WHERE` clause.
 
 - **Column Headers** – For objects in CSV format that
@@ -241,8 +243,8 @@ You can refer to a column as `_`N`or
   using zero-based indexes with the `[]` operator. For example,
   you can access the second element of a list as
   ``alias`[1]`. You can
-combine accessing list elements with fields, for example,
-``alias`.`name1`.`name2`[1].`name3``.
+ combine accessing list elements with fields, for example,
+ ``alias`.`name1`.`name2`[1].`name3``.
 - **Examples:** Consider this JSON object
   as a sample dataset:
 
@@ -383,14 +385,14 @@ or
 - **`unary_op`**
   **`expression`**
 
-In this case, **_`unary_op`_**
+In this case, _**`unary_op`**_
 is an SQL unary operator.
 
 - **`expression`**
   **`binary_op`**
-  **_`expression`_**
+  _**`expression`**_
 
-In this case, \***\*`binary_op`\*\***
+In this case, ****`binary_op`****
 is an SQL binary operator.
 
 - **`func_name`**
@@ -398,14 +400,14 @@ is an SQL binary operator.
 In this case, **`func_name`** is the
 name of the scalar function to invoke.
 
-- **_`expression`_**
+- _**`expression`**_
   `[ NOT ] BETWEEN`
-  **_`expression`_**
+  _**`expression`**_
   `AND`
-  **_`expression`_**
-- **_`expression`_**
+  _**`expression`**_
+- _**`expression`**_
   `LIKE`
-  **_`expression`_**
+  _**`expression`**_
   [ `ESCAPE`
-  ***``expression``***
+  _**`expression`**_
   ]

@@ -203,11 +203,11 @@ Amazon S3 supports only symmetric encryption KMS keys. For more information abou
 When you upload a new object or copy an existing object, you can specify the use
 of DSSE-KMS to encrypt your data. To do this, add the `--server-side-encryption
  aws:kms:dsse` parameter to the request. Use the `--ssekms-key-id
- `example-key-id``parameter to add your
- [customer managed
- AWS KMS key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") that you created. If you specify
+ `example-key-id`` parameter to add your
+[customer managed
+AWS KMS key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") that you created. If you specify
 `--server-side-encryption aws:kms:dsse`, but do not provide an AWS KMS
- key ID, then Amazon S3 will use the AWS managed key (`aws/s3`).
+key ID, then Amazon S3 will use the AWS managed key (`aws/s3`).
 
 ```
 aws s3api put-object --bucket `amzn-s3-demo-bucket` --key `example-object-key` --server-side-encryption aws:kms:dsse --ssekms-key-id `example-key-id` --body `filepath`

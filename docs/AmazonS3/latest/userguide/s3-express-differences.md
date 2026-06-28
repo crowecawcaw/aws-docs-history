@@ -82,7 +82,7 @@ the following topics.
   - Multipart part numbers must use consecutive part numbers. If
     you try to complete a multipart upload request with
     nonconsecutive part numbers, Amazon S3 generates an HTTP `400
-(Bad Request)` error.
+   (Bad Request)` error.
   - The initiator of a multipart upload can abort the multipart
     upload request only if they have been granted explicit allow
     access to `AbortMultipartUpload` through the

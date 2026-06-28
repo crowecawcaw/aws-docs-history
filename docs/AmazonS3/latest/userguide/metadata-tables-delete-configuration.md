@@ -38,7 +38,7 @@ You can delete a metadata table configuration by using the Amazon S3 console, th
    `confirm` to confirm that you want to delete the
    configuration. Then choose **Delete**.
    To run the following commands, you must have the AWS CLI installed and configured. If
-   you don’t have the AWS CLI installed, see [Install or update to the
+   you don't have the AWS CLI installed, see [Install or update to the
    latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
 
 Alternatively, you can run AWS CLI commands from the console by using AWS CloudShell.

@@ -90,13 +90,13 @@ For a Storage Lens configuration with ID `prod.us.east.metrics`:
 
 The following table shows the different types of tables created for S3 Storage Lens exports:
 
-| Catalog                | Namespace                        | S3 table name                      | Description                                                                                             |
-| ---------------------- | -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| s3tablescatalog/aws-s3 | lens\_<conf_name>\_exp[\_<hash>] | default_storage_metrics            | This table contains the storage metrics for your Storage Lens configuration.                            |
-| s3tablescatalog/aws-s3 | lens\_<conf_name>\_exp[\_<hash>] | default_activity_metrics           | This table contains the activity metrics for your Storage Lens configuration.                           |
-| s3tablescatalog/aws-s3 | lens\_<conf_name>\_exp[\_<hash>] | expanded_prefixes_storage_metrics  | This table contains the storage metrics for all the prefixes in your Storage Lens configuration.        |
-| s3tablescatalog/aws-s3 | lens\_<conf_name>\_exp[\_<hash>] | expanded_prefixes_activity_metrics | This table contains the activity metrics for all the prefixes in your Storage Lens configuration.       |
-| s3tablescatalog/aws-s3 | lens\_<conf_name>\_exp[\_<hash>] | bucket_property_metrics            | This table contains the bucket property metrics for all the buckets in your Storage Lens configuration. |
+| Catalog                | Namespace                         | S3 table name                         | Description                                                                                             |
+| ---------------------- | --------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| s3tablescatalog/aws-s3 | lens\_<conf\_name>\_exp[\_<hash>] | default\_storage\_metrics             | This table contains the storage metrics for your Storage Lens configuration.                            |
+| s3tablescatalog/aws-s3 | lens\_<conf\_name>\_exp[\_<hash>] | default\_activity\_metrics            | This table contains the activity metrics for your Storage Lens configuration.                           |
+| s3tablescatalog/aws-s3 | lens\_<conf\_name>\_exp[\_<hash>] | expanded\_prefixes\_storage\_metrics  | This table contains the storage metrics for all the prefixes in your Storage Lens configuration.        |
+| s3tablescatalog/aws-s3 | lens\_<conf\_name>\_exp[\_<hash>] | expanded\_prefixes\_activity\_metrics | This table contains the activity metrics for all the prefixes in your Storage Lens configuration.       |
+| s3tablescatalog/aws-s3 | lens\_<conf\_name>\_exp[\_<hash>] | bucket\_property\_metrics             | This table contains the bucket property metrics for all the buckets in your Storage Lens configuration. |
 
 ## Next steps
 

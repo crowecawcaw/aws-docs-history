@@ -58,8 +58,8 @@ Regions:
 
 - To access the bucket that is enabled for Transfer Acceleration, you must use the endpoint
   ``bucket-name`.s3-accelerate.amazonaws.com`. Or,
-use the dual-stack endpoint
-``bucket-name`.s3-accelerate.dualstack.amazonaws.com`
+ use the dual-stack endpoint
+ ``bucket-name`.s3-accelerate.dualstack.amazonaws.com`
   to connect to the enabled bucket over IPv6. You can continue to use the regular
   endpoints for standard data transfer.
 - You must be the bucket owner to set the transfer acceleration state. The bucket owner

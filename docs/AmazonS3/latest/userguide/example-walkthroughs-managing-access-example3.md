@@ -78,40 +78,39 @@ AWS Tools for Windows PowerShell, so you don't need to write any code.
 
 ## Step 0: Preparing for the walkthrough
 
-1.  Make sure that you have two AWS accounts and each account has one
-    administrator as shown in the table in the preceding section.
+1. Make sure that you have two AWS accounts and each account has one
+   administrator as shown in the table in the preceding section.
 
-    1. Sign up for an AWS account, if needed.
-    2. Using Account A credentials, sign in to the [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") and do
-       the following to create an administrator user:
+   1. Sign up for an AWS account, if needed.
+   2. Using Account A credentials, sign in to the [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") and do
+      the following to create an administrator user:
 
-       - Create user `AccountAadmin` and note the user's security
-         credentials. For more information about adding users, see [Creating an
-         IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
-         _IAM User Guide_.
-       - Grant administrator permissions to **AccountAadmin** by attaching a
-         user policy that gives full access. For instructions, see [Managing
-         IAM policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md") in the
-         _IAM User Guide_.
-       - In the [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") **Dashboard**, note the **IAM
-         User Sign-In URL**. Users in this account must use
-         this URL when signing in to the AWS Management Console. For more information,
-         see [How users sign in to your account](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md") in
-         _IAM User Guide_.
+      - Create user `AccountAadmin` and note the user's security
+        credentials. For more information about adding users, see [Creating an
+        IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
+        _IAM User Guide_.
+      - Grant administrator permissions to **AccountAadmin** by attaching a
+        user policy that gives full access. For instructions, see [Managing
+        IAM policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md") in the
+        _IAM User Guide_.
+      - In the [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") **Dashboard**, note the **IAM
+        User Sign-In URL**. Users in this account must use
+        this URL when signing in to the AWS Management Console. For more information,
+        see [How users sign in to your account](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md") in
+        _IAM User Guide_.
 
-    3. Repeat the preceding step using Account B credentials and create administrator user
-       `AccountBadmin`.
+   3. Repeat the preceding step using Account B credentials and create administrator user
+      `AccountBadmin`.
 
-2.  Set up either the AWS CLI or the Tools for Windows PowerShell. Make sure that you save the
-    administrator credentials as follows:
+2. Set up either the AWS CLI or the Tools for Windows PowerShell. Make sure that you save the
+   administrator credentials as follows:
 
-        * If using the AWS CLI, create two profiles, `AccountAadmin`
-         and `AccountBadmin`, in the config file.
-        * If using the Tools for Windows PowerShell, make sure that you store credentials for the
-         session as `AccountAadmin` and
-         `AccountBadmin`.
-
-    For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+   - If using the AWS CLI, create two profiles, `AccountAadmin`
+     and `AccountBadmin`, in the config file.
+   - If using the Tools for Windows PowerShell, make sure that you store credentials for the
+     session as `AccountAadmin` and
+     `AccountBadmin`.
+     For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
 ## Step 1: Do the Account A tasks
 

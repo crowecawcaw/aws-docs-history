@@ -27,7 +27,7 @@ in the S3 Express One Zone storage class. 5. In the **Objects** list, choose **U
      **Upload**.
 
 7. Under **Checksums**, choose the **Checksum
-   function** that you want to use.
+function** that you want to use.
 
 ###### Note
 

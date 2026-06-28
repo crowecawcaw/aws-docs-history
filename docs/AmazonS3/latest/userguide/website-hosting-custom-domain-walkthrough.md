@@ -440,7 +440,7 @@ _Amazon Route 53 Developer Guide_. 12. In **Record type**, choose **A ‐ Route
 3. In **Value/Route traffic to**, choose **Alias to S3 website endpoint**.
 4. Choose the Region.
 5. Choose the S3 bucket, for example, `s3-website-us-west-2.amazonaws.com
-(www.example.com)`.
+ (www.example.com)`.
 
 If your bucket does not appear in the **Choose S3 bucket** list, enter
 the Amazon S3 website endpoint for the Region where the bucket was created,

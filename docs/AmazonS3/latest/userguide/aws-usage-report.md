@@ -16,17 +16,16 @@ The Amazon S3 usage report includes the following information:
 - UsageType – One of the following
   values:
 
-      + A code that identifies the type of storage
-      + A code that identifies the type of request
-      + A code that identifies the type of retrieval
-      + A code that identifies the type of data transfer
-      + A code that identifies early deletions from S3 Intelligent-Tiering, S3 Standard-IA, S3 One
-       Zone-Infrequent Access (S3 One Zone-IA), S3 Glacier Flexible Retrieval, or
-       S3 Glacier Deep Archive storage
-      + `StorageObjectCount` – The count of objects stored
-       within a given bucket
-
-  For a detailed explanation of Amazon S3 usage types, see [Understanding your AWS billing and usage reports for Amazon S3](aws-usage-report-understand.md "aws-usage-report-understand.md").
+  - A code that identifies the type of storage
+  - A code that identifies the type of request
+  - A code that identifies the type of retrieval
+  - A code that identifies the type of data transfer
+  - A code that identifies early deletions from S3 Intelligent-Tiering, S3 Standard-IA, S3 One
+    Zone-Infrequent Access (S3 One Zone-IA), S3 Glacier Flexible Retrieval, or
+    S3 Glacier Deep Archive storage
+  - `StorageObjectCount` – The count of objects stored
+    within a given bucket
+    For a detailed explanation of Amazon S3 usage types, see [Understanding your AWS billing and usage reports for Amazon S3](aws-usage-report-understand.md "aws-usage-report-understand.md").
 
 - Resource – The name of the bucket or table
   associated with the listed usage.

@@ -84,8 +84,8 @@ To return the S3 Bucket Key status for an object, use the `HeadObject`
 operation. `HeadObject` returns
 the `x-amz-server-side-encryption-bucket-key-enabled` response header to
 show whether an S3 Bucket Key is enabled or disabled for the object. For more
-information, see [HeadObject](../API/API_HeadObject.md "../API/API_HeadObject.md") in the *Amazon S3
-API Reference*.
+information, see [HeadObject](../API/API_HeadObject.md "../API/API_HeadObject.md") in the _Amazon S3
+API Reference_.
 
 The following API operations also return
 the `x-amz-server-side-encryption-bucket-key-enabled` response header if an

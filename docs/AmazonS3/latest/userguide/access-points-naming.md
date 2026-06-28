@@ -24,8 +24,9 @@ Access point ARNs use the following format:
 arn:aws:s3:`region`:`account-id`:accesspoint/`resource`
 ```
 
-- `arn:aws:s3:`us-west-2`:`123456789012`:accesspoint/`test`represents the access point named`test`, owned by
-account `123456789012`in the Region`us-west-2``.
+- `arn:aws:s3:`us-west-2`:`123456789012`:accesspoint/`test` represents the access point named`test`, owned by
+ account `123456789012`in the Region
+`us-west-2``.
 - `arn:aws:s3:`us-west-2`:`123456789012`:accesspoint/*`
   represents all access points under account
   `123456789012` in the Region
@@ -37,9 +38,10 @@ ARNs for objects accessed through an access point use the following format:
 arn:aws:s3:`region`:`account-id`:accesspoint/`access-point-name`/object/`resource`
 ```
 
-- `arn:aws:s3:`us-west-2`:`123456789012`:accesspoint/`test`/object/`unit-01`represents the object`unit-01`, accessed
-through the access point named `test`, owned by
-account `123456789012`in the Region`us-west-2``.
+- `arn:aws:s3:`us-west-2`:`123456789012`:accesspoint/`test`/object/`unit-01` represents the object`unit-01`, accessed
+ through the access point named `test`, owned by
+ account `123456789012`in the Region
+`us-west-2``.
 - `arn:aws:s3:`us-west-2`:`123456789012`:accesspoint/`test`/object/*`
   represents all objects for the access point named
   `test`, in account

@@ -55,71 +55,70 @@ AWS Tools for Windows PowerShell, so you don't need to write any code.
 
 ## Preparing for the walkthrough
 
-1.  Make sure you have two AWS accounts and that each account has one
-    administrator user as shown in the table in the preceding section.
+1. Make sure you have two AWS accounts and that each account has one
+   administrator user as shown in the table in the preceding section.
 
-    1. Sign up for an AWS account, if needed.
-    2. Using Account A credentials, sign in to the [IAM console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home") to
-       create the administrator user:
+   1. Sign up for an AWS account, if needed.
+   2. Using Account A credentials, sign in to the [IAM console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home") to
+      create the administrator user:
 
-       1. Create user `AccountAadmin` and note the
-          security credentials. For instructions, see [Creating an
-          IAM user in Your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
-          _IAM User Guide_.
-       2. Grant administrator privileges to
-          **AccountAadmin** by attaching a user
-          policy giving full access. For instructions, see [Working with
-          Policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md") in the
-          _IAM User Guide_.
+      1. Create user `AccountAadmin` and note the
+         security credentials. For instructions, see [Creating an
+         IAM user in Your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
+         _IAM User Guide_.
+      2. Grant administrator privileges to
+         **AccountAadmin** by attaching a user
+         policy giving full access. For instructions, see [Working with
+         Policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md") in the
+         _IAM User Guide_.
 
-    3. While you are in the IAM console, note the **IAM user
-       Sign-In URL** on the **Dashboard**. All
-       users in the account must use this URL when signing in to the
-       AWS Management Console.
+   3. While you are in the IAM console, note the **IAM user
+      Sign-In URL** on the **Dashboard**. All
+      users in the account must use this URL when signing in to the
+      AWS Management Console.
 
-    For more information, see [How Users
-    Sign in to Your Account](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md") in
-    _IAM User Guide_. 4. Repeat the preceding step using Account B credentials and create
-    administrator user `AccountBadmin`.
+   For more information, see [How Users
+   Sign in to Your Account](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md") in
+   _IAM User Guide_. 4. Repeat the preceding step using Account B credentials and create
+   administrator user `AccountBadmin`.
 
-2.  Set up either the AWS Command Line Interface (AWS CLI) or the AWS Tools for Windows PowerShell. Make sure that you save
-    administrator user credentials as follows:
+2. Set up either the AWS Command Line Interface (AWS CLI) or the AWS Tools for Windows PowerShell. Make sure that you save
+   administrator user credentials as follows:
 
-        * If using the AWS CLI, create two profiles, `AccountAadmin`
-         and `AccountBadmin`, in the config file.
-        * If using the AWS Tools for Windows PowerShell, make sure that you store credentials for the
-         session as `AccountAadmin` and
-         `AccountBadmin`.
+   - If using the AWS CLI, create two profiles, `AccountAadmin`
+     and `AccountBadmin`, in the config file.
+   - If using the AWS Tools for Windows PowerShell, make sure that you store credentials for the
+     session as `AccountAadmin` and
+     `AccountBadmin`.
+     For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
-    For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+3. Save the administrator user credentials, also referred to as profiles. You can
+   use the profile name instead of specifying credentials for each command you
+   enter. For more information, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
-3.  Save the administrator user credentials, also referred to as profiles. You can
-    use the profile name instead of specifying credentials for each command you
-    enter. For more information, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+   1. Add profiles in the AWS CLI credentials file for each of the
+      administrator users, `AccountAadmin` and
+      `AccountBadmin`, in the two accounts.
 
-    1. Add profiles in the AWS CLI credentials file for each of the
-       administrator users, `AccountAadmin` and
-       `AccountBadmin`, in the two accounts.
+   ```
+   [AccountAadmin]
+   aws_access_key_id = `access-key-ID`
+   aws_secret_access_key = `secret-access-key`
+   region = us-east-1
 
-    ```
-    [AccountAadmin]
-    aws_access_key_id = `access-key-ID`
-    aws_secret_access_key = `secret-access-key`
-    region = us-east-1
+   [AccountBadmin]
+   aws_access_key_id = `access-key-ID`
+   aws_secret_access_key = `secret-access-key`
+   region = us-east-1
+   ```
+   2. If you're using the
+      AWS Tools for Windows PowerShell,
+      run the following command.
 
-    [AccountBadmin]
-    aws_access_key_id = `access-key-ID`
-    aws_secret_access_key = `secret-access-key`
-    region = us-east-1
-    ```
-    2. If you're using the
-       AWS Tools for Windows PowerShell,
-       run the following command.
-
-    ```
-    set-awscredentials –AccessKey `AcctA-access-key-ID` –SecretKey `AcctA-secret-access-key` –storeas AccountAadmin
-    set-awscredentials –AccessKey `AcctB-access-key-ID` –SecretKey `AcctB-secret-access-key` –storeas AccountBadmin
-    ```
+   ```
+   set-awscredentials –AccessKey `AcctA-access-key-ID` –SecretKey `AcctA-secret-access-key` –storeas AccountAadmin
+   set-awscredentials –AccessKey `AcctB-access-key-ID` –SecretKey `AcctB-secret-access-key` –storeas AccountBadmin
+   ```
 
 ## Step 1: Do the Account A tasks
 

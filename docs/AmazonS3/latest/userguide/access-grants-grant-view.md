@@ -56,10 +56,10 @@ S3 prefix or AWS Identity and Access Management (IAM) identity:
 
 - **Subprefix** –
   `--grant-scope
-s3://`bucket-name/prefix\*``
+ s3://`bucket-name/prefix*``
 - **IAM identity** –
   `--grantee-type IAM` and `--grantee-identifier
-arn:aws:iam::`123456789000`:role/`accessGrantsConsumerRole``
+ arn:aws:iam::`123456789000`:role/`accessGrantsConsumerRole``
 
 ```
 aws s3control list-access-grants \
@@ -152,11 +152,11 @@ You can optionally use these parameters to restrict the results to
 an S3 prefix or IAM identity:
 
 - **Scope** –
-  `GrantScope=s3://`bucket-name/prefix\*``
+  `GrantScope=s3://`bucket-name/prefix*``
 - **Grantee** –
   `GranteeType=IAM` and
   `GranteeIdentifier=
-arn:aws:iam::``111122223333``:role/`accessGrantsConsumerRole``
+ arn:aws:iam::``111122223333``:role/`accessGrantsConsumerRole``
 
 ```
 public void listAccessGrants() {

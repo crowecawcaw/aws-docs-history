@@ -158,8 +158,8 @@ WHERE _last_updated_sequence_number > :last_processed_sequence
 
 ```
 
-The \_row_id field uniquely identifies each row, while
-\_last_updated_sequence_number tracks when the row was last modified. Use these
+The \_row\_id field uniquely identifies each row, while
+\_last\_updated\_sequence\_number tracks when the row was last modified. Use these
 fields to:
 
 - Identify changed rows for incremental processing

@@ -3,8 +3,8 @@
 By using the Amazon S3 analytics storage class analysis tool, you can analyze storage access
 patterns to help you decide when to transition the right data to the right storage class.
 Storage class analysis observes data access patterns to help you determine when to transition
-less frequently accessed STANDARD storage to the STANDARD_IA (IA, for infrequent access) storage
-class. For more information about STANDARD_IA, see the [Amazon S3 FAQ](https://aws.amazon.com/s3/faqs/#sia "https://aws.amazon.com/s3/faqs/#sia") and [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md").
+less frequently accessed STANDARD storage to the STANDARD\_IA (IA, for infrequent access) storage
+class. For more information about STANDARD\_IA, see the [Amazon S3 FAQ](https://aws.amazon.com/s3/faqs/#sia "https://aws.amazon.com/s3/faqs/#sia") and [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md").
 
 You set up storage class analysis by configuring what object data you want to analyze. You
 can configure storage class analysis to do the following:
@@ -33,7 +33,7 @@ class analysis.
 
 ###### Important
 
-Storage class analysis does not give recommendations for transitions to the ONEZONE_IA or
+Storage class analysis does not give recommendations for transitions to the ONEZONE\_IA or
 S3 Glacier Flexible Retrieval storage classes.
 
 If you want to configure storage class analysis to export your findings as a .csv file and

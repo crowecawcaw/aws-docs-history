@@ -47,7 +47,7 @@ disabled by default](../../../general/latest/gr/rande-manage.md "../../../genera
      the list of Regions that support Multi-Region Access Points, see [Multi-Region Access Points restrictions and limitations](MultiRegionAccessPointRestrictions.md "MultiRegionAccessPointRestrictions.md").
 
 6. (Optional) If you need to remove a bucket that you added, choose
-   **Remove**.
+**Remove**.
 
 ###### Note
 

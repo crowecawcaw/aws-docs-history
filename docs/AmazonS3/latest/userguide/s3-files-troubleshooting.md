@@ -193,8 +193,8 @@ the file system.
 ## Files appearing in the lost and found directory
 
 Files have appeared in the
-`.s3files-lost+found-`file-system-id``directory
- in your file system's root directory. In this case, you see the
+`.s3files-lost+found-`file-system-id`` directory
+in your file system's root directory. In this case, you see the
 `LostAndFoundFiles` CloudWatch metric increase. This occurs when a
 synchronization conflict arises. A conflict occurs when the same file is modified through
 the file system and the corresponding S3 object changes before S3 Files synchronizes the

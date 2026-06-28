@@ -27,8 +27,7 @@ You can also define a filter so that the metrics are only collected and reported
     * To filter by **directory**, enter a directory name.
     * To filter by **access point**, enter the access point ARN.
 
-11. Choose **Save changes**.
-12. On the **Request metrics** tab, under **Filters**, choose the filter that you just created.
+11. Choose **Save changes**. 12. On the **Request metrics** tab, under **Filters**, choose the filter that you just created.
 
 After about 15 minutes, CloudWatch begins tracking these request metrics. You can see them on the **Request metrics** tab. You can see graphs for the metrics on the Amazon S3 or CloudWatch console. Request metrics are billed at the standard CloudWatch rate. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 You can use the AWS CLI to configure request metrics for your directory buckets.

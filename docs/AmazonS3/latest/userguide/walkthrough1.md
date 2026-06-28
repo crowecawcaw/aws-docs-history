@@ -307,7 +307,7 @@ AWS account credentials, not as an IAM user. 2. Create the managed policy.
      walkthrough, you can safely ignore this message.
 
 3. Attach the `AllowGroupToSeeBucketListInTheConsole` managed
-   policy that you created to the `Consultants` group.
+policy that you created to the `Consultants` group.
 
 For step-by-step instructions for attaching a managed policy, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#attach-managed-policy-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#attach-managed-policy-console") in the
 _IAM User Guide_.
@@ -607,22 +607,23 @@ Use your AWS account credentials, not the credentials of an IAM user, to sign in
 
 3. Test the change to Alice's permissions:
 
-   1. Using the IAM user sign-in link (see [To provide a sign-in link for IAM users](#walkthrough-sign-in-user-credentials "#walkthrough-sign-in-user-credentials")), sign in
-      to the AWS Management Console.
-   2. Open the Amazon S3 console at
-      [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-   3. On the Amazon S3 console, verify that Alice can see the list of objects in
-      the `Development/` folder in the bucket.
+    1. Using the IAM user sign-in link (see [To provide a sign-in link for IAM users](#walkthrough-sign-in-user-credentials "#walkthrough-sign-in-user-credentials")), sign in
+     to the AWS Management Console.
+    2. Open the Amazon S3 console at
+     [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+    3. On the Amazon S3 console, verify that Alice can see the list of objects in
+     the `Development/` folder in the bucket.
 
-   When the user chooses the `/Development` folder to see the
-   list of objects in it, the Amazon S3 console sends the
-   `ListObjects` request to Amazon S3 with the prefix
-   `/Development`. Because the user is granted
-   permission to see the object list with the prefix
-   `Development` and delimiter `/`, Amazon S3
-   returns the list of objects with the key prefix
-   `Development/`, and the console displays the
-   list.
+
+    When the user chooses the `/Development` folder to see the
+     list of objects in it, the Amazon S3 console sends the
+     `ListObjects` request to Amazon S3 with the prefix
+     `/Development`. Because the user is granted
+     permission to see the object list with the prefix
+     `Development` and delimiter `/`, Amazon S3
+     returns the list of objects with the key prefix
+     `Development/`, and the console displays the
+     list.
 
 ### Step 5.2: Grant IAM user Alice permissions to get and put objects in the development folder
 
@@ -690,12 +691,12 @@ Use your AWS account credentials, not the credentials of an IAM user, to sign in
 
 3. Test the updated policy:
 
-   1. Using the IAM user sign-in link (see [To provide a sign-in link for IAM users](#walkthrough-sign-in-user-credentials "#walkthrough-sign-in-user-credentials")), sign
-      into the AWS Management Console.
-   2. Open the Amazon S3 console at
-      [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-   3. On the Amazon S3 console, verify that Alice can now add an object and
-      download an object in the `Development` folder.
+    1. Using the IAM user sign-in link (see [To provide a sign-in link for IAM users](#walkthrough-sign-in-user-credentials "#walkthrough-sign-in-user-credentials")), sign
+     into the AWS Management Console.
+    2. Open the Amazon S3 console at
+     [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+    3. On the Amazon S3 console, verify that Alice can now add an object and
+     download an object in the `Development` folder.
 
 ### Step 5.3: Explicitly deny IAM user Alice permissions to any other folders in the bucket
 

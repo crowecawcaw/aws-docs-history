@@ -379,8 +379,7 @@ following remain selected:
      count**
 
 8. (Optional) Under **Page size**, choose the number of
-   buckets to display in the list.
-9. Choose **Confirm**.
+buckets to display in the list. 9. Choose **Confirm**.
 
 The **Buckets** list updates to display metrics for
 noncurrent version bytes and noncurrent version lifecycle rule counts. You
@@ -491,8 +490,7 @@ following remain selected:
     * **Total lifecycle rule count**
 
 8. (Optional) Under **Page size**, choose the number of
-   buckets to display in the list.
-9. Choose **Confirm**.
+buckets to display in the list. 9. Choose **Confirm**.
 
 The **Buckets** list updates to display lifecycle rule
 count metrics for your buckets. You can use this data to identify buckets

@@ -117,7 +117,7 @@ You can't create a single Lifecycle rule that transitions objects from one stora
 class to another before the minimum storage duration period has passed.
 
 For example, S3 Glacier Instant Retrieval has a minimum storage duration of 90
-days. You can’t specify a lifecycle rule that transitions objects to
+days. You can't specify a lifecycle rule that transitions objects to
 S3 Glacier Instant Retrieval after 4 days, and then transitions objects to
 S3 Glacier Deep Archive after 20 days. In this case the S3 Glacier Deep Archive transition must occur
 after at least 94 days.
@@ -237,24 +237,23 @@ the following:
   is added to each object to accommodate metadata for managing the
   object.
 
-      + For each object archived to S3 Glacier Flexible Retrieval or
-       S3 Glacier Deep Archive, Amazon S3 uses 8 KB of storage for
-       the name of the object and other metadata. Amazon S3 stores this
-       metadata so that you can get a real-time list of your archived
-       objects by using the Amazon S3 API. For more information, see [Get Bucket (List
-       Objects)](../API/RESTBucketGET.md "../API/RESTBucketGET.md"). You are charged S3 Standard rates for this
-       additional storage.
-      + For each object that is archived to
-       S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive,
-       Amazon S3 adds 32 KB of storage for index and related metadata. This
-       extra data is necessary to identify and restore your object. You
-       are charged S3 Glacier Flexible Retrieval or
-       S3 Glacier Deep Archive rates for this additional
-       storage.
-
-  If you are archiving small objects, consider these storage charges.
-  Also consider aggregating many small objects into a smaller number of
-  large objects to reduce overhead costs.
+  - For each object archived to S3 Glacier Flexible Retrieval or
+    S3 Glacier Deep Archive, Amazon S3 uses 8 KB of storage for
+    the name of the object and other metadata. Amazon S3 stores this
+    metadata so that you can get a real-time list of your archived
+    objects by using the Amazon S3 API. For more information, see [Get Bucket (List
+    Objects)](../API/RESTBucketGET.md "../API/RESTBucketGET.md"). You are charged S3 Standard rates for this
+    additional storage.
+  - For each object that is archived to
+    S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive,
+    Amazon S3 adds 32 KB of storage for index and related metadata. This
+    extra data is necessary to identify and restore your object. You
+    are charged S3 Glacier Flexible Retrieval or
+    S3 Glacier Deep Archive rates for this additional
+    storage.
+    If you are archiving small objects, consider these storage charges.
+    Also consider aggregating many small objects into a smaller number of
+    large objects to reduce overhead costs.
 
 - Number of days you plan to keep objects
   archived – S3 Glacier Flexible Retrieval and

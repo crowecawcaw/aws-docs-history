@@ -39,18 +39,17 @@ action, response status, and error code, if any. For more information, see [Logg
 
 - The CloudWatch home page shows the following:
 
-      + Current alarms and status
-      + Graphs of alarms and resources
-      + Service health status
+  - Current alarms and status
+  - Graphs of alarms and resources
+  - Service health status
+    In addition, you can use CloudWatch to do the following:
 
-  In addition, you can use CloudWatch to do the following:
-
-      + Create [customized dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") to monitor the services you care
-       about.
-      + Graph metric data to troubleshoot issues and discover
-       trends.
-      + Search and browse all your AWS resource metrics.
-      + Create and edit alarms to be notified of problems.
+  - Create [customized dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") to monitor the services you care
+    about.
+  - Graph metric data to troubleshoot issues and discover
+    trends.
+  - Search and browse all your AWS resource metrics.
+  - Create and edit alarms to be notified of problems.
 
 - AWS Trusted Advisor can help you monitor your AWS resources to improve
   performance, reliability, security, and cost effectiveness. Four Trusted Advisor

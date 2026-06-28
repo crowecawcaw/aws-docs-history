@@ -1053,13 +1053,12 @@ of the following environment variables:
 
     This value is the name of the application.
 
-10. Choose **Save**.
-11. (Optional) On the **Configuration** tab, in the
-    **General configuration** section of the left
-    navigation pane, choose **Edit**. In the
-    **Timeout** field, enter `2` min
-    `0` sec. Then, choose
-    **Save**.
+10. Choose **Save**. 11. (Optional) On the **Configuration** tab, in the
+**General configuration** section of the left
+navigation pane, choose **Edit**. In the
+**Timeout** field, enter `2` min
+`0` sec. Then, choose
+**Save**.
 
 **Timeout** is the amount of time that Lambda allows a
 function to run for an invocation before stopping it. The default is 3
@@ -1428,27 +1427,24 @@ bucket where the objects referenced in the manifest are located. 5. In the **Man
      version ID for the manifest object if you want to use a version
      other than the most recent.
 
-6. Choose **Next**.
-7. To use the Lambda function to transcode all the objects listed in the
-   selected `manifest.json` file, under **Operation
-   type**, choose **Invoke AWS Lambda
-   function**.
-8. In the **Invoke Lambda function** section, do the
-   following:
+6. Choose **Next**. 7. To use the Lambda function to transcode all the objects listed in the
+selected `manifest.json` file, under **Operation
+type**, choose **Invoke AWS Lambda
+function**. 8. In the **Invoke Lambda function** section, do the
+following:
 
-   1. Choose **Choose from functions in your
-      account**.
-   2. For **Lambda function**, choose the Lambda function
-      that you created in [Step 4](#batchops-s3-step4 "#batchops-s3-step4")
-      (for example,
-      `tutorial-lambda-convert`).
-   3. For **Lambda function version**, keep the default
-      value **$LATEST**.
+    1. Choose **Choose from functions in your
+     account**.
+    2. For **Lambda function**, choose the Lambda function
+     that you created in [Step 4](#batchops-s3-step4 "#batchops-s3-step4")
+     (for example,
+     `tutorial-lambda-convert`).
+    3. For **Lambda function version**, keep the default
+     value **$LATEST**.
 
 9. Choose **Next**. The **Configure additional
-   options** page opens.
-10. In the **Additional options** section, keep the default
-    settings.
+options** page opens. 10. In the **Additional options** section, keep the default
+settings.
 
 For more information about these options, see [Batch Operations job request elements](batch-ops-create-job.md#batch-ops-create-job-request-elements "batch-ops-create-job.md#batch-ops-create-job-request-elements"). 11. In the **Completion report** section, for **Path
 to completion report destination**, choose **Browse

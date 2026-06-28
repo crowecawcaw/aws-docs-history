@@ -20,18 +20,25 @@ The bucket name must:
     * Be between 3 and 63 characters long
     * Consist only of lowercase letters, numbers, and hyphens (-)
 
-5.  For **Encryption**, choose
+5. For **Encryption**, choose
 
-    - **Specify encryption type** – Choose a specific encryption method:
+    * **Specify encryption type** – Choose a specific encryption method:
 
-      - **Server-side encryption with Amazon S3 managed keys (SSE-S3)** – With SSE-S3, Amazon S3 handles the generation, rotation, and management of encryption keys automatically.
-      - **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** – Similar to SSE-S3, but uses customer managed keys (CMKs) in AWS KMS, giving you more control over your keys. For more information about customer managed keys, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer Guide_.
 
-      If you select this option, under **AWS KMS key**, choose one of the following options:
 
-          - **Choose from your AWS KMS keys** – Select an existing KMS key from the dropdown list
-          - **Enter AWS KMS key ARN** – Enter the Amazon Resource Name (ARN) of a KMS key
-          - **Create a KMS key** – Create a new customer managed key in the AWS KMS console. For more information, see [Creating symmetric customer managed keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the *AWS Key Management Service Developer Guide*.
+
+    	+ **Server-side encryption with Amazon S3 managed keys (SSE-S3)** – With SSE-S3, Amazon S3 handles the generation, rotation, and management of encryption keys automatically.
+    	+ **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** – Similar to SSE-S3, but uses customer managed keys (CMKs) in AWS KMS, giving you more control over your keys. For more information about customer managed keys, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the *AWS Key Management Service Developer Guide*.
+
+
+    	If you select this option, under **AWS KMS key**, choose one of the following options:
+
+
+
+
+    		- **Choose from your AWS KMS keys** – Select an existing KMS key from the dropdown list
+    		- **Enter AWS KMS key ARN** – Enter the Amazon Resource Name (ARN) of a KMS key
+    		- **Create a KMS key** – Create a new customer managed key in the AWS KMS console. For more information, see [Creating symmetric customer managed keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the *AWS Key Management Service Developer Guide*.
 
 ###### Note
 
@@ -69,8 +76,8 @@ Vector index names must be unique within the vector bucket. Index name must be b
 
 7. For **Distance metric**, choose one of the following options:
 
-   - **Cosine** – Measures the cosine of the angle between vectors. Best for normalized vectors and when direction matters more than magnitude
-   - **Euclidean** – Measures the straight-line distance between vectors. Best when both direction and magnitude are important.
+    * **Cosine** – Measures the cosine of the angle between vectors. Best for normalized vectors and when direction matters more than magnitude
+    * **Euclidean** – Measures the straight-line distance between vectors. Best when both direction and magnitude are important.
 
 8. (Optional) Under **Non-filterable metadata**, configure metadata keys that will be stored but not used for filtering:
 
@@ -126,8 +133,7 @@ You can attach filterable metadata as key-value pairs to each vector when you in
 
     	When using KMS encryption, ensure that the IAM principals that need to access objects in the bucket have the necessary KMS permission (kms:Decrypt) for the selected KMS key.
 
-10. Under **Tags (Optional)**, you can add tags as key-value pairs to help track and organize vector index costs using AWS Billing and Cost Management. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. You can enter up to 50 tags for a vector index. For more information, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md").
-11. Review your configuration carefully.
+10. Under **Tags (Optional)**, you can add tags as key-value pairs to help track and organize vector index costs using AWS Billing and Cost Management. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. You can enter up to 50 tags for a vector index. For more information, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md"). 11. Review your configuration carefully.
 
 ###### Note
 

@@ -166,9 +166,9 @@ When you upload a new object or copy an existing object, you can specify the use
 server-side encryption with AWS KMS keys to encrypt your data. To do this, use the `put-bucket-encryption` command to set the directory bucket's default encryption configuration as SSE-KMS
 (`aws:kms`). Specifically, add the
 `--server-side-encryption aws:kms` header to the request. Use the
-`--ssekms-key-id `example-key-id``to add your [customer
- managed AWS KMS key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") that you created. If you specify`--server-side-encryption
-aws:kms`, you must provide an AWS KMS key ID of your customer managed key. Directory buckets don't use an AWS managed
+`--ssekms-key-id `example-key-id`` to add your [customer
+managed AWS KMS key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") that you created. If you specify `--server-side-encryption
+ aws:kms`, you must provide an AWS KMS key ID of your customer managed key. Directory buckets don't use an AWS managed
 key. For an example command, see [Using the AWS CLI](s3-express-bucket-encryption.md#s3-express-default-bucket-encryption-cli "s3-express-bucket-encryption.md#s3-express-default-bucket-encryption-cli").
 
 Then, when you upload a new object with the following command, Amazon S3 uses the bucket settings for default encryption to encrypt the object by default.

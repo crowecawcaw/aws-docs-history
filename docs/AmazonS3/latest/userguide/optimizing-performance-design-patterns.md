@@ -97,7 +97,7 @@ HTTP 503 responses that might occur. As a general rule, when you download large 
 Amazon S3, we suggest making concurrent requests to maximize network throughput and optimize
 download performance. You can achieve this by either requesting specific byte ranges of the
 object or downloading individual parts of a multipart object simultaneously. This parallel
-download approach helps fully utilize your network interface card (NIC) capacity. For
+download approach helps fully use your network interface card (NIC) capacity. For
 objects that were uploaded using multipart upload, we recommend downloading them using the
 same part sizes or aligning requests to the original part boundaries for best performance.
 This method of concurrent downloading provides higher aggregate throughput compared to

@@ -101,7 +101,7 @@ your replication.
     	 information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 10. Scroll down to the **Additional replication options**
-    section, and select the replication options that you want to apply.
+section, and select the replication options that you want to apply.
 
 ###### Note
 

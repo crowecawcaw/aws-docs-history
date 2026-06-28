@@ -104,17 +104,14 @@ manifest object to use.
      configuration to generate the manifest, the only operation that
      will be available is **Replicate**.
 
-7. Choose **Next**.
-8. Under **Operation**, choose the **Compute
-   checksum** operation to calculate the checksums on all
-   objects listed in the manifest. Choose the **Checksum
-   type** and **Checksum function** for your
-   job. Then, choose **Next**.
-9. Fill out the information for **Configure additional options**, and then
-   choose **Next**.
-10. On the **Configure additional options** page, fill
-    out the information for your **Compute checksum**
-    job.
+7. Choose **Next**. 8. Under **Operation**, choose the **Compute
+checksum** operation to calculate the checksums on all
+objects listed in the manifest. Choose the **Checksum
+type** and **Checksum function** for your
+job. Then, choose **Next**. 9. Fill out the information for **Configure additional options**, and then
+choose **Next**. 10. On the **Configure additional options** page, fill
+out the information for your **Compute checksum**
+job.
 
 ###### Note
 

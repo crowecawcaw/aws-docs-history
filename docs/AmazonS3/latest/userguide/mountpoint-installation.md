@@ -38,7 +38,7 @@ mount-s3 1.21.0+1.amzn2023
 
 1. Copy the following download URL for your architecture.
 
-_x86_64_:
+_x86\_64_:
 
 ```
 https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.rpm
@@ -61,7 +61,7 @@ wget `download-link`
 3. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy
    the appropriate signature URL for your architecture.
 
-_x86_64_:
+_x86\_64_:
 
 ```
 https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.rpm.asc
@@ -97,7 +97,7 @@ mount-s3 1.21.0
 
 1. Copy the download URL for your architecture.
 
-_x86_64_:
+_x86\_64_:
 
 ```
 https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.deb
@@ -120,7 +120,7 @@ wget `download-link`
 3. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy
    the signature URL for your architecture.
 
-_x86_64_:
+_x86\_64_:
 
 ```
 https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.deb.asc
@@ -158,7 +158,7 @@ mount-s3 1.21.0
    `libfuse2` packages, which are required.
 2. Copy the download URL for your architecture.
 
-_x86_64_:
+_x86\_64_:
 
 ```
 https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.tar.gz
@@ -182,7 +182,7 @@ wget `download-link`
 4. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy
    the signature URL for your architecture.
 
-_x86_64_:
+_x86\_64_:
 
 ```
 https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.tar.gz.asc

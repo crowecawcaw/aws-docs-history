@@ -8,14 +8,14 @@ Amazon S3 Select supports the following date functions.
 
 ###### Topics
 
-- [DATE_ADD](#s3-select-sql-reference-date-add "#s3-select-sql-reference-date-add")
-- [DATE_DIFF](#s3-select-sql-reference-date-diff "#s3-select-sql-reference-date-diff")
+- [DATE\_ADD](#s3-select-sql-reference-date-add "#s3-select-sql-reference-date-add")
+- [DATE\_DIFF](#s3-select-sql-reference-date-diff "#s3-select-sql-reference-date-diff")
 - [EXTRACT](#s3-select-sql-reference-extract "#s3-select-sql-reference-extract")
-- [TO_STRING](#s3-select-sql-reference-to-string "#s3-select-sql-reference-to-string")
-- [TO_TIMESTAMP](#s3-select-sql-reference-to-timestamp "#s3-select-sql-reference-to-timestamp")
+- [TO\_STRING](#s3-select-sql-reference-to-string "#s3-select-sql-reference-to-string")
+- [TO\_TIMESTAMP](#s3-select-sql-reference-to-timestamp "#s3-select-sql-reference-to-timestamp")
 - [UTCNOW](#s3-select-sql-reference-utcnow "#s3-select-sql-reference-utcnow")
 
-## DATE_ADD
+## DATE\_ADD
 
 Given a date part, a quantity, and a timestamp, `DATE_ADD` returns an updated
 timestamp by altering the date part by the quantity.
@@ -44,7 +44,7 @@ _`quantity`_
 
 The value to apply to the updated timestamp. Positive values for
 `quantity` add to
-the timestamp's date_part, and negative values subtract.
+the timestamp's date\_part, and negative values subtract.
 
 _`timestamp`_
 
@@ -63,7 +63,7 @@ DATE_ADD(minute, 1, `2017-01-02T03:04:05.006Z`) -- 2017-01-02T03:05:05.006Z
 DATE_ADD(second, 1, `2017-01-02T03:04:05.006Z`) -- 2017-01-02T03:04:06.006Z
 ```
 
-## DATE_DIFF
+## DATE\_DIFF
 
 Given a date part and two valid timestamps, `DATE_DIFF` returns the difference
 in date parts. The return value is a negative integer when the
@@ -87,7 +87,7 @@ DATE_DIFF( `date_part`, `timestamp1`, `timestamp2` )
 _`date_part`_
 
 Specifies which part of the timestamps to compare. For the definition of
-`date_part`, see [DATE_ADD](#s3-select-sql-reference-date-add "#s3-select-sql-reference-date-add").
+`date_part`, see [DATE\_ADD](#s3-select-sql-reference-date-add "#s3-select-sql-reference-date-add").
 
 _`timestamp1`_
 
@@ -150,7 +150,7 @@ EXTRACT(TIMEZONE_HOUR FROM `2017-01-02T03:04:05+07:08`)    -- 7
 EXTRACT(TIMEZONE_MINUTE FROM `2017-01-02T03:04:05+07:08`)  -- 8
 ```
 
-## TO_STRING
+## TO\_STRING
 
 Given a timestamp and a format pattern, `TO_STRING` returns a string
 representation of the timestamp in the given format.
@@ -219,7 +219,7 @@ TO_STRING(`1969-07-20T20:18+08:00`, 'y-MM-dd''T''H:m:ssXXXX')   -- "1969-07-20T2
 TO_STRING(`1969-07-20T20:18+08:00`, 'y-MM-dd''T''H:m:ssXXXXX')  -- "1969-07-20T20:18:00+08:00"
 ```
 
-## TO_TIMESTAMP
+## TO\_TIMESTAMP
 
 Given a string, `TO_TIMESTAMP` converts it to a timestamp.
 `TO_TIMESTAMP` is the inverse operation of

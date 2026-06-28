@@ -105,9 +105,8 @@ Distribution](../../../AmazonCloudFront/latest/DeveloperGuide/WorkingWithDownloa
      the folder name.
     8. Keep all other settings at their default values.
 
-6. Choose **Create Distribution**.
-7. To see the status of the distribution, find the distribution in the console and check the
-   **Status** column.
+6. Choose **Create Distribution**. 7. To see the status of the distribution, find the distribution in the console and check the
+**Status** column.
 
 A status of `InProgress` indicates that the distribution is not yet
 fully deployed.

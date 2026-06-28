@@ -58,9 +58,9 @@ statements in the **Policy** section.
      to the **Edit bucket policy** page in the Amazon S3 console.
 
 7. In the **Policy** box, edit the existing policy or paste the
-   bucket policy from the AWS Policy Generator. Make sure to resolve security
-   warnings, errors, general warnings, and suggestions before you save your
-   policy.
+bucket policy from the AWS Policy Generator. Make sure to resolve security
+warnings, errors, general warnings, and suggestions before you save your
+policy.
 
 ###### Note
 
@@ -119,7 +119,7 @@ This example shows how to add a bucket policy to a directory bucket by using the
 aws s3api put-bucket-policy --bucket `bucket-base-name`--`zone-id`--x-s3 --policy file://bucket_policy.json
 ```
 
-bucket_policy.json:
+bucket\_policy.json:
 
 JSON
 

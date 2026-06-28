@@ -94,7 +94,7 @@ state of the affected objects.
   bucket must also grant the `s3:ObjectOwnerOverrideToBucketOwner` permission to
   the source bucket owner through the destination bucket policy. To use the following
   example bucket policy, replace the `user input
-placeholders` with your own information:
+ placeholders` with your own information:
 
 JSON
 
@@ -317,7 +317,7 @@ If you've set up replication and objects aren't replicating, see [Why aren't my 
 While using Batch Replication, you might encounter one of these errors:
 
 - **`Manifest generation found no keys matching the filter
-criteria.`**
+ criteria.`**
 
 This error occurs for one of the following reasons:
 
@@ -343,7 +343,7 @@ This error occurs for one of the following reasons:
      `/Tax/` to `Tax/` in the replication rule.
 
 - **`Batch operation status is failed with reason: The job report could not be
-written to your report bucket.`**
+ written to your report bucket.`**
 
 This error occurs if the IAM role that's used for the Batch Operations job is unable to
 put the completion report into the location that was specified when you created the job.
@@ -352,7 +352,7 @@ permission for the bucket where you want to save the Batch Operations completion
 recommend delivering the report to a bucket different from the source bucket.
 
 - **`Batch operation is completed with failures and Total failed is not
-0.`**
+ 0.`**
 
 This error occurs if there are insufficient object permissions issues with the
 Batch Replication job that is running. If you're using a replication rule for your
@@ -362,7 +362,7 @@ also check the [Batch Replication completion report](s3-batch-replication-batch.
 replication failure reason](replication-failure-codes.md "replication-failure-codes.md").
 
 - **`Batch job ran successfully but the number of objects expected in
-destination bucket is not the same.`**
+ destination bucket is not the same.`**
 
 This error occurs when there's a mismatch between the objects listed in the manifest
 that's supplied in the Batch Replication job and the filters that you selected when you

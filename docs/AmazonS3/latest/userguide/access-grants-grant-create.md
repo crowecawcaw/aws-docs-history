@@ -33,7 +33,7 @@ give the grantee access to every bucket in an AWS Region. Instead, you must narr
 If you are creating an access grant where the registered location is a bucket, you can pass
 one of the following in the `Subprefix` field to narrow the grant scope:
 
-- A prefix within the bucket: ``prefix`\*`
+- A prefix within the bucket: ``prefix`*`
 - A prefix within a prefix:
   `prefixA/`prefixB`*`
 - An object: `/`object-key-name``
@@ -103,7 +103,7 @@ grant**.
      **Create grant**.
 
 4. If **Next** or **Create grant** is
-   disabled:
+disabled:
 
 ###### Cannot create grant
 

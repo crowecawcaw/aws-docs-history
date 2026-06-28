@@ -19,7 +19,7 @@ encrypt your S3 Storage Lens metrics exports, follow these steps.
 7. To update the key policy, choose **Edit**.
 8. Under **Edit key policy**, add the following key policy to the
    existing key policy. To use this policy, replace the `user input
-placeholders` with your information.
+ placeholders` with your information.
 
 ```
 {

@@ -46,7 +46,7 @@ marker.
 ![A delete marker insertion.](images/versioning_DELETE_versioningEnabled.png)
 
 - To delete versioned objects permanently, you must use `DELETE Object
-versionId`.
+ versionId`.
 
 The following figure shows that deleting a specified object version
 permanently removes that object.

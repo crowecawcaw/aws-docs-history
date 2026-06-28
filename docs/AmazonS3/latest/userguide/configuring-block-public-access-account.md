@@ -116,13 +116,12 @@ see the following topics in the _Amazon Simple Storage Service API Reference_.
 
 - Account-level operations
 
-      + [PutPublicAccessBlock](../API/API_PutPublicAccessBlock.md "../API/API_PutPublicAccessBlock.md") - Fails
-       when account is managed by organization policies
-      + [GetPublicAccessBlock](../API/API_GetPublicAccessBlock.md "../API/API_GetPublicAccessBlock.md") - Returns
-       effective configuration including organization policies.
-      + [DeletePublicAccessBlock](../API/API_DeletePublicAccessBlock.md "../API/API_DeletePublicAccessBlock.md") - Fails
-       when account is managed by organization policies.
-
-  You'll see following error message for restricted operations: "This account
-  does not allow changes to its account-level S3 Block Public Access settings due
-  to an organizational S3 Block Public Access policy in effect."
+  - [PutPublicAccessBlock](../API/API_PutPublicAccessBlock.md "../API/API_PutPublicAccessBlock.md") - Fails
+    when account is managed by organization policies
+  - [GetPublicAccessBlock](../API/API_GetPublicAccessBlock.md "../API/API_GetPublicAccessBlock.md") - Returns
+    effective configuration including organization policies.
+  - [DeletePublicAccessBlock](../API/API_DeletePublicAccessBlock.md "../API/API_DeletePublicAccessBlock.md") - Fails
+    when account is managed by organization policies.
+    You'll see following error message for restricted operations: "This account
+    does not allow changes to its account-level S3 Block Public Access settings due
+    to an organizational S3 Block Public Access policy in effect."

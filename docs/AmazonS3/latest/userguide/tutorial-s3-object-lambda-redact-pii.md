@@ -87,7 +87,7 @@ policies:
 - [AmazonS3FullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonS3FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonS3FullAccess$jsonEditor") – Grants permissions
   to all Amazon S3 actions, including permissions to create and use
   an Object Lambda Access Point.
-- [AWSLambda_FullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor") – Grants
+- [AWSLambda\_FullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor") – Grants
   permissions to all Lambda actions.
 - [AWSCloudFormationFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSCloudFormationFullAccess$serviceLevelSummary "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSCloudFormationFullAccess$serviceLevelSummary") – Grants
   permissions to all AWS CloudFormation actions.
@@ -620,7 +620,7 @@ no longer accrue charges.
 3. At the top of the page, choose
    **Delete**.
 4. In the **Delete `user
-name`?** dialog box, enter
+ name`?** dialog box, enter
    the user name in the text input field to confirm the
    deletion of the user. Choose
    **Delete**.

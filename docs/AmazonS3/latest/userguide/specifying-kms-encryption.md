@@ -99,8 +99,7 @@ configure the following encryption settings.
      more information, see [Identifying symmetric and
      asymmetric KMS keys](../../../kms/latest/developerguide/find-symm-asymm.md "../../../kms/latest/developerguide/find-symm-asymm.md") in the *AWS Key Management Service Developer Guide*.
 
-8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums.
-9. Choose **Save changes**.
+8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums. 9. Choose **Save changes**.
 
 ###### Note
 
@@ -232,9 +231,9 @@ To use the following example AWS CLI commands, replace the `user input
 When you upload a new object or copy an existing object, you can specify the use of
 server-side encryption with AWS KMS keys to encrypt your data. To do this, add the
 `--server-side-encryption aws:kms` header to the request. Use the
-`--ssekms-key-id `example-key-id``to add your [customer
- managed AWS KMS key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") that you created. If you specify`--server-side-encryption
-aws:kms`, but don't provide an AWS KMS key ID, Amazon S3 will use an AWS managed
+`--ssekms-key-id `example-key-id`` to add your [customer
+managed AWS KMS key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") that you created. If you specify `--server-side-encryption
+ aws:kms`, but don't provide an AWS KMS key ID, Amazon S3 will use an AWS managed
 key.
 
 ```

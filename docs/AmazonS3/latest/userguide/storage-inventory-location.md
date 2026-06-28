@@ -47,10 +47,9 @@ location in the destination bucket.
   inventory list is for. The source bucket name is added to prevent collisions when multiple
   inventory reports from different source buckets are sent to the same destination
   bucket.
-- ``example-file-name```.csv.gz`
-  is one of the CSV inventory files. ORC inventory names end with the file name extension
-  `.orc`, and Parquet inventory names end with the file
-  name extension `.parquet`.
+- ``example-file-name```.csv.gz`  is one of the CSV inventory files. ORC inventory names end with the file name extension
+ `.orc`, and Parquet inventory names end with the file
+ name extension `.parquet`.
 
 ## Inventory manifest
 

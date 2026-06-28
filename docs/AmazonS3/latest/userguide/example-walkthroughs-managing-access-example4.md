@@ -154,42 +154,46 @@ information as follows:
      `c1daexampleaaf850ea79cf0430f33d72579fd1611c97f7ded193374c0b163b6`.
      This is your canonical user ID.
 
-3.  When creating a bucket policy, you will need the following information. Note these
-    values:
+3. When creating a bucket policy, you will need the following information. Note these
+values:
 
-    - **Canonical user ID of Account A**
-      – When the Account A administrator grants conditional upload
-      object permission to the Account B administrator, the condition
-      specifies the canonical user ID of the Account A user that must get
-      full-control of the objects.
+    * **Canonical user ID of Account A**
+     – When the Account A administrator grants conditional upload
+     object permission to the Account B administrator, the condition
+     specifies the canonical user ID of the Account A user that must get
+     full-control of the objects.
+
 
     ###### Note
 
     The canonical user ID is the Amazon S3–only concept. It is a
-    64-character obfuscated version of the account ID.
-    - **User ARN for Account B administrator**
-      – You can find the user ARN in the
-      [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").You
-      must select the user and find the user's ARN in the
-      **Summary** tab.
+     64-character obfuscated version of the account ID.
+    * **User ARN for Account B administrator**
+     – You can find the user ARN in the
+     [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").You
+     must select the user and find the user's ARN in the
+     **Summary** tab.
+
 
     In the bucket policy, you grant `AccountBadmin` permission to upload objects
-    and you specify the user using the ARN. Here's an example ARN
-    value:
+     and you specify the user using the ARN. Here's an example ARN
+     value:
+
+
 
     ```
     arn:aws:iam::`AccountB-ID`:user/AccountBadmin
     ```
 
-4.  Set up either the AWS Command Line Interface (CLI) or the AWS Tools for Windows PowerShell. Make sure that you save administrator
-    user credentials as follows:
+4. Set up either the AWS Command Line Interface (CLI) or the AWS Tools for Windows PowerShell. Make sure that you save administrator
+user credentials as follows:
 
-        * If using the AWS CLI, create profiles, `AccountAadmin` and
-         `AccountBadmin`, in the config file.
-        * If using the AWS Tools for Windows PowerShell, make sure that you store credentials for the session as
-         `AccountAadmin` and `AccountBadmin`.
+    * If using the AWS CLI, create profiles, `AccountAadmin` and
+     `AccountBadmin`, in the config file.
+    * If using the AWS Tools for Windows PowerShell, make sure that you store credentials for the session as
+     `AccountAadmin` and `AccountBadmin`.
 
-    For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
 ## Step 1: Do the account A tasks
 
@@ -444,7 +448,7 @@ For step-by-step instructions, see
     8. Choose **Apply Policy**.
 
 5. Save Dave's credentials to the config file of the AWS CLI by adding another profile,
-   `AccountCDave`.
+`AccountCDave`.
 
 ```
 [profile AccountCDave]

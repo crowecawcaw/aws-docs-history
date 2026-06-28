@@ -84,7 +84,7 @@ example:
 - Allow copying objects from the specified source bucket and only the objects whose key
   name prefix starts with as specific prefix, such as
   `public/` (for example,
-  `amzn-s3-demo-source-bucket`/public/\*``).
+  `amzn-s3-demo-source-bucket`/public/*``).
 - Allow copying only a specific object from the source bucket (for example,
   `amzn-s3-demo-source-bucket`/example.jpg``).
 

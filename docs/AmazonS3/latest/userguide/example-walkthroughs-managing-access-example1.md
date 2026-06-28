@@ -48,49 +48,48 @@ so you don't need to write any code.
 
 ## Preparing for the walkthrough
 
-1.  Make sure you have an AWS account and that it has a user with administrator
-    privileges.
+1. Make sure you have an AWS account and that it has a user with administrator
+   privileges.
 
-    1. Sign up for an AWS account, if needed. We refer to this account as Account A.
+   1. Sign up for an AWS account, if needed. We refer to this account as Account A.
 
-       1. Go to [https://aws.amazon.com/s3](https://aws.amazon.com/s3 "https://aws.amazon.com/s3") and choose
-          **Create
-          an AWS account**.
-       2. Follow the on-screen instructions.
+      1. Go to [https://aws.amazon.com/s3](https://aws.amazon.com/s3 "https://aws.amazon.com/s3") and choose
+         **Create
+         an AWS account**.
+      2. Follow the on-screen instructions.
 
-       AWS will notify you by email when your account is active and
-       available for you to use.
+      AWS will notify you by email when your account is active and
+      available for you to use.
 
-    2. In Account A, create an administrator user `AccountAadmin`. Using
-       Account A credentials, sign in to the [IAM console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home") and
-       do the following:
+   2. In Account A, create an administrator user `AccountAadmin`. Using
+      Account A credentials, sign in to the [IAM console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home") and
+      do the following:
 
-       1. Create user `AccountAadmin` and note the user security
-          credentials.
+      1. Create user `AccountAadmin` and note the user security
+         credentials.
 
-       For instructions, see [Creating an
-       IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
-       _IAM User Guide_. 2. Grant administrator privileges to **AccountAadmin** by attaching a
-       user policy giving full access.
+      For instructions, see [Creating an
+      IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
+      _IAM User Guide_. 2. Grant administrator privileges to **AccountAadmin** by attaching a
+      user policy giving full access.
 
-       For instructions, see [Managing
-       IAM policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md") in the
-       _IAM User Guide_. 3. Note the **IAM user Sign-In URL** for
-       **AccountAadmin**. You will need to use
-       this URL when signing in to the AWS Management Console. For more information
-       about where to find the sign-in URL, see [Sign in to the AWS Management Console as an IAM user](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md") in
-       _IAM User Guide_. Note the URL for each
-       of the accounts.
+      For instructions, see [Managing
+      IAM policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md") in the
+      _IAM User Guide_. 3. Note the **IAM user Sign-In URL** for
+      **AccountAadmin**. You will need to use
+      this URL when signing in to the AWS Management Console. For more information
+      about where to find the sign-in URL, see [Sign in to the AWS Management Console as an IAM user](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md") in
+      _IAM User Guide_. Note the URL for each
+      of the accounts.
 
-2.  Set up either the AWS CLI or the AWS Tools for Windows PowerShell. Make sure that you save administrator user
-    credentials as follows:
+2. Set up either the AWS CLI or the AWS Tools for Windows PowerShell. Make sure that you save administrator user
+   credentials as follows:
 
-        * If using the AWS CLI, create a profile, `AccountAadmin`, in the config
-         file.
-        * If using the AWS Tools for Windows PowerShell, make sure you store credentials for the session as
-         `AccountAadmin`.
-
-    For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+   - If using the AWS CLI, create a profile, `AccountAadmin`, in the config
+     file.
+   - If using the AWS Tools for Windows PowerShell, make sure you store credentials for the session as
+     `AccountAadmin`.
+     For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
 ## Step 1: Create resources in Account A and grant permissions
 

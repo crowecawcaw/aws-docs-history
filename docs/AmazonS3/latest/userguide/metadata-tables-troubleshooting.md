@@ -79,7 +79,7 @@ If you're unable to query your metadata tables, check the following:
   following:
 
   - If you receive the error **`"Insufficient permissions to execute the query. Principal
-does not have any privilege on specified resource"`** when you try to run a query in
+   does not have any privilege on specified resource"`** when you try to run a query in
     Athena, you must be granted the necessary Lake Formation permissions on the table. For more information, see
     [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table "grant-permissions-tables.md#grant-lf-table").
   - If you receive the error **`"Iceberg cannot access the requested resource"`**

@@ -328,15 +328,14 @@ For detailed manifest format specifications and examples, see the following:
 
 ### InvalidManifestContent troubleshooting
 
-1.  Download and inspect the manifest file. Manually verify the manifest meets format requirements:
+1. Download and inspect the manifest file. Manually verify the manifest meets format requirements:
 
-        1. CSV format with comma delimiters.
-        2. UTF-8 encoding without BOM.
-        3. Consistent number of columns across all rows.
-        4. No empty lines or trailing spaces.
-        5. Object keys properly URL encoded if they contain special characters.
-
-    Use the following command to download the manifest file.
+   1. CSV format with comma delimiters.
+   2. UTF-8 encoding without BOM.
+   3. Consistent number of columns across all rows.
+   4. No empty lines or trailing spaces.
+   5. Object keys properly URL encoded if they contain special characters.
+      Use the following command to download the manifest file.
 
 ```
 

@@ -67,4 +67,4 @@ notifications to a Lambda function, SNS topic, or SQS queue.
      ARN** and enter the ARN.For more information, see [Supported event destinations](notification-how-to-event-types-and-destinations.md#supported-notification-destinations "notification-how-to-event-types-and-destinations.md#supported-notification-destinations").
 
 9. Choose **Save changes**, and Amazon S3 sends a test message to the event
-   notification destination.
+notification destination.

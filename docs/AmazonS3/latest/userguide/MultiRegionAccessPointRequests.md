@@ -87,7 +87,7 @@ access point. However, it's important to be aware of the following differences:
 - For requests made through API operations (these requests don't require the
   use of an ARN), Multi-Region Access Points use a different endpoint scheme. The scheme is
   ``MultiRegionAccessPoint_alias`.accesspoint.s3-global.amazonaws.com`—for
-example, `mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com`.
+  example, `mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com`.
   Note the differences compared to a single-Region access point:
 
   - Multi-Region Access Point hostnames use their alias, not the Multi-Region Access Point name.

@@ -47,14 +47,14 @@ full list of ACLs, use the Amazon S3 REST API, AWS CLI, or AWS SDKs.
 The following table shows the ACL permissions that you can configure for buckets
 in the Amazon S3 console.
 
-| Amazon S3 console ACL permissions for buckets  | Console permission | ACL permission                                                                                                                                                                       | Access |
-| ---------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
-| Objects<br>• List                              | `READ`             | Allows grantee to list the objects in the bucket.                                                                                                                                    |
-| Objects<br>• Write                             | `WRITE`            | Allows grantee to create new objects in the bucket. For the<br>bucket and object owners of existing objects, also allows deletions<br>and overwrites of those objects.               |
-| Bucket ACL<br>• Read                           | `READ_ACP`         | Allows grantee to read the bucket ACL.                                                                                                                                               |
-| Bucket ACL<br>• Write                          | `WRITE_ACP`        | Allows grantee to write the ACL for the applicable<br>bucket.                                                                                                                        |
-| Everyone (public access): Objects<br>• List    | `READ`             | Grants public read access for the objects in the bucket. When you<br>grant list access to **Everyone (public access)**,<br>anyone in the world can access the objects in the bucket. |
-| Everyone (public access): Bucket ACL<br>• Read | `READ_ACP`         | Grants public read access for the bucket ACL. When you grant read<br>access to **Everyone (public access)**, anyone in<br>the world can access the bucket ACL.                       |
+Amazon S3 console ACL permissions for buckets| Console permission | ACL permission | Access |
+| --- | --- | --- |
+| Objects<br>• List | `READ` | Allows grantee to list the objects in the bucket. |
+| Objects<br>• Write | `WRITE` | Allows grantee to create new objects in the bucket. For the<br>bucket and object owners of existing objects, also allows deletions<br>and overwrites of those objects. |
+| Bucket ACL<br>• Read | `READ_ACP` | Allows grantee to read the bucket ACL. |
+| Bucket ACL<br>• Write | `WRITE_ACP` | Allows grantee to write the ACL for the applicable<br>bucket. |
+| Everyone (public access): Objects<br>• List | `READ` | Grants public read access for the objects in the bucket. When you<br>grant list access to **Everyone (public access)**,<br>anyone in the world can access the objects in the bucket. |
+| Everyone (public access): Bucket ACL<br>• Read | `READ_ACP` | Grants public read access for the bucket ACL. When you grant read<br>access to **Everyone (public access)**, anyone in<br>the world can access the bucket ACL. |
 
 For more information about ACL permissions, see [Access control list (ACL) overview](acl-overview.md "acl-overview.md").
 
@@ -100,27 +100,25 @@ You can edit the following ACL permissions for the bucket:
     * **Write** – Allows grantee to write the
      ACL for the applicable bucket.
 
-6.  To change the bucket owner's permissions, beside **Bucket owner
-    (your AWS account)**, clear or select from the following ACL
-    permissions:
+6. To change the bucket owner's permissions, beside **Bucket owner
+(your AWS account)**, clear or select from the following ACL
+permissions:
 
-        * **Objects** – **List** or
-         **Write**
-        * **Bucket ACL** – **Read**
-         or **Write**
+    * **Objects** – **List** or
+     **Write**
+    * **Bucket ACL** – **Read**
+     or **Write**
 
-    The _owner_ refers to the AWS account root user, not an AWS Identity and Access Management
-    IAM user. For more information about the root user, see [The AWS account root user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") in the
-    _IAM User Guide_.
+The _owner_ refers to the AWS account root user, not an AWS Identity and Access Management
+IAM user. For more information about the root user, see [The AWS account root user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") in the
+_IAM User Guide_. 7. To grant or undo permissions for the general public (everyone on the
+internet), beside **Everyone (public access)**, clear or
+select from the following ACL permissions:
 
-7.  To grant or undo permissions for the general public (everyone on the
-    internet), beside **Everyone (public access)**, clear or
-    select from the following ACL permissions:
-
-    - **Objects** –
-      **List**
-    - **Bucket ACL** –
-      **Read**
+    * **Objects** –
+     **List**
+    * **Bucket ACL** –
+     **Read**
 
 ###### Warning
 
@@ -138,35 +136,40 @@ permissions:
      **Read**
 
 9. To grant or undo permissions for Amazon S3 to write server access logs to the
-   bucket, under **S3 log delivery group**, clear or select
-   from the following ACL permissions:
+bucket, under **S3 log delivery group**, clear or select
+from the following ACL permissions:
 
-   - **Objects** – **List** or
+    * **Objects** – **List** or
      **Write**
-   - **Bucket ACL** – **Read**
+    * **Bucket ACL** – **Read**
      or **Write**
 
-   If a bucket is set up as the target bucket to receive access logs,
-   the bucket permissions must allow the **Log
-   Delivery** group write access to the bucket. When you
-   enable server access logging on a bucket, the Amazon S3 console grants
-   write access to the **Log Delivery** group for the
-   target bucket that you choose to receive the logs. For more
-   information about server access logging, see [Enabling Amazon S3 server access logging](enable-server-access-logging.md "enable-server-access-logging.md").
+
+
+    If a bucket is set up as the target bucket to receive access logs,
+     the bucket permissions must allow the **Log
+     Delivery** group write access to the bucket. When you
+     enable server access logging on a bucket, the Amazon S3 console grants
+     write access to the **Log Delivery** group for the
+     target bucket that you choose to receive the logs. For more
+     information about server access logging, see [Enabling Amazon S3 server access logging](enable-server-access-logging.md "enable-server-access-logging.md").
 
 10. To grant access to another AWS account, do the following:
 
     1. Choose **Add grantee**.
     2. In the **Grantee** box, enter the canonical ID of
-       the other AWS account.
+     the other AWS account.
     3. Select from the following ACL permissions:
 
-       - **Objects** –
-         **List** or
-         **Write**
-       - **Bucket ACL** –
-         **Read** or
-         **Write**###### Warning
+
+
+
+    	* **Objects** –
+    	 **List** or
+    	 **Write**
+    	* **Bucket ACL** –
+    	 **Read** or
+    	 **Write**###### Warning
 
 When you grant other AWS accounts access to your resources, be aware
 that the AWS accounts can delegate their permissions to users under
@@ -182,11 +185,11 @@ full list of ACLs, use the Amazon S3 REST API, AWS CLI, or AWS SDKs. The followi
 shows the ACL permissions that you can configure for objects in the Amazon S3
 console.
 
-| Amazon S3 console ACL permissions for objects | Console permission | ACL permission                                            | Access |
-| --------------------------------------------- | ------------------ | --------------------------------------------------------- | ------ |
-| Object<br>• Read                              | `READ`             | Allows grantee to read the object data and its metadata.  |
-| Object ACL<br>• Read                          | `READ_ACP`         | Allows grantee to read the object ACL.                    |
-| Object ACL<br>• Write                         | `WRITE_ACP`        | Allows grantee to write the ACL for the applicable object |
+Amazon S3 console ACL permissions for objects| Console permission | ACL permission | Access |
+| --- | --- | --- |
+| Object<br>• Read | `READ` | Allows grantee to read the object data and its metadata. |
+| Object ACL<br>• Read | `READ_ACP` | Allows grantee to read the object ACL. |
+| Object ACL<br>• Write | `WRITE_ACP` | Allows grantee to write the ACL for the applicable object |
 
 For more information about ACL permissions, see [Access control list (ACL) overview](acl-overview.md "acl-overview.md").
 
@@ -226,75 +229,75 @@ You can edit the following ACL permissions for the object:
      However, if you need to grant write access, you can use the AWS CLI,
      AWS SDKs, or the REST API.
 
-6.  You can manage object access permissions for the following:
+6. You can manage object access permissions for the following:
 
-        1. ###### Access for object owner
-
-
-        The *owner* refers to the AWS account root user, and not
-         an AWS Identity and Access Management IAM user. For more information about the root user, see
-         [The
-         AWS account root user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") in the
-         *IAM User Guide*.
+    1. ###### Access for object owner
 
 
-        To change the owner's object access permissions, under
-         **Access for object owner**, choose
-         **Your AWS Account (owner)**.
+    The *owner* refers to the AWS account root user, and not
+     an AWS Identity and Access Management IAM user. For more information about the root user, see
+     [The
+     AWS account root user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") in the
+     *IAM User Guide*.
 
 
-        Select the check boxes for the permissions that you want to
-         change, and then choose **Save**.
-        2. ###### Access for other AWS accounts
+    To change the owner's object access permissions, under
+     **Access for object owner**, choose
+     **Your AWS Account (owner)**.
 
 
-        To grant permissions to an AWS user from a different
-         AWS account, under **Access for other
-         AWS accounts**, choose **Add
-         account**. In the **Enter an ID**
-         field, enter the canonical ID of the AWS user that you want to
-         grant object permissions to. For information about finding a
-         canonical ID, see [Your AWS account identifiers](../../../general/latest/gr/acct-identifiers.md "../../../general/latest/gr/acct-identifiers.md") in the
-         *Amazon Web Services General Reference*. You can add as many as 99
-         users.
+    Select the check boxes for the permissions that you want to
+     change, and then choose **Save**.
+    2. ###### Access for other AWS accounts
 
 
-        Select the check boxes for the permissions that you want to grant
-         to the user, and then choose **Save**. To display
-         information about the permissions, choose the Help icons.
-        3. ###### Public access
+    To grant permissions to an AWS user from a different
+     AWS account, under **Access for other
+     AWS accounts**, choose **Add
+     account**. In the **Enter an ID**
+     field, enter the canonical ID of the AWS user that you want to
+     grant object permissions to. For information about finding a
+     canonical ID, see [Your AWS account identifiers](../../../general/latest/gr/acct-identifiers.md "../../../general/latest/gr/acct-identifiers.md") in the
+     *Amazon Web Services General Reference*. You can add as many as 99
+     users.
 
 
-        To grant access to your object to the general public (everyone in
-         the world), under **Public access**, choose
-         **Everyone**. Granting public access
-         permissions means that anyone in the world can access the
-         object.
+    Select the check boxes for the permissions that you want to grant
+     to the user, and then choose **Save**. To display
+     information about the permissions, choose the Help icons.
+    3. ###### Public access
 
 
-        Select the check boxes for the permissions that you want to grant,
-         and then choose **Save**.
+    To grant access to your object to the general public (everyone in
+     the world), under **Public access**, choose
+     **Everyone**. Granting public access
+     permissions means that anyone in the world can access the
+     object.
 
 
-        ###### Warning
+    Select the check boxes for the permissions that you want to grant,
+     and then choose **Save**.
+
+
+    ###### Warning
 
 
 
-        	* Use caution when granting the
-        	 **Everyone** group anonymous access
-        	 to your Amazon S3 objects. When you grant access to this
-        	 group, anyone in the world can access your object. If
-        	 you need to grant access to everyone, we highly
-        	 recommend that you only grant permissions to
-        	 **Read objects**.
-        	* We highly recommend that you *do
-        	 not* grant the
-        	 **Everyone** group write object
-        	 permissions. Doing so allows anyone to overwrite the ACL
-        	 permissions for the object.
+    	* Use caution when granting the
+    	 **Everyone** group anonymous access
+    	 to your Amazon S3 objects. When you grant access to this
+    	 group, anyone in the world can access your object. If
+    	 you need to grant access to everyone, we highly
+    	 recommend that you only grant permissions to
+    	 **Read objects**.
+    	* We highly recommend that you *do
+    	 not* grant the
+    	 **Everyone** group write object
+    	 permissions. Doing so allows anyone to overwrite the ACL
+    	 permissions for the object.
 
-    This section provides examples of how to configure access control list (ACL)
-    grants on buckets and objects.
+This section provides examples of how to configure access control list (ACL)
+grants on buckets and objects.
 
 ###### Important
 
@@ -393,7 +396,7 @@ the following tasks:
 - Retrieves an object's ACL
 - Clears the ACL by removing all existing permissions
 - Adds two permissions: full access to the owner, and
-  WRITE_ACP (see [What permissions can I grant?](acl-overview.md#permissions "acl-overview.md#permissions")) to a user identified by
+  WRITE\_ACP (see [What permissions can I grant?](acl-overview.md#permissions "acl-overview.md#permissions")) to a user identified by
   an email address
 - Saves the ACL to the object
 
@@ -531,7 +534,7 @@ performs the following tasks:
 - Clears the ACL by removing all existing
   permissions.
 - Adds two permissions: full access to the owner, and
-  WRITE_ACP to a user identified by email address.
+  WRITE\_ACP to a user identified by email address.
 - Saves the ACL by sending a `PutAcl`
   request.
   For information about setting up and running the code examples,

@@ -57,7 +57,7 @@ bucket, including objects that are within those folders.
 5. Confirm the deletion on the **Delete objects** page.
 
    1. For **Permanently delete objects?** enter `permanently
-delete`.
+  delete`.
    2. Choose **Delete objects**.
 
 ###### Note

@@ -21,18 +21,18 @@ are more than 30 days old and that have the specified prefix.
 ## How S3 Lifecycle for directory buckets is different
 
 For objects in directory buckets, you can create lifecycle rules to expire objects and delete incomplete multipart uploads.
-However, S3 Lifecycle for directory buckets doesn't support transition actions between storage classes.
+However, S3 Lifecycle for directory buckets doesn't support transition actions between storage classes. S3 Lifecycle for directory buckets requires you to grant explicit permissions to the S3 Lifecycle service principal.
 
-**CreateSession**
+### S3 Lifecycle permissions
 
-Lifecycle uses public `DeleteObject` and `DeleteObjects` API operations to expire objects in directory buckets.
-To use these API operations, S3 Lifecycle will use the `CreateSession` API to establish temporary security credentials
-to access the objects in the directory buckets. For more information, see [`CreateSession`in the _Amazon S3 API Reference_.](../API/API_CreateSession.md "../API/API_CreateSession.md")
+S3 Lifecycle uses the `DeleteObject`, `DeleteObjects`, and `AbortMultipartUpload` API operations to expire objects in directory buckets.
+To call these operations, S3 Lifecycle uses the `CreateSession` API to obtain temporary security credentials. You must grant the
+`s3express:CreateSession` permission with `ReadWrite` session mode to the S3 Lifecycle service principal
+(`lifecycle.s3.amazonaws.com`). If you don't grant this permission, or if an active policy explicitly denies delete permissions
+to the S3 Lifecycle service principal, S3 Lifecycle cannot expire objects in your directory bucket. For more information about
+`CreateSession`, see [CreateSession in the _Amazon S3 API Reference_](../API/API_CreateSession.md "../API/API_CreateSession.md").
 
-If you have an active policy that denies delete permissions to the
-lifecycle principal, this will prevent you from allowing S3 Lifecycle to delete objects on your behalf.
-
-### Using a bucket policy to Grant permissions to the S3 Lifecycle service principal
+### Using a bucket policy to grant permissions to the S3 Lifecycle service principal
 
 The following bucket policy grants the S3 Lifecycle service principal permission to create sessions for performing operations such as
 `DeleteObject` and `DeleteObjects`. When no session mode is specified in a `CreateSession` request,
@@ -41,7 +41,7 @@ if `ReadWrite` is not permitted). However, `ReadOnly` sessions are insufficient 
 or delete objects. Therefore, this example explicitly requires a `ReadWrite` session mode by using the
 `s3express:SessionMode` condition key.
 
-###### Example– Bucket policy to allow `CreateSession` calls with an explicit `ReadWrite` session mode for lifecycle operations
+###### Example Bucket policy to allow `CreateSession` with an explicit `ReadWrite` session mode for lifecycle operations
 
 ```
 

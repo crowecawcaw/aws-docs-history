@@ -149,64 +149,66 @@ The name must be unique within the bucket. 6. Choose the scope of the lifecycle 
      bucket**, and then choose **I acknowledge that this rule applies to
      all objects in the bucket**.
 
-7.  To filter a rule by object size, you can select **Specify minimum object
-    size**, **Specify maximum object size**, or both options.
+7. To filter a rule by object size, you can select **Specify minimum object
+size**, **Specify maximum object size**, or both options.
 
-    - When you're specifying a value for **Minimum object size** or
-      **Maximum object size**, the value must be larger than 0 bytes and up
-      to 50 TB. You can specify this value in bytes, KB, MB, or GB.
-    - When you're specifying both values, the maximum object size must be larger than the
-      minimum object size.
+    * When you're specifying a value for **Minimum object size** or
+     **Maximum object size**, the value must be larger than 0 bytes and up
+     to 50 TB. You can specify this value in bytes, KB, MB, or GB.
+    * When you're specifying both values, the maximum object size must be larger than the
+     minimum object size.
+
 
     ###### Note
 
     The **Minimum object size** and **Maximum object
-    size** filters exclude the specified values. For example, if you set a
-    filter to expire objects that have a **Minimum object size** of 128
-    KB, objects that are exactly 128 KB don't expire. Instead, the rule applies only to
-    objects that are greater than 128 KB in size.
+     size** filters exclude the specified values. For example, if you set a
+     filter to expire objects that have a **Minimum object size** of 128
+     KB, objects that are exactly 128 KB don't expire. Instead, the rule applies only to
+     objects that are greater than 128 KB in size.
 
-8.  Under **Lifecycle rule actions**, choose the actions that you want your
-    lifecycle rule to perform:
+8. Under **Lifecycle rule actions**, choose the actions that you want your
+lifecycle rule to perform:
 
-        * Transition *current* versions of objects between
-         storage classes
-        * Transition *previous* versions of objects between
-         storage classes
-        * Expire *current* versions of objects
+    * Transition *current* versions of objects between
+     storage classes
+    * Transition *previous* versions of objects between
+     storage classes
+    * Expire *current* versions of objects
 
 
-        ###### Note
+    ###### Note
 
-        For buckets that don't have [S3 Versioning](Versioning.md "Versioning.md")
-         enabled, expiring current versions causes Amazon S3 to permanently delete the objects. For
-         more information, see [Lifecycle actions and bucket versioning state](intro-lifecycle-rules.md#lifecycle-actions-bucket-versioning-state "intro-lifecycle-rules.md#lifecycle-actions-bucket-versioning-state").
-        * Permanently delete *previous* versions of
-         objects
-        * Delete expired delete markers or incomplete multipart uploads
+    For buckets that don't have [S3 Versioning](Versioning.md "Versioning.md")
+     enabled, expiring current versions causes Amazon S3 to permanently delete the objects. For
+     more information, see [Lifecycle actions and bucket versioning state](intro-lifecycle-rules.md#lifecycle-actions-bucket-versioning-state "intro-lifecycle-rules.md#lifecycle-actions-bucket-versioning-state").
+    * Permanently delete *previous* versions of
+     objects
+    * Delete expired delete markers or incomplete multipart uploads
 
-    Depending on the actions that you choose, different options appear.
-
-9.  To transition _current_ versions of objects between
-    storage classes, under **Transition current versions of objects between storage
-    classes**, do the following:
+Depending on the actions that you choose, different options appear. 9. To transition _current_ versions of objects between
+storage classes, under **Transition current versions of objects between storage
+classes**, do the following:
 
     1. In **Storage class transitions**, choose the storage class to
-       transition to. For a list of possible transitions, see [Supported lifecycle transitions](lifecycle-transition-general-considerations.md#supported-lifecycle-transitions "lifecycle-transition-general-considerations.md#supported-lifecycle-transitions"). You can choose from the following storage
-       classes:
+     transition to. For a list of possible transitions, see [Supported lifecycle transitions](lifecycle-transition-general-considerations.md#supported-lifecycle-transitions "lifecycle-transition-general-considerations.md#supported-lifecycle-transitions"). You can choose from the following storage
+     classes:
 
-       - S3 Standard-IA
-       - S3 Intelligent-Tiering
-       - S3 One Zone-IA
-       - S3 Glacier Instant Retrieval
-       - S3 Glacier Flexible Retrieval
-       - S3 Glacier Deep Archive
 
+
+
+    	* S3 Standard-IA
+    	* S3 Intelligent-Tiering
+    	* S3 One Zone-IA
+    	* S3 Glacier Instant Retrieval
+    	* S3 Glacier Flexible Retrieval
+    	* S3 Glacier Deep Archive
     2. In **Days after object creation**, enter the number of days after
-       creation to transition the object.For more information about storage classes, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md"). You can define transitions for current or previous
-       object versions or for both current and previous versions. Versioning enables you to keep
-       multiple versions of an object in one bucket. For more information about versioning, see
-       [Using the S3 console](manage-versioning-examples.md#enable-versioning "manage-versioning-examples.md#enable-versioning").
+     creation to transition the object.For more information about storage classes, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md"). You can define transitions for current or previous
+
+object versions or for both current and previous versions. Versioning enables you to keep
+multiple versions of an object in one bucket. For more information about versioning, see
+[Using the S3 console](manage-versioning-examples.md#enable-versioning "manage-versioning-examples.md#enable-versioning").
 
 ###### Important
 
@@ -233,8 +235,8 @@ classes**, do the following:
      days after creation to transition the object.
 
 11. To expire _current_ versions of objects, under
-    **Expire current versions of objects**, in **Number of days after
-    object creation**, enter the number of days.
+**Expire current versions of objects**, in **Number of days after
+object creation**, enter the number of days.
 
 ###### Important
 
@@ -387,7 +389,7 @@ You can test the `put-bucket-lifecycle-configuration` as follows.
    `lifecycle.json`).
 2. Run the following AWS CLI command to set the Lifecycle configuration on your
    bucket. Replace the `user input
-placeholders` with your own information.
+ placeholders` with your own information.
 
 ```
 `$` aws s3api put-bucket-lifecycle-configuration  \

@@ -64,39 +64,38 @@ Use the following steps to create an Amazon S3 Storage Lens dashboard on the Ama
 
 ###### Step 3: Choose your Storage Lens tier
 
-1.  In the **Storage Lens tier** section, choose the tier of features
-    that you want to aggregate for this dashboard.
+1. In the **Storage Lens tier** section, choose the tier of features
+   that you want to aggregate for this dashboard.
 
-    1. To include free metrics aggregated at the bucket level and available for queries
-       for 14 days, choose **Free tier**.
-    2. To enable advanced metrics, choose **Advanced tier**. These
-       options include prefix or Storage Lens groups aggregation, Amazon CloudWatch publishing, the
-       expanded prefixes report, and contextual recommendations. Data is available for
-       queries for 15 months. Advanced metrics and recommendations have an additional cost.
-       For more information, see [Amazon S3
-       pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+   1. To include free metrics aggregated at the bucket level and available for queries
+      for 14 days, choose **Free tier**.
+   2. To enable advanced metrics, choose **Advanced tier**. These
+      options include prefix or Storage Lens groups aggregation, Amazon CloudWatch publishing, the
+      expanded prefixes report, and contextual recommendations. Data is available for
+      queries for 15 months. Advanced metrics and recommendations have an additional cost.
+      For more information, see [Amazon S3
+      pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-    For more information about advanced metrics and free metrics, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection").
+   For more information about advanced metrics and free metrics, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection").
 
-2.  Under **Advanced metric categories**, select the category of
-    metrics that you want to enable:
+2. Under **Advanced metric categories**, select the category of
+   metrics that you want to enable:
 
-        * **Activity metrics**
-        * **Detailed status code metrics**
-        * **Cost optimization metrics**
-        * **Data protection metrics**
-        * **Performance metrics**
+   - **Activity metrics**
+   - **Detailed status code metrics**
+   - **Cost optimization metrics**
+   - **Data protection metrics**
+   - **Performance metrics**
+     To preview which metrics are included in each category, use the drop-down arrow
+     button below the metrics category checkbox list. For more information about metrics
+     categories, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types"). For a complete list of metrics,
+     see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
 
-    To preview which metrics are included in each category, use the drop-down arrow
-    button below the metrics category checkbox list. For more information about metrics
-    categories, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types"). For a complete list of metrics,
-    see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
-
-3.  Choose or specify a **Prefix delimiter** to distinguish levels
-    within each prefix. This value is used to identify each prefix level. The default value
-    in Amazon S3 is the "`/`" character, but your storage structure might use other
-    delimiter characters.
-4.  Choose **Next** to save your changes and proceed.
+3. Choose or specify a **Prefix delimiter** to distinguish levels
+   within each prefix. This value is used to identify each prefix level. The default value
+   in Amazon S3 is the "`/`" character, but your storage structure might use other
+   delimiter characters.
+4. Choose **Next** to save your changes and proceed.
 
 ###### Step 4: (Optional) Choose your metrics aggregation
 
@@ -123,9 +122,8 @@ the following:
     * **Exclude Storage Lens groups**
 
 4. When you include Storage Lens groups in your aggregation, you can either
-   **Include all Storage Lens groups in your home Region** or specify
-   Storage Lens groups to include.
-5. Choose **Next** to save your changes and proceed.
+**Include all Storage Lens groups in your home Region** or specify
+Storage Lens groups to include. 5. Choose **Next** to save your changes and proceed.
 
 ###### Step 5: (Optional) Choose your metrics export and publishing settings
 
@@ -142,11 +140,11 @@ you want exported daily:
     * **Expanded prefixes metrics report**
 
 3. (Optional) If you chose **Default metrics report**, in the
-   **Default metrics report** settings, choose the bucket type. You can
-   export the report to either a general purpose Amazon S3 bucket or AWS-managed S3 table
-   bucket. Based on the selected bucket type, update the **General purpose bucket
-   destination settings** or **Table bucket destination
-   settings** options.
+**Default metrics report** settings, choose the bucket type. You can
+export the report to either a general purpose Amazon S3 bucket or AWS-managed S3 table
+bucket. Based on the selected bucket type, update the **General purpose bucket
+destination settings** or **Table bucket destination
+settings** options.
 
 ###### Note
 

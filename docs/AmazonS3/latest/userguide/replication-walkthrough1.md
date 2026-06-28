@@ -48,52 +48,50 @@ If the destination bucket is in a different account from the source bucket, you 
 bucket policy to the destination bucket to grant the owner of the source bucket account
 permission to replicate objects in the destination bucket. For more information, see [(Optional) Step 3: Granting permissions when the source and destination buckets are owned by different AWS accounts](setting-repl-config-perm-overview.md#setting-repl-config-crossacct "setting-repl-config-perm-overview.md#setting-repl-config-crossacct").
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  In the left navigation pane, choose **General purpose buckets**.
-3.  In the buckets list, choose the name of the bucket that you
-    want.
-4.  Choose the **Management** tab, scroll down to **Replication
-    rules**, and then choose **Create replication rule**.
-5.  In the **Replication rule configuration** section, under
-    **Replication rule name**, enter a name for your rule to help identify
-    the rule later. The name is required and must be unique within the bucket.
-6.  Under **Status**, **Enabled** is selected by default.
-    An enabled rule starts to work as soon as you save it. If you want to enable the rule later,
-    choose **Disabled**.
-7.  If the bucket has existing replication rules, you are instructed to set a priority for
-    the rule. You must set a priority for the rule to avoid conflicts caused by objects that are
-    included in the scope of more than one rule. In the case of overlapping rules, Amazon S3 uses the
-    rule priority to determine which rule to apply. The higher the number, the higher the
-    priority. For more information about rule priority, see [Replication configuration file elements](replication-add-config.md "replication-add-config.md").
-8.  Under **Source bucket**, you have the following options for setting the
-    replication source:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **General purpose buckets**.
+3. In the buckets list, choose the name of the bucket that you
+   want.
+4. Choose the **Management** tab, scroll down to **Replication
+   rules**, and then choose **Create replication rule**.
+5. In the **Replication rule configuration** section, under
+   **Replication rule name**, enter a name for your rule to help identify
+   the rule later. The name is required and must be unique within the bucket.
+6. Under **Status**, **Enabled** is selected by default.
+   An enabled rule starts to work as soon as you save it. If you want to enable the rule later,
+   choose **Disabled**.
+7. If the bucket has existing replication rules, you are instructed to set a priority for
+   the rule. You must set a priority for the rule to avoid conflicts caused by objects that are
+   included in the scope of more than one rule. In the case of overlapping rules, Amazon S3 uses the
+   rule priority to determine which rule to apply. The higher the number, the higher the
+   priority. For more information about rule priority, see [Replication configuration file elements](replication-add-config.md "replication-add-config.md").
+8. Under **Source bucket**, you have the following options for setting the
+   replication source:
 
-        * To replicate the whole bucket, choose **Apply to all objects
-         in the bucket**.
-        * To replicate all objects that have the same prefix, choose **Limit the scope
-         of this rule using one or more filters**. This limits replication to all
-         objects that have names that begin with the prefix that you specify (for example
-         `pictures`). Enter a prefix in the **Prefix** box.
+   - To replicate the whole bucket, choose **Apply to all objects
+     in the bucket**.
+   - To replicate all objects that have the same prefix, choose **Limit the scope
+     of this rule using one or more filters**. This limits replication to all
+     objects that have names that begin with the prefix that you specify (for example
+     `pictures`). Enter a prefix in the **Prefix** box.
 
+   ###### Note
 
-        ###### Note
+   If you enter a prefix that is the name of a folder, you must use
+   **/** (forward slash) as the last character (for example,
+   `pictures/`).
+   - To replicate all objects with one or more object tags, choose **Add
+     tag** and enter the key-value pair in the boxes. Repeat the procedure to add
+     another tag. You can combine a prefix and tags. For more information about object tags,
+     see [Tagging your objects](object-tagging.md "object-tagging.md").
+     The new replication configuration XML schema supports prefix and tag filtering and the
+     prioritization of rules. For more information about the new schema, see [Backward compatibility considerations](replication-add-config.md#replication-backward-compat-considerations "replication-add-config.md#replication-backward-compat-considerations"). For more information about
+     the XML used with the Amazon S3 API that works behind the user interface, see [Replication configuration file elements](replication-add-config.md "replication-add-config.md"). The new schema
+     is described as _replication configuration XML V2_.
 
-        If you enter a prefix that is the name of a folder, you must use
-         **/** (forward slash) as the last character (for example,
-         `pictures/`).
-        * To replicate all objects with one or more object tags, choose **Add
-         tag** and enter the key-value pair in the boxes. Repeat the procedure to add
-         another tag. You can combine a prefix and tags. For more information about object tags,
-         see [Tagging your objects](object-tagging.md "object-tagging.md").
-
-    The new replication configuration XML schema supports prefix and tag filtering and the
-    prioritization of rules. For more information about the new schema, see [Backward compatibility considerations](replication-add-config.md#replication-backward-compat-considerations "replication-add-config.md#replication-backward-compat-considerations"). For more information about
-    the XML used with the Amazon S3 API that works behind the user interface, see [Replication configuration file elements](replication-add-config.md "replication-add-config.md"). The new schema
-    is described as _replication configuration XML V2_.
-
-9.  Under **Destination**, choose the bucket where you want Amazon S3 to
-    replicate objects.
+9. Under **Destination**, choose the bucket where you want Amazon S3 to
+   replicate objects.
 
 ###### Note
 
@@ -226,23 +224,22 @@ If you chose to replicate objects encrypted with AWS KMS, do the following:
      Amazon S3, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
 
 12. Under **Destination storage
-    class**, if you want to replicate your data into a specific storage class in the destination,
-    choose **Change the storage class for the replicated objects**. Then
-    choose the storage class that you want to use for the replicated objects in the
-    destination. If you don't choose this option, the storage class for replicated objects
-    is the same class as the original objects.
-13. You have the following additional options while setting the **Additional
-    replication options**:
+class**, if you want to replicate your data into a specific storage class in the destination,
+choose **Change the storage class for the replicated objects**. Then
+choose the storage class that you want to use for the replicated objects in the
+destination. If you don't choose this option, the storage class for replicated objects
+is the same class as the original objects. 13. You have the following additional options while setting the **Additional
+replication options**:
 
-    - If you want to enable S3 Replication Time Control (S3 RTC) in your replication configuration, select
-      **Replication Time Control (RTC)**. For more information about this
-      option, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
-    - If you want to enable S3 Replication metrics in your replication configuration, select
-      **Replication metrics and events**. For more information, see [Monitoring replication with metrics, event notifications, and statuses](replication-metrics.md "replication-metrics.md").
-    - If you want to enable delete marker replication in your replication configuration, select
-      **Delete marker replication**. For more information, see [Replicating delete markers between buckets](delete-marker-replication.md "delete-marker-replication.md").
-    - If you want to enable Amazon S3 replica modification sync in your replication configuration,
-      select **Replica modification sync**. For more information, see [Replicating metadata changes with replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
+    * If you want to enable S3 Replication Time Control (S3 RTC) in your replication configuration, select
+     **Replication Time Control (RTC)**. For more information about this
+     option, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
+    * If you want to enable S3 Replication metrics in your replication configuration, select
+     **Replication metrics and events**. For more information, see [Monitoring replication with metrics, event notifications, and statuses](replication-metrics.md "replication-metrics.md").
+    * If you want to enable delete marker replication in your replication configuration, select
+     **Delete marker replication**. For more information, see [Replicating delete markers between buckets](delete-marker-replication.md "delete-marker-replication.md").
+    * If you want to enable Amazon S3 replica modification sync in your replication configuration,
+     select **Replica modification sync**. For more information, see [Replicating metadata changes with replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
 
 ###### Note
 
@@ -336,163 +333,165 @@ aws s3api put-bucket-versioning \
 --profile `acctA`
 ```
 
-4.  Create an IAM role. You specify this role in the replication
-    configuration that you add to the source bucket later. Amazon S3 assumes this
-    role to replicate objects on your behalf. You create an IAM role in two
-    steps:
+4. Create an IAM role. You specify this role in the replication
+   configuration that you add to the source bucket later. Amazon S3 assumes this
+   role to replicate objects on your behalf. You create an IAM role in two
+   steps:
 
-    - Create a role.
-    - Attach a permissions policy to the role.
-    1.  Create the IAM role.
+   - Create a role.
+   - Attach a permissions policy to the role.
+   1. Create the IAM role.
 
-        1. Copy the following trust policy and save it to a file
-           named `s3-role-trust-policy.json` in the
-           current directory on your local computer. This policy grants
-           the Amazon S3 service principal permissions to assume the
-           role.
+      1. Copy the following trust policy and save it to a file
+         named `s3-role-trust-policy.json` in the
+         current directory on your local computer. This policy grants
+         the Amazon S3 service principal permissions to assume the
+         role.
 
-        JSON
+      JSON
 
-        ```
-        `{
-         "Version":"2012-10-17",
-         "Statement":[
-         {
-         "Effect":"Allow",
-         "Principal":{
-         "Service":"s3.amazonaws.com"
-         },
-         "Action":"sts:AssumeRole"
+      ```
+      `{
+       "Version":"2012-10-17",
+       "Statement":[
+       {
+       "Effect":"Allow",
+       "Principal":{
+       "Service":"s3.amazonaws.com"
+       },
+       "Action":"sts:AssumeRole"
+       }
+       ]
+      }`
+
+      ```
+      2. Run the following command to create a role.
+
+      ```
+      `$` aws iam create-role \
+      --role-name `replicationRole` \
+      --assume-role-policy-document file://`s3-role-trust-policy.json`  \
+      --profile `acctA`
+      ```
+
+   2. Attach a permissions policy to the role.
+
+      1. Copy the following permissions policy and save it to a
+         file named `s3-role-permissions-policy.json` in
+         the current directory on your local computer. This policy
+         grants permissions for various Amazon S3 bucket and object
+         actions.
+
+      JSON
+
+      ```
+      `{
+       "Version":"2012-10-17",
+       "Statement":[
+       {
+       "Effect":"Allow",
+       "Action":[
+       "s3:GetObjectVersionForReplication",
+       "s3:GetObjectVersionAcl",
+       "s3:GetObjectVersionTagging"
+       ],
+       "Resource":[
+       "arn:aws:s3:::amzn-s3-demo-source-bucket/*"
+       ]
+       },
+       {
+       "Effect":"Allow",
+       "Action":[
+       "s3:ListBucket",
+       "s3:GetReplicationConfiguration"
+       ],
+       "Resource":[
+       "arn:aws:s3:::amzn-s3-demo-source-bucket"
+       ]
+       },
+       {
+       "Effect":"Allow",
+       "Action":[
+       "s3:ReplicateObject",
+       "s3:ReplicateDelete",
+       "s3:ReplicateTags"
+       ],
+       "Resource":"arn:aws:s3:::amzn-s3-demo-destination-bucket/*"
+       }
+       ]
+      }`
+
+      ```
+
+      ###### Note
+
+           * If you want to replicate encrypted objects, you also must grant the necessary
+            AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+           * To use Object Lock with replication, you must grant two additional
+            permissions on the source S3 bucket in the AWS Identity and Access Management (IAM) role that you use
+            to set up replication. The two additional permissions are
+            `s3:GetObjectRetention` and `s3:GetObjectLegalHold`.
+            If the role has an `s3:Get*` permission statement, that statement
+            satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
+           * To replicate object annotations, you must also grant
+            `s3:GetObjectVersionAnnotationForReplication` on the source
+            S3 bucket in the IAM role permissions policy. For more information, see
+            [Replicating metadata changes with replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
+
+      2. Run the following command to create a policy and attach it
+      to the role. Replace the `user input
+  placeholders` with your own
+      information.
+
+      ```
+      `$` aws iam put-role-policy \
+      --role-name `replicationRole` \
+      --policy-document file://`s3-role-permissions-policy.json` \
+      --policy-name `replicationRolePolicy` \
+      --profile `acctA`
+      ```
+
+5. Add a replication configuration to the source bucket.
+
+   1. Although the Amazon S3 API requires that you specify the replication
+      configuration as XML, the AWS CLI requires that you specify the
+      replication configuration as JSON. Save the following JSON in a file
+      called `replication.json` to the local directory on your
+      computer.
+
+   ```
+   {
+     "Role": "`IAM-role-ARN`",
+     "Rules": [
+       {
+         "Status": "Enabled",
+         "Priority": 1,
+         "DeleteMarkerReplication": { "Status": "Disabled" },
+         "Filter" : { "Prefix": "`Tax`"},
+         "Destination": {
+           "Bucket": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`"
          }
-         ]
-        }`
+       }
+     ]
+   }
+   ```
+   2. Update the JSON by replacing the values for the
+      `amzn-s3-demo-destination-bucket` and
+      `IAM-role-ARN` with
+      your own information. Save the changes.
+   3. Run the following `put-bucket-replication` command to
+      add the replication configuration to your source bucket. Be sure to
+      provide the source bucket name:
 
-        ```
-        2. Run the following command to create a role.
+   ````
+   `$` aws s3api put-bucket-replication \
+   --replication-configuration file://`replication.json` \
+   --bucket `amzn-s3-demo-source-bucket` \
+   --profile `acctA`
+   ```To retrieve the replication configuration, use the
+   ````
 
-        ```
-        `$` aws iam create-role \
-        --role-name `replicationRole` \
-        --assume-role-policy-document file://`s3-role-trust-policy.json`  \
-        --profile `acctA`
-        ```
-
-    2.  Attach a permissions policy to the role.
-
-        1. Copy the following permissions policy and save it to a
-           file named `s3-role-permissions-policy.json` in
-           the current directory on your local computer. This policy
-           grants permissions for various Amazon S3 bucket and object
-           actions.
-
-        JSON
-
-        ```
-        `{
-         "Version":"2012-10-17",
-         "Statement":[
-         {
-         "Effect":"Allow",
-         "Action":[
-         "s3:GetObjectVersionForReplication",
-         "s3:GetObjectVersionAcl",
-         "s3:GetObjectVersionTagging"
-         ],
-         "Resource":[
-         "arn:aws:s3:::amzn-s3-demo-source-bucket/*"
-         ]
-         },
-         {
-         "Effect":"Allow",
-         "Action":[
-         "s3:ListBucket",
-         "s3:GetReplicationConfiguration"
-         ],
-         "Resource":[
-         "arn:aws:s3:::amzn-s3-demo-source-bucket"
-         ]
-         },
-         {
-         "Effect":"Allow",
-         "Action":[
-         "s3:ReplicateObject",
-         "s3:ReplicateDelete",
-         "s3:ReplicateTags"
-         ],
-         "Resource":"arn:aws:s3:::amzn-s3-demo-destination-bucket/*"
-         }
-         ]
-        }`
-
-        ```
-
-        ###### Note
-
-            * If you want to replicate encrypted objects, you also must grant the necessary
-             AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
-            * To use Object Lock with replication, you must grant two additional
-             permissions on the source S3 bucket in the AWS Identity and Access Management (IAM) role that you use
-             to set up replication. The two additional permissions are
-             `s3:GetObjectRetention` and `s3:GetObjectLegalHold`.
-             If the role has an `s3:Get*` permission statement, that statement
-             satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
-            * To replicate object annotations, you must also grant
-             `s3:GetObjectVersionAnnotationForReplication` on the source
-             S3 bucket in the IAM role permissions policy. For more information, see
-             [Replicating metadata changes with replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
-        2. Run the following command to create a policy and attach it
-           to the role. Replace the `user input
-placeholders` with your own
-           information.
-
-        ```
-        `$` aws iam put-role-policy \
-        --role-name `replicationRole` \
-        --policy-document file://`s3-role-permissions-policy.json` \
-        --policy-name `replicationRolePolicy` \
-        --profile `acctA`
-        ```
-
-5.  Add a replication configuration to the source bucket.
-
-    1. Although the Amazon S3 API requires that you specify the replication
-       configuration as XML, the AWS CLI requires that you specify the
-       replication configuration as JSON. Save the following JSON in a file
-       called `replication.json` to the local directory on your
-       computer.
-
-    ```
-    {
-      "Role": "`IAM-role-ARN`",
-      "Rules": [
-        {
-          "Status": "Enabled",
-          "Priority": 1,
-          "DeleteMarkerReplication": { "Status": "Disabled" },
-          "Filter" : { "Prefix": "`Tax`"},
-          "Destination": {
-            "Bucket": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`"
-          }
-        }
-      ]
-    }
-    ```
-    2. Update the JSON by replacing the values for the
-       `amzn-s3-demo-destination-bucket` and
-       `IAM-role-ARN` with
-       your own information. Save the changes.
-    3. Run the following `put-bucket-replication` command to
-       add the replication configuration to your source bucket. Be sure to
-       provide the source bucket name:
-
-    ````
-    `$` aws s3api put-bucket-replication \
-    --replication-configuration file://`replication.json` \
-    --bucket `amzn-s3-demo-source-bucket` \
-    --profile `acctA`
-    ```To retrieve the replication configuration, use the
-    `get-bucket-replication` command:
-    ````
+`get-bucket-replication` command:
 
 ```
 `$` aws s3api get-bucket-replication \
@@ -500,52 +499,47 @@ placeholders` with your own
 --profile `acctA`
 ```
 
-6.  Test the setup in the Amazon S3 console, by doing the following steps:
+6. Test the setup in the Amazon S3 console, by doing the following steps:
 
-        1. Sign in to the AWS Management Console and open the Amazon S3 console at
-         [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-        2. In the left navigation pane, choose **Buckets**.
-         In the **General purpose buckets** list, choose the
-         source bucket.
-        3. In the source bucket, create a folder named
-         ``Tax``.
-        4. Add sample objects to the
-         ``Tax`` folder in
-         the source bucket.
+   1. Sign in to the AWS Management Console and open the Amazon S3 console at
+      [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+   2. In the left navigation pane, choose **Buckets**.
+      In the **General purpose buckets** list, choose the
+      source bucket.
+   3. In the source bucket, create a folder named
+      `Tax`.
+   4. Add sample objects to the
+      `Tax` folder in
+      the source bucket.
 
+   ###### Note
 
-        ###### Note
+   The amount of time that it takes for Amazon S3 to replicate an
+   object depends on the size of the object. For information about
+   how to see the status of replication, see [Getting replication status information](replication-status.md "replication-status.md").
 
-        The amount of time that it takes for Amazon S3 to replicate an
-         object depends on the size of the object. For information about
-         how to see the status of replication, see [Getting replication status information](replication-status.md "replication-status.md").
+   In the destination bucket, verify the following:
 
-
-        In the destination bucket, verify the following:
-
-
-
-
-        	* That Amazon S3 replicated the objects.
-        	* That the objects are replicas. On the
-        	 **Properties** tab for your objects,
-        	 scroll down to the **Object management
-        	 overview** section. Under **Management
-        	 configurations**, see the value under
-        	 **Replication status**. Make sure that
-        	 this value is set to `REPLICA`.
-        	* That the replicas are owned by the source bucket account.
-        	 You can verify the object ownership on the
-        	 **Permissions** tab for your objects.
+        * That Amazon S3 replicated the objects.
+        * That the objects are replicas. On the
+         **Properties** tab for your objects,
+         scroll down to the **Object management
+         overview** section. Under **Management
+         configurations**, see the value under
+         **Replication status**. Make sure that
+         this value is set to `REPLICA`.
+        * That the replicas are owned by the source bucket account.
+         You can verify the object ownership on the
+         **Permissions** tab for your objects.
 
 
-        	If the source and destination buckets are owned by
-        	 different accounts, you can add an optional configuration to
-        	 tell Amazon S3 to change the replica ownership to the destination
-        	 account. For an example, see [How to change the replica owner](replication-change-owner.md#replication-walkthrough-3 "replication-change-owner.md#replication-walkthrough-3").
+        If the source and destination buckets are owned by
+         different accounts, you can add an optional configuration to
+         tell Amazon S3 to change the replica ownership to the destination
+         account. For an example, see [How to change the replica owner](replication-change-owner.md#replication-walkthrough-3 "replication-change-owner.md#replication-walkthrough-3").
 
-    Use the following code examples to add a replication configuration to a bucket
-    with the AWS SDK for Java and AWS SDK for .NET, respectively.
+Use the following code examples to add a replication configuration to a bucket
+with the AWS SDK for Java and AWS SDK for .NET, respectively.
 
 ###### Note
 

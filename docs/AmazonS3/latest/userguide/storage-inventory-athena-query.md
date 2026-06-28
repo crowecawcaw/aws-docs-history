@@ -15,89 +15,19 @@ Inventory are available in all AWS Regions.
 
 ###### To use Athena to query Amazon S3 Inventory files
 
-1.  Create an Athena table. For information about creating a table, see [Creating Tables in Amazon Athena](../../../athena/latest/ug/creating-tables.md "../../../athena/latest/ug/creating-tables.md") in
-    the _Amazon Athena User Guide_.
-2.  Create your query by using one of the following sample query templates, depending
-    on whether you're querying an ORC-formatted, a Parquet-formatted, or a CSV-formatted
-    inventory report.
+1. Create an Athena table. For information about creating a table, see [Creating Tables in Amazon Athena](../../../athena/latest/ug/creating-tables.md "../../../athena/latest/ug/creating-tables.md") in
+   the _Amazon Athena User Guide_.
+2. Create your query by using one of the following sample query templates, depending
+   on whether you're querying an ORC-formatted, a Parquet-formatted, or a CSV-formatted
+   inventory report.
 
-    - When you're using Athena to query an ORC-formatted inventory report, use
-      the following sample query as a template.
+   - When you're using Athena to query an ORC-formatted inventory report, use
+     the following sample query as a template.
 
-    The following sample query includes all the optional fields in an
-    ORC-formatted inventory report.
+   The following sample query includes all the optional fields in an
+   ORC-formatted inventory report.
 
-    To use this sample query, do the following:
-
-        + Replace ``your_table_name``
-         with the name of the Athena table that you created.
-        + Remove any optional fields that you did not choose for your
-         inventory so that the query corresponds to the fields chosen for
-         your inventory.
-        + Replace the following bucket name and inventory location
-         (the configuration ID) as appropriate for your configuration.
-
-
-        `s3://`amzn-s3-demo-bucket`/`config-ID`/hive/`
-        + Replace the
-         ``2022-01-01-00-00`` date
-         under `projection.dt.range` with the first day of the time range within which you
-         partition the data in Athena. For more information, see [Partitioning data in Athena](../../../athena/latest/ug/partitions.md "../../../athena/latest/ug/partitions.md").
-
-    ```
-    CREATE EXTERNAL TABLE `your_table_name` (
-             bucket string,
-             key string,
-             version_id string,
-             is_latest boolean,
-             is_delete_marker boolean,
-             size bigint,
-             last_modified_date timestamp,
-             e_tag string,
-             storage_class string,
-             is_multipart_uploaded boolean,
-             replication_status string,
-             encryption_status string,
-             object_lock_retain_until_date bigint,
-             object_lock_mode string,
-             object_lock_legal_hold_status string,
-             intelligent_tiering_access_tier string,
-             bucket_key_status string,
-             checksum_algorithm string,
-             object_access_control_list string,
-             object_owner string,
-             lifecycle_expiration_date timestamp
-    ) PARTITIONED BY (
-            dt string
-    )
-    ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
-      STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'
-      OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
-      LOCATION 's3://`amzn-s3-demo-bucket`/`config-ID`/hive/'
-      TBLPROPERTIES (
-        "projection.enabled" = "true",
-        "projection.dt.type" = "date",
-        "projection.dt.format" = "yyyy-MM-dd-HH-mm",
-        "projection.dt.range" = "`2022-01-01-00-00`,NOW",
-        "projection.dt.interval" = "1",
-        "projection.dt.interval.unit" = "HOURS"
-      );
-    ```
-    - When you're using Athena to query a Parquet-formatted
-      inventory report, use the sample query for an ORC-formatted report. However,
-      use the following Parquet SerDe in place of the ORC SerDe in
-      the `ROW FORMAT SERDE` statement.
-
-    ```
-    ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
-    ```
-    - When you're using Athena to query a CSV-formatted inventory report, use the
-      following sample query as a template.
-
-    The following sample query includes all the optional fields in an
-    CSV-formatted inventory report.
-
-    To use this sample query, do the following:
+   To use this sample query, do the following:
 
         + Replace ``your_table_name``
          with the name of the Athena table that you created.
@@ -114,49 +44,119 @@ Inventory are available in all AWS Regions.
          under `projection.dt.range` with the first day of the time range within which you
          partition the data in Athena. For more information, see [Partitioning data in Athena](../../../athena/latest/ug/partitions.md "../../../athena/latest/ug/partitions.md").
 
-    ```
-    CREATE EXTERNAL TABLE `your_table_name` (
-             bucket string,
-             key string,
-             version_id string,
-             is_latest boolean,
-             is_delete_marker boolean,
-             size string,
-             last_modified_date string,
-             e_tag string,
-             storage_class string,
-             is_multipart_uploaded boolean,
-             replication_status string,
-             encryption_status string,
-             object_lock_retain_until_date string,
-             object_lock_mode string,
-             object_lock_legal_hold_status string,
-             intelligent_tiering_access_tier string,
-             bucket_key_status string,
-             checksum_algorithm string,
-             object_access_control_list string,
-             object_owner string,
-             lifecycle_expiration_date string
-    ) PARTITIONED BY (
-            dt string
-    )
-    ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
-      STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'
-      OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
-      LOCATION 's3://`amzn-s3-demo-bucket`/`config-ID`/hive/'
-      TBLPROPERTIES (
-        "projection.enabled" = "true",
-        "projection.dt.type" = "date",
-        "projection.dt.format" = "yyyy-MM-dd-HH-mm",
-        "projection.dt.range" = "`2022-01-01-00-00`,NOW",
-        "projection.dt.interval" = "1",
-        "projection.dt.interval.unit" = "HOURS"
-      );
-    ```
+   ```
+   CREATE EXTERNAL TABLE `your_table_name` (
+            bucket string,
+            key string,
+            version_id string,
+            is_latest boolean,
+            is_delete_marker boolean,
+            size bigint,
+            last_modified_date timestamp,
+            e_tag string,
+            storage_class string,
+            is_multipart_uploaded boolean,
+            replication_status string,
+            encryption_status string,
+            object_lock_retain_until_date bigint,
+            object_lock_mode string,
+            object_lock_legal_hold_status string,
+            intelligent_tiering_access_tier string,
+            bucket_key_status string,
+            checksum_algorithm string,
+            object_access_control_list string,
+            object_owner string,
+            lifecycle_expiration_date timestamp
+   ) PARTITIONED BY (
+           dt string
+   )
+   ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
+     STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'
+     OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
+     LOCATION 's3://`amzn-s3-demo-bucket`/`config-ID`/hive/'
+     TBLPROPERTIES (
+       "projection.enabled" = "true",
+       "projection.dt.type" = "date",
+       "projection.dt.format" = "yyyy-MM-dd-HH-mm",
+       "projection.dt.range" = "`2022-01-01-00-00`,NOW",
+       "projection.dt.interval" = "1",
+       "projection.dt.interval.unit" = "HOURS"
+     );
+   ```
+   - When you're using Athena to query a Parquet-formatted
+     inventory report, use the sample query for an ORC-formatted report. However,
+     use the following Parquet SerDe in place of the ORC SerDe in
+     the `ROW FORMAT SERDE` statement.
 
-3.  You can now run various queries on your inventory, as shown in the following
-    examples. Replace each `user input
-placeholder` with your own information.
+   ```
+   ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+   ```
+   - When you're using Athena to query a CSV-formatted inventory report, use the
+     following sample query as a template.
+
+   The following sample query includes all the optional fields in an
+   CSV-formatted inventory report.
+
+   To use this sample query, do the following:
+
+        + Replace ``your_table_name``
+         with the name of the Athena table that you created.
+        + Remove any optional fields that you did not choose for your
+         inventory so that the query corresponds to the fields chosen for
+         your inventory.
+        + Replace the following bucket name and inventory location
+         (the configuration ID) as appropriate for your configuration.
+
+
+        `s3://`amzn-s3-demo-bucket`/`config-ID`/hive/`
+        + Replace the
+         ``2022-01-01-00-00`` date
+         under `projection.dt.range` with the first day of the time range within which you
+         partition the data in Athena. For more information, see [Partitioning data in Athena](../../../athena/latest/ug/partitions.md "../../../athena/latest/ug/partitions.md").
+
+   ```
+   CREATE EXTERNAL TABLE `your_table_name` (
+            bucket string,
+            key string,
+            version_id string,
+            is_latest boolean,
+            is_delete_marker boolean,
+            size string,
+            last_modified_date string,
+            e_tag string,
+            storage_class string,
+            is_multipart_uploaded boolean,
+            replication_status string,
+            encryption_status string,
+            object_lock_retain_until_date string,
+            object_lock_mode string,
+            object_lock_legal_hold_status string,
+            intelligent_tiering_access_tier string,
+            bucket_key_status string,
+            checksum_algorithm string,
+            object_access_control_list string,
+            object_owner string,
+            lifecycle_expiration_date string
+   ) PARTITIONED BY (
+           dt string
+   )
+   ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+     STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'
+     OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
+     LOCATION 's3://`amzn-s3-demo-bucket`/`config-ID`/hive/'
+     TBLPROPERTIES (
+       "projection.enabled" = "true",
+       "projection.dt.type" = "date",
+       "projection.dt.format" = "yyyy-MM-dd-HH-mm",
+       "projection.dt.range" = "`2022-01-01-00-00`,NOW",
+       "projection.dt.interval" = "1",
+       "projection.dt.interval.unit" = "HOURS"
+     );
+   ```
+
+3. You can now run various queries on your inventory, as shown in the following
+   examples. Replace each `user input
+ placeholder` with your own information.
 
 ```
 # Get a list of the latest inventory report dates available.
