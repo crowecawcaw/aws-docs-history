@@ -198,7 +198,7 @@ resource in an AWS account.
 
 ### How policies are evaluated
 
-For IAM principals, requests to AWS are implicitly **_denied_**. This means that if no policies are attached to
+For IAM principals, requests to AWS are implicitly _**denied**_. This means that if no policies are attached to
 a principal, IAM's default behavior is to deny access.
 
 Next, if the principal does have an attached policy, and there is an explicit allow, the
@@ -212,7 +212,7 @@ this simplified model of how IAM evaluates identity based policies:
 
 Identity based policies do not affect the **root user**,
 so actions taken by the **root user** account are
-implicitly **\***allowed**\***.
+implicitly _****allowed****_.
 
 The root user is special in this regard and is the **only** principal that has this type of access.
 

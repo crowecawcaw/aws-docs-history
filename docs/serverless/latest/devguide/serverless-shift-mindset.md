@@ -63,27 +63,27 @@ more challenging, and delays the delivery of new features.
 Serverless applications usually comprise several AWS services, integrated with custom code run in Lambda functions.
 While Lambda can be integrated with most AWS services, the services most commonly used in serverless applications are:
 
-| Commonly used AWS services in serverless applications | Category                            | AWS service |
-| ----------------------------------------------------- | ----------------------------------- | ----------- |
-| Compute                                               | Lambda                              |
-| Data storage                                          | Amazon S3, DynamoDB, Amazon RDS     |
-| API                                                   | API Gateway                         |
-| Application integration                               | EventBridge, Amazon SNS, Amazon SQS |
-| Orchestration                                         | Step Functions                      |
-| Streaming data and analytics                          | Amazon Data Firehose                |
+Commonly used AWS services in serverless applications| Category | AWS service |
+| --- | --- |
+| Compute | Lambda |
+| Data storage | Amazon S3, DynamoDB, Amazon RDS |
+| API | API Gateway |
+| Application integration | EventBridge, Amazon SNS, Amazon SQS |
+| Orchestration | Step Functions |
+| Streaming data and analytics | Amazon Data Firehose |
 
 There are many well-established, common patterns in distributed architectures that you can build yourself or
 implement using AWS services. For most customers, there is little commercial value in investing time to develop
 these patterns from scratch. When your application needs one of these patterns, use the corresponding AWS service:
 
-| Common patterns and corresponding AWS services | Pattern        | AWS service |
-| ---------------------------------------------- | -------------- | ----------- |
-| Queue                                          | Amazon SQS     |
-| Event bus                                      | EventBridge    |
-| Publish/subscribe (fan-out)                    | Amazon SNS     |
-| Orchestration                                  | Step Functions |
-| API                                            | API Gateway    |
-| Event streams                                  | Kinesis        |
+Common patterns and corresponding AWS services| Pattern | AWS service |
+| --- | --- |
+| Queue | Amazon SQS |
+| Event bus | EventBridge |
+| Publish/subscribe (fan-out) | Amazon SNS |
+| Orchestration | Step Functions |
+| API | API Gateway |
+| Event streams | Kinesis |
 
 These services are designed to integrate with Lambda and you can use infrastructure as code (IaC) to create and discard resources in the services.
 You can use any of these services via the [AWS SDK](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/") without needing to install applications

@@ -80,7 +80,7 @@ DynamoDB is a non-relational NoSQL database that does not support table joins. I
 
 - `GetItem` – Retrieves a single item from a table. This is the most efficient way to read a single item because it provides direct access to the physical location of the item. (DynamoDB also provides the `BatchGetItem` operation, allowing you to perform up to 100 `GetItem` calls in a single operation.)
 - `Query` – Retrieves all of the items that have a specific partition key. Within those items, you can apply a condition to the sort key and retrieve only a subset of the data. `Query` provides quick, efficient access to the partitions where the data is stored.
-- `Scan` – Retrieves all of the items in the specified table. This operation should not be used with large tables because it can consume large amounts of system resources. Think of it like a “SELECT \* FROM BIG_TABLE” in SQL. You should generally prefer Query over Scan.
+- `Scan` – Retrieves all of the items in the specified table. This operation should not be used with large tables because it can consume large amounts of system resources. Think of it like a “SELECT \* FROM BIG\_TABLE” in SQL. You should generally prefer Query over Scan.
 - `ExecuteStatement` retrieves a single or multiple items from a table. `BatchExecuteStatement` retrieves multiple items from different tables in a single operation. Both of these operations use [PartiQL](../../../amazondynamodb/latest/developerguide/ql-reference.md "../../../amazondynamodb/latest/developerguide/ql-reference.md"), a SQL-compatible query language.
 
 ### Primary keys and indexes
