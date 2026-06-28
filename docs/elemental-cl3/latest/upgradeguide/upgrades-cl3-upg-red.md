@@ -19,18 +19,17 @@ are upgrading to.
 
 ###### To check the type of redundancy of your deployment
 
-1.  On the web interface for the primary Conductor Live node, access **Conductor Live** > **Redundancy**.
-2.  Look in the **Redundancy Group** task bar:
+1. On the web interface for the primary Conductor Live node, access **Conductor Live** > **Redundancy**.
+2. Look in the **Redundancy Group** task bar:
 
-        * If you find any groups labeled as **Live**, your cluster
-         is using worker redundancy and you can perform the
-         reduced downtime upgrade.
-        * If you find any groups labeled as **Conductor Live**,
-         your cluster is using Conductor Live redundancy (high availability).
-
-    The following procedure shows the comprehensive reduced downtime upgrade process. This process
-    is valid whether or not you have Conductor Live redundancy. It will guide you to your next step
-    based on your circumstances through the steps provided.
+   - If you find any groups labeled as **Live**, your cluster
+     is using worker redundancy and you can perform the
+     reduced downtime upgrade.
+   - If you find any groups labeled as **Conductor Live**,
+     your cluster is using Conductor Live redundancy (high availability).
+     The following procedure shows the comprehensive reduced downtime upgrade process. This process
+     is valid whether or not you have Conductor Live redundancy. It will guide you to your next step
+     based on your circumstances through the steps provided.
 
 ###### Topics
 

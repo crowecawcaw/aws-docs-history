@@ -48,7 +48,7 @@ Options are as follows:
 [elemental@hostname ~]$ **sudo reboot**
 ```
 
-5. Make sure that elemental_se restarts on this node; otherwise, you will not be able to
+5. Make sure that elemental\_se restarts on this node; otherwise, you will not be able to
    downgrade the secondary Conductor Live node. Look for this prompt on the primary Conductor Live command
    line:
 
@@ -103,7 +103,7 @@ file name of the .run file, rather than the example below:
     ```
 
 3. When the installer completes, **do not** reboot or
-   restart! Run these two commands first:
+restart! Run these two commands first:
 
 ```
 [elemental@hostname ~]$ **sudo yum versionlock delete device-mapper\***

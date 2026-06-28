@@ -6,7 +6,7 @@ process is complete when you upgrade the single Conductor Live.
 Add the secondary node back to the cluster, and then to the redundancy group.
 
 Wait approximately three minutes after the upgrade before you perform these steps.
-This wait ensures that the elemental_se service has restarted and is running.
+This wait ensures that the elemental\_se service has restarted and is running.
 
 ###### To add the secondary node to the cluster
 

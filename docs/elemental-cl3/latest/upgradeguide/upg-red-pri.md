@@ -27,8 +27,8 @@ not be prompted to do the following:
     * Choose the timezone.
     * Enable or disable user authentication.
 
-3. Make sure that the elemental_se service restarts. Look for
-   this prompt on the primary Conductor Live command line:
+3. Make sure that the elemental\_se service restarts. Look for
+this prompt on the primary Conductor Live command line:
 
 ```
 Starting elemental_se:            [OK]

@@ -20,7 +20,7 @@ Follow these steps:
      `...elemental_production_conductor_live247_3.23.5.12345.run...`
 
 2. If you find the software, skip to
-   [Step C: Stop the running channels](downgrades-cl3-upg-stop-chan.md "downgrades-cl3-upg-stop-chan.md")
+[Step C: Stop the running channels](downgrades-cl3-upg-stop-chan.md "downgrades-cl3-upg-stop-chan.md")
 
 If the software isn't on the appliance, go to the next
 step. 3. From your regular workstation, open a web browser, go to

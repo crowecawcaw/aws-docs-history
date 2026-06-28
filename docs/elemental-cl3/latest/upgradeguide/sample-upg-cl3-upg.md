@@ -117,7 +117,7 @@ Starting Avahi daemon...                                   [  OK  ]
 Starting snmpd:                                            [  OK  ]
 ```
 
-The user is prompted to start elemental_se.
+The user is prompted to start elemental\_se.
 
 ```
 Would you like to start the Elemental service now? [Y] y

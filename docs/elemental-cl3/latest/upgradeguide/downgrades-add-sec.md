@@ -5,7 +5,7 @@ If you have only one Conductor Live, skip this step and go to
 
 Add the secondary node back to the cluster, and then to the redundancy group.
 
-To avoid errors when you're adding the secondary Conductor Live back to the cluster, wait approximately three minutes after the downgrade before performing these steps. This wait ensures that the elemental_se service has restarted and is running.
+To avoid errors when you're adding the secondary Conductor Live back to the cluster, wait approximately three minutes after the downgrade before performing these steps. This wait ensures that the elemental\_se service has restarted and is running.
 
 ###### To add the secondary node to the cluster
 

@@ -70,38 +70,34 @@ Conversion](../../../elemental-live/latest/ug/support-for-ocr.md "../../../eleme
 Perform these steps on the secondary Conductor Live (if applicable), then on the primary
 Conductor Live.
 
-1.  From the Linux command line, log in to the Conductor node. Use the
-    _elemental_ user credentials.
-2.  Run the installer:
+1. From the Linux command line, log in to the Conductor node. Use the
+   _elemental_ user credentials.
+2. Run the installer:
 
-        * For the *secondary* Conductor Live, make sure to include
-         the `-c` option to clear the database. Use this
-         command:
+   - For the _secondary_ Conductor Live, make sure to include
+     the `-c` option to clear the database. Use this
+     command:
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_production\_conductor\_live247\_3.25.5.12345.run -c --skip-all --start -xeula**
+   ```
+   - For the _primary_ (or only) Conductor Live, **do not** include the `-c` option to
+     clear the database. Use this command:
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_production\_conductor\_live247\_3.25.5.12345.run --skip-all --start -xeula**
+   ```
 
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_production\_conductor\_live247\_3.25.5.12345.run -c --skip-all --start -xeula**
-        ```
-        * For the *primary* (or only) Conductor Live, **do not** include the `-c` option to
-         clear the database. Use this command:
+The installer automatically stops the software. You will not be prompted to do
+the following:
 
+    * Change the network setup (eth0 and eth1) or the Ethernet partitioning
+     (setup of eth0 as a management interface).
+    * Choose the timezone.
+    * Enable or disable user authentication.
 
-
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_production\_conductor\_live247\_3.25.5.12345.run --skip-all --start -xeula**
-        ```
-
-    The installer automatically stops the software. You will not be prompted to do
-    the following:
-
-        * Change the network setup (eth0 and eth1) or the Ethernet partitioning
-         (setup of eth0 as a management interface).
-        * Choose the timezone.
-        * Enable or disable user authentication.
-
-3.  Make sure that the elemental_se service restarts. Look for this prompt on the
-    primary Conductor Live command line:
+3. Make sure that the elemental\_se service restarts. Look for this prompt on the
+primary Conductor Live command line:
 
 ```
 Starting elemental_se:            [OK]
