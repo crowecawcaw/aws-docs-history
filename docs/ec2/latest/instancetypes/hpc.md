@@ -22,7 +22,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance families and instance types
 
 | Instance family | Available instance types |
-| --------------- | ------------------------ | ---------------- | ---------------- | ---------------- |
+| --------------- | ------------------------ |
 | Hpc6a           | `hpc6a.48xlarge`         |
 | Hpc6id          | `hpc6id.32xlarge`        |
 | Hpc7a           | `hpc7a.12xlarge`         | `hpc7a.24xlarge` | `hpc7a.48xlarge` | `hpc7a.96xlarge` |
@@ -32,12 +32,12 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance family summary
 
 | Instance family | Hypervisor                                                  | Processor type (architecture) | Metal instances available | Dedicated Hosts support | Spot support | Hibernation support | Supported operating systems |
-| --------------- | ----------------------------------------------------------- | ----------------------------- | ------------------------- | ----------------------- | ------------ | ------------------- | --------------------------- | ----- |
-| Hpc6a           | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Linux                       |
-| Hpc6id          | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
-| Hpc7a           | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
+| --------------- | ----------------------------------------------------------- | ----------------------------- | ------------------------- | ----------------------- | ------------ | ------------------- | --------------------------- |
+| Hpc6a           | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Linux                       |
+| Hpc6id          | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
+| Hpc7a           | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
 | Hpc7g           | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Linux                       |
-| Hpc8a           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
+| Hpc8a           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
 
 ## Performance specifications
 

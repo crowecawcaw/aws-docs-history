@@ -25,7 +25,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance families and instance types
 
 | Instance family | Available instance types |
-| --------------- | ------------------------ | -------------- | --------------- | ---------------- | ---------------- | ---------------- | --------------- | --------------- | --------------- | ----------------- | ----------------- |
+| --------------- | ------------------------ |
 | D2              | `d2.xlarge`              | `d2.2xlarge`   | `d2.4xlarge`    | `d2.8xlarge`     |
 | D3              | `d3.xlarge`              | `d3.2xlarge`   | `d3.4xlarge`    | `d3.8xlarge`     |
 | D3en            | `d3en.xlarge`            | `d3en.2xlarge` | `d3en.4xlarge`  | `d3en.6xlarge`   | `d3en.8xlarge`   | `d3en.12xlarge`  |
@@ -44,17 +44,17 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance family summary
 
 | Instance family | Hypervisor                                                  | Processor type (architecture) | Metal instances available | Dedicated Hosts support | Spot support | Hibernation support | Supported operating systems |
-| --------------- | ----------------------------------------------------------- | ----------------------------- | ------------------------- | ----------------------- | ------------ | ------------------- | --------------------------- | ----- |
-| D2              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| D3              | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| D3en            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| H1              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| I3              | Xen \*                                                      | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| I3en            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| --------------- | ----------------------------------------------------------- | ----------------------------- | ------------------------- | ----------------------- | ------------ | ------------------- | --------------------------- |
+| D2              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| D3              | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| D3en            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| H1              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| I3              | Xen \*                                                      | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| I3en            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | I4g             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
-| I4i             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| I7i             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| I7ie            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| I4i             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| I7i             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| I7ie            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | I8g             | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | I8ge            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | Im4gn           | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |

@@ -22,7 +22,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance families and instance types
 
 | Instance family | Available instance types |
-| --------------- | ------------------------ | ------------ | ------------- | ------------ | ------------- | ------------- |
+| --------------- | ------------------------ |
 | A1              | `a1.medium`              | `a1.large`   | `a1.xlarge`   | `a1.2xlarge` | `a1.4xlarge`  | `a1.metal`    |
 | C1              | `c1.medium`              | `c1.xlarge`  |
 | C3              | `c3.large`               | `c3.xlarge`  | `c3.2xlarge`  | `c3.4xlarge` | `c3.8xlarge`  |
@@ -42,21 +42,21 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance family summary
 
 | Instance family | Hypervisor                                                  | Processor type (architecture) | Metal instances available | Dedicated Hosts support | Spot support | Hibernation support | Supported operating systems |
-| --------------- | ----------------------------------------------------------- | ----------------------------- | ------------------------- | ----------------------- | ------------ | ------------------- | --------------------------- | ----- |
+| --------------- | ----------------------------------------------------------- | ----------------------------- | ------------------------- | ----------------------- | ------------ | ------------------- | --------------------------- |
 | A1              | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| C1              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| C3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| C4              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| G3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| I2              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| M1              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| M2              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| M3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| M4              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| P3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| P3dn            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| R3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| R4              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| C1              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| C3              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| C4              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| G3              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| I2              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| M1              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| M2              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| M3              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M4              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| P3              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| P3dn            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| R3              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| R4              | Xen                                                         | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | T1              | Xen                                                         | Intel (i386)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
 
 ## Performance specifications
