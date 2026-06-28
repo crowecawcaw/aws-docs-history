@@ -6,7 +6,7 @@ without impacting _App 1_ or _App 2_:
 
 1. Create an [active/standby broker](../developer-guide/active-standby-broker-deployment.md "../developer-guide/active-standby-broker-deployment.md")
    in _us-east-1_ and another in _us-east-2_ named as
-   **AMQ_ORANGE** and **AMQ_APPLE**.
+   **AMQ\_ORANGE** and **AMQ\_APPLE**.
 2. Create a _Network Bridge_ between 2 brokers by adding a duplex network
    connector definition to one of the queues:
 
@@ -17,7 +17,7 @@ without impacting _App 1_ or _App 2_:
 
 ```
 
-After the reboot of **AMQ_ORANGE**, there should be a Network Bridge
+After the reboot of **AMQ\_ORANGE**, there should be a Network Bridge
 created between both brokers as illustrated below:
 
 ![ActiveMQ Network Bridges table showing broker AMQ_APPLE with remote address and message statistics.](images/ibm-replatform-fig-1.PNG)
@@ -29,7 +29,7 @@ created between both brokers as illustrated below:
 Steps 1 and 2 can be replicated using a
 AWS CloudFormation template. For more information about using CloudFormation to set up
 Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.md"). 3. Log in to IBM MQ Queue Manager Host and list the
-queues/topics definitions. In **QM_ORANGE**, you can list the queues and topics from IBM MQ using
+queues/topics definitions. In **QM\_ORANGE**, you can list the queues and topics from IBM MQ using
 the following command:
 
 ```
@@ -56,7 +56,7 @@ defined in the broker configuration as `<queue physicalName="Q2"/>`
 
 `Q1` is a local queue on `QM_APPLE` and `Q2`
 is a local queue in `QM_ORANGE`.
-You can configure these resources accordingly in **AMQ_APPLE** and **AMQ_ORANGE**
+You can configure these resources accordingly in **AMQ\_APPLE** and **AMQ\_ORANGE**
 by using the following configuration
 
 ```
@@ -124,8 +124,8 @@ supports an expiration attribute whose value is given in milliseconds as shown b
 
 ```
 
-5. Create local queue `Q1` on **AMQ_ORANGE** and
-   `Q2` on **AMQ_APPLE** as shown in the following:
+5. Create local queue `Q1` on **AMQ\_ORANGE** and
+   `Q2` on **AMQ\_APPLE** as shown in the following:
 
 ![ActiveMQ console showing Queues page with one queue named Q1 having zero pending messages.](images/ibm-replatform-fig-3.PNG)
 

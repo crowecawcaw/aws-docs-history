@@ -2,8 +2,8 @@
 
 Learn how to test and validate the availbability of your brokers using the following procedure.
 
-1. Subscribe to `Q1` on **AMQ_APPLE** and `Q2` on
-   **AMQ_ORANGE**. Using a Network Bridge, create a queue replica
+1. Subscribe to `Q1` on **AMQ\_APPLE** and `Q2` on
+   **AMQ\_ORANGE**. Using a Network Bridge, create a queue replica
    on both sides.
 
 ###### Note
@@ -11,9 +11,9 @@ Learn how to test and validate the availbability of your brokers using the follo
 The process for external subscribers is the same
 as subscribing to local queues.
 
-The following example shows the **AMQ_ORANGE**
+The following example shows the **AMQ\_ORANGE**
 broker with consumers in _us-east-1_ and
-**AMQ_APPLE** with consumers in _us-east-2_
+**AMQ\_APPLE** with consumers in _us-east-2_
 :
 
 ![ActiveMQ console showing queues table with two queues, each having one pending message.](images/ibm-testing-and-validation-fig-1.PNG)

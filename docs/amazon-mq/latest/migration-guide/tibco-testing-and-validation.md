@@ -12,9 +12,9 @@ In Amazon MQ, the queue name, `Q2`, would
 be the same on both message brokers, simplifying the
 configuration of _App 1_.
 
-The following example shows the **AMQ_ORANGE**
+The following example shows the **AMQ\_ORANGE**
 broker with consumers in _us-east-1_ and
-**AMQ_APPLE** with consumers in _us-east-2_
+**AMQ\_APPLE** with consumers in _us-east-2_
 
 ![ActiveMQ console showing queues table with two queues, each having one consumer highlighted.](images/tibco-testing-and-validation-fig-1.PNG)
 

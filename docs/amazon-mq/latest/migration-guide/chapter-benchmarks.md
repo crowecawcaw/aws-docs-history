@@ -46,7 +46,7 @@ Configuration options:
 - **Protocol -** Openwire
 
 |              | Producers/Consumers |
-| ------------ | ------------------- | ---- | ---- | ---- |
+| ------------ | ------------------- |
 | Message size | Metrics             | 25   | 50   | 100  |
 | 1KB          | TPS                 | 1849 | 3335 | 4665 |
 | CPU%         | 29%                 | 37%  | 47%  |
@@ -66,7 +66,7 @@ Configuration options:
 - **Protocol -** Openwire
 
 |              | Producers/Consumers |
-| ------------ | ------------------- | ---- | ---- | ---- |
+| ------------ | ------------------- |
 | Message size | Metrics             | 25   | 50   | 100  |
 | 1KB          | TPS                 | 2247 | 4041 | 7566 |
 | CPU%         | 26%                 | 32%  | 48%  |
@@ -86,7 +86,7 @@ Configuration options:
 - **Protocol -** Openwire
 
 |              | Producers/Consumers |
-| ------------ | ------------------- | ---- | ---- | ---- |
+| ------------ | ------------------- |
 | Message size | Metrics             | 25   | 50   | 100  |
 | 1KB          | TPS                 | 2255 | 3932 | 7453 |
 | CPU%         | 28%                 | 32%  | 54%  |
@@ -106,7 +106,7 @@ Configuration options:
 - **Protocol -** Openwire
 
 |              | Producers/Consumers |
-| ------------ | ------------------- | ---- | ---- | ---- |
+| ------------ | ------------------- |
 | Message size | Metrics             | 25   | 50   | 100  |
 | 1KB          | TPS                 | 2025 | 4089 | 8093 |
 | CPU%         | 12%                 | 18%  | 35%  |
@@ -126,7 +126,7 @@ Configuration options:
 - **Protocol -** Openwire
 
 |              | Producers/Consumers |
-| ------------ | ------------------- | ---- | ---- | ---- |
+| ------------ | ------------------- |
 | Message size | Metrics             | 25   | 50   | 100  |
 | 1KB          | TPS                 | 2094 | 4055 | 8153 |
 | CPU%         | 6%                  | 9%   | 17%  |

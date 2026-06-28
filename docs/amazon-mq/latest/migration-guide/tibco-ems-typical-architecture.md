@@ -6,9 +6,9 @@ You can migrate from TIBCO EMS to Amazon MQ using cross-regional architecture in
 
 The below diagram shows the typical architecture of TIBCO EMS
 routing between two TIBCO EMS Servers in different regions, common in many enterprise systems.
-TIBCO EMS Server **EMS_ORANGE** is
+TIBCO EMS Server **EMS\_ORANGE** is
 deployed in the _us-east-1_ region and
-**EMS_APPLE** is deployed in
+**EMS\_APPLE** is deployed in
 the _us-east-2_ region:
 
 ![Cross-region messaging architecture with Topic1 in us-east-1 routing through 7222 to queues in us-east-2.](images/tibco-cross-regional-fig-1.PNG)
@@ -16,11 +16,11 @@ the _us-east-2_ region:
 For application _App 1_ to communicate with _App 2_:
 
 1. _App 1_ uses a topic destination, _Topic1_ on
-   server **EMS_ORANGE** to publish messages.
+   server **EMS\_ORANGE** to publish messages.
 2. Published messages are transmitted to topic
-   _Topic1_ on server **EMS_APPLE** using the
+   _Topic1_ on server **EMS\_APPLE** using the
    configured route.
-3. On **EMS_APPLE**, a bridge is configured to move messages from
+3. On **EMS\_APPLE**, a bridge is configured to move messages from
    topic, _Topic1_ to queue,
    _Queue1_. Messages are then consumed by _App 2_.
 

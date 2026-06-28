@@ -159,7 +159,7 @@ configured with these options:
   OpenWire
 
 |              | Producers/Consumers |
-| ------------ | ------------------- | ----- | ----- | ----- | ------ |
+| ------------ | ------------------- |
 | Message size | Metrics             | 25    | 50    | 100   | 200    |
 | 1 KB         | TPS                 | 2,250 | 4,300 | 8,467 | 16,334 |
 | CPU%         | 8%                  | 15%   | 27%   | 58%   |

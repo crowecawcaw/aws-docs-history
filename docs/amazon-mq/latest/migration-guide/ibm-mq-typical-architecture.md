@@ -8,8 +8,8 @@ or IBM MQ HA/DR topology running on-premises.
 The below diagram shows a typical architecture of IBM MQ
 connections between two IBM MQ queue managers in a High Availability cluster
 as seen in many enterprise applications. IBM MQ queue manager
-**QM_ORANGE** is deployed in the _us-east-1_
-region and **QM_APPLE** is deployed in the
+**QM\_ORANGE** is deployed in the _us-east-1_
+region and **QM\_APPLE** is deployed in the
 _us-east-2_ region.
 
 ![Message flow between two queue managers showing queues, transmit and receive channels across availability zones.](images/ibm-mq-architecture-fig-1.PNG)
@@ -17,12 +17,12 @@ _us-east-2_ region.
 For application _App 1_ to communicate with _App 2_:
 
 1. _App 1_ uses a communications channel to send messages to
-   **QM_ORANGE** on `Remote Q1`.
+   **QM\_ORANGE** on `Remote Q1`.
 2. Messages from several such queues, though not shown in the
-   diagram, are pooled into transmission `Queue Q` **QM_APPLE**.
+   diagram, are pooled into transmission `Queue Q` **QM\_APPLE**.
 3. Sender channels read messages from the transmission queue,
    and communicate with a receiver channel to place messages on `Local Q1`
-   on queue manager **QM_APPLE** ,which are then consumed by
+   on queue manager **QM\_APPLE** ,which are then consumed by
    _App 2_.
 
 ## Option Two: IBM MQ HA/DR topology running on-premises

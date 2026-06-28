@@ -6,7 +6,7 @@ architecture without impacting _App 1_ or _App 2_:
 
 1. Create an [active/standby broker](../developer-guide/active-standby-broker-deployment.md "../developer-guide/active-standby-broker-deployment.md")
    in _us-east-1_ and another in _us-east-2_ named as
-   **AMQ_ORANGE** and **AMQ_APPLE**.
+   **AMQ\_ORANGE** and **AMQ\_APPLE**.
 2. Create a _Network Bridge_ between 2 brokers by adding a duplex network
    connector definition to one of the queues:
 
@@ -17,7 +17,7 @@ architecture without impacting _App 1_ or _App 2_:
 
 ```
 
-After the reboot of **AMQ_ORANGE**, there should be a Network Bridge
+After the reboot of **AMQ\_ORANGE**, there should be a Network Bridge
 created between both brokers as illustrated below:
 
 ![Network Bridges table showing AMQ_APPLE broker with remote address and connection details.](images/tibco-replatform-fig-1.PNG)
@@ -37,7 +37,7 @@ show topics * static`
 
 ```
 
-When finished, update the Amazon MQ broker **AMQ_ORANGE** configuration file to add
+When finished, update the Amazon MQ broker **AMQ\_ORANGE** configuration file to add
 startup destinations as shown here:
 
 ```
@@ -62,7 +62,7 @@ queue=FOO
 queue=BAR
 ```
 
-When finished, up the Amazon MQ broker **AMQ_ORANGE** configuration
+When finished, up the Amazon MQ broker **AMQ\_ORANGE** configuration
 file to add Composite Destinations that match TIBCO EMS bridges.
 
 ###### Note
