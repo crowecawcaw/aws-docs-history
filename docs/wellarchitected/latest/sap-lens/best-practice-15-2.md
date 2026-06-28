@@ -20,7 +20,7 @@ configuration.
 
 * FAQ: SAP HANA Performance Optimization](https://launchpad.support.sap.com/#/notes/2000000 "https://launchpad.support.sap.com/#/notes/2000000") [Requires SAP Portal Access]
 
-- SAP Documentation: [HANA Parameter: global_allocation_limit](https://help.sap.com/viewer/009e68bc5f3c440cb31823a3ec4bb95b/2.0.05/en-US/514ab38a2e574c85a70ebba80ff16d99.html#loio514ab38a2e574c85a70ebba80ff16d99__configSPS05_id_805 "https://help.sap.com/viewer/009e68bc5f3c440cb31823a3ec4bb95b/2.0.05/en-US/514ab38a2e574c85a70ebba80ff16d99.html#loio514ab38a2e574c85a70ebba80ff16d99__configSPS05_id_805")
+- SAP Documentation: [HANA Parameter: global\_allocation\_limit](https://help.sap.com/viewer/009e68bc5f3c440cb31823a3ec4bb95b/2.0.05/en-US/514ab38a2e574c85a70ebba80ff16d99.html#loio514ab38a2e574c85a70ebba80ff16d99__configSPS05_id_805 "https://help.sap.com/viewer/009e68bc5f3c440cb31823a3ec4bb95b/2.0.05/en-US/514ab38a2e574c85a70ebba80ff16d99.html#loio514ab38a2e574c85a70ebba80ff16d99__configSPS05_id_805")
 - SAP Note: [1999997
 
 * FAQ: SAP HANA Memory](https://launchpad.support.sap.com/#/notes/1999997 "https://launchpad.support.sap.com/#/notes/1999997") [Requires SAP Portal Access]

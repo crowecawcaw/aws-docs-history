@@ -9,7 +9,7 @@ operating system type.
 
 For recent versions of SAP software, using kernel release 7.40 or higher, self-tuning
 of certain parameters is possible and recommended. For instance, many parameters are
-derived via formulas related to the main memory available on an instance (PHYS_MEMSIZE).
+derived via formulas related to the main memory available on an instance (PHYS\_MEMSIZE).
 This allows for automatic tuning of memory parameters when resizing an EC2 instance
 underlying the SAP software to meet changing performance requirements.
 

@@ -19,14 +19,14 @@ Financial Management Services](https://aws.amazon.com/aws-cost-management/ "http
 
 - - [AWS Billing Conductor](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/") allows you to construct a cost allocation strategy that aligns
     with your business logic.
-  - [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/ "https://aws.amazon.com/aws-cost-management/aws-budgets/") can be used to set custom budget based on your expected
-    usage and notify you when a threshold is exceeded.
-  - [AWS Cost Anomaly Detection](https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/ "https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/") uses advanced machine learning (ML) technologies to identify
-    anomalous spend and root causes.
-  - [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/?track=costop_bottom "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/?track=costop_bottom")
-    provide tools for visibility and analysis.
-    Further guidance can be found in the Well-Architected Framework [Cost Optimization]:
-    [Expenditure and Usage Awareness](../cost-optimization-pillar/expenditure-and-usage-awareness.md "../cost-optimization-pillar/expenditure-and-usage-awareness.md").
+    - [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/ "https://aws.amazon.com/aws-cost-management/aws-budgets/") can be used to set custom budget based on your expected
+      usage and notify you when a threshold is exceeded.
+    - [AWS Cost Anomaly Detection](https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/ "https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/") uses advanced machine learning (ML) technologies to identify
+      anomalous spend and root causes.
+    - [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/?track=costop_bottom "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/?track=costop_bottom")
+      provide tools for visibility and analysis.
+      Further guidance can be found in the Well-Architected Framework [Cost Optimization]:
+      [Expenditure and Usage Awareness](../cost-optimization-pillar/expenditure-and-usage-awareness.md "../cost-optimization-pillar/expenditure-and-usage-awareness.md").
 
 **Suggestion 20.3.2 – Analyze and allocate spend using tags**
 
