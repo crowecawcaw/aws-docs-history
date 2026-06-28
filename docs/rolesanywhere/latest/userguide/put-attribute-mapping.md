@@ -37,5 +37,5 @@ use the following command:
    section and choose **Manage mappings**.
 4. Scroll to find the **Add mappings** button and click on it.
 5. Choose a certificate field from either `Subject`, `Issuer`, or `Subject
-Alternative Name` in the dropdown list, and enter the specifier
+ Alternative Name` in the dropdown list, and enter the specifier
 6. Select **Save changes** to add attribute mappings.

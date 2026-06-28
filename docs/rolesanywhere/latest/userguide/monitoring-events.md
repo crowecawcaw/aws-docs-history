@@ -90,5 +90,5 @@ pattern**. 7. Choose **Next**. 8. For **Event source**, choose
     4. Choose **Next**
 
 11. In the **Targets** section, choose a service that can consume your
-    event such as Amazon SNS, or choose **Lambda function** to pass the event to
-    customized executable code.
+event such as Amazon SNS, or choose **Lambda function** to pass the event to
+customized executable code.

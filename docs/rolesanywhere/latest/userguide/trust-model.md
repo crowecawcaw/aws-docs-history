@@ -8,7 +8,7 @@ by a Certificate Authority (CA).
 
 To use an IAM role with IAM Roles Anywhere, you must create a trust relationship with the IAM Roles Anywhere
 service principal `rolesanywhere.amazonaws.com`. To create the trust relationship, you
-create a  *trust policy*, a JSON policy document. The policy must grant the
+create a  _trust policy_, a JSON policy document. The policy must grant the
 permissions:
 
 - `sts:AssumeRole`

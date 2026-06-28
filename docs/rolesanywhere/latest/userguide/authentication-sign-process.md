@@ -95,9 +95,7 @@ Build the canonical headers list by sorting the (lowercase) headers by character
     * Append a comma-separated list of values for that header. Do not sort the values in headers that have multiple values.
     * Append a new line ('\n').
 
-5. The `SignedHeaders` is a list of the header names, sorted by lowercase character code, delimited by semi-colon. For example – `content-type;host;x-amz-date;x-amz-x509`
-6. A hash of the request payload is appended to the canonical request. The bytes of the request are encoded as UTF-8, hashed with SHA-256, the resulting bytes hex encoded, and finally lowercased.
-7. To construct the finished canonical request, combine all the components from each step as a single string. As noted, each component ends with a newline character. If you follow the canonical request pseudocode explained earlier, the resulting canonical request is shown in the following example.
+5. The `SignedHeaders` is a list of the header names, sorted by lowercase character code, delimited by semi-colon. For example – `content-type;host;x-amz-date;x-amz-x509` 6. A hash of the request payload is appended to the canonical request. The bytes of the request are encoded as UTF-8, hashed with SHA-256, the resulting bytes hex encoded, and finally lowercased. 7. To construct the finished canonical request, combine all the components from each step as a single string. As noted, each component ends with a newline character. If you follow the canonical request pseudocode explained earlier, the resulting canonical request is shown in the following example.
 
 **Example Canonical request**
 

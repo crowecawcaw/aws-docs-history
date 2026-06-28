@@ -30,7 +30,7 @@ mapping rules are as follows:
   from an authenticating certificate's Issuer into distinct `PrincipalTag`
   elements in the session.
 - `x509SAN (Subject Alternative Name)`: maps the **first** value of the following types: `DNS Names`, `Directory
-Name (DN)`, and `URI Names`
+ Name (DN)`, and `URI Names`
 
 To view your current mappings associated with a profile, using the following command:
 
