@@ -113,8 +113,8 @@ On the **CloudFormation** pane,
 choose **Stacks**. It takes about
 10 minutes for the stack to be created. When the stack is created,
 the status of the stack changes from
-**CREATE_IN_PROGRESS** to
-**CREATE_COMPLETE**. 
+**CREATE\_IN\_PROGRESS** to
+**CREATE\_COMPLETE**. 
 
 ![The resource creation interface.](images/resource-creation-interface-2.png)
 SageMaker AI accepts data from a wide variety of sources, including
@@ -167,10 +167,10 @@ I**mport data**, choose
 ![Interface element requiring manual review.](images/image-aeb-fde-cfadcefb-interface.jpeg) 6. Specify S3 location
 
 In the S3 URI Path field, enter
-**s3://sagemaker-sample-files/datasets/tabular/brazil_houses/kaggle_brazil_houses_rental_data.csv**,
+**s3://sagemaker-sample-files/datasets/tabular/brazil\_houses/kaggle\_brazil\_houses\_rental\_data.csv**,
 and then choose **Go**. Under
 **Object name**, select
-**kaggle_brazil_houses_rental_data.csv**.
+**kaggle\_brazil\_houses\_rental\_data.csv**.
 
 ![AWS SageMaker AI Data Wrangler interface showing the process to import a dataset from S3, with the S3 URI path and file name "kaggle_brazil_houses_rental_data.csv" highlighted.](images/data-wrangler-interface-process-import.jpeg) 7. Import the dataset
 
@@ -341,8 +341,8 @@ output column. Choose **Preview**
 then **Save**. Repeat this renaming
 column process for **hoa**
 [originally from **hoa (R$)**],
-**rent** [originally from
-**rent amount (R$)**], and
+ **rent** [originally from
+ **rent amount (R$)**], and
 **total** [originally from
 **total (R$)**].
 
@@ -496,7 +496,7 @@ set the storage destination to Amazon S3.
 ![Dropdown menu with 'Add destination' highlighted and pointing to 'Amazon S3'.](images/dropdown-menu-destination-highlighted.jpeg) 3. Specify output settings
 
 Then specify the output dataset name
-(**kaggle_brazil_houses_rental_data_dw_processed.csv**)
+(**kaggle\_brazil\_houses\_rental\_data\_dw\_processed.csv**)
 and the Amazon S3 location as your preferred S3 bucket. Then
 choose **Add destination**.
 
