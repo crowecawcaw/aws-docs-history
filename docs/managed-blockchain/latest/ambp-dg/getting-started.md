@@ -72,7 +72,7 @@ the relevant inputs required.
 4. Choose `eth_getBlockByNumber` as the
    **RPC method**.
 5. Enter `latest` as the **`Block
-number`** and choose
+ number`** and choose
    `False` as the **Full transaction
    flag**.
 6. Then, choose **Submit RPC**.
@@ -163,7 +163,7 @@ To run this example Node.js script, apply the following prerequisites:
    your machine. You can find installation instructions for your OS [here](https://github.com/nvm-sh/nvm "https://github.com/nvm-sh/nvm").
 2. Use the `node --version` command and confirm that you are using _Node
    version 18_ or higher. If required, you can use the `nvm install
-v18.12.0` command, followed by the `nvm use v18.12.0` command, to
+ v18.12.0` command, followed by the `nvm use v18.12.0` command, to
    install _version 18_, the _LTS_ version of
    Node.
 3. The environment variables `AWS_ACCESS_KEY_ID` and
