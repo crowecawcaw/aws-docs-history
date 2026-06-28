@@ -26,20 +26,20 @@ To create transfer tasks in File Transfer, follow these steps in the AWS Mainfra
 You must have at least one data transfer endpoint to create new transfer
 tasks.
 
-1.  Open the AWS Mainframe Modernization console at [https://console.aws.amazon.com/m2/](https://console.aws.amazon.com/m2/ "https://console.aws.amazon.com/m2/").
-2.  In the AWS Region selector, choose the Region where you want to transfer
-    files from your mainframe to an Amazon S3 bucket.
-3.  On the **Transfer tasks** page, you can choose any data
-    transfer endpoint to create transfer tasks.
-4.  On the **Create transfer task** page, set up properties for
-    your transfer task. If you have not created any transfer tasks previously, you
-    can create your first one by choosing the **Create Transfer
-    task** option.
+1. Open the AWS Mainframe Modernization console at [https://console.aws.amazon.com/m2/](https://console.aws.amazon.com/m2/ "https://console.aws.amazon.com/m2/").
+2. In the AWS Region selector, choose the Region where you want to transfer
+   files from your mainframe to an Amazon S3 bucket.
+3. On the **Transfer tasks** page, you can choose any data
+   transfer endpoint to create transfer tasks.
+4. On the **Create transfer task** page, set up properties for
+   your transfer task. If you have not created any transfer tasks previously, you
+   can create your first one by choosing the **Create Transfer
+   task** option.
 
-    - On this page, enter the basic information of your transfer task,
-      including the transfer task name, description, and secret key.
+   - On this page, enter the basic information of your transfer task,
+     including the transfer task name, description, and secret key.
 
-    ###### Note
+   ###### Note
 
         + Encrypt the secret using the KMS key defined with the
          data transfer endpoint. The secret should contain the
@@ -75,31 +75,31 @@ tasks.
 
         ```
 
-    ###### Note
+   ###### Note
 
-    The current maximum supported dataset size for transfer is 90
-    GB.
-    - Next, select the target Amazon S3 bucket location where the target data
-      sets from the mainframe will be transferred.
-    - The previously chosen data transfer endpoint will be selected. You can
-      also select another endpoint from the available endpoints.
+   The current maximum supported dataset size for transfer is 90
+   GB.
+   - Next, select the target Amazon S3 bucket location where the target data
+     sets from the mainframe will be transferred.
+   - The previously chosen data transfer endpoint will be selected. You can
+     also select another endpoint from the available endpoints.
 
-5.  Choose **Next**.
-6.  On the **Add data sets** page, in the **Transfer task configuration** section, you can choose to either
-    configure your transfer task in binary mode or to convert and transfer your data
-    sets.
+5. Choose **Next**.
+6. On the **Add data sets** page, in the **Transfer task configuration** section, you can choose to either
+   configure your transfer task in binary mode or to convert and transfer your data
+   sets.
 
-    - **Transfer in binary mode** option allows
-      you to transfer data sets by skipping code page conversions and
-      retaining their Record Descriptor Word (RDW) bytes.
-    - **Transfer and convert data sets** option
-      allows you to transfer data sets by setting the source and target code
-      pages for your data sets. You can see the available code pages for File Transfer
-      on the [Supported source and target encodings in AWS Mainframe Modernization File Transfer](filetransfer-encodings.md "filetransfer-encodings.md") page.
+   - **Transfer in binary mode** option allows
+     you to transfer data sets by skipping code page conversions and
+     retaining their Record Descriptor Word (RDW) bytes.
+   - **Transfer and convert data sets** option
+     allows you to transfer data sets by setting the source and target code
+     pages for your data sets. You can see the available code pages for File Transfer
+     on the [Supported source and target encodings in AWS Mainframe Modernization File Transfer](filetransfer-encodings.md "filetransfer-encodings.md") page.
 
-7.  Enter your query in the **Search mainframe for data
-    sets** to search the mainframe for data sets to be included in your
-    transfer task. Choose **View data sets**.
+7. Enter your query in the **Search mainframe for data
+   sets** to search the mainframe for data sets to be included in your
+   transfer task. Choose **View data sets**.
 
 The following wildcard symbols can be used as part of the data set search
 criteria for mainframe:

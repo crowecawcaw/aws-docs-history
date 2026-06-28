@@ -272,7 +272,7 @@ JSON
 
 1. Refresh the secrets list to see the new secret.
 2. Choose the newly created secret in step 4, and note the `Secret
-ARN` because you need it later in the tutorial.
+ ARN` because you need it later in the tutorial.
 3. In the **Overview** tab of the secret, choose
    **Retrieve secret value**.
 4. Choose **Edit**, and then choose **Add row**.
@@ -773,7 +773,7 @@ If the connection fails:
      more information on security groups, see [Security group basics](../../../vpc/latest/userguide/vpc-security-groups.md#security-group-basics "../../../vpc/latest/userguide/vpc-security-groups.md#security-group-basics").
 
 10. Enter `USER0001` for the username and `password` for the
-    password.
+password.
 
 ###### Note
 

@@ -57,14 +57,13 @@ If your migrated applications are running on AWS Mainframe Modernization Managed
 - Set the appropriate Rocket Enterprise Server environment variables for MFFTP.
   Here are few examples:
 
-      + `MFFTP_TEMP_DIR`
-      + `MFFTP_SENDEOL`
-      + `MFFTP_TIME`
-      + `MFFTP_ABEND`
-
-  You can set as few or as many of these variables as you want.
-  You can set them in your JCL using the `ENVAR DD` statement.
-  For more information on these variables, see [MFFTP Control Variables](https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-3F94BBC8-CB97-4642-A4A7-4235C0C079E2.html "https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-3F94BBC8-CB97-4642-A4A7-4235C0C079E2.html") in the Micro Focus documentation.
+  - `MFFTP_TEMP_DIR`
+  - `MFFTP_SENDEOL`
+  - `MFFTP_TIME`
+  - `MFFTP_ABEND`
+    You can set as few or as many of these variables as you want.
+    You can set them in your JCL using the `ENVAR DD` statement.
+    For more information on these variables, see [MFFTP Control Variables](https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-3F94BBC8-CB97-4642-A4A7-4235C0C079E2.html "https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-3F94BBC8-CB97-4642-A4A7-4235C0C079E2.html") in the Micro Focus documentation.
 
 To test your configuration, see [Sample JCLs](#m2sftp-jcl "#m2sftp-jcl").
 
@@ -72,23 +71,22 @@ To test your configuration, see [Sample JCLs](#m2sftp-jcl "#m2sftp-jcl").
 
 If your migrated applications are running on AWS Mainframe Modernization runtime on Amazon EC2, configure M2SFTP as follows.
 
-1.  Change the [Micro Focus JES Program Path](https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-BC8A1796-9EDE-48EB-8363-31C9BDE7F96B.html "https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-BC8A1796-9EDE-48EB-8363-31C9BDE7F96B.html") to include the binary location for batch utilities.
-    If you need to specify multiple paths, use colons (`:`) to separate paths on Linux and semicolons (`;`) on Windows.
+1. Change the [Micro Focus JES Program Path](https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-BC8A1796-9EDE-48EB-8363-31C9BDE7F96B.html "https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-BC8A1796-9EDE-48EB-8363-31C9BDE7F96B.html") to include the binary location for batch utilities.
+   If you need to specify multiple paths, use colons (`:`) to separate paths on Linux and semicolons (`;`) on Windows.
 
-    - Linux: `/opt/aws/m2/microfocus/utilities/64bit`
-    - Windows (32bit): `C:\AWS\M2\MicroFocus\Utilities\32bit`
-    - Windows (64bit): `C:\AWS\M2\MicroFocus\Utilities\64bit`
+   - Linux: `/opt/aws/m2/microfocus/utilities/64bit`
+   - Windows (32bit): `C:\AWS\M2\MicroFocus\Utilities\32bit`
+   - Windows (64bit): `C:\AWS\M2\MicroFocus\Utilities\64bit`
 
-2.  Set the appropriate Rocket Enterprise Server environment variables for MFFTP. Here are few examples:
+2. Set the appropriate Rocket Enterprise Server environment variables for MFFTP. Here are few examples:
 
-        * `MFFTP_TEMP_DIR`
-        * `MFFTP_SENDEOL`
-        * `MFFTP_TIME`
-        * MFFTP\_ABEND
-
-    You can set as few or as many of these variables as you want.
-    You can set them in your JCL using the `ENVAR DD` statement.
-    For more information on these variables, see [MFFTP Control Variables](https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-3F94BBC8-CB97-4642-A4A7-4235C0C079E2.html "https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-3F94BBC8-CB97-4642-A4A7-4235C0C079E2.html") in the Micro Focus documentation.
+   - `MFFTP_TEMP_DIR`
+   - `MFFTP_SENDEOL`
+   - `MFFTP_TIME`
+   - MFFTP\_ABEND
+     You can set as few or as many of these variables as you want.
+     You can set them in your JCL using the `ENVAR DD` statement.
+     For more information on these variables, see [MFFTP Control Variables](https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-3F94BBC8-CB97-4642-A4A7-4235C0C079E2.html "https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-3F94BBC8-CB97-4642-A4A7-4235C0C079E2.html") in the Micro Focus documentation.
 
 To test your configuration, see [Sample JCLs](#m2sftp-jcl "#m2sftp-jcl").
 

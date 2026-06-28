@@ -76,7 +76,7 @@ Configure your Enterprise Server region with the following:
     detail in the `SYSPRINT` output
 
 - Verify that the load module path is added to the `JES\Configuration\JES Program
-Path` setting
+ Path` setting
 - Verify that the scripts in the utilities directory have run permissions. You can add a run
   permission using the `chmod + x <script name>` command, in the Linux
   environment
@@ -121,7 +121,7 @@ Following are the required parameters for DUMP:
 - `TARGET` - Target location. It can be either:
 
   - Full path of the dump location
-  - Subdirectory name created in the location defined in the **M2DFUTILS_BASE_LOC** variable
+  - Subdirectory name created in the location defined in the **M2DFUTILS\_BASE\_LOC** variable
 
 - `INCLUDE` - Either a single named DSNAME or a valid mainframe DSN
   search string
@@ -207,7 +207,7 @@ Following are the required parameters for RESTORE:
 - `SOURCE` - Source location. It can be either:
 
   - Full path of the dump location
-  - Subdirectory name created in the location defined in the **M2DFUTILS_BASE_LOC** variable
+  - Subdirectory name created in the location defined in the **M2DFUTILS\_BASE\_LOC** variable
 
 - `INCLUDE` - Either a single named DSNAME or a valid mainframe DSN
   search string
@@ -226,7 +226,7 @@ Following are the required parameters for RESTORE:
 **DUMP job**
 
 This job will create a subdirectory called `TESTDUMP`. This is the
-default backup location specified by the **M2DFUTILS_BASE_LOC**
+default backup location specified by the **M2DFUTILS\_BASE\_LOC**
 variable. It will create a PDS library for this backup called
 `M2DFUTILS.TESTDUMP`. The exported catalog data is stored in a line
 sequential file in the backup directory called `CATDUMP.DAT`. All files

@@ -123,7 +123,7 @@ The demo app must be added as a client.
     5. Choose **Next**.
 
 10. In **Review and create**, verify your choices, and then choose
-    **Create user pool**.
+**Create user pool**.
 
 For more information, see [Create user
 pool](../../../cognito/latest/developerguide/tutorial-create-user-pool.md "../../../cognito/latest/developerguide/tutorial-create-user-pool.md").
@@ -140,9 +140,9 @@ password**. Choose **Create user**.
 
 **Role creation**
 
-In the **Groups** tab, create 3 groups (SUPER_ADMIN, ADMIN, and USER), and
+In the **Groups** tab, create 3 groups (SUPER\_ADMIN, ADMIN, and USER), and
 associate your user to one or more of these groups. These roles are later mapped to
-ROLE_SUPER_ADMIN, ROLE_ADMIN and ROLE_USER by the Gapwalk application to make it possible to
+ROLE\_SUPER\_ADMIN, ROLE\_ADMIN and ROLE\_USER by the Gapwalk application to make it possible to
 access some restricted API REST calls.
 
 The application implements hierarchical scope-to-role mapping that works with multiple OAuth2 identity providers.

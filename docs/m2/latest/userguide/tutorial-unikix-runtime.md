@@ -47,7 +47,7 @@ the NTT DATA Unikix runtime.
 [GitHub repository](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/samples/m2/unikix/UniKix_CardDemo_runtime_v1.zip "https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/samples/m2/unikix/UniKix_CardDemo_runtime_v1.zip").
 
 - Log in to UniKix runtime EC2 instance as `ec2-user`.
-- Extract the downloaded CardDemo runtime components using this link: [UniKix_CardDemo_runtime_v1.zip](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/samples/m2/unikix/UniKix_CardDemo_runtime_v1.zip "https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/samples/m2/unikix/UniKix_CardDemo_runtime_v1.zip").
+- Extract the downloaded CardDemo runtime components using this link: [UniKix\_CardDemo\_runtime\_v1.zip](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/samples/m2/unikix/UniKix_CardDemo_runtime_v1.zip "https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/samples/m2/unikix/UniKix_CardDemo_runtime_v1.zip").
 
   - The extracted directory should contain `bin` and
     `migrated_app` directories.
@@ -270,7 +270,7 @@ bam
     ![Main Menu for Batch Administrator. Prompts to enter Q to quit this menu.](images/unikix-bpe-14.png)
 
 5. Activate the BPE subsystem by sourcing the `batchenv` with
-   the subsystem name `sys1`.
+the subsystem name `sys1`.
 
 ```
 source $EBMHOME/batchenv sys1

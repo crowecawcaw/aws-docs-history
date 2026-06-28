@@ -590,7 +590,7 @@ mpr
 
 ## JCLBCICS
 
-This program manages datasets status, it enables/disables datasets based on configuration, supporting both individual files and wildcard patterns: it changes STATUS field in JICS table file_table.
+This program manages datasets status, it enables/disables datasets based on configuration, supporting both individual files and wildcard patterns: it changes STATUS field in JICS table file\_table.
 
 ### Parameters
 

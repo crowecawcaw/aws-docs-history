@@ -249,66 +249,55 @@ prerequisites:
 
 ###### To create a new instance
 
-1.  Sign in to the AWS Management Console and open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  Choose **Launch instance**.
-3.  Enter a name for the instance.
-4.  Select an AMI. An AMI is a prepackaged image used to launch cloud instances. It includes
-    the operating system and applicable application software. The choice of AMI depends on how you
-    plan to use the instance:
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Choose **Launch instance**.
+3. Enter a name for the instance.
+4. Select an AMI. An AMI is a prepackaged image used to launch cloud instances. It includes
+   the operating system and applicable application software. The choice of AMI depends on how you
+   plan to use the instance:
 
-        * If the instance is to be used as a Charon emulator host system several AMI choices are
-         possible:
+   - If the instance is to be used as a Charon emulator host system several AMI choices are
+     possible:
 
+     - Installing the Charon host system from a prepackaged Charon marketplace image: they
+       contain the underlying operating system and the preinstalled Charon software.
 
+       - Check with your Stromasys representative which options are currently available in
+         your cloud providers marketplace.
+       - Depending on the cloud provider and the Stromasys product release plans, there can
+         be two variants:
 
+         - Automatic licensing (AL) for use with a public, Stromasys-operated license
+           server, or with a private, customer-operated AutoVE license server
+         - Virtual environment (VE) for use with a private, customer-operated VE license
+           server
 
-        	+ Installing the Charon host system from a prepackaged Charon marketplace image: they
-        	 contain the underlying operating system and the preinstalled Charon software.
+     - Installing the Charon host system using a conventional Charon emulator installation
+       with the Charon emulator installation RPM packages for Linux:
 
+       - Choose a Linux AMI of a distribution supported by your selected Charon product and
+         version. See the user guide for your product on the Stromasys documentation site.
 
+   - If the instance is to be used as a dedicated VE license server, see the VE License
+     Server Guide in Licensing Documentation for the requirements of the Linux instance.
+     After you decide which AMI is required, select a matching Linux or Charon product AMI. If
+     you don't see the AMI that you need, choose **Browse more AMIs**. Choose the
+     Linux AMI that matches how you plan to use the instance. It can be one of the following:
 
+   - A prepackaged Charon VE marketplace image. The name of the AMI will include the string
+     "ve".
+   - A prepackaged Charon AL marketplace image for Automatic Licensing or AutoVE.
+   - A Linux version supported for an RPM product installation.
+   - A Linux version supported for the VE license server.
 
-        		- Check with your Stromasys representative which options are currently available in
-        		 your cloud providers marketplace.
-        		- Depending on the cloud provider and the Stromasys product release plans, there can
-        		 be two variants:
-
-
-
-
-        			* Automatic licensing (AL) for use with a public, Stromasys-operated license
-        			 server, or with a private, customer-operated AutoVE license server
-        			* Virtual environment (VE) for use with a private, customer-operated VE license
-        			 server
-        	+ Installing the Charon host system using a conventional Charon emulator installation
-        	 with the Charon emulator installation RPM packages for Linux:
-
-
-
-
-        		- Choose a Linux AMI of a distribution supported by your selected Charon product and
-        		 version. See the user guide for your product on the Stromasys documentation site.
-        * If the instance is to be used as a dedicated VE license server, see the VE License
-         Server Guide in Licensing Documentation for the requirements of the Linux instance.
-
-    After you decide which AMI is required, select a matching Linux or Charon product AMI. If
-    you don't see the AMI that you need, choose **Browse more AMIs**. Choose the
-    Linux AMI that matches how you plan to use the instance. It can be one of the following:
-
-        * A prepackaged Charon VE marketplace image. The name of the AMI will include the string
-         "ve".
-        * A prepackaged Charon AL marketplace image for Automatic Licensing or AutoVE.
-        * A Linux version supported for an RPM product installation.
-        * A Linux version supported for the VE license server.
-
-5.  Select an instance type. Amazon EC2 offers instance types with varying combinations of CPU,
-    memory, storage, and networking capacity. Select an instance type that matches the
-    requirements of the Charon product that you want to use. Some marketplace images have a
-    restricted selection of instance types.
-6.  Select an existing key pair or create and save a new one. If you select an existing key
-    pair, make sure you have the matching private key. Otherwise, you will not be able to connect
-    to your instance.
+5. Select an instance type. Amazon EC2 offers instance types with varying combinations of CPU,
+   memory, storage, and networking capacity. Select an instance type that matches the
+   requirements of the Charon product that you want to use. Some marketplace images have a
+   restricted selection of instance types.
+6. Select an existing key pair or create and save a new one. If you select an existing key
+   pair, make sure you have the matching private key. Otherwise, you will not be able to connect
+   to your instance.
 
 ###### Note
 
@@ -331,11 +320,11 @@ Choose the settings that correspond to your environment.
      create the instance.
 
 8. In the **Storage** section, for the root volume (the system disk),
-   choose a size that is appropriate for your environment. The recommended minimum system disk
-   size for the Linux system is 30 GiB. To provide space for virtual disk containers and other
-   storage requirements, you can add more storage now or after you launch the instance. But the
-   system disk size must cover the Linux system requirements, including any applications and
-   utilities that you plan to install.
+choose a size that is appropriate for your environment. The recommended minimum system disk
+size for the Linux system is 30 GiB. To provide space for virtual disk containers and other
+storage requirements, you can add more storage now or after you launch the instance. But the
+system disk size must cover the Linux system requirements, including any applications and
+utilities that you plan to install.
 
 ###### Note
 

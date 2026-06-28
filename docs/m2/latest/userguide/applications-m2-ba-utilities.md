@@ -274,7 +274,7 @@ treatLargeNumberAsInteger : false
 (Optional) Sets the zoned mode to encode or decode zoned data types. This setting
 influences the way sign digits are represented. The following values are valid:
 
-- _EBCDIC_STRICT_: Default. Use strict definition for signs
+- _EBCDIC\_STRICT_: Default. Use strict definition for signs
   handling. Depending on whether the character set is EBCDIC or ASCII, the sign digit
   representation uses the following characters:
 
@@ -287,7 +287,7 @@ influences the way sign digits are represented. The following values are valid:
     to `-9`). The characters are displayed as `0` to `9`,
     `p` to `y`
 
-- _EBCDIC_MODIFIED_: Use a modified definition for signs handling.
+- _EBCDIC\_MODIFIED_: Use a modified definition for signs handling.
   For both EBDIC and ASCII, the same list of characters represent the sign digits, that is,
   `+0` to `+9` mapped to `{` + `A` to
   `I` and `-0` to `-9` mapped to `}` +
@@ -492,8 +492,8 @@ conversions during the database load operations.
 (Optional) Specifies a collection of customer-provided mappings between legacy and
 modern table names. The DSNUTILB utility program consumes these mappings.
 
-Specify the values in the following format: _MODERN_TABLE_NAME :
-LEGACY_TABLE_NAME_
+Specify the values in the following format: _MODERN\_TABLE\_NAME :
+LEGACY\_TABLE\_NAME_
 
 Here is an example:
 

@@ -102,7 +102,7 @@ the Micro Focus datastore.
 To do this,
 
 1. From the Enterprise Developer command prompt (64-bit) run the `dbfhdeploy data
-extract` command to download the non-VSAM data set to your local file
+ extract` command to download the non-VSAM data set to your local file
    system.
 
 ###### Note

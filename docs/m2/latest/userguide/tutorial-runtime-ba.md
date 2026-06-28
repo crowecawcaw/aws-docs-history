@@ -176,18 +176,17 @@ application**.
 
 ## Step 7: Access the application
 
-1.  Wait until the application is in the **Running** state. You'll see a
-    banner with the message **Application was started successfully**.
-2.  Copy the application DNS hostname. You can find this hostname in the **Application
-    information** section of the application.
-3.  In a browser, navigate to
-    `http://{hostname}:{portname}/PlanetsDemo-web-1.0.0/`, where:
+1. Wait until the application is in the **Running** state. You'll see a
+   banner with the message **Application was started successfully**.
+2. Copy the application DNS hostname. You can find this hostname in the **Application
+   information** section of the application.
+3. In a browser, navigate to
+   `http://{hostname}:{portname}/PlanetsDemo-web-1.0.0/`, where:
 
-        * `hostname` is the DNS hostname copied previously.
-        * `portname` is the Tomcat port defined in the application definition you
-         created in [Step 2: Create the application definition](#tutorial-runtime-ba-step2 "#tutorial-runtime-ba-step2").
-
-    The JICS screen appears.
+   - `hostname` is the DNS hostname copied previously.
+   - `portname` is the Tomcat port defined in the application definition you
+     created in [Step 2: Create the application definition](#tutorial-runtime-ba-step2 "#tutorial-runtime-ba-step2").
+     The JICS screen appears.
 
 ![The JICS transaction launcher page.](images/ba-jics-launcher.png)
 

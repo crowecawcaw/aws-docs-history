@@ -131,16 +131,12 @@ information:
 
     The two subnets of security group need to be in different availability zones.
 
-6. Choose **Next**.
-7. Navigate down the page and choose **I acknowledge that CloudFormation might create
-   IAM resources with custom names.**.
-8. Choose **Next**.
-9. Review the details, and choose **Submit**.
-10. After you create the fleet, create CloudFormation stacks with all the other downloaded
-    templates to finish setting up the applications. Make sure to update
-    **BucketName** each time to point to the correct S3 bucket. You can
-    edit the **BucketName** in the CloudFormation console. Alternatively, you can
-    edit the template files directly and update the `S3Bucket` property.
+6. Choose **Next**. 7. Navigate down the page and choose **I acknowledge that CloudFormation might create
+IAM resources with custom names.**. 8. Choose **Next**. 9. Review the details, and choose **Submit**. 10. After you create the fleet, create CloudFormation stacks with all the other downloaded
+templates to finish setting up the applications. Make sure to update
+**BucketName** each time to point to the correct S3 bucket. You can
+edit the **BucketName** in the CloudFormation console. Alternatively, you can
+edit the template files directly and update the `S3Bucket` property.
 
 ###### Note
 

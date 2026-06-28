@@ -40,7 +40,7 @@ scripts (JCL).
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/scripts`
 - Arguments: none
@@ -60,7 +60,7 @@ The links represent the url to use to launch each listed script **synchronously*
 
 - Supported method: GET / POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/triggerscripts`
 - Arguments: none
@@ -80,12 +80,12 @@ below).
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/script/{scriptId:.+}`
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/post/script/{scriptId:.+}`
 - Arguments:
@@ -133,7 +133,7 @@ jobs should rather be launched asynchronously (see dedicated endpoint below).
 
 - Supported methods: GET / POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/triggerscript/{scriptId:.+}`
 - Arguments:
@@ -180,7 +180,7 @@ server logs if required. It is also used by several other endpoints detailed bel
 
 - Supported methods: GET / POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Paths: `/triggeredscripts/{status:.+}`,
   `/triggeredscripts/{status:.+}/{namefilter}`
@@ -226,7 +226,7 @@ Sample response:
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/getjobexecutioninfo/{jobexecutionid:.+}`
 - Arguments:
@@ -242,7 +242,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/killablescripts`
 - Returns a collection of job execution identifiers of jobs which have been launched
@@ -253,7 +253,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/killablesyncscripts`
 - Returns a collection of job execution identifiers of jobs which have been launched
@@ -264,7 +264,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - Path: `/kill/{identifier:.+}`
 - Argument: job execution identifier (mandatory): the unique job execution identifier to
@@ -299,7 +299,7 @@ predecessor steps above the checkpoint).
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - Path: `/restarts/{scriptId}/{jobId}`
 - Arguments:
@@ -316,7 +316,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - Path: `/restart/{hashcode}/{scriptId}/{skipflag}`
 - Arguments:
@@ -334,7 +334,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/triggerrestart/{hashcode}/{scriptId}/{skipflag}`
 - Arguments:
@@ -357,7 +357,7 @@ default, the thread limit is set to 5 threads.
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - Path: `/settriggerthreadlimit/{threadlimit:.+}`
 - Argument (integer): the new thread limit to apply. **Input validation**:
@@ -376,7 +376,7 @@ Set thread limit for Script Tower Control to 10 (previous value was 5)
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/countrunningtriggeredscripts`
 - Returns a message indicating the number of running jobs launched asynchronously and the
@@ -402,7 +402,7 @@ anymore; this is the purpose of this endpoint.
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - Path: `/purgejobinformation/{age:.+}`
 - Arguments: a strictly positive integer value representing the age in hours of
@@ -426,7 +426,7 @@ This endpoint returns available metrics related to the JVM.
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/metrics/jvm`
 - Arguments: none
@@ -444,7 +444,7 @@ This endpoint returns metrics related to currently opened HTTP sessions.
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/metrics/session`
 - Arguments: none
@@ -456,7 +456,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/metrics/batch`
 - Arguments:
@@ -485,7 +485,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/metrics/transaction`
 - Arguments:
@@ -529,7 +529,7 @@ and manage JICS transactions.
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/programs`
 - Returns the list of registered programs, as a html page. Each program is designated by
@@ -543,7 +543,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/services`
 - Returns the list of registered runtime services, as a html page. The given services are
@@ -561,7 +561,7 @@ Sample response:
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/`
 - Returns a simple message, indicating that the gapwalk-application is up and running
@@ -571,7 +571,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/transactions`
 - Returns a html page listing all available JICS transactions. This only makes sense for
@@ -587,7 +587,7 @@ Sample response:
 
 - Supported methods: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/jicstransrunner/{jtrans:.+}`
 - Arguments:
@@ -625,7 +625,7 @@ For more information about the details of the structure, see [Transaction launch
 
 - supported methods: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - path: `/jicstransaction/{jtrans:.+}`
 - Arguments:
@@ -669,7 +669,7 @@ The following header keys are being supported:
 
 - supported methods: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - path: `/activesessionlist`
 - Arguments: none
@@ -710,7 +710,7 @@ invoke these operations from the Gapwalk Application URL with the following root
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `list-queues`
 - Returns the list of available queues along with their status, as a JSON list of
@@ -724,7 +724,7 @@ Sample response:
 
 Possible status for a job queue are:
 
-**STAND_BY**
+**STAND\_BY**
 
 the job queue is waiting to be started.
 
@@ -740,7 +740,7 @@ the job queue status cannot be determined.
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - Path: `/restart/{name}`
 - Argument: the name of the queue to be started/restarted, as a String - mandatory.
@@ -765,7 +765,7 @@ inspected to figure out what went wrong).
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/submit`
 - Argument: mandatory as request body, a JSON serialization of a
@@ -778,7 +778,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path:
   `/list-jobs?status={status}&size={size}&page={page}&sort={sort}`
@@ -796,7 +796,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/release-all`
 - Returns a message indicating the outcome for the release attempt operation. Two possible
@@ -815,7 +815,7 @@ attempt to release all job submissions with the given job name, which are "on ho
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/release/{name}`
 - Arguments: the job name to look for, as a string. Mandatory.
@@ -834,7 +834,7 @@ given couple <job name, job number>.
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/release/{name}/{number}`
 - Arguments:
@@ -864,7 +864,7 @@ Schedule a job that will be executed with a repeating schedule.
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
 
 - Path: `/schedule`
 - Argument: the request body must contain a JSON serialization of a
@@ -874,7 +874,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Supported method: GET
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - Path:
   `/schedule/list?status={status}&size={size}&page={page}&sort={sort}`
@@ -897,7 +897,7 @@ INACTIVE.
 
 - Supported method: POST
 
-Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
 
 - Path: `/schedule/remove/{schedule_id}`
 - Argument: `schedule_id`, the identifier of the scheduled job to remove.

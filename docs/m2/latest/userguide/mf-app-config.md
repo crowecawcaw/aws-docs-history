@@ -97,7 +97,7 @@ printer with an exit module pointing to `lrsprte6` as the exit module’s
 entry name, LRS queue requires an additional environment variable, as defined in the
 pre-existing “runtime-settings” block of the Rocket Software application definition.
 
-**LRSQ_ADDRESS**
+**LRSQ\_ADDRESS**
 
 (Required) Specifies the LRS server address for the LRSQ print
 exit module to send to.
@@ -105,7 +105,7 @@ exit module to send to.
 **LRS printers** - Configuring an LRS Printer
 requires the definition of a jes printer as specified in the [Printers - optional](applications-m2-definition.md#applications-m2-definition-mf-details-printers "applications-m2-definition.md#applications-m2-definition-mf-details-printers") section.
 
-Additionally, the LRSQ_ADDRESS must be specified as part of the
+Additionally, the LRSQ\_ADDRESS must be specified as part of the
 `runtime-settings` field in the application definition.
 
 ```

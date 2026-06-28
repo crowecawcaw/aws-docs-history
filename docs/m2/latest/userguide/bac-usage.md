@@ -124,8 +124,8 @@ The page is made of:
 
   When configuration is shown, two new buttons: Save and Reset, used respectively to:
 
-      - save the configuration for this data set and current work session
-      - reset the configuration to default values for all fields.
+        - save the configuration for this data set and current work session
+        - reset the configuration to default values for all fields.
   - A list of configurable properties to tailor the browsing experience for the given data
     set.
 
@@ -530,11 +530,10 @@ record.
 - Data set Type: A drop-down list for specifying the current data set type. The following
   types are supported.
 
-      + ESDS
-      + LargeESDS
-      + KSDS
-
-  For KSDS, you must specify the primary key:
+  - ESDS
+  - LargeESDS
+  - KSDS
+    For KSDS, you must specify the primary key:
 
 ![Form fields for KSDS dataset configuration including Primary Key, Offset, Length, and Unique checkbox.](images/ba-bac-dataset-creation-ksds.png)
 

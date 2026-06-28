@@ -126,17 +126,16 @@ instance:
      instance security group (listed above), and an outbound rule that allows traffic
      over the NFS 2049 port.
 
-8.  Choose **Next**.
-9.  In the **Maintenance window** section, choose when you want to
-    apply pending changes to the environment.
+8. Choose **Next**. 9. In the **Maintenance window** section, choose when you want to
+apply pending changes to the environment.
 
-        * If you choose **No preference**, AWS Mainframe Modernization chooses an optimized
-         maintenance window for you.
-        * To specify a particular maintenance window, choose **Select new
-         maintenance window**. Then choose a day of the week, a start time, and a
-         duration for the maintenance window.
+    * If you choose **No preference**, AWS Mainframe Modernization chooses an optimized
+     maintenance window for you.
+    * To specify a particular maintenance window, choose **Select new
+     maintenance window**. Then choose a day of the week, a start time, and a
+     duration for the maintenance window.
 
-    For more information about the maintenance window, see [AWS Mainframe Modernization maintenance window](update-environments-m2.md#update-environments-m2-maintenance "update-environments-m2.md#update-environments-m2-maintenance").
+For more information about the maintenance window, see [AWS Mainframe Modernization maintenance window](update-environments-m2.md#update-environments-m2-maintenance "update-environments-m2.md#update-environments-m2-maintenance").
 
 Choose **Next**. 10. On the **Review and create** page, review the information that you
 entered, and then choose **Create environment**.

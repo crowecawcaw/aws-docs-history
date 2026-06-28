@@ -74,12 +74,11 @@ Version releases follow a Major.Minor.Patch numbering scheme and fall into three
 
 - **Major** releases introduce significant new capabilities or structural changes. These typically include:
 
-      + Support for additional legacy platforms (e.g., Fujitsu GS21).
-      + New legacy language support (e.g., Natural).
-      + New legacy database support (e.g., Adabas, Fujitsu NDB).
-      + Major version updates to the target modernization stack (e.g., newer Spring, Java, or PostgreSQL versions).
-
-  Major releases may introduce _breaking changes_ that require adjustments to existing modernized applications, especially when regenerating code or adapting to updated target architecture definitions.
+  - Support for additional legacy platforms (e.g., Fujitsu GS21).
+  - New legacy language support (e.g., Natural).
+  - New legacy database support (e.g., Adabas, Fujitsu NDB).
+  - Major version updates to the target modernization stack (e.g., newer Spring, Java, or PostgreSQL versions).
+    Major releases may introduce _breaking changes_ that require adjustments to existing modernized applications, especially when regenerating code or adapting to updated target architecture definitions.
 
 - **Minor** releases deliver evolutionary improvements, bug fixes, and maintenance updates. They keep both the supported legacy platform/language/database definitions
   and the target modernization stack unchanged.

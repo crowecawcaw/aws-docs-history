@@ -72,8 +72,8 @@ give an extra layer of organization for resources. For more information about th
 organization, see [CICS resources](https://www.ibm.com/docs/en/cics-ts/6.1?topic=fundamentals-how-it-works-cics-resources "https://www.ibm.com/docs/en/cics-ts/6.1?topic=fundamentals-how-it-works-cics-resources").
 
 - Supported method: GET
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/listJicsListsAndGroups`
 - Arguments: None
 - Returns: a list of serialized JicsContainer objects, both LISTS and GROUPS, as
@@ -114,8 +114,8 @@ Sample response:
 ### Retrieve JICS resources
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/retrieveJicsResources`
 - Arguments: A JSON payload that represents the JICS resources that you want to retrieve.
   This is the JSON serialization of a
@@ -128,8 +128,8 @@ Sample response:
 ### List JICS GROUPS
 
 - Supported method: GET
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/listJicsGroups`
 - Arguments: None
 - Returns a list of serialized JicsContainer objects (GROUPS) as JSON. The GROUPS are
@@ -157,8 +157,8 @@ Sample response:
 ### List JICS GROUPS for a given LIST
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/listGroupsForList`
 - Arguments: a JSON payload, representing the JICS LIST whose GROUPS you're looking for.
   This is the JSON serialization of a `com.netfective.bluage.jac.entities.JACList`
@@ -193,8 +193,8 @@ Sample response:
 ### LIST JICS resources for a given GROUP
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/listResourcesForGroup`
 - Arguments: a JSON payload, representing the JICS GROUP whose resources you're looking
   for. This is the JSON serialization of a
@@ -228,8 +228,8 @@ Sample request:
 ### Editing the owned GROUPS of several LISTS
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/editGroupsList`
 - Arguments: a JSON representation of a collection of LISTS with children GROUPS;
 
@@ -269,8 +269,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Delete a LIST
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/deleteList`
 - Arguments: a JSON payload, representing the JICS LIST to delete. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACList` object.
@@ -280,8 +280,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Delete a GROUP
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/deleteGroup`
 - Arguments: a JSON payload, representing the JICS GROUP to delete. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACGroup` object.
@@ -291,8 +291,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Delete a TRANSACTION
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/deleteTransaction`
 - Arguments: a JSON payload, representing the JICS Transaction to delete. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTransaction`
@@ -303,8 +303,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Delete a PROGRAM
 
 - Supported method: POST
-- Requires authentication and one the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/deleteProgram`
 - Arguments: a JSON payload, representing the JICS Program to delete. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACProgram` object.
@@ -314,8 +314,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Delete a FILE
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/deleteFile`
 - Arguments: a JSON payload, representing the JICS File to delete. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACFile` object.
@@ -325,8 +325,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Delete a TDQUEUE
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/deleteTDQueue`
 - Arguments: a JSON payload, representing the JICS TDQUEUE to delete. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTDQueue` object.
@@ -336,8 +336,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Delete a TSMODEL
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/deleteTSModel`
 - Arguments: a JSON payload, representing the JICS TSMODEL to delete. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTSModel` object.
@@ -347,8 +347,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Delete elements
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/deleteElements`
 - Arguments: A JSON payload that represents the JICS elements to delete.
 - Returns a boolean value where `true` indicates that the deletion was
@@ -357,8 +357,8 @@ Prior to this editing, only the group named "MURACHS" belonged to the LIST named
 ### Create a LIST
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/createList`
 - Arguments: a JSON payload, representing the JICS LIST to create. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACList` object.
@@ -373,8 +373,8 @@ operation.
 ### Create a GROUP
 
 - Supported method: POST
-- Requires authentication and the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/createGroup`
 - Arguments: a JSON payload, representing the JICS GROUP to create. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACGroup` object.
@@ -445,8 +445,8 @@ java.lang.IllegalArgumentException: Transaction already present in the group
 ### Create a TRANSACTION
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/createTransaction`
 - Arguments: a JSON payload, representing the JICS TRANSACTION to create. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTransaction`
@@ -457,8 +457,8 @@ java.lang.IllegalArgumentException: Transaction already present in the group
 ### Create a PROGRAM
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/createProgram`
 - Arguments: a JSON payload, representing the JICS PROGRAM to create. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACProgram` object.
@@ -468,8 +468,8 @@ java.lang.IllegalArgumentException: Transaction already present in the group
 ### Create a FILE
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/createFile`
 - Arguments: a JSON payload, representing the JICS FILE to create. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACFile` object.
@@ -479,8 +479,8 @@ java.lang.IllegalArgumentException: Transaction already present in the group
 ### Create a TDQUEUE
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/createTDQueue`
 - Arguments: a JSON payload, representing the JICS TDQUEUE to create. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTDQueue` object.
@@ -490,8 +490,8 @@ java.lang.IllegalArgumentException: Transaction already present in the group
 ### Create a TSMODEL
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/createTSModel`
 - Arguments: a JSON payload, representing the JICS TSMODEL to create. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTSModel` object.
@@ -501,8 +501,8 @@ java.lang.IllegalArgumentException: Transaction already present in the group
 ### Create elements
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/createElements`
 - Arguments: a JSON payload that represents the JICS elements to create.
 - Returns a boolean value. If the value is 'true', the elements were successfully created
@@ -511,8 +511,8 @@ java.lang.IllegalArgumentException: Transaction already present in the group
 ### Update a LIST
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/updateList`
 - Arguments: a JSON payload, representing the JICS LIST to update. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACList` object. There's no
@@ -528,8 +528,8 @@ way of deactivating a lot of resources with a single operation, over several GRO
 ### Update a GROUP
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/updateGroup`
 - Arguments: a JSON payload, representing the JICS GROUP to update. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACGroup` object. There's no
@@ -554,8 +554,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### Update a TRANSACTION
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/updateTransaction`
 - Arguments: a JSON payload, representing the JICS TRANSACTION to update. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTransaction`
@@ -566,8 +566,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### Update a PROGRAM
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/updateProgram`
 - Arguments: a JSON payload, representing the JICS PROGRAM to update. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACProgram` object.
@@ -577,8 +577,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### Update a FILE
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/updateFile`
 - Arguments: a JSON payload, representing the JICS FILE to update. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACFile` object.
@@ -588,8 +588,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### Update a TDQUEUE
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/updateTDQueue`
 - Arguments: a JSON payload, representing the JICS TDQUEUE to update. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTDQueue` object.
@@ -599,8 +599,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### Update a TSMODEL
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/updateTSModel`
 - Arguments: a JSON payload, representing the JICS TSMODEL to update. This is the JSON
   serialization of a `com.netfective.bluage.jac.entities.JACTSModel` object.
@@ -610,8 +610,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### Update elements
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/updateElements`
 - Arguments: A JSON payload that represents the elements to update.
 - Returns a boolean value where `true` indicates that the elements update
@@ -620,8 +620,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### Upsert elements
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/upsertElements`
 - Arguments: A JSON payload that represents the elements to upsert.
 - Returns a boolean value where `true` indicates that the elements upsert
@@ -630,8 +630,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### Retrieve elements
 
 - Supported method: GET
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/retrieveElements`
 - Arguments: None
 - Returns a list of all serialized JICS resources.
@@ -639,8 +639,8 @@ an existing GROUP in the underlying JICS storage (otherwise, you will get a BAD 
 ### JICS CRUD operation
 
 - Supported method: POST
-- Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN,
-  ROLE_USER
+- Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN,
+  ROLE\_USER
 - Path: `/api/services/rest/jicsservice/jicsCrudOperation`
 - Arguments: a JSON payload that represents the JICS resources you're looking for. This is
   the JSON serialization of a
@@ -714,7 +714,7 @@ Sample response:
 ### Recording a new user
 
 - Supported method: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/security/servicelogin/recorduser`
 - Arguments: the JSON serialization of a
   `com.netfective.bluage.jac.entities.SignOn` object, representing the user to be
@@ -740,8 +740,8 @@ Sample request:
 
 Only the following roles can be used when recording a new user:
 
-- ROLE_ADMIN : can manage JICS resources and users.
-- ROLE_USER : can manage JICS resources but not users.
+- ROLE\_ADMIN : can manage JICS resources and users.
+- ROLE\_USER : can manage JICS resources but not users.
 
 ### User info
 
@@ -753,7 +753,7 @@ Only the following roles can be used when recording a new user:
 ### Listing users
 
 - Supported method: GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/security/servicelogin/listusers`
 - Arguments: None
 - Returns a list of `com.netfective.bluage.jac.entities.SignOn`, serialized as
@@ -762,7 +762,7 @@ Only the following roles can be used when recording a new user:
 ### Deleting a user
 
 - Supported method: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/security/servicelogin/deleteuser`
 - Arguments: the JSON serialization of a
   `com.netfective.bluage.jac.entities.SignOn` object that represents the user to be

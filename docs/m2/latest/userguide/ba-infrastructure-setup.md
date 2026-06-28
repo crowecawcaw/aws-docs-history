@@ -88,19 +88,18 @@ To create an Amazon EC2 instance, use the following steps.
 
 ###### Install the application on the Amazon EC2 instance
 
-1.  When the state of the Amazon EC2 instance changes to **Running**,
-    connect to the instance.
-2.  Install the following software components on the instance (Refer to the versions mentioned into the [AWS Transform for mainframe release notes](ba-release-notes.md "ba-release-notes.md")):
+1. When the state of the Amazon EC2 instance changes to **Running**,
+   connect to the instance.
+2. Install the following software components on the instance (Refer to the versions mentioned into the [AWS Transform for mainframe release notes](ba-release-notes.md "ba-release-notes.md")):
 
-        * Java Runtime Environment (JRE).
-        * Apache Tomcat.
-        * AWS Transform for mainframe Runtime (on Amazon EC2). Install the AWS Transform for mainframe runtime at the root of Apache Tomcat
-         installation folder (some files will be added while others will be
-         overwritten).
-
-    To install the additional webapps delivered alongside the AWS Transform for mainframe Runtime archive, set
-    up a secondary instance of the Apache Tomcat server, and decompress the webapps
-    archive at that location. For detailed instructions, see [AWS Transform for mainframe Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
+   - Java Runtime Environment (JRE).
+   - Apache Tomcat.
+   - AWS Transform for mainframe Runtime (on Amazon EC2). Install the AWS Transform for mainframe runtime at the root of Apache Tomcat
+     installation folder (some files will be added while others will be
+     overwritten).
+     To install the additional webapps delivered alongside the AWS Transform for mainframe Runtime archive, set
+     up a secondary instance of the Apache Tomcat server, and decompress the webapps
+     archive at that location. For detailed instructions, see [AWS Transform for mainframe Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
 
 ## Running AWS Transform for mainframe Runtime on Amazon ECS on Amazon EC2
 

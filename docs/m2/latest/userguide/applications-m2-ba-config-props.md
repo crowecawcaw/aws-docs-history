@@ -153,6 +153,16 @@ Default: false
 
 `frozenDate: false`
 
+**forcedDateMode**
+
+Optional. Specifies the forced date mode. Applies only if `forcedDate` is also set. When set to `HYBRID`, the date portion is the configured forced date but the time portion reflects the actual system time.
+
+Type: string
+
+Default: null
+
+`forcedDateMode: HYBRID`
+
 **ims.messages.extendedSize**
 
 Optional. Specifies whether to set the extendedSize on ims messages.
@@ -340,7 +350,7 @@ Allowed values are `EBCDIC_STRICT` / `EBCDIC_MODIFIED` / `AS400`.
 
 Type: string
 
-Default: EBCDIC_STRICT
+Default: EBCDIC\_STRICT
 
 ### Gapwalk CL runner properties
 
@@ -360,7 +370,7 @@ Allowed values are `EBCDIC_STRICT` / `EBCDIC_MODIFIED` / `AS400`.
 
 Type: string
 
-Default: EBCDIC_STRICT
+Default: EBCDIC\_STRICT
 
 ### Gapwalk JHDB properties
 

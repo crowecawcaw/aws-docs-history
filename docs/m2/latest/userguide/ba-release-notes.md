@@ -145,7 +145,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 - JCL - DSNTEP
 
-  - Improved support for CURRENT_DATE and CURRENT_TIMESTAMP
+  - Improved support for CURRENT\_DATE and CURRENT\_TIMESTAMP
   - Improved support for inline SQL comments
 
 - JCL - IDCAMS
@@ -209,7 +209,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 - MQ
 
-  - Improved support for MQGET using CMQC.MQMI_NONE/MQCI_NONE for blank messageId/correlationId values
+  - Improved support for MQGET using CMQC.MQMI\_NONE/MQCI\_NONE for blank messageId/correlationId values
 
 - Misc
 
@@ -1819,7 +1819,7 @@ be compatible.
 
 - Message Queue Integration
 
-  - Enhanced error handling in MQ GET operations, providing clearer status indication MQCC_FAILED for empty message bodies
+  - Enhanced error handling in MQ GET operations, providing clearer status indication MQCC\_FAILED for empty message bodies
   - Enhanced support for MQ PUT operations by handling MQRFH2 header in XA transaction context
   - Improved support for AWS Transform for mainframeRuntime secrets to handle
     additional properties for JMS MQ
@@ -2690,7 +2690,7 @@ sections.
   update the status of the job to “INTERRUPTED”.
 - Added support for utility program CEERAN0
 - Added support for passive mode. Added the YAML `configuration
-gapwalk-application.cl:ftpservice:passive` to enable passive mode
+ gapwalk-application.cl:ftpservice:passive` to enable passive mode
 - Added feature to create QTEMP sessions and delay QTEMP cleaning
 - Added support for compilation feature BNDDIR to define explicit dependencies between
   programs
@@ -3296,7 +3296,7 @@ sections.
 - IMS - Improved support for segment names specified by using double parentheses
 - IMS - Enriched the generation of status codes when SCHD and TERM are invoked
 - COBOL - Improved generation of DEPENDING ON fields
-- COBOL - Improved transformation of TO_TIMESTAMP DB2 builtin function
+- COBOL - Improved transformation of TO\_TIMESTAMP DB2 builtin function
 
 ### AS400
 
@@ -3371,7 +3371,7 @@ sections.
 **New features**
 
 - Added configuration for dynamic OAuth2 provider handling. Introduced
-  SECRET_OAUTH2_PROVIDER_NAME_KEY to specify provider. Updated secret retrieval method to handle
+  SECRET\_OAUTH2\_PROVIDER\_NAME\_KEY to specify provider. Updated secret retrieval method to handle
   multiple providers. Ensured secrets are securely retrieved from AWS Secrets Manager.
 - Added support for DB2 SSL properties on AWS Secrets Manager to make it possible for you to define
   an SSL certificate (sslTrustStoreLocation) and a password (sslTrustStorePassword) to unlock
@@ -3574,19 +3574,19 @@ features and changes in this release are:
 - - **Upgrade from Spring Boot 2.7 to 3.2.4, Spring Core 5.3 to 6.1.5,
     and Tomcat 9.0 to 10.1.17** to provide improved security, performance, and
     maintainability by using versions that are actively being patched and maintained.
-  - **Lazy loading on front-end application** to build faster
-    large projects with more than 2000 screens and reduce the displaying initialization from 10 s
-    to 300 ms.
-  - **Support for DBCS display on front-end application**for
-    enhancement of the support of double-byte characters to provide a new font that handles
-    double-byte and single-byte characters, prevent single-byte input in a double-byte field, and
-    handle fields with mixed double-byte and single-byte characters.
-  - **Thread monitoring feature for AS400 Online application**
-    to run AS400 application with parallelization.
-  - **Improved performance on context and RunUnit
-    initialization** by adding a configurable mechanism to pre-initialize program
-    context reducing the impact of loading complex structures inherent in legacy
-    complexity.
+    - **Lazy loading on front-end application** to build faster
+      large projects with more than 2000 screens and reduce the displaying initialization from 10 s
+      to 300 ms.
+    - **Support for DBCS display on front-end application**for
+      enhancement of the support of double-byte characters to provide a new font that handles
+      double-byte and single-byte characters, prevent single-byte input in a double-byte field, and
+      handle fields with mixed double-byte and single-byte characters.
+    - **Thread monitoring feature for AS400 Online application**
+      to run AS400 application with parallelization.
+    - **Improved performance on context and RunUnit
+      initialization** by adding a configurable mechanism to pre-initialize program
+      context reducing the impact of loading complex structures inherent in legacy
+      complexity.
 
 This version of the AWS Transform for mainframe Runtime was tested with the following stack. Other versions might also be
 compatible.
@@ -3836,7 +3836,7 @@ sections.
 - RPG - Added support for Fields defined with LIKE on prototype.
 - RPG - Improved the support for LIKE keyword of a field created by LIKEREC.
 - RPG - Improved generation of operators with figuratives.
-- RPG - Improved parsing for array expression xxx(\\\*) and support it in %lookup.
+- RPG - Improved parsing for array expression xxx(\\*) and support it in %lookup.
 - RPG - Improved LookUp operation code with high and equal (or low and equal)
   indicators.
 - RPG - Improved free form parsing.
@@ -4992,7 +4992,7 @@ sections.
 - ZOS IBMMQ - Enhance support to MQINQ (V7-9544)
 - Handle CONCAT operation with byte instead of string when using double byte encoding.
   (V7-8932)
-- ZOS IBMMQ - Enhance support of PUT command with options SET_ALL_CONTEXT (V7-9544)
+- ZOS IBMMQ - Enhance support of PUT command with options SET\_ALL\_CONTEXT (V7-9544)
 
 **Improvements**
 

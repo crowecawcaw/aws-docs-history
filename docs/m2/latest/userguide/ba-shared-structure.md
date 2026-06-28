@@ -212,7 +212,7 @@ The contents of those sql files are a collection of (key=query) entries, where e
 
 ![Sample sql file that the modernized program uses.](images/sample_sql_file.png)
 
-For instance, the COSGN00C program is executing the query with key "COSGN00C_1" (the first entry in the sql file):
+For instance, the COSGN00C program is executing the query with key "COSGN00C\_1" (the first entry in the sql file):
 
 ![sample query usage by program](images/sample_sql_query_usage.png)
 

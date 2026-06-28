@@ -172,7 +172,7 @@ ACTIVE
 
 The job is currently being run on the queue.
 
-EXECUTION_WAIT
+EXECUTION\_WAIT
 
 The job is waiting for a thread to be available.
 

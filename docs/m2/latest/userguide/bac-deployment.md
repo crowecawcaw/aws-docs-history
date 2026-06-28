@@ -64,16 +64,16 @@ While general setup can be applied, some specifics about the BAC need to be deta
 The access to the BAC features is protected using a role-based policy and relies on the
 following roles.
 
-- ROLE_USER:
+- ROLE\_USER:
 
   - Basic user role
   - No import, export, creation, or deletion of data sets allowed
   - No control over caching policies
   - No administration features allowed
 
-- ROLE_ADMIN:
+- ROLE\_ADMIN:
 
-  - Inherits ROLE_USER permissions
+  - Inherits ROLE\_USER permissions
   - All data set operations allowed
   - Caching policies administration allowed
 
@@ -152,19 +152,19 @@ Masks are stored in the Blusam storage using two tables:
   - name: used to store mask identification (used as primary key, so must be unique)
   - length: size in bytes of the record mask
 
-- mask_item: used to store mask details. Every elementary field from a FD record definition
-  will produce a row in the mask_item table, with details on how to interpret the given record
-  part. The columns of the mask_item table are:
+- mask\_item: used to store mask details. Every elementary field from a FD record definition
+  will produce a row in the mask\_item table, with details on how to interpret the given record
+  part. The columns of the mask\_item table are:
 
   - name: name of the record field, based on the elementary name, using lowercase and
     replacing dash with underscore
-  - c_offset: 1-based offset of the record sub-part, used for the field content
+  - c\_offset: 1-based offset of the record sub-part, used for the field content
   - length: length in bytes of the record sub-part, used for the field content
   - skip: flag to indicate whether the given record part should be skipped or not, in the
     view presentation
   - type: the field kind (based on its legacy picture clause)
   - options: additional type options -- type-dependant
-  - mask_fk: reference to the mask identifier to attach this item to
+  - mask\_fk: reference to the mask identifier to attach this item to
 
 Note the following:
 
@@ -175,10 +175,9 @@ Note the following:
   structure from the WORKING STORAGE section, not only from a FD record. The SQL masks are
   organized into sub-folders according to their nature:
 
-      + FD record based masks will be located in the sub-folder named `file`
-      + 01 data structure based masks will be located in the sub-folder named
-       `working`
-
-  While FD records definitions always match the record content from a data set, 01 data
-  structures might not be aligned or might only represent a subset from a data set record.
-  Before you use them, inspect the code and understands the possible shortcomings.
+  - FD record based masks will be located in the sub-folder named `file`
+  - 01 data structure based masks will be located in the sub-folder named
+    `working`
+    While FD records definitions always match the record content from a data set, 01 data
+    structures might not be aligned or might only represent a subset from a data set record.
+    Before you use them, inspect the code and understands the possible shortcomings.

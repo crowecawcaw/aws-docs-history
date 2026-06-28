@@ -172,7 +172,7 @@ columns:
 
 The table name is a concatenation of the data set name and the key internal name, which
 contains information about the key, such as the key offset, whether the key accepts duplicates (set to true to allow duplicates), and the key length. For example, consider a data set named
-"AWS_LARGE_KSDS" that has the following two defined keys:
+"AWS\_LARGE\_KSDS" that has the following two defined keys:
 
 - primary key [offset: 0, duplicates: false, length:18]
 - alternate key [offset: 3, duplicates: true, length: 6]
@@ -320,24 +320,18 @@ Common properties:
 
 - Optional
 
-      + **Not supported for Large data sets:**
+  - **Not supported for Large data sets:**
 
+    - "isAppend" : a boolean flag, indicating that the import is happening in append mode
+      (appending records to an existing Blusam data set).
+    - "useCompression" : a boolean flag, indicating that compression will be used to
+      store metadata.
 
+  - **Only for Large data sets:**
 
-
-      	- "isAppend" : a boolean flag, indicating that the import is happening in append mode
-      	 (appending records to an existing Blusam data set).
-      	- "useCompression" : a boolean flag, indicating that compression will be used to
-      	 store metadata.
-      + **Only for Large data sets:**
-
-
-
-
-      	- "indexingPageSizeInMb" : the size in megabytes of each index page, for each of the
-      	 keys of the data set, as a strictly positive integer
-
-  Data set kind dependant properties:
+    - "indexingPageSizeInMb" : the size in megabytes of each index page, for each of the
+      keys of the data set, as a strictly positive integer
+      Data set kind dependant properties:
 
 - KSDS/Large KSDS:
 
@@ -363,9 +357,8 @@ Common properties:
 
 - RRDS:
 
-      + none.
-
-  Key constructor calls:
+  - none.
+    Key constructor calls:
 
 - `new Key(int offset, int length)`: creates a Key object, with given key
   attributes (offset and length) and no duplicates allowed. This variant should be used to
@@ -615,8 +608,8 @@ key:
   `"1s"` (one second). Keeping the default value is generally a good idea, unless
   specific conditions require this value to be tuned. In any case the value should be kept low
   (under 3 seconds). The format for the delay string is: `<integer
-value><optional whitespace><time unit>` where `<time
-unit>` is to be picked amongst the following values:
+ value><optional whitespace><time unit>` where `<time
+ unit>` is to be picked amongst the following values:
 
   - `"ns"`: nanoseconds
   - `"µs"`: microseconds
@@ -644,7 +637,7 @@ key:
     string. Defaults to `"1024MB"` (1 gigabyte). To be adjusted with regards to the
     available memory of the machine hosting the Blusam engine and the size of the datasets
     being used by the application. The format of the size string is: `<integer
-value><optional whitespace><memory unit>` where
+   value><optional whitespace><memory unit>` where
     `<memory-unit>` is to be picked amongst the following values:
 
     - `B`: bytes

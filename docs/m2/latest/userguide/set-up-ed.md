@@ -137,7 +137,7 @@ goto :loop
 ```
 
 4. Open a Windows command prompt, cd to `C:\Users\PhotonUser\My Files\Home
-Folder` if needed and run `m2-rclone.cmd`. This command script
+ Folder` if needed and run `m2-rclone.cmd`. This command script
    runs a continuous loop, syncing your Amazon S3 bucket and key to the local folder every 10 seconds.
    You can adjust the time out as needed. You should see the source code of the application
    located in the Amazon S3 bucket in Windows File Explorer.
@@ -153,7 +153,7 @@ from the Amazon S3 bucket. The next sync operation will delete them from your lo
    select Enterprise Developer.
 2. Complete the workspace creation required by Enterprise Developer in your Home folder by choosing
    `C:\Users\PhotonUser\My Files\Home Folder` (aka `D: \PhotonUser\My
-Files\Home Folder`) as location for the workspace.
+ Files\Home Folder`) as location for the workspace.
 3. In Enterprise Developer, clone your CodeCommit repository by going to the Project Explorer, right click and
    choose **Import**, **Import …**, **Git**,
    **Projects** from **Git**

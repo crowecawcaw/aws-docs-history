@@ -398,7 +398,7 @@ cloud-native service. There are two deployment options:
      code. For more details on pricing, see [AWS Mainframe Modernization Pricing page](https://aws.amazon.com/ar/mainframe-modernization/pricing/ "https://aws.amazon.com/ar/mainframe-modernization/pricing/").
 
 40. **How are changes and upgrades to AWS Transform for mainframe frameworks
-    and libraries managed ?**
+and libraries managed ?**
 
 AWS Transform for mainframe frameworks and libraries are updated through regular code
 generation and deployment processes. These updates are managed as part of the
@@ -575,7 +575,7 @@ there a Docker image available?**
      management system.
 
 10. **Can customer package and run an AWS Transform for mainframe application
-    as a Docker container?**
+as a Docker container?**
 
 Yes, refer to [Set up AWS Transform for mainframe Runtime on container](ba-runtime-deploy-container.md "ba-runtime-deploy-container.md"). 11. **How does job scheduling work with
 batch?**

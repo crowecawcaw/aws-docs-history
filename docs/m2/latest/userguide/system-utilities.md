@@ -55,7 +55,7 @@ Available utility programs, listed according to their domain of application:
 
 - [Other / Miscellaneous Utilities](system-misc-utilities.md "system-misc-utilities.md")
 
-  - [CBL_AND/CBL_OR/CBL_XOR/CBL_EQ/CBL_IMP/CBL_NOT](system-misc-utilities.md#cbl-bitwise "system-misc-utilities.md#cbl-bitwise")
+  - [CBL\_AND/CBL\_OR/CBL\_XOR/CBL\_EQ/CBL\_IMP/CBL\_NOT](system-misc-utilities.md#cbl-bitwise "system-misc-utilities.md#cbl-bitwise")
   - [CEE3ABD](system-misc-utilities.md#cee3abd "system-misc-utilities.md#cee3abd")
   - [CEEDATE](system-misc-utilities.md#ceedate "system-misc-utilities.md#ceedate")
   - [CEELOCT](system-misc-utilities.md#ceeloct "system-misc-utilities.md#ceeloct")

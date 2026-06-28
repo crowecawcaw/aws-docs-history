@@ -9,7 +9,7 @@ This section covers various utilities programs, with miscellaneous purposes, tha
 
 In the following paragraphs, `PICTURE` is to be understood as the COBOL `PICTURE` keyword, used to describe fields data type and formats.
 
-## CBL_AND/CBL_OR/CBL_XOR/CBL_EQ/CBL_IMP/CBL_NOT
+## CBL\_AND/CBL\_OR/CBL\_XOR/CBL\_EQ/CBL\_IMP/CBL\_NOT
 
 ### Purpose
 
@@ -26,7 +26,7 @@ Supported operators:
 - Binary Operators:
 
 | Binary Operators | details                                  |
-| ---------------- | ---------------------------------------- | ------- |
+| ---------------- | ---------------------------------------- |
 | `CBL_AND`        | Bitwise AND (source & target)            |
 | `CBL_OR`         | Bitwise OR (source                       | target) |
 | `CBL_XOR`        | Bitwise exclusive OR (source ^ target)   |
@@ -35,7 +35,7 @@ Supported operators:
 
 ### Signature
 
-Apart from CBL_NOT which has only one operand (target), all other operations have at least two operands, which are data items. The first operand is the source, the second operand is the target. An additional optional argument (length) gives the number of bytes to process (from left to right). If the length is omitted, it defaults to the minimum of source and target sizes (in bytes). The result of the operation is stored in the target. The return code of the program is 0 (unless an exception occurs).
+Apart from CBL\_NOT which has only one operand (target), all other operations have at least two operands, which are data items. The first operand is the source, the second operand is the target. An additional optional argument (length) gives the number of bytes to process (from left to right). If the length is omitted, it defaults to the minimum of source and target sizes (in bytes). The result of the operation is stored in the target. The return code of the program is 0 (unless an exception occurs).
 
 ### Checks / Errors Handling
 
@@ -46,7 +46,7 @@ Apart from CBL_NOT which has only one operand (target), all other operations hav
 
 - Unary operator sample:
 
-Here is a cobol usage of CBL_NOT:
+Here is a cobol usage of CBL\_NOT:
 
 ```
    * TARGET:       00000101
@@ -72,7 +72,7 @@ and the corresponding java modernization:
 
 - Binary operator sample:
 
-See for instance the following COBOL code using CBL_AND:
+See for instance the following COBOL code using CBL\_AND:
 
 ```
    * SOURCE:       00000011

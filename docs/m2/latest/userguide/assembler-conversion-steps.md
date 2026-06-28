@@ -250,17 +250,17 @@ In this step, you create three different CodeBuild projects based on the
    5. In the **Environment variables** section,
       add the following one by one:
 
-      - Name : **PROJECT_BUCKET**. Value
+      - Name : **PROJECT\_BUCKET**. Value
         : `**codebuild-regionId-accountId-
-bucket**`. Type : **Plaintext**
-      - Name : **PROJECT_DIR**. Value :
+  bucket**`. Type : **Plaintext**
+      - Name : **PROJECT\_DIR**. Value :
         `**prj\_codebuild\_01**`. Type :
         **Plaintext**
-      - Name : **AWSM2CCM_ACTION**. Value
+      - Name : **AWSM2CCM\_ACTION**. Value
         : `**define\_project**`. Type : **Plaintext**
-      - Name : **AWSM2CCM_LOGGING_BUCKET**. Value :
+      - Name : **AWSM2CCM\_LOGGING\_BUCKET**. Value :
         `**s3://
-codebuild-regionId-accountId-bucket**`.
+  codebuild-regionId-accountId-bucket**`.
         Type : **Plaintext**
 
 10. In the **Buildspec** section, choose **Insert build commands**, and then **Switch to editor**.
@@ -280,7 +280,7 @@ artifacts:
     base-directory: $PROJECT_DIR
 ```
 
-where, PROJECT_DIR are environment variables available within CodeBuild. For more
+where, PROJECT\_DIR are environment variables available within CodeBuild. For more
 information, see [Environment variables in build environments](../../../codebuild/latest/userguide/build-env-ref-env-vars.md "../../../codebuild/latest/userguide/build-env-ref-env-vars.md"). 12. In the **Artifacts** section, do this:
 
     * under **Type**, choose **Amazon S3**, and then choose your output
@@ -297,13 +297,14 @@ information, see [Environment variables in build environments](../../../codebuil
      settings.
 
 13. For the **Logs** section, do the
-    following:
+following:
 
-    - CloudWatch logs: **Disabled**
-    - S3 Logs: **Enabled**
+    * CloudWatch logs: **Disabled**
+    * S3 Logs: **Enabled**
 
-    - Bucket: `**codebuild-regionId-account-bucket**`
-    - Log path: `**CODEBUILD-LOGS**`
+
+    * Bucket: `**codebuild-regionId-account-bucket**`
+    * Log path: `**CODEBUILD-LOGS**`
 
 14. Choose **Create build project**.
 
@@ -343,17 +344,17 @@ information, see [Environment variables in build environments](../../../codebuil
     5. In the **Environment variables** section,
        add the following one by one:
 
-       - Name: **PROJECT_BUCKET**. Value :
+       - Name: **PROJECT\_BUCKET**. Value :
          `**codebuild-regionId-accountId-bucket**`.
          Type : **Plaintext**
-       - Name : **PROJECT_DIR**. Value :
+       - Name : **PROJECT\_DIR**. Value :
          `**prj\_codebuild\_01**`. Type :
          **Plaintext**
-       - Name : **AWSM2CCM_ACTION**. Value
+       - Name : **AWSM2CCM\_ACTION**. Value
          : `**analysis**`. Type : **Plaintext**
-       - Name : **AWSM2CCM_LOGGING_BUCKET**. Value :
+       - Name : **AWSM2CCM\_LOGGING\_BUCKET**. Value :
          `**s3://
-codebuild-regionId-accountId-bucket**`.
+  codebuild-regionId-accountId-bucket**`.
          Type : **Plaintext**
 
 11. In the **Buildspec** section, choose **Insert build commands**, and then **Switch to editor**.
@@ -380,7 +381,7 @@ artifacts:
     base-directory: $PROJECT_DIR
 ```
 
-where, PROJECT_DIR are environment variables available within CodeBuild. For more
+where, PROJECT\_DIR are environment variables available within CodeBuild. For more
 information, see [Environment variables in build environments](../../../codebuild/latest/userguide/build-env-ref-env-vars.md "../../../codebuild/latest/userguide/build-env-ref-env-vars.md"). 13. In the **Artifacts** section, do this:
 
     * under **Type**, choose **Amazon S3**, and then choose your output bucket
@@ -395,13 +396,14 @@ information, see [Environment variables in build environments](../../../codebuil
      settings.
 
 14. For the **Logs** section, do the
-    following:
+following:
 
-    - CloudWatch logs: **Disabled**
-    - S3 Logs: **Enabled**
+    * CloudWatch logs: **Disabled**
+    * S3 Logs: **Enabled**
 
-    - Bucket: `**codebuild-regionId-account-bucket**`
-    - Log path: `**CODEBUILD-LOGS**`
+
+    * Bucket: `**codebuild-regionId-account-bucket**`
+    * Log path: `**CODEBUILD-LOGS**`
 
 15. Choose **Create build project**.
 
@@ -440,17 +442,17 @@ information, see [Environment variables in build environments](../../../codebuil
     5. In the **Environment variables** section,
        add the following one by one:
 
-       - Name: **PROJECT_BUCKET**. Value :
+       - Name: **PROJECT\_BUCKET**. Value :
          `**codebuild-regionId-accountId-bucket**`.
          Type : **Plaintext**
-       - Name : **PROJECT_DIR**. Value :
+       - Name : **PROJECT\_DIR**. Value :
          `**prj\_codebuild\_01**`. Type :
          **Plaintext**
-       - Name : **AWSM2CCM_ACTION**. Value
+       - Name : **AWSM2CCM\_ACTION**. Value
          : `**conversion**`. Type : **Plaintext**
-       - Name : **AWSM2CCM_LOGGING_BUCKET**. Value :
+       - Name : **AWSM2CCM\_LOGGING\_BUCKET**. Value :
          `**s3://
-codebuild-regionId-accountId-bucket**`.
+  codebuild-regionId-accountId-bucket**`.
          Type : **Plaintext**
 
 11. In the **Buildspec** section, choose **Insert build commands**, and then **Switch to editor**.
@@ -474,7 +476,7 @@ artifacts:
     base-directory: $PROJECT_DIR
 ```
 
-where, PROJECT_DIR are environment variables available within CodeBuild. For more
+where, PROJECT\_DIR are environment variables available within CodeBuild. For more
 information, see [Environment variables in build environments](../../../codebuild/latest/userguide/build-env-ref-env-vars.md "../../../codebuild/latest/userguide/build-env-ref-env-vars.md"). 13. In the **Artifacts** section, do this:
 
     * under **Type**, choose **Amazon S3**, and then choose your output bucket
@@ -489,13 +491,14 @@ information, see [Environment variables in build environments](../../../codebuil
      settings.
 
 14. For the **Logs** section, do the
-    following:
+following:
 
-    - CloudWatch logs: **Disabled**
-    - S3 Logs: **Enabled**
+    * CloudWatch logs: **Disabled**
+    * S3 Logs: **Enabled**
 
-    - Bucket: `**codebuild-regionId-account-bucket**`
-    - Log path: `**CODEBUILD-LOGS**`
+
+    * Bucket: `**codebuild-regionId-account-bucket**`
+    * Log path: `**CODEBUILD-LOGS**`
 
 15. Choose **Create build project**.
 
@@ -524,17 +527,17 @@ In this step, you start the build. To do this:
      projects.
    - **`prj_codebuild_01/`** folder that
      contains the project structure. It's used during analysis,
-     expand_macros, and convert steps. You can select `prj_codebuild_01/`
+     expand\_macros, and convert steps. You can select `prj_codebuild_01/`
      to explore details
    - **`cobol_reserved.rsw`** configuration
      file (list of COBOL words) reserved for the converter. It's used during
      the convert step.
    - **`Macro_Expansion/`**
      folder contains macros to expand into Assembler programs. It's used
-     during the expand_macros step.
+     during the expand\_macros step.
    - **`macro_settings.json`** configuration
      file contains customized macro replacement. It's used during the
-     expand_macros step.
+     expand\_macros step.
    - **`macrolib/`** folder
      contains the Assembler macros to be converted. It's used during the
      analysis and convert step.
@@ -664,38 +667,38 @@ be billed per your usage. For more information on billing, see [Understand Code 
 In this step, you will configure the conversion process, and then start the
 build.
 
-1.  From the AWS Management Console, go to the Amazon S3 service.
-2.  Locate and click on the Amazon S3 bucket:
-    `codebuild-regionId-accountId-bucket`.
+1. From the AWS Management Console, go to the Amazon S3 service.
+2. Locate and click on the Amazon S3 bucket:
+   `codebuild-regionId-accountId-bucket`.
 
-    1. Go to `prj_codebuild_01/`.
-    2. Select `project_settings.json`, and choose **Download**.
-    3. Open the `project_settings.json` file to see the following JSON
-       structure:
+   1. Go to `prj_codebuild_01/`.
+   2. Select `project_settings.json`, and choose **Download**.
+   3. Open the `project_settings.json` file to see the following JSON
+      structure:
 
-    ```
-    {
-    "Source programs directory":"srclib",
-    "Source copybooks/macros directory":"macrolib",
-    "Copybook/Macros Conversion":"Called_only",
-    "Do not regenerate the Copy/Macro if already exists":"false",
-    "Target Compiler":"IBM",
-    "Endianess":"Big",
-    "Converted programs extension":"",
-    "Converted CICS programs extension":"",
-    "Converted copies/macros extension":"",
-    "Trace Level":"STANDARD",
-    "Trace file open mode":"append",
-    "Data definition level":5,
-    "Start picture column":40,
-    "Generate Sync FILLER with name":"FILL-SYNC",
-    "Use SYNC clause":"yes",
-    "Decimal Point Comma":"true",
-    "Original Source Placement":"RIGHT"
-    }
-    ```
+   ```
+   {
+   "Source programs directory":"srclib",
+   "Source copybooks/macros directory":"macrolib",
+   "Copybook/Macros Conversion":"Called_only",
+   "Do not regenerate the Copy/Macro if already exists":"false",
+   "Target Compiler":"IBM",
+   "Endianess":"Big",
+   "Converted programs extension":"",
+   "Converted CICS programs extension":"",
+   "Converted copies/macros extension":"",
+   "Trace Level":"STANDARD",
+   "Trace file open mode":"append",
+   "Data definition level":5,
+   "Start picture column":40,
+   "Generate Sync FILLER with name":"FILL-SYNC",
+   "Use SYNC clause":"yes",
+   "Decimal Point Comma":"true",
+   "Original Source Placement":"RIGHT"
+   }
+   ```
 
-    where,
+   where,
 
         * **Source program directory**:
          contains the Assembler programs that are needed for the
@@ -828,20 +831,20 @@ build.
          this is true, the *DECIMAL-POINT IS
          COMMA* clause will be added to the "SPECIAL-NAMES"
          COBOL paragraph.
-    4. Based on your requirements, change appropriate parameters, and then
-       save the `project_settings.json`.
-    5. Remove the existing `project_settings.json` file
-       from `prj_codebuild_01/` in Amazon S3 bucket,
-       and then upload the new version.
 
-3.  Go back to the AWS CodeBuild service.
-4.  Select the project to build you created previously : `3-awsm2ccm-convert`
+   4. Based on your requirements, change appropriate parameters, and then
+   save the `project_settings.json`. 5. Remove the existing `project_settings.json` file
+   from `prj_codebuild_01/` in Amazon S3 bucket,
+   and then upload the new version.
 
-    1. Choose **Start build**, and then
-       **Start now** to convert Assembler
-       programs and Macros to COBOL programs and copybooks.
-    2. Wait for the build status to change to **Succeeded** for this project. It will be under the
-       **Latest build status** tab.
+3. Go back to the AWS CodeBuild service.
+4. Select the project to build you created previously : `3-awsm2ccm-convert`
+
+   1. Choose **Start build**, and then
+      **Start now** to convert Assembler
+      programs and Macros to COBOL programs and copybooks.
+   2. Wait for the build status to change to **Succeeded** for this project. It will be under the
+      **Latest build status** tab.
 
 ## Step 10: Verify the Code conversion
 
@@ -853,7 +856,7 @@ build.
    files are essential for preventing duplicate billing to the customers and also
    to track how much of the provided Assembler code was analyzed and converted.
    Files are stored in the following location: `codebuild-regionId-accountId-
-bucket/awsm2ccm-do-not-delete/<your_AWS_account_id>/Hash`. The
+ bucket/awsm2ccm-do-not-delete/<your_AWS_account_id>/Hash`. The
    encoded files do not contain any Assembler code and It is also not possible to
    extract customer code from these files.
 
@@ -877,9 +880,9 @@ subdirectories:
      additional COBOL programs and copybooks provided by the solution.
 
 6. If the _Analysis Reports_ and other reports
-   indicate that the conversion was successful, and the AWS CodeBuild project
-   `3-awsm2ccm-convert` is marked **Succeeded**, download the COBOL code and copybooks from the
-   **\_Converted/** directory.
+indicate that the conversion was successful, and the AWS CodeBuild project
+`3-awsm2ccm-convert` is marked **Succeeded**, download the COBOL code and copybooks from the
+**\_Converted/** directory.
 
 ## Step 11: Download converted code
 

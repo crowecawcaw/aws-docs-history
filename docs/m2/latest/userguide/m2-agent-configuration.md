@@ -37,8 +37,7 @@ if the default File Transfer agent directory path(`/usr/lpp/aws/m2-agent`) was c
     4. Update `JAVA_HOME` if required.
 
 4. Update and copy the `SYS2.AWS.M2.SAMPLIB(M2AGENT)` JCL to
-   `SYS1.PROCLIB` or a one of the PROCLIBs in your `PROCLIB` concatenation.
-5. Add `SYS2.AWS.M2.LOADLIB` to the APF list using the following command:
+`SYS1.PROCLIB` or a one of the PROCLIBs in your `PROCLIB` concatenation. 5. Add `SYS2.AWS.M2.LOADLIB` to the APF list using the following command:
 
 ```
 SETPROG APF ADD DSNAME(SYS2.AWS.M2.LOADLIB) SMS
@@ -208,7 +207,7 @@ response and request queues and to save datasets to Amazon S3 buckets.
 11. Then, choose **Other** when prompted for Use case.
 12. Choose **Next**.
 13. Optionally, you can set description tag such as, `Access key for configuring file
-transfer agent`.
+ transfer agent`.
 14. Choose **Create access key**.
 15. Copy, and securely save the generated **Access key**, and
     **Secret access key**. These will be used later.

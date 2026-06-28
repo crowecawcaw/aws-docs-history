@@ -60,9 +60,8 @@ If the test doesn't succeed, review the following information.
     * [Troubleshooting for Amazon RDS](../../../AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.md "../../../AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.md")
     * [How do I resolve problems when connecting to my Amazon RDS DB instance?](https://repost.aws/knowledge-center/rds-cannot-connect "https://repost.aws/knowledge-center/rds-cannot-connect")
 
-6. Save the data source.
-7. Create a data source for `PG.VSAM`, test the connection, and save the data source.
-   Provide the following database information:
+6. Save the data source. 7. Create a data source for `PG.VSAM`, test the connection, and save the data source.
+Provide the following database information:
 
 ```
 Data Source : PG.VSAM

@@ -39,7 +39,7 @@ Use the following endpoints to create or manage a specific data set.
 You can use this endpoint to create a data set definition.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/createDataSet`
 - Arguments:
 
@@ -158,7 +158,7 @@ folder that corresponds to each specific user. Use this endpoint every time you 
 file.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/upload`
 - Arguments:
 
@@ -174,7 +174,7 @@ After you use `createDataSet` to create the data set definition, you can load
 records that are associated with the uploaded file to a specific data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/loadDataSet`
 - Arguments:
 
@@ -187,7 +187,7 @@ name
 ### Load a data set (GET)
 
 - Supported methods: GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/loadDataSet`
 - Arguments:
 
@@ -206,7 +206,7 @@ datasetFile
 Loads a data set using a listcat file from an Amazon S3 bucket.
 
 - Supported methods: GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/loadDataSetFromS3`
 - Arguments:
 
@@ -235,7 +235,7 @@ Sample request:
 Exports a data set to the specified Amazon S3 bucket.
 
 - Supported methods: GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/exportDataSetToS3`
 - Arguments:
 
@@ -269,7 +269,7 @@ Sample request:
 Clears all records from a data set.
 
 - Supported methods: POST, GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/clearDataSet`
 - Arguments:
 
@@ -285,7 +285,7 @@ parameter name is `datasetName`.
 Deletes the data set definition and records.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/deleteDataSet`
 - Arguments:
 
@@ -300,7 +300,7 @@ name
 This endpoint returns the number of records associated with a data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/countRecords`
 - Arguments:
 
@@ -332,7 +332,7 @@ Use the following endpoints to create or manage multiple data sets at once.
 ### Export data sets (GET)
 
 - Supported methods: GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/exportDataSet`
 - Arguments:
 
@@ -358,7 +358,7 @@ is ignored.
 ### Export data sets (POST)
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/exportDataSet`
 - Arguments:
 
@@ -371,7 +371,7 @@ dumpParameters
 ### Create multiple data sets
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/createAllDataSets`
 - Arguments:
 
@@ -407,7 +407,7 @@ dumpParameters
 ### List all data sets
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/listDataSet`
 - Arguments: None
 - Returns: the status of the request and the list of the data sets.
@@ -415,7 +415,7 @@ dumpParameters
 ### Direct list all data sets
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/directListDataSet`
 - Arguments: None
 - Returns: the status of the request and the list of the data sets.
@@ -423,7 +423,7 @@ dumpParameters
 ### Direct list all data sets by page
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/directListDataSetByPage`
 - Arguments:
 
@@ -445,7 +445,7 @@ pageSize
 ### Stream data set
 
 - Supported methods: GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/streamDataset`
 - Arguments:
 
@@ -458,7 +458,7 @@ datasetName
 ### Delete all data sets
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/removeAll`
 - Arguments: None
 - Returns: a boolean that represents the status of the request.
@@ -466,7 +466,7 @@ datasetName
 ### Get data set definitions from listcat file
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path:
   `/api/services/rest/bluesamservice/getDataSetsDefinitionFromListcat`
 - Arguments:
@@ -480,7 +480,7 @@ paramFilePath
 ### Get data set definitions from uploaded list cat file
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path:
   `/api/services/rest/bluesamservice/getDataSetsDefinitionFromUploadedListcat`
 - Arguments: None
@@ -489,7 +489,7 @@ paramFilePath
 ### Get a data set
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/getDataSet`
 - Arguments:
 
@@ -502,7 +502,7 @@ name
 ### Load listcat from JSON file
 
 - Supported methods: GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/loadListcatFromJsonFile`
 - Arguments:
 
@@ -531,7 +531,7 @@ Use the following endpoints to create or manage records within a data set.
 You can use this endpoint to create a new record.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/createRecord`
 - Arguments:
 
@@ -550,7 +550,7 @@ mask
 You can use this endpoint to read a data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/readDataSet`
 - Arguments:
 
@@ -565,7 +565,7 @@ dataset
 You can use this endpoint to delete a record from a data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/deleteRecord`
 - Arguments:
 
@@ -584,7 +584,7 @@ record
 You can use this endpoint to update a record associated with a data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/updateRecord`
 - Arguments:
 
@@ -607,7 +607,7 @@ mask
 You can use this endpoint to save a record to a data set and using a mask.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/saveRecord`
 - Arguments:
 
@@ -630,7 +630,7 @@ mask
 Use this endpoint to validate a record.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/validateRecord`
 - Arguments:
 
@@ -653,7 +653,7 @@ mask
 Use this endpoint to get the hierarchical tree of a record.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/getRecordTree`
 - Arguments:
 
@@ -688,7 +688,7 @@ You can use this endpoint to retrieve all the masks that are associated with a s
 data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/loadMasks`
 - Path variables:
 
@@ -710,7 +710,7 @@ dataset
 You can use this endpoint to apply a mask to a specific data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/applyMask`
 - Arguments:
 
@@ -729,7 +729,7 @@ mask
 You can use this endpoint to apply a mask and a filter to a specific data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/crud/applyMaskFilter`
 - Arguments:
 
@@ -769,7 +769,7 @@ characteristics
 Checks if the warmup cache is enabled for a specific data set.
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/warmupCache`
 - Arguments:
 
@@ -784,7 +784,7 @@ name
 Checks if the cache is enabled for a specific data set.
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/isEnableCache`
 - Arguments: None
 - Returns true if the caching is enabled.
@@ -792,7 +792,7 @@ Checks if the cache is enabled for a specific data set.
 ### Enable cache
 
 - Supported methods: POST
-- Requires authentication and the ROLE_ADMIN and ROLE_SUPER_ADMIN roles.
+- Requires authentication and the ROLE\_ADMIN and ROLE\_SUPER\_ADMIN roles.
 - Path: `/api/services/rest/bluesamservice/enableDisableCache/{enable}`
 - Arguments:
 
@@ -811,7 +811,7 @@ dataset
 You can use this endpoint to retrieve the allocated RAM cache memory.
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/allocatedRamCache`
 - Arguments: None
 - Returns: the size of the memory as a string
@@ -819,7 +819,7 @@ You can use this endpoint to retrieve the allocated RAM cache memory.
 ### Check persistence
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/persistence`
 - Arguments: None
 - Returns: the persistence used as a string
@@ -828,7 +828,7 @@ You can use this endpoint to retrieve the allocated RAM cache memory.
 
 - Supported methods: GET
 - Path: `/api/services/rest/bluesamservice/getDataSetTypes`
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Arguments: None
 - Returns: the list of supported data set types as a list of strings.
 
@@ -845,7 +845,7 @@ You can use this endpoint to retrieve the allocated RAM cache memory.
 Checks whether the PostgreSQL multi-schema configuration is enabled.
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE\_USER role.
 - Path: `/api/services/rest/bluesamservice/isPostgresMultiSchema`
 - Arguments: None
 - Returns: true if the PostgreSQL multi-schema configuration is enabled and false
@@ -901,7 +901,7 @@ Sample response:
 ### Record a new user
 
 - Supported method: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/security/servicelogin/recorduser`
 - Arguments: the JSON serialization of a
   `com.netfective.bluage.bac.entities.SignOn` object that represents the user to be
@@ -940,7 +940,7 @@ The following are the two valid values for `roleName`:
 ### List users
 
 - Supported method: GET
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/security/servicelogin/listusers`
 - Arguments: None
 - Returns a list of `com.netfective.bluage.bac.entities.SignOn`, serialized as
@@ -954,7 +954,7 @@ This action cannot be undone. The deleted user won't be able to connect to the B
 application again.
 
 - Supported method: POST
-- Requires authentication and the ROLE_ADMIN role.
+- Requires authentication and the ROLE\_ADMIN role.
 - Path: `/api/services/security/servicelogin/deleteuser`
 - Arguments: the JSON serialization of a
   `com.netfective.bluage.bac.entities.SignOn` object that represents the user to be

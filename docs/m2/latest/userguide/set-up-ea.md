@@ -144,7 +144,7 @@ goto :loop
 ```
 
 4. Open a Windows command prompt, cd to `C:\Users\PhotonUser\My Files\Home
-Folder` if needed and run `m2-rclone.cmd`. This command script
+ Folder` if needed and run `m2-rclone.cmd`. This command script
    runs a continuous loop, syncing your Amazon S3 bucket and key to the local folder every 10 seconds.
    You can adjust the time out as needed. You should see the source code of the application
    located in the Amazon S3 bucket in Windows File Explorer.
@@ -156,8 +156,8 @@ from the Amazon S3 bucket. The next sync operation will delete them from your lo
 
 ## Step 3: Create an ODBC source for the Amazon RDS instance
 
-1. To start the EA_Admin tool, navigate to the application selector menu in the top left
-   corner of the browser window and choose **MF EA_Admin**.
+1. To start the EA\_Admin tool, navigate to the application selector menu in the top left
+   corner of the browser window and choose **MF EA\_Admin**.
 2. From the **Administer** menu, choose **ODBC Data
    Sources**, and choose **Add** from the **User
    DSN** tab.
@@ -191,7 +191,7 @@ As defined in the Amazon RDS instance.
 
 As defined in the Amazon RDS instance. 5. Choose **Test** to validate that the connection to Amazon RDS is successful,
 and then choose **Save** to save your new User DSN. 6. Wait until you see the message that confirms creation of the proper workspace, and then
-choose **OK** to finish with ODBC Data Sources and close the EA_Admin
+choose **OK** to finish with ODBC Data Sources and close the EA\_Admin
 tool. 7. Navigate again to the application selector menu, and choose Enterprise Analyzer to start the tool. Choose
 **Create New**. 8. In the Workspace configuration window, enter your workspace name and define its location.
 The workspace can be the Amazon S3 based disk if you work under this config, or your home folder if
@@ -236,7 +236,7 @@ To resolve this issue, choose **OK** to clear the message, and then
 complete the following steps.
 
 1. In WorkSpaces Applications, choose the **Launch Application** icon on the toolbar, and
-   then choose **EA_Admin** to start the Enterprise Analyzer Administration
+   then choose **EA\_Admin** to start the Enterprise Analyzer Administration
    tool.
 
 ![The WorkSpaces Applications launch selector menu with the Rocket Enterprise Developer administration tool selected.](images/aas-launch-selector.png) 2. From the **Administer** menu, choose **Refresh Workspace
@@ -265,7 +265,7 @@ Micro Focus Enterprise Analyzer should now open with the existing workspace.
 If you no longer need the resources that you created for this tutorial, delete them so that
 you don't incur further charges. Complete the following steps:
 
-- Use the **EA_Admin** tool to delete the workspace.
+- Use the **EA\_Admin** tool to delete the workspace.
 - Delete the S3 buckets that you created for this tutorial. For more information, see [Deleting a
   bucket](../../../AmazonS3/latest/userguide/delete-bucket.md "../../../AmazonS3/latest/userguide/delete-bucket.md") in the _Amazon S3 User Guide_.
 - Delete the database that you created for this tutorial. For more information, see [Deleting a DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Deleting.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Deleting.PostgreSQL").

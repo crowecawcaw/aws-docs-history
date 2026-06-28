@@ -35,6 +35,7 @@ The behaviour of the utility is influenced by the following configuration parame
 - `hasGraphic`
 - `forcedDate`
 - `frozenDate`
+- `forcedDateMode`
 
 Please see [Available properties for optional web applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
 
@@ -236,6 +237,7 @@ The behaviour of the utility is influenced by the following configuration parame
 - `hasGraphic`
 - `forcedDate`
 - `frozenDate`
+- `forcedDateMode`
 
 Please see [Available properties for optional web applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
 
@@ -340,6 +342,7 @@ The behaviour of the utility is influenced by the following configuration parame
 - `hasGraphic`
 - `forcedDate`
 - `frozenDate`
+- `forcedDateMode`
 
 Please see [Available properties for optional web applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
 
