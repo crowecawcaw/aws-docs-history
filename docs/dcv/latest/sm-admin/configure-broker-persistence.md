@@ -79,8 +79,8 @@ Configure the brokers to start persisting their data on MariaDB/MySQL:
    - Set `persistence-db = mysql`
    - Set `jdbc-connection-url = jdbc:mysql://`<db_endpoint>`:`<db_port>`/`<db_name>`?createDatabaseIfNotExist=true`
 
-   In this configuration, <db_endpoint> is the database endpoint, <db_port> is the
-   database port, and <db_name> is the database name.
+   In this configuration, <db\_endpoint> is the database endpoint, <db\_port> is the
+   database port, and <db\_name> is the database name.
    - For `jdbc-user` specify the name of the user that has access to the
      database.
    - For `jdbc-password` specify the password of the user that has access to the

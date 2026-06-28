@@ -123,9 +123,9 @@ In the navigation pane, choose **Load Balancers** and then choose **Create Load 
 
 3. For **Step 2: Configure Security Settings**, do the following:
 
-   1. For **Certificate type**, choose **Choose a certificate from ACM**.
-   2. For **Certificate name**, select the private certificate that you requested earlier.
-   3. Choose **Next**.
+    1. For **Certificate type**, choose **Choose a certificate from ACM**.
+    2. For **Certificate name**, select the private certificate that you requested earlier.
+    3. Choose **Next**.
 
 4. For **Step 3: Configure Security Groups**, create a new security group, or select an existing security group that allows inbound and outbound traffic between your frontend client and the Brokers over HTTPS and port 8443.
 
@@ -139,8 +139,7 @@ Choose **Next**. 5. For **Step 4: Configure Routing**, do the following:
      **Path**, enter `/health`.
     6. Choose **Next**.
 
-6. For **Step 5: Register Targets**, choose **Next**.
-7. Choose **Create**.
+6. For **Step 5: Register Targets**, choose **Next**. 7. Choose **Create**.
 
 ## Step 4: Launch the Brokers
 
@@ -162,15 +161,10 @@ using your preferred text editor, and do the following:
     3. For `broker-to-broker-discovery-aws-alb-target-group-arn`, enter the ARN of the target group associated with the Broker load balancer.
     4. Save and close the file.
 
-3. Stop the Broker instance.
-4. Create an AMI from the stopped Broker instance. For more information, see [Creating a Linux AMI from an
-   instance](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md#how-to-create-ebs-ami "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md#how-to-create-ebs-ami") in the _Amazon EC2 User Guide for Linux Instances_.
-5. Use the AMI to launch the remaining Brokers.
-6. Assign the instance profile that you created to all of the Broker instances.
-7. Assign a security group which allows Broker to Broker and Broker to load balancer network traffic to all of the Broker instances.
-   For more information about network ports, see [Broker Configuration File](broker-file.md "broker-file.md").
-8. Register all of the Broker instances as targets for the Broker load balancer. For more information,
-   see [Register targets with your target group](../../../elasticloadbalancing/latest/application/target-group-register-targets.md "../../../elasticloadbalancing/latest/application/target-group-register-targets.md") in the _User Guide for Application Load Balancers_.
+3. Stop the Broker instance. 4. Create an AMI from the stopped Broker instance. For more information, see [Creating a Linux AMI from an
+instance](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md#how-to-create-ebs-ami "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md#how-to-create-ebs-ami") in the _Amazon EC2 User Guide for Linux Instances_. 5. Use the AMI to launch the remaining Brokers. 6. Assign the instance profile that you created to all of the Broker instances. 7. Assign a security group which allows Broker to Broker and Broker to load balancer network traffic to all of the Broker instances.
+For more information about network ports, see [Broker Configuration File](broker-file.md "broker-file.md"). 8. Register all of the Broker instances as targets for the Broker load balancer. For more information,
+see [Register targets with your target group](../../../elasticloadbalancing/latest/application/target-group-register-targets.md "../../../elasticloadbalancing/latest/application/target-group-register-targets.md") in the _User Guide for Application Load Balancers_.
 
 ## Step 5: Create the Agent application load balancer
 
@@ -191,9 +185,9 @@ In the navigation pane, choose **Load Balancers** and then choose **Create Load 
 
 3. For **Step 2: Configure Security Settings**, do the following:
 
-   1. For **Certificate type**, choose **Choose a certificate from ACM**.
-   2. For **Certificate name**, select the private certificate that you requested earlier.
-   3. Choose **Next**.
+    1. For **Certificate type**, choose **Choose a certificate from ACM**.
+    2. For **Certificate name**, select the private certificate that you requested earlier.
+    3. Choose **Next**.
 
 4. For **Step 3: Configure Security Groups**, create a new security group, or select an existing security group that allows inbound and outbound traffic the Agents and the Brokers over HTTPS and port 8445.
 
@@ -207,8 +201,7 @@ Choose **Next**. 5. For **Step 4: Configure Routing**, do the following:
      **Path**, enter `/health`.
     6. Choose **Next**.
 
-6. For **Step 5: Register Targets**, select all of the Broker instances and choose **Add to registered**. Choose **Next: Review**.
-7. Choose **Create**.
+6. For **Step 5: Register Targets**, select all of the Broker instances and choose **Add to registered**. Choose **Next: Review**. 7. Choose **Create**.
 
 ## Step 6: Launch the Agents
 
@@ -238,9 +231,6 @@ When modifying the Amazon DCV server configuration file:
     * for the `ca-file` parameter, enter the same path to the CA public key file used in the previous step
     * for the `auth-token-verifier` parameter, use the Agent load balancer's DNS for `broker_ip_or_dns`
 
-5. Stop the Agent instance.
-6. Create an AMI from the stopped Agent instance. For more information, see [Creating a Linux AMI from an
-   instance](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md#how-to-create-ebs-ami "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md#how-to-create-ebs-ami") in the _Amazon EC2 User Guide for Linux Instances_.
-7. Use the AMI to launch the remaining Agents and assign the instance profile that you created to all of them.
-8. Assign a security group which allows Agent to load balancer network traffic to all of the Agent instances.
-   For more information about network ports, see [Agent Configuration File](agent-file.md "agent-file.md").
+5. Stop the Agent instance. 6. Create an AMI from the stopped Agent instance. For more information, see [Creating a Linux AMI from an
+instance](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md#how-to-create-ebs-ami "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md#how-to-create-ebs-ami") in the _Amazon EC2 User Guide for Linux Instances_. 7. Use the AMI to launch the remaining Agents and assign the instance profile that you created to all of them. 8. Assign a security group which allows Agent to load balancer network traffic to all of the Agent instances.
+For more information about network ports, see [Agent Configuration File](agent-file.md "agent-file.md").

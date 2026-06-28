@@ -39,7 +39,7 @@ Windows Amazon DCV server
 ###### On Windows Amazon DCV servers
 
 1. Open the Windows Registry Editor and navigate to the
-   **HKEY_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv/security/**
+   **HKEY\_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv/security/**
    key.
 2. Open the **ca-file** parameter.
 3. For **Value data**, specify the path

@@ -26,7 +26,7 @@ The following diagram shows the high-level components of Session Manager.
 
 ![Amazon DCV Session Manager components](images/session-mgr.png)
 
-\***\*Broker\*\***
+****Broker****
 
 The Broker is a web server that hosts and exposes the Session Manager APIs. It receives
 and processes _API_ requests to manage Amazon DCV
@@ -35,14 +35,14 @@ instructions to the relevant _Agents_. The Broker
 must be installed on a host that is separate from your Amazon DCV servers, but it
 must be accessible to the client, and it must be able to access the Agents.
 
-\***\*Agent\*\***
+****Agent****
 
 The Agent is installed on each Amazon DCV server in the fleet. The Agents receive
 instructions from the _Broker_ and run them on
 their respective Amazon DCV servers. The Agents also monitor the state of the Amazon DCV
 servers, and send periodic status updates back to the Broker.
 
-\***\*APIs\*\***
+****APIs****
 
 Session Manager exposes a set of REST application programming interfaces (APIs) that can
 be used to manage Amazon DCV sessions on a fleet of Amazon DCV servers. The APIs are
@@ -50,25 +50,25 @@ hosted on and exposed by the _Broker_. Developers
 can build custom session management _clients_ that call
 the APIs.
 
-\***\*Client\*\***
+****Client****
 
 The client is the front-end application or portal that you develop to call the Session Manager
 _APIs_ that are exposed by the _Broker_.
 End users use the client to manage the sessions hosted on the Amazon DCV servers in
 the fleet.
 
-\***\*Access token\*\***
+****Access token****
 
 In order to make an API request, you must provide an access token. Tokens can be
 requested from the Broker, or an external authorization server, by registered client APIs. To
 request and access token, the client API must provide valid credentials.
 
-\***\*Client API\*\***
+****Client API****
 
 The client API is generated from the Session Manager API definition YAML file, using Swagger
 Codegen. The client API is used to make API requests.
 
-\***\*Amazon DCV session\*\***
+****Amazon DCV session****
 
 An Amazon DCV session is a span of time when the Amazon DCV server is able to accept connections
 from a client. Before your clients can connect to an Amazon DCV session, you must create an Amazon DCV
