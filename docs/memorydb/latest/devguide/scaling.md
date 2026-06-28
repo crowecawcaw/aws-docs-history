@@ -10,8 +10,8 @@ what you use.
 The following helps you find the correct topic for the scaling actions that you want to
 perform.
 
-| Scaling MemoryDB              | Action                                                                                                      | MemoryDB |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------- | -------- |
-| Scaling out                   | [Online resharding for MemoryDB](cluster-resharding-online.md "cluster-resharding-online.md")               |
-| Changing node types           | [Online vertical scaling by modifying node type](cluster-vertical-scaling.md "cluster-vertical-scaling.md") |
-| Changing the number of shards | [Scaling MemoryDB clusters](scaling-cluster.md "scaling-cluster.md")                                        |
+Scaling MemoryDB| Action | MemoryDB |
+| --- | --- |
+| Scaling out | [Online resharding for MemoryDB](cluster-resharding-online.md "cluster-resharding-online.md") |
+| Changing node types | [Online vertical scaling by modifying node type](cluster-vertical-scaling.md "cluster-vertical-scaling.md") |
+| Changing the number of shards | [Scaling MemoryDB clusters](scaling-cluster.md "scaling-cluster.md") |

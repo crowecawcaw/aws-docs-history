@@ -10,7 +10,7 @@ JSON.STRAPPEND <key> [path] <json_string>
 
 - key (required) – key of JSON document type
 - path (optional) – a JSON path. Defaults to the root if not provided
-- json_string (required) – JSON representation of a string. Note that a JSON string must be quoted, i.e., '"foo"'.
+- json\_string (required) – JSON representation of a string. Note that a JSON string must be quoted, i.e., '"foo"'.
   **Return**
 
 If the path is enhanced syntax:

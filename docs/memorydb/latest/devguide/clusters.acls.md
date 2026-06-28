@@ -174,11 +174,8 @@ Cluster naming constraints are as follows:
     * Can't contain two consecutive hyphens.
     * Can't end with a hyphen.
 
-5. Under **Passwords**, you can enter up to two passwords.
-6. Under **Access string**, enter an access string. The access string sets the
-   permission level for what keys and commands the user is allowed.
-7. For **Tags**, you can optionally apply tags to search and filter your users or track your AWS costs.
-8. Choose **Create**.
+5. Under **Passwords**, you can enter up to two passwords. 6. Under **Access string**, enter an access string. The access string sets the
+permission level for what keys and commands the user is allowed. 7. For **Tags**, you can optionally apply tags to search and filter your users or track your AWS costs. 8. Choose **Create**.
 
 ###### To create a user by using the CLI
 
@@ -313,11 +310,10 @@ Cluster naming constraints are as follows:
 
 5. Under **Selected users** do one of the following:
 
-   1. Create a new user by choosing **Create user**
-   2. Add users by choosing **Manage** and then selecting users from the **Manage users** dialog and then selecting **Choose**.
+    1. Create a new user by choosing **Create user**
+    2. Add users by choosing **Manage** and then selecting users from the **Manage users** dialog and then selecting **Choose**.
 
-6. For **Tags**, you can optionally apply tags to search and filter your ACLs or track your AWS costs.
-7. Choose **Create**.
+6. For **Tags**, you can optionally apply tags to search and filter your ACLs or track your AWS costs. 7. Choose **Create**.
 
 Use the following procedures to create an Access control list using the CLI.
 
@@ -362,8 +358,8 @@ Cluster naming constraints are as follows:
 
 6. Under **Selected users** do one of the following:
 
-   1. Create a new user by choosing **Create user**
-   2. Add users by choosing **Manage** and then selecting users from the **Manage users** dialog and then selecting **Choose**.
+    1. Create a new user by choosing **Create user**
+    2. Add users by choosing **Manage** and then selecting users from the **Manage users** dialog and then selecting **Choose**.
 
 7. Choose **Modify** to save your changes or **Cancel** to discard them.
 

@@ -131,15 +131,13 @@ When testing, note the following:
   MemoryDB console, the AWS CLI, or the MemoryDB API. Look for the following events
   related to `FailoverShard`, listed here in order of likely occurrence:
 
-      1. cluster message: `FailoverShard API called for shard <shard-id>`
-      2. cluster message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
-      3. cluster message: `Recovering nodes <node-id>`
-      4. cluster message: `Finished recovery for nodes <node-id>`
-
-  For more information, see the following:
-
-      + [DescribeEvents](../APIReference/API_DescribeEvents.md "../APIReference/API_DescribeEvents.md") in the *MemoryDB API
-       Reference*
+  1.  cluster message: `FailoverShard API called for shard <shard-id>`
+  2.  cluster message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
+  3.  cluster message: `Recovering nodes <node-id>`
+  4.  cluster message: `Finished recovery for nodes <node-id>`
+      For more information, see the following:
+  - [DescribeEvents](../APIReference/API_DescribeEvents.md "../APIReference/API_DescribeEvents.md") in the _MemoryDB API
+    Reference_
 
 - This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be an operational tool for initiating a failover to address an issue with the cluster. Moreover, in certain conditions such as large-scale operational events, AWS may block this API.
 

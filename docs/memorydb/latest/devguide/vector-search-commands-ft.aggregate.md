@@ -20,7 +20,7 @@ FT.AGGREGATE index query
 - FILTER, LIMIT, GROUPBY, SORTBY and APPLY clauses can be repeated multiple times in any order and be freely intermixed. They are applied in the order specified with the output of one clause feeding the input of the next clause.
 - In the above syntax, a “property” is either a field declared in the [FT.CREATE](vector-search-commands-ft.create.md "vector-search-commands-ft.create.md") command for this index OR the output of a previous APPLY clause or REDUCE function.
 - The LOAD clause is restricted to loading fields that have been declared in the index. “LOAD \*” will load all fields declared in the index.
-- The following reducer functions are supported: COUNT, COUNT_DISTINCTISH, SUM, MIN, MAX, AVG, STDDEV, QUANTILE, TOLIST, FIRST_VALUE, and RANDOM_SAMPLE. For more information, see [Aggregations](https://redis.io/docs/interact/search-and-query/search/aggregations/ "https://redis.io/docs/interact/search-and-query/search/aggregations/")
+- The following reducer functions are supported: COUNT, COUNT\_DISTINCTISH, SUM, MIN, MAX, AVG, STDDEV, QUANTILE, TOLIST, FIRST\_VALUE, and RANDOM\_SAMPLE. For more information, see [Aggregations](https://redis.io/docs/interact/search-and-query/search/aggregations/ "https://redis.io/docs/interact/search-and-query/search/aggregations/")
 - LIMIT <offset> <count>: Retains records starting at <offset> and continuing for up to <count>, all other records are discarded.
 - PARAMS: Two times the number of key value pairs. Param key/value pairs can be referenced from within the query expression.
   **Return**

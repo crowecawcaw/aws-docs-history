@@ -29,32 +29,32 @@ JSON documents are stored internally in a format optimized for rapid access and 
 - JSON datatype is fully integrated into the Valkey and Redis OSS [Access Control Lists (ACL)](https://valkey.io/topics/acl/ "https://valkey.io/topics/acl/") capability. Similar to the existing per-datatype categories (@string, @hash, etc.) a new category @json is added to simplify managing access to JSON commands and data. No other existing Valkey or Redis OSS commands are members of the @json category. All JSON commands enforce any keyspace or command restrictions and permissions.
 - There are five existing ACL categories that are updated to include the new JSON commands: @read, @write, @fast, @slow and @admin. The table below indicates the mapping of JSON commands to the appropriate categories.
 
-| ACL            | JSON Command | @read | @write | @fast | @slow | @admin |
-| -------------- | ------------ | ----- | ------ | ----- | ----- | ------ |
-| JSON.ARRAPPEND |              | y     | y      |       |       |
-| JSON.ARRINDEX  | y            |       | y      |       |       |
-| JSON.ARRINSERT |              | y     | y      |       |       |
-| JSON.ARRLEN    | y            |       | y      |       |       |
-| JSON.ARRPOP    |              | y     | y      |       |       |
-| JSON.ARRTRIM   |              | y     | y      |       |       |
-| JSON.CLEAR     |              | y     | y      |       |       |
-| JSON.DEBUG     | y            |       |        | y     | y     |
-| JSON.DEL       |              | y     | y      |       |       |
-| JSON.FORGET    |              | y     | y      |       |       |
-| JSON.GET       | y            |       | y      |       |       |
-| JSON.MGET      | y            |       | y      |       |       |
-| JSON.NUMINCRBY |              | y     | y      |       |       |
-| JSON.NUMMULTBY |              | y     | y      |       |       |
-| JSON.OBJKEYS   | y            |       | y      |       |       |
-| JSON.OBJLEN    | y            |       | y      |       |       |
-| JSON.RESP      | y            |       | y      |       |       |
-| JSON.SET       |              | y     |        | y     |       |
-| JSON.STRAPPEND |              | y     | y      |       |       |
-| JSON.STRLEN    | y            |       | y      |       |       |
-| JSON.STRLEN    | y            |       | y      |       |       |
-| JSON.TOGGLE    |              | y     | y      |       |       |
-| JSON.TYPE      | y            |       | y      |       |       |
-| JSON.NUMINCRBY |              | y     | y      |       |       |
+ACL| JSON Command | @read | @write | @fast | @slow | @admin |
+| --- | --- | --- | --- | --- | --- |
+| JSON.ARRAPPEND | | y | y | | |
+| JSON.ARRINDEX | y | | y | | |
+| JSON.ARRINSERT | | y | y | | |
+| JSON.ARRLEN | y | | y | | |
+| JSON.ARRPOP | | y | y | | |
+| JSON.ARRTRIM | | y | y | | |
+| JSON.CLEAR | | y | y | | |
+| JSON.DEBUG | y | | | y | y |
+| JSON.DEL | | y | y | | |
+| JSON.FORGET | | y | y | | |
+| JSON.GET | y | | y | | |
+| JSON.MGET | y | | y | | |
+| JSON.NUMINCRBY | | y | y | | |
+| JSON.NUMMULTBY | | y | y | | |
+| JSON.OBJKEYS | y | | y | | |
+| JSON.OBJLEN | y | | y | | |
+| JSON.RESP | y | | y | | |
+| JSON.SET | | y | | y | |
+| JSON.STRAPPEND | | y | y | | |
+| JSON.STRLEN | y | | y | | |
+| JSON.STRLEN | y | | y | | |
+| JSON.TOGGLE | | y | y | | |
+| JSON.TYPE | y | | y | | |
+| JSON.NUMINCRBY | | y | y | | |
 
 ## Nesting depth limit
 
@@ -87,7 +87,7 @@ If a query path starts with '$', it uses the enhanced syntax. Otherwise, the res
 **Enhanced Syntax**
 
 | Symbol/Expression | Description                                                              |
-| ----------------- | ------------------------------------------------------------------------ | --- | -------------------------------------------------------- |
+| ----------------- | ------------------------------------------------------------------------ |
 | $                 | the root element                                                         |
 | . or []           | child operator                                                           |
 | ..                | recursive descent                                                        |
@@ -157,7 +157,7 @@ The below examples are built on [Goessner's](https://goessner.net/articles/JsonP
 ```
 
 | Path                                           | Description                                                                                                  |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------- | ------------------------------------------------------------------------------------ |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | $.store.book[\*].author                        | the authors of all books in the store                                                                        |
 | $..author                                      | all authors                                                                                                  |
 | $.store.\*                                     | all members of the store                                                                                     |
@@ -253,10 +253,10 @@ Each error message has a prefix. The following is a list of common error prefixe
 
 The following JSON info metrics are provided:
 
-| Info                    | Description                                                 |
-| ----------------------- | ----------------------------------------------------------- |
-| json_total_memory_bytes | total memory allocated to JSON objects                      |
-| json_num_documents      | total number of documents in the Valkey or Redis OSS engine |
+| Info                       | Description                                                 |
+| -------------------------- | ----------------------------------------------------------- |
+| json\_total\_memory\_bytes | total memory allocated to JSON objects                      |
+| json\_num\_documents       | total number of documents in the Valkey or Redis OSS engine |
 
 To query core metrics, run the command:
 

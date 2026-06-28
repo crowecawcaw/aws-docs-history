@@ -46,9 +46,7 @@ Cluster naming constraints are as follows:
     * Can't end with a hyphen.
 
 6. Under **Encryption**, choose whether to use a default encryption key or a customer managed key. For more information, see
-   [In-transit encryption (TLS) in MemoryDB](in-transit-encryption.md "in-transit-encryption.md").
-7. Under **Tags**, optionally add tags to search and filter your snapshots or track your AWS costs.
-8. Choose **Take snapshot**.
+[In-transit encryption (TLS) in MemoryDB](in-transit-encryption.md "in-transit-encryption.md"). 7. Under **Tags**, optionally add tags to search and filter your snapshots or track your AWS costs. 8. Choose **Take snapshot**.
 
 The status of the cluster changes to _snapshotting_.
 When the status returns to _available_ the snapshot is complete.

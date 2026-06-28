@@ -83,7 +83,7 @@ For more information, see the AWS CLI topic describe-subnet-groups.
 Using the MemoryDB API, call `DescribeSubnetGroups` with the following
 parameters:
 
-`SubnetGroupName=``mysubnetgroup`
+`SubnetGroupName=```mysubnetgroup``
 
 ###### Example
 

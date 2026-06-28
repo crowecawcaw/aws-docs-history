@@ -23,19 +23,17 @@ For more information, see [Metrics for MemoryDB](metrics.memorydb.md "metrics.me
 
 7. Choose the **Maintenace and snapshot** tab to see details of the snapshot settings.
 
-   1. In **Snapshot**, you can see whether Automated Snapshots are enabled, the snapshot retention period and
-      the snapshot window.
-   2. In **Snapshots**, you will see a list of any snapshots to this cluster, including the snapshot name, size, number of shards and status.For more information, see [Snapshot and restore](snapshots.md "snapshots.md").
+    1. In **Snapshot**, you can see whether Automated Snapshots are enabled, the snapshot retention period and
+     the snapshot window.
+    2. In **Snapshots**, you will see a list of any snapshots to this cluster, including the snapshot name, size, number of shards and status.For more information, see [Snapshot and restore](snapshots.md "snapshots.md").
 
-8. Choose the **Maintenace and snapshot** tab to see details of the Maintenance Window, along with any pending ACL, Resharding or Service updates. For more information, see [Managing maintenance](maintenance-window.md "maintenance-window.md").
-9. Choose the **Service Updates** tab to see details of the any service updates that are applicable to this cluster. For more information, see
-   [Service updates in MemoryDB](service-updates.md "service-updates.md").
-10. Choose the **Tags** tab to see details of any resource or cost-allocation tags that are associated with this cluster. For more information, see
-    [Tagging snapshots](snapshots-tagging.md "snapshots-tagging.md").
-    You can view the details for a cluster using the AWS CLI `describe-clusters` command.
-    If the `--cluster-name` parameter is omitted, details for multiple clusters, up to `--max-results`, are returned.
-    If the `--cluster-name` parameter is included, details for the specified cluster are returned.
-    You can limit the number of records returned with the `--max-results` parameter.
+8. Choose the **Maintenace and snapshot** tab to see details of the Maintenance Window, along with any pending ACL, Resharding or Service updates. For more information, see [Managing maintenance](maintenance-window.md "maintenance-window.md"). 9. Choose the **Service Updates** tab to see details of the any service updates that are applicable to this cluster. For more information, see
+[Service updates in MemoryDB](service-updates.md "service-updates.md"). 10. Choose the **Tags** tab to see details of any resource or cost-allocation tags that are associated with this cluster. For more information, see
+[Tagging snapshots](snapshots-tagging.md "snapshots-tagging.md").
+You can view the details for a cluster using the AWS CLI `describe-clusters` command.
+If the `--cluster-name` parameter is omitted, details for multiple clusters, up to `--max-results`, are returned.
+If the `--cluster-name` parameter is included, details for the specified cluster are returned.
+You can limit the number of records returned with the `--max-results` parameter.
 
 The following code lists the details for `my-cluster`.
 

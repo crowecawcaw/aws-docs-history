@@ -73,9 +73,9 @@ For more information, see the AWS CLI topic [update-subnet-group](../../../cli/l
 Using the MemoryDB API, call `UpdateSubnetGroup` with the following
 parameters:
 
-- `SubnetGroupName=``mysubnetgroup`
+- `SubnetGroupName=```mysubnetgroup``
 - Any other parameters whose values you want to change. This example uses
-  `Description=``New%20description`
+  `Description=```New%20description``
   to change the description of the subnet group.
 
 ###### Example

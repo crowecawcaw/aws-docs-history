@@ -46,7 +46,7 @@ Copy the Cluster Endpoint Address shown in the output. You'll need this address 
 ### Create IAM Role
 
 1. Create an IAM trust policy document, as shown below, for your role that allows your account to assume the new role.
-   Save the policy to a file named _trust-policy.json_. Be sure to replace account_id 123456789012 in this policy with your account_id.
+   Save the policy to a file named _trust-policy.json_. Be sure to replace account\_id 123456789012 in this policy with your account\_id.
 
 JSON
 
@@ -70,7 +70,7 @@ JSON
 ```
 
 2. Create an IAM policy document, as shown below. Save the policy to a file named _policy.json_.
-   Be sure to replace account_id 123456789012 in this policy with your account_id.
+   Be sure to replace account\_id 123456789012 in this policy with your account\_id.
 
 JSON
 
@@ -109,7 +109,7 @@ aws iam create-policy \
   --policy-document file://policy.json
 ```
 
-5. Attach the IAM policy to the role. Be sure to replace account_id 123456789012 in this policy-arn with your account_id.
+5. Attach the IAM policy to the role. Be sure to replace account\_id 123456789012 in this policy-arn with your account\_id.
 
 ```
 aws iam attach-role-policy \

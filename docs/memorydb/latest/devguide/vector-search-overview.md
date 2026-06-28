@@ -41,7 +41,7 @@ Successful execution of a create automatically initiates the second step – bac
 key space for keys that are within the new index’s prefix list.
 Each key that is found is added to the index. Eventually the entire keyspace is scanned, completing the index creation process.
 Note that while the backfill process is running, mutations of indexed keys is permitted, there is no restriction and the index backfill process will not complete until all keys are properly indexed. Query operations attempted while an index is undergoing backfill are not allowed and are terminated with an error.
-The completion of the backfilling process can be determined from the output of the `FT.INFO` command for that index ('backfill_status').
+The completion of the backfilling process can be determined from the output of the `FT.INFO` command for that index ('backfill\_status').
 
 ## Index field types
 
@@ -177,7 +177,7 @@ Where:
 - The optional `<distance-field-name>` provides a field name for the resultset to contain the computed distance between the reference vector and each key.
 - The optional `<epsilon-value>` controls the boundary of the search
   operation, vectors within the distance `<radius> * (1.0 +
-<epsilon-value>)` are traversed looking for candidate
+ <epsilon-value>)` are traversed looking for candidate
   results. The default is .01.
 
 ## INFO command
@@ -187,35 +187,35 @@ of the following sections:
 
 ### `search_memory` section
 
-| Name                     | Description                                                      |
-| ------------------------ | ---------------------------------------------------------------- |
-| search_used_memory_bytes | Number of bytes of memory consumed in all search data structures |
-| search_used_memory_human | Human readable version of above                                  |
+| Name                        | Description                                                      |
+| --------------------------- | ---------------------------------------------------------------- |
+| search\_used\_memory\_bytes | Number of bytes of memory consumed in all search data structures |
+| search\_used\_memory\_human | Human readable version of above                                  |
 
 ### `search_index_stats` section
 
-| Name                             | Description                                        |
-| -------------------------------- | -------------------------------------------------- |
-| search_number_of_indexes         | Number of created indexes                          |
-| search_num_fulltext_indexes      | Number of non-vector fields in all indexes         |
-| search_num_vector_indexes        | Number of vector fields in all indexes             |
-| search_num_hash_indexes          | Number of indexes on HASH type keys                |
-| search_num_json_indexes          | Number of indexes on JSON type keys                |
-| search_total_indexed_keys        | Total number of keys in all indexes                |
-| search_total_indexed_vectors     | Total number of vectors in all indexes             |
-| search_total_indexed_hash_keys   | Total number of keys of type HASH in all indexes   |
-| search_total_indexed_json_keys   | Total number of keys of tytpe JSON in all indexes  |
-| search_total_index_size          | Bytes used by all indexes                          |
-| search_total_fulltext_index_size | Bytes used by non-vector index structures          |
-| search_total_vector_index_size   | Bytes used by vector index structures              |
-| search_max_index_lag_ms          | Ingestion delay during last ingestion batch update |
+| Name                                 | Description                                        |
+| ------------------------------------ | -------------------------------------------------- |
+| search\_number\_of\_indexes          | Number of created indexes                          |
+| search\_num\_fulltext\_indexes       | Number of non-vector fields in all indexes         |
+| search\_num\_vector\_indexes         | Number of vector fields in all indexes             |
+| search\_num\_hash\_indexes           | Number of indexes on HASH type keys                |
+| search\_num\_json\_indexes           | Number of indexes on JSON type keys                |
+| search\_total\_indexed\_keys         | Total number of keys in all indexes                |
+| search\_total\_indexed\_vectors      | Total number of vectors in all indexes             |
+| search\_total\_indexed\_hash\_keys   | Total number of keys of type HASH in all indexes   |
+| search\_total\_indexed\_json\_keys   | Total number of keys of tytpe JSON in all indexes  |
+| search\_total\_index\_size           | Bytes used by all indexes                          |
+| search\_total\_fulltext\_index\_size | Bytes used by non-vector index structures          |
+| search\_total\_vector\_index\_size   | Bytes used by vector index structures              |
+| search\_max\_index\_lag\_ms          | Ingestion delay during last ingestion batch update |
 
 ### `search_ingestion` section
 
-| Name                              | Description                                                                                                           |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| search_background_indexing_status | Status of ingestion. `NO_ACTIVITY` means idle. Other values indicate there are keys in the process of being ingested. |
-| search_ingestion_paused           | Except while restarting, this should always be "no".                                                                  |
+| Name                                 | Description                                                                                                           |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| search\_background\_indexing\_status | Status of ingestion. `NO_ACTIVITY` means idle. Other values indicate there are keys in the process of being ingested. |
+| search\_ingestion\_paused            | Except while restarting, this should always be "no".                                                                  |
 
 ### `search_backfill` section
 
@@ -223,17 +223,17 @@ of the following sections:
 
 Some of the fields documented in this section are only visible when a backfill is currently in progress.
 
-| Name                                        | Description                                            |
-| ------------------------------------------- | ------------------------------------------------------ |
-| search_num_active_backfills                 | Number of current backfill activities                  |
-| search_backfills_paused                     | Except when out of memory, this should always be "no". |
-| search_current_backfill_progress_percentage | % completion (0-100) of the current backfill           |
+| Name                                            | Description                                            |
+| ----------------------------------------------- | ------------------------------------------------------ |
+| search\_num\_active\_backfills                  | Number of current backfill activities                  |
+| search\_backfills\_paused                       | Except when out of memory, this should always be "no". |
+| search\_current\_backfill\_progress\_percentage | % completion (0-100) of the current backfill           |
 
 ### `search_query` section
 
-| Name                      | Description                                                             |
-| ------------------------- | ----------------------------------------------------------------------- |
-| search_num_active_queries | Number of `FT.SEARCH` and `FT.AGGREGATE` commands currently in progress |
+| Name                         | Description                                                             |
+| ---------------------------- | ----------------------------------------------------------------------- |
+| search\_num\_active\_queries | Number of `FT.SEARCH` and `FT.AGGREGATE` commands currently in progress |
 
 ## Vector search security
 

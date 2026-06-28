@@ -42,15 +42,15 @@ If you're using the Amazon MemoryDB API, the AWS CLI, or an AWS SDK, you can use
 - `CreateMultiRegionCluster`
   The following table describes the MemoryDB resources that can be tagged, and the resources that can be tagged on creation using the MemoryDB API, the AWS CLI, or an AWS SDK.
 
-| Tagging support for MemoryDB resources | Resource | Supports tags | Supports tagging on creation |
-| -------------------------------------- | -------- | ------------- | ---------------------------- |
-| parametergroup                         | Yes      | Yes           |
-| subnetgroup                            | Yes      | Yes           |
-| cluster                                | Yes      | Yes           |
-| snapshot                               | Yes      | Yes           |
-| user                                   | Yes      | Yes           |
-| acl                                    | Yes      | Yes           |
-| multiregioncluster                     | Yes      | Yes           |
+Tagging support for MemoryDB resources| Resource | Supports tags | Supports tagging on creation |
+| --- | --- | --- |
+| parametergroup | Yes | Yes |
+| subnetgroup | Yes | Yes |
+| cluster | Yes | Yes |
+| snapshot | Yes | Yes |
+| user | Yes | Yes |
+| acl | Yes | Yes |
+| multiregioncluster | Yes | Yes |
 
 You can apply tag-based resource-level permissions in your IAM policies to the MemoryDB API actions that support tagging on creation to implement granular control over the users and groups that can tag resources on creation.
 Your resources are properly secured from creation—tags that are applied immediately to your resources. Therefore any tag-based resource-level permissions controlling the use of resources are immediately effective.

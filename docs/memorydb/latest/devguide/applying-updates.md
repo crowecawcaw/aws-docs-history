@@ -45,9 +45,8 @@ has not been applied or has just been applied recently. For each cluster, you ca
 - **Update Type**: The type of the service update, which is one of **security-update** or **engine-update**
 - **Status**: The status of the service update on the cluster, which is one of the following:
 
-      + *available*: The update is available for the requisite cluster.
-      + *in-progres*: The update is being applied to this cluster.
-      + *scheduled*: The update date has been scheduled.
-      + *complete*: The update has been successfully applied. Cluster with a complete status will be displayed for 7 days after its completion.
-
-  If you chose any or all of the clusters with the **available** or **scheduled** status, and then chose **Apply now**, the update will start being applied on those clusters.
+  - _available_: The update is available for the requisite cluster.
+  - _in-progres_: The update is being applied to this cluster.
+  - _scheduled_: The update date has been scheduled.
+  - _complete_: The update has been successfully applied. Cluster with a complete status will be displayed for 7 days after its completion.
+    If you chose any or all of the clusters with the **available** or **scheduled** status, and then chose **Apply now**, the update will start being applied on those clusters.

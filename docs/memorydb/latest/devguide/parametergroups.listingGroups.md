@@ -139,7 +139,7 @@ https://memory-db.us-east-1.amazonaws.com/
 ```
 
 The response from this action will look something like this,
-listing the name, family and description in the case of memorydb_redis6, for each parameter group.
+listing the name, family and description in the case of memorydb\_redis6, for each parameter group.
 
 ```
 <DescribeParameterGroupsResponse xmlns="http://memory-db.us-east-1.amazonaws.com/doc/2021-01-01/">

@@ -29,25 +29,33 @@ instance.
      VPC.
     4. When the settings are as you want them, choose **Yes, Create**.
 
-8.  Define a network ingress rule for your security group. This rule will allow you to connect to
-    your Amazon EC2 instance using Secure Shell (SSH).
+8. Define a network ingress rule for your security group. This rule will allow you to connect to
+your Amazon EC2 instance using Secure Shell (SSH).
 
     1. In the left navigation pane, choose **Security Groups**.
     2. Find your security group in the list, and then choose it.
     3. Under **Security Group**, choose the **Inbound** tab.
-       In the **Create a new rule** box,
-       choose **SSH**,
-       and then choose **Add Rule**.
+     In the **Create a new rule** box,
+     choose **SSH**,
+     and then choose **Add Rule**.
+
 
     Set the following values for your new inbound rule to allow HTTP access:
 
-        * Type: HTTP
-        * Source: 0.0.0.0/0
-    4.  Set the following values for your new inbound rule to allow HTTP access:
 
-            * Type: HTTP
-            * Source: 0.0.0.0/0
 
-        Choose **Apply Rule Changes**.
+
+
+    	* Type: HTTP
+    	* Source: 0.0.0.0/0
+    4. Set the following values for your new inbound rule to allow HTTP access:
+
+
+
+
+
+    	* Type: HTTP
+    	* Source: 0.0.0.0/0
+    Choose **Apply Rule Changes**.
 
 Now you are ready to create a [subnet group](subnetgroups.md "subnetgroups.md") and [create a cluster](getting-started.createcluster.md "getting-started.createcluster.md") in your VPC.

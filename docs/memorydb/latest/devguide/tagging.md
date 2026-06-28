@@ -41,12 +41,12 @@ Sample ARN: `arn:aws:memorydb:us-east-1:1234567890:cluster/my-cluster`
 
 - The tag key is the required name of the tag.
   The key's string value can be from 1 to 128 Unicode characters long and cannot be prefixed with `aws:`.
-  The string can contain only the set of Unicode letters, digits, blank spaces, underscores ( _ ), periods ( . ),
+  The string can contain only the set of Unicode letters, digits, blank spaces, underscores ( \_ ), periods ( . ),
   colons ( : ), backslashes ( \ ), equal signs ( = ), plus signs ( + ),
   hyphens ( - ), or at signs ( @ ).
 - The tag value is the optional value of the tag.
   The value's string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with `aws:`.
-  The string can contain only the set of Unicode letters, digits, blank spaces, underscores ( _ ), periods ( . ),
+  The string can contain only the set of Unicode letters, digits, blank spaces, underscores ( \_ ), periods ( . ),
   colons ( : ), backslashes ( \ ), equal signs ( = ), plus signs ( + ),
   hyphens ( - ), or at signs ( @ ).
 - A MemoryDB resource can have a maximum of 50 tags.

@@ -9,23 +9,22 @@ The following procedures show you how to copy a snapshot.
 
 ###### To copy a snapshot (console)
 
-1.  Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
-2.  To see a list of your snapshots,
-    from the left navigation pane choose **Snapshots**.
-3.  From the list of snapshots, choose the radio button to the left of the name of the snapshot you want to copy.
-4.  Choose **Actions** and then choose **Copy**.
-5.  In the **Copy snapshot** page, do the
-    following:
+1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
+2. To see a list of your snapshots,
+   from the left navigation pane choose **Snapshots**.
+3. From the list of snapshots, choose the radio button to the left of the name of the snapshot you want to copy.
+4. Choose **Actions** and then choose **Copy**.
+5. In the **Copy snapshot** page, do the
+   following:
 
-        1. In the **New snapshot name** box, type a name for your new snapshot.
-        2. Leave the optional **Target S3 Bucket** box blank.
-         This field should only be used to export your snapshot and requires special S3 permissions.
-         For information on exporting a snapshot, see [Exporting a snapshot](snapshots-exporting.md "snapshots-exporting.md").
-        3. Choose whether to use the default AWS KMS encryption key or a use a custom key. For more information, see [In-transit encryption (TLS) in MemoryDB](in-transit-encryption.md "in-transit-encryption.md").
-        4. Optionally, you can also add tags to the snapshot copy.
-        5. Choose **Copy**.
-
-    To copy a snapshot, use the `copy-snapshot` operation.
+   1. In the **New snapshot name** box, type a name for your new snapshot.
+   2. Leave the optional **Target S3 Bucket** box blank.
+      This field should only be used to export your snapshot and requires special S3 permissions.
+      For information on exporting a snapshot, see [Exporting a snapshot](snapshots-exporting.md "snapshots-exporting.md").
+   3. Choose whether to use the default AWS KMS encryption key or a use a custom key. For more information, see [In-transit encryption (TLS) in MemoryDB](in-transit-encryption.md "in-transit-encryption.md").
+   4. Optionally, you can also add tags to the snapshot copy.
+   5. Choose **Copy**.
+      To copy a snapshot, use the `copy-snapshot` operation.
 
 ###### Parameters
 

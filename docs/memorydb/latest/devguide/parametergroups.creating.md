@@ -29,10 +29,7 @@ Parameter group naming constraints are as follows:
     * Can't contain two consecutive hyphens.
     * Can't end with a hyphen.
 
-5. In the **Description** box, type in a description for the parameter group.
-6. In the engine version compatibility box, choose an engine version that this parameter group corresponds to.
-7. In the **Tags**, optionally add tags to search and filter your parameter groups or track your AWS costs.
-8. To create the parameter group, choose **Create**.
+5. In the **Description** box, type in a description for the parameter group. 6. In the engine version compatibility box, choose an engine version that this parameter group corresponds to. 7. In the **Tags**, optionally add tags to search and filter your parameter groups or track your AWS costs. 8. To create the parameter group, choose **Create**.
 
 To terminate the process without creating the parameter group, choose **Cancel**. 9. When the parameter group is created, it will have the family's default values.
 To change the default values you must modify the parameter group.
@@ -61,7 +58,7 @@ Parameter group naming constraints are as follows:
 
 ###### Example
 
-The following example creates a parameter group named _myRedis6x_ using the memorydb_redis6
+The following example creates a parameter group named _myRedis6x_ using the memorydb\_redis6
 family as the template.
 
 For Linux, macOS, or Unix:
@@ -125,7 +122,7 @@ Parameter group naming constraints are as follows:
 
 ###### Example
 
-The following example creates a parameter group named _myRedis6x_ using the memorydb_redis6
+The following example creates a parameter group named _myRedis6x_ using the memorydb\_redis6
 family as the template.
 
 ```

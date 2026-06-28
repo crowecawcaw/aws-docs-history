@@ -22,8 +22,8 @@ The following table shows limits for various vector search items:
 | Number of fields in FT.AGGREGATE SORTBY clause           | 16            |
 | Number of parameters in FT.AGGREGATE PARAM clause        | 32            |
 | HNSW M parameter                                         | 512           |
-| HNSW EF_CONSTRUCTION parameter                           | 4096          |
-| HNSW EF_RUNTIME parameter                                | 4096          |
+| HNSW EF\_CONSTRUCTION parameter                          | 4096          |
+| HNSW EF\_RUNTIME parameter                               | 4096          |
 
 ## Scaling limits
 

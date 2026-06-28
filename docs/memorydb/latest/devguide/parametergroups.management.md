@@ -13,7 +13,7 @@ To fine-tune your cluster's performance, you can modify some parameter values or
   If you need custom parameter values, you must create a custom parameter group.
 - The parameter group family and the cluster you're assigning it to must be compatible.
   For example, if your cluster is running Redis OSS version 6, you can only use parameter groups, default
-  or custom, from the memorydb_redis6 family.
+  or custom, from the memorydb\_redis6 family.
 - When you change a cluster's parameters, the change is applied to the cluster
   immediately. This is true whether you change the
   cluster's parameter group itself or a parameter value within the cluster's

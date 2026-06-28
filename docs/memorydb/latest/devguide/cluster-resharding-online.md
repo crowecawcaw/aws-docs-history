@@ -246,9 +246,8 @@ Use the following parameters with `UpdateCluster`.
 - `ShardConfiguration` – Required. Allows you to set
   the number of shards.
 
-      + `ShardCount` – Set this property to specify the number of shards you want.
-
-  For more information, see [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md").
+  - `ShardCount` – Set this property to specify the number of shards you want.
+    For more information, see [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md").
 
 ## Removing shards with online resharding
 

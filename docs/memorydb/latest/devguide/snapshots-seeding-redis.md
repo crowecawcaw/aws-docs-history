@@ -140,30 +140,26 @@ regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/
 
 ###### To grant MemoryDB read access to the snapshot file
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  Choose the name of the S3 bucket that contains your .rdb file.
-3.  Choose the name of the folder that contains your .rdb file.
-4.  Choose the name of your .rdb snapshot file. The name of the selected file
-    appears above the tabs at the top of the page.
-5.  Choose the **Permissions** tab.
-6.  Under **Permissions**, choose **Bucket
-    policy** and then choose **Edit**.
-7.  Update the policy to grant MemoryDB required permissions to perform
-    operations:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Choose the name of the S3 bucket that contains your .rdb file.
+3. Choose the name of the folder that contains your .rdb file.
+4. Choose the name of your .rdb snapshot file. The name of the selected file
+   appears above the tabs at the top of the page.
+5. Choose the **Permissions** tab.
+6. Under **Permissions**, choose **Bucket
+   policy** and then choose **Edit**.
+7. Update the policy to grant MemoryDB required permissions to perform
+   operations:
 
-        * Add `[ "Service" : "`region-full-name`.memorydb-snapshot.amazonaws.com" ]` to `Principal`.
-        * Add the following permissions required for exporting a snapshot to the Amazon S3 bucket:
+   - Add `[ "Service" : "`region-full-name`.memorydb-snapshot.amazonaws.com" ]` to `Principal`.
+   - Add the following permissions required for exporting a snapshot to the Amazon S3 bucket:
 
-
-
-
-        	+ `"s3:GetObject"`
-        	+ `"s3:ListBucket"`
-        	+ `"s3:GetBucketAcl"`
-
-    The following is an example of what the updated policy might look
-    like.
+     - `"s3:GetObject"`
+     - `"s3:ListBucket"`
+     - `"s3:GetBucketAcl"`
+       The following is an example of what the updated policy might look
+       like.
 
 JSON
 

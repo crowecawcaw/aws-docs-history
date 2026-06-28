@@ -90,29 +90,25 @@ the following steps.
 
 ###### To grant MemoryDB access to an S3 bucket
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  Choose the name of the Amazon S3 bucket that you want to copy the snapshot to.
-    This should be the S3 bucket that you created in [Step 1: Create an Amazon S3 bucket](#snapshots-exporting-create-s3-bucket "#snapshots-exporting-create-s3-bucket").
-3.  Choose the **Permissions** tab and under **Permissions**, choose **Bucket policy**.
-4.  Update the policy to grant MemoryDB required permissions to perform
-    operations:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Choose the name of the Amazon S3 bucket that you want to copy the snapshot to.
+   This should be the S3 bucket that you created in [Step 1: Create an Amazon S3 bucket](#snapshots-exporting-create-s3-bucket "#snapshots-exporting-create-s3-bucket").
+3. Choose the **Permissions** tab and under **Permissions**, choose **Bucket policy**.
+4. Update the policy to grant MemoryDB required permissions to perform
+   operations:
 
-        * Add `[ "Service" : "`region-full-name`.memorydb-snapshot.amazonaws.com" ]` to `Principal`.
-        * Add the following permissions required for exporting a snapshot to the Amazon S3 bucket.
+   - Add `[ "Service" : "`region-full-name`.memorydb-snapshot.amazonaws.com" ]` to `Principal`.
+   - Add the following permissions required for exporting a snapshot to the Amazon S3 bucket.
 
-
-
-
-        	+ `"s3:PutObject"`
-        	+ `"s3:GetObject"`
-        	+ `"s3:ListBucket"`
-        	+ `"s3:GetBucketAcl"`
-        	+ `"s3:ListMultipartUploadParts"`
-        	+ `"s3:ListBucketMultipartUploads"`
-
-    The following is an example of what the updated policy might look
-    like.
+     - `"s3:PutObject"`
+     - `"s3:GetObject"`
+     - `"s3:ListBucket"`
+     - `"s3:GetBucketAcl"`
+     - `"s3:ListMultipartUploadParts"`
+     - `"s3:ListBucketMultipartUploads"`
+       The following is an example of what the updated policy might look
+       like.
 
 JSON
 
@@ -179,30 +175,30 @@ The Amazon S3 bucket must be in the same AWS Region as the MemoryDB snapshot.
 
 ###### To export a MemoryDB snapshot to an Amazon S3 bucket
 
-1.  Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
-2.  To see a list of your snapshots,
-    from the left navigation pane choose **Snapshots**.
-3.  From the list of snapshots, choose the radio button to the left of the name of the snapshot you want to export.
-4.  Choose **Copy**.
-5.  In **Create a Copy of the Backup?**, do the following:
+1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
+2. To see a list of your snapshots,
+   from the left navigation pane choose **Snapshots**.
+3. From the list of snapshots, choose the radio button to the left of the name of the snapshot you want to export.
+4. Choose **Copy**.
+5. In **Create a Copy of the Backup?**, do the following:
 
-    1. In **New snapshot name** box,
-       type a name for your new snapshot.
+   1. In **New snapshot name** box,
+      type a name for your new snapshot.
 
-    The name must be between 1 and 1,000 characters and able to be UTF-8 encoded.
+   The name must be between 1 and 1,000 characters and able to be UTF-8 encoded.
 
-    MemoryDB adds a shard identifier and `.rdb` to the
-    value that you enter here. For example, if you enter `my-exported-snapshot`,
-    MemoryDB creates `my-exported-snapshot-0001.rdb`. 2. From the **Target S3 Location** list,
-    choose the name of the Amazon S3 bucket that you want to copy your snapshot to (the bucket that you created in [Step 1: Create an Amazon S3 bucket](#snapshots-exporting-create-s3-bucket "#snapshots-exporting-create-s3-bucket")).
+   MemoryDB adds a shard identifier and `.rdb` to the
+   value that you enter here. For example, if you enter `my-exported-snapshot`,
+   MemoryDB creates `my-exported-snapshot-0001.rdb`. 2. From the **Target S3 Location** list,
+   choose the name of the Amazon S3 bucket that you want to copy your snapshot to (the bucket that you created in [Step 1: Create an Amazon S3 bucket](#snapshots-exporting-create-s3-bucket "#snapshots-exporting-create-s3-bucket")).
 
-    The **Target S3 Location** must be an Amazon S3 bucket
-    in the snapshot's AWS Region with the following permissions for the export process to succeed.
+   The **Target S3 Location** must be an Amazon S3 bucket
+   in the snapshot's AWS Region with the following permissions for the export process to succeed.
 
         * Object access – **Read** and **Write**.
         * Permissions access – **Read**.
 
-    For more information, see [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access"). 3. Choose **Copy**.
+   For more information, see [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access"). 3. Choose **Copy**.
 
 ###### Note
 
@@ -220,7 +216,7 @@ Add Read permissions on the bucket.
 **Solution:**
 Add Write permissions on the bucket.
 
-- MemoryDB has not been granted READ_ACP permissions %s on the S3 Bucket.
+- MemoryDB has not been granted READ\_ACP permissions %s on the S3 Bucket.
 
 **Solution:**
 Add **Read** for Permissions access on the bucket.
@@ -289,7 +285,7 @@ Add Read permissions on the bucket.
 **Solution:**
 Add Write permissions on the bucket.
 
-- MemoryDB has not been granted READ_ACP permissions %s on the S3 Bucket.
+- MemoryDB has not been granted READ\_ACP permissions %s on the S3 Bucket.
 
 **Solution:**
 Add **Read** for Permissions access on the bucket.
@@ -364,7 +360,7 @@ Add Read permissions on the bucket.
 **Solution:**
 Add Write permissions on the bucket.
 
-- MemoryDB has not been granted READ_ACP permissions %s on the S3 Bucket.
+- MemoryDB has not been granted READ\_ACP permissions %s on the S3 Bucket.
 
 **Solution:**
 Add **Read** for Permissions access on the bucket.

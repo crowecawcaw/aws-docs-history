@@ -23,65 +23,49 @@ SCHEMA
 
 - Field identifier:
 
-      + For hash keys, field identifier is A field name.
-      + For JSON keys, field identifier is A JSON path.
-
-  For more information, see [Index field types](vector-search-overview.md#vector-search-index-field-types "vector-search-overview.md#vector-search-index-field-types").
+  - For hash keys, field identifier is A field name.
+  - For JSON keys, field identifier is A JSON path.
+    For more information, see [Index field types](vector-search-overview.md#vector-search-index-field-types "vector-search-overview.md#vector-search-index-field-types").
 
 - Field types:
 
-      + TAG: For more information, see [Tags](https://redis.io/docs/interact/search-and-query/advanced-concepts/tags/ "https://redis.io/docs/interact/search-and-query/advanced-concepts/tags/") .
-      + NUMERIC: Field contains a number.
-      + TEXT: Field contains any blob of data.
-      + VECTOR: vector field that supports vector search.
+  - TAG: For more information, see [Tags](https://redis.io/docs/interact/search-and-query/advanced-concepts/tags/ "https://redis.io/docs/interact/search-and-query/advanced-concepts/tags/") .
+  - NUMERIC: Field contains a number.
+  - TEXT: Field contains any blob of data.
+  - VECTOR: vector field that supports vector search.
 
+    - Algorithm – can be HNSW (Hierarchical Navigable Small World) or FLAT (brute force).
+    - `attr_count` – number of attributes that will be passed as algorithm configuration, this includes both names and values.
+    - `{attribute_name} {attribute_value}` – algorithm-specific key/value pairs that define index configuration.
 
+    For FLAT algorithm, attributes are:
 
+    Required:
 
-      	- Algorithm – can be HNSW (Hierarchical Navigable Small World) or FLAT (brute force).
-      	- `attr_count` – number of attributes that will be passed as algorithm configuration, this includes both names and values.
-      	- `{attribute_name} {attribute_value}` – algorithm-specific key/value pairs that define index configuration.
+          * DIM – Number of dimensions in the vector.
+          * DISTANCE\_METRIC – Can be one of [L2 | IP | COSINE].
+          * TYPE – Vector type. The only supported type is `FLOAT32`.
 
+    Optional:
 
-      	For FLAT algorithm, attributes are:
+          * INITIAL\_CAP – Initial vector capacity in the index affecting memory allocation size of the index.
 
+    For HNSW algorithm, attributes are:
 
-      	Required:
+    Required:
 
+          * TYPE – Vector type. The only supported type is `FLOAT32`.
+          * DIM – Vector dimension, specified as a positive integer. Maximum: 32768
+          * DISTANCE\_METRIC – Can be one of [L2 | IP | COSINE].
 
+    Optional:
 
+          * INITIAL\_CAP – Initial vector capacity in the index affecting memory allocation size of the index. Defaults to 1024.
+          * M – Number of maximum allowed outgoing edges for each node in the graph in each layer. on layer zero the maximal number of outgoing edges will be 2M. Default is 16 Maximum is 512.
+          * EF\_CONSTRUCTION – controls the number of vectors examined during index construction. Higher values for this parameter will improve recall ratio at the expense of longer index creation times. Default value is 200. Maximum value is 4096.
+          * EF\_RUNTIME – controls the number of vectors examined during query operations. Higher values for this parameter can yield improved recall at the expense of longer query times. The value of this parameter can be overriden on a per-query basis. Default value is 10. Maximum value is 4096.
 
-      		* DIM – Number of dimensions in the vector.
-      		* DISTANCE\_METRIC – Can be one of [L2 | IP | COSINE].
-      		* TYPE – Vector type. The only supported type is `FLOAT32`.
-      	Optional:
-
-
-
-
-      		* INITIAL\_CAP – Initial vector capacity in the index affecting memory allocation size of the index.
-      	For HNSW algorithm, attributes are:
-
-
-      	Required:
-
-
-
-
-      		* TYPE – Vector type. The only supported type is `FLOAT32`.
-      		* DIM – Vector dimension, specified as a positive integer. Maximum: 32768
-      		* DISTANCE\_METRIC – Can be one of [L2 | IP | COSINE].
-      	Optional:
-
-
-
-
-      		* INITIAL\_CAP – Initial vector capacity in the index affecting memory allocation size of the index. Defaults to 1024.
-      		* M – Number of maximum allowed outgoing edges for each node in the graph in each layer. on layer zero the maximal number of outgoing edges will be 2M. Default is 16 Maximum is 512.
-      		* EF\_CONSTRUCTION – controls the number of vectors examined during index construction. Higher values for this parameter will improve recall ratio at the expense of longer index creation times. Default value is 200. Maximum value is 4096.
-      		* EF\_RUNTIME – controls the number of vectors examined during query operations. Higher values for this parameter can yield improved recall at the expense of longer query times. The value of this parameter can be overriden on a per-query basis. Default value is 10. Maximum value is 4096.
-
-  **Return**
+**Return**
 
 Returns a simple string OK message or error reply.
 

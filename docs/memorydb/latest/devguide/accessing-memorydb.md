@@ -84,28 +84,26 @@ The following procedure downloads the easy-rsa scripts, creates the Certificate 
 
 - To create the initial certificates, open a terminal and do the following:
 
-      + `git clone` [https://github.com/OpenVPN/easy-rsa](https://github.com/OpenVPN/easy-rsa "https://github.com/OpenVPN/easy-rsa")
-      + `cd easy-rsa`
-      + `./easyrsa3/easyrsa init-pki`
-      + `./easyrsa3/easyrsa build-ca nopass`
-      + `./easyrsa3/easyrsa build-server-full server nopass`
-      + `./easyrsa3/easyrsa build-client-full client1.domain.tld nopass`
-
-  A **pki** subdirectory containing the certificates will be created under **easy-rsa**.
+  - `git clone` [https://github.com/OpenVPN/easy-rsa](https://github.com/OpenVPN/easy-rsa "https://github.com/OpenVPN/easy-rsa")
+  - `cd easy-rsa`
+  - `./easyrsa3/easyrsa init-pki`
+  - `./easyrsa3/easyrsa build-ca nopass`
+  - `./easyrsa3/easyrsa build-server-full server nopass`
+  - `./easyrsa3/easyrsa build-client-full client1.domain.tld nopass`
+    A **pki** subdirectory containing the certificates will be created under **easy-rsa**.
 
 - Submit the server certificate to the AWS Certificate manager (ACM):
 
-      + On the ACM console, select **Certificate Manager**.
-      + Select **Import Certificate**.
-      + Enter the public key certificate available in the `easy-rsa/pki/issued/server.crt` file in the **Certificate body** field.
-      + Paste the private key available in the `easy-rsa/pki/private/server.key` in the **Certificate private key** field.
-       Make sure to select all the lines between `BEGIN AND END PRIVATE KEY` (including the `BEGIN` and `END` lines).
-      + Paste the CA public key available on the `easy-rsa/pki/ca.crt` file in the **Certificate chain** field.
-      + Select **Review and import**.
-      + Select **Import**.
-
-  To submit the server's certificates to ACM using the AWS CLI, run the following command:
-  `aws acm import-certificate --certificate fileb://easy-rsa/pki/issued/server.crt --private-key file://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region `region``
+  - On the ACM console, select **Certificate Manager**.
+  - Select **Import Certificate**.
+  - Enter the public key certificate available in the `easy-rsa/pki/issued/server.crt` file in the **Certificate body** field.
+  - Paste the private key available in the `easy-rsa/pki/private/server.key` in the **Certificate private key** field.
+    Make sure to select all the lines between `BEGIN AND END PRIVATE KEY` (including the `BEGIN` and `END` lines).
+  - Paste the CA public key available on the `easy-rsa/pki/ca.crt` file in the **Certificate chain** field.
+  - Select **Review and import**.
+  - Select **Import**.
+    To submit the server's certificates to ACM using the AWS CLI, run the following command:
+    `aws acm import-certificate --certificate fileb://easy-rsa/pki/issued/server.crt --private-key file://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region `region``
 
 Note the Certificate ARN for future use.
 

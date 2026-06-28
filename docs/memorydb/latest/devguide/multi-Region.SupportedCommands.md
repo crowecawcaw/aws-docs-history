@@ -19,14 +19,14 @@
 
 General categories of unsupported commands are the unsupported data types (Bitmaps, Hyperloglog, List, Geospatial and Stream), TTL related commands, blocking commands and functions related command. The full list is as follows:
 
-| Data type   | commands                                                                                                                                                                                             |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| String      | APPEND, GETEX, SETEX, SETRANGE                                                                                                                                                                       |
-| Bitmap      | BITCOUNT, BITFIELD, BITFIELD_RO, BITOP, BITPOS, GETBIT, SETBIT                                                                                                                                       |
-| Hyperloglog | PFADD, PFCOUNT, PFDEBUG, PFMERGE, PFSELFTEST                                                                                                                                                         |
-| List        | BLMOVE, BLMPOP, BLPOP, BRPOP, BRPOPLPUSH, LINDEX, LINSERT, LLEN, LMOVE, LMPOP, LPOP, LPOS, PUSH, LPUSHX, LRANGE, LREM, LSET, LTRIM, RPOP, RPOPLPUSH, RPUSH, RPUSHX                                   |
-| Set         | SMOVE, SUNIONSTORE, SDIFFSTORE, SINTERSTORE                                                                                                                                                          |
-| Sorted Set  | BZMPOP, BZPOPMAX, BZPOPMIN, ZDIFFSTORE, ZINTERSTORE, ZRANGESTORE, ZUNIONSTORE                                                                                                                        |
-| Geospatial  | GEOADD, GEODIST, GEOHASH, GEOPOS, GEORADIUS, GEORADIUS_RO, GEORADIUSBYMEMBER, GEORADIUSBYMEMBER_RO, GEOSEARCH, GEOSEARCHSTORE                                                                        |
-| Stream      | XACK, XADD, XAUTOCLAIM, XCLAIM, XDEL, XLEN, XPENDING, XRANGE, XREAD, XREADGROUP, XREVRANGE, XSETID, XTRIM, XGROUP, XINFO                                                                             |
-| Generic     | COPY, FLUSHDB, FLUSHALL, MOVE, RENAME, RENAMENX, SORT, SORT_RO, SWAPDB, OBJECT, FUNCTION, FCALL, FCALL_RO, EXPIRE, EXPIREAT, EXPIRETIME, PERSIST, PEXPIRE, PEXPIREAT, PEXPIRETIME, PSETEX, PTTL, TTL |
+| Data type   | commands                                                                                                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| String      | APPEND, GETEX, SETEX, SETRANGE                                                                                                                                                                         |
+| Bitmap      | BITCOUNT, BITFIELD, BITFIELD\_RO, BITOP, BITPOS, GETBIT, SETBIT                                                                                                                                        |
+| Hyperloglog | PFADD, PFCOUNT, PFDEBUG, PFMERGE, PFSELFTEST                                                                                                                                                           |
+| List        | BLMOVE, BLMPOP, BLPOP, BRPOP, BRPOPLPUSH, LINDEX, LINSERT, LLEN, LMOVE, LMPOP, LPOP, LPOS, PUSH, LPUSHX, LRANGE, LREM, LSET, LTRIM, RPOP, RPOPLPUSH, RPUSH, RPUSHX                                     |
+| Set         | SMOVE, SUNIONSTORE, SDIFFSTORE, SINTERSTORE                                                                                                                                                            |
+| Sorted Set  | BZMPOP, BZPOPMAX, BZPOPMIN, ZDIFFSTORE, ZINTERSTORE, ZRANGESTORE, ZUNIONSTORE                                                                                                                          |
+| Geospatial  | GEOADD, GEODIST, GEOHASH, GEOPOS, GEORADIUS, GEORADIUS\_RO, GEORADIUSBYMEMBER, GEORADIUSBYMEMBER\_RO, GEOSEARCH, GEOSEARCHSTORE                                                                        |
+| Stream      | XACK, XADD, XAUTOCLAIM, XCLAIM, XDEL, XLEN, XPENDING, XRANGE, XREAD, XREADGROUP, XREVRANGE, XSETID, XTRIM, XGROUP, XINFO                                                                               |
+| Generic     | COPY, FLUSHDB, FLUSHALL, MOVE, RENAME, RENAMENX, SORT, SORT\_RO, SWAPDB, OBJECT, FUNCTION, FCALL, FCALL\_RO, EXPIRE, EXPIREAT, EXPIRETIME, PERSIST, PEXPIRE, PEXPIREAT, PEXPIRETIME, PSETEX, PTTL, TTL |

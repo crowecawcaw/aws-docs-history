@@ -29,10 +29,9 @@ MEMORY
 
 - If the path is restricted syntax:
 
-      + returns an integer, memory size the JSON value in bytes.
-      + returns null if the key does not exist.
-
-  DEPTH
+  - returns an integer, memory size the JSON value in bytes.
+  - returns null if the key does not exist.
+    DEPTH
 
 - Returns an integer that represents the maximum path depth of the JSON document.
 - Returns null if the key does not exist.
@@ -45,10 +44,9 @@ MEMORY
 
 - If the path is restricted syntax:
 
-      + returns an integer, number of fields of the JSON value.
-      + returns null if the key does not exist.
-
-  HELP – returns an array of help messages.
+  - returns an integer, number of fields of the JSON value.
+  - returns null if the key does not exist.
+    HELP – returns an array of help messages.
 
 **Examples**
 

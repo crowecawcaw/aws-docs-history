@@ -8,10 +8,9 @@ If the path calls for an object member:
 - If the parent element exists but is not an object, the command will return ERROR.
 - If the parent element exists and is an object:
 
-      + If the member does not exist, a new member will be appended to the parent object if and only if the parent object is the last child in the path. Otherwise, the command will return NONEXISTENT error.
-      + If the member exists, its value will be replaced by the JSON value.
-
-  If the path calls for an array index:
+  - If the member does not exist, a new member will be appended to the parent object if and only if the parent object is the last child in the path. Otherwise, the command will return NONEXISTENT error.
+  - If the member exists, its value will be replaced by the JSON value.
+    If the path calls for an array index:
 
 - If the parent element does not exist, the command will return a NONEXISTENT error.
 - If the parent element exists but is not an array, the command will return ERROR.

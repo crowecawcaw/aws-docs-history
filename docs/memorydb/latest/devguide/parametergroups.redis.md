@@ -21,7 +21,7 @@ MemoryDB introduced [Vector search](vector-search.md "vector-search.md") that in
 `default.memorydb-valkey7.search`. This parameter group is available in the MemoryDB console and when creating a new vector-search-enabled cluster using the [create-cluster](../../../cli/latest/reference/memorydb/create-cluster.md "../../../cli/latest/reference/memorydb/create-cluster.md") CLI command. The preview release
 is available in the following AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Tokyo), and Europe (Ireland).
 
-**Parameter group family:** memorydb_valkey7
+**Parameter group family:** memorydb\_valkey7
 
 Parameters added in Valkey 7 and Redis OSS 7 are as follows.
 
@@ -56,7 +56,7 @@ Parameters removed in Redis OSS 7 are as follows.
 
 In Redis OSS engine version 6.2, when the r6gd node family was introduced for use with [Data tiering](data-tiering.md "data-tiering.md"), only `noeviction`, `volatile-lru` and `allkeys-lru` max-memory policies are supported with r6gd node types.
 
-**Parameter group family:** memorydb_redis6
+**Parameter group family:** memorydb\_redis6
 
 Parameters added in Redis OSS 6 are as follows.
 
