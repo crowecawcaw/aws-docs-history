@@ -23,7 +23,7 @@ Otherwise, to create a new project, choose **New project**. Then, on the
     4. Choose **Create**.
 
 4. In the project details, note the project's Amazon Resource Name (ARN). It looks like this:
-   `arn:aws:devicefarm:us-west-2:`111122223333`:testgrid-project:`123e4567-e89b-12d3-a456-426655440000``.
+`arn:aws:devicefarm:us-west-2:`111122223333`:testgrid-project:`123e4567-e89b-12d3-a456-426655440000``.
 
 ###### Note
 
