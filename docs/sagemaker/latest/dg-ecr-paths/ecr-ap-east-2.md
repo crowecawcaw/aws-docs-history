@@ -28,27 +28,27 @@ image_uris.retrieve(framework='pytorch',region='ap-east-2',version='1.8.0',py_ve
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 2.5.1   | inference               | CPU, GPU        | py311           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 2.5.1   | training                | CPU, GPU        | py311           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 2.4.0   | inference               | CPU, GPU        | py311           |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.4.0   | inference_graviton      | CPU             | py311           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.4.0   | inference\_graviton     | CPU             | py311           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 2.4.0   | training                | CPU, GPU        | py311           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 2.3.0   | inference               | CPU, GPU        | py311           |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.3.0   | inference_graviton      | CPU             | py311           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.3.0   | inference\_graviton     | CPU             | py311           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 2.3.0   | training                | CPU, GPU        | py311           |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.2.1   | inference_graviton      | CPU             | py310           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.2.1   | inference\_graviton     | CPU             | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 2.2.0   | inference               | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 2.2.0   | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 2.1.0   | inference               | CPU, GPU        | py310           |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.1.0   | inference_graviton      | CPU             | py310           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.1.0   | inference\_graviton     | CPU             | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 2.1.0   | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 2.0.1   | inference               | CPU, GPU        | py310           |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.0.1   | inference_graviton      | CPU             | py310           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.0.1   | inference\_graviton     | CPU             | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 2.0.1   | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 2.0.0   | inference               | CPU, GPU        | py310           |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.0.0   | inference_graviton      | CPU             | py310           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.0.0   | inference\_graviton     | CPU             | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 2.0.0   | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 1.13.1  | inference               | CPU, GPU        | py39            |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 1.13.1  | training                | CPU, GPU        | py39            |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 1.12.1  | inference               | CPU, GPU        | py38            |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 1.12.1  | inference_graviton      | CPU             | py38            |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference-graviton:`<tag>` | 1.12.1  | inference\_graviton     | CPU             | py38            |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 1.12.1  | training                | CPU, GPU        | py38            |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-inference:`<tag>`          | 1.12.0  | inference               | CPU, GPU        | py38            |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/pytorch-training:`<tag>`           | 1.12.0  | training                | CPU, GPU        | py38            |
@@ -116,15 +116,15 @@ image_uris.retrieve(framework='tensorflow',region='ap-east-2',version='1.12.0',i
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-training:`<tag>`           | 2.18.0  | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-training:`<tag>`           | 2.16.2  | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.16.1  | inference               | CPU, GPU        | -               |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.16.1  | inference_graviton      | CPU             | py310           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.16.1  | inference\_graviton     | CPU             | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.14.1  | inference               | CPU, GPU        | -               |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.14.1  | inference_graviton      | CPU             | py310           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.14.1  | inference\_graviton     | CPU             | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-training:`<tag>`           | 2.14.1  | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.13.0  | inference               | CPU, GPU        | -               |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.13.0  | inference_graviton      | CPU             | py310           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.13.0  | inference\_graviton     | CPU             | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-training:`<tag>`           | 2.13.0  | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.12.1  | inference               | CPU, GPU        | -               |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.12.1  | inference_graviton      | CPU             | py310           |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.12.1  | inference\_graviton     | CPU             | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-training:`<tag>`           | 2.12.0  | training                | CPU, GPU        | py310           |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.11.1  | inference               | CPU, GPU        | -               |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.11.0  | inference               | CPU, GPU        | -               |
@@ -135,7 +135,7 @@ image_uris.retrieve(framework='tensorflow',region='ap-east-2',version='1.12.0',i
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.9.3   | inference               | CPU, GPU        | -               |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.9.2   | inference               | CPU, GPU        | -               |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-training:`<tag>`           | 2.9.2   | training                | CPU, GPU        | py39            |
-| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.9.1   | inference_graviton      | CPU             | py38            |
+| 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference-graviton:`<tag>` | 2.9.1   | inference\_graviton     | CPU             | py38            |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.8.4   | inference               | CPU, GPU        | -               |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-inference:`<tag>`          | 2.8.0   | inference               | CPU, GPU        | -               |
 | 975050140332.dkr.ecr.ap-east-2.amazonaws.com/tensorflow-training:`<tag>`           | 2.8.0   | training                | CPU, GPU        | py39            |

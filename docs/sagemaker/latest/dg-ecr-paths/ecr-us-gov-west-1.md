@@ -549,27 +549,27 @@ image_uris.retrieve(framework='pytorch',region='us-gov-west-1',version='1.8.0',p
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 2.5.1   | inference               | CPU, GPU        | py311           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 2.5.1   | training                | CPU, GPU        | py311           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 2.4.0   | inference               | CPU, GPU        | py311           |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.4.0   | inference_graviton      | CPU             | py311           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.4.0   | inference\_graviton     | CPU             | py311           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 2.4.0   | training                | CPU, GPU        | py311           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 2.3.0   | inference               | CPU, GPU        | py311           |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.3.0   | inference_graviton      | CPU             | py311           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.3.0   | inference\_graviton     | CPU             | py311           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 2.3.0   | training                | CPU, GPU        | py311           |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.2.1   | inference_graviton      | CPU             | py310           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.2.1   | inference\_graviton     | CPU             | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 2.2.0   | inference               | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 2.2.0   | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 2.1.0   | inference               | CPU, GPU        | py310           |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.1.0   | inference_graviton      | CPU             | py310           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.1.0   | inference\_graviton     | CPU             | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 2.1.0   | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 2.0.1   | inference               | CPU, GPU        | py310           |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.0.1   | inference_graviton      | CPU             | py310           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.0.1   | inference\_graviton     | CPU             | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 2.0.1   | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 2.0.0   | inference               | CPU, GPU        | py310           |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.0.0   | inference_graviton      | CPU             | py310           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 2.0.0   | inference\_graviton     | CPU             | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 2.0.0   | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 1.13.1  | inference               | CPU, GPU        | py39            |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 1.13.1  | training                | CPU, GPU        | py39            |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 1.12.1  | inference               | CPU, GPU        | py38            |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 1.12.1  | inference_graviton      | CPU             | py38            |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference-graviton:`<tag>` | 1.12.1  | inference\_graviton     | CPU             | py38            |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 1.12.1  | training                | CPU, GPU        | py38            |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-inference:`<tag>`          | 1.12.0  | inference               | CPU, GPU        | py38            |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/pytorch-training:`<tag>`           | 1.12.0  | training                | CPU, GPU        | py38            |
@@ -634,7 +634,7 @@ image_uris.retrieve(framework='sklearn',region='us-gov-west-1',version='0.23-1',
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-scikit-learn:`<tag>` | 1.2-1   | 1.2.1           | training                |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-scikit-learn:`<tag>` | 1.0-1   | 1.0.2           | inference               |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-scikit-learn:`<tag>` | 1.0-1   | 1.0.2           | training                |
-| 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-scikit-learn:`<tag>` | 1.0-1   | 1.0.2           | inference_graviton      |
+| 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-scikit-learn:`<tag>` | 1.0-1   | 1.0.2           | inference\_graviton     |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-scikit-learn:`<tag>` | 0.23-1  | 0.23.2          | inference               |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-scikit-learn:`<tag>` | 0.23-1  | 0.23.2          | training                |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-scikit-learn:`<tag>` | 0.20.0  | 0.20.0          | inference               |
@@ -718,15 +718,15 @@ image_uris.retrieve(framework='tensorflow',region='us-gov-west-1',version='1.12.
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-training:`<tag>`              | 2.18.0  | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-training:`<tag>`              | 2.16.2  | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.16.1  | inference               | CPU, GPU        | -               |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.16.1  | inference_graviton      | CPU             | py310           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.16.1  | inference\_graviton     | CPU             | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.14.1  | inference               | CPU, GPU        | -               |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.14.1  | inference_graviton      | CPU             | py310           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.14.1  | inference\_graviton     | CPU             | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-training:`<tag>`              | 2.14.1  | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.13.0  | inference               | CPU, GPU        | -               |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.13.0  | inference_graviton      | CPU             | py310           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.13.0  | inference\_graviton     | CPU             | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-training:`<tag>`              | 2.13.0  | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.12.1  | inference               | CPU, GPU        | -               |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.12.1  | inference_graviton      | CPU             | py310           |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.12.1  | inference\_graviton     | CPU             | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-training:`<tag>`              | 2.12.0  | training                | CPU, GPU        | py310           |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.11.1  | inference               | CPU, GPU        | -               |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.11.0  | inference               | CPU, GPU        | -               |
@@ -737,7 +737,7 @@ image_uris.retrieve(framework='tensorflow',region='us-gov-west-1',version='1.12.
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.9.3   | inference               | CPU, GPU        | -               |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.9.2   | inference               | CPU, GPU        | -               |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-training:`<tag>`              | 2.9.2   | training                | CPU, GPU        | py39            |
-| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.9.1   | inference_graviton      | CPU             | py38            |
+| 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference-graviton:`<tag>`    | 2.9.1   | inference\_graviton     | CPU             | py38            |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.8.4   | inference               | CPU, GPU        | -               |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-inference:`<tag>`             | 2.8.0   | inference               | CPU, GPU        | -               |
 | 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com/tensorflow-training:`<tag>`              | 2.8.0   | training                | CPU, GPU        | py39            |
@@ -889,10 +889,10 @@ image_uris.retrieve(framework='xgboost',region='us-gov-west-1',version='1.5-1')
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.7-1   | 1.7.4           | training                |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.5-1   | 1.5.2           | inference               |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.5-1   | 1.5.2           | training                |
-| 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.5-1   | 1.5.2           | inference_graviton      |
+| 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.5-1   | 1.5.2           | inference\_graviton     |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.3-1   | 1.3.3           | inference               |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.3-1   | 1.3.3           | training                |
-| 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.3-1   | 1.3.3           | inference_graviton      |
+| 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.3-1   | 1.3.3           | inference\_graviton     |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.2-2   | 1.2.0           | inference               |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.2-2   | 1.2.0           | training                |
 | 414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:`<tag>` | 1.2-1   | 1.2.0           | inference               |
