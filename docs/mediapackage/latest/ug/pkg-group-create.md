@@ -8,7 +8,7 @@ When you create a packaging group, you have the option to enable CDN authorizati
 
 To create a packaging group, you can use the MediaPackage console, the AWS CLI,
 or the MediaPackage API. information about creating a packaging group with the AWS CLI
-or MediaPackage API, see [Packaging_groups](../../../mediapackage-vod/latest/apireference/packaging_groups.md "../../../mediapackage-vod/latest/apireference/packaging_groups.md") in the _AWS Elemental MediaPackage VOD API
+or MediaPackage API, see [Packaging\_groups](../../../mediapackage-vod/latest/apireference/packaging_groups.md "../../../mediapackage-vod/latest/apireference/packaging_groups.md") in the _AWS Elemental MediaPackage VOD API
 Reference_.
 
 When you're creating a packaging group, don't put sensitive identifying information
@@ -18,20 +18,19 @@ inclusion in diagnostic logs or Amazon CloudWatch Events.
 
 ###### To create a packaging group (console)
 
-1.  Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
-2.  In the navigation pane, under **Video on demand**, choose
-    **Packaging groups**.
-3.  On the **Packaging groups** page, choose **Create
-    group**.
-4.  In the **Creating packaging group** dialog box, do the
-    following:
+1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
+2. In the navigation pane, under **Video on demand**, choose
+   **Packaging groups**.
+3. On the **Packaging groups** page, choose **Create
+   group**.
+4. In the **Creating packaging group** dialog box, do the
+   following:
 
-        1. For **ID**, enter a name that describes the packaging
-         group. The ID is the primary identifier for the group, and must be
-         unique for your account in this AWS Region.
-        2. Choose **Create**.
-
-    MediaPackage displays the new packaging group's details page.
+   1. For **ID**, enter a name that describes the packaging
+      group. The ID is the primary identifier for the group, and must be
+      unique for your account in this AWS Region.
+   2. Choose **Create**.
+      MediaPackage displays the new packaging group's details page.
 
 If you exceed the quotas for your account when you're creating a packaging group,
 you get an error. If you get an error similar to **`Too many requests, please

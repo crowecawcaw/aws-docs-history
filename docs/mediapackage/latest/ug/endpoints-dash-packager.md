@@ -17,71 +17,64 @@ that determines the segment and manifest formats of the output.
     * **Hybridcast** – the output is compliant with Hybridcast. For more information about Hybridcast, see the [IPTV Forum Japan Hybridcast specification](https://www.iptvforum.jp/en/hybridcast/specification.html "https://www.iptvforum.jp/en/hybridcast/specification.html"). If you enable the Hybridcast profile on your packaging configuration, you can't use DASH [Period triggers](#period-triggers "#period-triggers").
     * **DVB-DASH 2014** – the output is compliant with DVB-DASH 2014. For more information about DVB-DASH 2014, see the [DVB-DASH specification](https://www.etsi.org/deliver/etsi_ts/103200_103299/103285/01.01.01_60/ts_103285v010101p.pdf "https://www.etsi.org/deliver/etsi_ts/103200_103299/103285/01.01.01_60/ts_103285v010101p.pdf").
 
-5.  (Optional) For **Manifest layout**, choose if you want
-    MediaPackage to serve a full or compact manifest in response to
-    playback requests.
+5. (Optional) For **Manifest layout**, choose if you want
+MediaPackage to serve a full or compact manifest in response to
+playback requests.
 
-        * If you choose **Full**, MediaPackage
-         presents the `SegmentTemplate` and
-         `SegmentTimeline` tags for every
-         `Representation` in the manifest.
-        * If you choose **Compact**, MediaPackage
-         combines duplicate `SegmentTemplate` tags and
-         presents them at the start of the manifest. This shortens the
-         manifest and makes it easier for some devices to process
-         it.
+    * If you choose **Full**, MediaPackage
+     presents the `SegmentTemplate` and
+     `SegmentTimeline` tags for every
+     `Representation` in the manifest.
+    * If you choose **Compact**, MediaPackage
+     combines duplicate `SegmentTemplate` tags and
+     presents them at the start of the manifest. This shortens the
+     manifest and makes it easier for some devices to process
+     it.
 
-    For more information about the manifest layout options, see [Compacted DASH manifests](compacted.md "compacted.md").
+For more information about the manifest layout options, see [Compacted DASH manifests](compacted.md "compacted.md"). 6. (Optional) For **Min update period**, enter the
+minimum amount of time (in seconds) that the player should wait before
+requesting manifest updates. A lower value means that manifests are
+updated more frequently, but a lower value also contributes to request
+and response network traffic. 7. (Optional) For **Min buffer time**, enter the minimum
+amount of time (in seconds) that a player must keep in the buffer. If
+network conditions interrupt playback, the player will have additional
+buffered content before playback fails, allowing for recovery time
+before the viewer's experience is affected. 8. (Optional) For **Suggested presentation delay**,
+enter the amount of time (in seconds) that the player should be from the
+end of the manifest. This sets the content start point back x seconds
+from the end of the manifest (the point where content is live). For
+example, with a 35-second presentation delay, requests at 5:30 receive
+content from 5:29:25. When used with time delay, MediaPackage adds
+the suggested presentation delay to the time delay duration. 9. (Optional) For **Segment template format**, choose how
+MediaPackage and playback requests refer to each segment.
 
-6.  (Optional) For **Min update period**, enter the
-    minimum amount of time (in seconds) that the player should wait before
-    requesting manifest updates. A lower value means that manifests are
-    updated more frequently, but a lower value also contributes to request
-    and response network traffic.
-7.  (Optional) For **Min buffer time**, enter the minimum
-    amount of time (in seconds) that a player must keep in the buffer. If
-    network conditions interrupt playback, the player will have additional
-    buffered content before playback fails, allowing for recovery time
-    before the viewer's experience is affected.
-8.  (Optional) For **Suggested presentation delay**,
-    enter the amount of time (in seconds) that the player should be from the
-    end of the manifest. This sets the content start point back x seconds
-    from the end of the manifest (the point where content is live). For
-    example, with a 35-second presentation delay, requests at 5:30 receive
-    content from 5:29:25. When used with time delay, MediaPackage adds
-    the suggested presentation delay to the time delay duration.
-9.  (Optional) For **Segment template format**, choose how
-    MediaPackage and playback requests refer to each segment.
-
-        * If you choose **Number with timeline**,
-         MediaPackage uses the `$Number$` variable to refer
-         to the segment in the `media` attribute of the
-         `SegmentTemplate` tag. The value of the variable
-         is the sequential number of the segment.
-         `SegmentTimeline` is included in each segment
-         template.
-        * If you choose **Number with duration**,
-         MediaPackage uses the `$Number$` variable and
-         replaces the `SegmentTimeline` objects with a
-         `duration` attribute in the segment
-         template.
+    * If you choose **Number with timeline**,
+     MediaPackage uses the `$Number$` variable to refer
+     to the segment in the `media` attribute of the
+     `SegmentTemplate` tag. The value of the variable
+     is the sequential number of the segment.
+     `SegmentTimeline` is included in each segment
+     template.
+    * If you choose **Number with duration**,
+     MediaPackage uses the `$Number$` variable and
+     replaces the `SegmentTimeline` objects with a
+     `duration` attribute in the segment
+     template.
 
 
 
-        ###### Note
+    ###### Note
 
-        This option isn't supported in combination with multi-period DASH.
-        * If you choose **Time with timeline**,
-         MediaPackage uses the `$Time$` variable to refer to
-         the segment. The value of the variable is the timestamp of when
-         on the manifest timeline the segment starts.
-         `SegmentTimeline` is included in each segment
-         template.
+    This option isn't supported in combination with multi-period DASH.
+    * If you choose **Time with timeline**,
+     MediaPackage uses the `$Time$` variable to refer to
+     the segment. The value of the variable is the timestamp of when
+     on the manifest timeline the segment starts.
+     `SegmentTimeline` is included in each segment
+     template.
 
-    For more information about the formatting options of the
-    `SegmentTemplate` tag, see [DASH manifest segment template format](segtemp-format.md "segtemp-format.md").
-
-10. (Optional) For **UTC timing**, select the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time. This enables the player and MediaPackage to run on the same UTC wall clock time. This is a requirement, otherwise playback timing or synchronization issues can occur.
+For more information about the formatting options of the
+`SegmentTemplate` tag, see [DASH manifest segment template format](segtemp-format.md "segtemp-format.md"). 10. (Optional) For **UTC timing**, select the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time. This enables the player and MediaPackage to run on the same UTC wall clock time. This is a requirement, otherwise playback timing or synchronization issues can occur.
 
 The options are `HTTP-HEAD`,
 `HTTP-ISO`, `HTTP-XSDATE`, and `NONE`. This value will be set
@@ -130,34 +123,33 @@ manifest. Choose from the following:
 
 The following fields dictate how MediaPackage processes SCTE-35 messages from the input stream. For more information, see [SCTE-35 message options in AWS Elemental MediaPackage](scte.md "scte.md").
 
-1.  (Optional) For **Ad triggers**, choose the SCTE-35 message types that you want to be treated as ad markers in the output. If you
-    don't make a selection here, MediaPackage inserts ad markers in the
-    output manifest based on these message types:
+1. (Optional) For **Ad triggers**, choose the SCTE-35 message types that you want to be treated as ad markers in the output. If you
+   don't make a selection here, MediaPackage inserts ad markers in the
+   output manifest based on these message types:
 
-    - Splice insert
-    - Provider advertisement
-    - Distributor advertisement
-    - Provider placement opportunity
-    - Distributor placement opportunity
+   - Splice insert
+   - Provider advertisement
+   - Distributor advertisement
+   - Provider placement opportunity
+   - Distributor placement opportunity
 
-2.  (Optional) For **Ads on delivery restrictions**, choose what ad insertion action MediaPackage takes
-    based on delivery restriction flags in the segmentation descriptors of SCTE-35 messages.
+2. (Optional) For **Ads on delivery restrictions**, choose what ad insertion action MediaPackage takes
+   based on delivery restriction flags in the segmentation descriptors of SCTE-35 messages.
 
-        * **None** – MediaPackage doesn't
-         insert any ad markers in the output manifest.
-        * **Restricted** – MediaPackage inserts
-         ad markers when there *are* delivery
-         restrictions in the SCTE-35 message types that you indicated in
-         **Customize ad triggers**.
-        * **Unrestricted** – MediaPackage
-         inserts ad markers when there *aren't*
-         delivery restrictions in the SCTE-35 message types that you
-         indicated in **Customize ad triggers**.
-        * **Both** – MediaPackage inserts ad
-         markers whether or not there are delivery restrictions in the
-         SCTE-35 message types that you indicated in **Customize
-         ad triggers**.
-
-    If you choose not to insert ad markers, MediaPackage also won't
-    create periods. The output manifest is contained in a single
-    period.
+   - **None** – MediaPackage doesn't
+     insert any ad markers in the output manifest.
+   - **Restricted** – MediaPackage inserts
+     ad markers when there _are_ delivery
+     restrictions in the SCTE-35 message types that you indicated in
+     **Customize ad triggers**.
+   - **Unrestricted** – MediaPackage
+     inserts ad markers when there _aren't_
+     delivery restrictions in the SCTE-35 message types that you
+     indicated in **Customize ad triggers**.
+   - **Both** – MediaPackage inserts ad
+     markers whether or not there are delivery restrictions in the
+     SCTE-35 message types that you indicated in **Customize
+     ad triggers**.
+     If you choose not to insert ad markers, MediaPackage also won't
+     create periods. The output manifest is contained in a single
+     period.

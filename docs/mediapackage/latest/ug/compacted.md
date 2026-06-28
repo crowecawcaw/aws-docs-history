@@ -100,17 +100,16 @@ MediaPackage takes the following actions:
 - If there are exactly two frame rates in use in a video adaptation set, MediaPackage
   compacts as follows:
 
-      + When 24 and 48 are used, the compacted template uses 48 for the frame rate and
-       48000 for the timebase.
-      + When 25 and 50 are used, the compacted template uses 50 for the frame rate and
-       50000 for the timebase.
-      + When 29.97 and 59.94 are used, the compacted template uses 59.95 for the frame
-       rate and 60000 for the timebase.
-      + When 30 and 60 are used, the compacted template uses 60 for the frame rate and
-       60000 for the timebase.
-
-  If there are two video frame rates in use but they aren't in one of the doubled
-  patterns above, then that set can't be compacted.
+  - When 24 and 48 are used, the compacted template uses 48 for the frame rate and
+    48000 for the timebase.
+  - When 25 and 50 are used, the compacted template uses 50 for the frame rate and
+    50000 for the timebase.
+  - When 29.97 and 59.94 are used, the compacted template uses 59.95 for the frame
+    rate and 60000 for the timebase.
+  - When 30 and 60 are used, the compacted template uses 60 for the frame rate and
+    60000 for the timebase.
+    If there are two video frame rates in use but they aren't in one of the doubled
+    patterns above, then that set can't be compacted.
 
 - If there are no duplicate rates across representations in an adaptation set, then that
   set can't be compacted.

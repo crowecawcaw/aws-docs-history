@@ -5,7 +5,7 @@ delivery from an asset.
 
 To create a packaging configuration, you can use the MediaPackage console, the
 AWS CLI, or the MediaPackage
-API. For information about creating a packaging configuration with the AWS CLI or MediaPackage API, see [Packaging_configurations](../../../mediapackage-vod/latest/apireference/packaging_configurations.md "../../../mediapackage-vod/latest/apireference/packaging_configurations.md") in the _AWS Elemental MediaPackage VOD API Reference_.
+API. For information about creating a packaging configuration with the AWS CLI or MediaPackage API, see [Packaging\_configurations](../../../mediapackage-vod/latest/apireference/packaging_configurations.md "../../../mediapackage-vod/latest/apireference/packaging_configurations.md") in the _AWS Elemental MediaPackage VOD API Reference_.
 
 When you're creating a packaging configuration, don't put sensitive identifying
 information like customer account numbers into free-form fields, such as the **ID** field. This applies when you're using the MediaPackage console, MediaPackage

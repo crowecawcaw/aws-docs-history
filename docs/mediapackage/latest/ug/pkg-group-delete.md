@@ -8,7 +8,7 @@ packaging configurations and any assets that use the group.
 - To delete an asset, see [Deleting an asset](asset-delete.md "asset-delete.md").
   To delete a packaging group, you can use the MediaPackage console, the AWS CLI,
   or the MediaPackage API. For information about deleting a packaging group with the AWS CLI or MediaPackage API,
-  see [Packaging_groups id](../../../mediapackage-vod/latest/apireference/packaging_groups-id.md "../../../mediapackage-vod/latest/apireference/packaging_groups-id.md")
+  see [Packaging\_groups id](../../../mediapackage-vod/latest/apireference/packaging_groups-id.md "../../../mediapackage-vod/latest/apireference/packaging_groups-id.md")
   in the _AWS Elemental MediaPackage VOD API Reference_.
 
 ###### To delete a packaging group (console)

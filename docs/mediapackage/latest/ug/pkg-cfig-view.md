@@ -5,7 +5,7 @@ packaging configurations that are associated with a specific packaging group or 
 asset.
 
 To view packaging configurations, you can use the AWS Elemental MediaPackage console, the AWS CLI, or the MediaPackage API.
-For information about viewing a packaging configuration with the AWS CLI or MediaPackage API, see [Packaging_configurations id](../../../mediapackage-vod/latest/apireference/packaging_configurations-id.md "../../../mediapackage-vod/latest/apireference/packaging_configurations-id.md") in the _AWS Elemental MediaPackage VOD API Reference_.
+For information about viewing a packaging configuration with the AWS CLI or MediaPackage API, see [Packaging\_configurations id](../../../mediapackage-vod/latest/apireference/packaging_configurations-id.md "../../../mediapackage-vod/latest/apireference/packaging_configurations-id.md") in the _AWS Elemental MediaPackage VOD API Reference_.
 
 ###### To view packaging configurations in a packaging group (console)
 

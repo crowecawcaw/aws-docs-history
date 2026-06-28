@@ -21,94 +21,90 @@ Choose from the following:
      DASH profile
     * **Hbbtv 1.5** – the output is compliant with HbbTV v1.5. For information about HbbTV v1.5, see the [HbbTV specification website](https://www.hbbtv.org/resource-library/specifications/ "https://www.hbbtv.org/resource-library/specifications/").
 
-4.  (Optional) For **Manifest layout**, choose if you want
-    MediaPackage to serve a full, compact, or DRM top level compact manifest
-    in response to playback requests.
+4. (Optional) For **Manifest layout**, choose if you want
+MediaPackage to serve a full, compact, or DRM top level compact manifest
+in response to playback requests.
 
-        * If you choose **Full**, MediaPackage
-         presents the `SegmentTemplate` and
-         `SegmentTimeline` tags for every
-         `Representation` in the manifest.
-        * If you choose **Compact**, MediaPackage
-         combines duplicate `SegmentTemplate` tags and
-         presents them at the start of the manifest. This shortens the
-         manifest and makes it easier for some devices to process
-         it.
-        * If you choose **DRM top level compact**,
-         MediaPackage places content protection elements at the
-         media presentation description (MPD) level and are referenced
-         at the `AdaptationSet` level. You can choose this
-         option only if you're using the SPEKE Version 1.0 or 2.0
-         SHARED preset.
+    * If you choose **Full**, MediaPackage
+     presents the `SegmentTemplate` and
+     `SegmentTimeline` tags for every
+     `Representation` in the manifest.
+    * If you choose **Compact**, MediaPackage
+     combines duplicate `SegmentTemplate` tags and
+     presents them at the start of the manifest. This shortens the
+     manifest and makes it easier for some devices to process
+     it.
+    * If you choose **DRM top level compact**,
+     MediaPackage places content protection elements at the
+     media presentation description (MPD) level and are referenced
+     at the `AdaptationSet` level. You can choose this
+     option only if you're using the SPEKE Version 1.0 or 2.0
+     SHARED preset.
 
-    For more information about the manifest layout options, see [Compacted DASH manifests](compacted.md "compacted.md").
+For more information about the manifest layout options, see [Compacted DASH manifests](compacted.md "compacted.md"). 5. (Optional) For **Segment template format**, choose how
+MediaPackage and playback requests refer to each segment.
 
-5.  (Optional) For **Segment template format**, choose how
-    MediaPackage and playback requests refer to each segment.
-
-        * If you choose **Number with timeline**,
-         MediaPackage uses the `$Number$` variable to refer
-         to the segment in the `media` attribute of the
-         `SegmentTemplate` tag. The value of the variable
-         is the sequential number of the segment.
-         `SegmentTimeline` is included in each segment
-         template.
-        * If you choose **Time with timeline**,
-         MediaPackage uses the `$Time$` variable to refer to
-         the segment. The value of the variable is the timestamp of when
-         on the manifest timeline the segment starts.
-         `SegmentTimeline` is included in each segment
-         template.
-        * If you choose **Number with duration**,
-         MediaPackage uses the `$Number$` variable and
-         replaces the `SegmentTimeline` objects with a
-         `duration` attribute in the segment
-         template.
+    * If you choose **Number with timeline**,
+     MediaPackage uses the `$Number$` variable to refer
+     to the segment in the `media` attribute of the
+     `SegmentTemplate` tag. The value of the variable
+     is the sequential number of the segment.
+     `SegmentTimeline` is included in each segment
+     template.
+    * If you choose **Time with timeline**,
+     MediaPackage uses the `$Time$` variable to refer to
+     the segment. The value of the variable is the timestamp of when
+     on the manifest timeline the segment starts.
+     `SegmentTimeline` is included in each segment
+     template.
+    * If you choose **Number with duration**,
+     MediaPackage uses the `$Number$` variable and
+     replaces the `SegmentTimeline` objects with a
+     `duration` attribute in the segment
+     template.
 
 
 
-        ###### Note
+    ###### Note
 
-        This option isn't supported in combination with multi-period DASH.
+    This option isn't supported in combination with multi-period DASH.
 
-    For more information about the formatting options of the
-    `SegmentTemplate` tag, see [DASH manifest segment template format](segtemp-format.md "segtemp-format.md").
+For more information about the formatting options of the
+`SegmentTemplate` tag, see [DASH manifest segment template format](segtemp-format.md "segtemp-format.md"). 6. (Optional) Select **Include IFrame-only streams** to
+include an additional I-frame only stream along with the other tracks in
+the manifest. MediaPackage generates an I-frame only stream from the
+first rendition in the manifest. This playlist enables player
+functionality like fast forward and rewind. 7. For **Period triggers**, select how MediaPackage creates
+MPD periods in the DASH output manifest.
 
-6.  (Optional) Select **Include IFrame-only streams** to
-    include an additional I-frame only stream along with the other tracks in
-    the manifest. MediaPackage generates an I-frame only stream from the
-    first rendition in the manifest. This playlist enables player
-    functionality like fast forward and rewind.
-7.  For **Period triggers**, select how MediaPackage creates
-    MPD periods in the DASH output manifest.
+    * **None** – MediaPackage doesn't create
+     additional periods. It formats the manifest as a single period
+     and doesn't include SCTE-35 markers in the segments.
+    * **Trigger new periods on ads** – MediaPackage
+     creates and inserts in the manifest multiple periods based on
+     SCTE-35 ad markers from the input content. These periods
+     separate portions of the content, such as setting boundaries
+     between the main content and ad content. For more information
+     about how MediaPackage configures periods in the manifest,
+     see [DASH manifest options in AWS Elemental MediaPackage](multi-period.md "multi-period.md").
 
-    - **None** – MediaPackage doesn't create
-      additional periods. It formats the manifest as a single period
-      and doesn't include SCTE-35 markers in the segments.
-    - **Trigger new periods on ads** – MediaPackage
-      creates and inserts in the manifest multiple periods based on
-      SCTE-35 ad markers from the input content. These periods
-      separate portions of the content, such as setting boundaries
-      between the main content and ad content. For more information
-      about how MediaPackage configures periods in the manifest,
-      see [DASH manifest options in AWS Elemental MediaPackage](multi-period.md "multi-period.md").
 
     ###### Important
 
     Multiple periods are required if you use AWS Elemental MediaTailor for
-    personalized ad insertion in DASH content. For more
-    information about this service, see the [AWS Elemental MediaTailor User Guide](../../../mediatailor/latest/ug.md "../../../mediatailor/latest/ug.md").
+     personalized ad insertion in DASH content. For more
+     information about this service, see the [AWS Elemental MediaTailor User Guide](../../../mediatailor/latest/ug.md "../../../mediatailor/latest/ug.md").
 
-8.  For **SCTE markers source**, specify the source of
-    SCTE-35 markers to use from your input HLS content.
+8. For **SCTE markers source**, specify the source of
+SCTE-35 markers to use from your input HLS content.
 
-    - Select **Segments** to use SCTE-35 markers from input HLS media segments.
-    - Select **Manifest** to use SCTE-35 markers, formatted using SCTE-35 Enhanced syntax (`#EXT-OATCLS-SCTE35` tags), from input HLS child manifests.
-      SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported.
+    * Select **Segments** to use SCTE-35 markers from input HLS media segments.
+    * Select **Manifest** to use SCTE-35 markers, formatted using SCTE-35 Enhanced syntax (`#EXT-OATCLS-SCTE35` tags), from input HLS child manifests.
+     SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported.
 
-9.  (Optional) Select **Include encoder configuration in
-    segments** for MediaPackage to place your encoder's
-    Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video
-    Parameter Set (VPS) metadata in every video segment instead of in the
-    init fragment. This lets you use different SPS/PPS/VPS settings for your
-    assets during content playback.
+9. (Optional) Select **Include encoder configuration in
+segments** for MediaPackage to place your encoder's
+Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video
+Parameter Set (VPS) metadata in every video segment instead of in the
+init fragment. This lets you use different SPS/PPS/VPS settings for your
+assets during content playback.

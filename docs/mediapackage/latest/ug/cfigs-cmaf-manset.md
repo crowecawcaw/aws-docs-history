@@ -39,6 +39,6 @@ Choose from the following:
      from the input stream.
 
 6. (Optional) Select **Include encoder configuration in segments**,
-   for MediaPackage to place your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS),
-   and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment.
-   This lets you use different SPS/PPS/VPS settings for your assets during content playback.
+for MediaPackage to place your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS),
+and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment.
+This lets you use different SPS/PPS/VPS settings for your assets during content playback.

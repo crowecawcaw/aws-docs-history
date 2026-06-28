@@ -5,7 +5,7 @@ details of a specific packaging group, including the packaging configurations th
 associated with it.
 
 To view packaging group details, you can use the AWS Elemental MediaPackage console, the AWS CLI, or the MediaPackage API.
-information about viewing a packaging group with the AWS CLI or MediaPackage API, see [Packaging_groups id](../../../mediapackage-vod/latest/apireference/packaging_groups-id.md "../../../mediapackage-vod/latest/apireference/packaging_groups-id.md") in the _AWS Elemental MediaPackage VOD API Reference_.
+information about viewing a packaging group with the AWS CLI or MediaPackage API, see [Packaging\_groups id](../../../mediapackage-vod/latest/apireference/packaging_groups-id.md "../../../mediapackage-vod/latest/apireference/packaging_groups-id.md") in the _AWS Elemental MediaPackage VOD API Reference_.
 
 ###### To view packaging groups (console)
 

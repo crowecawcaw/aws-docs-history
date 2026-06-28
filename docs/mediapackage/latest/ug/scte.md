@@ -13,15 +13,14 @@ MediaPackage inserts markers for the following message types in the source conte
 - `splice_insert`
 - `time_signal` with the following segmentation types:
 
-      + Provider advertisement
-      + Distributor advertisement
-      + Provider placement opportunity
-      + Distributor placement opportunity
-
-  The `time_signal` must also include delivery restriction flags in the
-  `segmentation_descriptor`.
-  When these commands are present, MediaPackage inserts corresponding ad markers in the
-  output manifests:
+  - Provider advertisement
+  - Distributor advertisement
+  - Provider placement opportunity
+  - Distributor placement opportunity
+    The `time_signal` must also include delivery restriction flags in the
+    `segmentation_descriptor`.
+    When these commands are present, MediaPackage inserts corresponding ad markers in the
+    output manifests:
 
 - For HLS and CMAF outputs, MediaPackage inserts `EXT-X-CUE-OUT` and
   `EXT-X-CUE-IN` tags.
@@ -37,7 +36,7 @@ content. Configure the following settings on your endpoints. For more informatio
 the following:
 
 - For the MediaPackage console, see [Creating an endpoint](endpoints-create.md "endpoints-create.md").
-- For the MediaPackage API, see [Origin_endpoints](../apireference/origin_endpoints.md "../apireference/origin_endpoints.md") in the _AWS Elemental MediaPackage Live API Reference_.
+- For the MediaPackage API, see [Origin\_endpoints](../apireference/origin_endpoints.md "../apireference/origin_endpoints.md") in the _AWS Elemental MediaPackage Live API Reference_.
 
 ###### Important
 
@@ -46,7 +45,7 @@ the SCTE-35 standard. You can view the most recent standards here:
 [SCTE Standards Catalog](https://account.scte.org/standards/library/catalog/ "https://account.scte.org/standards/library/catalog/"). You should also be familiar with how SCTE-35 is implemented in your source
 content.
 
-\***\*Ad markers\*\***
+****Ad markers****
 This setting is available on HLS and CMAF endpoints.
 
 **Ad markers** allows you to specify what MediaPackage
@@ -64,7 +63,7 @@ does when it detects SCTE-35 messages. These are the options:
   SCTE-35 messages from the source content and inserts them in the
   output manifest.
 
-\***\*Customize ad triggers\*\***
+****Customize ad triggers****
 This setting is available on HLS, DASH, and CMAF endpoints.
 
 **Customize ad triggers** identifies which SCTE-35
@@ -79,7 +78,7 @@ as ads:
 - Provider placement opportunity
 - Distributor placement opportunity
 
-\***\*Ads on delivery restrictions\*\***
+****Ads on delivery restrictions****
 This setting is available on HLS, DASH, and CMAF endpoints.
 
 **Ads on delivery restrictions** sets conditions for what

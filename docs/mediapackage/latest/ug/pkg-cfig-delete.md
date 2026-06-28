@@ -5,7 +5,7 @@ configuration.
 
 To delete a packaging configuration, you can use the AWS Elemental MediaPackage console, the
 AWS CLI, or the MediaPackage API.
-For information about deleting a packaging configuration with the AWS CLI or MediaPackage API, see [Packaging_configurations id](../../../mediapackage-vod/latest/apireference/packaging_configurations-id.md "../../../mediapackage-vod/latest/apireference/packaging_configurations-id.md") in the _AWS Elemental MediaPackage VOD API Reference_.
+For information about deleting a packaging configuration with the AWS CLI or MediaPackage API, see [Packaging\_configurations id](../../../mediapackage-vod/latest/apireference/packaging_configurations-id.md "../../../mediapackage-vod/latest/apireference/packaging_configurations-id.md") in the _AWS Elemental MediaPackage VOD API Reference_.
 
 ###### To delete a packaging configuration (console)
 
