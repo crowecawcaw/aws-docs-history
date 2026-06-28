@@ -62,8 +62,6 @@ _IAM User Guide_.
      currently supported in the AWS Management Console, you can apply the policy with the [**set-repository-policy**](../../../cli/latest/reference/ecr/set-repository-policy.md "../../../cli/latest/reference/ecr/set-repository-policy.md") AWS CLI command.
 
 10. For **Actions**, choose the scope of the Amazon ECR API operations
-    that the policy statement should apply to from the list of individual API
-    operations.
-11. When you are finished, choose **Save** to set the
-    policy.
-12. Repeat the previous step for each repository policy to add.
+that the policy statement should apply to from the list of individual API
+operations. 11. When you are finished, choose **Save** to set the
+policy. 12. Repeat the previous step for each repository policy to add.

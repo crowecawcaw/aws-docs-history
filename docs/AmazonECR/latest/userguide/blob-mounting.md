@@ -48,8 +48,10 @@ AWS CLI
 Use the following command to update your registry's blob mounting configuration using the AWS CLI.
 
 - ```
-  `aws ecr put-account-setting --name BLOB_MOUNTING --value ENABLED`
+
   ```
+
+`aws ecr put-account-setting --name BLOB_MOUNTING --value ENABLED`
 
 ```
 

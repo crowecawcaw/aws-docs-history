@@ -28,21 +28,26 @@ The graph displays your current usage of that AWS resource. 5. To add your servi
      resource represented in the metric.
 
 6. To see your current usage as a percentage of the quota, add a new expression
-   or change the current **SERVICE_QUOTA** expression. For the new
-   expression, use `m1/60/SERVICE_QUOTA(m1)*100`.
-7. (Optional) To set an alarm that notifies you if you approach the service
-   quota, do the following:
+or change the current **SERVICE\_QUOTA** expression. For the new
+expression, use `m1/60/SERVICE_QUOTA(m1)*100`. 7. (Optional) To set an alarm that notifies you if you approach the service
+quota, do the following:
 
-   1. On the `m1/60/SERVICE_QUOTA(m1)*100` row, under
-      **Actions**, choose the alarm icon. It looks like a
-      bell.
+    1. On the `m1/60/SERVICE_QUOTA(m1)*100` row, under
+     **Actions**, choose the alarm icon. It looks like a
+     bell.
 
-   The alarm creation page appears. 2. Under **Conditions**, ensure that **Threshold
-   type** is **Static** and
-   **Whenever Expression1 is** is set to
-   **Greater**. Under **than**, enter
-   `80`. This creates an alarm that goes into
-   ALARM state when your usage exceeds 80 percent of the quota. 3. Choose **Next**. 4. On the next page, select an Amazon SNS topic or create a new one. This
-   topic is notified when the alarm goes to ALARM state. Then choose
-   **Next**. 5. On the next page, enter a name and description for the alarm, and then
-   choose **Next**. 6. Choose **Create alarm**.
+
+    The alarm creation page appears.
+    2. Under **Conditions**, ensure that **Threshold
+     type** is **Static** and
+     **Whenever Expression1 is** is set to
+     **Greater**. Under **than**, enter
+     `80`. This creates an alarm that goes into
+     ALARM state when your usage exceeds 80 percent of the quota.
+    3. Choose **Next**.
+    4. On the next page, select an Amazon SNS topic or create a new one. This
+     topic is notified when the alarm goes to ALARM state. Then choose
+     **Next**.
+    5. On the next page, enter a name and description for the alarm, and then
+     choose **Next**.
+    6. Choose **Create alarm**.

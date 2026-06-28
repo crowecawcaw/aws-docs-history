@@ -82,7 +82,7 @@ string. For example, `["*test*1*2*3", "test*1*2*3*"]` is
 valid but `["test*1*2*3*4*5*6"]` is invalid.
 
 - When using `tagPrefixList`, an image is successfully matched if
-  **_all_** of the wildcard
+  _**all**_ of the wildcard
   filters in the `tagPrefixList` value are matched against any of
   the image's tags.
 - The `countUnit` parameter is only used if

@@ -28,8 +28,8 @@ show up in CloudTrail.
 5. Complete the following steps to define your policy statement using
    the policy generator.
 
-   1. For **Policy type**, choose \*\*Replication
-   - cross account\*\*.
+   1. For **Policy type**, choose **Replication
+   - cross account**.
    2. For **Statement id**, enter a unique
       statement ID. This field is used as the `Sid` on
       the registry policy.

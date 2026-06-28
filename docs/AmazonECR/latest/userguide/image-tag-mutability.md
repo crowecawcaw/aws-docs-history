@@ -44,15 +44,13 @@ following tag mutability settings for the repository.
      exclusion** text box.
 
 7. For **Image scan settings**, while you can specify the
-   scan settings at the repository level for basic scanning, it is best
-   practice to specify the scan configuration at the private registry level.
-   Specify the scanning settings at the private registry allow you to enable
-   either enhanced scanning or basic scanning as well as define filters to
-   specify which repositories are scanned. For more information, see [Scan images for software vulnerabilities in Amazon ECR](image-scanning.md "image-scanning.md").
-8. For **Encryption settings**, this is a view only field as
-   the encryption settings for a repository can't be changed once the
-   repository is created.
-9. Choose **Save** to update the repository settings.
+scan settings at the repository level for basic scanning, it is best
+practice to specify the scan configuration at the private registry level.
+Specify the scanning settings at the private registry allow you to enable
+either enhanced scanning or basic scanning as well as define filters to
+specify which repositories are scanned. For more information, see [Scan images for software vulnerabilities in Amazon ECR](image-scanning.md "image-scanning.md"). 8. For **Encryption settings**, this is a view only field as
+the encryption settings for a repository can't be changed once the
+repository is created. 9. Choose **Save** to update the repository settings.
 
 ## Setting image tag mutability (AWS CLI)
 

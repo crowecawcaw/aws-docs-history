@@ -163,11 +163,11 @@ all platforms intact.
 Before you copy images, authenticate to your Amazon ECR private registry. Your registry
 URL follows the format
 ``account-id`.dkr.ecr.`region`.amazonaws.com`.
- Replace `111122223333`with your AWS account ID and
-`us-east-1`with your Region in the examples below. In the
-`aws-cn`partition, the registry URL suffix is
+Replace `111122223333` with your AWS account ID and
+`us-east-1` with your Region in the examples below. In the
+`aws-cn` partition, the registry URL suffix is
 `.amazonaws.com.cn`. In all other partitions (`aws`,
- `aws-us-gov`), the suffix is `.amazonaws.com`.
+`aws-us-gov`), the suffix is `.amazonaws.com`.
 
 **To find your account ID, run:**
 

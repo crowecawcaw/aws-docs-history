@@ -28,44 +28,43 @@ granting, the IAM policy takes precedence. For example, if user has
 `ecr:*` permissions granted, no additional permissions are needed
 at the registry level.
 
-1.  Open the Amazon ECR console at
-    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
-2.  From the navigation bar, choose the Region to configure your
-    private registry permissions statement in.
-3.  In the navigation pane, choose **Private
-    registry**, **Registry
-    permissions**.
-4.  On the **Registry permissions** page, choose
-    **Generate statement**.
-5.  For each pull through cache permissions policy statement you
-    want to create, do the following.
+1. Open the Amazon ECR console at
+   [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
+2. From the navigation bar, choose the Region to configure your
+   private registry permissions statement in.
+3. In the navigation pane, choose **Private
+   registry**, **Registry
+   permissions**.
+4. On the **Registry permissions** page, choose
+   **Generate statement**.
+5. For each pull through cache permissions policy statement you
+   want to create, do the following.
 
-        1. For **Policy type**, choose
-         **Pull through cache
-         policy**.
-        2. For **Statement id**, provide a name
-         for the pull through cache statement policy.
-        3. For **IAM entities**, specify the
-         users, groups, or roles to include in the policy.
-        4. For **Repository namespace**, select
-         the pull through cache rule to associate the policy
-         with.
-        5. For **Repository names**, specify the
-         repository base name to apply the rule for. For example,
-         if you want to specify the Amazon Linux repository on Amazon ECR
-         Public, the repository name would be
-         `amazonlinux`.
+   1. For **Policy type**, choose
+      **Pull through cache
+      policy**.
+   2. For **Statement id**, provide a name
+      for the pull through cache statement policy.
+   3. For **IAM entities**, specify the
+      users, groups, or roles to include in the policy.
+   4. For **Repository namespace**, select
+      the pull through cache rule to associate the policy
+      with.
+   5. For **Repository names**, specify the
+      repository base name to apply the rule for. For example,
+      if you want to specify the Amazon Linux repository on Amazon ECR
+      Public, the repository name would be
+      `amazonlinux`.
+      Use the following AWS CLI command to specify the private registry
+      permissions using the AWS CLI.
 
-    Use the following AWS CLI command to specify the private registry
-    permissions using the AWS CLI.
-
-6.  Create a local file named
-    `ptc-registry-policy.json` with the contents of
-    your registry policy. The following example grants the
-    `ecr-pull-through-cache-user` permission to
-    create a repository and pull an image from Amazon ECR Public, which
-    is the upstream source associated with the previously created
-    pull through cache rule.
+6. Create a local file named
+   `ptc-registry-policy.json` with the contents of
+   your registry policy. The following example grants the
+   `ecr-pull-through-cache-user` permission to
+   create a repository and pull an image from Amazon ECR Public, which
+   is the upstream source associated with the previously created
+   pull through cache rule.
 
 JSON
 

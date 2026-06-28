@@ -49,9 +49,8 @@ of how filters behave, see [Filter wildcards](image-scanning-filters.md#image-sc
     	 and then choose **Add
     	 filter**.
 
-6. Choose **Save**.
-7. Repeat these steps in each Region in which you want to turn on
-   enhanced scanning.
+6. Choose **Save**. 7. Repeat these steps in each Region in which you want to turn on
+enhanced scanning.
 
 AWS CLI
 Use the following AWS CLI command to turn on enhanced scanning for your

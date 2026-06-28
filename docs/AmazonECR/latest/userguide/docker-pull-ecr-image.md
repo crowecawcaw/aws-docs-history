@@ -49,8 +49,8 @@ varying levels. For information about the AWS managed policies for Amazon ECR, s
 
 3. Pull the image using the **docker pull** command. The image
    name format should be ``registry`/`repository`
-[:`tag`]` to pull by tag, or ``registry`
-/`repository`[@`digest`]` to pull by
+ [:`tag`]` to pull by tag, or ``registry`
+ /`repository`[@`digest`]` to pull by
    digest.
 
 ```
@@ -60,5 +60,5 @@ varying levels. For information about the AWS managed policies for Amazon ECR, s
 ###### Important
 
 If you receive a ``repository-url` not
-found: does not exist or no pull access` error, you might need to authenticate your
+ found: does not exist or no pull access` error, you might need to authenticate your
 Docker client with Amazon ECR. For more information, see [Private registry authentication in Amazon ECR](registry_auth.md "registry_auth.md").

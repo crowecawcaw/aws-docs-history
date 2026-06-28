@@ -16,7 +16,7 @@ trusts the following service to assume the role.
 
 The `AWSECRPullThroughCache_ServiceRolePolicy` permissions policy is
 attached to the service-linked role. This managed policy grants Amazon ECR
-permission to perform the following actions. For more information, see [AWSECRPullThroughCache_ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSECRPullThroughCache_ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSECRPullThroughCache_ServiceRolePolicy").
+permission to perform the following actions. For more information, see [AWSECRPullThroughCache\_ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSECRPullThroughCache_ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSECRPullThroughCache_ServiceRolePolicy").
 
 - `ecr` – Allows the Amazon ECR service to pull and push
   images to a private repository.

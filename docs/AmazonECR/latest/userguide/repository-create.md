@@ -63,12 +63,11 @@ information, see [Encryption at rest](encryption-at-rest.md "encryption-at-rest.
      console to create your own key.
 
 7. For **Image scanning settings**, while
-   you can specify the scan settings at the repository level for basic scanning,
-   it is a best practice to specify the scan configuration at the private registry
-   level. Configuring the scanning settings at the private registry level enables
-   you to choose between enhanced scanning or basic scanning, and also allows you
-   to define filters to specify which repositories should be scanned.
-8. Choose **Create**.
+you can specify the scan settings at the repository level for basic scanning,
+it is a best practice to specify the scan configuration at the private registry
+level. Configuring the scanning settings at the private registry level enables
+you to choose between enhanced scanning or basic scanning, and also allows you
+to define filters to specify which repositories should be scanned. 8. Choose **Create**.
 
 ###### To create a repository (AWS CLI)
 

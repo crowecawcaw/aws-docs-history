@@ -26,34 +26,34 @@ create a Secrets Manager secret using the Secrets Manager console instead of the
 The following steps show how to create a pull through cache rule and a Secrets Manager
 secret using the Amazon ECR console. To create a secret using the Secrets Manager console, see [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
 
-1.  Open the Amazon ECR console at
-    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
-2.  From the navigation bar, choose the Region to configure your
-    private registry settings in.
-3.  In the navigation pane, choose **Private
-    registry**, **Pull through
-    cache**.
-4.  On the **Pull through cache configuration**
-    page, choose **Add rule**.
-5.  On the **Step 1: Specify a source** page, for
-    **Registry**, choose either Amazon ECR Public,
-    Kubernetes, or Quay from the list of upstream registries and
-    then choose **Next**.
-6.  On the **Step 2: Specify a destination**
-    page, for **Amazon ECR repository prefix**, specify
-    the repository namespace prefix to use when caching images
-    pulled from the source public registry and then choose
-    **Next**. By default, a namespace is
-    populated but a custom namespace can be specified as
-    well.
-7.  On the **Step 3: Review and create** page,
-    review the pull through cache rule configuration and then choose
-    **Create**.
-8.  Repeat the previous step for each pull through cache you want
-    to create. The pull through cache rules are created separately
-    for each Region.
-9.  Open the Amazon ECR console at
-    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
+1. Open the Amazon ECR console at
+   [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
+2. From the navigation bar, choose the Region to configure your
+   private registry settings in.
+3. In the navigation pane, choose **Private
+   registry**, **Pull through
+   cache**.
+4. On the **Pull through cache configuration**
+   page, choose **Add rule**.
+5. On the **Step 1: Specify a source** page, for
+   **Registry**, choose either Amazon ECR Public,
+   Kubernetes, or Quay from the list of upstream registries and
+   then choose **Next**.
+6. On the **Step 2: Specify a destination**
+   page, for **Amazon ECR repository prefix**, specify
+   the repository namespace prefix to use when caching images
+   pulled from the source public registry and then choose
+   **Next**. By default, a namespace is
+   populated but a custom namespace can be specified as
+   well.
+7. On the **Step 3: Review and create** page,
+   review the pull through cache rule configuration and then choose
+   **Create**.
+8. Repeat the previous step for each pull through cache you want
+   to create. The pull through cache rules are created separately
+   for each Region.
+9. Open the Amazon ECR console at
+   [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
 10. From the navigation bar, choose the Region to configure your
     private registry settings in.
 11. In the navigation pane, choose **Private
@@ -84,16 +84,16 @@ secret using the Amazon ECR console. To create a secret using the Secrets Manage
     AWS secret**, do the following, then
     choose **Next**.
 
-        1. For **Secret name**, specify
-         a descriptive name for the secret. Secret names
-         must contain 1-512 Unicode characters.
-        2. For **Docker Hub email**, specify
-         your Docker Hub email.
-        3. For **Docker Hub access token**,
-         specify your Docker Hub access token. For more
-         information on creating a Docker Hub access token, see
-         [Create and manage access tokens](https://docs.docker.com/security/for-developers/access-tokens/ "https://docs.docker.com/security/for-developers/access-tokens/") in the
-         Docker documentation.
+         1. For **Secret name**, specify
+          a descriptive name for the secret. Secret names
+          must contain 1-512 Unicode characters.
+         2. For **Docker Hub email**, specify
+          your Docker Hub email.
+         3. For **Docker Hub access token**,
+          specify your Docker Hub access token. For more
+          information on creating a Docker Hub access token, see
+          [Create and manage access tokens](https://docs.docker.com/security/for-developers/access-tokens/ "https://docs.docker.com/security/for-developers/access-tokens/") in the
+          Docker documentation.
 
 15. On the **Step 3: Specify a destination**
     page, for **Amazon ECR repository prefix**, specify
@@ -108,37 +108,37 @@ review the pull through cache rule configuration and then choose
 to create. The pull through cache rules are created separately
 for each Region.
 
-1.  Open the Amazon ECR console at
-    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
-2.  From the navigation bar, choose the Region to configure your
-    private registry settings in.
-3.  In the navigation pane, choose **Private
-    registry**, **Pull through
-    cache**.
-4.  On the **Pull through cache configuration**
-    page, choose **Add rule**.
-5.  On the **Step 1: Specify a source** page, for
-    **Registry**, choose
-    **GitHub Container Registry**, **Next**.
-6.  On the **Step 2: Configure authentication**
-    page, for **Upstream credentials**, you must
-    store your authentication credentials for GitHub Container Registry in an AWS Secrets Manager
-    secret. You can specify an existing secret or use the Amazon ECR
-    console to create a new secret.
+1. Open the Amazon ECR console at
+   [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
+2. From the navigation bar, choose the Region to configure your
+   private registry settings in.
+3. In the navigation pane, choose **Private
+   registry**, **Pull through
+   cache**.
+4. On the **Pull through cache configuration**
+   page, choose **Add rule**.
+5. On the **Step 1: Specify a source** page, for
+   **Registry**, choose
+   **GitHub Container Registry**, **Next**.
+6. On the **Step 2: Configure authentication**
+   page, for **Upstream credentials**, you must
+   store your authentication credentials for GitHub Container Registry in an AWS Secrets Manager
+   secret. You can specify an existing secret or use the Amazon ECR
+   console to create a new secret.
 
-    1. To use an existing secret, choose **Use an
-       existing AWS secret**. For **Secret name** use the drop down
-       to select your existing secret, and then choose **Next**.
+   1. To use an existing secret, choose **Use an
+      existing AWS secret**. For **Secret name** use the drop down
+      to select your existing secret, and then choose **Next**.
 
-    ###### Note
+   ###### Note
 
-    The AWS Management Console only displays Secrets Manager secrets with
-    names using the `ecr-pullthroughcache/`
-    prefix. The secret must also be in the same account
-    and Region that the pull through cache rule is
-    created in. 2. To create a new secret, choose **Create an
-    AWS secret**, do the following, then
-    choose **Next**.
+   The AWS Management Console only displays Secrets Manager secrets with
+   names using the `ecr-pullthroughcache/`
+   prefix. The secret must also be in the same account
+   and Region that the pull through cache rule is
+   created in. 2. To create a new secret, choose **Create an
+   AWS secret**, do the following, then
+   choose **Next**.
 
         1. For **Secret name**, specify
          a descriptive name for the secret. Secret names
@@ -152,11 +152,11 @@ for each Region.
          creating a GitHub access token, see [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens") in
          the GitHub documentation.
 
-7.  On the **Step 3: Specify a destination**
-    page, for **Amazon ECR repository prefix**, specify
-    the repository namespace to use when caching images pulled from
-    the source public registry and then choose
-    **Next**.
+7. On the **Step 3: Specify a destination**
+   page, for **Amazon ECR repository prefix**, specify
+   the repository namespace to use when caching images pulled from
+   the source public registry and then choose
+   **Next**.
 
 By default, a namespace is populated but a custom namespace
 can be specified as well. 8. On the **Step 4: Review and create** page,
@@ -165,49 +165,49 @@ review the pull through cache rule configuration and then choose
 to create. The pull through cache rules are created separately
 for each Region.
 
-1.  Open the Amazon ECR console at
-    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
-2.  From the navigation bar, choose the Region to configure your
-    private registry settings in.
-3.  In the navigation pane, choose **Private
-    registry**, **Pull through
-    cache**.
-4.  On the **Pull through cache configuration**
-    page, choose **Add rule**.
-5.  On the **Step 1: Specify a source** page, do
-    the following.
+1. Open the Amazon ECR console at
+   [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
+2. From the navigation bar, choose the Region to configure your
+   private registry settings in.
+3. In the navigation pane, choose **Private
+   registry**, **Pull through
+   cache**.
+4. On the **Pull through cache configuration**
+   page, choose **Add rule**.
+5. On the **Step 1: Specify a source** page, do
+   the following.
 
-    1. For **Registry**, choose
-       **Microsoft Azure Container Registry**
-    2. For **Source registry URL**, specify
-       the name of your Microsoft Azure container registry and then choose
-       **Next**.
+   1. For **Registry**, choose
+      **Microsoft Azure Container Registry**
+   2. For **Source registry URL**, specify
+      the name of your Microsoft Azure container registry and then choose
+      **Next**.
 
-    ###### Important
+   ###### Important
 
-    You only need to specify the prefix, as the
-    `.azurecr.io` suffix is populated on
-    your behalf.
+   You only need to specify the prefix, as the
+   `.azurecr.io` suffix is populated on
+   your behalf.
 
-6.  On the **Step 2: Configure authentication**
-    page, for **Upstream credentials**, you must
-    store your authentication credentials for Microsoft Azure Container Registry in an AWS Secrets Manager
-    secret. You can specify an existing secret or use the Amazon ECR
-    console to create a new secret.
+6. On the **Step 2: Configure authentication**
+   page, for **Upstream credentials**, you must
+   store your authentication credentials for Microsoft Azure Container Registry in an AWS Secrets Manager
+   secret. You can specify an existing secret or use the Amazon ECR
+   console to create a new secret.
 
-    1. To use an existing secret, choose **Use an
-       existing AWS secret**. For **Secret name** use the drop down
-       to select your existing secret, and then choose **Next**.
+   1. To use an existing secret, choose **Use an
+      existing AWS secret**. For **Secret name** use the drop down
+      to select your existing secret, and then choose **Next**.
 
-    ###### Note
+   ###### Note
 
-    The AWS Management Console only displays Secrets Manager secrets with
-    names using the `ecr-pullthroughcache/`
-    prefix. The secret must also be in the same account
-    and Region that the pull through cache rule is
-    created in. 2. To create a new secret, choose **Create an
-    AWS secret**, do the following, then
-    choose **Next**.
+   The AWS Management Console only displays Secrets Manager secrets with
+   names using the `ecr-pullthroughcache/`
+   prefix. The secret must also be in the same account
+   and Region that the pull through cache rule is
+   created in. 2. To create a new secret, choose **Create an
+   AWS secret**, do the following, then
+   choose **Next**.
 
         1. For **Secret name**, specify
          a descriptive name for the secret. Secret names
@@ -220,11 +220,11 @@ for each Region.
          [Create token - portal](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions#create-token---portal "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions#create-token---portal") in the Microsoft Azure
          documentation.
 
-7.  On the **Step 3: Specify a destination**
-    page, for **Amazon ECR repository prefix**, specify
-    the repository namespace to use when caching images pulled from
-    the source public registry and then choose
-    **Next**.
+7. On the **Step 3: Specify a destination**
+   page, for **Amazon ECR repository prefix**, specify
+   the repository namespace to use when caching images pulled from
+   the source public registry and then choose
+   **Next**.
 
 By default, a namespace is populated but a custom namespace
 can be specified as well. 8. On the **Step 4: Review and create** page,
@@ -233,40 +233,40 @@ review the pull through cache rule configuration and then choose
 to create. The pull through cache rules are created separately
 for each Region.
 
-1.  Open the Amazon ECR console at
-    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
-2.  From the navigation bar, choose the Region to configure your
-    private registry settings in.
-3.  In the navigation pane, choose **Private
-    registry**, **Pull through
-    cache**.
-4.  On the **Pull through cache configuration**
-    page, choose **Add rule**.
-5.  On the **Step 1: Specify a source** page, for Registry,
-    choose GitLab Container Registry, Next.
-6.  On the **Step 2: Configure authentication**
-    page, for **Upstream credentials**, you must
-    store your authentication credentials for GitLab Container Registry in an AWS Secrets Manager
-    secret. You can specify an existing secret or use the Amazon ECR
-    console to create a new secret.
+1. Open the Amazon ECR console at
+   [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
+2. From the navigation bar, choose the Region to configure your
+   private registry settings in.
+3. In the navigation pane, choose **Private
+   registry**, **Pull through
+   cache**.
+4. On the **Pull through cache configuration**
+   page, choose **Add rule**.
+5. On the **Step 1: Specify a source** page, for Registry,
+   choose GitLab Container Registry, Next.
+6. On the **Step 2: Configure authentication**
+   page, for **Upstream credentials**, you must
+   store your authentication credentials for GitLab Container Registry in an AWS Secrets Manager
+   secret. You can specify an existing secret or use the Amazon ECR
+   console to create a new secret.
 
-    1. To use an existing secret, choose **Use an
-       existing AWS secret**. For
-       **Secret name** use the drop down
-       to select your existing secret, and then choose
-       **Next**. For more information on
-       creating a Secrets Manager secret using the Secrets Manager console, see
-       [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
+   1. To use an existing secret, choose **Use an
+      existing AWS secret**. For
+      **Secret name** use the drop down
+      to select your existing secret, and then choose
+      **Next**. For more information on
+      creating a Secrets Manager secret using the Secrets Manager console, see
+      [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
 
-    ###### Note
+   ###### Note
 
-    The AWS Management Console only displays Secrets Manager secrets with
-    names using the `ecr-pullthroughcache/`
-    prefix. The secret must also be in the same account
-    and Region that the pull through cache rule is
-    created in. 2. To create a new secret, choose **Create an
-    AWS secret**, do the following, then
-    choose **Next**.
+   The AWS Management Console only displays Secrets Manager secrets with
+   names using the `ecr-pullthroughcache/`
+   prefix. The secret must also be in the same account
+   and Region that the pull through cache rule is
+   created in. 2. To create a new secret, choose **Create an
+   AWS secret**, do the following, then
+   choose **Next**.
 
         1. For **Secret name**, specify
          a descriptive name for the secret. Secret names
@@ -281,11 +281,11 @@ for each Region.
          [Project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html "https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html"),
          in the GitLab documentation.
 
-7.  On the **Step 3: Specify a destination**
-    page, for **Amazon ECR repository prefix**, specify
-    the repository namespace to use when caching images pulled from
-    the source public registry and then choose
-    **Next**.
+7. On the **Step 3: Specify a destination**
+   page, for **Amazon ECR repository prefix**, specify
+   the repository namespace to use when caching images pulled from
+   the source public registry and then choose
+   **Next**.
 
 By default, a namespace is populated but a custom namespace
 can be specified as well. 8. On the **Step 4: Review and create** page,
@@ -372,40 +372,40 @@ review the pull through cache rule configuration and then choose
 The pull through cache rules are created separately for each
 Region.
 
-1.  Open the Amazon ECR console at
-    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
-2.  From the navigation bar, choose the Region to configure your
-    private registry settings in.
-3.  In the navigation pane, choose **Private
-    registry**, **Pull through
-    cache**.
-4.  On the **Pull through cache configuration**
-    page, choose **Add rule**.
-5.  On the **Step 1: Specify a source** page, for Registry,
-    choose Chainguard Registry, Next.
-6.  On the **Step 2: Configure authentication**
-    page, for **Upstream credentials**, you must
-    store your authentication credentials for Chainguard Registry in an AWS Secrets Manager
-    secret. You can specify an existing secret or use the Amazon ECR
-    console to create a new secret.
+1. Open the Amazon ECR console at
+   [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
+2. From the navigation bar, choose the Region to configure your
+   private registry settings in.
+3. In the navigation pane, choose **Private
+   registry**, **Pull through
+   cache**.
+4. On the **Pull through cache configuration**
+   page, choose **Add rule**.
+5. On the **Step 1: Specify a source** page, for Registry,
+   choose Chainguard Registry, Next.
+6. On the **Step 2: Configure authentication**
+   page, for **Upstream credentials**, you must
+   store your authentication credentials for Chainguard Registry in an AWS Secrets Manager
+   secret. You can specify an existing secret or use the Amazon ECR
+   console to create a new secret.
 
-    1. To use an existing secret, choose **Use an
-       existing AWS secret**. For
-       **Secret name** use the drop down
-       to select your existing secret, and then choose
-       **Next**. For more information on
-       creating a Secrets Manager secret using the Secrets Manager console, see
-       [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
+   1. To use an existing secret, choose **Use an
+      existing AWS secret**. For
+      **Secret name** use the drop down
+      to select your existing secret, and then choose
+      **Next**. For more information on
+      creating a Secrets Manager secret using the Secrets Manager console, see
+      [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
 
-    ###### Note
+   ###### Note
 
-    The AWS Management Console only displays Secrets Manager secrets with
-    names using the `ecr-pullthroughcache/`
-    prefix. The secret must also be in the same account
-    and Region that the pull through cache rule is
-    created in. 2. To create a new secret, choose **Create an
-    AWS secret**, do the following, then
-    choose **Next**.
+   The AWS Management Console only displays Secrets Manager secrets with
+   names using the `ecr-pullthroughcache/`
+   prefix. The secret must also be in the same account
+   and Region that the pull through cache rule is
+   created in. 2. To create a new secret, choose **Create an
+   AWS secret**, do the following, then
+   choose **Next**.
 
         1. For **Secret name**, specify
          a descriptive name for the secret. Secret names
@@ -418,11 +418,11 @@ Region.
          [Authenticating with a Pull Token](https://edu.chainguard.dev/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token "https://edu.chainguard.dev/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token")
          in the Chainguard documentation.
 
-7.  On the **Step 3: Specify a destination**
-    page, for **Amazon ECR repository prefix**, specify
-    the repository namespace to use when caching images pulled from
-    the source registry and then choose
-    **Next**.
+7. On the **Step 3: Specify a destination**
+   page, for **Amazon ECR repository prefix**, specify
+   the repository namespace to use when caching images pulled from
+   the source registry and then choose
+   **Next**.
 
 By default, a namespace is populated but a custom namespace
 can be specified as well. 8. On the **Step 4: Review and create** page,
