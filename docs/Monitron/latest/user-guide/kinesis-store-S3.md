@@ -34,7 +34,7 @@ https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/crea
    create IAM resources._
 6. Choose **Create stack**.
 7. On the next page, choose the refresh icon as often as you like until
-   the status of the stack is CREATE_COMPLETE.
+   the status of the stack is CREATE\_COMPLETE.
 
 ## Configuring Kinesis manually in the console
 
@@ -66,7 +66,7 @@ https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/crea
      add:
 
    | Key name | JQ expression       |
-   | -------- | ------------------- | -------------------------------------------------------------- | ----------- |
+   | -------- | ------------------- |
    | project  | .projectDisplayName | "project=\(.)"                                                 |
    | site     | .siteDisplayName    | "site=\(.)"                                                    |
    | time     | .timestamp          | <br>sub("[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$";<br>"00:00:00") | "time=\(.)" |
@@ -76,7 +76,7 @@ https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/crea
     `!{partitionKeyFromQuery:project}/!{partitionKeyFromQuery:site}/!{partitionKeyFromQuery:time}/`.
 11. In Amazon S3, objects will use the following key format:
     `/project={projectName}/site={siteName}/time={yyyy-mm-dd
-00:00:00}/{filename}`.
+ 00:00:00}/{filename}`.
 12. Choose **Create delivery stream**.
 13. (optional) Use a more granular path.
 
@@ -89,7 +89,7 @@ path.
 Under **Dynamic partitioning keys**, add:
 
 | Key name | JQ expression              |
-| -------- | -------------------------- | --------------------------------------------------- | --------------- |
+| -------- | -------------------------- |
 | project  | .projectDisplayName        | "project=\(.)"                                      |
 | site     | .siteDisplayName           | "site=\(.)"                                         |
 | asset    | .assetDisplayName          | "asset=\(.)"                                        |

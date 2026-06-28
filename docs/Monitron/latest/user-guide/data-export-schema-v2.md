@@ -778,7 +778,7 @@ models.temperatureML.persistentClassificationOutput
   learning based temperature model
 - Type: Number
 - Valid Values: `UNKNOWN | HEALTHY | WARNING |
-ALARM`
+ ALARM`
 
 models.temperatureML.pointwiseClassificationOutput
 
@@ -786,7 +786,7 @@ models.temperatureML.pointwiseClassificationOutput
   machine learning based temperature model
 - Type: String
 - Valid Values: `UNKNOWN | INITIALIZING | HEALTHY |
-WARNING | ALARM`
+ WARNING | ALARM`
 
 models.vibrationISO.isoClass
 
@@ -795,7 +795,7 @@ models.vibrationISO.isoClass
   vibration model
 - Type: String
 - Valid Values: `CLASS1 | CLASS2 | CLASS3 |
-CLASS4`
+ CLASS4`
 
 models.vibrationISO.mutedThreshold
 
@@ -810,7 +810,7 @@ models.vibrationISO.persistentClassificationOutput
   vibration model
 - Type: String
 - Valid Values: `UNKNOWN | HEALTHY | WARNING |
-ALARM`
+ ALARM`
 
 models.vibrationISO.pointwiseClassificationOutput
 
@@ -818,7 +818,7 @@ models.vibrationISO.pointwiseClassificationOutput
   ISO based vibration model
 - Type: String
 - Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM |
-MUTED_WARNING | MUTED_ALARM`
+ MUTED_WARNING | MUTED_ALARM`
 
 models.vibrationML.persistentClassificationOutput
 
@@ -826,7 +826,7 @@ models.vibrationML.persistentClassificationOutput
   learning based vibration model
 - Type: String
 - Valid Values: `UNKNOWN | HEALTHY | WARNING |
-ALARM`
+ ALARM`
 
 models.vibrationML.pointwiseClassificationOutput
 
@@ -834,14 +834,14 @@ models.vibrationML.pointwiseClassificationOutput
   machine learning based vibration model
 - Type: String
 - Valid Values: `UNKNOWN | INITIALIZING | HEALTHY |
-WARNING | ALARM`
+ WARNING | ALARM`
 
 assetState.newState
 
 - The machine status after processing the measurement
 - Type: String
 - Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
-| WARNING | ALARM`
+ | WARNING | ALARM`
 
 assetState.previousState
 
@@ -849,7 +849,7 @@ assetState.previousState
   measurement
 - Type: String
 - Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
-| WARNING | ALARM`
+ | WARNING | ALARM`
 
 eventPayload.companyName
 

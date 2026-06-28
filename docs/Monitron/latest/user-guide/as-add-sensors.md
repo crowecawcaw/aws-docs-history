@@ -53,27 +53,36 @@ how to do so:
 
 2. From the **Assets** list, choose the asset.
 
-   - If you just created the asset:
+    * If you just created the asset:
 
-   Choose **Add position**.
 
-   ![Asset name 1 screen with No sensor status and Pair sensor button highlighted.](images/pair_sensors.png)
-   - If you created the asset earlier, and have already paired more
+    Choose **Add position**.
+
+
+
+    ![Asset name 1 screen with No sensor status and Pair sensor button highlighted.](images/pair_sensors.png)
+    * If you created the asset earlier, and have already paired more
      than one sensor to it:
 
-     1. After you choose the asset, you will see a dropdown list
-        of sensors associated with that asset.
 
-     Choose the **View** option at the top of
-     that list.
+    	1. After you choose the asset, you will see a dropdown list
+    	 of sensors associated with that asset.
 
-     ![Assets page showing cooler asset with View cooler option and three Healthy status indicators.](images/asset-dropdown-view-option.png) 2. Choose **Pair sensor**.
 
-     ![Cooler asset details screen showing Pair sensor button and three healthy positions.](images/pair-sensor-others-paired.png)
+    	Choose the **View** option at the top of
+    	 that list.
+
+
+
+    	![Assets page showing cooler asset with View cooler option and three Healthy status indicators.](images/asset-dropdown-view-option.png)
+    	2. Choose **Pair sensor**.
+
+
+
+    	![Cooler asset details screen showing Pair sensor button and three healthy positions.](images/pair-sensor-others-paired.png)
 
 3. Place your sensor on the machine in the correct location. For more
-   information about placing sensors, see [Positioning a sensor](as-where-sensors.md "as-where-sensors.md") and [Mounting a sensor](as-how-sensors.md "as-how-sensors.md").
-4. Name the position that the sensor will monitor.
+information about placing sensors, see [Positioning a sensor](as-where-sensors.md "as-where-sensors.md") and [Mounting a sensor](as-how-sensors.md "as-how-sensors.md"). 4. Name the position that the sensor will monitor.
 
 We recommend that you use a name that is clear and easy for you to work
 with. 5. For **Position type**, choose the position type.

@@ -40,7 +40,7 @@ This information can be used by technicians to investigate and fix the
 issue. After an abnormality has been acknowledged and repaired, resolve the
 issue in the mobile app.
 
-![Vibration monitoring dashboard showing alarm status and total vibration chart for pump main.](/images/Monitron/latest/user-guide/images/mobile-understand-sensor-measurement.png)
+![Vibration monitoring dashboard showing alarm status and total vibration chart for pump main.](images/mobile-understand-sensor-measurement.png)
 
 The status of the asset changes to:
 

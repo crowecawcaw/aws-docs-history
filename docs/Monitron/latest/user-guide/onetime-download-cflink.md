@@ -24,7 +24,7 @@ https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/crea
 4. Choose **Create stack**.
 
 ![Capabilities section with acknowledgment checkbox for IAM resource creation.](images/s3-export-1.png) 5. On the next page, choose the refresh icon as often as you like until
-the status of the stack (monitronexport) is CREATE_COMPLETE.
+the status of the stack (monitronexport) is CREATE\_COMPLETE.
 
 ![Events tab showing monitronexport stack with CREATE_IN_PROGRESS status and refresh icon highlighted.](images/s3-export-2.png)
 
@@ -64,34 +64,44 @@ following:
     ![Support case form with Account and billing selected, Service set to Account, Category set to Compliance and Accreditations, and Severity set to General question.](images/s3-export-5.png)
 
 4. In **Additional information** do the
-   following:
+following:
 
-   1. Under **Subject**, enter **Amazon Monitron data
-      export request**.
-   2. In the **Description** field, enter:
+    1. Under **Subject**, enter **Amazon Monitron data
+     export request**.
+    2. In the **Description** field, enter:
 
-      1. your account ID
-      2. the region of the bucket you created
-      3. the ARN of the bucket you created (for example:
-         "arn:aws:s3:::bucketname")
-      4. the ARN of the role you created (for example:
-         "arn:aws:iam::273771705212:role/role-for-monitron")
 
-   ![Form for Amazon Monitron data export request with fields for account and bucket details.](images/s3-export-6.png) 3. Choose **Next step: Solve now or contact
-   us**.
+
+
+    	1. your account ID
+    	2. the region of the bucket you created
+    	3. the ARN of the bucket you created (for example:
+    	 "arn:aws:s3:::bucketname")
+    	4. the ARN of the role you created (for example:
+    	 "arn:aws:iam::273771705212:role/role-for-monitron")
+
+    ![Form for Amazon Monitron data export request with fields for account and bucket details.](images/s3-export-6.png)
+    3. Choose **Next step: Solve now or contact
+     us**.
 
 5. In **Solve now or contact us** do the
-   following:
+following:
 
-   1. In **Solve now**, select
-      **Next**.
+    1. In **Solve now**, select
+     **Next**.
 
-   ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](images/s3-export-7.png) 2. In **Contact us**, choose your
-   **Preferred contact language** and
-   preferred method of contact. 3. Choose **Submit**. A confirmation screen with
-   your case ID and details will be displayed.
 
-   ![Contact options with language selection and choices for Web, Phone, or Chat communication.](images/s3-export-8.png)
+
+    ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](images/s3-export-7.png)
+    2. In **Contact us**, choose your
+     **Preferred contact language** and
+     preferred method of contact.
+    3. Choose **Submit**. A confirmation screen with
+     your case ID and details will be displayed.
+
+
+
+    ![Contact options with language selection and choices for Web, Phone, or Chat communication.](images/s3-export-8.png)
 
 An AWS customer support specialist will get back to you as soon as
 possible. If there are any issues with the steps listed, the specialist may ask

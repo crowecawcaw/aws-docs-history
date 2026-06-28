@@ -153,9 +153,8 @@ user** to add the user.
     3. Choose **Create User**.
 
 6. When the user's name appears in the directory list, choose
-   **Add** to add the admin users you've selected.
-7. Email the admin users an invitation to the project that includes a
-   link to download the Amazon Monitron mobile app. For more information, see [Sending an email invitation](resending-email.md "resending-email.md").
+**Add** to add the admin users you've selected. 7. Email the admin users an invitation to the project that includes a
+link to download the Amazon Monitron mobile app. For more information, see [Sending an email invitation](resending-email.md "resending-email.md").
 
 Amazon Monitron takes you to the project page for your project, where it
 lists all admin users.

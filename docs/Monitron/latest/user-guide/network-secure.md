@@ -42,7 +42,7 @@ your local network traffic:
 - Any ports required by your telecom provider
 - TCP port 5094 for SSL communications used on
 
-**_Vodafone devices_**
+_**Vodafone devices**_
 If you are using an **Apple mobile device** to provision
 your gateways and sensors, then you should allow the following with regard to your local
 network traffic:

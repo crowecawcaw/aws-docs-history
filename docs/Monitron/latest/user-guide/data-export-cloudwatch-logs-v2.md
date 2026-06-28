@@ -11,7 +11,7 @@ for certain thresholds and send notifications or take actions when those thresho
 are met. For more information, see [the CloudWatch User
 Guide](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md").
 
-Amazon Monitron sends log events to the /aws/monitron/data-export/{HASH_ID} log
+Amazon Monitron sends log events to the /aws/monitron/data-export/{HASH\_ID} log
 group.
 
 The log event has the following JSON format:
@@ -51,10 +51,10 @@ errorCode
 - The error code
 - Type: String
 - Valid Values: `INTERNAL_SEVER_ERROR |
-KINESIS_RESOURCE_NOT_FOUND |
-KINESIS_PROVISIONED_THROUGHPUT_EXCEEDED | KMS_ACCESS_DENIED
-| KMS_NOT_FOUND | KMS_DISABLED | KMS_INVALID_STATE |
-KMS_THROTTLING`
+ KINESIS_RESOURCE_NOT_FOUND |
+ KINESIS_PROVISIONED_THROUGHPUT_EXCEEDED | KMS_ACCESS_DENIED
+ | KMS_NOT_FOUND | KMS_DISABLED | KMS_INVALID_STATE |
+ KMS_THROTTLING`
 
 errorMessage
 
