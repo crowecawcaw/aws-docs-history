@@ -55,7 +55,7 @@ credentials.
       management**, choose **Roles**.
    2. From the list of roles, choose the name of the role that you use with
       your MediaConvert job. This role is often
-      **MediaConvert_Default_Role**.
+      **MediaConvert\_Default\_Role**.
    3. On the role **Summary** page, on the
       **Permissions** tab, choose **Attach
       policies**.

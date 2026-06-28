@@ -140,7 +140,7 @@ format:
     * [Captions and captions selectors](including-captions.md "including-captions.md")
 
 4. **Set up when you want any graphic overlays or motion
-   graphic overlays to appear.**
+graphic overlays to appear.**
 
 How you specify the time that the overlay appears depends on what kind of
 overlay you specify:

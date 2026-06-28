@@ -7,24 +7,23 @@ frames.
 
 ###### To burn in timecodes in an output (console)
 
-1.  On the **Create job** page, in the **Job** pane on the left, choose an output.
-2.  Under **Stream settings**,
-    **Preprocessors**, choose **Timecode
-    burn-in**.
-3.  Optionally, provide values for the **Prefix**,
-    **Font size**, and **Position**
-    settings. Even if you don't provide these values, timecodes are burned
-    into your output using these default values:
+1. On the **Create job** page, in the **Job** pane on the left, choose an output.
+2. Under **Stream settings**,
+   **Preprocessors**, choose **Timecode
+   burn-in**.
+3. Optionally, provide values for the **Prefix**,
+   **Font size**, and **Position**
+   settings. Even if you don't provide these values, timecodes are burned
+   into your output using these default values:
 
-        * **Prefix**: no prefix
-        * **Font size**: **Extra Small
-         (10)**
-        * **Position**: **Top
-         Center**
-
-    For details about each of these settings, choose the
-    **Info** link next to **Timecode
-    burn-in**.
+   - **Prefix**: no prefix
+   - **Font size**: **Extra Small
+     (10)**
+   - **Position**: **Top
+     Center**
+     For details about each of these settings, choose the
+     **Info** link next to **Timecode
+     burn-in**.
 
 ###### To burn in timecodes in an output (API, SDK, and AWS CLI)
 

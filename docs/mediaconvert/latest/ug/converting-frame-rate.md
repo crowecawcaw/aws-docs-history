@@ -155,8 +155,8 @@ Links to `framerateDenominator`
 
   - **Scan type** (`InputScanType`)
 
-| Common frame rate ratios | Frame rate common name | Value for framerateNumerator | Value for framerateDenominator |
-| ------------------------ | ---------------------- | ---------------------------- | ------------------------------ |
-| 23.976                   | 24,000                 | 1,001                        |
-| 29.97                    | 30,000                 | 1,001                        |
-| 59.94                    | 60,000                 | 1,001                        |
+Common frame rate ratios| Frame rate common name | Value for framerateNumerator | Value for framerateDenominator |
+| --- | --- | --- |
+| 23.976 | 24,000 | 1,001 |
+| 29.97 | 30,000 | 1,001 |
+| 59.94 | 60,000 | 1,001 |

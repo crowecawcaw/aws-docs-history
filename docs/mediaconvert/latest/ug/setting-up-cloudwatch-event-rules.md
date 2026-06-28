@@ -78,11 +78,11 @@ capture events sent by MediaConvert when a job status changes to
    **Event source** choose the following settings:
 
    - **Event source**: `AWS
-services`
+  services`
    - **AWS service**:
      `MediaConvert`
    - **Event type**: `MediaConvert Job State
-Change`
+  Change`
    - **Event type, Specific state(s)**:
      `ERROR`
 

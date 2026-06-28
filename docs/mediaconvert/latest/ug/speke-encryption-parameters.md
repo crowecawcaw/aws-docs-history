@@ -22,15 +22,14 @@ MovieNight20171126093045
   protocol and DRM system. The number of system IDs that you can specify varies
   depending on the output group type:
 
-      + CMAF – For **System IDs signaled in DASH**, specify at
-       least one and up to three IDs. For **System ID signaled in HLS**,
-       specify one ID.
-      + DASH – For **System ID**, specify at least one and up
-       to two IDs.
-      + Apple HLS – For **System ID**, specify one ID.
-
-  If you provide more than one system ID in a single field, enter them on separate
-  lines, and don't separate them with commas or any other punctuation.
+  - CMAF – For **System IDs signaled in DASH**, specify at
+    least one and up to three IDs. For **System ID signaled in HLS**,
+    specify one ID.
+  - DASH – For **System ID**, specify at least one and up
+    to two IDs.
+  - Apple HLS – For **System ID**, specify one ID.
+    If you provide more than one system ID in a single field, enter them on separate
+    lines, and don't separate them with commas or any other punctuation.
 
 For a list of common system IDs, see [DASH-IF System IDs](https://dashif.org/identifiers/content_protection/ "https://dashif.org/identifiers/content_protection/").
 If you don't know your IDs, request them from your DRM solution provider.

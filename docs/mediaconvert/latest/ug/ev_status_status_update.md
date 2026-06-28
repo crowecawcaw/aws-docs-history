@@ -1,4 +1,4 @@
-# Events with STATUS_UPDATE status
+# Events with STATUS\_UPDATE status
 
 MediaConvert sends the event for `STATUS_UPDATE` approximately one
 minute after it begins processing a job. By default, updates are sent approximately

@@ -1,6 +1,6 @@
 # Configuring SCTE-35 marker passthrough from your input
 
-You can include time_signal SCTE-35 markers from your input in any output that has a
+You can include time\_signal SCTE-35 markers from your input in any output that has a
 transport stream container. These outputs might be in an HLS package, or they might be
 standalone files wrapped in an MPEG2 transport stream (M2TS) container.
 

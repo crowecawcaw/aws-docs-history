@@ -67,7 +67,7 @@ abbreviations.
 | AVCI               | AVC-Intra video codec                                                     |
 | B                  | Basic tier                                                                |
 | DOLBY              | Dolby audio                                                               |
-| DOLBY_VIS          | Dolby Vision                                                              |
+| DOLBY\_VIS         | Dolby Vision                                                              |
 | DTS                | Audio Normalization                                                       |
 | FRAMEFORMER        | FrameFormer frame rate conversion algorithm                               |
 | GIF                | Animated GIF                                                              |
@@ -79,7 +79,7 @@ abbreviations.
 | MHQ                | Multi-pass HQ quality tuning level                                        |
 | MP2                | MPEG-2 video codec                                                        |
 | NEXGUARD           | NexGuard watermarking                                                     |
-| NIELSEN_SID_TIC    | Nielsen watermarking                                                      |
+| NIELSEN\_SID\_TIC  | Nielsen watermarking                                                      |
 | NTM                | Normalized transcoding minute                                             |
 | P                  | Professional tier                                                         |
 | PASS               | Video passthrough                                                         |

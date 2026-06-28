@@ -23,11 +23,11 @@ Dolby Vision outputs.
 | Output **Video codec**                                                     | **HEVC (H.265)**                                                                        |
 | Output **Color metadata**                                                  | **Insert**                                                                              |
 | Output video **Resolution (w x h)**                                        | Maximum width: 4096Maximum height: 4096                                                 |
-| Output video codec **Profile**                                             | **Main10/Main\*<br>• or<br>**Main10/High\*\*                                            |
+| Output video codec **Profile**                                             | *_Main10/Main_<br>• or<br>**Main10/High**                                               |
 | Captions **Destination type**                                              | Burn-in captions are not supported.                                                     |
 | **Respond to AFD**                                                         | **None**                                                                                |
-| \*_Color corrector_<br>• preprocessor                                      | **Disabled**                                                                            |
-| \*_Timecode burn-in_<br>• preprocessor                                     | **Disabled**                                                                            |
-| \*_Noise reducer_<br>• preprocessor                                        | **Disabled**                                                                            |
+| *_Color corrector_<br>• preprocessor                                       | **Disabled**                                                                            |
+| *_Timecode burn-in_<br>• preprocessor                                      | **Disabled**                                                                            |
+| *_Noise reducer_<br>• preprocessor                                         | **Disabled**                                                                            |
 | **Motion image inserter**                                                  | **Disabled**                                                                            |
-| \*_Queue_<br>• type                                                        | **On-demand queue**                                                                     |
+| *_Queue_<br>• type                                                         | **On-demand queue**                                                                     |

@@ -7,7 +7,7 @@ conditions your outputs
 
 with IDR (Instantaneous Decoder Refresh) frames at the insertion points that you specify
 in the document. In outputs that are also wrapped in MPEG2-TS and HLS containers,
-MediaConvert inserts SCTE-35 time_signal messages at those points.
+MediaConvert inserts SCTE-35 time\_signal messages at those points.
 
 For your **Apple HLS** output groups, you can also provide
 an HLS manifest conditioning XML document. You can then set up your job to condition the
@@ -82,7 +82,7 @@ markers:
      **None**.
 
 9. Do this step only for any **Apple HLS** output groups in your
-   job.
+job.
 
 If you want to condition your HLS manifest with your ESAM insertion points,
 follow the procedure in [Including SCTE-35 information in your HLS manifest](including-scte-35-information-in-your-hls-manifest.md "including-scte-35-information-in-your-hls-manifest.md").
@@ -160,22 +160,20 @@ in their default state:
             }
 ```
 
-3.  If you want to condition your HLS manifests with SCTE-35 information, for each
-    Apple HLS output group in your job, include the following. These settings are
-    shown in the example at the end of this step:
+3. If you want to condition your HLS manifests with SCTE-35 information, for each
+   Apple HLS output group in your job, include the following. These settings are
+   shown in the example at the end of this step:
 
-        * Set [`scte35Source`](../apireference/jobs.md#jobs-prop-m3u8settings-scte35source "../apireference/jobs.md#jobs-prop-m3u8settings-scte35source") to
-         `PASSTHROUGH`.
-        * Include [`adMarkers`](../apireference/jobs.md#jobs-prop-hlsgroupsettings-admarkers "../apireference/jobs.md#jobs-prop-hlsgroupsettings-admarkers") and list one or both of
-         `ELEMENTAL_SCTE35` or `ELEMENTAL` in an
-         array.
+   - Set [`scte35Source`](../apireference/jobs.md#jobs-prop-m3u8settings-scte35source "../apireference/jobs.md#jobs-prop-m3u8settings-scte35source") to
+     `PASSTHROUGH`.
+   - Include [`adMarkers`](../apireference/jobs.md#jobs-prop-hlsgroupsettings-admarkers "../apireference/jobs.md#jobs-prop-hlsgroupsettings-admarkers") and list one or both of
+     `ELEMENTAL_SCTE35` or `ELEMENTAL` in an
+     array.
 
-
-        For sample manifests created with each setting selected, see [Sample manifest: Elemental ad markers](sample-manifest-elemental-ad-markers.md "sample-manifest-elemental-ad-markers.md") and [Sample manifest: SCTE-35 enhanced ad markers](sample-manifest-scte-35-enhanced-ad-markers.md "sample-manifest-scte-35-enhanced-ad-markers.md").
-
-    If you don't want to condition your HLS manifests with SCTE-35 information,
-    keep the default setting `NONE` for `scte35Source` and
-    don't include `adMarkers`:
+   For sample manifests created with each setting selected, see [Sample manifest: Elemental ad markers](sample-manifest-elemental-ad-markers.md "sample-manifest-elemental-ad-markers.md") and [Sample manifest: SCTE-35 enhanced ad markers](sample-manifest-scte-35-enhanced-ad-markers.md "sample-manifest-scte-35-enhanced-ad-markers.md").
+   If you don't want to condition your HLS manifests with SCTE-35 information,
+   keep the default setting `NONE` for `scte35Source` and
+   don't include `adMarkers`:
 
 ```
   "outputGroups": [

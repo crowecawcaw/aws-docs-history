@@ -6,25 +6,23 @@ about which features are affected by the output timeline, see [Output timeline](
 
 ###### To adjust the job-wide timecode configuration (console)
 
-1.  On the **Create job** page, in the **Job** pane on the left, choose **Settings**.
-2.  In the **Timecode configuration** section, for
-    **Source**, choose one of the following values:
+1. On the **Create job** page, in the **Job** pane on the left, choose **Settings**.
+2. In the **Timecode configuration** section, for
+   **Source**, choose one of the following values:
 
-        * **Embedded**: The service uses any timecodes that
-         are embedded in the video.
-        * **Start at 0**: The service ignores any embedded
-         timecodes and assigns the first video frame the timecode 00:00:00:00
-         (HH:MM:SS:FF).
-        * **Specified start**: The service ignores any
-         embedded timecodes and assigns the first video frame the value that
-         you provide for **Start Timecode**.
+   - **Embedded**: The service uses any timecodes that
+     are embedded in the video.
+   - **Start at 0**: The service ignores any embedded
+     timecodes and assigns the first video frame the timecode 00:00:00:00
+     (HH:MM:SS:FF).
+   - **Specified start**: The service ignores any
+     embedded timecodes and assigns the first video frame the value that
+     you provide for **Start Timecode**.
 
-
-        The **Start Timecode** field appears when you
-         choose **Specified start**.
-
-    If you use the API or an SDK, you can find this setting in the JSON file of your job. The setting name is `Source`, located inside
-    `Settings`, `TimecodeConfig`.
+   The **Start Timecode** field appears when you
+   choose **Specified start**.
+   If you use the API or an SDK, you can find this setting in the JSON file of your job. The setting name is `Source`, located inside
+   `Settings`, `TimecodeConfig`.
 
 If you don't choose a value for **Source**, the service
 defaults to
@@ -92,25 +90,23 @@ If you use the API or an SDK, you can find this setting in the JSON file of your
 
 ###### To adjust the job-wide timecode configuration (API, SDK, and AWS CLI)
 
-1.  In your JSON job specification, set a value for [Source](../apireference/jobs.md#jobs-prop-timecodeconfig-source "../apireference/jobs.md#jobs-prop-timecodeconfig-source"), located inside `Settings`,
-    `TimecodeConfig`. Choose one of the following values:
+1. In your JSON job specification, set a value for [Source](../apireference/jobs.md#jobs-prop-timecodeconfig-source "../apireference/jobs.md#jobs-prop-timecodeconfig-source"), located inside `Settings`,
+   `TimecodeConfig`. Choose one of the following values:
 
-        * **EMBEDDED**: The service uses any timecodes that
-         are embedded in the video.
-        * **ZEROBASED**: The service ignores any embedded
-         timecodes and assigns the first video frame the timecode 00:00:00:00
-         (HH:MM:SS:FF).
-        * **SPECIFIEDSTART**: The service ignores any
-         embedded timecodes and assigns the first video frame the value that
-         you provide for **Start Timecode**.
+   - **EMBEDDED**: The service uses any timecodes that
+     are embedded in the video.
+   - **ZEROBASED**: The service ignores any embedded
+     timecodes and assigns the first video frame the timecode 00:00:00:00
+     (HH:MM:SS:FF).
+   - **SPECIFIEDSTART**: The service ignores any
+     embedded timecodes and assigns the first video frame the value that
+     you provide for **Start Timecode**.
 
-
-        The **Start Timecode** field appears when you
-         choose **Specified start**.
-
-    If you don't choose a value for **Source**, the service
-    defaults to
-    **Embedded**.
+   The **Start Timecode** field appears when you
+   choose **Specified start**.
+   If you don't choose a value for **Source**, the service
+   defaults to
+   **Embedded**.
 
 ###### Note
 
@@ -156,9 +152,9 @@ setting for `Source`:
      thirty minutes and five seconds into the video.
 
 3. Optional. In your JSON job specification, set a value for `TimestampOffset`, located in
-   `Settings`, `TimecodeConfig`. Specify the date in
-   the following format: `YYYY-MM-DD`. For example,
-   `2008-06-26`.
+`Settings`, `TimecodeConfig`. Specify the date in
+the following format: `YYYY-MM-DD`. For example,
+`2008-06-26`.
 
 This setting applies only to outputs that support a program-date-time
 stamp. Use **Timestamp offset** to overwrite the timecode

@@ -59,10 +59,9 @@ value of **CBR** for **Transport stream settings**
 - Use only supported output captions formats. For Accelerated transcoding, MediaConvert
   doesn’t support the following output captions formats:
 
-      + Not supported: Burn-in
-      + Not supported: SCTE-20
-
-  For a list of supported captions formats, see [Supported input captions, within video containers](captions-support-tables-by-container-type.md "captions-support-tables-by-container-type.md").
+  - Not supported: Burn-in
+  - Not supported: SCTE-20
+    For a list of supported captions formats, see [Supported input captions, within video containers](captions-support-tables-by-container-type.md "captions-support-tables-by-container-type.md").
 
 ###### Transcoding features not supported with Accelerated transcoding:
 

@@ -36,7 +36,7 @@ statuses successful jobs go through:
 5. `COMPLETE`: MediaConvert completed your job and all of
    your outputs were saved to your Amazon S3 bucket.
 
-Successful jobs may also include [NEW_WARNING](ev_status_new_warning.md "ev_status_new_warning.md") or [QUEUE_HOP](ev_status_new_warning.md "ev_status_new_warning.md")
+Successful jobs may also include [NEW\_WARNING](ev_status_new_warning.md "ev_status_new_warning.md") or [QUEUE\_HOP](ev_status_new_warning.md "ev_status_new_warning.md")
 statuses.
 
 **Unsuccessful jobs**
@@ -86,6 +86,6 @@ job. Job phases progress through the following order:
    finished.
 
 To view a job's phase, open the [Jobs](https://console.aws.amazon.com/mediaconvert/home#/jobs/list "https://console.aws.amazon.com/mediaconvert/home#/jobs/list") page in the MediaConvert console, check
-the [STATUS_UPDATE EventBridge
+the [STATUS\_UPDATE EventBridge
 event](ev_status_status_update.md "ev_status_status_update.md"), or submit a `GetJob` or `ListJobs`
 operation.

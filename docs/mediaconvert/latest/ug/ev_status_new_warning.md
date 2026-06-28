@@ -1,4 +1,4 @@
-# Events with NEW_WARNING status
+# Events with NEW\_WARNING status
 
 MediaConvert sends an event for `NEW_WARNING` when a warning condition
 arises. A warning condition doesn't stop the job from running. It contains the

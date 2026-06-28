@@ -63,15 +63,14 @@ Reference_:
   interactive validator against the MediaConvert job schema. Follow these
   steps to generate your JSON job specification using the console:
 
-      1. Follow the previous procedure for the console.
-      2. In the **Job** pane on the left, under **Job
-       settings**, choose **Show job
-       JSON**.
-
-  Find additional information, including where each setting belongs in the job
-  settings structure, in the _AWS Elemental MediaConvert API
-  Reference_. Links in this list go to information about the setting
-  in that document:
+  1.  Follow the previous procedure for the console.
+  2.  In the **Job** pane on the left, under **Job
+      settings**, choose **Show job
+      JSON**.
+      Find additional information, including where each setting belongs in the job
+      settings structure, in the _AWS Elemental MediaConvert API
+      Reference_. Links in this list go to information about the setting
+      in that document:
 
 - **Nielsen PCM to ID3 metadata** (`nielsenConfiguration`)
 - **Distributor ID** (`distributorId`)

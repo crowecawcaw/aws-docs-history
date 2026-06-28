@@ -4,7 +4,7 @@ Limitations to SCTE-35 support are as follows:
 
 - You can either specify insertion points using ESAM XML or pass through SCTE-35
   messages from the input. You can't do both.
-- AWS Elemental MediaConvert supports only time_signal messages, not splice_insert
+- AWS Elemental MediaConvert supports only time\_signal messages, not splice\_insert
   messages.
 - The service inserts SCTE-35 messages only into the following outputs:
 

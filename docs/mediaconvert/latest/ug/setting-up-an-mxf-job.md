@@ -42,8 +42,8 @@ procedure:
      that are valid with that profile.
 
 6. Optionally, specify your output video resolution for **Resolution (w x
-   h)**. This is the other setting that MediaConvert uses when
-   automatically determining your MXF profile.
+h)**. This is the other setting that MediaConvert uses when
+automatically determining your MXF profile.
 
 When you don't specify values for **Resolution (w x h)**,
 your output resolution is the same as your input resolution. 7. Specify your other encoding settings as usual. For information about each
@@ -66,15 +66,14 @@ Reference_:
   interactive validator against the MediaConvert job schema. Follow these
   steps to generate your JSON job specification using the console:
 
-      1. Follow the previous procedure for the console.
-      2. In the **Job** pane on the left, under **Job
-       settings**, choose **Show job
-       JSON**.
-
-  Find additional information, including where each setting belongs in the job
-  settings structure, in the _AWS Elemental MediaConvert API
-  Reference_. Links in this list go to information about the setting
-  in that document:
+  1.  Follow the previous procedure for the console.
+  2.  In the **Job** pane on the left, under **Job
+      settings**, choose **Show job
+      JSON**.
+      Find additional information, including where each setting belongs in the job
+      settings structure, in the _AWS Elemental MediaConvert API
+      Reference_. Links in this list go to information about the setting
+      in that document:
 
 ###### Output settings
 

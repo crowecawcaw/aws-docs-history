@@ -1,4 +1,4 @@
-# Events with INPUT_INFORMATION status
+# Events with INPUT\_INFORMATION status
 
 MediaConvert sends the event for `INPUT_INFORMATION` after a job
 begins processing and after MediaConvert reads information about your input. The

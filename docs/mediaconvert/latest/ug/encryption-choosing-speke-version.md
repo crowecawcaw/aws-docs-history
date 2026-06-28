@@ -12,7 +12,7 @@ SPEKE v1.0 DRM support| **Output group type** | **Apple Fairplay** | **Google Wi
 | **DASH** | _Not supported_ | Supported | Supported |
 | **Apple HLS** | Supported | _Not supported_ | _Not supported_ |
 | **Microsoft Smooth** | _Not supported_ | _Not supported_ | Supported |
-| **CMAF DASH\*<br>• and **CMAF<br>HLS\*\* | Supported | Supported | Supported |
+| *_CMAF DASH_<br>• and **CMAF<br>HLS** | Supported | Supported | Supported |
 
 **SPEKE v2.0 Supported containers and DRM systems**
 
@@ -23,7 +23,7 @@ SPEKE v2.0 DRM support| **Output group type** | **Apple Fairplay** | **Google Wi
 | **DASH** | _Not supported_ | Supported | Supported |
 | **Apple HLS** | Supported (`Sample-AES`) | Supported | Supported |
 | **Microsoft Smooth** | _Not supported_ | _Not supported_ | _Not supported_ |
-| **CMAF DASH\*<br>• and **CMAF<br>HLS\*\* | Supported (`CBCS`) | Supported (`CBCS` and `CENC`) | Supported (`CBCS` and `CENC`) |
+| *_CMAF DASH_<br>• and **CMAF<br>HLS** | Supported (`CBCS`) | Supported (`CBCS` and `CENC`) | Supported (`CBCS` and `CENC`) |
 
 **Supported DRM system IDs**
 

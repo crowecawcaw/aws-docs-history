@@ -14,12 +14,11 @@ The MediaConvert usage report includes the following information:
 - UsageType – One or more of the
   following:
 
-      + A code that identifies the AWS Region where you ran the job
-      + A code that identifies the on-demand job tier
-      + A code that identifies the MediaConvert features you used in your
-       job
-      + A code that indentifies the number of Normalized Transcode
-       Minutes (NTM)
-      + A code that identifies a reserved transcode slot (RTS)
-
-  For a detailed explanation of MediaConvert usage types, see [Understanding your AWS billing and usage reports for MediaConvert](usage-report-understand.md "usage-report-understand.md").
+  - A code that identifies the AWS Region where you ran the job
+  - A code that identifies the on-demand job tier
+  - A code that identifies the MediaConvert features you used in your
+    job
+  - A code that indentifies the number of Normalized Transcode
+    Minutes (NTM)
+  - A code that identifies a reserved transcode slot (RTS)
+    For a detailed explanation of MediaConvert usage types, see [Understanding your AWS billing and usage reports for MediaConvert](usage-report-understand.md "usage-report-understand.md").

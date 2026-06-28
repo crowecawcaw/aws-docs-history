@@ -46,13 +46,13 @@ console:
    left and right channels in a stereo output, and to mute the data stream,
    enter the following:
 
-| Channel mapping | Inputs  | Outputs |
-| --------------- | ------- | ------- |
-|                 | L (0)   | R (1)   |
-| 1               | **0**   | **-60** |
-| 2               | **-60** | **0**   |
-| 3               | **0**   | **0**   |
-| 4               | **-60** | **-60** |
+Channel mapping| Inputs | Outputs |
+| --- | --- |
+| | L (0) | R (1) |
+| 1 | **0** | **-60** |
+| 2 | **-60** | **0** |
+| 3 | **0** | **0** |
+| 4 | **-60** | **-60** |
 
 ###### Note
 

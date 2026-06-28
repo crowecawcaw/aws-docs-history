@@ -10,16 +10,16 @@ Most jobs will only emit a few of these events, with the most common being:
 
 For more information about each event type, choose the link in the **Event** column.
 
-| MediaConvert events                                                                  | Event                                                                                                                                                                       | Sent when                                                                                                                                            | Contains |
-| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| [INPUT_INFORMATION](ev_status_input_information.md "ev_status_input_information.md") | Soon after MediaConvert begins processing the job.                                                                                                                          | Media information, such as frame height and width, frame rate, and<br>codec.<br>Information from MediaConvert about all inputs in a single<br>event. |
-| [PROGRESSING](ev_status_progressing.md "ev_status_progressing.md")                   | A job moves from the `SUBMITTED` state to the<br>`PROGRESSING` state.                                                                                                       | Basic job details.                                                                                                                                   |
-| [STATUS_UPDATE](ev_status_status_update.md "ev_status_status_update.md")             | Approximately one minute after MediaConvert begins processing the<br>job. Sent approximately every minute after that, until the job is<br>completed or encounters an error. | Job progress expressed in the number of frames transcoded since the<br>beginning of the job.                                                         |
-| [COMPLETE](ev_status_complete.md "ev_status_complete.md")                            | A job is completed and MediaConvert writes all outputs<br>successfully without errors.                                                                                      | Warnings and output information about the completed job.                                                                                             |
-| [CANCELED](ev_status_canceled.md "ev_status_canceled.md")                            | A job is canceled.                                                                                                                                                          | Basic job details.                                                                                                                                   |
-| [ERROR](ev_status_error.md "ev_status_error.md")                                     | A job has an error. At least one output has an error.                                                                                                                       | The error code or codes and any messages. Includes any other<br>ephemeral job information about the job's error status.                              |
-| [NEW_WARNING](ev_status_new_warning.md "ev_status_new_warning.md")                   | A warning condition arises.                                                                                                                                                 | The warning code or codes and any warning messages.                                                                                                  |
-| [QUEUE_HOP](ev_status_queue_hop.md "ev_status_queue_hop.md")                         | When a job hops queues.                                                                                                                                                     | The ARNs for both queues and the job's priority within the queue.                                                                                    |
+MediaConvert events| Event | Sent when | Contains |
+| --- | --- | --- |
+| [INPUT\_INFORMATION](ev_status_input_information.md "ev_status_input_information.md") | Soon after MediaConvert begins processing the job. | Media information, such as frame height and width, frame rate, and<br>codec.<br>Information from MediaConvert about all inputs in a single<br>event. |
+| [PROGRESSING](ev_status_progressing.md "ev_status_progressing.md") | A job moves from the `SUBMITTED` state to the<br>`PROGRESSING` state. | Basic job details. |
+| [STATUS\_UPDATE](ev_status_status_update.md "ev_status_status_update.md") | Approximately one minute after MediaConvert begins processing the<br>job. Sent approximately every minute after that, until the job is<br>completed or encounters an error. | Job progress expressed in the number of frames transcoded since the<br>beginning of the job. |
+| [COMPLETE](ev_status_complete.md "ev_status_complete.md") | A job is completed and MediaConvert writes all outputs<br>successfully without errors. | Warnings and output information about the completed job. |
+| [CANCELED](ev_status_canceled.md "ev_status_canceled.md") | A job is canceled. | Basic job details. |
+| [ERROR](ev_status_error.md "ev_status_error.md") | A job has an error. At least one output has an error. | The error code or codes and any messages. Includes any other<br>ephemeral job information about the job's error status. |
+| [NEW\_WARNING](ev_status_new_warning.md "ev_status_new_warning.md") | A warning condition arises. | The warning code or codes and any warning messages. |
+| [QUEUE\_HOP](ev_status_queue_hop.md "ev_status_queue_hop.md") | When a job hops queues. | The ARNs for both queues and the job's priority within the queue. |
 
 ###### Note
 
@@ -54,11 +54,11 @@ JSON.
 
 ###### Topics
 
-- [Events with INPUT_INFORMATION status](ev_status_input_information.md "ev_status_input_information.md")
+- [Events with INPUT\_INFORMATION status](ev_status_input_information.md "ev_status_input_information.md")
 - [Events with PROGRESSING status](ev_status_progressing.md "ev_status_progressing.md")
-- [Events with STATUS_UPDATE status](ev_status_status_update.md "ev_status_status_update.md")
+- [Events with STATUS\_UPDATE status](ev_status_status_update.md "ev_status_status_update.md")
 - [Events with COMPLETE status](ev_status_complete.md "ev_status_complete.md")
 - [Events with CANCELED status](ev_status_canceled.md "ev_status_canceled.md")
 - [Events with ERROR status](ev_status_error.md "ev_status_error.md")
-- [Events with NEW_WARNING status](ev_status_new_warning.md "ev_status_new_warning.md")
-- [Events with QUEUE_HOP status](ev_status_queue_hop.md "ev_status_queue_hop.md")
+- [Events with NEW\_WARNING status](ev_status_new_warning.md "ev_status_new_warning.md")
+- [Events with QUEUE\_HOP status](ev_status_queue_hop.md "ev_status_queue_hop.md")

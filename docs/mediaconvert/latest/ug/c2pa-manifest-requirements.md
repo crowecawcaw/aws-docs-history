@@ -16,7 +16,7 @@ For information about Secrets Manager, see the [Secrets Manager user guide](../.
 
 **AWS KMS key**
 
-An AWS KMS key with ECDSA_SHA_256 signing capability. This key is used to sign the
+An AWS KMS key with ECDSA\_SHA\_256 signing capability. This key is used to sign the
 C2PA manifest. Currently, MediaConvert only supports the ES256 (ECDSA with SHA-256) signing
 algorithm.
 

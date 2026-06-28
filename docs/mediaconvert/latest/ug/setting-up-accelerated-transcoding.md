@@ -29,11 +29,9 @@ limitations and requirements listed in [Accelerated transcoding job settings req
      0**.
 
 3. If you don't already have a dedicated queue for Accelerated transcoding jobs, create
-   one. For more information, see [Creating a queue](creating-queues.md "creating-queues.md").
-4. On the **Create job** page, in the **Job** pane on the left, in the **Job Settings** section, choose
-   **Settings**.
-5. For **Acceleration**, choose **Enabled** or
-   **Preferred**.
+one. For more information, see [Creating a queue](creating-queues.md "creating-queues.md"). 4. On the **Create job** page, in the **Job** pane on the left, in the **Job Settings** section, choose
+**Settings**. 5. For **Acceleration**, choose **Enabled** or
+**Preferred**.
 
 With both **Enabled** and **Preferred**, if
 your input files and transcoding settings are compatible with accelerated

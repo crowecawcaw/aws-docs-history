@@ -31,7 +31,7 @@ that use external references to captions images (`smpte:backgroundImage`).
 
 When your captions use external references to images, those images must be located in the
 same Amazon S3 bucket and folder as your captions file. For example, say this is the Amazon S3 path to your
-SMPTE_TT file:
+SMPTE\_TT file:
 `amzn-s3-demo-bucket/mediaconvert-input/captions/my-captions-spanish.ttml`. Then
 you must store the image files that the captions file references here:
 `s3://amzn-s3-demo-bucket/mediaconvert-input/captions/`.

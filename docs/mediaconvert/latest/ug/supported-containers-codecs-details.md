@@ -664,6 +664,6 @@ more information, see: [Video passthrough codec support and job settings require
 | ------ | -------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | XAVC   | Output         | [MXF](#container-mxf "#container-mxf")<br>[No<br>container](#container-none "#container-none") | XAVC HD<br>XAVC HD Intra CBG<br>XAVC 4K<br>XAVC 4K Intra CBG<br>XAVC 4K Intra VBR |
 
-For more information about the XAVC format, see: [https://pro.sony/ue_US/technology/xavc](https://pro.sony/ue_US/technology/xavc "https://pro.sony/ue_US/technology/xavc").
+For more information about the XAVC format, see: [https://pro.sony/ue\_US/technology/xavc](https://pro.sony/ue_US/technology/xavc "https://pro.sony/ue_US/technology/xavc").
 
 XAVC inputs are supported, as they are a subset of [MXF](#container-mxf "#container-mxf") containers with [AVC (H.264)](#codec-avc "#codec-avc") video codecs.

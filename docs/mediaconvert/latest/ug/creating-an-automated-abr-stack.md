@@ -44,25 +44,27 @@ require video and audio to be in the same muxed output, skip this step.
      renditions** section.
 
 12. Optionally, add audio renditions. Follow these steps for each audio rendition
-    that you want in your ABR stack.
+that you want in your ABR stack.
 
-    1.  From the **Job** pane on the left, choose your output
-        group.
-    2.  In the **Outputs** section, choose **Add
-        output with captions or audio** to add a new output.
+    1. From the **Job** pane on the left, choose your output
+     group.
+    2. In the **Outputs** section, choose **Add
+     output with captions or audio** to add a new output.
+
 
     **Output 1** holds your automated ABR video settings
-    and represents every video rendition in your stack. 3. Choose the new output from the list of outputs. 4. In the **Encoding settings** section, set up your
-    audio rendition as you would for a job that doesn't use automated ABR.
-    For more information, see [Creating audio ABR streaming outputs](setting-up-a-job.md#audio-abr-streaming-outputs "setting-up-a-job.md#audio-abr-streaming-outputs").
+     and represents every video rendition in your stack.
+    3. Choose the new output from the list of outputs.
+    4. In the **Encoding settings** section, set up your
+     audio rendition as you would for a job that doesn't use automated ABR.
+     For more information, see [Creating audio ABR streaming outputs](setting-up-a-job.md#audio-abr-streaming-outputs "setting-up-a-job.md#audio-abr-streaming-outputs").
 
 13. Optionally, add captions. Do this as you would for a manually specified ABR
-    stack. For more information, see [Setting up input captions](including-captions.md "including-captions.md").
-14. Optionally, repeat this procedure to create additional ABR packages in
-    different formats.
-    In
-    a job that includes an automated ABR output group, all ABR output groups must
-    use automated ABR.
+stack. For more information, see [Setting up input captions](including-captions.md "including-captions.md"). 14. Optionally, repeat this procedure to create additional ABR packages in
+different formats.
+In
+a job that includes an automated ABR output group, all ABR output groups must
+use automated ABR.
 
 API, SDK, or CLI
 To set up an automated ABR job using the API, SDK, or AWS Command Line Interface (CLI):
@@ -110,10 +112,10 @@ rather than exporting it from the MediaConvert console, you must explicitly set
     `MULTI_PASS_HQ`.
 
     - AVC (H.264): `qualityTuningLevel in the H264Settings
-properties
-table`
+   properties
+   table`
     - HEVC (H.265): `qualityTuningLevel in the H265Settings
-properties table`
+   properties table`
 
   - Set `rateControlMode` to `QVBR`.
 
@@ -122,10 +124,10 @@ properties table`
   aren't required. Instead specify the required automated ABR
   settings.
 
-      - AVC (H.264): `rateControlMode in the H264Settings properties
-       table`
-      - HEVC (H.265): `rateControlMode in the H265Settings properties
-       table`
+        - AVC (H.264): `rateControlMode in the H264Settings properties
+         table`
+        - HEVC (H.265): `rateControlMode in the H265Settings properties
+         table`
 
 - Set the accelerated transcoding [mode](../apireference/jobs.md#jobs-model-accelerationsettings "../apireference/jobs.md#jobs-model-accelerationsettings") to
   `PREFERRED` or `ENABLED`. This is optional, but we

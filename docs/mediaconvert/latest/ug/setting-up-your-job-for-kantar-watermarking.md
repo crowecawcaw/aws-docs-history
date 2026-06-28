@@ -24,7 +24,7 @@ up your MediaConvert job to encode the Kantar watermarks.
 
 5. Confirm that the service role you've specified in the job is the same one that
    you, in the previous topic, attached permissions to that grant access to your
-   Kantar credentials. If that role Is MediaConvert_Default_Role, you don't need to
+   Kantar credentials. If that role Is MediaConvert\_Default\_Role, you don't need to
    choose it explicitly, because MediaConvert will use that role by default. To
    specify the role if it has a different name, do the following:
 

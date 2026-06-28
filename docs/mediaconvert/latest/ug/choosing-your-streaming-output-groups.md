@@ -35,22 +35,21 @@ packages. This is assuming that the transcoding settings are the same.
 
 ###### To determine which output groups you need
 
-1.  Decide which devices you want end viewers to be able to play the transcoded
-    media asset on. If you want your asset to play on every possible device, include
-    these output groups:
+1. Decide which devices you want end viewers to be able to play the transcoded
+   media asset on. If you want your asset to play on every possible device, include
+   these output groups:
 
-    - Apple HLS
-    - DASH ISO or CMAF
-    - Microsoft Smooth Streaming
+   - Apple HLS
+   - DASH ISO or CMAF
+   - Microsoft Smooth Streaming
 
-2.  Consider whether to use advanced encoding features. To deliver either of the
-    following to Apple devices, you must also include a CMAF output group:
+2. Consider whether to use advanced encoding features. To deliver either of the
+   following to Apple devices, you must also include a CMAF output group:
 
-        * High-dynamic-range (HDR) video
-        * H.265 (HEVC) encoded video
-
-    If you include a CMAF output, you don't need to create a DASH ISO output
-    because all the common DASH-compatible players are also CMAF-compatible.
+   - High-dynamic-range (HDR) video
+   - H.265 (HEVC) encoded video
+     If you include a CMAF output, you don't need to create a DASH ISO output
+     because all the common DASH-compatible players are also CMAF-compatible.
 
 ###### Note
 

@@ -141,16 +141,15 @@ channels per track.
      see [HTTP input requirements](http-input-requirements.md "http-input-requirements.md").
 
 3. If you have
-   additional
-   audio assets, such as multiple language tracks, choose **Add audio
-   selector**. Then provide information about the next asset that is
-   described in the preceding step of this procedure.
-4. In the **Captions selectors** section,
-   choose
-   **Add captions selector**. This creates
-   input captions selectors for any sets of captions that you
-   plan to use in an output. For more information about setting up captions for
-   your job, see [Setting up input captions](including-captions.md "including-captions.md").
+additional
+audio assets, such as multiple language tracks, choose **Add audio
+selector**. Then provide information about the next asset that is
+described in the preceding step of this procedure. 4. In the **Captions selectors** section,
+choose
+**Add captions selector**. This creates
+input captions selectors for any sets of captions that you
+plan to use in an output. For more information about setting up captions for
+your job, see [Setting up input captions](including-captions.md "including-captions.md").
 
 ## Step 3: Create output groups
 
@@ -284,10 +283,10 @@ delete it as follows:
     2. Choose **Remove audio**.
 
 6. If you want multiple video renditions in your ABR streaming
-   package, repeat the preceding steps of this procedure. This will
-   create an additional video output for
-   each
-   one.
+package, repeat the preceding steps of this procedure. This will
+create an additional video output for
+each
+one.
 
 #### Creating audio ABR streaming outputs
 
@@ -321,7 +320,7 @@ track corresponds to one language.
      settings displayed.
 
 2. In the **Output settings** pane, for
-   **Name modifier**, enter a value.
+**Name modifier**, enter a value.
 
 MediaConvert appends the name modifier to the file names that it
 creates for this output. Enter a name modifier that will make it
@@ -341,20 +340,20 @@ this procedure. 4. Specify your audio settings as follows:
      specify values for audio encoding. For more information about individual settings, choose the **Info** link next to each setting.
 
 5. If you have additional audio assets to include in the ABR
-   streaming package, create an output for each of them as
-   follows:
+streaming package, create an output for each of them as
+follows:
 
-   1. In the **Job** pane, choose the output
-      group that you're working in.
-   2. In the **Outputs** pane, choose
-      **Add output**.
-   3. Choose the output that you just created.
-   4. If your output includes a group of video settings by
-      default, choose **Remove video** to delete
-      it. This keeps the **Audio 1** group of
-      settings displayed.
-   5. Set up the output as described in steps 2 through 4 of
-      this procedure.
+    1. In the **Job** pane, choose the output
+     group that you're working in.
+    2. In the **Outputs** pane, choose
+     **Add output**.
+    3. Choose the output that you just created.
+    4. If your output includes a group of video settings by
+     default, choose **Remove video** to delete
+     it. This keeps the **Audio 1** group of
+     settings displayed.
+    5. Set up the output as described in steps 2 through 4 of
+     this procedure.
 
 #### Creating captions for ABR streaming outputs
 
