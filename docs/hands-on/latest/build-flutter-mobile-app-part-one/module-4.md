@@ -169,9 +169,9 @@ Future<void> _configureAmplify() async {
 }
 ```
 
-7. Create a new dart file inside the folder **lib/common/services** and name it **storage_service.dart.**
+7. Create a new dart file inside the folder **lib/common/services** and name it **storage\_service.dart.**
 
-![lib interface](images/m4-storage-service-dart-file.png) 8. Open **storage_service.dart** file and update it with the following code to create the **StorageService**. In this service, you will find the **uploadFile** function, which uses the Amplify storage library to upload an image into an Amazon S3 bucket. Additionally, the service provides a **ValueNotifier** object to track the progress of the image upload.
+![lib interface](images/m4-storage-service-dart-file.png) 8. Open **storage\_service.dart** file and update it with the following code to create the **StorageService**. In this service, you will find the **uploadFile** function, which uses the Amplify storage library to upload an image into an Amazon S3 bucket. Additionally, the service provides a **ValueNotifier** object to track the progress of the image upload.
 
 ```
 import 'dart:io';
@@ -237,13 +237,13 @@ class StorageService {
 }
 ```
 
-9. Create a new dart file inside the folder **lib/common/ui** and name it **upload_progress_dialog.dart.**
+9. Create a new dart file inside the folder **lib/common/ui** and name it **upload\_progress\_dialog.dart.**
 
-![lib screenshot](images/m4-upload-progress-dialog.png) 10. Open the **upload_progress_dialog.dart** file and update it with the following code to create a dialog that uses a progress indicator for the image upload.
+![lib screenshot](images/m4-upload-progress-dialog.png) 10. Open the **upload\_progress\_dialog.dart** file and update it with the following code to create a dialog that uses a progress indicator for the image upload.
 
 ###### Note
 
-VSCode will show an error about missing the **trip_controller.dart** file. You will fix that in the next steps.
+VSCode will show an error about missing the **trip\_controller.dart** file. You will fix that in the next steps.
 
 ```
 import 'package:amplify_trips_planner/features/trip/controller/trip_controller.dart';
@@ -291,13 +291,13 @@ class UploadProgressDialog extends ConsumerWidget {
 }
 ```
 
-1. Create a new dart file inside the folder **lib/features/trip/controller** and name it **trip_controller.dart.**
+1. Create a new dart file inside the folder **lib/features/trip/controller** and name it **trip\_controller.dart.**
 
-![features interface](images/m4-trip-controller-file.png) 2. Open the **trip_controller.dart** file and update it with the following code. The UI will use this controller for editing and deleting a trip using its ID. The UI will also use the controller for uploading an image for the trip.
+![features interface](images/m4-trip-controller-file.png) 2. Open the **trip\_controller.dart** file and update it with the following code. The UI will use this controller for editing and deleting a trip using its ID. The UI will also use the controller for uploading an image for the trip.
 
 ###### Note
 
-VSCode will show errors due to the missing the **trip_controller.g.dart** file. You will fix that in the next
+VSCode will show errors due to the missing the **trip\_controller.g.dart** file. You will fix that in the next
 step.
 
 ```
@@ -357,13 +357,13 @@ class TripController extends _$TripController {
 dart run build_runner build -d
 ```
 
-This will generate the **trip_controller.g.dart** file in the **lib/feature/trip/controller** folder
+This will generate the **trip\_controller.g.dart** file in the **lib/feature/trip/controller** folder
 
 ![features text](images/trip-controller-g-dart-file.png) 4. Create a new folder inside the **lib/features/trip/ui**
-folder and name it **trip_page** and then create the file
-**delete_trip_dialog.dart** inside it.
+folder and name it **trip\_page** and then create the file
+**delete\_trip\_dialog.dart** inside it.
 
-![features interface](images/m4-delete-trip-dialog-dart-file.png) 5. Open the **delete_trip_dialog.dart** file and update it with the following code. This will display a dialog for the user to confirm deleting the selected trip.
+![features interface](images/m4-delete-trip-dialog-dart-file.png) 5. Open the **delete\_trip\_dialog.dart** file and update it with the following code. This will display a dialog for the user to confirm deleting the selected trip.
 
 ```
 import 'package:flutter/material.dart';
@@ -397,9 +397,9 @@ class DeleteTripDialog extends StatelessWidget {
 }
 ```
 
-6. Create a new dart file inside the **lib/features/trip/ui/trip_page** folder and name it **selected_trip_card.dart**.
+6. Create a new dart file inside the **lib/features/trip/ui/trip\_page** folder and name it **selected\_trip\_card.dart**.
 
-![features interface](images/m4-selected-trip-card-dart-file.png) 7. Open the **selected_trip_card.dart** file and update it with the following code. Here we check if there is an image for the trip and display it in a card widget. We use the placeholder image from the app assets if there is no image. We are also introducing three icon buttons for the user to choose to upload a photo, edit the trip, and delete the trip.
+![features interface](images/m4-selected-trip-card-dart-file.png) 7. Open the **selected\_trip\_card.dart** file and update it with the following code. Here we check if there is an image for the trip and display it in a card widget. We use the placeholder image from the app assets if there is no image. We are also introducing three icon buttons for the user to choose to upload a photo, edit the trip, and delete the trip.
 
 ```
 import 'dart:io';
@@ -567,9 +567,9 @@ class SelectedTripCard extends ConsumerWidget {
 }
 ```
 
-8. Create a new dart file inside the **lib/features/trip/ui/trip_page** folder and name it **trip_details.dart**.
+8. Create a new dart file inside the **lib/features/trip/ui/trip\_page** folder and name it **trip\_details.dart**.
 
-![features interface](images/m4-trip-details-dart-file.png) 9. Open the **trip_details.dart** file and update it with the following code to create a column that uses the **SelectedTripCard** widget you created to display the details of the trip.
+![features interface](images/m4-trip-details-dart-file.png) 9. Open the **trip\_details.dart** file and update it with the following code to create a column that uses the **SelectedTripCard** widget you created to display the details of the trip.
 
 ```
 import 'package:amplify_trips_planner/features/trip/controller/trip_controller.dart';
@@ -650,9 +650,9 @@ class TripDetails extends ConsumerWidget {
 }
 ```
 
-10. Create a new dart file in the **lib/features/trip/ui/trip_page** folder and name it **trip_page.dart**.
+10. Create a new dart file in the **lib/features/trip/ui/trip\_page** folder and name it **trip\_page.dart**.
 
-![features interface](images/m4-trip-page-dart-file.png) 11. Open the **trip_page.dart** file and update it with the following code to create the **TripPage**, which will get the trip details using the **tripId**. The **TripPage** will use the **TripDetails** you created previously to display the data.
+![features interface](images/m4-trip-page-dart-file.png) 11. Open the **trip\_page.dart** file and update it with the following code to create the **TripPage**, which will get the trip details using the **tripId**. The **TripPage** will use the **TripDetails** you created previously to display the data.
 
 ```
 import 'package:amplify_trips_planner/common/navigation/router/routes.dart';
@@ -747,9 +747,9 @@ final router = GoRouter(
 );
 ```
 
-1. Create a new folder inside the **lib/features/trip/ui** folder and name it **edit_trip_page** and then create the file **edit_trip_page.dart** inside it.
+1. Create a new folder inside the **lib/features/trip/ui** folder and name it **edit\_trip\_page** and then create the file **edit\_trip\_page.dart** inside it.
 
-![features interface](images/m4-edit-trip-page.png) 2. Open the **edit_trip_page.dart** file and update it with the following code to create the UI for the user to edit the selected trip.
+![features interface](images/m4-edit-trip-page.png) 2. Open the **edit\_trip\_page.dart** file and update it with the following code to create the UI for the user to edit the selected trip.
 
 ```
 import 'package:amplify_flutter/amplify_flutter.dart';
@@ -991,14 +991,13 @@ final router = GoRouter(
 );
 ```
 
-4.  Run the app in the simulator and try the following:
+4. Run the app in the simulator and try the following:
 
-        * Create a new trip
-        * Edit the newly created trip
-        * Upload an image for the trip
-        * Delete the trip
-
-    The following is an example using an iPhone simulator.
+   - Create a new trip
+   - Edit the newly created trip
+   - Upload an image for the trip
+   - Delete the trip
+     The following is an example using an iPhone simulator.
 
 ![Amplify screenshot](images/amplifytripplanner_upload.gif)
 

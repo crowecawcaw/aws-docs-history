@@ -38,9 +38,9 @@ Using service: Cognito, provided by: awscloudformation The current configured pr
 
 10 minutes
 
-1. Create a new folder inside the **lib/features/trip/ui** folder, name it **trips_list**, and then create the file **trips_list_page.dart** inside it.
+1. Create a new folder inside the **lib/features/trip/ui** folder, name it **trips\_list**, and then create the file **trips\_list\_page.dart** inside it.
 
-![lib interface](images/m2-create-trips-list-page-dart-file.png) 2. Open the **trips_list_page.dart** file and update it with the following code. This will be the app’s homepage.
+![lib interface](images/m2-create-trips-list-page-dart-file.png) 2. Open the **trips\_list\_page.dart** file and update it with the following code. This will be the app’s homepage.
 
 ```
 import 'package:flutter/material.dart';
@@ -60,9 +60,9 @@ import 'package:go_router/go_router.dart'; final router = GoRouter( routes: [ Go
 );
 ```
 
-5. Create a new dart file inside the **lib** folder and call it **trips_planner_app.dart**.
+5. Create a new dart file inside the **lib** folder and call it **trips\_planner\_app.dart**.
 
-![ios screenshot](images/m2-create-trips-planner-app-file.png) 6. Open the **trips_planner_app.dart** file and update it with the following code to wrap the **MaterialApp** in an Amplify Authenticator widget.
+![ios screenshot](images/m2-create-trips-planner-app-file.png) 6. Open the **trips\_planner\_app.dart** file and update it with the following code to wrap the **MaterialApp** in an Amplify Authenticator widget.
 
 ```
 import 'package:amplify_authenticator/amplify_authenticator.dart';

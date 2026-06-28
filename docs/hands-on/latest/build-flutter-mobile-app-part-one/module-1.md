@@ -66,7 +66,7 @@ uuid: ^3.0.7
    dependencies, such as code lint packages, which encourage good coding
    practices, and code generation packages to simplify the State Management
    implementation. Update the file pubspec.yaml in the application root
-   directory to add the following packages as dev_dependencies.
+   directory to add the following packages as dev\_dependencies.
 
 ```
 amplify_lints: ^3.0.0

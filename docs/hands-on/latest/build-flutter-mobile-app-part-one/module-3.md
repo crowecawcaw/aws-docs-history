@@ -115,9 +115,9 @@ Future<void> _configureAmplify() async {
 }
 ```
 
-1. Create a new dart file inside the **lib/features/trip/service** folder and call it **trips_api_service.dart.**
+1. Create a new dart file inside the **lib/features/trip/service** folder and call it **trips\_api\_service.dart.**
 
-![lib interface](images/m3-trips-datastore-service-dart-file.png) 2. Open the **trips_api_service.dart** file and update it with the following code snippet to create the **TripsAPIService,**which contains the following functions:
+![lib interface](images/m3-trips-datastore-service-dart-file.png) 2. Open the **trips\_api\_service.dart** file and update it with the following code snippet to create the **TripsAPIService,**which contains the following functions:
 
     * **getTrips** - This function will query the Amplify API for the **active and upcoming** trips and return a list of them.
     * **getPastTrips** - This function will query the Amplify API for **past** trips and return a list of them.
@@ -251,9 +251,9 @@ class TripsAPIService {
 }
 ```
 
-3. Create a new dart file inside the **lib/features/trip/data** folder and call it **trips_repository.dart.**
+3. Create a new dart file inside the **lib/features/trip/data** folder and call it **trips\_repository.dart.**
 
-![lib screenshot](images/m3-trips-repository-dart-file.png) 4. Open the **trips_repository.dar**t file and update it with the following code:
+![lib screenshot](images/m3-trips-repository-dart-file.png) 4. Open the **trips\_repository.dar**t file and update it with the following code:
 
 ```
 import 'package:amplify_trips_planner/features/trip/service/trips_api_service.dart';
@@ -296,13 +296,13 @@ class TripsRepository {
 }
 ```
 
-5. Create a new dart file inside the **lib/feature/trip/controller** folder and call it **trips_list_controller.dart**.
+5. Create a new dart file inside the **lib/feature/trip/controller** folder and call it **trips\_list\_controller.dart**.
 
-![features screenshot](images/m3-trips-list-controller-dart-file.png) 6. Open the **trips_list_controller.dart** file and update it with the following code. The UI will use the controller to add a new trip by creating the trip item and passing it as a parameter to the **tripsRepository.add(trip)** function.
+![features screenshot](images/m3-trips-list-controller-dart-file.png) 6. Open the **trips\_list\_controller.dart** file and update it with the following code. The UI will use the controller to add a new trip by creating the trip item and passing it as a parameter to the **tripsRepository.add(trip)** function.
 
 ###### Note
 
-VSCode will show errors due to the missing the **trips_list_controller.g.dart** file. You will fix that in the next
+VSCode will show errors due to the missing the **trips\_list\_controller.g.dart** file. You will fix that in the next
 step.
 
 ```
@@ -368,13 +368,13 @@ class TripsListController extends _$TripsListController {
 dart run build_runner build -d
 ```
 
-This will generate the **trips_list_controller.g.dart** file inside the  **lib/feature/trip/controller** folder.
+This will generate the **trips\_list\_controller.g.dart** file inside the  **lib/feature/trip/controller** folder.
 
 ![features screenshot](images/m3-trips-list-controller-g-dart-file.png)
 
-1. Create a new dart file in the **lib/common/ui** folder and call it **bottomsheet_text_form_field.dart**.
+1. Create a new dart file in the **lib/common/ui** folder and call it **bottomsheet\_text\_form\_field.dart**.
 
-![lib scoreboard](images/bottomsheet.png) 2. Open the **bottomsheet_text_form_field.dart** file and update it with the following code to create the **BottomSheetTextFormField** widget to build a **TextFormField** that the App will use in a form to create a new trip.
+![lib scoreboard](images/bottomsheet.png) 2. Open the **bottomsheet\_text\_form\_field.dart** file and update it with the following code to create the **BottomSheetTextFormField** widget to build a **TextFormField** that the App will use in a form to create a new trip.
 
 ```
 import 'package:flutter/material.dart';
@@ -417,9 +417,9 @@ class BottomSheetTextFormField extends StatelessWidget {
 }
 ```
 
-3. Create a new dart file in the **lib/common/utils** folder and call it **date_time_formatter.dart**.
+3. Create a new dart file in the **lib/common/utils** folder and call it **date\_time\_formatter.dart**.
 
-![lib interface](images/m3-date-time-formatter.png) 4. Open the **date_time_formatter.dart** file and update it with the following code to create the **DateTimeFormatter** extension to format the DateTime value.
+![lib interface](images/m3-date-time-formatter.png) 4. Open the **date\_time\_formatter.dart** file and update it with the following code to create the **DateTimeFormatter** extension to format the DateTime value.
 
 ```
 import 'package:intl/intl.dart';
@@ -431,9 +431,9 @@ extension DateTimeFormatter on DateTime {
 }
 ```
 
-5. Create a new dart file inside the **lib/features/trip/ui/trips_list** folder and call it **add_trip_bottomsheet.dart**.
+5. Create a new dart file inside the **lib/features/trip/ui/trips\_list** folder and call it **add\_trip\_bottomsheet.dart**.
 
-![lib interface](images/m3-add-trip-bottomsheet.png) 6. Open the **add_trip_bottomsheet.dart** file and update it with the following code. This will allow us to present a form to the user to submit the required details to create a new trip.
+![lib interface](images/m3-add-trip-bottomsheet.png) 6. Open the **add\_trip\_bottomsheet.dart** file and update it with the following code. This will allow us to present a form to the user to submit the required details to create a new trip.
 
 Note how we are using the **BottomSheetTextFormField** widget and the **DateTimeFormatter**extension in the form.
 
@@ -568,9 +568,9 @@ class AddTripBottomSheetState extends ConsumerState<AddTripBottomSheet> {
 }
 ```
 
-7. Create a new folder inside the **lib/features/trip/ui** folder, name it **trips_gridview**, and then create the file **trip_gridview_item_card.dart** inside it.
+7. Create a new folder inside the **lib/features/trip/ui** folder, name it **trips\_gridview**, and then create the file **trip\_gridview\_item\_card.dart** inside it.
 
-![features interface](images/m3-trip-gridview-item-card-dart-file.png) 8. Open the **trip_gridview_item_card.dart**file and update it with the following code. This will create a Card widget to display the trip details in the trips list page.
+![features interface](images/m3-trip-gridview-item-card-dart-file.png) 8. Open the **trip\_gridview\_item\_card.dart**file and update it with the following code. This will create a Card widget to display the trip details in the trips list page.
 
 ```
 import 'package:amplify_trips_planner/common/utils/colors.dart' as constants;
@@ -684,9 +684,9 @@ class TripGridViewItemCard extends StatelessWidget {
 }
 ```
 
-9. Create the file **trip_gridview_item.dart** in the **lib/features/trip/ui/trips_gridview** folder.
+9. Create the file **trip\_gridview\_item.dart** in the **lib/features/trip/ui/trips\_gridview** folder.
 
-![features interface](images/m3-trip-gridview-item-dart-file.png) 10. Open the **trip_gridview_item.dart** file and update it with the following code. The App will use this for the trips list grid.
+![features interface](images/m3-trip-gridview-item-dart-file.png) 10. Open the **trip\_gridview\_item.dart** file and update it with the following code. The App will use this for the trips list grid.
 
 ```
 import 'package:amplify_trips_planner/common/navigation/router/routes.dart';
@@ -723,9 +723,9 @@ class TripGridViewItem extends StatelessWidget {
 }
 ```
 
-11. Create the file **trips_list_gridview.dart** inside the **lib/features/trip/ui/trips_gridview**folder.
+11. Create the file **trips\_list\_gridview.dart** inside the **lib/features/trip/ui/trips\_gridview**folder.
 
-![features interface](images/m3-trips-list-gridview-dart-file.png) 12. Open the **trips_list_gridview.dart**file and update it with the following code. This will cause the gridview to display the trips list.
+![features interface](images/m3-trips-list-gridview-dart-file.png) 12. Open the **trips\_list\_gridview.dart**file and update it with the following code. This will cause the gridview to display the trips list.
 
 ```
 import 'package:amplify_trips_planner/features/trip/ui/trips_gridview/trip_gridview_item.dart';
@@ -786,7 +786,7 @@ class TripsListGridView extends StatelessWidget {
 }
 ```
 
-13. Open the **trips_list_page.dart** file and update it with the following code to use the **TripsListGridView** widget you created above for displaying the trips.
+13. Open the **trips\_list\_page.dart** file and update it with the following code to use the **TripsListGridView** widget you created above for displaying the trips.
 
 ```
 import 'package:amplify_trips_planner/common/utils/colors.dart' as constants;
