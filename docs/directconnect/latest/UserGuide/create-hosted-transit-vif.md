@@ -6,36 +6,36 @@
 
 If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both the transit gateway and the Direct Connect gateway, the association request fails.
 
-1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2.  In the navigation pane, choose **Virtual Interfaces**.
-3.  Choose **Create virtual interface**.
-4.  Under **Virtual interface type**, for
-    **Type**, choose **Transit**.
-5.  Under **Transit virtual interface settings**, do the
-    following:
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+2. In the navigation pane, choose **Virtual Interfaces**.
+3. Choose **Create virtual interface**.
+4. Under **Virtual interface type**, for
+   **Type**, choose **Transit**.
+5. Under **Transit virtual interface settings**, do the
+   following:
 
-    1. For **Virtual interface name**, enter a name for
-       the virtual interface.
-    2. For **Connection**, choose the Direct Connect
-       connection that you want to use for this interface.
-    3. For **Virtual interface owner**, choose
-       **Another AWS account**, and then for
-       **Virtual interface owner**, enter the ID of
-       the account to own this virtual interface.
-    4. For **VLAN**, enter the ID number for your
-       virtual local area network (VLAN).
-    5. For **BGP ASN**, enter the Border Gateway Protocol Autonomous System
-       Number of your on-premises peer router for the new virtual
-       interface.
+   1. For **Virtual interface name**, enter a name for
+      the virtual interface.
+   2. For **Connection**, choose the Direct Connect
+      connection that you want to use for this interface.
+   3. For **Virtual interface owner**, choose
+      **Another AWS account**, and then for
+      **Virtual interface owner**, enter the ID of
+      the account to own this virtual interface.
+   4. For **VLAN**, enter the ID number for your
+      virtual local area network (VLAN).
+   5. For **BGP ASN**, enter the Border Gateway Protocol Autonomous System
+      Number of your on-premises peer router for the new virtual
+      interface.
 
-    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
+   The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
-6.  Under **Additional Settings**, do the following:
+6. Under **Additional Settings**, do the following:
 
-    1. To configure an IPv4 BGP or an IPv6 peer, do the following:
+   1. To configure an IPv4 BGP or an IPv6 peer, do the following:
 
-    [IPv4] To configure an IPv4 BGP peer, choose
-    **IPv4** and do one of the following:
+   [IPv4] To configure an IPv4 BGP peer, choose
+   **IPv4** and do one of the following:
 
         * To specify these IP addresses yourself, for **Your
          router peer ip**, enter the destination IPv4
@@ -57,25 +57,25 @@ If you associate your transit gateway with one or more Direct Connect gateways, 
         	 [Dynamic Configuration of IPv4 Link-Local
         	 Addresses](https://datatracker.ietf.org/doc/html/rfc3927 "https://datatracker.ietf.org/doc/html/rfc3927").
 
-    [IPv6] To configure an IPv6 BGP peer, choose
-    **IPv6**. The peer IPv6 addresses are
-    automatically assigned from Amazon's pool of IPv6 addresses.
-    You cannot specify custom IPv6 addresses. 2. To change the maximum transmission unit (MTU) from 1500 (default)
-    to 8500 (jumbo frames), select **Jumbo MTU (MTU size 8500)**. 3. [Optional] Add a tag. Do the following:
+   [IPv6] To configure an IPv6 BGP peer, choose
+   **IPv6**. The peer IPv6 addresses are
+   automatically assigned from Amazon's pool of IPv6 addresses.
+   You cannot specify custom IPv6 addresses. 2. To change the maximum transmission unit (MTU) from 1500 (default)
+   to 8500 (jumbo frames), select **Jumbo MTU (MTU size 8500)**. 3. [Optional] Add a tag. Do the following:
 
-    [Add a tag] Choose **Add tag** and do the
-    following:
+   [Add a tag] Choose **Add tag** and do the
+   following:
 
         * For **Key**, enter the key name.
         * For **Value**, enter the key
          value.
 
-    [Remove a tag] Next to the tag, choose **Remove
-    tag**.
+   [Remove a tag] Next to the tag, choose **Remove
+   tag**.
 
-7.  Choose **Create virtual interface**.
-8.  After the hosted virtual interface is accepted by the owner of the other
-    AWS account, you can download the router configuration file for your device. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
+7. Choose **Create virtual interface**.
+8. After the hosted virtual interface is accepted by the owner of the other
+   AWS account, you can download the router configuration file for your device. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
 
 ###### To create a hosted transit virtual interface using the command line or API
 

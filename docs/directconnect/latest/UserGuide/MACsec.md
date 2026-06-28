@@ -60,20 +60,19 @@ The following are the key concepts for MACsec:
 - **Encryption modes** — Direct Connect supports two MACsec
   encryption modes:
 
-      + must\_encrypt — In this mode, the connection requires MACsec encryption
-       for all traffic. If MACsec negotiation fails or encryption cannot be
-       established, the connection will not transmit any traffic. This mode
-       provides the highest security guarantee but may impact availability if
-       there are any MACsec-related issues.
-      + should\_encrypt — In this mode, the connection attempts to establish
-       MACsec encryption but will fall back to unencrypted communication if
-       MACsec negotiation fails. This mode provides more flexibility and higher
-       availability but may allow unencrypted traffic in certain failure
-       scenarios.
-
-  The encryption mode can be set during connection configuration and can be modified later.
-  By default, new MACsec-enabled connections are set to "should_encrypt" mode to
-  prevent potential connectivity issues during initial setup.
+  - must\_encrypt — In this mode, the connection requires MACsec encryption
+    for all traffic. If MACsec negotiation fails or encryption cannot be
+    established, the connection will not transmit any traffic. This mode
+    provides the highest security guarantee but may impact availability if
+    there are any MACsec-related issues.
+  - should\_encrypt — In this mode, the connection attempts to establish
+    MACsec encryption but will fall back to unencrypted communication if
+    MACsec negotiation fails. This mode provides more flexibility and higher
+    availability but may allow unencrypted traffic in certain failure
+    scenarios.
+    The encryption mode can be set during connection configuration and can be modified later.
+    By default, new MACsec-enabled connections are set to "should\_encrypt" mode to
+    prevent potential connectivity issues during initial setup.
 
 ## MACsec key rotation
 
@@ -230,5 +229,5 @@ rules when this happens:
   from your connection.
 
 When we disassociate the last CKN from your connection and the connection
-encryption mode is set to "must encrypt", we set the mode to "should_encrypt" to prevent
+encryption mode is set to "must encrypt", we set the mode to "should\_encrypt" to prevent
 sudden packet loss.

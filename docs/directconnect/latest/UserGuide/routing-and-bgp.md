@@ -21,7 +21,7 @@ The following inbound routing policies apply:
 
 The following outbound routing policies apply:
 
-- AS_PATH and Longest Prefix Match are used to determine the routing path. AWS
+- AS\_PATH and Longest Prefix Match are used to determine the routing path. AWS
   recommends advertising more specific routes using Direct Connect if the same prefix is
   being advertised to both the Internet and to a public virtual interface.
 - Direct Connect advertises all local and remote AWS Region prefixes where available
@@ -94,7 +94,7 @@ _AWS General Reference_.
 
 Direct Connect supports scope BGP community tags to help control the scope (Regional or
 global) and route preference of traffic on public virtual interfaces. AWS treats all
-routes received from a public VIF as if they were tagged with the NO_EXPORT BGP
+routes received from a public VIF as if they were tagged with the NO\_EXPORT BGP
 community tag, meaning only the AWS network will use that routing information.
 
 ### Scope BGP communities
@@ -122,7 +122,7 @@ prefixes:
 If you do not apply any community tags, prefixes are advertised to all public AWS Regions
 (global) by default.
 
-Prefixes that are marked with the same communities, and have identical AS_PATH
+Prefixes that are marked with the same communities, and have identical AS\_PATH
 attributes are candidates for multi-pathing.
 
 The communities `7224:1` – `7224:65535` are reserved by
@@ -154,7 +154,7 @@ Direct Connect to access public AWS services, you can create filters based on th
 community tags.
 
 For public virtual interfaces, all routes that Direct Connect advertises to customers
-are tagged with the NO_EXPORT community tag.
+are tagged with the NO\_EXPORT community tag.
 
 ## Private virtual interface and transit virtual interface routing policies
 
@@ -175,14 +175,14 @@ The following outbound routing rules apply based on the prefixes advertised:
   preference community value. Where the local Region is not
   associated with the Direct Connect location, it is set to a lower value. This
   applies only if no local preference community tags are assigned.
-- AS_PATH length can be used to determine the routing path when the prefix
+- AS\_PATH length can be used to determine the routing path when the prefix
   length and local preference are the same.
 - Multi-Exit Discriminator (MED) can be used to determine the routing path when
-  prefix length, local preference, and AS_PATH are the same. AWS does not
+  prefix length, local preference, and AS\_PATH are the same. AWS does not
   recommend using MED values given their lower priority in evaluation.
 - AWS uses equal-cost multi-path (ECMP) routing across multiple transit or
-  private virtual interfaces when prefixes have the same AS_PATH length and BGP
-  attributes. The ASNs in the AS_PATH of the prefixes do not need to match.
+  private virtual interfaces when prefixes have the same AS\_PATH length and BGP
+  attributes. The ASNs in the AS\_PATH of the prefixes do not need to match.
 
 ### Private virtual interface and transit virtual interface BGP communities
 
@@ -193,7 +193,7 @@ Connect locations in the same associated AWS Region by default. See [AWS Direct 
 AWS Region of any Direct Connect location.
 
 When there are no local preference community tags applied, Direct Connect supports
-ECMP over private or transit virtual interfaces for prefixes with the same, AS_PATH
+ECMP over private or transit virtual interfaces for prefixes with the same, AS\_PATH
 length, and MED value over two or more paths in the following scenarios:
 
 - The AWS Region sending traffic has two or more virtual interface paths
@@ -240,6 +240,6 @@ interfaces to `7224:7300` (high preference) and
 `7224:7100` (low preference) for your passive virtual
 interfaces.
 
-Local preference BGP community tags are evaluated before any AS_PATH
+Local preference BGP community tags are evaluated before any AS\_PATH
 attribute, and are evaluated in order from lowest to highest preference (where
 highest preference is preferred).

@@ -19,36 +19,36 @@ of the LAG.
 
 ###### To create a LAG with new connections
 
-1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2.  In the navigation pane, choose **LAGs**.
-3.  Choose **Create LAG**.
-4.  Under **Lag creation type**, choose **Request new
-    connections**, and provide the following information:
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+2. In the navigation pane, choose **LAGs**.
+3. Choose **Create LAG**.
+4. Under **Lag creation type**, choose **Request new
+   connections**, and provide the following information:
 
-    - **LAG name**: A name for the LAG.
-    - **Location**: The location for the LAG.
-    - **Port speed**: The port speed for the connections.
-    - **Number of new connections**: The number of new connections to
-      create. You can have a maximum of four connections when the
-      port speed is 1G or 10G, or two when the port speed is 100
-      Gbps or 400 Gbps.
-    - (Optional) Configure MAC security (MACsec) for the connection. Under
-      **Additional Settings**, select **Request a MACsec
-      capable port**.
+   - **LAG name**: A name for the LAG.
+   - **Location**: The location for the LAG.
+   - **Port speed**: The port speed for the connections.
+   - **Number of new connections**: The number of new connections to
+     create. You can have a maximum of four connections when the
+     port speed is 1G or 10G, or two when the port speed is 100
+     Gbps or 400 Gbps.
+   - (Optional) Configure MAC security (MACsec) for the connection. Under
+     **Additional Settings**, select **Request a MACsec
+     capable port**.
 
-    MACsec is only available on dedicated connections.
-    - (Optional) Add or remove a tag.
+   MACsec is only available on dedicated connections.
+   - (Optional) Add or remove a tag.
 
-    [Add a tag] Choose **Add tag** and do the
-    following:
+   [Add a tag] Choose **Add tag** and do the
+   following:
 
         + For **Key**, enter the key name.
         + For **Value**, enter the key value.
 
-    [Remove a tag] Next to the tag, choose **Remove
-    tag**.
+   [Remove a tag] Next to the tag, choose **Remove
+   tag**.
 
-5.  Choose **Create LAG**.
+5. Choose **Create LAG**.
 
 ###### To create a LAG from existing connections
 

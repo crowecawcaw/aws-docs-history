@@ -38,8 +38,8 @@ turned on, we automatically create the configuration file for your router:
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | CKN length              | This is a 64 hexadecimal character (0–9, A–E) string. Use the full<br>length to maximize cross-platform compatibility. |
 | CAK length              | This is a 64 hexadecimal character (0–9, A–E) string. Use the full<br>length to maximize cross-platform compatibility. |
-| Cryptographic algorithm | AES_256_CMAC                                                                                                           |
-| SAK Cipher Suite        | • For 100 Gbps connections: GCM_AES_XPN_256<br>• For 10 Gbps connections: GCM_AES_XPN_256 or<br>GCM_AES \_256          |
+| Cryptographic algorithm | AES\_256\_CMAC                                                                                                         |
+| SAK Cipher Suite        | • For 100 Gbps connections: GCM\_AES\_XPN\_256<br>• For 10 Gbps connections: GCM\_AES\_XPN\_256 or<br>GCM\_AES \_256   |
 | Key Cipher Suite        | 16                                                                                                                     |
 | Confidentiality Offset  | 0                                                                                                                      |
 | ICV Indicator           | No                                                                                                                     |

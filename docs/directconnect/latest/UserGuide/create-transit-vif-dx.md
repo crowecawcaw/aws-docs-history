@@ -4,28 +4,28 @@ Before connecting a transit virtual interface to the Direct Connect gateway, fam
 
 ###### To provision a transit virtual interface to a Direct Connect gateway
 
-1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2.  In the navigation pane, choose **Virtual Interfaces**.
-3.  Choose **Create virtual interface**.
-4.  Under **Virtual interface type**, for **Type**, choose **Transit**.
-5.  Under **Transit virtual interface settings**, do the following:
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+2. In the navigation pane, choose **Virtual Interfaces**.
+3. Choose **Create virtual interface**.
+4. Under **Virtual interface type**, for **Type**, choose **Transit**.
+5. Under **Transit virtual interface settings**, do the following:
 
-    1. For **Virtual interface name**, enter a name for the virtual interface.
-    2. For **Connection**, choose the Direct Connect connection that you want to use for this interface.
-    3. For **Virtual interface owner**, choose **My AWS account** if the virtual interface is for your AWS account.
-    4. For **Direct Connect gateway**, select the Direct Connect gateway.
-    5. For **VLAN**, enter the ID number for your virtual
-       local area network (VLAN).
-    6. For **BGP ASN**, enter the Border Gateway Protocol Autonomous System Number of your on-premises peer router for the new virtual interface.
+   1. For **Virtual interface name**, enter a name for the virtual interface.
+   2. For **Connection**, choose the Direct Connect connection that you want to use for this interface.
+   3. For **Virtual interface owner**, choose **My AWS account** if the virtual interface is for your AWS account.
+   4. For **Direct Connect gateway**, select the Direct Connect gateway.
+   5. For **VLAN**, enter the ID number for your virtual
+      local area network (VLAN).
+   6. For **BGP ASN**, enter the Border Gateway Protocol Autonomous System Number of your on-premises peer router for the new virtual interface.
 
-    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
+   The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
-6.  Under **Additional Settings**, do the following:
+6. Under **Additional Settings**, do the following:
 
-    1. To configure an IPv4 BGP or an IPv6 peer, do the following:
+   1. To configure an IPv4 BGP or an IPv6 peer, do the following:
 
-    [IPv4] To configure an IPv4 BGP peer, choose **IPv4** and do one of
-    the following:
+   [IPv4] To configure an IPv4 BGP peer, choose **IPv4** and do one of
+   the following:
 
         * To specify these IP addresses yourself, for **Your router peer ip**,
          enter the destination IPv4 CIDR address to which Amazon
@@ -48,24 +48,24 @@ Before connecting a transit virtual interface to the Direct Connect gateway, fam
         	 [Dynamic Configuration of IPv4 Link-Local
         	 Addresses](https://datatracker.ietf.org/doc/html/rfc3927 "https://datatracker.ietf.org/doc/html/rfc3927").
 
-    [IPv6] To configure an IPv6 BGP peer, choose **IPv6**. The peer IPv6 addresses are automatically
-    assigned from Amazon's pool of IPv6 addresses. You cannot specify custom IPv6 addresses. 2. To change the maximum transmission unit (MTU) from 1500 (default) to 8500 (jumbo frames), select
-    **Jumbo MTU (MTU size 8500)**. 3. (Optional) Under **Enable SiteLink**, choose **Enabled** to enable direct connectivity between Direct Connect points of presence. 4. (Optional) For **Bandwidth**, select a bandwidth
-    value to apply a Rate Limiter to this virtual interface. The Rate Limiter
-    sets a maximum bandwidth that the VIF can use, helping prevent this VIF from
-    congesting other VIFs on the same connection. This option is only available
-    on Dedicated connections. For more information, see [Virtual interface Rate Limiters](vif-rate-limiters.md "vif-rate-limiters.md"). 5. (Optional) Add or remove a tag.
+   [IPv6] To configure an IPv6 BGP peer, choose **IPv6**. The peer IPv6 addresses are automatically
+   assigned from Amazon's pool of IPv6 addresses. You cannot specify custom IPv6 addresses. 2. To change the maximum transmission unit (MTU) from 1500 (default) to 8500 (jumbo frames), select
+   **Jumbo MTU (MTU size 8500)**. 3. (Optional) Under **Enable SiteLink**, choose **Enabled** to enable direct connectivity between Direct Connect points of presence. 4. (Optional) For **Bandwidth**, select a bandwidth
+   value to apply a Rate Limiter to this virtual interface. The Rate Limiter
+   sets a maximum bandwidth that the VIF can use, helping prevent this VIF from
+   congesting other VIFs on the same connection. This option is only available
+   on Dedicated connections. For more information, see [Virtual interface Rate Limiters](vif-rate-limiters.md "vif-rate-limiters.md"). 5. (Optional) Add or remove a tag.
 
-    [Add a tag] Choose **Add tag** and do the following:
+   [Add a tag] Choose **Add tag** and do the following:
 
         * For **Key**, enter the key name.
         * For **Value**, enter the key value.
 
-    [Remove a tag] Next to the tag, choose **Remove tag**.
+   [Remove a tag] Next to the tag, choose **Remove tag**.
 
-7.  Choose **Create virtual interface**.
-    After you create the virtual interface, you can download the router configuration
-    for your device. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
+7. Choose **Create virtual interface**.
+   After you create the virtual interface, you can download the router configuration
+   for your device. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
 
 ###### To create a transit virtual interface using the command line or API
 

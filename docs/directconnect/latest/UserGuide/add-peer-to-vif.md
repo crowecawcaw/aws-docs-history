@@ -16,32 +16,32 @@ Use the following procedure to add a BGP peer.
 
 ###### To add a BGP peer
 
-1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2.  In the navigation pane, choose **Virtual
-    Interfaces**.
-3.  Select the virtual interface and then choose **View
-    details**.
-4.  Choose **Add peering**.
-5.  (Private virtual interface) To add IPv4 BGP peers, do the
-    following:
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+2. In the navigation pane, choose **Virtual
+   Interfaces**.
+3. Select the virtual interface and then choose **View
+   details**.
+4. Choose **Add peering**.
+5. (Private virtual interface) To add IPv4 BGP peers, do the
+   following:
 
-    - Choose **IPv4**.
-    - To specify these IP addresses yourself, for **Your router
-      peer ip**, enter the destination IPv4 CIDR address to
-      which Amazon should send traffic. For **Amazon router peer
-      ip**, enter the IPv4 CIDR address to use to send
-      traffic to AWS.
+   - Choose **IPv4**.
+   - To specify these IP addresses yourself, for **Your router
+     peer ip**, enter the destination IPv4 CIDR address to
+     which Amazon should send traffic. For **Amazon router peer
+     ip**, enter the IPv4 CIDR address to use to send
+     traffic to AWS.
 
-6.  (Public virtual interface) To add IPv4 BGP peers, do the following:
+6. (Public virtual interface) To add IPv4 BGP peers, do the following:
 
-    - For **Your router peer ip**, enter the IPv4 CIDR
-      destination address where traffic should be sent.
-    - For **Amazon router peer IP**, enter the IPv4
-      CIDR address to use to send traffic to AWS.
+   - For **Your router peer ip**, enter the IPv4 CIDR
+     destination address where traffic should be sent.
+   - For **Amazon router peer IP**, enter the IPv4
+     CIDR address to use to send traffic to AWS.
 
-    ###### Important
+   ###### Important
 
-    When configuring AWS Direct Connect virtual interfaces, you can specify your own IP addresses using RFC 1918, use other addressing schemes, or opt for AWS assigned IPv4 /29 CIDR addresses allocated from the RFC 3927 169.254.0.0/16 IPv4 Link-Local range for point-to-point connectivity. These point-to-point connections should be used exclusively for eBGP peering between your customer gateway router and the Direct Connect endpoint. For VPC traffic or tunnelling purposes, such as AWS Site-to-Site Private IP VPN, or Transit Gateway Connect, AWS recommends using a loopback or LAN interface on your customer gateway router as the source or destination address instead of the point-to-point connections.
+   When configuring AWS Direct Connect virtual interfaces, you can specify your own IP addresses using RFC 1918, use other addressing schemes, or opt for AWS assigned IPv4 /29 CIDR addresses allocated from the RFC 3927 169.254.0.0/16 IPv4 Link-Local range for point-to-point connectivity. These point-to-point connections should be used exclusively for eBGP peering between your customer gateway router and the Direct Connect endpoint. For VPC traffic or tunnelling purposes, such as AWS Site-to-Site Private IP VPN, or Transit Gateway Connect, AWS recommends using a loopback or LAN interface on your customer gateway router as the source or destination address instead of the point-to-point connections.
 
         + For more information about RFC 1918, see
          [Address Allocation for Private
@@ -50,12 +50,12 @@ Use the following procedure to add a BGP peer.
          [Dynamic Configuration of IPv4 Link-Local
          Addresses](https://datatracker.ietf.org/doc/html/rfc3927 "https://datatracker.ietf.org/doc/html/rfc3927").
 
-7.  (Private or public virtual interface) To add IPv6 BGP peers, choose
-    **IPv6**. The peer IPv6 addresses are automatically
-    assigned from Amazon's pool of IPv6 addresses; you cannot specify custom
-    IPv6 addresses.
-8.  For **BGP ASN**, enter the Border Gateway Protocol Autonomous System
-    Number of your on-premises peer router for the new virtual interface.
+7. (Private or public virtual interface) To add IPv6 BGP peers, choose
+   **IPv6**. The peer IPv6 addresses are automatically
+   assigned from Amazon's pool of IPv6 addresses; you cannot specify custom
+   IPv6 addresses.
+8. For **BGP ASN**, enter the Border Gateway Protocol Autonomous System
+   Number of your on-premises peer router for the new virtual interface.
 
 For a public virtual interface, the ASN must be private or already on the allow list for the
 virtual interface.

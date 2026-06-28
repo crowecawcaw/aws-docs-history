@@ -178,11 +178,11 @@ provide one or more of the following connectivity options:
 | Location                         | How to request a connection                                                                                                                                           |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | AT Tokyo Chuo Data Center, Tokyo | Contact AT TOKYO at [at-sales@attokyo.co.jp](mailto:at-sales@attokyo.co.jp "mailto:at-sales@attokyo.co.jp").                                                          |
-| Chief Telecom LY, Taipei         | Contact Chief Telecom at [vicky_chan@chief.com.tw](mailto:vicky_chan@chief.com.tw "mailto:vicky_chan@chief.com.tw").                                                  |
-| Chunghwa Telecom, Taipei         | Contact CHT Taipei IDC NOC at [taipei_idc@cht.com.tw](mailto:taipei_idc@cht.com.tw "mailto:taipei_idc@cht.com.tw").                                                   |
+| Chief Telecom LY, Taipei         | Contact Chief Telecom at [vicky\_chan@chief.com.tw](mailto:vicky_chan@chief.com.tw "mailto:vicky_chan@chief.com.tw").                                                 |
+| Chunghwa Telecom, Taipei         | Contact CHT Taipei IDC NOC at [taipei\_idc@cht.com.tw](mailto:taipei_idc@cht.com.tw "mailto:taipei_idc@cht.com.tw").                                                  |
 | Equinix OS1, Osaka               | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
 | Equinix TY2, Tokyo               | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
-| NEC Inzai, Inzai                 | Contact NEC Inzai at [connection_support@ices.jp.nec.com](mailto:connection_support@ices.jp.nec.com "mailto:connection_support@ices.jp.nec.com") .                    |
+| NEC Inzai, Inzai                 | Contact NEC Inzai at [connection\_support@ices.jp.nec.com](mailto:connection_support@ices.jp.nec.com "mailto:connection_support@ices.jp.nec.com") .                   |
 
 ## Canada (Central)
 

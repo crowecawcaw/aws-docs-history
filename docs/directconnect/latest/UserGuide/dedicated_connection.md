@@ -119,37 +119,36 @@ accept. Skip the following procedure and go to [Accept your hosted connection](t
 
 ###### To create a new Direct Connect connection
 
-1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2.  On the **Direct Connect** screen, under **Get started**, choose
-    **Create a connection**.
-3.  Choose **Classic**.
-4.  For **Name**, enter a name for the connection.
-5.  For **Location**, select the appropriate Direct Connect
-    location.
-6.  If applicable, for **Sub Location**, choose the floor
-    closest to you or your network provider. This option is only available if
-    the location has meet-me rooms (MMRs) in multiple floors of the
-    building.
-7.  For **Port Speed**, choose the connection
-    bandwidth.
-8.  For **On-premises**, select **Connect through an
-    Direct Connect partner** when you use this connection to connect to
-    your data center.
-9.  For **Service provider**, select the AWS Direct Connect Partner. If you
-    use a partner that is not in the list, select
-    **Other**.
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+2. On the **Direct Connect** screen, under **Get started**, choose
+   **Create a connection**.
+3. Choose **Classic**.
+4. For **Name**, enter a name for the connection.
+5. For **Location**, select the appropriate Direct Connect
+   location.
+6. If applicable, for **Sub Location**, choose the floor
+   closest to you or your network provider. This option is only available if
+   the location has meet-me rooms (MMRs) in multiple floors of the
+   building.
+7. For **Port Speed**, choose the connection
+   bandwidth.
+8. For **On-premises**, select **Connect through an
+   Direct Connect partner** when you use this connection to connect to
+   your data center.
+9. For **Service provider**, select the AWS Direct Connect Partner. If you
+   use a partner that is not in the list, select
+   **Other**.
 10. If you selected **Other** for **Service
     provider**, for **Name of other provider**,
     enter the name of the partner that you use.
 11. (Optional) Choose **Add tag** to add key/value pairs to
     further help identify this connection.
 
-        * For **Key**, enter the key name.
-        * For **Value**, enter the key value.
-
-    To remove an existing tag, choose the tag and then choose
-    **Remove tag**. You can't have empty
-    tags.
+    - For **Key**, enter the key name.
+    - For **Value**, enter the key value.
+      To remove an existing tag, choose the tag and then choose
+      **Remove tag**. You can't have empty
+      tags.
 
 12. Choose **Create Connection**.
 

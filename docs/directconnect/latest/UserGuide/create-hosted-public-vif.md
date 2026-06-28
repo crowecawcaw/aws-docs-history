@@ -47,9 +47,8 @@ If you do not enter a value, then we generate a BGP key. 9. (Optional) Add or re
     * For **Key**, enter the key name.
     * For **Value**, enter the key value.[Remove a tag] Next to the tag, choose **Remove tag**.
 
-10. Choose **Create virtual interface**.
-11. After the hosted virtual interface is accepted by the owner of the other AWS
-    account, you can download the configuration file. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
+10. Choose **Create virtual interface**. 11. After the hosted virtual interface is accepted by the owner of the other AWS
+account, you can download the configuration file. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
 
 ###### To create a hosted public virtual interface using the command line or API
 

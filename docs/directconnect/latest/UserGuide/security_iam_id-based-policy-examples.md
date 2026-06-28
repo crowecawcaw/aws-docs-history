@@ -135,12 +135,12 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 Direct Connect uses the following ARNs:
 
-| Direct connect resource ARNs | Resource Type                                                                     | ARN |
-| ---------------------------- | --------------------------------------------------------------------------------- | --- |
-| dxcon                        | `arn:${Partition}:directconnect:${Region}:${Account}:dxcon/${ConnectionId}`       |
-| dxlag                        | `arn:${Partition}:directconnect:${Region}:${Account}:dxlag/${LagId}`              |
-| dx-vif                       | `arn:${Partition}:directconnect:${Region}:${Account}:dxvif/${VirtualInterfaceId}` |
-| dx-gateway                   | `arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId}` |
+Direct connect resource ARNs| Resource Type | ARN |
+| --- | --- |
+| dxcon | `arn:${Partition}:directconnect:${Region}:${Account}:dxcon/${ConnectionId}` |
+| dxlag | `arn:${Partition}:directconnect:${Region}:${Account}:dxlag/${LagId}` |
+| dx-vif | `arn:${Partition}:directconnect:${Region}:${Account}:dxvif/${VirtualInterfaceId}` |
+| dx-gateway | `arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId}` |
 
 For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").
 
