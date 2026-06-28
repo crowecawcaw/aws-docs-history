@@ -52,8 +52,8 @@ Elastic Disaster Recovery. Should you not wish to utilize Systems Manager for th
   - Attach the agent log from that specific server. The agent log can be located at the
     [following locations](../../../drs/latest/userguide/agent-logs-location.md "../../../drs/latest/userguide/agent-logs-location.md"):
 
-        1. **Linux**: /var/log/awsdrs-agent/agent.log
-        2. **Windows**: C:.log
+    1. **Linux**: /var/log/awsdrs-agent/agent.log
+    2. **Windows**: C:.log
 
   - Once the installation has completed, the Elastic Disaster Recovery console will show the following stages:
 
@@ -80,8 +80,8 @@ Elastic Disaster Recovery. Should you not wish to utilize Systems Manager for th
       - All blocks have been replicated from the source machine to the staging area and we are now creating the baseline EBS snapshot for that
         volume.
 
-            + **Note**: if the service is stuck in the stage for a long time, confirm the replication server has 443 outbound access to
-            regional EC2 endpoint.
+        - **Note**: if the service is stuck in the stage for a long time, confirm the replication server has 443 outbound access to
+          regional EC2 endpoint.
 
     - Healthy
 

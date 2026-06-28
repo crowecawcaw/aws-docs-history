@@ -39,16 +39,12 @@ before launching a Elastic Disaster Recovery drill:
 
 - Infrastructure Services (such as AD and DNS)
 
-      + Depending on the criteria for a successful Drill, you may need your Drill servers to connect to services such as Active Directory or other infrastructure services in order to complete a Drill. This might require additional scripting (or usage of appropriate SSM documents to automate the usage of AD after launch)
+  - Depending on the criteria for a successful Drill, you may need your Drill servers to connect to services such as Active Directory or other infrastructure services in order to complete a Drill. This might require additional scripting (or usage of appropriate SSM documents to automate the usage of AD after launch)
 
-
-
-
-      	- With Elastic Disaster Recovery, you can replicate all applications and services, including Active Directory. With this approach, it is recommended to launch the drill version of AD first and wait until the service is up and running. Once the service is up, you can start to
-      	launch the other applications or servers. This will ensure that the AD servers are ready to provide critical functions and services like authentication and authorization.
-      	- An alternative approach is to extend Active Directory to the Drill subnet. It is advised to work with your system administrators to define the best method for your use case.
-
-  Prior to launching a drill instance, ensure that your source servers are ready for testing by looking for the following indicators on the **Source servers** page:
+    - With Elastic Disaster Recovery, you can replicate all applications and services, including Active Directory. With this approach, it is recommended to launch the drill version of AD first and wait until the service is up and running. Once the service is up, you can start to
+      launch the other applications or servers. This will ensure that the AD servers are ready to provide critical functions and services like authentication and authorization.
+    - An alternative approach is to extend Active Directory to the Drill subnet. It is advised to work with your system administrators to define the best method for your use case.
+      Prior to launching a drill instance, ensure that your source servers are ready for testing by looking for the following indicators on the **Source servers** page:
 
 1. Under the **Ready for Recovery** column, the server should show **Ready**. This means that the initial sync has been completed and all data from the source server has been replicated to AWS.
 2. Under the **Data Replication Status** column, the server should show the **Healthy** status, but you can also launch the source server if the system is undergoing **Lag** or even **Stall**, but in that case the data may not be up to date. You can still launch a drill instance from a

@@ -64,32 +64,27 @@ You will now have a dashboard monitoring Elastic Disaster Recovery under your **
 Amazon SNS will be used to alert a specific inbox or distribution list when any AWS Elastic Disaster Recovery source machines are experiencing a stalled replication that must be addressed. Doing so will help to identify and remediate issues quicker, so that your RPO goals can be
 maintained. Stalled replication is the main indicator of replication issues and can indicate multiple issues.
 
-1.  Navigate to Amazon Simple Notification Service.
-2.  Choose **Create Topic**.
+1. Navigate to Amazon Simple Notification Service.
+2. Choose **Create Topic**.
 
-    1.  Under **Details** and **Type**, choose **Standard**.
-    2.  Under **Name** enter a name for this topic. (for example:
-        drs-replication-monitoring)
+   1. Under **Details** and **Type**, choose **Standard**.
+   2. Under **Name** enter a name for this topic. (for example:
+      drs-replication-monitoring)
 
-            * *Optional:* Enter a display name for SMS messages to mobile devices.
+      - _Optional:_ Enter a display name for SMS messages to mobile devices.
 
+        - Note: As of June 1, 2021, US telecom providers no longer support person-to-person long codes for applications-to-person communications.
+          See the [Amazon SNS Developer Guide](../../../sns/latest/dg/sms_publish-to-phone.md "../../../sns/latest/dg/sms_publish-to-phone.md")for more information.
 
+      - _Optional:_ For Tags, enter a key-value pair for easy identification later.
 
-
-            	+ Note: As of June 1, 2021, US telecom providers no longer support person-to-person long codes for applications-to-person communications.
-            	See the [Amazon SNS Developer Guide](../../../sns/latest/dg/sms_publish-to-phone.md "../../../sns/latest/dg/sms_publish-to-phone.md")for more information.
-            * *Optional:* For Tags, enter a key-value pair for easy identification later.
-
-
-
-
-            	+ Select **Create topic**.
-            	+ Once the topic is created, select *drs-replication-monitoring* from the list.
-            	+ Choose **Create subscription**.
-            	+ Validate that the Topic ARN under **Details** is the same as drs-in-lag.
-            	+ From the Protocol dropdown, choose **email**.
-            	+ Under Endpoint add the email or distribution list to receive these alerts.
-            	+ Choose **Create subscription**.
+        - Select **Create topic**.
+        - Once the topic is created, select _drs-replication-monitoring_ from the list.
+        - Choose **Create subscription**.
+        - Validate that the Topic ARN under **Details** is the same as drs-in-lag.
+        - From the Protocol dropdown, choose **email**.
+        - Under Endpoint add the email or distribution list to receive these alerts.
+        - Choose **Create subscription**.
 
 **Create a rule using the console**
 
