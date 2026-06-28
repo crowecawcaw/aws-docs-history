@@ -22,7 +22,7 @@ role for that action execution.
 ###### Note
 
 - In order to use post-launch actions, you should make sure you have the required permissions. To get these permissions, you can attach the **AWSElasticDisasterRecoveryLaunchActionsPolicy**
-  or **AWSElasticDisasterRecoveryConsoleFullAccess_v2** policies to your IAM identity.
+  or **AWSElasticDisasterRecoveryConsoleFullAccess\_v2** policies to your IAM identity.
   These policies contain the permissions needed to run SSM Command and Automation documents that are owned by Amazon or by the account as post-launch actions.
 - Installation of the SSM Agent requires a minimum of 200 MB of free disk space and 200 KB of free disk space in the `/var` directory.
 - Installation of the SSM Agent is not supported on these operating systems:

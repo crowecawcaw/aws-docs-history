@@ -22,7 +22,7 @@ To create temporary credentials:
 ## Configuring CloudWatch logging
 
 After generating credentials, create a CloudWatch log group named
-**DRS_Mass_Failback_Automation**. If this log group does
+**DRS\_Mass\_Failback\_Automation**. If this log group does
 not exist or has the wrong name, the DRSFA client still works but does not send logs to
 CloudWatch. Learn more about working with log groups in the [Amazon
 CloudWatch Logs documentation](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md").

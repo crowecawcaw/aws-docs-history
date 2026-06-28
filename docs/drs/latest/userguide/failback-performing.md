@@ -142,7 +142,7 @@ recovery instance.
      as the Windows source server.
 
 5. If you plan on using a static IP for the Failback Client, run the following once the
-   Failback Client ISO boots:
+Failback Client ISO boots:
 
 `IPADDR="enter IPv4 address" NETMASK="subnet mask" GATEWAY="default gateway"
  DNS="DNS server IP address" CONFIG_NETWORK=1 /usr/bin/start.sh`
@@ -273,17 +273,17 @@ The server client iso should not be in the boot order when you want to recover i
 
 The arguments supported by Failback Client LiveCD process are:
 
-- --aws-access-key-id AWS_ACCESS_KEY_ID
-- --aws-secret-access-key AWS_SECRET_ACCESS_KEY
-- --aws-session-token AWS_SESSION_TOKEN
+- --aws-access-key-id AWS\_ACCESS\_KEY\_ID
+- --aws-secret-access-key AWS\_SECRET\_ACCESS\_KEY
+- --aws-session-token AWS\_SESSION\_TOKEN
 - --region REGION
 - --endpoint ENDPOINT
 - --default-endpoint
-- --recovery-instance-id RECOVERY_INSTANCE_ID
+- --recovery-instance-id RECOVERY\_INSTANCE\_ID
 - --dm-value-format {dev-name,by-path,by-id,by-uuid,all-strict}
-- --device-mapping DEVICE_MAPPING] [--no-prompt
+- --device-mapping DEVICE\_MAPPING] [--no-prompt
 - --log-console
-- --log-file LOG_FILE
+- --log-file LOG\_FILE
 
 All arguments are optional.
 

@@ -3,7 +3,7 @@
 Installing the DRSFA client is a one-time operation.
 
 The DRSFA client is supported on Ubuntu 22.04, 24.04, and 26.04. Launch an Ubuntu
-22.04, 24.04, or 26.04 x86_64 instance in EC2 or use a public ISO to run the client
+22.04, 24.04, or 26.04 x86\_64 instance in EC2 or use a public ISO to run the client
 locally in your vCenter environment. Follow the [Create
 your EC2 resources and launch your EC2 instance](../../../efs/latest/ug/gs-step-one-create-ec2-resources.md "../../../efs/latest/ug/gs-step-one-create-ec2-resources.md") guidelines in the EC2
 documentation.

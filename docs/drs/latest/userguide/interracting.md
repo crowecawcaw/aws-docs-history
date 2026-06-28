@@ -18,17 +18,17 @@ The columns include:
     server is ready for recovery. You can use this column to easily tell whether a server is
     ready or not and the server's exact status. You can learn more about the server's status
     by reviewing the **Data replication status** column.
-  - A server that is ready shows the green checkmark and **Ready**.
-  - A server that is ready, but is experiencing a non-critical issue such as lag shows the
-    blue info sign and **Ready** and displays the lag
-    duration to the right.
-  - A server that is still undergoing initial sync shows a gray circle with three dots and
-    **Initial sync**.
-  - A server that is disconnected shows the gray warning sign and **Disconnected**.
-  - A server that is not ready due to a significant error, such as a stall, shows a red
-    **X** and **Not Ready**.
-    Servers that have one or more marketplace licenses assigned to them may not be able to
-    launch if there was an error reading their license information.
+    - A server that is ready shows the green checkmark and **Ready**.
+    - A server that is ready, but is experiencing a non-critical issue such as lag shows the
+      blue info sign and **Ready** and displays the lag
+      duration to the right.
+    - A server that is still undergoing initial sync shows a gray circle with three dots and
+      **Initial sync**.
+    - A server that is disconnected shows the gray warning sign and **Disconnected**.
+    - A server that is not ready due to a significant error, such as a stall, shows a red
+      **X** and **Not Ready**.
+      Servers that have one or more marketplace licenses assigned to them may not be able to
+      launch if there was an error reading their license information.
 - **Data replication status** – This column shows the current
   status of data replication for the server:
 

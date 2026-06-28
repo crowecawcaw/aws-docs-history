@@ -194,7 +194,7 @@ You can monitor Outpost metrics for S3, EC2, and EBS capacity through CloudWatch
 dashboard with these metrics:
 
 - EBS Metrics: EBSVolumeTypeCapacityAvailability, EBSVolumeTypeCapacityUtilization
-- EC2 Metrics: InstanceTypeCapacityUtilization, AvailableInstanceType_Count
+- EC2 Metrics: InstanceTypeCapacityUtilization, AvailableInstanceType\_Count
 - S3 Metrics: OutpostTotalBytes, OutpostFreeBytes
 
 [Learn more about CloudWatch S3 monitoring.](../../../AmazonS3/latest/dev/cloudwatch-monitoring.md "../../../AmazonS3/latest/dev/cloudwatch-monitoring.md")

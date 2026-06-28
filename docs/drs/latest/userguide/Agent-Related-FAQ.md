@@ -180,4 +180,4 @@ The AWS DRS agent logs are stored in agent.log.0:
   (x86)\AWS Replication Agent\agent.log.0
 
 In addition, you can review the installation log located in:
-<install_path>\aws_replication_agent_installer.log
+<install\_path>\aws\_replication\_agent\_installer.log

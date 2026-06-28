@@ -20,7 +20,7 @@ is not met:
 3. If the instance to launch into is Linux, it must have the BIOS boot mode, and if this is Windows, it must have the same
    boot mode as that of the recovery instance the **Start reversed replication** or
    **Protect recovered instance** was called on.
-4. The instance to launch into must have the x86_64 architecture, HVM virtualization and an EBS root device.
+4. The instance to launch into must have the x86\_64 architecture, HVM virtualization and an EBS root device.
 5. **OS licensing** in **Default DRS launch settings** can
    only be **Bring Your Own License (BYOL)** if the instance’s platform is Linux or if the
    instance’s **tenancy** is **dedicated host**.

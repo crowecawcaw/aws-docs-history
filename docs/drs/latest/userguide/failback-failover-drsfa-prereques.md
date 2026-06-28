@@ -5,7 +5,7 @@ Before using the DRSFA client, verify that you meet the following requirements.
 ###### Note
 
 The DRSFA client works only with vCenter source servers. It was tested on vCenter
-versions 6.7, 7.0, and 8.0.
+versions 6.7, 7.0, 8.0, and 9.0.
 
 You can fail back all Recovery instances in a single AWS Region simultaneously with
 the DRSFA client, as long as your vCenter hardware supports the failback load.
@@ -27,7 +27,7 @@ the DRSFA client, as long as your vCenter hardware supports the failback load.
 The DRSFA client host must meet the following requirements:
 
 - At least 4 GB of RAM
-- Ubuntu 22.04, 24.04, or 26.04 (x86_64)
+- Ubuntu 22.04, 24.04, or 26.04 (x86\_64)
 - Python 3.13 with pip installed
 - Network connectivity to your vCenter environment
 

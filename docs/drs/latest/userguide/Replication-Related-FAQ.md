@@ -128,7 +128,7 @@ You can use our SSL bandwidth tool to check for replication bandwidth availabili
 2. Select the same subnet as the subnet used in the replication settings of
    your source machine.
 3. Make sure that the security group allows TCP Port 1500 inbound access.
-4. On the source machine, browse to: https://{test_server_ip}:1500/speedtest
+4. On the source machine, browse to: https://{test\_server\_ip}:1500/speedtest
 5. Click **Start**.
 
 ###### Note

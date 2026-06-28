@@ -71,61 +71,66 @@ the correct kernel headers.
 `$` uname -r
 ```
 
-2.  Check installed headers:
+2. Check installed headers:
 
-    - **RHEL/CentOS/SUSE:**
+   - **RHEL/CentOS/SUSE:**
 
-    ```
-    `$` rpm -qa | grep kernel-devel
-    ```
-    - **Debian/Ubuntu:**
+   ```
+   `$` rpm -qa | grep 'kernel.*devel'
+   ```
+   - **Debian/Ubuntu:**
 
-    ```
-    `$` dpkg -l | grep linux-headers
-    ```
+   ```
+   `$` dpkg -l | grep linux-headers
+   ```
 
-3.  Check whether the header directory is a symlink. If it is a symlink, remove
-    it:
+3. Check whether the header directory is a symlink. If it is a symlink, remove
+   it:
 
-        * **RHEL/CentOS/SUSE:**
+   - **RHEL/CentOS/SUSE:**
+
+   ```
+   `$` ls -l /usr/src/kernels
+   ```
+   - **Debian/Ubuntu:**
+
+   ```
+   `$` ls -l /usr/src
+   ```
+
+If a symlink exists, remove it with `rm`. 4. Install the correct headers:
+
+    * **RHEL/CentOS:**
 
 
-
-        ```
-        `$` ls -l /usr/src/kernels
-        ```
-        * **Debian/Ubuntu:**
-
-
-
-        ```
-        `$` ls -l /usr/src
-        ```
-
-    If a symlink exists, remove it with `rm`.
-
-4.  Install the correct headers:
-
-    - **RHEL/CentOS/SUSE:**
 
     ```
     `$` sudo yum install kernel-devel-$(uname -r)
     ```
-    - **Debian/Ubuntu:**
+    * **SUSE:**
+
+
+
+    ```
+    `$` sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//")
+    ```
+    * **Debian/Ubuntu:**
+
+
 
     ```
     `$` sudo apt-get install linux-headers-$(uname -r)
     ```
 
-5.  If the headers are not available in your configured repositories, download them
-    manually from one of the following sources:
+5. If the headers are not available in your configured repositories, download them
+manually from one of the following sources:
 
-    - **RHEL/CentOS/SUSE:**
-      [rpm.pbone.net](https://rpm.pbone.net "https://rpm.pbone.net")
-    - **Debian:**
-      [packages.debian.org](https://packages.debian.org "https://packages.debian.org")
-    - **Ubuntu:**
-      [packages.ubuntu.com](https://packages.ubuntu.com "https://packages.ubuntu.com")
+    * **RHEL/CentOS/SUSE:**
+    [rpm.pbone.net](https://rpm.pbone.net "https://rpm.pbone.net")
+    * **Debian:**
+    [packages.debian.org](https://packages.debian.org "https://packages.debian.org")
+    * **Ubuntu:**
+    [packages.ubuntu.com](https://packages.ubuntu.com "https://packages.ubuntu.com")
 
 ###### Note
 

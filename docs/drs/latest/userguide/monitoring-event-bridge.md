@@ -31,7 +31,7 @@ as expected).
 
 ```
 
-**NOT_STALLED**
+**NOT\_STALLED**
 
 ```
 {
@@ -57,7 +57,7 @@ as expected).
 These events are triggered when a drill or recovery instance is launched for a source
 server and indicate whether the launch succeeded or failed.
 
-**RECOVERY_LAUNCH_SUCCEEDED**
+**RECOVERY\_LAUNCH\_SUCCEEDED**
 
 ```
 
@@ -81,7 +81,7 @@ server and indicate whether the launch succeeded or failed.
 
 ```
 
-**RECOVERY_LAUNCH_FAILED**
+**RECOVERY\_LAUNCH\_FAILED**
 
 ```
 
@@ -110,7 +110,7 @@ server and indicate whether the launch succeeded or failed.
 These events are triggered as part of the failback process and indicate if failback is
 in progress, completed or failed.
 
-**FAILBACK_IN_PROGRESS**
+**FAILBACK\_IN\_PROGRESS**
 
 ```
 
@@ -132,7 +132,7 @@ in progress, completed or failed.
 
 ```
 
-**FAILBACK_COMPLETED**
+**FAILBACK\_COMPLETED**
 
 ```
 
@@ -154,7 +154,7 @@ in progress, completed or failed.
 
 ```
 
-**FAILBACK_ERROR**
+**FAILBACK\_ERROR**
 
 ```
 
@@ -217,67 +217,57 @@ more information, see [Event Patterns](../../../eventbridge/latest/userguide/eb-
 
 ###### To create Amazon EventBridge rules
 
-1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2.  Using the following values, create an EventBridge rule that captures events coming from Elastic Disaster Recovery
-    resources:
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+2. Using the following values, create an EventBridge rule that captures events coming from Elastic Disaster Recovery
+   resources:
 
-        * For **Rule type**, choose **Rule with an event
-         pattern**.
-        * For **Event source**, choose **Other**.
-        * For **Event pattern**, choose **Custom patterns (JSON
-         editor)**, and paste one of the following event pattern examples into the
-         text area:
+   - For **Rule type**, choose **Rule with an event
+     pattern**.
+   - For **Event source**, choose **Other**.
+   - For **Event pattern**, choose **Custom patterns (JSON
+     editor)**, and paste one of the following event pattern examples into the
+     text area:
 
+     - To catch all Elastic Disaster Recovery events:
 
+     ```
+     {
+     	"source": [
+     		"aws.drs"
+     	]
+     }
 
+     ```
+     - To catch all Recovery instance failback state changes:
 
+     ```
+     {
+     	"detail-type": [
+     		"DRS Recovery Instance Failback State Change"
+     	],
+     	"source": [
+     		"aws.drs"
+     	]
+     }
+     ```
+     - To catch all events relating to a given Source server:
 
-        	+ To catch all Elastic Disaster Recovery events:
+     ```
+     {
+     	"source": [
+     		"aws.drs"
+     	],
+     	"resources": [
+     		"arn:aws:drs:us-west-2:111122223333:source-server/s-12345678901234567"
+     	]
+     }
+     ```
 
-
-
-        	```
-        	{
-        		"source": [
-        			"aws.drs"
-        		]
-        	}
-
-        	```
-        	+ To catch all Recovery instance failback state changes:
-
-
-
-        	```
-        	{
-        		"detail-type": [
-        			"DRS Recovery Instance Failback State Change"
-        		],
-        		"source": [
-        			"aws.drs"
-        		]
-        	}
-        	```
-        	+ To catch all events relating to a given Source server:
-
-
-
-        	```
-        	{
-        		"source": [
-        			"aws.drs"
-        		],
-        		"resources": [
-        			"arn:aws:drs:us-west-2:111122223333:source-server/s-12345678901234567"
-        		]
-        	}
-        	```
-        * For **Target types**, choose **AWS service**, and
-         for
-         **Select a target**
-         choose your desired target.
-
-    For details about creating rules, see
-    [Creating Amazon EventBridge rules that react
-    to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md")
-    in the **Amazon EventBridge User Guide**.
+   - For **Target types**, choose **AWS service**, and
+     for
+     **Select a target**
+     choose your desired target.
+     For details about creating rules, see
+     [Creating Amazon EventBridge rules that react
+     to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md")
+     in the **Amazon EventBridge User Guide**.

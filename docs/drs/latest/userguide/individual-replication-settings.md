@@ -78,7 +78,7 @@ Command Line
 The **Replication server instance type**
 determines the EC2 Instance type and size that is used for the launch of a
 source server's replication server. DRS Replicators only support EC2
-Instances with x86_64 CPU architecture.
+Instances with x86\_64 CPU architecture.
 
 By default, AWS Elastic Disaster Recovery utilizes the t3.small instance type, and should work well
 for most common workloads. We recommend monitoring the Cloudwatch metrics of a replication server,

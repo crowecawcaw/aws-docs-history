@@ -163,11 +163,11 @@ DRS can run scripts on a launched drill or recovery instance. This is done by
 creating the following folder on the source server and placing the scripts within
 that folder.
 
-**Linux**: /boot/post_launch (any files that are
+**Linux**: /boot/post\_launch (any files that are
 marked as executable)
 
 **Windows**: C:\Program Files (x86)\AWS Replication
-Agent\post_launch\ (any .exe, .cmd, or .bat files)
+Agent\post\_launch\ (any .exe, .cmd, or .bat files)
 
 Once you put these scripts in the above folders on the source server, the folder
 will be replicated to the drill or recovery instance and be executed once after the
@@ -236,7 +236,7 @@ servers](https://docs.cloudendure.com/#FAQ/FAQ/Agent_Related.htm#How_do_I_manual
 
 ###### Important
 
-Do **_not_** use the **Remove from
+Do _**not**_ use the **Remove from
 console** option available from the CloudEndure user
 console. By keeping this server’s records in CloudEndure, you also
 maintain its Point In Time recovery points, allowing you to launch a

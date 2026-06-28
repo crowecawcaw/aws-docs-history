@@ -4,7 +4,7 @@
 
 - Added support for Debian 12 and Debian 13 as source server operating systems. Debian 13 requires AWS Elastic Disaster Recovery Agent version 6.42.21 or later. See [Supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md").
 - [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Updated policies AWSElasticDisasterRecoveryConsoleFullAccess_v2 and AWSElasticDisasterRecoveryLaunchActionsPolicy to add permissions for SSM documents with the `AWSDRS-` prefix.
+  Updated policies AWSElasticDisasterRecoveryConsoleFullAccess\_v2 and AWSElasticDisasterRecoveryLaunchActionsPolicy to add permissions for SSM documents with the `AWSDRS-` prefix.
 
 ## April 2025
 
@@ -33,7 +33,7 @@
 - [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
   Created managed policy revisions to support FlexibleInstances feature for DRS. The following managed policies were updated:
 
-  - AWSElasticDisasterRecoveryConsoleFullAccess_v2
+  - AWSElasticDisasterRecoveryConsoleFullAccess\_v2
   - AWSElasticDisasterRecoveryReadOnlyAccess
 
 ## May 2024
@@ -64,7 +64,7 @@
 - [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
   updated AWSElasticDisasterRecoveryReadOnlyAccess to support describing additional post-launch actions.
 - [New AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") – Added
-  new policy: AWSElasticDisasterRecoveryConsoleFullAccess_v2.
+  new policy: AWSElasticDisasterRecoveryConsoleFullAccess\_v2.
 - [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
   Created new revisions to support DRS in AWS GovCloud and added Statement ID (SID) to managed policy
   statements. The following managed policies were updated:
@@ -80,7 +80,7 @@
   - AWSElasticDisasterRecoveryConversionServerPolicy
   - AWSElasticDisasterRecoveryFailbackPolicy
   - AWSElasticDisasterRecoveryFailbackInstallationPolicy
-  - AWSElasticDisasterRecoveryStagingAccountPolicy_v2
+  - AWSElasticDisasterRecoveryStagingAccountPolicy\_v2
   - AWSElasticDisasterRecoveryStagingAccountPolicy
   - AWSElasticDisasterRecoveryReplicationServerPolicy
 
@@ -154,7 +154,7 @@
 ## December 2022
 
 - [New AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Added the AWSElasticDisasterRecoveryStagingAccountPolicy_v2 policy.
+  Added the AWSElasticDisasterRecoveryStagingAccountPolicy\_v2 policy.
 
 ## November 2022
 

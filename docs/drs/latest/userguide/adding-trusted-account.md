@@ -22,7 +22,7 @@ role and the attached required policies, simply create it for a specific account
 **Trusted accounts** page.
 
 This action will create the DRSStagingAccountRole role which includes the
-AWSElasticDisasterRecoveryStagingAccountPolicy_v2 policy and the following trust policy
+AWSElasticDisasterRecoveryStagingAccountPolicy\_v2 policy and the following trust policy
 permissions:
 
 JSON

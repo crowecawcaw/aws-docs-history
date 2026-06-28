@@ -36,13 +36,13 @@ The DRS launch settings include the following parameters:
     launch a new instance type after every change of configuration on
     the source server (for example, added/removed disks, added/removed
     RAM). Instance types are only chosen from the C5 family.
-  - If you select the **Active (in-aws)** option,
-    AWS Elastic Disaster Recovery will periodically update the EC2 launch template based on the hardware
-    configuration of the EC2 instance source server.
-  - If you select **Inactive**, AWS Elastic Disaster Recovery will
-    launch the AWS instance type as configured in your EC2 launch template.
-    Select this option if you want to determine the instance type that will be
-    launched in AWS for all your drill or recovery servers.
+    - If you select the **Active (in-aws)** option,
+      AWS Elastic Disaster Recovery will periodically update the EC2 launch template based on the hardware
+      configuration of the EC2 instance source server.
+    - If you select **Inactive**, AWS Elastic Disaster Recovery will
+      launch the AWS instance type as configured in your EC2 launch template.
+      Select this option if you want to determine the instance type that will be
+      launched in AWS for all your drill or recovery servers.
 
 ###### Important
 

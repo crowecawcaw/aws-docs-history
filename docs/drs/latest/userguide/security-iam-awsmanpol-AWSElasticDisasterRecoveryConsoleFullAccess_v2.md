@@ -1,6 +1,6 @@
-# AWS managed policy: AWSElasticDisasterRecoveryConsoleFullAccess_v2
+# AWS managed policy: AWSElasticDisasterRecoveryConsoleFullAccess\_v2
 
-You can attach the **AWSElasticDisasterRecoveryConsoleFullAccess_v2** policy to your IAM
+You can attach the **AWSElasticDisasterRecoveryConsoleFullAccess\_v2** policy to your IAM
 identities.
 
 Allows full administrative access to AWS Elastic Disaster Recovery (AWS DRS) Console. Attach this policy to your users or roles.
@@ -32,4 +32,4 @@ This policy includes permissions to do the following:
 
 **Permissions details**
 
-To view the policy permission details see [AWSElasticDisasterRecoveryConsoleFullAccess_v2](../../../aws-managed-policy/latest/reference/AWSElasticDisasterRecoveryConsoleFullAccess_v2.md "../../../aws-managed-policy/latest/reference/AWSElasticDisasterRecoveryConsoleFullAccess_v2.md") in the AWS Managed Policy Reference Guide.
+To view the policy permission details see [AWSElasticDisasterRecoveryConsoleFullAccess\_v2](../../../aws-managed-policy/latest/reference/AWSElasticDisasterRecoveryConsoleFullAccess_v2.md "../../../aws-managed-policy/latest/reference/AWSElasticDisasterRecoveryConsoleFullAccess_v2.md") in the AWS Managed Policy Reference Guide.

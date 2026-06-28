@@ -75,10 +75,10 @@ Verify the running kernel version:
 uname -r
 ```
 
-Then verify matching headers are installed. On RHEL/CentOS:
+Then verify matching headers are installed. On RHEL/CentOS/SUSE:
 
 ```
-rpm -qa | grep kernel-devel
+rpm -qa | grep 'kernel.*devel'
 ```
 
 On Debian/Ubuntu:
@@ -138,7 +138,7 @@ Get-WindowsFeature Net-Framework-Core
 On desktop Windows, check Programs and Features for Microsoft .NET Framework
 3.5 or later.
 
-- \*\*Disk space: 1 GB free on C:\*\* — The agent
+- *_Disk space: 1 GB free on C:\*_ — The agent
   binaries and service files require at least 1 GB on the system drive. Verify
   with:
 

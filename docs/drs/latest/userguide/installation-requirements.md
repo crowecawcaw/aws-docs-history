@@ -54,10 +54,10 @@ to installing the AWS Replication Agent:
   - At least 500 MB of free disk space on the _/tmp_ directory for the
     duration of the installation process. To check the available disk
     space on the /tmp directory run the `df -h
-/tmp` command.
+   /tmp` command.
   - If `/boot` is a separate partition, ensure that it has a minimum of 50 MB free space needed for the installation. To check the available disk
     space on the /boot directory run the `df -h
-/boot` command.
+   /boot` command.
 
 - The active bootloader software is GRUB 1 or 2.
 - Secure Boot is not supported in Linux.

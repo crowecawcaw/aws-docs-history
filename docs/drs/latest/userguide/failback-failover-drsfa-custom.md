@@ -56,7 +56,7 @@ your changes.
 - If you are not using a proxy server, leave the `PROXY` field
   as an empty string. Do not remove it.
 - If a source server does not have an attached recovery instance, the
-  **SOURCE_SERVER_ID** field is empty.
+  **SOURCE\_SERVER\_ID** field is empty.
 
 ## Custom device mapping parameter
 
