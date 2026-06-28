@@ -95,6 +95,6 @@ Yes. You can configure transparent proxy either by using an environment variable
 or by using the --proxy-address flag in the Linux installer:
 
 - Using the installer: ./aws-vcenter-client-installer-init.py --proxy-address http://PROXY:PORT/
-- Using environment variable: export https_proxy=http://PROXY:PORT/; ./aws-vcenter-client-installer-init.py
+- Using environment variable: export https\_proxy=http://PROXY:PORT/; ./aws-vcenter-client-installer-init.py
 
 Make sure the proxy has a trailing forward slash (/).

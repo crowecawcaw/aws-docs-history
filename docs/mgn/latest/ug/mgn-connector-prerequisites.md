@@ -16,9 +16,9 @@ To use the MGN connector you must meet these prerequisites.
 The MGN connector can be installed on servers running the following Linux
 versions:
 
-- Ubuntu 18.x+ (64 bit) - 22.04 (x86_64)
-- Amazon Linux 2 (x86_64)
-- RHEL8.x (x86_64)
+- Ubuntu 18.x+ (64 bit) - 22.04 (x86\_64)
+- Amazon Linux 2 (x86\_64)
+- RHEL8.x (x86\_64)
 
 ## SSM agent installation requirements
 

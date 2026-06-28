@@ -15,8 +15,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 - Added support for the following operating systems:
 
   - Windows 11
-  - Oracle Linux 10.1
-  - Oracle Linux 9.7
+  - Oracle Linux 9.7 and 10.1
   - CentOS Stream 10
 
 - Added no-rescan upon reboot support for Windows Server 2025, CentOS Stream 9,
@@ -103,7 +102,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 Updated the AWSApplicationMigrationFullAccess policy to support tagging network interface during runInstance.
 If you’re managing your own policy, you must include a statement allowing `ec2:CreateTags` on `arn:aws:ec2:*:*:network-interface/*`  
- with a condition of `“ec2:CreateAction”: [“RunInstances”]`.
+with a condition of `“ec2:CreateAction”: [“RunInstances”]`.
 
 - Added support for RHEL 9.5 operating system.
 

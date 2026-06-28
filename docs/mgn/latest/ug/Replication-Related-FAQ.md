@@ -25,6 +25,7 @@ This section contains answers to questions about data replication.
 - [How can I control the bandwidth used for replication?](#Can-Control-Bandwidth-Used-For-Replication "#Can-Control-Bandwidth-Used-For-Replication")
 - [Are migrations performed by Application Migration Service crash consistent?](#Is-Replication-Crash-Consistent "#Is-Replication-Crash-Consistent")
 - [How can I perform an SSL connectivity and bandwidth test?](#perform-connectivity-bandwidth-test "#perform-connectivity-bandwidth-test")
+- [Why are MGN replication and conversion servers changing to Amazon Linux 2023?](#al2023-replication-servers "#al2023-replication-servers")
 
 ## What is the lifecycle of the snapshots and volumes automatically created during migration?
 
@@ -172,7 +173,7 @@ You can use our SSL bandwidth tool to check for replication bandwidth availabili
 2. Select the same subnet as the subnet used in the replication settings of
    your source machine.
 3. Make sure that the security group allows TCP Port 1500 inbound access.
-4. On the source machine, browse to https://{test_server_ip}:1500/speedtest
+4. On the source machine, browse to https://{test\_server\_ip}:1500/speedtest
 5. Choose **Start**.
 
 ###### Note
@@ -214,3 +215,47 @@ You can use our SSL bandwidth tool to check for replication bandwidth availabili
 
 - Ensure that the security groups are configured to permit connectivity
   on inbound port 1500.
+
+## Why are MGN replication and conversion servers changing to Amazon Linux 2023?
+
+Beginning August 15, 2026, MGN will use Amazon Linux 2023 (AL2023) for its replication
+and conversion servers because
+[Amazon Linux 2 (AL2) reaches end
+of support on June 30, 2026](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
+
+**What happens to in-progress jobs:** If you have a
+replication or conversion job in progress on August 15, 2026, your existing AL2 instance
+continues running until the end of its 30-day lifecycle, and MGN replaces it automatically.
+If you have no job running on August 15, 2026, the next job you start immediately uses
+AL2023.
+
+**New S3 bucket dependency:** AL2023 introduces a new S3
+bucket dependency for package management that was not required by AL2-based servers. MGN
+replication and conversion servers connect to the following AL2023 package repository:
+
+```
+https://al2023-repos-`region`-de612dc2.s3.dualstack.`region`.amazonaws.com
+```
+
+**Review your configuration before August 15, 2026** if any
+of the following apply:
+
+1. **Route 53 DNS Firewall, network-level blocklists, or outbound DNS
+   restrictions**. Verify that
+   `al2023-repos-`region`-de612dc2.s3.dualstack.`region`.amazonaws.com`
+   is not blocked. If you use a blocklist approach, check for wildcard rules (for example,
+   `*.s3.dualstack.`region`.amazonaws.com`) that may
+   catch this domain. If you use an allowlist approach, add this domain explicitly. For more
+   information, see [Required connectivity
+   settings](preparing-environments.md#Network-Requirements "preparing-environments.md#Network-Requirements") and
+   [AL2023
+   repository configuration](../../../linux/al2023/ug/managing-repos-os-updates.md#dnf-repo-addition "../../../linux/al2023/ug/managing-repos-os-updates.md#dnf-repo-addition").
+2. **Isolated subnets with a restrictive S3 VPC Gateway Endpoint
+   policy**. Add
+   `arn:aws:s3:::al2023-repos-`region`-de612dc2/*`
+   to your endpoint policy to allow the replication server to download AL2023 packages.
+3. **Security or compliance policies that require pre-approval of new
+   operating systems**. If your policy requires explicit approval of new operating
+   systems or AMI IDs before they run in your account (for example, OS allowlisting, change
+   management controls, or regulatory requirements), plan accordingly before August 15,
+4.

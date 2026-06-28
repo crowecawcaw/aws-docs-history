@@ -18,10 +18,10 @@ failure).
 Possible states (referring to the **state** field within
 the **details** field):
 
-1. TEST_LAUNCH_SUCCEEDED
-2. TEST_LAUNCH_FAILED
-3. CUTOVER_LAUNCH_SUCCEEDED
-4. CUTOVER_LAUNCH_FAILED
+1. TEST\_LAUNCH\_SUCCEEDED
+2. TEST\_LAUNCH\_FAILED
+3. CUTOVER\_LAUNCH\_SUCCEEDED
+4. CUTOVER\_LAUNCH\_FAILED
 
 Sample event:
 
@@ -47,7 +47,7 @@ Sample event:
 
 ## MGN source server lifecycle state change
 
-Emitted when a source server reaches the READY_FOR_TEST lifecycle state for the first time.
+Emitted when a source server reaches the READY\_FOR\_TEST lifecycle state for the first time.
 
 Sample event:
 
@@ -79,7 +79,7 @@ Possible states (referring to the **state** field within
 the **details** field):
 
 1. STALLED
-2. NOT_STALLED
+2. NOT\_STALLED
 
 Sample event:
 

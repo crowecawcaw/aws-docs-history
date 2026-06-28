@@ -44,16 +44,15 @@ This column is hidden by default.
 - **Alerts** – This column shows whether any
   alerts exist for the application.
 
-      + **Stalled** – An application that has
-       at least one server that is experiencing significant issues, such as
-       a stall,.
-      + **Lagging** – An application that has
-       at least one server that is experiencing a temporary issue such as
-       lag or backlog.
-      + **Healthy** – A healthy active
-       application.
-
-  Archived applications do not display any alerts.
+  - **Stalled** – An application that has
+    at least one server that is experiencing significant issues, such as
+    a stall,.
+  - **Lagging** – An application that has
+    at least one server that is experiencing a temporary issue such as
+    lag or backlog.
+  - **Healthy** – A healthy active
+    application.
+    Archived applications do not display any alerts.
 
 - **Number of servers** – This column shows the
   total number of servers associated with each application.

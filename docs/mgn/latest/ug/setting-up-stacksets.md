@@ -4,7 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 After you set up your organization, you need to configure CloudFormation StackSets to
 create the required role per management account:
-AWSApplicationMigrationSharingRole\_<MANAGEMENT_ACCOUNT_ID>.
+AWSApplicationMigrationSharingRole\_<MANAGEMENT\_ACCOUNT\_ID>.
 
 AWS CloudFormation StackSets extends the capability of stacks by enabling you to create,
 update, or delete stacks across multiple accounts and AWS Regions with a single operation.
@@ -40,6 +40,6 @@ To set up your StackSet:
      high as the number of accounts within the organization.
 
 10. Check the box next to **I acknowledge that AWS CloudFormation
-    might create IAM resources with custom names** and choose **Submit**.
-    Once all the steps are completed, you should be able to see your new StackSet in
-    **StackSet details > Stack instances**.
+might create IAM resources with custom names** and choose **Submit**.
+Once all the steps are completed, you should be able to see your new StackSet in
+**StackSet details > Stack instances**.

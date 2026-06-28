@@ -35,7 +35,7 @@ field and then press **Enter**:
     * The VPC endpoint for Amazon S3 (optional, leave blank if not using a VPC endpoint).
 
 4. The installer then prompts you to enter your vCenter information, enter the required
-   info in each field and then press **Enter**:
+info in each field and then press **Enter**:
 
 ![Command line interface prompting for vCenter connection details including IP, port, and credentials.](images/agentless5.png)
 
@@ -80,7 +80,7 @@ field and then press **Enter**:
      tag3=val3)
 
 5. The installer downloads and installs the AWS vCenter client and
-   registers it with AWS Transform MGN.
+registers it with AWS Transform MGN.
 
 ![Terminal output showing successful download and installation of AWS vCenter client.](images/agentless6.png) 6. Once the AWS vCenter client has been installed, all of the VMs in your vCenter are added to AWS Transform MGN. The VMs are added in the DISCOVERED state.
 
@@ -96,6 +96,6 @@ installer:
 
 - Using the installer: ./aws-vcenter-client-installer-init.py --proxy-address
   http://PROXY:PORT/
-- Using environment variable: export https_proxy=http://PROXY:PORT/;
+- Using environment variable: export https\_proxy=http://PROXY:PORT/;
   ./aws-vcenter-client-installer-init.py
   Make sure the proxy has a trailing forward slash.

@@ -8,16 +8,15 @@ Attach the [AWSOrganizationsFullAccess](../../../aws-managed-policy/latest/refer
 
 To enable service access for your organization, take the following steps:
 
-1.  Activate trusted access for MGN
+1. Activate trusted access for MGN
 
-        1. Log in as management account.
-        2. Select **Global view** from the left-hand navigation
-         menu.
-        3. Activate service access by choosing the 'Enable AWS Organizations service access' button
+   1. Log in as management account.
+   2. Select **Global view** from the left-hand navigation
+      menu.
+   3. Activate service access by choosing the 'Enable AWS Organizations service access' button
+      [Learn more about activating trusted access.](../../../organizations/latest/userguide/orgs_integrate_services.md "../../../organizations/latest/userguide/orgs_integrate_services.md")
 
-    [Learn more about activating trusted access.](../../../organizations/latest/userguide/orgs_integrate_services.md "../../../organizations/latest/userguide/orgs_integrate_services.md")
-
-2.  Select members and turn them into delegated admins for MGN by calling the [RegisterDelegatedAdministrator](../../../organizations/latest/APIReference/API_RegisterDelegatedAdministrator.md "../../../organizations/latest/APIReference/API_RegisterDelegatedAdministrator.md") API, including the service name:
+2. Select members and turn them into delegated admins for MGN by calling the [RegisterDelegatedAdministrator](../../../organizations/latest/APIReference/API_RegisterDelegatedAdministrator.md "../../../organizations/latest/APIReference/API_RegisterDelegatedAdministrator.md") API, including the service name:
 
 ```
 

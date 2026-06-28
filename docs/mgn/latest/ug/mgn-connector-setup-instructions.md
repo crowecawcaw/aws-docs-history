@@ -44,4 +44,4 @@ and both the MGN connector and the source servers belong to the same account:
      (replace **ACCOUNT-ID** with your account number).
 
 4. [Create a new MGN connector](add-connector.md "add-connector.md")
-   on the MGN connectors page.
+on the MGN connectors page.

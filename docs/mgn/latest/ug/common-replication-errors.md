@@ -24,16 +24,15 @@ This section describes common replication errors, possible explanations, and pot
 
 - If you see this message, ensure that:
 
-      + The source Server has access to the AWS Transform MGN service.
-      + The replication agent is in running state. For Windows, use Windows services management console (services.msc) or command line (for example, get-services PowerShell). For Linux, use the command `systemctl status aws-replication`.
-
-  If the agent is indeed in running state, verify that the connectivity to the Regional
-  MGN endpoint on TCP Port 443. [Learn more about
-  verifying connectivity to MGN regional endpoints.](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md")
+  - The source Server has access to the AWS Transform MGN service.
+  - The replication agent is in running state. For Windows, use Windows services management console (services.msc) or command line (for example, get-services PowerShell). For Linux, use the command `systemctl status aws-replication`.
+    If the agent is indeed in running state, verify that the connectivity to the Regional
+    MGN endpoint on TCP Port 443. [Learn more about
+    verifying connectivity to MGN regional endpoints.](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md")
 
 ## Not converging
 
-This error message (NOT_CONVERGING) could indicate an inadequate replication
+This error message (NOT\_CONVERGING) could indicate an inadequate replication
 speed.
 
 Not converging error implies that there is a backlog, but the transfer of data in comparison to the growth of the data on the source server is slower. If the source server is writing more to the disk as compared to the speed at which its sending the data then we get the not converging error.
@@ -47,7 +46,7 @@ Not converging error implies that there is a backlog, but the transfer of data i
 
 ## Snapshot failure
 
-This error message (SNAPSHOTS_FAILURE) indicates that the service is unable to take a consistent snapshot.
+This error message (SNAPSHOTS\_FAILURE) indicates that the service is unable to take a consistent snapshot.
 
 This can be caused by:
 
@@ -60,12 +59,12 @@ Restrictive Service Control Policies – Check if your AWS Organization has a Se
 
 ## Unstable network
 
-This error message (UNSTABLE_NETWORK) may indicate that there are network issues.
+This error message (UNSTABLE\_NETWORK) may indicate that there are network issues.
 Check your connectivity, then [run the network bandwidth test](Replication-Related-FAQ.md#perform-connectivity-bandwidth-test "Replication-Related-FAQ.md#perform-connectivity-bandwidth-test").
 
 ## Failed to connect AWS replication Agent to replication software
 
-This error message (FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE) may indicate a pairing
+This error message (FAILED\_TO\_PAIR\_AGENT\_WITH\_REPLICATION\_SOFTWARE) may indicate a pairing
 issue. AWS MGN needs to provide the replication server and agent with information to allow
 them to communicate. Make sure there is network connectivity between the agent, migration
 server, and the MGN endpoint.
@@ -74,7 +73,7 @@ If the issue persists, contact support.
 
 ## Failed to establish communication with replication software
 
-This error message (FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION) may
+This error message (FAILED\_TO\_ESTABLISH\_AGENT\_REPLICATOR\_SOFTWARE\_COMMUNICATION) may
 suggest that there are network connectivity issues. Make sure you have network connectivity
 between the agent, replication server and the MGN endpoint.
 
@@ -143,7 +142,7 @@ Replication is stalled which point to a common network, however in this edge cas
 
 ## Unknown data replication error
 
-Unknown errors (unknown_error) can occur for any number of reasons. There are several steps you can take to attempt to mitigate the issue:
+Unknown errors (unknown\_error) can occur for any number of reasons. There are several steps you can take to attempt to mitigate the issue:
 
 - Check connectivity.
 - Check throttling.

@@ -257,7 +257,7 @@ number of the kernel.To handle this issue, follow these steps:
     	* [Ubuntu](https://packages.ubuntu.com/ "https://packages.ubuntu.com/")
 
 4. **The make, openssl, wget, curl, gcc and build-essential
-   packages.**
+packages.**
 
 **Note**: Usually, the existence of these packages is not
 required for Agent installation. However, in some cases where the installation fails,
@@ -287,7 +287,7 @@ script.**
 Make sure you run the installer either as root or by adding sudo at the
 beginning:
 
-`sudo ./aws-replication-installer-init` 8. Error: _version `GLIBC_2.7' not found (required by ./aws-replication-installer-64bit)_
+`sudo ./aws-replication-installer-init` 8. Error: _version `GLIBC\_2.7' not found (required by ./aws-replication-installer-64bit)_
 
 You receive this error when you try to install the agent on an unsupported Linux operating system. See [Supported Linux operating systems](Supported-Operating-Systems.md#Supported-Operating-Systems-Linux "Supported-Operating-Systems.md#Supported-Operating-Systems-Linux") .
 
@@ -330,7 +330,7 @@ causes installation to fail.
 
 ### Error – certificate verify failed
 
-This error (CERTIFICATE_VERIFY_FAILED) may indicate that the OS does not trust
+This error (CERTIFICATE\_VERIFY\_FAILED) may indicate that the OS does not trust
 the certification authority used by our endpoints. To resolve this issue, try
 the following steps:
 
@@ -349,4 +349,4 @@ The MGN Agent logs are stored in agent.log.0:
 - **Windows 32 bit:** C:\Program Files\AWS Replication Agent\agent.log.0
 
 In addition, you can review the installation log located in:
-<install_path>\aws_replication_agent_installer.log
+<install\_path>\aws\_replication\_agent\_installer.log

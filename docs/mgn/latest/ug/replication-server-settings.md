@@ -90,7 +90,7 @@ frequent spikes. These are the most common instance type changes:
   it left off, using the new instance type you selected.
 - By default, replication servers are automatically assigned a
   public IP address from Amazon's public IP space.
-- Replication Servers are only supported on x86_64 CPU architecture
+- Replication Servers are only supported on x86\_64 CPU architecture
   instance types.
 
 ## Dedicated instance for replication server

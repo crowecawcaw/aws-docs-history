@@ -10,27 +10,24 @@ You must activate the post-launch actions using one of these options:
 - **Activating the post-launch actions for a specific
   server**:
 
-      + Navigate to the **Source servers** page and select a
-       source server.
-      + Click **Post-launch settings > Edit**.
-      + You are redirected to the **Edit post-launch
-       settings** screen. Activate the toggle and click **Save
-       settings**.
-
-  Alternatively, you can select a specific source server, open the **Test and cutover** drop-down menu located in the top right corner of the screen and
-  select **Edit post-launch settings** .
+  - Navigate to the **Source servers** page and select a
+    source server.
+  - Click **Post-launch settings > Edit**.
+  - You are redirected to the **Edit post-launch
+    settings** screen. Activate the toggle and click **Save
+    settings**.
+    Alternatively, you can select a specific source server, open the **Test and cutover** drop-down menu located in the top right corner of the screen and
+    select **Edit post-launch settings** .
 
 - **Activating the post-launch actions for all
   servers**:
 
-      + Navigate to the **Settings** page and choose **Post-launch settings template**. You only need to do this once
-       and the change applies to all newly added servers.
+  - Navigate to the **Settings** page and choose **Post-launch settings template**. You only need to do this once
+    and the change applies to all newly added servers.
 
-
-      After the post-launched actions have been activated from the template, you can
-       deactivate and activate them for individual servers. [Learn more about activating post-launch
-       settings.](post-launch-settings.md#post-launch-settings-activation "post-launch-settings.md#post-launch-settings-activation")
-
+  After the post-launched actions have been activated from the template, you can
+  deactivate and activate them for individual servers. [Learn more about activating post-launch
+  settings.](post-launch-settings.md#post-launch-settings-activation "post-launch-settings.md#post-launch-settings-activation")
   The settings configured in the template are applied to every newly added server. You
   can change the settings for existing and newly added servers individually within the server
   details view.

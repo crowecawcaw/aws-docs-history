@@ -59,9 +59,9 @@ machine:
 
 Yes. The proxy is configured using an environment variable before the install.
 
-https_proxy=https://PROXY:PORT/
+https\_proxy=https://PROXY:PORT/
 
-For example: https_proxy=https://10.0.0.1:8088/
+For example: https\_proxy=https://10.0.0.1:8088/
 
 Make sure the proxy has a trailing forward slash.
 

@@ -104,7 +104,7 @@ Once you have read the notes, proceed to [install the client](client-installatio
   - RHEL 8.x
 
 - If you are using a RHEL 8.x environment, ensure that you run the `sudo yum install
-python3` command to install python prior to launching the client installer.
+ python3` command to install python prior to launching the client installer.
 - These flags are used by the installer:
 
   - usage: aws-vcenter-client-installer-init.py [-h]

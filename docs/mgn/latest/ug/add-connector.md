@@ -17,13 +17,12 @@ To add an MGN connector, choose **Add MGN connector**, to open the Add MGN conne
 - Temporary IAM credentials of the **MGNConnectorInstallerRole** role that you created
   [here](mgn-connector-permissions.md "mgn-connector-permissions.md").
 
-      + Request temporary security credentials
-       [through AWS STS](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md")
-       through the
-       [AssumeRole API](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md").
-      + [Learn more about how temporary credentials work.](Agent-Related-FAQ.md#temporary-credentials-operation "Agent-Related-FAQ.md#temporary-credentials-operation")
-
-  To download the MGN connector software, use the following commands:
+  - Request temporary security credentials
+    [through AWS STS](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md")
+    through the
+    [AssumeRole API](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md").
+  - [Learn more about how temporary credentials work.](Agent-Related-FAQ.md#temporary-credentials-operation "Agent-Related-FAQ.md#temporary-credentials-operation")
+    To download the MGN connector software, use the following commands:
 
 - **Download the installer command** - Copy and paste the command into the command prompt of the server you’ve designated for the MGN connector. This will download the MGN installer.
 - **Copy and paste this command into the command line on your MGN connector** - Copy and paste the command into the command prompt of the same server. This will install the MGN connector software.

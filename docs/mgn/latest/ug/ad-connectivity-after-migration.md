@@ -20,25 +20,24 @@ domain resources.
   domain names, so the instance cannot locate domain controllers.
   **Resolution:**
 
-1.  **Ensure network connectivity** – Verify a network
-    path exists between the target VPC and your AD domain controllers. Confirm that
-    [security
-    groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md"),
-    [network
-    ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md"), and on-premises firewalls allow AD traffic.
-2.  **Configure DNS resolution** – Use one of these
-    approaches:
+1. **Ensure network connectivity** – Verify a network
+   path exists between the target VPC and your AD domain controllers. Confirm that
+   [security
+   groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md"),
+   [network
+   ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md"), and on-premises firewalls allow AD traffic.
+2. **Configure DNS resolution** – Use one of these
+   approaches:
 
-        * *Recommended:* Create a
-         [Route 53
-         Resolver](../../../Route53/latest/DeveloperGuide/resolver.md "../../../Route53/latest/DeveloperGuide/resolver.md") outbound endpoint with a forwarding rule for your AD domain. This
-         preserves AWS service endpoint resolution. See
-         [Integrating
-         DNS with Route 53 Resolvers](../../../directoryservice/latest/admin-guide/ms_ad_dns_forwarders.md "../../../directoryservice/latest/admin-guide/ms_ad_dns_forwarders.md").
-        * *Alternative:* Create a
-         [custom
-         DHCP options set](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md") with your AD DNS servers. Note: this may break AWS service
-         endpoint resolution unless your DNS servers also forward AWS domain queries.
-
-    Test by launching a test instance in the target VPC before performing a cutover
-    migration.
+   - _Recommended:_ Create a
+     [Route 53
+     Resolver](../../../Route53/latest/DeveloperGuide/resolver.md "../../../Route53/latest/DeveloperGuide/resolver.md") outbound endpoint with a forwarding rule for your AD domain. This
+     preserves AWS service endpoint resolution. See
+     [Integrating
+     DNS with Route 53 Resolvers](../../../directoryservice/latest/admin-guide/ms_ad_dns_forwarders.md "../../../directoryservice/latest/admin-guide/ms_ad_dns_forwarders.md").
+   - _Alternative:_ Create a
+     [custom
+     DHCP options set](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md") with your AD DNS servers. Note: this may break AWS service
+     endpoint resolution unless your DNS servers also forward AWS domain queries.
+     Test by launching a test instance in the target VPC before performing a cutover
+     migration.

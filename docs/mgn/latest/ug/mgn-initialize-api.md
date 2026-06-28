@@ -33,7 +33,7 @@ roles in the AWS IAM documentation](../../../IAM/latest/UserGuide/id_roles_creat
 parameters:
 
 | Role name                                            | Trusted entities    |
-| ---------------------------------------------------- | ------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------- | ------------------- |
 |                                                      | **Principal**       | **Action**                                  | **Condition**                                                                                |
 | **AWSApplicationMigrationReplicationServerRole**     | "ec2.amazonaws.com" | "sts:AssumeRole"                            | -                                                                                            |
 | **AWSApplicationMigrationConversionServerRole**      | "ec2.amazonaws.com" | "sts:AssumeRole"                            | -                                                                                            |
@@ -55,7 +55,7 @@ parameters:
    Role **AWSApplicationMigrationLaunchInstanceWithSsmRole**
 6. Attach Managed Policy**AWSApplicationMigrationFSxProxyPolicy** to Role **AWSApplicationMigrationFsxProxyRole**
 7. Attach Managed Policy**AWSApplicationMigrationFSxProxyVPCPolicy** to Role **AWSApplicationMigrationFsxProxyLinkRole**
-8. Attach Managed Policy**AWSApplicationMigrationAgentPolicy_v2** to Role **AWSApplicationMigrationAgentRole**
+8. Attach Managed Policy**AWSApplicationMigrationAgentPolicy\_v2** to Role **AWSApplicationMigrationAgentRole**
 
 Once the policies are attached to the roles, run the `aws mgn
  initialize-service` command. This will automatically create the service-linked role,

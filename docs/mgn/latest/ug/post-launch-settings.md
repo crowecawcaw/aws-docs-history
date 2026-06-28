@@ -67,9 +67,9 @@ To activate the post-launch actions:
    executing actions on launched servers** option.
 4. Choose **Save template**.
 
-The post-launch actions are shown in the \*\*Settings
+The post-launch actions are shown in the **Settings
 
-> Post-launch template\*\* view.
+> Post-launch template** view.
 
 ## Editing the post-launch settings template
 

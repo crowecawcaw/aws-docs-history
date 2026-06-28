@@ -58,7 +58,7 @@ The **AWSApplicationMigrationConnectorManagementRole** role is the role that is 
 To create the role:
 
 1. After replacing **ACCOUNT-ID** with your account number,
-   and **AWS_REGION** with the connector region,
+   and **AWS\_REGION** with the connector region,
    create a policy from the following JSON:
 
 JSON

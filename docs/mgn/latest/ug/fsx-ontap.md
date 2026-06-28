@@ -133,7 +133,7 @@ distinct names for clarity. For example, use `MGN-Replication-SG` (in the stagin
 
    - Security group name: `MGN-Instances-SG`
    - Description: `Security group for instances launched by MGN to allow communication
-with FSx for ONTAP`
+  with FSx for ONTAP`
    - VPC: Choose the target VPC where MGN will launch instances.
 
 3. **Inbound Rules:** The only required inbound rule is
@@ -171,7 +171,7 @@ instances have the necessary access.
 
    - Security group name: `FSx-ONTAP-SG`
    - Description: `Security group for FSx for ONTAP file system to allow inbound
-access from MGN-launched instances`
+  access from MGN-launched instances`
    - VPC: Choose the target VPC used for the FSx for ONTAP file system.
 
 3. **Inbound Rules:** Add the following rules. The table is
@@ -292,11 +292,11 @@ this section.
 Generate a client certificate that FSx for ONTAP will require and MGN will use to
 authenticate to the ONTAP REST API. You have several options:
 
-| Certificate options                   | Option                      | Use Case                                                                                                                                   | Documentation |
-| ------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| **Self-Signed Certificate**           | Testing/Development         | [Generating a self-signed certificate<br>for FSx for ONTAP](fsx-ontap-generate-certs.md "fsx-ontap-generate-certs.md")                     |
-| **AWS Private Certificate Authority** | Production (Recommended)    | [AWS Private Certificate Authority](../../../privateca/latest/userguide/PcaWelcome.md "../../../privateca/latest/userguide/PcaWelcome.md") |
-| **External Certificate Authority**    | Production (Enterprise PKI) | Use your organization's CA process                                                                                                         |
+Certificate options| Option | Use Case | Documentation |
+| --- | --- | --- |
+| **Self-Signed Certificate** | Testing/Development | [Generating a self-signed certificate<br>for FSx for ONTAP](fsx-ontap-generate-certs.md "fsx-ontap-generate-certs.md") |
+| **AWS Private Certificate Authority** | Production (Recommended) | [AWS Private Certificate Authority](../../../privateca/latest/userguide/PcaWelcome.md "../../../privateca/latest/userguide/PcaWelcome.md") |
+| **External Certificate Authority** | Production (Enterprise PKI) | Use your organization's CA process |
 
 ###### Note
 
@@ -476,20 +476,20 @@ The target instance must establish iSCSI connectivity to the FSx for ONTAP SVM o
   automatically installs iSCSI initiator and multipath tools using the OS package manager
   during migration.
 
-| Required packages by package manager (Linux) | Package Manager                                    | Packages Installed |
-| -------------------------------------------- | -------------------------------------------------- | ------------------ |
-| dnf (Fedora/RHEL 8+)                         | `iscsi-initiator-utils`, `device-mapper-multipath` |
-| yum (RHEL 6/7, CentOS, Amazon Linux)         | `iscsi-initiator-utils`, `device-mapper-multipath` |
-| apt-get (Debian/Ubuntu)                      | `open-iscsi`, `multipath-tools`                    |
-| zypper (SLES/openSUSE)                       | `open-iscsi`, `multipath-tools`                    |
+Required packages by package manager (Linux)| Package Manager | Packages Installed |
+| --- | --- |
+| dnf (Fedora/RHEL 8+) | `iscsi-initiator-utils`, `device-mapper-multipath` |
+| yum (RHEL 6/7, CentOS, Amazon Linux) | `iscsi-initiator-utils`, `device-mapper-multipath` |
+| apt-get (Debian/Ubuntu) | `open-iscsi`, `multipath-tools` |
+| zypper (SLES/openSUSE) | `open-iscsi`, `multipath-tools` |
 
 On Windows, the iSCSI initiator (`MSiSCSI` service) is a built-in service
 that is enabled and started automatically. Only Multipath-IO needs to be enabled:
 
-| Required features (Windows)             | Method         | Feature Enabled |
-| --------------------------------------- | -------------- | --------------- |
+Required features (Windows)| Method | Feature Enabled |
+| --- | --- |
 | `Install-WindowsFeature` (Server 2012+) | `Multipath-IO` |
-| `Add-WindowsFeature` (Server 2008 R2)   | `Multipath-IO` |
+| `Add-WindowsFeature` (Server 2008 R2) | `Multipath-IO` |
 
 ## Step 7: Enable volume integrity validation (recommended)
 

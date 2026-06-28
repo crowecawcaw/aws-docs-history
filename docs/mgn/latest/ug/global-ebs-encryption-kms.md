@@ -4,8 +4,8 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 If you decide to use a customer managed key, or if your default Amazon EBS encryption key is a customer managed key
 in member account, you must add permissions to the
-AWSApplicationMigrationSharingRole\_<MANAGEMENT_ACCOUNT_ID> to allow management account
+AWSApplicationMigrationSharingRole\_<MANAGEMENT\_ACCOUNT\_ID> to allow management account
 to use it.
 
 Using Administrator access, add these permissions to the
-AWSApplicationMigrationSharingRole\_<MANAGEMENT_ACCOUNT_ID>:
+AWSApplicationMigrationSharingRole\_<MANAGEMENT\_ACCOUNT\_ID>:

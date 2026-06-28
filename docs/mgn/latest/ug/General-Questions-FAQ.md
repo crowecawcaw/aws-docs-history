@@ -97,13 +97,13 @@ The following are the AWS Transform MGN service quota limits:
 
 | Name                                     | Default                           | Description                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Concurrent jobs in progress              | Each supported AWS Region: 20     | Launching a test or cutover instance, or a cleanup action is considered a<br>"job". This parameter is the maximum number of Jobs that can be run concurrently.<br>Jobs that are \*_Completed_<br>• are not counted against this quota.                                                                                                                                            |
+| Concurrent jobs in progress              | Each supported AWS Region: 20     | Launching a test or cutover instance, or a cleanup action is considered a<br>"job". This parameter is the maximum number of Jobs that can be run concurrently.<br>Jobs that are *_Completed_<br>• are not counted against this quota.                                                                                                                                             |
 | Max active source servers                | Each supported AWS Region: 150    | The maximum number of servers that can be actively replicating at any time. For larger migrations contact Support.                                                                                                                                                                                                                                                                |
 | Max non-archived source servers          | Each supported AWS Region: 4,000  | This parameter is used for agentless migrations. This is the max number of<br>servers that can be managed by MGN, in non-archived state. This includes the servers<br>that are actively replicating, as well as any servers whose replication has not yet<br>started. The number of actively replicating servers is controlled by the parameter<br>**Max active source servers**. |
 | Max source servers in a single job       | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". If you select multiple servers, and perform one of these actions, they are<br>grouped into a single job. This is the maximum number of servers that can be grouped<br>into a single Job.                                                                                                      |
-| Max source servers in all jobs           | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum total number of servers that can be configured in all<br>active Jobs. Jobs that are \*_Completed_<br>• are not counted against this quota.                                                                                                                                |
+| Max source servers in all jobs           | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum total number of servers that can be configured in all<br>active Jobs. Jobs that are *_Completed_<br>• are not counted against this quota.                                                                                                                                 |
 | Max total source servers per AWS account | Each supported AWS Region: 50,000 | This parameter is the maximum total servers, both active and archived, that can<br>be migrated in a single account in each AWS Region. Servers that are deleted, are<br>not counted against this quota.                                                                                                                                                                           |
-| Max concurrent jobs per source server    | Each supported AWS Region: 1      | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum number of active Jobs, that can be configured per server.<br>Jobs that are \*_Completed_<br>• are not counted against this quota.                                                                                                                                         |
+| Max concurrent jobs per source server    | Each supported AWS Region: 1      | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum number of active Jobs, that can be configured per server.<br>Jobs that are *_Completed_<br>• are not counted against this quota.                                                                                                                                          |
 
 You can learn about the AWS Transform MGN limits in the [AWS General
 Reference](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md").
@@ -172,11 +172,11 @@ MGN uses the following Private API resources as actions in the IAM Policy. [Lear
 MGN can run scripts on a launched test or cutover instance. This is done by creating the
 following folder on the source server and placing the scripts within that folder.
 
-**Linux**: /boot/post_launch (any files that are marked as
+**Linux**: /boot/post\_launch (any files that are marked as
 executable)
 
 **Windows**: C:\Program Files (x86)\AWS Replication
-Agent\post_launch\ (any .exe, .cmd, or .bat files)
+Agent\post\_launch\ (any .exe, .cmd, or .bat files)
 
 Once you put these scripts in the above folders on the source server, the folder will be
 replicated to the test or cutover instance and be executed once after the instance boots for
@@ -191,7 +191,7 @@ Linux run under the 'root' user.
 
 The following script can be utilized to uninstall VMTools post migration from Windows.
 This is a powershell script. It needs to be wrapped by a .CMD file, as powershell scripts
-are not run automatically by the post_launch.
+are not run automatically by the post\_launch.
 
 ```
 

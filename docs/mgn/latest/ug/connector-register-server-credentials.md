@@ -42,8 +42,8 @@ men.
 
     Specify either:
 
-        * **HTTP**
-        * **HTTPS**
+          * **HTTP**
+          * **HTTPS**
     - **UserName** – A user that is authorized to install the agent and perform actions on the source server.
     - **Password** – The specific source server's password.
     - **CertificateAuthority**

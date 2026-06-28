@@ -68,7 +68,7 @@ connectivity issue between MGN and the file system.
 
 | Cause                                                                 | How to verify                                                                                                                                                                                                                                                                                                                                     | Resolution                                                                                                                                                                                                                                                                                                              |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| File system is out of storage capacity                                | In the [FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"),<br>check the file system's **Storage capacity\*<br>• and<br>**Used storage\*<br>• metrics.                                                                                                                                                       | Increase the file system's storage capacity. For more information, see<br>[Managing<br>storage capacity and provisioned IOPS](../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md "../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md").                                                               |
+| File system is out of storage capacity                                | In the [FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"),<br>check the file system's *_Storage capacity_<br>• and<br>*_Used storage_<br>• metrics.                                                                                                                                                         | Increase the file system's storage capacity. For more information, see<br>[Managing<br>storage capacity and provisioned IOPS](../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md "../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md").                                                               |
 | Throughput capacity is insufficient for the workload                  | In the FSx console, check the **Throughput**<br>CloudWatch metrics for the file system. Look for sustained throughput near the<br>provisioned limit.                                                                                                                                                                                              | Increase the file system's throughput capacity. You can modify throughput at any<br>time. For more information, see<br>[Managing<br>throughput capacity](../../../fsx/latest/ONTAPGuide/managing-throughput-capacity.md "../../../fsx/latest/ONTAPGuide/managing-throughput-capacity.md").                              |
 | Network connectivity issue between MGN and the FSx for ONTAP REST API | Verify that the security group attached to the FSx for ONTAP file system allows<br>inbound HTTPS (TCP 443) from the FSx for ONTAP preferred and standby subnet CIDRs. These<br>rules are required for MGN to access the ONTAP REST API. See<br>[1.2 FSx for ONTAP security group](fsx-ontap.md#fsx-ontap-fsx-sg "fsx-ontap.md#fsx-ontap-fsx-sg"). | Add inbound HTTPS (TCP 443) rules to the FSx for ONTAP security group with the<br>preferred and standby subnet CIDRs as the source. For details on identifying these<br>CIDRs, see [Step 1: Configure security<br>groups](fsx-ontap.md#fsx-ontap-step1-security-groups "fsx-ontap.md#fsx-ontap-step1-security-groups"). |
 
@@ -100,7 +100,7 @@ removed.
 2. **Delete backups from target volumes** – In the
    FSx for ONTAP console, navigate to **Backups** and delete all
    backups associated with volumes matching the
-   `target_`source*server_id`*`timestamp``
+   `target_`source_server_id`_`timestamp``
    pattern. There may be more than one target volume per source server. Select each backup and
    choose **Actions** →
    **Delete backup**. This releases the locked snapshots that
@@ -126,7 +126,7 @@ backups](../../../fsx/latest/ONTAPGuide/using-backups.md "../../../fsx/latest/ON
 **Symptom:**
 
 FSx for ONTAP volumes with the naming pattern
-`target_`source*server_id`*`timestamp``
+`target_`source_server_id`_`timestamp``
 remain on the file system after a "Revert to Ready for testing", "Revert to Ready for cutover",
 or "Terminate launched instances" action.
 
@@ -149,6 +149,6 @@ Delete the orphaned volume manually via the FSx for ONTAP console:
 
 1. Open the FSx for ONTAP console → **Volumes**.
 2. Locate the volume matching the
-   `target_`source*server_id`*`timestamp``
+   `target_`source_server_id`_`timestamp``
    pattern.
 3. Delete the volume.

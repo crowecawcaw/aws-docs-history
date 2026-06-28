@@ -216,7 +216,7 @@ Started](../../../vpc/latest/userguide/GetStarted.md "../../../vpc/latest/usergu
 You can monitor AWS Transform MGN using CloudWatch, which collects raw data and
 processes it into readable, near real-time metrics. AWS Transform MGN sends
 events to Amazon EventBridge whenever a source server launch has completed, a source server reaches
-the READY_FOR_TEST lifecycle state for the first time, and when the data replication state
+the READY\_FOR\_TEST lifecycle state for the first time, and when the data replication state
 becomes stalled or when the data replication state is no longer Stalled. You can use EventBridge
 and these events to write rules that take actions, such as notifying you, when a relevant
 event occurs.

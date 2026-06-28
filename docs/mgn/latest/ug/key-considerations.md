@@ -24,7 +24,7 @@ settings](detailed-considerations.md "detailed-considerations.md") before creati
      that additional costs apply when reserving capacity.
 
 2. **Subnet** – You can select an existing subnet or create a
-   new subnet.
+new subnet.
 
 ###### Note
 

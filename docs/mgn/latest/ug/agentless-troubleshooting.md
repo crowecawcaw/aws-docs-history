@@ -23,11 +23,11 @@ Both replications are stalled, duplicate UUID reported to the service log. The w
 
 Verify vCenter client is still connected to the service and able to communicate with the required endpoints.
 
-- dataReplicationError is UNSUPPORTED_VM_CONFIGURATION -
+- dataReplicationError is UNSUPPORTED\_VM\_CONFIGURATION -
 
 Try to delete all VMWare snapshots on the guest, and wait for the next iteration. This usually works around snapshotting and CBT issues
 
-- dataReplicationError is LAST_SNAPSHOT_JOB_FAILED
+- dataReplicationError is LAST\_SNAPSHOT\_JOB\_FAILED
 
 Check to see if the snapshots are successfully being created in vCenter. You can check this by choosing on the VM which is in the error state > Choosing Monitor tab > Tasks
 
@@ -36,7 +36,7 @@ Check the replication log which can be found at `/var/lib/aws-vcenter-client/act
 
 /var/lib/aws-vcenter-client/active/aws-vcenter-client-upgrader.log - This is the log for the upgrade process of the Agentless client software
 
-/var/lib/aws-vcenter-client/active/vcenter_commands_client.log - This is the main agentless client log that will show the log of the agentless discovery process, etc.
+/var/lib/aws-vcenter-client/active/vcenter\_commands\_client.log - This is the main agentless client log that will show the log of the agentless discovery process, etc.
 
 /_installation-directory_/aws-vcenter-client-installer.log - This log will show any issues with the installation process of the MGN agentless client. This will be located in the directory that you have executed the installer from.
 
