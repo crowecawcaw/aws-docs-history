@@ -232,7 +232,7 @@ Lambda function, and an API Lambda authorizer. You must assign the Lambda
          membership.
 
    5. In **Audience validation**, choose `Add
-value` and add a value that you want your policy store
+  value` and add a value that you want your policy store
       to accept in authorization requests.
    6. Choose **Next**.
 
@@ -278,12 +278,10 @@ To learn how to assign a Lambda authorizer, see [Use API Gateway Lambda authoriz
     7. **Save** your changes.
 
 12. Test your authorizer with a user pool token of the **Token
-    type** that you selected in the **Choose identity
-    source** step. For more information about user pool sign-in
-    and retrieving tokens, see [User pool authentication flow](../../../cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.md "../../../cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.md") in the _Amazon Cognito Developer Guide_.
-13. Test authentication again with a user pool token in the
-    `AUTHORIZATION` header of a request to your API.
-14. Examine your new policy store. Add and refine policies.
+type** that you selected in the **Choose identity
+source** step. For more information about user pool sign-in
+and retrieving tokens, see [User pool authentication flow](../../../cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.md "../../../cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.md") in the _Amazon Cognito Developer Guide_. 13. Test authentication again with a user pool token in the
+`AUTHORIZATION` header of a request to your API. 14. Examine your new policy store. Add and refine policies.
 
 Sample policy store
 

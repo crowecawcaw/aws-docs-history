@@ -3,19 +3,19 @@
 Before you use IAM to manage access to Verified Permissions, learn what IAM features are
 available to use with Verified Permissions.
 
-| IAM features you can use with Amazon Verified Permissions                                                                                                | IAM feature | Verified Permissions support |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------------- |
-| [Identity-based policies](#security-iam-service-with-iam-id-based-policies "#security-iam-service-with-iam-id-based-policies")                           | Yes         |
-| [Resource-based policies](#security-iam-service-with-iam-resource-based-policies "#security-iam-service-with-iam-resource-based-policies")               | No          |
-| [Policy actions](#security-iam-service-with-iam-id-based-policies-actions "#security-iam-service-with-iam-id-based-policies-actions")                    | Yes         |
-| [Policy resources](#security-iam-service-with-iam-id-based-policies-resources "#security-iam-service-with-iam-id-based-policies-resources")              | Yes         |
-| [Policy condition keys](#security-iam-service-with-iam-id-based-policies-conditionkeys "#security-iam-service-with-iam-id-based-policies-conditionkeys") | No          |
-| [ACLs](#security-iam-service-with-iam-acls "#security-iam-service-with-iam-acls")                                                                        | No          |
-| [ABAC (tags in<br>policies)](#security-iam-service-with-iam-tags "#security-iam-service-with-iam-tags")                                                  | Yes         |
-| [Temporary<br>credentials](#security-iam-service-with-iam-roles-tempcreds "#security-iam-service-with-iam-roles-tempcreds")                              | Yes         |
-| [Principal permissions](#security-iam-service-with-iam-principal-permissions "#security-iam-service-with-iam-principal-permissions")                     | Yes         |
-| [Service<br>roles](#security-iam-service-with-iam-roles-service "#security-iam-service-with-iam-roles-service")                                          | No          |
-| [Service-linked roles](#security-iam-service-with-iam-roles-service-linked "#security-iam-service-with-iam-roles-service-linked")                        | No          |
+IAM features you can use with Amazon Verified Permissions| IAM feature | Verified Permissions support |
+| --- | --- |
+| [Identity-based policies](#security-iam-service-with-iam-id-based-policies "#security-iam-service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#security-iam-service-with-iam-resource-based-policies "#security-iam-service-with-iam-resource-based-policies") | No |
+| [Policy actions](#security-iam-service-with-iam-id-based-policies-actions "#security-iam-service-with-iam-id-based-policies-actions") | Yes |
+| [Policy resources](#security-iam-service-with-iam-id-based-policies-resources "#security-iam-service-with-iam-id-based-policies-resources") | Yes |
+| [Policy condition keys](#security-iam-service-with-iam-id-based-policies-conditionkeys "#security-iam-service-with-iam-id-based-policies-conditionkeys") | No |
+| [ACLs](#security-iam-service-with-iam-acls "#security-iam-service-with-iam-acls") | No |
+| [ABAC (tags in<br>policies)](#security-iam-service-with-iam-tags "#security-iam-service-with-iam-tags") | Yes |
+| [Temporary<br>credentials](#security-iam-service-with-iam-roles-tempcreds "#security-iam-service-with-iam-roles-tempcreds") | Yes |
+| [Principal permissions](#security-iam-service-with-iam-principal-permissions "#security-iam-service-with-iam-principal-permissions") | Yes |
+| [Service<br>roles](#security-iam-service-with-iam-roles-service "#security-iam-service-with-iam-roles-service") | No |
+| [Service-linked roles](#security-iam-service-with-iam-roles-service-linked "#security-iam-service-with-iam-roles-service-linked") | No |
 
 To get a high-level view of how Verified Permissions and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the

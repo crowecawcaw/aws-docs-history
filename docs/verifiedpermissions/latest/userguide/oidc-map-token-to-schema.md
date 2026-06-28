@@ -214,7 +214,7 @@ formats:
 2. Space-delimited list: `"groups": "MyGroup1 MyGroup2 MyGroup3"`.
    Each string is a group.
 3. JSON (comma-delimited) list: `"groups": ["MyGroup1", "MyGroup2",
-"MyGroup3"]`
+ "MyGroup3"]`
 
 ###### Note
 

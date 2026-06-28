@@ -39,37 +39,34 @@ of the principals that the policy will apply to.
      to all principals in your policy store.
 
 6. In the **Resources scope** field, choose the scope of
-   the resources that the policy will apply to.
+the resources that the policy will apply to.
 
-   - Choose **Specific resources** to apply the
+    * Choose **Specific resources** to apply the
      policy to a specific resource. Specify the entity type and
      identifier for the resource that the policy should apply
      to.
-   - Choose **Group of resources** to apply the
+    * Choose **Group of resources** to apply the
      policy to a group of resources. Type the resource group name in
      the **Group of resources** field.
-   - Choose **All resources** to apply the policy
+    * Choose **All resources** to apply the policy
      to all resources in your policy store.
 
 7. In the **Actions scope** section, choose the scope of
-   the resources that the policy will apply to.
+the resources that the policy will apply to.
 
-   - Choose **Specific set of actions** to apply
+    * Choose **Specific set of actions** to apply
      the policy to a set of actions. Select the check boxes next to
      the actions to apply the policy.
-   - Choose **All actions** to apply the policy to
+    * Choose **All actions** to apply the policy to
      all actions in your policy store.
 
-8. Choose **Next**.
-9. In the **Policy** section, review your Cedar
-   policy. You can choose **Format** to format the syntax
-   of your policy with the recommended spacing and indentation. For more
-   information, see [Basic policy
-   construction in Cedar](https://docs.cedarpolicy.com/policies/syntax-policy.html "https://docs.cedarpolicy.com/policies/syntax-policy.html") in the
-   Cedar policy language Reference Guide.
-10. In the **Details** section, type an optional
-    description of the policy.
-11. Choose **Create policy**.
+8. Choose **Next**. 9. In the **Policy** section, review your Cedar
+policy. You can choose **Format** to format the syntax
+of your policy with the recommended spacing and indentation. For more
+information, see [Basic policy
+construction in Cedar](https://docs.cedarpolicy.com/policies/syntax-policy.html "https://docs.cedarpolicy.com/policies/syntax-policy.html") in the
+Cedar policy language Reference Guide. 10. In the **Details** section, type an optional
+description of the policy. 11. Choose **Create policy**.
 
 AWS CLI
 

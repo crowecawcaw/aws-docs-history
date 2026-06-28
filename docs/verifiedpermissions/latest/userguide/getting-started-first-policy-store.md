@@ -84,7 +84,7 @@ Alice, and only Alice, to manage this album.
 8. Choose **Next**.
 9. Under **Details**, for **Policy description -
    optional** enter `Policy allowing alice to update
-alice-favorites-album.`.
+ alice-favorites-album.`.
 10. Choose Create policy
 
 Now that you've created a policy you can test it in the Verified Permissions console.
@@ -129,12 +129,12 @@ you can test with the Verified Permissions test bench. The table includes the au
 decision based on the static policies included with the PhotoFlash sample policy store and the policy you
 created in step 2.
 
-| **Principal value**       | **Principal Account: Entity value** | **Resource value**           | **Resource parent value** | **Action**                 | **Authorization decision** |
-| ------------------------- | ----------------------------------- | ---------------------------- | ------------------------- | -------------------------- | -------------------------- | ---------------------------- | ------------------------------------- | ------------------------------------- | ----- |
-| \*_PhotoFlash::User_<br>• | bob                                 | \*_PhotoFlash::Account_<br>• | alice-account             | \*_PhotoFlash::Album_<br>• | <br>alice-favorites-album  | N/A                          | **PhotoFlash::Action::"UpdateAlbum"** | Deny                                  |
-| \*_PhotoFlash::User_<br>• | alice                               | \*_PhotoFlash::Account_<br>• | alice-account             | \*_PhotoFlash::Photo_<br>• | photo.jpeg                 | \*_PhotoFlash::Account_<br>• | bob-account                           | **PhotoFlash::Action::"ViewPhoto"**   | Deny  |
-| \*_PhotoFlash::User_<br>• | alice                               | \*_PhotoFlash::Account_<br>• | alice-account             | \*_PhotoFlash::Photo_<br>• | photo.jpeg                 | \*_PhotoFlash::Account_<br>• | alice-account                         | **PhotoFlash::Action::"ViewPhoto"**   | Allow |
-| \*_PhotoFlash::User_<br>• | alice                               | \*_PhotoFlash::Account_<br>• | alice-account             | \*_PhotoFlash::Photo_<br>• | bob-photo.jpeg             | \*_PhotoFlash::Album_<br>•   | Bob-Vacation-Album                    | **PhotoFlash::Action::"DeletePhoto"** | Deny  |
+| **Principal value**      | **Principal Account: Entity value** | **Resource value**          | **Resource parent value** | **Action**                | **Authorization decision** |
+| ------------------------ | ----------------------------------- | --------------------------- | ------------------------- | ------------------------- | -------------------------- |
+| *_PhotoFlash::User_<br>• | bob                                 | *_PhotoFlash::Account_<br>• | alice-account             | *_PhotoFlash::Album_<br>• | <br>alice-favorites-album  | N/A                         | **PhotoFlash::Action::"UpdateAlbum"** | Deny                                  |
+| *_PhotoFlash::User_<br>• | alice                               | *_PhotoFlash::Account_<br>• | alice-account             | *_PhotoFlash::Photo_<br>• | photo.jpeg                 | *_PhotoFlash::Account_<br>• | bob-account                           | **PhotoFlash::Action::"ViewPhoto"**   | Deny  |
+| *_PhotoFlash::User_<br>• | alice                               | *_PhotoFlash::Account_<br>• | alice-account             | *_PhotoFlash::Photo_<br>• | photo.jpeg                 | *_PhotoFlash::Account_<br>• | alice-account                         | **PhotoFlash::Action::"ViewPhoto"**   | Allow |
+| *_PhotoFlash::User_<br>• | alice                               | *_PhotoFlash::Account_<br>• | alice-account             | *_PhotoFlash::Photo_<br>• | bob-photo.jpeg             | *_PhotoFlash::Album_<br>•   | Bob-Vacation-Album                    | **PhotoFlash::Action::"DeletePhoto"** | Deny  |
 
 ## Step 4: Clean up resources
 

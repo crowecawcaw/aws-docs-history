@@ -225,7 +225,7 @@ Guide_.
 An Amazon Cognito access token is mapped to a context object when passed to Verified Permissions.
 Attributes of the access token can be referenced using
 `context.token.`attribute_name``. The
- following example access token includes both the `client_id`and
+following example access token includes both the `client_id` and
 `scope` claims.
 
 ```
