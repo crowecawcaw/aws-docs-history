@@ -552,9 +552,9 @@ that preserve business context and relationships before
 vectorization. Convert database records into comprehensive
 business narratives like "Customer AnyCompany (ID: 12345) is
 a technology company with $2.5M annual revenue, 150
-employees, primary contact Arnav Desai, managed by Diego
-Ramirez since 2019, Enterprise tier with 3 active
-opportunities totaling $450K." which are subsequently stored
+ employees, primary contact Arnav Desai, managed by Diego
+ Ramirez since 2019, Enterprise tier with 3 active
+ opportunities totaling $450K." which are subsequently stored
 as documents in S3 and then ingested through an unstructured
 document pipeline. This approach enables semantic search and
 cross-source synthesis but requires ETL processes and

@@ -31,8 +31,8 @@ previous version.
 
 Additionally, maintain versioned information on hyperparameter
 ranges for prompts. Prompt behavior can change drastically
-when tuning hyperparameters such as temperature, top_p, or
-top_k. Value ranges for these hyperparameters should be paired
+when tuning hyperparameters such as temperature, top\_p, or
+top\_k. Value ranges for these hyperparameters should be paired
 with and validated against prompt versions as part of the
 prompt engineering process.
 
