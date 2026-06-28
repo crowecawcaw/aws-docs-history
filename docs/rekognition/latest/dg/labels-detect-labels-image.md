@@ -537,7 +537,7 @@ The response from `DetectLabels` is an array of labels detected in the
 image and the level of confidence by which they were detected.
 
 The following is an example response from `DetectLabels`. The sample
-response below contains a variety of attributes returned for GENERAL_LABELS,
+response below contains a variety of attributes returned for GENERAL\_LABELS,
 including:
 
 - Name - The name of the detected label. In this example, the operation
@@ -556,8 +556,8 @@ location of the label on the input image. For example, the Person label has an
 instances array containing two bounding boxes. These are the locations of two people
 detected in the image.
 
-The response also includes attributes regarding IMAGE_PROPERTIES. The attributes
-presented by the IMAGE_PROPERTIES feature are:
+The response also includes attributes regarding IMAGE\_PROPERTIES. The attributes
+presented by the IMAGE\_PROPERTIES feature are:
 
 - Quality - Information about the Sharpness, Brightness, and Contrast of the
   input image, scored between 0 to 100. Quality is reported for the entire
@@ -572,7 +572,7 @@ presented by the IMAGE_PROPERTIES feature are:
 - Background - Information about the dominant Colors, Sharpness and
   Brightness of the input image’s background.
 
-When GENERAL_LABELS and IMAGE_PROPERTIES are used together as input parameters,
+When GENERAL\_LABELS and IMAGE\_PROPERTIES are used together as input parameters,
 Amazon Rekognition Image will also return the dominant colors of objects with bounding boxes.
 
 The field `LabelModelVersion` contains the version number of the

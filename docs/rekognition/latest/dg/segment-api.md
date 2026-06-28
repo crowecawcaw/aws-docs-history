@@ -49,7 +49,7 @@ cue segments (90%) and shot detection segments (80%).
 Use the `SegmentTypes` array input parameter to detect technical
 cue and/or shot detection segments in the input video.
 
-- TECHNICAL_CUE — identifies frame-accurate timestamps for the
+- TECHNICAL\_CUE — identifies frame-accurate timestamps for the
   start, end, and duration of technical cues (black frames, color bars,
   opening credits, end credits, studio logos, and primary program content)
   detected in a video. For example, you can use technical cues to find the
@@ -127,7 +127,7 @@ information.
 
 Technical cues and shot information detected in a video is returned in an
 array, `Segments`, of [SegmentDetection](../APIReference/API_SegmentDetection.md "../APIReference/API_SegmentDetection.md") objects.
-The array is sorted by the segment types (TECHNICAL_CUE or SHOT) specified in
+The array is sorted by the segment types (TECHNICAL\_CUE or SHOT) specified in
 the `SegmentTypes` input parameter of
 `StartSegmentDetection`. Within each segment type the array is
 sorted by timestamp values. Each `SegmentDetection` object includes

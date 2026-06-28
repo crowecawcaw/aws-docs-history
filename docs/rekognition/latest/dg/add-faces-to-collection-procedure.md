@@ -470,9 +470,9 @@ the image. For example, the following JSON response includes the default detecti
 attributes for faces detected in the input image. The example also shows faces not
 indexed because the value of the `MaxFaces` input parameter has been
 exceeded — the `Reasons` array contains
-_EXCEEDS_MAX_FACES_. If a face is not indexed for quality
+_EXCEEDS\_MAX\_FACES_. If a face is not indexed for quality
 reasons, `Reasons` contains values such as
-_LOW_SHARPNESS_ or _LOW_BRIGHTNESS_. For
+_LOW\_SHARPNESS_ or _LOW\_BRIGHTNESS_. For
 more information, see [UnindexedFace](../APIReference/API_UnindexedFace.md "../APIReference/API_UnindexedFace.md").
 
 ```

@@ -64,20 +64,20 @@ AWS secures its connections in the following ways:
 
 1. Calculating the request signature and then verifying the signature at the service side.
    Requests are
-   **_authenticated_**
+   _**authenticated**_
    using this signature.
 2. AWS customers are required to setup proper IAM roles to
-   **_authorize_**
+   _**authorize**_
    certain actions/operations. These IAM roles are needed to make calls to the AWS
    service.
 3. Only HTTPS requests to AWS service are allowed. Requests are encrypted in the open network
    using TLS. This protects the
-   **_confidentiality_** of the requests and maintains request **_integrity_**.
+   _**confidentiality**_ of the requests and maintains request _**integrity**_.
 4. AWS service logs sufficient data to identify calls made by customers. This prevents
-   **_repudiation_**
+   _**repudiation**_
    attacks.
 5. AWS service owns maintaining sufficient
-   **_availability_**
+   _**availability**_
    Customer is responsible for securing their service and API calls in the following ways:
 
 6. Customer must ensure that they follow a proper mechanism for authentication. There are

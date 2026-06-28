@@ -413,9 +413,7 @@ the bucket containing the input image you uploaded to Amazon S3. You’ll also n
 value of `file_name` with the name of the input file you uploaded to your Amazon S3
 bucket and the value of `key_name` with the key that you previously used to
 identify the input file. Finally, replace the value of `region` with the name of
-the region associated with your account. These values should match the ones provided in step
-
-1.
+the region associated with your account. These values should match the ones provided in step 1.
 
 The `AddDBEntry` stores the FaceId, ImageId, and Confidence values assigned to
 a face in a collection. Provide the function below with the values that you saved during Step

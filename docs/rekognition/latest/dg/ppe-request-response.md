@@ -98,16 +98,15 @@ In the JSON, note the following.
   Each [EquipmentDetection](../APIReference/API_EquipmentDetection.md "../APIReference/API_EquipmentDetection.md") object
   contains the following fields.
 
-      + `Type` – The type of the detected PPE.
-      + `BoundingBox` – a bounding box around the detected PPE.
-      + `Confidence` – The confidence Amazon Rekognition has that the bounding box contains the detected PPE.
-      + `CoversBodyPart` – Indicates if the detected PPE is on the corresponding body part.
-
-  The [CoversBodyPart](../APIReference/API_CoversBodyPart.md "../APIReference/API_CoversBodyPart.md") field `Value` is a boolean value that indicates if
-  the detected PPE is on the corresponding body part. The field `Confidence` indicates the confidence
-  in the prediction.
-  You can use `CoversBodyPart` to filter out cases where
-  the detected PPE is in the image, but not actually on the person.
+  - `Type` – The type of the detected PPE.
+  - `BoundingBox` – a bounding box around the detected PPE.
+  - `Confidence` – The confidence Amazon Rekognition has that the bounding box contains the detected PPE.
+  - `CoversBodyPart` – Indicates if the detected PPE is on the corresponding body part.
+    The [CoversBodyPart](../APIReference/API_CoversBodyPart.md "../APIReference/API_CoversBodyPart.md") field `Value` is a boolean value that indicates if
+    the detected PPE is on the corresponding body part. The field `Confidence` indicates the confidence
+    in the prediction.
+    You can use `CoversBodyPart` to filter out cases where
+    the detected PPE is in the image, but not actually on the person.
 
 ###### Note
 

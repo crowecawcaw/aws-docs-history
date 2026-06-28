@@ -52,7 +52,7 @@ the primary key. We'll also insert some sample data into the table.
 
 First, we'll create the DynamoDB table. Here's how to set it up using Python and Boto3. We
 create a function called `create_user_table` and connect to the DynamoDB resource within
-it. In the code sample below, replace the value of "region_name" with the name of the region
+it. In the code sample below, replace the value of "region\_name" with the name of the region
 your account operates in, then run the code cell to create your table.
 
 ```
@@ -168,7 +168,7 @@ address using Amazon SES. Finally, we use a logger to log info about the process
 
 Here's an outline of how a Lambda function might handle these requirements. In the following code
 sample, ensure that the correct DynamoDB table is specified, if you have used something other than CustomerDataTable
-as the name of your table. Additionally, in the "send_marketing_email" function, you should replace the
+as the name of your table. Additionally, in the "send\_marketing\_email" function, you should replace the
 value of the "Source" argument with an email address you have access to that will function as the sending email.
 
 ```
@@ -274,7 +274,7 @@ Lambda function using the AWS Management Console.
 
 Go to the Lambda service in the AWS Management Console. 7. Click "Create function." Choose "Author from scratch." 8. Enter a function name and select the Python runtime. Under "Change default execution
 role", select "Use an existing role" and then choose the IAM role you created earlier. 9. Now you have to create and update the code in the lambda function tab. Go the the tab
-called "lambda_function", and replace the code there with the proceeding Lambda code
+called "lambda\_function", and replace the code there with the proceeding Lambda code
 sample.
 
 Save the changes and deploy the changes. 10. Now you have to configure an Amazon S3 Event as the Lambda Trigger.
@@ -302,7 +302,7 @@ both the sender and recipient. To do this:
 Now we can upload a test image to our chosen Amazon S3 bucket using the AWS Console or the
 script we prepared earlier. Write a script that uploads an image to the Amazon S3 bucket you
 previously specified in your Lambda function. In the code sample below, specify the path
-of your image as the first argument to "upload_image_to_s3", the bucket name as the
+of your image as the first argument to "upload\_image\_to\_s3", the bucket name as the
 second argument, and the account number of the user uploading the image as the final
 argument.
 
@@ -345,7 +345,7 @@ previously associated with the account specified here.
 
 Check the CloudWatch logs for your Lambda function to see if it was triggered and executed as
 expected. Logs can be found under CloudWatch > Logs > Log groups >
-/AWS/lambda/your_function_name. You can also write a script to access and print the
+/AWS/lambda/your\_function\_name. You can also write a script to access and print the
 logs. The following code sample polls the Lambda group for logs, printing out the logs
 that were generated in the last hour. Save and run the code.
 

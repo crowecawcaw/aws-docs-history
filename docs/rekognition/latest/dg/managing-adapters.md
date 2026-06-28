@@ -34,9 +34,9 @@ Adapters cannot be copied. Only Rekognition Custom Labels project versions can b
 Custom Moderation adapter (project versions) can be in one of the following
 statuses:
 
-- TRAINING_IN_PROGRESS - The adapter is in the process of training on the files you provided as training documents.
-- TRAINING_COMPLETED - The adapter has successfully completed training and is ready for you to review its performance.
-- TRAINING_FAILED - The adapter has failed to complete its training for some reason, review the output manifest file
+- TRAINING\_IN\_PROGRESS - The adapter is in the process of training on the files you provided as training documents.
+- TRAINING\_COMPLETED - The adapter has successfully completed training and is ready for you to review its performance.
+- TRAINING\_FAILED - The adapter has failed to complete its training for some reason, review the output manifest file
   and output manifest summary for information on the cause of the failure.
 - DELETING - The adapter is in the process of being deleted.
 - DEPRECATED - The adapter was trained on an older version of the Content Moderation base model.

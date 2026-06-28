@@ -186,12 +186,11 @@ correctly.
 aws kinesisvideo list-streams
 ```
 
-2.  If the stream exists, check the following.
+2. If the stream exists, check the following.
 
-        * The Amazon Resource Name (ARN) is same as the ARN of the input stream for the stream processor.
-        * The Kinesis video stream is in the same Region as the stream processor.
-
-    If the stream processor isn't configured correctly, delete it with the following AWS CLI command.
+   - The Amazon Resource Name (ARN) is same as the ARN of the input stream for the stream processor.
+   - The Kinesis video stream is in the same Region as the stream processor.
+     If the stream processor isn't configured correctly, delete it with the following AWS CLI command.
 
 ```
 aws rekognition delete-stream-processor --name `stream-processor-name`

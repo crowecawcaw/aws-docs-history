@@ -22,10 +22,10 @@ name are specified, along with `MinConfidence`, `Features`,
 must have in the accuracy of the detected label, or an instance bounding box (if
 detected), for it to be returned in the response.
 
-With `Features` , you can specify that you want GENERAL_LABELS returned
+With `Features` , you can specify that you want GENERAL\_LABELS returned
 as part of the response.
 
-With `Settings`, you can filter the returned items for GENERAL_LABELS.
+With `Settings`, you can filter the returned items for GENERAL\_LABELS.
 For labels you can use inclusive and exclusive filters. You can also filter by label
 specific, individual labels or by label category:
 

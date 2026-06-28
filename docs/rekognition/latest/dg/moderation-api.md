@@ -143,7 +143,7 @@ over a time window. Only labels detected during the segments are returned.
 ## Custom Moderation adapter statuses
 
 Custom Moderation adapters can be in one of the following statuses:
-TRAINING_IN_PROGRESS, TRAINING_COMPLETED, TRAINING_FAILED, DELETING, DEPRECATED, or
+TRAINING\_IN\_PROGRESS, TRAINING\_COMPLETED, TRAINING\_FAILED, DELETING, DEPRECATED, or
 EXPIRED. For a full explanation of these adapter statuses, see [Managing adapters](managing-adapters.md "managing-adapters.md").
 
 ###### Note

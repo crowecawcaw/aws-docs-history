@@ -52,9 +52,10 @@ different people are the same person (false alarm/false positive).
   use cases and confidence thresholds:
 - - **Photo Applications**: A lower threshold
     (e.g., 80%) might suffice for identifying family members in
-    photos. + **High-Stakes Scenarios**: In use cases
-    where the risk of missed detection or false alarm is higher, such as
-    security applications, the system should use a higher confidence level.
-    In such cases, a higher threshold (e.g., 99%) is recommended for
-    accurate facial matches.
-    For more information on setting and understanding confidence thresholds, see [Searching faces in a collection](collections.md "collections.md").
+    photos.
+    - **High-Stakes Scenarios**: In use cases
+      where the risk of missed detection or false alarm is higher, such as
+      security applications, the system should use a higher confidence level.
+      In such cases, a higher threshold (e.g., 99%) is recommended for
+      accurate facial matches.
+      For more information on setting and understanding confidence thresholds, see [Searching faces in a collection](collections.md "collections.md").

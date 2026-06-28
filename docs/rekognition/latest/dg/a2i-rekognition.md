@@ -136,7 +136,7 @@ The following examples show how to use the AWS CLI and AWS SDK for Python (Boto3
 `DetectModerationLabels` with `HumanLoopConfig` set.
 
 AWS SDK for Python (Boto3)
-The following request example uses the SDK for Python (Boto3). For more information, see [detect_moderation_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels") in
+The following request example uses the SDK for Python (Boto3). For more information, see [detect\_moderation\_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels") in
 the
 _AWS SDK for Python (Boto) API Reference_.
 

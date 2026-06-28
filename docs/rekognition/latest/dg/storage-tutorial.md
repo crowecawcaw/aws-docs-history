@@ -56,7 +56,7 @@ which is also in the function.
    After connecting to the Amazon S3 bucket, you retrieve images from the bucket by using the Object method. By making use of Matplotlib,
    you can use this connection to visualize your images as they process. Boto3 is also used to connect to the Rekognition client.
 
-In the following code, provide your region to the region_name parameter. You will pass the Amazon S3 bucket name and the image name to
+In the following code, provide your region to the region\_name parameter. You will pass the Amazon S3 bucket name and the image name to
 [DetectLabels](../APIReference/API_DetectLabels.md "../APIReference/API_DetectLabels.md") , which returns the labels for the corresponding image. After selecting just the labels from the
 response, both the name of the image and the labels are returned.
 
@@ -97,7 +97,7 @@ def read_image_from_s3(bucket_name, image_name):
     return file_name, full_labels
 ```
 
-3. Save this code in a file called get_images.py.
+3. Save this code in a file called get\_images.py.
 
 ## Creating an Amazon DynamoDB Table
 

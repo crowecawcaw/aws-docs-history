@@ -60,15 +60,15 @@ aws_access_key_id = your_access_key_id
 aws_secret_access_key = your_secret_access_key
 ```
 
-Substitute your access key ID and secret access key for _your_access_key_id_
-and _your_secret_access_key_. 7. Save the `Credentials` file and delete the CSV file. 8. In the `.aws` directory, create a new file named `config`. 9. Open the `config` file and enter your region in the following format.
+Substitute your access key ID and secret access key for _your\_access\_key\_id_
+and _your\_secret\_access\_key_. 7. Save the `Credentials` file and delete the CSV file. 8. In the `.aws` directory, create a new file named `config`. 9. Open the `config` file and enter your region in the following format.
 
 ```
 [default]
 region = your_aws_region
 ```
 
-Substitute your desired AWS Region (for example, `us-west-2`) for _your_aws_region_.
+Substitute your desired AWS Region (for example, `us-west-2`) for _your\_aws\_region_.
 
 ###### Note
 

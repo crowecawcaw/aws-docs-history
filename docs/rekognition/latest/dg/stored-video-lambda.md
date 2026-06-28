@@ -286,7 +286,7 @@ public class JobCompletionHandler implements RequestHandler<SNSEvent, String> {
 
    - Pause your mouse over the underlined portion of the line
      `import
-com.amazonaws.services.rekognition.AmazonRekognition;`.
+  com.amazonaws.services.rekognition.AmazonRekognition;`.
    - Choose **Fix project set up...** .
    - Choose the latest version of the Amazon Rekognition archive.
    - Choose **OK** to add the archive to the
@@ -343,7 +343,7 @@ Update the following values:
     * Change `Region` to the AWS Region that you are using.
 
 3. Note the value of `JobId` in the response. The response looks
-   similar to the following JSON example.
+similar to the following JSON example.
 
 ```
 {

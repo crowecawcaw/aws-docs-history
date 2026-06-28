@@ -26,35 +26,32 @@ following:
   permissions are securely scoped to the resources you are using. Carry out the
   following steps:
 
-      + Get the user Amazon Resource Name (ARN):
+  - Get the user Amazon Resource Name (ARN):
 
+  ```
+  aws sts get-caller-identity --profile `RekognitionUser`
+  ```
+  - Add the user ARN to the role trust relationship. For more information,
+    see [Modifying a role](../../../IAM/latest/UserGuide/id_roles_manage_modify.md "../../../IAM/latest/UserGuide/id_roles_manage_modify.md"). The following example trust policy
+    specifies the user's role credentials and restricts the service
+    role's permissions to just the resources you are using (for more
+    information on securely limiting the scope of a service role's
+    permissions, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")):
+  - Assume the role: `aws sts assume-role --role-arn
+   arn:`Role ARN`--role-session-name
+  `SessionName` --profile
+   RekognitionUser`
+  - Publish to the Amazon SNS topic: `aws sns publish --topic-arn
+   arn:`Topic ARN` --message "Hello
+   World!" --region us-east-1 --profile
+   RekognitionUser`
+    If the AWS CLI command works, you receive the message (in your email
+    inbox, if you've subscribed to the topic by email). If you don't receive the
+    message:
 
-
-      ```
-      aws sts get-caller-identity --profile `RekognitionUser`
-      ```
-      + Add the user ARN to the role trust relationship. For more information,
-       see [Modifying a role](../../../IAM/latest/UserGuide/id_roles_manage_modify.md "../../../IAM/latest/UserGuide/id_roles_manage_modify.md"). The following example trust policy
-       specifies the user's role credentials and restricts the service
-       role's permissions to just the resources you are using (for more
-       information on securely limiting the scope of a service role's
-       permissions, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")):
-      + Assume the role: `aws sts assume-role --role-arn
-       arn:`Role ARN` --role-session-name
-       `SessionName` --profile
-       RekognitionUser`
-      + Publish to the Amazon SNS topic: `aws sns publish --topic-arn
-       arn:`Topic ARN` --message "Hello
-       World!" --region us-east-1 --profile
-       RekognitionUser`
-
-  If the AWS CLI command works, you receive the message (in your email
-  inbox, if you've subscribed to the topic by email). If you don't receive the
-  message:
-
-      + Check that you've configured Amazon Rekognition Video. For more information, see
-       [Configuring Amazon Rekognition Video](api-video-roles.md "api-video-roles.md").
-      + Check the other tips for this troubleshooting question.
+  - Check that you've configured Amazon Rekognition Video. For more information, see
+    [Configuring Amazon Rekognition Video](api-video-roles.md "api-video-roles.md").
+  - Check the other tips for this troubleshooting question.
 
 - Check that you're using the correct Amazon SNS topic:
 

@@ -19,23 +19,22 @@ by the up-sampling of the image).
 - Camera Angle – There are three measurements for camera
   angle—pitch, roll, and yaw.
 
-      + Pitch – We recommend a pitch of less than 30 degrees when the
-       camera is facing down and less than 45 degrees when the camera is facing
-       up.
-      + Roll – There isn’t a minimum requirement for this parameter.
-       Amazon Rekognition can handle any amount of roll.
-      + Yaw – We recommend a yaw of less than 45 degrees in either
-       direction.
-
-  The face angle along any axis that is captured by the camera is a combination
-  of both the camera angle facing the scene and the angle at which the subject’s
-  head is in the scene. For example, if the camera is 30 degrees facing down and
-  the person has their head down a further 30 degrees, the actual face pitch as
-  seen by the camera is 60 degrees. In this case, Amazon Rekognition would not be able to
-  recognize the face. We recommend setting up cameras such that the camera angles
-  are based on the assumption that people are generally looking into the camera
-  with the overall pitch (combination of face and camera) at 30 degrees or
-  less.
+  - Pitch – We recommend a pitch of less than 30 degrees when the
+    camera is facing down and less than 45 degrees when the camera is facing
+    up.
+  - Roll – There isn’t a minimum requirement for this parameter.
+    Amazon Rekognition can handle any amount of roll.
+  - Yaw – We recommend a yaw of less than 45 degrees in either
+    direction.
+    The face angle along any axis that is captured by the camera is a combination
+    of both the camera angle facing the scene and the angle at which the subject’s
+    head is in the scene. For example, if the camera is 30 degrees facing down and
+    the person has their head down a further 30 degrees, the actual face pitch as
+    seen by the camera is 60 degrees. In this case, Amazon Rekognition would not be able to
+    recognize the face. We recommend setting up cameras such that the camera angles
+    are based on the assumption that people are generally looking into the camera
+    with the overall pitch (combination of face and camera) at 30 degrees or
+    less.
 
 - Camera Zoom – The recommended minimum face resolution of 50 x 50 pixels
   should drive this camera setting. We recommend using the zoom setting of a

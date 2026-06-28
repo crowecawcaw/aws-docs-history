@@ -20,7 +20,7 @@ components:
 - An HTTP status code (such as `400`).
 - An exception name (such as `InvalidS3ObjectException`).
 - An error message (such as `Unable to get object metadata from S3.
-Check object key, region and/or access permissions.`).
+ Check object key, region and/or access permissions.`).
 
 The AWS SDKs take care of propagating errors to your application, so that you can take
 appropriate action. For example, in a Java program, you can write `try-catch`
@@ -144,7 +144,7 @@ OK to retry? No
 Messages:
 
 - _Stream processor limit exceeded for account, limit - <Current
-  Limit>._
+   Limit>._
 - _<Number of Open Jobs> open Jobs for User <User ARN> Maximum limit:
   <Maximum Limit>_
 
