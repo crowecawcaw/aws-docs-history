@@ -42,7 +42,7 @@ calculations in your code. Before you review the examples, note the following:
 | `AWSSecretAccessKey` | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` |
 
 - All examples use the request timestamp 20130524T000000Z (`Fri, 24 May 2013 00:00:00
-GMT`).
+ GMT`).
 - All examples use `examplebucket` as the bucket name.
 - The bucket is assumed to be in the
   US East (N. Virginia) Region, and the credential `Scope` and the
@@ -114,7 +114,7 @@ The following steps show signature calculations.
    are no query parameters in the request. The last line is the
    constant string provided as the value of the hashed Payload, which
    should be same as the value of `x-amz-content-sha256
- header`. 2. ###### StringToSign
+  header`. 2. ###### StringToSign
 
    ```
    AWS4-HMAC-SHA256
@@ -148,112 +148,114 @@ The resulting Authorization header is as follows:
 AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20130524/us-east-1/s3/aws4_request,SignedHeaders=content-encoding;content-length;host;x-amz-content-sha256;x-amz-date;x-amz-decoded-content-length;x-amz-storage-class,Signature=106e2a8a18243abcf37539882f36619c00e2dfc72633413f02d3b74544bfeb8e
 ```
 
-5.  ###### Chunk 1: (65536 bytes, with value 97 for letter 'a')
-    1. Chunk string to sign:
+5. ###### Chunk 1: (65536 bytes, with value 97 for letter 'a')
+   1. Chunk string to sign:
 
-    ```
-    AWS4-HMAC-SHA256-PAYLOAD
-    20130524T000000Z
-    20130524/us-east-1/s3/aws4_request
-    106e2a8a18243abcf37539882f36619c00e2dfc72633413f02d3b74544bfeb8e
-    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-    bf718b6f653bebc184e1479f1935b8da974d701b893afcf49e701f3e2f9f9c5a
-    ```
+   ```
+   AWS4-HMAC-SHA256-PAYLOAD
+   20130524T000000Z
+   20130524/us-east-1/s3/aws4_request
+   106e2a8a18243abcf37539882f36619c00e2dfc72633413f02d3b74544bfeb8e
+   e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+   bf718b6f653bebc184e1479f1935b8da974d701b893afcf49e701f3e2f9f9c5a
+   ```
 
-    ###### Note
+   ###### Note
 
-    For information about each line in the string to sign, see the diagram in the preceding topic ([Calculating the Seed Signature](sigv4-streaming.md#sigv4-chunked-upload-sig-calculation-chunk0 "sigv4-streaming.md#sigv4-chunked-upload-sig-calculation-chunk0")) that shows various components of the string to
-    sign. For example, the last three lines consist of the following:
+   For information about each line in the string to sign, see the diagram in the preceding topic ([Calculating the Seed Signature](sigv4-streaming.md#sigv4-chunked-upload-sig-calculation-chunk0 "sigv4-streaming.md#sigv4-chunked-upload-sig-calculation-chunk0")) that shows various components of the string to
+   sign. For example, the last three lines consist of the following:
 
         * `previous-signature`
         * `hash("")`
         * `hash(`current-chunk-data`)`
-    2. Chunk signature:
 
-    ```
-    b474d8862b1487a5145d686f57f013e54db672cee1c953b3010fb58501ef5aa2
-    ```
-    3. Chunk data sent:
+   2. Chunk signature:
 
-    ```
-    10000;chunk-signature=b474d8862b1487a5145d686f57f013e54db672cee1c953b3010fb58501ef5aa2
-    <65536-bytes>
-    ```
+   ```
+   b474d8862b1487a5145d686f57f013e54db672cee1c953b3010fb58501ef5aa2
+   ```
+   3. Chunk data sent:
 
-6.  ###### Chunk 2: (1024 bytes, with value 97 for letter 'a')
-    1. Chunk string to sign:
+   ```
+   10000;chunk-signature=b474d8862b1487a5145d686f57f013e54db672cee1c953b3010fb58501ef5aa2
+   <65536-bytes>
+   ```
 
-    ```
-    AWS4-HMAC-SHA256-PAYLOAD
-    20130524T000000Z
-    20130524/us-east-1/s3/aws4_request
-    b474d8862b1487a5145d686f57f013e54db672cee1c953b3010fb58501ef5aa2
-    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-    2edc986847e209b4016e141a6dc8716d3207350f416969382d431539bf292e4a
-    ```
-    2. Chunk signature:
+6. ###### Chunk 2: (1024 bytes, with value 97 for letter 'a')
+   1. Chunk string to sign:
 
-    ```
-    1c1344b170168f8e65b41376b44b20fe354e373826ccbbe2c1d40a8cae51e5c7
-    ```
-    3. Chunk data sent:
+   ```
+   AWS4-HMAC-SHA256-PAYLOAD
+   20130524T000000Z
+   20130524/us-east-1/s3/aws4_request
+   b474d8862b1487a5145d686f57f013e54db672cee1c953b3010fb58501ef5aa2
+   e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+   2edc986847e209b4016e141a6dc8716d3207350f416969382d431539bf292e4a
+   ```
+   2. Chunk signature:
 
-    ```
-    400;chunk-signature=1c1344b170168f8e65b41376b44b20fe354e373826ccbbe2c1d40a8cae51e5c7
-    <1024-bytes>
-    ```
+   ```
+   1c1344b170168f8e65b41376b44b20fe354e373826ccbbe2c1d40a8cae51e5c7
+   ```
+   3. Chunk data sent:
 
-7.  ###### Chunk 3: (0 byte data)
-    1. Chunk string to sign:
+   ```
+   400;chunk-signature=1c1344b170168f8e65b41376b44b20fe354e373826ccbbe2c1d40a8cae51e5c7
+   <1024-bytes>
+   ```
 
-    ```
-    AWS4-HMAC-SHA256-PAYLOAD
-    20130524T000000Z
-    20130524/us-east-1/s3/aws4_request
-    1c1344b170168f8e65b41376b44b20fe354e373826ccbbe2c1d40a8cae51e5c7
-    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-    ```
-    2. Chunk signature:
+7. ###### Chunk 3: (0 byte data)
+   1. Chunk string to sign:
 
-    ```
-    2ca2aba2005185cf7159c6277faf83795951dd77a3a99e6e65d5c9f85863f992
-    ```
-    3. Chunk data sent:
+   ```
+   AWS4-HMAC-SHA256-PAYLOAD
+   20130524T000000Z
+   20130524/us-east-1/s3/aws4_request
+   1c1344b170168f8e65b41376b44b20fe354e373826ccbbe2c1d40a8cae51e5c7
+   e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+   e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+   ```
+   2. Chunk signature:
 
-    ```
-    0;chunk-signature=2ca2aba2005185cf7159c6277faf83795951dd77a3a99e6e65d5c9f85863f992
-    ```
+   ```
+   2ca2aba2005185cf7159c6277faf83795951dd77a3a99e6e65d5c9f85863f992
+   ```
+   3. Chunk data sent:
 
-8.  ###### Chunk 4: Trailing headers
-    1. Trailer chunk string to sign:
+   ```
+   0;chunk-signature=2ca2aba2005185cf7159c6277faf83795951dd77a3a99e6e65d5c9f85863f992
+   ```
 
-    ```
-    AWS4-HMAC-SHA256-TRAILER
-    20130524T000000Z
-    20130524/us-east-1/s3/aws4_request
-    2ca2aba2005185cf7159c6277faf83795951dd77a3a99e6e65d5c9f85863f992
-    1e376db7e1a34a8ef1c4bcee131a2d60a1cb62503747488624e10995f448d774
-    ```
+8. ###### Chunk 4: Trailing headers
+   1. Trailer chunk string to sign:
 
-    ###### Note
+   ```
+   AWS4-HMAC-SHA256-TRAILER
+   20130524T000000Z
+   20130524/us-east-1/s3/aws4_request
+   2ca2aba2005185cf7159c6277faf83795951dd77a3a99e6e65d5c9f85863f992
+   1e376db7e1a34a8ef1c4bcee131a2d60a1cb62503747488624e10995f448d774
+   ```
 
-    The last two lines are `previous-signature` (the 0 byte data chunk signature), `hash`(`trailing-checksum-header-name`:`base64-encoded-trailing-checksum-value`\n).
+   ###### Note
 
-    The hash is calculated as follows with no whitespace:
+   The last two lines are `previous-signature` (the 0 byte data chunk signature), `hash`(`trailing-checksum-header-name`:`base64-encoded-trailing-checksum-value`\n).
+
+   The hash is calculated as follows with no whitespace:
 
         * The trailing checksum header name
         * A colon (`:`)
         * The base64-encoded trailing checksum value
         * A newline character (`\n`).In this example, where we are using the `crc32c` hash algorithm, with the base64-encoded checksum value `sOO8/Q==`, we can represent the computation as follows: `hash('x-amz-checksum-crc32c:sOO8/Q==\n')`.
-    2. Chunk signature:
 
-    ```
-    d81f82fc3505edab99d459891051a732e8730629a2e4a59689829ca17fe2e435
-    ```
-    3. Chunk data sent:
+   2. Chunk signature:
 
-    ```
-    x-amz-checksum-crc32c:sOO8/Q==
-    x-amz-trailer-signature:d81f82fc3505edab99d459891051a732e8730629a2e4a59689829ca17fe2e435
-    ```
+   ```
+   d81f82fc3505edab99d459891051a732e8730629a2e4a59689829ca17fe2e435
+   ```
+   3. Chunk data sent:
+
+   ```
+   x-amz-checksum-crc32c:sOO8/Q==
+   x-amz-trailer-signature:d81f82fc3505edab99d459891051a732e8730629a2e4a59689829ca17fe2e435
+   ```

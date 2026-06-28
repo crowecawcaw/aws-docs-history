@@ -42,28 +42,25 @@ payload. S3 supports the following options:
   – In this case, you have the following signature
   calculation options:
 
-      + **Signed payload option** – You can
-       optionally compute the entire payload checksum and
-       include it in signature calculation. This provides added
-       security but you need to read your payload twice or
-       buffer it in memory.
+  - **Signed payload option** – You can
+    optionally compute the entire payload checksum and
+    include it in signature calculation. This provides added
+    security but you need to read your payload twice or
+    buffer it in memory.
 
+  For example, in order to upload a file, you need to read the file first to
+  compute a payload hash for signature calculation and again
+  for transmission when you create the request. For smaller
+  payloads, this approach might be preferable. However, for
+  large files, reading the file twice can be inefficient,
+  so you might want to upload data in chunks instead.
 
-      For example, in order to upload a file, you need to read the file first to
-       compute a payload hash for signature calculation and again
-       for transmission when you create the request. For smaller
-       payloads, this approach might be preferable. However, for
-       large files, reading the file twice can be inefficient,
-       so you might want to upload data in chunks instead.
-
-
-      We recommend you include payload checksum for added
-       security.
-      + **Unsigned payload option** –
-       Do not include payload checksum in signature calculation.
-
-  For step-by-step instructions to calculate signature and construct the Authorization
-  header value, see [Signature Calculations for the Authorization Header: Transferring Payload in a Single Chunk (AWS Signature Version 4)](sig-v4-header-based-auth.md "sig-v4-header-based-auth.md").
+  We recommend you include payload checksum for added
+  security.
+  - **Unsigned payload option** –
+    Do not include payload checksum in signature calculation.
+    For step-by-step instructions to calculate signature and construct the Authorization
+    header value, see [Signature Calculations for the Authorization Header: Transferring Payload in a Single Chunk (AWS Signature Version 4)](sig-v4-header-based-auth.md "sig-v4-header-based-auth.md").
 
 - Transfer payload in multiple chunks (chunked upload) –
   In this case you transfer payload

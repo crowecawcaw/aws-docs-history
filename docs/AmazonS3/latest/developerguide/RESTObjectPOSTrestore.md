@@ -84,12 +84,12 @@ The following are additional important facts about the select feature:
 - You can issue more than one select request on the same Amazon S3 object. Amazon S3 doesn't
   deduplicate requests, so avoid issuing duplicate requests.
 - Amazon S3 accepts a select request even if the object has already been restored. A select
-  request doesn’t return error response `409`.
+  request doesn't return error response `409`.
 
 ## Restoring Archives
 
 Objects in the GLACIER
-and DEEP_ARCHIVE
+and DEEP\_ARCHIVE
 storage
 classes
 are archived. To access an archived object, you must first initiate a restore request.
@@ -99,7 +99,7 @@ copy of the archived object.
 In
 a restore request, you specify the number of days that you want the restored copy to
 exist. After the specified period, Amazon S3 deletes the temporary copy but the object
-remains archived in the GLACIER or DEEP_ARCHIVE storage class that object was restored
+remains archived in the GLACIER or DEEP\_ARCHIVE storage class that object was restored
 from.
 
 To restore a specific object version, you can provide a version ID. If you don't
@@ -122,21 +122,21 @@ body:
   are typically made available within 1–5 minutes. Provisioned capacity ensures
   that retrieval capacity for Expedited retrievals is available when you need it.
   Expedited retrievals and provisioned capacity are not available for the
-  DEEP_ARCHIVE storage class.
+  DEEP\_ARCHIVE storage class.
 - **`Standard`** - Standard retrievals
   allow you to access any of your archived objects within several hours. This is
-  the default option for the GLACIER and DEEP_ARCHIVE retrieval requests that do
+  the default option for the GLACIER and DEEP\_ARCHIVE retrieval requests that do
   not specify the retrieval option.
   Standard
   retrievals typically complete within 3-5 hours from the GLACIER storage class
-  and typically complete within 12 hours from the DEEP_ARCHIVE storage
+  and typically complete within 12 hours from the DEEP\_ARCHIVE storage
   class.
 - **`Bulk`** - Bulk retrievals are
-  Amazon Glacier’s lowest-cost retrieval option, enabling you to retrieve large amounts,
+  Amazon Glacier's lowest-cost retrieval option, enabling you to retrieve large amounts,
   even petabytes, of data inexpensively in a day.
   Bulk
   retrievals typically complete within 5-12 hours from the GLACIER storage class
-  and typically complete within 48 hours from the DEEP_ARCHIVE storage
+  and typically complete within 48 hours from the DEEP\_ARCHIVE storage
   class.
 
 For more information about archive retrieval options and provisioned capacity for
@@ -220,7 +220,7 @@ The following is an XML example of a request body for restoring an archive.
 The following table explains the XML for archive restoration in the request body.
 
 | Name                   | Description                                                                                                                                                                                                                                                                                                                                                                                                      | Required                     |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------------------------------------------- | --- |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `RestoreRequest`       | Container for restore information.<br>Type: Container                                                                                                                                                                                                                                                                                                                                                            | Yes                          |
 | `Days`                 | Lifetime of the restored (active) copy. The minimum number of days that you can<br>restore an object from Amazon Glacier is 1. After the object copy reaches<br>the specified lifetime, Amazon S3 removes it from the bucket. If you<br>are restoring an archive, this element is required.<br>Do not use this element with a `SELECT` type of request.<br>Type: Positive integer<br>Ancestors: `RestoreRequest` | Yes, if restoring an archive |
 | `GlacierJobParameters` | Container for S3 Glacier storage class job parameters.<br>Do not use this element with a `SELECT` type of request.<br>Type: Container<br>Ancestors: `RestoreRequest`                                                                                                                                                                                                                                             | No                           |
@@ -300,76 +300,76 @@ The following tables explain the XML for a `SELECT` type of restoration in the
 request body.
 
 | Name               | Description                                                                                                                                     | Required                         |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------------------------------------- | --- |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | `RestoreRequest`   | Container for restore information.<br>Type: Container                                                                                           | Yes                              |
 | `Tier`             | The data access tier to use when restoring the archive. `Standard` is the<br>default.<br>Type: Enum<br>Valid values: `Expedited`                | `Standard`                       | <br>`Bulk`<br>Ancestors: `RestoreRequest` | No  |
 | `Description`      | The optional description for the request.<br>Type: String<br>Ancestors: `RestoreRequest`                                                        | No                               |
 | `SelectParameters` | Describes the parameters for the select job request.<br>Type: Container<br>Ancestors: `RestoreRequest`                                          | Yes, if request type is `SELECT` |
 | `OutputLocation`   | Describes the location that receives the results of the select restore request.<br>Type: Container for Amazon S3<br>Ancestors: `RestoreRequest` | Yes, if request type is `SELECT` |
 
-| The `SelectParameters` container element contains the following elements. | Name                                                                                                                                                                                                                                                                                                                                  | Description | Required |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------- |
-| `Expression`                                                              | The SQL expression. For example:<br>• The following SQL expression retrieves the first column of the data from the object<br>stored in CSV format:<br>`SELECT s._1 FROM Object s`<br>• The following SQL expression returns everything from the object:<br>`SELECT<br>• FROM Object`<br>Type: String<br>Ancestors: `SelectParameters` | Yes         |
-| `ExpressionType`                                                          | Identifies the expression type.<br>Type: String<br>Valid values: `SQL`<br>Ancestors: `SelectParameters`                                                                                                                                                                                                                               | Yes         |
-| `InputSerialization`                                                      | Describes the serialization format of the object.<br>Type: Container for CSV<br>Ancestors: `SelectParameters`                                                                                                                                                                                                                         | Yes         |
-| `OutputSerialization`                                                     | Describes how the results of the select job are serialized.<br>Type: Container for CSV<br>Ancestors: `SelectParameters`                                                                                                                                                                                                               | Yes         |
+The `SelectParameters` container element contains the following elements.| Name | Description | Required |
+| --- | --- | --- |
+| `Expression` | The SQL expression. For example:<br>• The following SQL expression retrieves the first column of the data from the object<br>stored in CSV format:<br>`SELECT s._1 FROM Object s`<br>• The following SQL expression returns everything from the object:<br>`SELECT<br>• FROM Object`<br>Type: String<br>Ancestors: `SelectParameters` | Yes |
+| `ExpressionType` | Identifies the expression type.<br>Type: String<br>Valid values: `SQL`<br>Ancestors: `SelectParameters` | Yes |
+| `InputSerialization` | Describes the serialization format of the object.<br>Type: Container for CSV<br>Ancestors: `SelectParameters` | Yes |
+| `OutputSerialization` | Describes how the results of the select job are serialized.<br>Type: Container for CSV<br>Ancestors: `SelectParameters` | Yes |
 
-| The CSV container element in the `InputSerialization` element contains the following elements. | Name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Description | Required                    |
-| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------------- | --- |
-| `RecordDelimiter`                                                                              | A single character used to separate individual records in the input. Instead of the<br>default value, you can specify an arbitrary delimiter.<br>Type: String<br>Default: `\n`<br>Ancestors: `CSV`                                                                                                                                                                                                                                                                                                                                           | No          |
-| `FieldDelimiter`                                                                               | A single character used to separate individual fields in a record. You can specify an<br>arbitrary delimiter.<br>Type: String<br>Default: `,`<br>Ancestors: `CSV`                                                                                                                                                                                                                                                                                                                                                                            | No          |
-| `QuoteCharacter`                                                                               | A single character used for escaping when the field delimiter is part of the<br>value.<br>Consider this example in a CSV file:<br>`"a, b"`<br>Wrapping the value in quotation marks makes this value a single field. If you don't<br>use the quotation marks, the comma is a field delimiter (which<br>makes it two separate field values, a and b).<br>Type: String<br>Default: `"`<br>Ancestors: `CSV`                                                                                                                                     | No          |
-| `QuoteEscapeCharacter`                                                                         | A single character used for escaping the quotation mark character inside an already<br>escaped value. For example, the value `""" a , b """`<br>is parsed as `" a , b "`.<br>Type: String<br>Default: `"`<br>Ancestors: `CSV`                                                                                                                                                                                                                                                                                                                | No          |
-| `FileHeaderInfo`                                                                               | Describes the first line in the input data. It is one of the ENUM values.<br>• `NONE`: First line is not a header.<br>• `IGNORE`: First line is a header, but you can't use the header values to<br>indicate the column in an expression. You can use column<br>position (such as \_1, \_2, …) to indicate the column<br>(`SELECT s._1 FROM OBJECT s`).<br>• `Use`: First line is a header, and you can use the header value to<br>identify a column in an expression (`SELECT "name"<br>FROM OBJECT`).<br>Type: Enum<br>Valid values: `NONE | USE         | IGNORE`<br>Ancestors: `CSV` | No  |
-| `Comments`                                                                                     | A single character used to indicate that a row should be<br>ignored when the character is present at the start of that row.<br>You can specify any character to indicate a comment line.<br>Type: String<br>Ancestors: `CSV`                                                                                                                                                                                                                                                                                                                 | No          |
+The CSV container element in the `InputSerialization` element contains the following elements.| Name | Description | Required |
+| --- | --- | --- |
+| `RecordDelimiter` | A single character used to separate individual records in the input. Instead of the<br>default value, you can specify an arbitrary delimiter.<br>Type: String<br>Default: `\n`<br>Ancestors: `CSV` | No |
+| `FieldDelimiter` | A single character used to separate individual fields in a record. You can specify an<br>arbitrary delimiter.<br>Type: String<br>Default: `,`<br>Ancestors: `CSV` | No |
+| `QuoteCharacter` | A single character used for escaping when the field delimiter is part of the<br>value.<br>Consider this example in a CSV file:<br>`"a, b"`<br>Wrapping the value in quotation marks makes this value a single field. If you don't<br>use the quotation marks, the comma is a field delimiter (which<br>makes it two separate field values, a and b).<br>Type: String<br>Default: `"`<br>Ancestors: `CSV` | No |
+| `QuoteEscapeCharacter` | A single character used for escaping the quotation mark character inside an already<br>escaped value. For example, the value `""" a , b """`<br>is parsed as `" a , b "`.<br>Type: String<br>Default: `"`<br>Ancestors: `CSV` | No |
+| `FileHeaderInfo` | Describes the first line in the input data. It is one of the ENUM values.<br>• `NONE`: First line is not a header.<br>• `IGNORE`: First line is a header, but you can't use the header values to<br>indicate the column in an expression. You can use column<br>position (such as \_1, \_2, …) to indicate the column<br>(`SELECT s._1 FROM OBJECT s`).<br>• `Use`: First line is a header, and you can use the header value to<br>identify a column in an expression (`SELECT "name"<br>FROM OBJECT`).<br>Type: Enum<br>Valid values: `NONE | USE | IGNORE`<br>Ancestors: `CSV` | No |
+| `Comments` | A single character used to indicate that a row should be<br>ignored when the character is present at the start of that row.<br>You can specify any character to indicate a comment line.<br>Type: String<br>Ancestors: `CSV` | No |
 
-| The CSV container element (in the `OutputSerialization` elements) contains the following elements. | Name                                                                                                                                                                                                                                                                 | Description                                          | Required |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | -------- |
-| `QuoteFields`                                                                                      | Indicates whether to use quotation marks around output fields.<br>• `ALWAYS`: Always use quotation marks for output fields.<br>• `ASNEEDED`: Use quotation marks for output fields when needed.<br>Type: Enum<br>Valid values: `ALWAYS                               | ASNEEDED`<br>Default: `AsNeeded`<br>Ancestors: `CSV` | No       |
-| `RecordDelimiter`                                                                                  | A single character used to separate individual records in the output. Instead of the<br>default value, you can specify an arbitrary delimiter.<br>Type: String<br>Default: `\n`<br>Ancestors: `CSV`                                                                  | No                                                   |
-| `FieldDelimiter`                                                                                   | A single character used to separate individual fields in a record. You can specify an<br>arbitrary delimiter.<br>Type: String<br>Default: `,`<br>Ancestors: `CSV`                                                                                                    | No                                                   |
-| `QuoteCharacter`                                                                                   | A single character used for escaping when the field delimiter is part of the value.<br>For example, if the value is `a, b`, Amazon S3 wraps this<br>field value in quotation marks, as follows: `" a , b<br>"`.<br>Type: String<br>Default: `"`<br>Ancestors: `CSV`  | No                                                   |
-| `QuoteEscapeCharacter`                                                                             | A single character used for escaping the quotation mark character inside an already<br>escaped value. For example, if the value is `" a , b<br>"`, Amazon S3 wraps the value in quotation marks, as<br>follows: `""" a , b """`.<br>Type: String<br>Ancestors: `CSV` | No                                                   |
+The CSV container element (in the `OutputSerialization` elements) contains the following elements.| Name | Description | Required |
+| --- | --- | --- |
+| `QuoteFields` | Indicates whether to use quotation marks around output fields.<br>• `ALWAYS`: Always use quotation marks for output fields.<br>• `ASNEEDED`: Use quotation marks for output fields when needed.<br>Type: Enum<br>Valid values: `ALWAYS | ASNEEDED`<br>Default: `AsNeeded`<br>Ancestors: `CSV` | No |
+| `RecordDelimiter` | A single character used to separate individual records in the output. Instead of the<br>default value, you can specify an arbitrary delimiter.<br>Type: String<br>Default: `\n`<br>Ancestors: `CSV` | No |
+| `FieldDelimiter` | A single character used to separate individual fields in a record. You can specify an<br>arbitrary delimiter.<br>Type: String<br>Default: `,`<br>Ancestors: `CSV` | No |
+| `QuoteCharacter` | A single character used for escaping when the field delimiter is part of the value.<br>For example, if the value is `a, b`, Amazon S3 wraps this<br>field value in quotation marks, as follows: `" a , b<br>"`.<br>Type: String<br>Default: `"`<br>Ancestors: `CSV` | No |
+| `QuoteEscapeCharacter` | A single character used for escaping the quotation mark character inside an already<br>escaped value. For example, if the value is `" a , b<br>"`, Amazon S3 wraps the value in quotation marks, as<br>follows: `""" a , b """`.<br>Type: String<br>Ancestors: `CSV` | No |
 
-| The S3 container element (in the `OutputLocation` element) contains the following elements. | Name                                                                                                                                                                                                            | Description          | Required          |
-| ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------------- | ------------------------------- | ---------------------- | ----------------- | --------------------------------------------- | --- |
-| `AccessControlList`                                                                         | A list of grants that control access to the staged results.<br>Type: Container for Grant<br>Ancestors: `S3`                                                                                                     | No                   |
-| `BucketName`                                                                                | The name of the S3 bucket where the select restore results are stored. The bucket must<br>be in the same AWS Region as the bucket that contains the input<br>archive object.<br>Type: String<br>Ancestors: `S3` | Yes                  |
-| `CannedACL`                                                                                 | The canned access control list (ACL) to apply to the select restore results.<br>Type: String<br>Valid values: `private                                                                                          | public-read          | public-read-write | aws-exec-read                   | <br>authenticated-read | bucket-owner-read | bucket-owner-full-control`<br>Ancestors: `S3` | No  |
-| `Encryption`                                                                                | Contains encryption information for the stored results.<br>Type: Container for Encryption<br>Ancestors: `S3`                                                                                                    | No                   |
-| `Prefix`                                                                                    | The prefix that is prepended to the select restore results. The maximum length for the<br>prefix is 512 bytes.<br>Type: String<br>Ancestors: `S3`                                                               | Yes                  |
-| `StorageClass`                                                                              | The class of storage used to store the select request<br>results.<br>Type: String<br>Valid values: `STANDARD`                                                                                                   | `REDUCED_REDUNDANCY` | `STANDARD_IA`     | `ONEZONE_IA`<br>Ancestors: `S3` | No                     |
-| `Tagging`                                                                                   | Container for tag information.<br>Type: Tag structure<br>Ancestors: `S3`                                                                                                                                        | No                   |
-| `UserMetadata`                                                                              | Contains a list of metadata to store with the select restore results.<br>Type: MetadataEntry structure<br>Ancestors: `S3`                                                                                       | No                   |
+The S3 container element (in the `OutputLocation` element) contains the following elements.| Name | Description | Required |
+| --- | --- | --- |
+| `AccessControlList` | A list of grants that control access to the staged results.<br>Type: Container for Grant<br>Ancestors: `S3` | No |
+| `BucketName` | The name of the S3 bucket where the select restore results are stored. The bucket must<br>be in the same AWS Region as the bucket that contains the input<br>archive object.<br>Type: String<br>Ancestors: `S3` | Yes |
+| `CannedACL` | The canned access control list (ACL) to apply to the select restore results.<br>Type: String<br>Valid values: `private | public-read | public-read-write | aws-exec-read |<br>authenticated-read | bucket-owner-read | bucket-owner-full-control`<br>Ancestors: `S3` | No |
+| `Encryption` | Contains encryption information for the stored results.<br>Type: Container for Encryption<br>Ancestors: `S3` | No |
+| `Prefix` | The prefix that is prepended to the select restore results. The maximum length for the<br>prefix is 512 bytes.<br>Type: String<br>Ancestors: `S3` | Yes |
+| `StorageClass` | The class of storage used to store the select request<br>results.<br>Type: String<br>Valid values: `STANDARD` | `REDUCED_REDUNDANCY` | `STANDARD_IA` | `ONEZONE_IA`<br>Ancestors: `S3` | No |
+| `Tagging` | Container for tag information.<br>Type: Tag structure<br>Ancestors: `S3` | No |
+| `UserMetadata` | Contains a list of metadata to store with the select restore results.<br>Type: MetadataEntry structure<br>Ancestors: `S3` | No |
 
-| The Grantee container element (in the `AccessControlList` element) contains the following elements. | Name                                                                          | Description | Required |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------- | -------- |
-| `DisplayName`                                                                                       | The screen name of the grantee.<br>Type: String<br>Ancestors: `Grantee`       | No          |
-| `EmailAddress`                                                                                      | The email address of the grantee.<br>Type: String<br>Ancestors: `Grantee`     | No          |
-| `ID`                                                                                                | The canonical user ID of the grantee.<br>Type: String<br>Ancestors: `Grantee` | No          |
-| `Type`                                                                                              | The type of the grantee.<br>Type: String<br>Ancestors: `Grantee`              | No          |
-| `URI`                                                                                               | The URI of the grantee group.<br>Type: String<br>Ancestors: `Grantee`         | No          |
-| `Permission`                                                                                        | Granted permission.<br>Type: String<br>Ancestors: `Grantee`                   | No          |
+The Grantee container element (in the `AccessControlList` element) contains the following elements.| Name | Description | Required |
+| --- | --- | --- |
+| `DisplayName` | The screen name of the grantee.<br>Type: String<br>Ancestors: `Grantee` | No |
+| `EmailAddress` | The email address of the grantee.<br>Type: String<br>Ancestors: `Grantee` | No |
+| `ID` | The canonical user ID of the grantee.<br>Type: String<br>Ancestors: `Grantee` | No |
+| `Type` | The type of the grantee.<br>Type: String<br>Ancestors: `Grantee` | No |
+| `URI` | The URI of the grantee group.<br>Type: String<br>Ancestors: `Grantee` | No |
+| `Permission` | Granted permission.<br>Type: String<br>Ancestors: `Grantee` | No |
 
-| The `Encryption` container element (in S3) contains the following elements. | Name                                                                                                                                                                                   | Description                        | Required |
-| --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | -------- |
-| `EncryptionType`                                                            | The server-side encryption algorithm used when storing job results.<br>The default is no encryption.<br>Type: String<br>Valid Values `aws:kms                                          | AES256`<br>Ancestors: `Encryption` | No       |
-| `KMSContext`                                                                | Optional. If the encryption type is `aws:kms`, you can use this value to<br>specify the encryption context for the select restore<br>results.<br>Type: String<br>Ancestors: Encryption | No                                 |
-| `KMSKeyId`                                                                  | The AWS Key Management Service (AWS KMS) key ID to use for object encryption.<br>Type: String<br>Ancestors: `Encryption`                                                               | No                                 |
+The `Encryption` container element (in S3) contains the following elements.| Name | Description | Required |
+| --- | --- | --- |
+| `EncryptionType` | The server-side encryption algorithm used when storing job results.<br>The default is no encryption.<br>Type: String<br>Valid Values `aws:kms | AES256`<br>Ancestors: `Encryption` | No |
+| `KMSContext` | Optional. If the encryption type is `aws:kms`, you can use this value to<br>specify the encryption context for the select restore<br>results.<br>Type: String<br>Ancestors: Encryption | No |
+| `KMSKeyId` | The AWS Key Management Service (AWS KMS) key ID to use for object encryption.<br>Type: String<br>Ancestors: `Encryption` | No |
 
-| The `TagSet` container element (in the `Tagging` element) contains the following element. | Name                                                     | Description | Required |
-| ----------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------- | -------- |
-| `Tag`                                                                                     | Contains tags.<br>Type: Container<br>Ancestors: `TagSet` | No          |
+The `TagSet` container element (in the `Tagging` element) contains the following element.| Name | Description | Required |
+| --- | --- | --- |
+| `Tag` | Contains tags.<br>Type: Container<br>Ancestors: `TagSet` | No |
 
-| The Tag container element (in the `TagSet` element) contains the following elements. | Name                                                  | Description | Required |
-| ------------------------------------------------------------------------------------ | ----------------------------------------------------- | ----------- | -------- |
-| `Key`                                                                                | Name of the tag.<br>Type: String<br>Ancestors: `Tag`  | No          |
-| `Value`                                                                              | Value of the tag.<br>Type: String<br>Ancestors: `Tag` | No          |
+The Tag container element (in the `TagSet` element) contains the following elements.| Name | Description | Required |
+| --- | --- | --- |
+| `Key` | Name of the tag.<br>Type: String<br>Ancestors: `Tag` | No |
+| `Value` | Value of the tag.<br>Type: String<br>Ancestors: `Tag` | No |
 
-| The `MetadataEntry` container element (in the `UserMetadata` element) contains the following key-value pair elements to store with an object. | Name                                              | Description | Required |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------- | -------- |
-| `MetadataKey`                                                                                                                                 | The metadata key.<br>Type: String<br>Ancestors:   | No          |
-| `MetadataEntry`                                                                                                                               | The metadata value.<br>Type: String<br>Ancestors: | No          |
+The `MetadataEntry` container element (in the `UserMetadata` element) contains the following key-value pair elements to store with an object.| Name | Description | Required |
+| --- | --- | --- |
+| `MetadataKey` | The metadata key.<br>Type: String<br>Ancestors: | No |
+| `MetadataEntry` | The metadata value.<br>Type: String<br>Ancestors: | No |
 
 ## Responses
 
@@ -377,7 +377,7 @@ A successful operation returns either the `200 OK` or `202 Accepted`
 status code.
 
 - If the object copy is not previously restored, then Amazon S3 returns `202
-Accepted` in the response.
+ Accepted` in the response.
 - If the object copy is previously restored, Amazon S3 returns `200 OK` in the
   response.
 

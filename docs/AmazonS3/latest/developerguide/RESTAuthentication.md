@@ -228,7 +228,7 @@ comparison), and use the following process.
    two metadata headers '`x-amz-meta-username: fred`' and
    '`x-amz-meta-username: barney`' would be combined into
    the single header '`x-amz-meta-username:
-fred,barney`'.
+ fred,barney`'.
 4. "Unfold" long headers that span multiple lines (as allowed by RFC
    2616, section 4.2) by replacing the folding spaces (including
    new-line) by a single space.

@@ -4,9 +4,9 @@
 
 SOAP APIs for Amazon S3 are not available for new customers, and are approaching End of Life (EOL) on August 31, 2025. We recommend that you use either the REST API or the AWS SDKs.
 
-Access control can be set at the time a bucket or object is written by including the "AccessControlList" element with the request to `CreateBucket`, `PutObjectInline`, or `PutObject`. The AccessControlList element is described in [Identity and Access Management for Amazon S3](../userguide/security-iam.md "../userguide/security-iam.md") . If no access control list is specified with these operations, the resource is created with a default access policy that gives the requester FULL_CONTROL access (this is the case even if the request is a PutObjectInline or PutObject request for an object that already exists).
+Access control can be set at the time a bucket or object is written by including the "AccessControlList" element with the request to `CreateBucket`, `PutObjectInline`, or `PutObject`. The AccessControlList element is described in [Identity and Access Management for Amazon S3](../userguide/security-iam.md "../userguide/security-iam.md") . If no access control list is specified with these operations, the resource is created with a default access policy that gives the requester FULL\_CONTROL access (this is the case even if the request is a PutObjectInline or PutObject request for an object that already exists).
 
-Following is a request that writes data to an object, makes the object readable by anonymous principals, and gives the specified user FULL_CONTROL rights to the bucket (Most developers will want to give themselves FULL_CONTROL access to their own bucket).
+Following is a request that writes data to an object, makes the object readable by anonymous principals, and gives the specified user FULL\_CONTROL rights to the bucket (Most developers will want to give themselves FULL\_CONTROL access to their own bucket).
 
 ###### Example
 

@@ -41,7 +41,7 @@ A NoSuchBucket response indicates that the bucket is available, an AccessDenied 
 - `Bucket:` The name of the bucket you are trying to create.
 - `AccessControlList:` The access control list for the new bucket.
   This element is optional. If not provided, the bucket is created with an access policy
-  that give the requester FULL_CONTROL access.
+  that give the requester FULL\_CONTROL access.
 
 ## Access Control
 

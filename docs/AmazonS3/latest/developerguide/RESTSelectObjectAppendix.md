@@ -71,9 +71,9 @@ components that make up Amazon S3 Select headers.
 
 Payload byte-length calculations (these two calculations are equivalent):
 
-- payload_length = total_length - header_length - sizeOf(total_length) - sizeOf(header_length) -
-  sizeOf(prelude_crc) - sizeOf(message_crc)
-- payload_length = total_length - header_length - 16
+- payload\_length = total\_length - header\_length - sizeOf(total\_length) - sizeOf(header\_length) -
+  sizeOf(prelude\_crc) - sizeOf(message\_crc)
+- payload\_length = total\_length - header\_length - 16
 
 Each message contains the following components:
 

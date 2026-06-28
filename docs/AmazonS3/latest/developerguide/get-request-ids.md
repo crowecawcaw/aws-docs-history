@@ -248,7 +248,7 @@ import boto3
 boto3.set_stream_logger('', logging.DEBUG)
 ```
 
-For more information, see [set_stream_logger](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/boto3.html#boto3.set_stream_logger "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/boto3.html#boto3.set_stream_logger") in the _AWS SDK for Python (Boto) API Reference_.
+For more information, see [set\_stream\_logger](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/boto3.html#boto3.set_stream_logger "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/boto3.html#boto3.set_stream_logger") in the _AWS SDK for Python (Boto) API Reference_.
 
 Ruby
 You can get your request IDs using the SDK for Ruby Version 3. You can enable

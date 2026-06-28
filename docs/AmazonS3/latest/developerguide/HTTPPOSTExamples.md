@@ -49,7 +49,7 @@ This policy requires the following:
 - The content must be uploaded to the awsexamplebucket1 bucket.
 - The key must start with "user/eric/".
 - The ACL is set to public-read.
-- The success_action_redirect is set to
+- The success\_action\_redirect is set to
   https://awsexamplebucket1.s3.us-west-1.amazonaws.com/successful\_upload.html.
 - The object is an image file.
 - The x-amz-meta-uuid tag must be set to 14365123651274.
@@ -213,7 +213,7 @@ This policy requires the following:
 - The content must be uploaded to the awsexamplebucket1 bucket.
 - The key must start with "user/eric/".
 - The ACL is set to public-read.
-- The success_action_redirect is set to
+- The success\_action\_redirect is set to
   https://awsexamplebucket1.s3.us-west-1.amazonaws.com/new\_post.html.
 - The object is HTML text.
 - The x-amz-meta-uuid tag must be set to 14365123651274.

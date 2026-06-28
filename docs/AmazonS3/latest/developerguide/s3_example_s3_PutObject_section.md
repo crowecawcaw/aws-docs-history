@@ -1356,7 +1356,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
 
-Upload a file using a managed uploader (Object.upload_file).
+Upload a file using a managed uploader (Object.upload\_file).
 
 ```
 require 'aws-sdk-s3'

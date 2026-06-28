@@ -13,7 +13,7 @@ For a general introduction to this feature, see
 ###### Example
 
 This sample request enables server access logging for the 'mybucket' bucket, and
-configures the logs to be delivered to 'mylogs' under prefix 'access_log-'
+configures the logs to be delivered to 'mylogs' under prefix 'access\_log-'
 
 `Sample Request`
 

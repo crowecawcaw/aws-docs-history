@@ -136,7 +136,7 @@ target_link_libraries(${PROJECT_NAME}
 
 ```
 
-Code for the hello_s3.cpp source file.
+Code for the hello\_s3.cpp source file.
 
 ```
 #include <aws/core/Aws.h>

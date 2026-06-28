@@ -84,7 +84,7 @@ show the canonical request, the string to sign, and the signature.
 
 ## Examples of Signature Calculations Using C# (AWS Signature Version 4)
 
-The C# sample that shows signature calculation can be downloaded at [https://docs.aws.amazon.com/AmazonS3/latest/API/samples/AmazonS3SigV4_Samples_CSharp.zip](samples/AmazonS3SigV4_Samples_CSharp.zip.md "samples/AmazonS3SigV4_Samples_CSharp.zip.md"). Note that these samples use AWS SDK for .NET v1, and we recommend using [AWS SDK for .NET v3](../../../sdk-for-net/latest/developer-guide/home.md "../../../sdk-for-net/latest/developer-guide/home.md") for new applications.
+The C# sample that shows signature calculation can be downloaded at [https://docs.aws.amazon.com/AmazonS3/latest/API/samples/AmazonS3SigV4\_Samples\_CSharp.zip](samples/AmazonS3SigV4_Samples_CSharp.zip.md "samples/AmazonS3SigV4_Samples_CSharp.zip.md"). Note that these samples use AWS SDK for .NET v1, and we recommend using [AWS SDK for .NET v3](../../../sdk-for-net/latest/developer-guide/home.md "../../../sdk-for-net/latest/developer-guide/home.md") for new applications.
 In `Program.cs`, the `main()` function executes sample requests to create an
 object, retrieve an object, and create a presigned URL for the object. The code for
 signature calculation is in the `\Signers` folder.
