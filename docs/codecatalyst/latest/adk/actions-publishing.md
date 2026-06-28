@@ -57,34 +57,33 @@ following details can be edited:
   action's source repository.
   **To edit action details**
 
-1.  Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2.  Navigate to the CodeCatalyst project page
-3.  In the navigation pane, choose **CI/CD**, choose
-    **Actions**, and then choose the action you want to publish.
-4.  Choose **Edit details** to edit the details for your action:
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Navigate to the CodeCatalyst project page
+3. In the navigation pane, choose **CI/CD**, choose
+   **Actions**, and then choose the action you want to publish.
+4. Choose **Edit details** to edit the details for your action:
 
-    1. (Optional) In the **Action display name** field, change the action
-       display
-       name.
-    2. (Optional) In the **Action name** field, change the action
-       name.
+   1. (Optional) In the **Action display name** field, change the action
+      display
+      name.
+   2. (Optional) In the **Action name** field, change the action
+      name.
 
-    ###### Note
+   ###### Note
 
-    The **Action name** can't be changed after the action is
-    published. 3. (Optional) In the **Description** field, change the description. 4. From the **Categories** dropdown list, choose the type of actions that
-    are part of your workflow. This field is initially empty and requires at least one category
-    before you can publish the action. 5. (Optional) In the **Support contact** field, enter an email. 6. Choose **Save**
+   The **Action name** can't be changed after the action is
+   published. 3. (Optional) In the **Description** field, change the description. 4. From the **Categories** dropdown list, choose the type of actions that
+   are part of your workflow. This field is initially empty and requires at least one category
+   before you can publish the action. 5. (Optional) In the **Support contact** field, enter an email. 6. Choose **Save**
 
-5.  (Optional) Edit the license file.
+5. (Optional) Edit the license file.
 
-        1. Choose **View license file** to open the file.
-        2. Choose **Edit** and make your changes.
-        3. Choose **Commit**, add a message in the **Commit
-         message** field, and then choose **Commit**.
-
-    After configuring the action details to meet all the requirements to publish, you can choose
-    the action version you want to publish to the Amazon CodeCatalyst actions catalog.
+   1. Choose **View license file** to open the file.
+   2. Choose **Edit** and make your changes.
+   3. Choose **Commit**, add a message in the **Commit
+      message** field, and then choose **Commit**.
+      After configuring the action details to meet all the requirements to publish, you can choose
+      the action version you want to publish to the Amazon CodeCatalyst actions catalog.
 
 **To publish your custom action**
 

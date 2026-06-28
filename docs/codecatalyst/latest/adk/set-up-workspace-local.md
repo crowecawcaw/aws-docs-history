@@ -56,50 +56,50 @@ be developed in a CodeCatalyst repository.
      **main**. You can edit or delete the `README.md` file,
      but you can't change or delete the default branch.
 
-3.  Create a new feature branch and clone the remote repository.
+3. Create a new feature branch and clone the remote repository.
 
-        1. In the navigation pane, choose **Code**, choose **Source
-         repositories**, and then choose the empty repository you created.
-        2. Choose **Actions**, and then choose **Create
-         branch**.
-        3. In the **Branch name** text input field, enter a
-         ``feature-action-name``.
-        4. In the **Create branch from** dropdown menu, ensure
-         **main**, the source branch you're creating the new branch from, is
-         selected.
-        5. Choose **Clone repository** and **Copy** the
-         **HTTPS clone URL** for the remote repository.
-        6. Choose **Create token** for a personal access token (PAT) needed
-         to clone the repository.
-        7. Choose **Copy** and save the copied PAT for a later step.
-        8. From your working terminal, clone the remote repository in a local folder with the
-         following
-         git
-         command:
-
-
-
-        ```
-        git clone https://`[CODECATALYST-USER]`@`[GIT-ENDPOINT]`/v1/`[CODECATALYST-SPACE-NAME]`/`[CODECATALYST-PROJECT-NAME]`/`[CODECATALYST-REPO-NAME]`
-               # The url should be available when you visit the repository created.
-        ```
-
-        When prompted for a password, paste the copied PAT as the password and enter it in
-         your working terminal.
-        9. Change your directory to the repository you cloned:
+    1. In the navigation pane, choose **Code**, choose **Source
+     repositories**, and then choose the empty repository you created.
+    2. Choose **Actions**, and then choose **Create
+     branch**.
+    3. In the **Branch name** text input field, enter a
+     ``feature-action-name``.
+    4. In the **Create branch from** dropdown menu, ensure
+     **main**, the source branch you're creating the new branch from, is
+     selected.
+    5. Choose **Clone repository** and **Copy** the
+     **HTTPS clone URL** for the remote repository.
+    6. Choose **Create token** for a personal access token (PAT) needed
+     to clone the repository.
+    7. Choose **Copy** and save the copied PAT for a later step.
+    8. From your working terminal, clone the remote repository in a local folder with the
+     following
+     git
+     command:
 
 
 
-        ```
-        cd `[CODECATALYST-PROJECT-NAME]`
-        ```
-        10. Switch to the new branch:
+    ```
+    git clone https://`[CODECATALYST-USER]`@`[GIT-ENDPOINT]`/v1/`[CODECATALYST-SPACE-NAME]`/`[CODECATALYST-PROJECT-NAME]`/`[CODECATALYST-REPO-NAME]`
+           # The url should be available when you visit the repository created.
+    ```
+
+    When prompted for a password, paste the copied PAT as the password and enter it in
+     your working terminal.
+    9. Change your directory to the repository you cloned:
 
 
 
-        ```
-        git checkout ``feature-action-name``
-        ```
+    ```
+    cd `[CODECATALYST-PROJECT-NAME]`
+    ```
+    10. Switch to the new branch:
 
-    After setting up your project, you can continue on to the next step before you can begin developing your action using the
-    CodeCatalyst ADK. For more information, see [Step 2: Install tools and packages](getting-started.md#install-tools-packages "getting-started.md#install-tools-packages").
+
+
+    ```
+    git checkout ``feature-action-name``
+    ```
+
+After setting up your project, you can continue on to the next step before you can begin developing your action using the
+CodeCatalyst ADK. For more information, see [Step 2: Install tools and packages](getting-started.md#install-tools-packages "getting-started.md#install-tools-packages").

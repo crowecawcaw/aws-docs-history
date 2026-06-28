@@ -18,7 +18,7 @@ In this example, two secrets are created: AWS access key ID and an AWS secret ac
 3. Choose **Create secret**.
 4. Enter the following information:
 
-For **Name**, enter _AWS_ACCESS_KEY_ID_. This is the name for your secret.
+For **Name**, enter _AWS\_ACCESS\_KEY\_ID_. This is the name for your secret.
 
 For **Value**, enter _AWS Access Key ID_. Enter the value for the secret. This is the
 sensitive information that you want to hide from view. By default, the value is not displayed. To display the value, choose
@@ -27,7 +27,7 @@ sensitive information that you want to hide from view. By default, the value is 
 (Optional) For **Description**, enter a description for your secret. 5. Choose **Create**. The secret can later be accessed using the reference ID
 (`$(Secrets.AWS_SECRET_ACCESS_KEY)`). 6. Choose **Create secret** to create a second secret. 7. Enter the following information:
 
-For **Name**, enter _AWS_ACCESS_KEY_. This is the name for your secret.
+For **Name**, enter _AWS\_ACCESS\_KEY_. This is the name for your secret.
 
 For **Value**, enter _AWS Secrets Access Key_. Enter the value for the secret. This is
 the sensitive information that you want to hide from view. By default, the value is not displayed. To display the value, choose

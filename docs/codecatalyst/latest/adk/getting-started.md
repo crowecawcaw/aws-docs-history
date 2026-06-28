@@ -87,33 +87,33 @@ be developed in a CodeCatalyst repository.
 
 3. Create a new feature branch.
 
-   1. In the navigation pane, choose **Code**, choose **Source
-      repositories**, and then choose the empty repository you created.
-   2. Choose **Actions**, and then choose **Create
-      branch**.
-   3. In the **Branch name** text input field, enter a
-      `feature-action-name`.
-   4. In the **Create branch from** dropdown menu, ensure
-      **main**, the source branch you're creating the new branch from, is
-      selected, and then choose **Create**.
+    1. In the navigation pane, choose **Code**, choose **Source
+     repositories**, and then choose the empty repository you created.
+    2. Choose **Actions**, and then choose **Create
+     branch**.
+    3. In the **Branch name** text input field, enter a
+     ``feature-action-name``.
+    4. In the **Create branch from** dropdown menu, ensure
+     **main**, the source branch you're creating the new branch from, is
+     selected, and then choose **Create**.
 
 4. Create a Dev Environment to work on code with a supported integrated development environment (IDE).
 
-   1. In the navigation pane, do one of the following:
+    1. In the navigation pane, do one of the following:
 
-      1. Choose **Overview**, and then navigate to the **My Dev Environments** section.
-      2. Choose **Code**, and then choose **Dev Environments**.
-      3. Choose **Code**, choose **Source repositories** and choose the repository for which you
-         want to create a Dev Environment.
 
-   2. Choose **Create Dev Environment**.
-   3. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](../userguide/devenvironment-create.md#devenvironment-supported-ide "../userguide/devenvironment-create.md#devenvironment-supported-ide") for more information.
-   4. Choose **Work in existing branch**, and from the **Existing branch** dropdown menu,
-      choose the feature branch you created.
-   5. (Optional) In the **Alias - _optional_** text input field, enter an alias to identify the
-      Dev Environment.
-   6. Choose **Create**. While your Dev Environment is being created, the Dev Environment status column will display
-      **Starting**, and the status column will display **Running** once the Dev Environment has been created.
+    	1. Choose **Overview**, and then navigate to the **My Dev Environments** section.
+    	2. Choose **Code**, and then choose **Dev Environments**.
+    	3. Choose **Code**, choose **Source repositories** and choose the repository for which you
+    	 want to create a Dev Environment.
+    2. Choose **Create Dev Environment**.
+    3. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](../userguide/devenvironment-create.md#devenvironment-supported-ide "../userguide/devenvironment-create.md#devenvironment-supported-ide") for more information.
+    4. Choose **Work in existing branch**, and from the **Existing branch** dropdown menu,
+     choose the feature branch you created.
+    5. (Optional) In the **Alias - *optional*** text input field, enter an alias to identify the
+     Dev Environment.
+    6. Choose **Create**. While your Dev Environment is being created, the Dev Environment status column will display
+     **Starting**, and the status column will display **Running** once the Dev Environment has been created.
 
 After setting up your project, you can create secrets for your custom actions if you're working with sensitive data that will be used in
 your action's workflow. For more information, see [Creating secrets](adk-create-secrets.md "adk-create-secrets.md").
@@ -130,7 +130,7 @@ ADK supports the following versions of tools and packages:
 - npm – 8+ (for example, 8.15.0)
 - node – 16+ (for example, v16.17.1)
 - tsc (TypeScript) – 4+ (for example, Version 4.9.5)
-- AWS CLI – aws-cli/2.7.27 Python/3.9.11 Darwin/22.3.0 exe/x86_64 prompt/off
+- AWS CLI – aws-cli/2.7.27 Python/3.9.11 Darwin/22.3.0 exe/x86\_64 prompt/off
   (minimum)
   For node 17+, you may run into an error: `ERR_OSSL_EVP_UNSUPPORTED`. If so,
   run the following:
@@ -471,7 +471,7 @@ error messages and surface them:
 - `core.setFailed('Action Failed, reason: ${error});` – Logs the error message. The workflow stops running and any
   remaining steps are skipped.
 - `RunSummaries.addRunSummary(Action Failed, reason: ${error},
-codecatalystRunSummaries.RunSummaryLevel.ERROR);` – Sets the
+ codecatalystRunSummaries.RunSummaryLevel.ERROR);` – Sets the
   workflow summary run message. This provides context
   about the run such as the number of tests that passed or failed, time to complete,
   and other relevant information added to the output variable.
