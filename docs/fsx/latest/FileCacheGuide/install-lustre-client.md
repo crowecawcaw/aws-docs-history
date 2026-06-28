@@ -19,32 +19,31 @@ Lustre](http://wiki.lustre.org/Compiling_Lustre "http://wiki.lustre.org/Compilin
 uname -r
 ```
 
-3.  Do one of the following:
+3. Do one of the following:
 
-    - Kernel requirements:
+   - Kernel requirements:
 
-          + 5.10 kernel minimum requirement - 5.10.155-138.670.amzn2
-          + 5.4 kernel minimum requirement - 5.4.219-126.411.amzn2
-          + 4.14 kernel minimum requirement - 4.14.299-223.520.amzn2
+     - 5.10 kernel minimum requirement - 5.10.155-138.670.amzn2
+     - 5.4 kernel minimum requirement - 5.4.219-126.411.amzn2
+     - 4.14 kernel minimum requirement - 4.14.299-223.520.amzn2
+       Download and install the Lustre client with the following command.
 
-      Download and install the Lustre client with the following command.
+   ```
+   sudo amazon-linux-extras install -y lustre
+   ```
+   - If the command returns a result less than the kernel minimum requirement, update
+     the kernel and reboot your Amazon EC2 instance by running the following command.
 
-    ```
-    sudo amazon-linux-extras install -y lustre
-    ```
-    - If the command returns a result less than the kernel minimum requirement, update
-      the kernel and reboot your Amazon EC2 instance by running the following command.
+   ```
+   sudo yum -y update kernel && sudo reboot
+   ```
 
-    ```
-    sudo yum -y update kernel && sudo reboot
-    ```
+   Confirm that the kernel has been updated using the **uname -r**
+   command. Then download and install the Lustre client as described previously.
 
-    Confirm that the kernel has been updated using the **uname -r**
-    command. Then download and install the Lustre client as described previously.
-
-1.  Open a terminal on your client.
-1.  Determine which kernel is currently running on your compute instance by running
-    the following command.
+1. Open a terminal on your client.
+1. Determine which kernel is currently running on your compute instance by running
+   the following command.
 
 ```
 uname -r
@@ -351,78 +350,67 @@ download, a GNU Privacy Guard (GPG) signature is applied to the metadata of the
 repository. Installing the repository fails unless you have the correct public GPG key
 installed on your system.
 
-1.  Open a terminal on your client.
-2.  Follow these steps to add the AWS Lustre client repository:
+1. Open a terminal on your client.
+2. Follow these steps to add the AWS Lustre client repository:
 
-    1. If you haven’t previously registered an AWS Lustre client Ubuntu
-       repository on your client instance, download and install the required public
-       key. Use the following command.
+   1. If you haven’t previously registered an AWS Lustre client Ubuntu
+      repository on your client instance, download and install the required public
+      key. Use the following command.
 
-    ```
-    wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
-    ```
-    2. Add the AWS Lustre package repository to your local package manager using the
-       following command.
+   ```
+   wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
+   ```
+   2. Add the AWS Lustre package repository to your local package manager using the
+      following command.
 
-    ```
-    sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/fsx-ubuntu-public-key.gpg] https://fsx-lustre-client-repo.s3.amazonaws.com/ubuntu jammy main" > /etc/apt/sources.list.d/fsxlustreclientrepo.list && apt-get update'
-    ```
+   ```
+   sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/fsx-ubuntu-public-key.gpg] https://fsx-lustre-client-repo.s3.amazonaws.com/ubuntu jammy main" > /etc/apt/sources.list.d/fsxlustreclientrepo.list && apt-get update'
+   ```
 
-3.  Determine which kernel is currently running on your client instance, and update as
-    needed. The Lustre client on Ubuntu 22.04 requires kernel `5.15.0.1020-aws`
-    or later for both x86-based EC2 instances and Arm-based EC2 instances powered by
-    AWS Graviton processors.
+3. Determine which kernel is currently running on your client instance, and update as
+   needed. The Lustre client on Ubuntu 22.04 requires kernel `5.15.0.1020-aws`
+   or later for both x86-based EC2 instances and Arm-based EC2 instances powered by
+   AWS Graviton processors.
 
-        1. Run the following command to determine which kernel is running.
+   1. Run the following command to determine which kernel is running.
 
+   ```
+   uname -r
+   ```
+   2. Run the following command to update to the latest Ubuntu kernel and Lustre version and then
+      reboot.
 
+   ```
+   sudo apt install -y linux-aws lustre-client-modules-aws && sudo reboot
+   ```
 
-        ```
-        uname -r
-        ```
-        2. Run the following command to update to the latest Ubuntu kernel and Lustre version and then
-         reboot.
+   If your kernel version is greater than `5.15.0.1020-aws` for both x86-based EC2 instances and
+   Graviton-based EC2 instances, and you don’t want to
+   update to the latest kernel version, you can install Lustre for the current kernel with the following command.
 
+   ```
+   sudo apt install -y lustre-client-modules-$(uname -r)
+   ```
 
+   The two AWS Lustre packages that are necessary for mounting and interacting with
+   your cache are installed. You can optionally install additional
+   related packages such as a package containing the source code and packages
+   containing tests that are included in the repository. 3. List all available packages in the repository by using the following
+   command.
 
-        ```
-        sudo apt install -y linux-aws lustre-client-modules-aws && sudo reboot
-        ```
+   ```
+   sudo apt-cache search ^lustre
+   ```
+   4. (Optional) If you want your system upgrade to also always upgrade Lustre
+      client modules, verify that the `lustre-client-modules-aws` package
+      is installed using the following command.
 
-         If your kernel version is greater than `5.15.0.1020-aws` for both x86-based EC2 instances and
-         Graviton-based EC2 instances, and you don’t want to
-         update to the latest kernel version, you can install Lustre for the current kernel with the following command.
+   ```
+   sudo apt install -y lustre-client-modules-aws
+   ```
 
-
-
-        ```
-        sudo apt install -y lustre-client-modules-$(uname -r)
-        ```
-
-        The two AWS Lustre packages that are necessary for mounting and interacting with
-         your cache are installed. You can optionally install additional
-         related packages such as a package containing the source code and packages
-         containing tests that are included in the repository.
-        3. List all available packages in the repository by using the following
-         command.
-
-
-
-        ```
-        sudo apt-cache search ^lustre
-        ```
-        4. (Optional) If you want your system upgrade to also always upgrade Lustre
-         client modules, verify that the `lustre-client-modules-aws` package
-         is installed using the following command.
-
-
-
-        ```
-        sudo apt install -y lustre-client-modules-aws
-        ```
-
-    Starting with kernel `5.15.0.1020-aws`, Ubuntu 20.04.5 LTS is supported
-    for Lustre 2.12 clients, for both x86 and Arm based instances.
+Starting with kernel `5.15.0.1020-aws`, Ubuntu 20.04.5 LTS is supported
+for Lustre 2.12 clients, for both x86 and Arm based instances.
 
 You can get Lustre packages from the Ubuntu 20.04 AWS Lustre repository. To
 validate that the contents of the repository haven’t been tampered with before or during
@@ -430,77 +418,66 @@ download, a GNU Privacy Guard (GPG) signature is applied to the metadata of the
 repository. Installing the repository fails unless you have the correct public GPG key
 installed on your system.
 
-1.  Open a terminal on your client.
-2.  Follow these steps to add the AWS Lustre client Ubuntu repository:
+1. Open a terminal on your client.
+2. Follow these steps to add the AWS Lustre client Ubuntu repository:
 
-    1. If you haven't previously registered an AWS Lustre Ubuntu repository on
-       your client instance, download and install the required public key. Use the
-       following command.
+   1. If you haven't previously registered an AWS Lustre Ubuntu repository on
+      your client instance, download and install the required public key. Use the
+      following command.
 
-    ```
-    wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
-    ```
-    2. Add the AWS Lustre package repository to your local package manager using the
-       following command.
+   ```
+   wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
+   ```
+   2. Add the AWS Lustre package repository to your local package manager using the
+      following command.
 
-    ```
-    sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/fsx-ubuntu-public-key.gpg] https://fsx-lustre-client-repo.s3.amazonaws.com/ubuntu focal main" > /etc/apt/sources.list.d/fsxlustreclientrepo.list && apt-get update'
-    ```
+   ```
+   sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/fsx-ubuntu-public-key.gpg] https://fsx-lustre-client-repo.s3.amazonaws.com/ubuntu focal main" > /etc/apt/sources.list.d/fsxlustreclientrepo.list && apt-get update'
+   ```
 
-3.  Determine which kernel is currently running on your client instance, and update as
-    needed. The Lustre client on Ubuntu 20.04 requires kernel `5.15.0.1020-aws` or later for
-    both x86-based EC2 instances and Arm-based EC2 instances powered by AWS Graviton processors.
+3. Determine which kernel is currently running on your client instance, and update as
+   needed. The Lustre client on Ubuntu 20.04 requires kernel `5.15.0.1020-aws` or later for
+   both x86-based EC2 instances and Arm-based EC2 instances powered by AWS Graviton processors.
 
-        1. Run the following command to determine which kernel is running.
+   1. Run the following command to determine which kernel is running.
 
+   ```
+   uname -r
+   ```
+   2. Run the following command to update to the latest Ubuntu kernel and Lustre version and then
+      reboot.
 
+   ```
+   sudo apt install -y linux-aws lustre-client-modules-aws && sudo reboot
+   ```
 
-        ```
-        uname -r
-        ```
-        2. Run the following command to update to the latest Ubuntu kernel and Lustre version and then
-         reboot.
+   If your kernel version is greater than `5.15.0.1020-aws` for both x86-based EC2 instances
+   and Graviton-based EC2 instances, and you don’t want to
+   update to the latest kernel version, you can install Lustre for the current kernel with the following command.
 
+   ```
+   sudo apt install -y lustre-client-modules-$(uname -r)
+   ```
 
+   The two AWS Lustre packages that are necessary for mounting and interacting with
+   your cache are installed. You can optionally install additional
+   related packages such as a package containing the source code and packages
+   containing tests that are included in the repository. 3. List all available packages in the repository by using the following
+   command.
 
-        ```
-        sudo apt install -y linux-aws lustre-client-modules-aws && sudo reboot
-        ```
+   ```
+   sudo apt-cache search ^lustre
+   ```
+   4. (Optional) If you want your system upgrade to also always upgrade Lustre
+      client modules, verify that the `lustre-client-modules-aws` package
+      is installed using the following command.
 
-         If your kernel version is greater than `5.15.0.1020-aws` for both x86-based EC2 instances
-         and Graviton-based EC2 instances, and you don’t want to
-         update to the latest kernel version, you can install Lustre for the current kernel with the following command.
+   ```
+   sudo apt install -y lustre-client-modules-aws
+   ```
 
-
-
-        ```
-        sudo apt install -y lustre-client-modules-$(uname -r)
-        ```
-
-        The two AWS Lustre packages that are necessary for mounting and interacting with
-         your cache are installed. You can optionally install additional
-         related packages such as a package containing the source code and packages
-         containing tests that are included in the repository.
-        3. List all available packages in the repository by using the following
-         command.
-
-
-
-        ```
-        sudo apt-cache search ^lustre
-        ```
-        4. (Optional) If you want your system upgrade to also always upgrade Lustre
-         client modules, verify that the `lustre-client-modules-aws` package
-         is installed using the following command.
-
-
-
-        ```
-        sudo apt install -y lustre-client-modules-aws
-        ```
-
-    Starting with kernel `5.4.0.1085-aws`, Ubuntu 18.04.6 LTS is supported
-    for Lustre 2.12 clients, for both x86 and Arm based instances.
+Starting with kernel `5.4.0.1085-aws`, Ubuntu 18.04.6 LTS is supported
+for Lustre 2.12 clients, for both x86 and Arm based instances.
 
 You can get Lustre packages from the Ubuntu 18.04 AWS Lustre repository. To
 validate that the contents of the repository haven’t been tampered with before or

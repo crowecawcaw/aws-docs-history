@@ -41,9 +41,9 @@ technique in high performance computing (HPC).
 
 The following table shows performance that the Amazon File Cache deployment type is designed for.
 
-| File Cache performance for SSD storage | Deployment Type | **Network throughput (MBps/TiB of storage<br>provisioned)** | **Network IOPS (IOPS/TiB of storage<br>provisioned)** | **Cache storage (GiB of RAM/TiB of storage<br>provisioned)** | **Disk latencies per file operation (milliseconds,<br>P50)** | **Disk throughput (MBps/TiB of storage<br>provisioned)** |
-| -------------------------------------- | --------------- | ----------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------------------------- |
-| CACHE-1000                             | 2600            | Tens of thousands baseline<br>Hundreds of thousands burst   | 27.3                                                  | Metadata: sub-ms<br>Data: sub-ms                             | 1000                                                         |
+File Cache performance for SSD storage| Deployment Type | **Network throughput (MBps/TiB of storage<br>provisioned)** | **Network IOPS (IOPS/TiB of storage<br>provisioned)** | **Cache storage (GiB of RAM/TiB of storage<br>provisioned)** | **Disk latencies per file operation (milliseconds,<br>P50)** | **Disk throughput (MBps/TiB of storage<br>provisioned)** |
+| --- | --- | --- | --- | --- | --- |
+| CACHE-1000 | 2600 | Tens of thousands baseline<br>Hundreds of thousands burst | 27.3 | Metadata: sub-ms<br>Data: sub-ms | 1000 |
 
 ### Example: Aggregate baseline and burst throughput
 
@@ -275,45 +275,36 @@ Amazon EC2 instances) and speed.
   depend on the use of Amazon EBS–optimized instances.
 - **Recommended tuning for large client instance types**
 
-      1. To tune large client instances for optimal performance:
+  1.  To tune large client instances for optimal performance:
 
-
-
-
-
-      	1. For client instance types with memory of more than 64 GiB, we recommend
-      	 applying the following tuning:
-
-
-
-      	```
-      	lctl set_param ldlm.namespaces.*.lru_max_age=600000
-      	```
-      	2. For client instance types with more than 64 CPU cores, we recommend
-      	 applying the following tuning:
-
-
-
-      	```
-      	echo "options ptlrpc ptlrpcd_per_cpt_max=32" >> /etc/modprobe.d/modprobe.conf
-      	echo "options ksocklnd credits=2560" >> /etc/modprobe.d/modprobe.conf
-
-      	# reload all kernel modules to apply the above two settings
-      	sudo reboot
-      	```
-      2. After the client is mounted, the following tuning needs to be applied:
-
-
+      1. For client instance types with memory of more than 64 GiB, we recommend
+         applying the following tuning:
 
       ```
-      sudo lctl set_param osc.*OST*.max_rpcs_in_flight=32
-      sudo lctl set_param mdc.*.max_rpcs_in_flight=64
-      sudo lctl set_param mdc.*.max_mod_rpcs_in_flight=50
+      lctl set_param ldlm.namespaces.*.lru_max_age=600000
+      ```
+      2. For client instance types with more than 64 CPU cores, we recommend
+         applying the following tuning:
+
+      ```
+      echo "options ptlrpc ptlrpcd_per_cpt_max=32" >> /etc/modprobe.d/modprobe.conf
+      echo "options ksocklnd credits=2560" >> /etc/modprobe.d/modprobe.conf
+
+      # reload all kernel modules to apply the above two settings
+      sudo reboot
       ```
 
-  Note that `lctl set_param` is known to not persist over reboot. Since these
-  parameters can't be set permanently from the client side, it's recommended to implement a
-  boot cron job to set the configuration with the recommended tunings.
+  2.  After the client is mounted, the following tuning needs to be applied:
+
+  ```
+  sudo lctl set_param osc.*OST*.max_rpcs_in_flight=32
+  sudo lctl set_param mdc.*.max_rpcs_in_flight=64
+  sudo lctl set_param mdc.*.max_mod_rpcs_in_flight=50
+  ```
+
+Note that `lctl set_param` is known to not persist over reboot. Since these
+parameters can't be set permanently from the client side, it's recommended to implement a
+boot cron job to set the configuration with the recommended tunings.
 
 - **Workload balance across OSTs** – In some cases,
   your workload isn’t driving the aggregate throughput that your cache can provide (1000

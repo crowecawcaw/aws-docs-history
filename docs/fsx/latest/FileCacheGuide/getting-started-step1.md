@@ -33,15 +33,12 @@ networking and security group information:
      subnets.
 
 8. In the **Encryption** section, for **Encryption
-   key**, choose the AWS Key Management Service (AWS KMS) encryption key that protects your
-   cache's data at rest.
-9. For **Tags - _optional_**, you can
-   enter a key and value to add tags to your cache. A tag is a case-sensitive key-value pair
-   that helps you to manage, filter, and search for your cache.
-10. Choose **Next**.
-11. In the **Data repository associations (DRAs)**
-    section, there are no DRAs linking your cache to Amazon S3 or NFS data repositories. For
-    detailed information about linking data repositories to Amazon File Cache, see [To link an S3 bucket or NFS file system while creating a cache (console)](create-linked-repo.md#link-new-repo-console "create-linked-repo.md#link-new-repo-console").
+key**, choose the AWS Key Management Service (AWS KMS) encryption key that protects your
+cache's data at rest. 9. For **Tags - _optional_**, you can
+enter a key and value to add tags to your cache. A tag is a case-sensitive key-value pair
+that helps you to manage, filter, and search for your cache. 10. Choose **Next**. 11. In the **Data repository associations (DRAs)**
+section, there are no DRAs linking your cache to Amazon S3 or NFS data repositories. For
+detailed information about linking data repositories to Amazon File Cache, see [To link an S3 bucket or NFS file system while creating a cache (console)](create-linked-repo.md#link-new-repo-console "create-linked-repo.md#link-new-repo-console").
 
 The following instructions describe how to link your cache to an existing Amazon S3 bucket
 for this getting started exercise. In the **Data repository association**
@@ -66,12 +63,10 @@ dialog box, provide information for the following fields.
     **Cache path** can't be set to root (/) for an S3 DRA.
     4. Choose **Add**.
 
-12. Choose **Next**.
-13. Review the cache configuration shown on the **Cache summary** page.
-    For your reference, note which cache settings you can modify after the cache is
-    created.
-14. Choose **Create cache**.
-    Now that you've created your cache, note its fully qualified domain name and mount name
-    for a later step. You can find the fully qualified domain name and mount name for a cache by
-    choosing the name of the cache in the **Caches** dashboard, and then choosing
-    **Attach**.
+12. Choose **Next**. 13. Review the cache configuration shown on the **Cache summary** page.
+For your reference, note which cache settings you can modify after the cache is
+created. 14. Choose **Create cache**.
+Now that you've created your cache, note its fully qualified domain name and mount name
+for a later step. You can find the fully qualified domain name and mount name for a cache by
+choosing the name of the cache in the **Caches** dashboard, and then choosing
+**Attach**.

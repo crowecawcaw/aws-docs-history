@@ -98,9 +98,6 @@ In the dialog box, provide information for the following fields.
     **Cache path** cannot be set to root (/) for an S3
      DRA.
 
-4. When you finish configuring the DRA, choose **Add**.
-5. You can add another data repository association using the same steps. You can
-   create a maximum of 8 data repository associations, which must all be of the same
-   repository type.
-6. When you finish adding DRAs, choose **Next**.
-7. Continue with the Amazon File Cache creation wizard.
+4. When you finish configuring the DRA, choose **Add**. 5. You can add another data repository association using the same steps. You can
+create a maximum of 8 data repository associations, which must all be of the same
+repository type. 6. When you finish adding DRAs, choose **Next**. 7. Continue with the Amazon File Cache creation wizard.

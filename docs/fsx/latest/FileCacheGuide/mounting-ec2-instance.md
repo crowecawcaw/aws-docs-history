@@ -38,7 +38,7 @@ This command mounts your cache with these options:
      enabled, use the `mount` command without `flock`.
 
 4. Verify that the mount command was successful by listing the contents of the directory to which you mounted the cache, `/mnt` by using the following
-   command.
+command.
 
 ```
 `$` `ls /mnt`

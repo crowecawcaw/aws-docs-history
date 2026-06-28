@@ -39,13 +39,12 @@ following:
 - Watches for Spot termination notices.
 - When it receives a termination notice:
 
-      + Stops applications that are accessing the cache.
-      + Unmounts the cache before the instance is terminated.
-
-  You can adapt the script as needed, especially for gracefully shutting down your
-  application. For more information about best practices for handling Spot Instance
-  interruptions, see [Best
-  practices for handling EC2 Spot Instance interruptions](https://aws.amazon.com/blogs//compute/best-practices-for-handling-ec2-spot-instance-interruptions/ "https://aws.amazon.com/blogs//compute/best-practices-for-handling-ec2-spot-instance-interruptions/").
+  - Stops applications that are accessing the cache.
+  - Unmounts the cache before the instance is terminated.
+    You can adapt the script as needed, especially for gracefully shutting down your
+    application. For more information about best practices for handling Spot Instance
+    interruptions, see [Best
+    practices for handling EC2 Spot Instance interruptions](https://aws.amazon.com/blogs//compute/best-practices-for-handling-ec2-spot-instance-interruptions/ "https://aws.amazon.com/blogs//compute/best-practices-for-handling-ec2-spot-instance-interruptions/").
 
 ```
 #!/bin/bash

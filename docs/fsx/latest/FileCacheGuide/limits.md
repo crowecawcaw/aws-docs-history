@@ -13,10 +13,10 @@ Learn about quotas when working with Amazon File Cache.
 The following are quotas for Amazon File Cache per AWS account, per AWS Region, which you
 can increase.
 
-| Resource                        | Default | Description                                                                                                                                                                        |
-| ------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Lustre Cache_1 caches           | 100     | The maximum number of Amazon File Cache caches with cache type `Lustre`<br>and deployment type `Cache_1` that you can create in this account.                                      |
-| Lustre Cache_1 storage capacity | 100800  | The maximum amount of storage capacity (in GiB) that you can configure in this account<br>for all Amazon File Cache caches with cache type `Lustre` and deployment type `Cache_1`. |
+| Resource                         | Default | Description                                                                                                                                                                        |
+| -------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Lustre Cache\_1 caches           | 100     | The maximum number of Amazon File Cache caches with cache type `Lustre`<br>and deployment type `Cache_1` that you can create in this account.                                      |
+| Lustre Cache\_1 storage capacity | 100800  | The maximum amount of storage capacity (in GiB) that you can configure in this account<br>for all Amazon File Cache caches with cache type `Lustre` and deployment type `Cache_1`. |
 
 ###### To request a quota increase
 

@@ -51,12 +51,12 @@ traffic between your Amazon File Cache file servers.
    rules**.
 2. Add the following inbound rules.
 
-| Type            | Protocol | Port Range | Source                                                                                                                            | Description                                                       |
-| --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group ID of the security group that you just created                             | Allows traffic between Amazon File Cache file servers             |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients          | Allows traffic between Amazon File Cache file servers and clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group ID of the security group that you just created                             | Allows traffic between Amazon File Cache file servers             |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your<br>File Cache file servers | Allows traffic between Amazon File Cache file servers             |
+| Type            | Protocol | Port Range | Source                                                                                                                           | Description                                                       |
+| --------------- | -------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                             | Allows traffic between Amazon File Cache file servers             |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients          | Allows traffic between Amazon File Cache file servers and clients |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                             | Allows traffic between Amazon File Cache file servers             |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your<br>File Cache file servers | Allows traffic between Amazon File Cache file servers             |
 
 3. Choose **Save** to save and apply the new inbound
    rules.
@@ -73,12 +73,12 @@ file servers and clients, and between Amazon File Cache file servers.
    rules**.
 2. Add the following outbound rules.
 
-| Type            | Protocol | Port Range | Source                                                                                                                   | Description                                                                       |
-| --------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allow Lustre traffic between Amazon File Cache file servers                       |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security group associated with your Lustre<br>clients  | Allow Lustre traffic between Amazon File Cache<br>file servers and Lustre clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between Amazon File Cache<br>file servers                   |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows traffic between Amazon File Cache file servers and<br>Lustre clients       |
+| Type            | Protocol | Port Range | Source                                                                                                                  | Description                                                                       |
+| --------------- | -------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allow Lustre traffic between Amazon File Cache file servers                       |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security group associated with your Lustre<br>clients  | Allow Lustre traffic between Amazon File Cache<br>file servers and Lustre clients |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between Amazon File Cache<br>file servers                   |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows traffic between Amazon File Cache file servers and<br>Lustre clients       |
 
 3. Choose **Save** to save and apply the new outbound
    rules.
@@ -106,18 +106,18 @@ your security group to ensure that Lustre traffic can flow between your Lustre c
 
 Add the following inbound rules to the security groups applied to your clients.
 
-| Type            | Protocol | Port Range | Source                                                                                                                                   | Description                                                                |
-| --------------- | -------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows traffic between Amazon File Cache file servers                      |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache file servers    | Allow Lustre traffic between Amazon File Cache file servers and<br>clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your clients                       | Allows traffic between Amazon File Cache file servers                      |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allows traffic between Amazon File Cache file servers and<br>clients       |
+| Type            | Protocol | Port Range | Source                                                                                                                                  | Description                                                                |
+| --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows traffic between Amazon File Cache file servers                      |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache file servers    | Allow Lustre traffic between Amazon File Cache file servers and<br>clients |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your clients                       | Allows traffic between Amazon File Cache file servers                      |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allows traffic between Amazon File Cache file servers and<br>clients       |
 
 Add the following outbound rules to the security groups applied to your clients.
 
-| Type            | Protocol | Port Range | Source                                                                                                                                   | Description                                                                        |
-| --------------- | -------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows traffic between Lustre clients                                              |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allow Lustre traffic between Amazon File Cache file servers and<br>Lustre clients  |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows Lustre traffic between Lustre clients                                       |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allows Lustre traffic between Amazon File Cache file servers and<br>Lustre clients |
+| Type            | Protocol | Port Range | Source                                                                                                                                  | Description                                                                        |
+| --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows traffic between Lustre clients                                              |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allow Lustre traffic between Amazon File Cache file servers and<br>Lustre clients  |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows Lustre traffic between Lustre clients                                       |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allows Lustre traffic between Amazon File Cache file servers and<br>Lustre clients |

@@ -32,13 +32,13 @@ Amazon VPC and your on-premises network. For more information, see [What is AWS 
   system. The following ports must be open for the daemons involved in sharing data
   via NFS:
 
-| Port | Protocol | Description                                                                                                                                                         |
-| ---- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 111  | TCP/UDP  | Port for the \*_portmapper_<br>• daemon. The port number is fixed.                                                                                                  |
-| 2049 | TCP/UDP  | Port for the \*_nfsd_<br>• daemon. The port number is fixed.                                                                                                        |
-| 635  | TCP/UDP  | Port for the \*_mountd_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open.   |
-| 4045 | TCP/UDP  | Port for the \*_nlockmgr_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open. |
-| 4046 | TCP/UDP  | Port for the \*_status_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open.   |
+| Port | Protocol | Description                                                                                                                                                        |
+| ---- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 111  | TCP/UDP  | Port for the *_portmapper_<br>• daemon. The port number is fixed.                                                                                                  |
+| 2049 | TCP/UDP  | Port for the *_nfsd_<br>• daemon. The port number is fixed.                                                                                                        |
+| 635  | TCP/UDP  | Port for the *_mountd_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open.   |
+| 4045 | TCP/UDP  | Port for the *_nlockmgr_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open. |
+| 4046 | TCP/UDP  | Port for the *_status_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open.   |
 
 You can use the following command to look up dynamic ports for your on-premises NFS servers:
 
