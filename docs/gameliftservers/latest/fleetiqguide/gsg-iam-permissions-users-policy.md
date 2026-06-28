@@ -1,6 +1,6 @@
-# Reference: Amazon GameLift Servers FleetIQ_policy
+# Reference: Amazon GameLift Servers FleetIQ\_policy
 
-The following is an example of the Amazon GameLift Servers FleetIQ_policy for your reference:
+The following is an example of the Amazon GameLift Servers FleetIQ\_policy for your reference:
 
 JSON
 

@@ -27,10 +27,10 @@ status updates. A game server group is expected to be a long-lived resource.
 
 - You remove a game server group by calling `DeleteGameServerGroup()`
   with the group identifier. This action puts the game server group into status
-  DELETE_SCHEDULED. Only game server groups in ACTIVE or ERROR state can be
+  DELETE\_SCHEDULED. Only game server groups in ACTIVE or ERROR state can be
   scheduled for deletion.
 - Amazon GameLift Servers FleetIQ activates an asynchronous deactivation workflow in response to the
-  DELETE_SCHEDULED status, transitioning the game server group status to DELETING.
+  DELETE\_SCHEDULED status, transitioning the game server group status to DELETING.
   You have the option of deleting just the game server group or delete both the
   game server group and the linked Auto Scaling group.
 
