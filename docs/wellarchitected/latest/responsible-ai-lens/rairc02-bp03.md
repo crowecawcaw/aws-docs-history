@@ -67,4 +67,4 @@ Amazon Bedrock](https://aws.amazon.com/blogs/machine-learning/use-custom-metrics
 **Related tools:**
 
 [scikit
-learn : make_scorer](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html")
+learn : make\_scorer](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html")

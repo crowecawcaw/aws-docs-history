@@ -23,8 +23,8 @@ practice is not established:** High
    essential data requirements through data minimization
    analysis. Create a mapping of sensitive fields and implement
    anonymization. For example, in a healthcare system, converting
-   'John Doe, diabetic, 123 Main Street' to 'Patient_2384,
-   condition_type_2, region_14' maintains analytical value while
+   'John Doe, diabetic, 123 Main Street' to 'Patient\_2384,
+   condition\_type\_2, region\_14' maintains analytical value while
    protecting individual privacy. Encrypt sensitive data at rest
    and in transit. Establish role-based access controls with
    documented access levels for sensitive data.
