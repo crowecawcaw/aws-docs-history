@@ -24,7 +24,7 @@ Jira Agent permissions.
    - To create a new group, choose **Create
      group** and then enter the **Group
      name**. For example, `Support
-Requests`. Then, choose **Add request
+  Requests`. Then, choose **Add request
      form** and choose **Support Case** from
      the available options.
 6. (Optional) Add a **CC email address** to the

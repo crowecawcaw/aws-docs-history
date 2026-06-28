@@ -35,10 +35,10 @@ documents).
 5. Search for Service Portal in the filter.
 6. Choose the Service Portal box with a house image and the word Index in the lower right corner.
 7. In the left panel in **Widgets,** enter `AWS Custom Product Search
-in the Filter Widget`.
+ in the Filter Widget`.
 8. Drag the widget to the Service Portal edit view to your desired location.
 9. Preview your changes.
 
 ###### Note
 
-Ensure that the end user has **x_126749_aws_sc.productsearchaccess** to view and use the widget.
+Ensure that the end user has **x\_126749\_aws\_sc.productsearchaccess** to view and use the widget.

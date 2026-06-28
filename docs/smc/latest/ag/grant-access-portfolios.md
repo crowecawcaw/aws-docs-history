@@ -8,7 +8,7 @@ For more information, see [AWS Service Management Connector end of support](smc-
 This release of the Connector does not require you to link AWS identities to
 ServiceNow roles. To grant access to Service Catalog products in ServiceNow, you must establish
 a link between the Service Catalog portfolios and the ServiceNow group (for example,
-**Order_AWS_Products** from an earlier installation
+**Order\_AWS\_Products** from an earlier installation
 example).
 
 ###### To grant access to Service Catalog portfolios in ServiceNow

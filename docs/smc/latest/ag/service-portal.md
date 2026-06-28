@@ -89,5 +89,5 @@ Products** page:
 
 ###### Note
 
-Ensure that the end user has **x_126749_aws_sc.productsearchaccess** to view and use this
+Ensure that the end user has **x\_126749\_aws\_sc.productsearchaccess** to view and use this
 service portal

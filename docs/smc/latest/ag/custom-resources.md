@@ -46,7 +46,7 @@ for the creation
 of additional resources.
 
 1. In the navigator, enter `AWS Service
-Management`.
+ Management`.
 2. Choose **Setup**, then **Tables Sync to AWS Config**.
 3. Choose **New**.
 4. Choose an in scope ServiceNow table.

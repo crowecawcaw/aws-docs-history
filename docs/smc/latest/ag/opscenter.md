@@ -89,30 +89,29 @@ between AWS and Jira Service Management.
 
 ###### To execute runbooks on AWS Systems Manager OpsItems through Jira Service Management
 
-1.  Log in to your **Jira Agent** view
-    as an end user.
-2.  In the **Jira Service Management Jira
-    Agent** view, choose the Jira project associated to
-    OpsCenter.
-3.  Choose **Open Issues** and select
-    the **OpsItem**.
-4.  Choose the OpsItem section of AWS Runbooks. The OpsItem that
-    contains the associated runbooks display a list of automation
-    documents available. (See them next to the star shaped
-    symbol.)
+1. Log in to your **Jira Agent** view
+   as an end user.
+2. In the **Jira Service Management Jira
+   Agent** view, choose the Jira project associated to
+   OpsCenter.
+3. Choose **Open Issues** and select
+   the **OpsItem**.
+4. Choose the OpsItem section of AWS Runbooks. The OpsItem that
+   contains the associated runbooks display a list of automation
+   documents available. (See them next to the star shaped
+   symbol.)
 
-        * Choose **Execute** on the
-         desired runbook. An **Execute Runbook from
-         OpsItem** screen displays.
-        * Enter the workflow parameter details associated to the
-         runbook. The runbook will not execute successfully without the
-         correct parameter inputs.
-        * Enter metadata tags details if applicable.
-        * **Select Create**. An **Execute AWS Systems Manager Automation Request**
-         issue generates and provides the execution status.
-
-    OpsItems without associated runbooks are still able to run
-    automated documents.
+   - Choose **Execute** on the
+     desired runbook. An **Execute Runbook from
+     OpsItem** screen displays.
+   - Enter the workflow parameter details associated to the
+     runbook. The runbook will not execute successfully without the
+     correct parameter inputs.
+   - Enter metadata tags details if applicable.
+   - **Select Create**. An **Execute AWS Systems Manager Automation Request**
+     issue generates and provides the execution status.
+     OpsItems without associated runbooks are still able to run
+     automated documents.
 
 ###### To run automated documents not associated with runbooks
 

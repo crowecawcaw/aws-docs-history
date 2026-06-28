@@ -14,20 +14,20 @@ For more information, see [What is AWS Systems Manager Incident Manager](../../.
 
 This table shows how AWS Incident Manager Incidents map to ServiceNow Incidents.
 
-| AWS Incident Manager incident | ServiceNow Incident                |
-| ----------------------------- | ---------------------------------- |
-| Title                         | short_description                  |
-| Summary                       | description                        |
-| Incident ARN                  | x_126749_aws_sc_awsincidentarn     |
-| AWS Account                   | x_126749_aws_sc_awsaccount         |
-| AWS Region                    | x_126749_aws_sc_awsregion          |
-| Status                        | x_126749_aws_sc_awsstatus          |
-| Start time                    | x_126749_aws_sc_awscreationtime    |
-| Resolved time                 | x_126749_aws_sc_awsresolvetime     |
-| Updated time                  | x_126749_aws_sc_awslastupdatedtime |
-| Incident Sync time            | x_126749_aws_sc_awslastsynctime    |
-| AWS incident URL              | x_126749_aws_sc_awsincidenturl     |
-| Impact                        | impact                             |
+| AWS Incident Manager incident | ServiceNow Incident                    |
+| ----------------------------- | -------------------------------------- |
+| Title                         | short\_description                     |
+| Summary                       | description                            |
+| Incident ARN                  | x\_126749\_aws\_sc\_awsincidentarn     |
+| AWS Account                   | x\_126749\_aws\_sc\_awsaccount         |
+| AWS Region                    | x\_126749\_aws\_sc\_awsregion          |
+| Status                        | x\_126749\_aws\_sc\_awsstatus          |
+| Start time                    | x\_126749\_aws\_sc\_awscreationtime    |
+| Resolved time                 | x\_126749\_aws\_sc\_awsresolvetime     |
+| Updated time                  | x\_126749\_aws\_sc\_awslastupdatedtime |
+| Incident Sync time            | x\_126749\_aws\_sc\_awslastsynctime    |
+| AWS incident URL              | x\_126749\_aws\_sc\_awsincidenturl     |
+| Impact                        | impact                                 |
 
 **Incident Status** is an integer in ServiceNow. We
 map Incident Manager incident status values to ServiceNow status values.
@@ -44,7 +44,7 @@ the Priority field directly. The values of the **Impact** and **Urgency** fields
 we set the default priorities as below:
 
 | Incident Manager Incident | ServiceNow Incident |
-| ------------------------- | ------------------- | ----------- | ------------------------- |
+| ------------------------- | ------------------- |
 |                           | **Impact**          | **Urgency** | **Priority (Calculated)** |
 | Critical                  | High                | High        | Critical (1)              |
 | High                      | High                | High        | Critical (1)              |

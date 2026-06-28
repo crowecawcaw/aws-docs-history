@@ -239,8 +239,8 @@ To maintain the integration capabilities of the Xanadu ServiceNow release, upgra
 - Adds a configurable ServiceNow system property for AWS Config integration to
   automatically copy the AWS Resource Id (Object ID in ServiceNow) into ServiceNow's
   Name field to make AWS resources visible as configuration items.
-- Updates ELB resource mapping from cmdb_ci_lb_service table to
-  cmdb_ci_cloud_load_balancer table.
+- Updates ELB resource mapping from cmdb\_ci\_lb\_service table to
+  cmdb\_ci\_cloud\_load\_balancer table.
 - Updates relationships visible in the ServiceNow CMDB for AWS resources such as
   Cloud Subnet, DynamoDB, EC2, ELB, RDS, Storage volume, Security groups, and
   VPC.

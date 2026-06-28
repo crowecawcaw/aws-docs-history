@@ -25,12 +25,12 @@ Three tag types are available in this release:
 Generic tags (from administrators) and ServiceNow Request Item tags
 are not viewable by end users.
 
-| Key                   | Value             |
-| --------------------- | ----------------- |
-| Requested Item Number | ${REQUEST_NUMBER} |
-| User                  | ${USERNAME}       |
-| Requested for         | ${REQUESTED_FOR}  |
-| Opened by             | ${OPENED_BY}      |
+| Key                   | Value              |
+| --------------------- | ------------------ |
+| Requested Item Number | ${REQUEST\_NUMBER} |
+| User                  | ${USERNAME}        |
+| Requested for         | ${REQUESTED\_FOR}  |
+| Opened by             | ${OPENED\_BY}      |
 
 ###### To add generic AWS tags to Service Catalog provisioned products in ServiceNow
 

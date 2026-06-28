@@ -13,7 +13,7 @@ templates directly from a ServiceNow instance.
 ###### **To conﬁgure the AWS Support integration system properties**
 
 1. In the navigator, enter `AWS Service
-Management`.
+ Management`.
 2. Choose **System Properties**, then **AWS Systems Manager Change Manager**.
 3. Review the available settings and recommendations in the table
    below.

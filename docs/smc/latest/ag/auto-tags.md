@@ -18,11 +18,11 @@ Two tag types are available in this release:
   following syntax for key and value:
 
 AWS Service Catalog Request Type tags| **Key** | **Value** |
-| Project Code | ${PROJECT_CODE} |
-| Project Name | ${PROJECT_NAME} |
-| Project Name | ${ISSUE_ID} |
+| Project Code | ${PROJECT\_CODE} |
+| Project Name | ${PROJECT\_NAME} |
+| Project Name | ${ISSUE\_ID} |
 | Username | ${USERNAME} |
-| Opened By | ${OPENED_BY} |
+| Opened By | ${OPENED\_BY} |
 
 ###### To add generic AWS tags to AWS Service Catalog provisioned products in Jira Service Management
 

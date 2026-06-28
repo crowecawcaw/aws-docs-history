@@ -9,12 +9,12 @@ This section describes how to validate AWS Security Hub CSPM integration in Serv
 
 ###### To view Findings from AWS Security Hub CSPM
 
-To view AWS Security Hub CSPM Findings, you must have the role, **x_126749_aws_sc.finding_manager**, from the Connector scope app.
+To view AWS Security Hub CSPM Findings, you must have the role, **x\_126749\_aws\_sc.finding\_manager**, from the Connector scope app.
 
 1. Log in to your ServiceNow instance as a user (for example, System
    Administrator) in the fulfiller view (standard user interface view).
 2. In the navigator, enter `AWS Service
-Management`.
+ Management`.
 3. Choose **AWS Security Hub CSPM**.
 4. Choose **Findings** to show a list of all synced
    Findings.
@@ -31,17 +31,17 @@ Management`.
    This table shows how fields map from ServiceNow Findings records to ServiceNow as
    Incident or Problem records.
 
-| Finding                                                                  | Incident          | Problem           |
-| ------------------------------------------------------------------------ | ----------------- | ----------------- |
-| Created at                                                               | Opened at         | Opened at         |
-| Company Name                                                             | Company           | Company           |
-| Description                                                              | Description       | Description       |
-| Criticality                                                              | Impact            | Impact            |
-| Severity                                                                 | Urgency           | Urgency           |
-| Hardcoded to _software_                                                  | Category          | Category          |
-| Id of record in _cmdb_ci_service_<br>with name **AWS Security Hub CSPM** | Business service  | Business service  |
-| Description                                                              | Short description | Short description |
-| Reference to related Problem if it exists                                | problem_id        | n/a               |
+| Finding                                                                    | Incident          | Problem           |
+| -------------------------------------------------------------------------- | ----------------- | ----------------- |
+| Created at                                                                 | Opened at         | Opened at         |
+| Company Name                                                               | Company           | Company           |
+| Description                                                                | Description       | Description       |
+| Criticality                                                                | Impact            | Impact            |
+| Severity                                                                   | Urgency           | Urgency           |
+| Hardcoded to _software_                                                    | Category          | Category          |
+| Id of record in _cmdb\_ci\_service_<br>with name **AWS Security Hub CSPM** | Business service  | Business service  |
+| Description                                                                | Short description | Short description |
+| Reference to related Problem if it exists                                  | problem\_id       | n/a               |
 
 This table shows how fields synchronize between AWS Security Findings and ServiceNow
 Incidents or Problems.
@@ -62,11 +62,10 @@ and Problems in ServiceNow**
 
 - Finding criticality → Problem/Incident impact
 
-      + 0 - 29 → LOW
-      + 30 - 69 → MEDIUM
-      + 70 - 100 → HIGH
-
-  **Fields synchronized from Findings to AWS Security Hub CSPM**
+  - 0 - 29 → LOW
+  - 30 - 69 → MEDIUM
+  - 70 - 100 → HIGH
+    **Fields synchronized from Findings to AWS Security Hub CSPM**
 
 - Severity (Label and Normalized)
 - WorkflowStatus

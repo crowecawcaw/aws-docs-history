@@ -120,7 +120,7 @@ Parameter Store.
 6. To save, choose **Create parameter**.
 
 An CloudFormation template assists setting up the role and configuration
-rule: \***\*JSMConnector-CreateRemediationIssue-MakePublicBucketsPrivateConfigRule.cfn.yaml\*\***
+rule: ****JSMConnector-CreateRemediationIssue-MakePublicBucketsPrivateConfigRule.cfn.yaml****
 
 Install the template, setting the following parameters:
 
@@ -128,8 +128,8 @@ Install the template, setting the following parameters:
   that appending _/rest/.._. after it
   accesses the REST API
 - **JiraUsername**: the username to log in to
-  Jira (with the password specified in _jira_password_)
-- **SSMParameterName**: _jira_password_ (the parameter containing the Jira
+  Jira (with the password specified in _jira\_password_)
+- **SSMParameterName**: _jira\_password_ (the parameter containing the Jira
   password)
 - **ProjectKey**: the key of the project (the
   token before the _-n an issue_),
@@ -141,10 +141,10 @@ Install the template, setting the following parameters:
 - **JiraAwsAccountRegion**: the Region of this
   violating resource, e.g. _us-east-1_
 - **JiraAwsResourceFieldId**: the field ID of the
-  AWS Config Linked Resources field in Jira, such as _customfield_10011_.
+  AWS Config Linked Resources field in Jira, such as _customfield\_10011_.
 - **JiraRemediationsFieldId**: the field ID of
   the **AWS Systems Manager Automation Suggested
-  Remediation** field in Jira, such as _customfield_10010_.
+  Remediation** field in Jira, such as _customfield\_10010_.
 
 The Config Rule runs automatically within the period specified. To
 see it in action immediately:

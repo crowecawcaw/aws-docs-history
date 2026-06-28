@@ -177,13 +177,13 @@ Generic tags from administrators are not visible to internal
 customers or Jira agents during provisioning, but are available in the
 provisioned product in Service Catalog.
 
-| Key                 | Value           |
-| ------------------- | --------------- |
-| Requester name      | ${OPENED_BY}    |
-| Requester user name | ${USERNAME}     |
-| Issue ID            | ${ISSUE_ID}     |
-| Project name        | ${PROJECT_NAME} |
-| Project code        | ${PROJECT_CODE} |
+| Key                 | Value            |
+| ------------------- | ---------------- |
+| Requester name      | ${OPENED\_BY}    |
+| Requester user name | ${USERNAME}      |
+| Issue ID            | ${ISSUE\_ID}     |
+| Project name        | ${PROJECT\_NAME} |
+| Project code        | ${PROJECT\_CODE} |
 
 ###### To add TagOptions to Service Catalog integration in Jira Service Management
 

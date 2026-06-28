@@ -9,37 +9,36 @@ For more information, see [AWS Service Management Connector end of support](smc-
 
 ###### Note
 
-To view the the AWS Health dashboard, you must use the role **x_126749_aws_sc.health_dashboard_viewer**.
+To view the the AWS Health dashboard, you must use the role **x\_126749\_aws\_sc.health\_dashboard\_viewer**.
 
-1.  Log in to your ServiceNow instance in the fulfiller (standard) view.
-2.  In the search box, enter `AWS Service Management
-Connector`.
-3.  Choose **AWS Health** and then
-    **Dashboards**.
-4.  At the top-right, select your account from the **Select an
-    AWS account** dropdown list. The following four tabs are
-    available:
+1. Log in to your ServiceNow instance in the fulfiller (standard) view.
+2. In the search box, enter `AWS Service Management
+ Connector`.
+3. Choose **AWS Health** and then
+   **Dashboards**.
+4. At the top-right, select your account from the **Select an
+   AWS account** dropdown list. The following four tabs are
+   available:
 
-        * **Open and recent issues** (opens by
-         default) displays health events that were updated within the past seven
-         days. Choose an event to display its details and a list of affected
-         resources.
-        * **Scheduled changes** displays future
-         health events with start times after the current date and time.
-        * **Other notifications** displays health
-         events that were updated within the past seven days.
-        * **Event log** displays all health events
-         for the selected AWS account.
+   - **Open and recent issues** (opens by
+     default) displays health events that were updated within the past seven
+     days. Choose an event to display its details and a list of affected
+     resources.
+   - **Scheduled changes** displays future
+     health events with start times after the current date and time.
+   - **Other notifications** displays health
+     events that were updated within the past seven days.
+   - **Event log** displays all health events
+     for the selected AWS account.
+     **View AWS Health incidents**
 
-    **View AWS Health incidents**
+5. Log in to your ServiceNow instance in the fulfiller (standard) view.
+6. In the navigator, enter `AWS Service Management Connector`.
+7. Under **AWS Health**, choose **AWS Health Incidents**.
+   **View AWS Health change requests**
 
-5.  Log in to your ServiceNow instance in the fulfiller (standard) view.
-6.  In the navigator, enter `AWS Service Management Connector`.
-7.  Under **AWS Health**, choose **AWS Health Incidents**.
-    **View AWS Health change requests**
-
-8.  Log in to your ServiceNow instance in the fulfiller (standard) view.
-9.  In the navigator, enter `AWS Service Management Connector`.
+8. Log in to your ServiceNow instance in the fulfiller (standard) view.
+9. In the navigator, enter `AWS Service Management Connector`.
 10. Under **AWS Health**, choose **AWS Health Requests**.
     **Manually create an AWS Health incident**
 

@@ -48,11 +48,11 @@ to reflect your environment.
 1. Set the following to correspond to your environment and
    issue:
 
-JIRA_BASE_URL=http://localhost:2990/jira
+JIRA\_BASE\_URL=http://localhost:2990/jira
 
-JIRA_USER_PASS=admin:admin
+JIRA\_USER\_PASS=admin:admin
 
-ISSUE_KEY=PRJ-1 2. Set the field ID and edit the JSON record for an AWS Config resource
+ISSUE\_KEY=PRJ-1 2. Set the field ID and edit the JSON record for an AWS Config resource
 to link.
 
 ```

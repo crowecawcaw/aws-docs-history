@@ -30,8 +30,8 @@ aws s3 cp JSMConnector-function.zip s3://${BUCKET}/function.zip
 2. Create the Systems Manager Automation Document, called
    **JSMConnector-CreateRemediationIssue**, with the
    contents from the file *JSMConnector-CreateRemediationIssue.ssmdoc.yam*l and an
-   attachment _Key=SourceUrl,Values=s3://${BUCKET}/_, using the bucket
-   name from the previous step as ${BUCKET}. The following command
+   attachment *Key=SourceUrl,Values=s3://${BUCKET}/*, using the bucket
+ name from the previous step as ${BUCKET}. The following command
    replaces ${BUCKET}):
 
 ```

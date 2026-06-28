@@ -6,13 +6,13 @@ For more information, see [AWS Service Management Connector end of support](smc-
 # Validating ServiceNow connectivity to AWS Regions
 
 You can now validate connectivity to AWS accounts between the ServiceNow
-**Connector_Demo** account and the AWS IAM
+**Connector\_Demo** account and the AWS IAM
 `SMSyncUser` and `SMEndUser`.
 
 ###### To validate connectivity to AWS account
 
 1. In the AWS Service Management scoped app, choose **Setup**, then **AWS Accounts**.
-2. Choose **Connector_Demo** and select **Validate
+2. Choose **Connector\_Demo** and select **Validate
    Account**.
 
 A successful connection results in the message, _Successfully validating AWS account in each referenced

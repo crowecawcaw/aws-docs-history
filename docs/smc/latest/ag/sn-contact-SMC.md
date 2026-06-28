@@ -52,9 +52,9 @@ Alternatively, you can create the support case from Support console.
 
    - Service – `Service Catalog`
    - Category – `Service Management
-Connectors`
+  Connectors`
    - Severity – `General Guidance or System
-Impaired` (based on your need)
+  Impaired` (based on your need)
    - Subject – Brief summary of the question or issue; include the
      name of the Connector you use.
    - Description – Detailed account of the question or

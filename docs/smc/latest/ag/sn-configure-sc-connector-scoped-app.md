@@ -11,7 +11,7 @@ configure the scoped application and applicable roles.
 ###### To configure the AWS Service Management Connector scoped application permissions
 
 1. In your ServiceNow instance, create a user group called
-   **Order_AWS_Products**.
+   **Order\_AWS\_Products**.
 
 Members of this group can order Service Catalog products. For instructions, see
 [Administer the Now Platform.](https://docs.servicenow.com/bundle/washingtondc-platform-administration/page/administer/general/concept/intro-now-platform-landing.html "https://docs.servicenow.com/bundle/washingtondc-platform-administration/page/administer/general/concept/intro-now-platform-landing.html") 2. Grant ServiceNow permissions to these users:

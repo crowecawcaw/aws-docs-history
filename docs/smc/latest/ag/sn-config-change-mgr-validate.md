@@ -13,7 +13,7 @@ ServiceNow.
 1. Log in to your ServiceNow instance as a user (for example, System
    Administrator) in the fulﬁller view (standard user interface view).
 2. In the navigator, enter `AWS Service Management
-Connector`.
+ Connector`.
 3. To show a list of all synched Change templates, choose **Change Templates** under **Systems Manager**.
 
 ###### To view Systems Manager Change Request
@@ -21,7 +21,7 @@ Connector`.
 1. Log in to your ServiceNow instance as a user (for example, System
    Administrator) in the fulﬁller view (standard user interface view).
 2. In the navigator, enter `AWS Service Management
-Connector`.
+ Connector`.
 3. To show a list of all synched Change Requests created from ServiceNow,
    choose **Change Requests** under **Systems Manager**.
 4. Choose a Change Request to open the record.
@@ -31,7 +31,7 @@ Connector`.
 1. Log in to your ServiceNow instance as a user (for example, System
    Administrator) in the fulﬁller view (standard user interface view).
 2. In the navigator, enter `AWS Service Management
-Connector`.
+ Connector`.
 3. To show a list of all synched Change Requests created from ServiceNow,
    choose **Change Request Ops Items** under
    **Systems Manager**.

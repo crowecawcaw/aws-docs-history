@@ -37,7 +37,7 @@ documents (runbooks):
 
 - The user has the role Account Manager or Automation Manager.
 - The user has a linked Incident.
-- The system parameter **Assignment Group (SYS_ID)
+- The system parameter **Assignment Group (SYS\_ID)
   for created incidents** is set to a valid group and a
   linked Incident whose Assignment group is set to that group, and the
   user is a member of that group.

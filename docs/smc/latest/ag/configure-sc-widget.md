@@ -30,25 +30,25 @@ application mode. 2. Deselect any AWS product component to enable:
      section is not visible.)
 
 3. Choose **Save**.
-   The AWS Service Catalog system properties also include a section that identifies an
-   assignment group. This group associates with closed change records from post
-   provision actions of products (such as terminate, update, or self-service actions).
+The AWS Service Catalog system properties also include a section that identifies an
+assignment group. This group associates with closed change records from post
+provision actions of products (such as terminate, update, or self-service actions).
 
 ###### To associate the assignment group for change records from AWS Service Catalog post provision actions
 
 1. In the navigator, enter `System Properties` and
    choose **AWS Service Catalog**. Make sure you are in the
    AWS Service Management Connector scoped application mode.
-2. Choose the section **Set the ‘assignment group’ sys_id
+2. Choose the section **Set the ‘assignment group’ sys\_id
    or name that the connector will use when creating change
    requests**.
 3. Enter the assignment `group sys_id`.
 
 If you need to find the `group sys_id`, enter `System
  Security` in the left navigator. 4. Choose **Groups** module. 5. Search for the **Group** name. 6. Choose the group that you want to associate to close changed records and
-choose **Copy sys_id**. You are now able to
+choose **Copy sys\_id**. You are now able to
 paste the copied `sys_id` into the AWS Service Catalog Properties for the
-Connector under **Set the ‘assignment group’ sys_id or
+Connector under **Set the ‘assignment group’ sys\_id or
 name that the connector will use when creating change
 requests**.
 

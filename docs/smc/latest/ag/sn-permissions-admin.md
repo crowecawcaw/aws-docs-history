@@ -20,15 +20,15 @@ users or to one administrator user.
 3. Choose **Edit** on the **Roles** tab of the form.
 4. Filter the collection of roles by the prefix
    `x_126749_aws_sc`.
-5. Choose one or more of the following and add them to the user: **x_126749_aws_sc_account_admin**, **x_126749_aws_sc_portfolio_manager**, **x_126749\_ aws_sc.appregistry_manager,**
-   **x_126749\_ aws_sc.automation_manager**,
-   **x_126749_aws_sc.finding_manager**,
-   **x_126749_aws_sc.opscenter_manager**,
-   **x_126749_aws_sc.support_case_manager** ,
-   **x_126749_aws_sc.change_manager_manager**,
-   **x_126749_aws_sc.productsearchaccess**,
-   **x_126749_aws_sc.cloudtrail_event_user**,
-   and **x_126749_aws_sc.health_dashboard_viewer.**
+5. Choose one or more of the following and add them to the user: **x\_126749\_aws\_sc\_account\_admin**, **x\_126749\_aws\_sc\_portfolio\_manager**, **x\_126749\_ aws\_sc.appregistry\_manager,**
+   **x\_126749\_ aws\_sc.automation\_manager**,
+   **x\_126749\_aws\_sc.finding\_manager**,
+   **x\_126749\_aws\_sc.opscenter\_manager**,
+   **x\_126749\_aws\_sc.support\_case\_manager** ,
+   **x\_126749\_aws\_sc.change\_manager\_manager**,
+   **x\_126749\_aws\_sc.productsearchaccess**,
+   **x\_126749\_aws\_sc.cloudtrail\_event\_user**,
+   and **x\_126749\_aws\_sc.health\_dashboard\_viewer.**
 6. Choose **Save**.
 
 ###### To add Service Catalog to ServiceNow Service Catalog categories
@@ -80,9 +80,9 @@ closed change records in the Connector AWS Service Catalog system properties.
 5. Choose **New** and complete these fields:
 
    - **Table**: `Change
-Request`
+  Request`
    - **Label**: `AWS Provisioned Product
-Event`
+  Event`
    - **Value**:
      `AWSProvisionedProductEvent`
    - **Sequence**: pick the next unused value
@@ -127,17 +127,17 @@ For more information on Change model system properties, see [IT Service Manageme
 | `com.snc.change_management.change_model.hide`               | false         |
 | `com.snc.change_management.change_model.type_compatibility` | true          |
 
-| ServiceNow Permissions Recap              | ServiceNow Persona                  | Scoped App Permissions                                                              | ServiceNow Permission Type                               | Description |
-| ----------------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------- |
-| Admin                                     | `x_126749_aws_sc_portfolio_manager` | Role (scoped app)                                                                   | Manage AWS Service Catalog portfolios and product access |
-| `x_126749_aws_sc_account_admin`           | Role (scoped app)                   | Onboard and manage AWS accounts                                                     |
-| `x_126749_ aws_sc.appregistry_manager`    | Role (scoped app)                   | View AppRegistry applications and attribute groups                                  |
-| `x_126749_aws_sc.automation_manager`      | Role (scoped app)                   | Manage Automation Documents and view Automation<br>executions                       |
-| `x_126749_aws_sc.finding_manager`         | Role (scoped app)                   | View AWS Security Hub CSPM findings                                                 |
-| `x_126749_aws_sc.opscenter_manager`       | Role (scoped app)                   | Default access control for OpsItem integration.                                     |
-| `x_126749_aws_sc.change_manager_manager`  | Role (scoped app)                   | Manage AWS Systems Manager Change Manager change templates                          |
-| `x_126749_aws_sc.support_case_manager`    | Role (scoped app)                   | Manage Support services and categories                                              |
-| `x_126749_aws_sc.productsearchaccess`     | Role (scoped app)                   | End user role for searching AWS Service Catalog products using the search<br>widget |
-| `x_126749_aws_sc.cloudtrail_event_user`   | Role (scoped app)                   | Default ACL for CloudTrail events on AWS Systems Manager Change<br>Manager          |
-| `x_126749_aws_sc.health_dashboard_viewer` | Role (scoped app)                   | View AWS Health dashboard                                                           |
-| End User (i.e., Abel Tuter)               | `Order_AWS_Products`                | Group                                                                               |                                                          |
+ServiceNow Permissions Recap| ServiceNow Persona | Scoped App Permissions | ServiceNow Permission Type | Description |
+| --- | --- | --- | --- |
+| Admin | `x_126749_aws_sc_portfolio_manager` | Role (scoped app) | Manage AWS Service Catalog portfolios and product access |
+| `x_126749_aws_sc_account_admin` | Role (scoped app) | Onboard and manage AWS accounts |
+| `x_126749_ aws_sc.appregistry_manager` | Role (scoped app) | View AppRegistry applications and attribute groups |
+| `x_126749_aws_sc.automation_manager` | Role (scoped app) | Manage Automation Documents and view Automation<br>executions |
+| `x_126749_aws_sc.finding_manager` | Role (scoped app) | View AWS Security Hub CSPM findings |
+| `x_126749_aws_sc.opscenter_manager` | Role (scoped app) | Default access control for OpsItem integration. |
+| `x_126749_aws_sc.change_manager_manager` | Role (scoped app) | Manage AWS Systems Manager Change Manager change templates |
+| `x_126749_aws_sc.support_case_manager` | Role (scoped app) | Manage Support services and categories |
+| `x_126749_aws_sc.productsearchaccess` | Role (scoped app) | End user role for searching AWS Service Catalog products using the search<br>widget |
+| `x_126749_aws_sc.cloudtrail_event_user` | Role (scoped app) | Default ACL for CloudTrail events on AWS Systems Manager Change<br>Manager |
+| `x_126749_aws_sc.health_dashboard_viewer` | Role (scoped app) | View AWS Health dashboard |
+| End User (i.e., Abel Tuter) | `Order_AWS_Products` | Group | |

@@ -29,9 +29,9 @@ Lake feature by their unique automation execution ID.
 This table shows how AWS Change Request Ops items map to ServiceNow Change
 Request.
 
-| AWS Change Request Ops Item | ServiceNow Change Request    |
-| --------------------------- | ---------------------------- |
-| AWS Account                 | x_126749_aws_sc_awsaccount   |
-| AWS Request ID              | x_126749_aws_sc_awsrequestid |
-| AWS Region                  | x_126749_aws_sc_awsregion    |
-| AWS Status                  | x_126749_aws_sc_awsstatus    |
+| AWS Change Request Ops Item | ServiceNow Change Request        |
+| --------------------------- | -------------------------------- |
+| AWS Account                 | x\_126749\_aws\_sc\_awsaccount   |
+| AWS Request ID              | x\_126749\_aws\_sc\_awsrequestid |
+| AWS Region                  | x\_126749\_aws\_sc\_awsregion    |
+| AWS Status                  | x\_126749\_aws\_sc\_awsstatus    |

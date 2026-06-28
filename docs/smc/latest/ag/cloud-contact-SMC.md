@@ -16,7 +16,7 @@ specialist team directly from the connector using an Support case.
    - Service - `Service Catalog`
    - Category - `Service Management Connectors`
    - Severity - `General Guidence` or `System
-Impaired` (based on your need).
+  Impaired` (based on your need).
    - Subject - A brief summary of the question or issue; include
      the name of the Connector in use.
    - Description - A detailed account of the question or issue.

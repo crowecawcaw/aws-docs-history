@@ -43,8 +43,7 @@ Under Support fields section
     * **AWS Cc Email Addresses** –
      Add cc email addresses to the Support case (not mandatory)
 
-5. Choose **Create**.
-6. Choose the Incident you created from the list. The **AWS Case Id** and **AWS Case Status** displays.
+5. Choose **Create**. 6. Choose the Incident you created from the list. The **AWS Case Id** and **AWS Case Status** displays.
 
 ###### For AWS managed services Accelerate customers to create AMS Accelerate Report Incident in Jira
 
@@ -76,8 +75,7 @@ section
     * **AWS Cc Email Addresses** –
      Add cc email addresses to the Support case (not mandatory)
 
-5. Choose **Create**.
-6. Choose the Incident you created from the list. The **AWS case Id** and **AWS case status** displays.
+5. Choose **Create**. 6. Choose the Incident you created from the list. The **AWS case Id** and **AWS case status** displays.
 
 ###### To add a correspondence and attachment to an existing Support case in Jira incident
 

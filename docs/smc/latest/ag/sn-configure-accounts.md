@@ -17,8 +17,8 @@ the Connector.
 ###### To create an account entry
 
 1. Enter the name as an account entry identifier, such as
-   **Connector_Demo** (for Commercial Region), or
-   **Connector_Demo_GovCloud** (for GovCloud
+   **Connector\_Demo** (for Commercial Region), or
+   **Connector\_Demo\_GovCloud** (for GovCloud
    Region).
 2. Enter the access key and secret access key from the AWS account
    _sync user_ IAM

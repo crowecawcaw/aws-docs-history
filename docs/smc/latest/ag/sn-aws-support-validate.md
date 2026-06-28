@@ -147,16 +147,16 @@ The **AWS Case Id** and **AWS Case Status** displays.
 
 This table shows how Support Case map to ServiceNow Incidents.
 
-| Support case         | ServiceNow incident                        |
-| -------------------- | ------------------------------------------ |
-| Subject              | short_description                          |
-| First correspondence | description                                |
-| Case ID              | x_126749_aws_sc_awssupportcaseid           |
-| Status               | x_126749_aws_sc_awscasestatus              |
-| Service              | x_126749_aws_sc_awsservice                 |
-| Category             | x_126749_aws_sc_awscategory                |
-| Additional contacts  | x_126749_aws_sc_awscasecommunicationemails |
-| AWS account          | x_126749_aws_sc_awsaccount                 |
+| Support case         | ServiceNow incident                            |
+| -------------------- | ---------------------------------------------- |
+| Subject              | short\_description                             |
+| First correspondence | description                                    |
+| Case ID              | x\_126749\_aws\_sc\_awssupportcaseid           |
+| Status               | x\_126749\_aws\_sc\_awscasestatus              |
+| Service              | x\_126749\_aws\_sc\_awsservice                 |
+| Category             | x\_126749\_aws\_sc\_awscategory                |
+| Additional contacts  | x\_126749\_aws\_sc\_awscasecommunicationemails |
+| AWS account          | x\_126749\_aws\_sc\_awsaccount                 |
 
 Incident State is an integer in ServiceNow. We map Support case status
 values to ServiceNow state.
@@ -195,7 +195,7 @@ maps Support Case Severity to ServiceNow Incident Priority.
    Administrator) in the fulﬁller view (standard user interface
    view).
 2. In the navigator, enter `AWS Service
-Management`.
+ Management`.
 3. Under **Setup**, choose **Priority Mappings**. Then choose **New**.
 4. Choose **AWS Record**
    **Type** as **Support

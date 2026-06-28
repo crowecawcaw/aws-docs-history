@@ -16,7 +16,7 @@ View provisioned products as an end user and from the scoped app as an administr
    configuration item.
 
 To show the items, choose **Settings** in the header row
-of the table of asset requests. 4. Choose **Configuration item (configuration_item)**. Then
+of the table of asset requests. 4. Choose **Configuration item (configuration\_item)**. Then
 use the **>** icon to add it to the view.
 
 Move the configuration item to below **Stage** in the

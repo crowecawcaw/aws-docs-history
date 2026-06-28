@@ -65,7 +65,7 @@ ServiceNow admin based on your organization’s data retention policies.
    System Administrator) in the fulﬁller view (Standard user interface
    view).
 2. In the filter navigator, enter `System
-Definition`.
+ Definition`.
 3. Choose **Fix Scripts**.
 4. To migrate resources to the new Cloud Load Balancer table, choose
    **AWS SMC - Migrate ELB data**.
