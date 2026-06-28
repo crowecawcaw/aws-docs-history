@@ -151,11 +151,11 @@ your assessment.
 In this case, you see the following information about the services in scope that you
 defined:
 
-| Name            | Description                                                    |
-| --------------- | -------------------------------------------------------------- |
-| **AWS service** | The name of the AWS service.                                   |
-| **Category**    | The service category, such as *compute<br>• or<br>*database\*. |
-| **Description** | The description of the AWS service.                            |
+| Name            | Description                                                   |
+| --------------- | ------------------------------------------------------------- |
+| **AWS service** | The name of the AWS service.                                  |
+| **Category**    | The service category, such as *compute<br>• or<br>_database_. |
+| **Description** | The description of the AWS service.                           |
 
 Audit Manager performs resource assessments for the services in this table. For example, if Amazon S3
 is listed, Audit Manager can collect evidence about your S3 buckets. The exact evidence that's

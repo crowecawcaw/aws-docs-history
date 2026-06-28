@@ -125,10 +125,8 @@ you just removed with the latest control definition.
      **Add** to confirm.
 
 9. Repeat steps 6-8 as needed until you have replaced all
-   controls.
-10. Choose **Next**.
-11. On the **Review and save** page, choose
-    **Save changes**.
+controls. 10. Choose **Next**. 11. On the **Review and save** page, choose
+**Save changes**.
 
 ## I can’t make a copy of my custom framework
 
@@ -260,10 +258,10 @@ needed in Audit Manager. Audit Manager detects and handles rule updates in the w
 described in the following table. Audit Manager doesn't notify you when a rule update is
 detected.
 
-| Scenario                                                             | What Audit Manager does                                                                        | What you need to do                                                                                                                                                                                                                                                                                                                                  |
-| -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A custom rule is \*_updated_<br>• in<br>your instance of AWS Config. | Audit Manager continues to report findings for that rule using the updated<br>rule definition. | No action is needed.                                                                                                                                                                                                                                                                                                                                 |
-| A custom rule is \*_deleted_<br>• in<br>your instance of AWS Config. | Audit Manager stops reporting findings for the deleted rule.                                   | No action is needed.<br>If you want to, you can [edit<br>the custom controls](edit-controls.md "edit-controls.md") that used the deleted rule as a<br>data source mapping. You can then remove the deleted rule to<br>clean up your control's data source settings. Otherwise, the<br>deleted rule name remains as an unused data source<br>mapping. |
+| Scenario                                                            | What Audit Manager does                                                                        | What you need to do                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A custom rule is *_updated_<br>• in<br>your instance of AWS Config. | Audit Manager continues to report findings for that rule using the updated<br>rule definition. | No action is needed.                                                                                                                                                                                                                                                                                                                                 |
+| A custom rule is *_deleted_<br>• in<br>your instance of AWS Config. | Audit Manager stops reporting findings for the deleted rule.                                   | No action is needed.<br>If you want to, you can [edit<br>the custom controls](edit-controls.md "edit-controls.md") that used the deleted rule as a<br>data source mapping. You can then remove the deleted rule to<br>clean up your control's data source settings. Otherwise, the<br>deleted rule name remains as an unused data source<br>mapping. |
 
 ###### For rule updates outside your AWS environment
 

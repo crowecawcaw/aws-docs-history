@@ -41,7 +41,7 @@ notification badge indicates the number of share requests that need your attenti
 **Received requests** tab. 5. Identify the share requests that need your action by looking for items with a blue
 dot.
 
-![Screenshot of a received request with a blue dot next to the framework name.](/images/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-console.png) 6. (Optional) To view only requests that expire in the next 30 days, find the
+![Screenshot of a received request with a blue dot next to the framework name.](images/framework_sharing-blue_dot_notification-console.png) 6. (Optional) To view only requests that expire in the next 30 days, find the
 **All statuses** dropdown list and select
 **Expiring**.
 
@@ -123,13 +123,13 @@ that you accepted.
 4. Find the **All statuses** dropdown list, and select
    one of the following filters:
 
-| Name         | Description                                                                                                                         |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Active**   | This filter displays share requests that you haven't yet accepted or<br>declined.                                                   |
-| **Expiring** | This filter displays share requests that expire in the next 30<br>days.                                                             |
-| **Shared**   | This filter displays share requests that you accepted. The shared<br>framework is now available in your framework library.          |
-| **Inactive** | This filter displays share requests that were declined or<br>expired.                                                               |
-| **Failed**   | This filter displays the share requests that weren't sent<br>successfully. Choose the word \*_Failed_<br>• to view more<br>details. |
+| Name         | Description                                                                                                                        |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Active**   | This filter displays share requests that you haven't yet accepted or<br>declined.                                                  |
+| **Expiring** | This filter displays share requests that expire in the next 30<br>days.                                                            |
+| **Shared**   | This filter displays share requests that you accepted. The shared<br>framework is now available in your framework library.         |
+| **Inactive** | This filter displays share requests that were declined or<br>expired.                                                              |
+| **Failed**   | This filter displays the share requests that weren't sent<br>successfully. Choose the word *_Failed_<br>• to view more<br>details. |
 
 ## Next steps
 

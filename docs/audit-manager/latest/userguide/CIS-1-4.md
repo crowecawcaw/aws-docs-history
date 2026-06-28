@@ -101,8 +101,8 @@ that you enable the necessary AWS Config rules. To review a list of the AWS Conf
 are used as data source mappings for these standard frameworks, download the following
 files:
 
-1. [AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1.zip](samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1.zip.md "samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1.zip.md")
-2. [AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1-and-2.zip](samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1-and-2.zip.md "samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1-and-2.zip.md")
+1. [AuditManager\_ConfigDataSourceMappings\_CIS-AWS-Benchmark-v1.4.0,-Level-1.zip](samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1.zip.md "samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1.zip.md")
+2. [AuditManager\_ConfigDataSourceMappings\_CIS-AWS-Benchmark-v1.4.0,-Level-1-and-2.zip](samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1-and-2.zip.md "samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.4.0,-Level-1-and-2.zip.md")
 
 The controls in these frameworks aren't intended to verify if your systems are
 compliant with the CIS AWS Benchmark v1.4.0. Moreover, they can't guarantee that you'll

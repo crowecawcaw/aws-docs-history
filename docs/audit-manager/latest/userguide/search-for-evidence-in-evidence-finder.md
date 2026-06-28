@@ -41,35 +41,32 @@ Follow these steps to perform a search query in evidence finder.
 
 ###### To search for evidence
 
-1.  Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home "https://console.aws.amazon.com/auditmanager/home").
-2.  In the navigation pane, choose **Evidence finder**.
-3.  Next, apply filters to narrow the scope of your search.
+1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home "https://console.aws.amazon.com/auditmanager/home").
+2. In the navigation pane, choose **Evidence finder**.
+3. Next, apply filters to narrow the scope of your search.
 
-        1. For **Assessment**, choose an assessment.
-        2. For **Date range**, select a range.
-        3. For **Resource compliance**, select an evaluation status.
+   1. For **Assessment**, choose an assessment.
+   2. For **Date range**, select a range.
+   3. For **Resource compliance**, select an evaluation status.
+      ![The required assessment, date range, and resource compliance filters in evidence finder.](images/evidence-finder-required_filters-console.png)
 
-    ![The required assessment, date range, and resource compliance filters in evidence finder.](images/evidence-finder-required_filters-console.png)
+4. (Optional) Choose **Additional filters - optional** to narrow the search even
+   further.
 
-4.  (Optional) Choose **Additional filters - optional** to narrow the search even
-    further.
+   1. Choose **Add criteria**, select a criteria, and then select one or more
+      values for that criteria.
+   2. Continue to build more filters in the same way.
+   3. To remove an unwanted filter, choose **Remove**.
+      ![An additional filter for a specific control in evidence finder.](images/evidence-finder-additional_filters-console.png)
 
-        1. Choose **Add criteria**, select a criteria, and then select one or more
-         values for that criteria.
-        2. Continue to build more filters in the same way.
-        3. To remove an unwanted filter, choose **Remove**.
+5. Under **Grouping**, specify whether you want to group the search
+   results.
 
-    ![An additional filter for a specific control in evidence finder.](images/evidence-finder-additional_filters-console.png)
+   1. If you want to group the results, select a value to group the results by.
+   2. If you don’t want to group the results, proceed to step 6.
+      ![The group results option selected, with a chosen group by value.](images/evidence-finder-grouping-console.png)
 
-5.  Under **Grouping**, specify whether you want to group the search
-    results.
-
-        1. If you want to group the results, select a value to group the results by.
-        2. If you don’t want to group the results, proceed to step 6.
-
-    ![The group results option selected, with a chosen group by value.](images/evidence-finder-grouping-console.png)
-
-6.  Choose **Search**.
+6. Choose **Search**.
 
 ![The search button to start a search query in evidence finder.](images/evidence-finder-search-console.png)
 

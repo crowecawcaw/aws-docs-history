@@ -23,10 +23,10 @@ only one delegated administrator. If you attempt to designate multiple delegated
 administrators in Audit Manager, you receive the following error message:
 
 - Console: `You have exceeded the allowed number of delegated
-administrators for the delegated service`
+ administrators for the delegated service`
 - CLI: `An error occurred (ValidationException) when calling the
-RegisterAccount operation: Cannot change delegated Admin for an active
-account 11111111111 from 2222222222222 to 333333333333`
+ RegisterAccount operation: Cannot change delegated Admin for an active
+ account 11111111111 from 2222222222222 to 333333333333`
 
 Choose the one individual account that you want to use as your delegated
 administrator in Audit Manager. Make sure that you register the delegated administrator

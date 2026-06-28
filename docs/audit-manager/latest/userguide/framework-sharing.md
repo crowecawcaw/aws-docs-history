@@ -134,14 +134,14 @@ apply filters to display only requests that expire within the next 30 days.
    this by finding the **All statuses** dropdown list, and changing
    the filter to one of the following.
 
-| Status          | Description                                                                                                                                                                 |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Active**      | This filter displays share requests that are awaiting a response from<br>the recipient.                                                                                     |
-| **Expiring**    | This filter displays share requests that expire in the next 30<br>days.                                                                                                     |
-| **Shared**      | This filter displays share requests that were accepted by the<br>recipient. The shared custom framework now exists in the recipient's<br>framework library.                 |
-| **Inactive**    | This filter displays share requests that were declined, revoked, or<br>expired before the recipient took action. Choose the word<br>\*_Inactive_<br>• to view more details. |
-| **Replicating** | This indicates an accepted share request that's being replicated to the<br>recipient's framework library.                                                                   |
-| **Failed**      | This filter displays the share requests that weren't successfully sent<br>to the recipient. Choose the word \*_Failed_<br>• to view more<br>details.                        |
+| Status          | Description                                                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Active**      | This filter displays share requests that are awaiting a response from<br>the recipient.                                                                                    |
+| **Expiring**    | This filter displays share requests that expire in the next 30<br>days.                                                                                                    |
+| **Shared**      | This filter displays share requests that were accepted by the<br>recipient. The shared custom framework now exists in the recipient's<br>framework library.                |
+| **Inactive**    | This filter displays share requests that were declined, revoked, or<br>expired before the recipient took action. Choose the word<br>*_Inactive_<br>• to view more details. |
+| **Replicating** | This indicates an accepted share request that's being replicated to the<br>recipient's framework library.                                                                  |
+| **Failed**      | This filter displays the share requests that weren't successfully sent<br>to the recipient. Choose the word *_Failed_<br>• to view more<br>details.                        |
 
 ###### Note
 

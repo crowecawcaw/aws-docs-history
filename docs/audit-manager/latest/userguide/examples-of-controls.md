@@ -64,7 +64,7 @@ requirements.
 ###### Example control details
 
 - **Control name** – `FSBP1-012: AWS Config
-should be enabled`
+ should be enabled`
 - **Control set** – `Config`. This is a
   framework-specific grouping of FSBP controls that relate to configuration
   management.
@@ -127,7 +127,7 @@ environment in line with AWS Control Tower Guardrails.
 ###### Example control details
 
 - **Control name** – `CT-4.1.2: 4.1.2 -
-Disallow public write access to S3 buckets`
+ Disallow public write access to S3 buckets`
 - **Control set** – This control belongs to the
   `Disallow public access` control set. This is a grouping of controls that
   relate to access management.
@@ -196,7 +196,7 @@ line with your specific requirements.
 ###### Example control details
 
 - **Control name** – `Password
-Use`
+ Use`
 - **Control set** – This control belongs to a
   control set that's called `Access Control`. This is a grouping of controls
   that relate to identity and access management.
@@ -268,7 +268,7 @@ AWS environment in line with HIPAA requirements.
 ###### Example control details
 
 - **Control name** – `164.308(a)(5)(ii)(C):
-Administrative Safeguards - 164.308(a)(5)(ii)(C)`
+ Administrative Safeguards - 164.308(a)(5)(ii)(C)`
 - **Control set** – This control belongs to the
   control set that's called `Section 308`. This is a framework-specific
   grouping of HIPAA controls that relate to administrative safeguards.
@@ -353,9 +353,9 @@ compliance for this control.
 ###### Example control details
 
 - **Control name** – `AT-4: Training
-Records`
+ Records`
 - **Control set** – `(AT) Awareness and
-training`. This is a framework-specific grouping of NIST controls that relate to
+ training`. This is a framework-specific grouping of NIST controls that relate to
   training.
 - **Evidence source** – Individual data source
 - **Data source type** – Manual
@@ -417,9 +417,9 @@ AWS environment in line with NIST requirements.
 ###### Example control details
 
 - **Control name** – `Personnel
-Termination`
+ Termination`
 - **Control set** – `(PS) Personnel Security
-(10)`. This is a framework-specific grouping of NIST controls that relate to the
+ (10)`. This is a framework-specific grouping of NIST controls that relate to the
   individuals who perform hardware or software maintenance on organizational
   systems.
 - **Evidence source** – AWS managed (core

@@ -17,13 +17,13 @@ events, see [CloudTrail concepts](../../../awscloudtrail/latest/userguide/cloudt
 
 As an exception to the above, the following CloudTrail events aren't supported by Audit Manager:
 
-- kms_GenerateDataKey
-- kms_Decrypt
-- sts_AssumeRole
-- kinesisvideo_GetDataEndpoint
-- kinesisvideo_GetSignalingChannelEndpoint
-- kinesisvideo_DescribeSignalingChannel
-- kinesisvideo_DescribeStream
+- kms\_GenerateDataKey
+- kms\_Decrypt
+- sts\_AssumeRole
+- kinesisvideo\_GetDataEndpoint
+- kinesisvideo\_GetSignalingChannelEndpoint
+- kinesisvideo\_DescribeSignalingChannel
+- kinesisvideo\_DescribeStream
   As of May 11, 2023, Audit Manager no longer supports read-only CloudTrail events as keywords for evidence
   collection. We removed a total of 3,135 read-only keywords. Because customers and
   AWS services both make read calls to APIs, read-only events are noisy. As a result,

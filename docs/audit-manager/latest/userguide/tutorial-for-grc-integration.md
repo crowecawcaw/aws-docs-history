@@ -303,7 +303,7 @@ workflow, do the following:
      control.
 
 2. Repeat this task for all of your enterprise controls, and create corresponding
-   custom controls in Audit Manager for each one.
+custom controls in Audit Manager for each one.
 
 Audit Manager provides a large number of prebuilt standard controls. You can perform a one-time
 mapping between your enterprise controls and these standard controls. After you’ve

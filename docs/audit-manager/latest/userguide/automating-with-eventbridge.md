@@ -142,10 +142,6 @@ cases, EventBridge can create the IAM role that's needed for your rule to run.
      role**.
 
 12. (Optional) Choose **Add another target** to add another target for
-    this rule.
-13. Choose **Next**.
-14. (Optional) On the **Configure tags** page, add any tags and then
-    choose **Next**.
-15. On the **Review and create** page, review your rule setup and
-    ensure that it meets your event monitoring requirements.
-16. Choose **Create rule**. Your rule will now monitor for Audit Manager events and then send them to the target that you specified.
+this rule. 13. Choose **Next**. 14. (Optional) On the **Configure tags** page, add any tags and then
+choose **Next**. 15. On the **Review and create** page, review your rule setup and
+ensure that it meets your event monitoring requirements. 16. Choose **Create rule**. Your rule will now monitor for Audit Manager events and then send them to the target that you specified.

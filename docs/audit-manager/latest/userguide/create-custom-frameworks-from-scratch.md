@@ -35,7 +35,7 @@ Start by specifying details about your custom framework.
    then choose **Create custom framework**.
 3. Under **Framework details**, enter a name, a compliance type
    (optional), and a description for your framework (also optional). Entering a
-   compliance type such as _PCI_DSS_ or _GDPR_ means you can use this keyword to search for your
+   compliance type such as _PCI\_DSS_ or _GDPR_ means you can use this keyword to search for your
    framework later.
 4. Under **Tags**, choose **Add new tag** to associate a tag
    with your framework. You can specify a key and a value for each tag. The tag key is
