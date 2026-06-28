@@ -17,7 +17,7 @@ workflow process, and create code that matches your device requirements.
 
 2. Start with a .matter file for code generation. The
    End device SDK provides two sample files in the `codgen/matter_files
-folder`:
+ folder`:
 
 - `custom-air-purifier.matter`
 - `aws_camera.matter`

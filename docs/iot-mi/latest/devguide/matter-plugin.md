@@ -47,7 +47,7 @@ Then build it with the following command:
 cmake --build .
 ```
 
-After building, add the library path to LD_LIBRARY_PATH:
+After building, add the library path to LD\_LIBRARY\_PATH:
 
 ```
 export LD_LIBRARY_PATH=/path/to/libraries:$LD_LIBRARY_PATH
@@ -322,7 +322,7 @@ aws iot-managed-integrations delete-managed-thing \
 
 ## Adding Support for Additional Clusters
 
-To extend the Matter Plugin to support additional device types and capabilities, modify **matter_action_converter.cpp** following this pattern:
+To extend the Matter Plugin to support additional device types and capabilities, modify **matter\_action\_converter.cpp** following this pattern:
 
 **Implementation pattern:**
 
@@ -336,7 +336,7 @@ To extend the Matter Plugin to support additional device types and capabilities,
 1. **OnOff cluster** - Simplest reference showing all four components with basic enums, writable attributes, commands, and attribute reporting
 2. **DoorLock cluster** - Complex example demonstrating multiple enum types, bitmap fields, struct parameters, optional command parameters, and extensive attribute coverage
 
-All supported clusters (Identify, OnOff, LevelControl, DoorLock, Thermostat, ColorControl, BooleanState) follow this structure. Review the existing implementations in matter_action_converter.cpp to understand the complete pattern.
+All supported clusters (Identify, OnOff, LevelControl, DoorLock, Thermostat, ColorControl, BooleanState) follow this structure. Review the existing implementations in matter\_action\_converter.cpp to understand the complete pattern.
 
 ## Integrate different Matter Controller solutions
 

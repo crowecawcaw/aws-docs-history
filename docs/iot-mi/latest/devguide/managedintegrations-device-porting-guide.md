@@ -20,12 +20,12 @@ work, but haven't been tested. 3. Extract (unzip) the SDK files to your workspac
     * Compiler and linker flags
 
 5. Before you port the Platform Abstraction Layer (PAL), make sure your platformвЂ™s
-   basic functionalities are initialized. Functionalities include:
+basic functionalities are initialized. Functionalities include:
 
-   - Operating system tasks
-   - Peripherals
-   - Network interfaces
-   - Platform-specific requirements
+    * Operating system tasks
+    * Peripherals
+    * Network interfaces
+    * Platform-specific requirements
 
 ## Port the PAL to your device
 

@@ -71,17 +71,17 @@ Review the following `secure_storage_cert_handler_interface.hpp` file to underst
 
 ### Key components
 
-- CERT_TYPE_T - different types of certificates on the hub.
+- CERT\_TYPE\_T - different types of certificates on the hub.
 
   - CLAIM - the claim cert originally on the hub, will be exchanged for a permanent
     cert.
   - DHA - unused for now.
   - PERMANENT - permanent cert to connect with managed integrations endpoint.
 
-- read_cert_and_private_key - (FUNCTION TO BE IMPLEMENTED) Reads cert and key value in
+- read\_cert\_and\_private\_key - (FUNCTION TO BE IMPLEMENTED) Reads cert and key value in
   to the reference input. This function must be able to read both the CLAIM and PERMANENT
   cert, and is differentiated by the cert type mentioned above.
-- write_permanent_cert_and_private_key - (FUNCTION TO BE IMPLEMENTED) writes permanent
+- write\_permanent\_cert\_and\_private\_key - (FUNCTION TO BE IMPLEMENTED) writes permanent
   cert and key value to the desired location.
 
 ## Example build

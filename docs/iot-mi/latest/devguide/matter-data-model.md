@@ -44,10 +44,12 @@ interact with and monitor the device.
   as the current brightness level attribute of a dimmable light.
 
   - ```
-    {
-        "id" (hexadecimalString): (JsonNode) value
-    }
+
     ```
+
+  {
+  "id" (hexadecimalString): (JsonNode) value
+  }
 
   ```
 
@@ -57,16 +59,18 @@ interact with and monitor the device.
   a door on a door lock. Commands may generate responses and results.
 
   - ```
-    "id": {
-        "fieldId": "fieldValue",
-        ...
-        "responseCode": HTTPResponseCode,
-        "errors": {
-            "code": "string",
-            "message": "string"
-        }
-    }
+
     ```
+
+  "id": {
+  "fieldId": "fieldValue",
+  ...
+  "responseCode": HTTPResponseCode,
+  "errors": {
+  "code": "string",
+  "message": "string"
+  }
+  }
 
   ```
 
@@ -79,11 +83,13 @@ interact with and monitor the device.
   readily achieved with `attributes`.
 
   - ```
-    "id": {
-        "fieldId": "fieldValue",
-        ...
-    }
+
     ```
+
+  "id": {
+  "fieldId": "fieldValue",
+  ...
+  }
 
   ```
 

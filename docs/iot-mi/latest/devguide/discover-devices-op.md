@@ -48,7 +48,7 @@ Managed integrations for AWS IoT Device Management:
    in a separate call depending on your resource server implementation.
 10. **Call SendConnectorEvent API** - Next, your C2C connector will call the Managed integrations for AWS IoT Device Management API,
     `SendConnectorEvent`, over SigV4 using AWS account credentials and with
-    operation parameter set as "DEVICE_DISCOVERY". Each device in the list of devices sent
+    operation parameter set as "DEVICE\_DISCOVERY". Each device in the list of devices sent
     to Managed integrations for AWS IoT Device Management will be represented by device-specific parameters such as
     `connectorDeviceId`, `connectorDeviceName`, and a
     `capabilityReport`.
@@ -70,7 +70,7 @@ Managed integrations for AWS IoT Device Management:
 ###### Important
 
 Steps 7 through 11 can occur before step 6, if desired. For example, if your
-third-party platform has an API to list an end user's devices, the DEVICE_DISCOVERY event
+third-party platform has an API to list an end user's devices, the DEVICE\_DISCOVERY event
 can be sent with `SendConnectorEvent` before the C2C connector Lambda
 responds with the typical ACK.
 
@@ -241,10 +241,10 @@ URI – POST /connector-event/{your_connector_id}
 
 ```
 
-## Construct a CapabilityReport for the DISCOVER_DEVICES event
+## Construct a CapabilityReport for the DISCOVER\_DEVICES event
 
 As seen in the event structure defined above, every device reported in a
-DISCOVER_DEVICES event, serving as response to an `AWS.DiscoverDevices`
+DISCOVER\_DEVICES event, serving as response to an `AWS.DiscoverDevices`
 operation, will require a CapbilityReport to describe the corresponding device’s
 capabilities. A `CapabilityReport` tells managed integrations for AWS IoT Device Management device capabilities in a Matter
 compliant format.

@@ -94,9 +94,7 @@ Flash the Managed integrations image to your SD card using these steps:
     	+ Check **Enable SSH**.
     	+ Choose **Use password authentication**.
 
-10. Confirm all popups for OS customization and data erasure.
-11. Wait for the writing process to complete.
-12. Verify successful completion with the following screen:
+10. Confirm all popups for OS customization and data erasure. 11. Wait for the writing process to complete. 12. Verify successful completion with the following screen:
 
 ![Raspberry Pi Imager success screen showing completed write operation](images/raspberry-pi-write-success.png) 13. Click **Continue**. 14. Remove the SD card and insert it into your Raspberry Pi.
 

@@ -42,15 +42,16 @@ interact with and monitor the device.
   the current brightness level attribute of a dimmable light.
 
   - ```
-    {
-        "name":                      // Property Name is outside of Property Entity
-        "value": Value,              // value represented in any type e.g. 4, "A", []
-        "lastChangedAt": Timestamp   // ISO 8601 Timestamp upto milliseconds yyyy-MM-ddTHH:mm:ss.ssssssZ
-        "mutable": boolean,
-        "retrievable": boolean,
-        "reportable": boolean
 
     ```
+
+  {
+  "name": // Property Name is outside of Property Entity
+  "value": Value, // value represented in any type e.g. 4, "A", []
+  "lastChangedAt": Timestamp // ISO 8601 Timestamp upto milliseconds yyyy-MM-ddTHH:mm:ss.ssssssZ
+  "mutable": boolean,
+  "retrievable": boolean,
+  "reportable": boolean
 
   }
 
@@ -62,16 +63,18 @@ interact with and monitor the device.
   a door on a door lock. Actions may generate responses and results.
 
   - ```
-    {
-        "name": { "$ref": "/schema-versions/definition/aws.name@1.0" }, //required
-        "parameters": Map<String name, JSONNode value>,
-        "responseCode": HTTPResponseCode,
-        "errors": {
-            "code": "string",
-            "message": "string"
-        }
-    }
+
     ```
+
+  {
+  "name": { "$ref": "/schema-versions/definition/aws.name@1.0" }, //required
+  "parameters": Map<String name, JSONNode value>,
+  "responseCode": HTTPResponseCode,
+  "errors": {
+  "code": "string",
+  "message": "string"
+  }
+  }
 
   ```
 
@@ -84,11 +87,13 @@ interact with and monitor the device.
   readily achieved with `property`.
 
   - ```
-    {
-        "name": { "$ref": "/schema-versions/definition/aws.name@1.0" },        //required
-        "parameters": Map<String name, JSONNode value>
-    }
+
     ```
+
+  {
+  "name": { "$ref": "/schema-versions/definition/aws.name@1.0" }, //required
+  "parameters": Map<String name, JSONNode value>
+  }
 
   ```
 

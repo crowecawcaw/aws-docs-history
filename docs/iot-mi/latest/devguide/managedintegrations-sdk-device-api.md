@@ -31,17 +31,16 @@ The [OnOff.xml](https://github.com/project-chip/connectedhomeip/blob/5bb5c9e23d5
 
 - Commands:
 
-      + `Off : () -> Status`
-      + `On : () -> Status`
-      + `Toggle : () -> Status`
-      + `OffWithEffect : (EffectIdentifier: EffectIdentifierEnum, EffectVariant:
-       enum8) -> Status`
-      + `OnWithRecallGlobalScene : () -> Status`
-      + `OnWithTimedOff : (OnOffControl: OnOffControlBitmap, OnTime: int16u,
-       OffWaitTime: int16u) -> Status`
-
-  For each command, we provide the 1:1 mapped function pointer that you can use to
-  hook your implementation.
+  - `Off : () -> Status`
+  - `On : () -> Status`
+  - `Toggle : () -> Status`
+  - `OffWithEffect : (EffectIdentifier: EffectIdentifierEnum, EffectVariant:
+   enum8) -> Status`
+  - `OnWithRecallGlobalScene : () -> Status`
+  - `OnWithTimedOff : (OnOffControl: OnOffControlBitmap, OnTime: int16u,
+   OffWaitTime: int16u) -> Status`
+    For each command, we provide the 1:1 mapped function pointer that you can use to
+    hook your implementation.
 
 All the callbacks for attributes and commands are defined within a C struct named after
 the cluster.

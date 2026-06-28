@@ -23,9 +23,9 @@ onboarding flow they are in. The following list describes each provisioning stat
 - ACTIVATED: The device has been found and command and control is available.
 - DISCOVERED: The device has been found but command and control is not yet available.
 - UNASSOCIATED: The managed thing has been created but requires further actions to be discovered. It is not reachable from the AWS Cloud or AWS IoT Managed integrations controllers (hubs)
-- PRE_ASSOCIATED: The managed thing has been created and is ready for automatic discovery once powered on or connected. It is not reachable from the AWS Cloud or
+- PRE\_ASSOCIATED: The managed thing has been created and is ready for automatic discovery once powered on or connected. It is not reachable from the AWS Cloud or
   AWS IoT Managed integrations controllers (hubs).
-- DELETE_IN_PROGRESS: Asynchronous deletion process started.
+- DELETE\_IN\_PROGRESS: Asynchronous deletion process started.
 - DELETED: The device has been deleted from the AWS Cloud.
 - ISOLATED: A previously discovered or activated managed thing that is no longer reachable. For example, a device for a third-party cloud whose connector associations have all been deleted.
 

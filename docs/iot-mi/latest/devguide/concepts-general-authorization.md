@@ -50,10 +50,10 @@ include:
 - API keys: `{"apiKey": "your-api-key-value"}`
 - Bearer tokens: `{"token": "your-bearer-token"}`
 - Username and password: `{"username": "your-username", "password":
-"your-password"}`
+ "your-password"}`
 - Machine-to-machine OAuth credentials: `{"client_id": "your-client-id",
-"client_secret": "your-client-secret", "audience":
-"your-audience"}`
+ "client_secret": "your-client-secret", "audience":
+ "your-audience"}`
 
 You must also configure the IAM policies described in the following section to grant
 your C2C connector access to retrieve the secret.

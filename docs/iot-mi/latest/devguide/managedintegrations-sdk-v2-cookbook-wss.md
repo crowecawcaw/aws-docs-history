@@ -39,12 +39,12 @@ A customer purchases a smart home camera. After unboxing, they scan the device b
 
 ### Comparison of onboarding methods
 
-| Onboarding method comparison | Method                        | User Action                                         | Best For                           | Automation Level |
-| ---------------------------- | ----------------------------- | --------------------------------------------------- | ---------------------------------- | ---------------- |
-| **WSS**                      | Scan barcode                  | WiFi devices needing automated setup                | High<br>• automatic after scan     |
-| **SS (Simple Setup)**        | Scan QR + manual pairing      | Protocol-specific devices (Zigbee, Z-Wave)          | Medium<br>• requires pairing steps |
-| **ZTS (Zero Touch)**         | None (pre-registered)         | Enterprise deployments with fulfillment integration | Highest<br>• fully automatic       |
-| **UGS (User Guided)**        | Button presses + manual steps | Fallback when automation fails                      | Low<br>• manual intervention       |
+Onboarding method comparison| Method | User Action | Best For | Automation Level |
+| --- | --- | --- | --- |
+| **WSS** | Scan barcode | WiFi devices needing automated setup | High<br>• automatic after scan |
+| **SS (Simple Setup)** | Scan QR + manual pairing | Protocol-specific devices (Zigbee, Z-Wave) | Medium<br>• requires pairing steps |
+| **ZTS (Zero Touch)** | None (pre-registered) | Enterprise deployments with fulfillment integration | Highest<br>• fully automatic |
+| **UGS (User Guided)** | Button presses + manual steps | Fallback when automation fails | Low<br>• manual intervention |
 
 ### When to choose WSS
 

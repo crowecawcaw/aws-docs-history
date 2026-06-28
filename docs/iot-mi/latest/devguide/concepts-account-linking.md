@@ -52,6 +52,6 @@ OAuth Server Parameters| **Field** | **Required** | **Comment** |
 | `authorizationType` | Yes | The type of authorization supported by this authorization configuration.<br>Currently, "OAuth 2.0" is the only value supported. |
 | `authUrl` | Yes | The authorization URL for the third-party cloud provider. |
 | `tokenUrl` | Yes | The token URL for the third-party cloud provider. |
-| `tokenEndpointAuthenticationScheme` | Yes | Authentication scheme of either “HTTP_BASIC” or “REQUEST_BODY_CREDENTIALS”.<br>HTTP_BASIC signals that the client credentials are included in the authorization<br>header, while the ladder signals they are included in the request body. |
+| `tokenEndpointAuthenticationScheme` | Yes | Authentication scheme of either “HTTP\_BASIC” or “REQUEST\_BODY\_CREDENTIALS”.<br>HTTP\_BASIC signals that the client credentials are included in the authorization<br>header, while the ladder signals they are included in the request body. |
 
 The OAuth server that you use must be configured so that access token string values must be Base64 encoded with the UTF-8 character set.

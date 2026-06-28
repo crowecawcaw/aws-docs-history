@@ -143,7 +143,7 @@ to
 
 This section defines the data types used for the custom protocol plugin.
 
-**iotmi_client_request_t**
+**iotmi\_client\_request\_t**
 
 Represents a request to be published to the managed integrations components.
 
@@ -167,11 +167,11 @@ The request payload, typically a JSON-formatted string.
 
 The response payload, populated by the managed integrations components.
 
-**iotmi_client_event_t**
+**iotmi\_client\_event\_t**
 
 Represents an event received from the managed integrations components.
 
-**event_id**
+**event\_id**
 
 The unique identifier of the event.
 

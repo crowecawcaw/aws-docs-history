@@ -164,11 +164,10 @@ during the provisioning process.
 - Copy these authentication files from your `CreateProvisioningProfile` API
   response to your hub device:
 
-      + `claim_cert.pem`: The claim certificate (common to all
-       devices)
-      + `claim_pk.key`: The private key for the claim certificate
-
-  Place both files in the `/data/aws/iotmi/certs` directory.
+  - `claim_cert.pem`: The claim certificate (common to all
+    devices)
+  - `claim_pk.key`: The private key for the claim certificate
+    Place both files in the `/data/aws/iotmi/certs` directory.
 
 ###### Important
 
@@ -254,22 +253,22 @@ Configure these required fields in the device configuration file:
 Review the contents of the `iotmi_config.json`
 file.
 
-| Contents                    | Key                                                                                                                  | Values | Added by customer?                                                                                                                                                                                                                          | Notes |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| `iot_provisioning_method`   | `FLEET_PROVISIONING`                                                                                                 | Yes    | Specify the provisioning method that you want to use.                                                                                                                                                                                       |
-| `iot_claim_cert_path`       | The file path that you specify or `SECURE_STORAGE`. For example,<br>`/data/aws/iotmi/certs/claim_cert.pem`           | Yes    | Specify the file path that you want to use or<br>`SECURE_STORAGE`.                                                                                                                                                                          |
-| `iot_claim_pk_path`         | The file path that you specify or `SECURE_STORAGE`. For example,<br>`/data/aws/iotmi/certs/claim_pk.pem`             | Yes    | Specify the file path that you want to use or<br>`SECURE_STORAGE`.                                                                                                                                                                          |
-| `fp_template_name`          | The fleet provisioning template name should be equal to the name of the `ProvisioningProfile` that was used earlier. | Yes    | Equal to the name of the `ProvisioningProfile` that was used earlier                                                                                                                                                                        |
-| `endpoint_url`              | The endpoint URL for managed integrations.                                                                           | Yes    | Your devices use this URL to connect to the managed integrations cloud. To obtain this<br>information, use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API. |
-| `SN`                        | The device serial number. For example, `AIDACKCEVSQ6C2EXAMPLE`.                                                      | Yes    | You must provide this unique information for each device.                                                                                                                                                                                   |
-| `UPC`                       | Device universal product code. For example,<br>`841667145075`.                                                       | Yes    | You must provide this information for the device.                                                                                                                                                                                           |
-| `managed_thing_id`          | The ID of the managed thing.                                                                                         | No     | This information is added later by the onboarding process after hub<br>provisioning.                                                                                                                                                        |
-| `iot_provisioning_state`    | The provisioning state.                                                                                              | Yes    | The provisioning state must be set as `NOT_PROVISIONED`.                                                                                                                                                                                    |
-| `iot_permanent_cert_path`   | The IoT certificate path. For example,<br>`/data/aws/iotmi/iot_cert.pem`.                                            | No     | This information is added later by the onboarding process after hub<br>provisioning.                                                                                                                                                        |
-| `iot_permanent_pk_path`     | The IoT private key file path. For example,<br>`/data/aws/iotmi/iot_pk.pem`.                                         | No     | This information is added later by the onboarding process after hub<br>provisioning.                                                                                                                                                        |
-| `client_id`                 | The client ID that will be used for MQTT connections.                                                                | No     | This information is added later by the onboarding process after hub<br>provisioning, for other components to consume.                                                                                                                       |
-| `mqtt_keep_alive_interval`  | Range is 30-1200, and units are in seconds. The default value is 300.                                                | Yes    | Use this to set a keep-alive interval for MQTT connections.                                                                                                                                                                                 |
-| `event_manager_upper_bound` | The default value is 500.                                                                                            | No     | This information is added later by the onboarding process after hub<br>provisioning, for other components to consume.                                                                                                                       |
+Contents| Key | Values | Added by customer? | Notes |
+| --- | --- | --- | --- |
+| `iot_provisioning_method` | `FLEET_PROVISIONING` | Yes | Specify the provisioning method that you want to use. |
+| `iot_claim_cert_path` | The file path that you specify or `SECURE_STORAGE`. For example,<br>`/data/aws/iotmi/certs/claim_cert.pem` | Yes | Specify the file path that you want to use or<br>`SECURE_STORAGE`. |
+| `iot_claim_pk_path` | The file path that you specify or `SECURE_STORAGE`. For example,<br>`/data/aws/iotmi/certs/claim_pk.pem` | Yes | Specify the file path that you want to use or<br>`SECURE_STORAGE`. |
+| `fp_template_name` | The fleet provisioning template name should be equal to the name of the `ProvisioningProfile` that was used earlier. | Yes | Equal to the name of the `ProvisioningProfile` that was used earlier |
+| `endpoint_url` | The endpoint URL for managed integrations. | Yes | Your devices use this URL to connect to the managed integrations cloud. To obtain this<br>information, use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API. |
+| `SN` | The device serial number. For example, `AIDACKCEVSQ6C2EXAMPLE`. | Yes | You must provide this unique information for each device. |
+| `UPC` | Device universal product code. For example,<br>`841667145075`. | Yes | You must provide this information for the device. |
+| `managed_thing_id` | The ID of the managed thing. | No | This information is added later by the onboarding process after hub<br>provisioning. |
+| `iot_provisioning_state` | The provisioning state. | Yes | The provisioning state must be set as `NOT_PROVISIONED`. |
+| `iot_permanent_cert_path` | The IoT certificate path. For example,<br>`/data/aws/iotmi/iot_cert.pem`. | No | This information is added later by the onboarding process after hub<br>provisioning. |
+| `iot_permanent_pk_path` | The IoT private key file path. For example,<br>`/data/aws/iotmi/iot_pk.pem`. | No | This information is added later by the onboarding process after hub<br>provisioning. |
+| `client_id` | The client ID that will be used for MQTT connections. | No | This information is added later by the onboarding process after hub<br>provisioning, for other components to consume. |
+| `mqtt_keep_alive_interval` | Range is 30-1200, and units are in seconds. The default value is 300. | Yes | Use this to set a keep-alive interval for MQTT connections. |
+| `event_manager_upper_bound` | The default value is 500. | No | This information is added later by the onboarding process after hub<br>provisioning, for other components to consume. |
 
 ## Step 7: Copy the configuration file to your hub
 

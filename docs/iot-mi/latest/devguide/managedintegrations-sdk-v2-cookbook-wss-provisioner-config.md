@@ -84,9 +84,9 @@ Register hub with CreateManagedThing API:
 
 ### Step 2: Configure WiFi credentials path
 
-Configure the path to your WiFi credentials file in iotmi_config.json to enable the provisioner to access WiFi credentials (SSID and password) for sharing with new devices.
+Configure the path to your WiFi credentials file in iotmi\_config.json to enable the provisioner to access WiFi credentials (SSID and password) for sharing with new devices.
 
-Add the `wss_local_wifi_cred_path` parameter to the `ro` (read-only) section of your iotmi_config.json file:
+Add the `wss_local_wifi_cred_path` parameter to the `ro` (read-only) section of your iotmi\_config.json file:
 
 ```
 
@@ -100,7 +100,7 @@ Add the `wss_local_wifi_cred_path` parameter to the `ro` (read-only) section of 
 
 **Parameters:**
 
-- `wss_local_wifi_cred_path`: File path to the wpa_supplicant configuration file containing WiFi credentials
+- `wss_local_wifi_cred_path`: File path to the wpa\_supplicant configuration file containing WiFi credentials
 
 This configuration is required for the Hub SDK to access your WiFi credentials during the provisioning process.
 
@@ -157,10 +157,10 @@ Monitor two configuration states to ensure proper provisioner functionality.
 
 WSS provisioners have two critical state values that determine functionality:
 
-| Provisioner configuration states | State                           | Description                                       | Source                                                      | Purpose |
-| -------------------------------- | ------------------------------- | ------------------------------------------------- | ----------------------------------------------------------- | ------- |
-| **enableAsProvisioner**          | Customer's configuration intent | Set via CreateManagedThing/UpdateManagedThing API | Enables WSS provisioner role for device                     |
-| **supportAsProvisioner**         | Actual device capability        | Self-reported by hub after capability assessment  | Indicates if device can technically function as provisioner |
+Provisioner configuration states| State | Description | Source | Purpose |
+| --- | --- | --- | --- |
+| **enableAsProvisioner** | Customer's configuration intent | Set via CreateManagedThing/UpdateManagedThing API | Enables WSS provisioner role for device |
+| **supportAsProvisioner** | Actual device capability | Self-reported by hub after capability assessment | Indicates if device can technically function as provisioner |
 
 **Key distinction:**
 
@@ -240,9 +240,7 @@ WSS provisioners have two critical state values that determine functionality:
     * `supportAsProvisioner`: Device-reported capability status
     * `wssExpirationTimeStamp`: Present only for provisionee devices with active WSS window
 
-2. **Review cloud notifications** for capability reporting
-3. **Verify WiFi credential API** returns valid credentials
-4. **Check hub logs** for capability assessment details
+2. **Review cloud notifications** for capability reporting 3. **Verify WiFi credential API** returns valid credentials 4. **Check hub logs** for capability assessment details
 
 ## Disable provisioner capability
 

@@ -21,7 +21,7 @@ Sign in to the AWS Management Console and launch an Amazon EC2 instance using an
 [Get started with Amazon EC2](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md")
 in the _[Amazon Elastic Container Registry User Guide](../../../AmazonECR/latest/userguide.md "../../../AmazonECR/latest/userguide.md")_. 2. ###### Set up the build environment
 
-Build the code on Amazon Linux 2023/x86_64 as your development host. Install the necessary
+Build the code on Amazon Linux 2023/x86\_64 as your development host. Install the necessary
 build dependencies:
 
 ```
@@ -50,15 +50,13 @@ get the claim certificate and private key before proceeding further.
 Modify the configuration file `example/project_name/device_config.sh` with the following
 provisioning parameters:
 
-| Provisioning parameters                 | Macro parameters                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                             | How to obtain this information |
-| --------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `IOTMI_ROOT_CA_PATH`                    | The root CA certificate file.                         | You can download this file from the [Download the Amazon Root CA certificate](../../../iot/latest/developerguide/iot-dc-prepare-device-test.md#iot-dc-prepare-device-test-step3 "../../../iot/latest/developerguide/iot-dc-prepare-device-test.md#iot-dc-prepare-device-test-step3") section in the<br>_AWS IoT Core developer guide_.                                                                                                                  |
-| `IOTMI_CLAIM_CERTIFICATE_PATH`          | The path to the claim certificate file.               | To obtain the claim certificate and private key, create a<br>provisioning profile using the [CreateProvisioningProfile](../APIReference/API_CreateProvisioningProfile.md "../APIReference/API_CreateProvisioningProfile.md") API. For instructions, see [Create a provisioning profile](managedintegrations-sdk-device-provisionee.md#sdk-provisionee-template-create "managedintegrations-sdk-device-provisionee.md#sdk-provisionee-template-create"). |
-| `IOTMI_CLAIM_PRIVATE_KEY_PATH`          | The path to the claim private key file.               |
-| `IOTMI_MANAGEDINTEGRATIONS_ENDPOINT`    | Endpoint URL for managed integrations.                | To obtain the managed integrations endpoint, use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API. For instructions, see [Register a custom endpoint](managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create "managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create").                                                    |
-| IOTMI_MANAGEDINTEGRATIONS_ENDPOINT_PORT | The port number for the managed integrations endpoint | By default, the port 8883 is used for MQTT publish and subscribe operations.<br>Port 443 is set for Application Layer Protocol Negotiation (ALPN) TLS extension<br>that devices use.                                                                                                                                                                                                                                                                    |
-
-5. ###### Build and run the demo applications
+Provisioning parameters| Macro parameters | Description | How to obtain this information |
+| --- | --- | --- |
+| `IOTMI_ROOT_CA_PATH` | The root CA certificate file. | You can download this file from the [Download the Amazon Root CA certificate](../../../iot/latest/developerguide/iot-dc-prepare-device-test.md#iot-dc-prepare-device-test-step3 "../../../iot/latest/developerguide/iot-dc-prepare-device-test.md#iot-dc-prepare-device-test-step3") section in the<br>_AWS IoT Core developer guide_. |
+| `IOTMI_CLAIM_CERTIFICATE_PATH` | The path to the claim certificate file. | To obtain the claim certificate and private key, create a<br>provisioning profile using the [CreateProvisioningProfile](../APIReference/API_CreateProvisioningProfile.md "../APIReference/API_CreateProvisioningProfile.md") API. For instructions, see [Create a provisioning profile](managedintegrations-sdk-device-provisionee.md#sdk-provisionee-template-create "managedintegrations-sdk-device-provisionee.md#sdk-provisionee-template-create"). |
+| `IOTMI_CLAIM_PRIVATE_KEY_PATH` | The path to the claim private key file. |
+| `IOTMI_MANAGEDINTEGRATIONS_ENDPOINT` | Endpoint URL for managed integrations. | To obtain the managed integrations endpoint, use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API. For instructions, see [Register a custom endpoint](managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create "managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create"). |
+| IOTMI\_MANAGEDINTEGRATIONS\_ENDPOINT\_PORT | The port number for the managed integrations endpoint | By default, the port 8883 is used for MQTT publish and subscribe operations.<br>Port 443 is set for Application Layer Protocol Negotiation (ALPN) TLS extension<br>that devices use. | 5. ###### Build and run the demo applications
 
 This section demonstrates two Linux demo applications: a simple security camera and an
 air purifier, both using CMake as the build system.

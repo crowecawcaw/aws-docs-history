@@ -10,7 +10,7 @@ Subscribes to control-related tasks (for example, device control requests) from 
 
 **Parameters**
 
-- `callback` (DeviceSDKClient_SubscriberCallback) - A callback function that executes when a task is received.
+- `callback` (DeviceSDKClient\_SubscriberCallback) - A callback function that executes when a task is received.
 - `context` (char) - A custom context passed to the callback function.
 
 **Returns**

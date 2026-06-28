@@ -235,7 +235,7 @@ If your C2C connector receives a `DiscoverDevices` request,
 Managed integrations for AWS IoT Device Management expects it to:
 
 - Respond synchronously with the response format defined above
-- Invoke the `SendConnectorEvent` API with a DEVICE_DISCOVERY event
+- Invoke the `SendConnectorEvent` API with a DEVICE\_DISCOVERY event
 
 The `SendConnectorEvent` API call can take place anywhere
 you have access to your C2C connector Lambda AWS account credentials. The device
@@ -251,10 +251,10 @@ asynchronous model for software development.
 
 Your connector calls this managed integrations for AWS IoT Device Management API to send device events. Only 3 types of events are accepted:
 
-- **"DEVICE_DISCOVERY"** - Used to send list of discovered devices within third-party cloud for a specific
+- **"DEVICE\_DISCOVERY"** - Used to send list of discovered devices within third-party cloud for a specific
   access token
-- **"DEVICE_COMMAND_RESPONSE"** - Used to send a specific device event as a result of command
+- **"DEVICE\_COMMAND\_RESPONSE"** - Used to send a specific device event as a result of command
   execution
-- **"DEVICE_EVENT"** - Used for any event that originates from the device which is not the direct result of
+- **"DEVICE\_EVENT"** - Used for any event that originates from the device which is not the direct result of
   a user-based command. This can serve as a general event type to proactively report
   device state changes or notifications

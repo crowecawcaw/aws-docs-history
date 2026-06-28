@@ -10,7 +10,7 @@ Complete these steps before attempting to onboard a device:
 
 - Onboard a hub device to the managed integrations hub.
 - Install the latest version of AWS CLI from the [Managed Integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md")
-- Subscribe to [DEVICE_LIFE_CYCLE](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup") event notifications.
+- Subscribe to [DEVICE\_LIFE\_CYCLE](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup") event notifications.
 
 ###### Setup steps
 

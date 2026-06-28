@@ -37,7 +37,7 @@ Provisionee devices must meet these requirements to support WiFi Simple Setup.
 ### Software components
 
 - corePKCS11 Platform Abstraction Layer (PAL) implementation connecting PKCS#11 API to HSM/TPM
-- TLS 1.2/1.3 client with Pre-Shared Key (PSK) capability (port 4433, cipher suite: TLS_AES_256_GCM_SHA384 or equivalent)
+- TLS 1.2/1.3 client with Pre-Shared Key (PSK) capability (port 4433, cipher suite: TLS\_AES\_256\_GCM\_SHA384 or equivalent)
 - SOCKS5 proxy client support (port 1080)
 - Cryptographic functions for SHA-384 and HKDF
 
@@ -110,7 +110,7 @@ Enable WSS for devices using CreateManagedThing API during account linking.
 
 - `role`: Must be "DEVICE" for provisionee devices
 - `credentialLockerId`: Associates device with household (same as provisioner)
-- `authenticationMaterialType`: Use "WIFI_SETUP_QR_BAR_CODE" for WSS
+- `authenticationMaterialType`: Use "WIFI\_SETUP\_QR\_BAR\_CODE" for WSS
 - `authenticationMaterial`: SN and UPC/EAN from device barcodes
 - `enableAsProvisionee`: Set to true to activate WSS
 - `timeoutInMinutes`: Activation window duration (5-15 minutes, default 15)
@@ -220,11 +220,11 @@ WSS uses time-limited windows and operation timeouts to enhance security and man
 
 ### Operation timeouts
 
-| WSS operation timeouts | Operation  | Timeout                                                     | Behavior |
-| ---------------------- | ---------- | ----------------------------------------------------------- | -------- |
-| **SoftAP discovery**   | 30 seconds | Retries up to 5 times, then falls back to User Guided Setup |
-| **Fleet Provisioning** | 30 seconds | Retries with exponential backoff if fails                   |
-| **WiFi connection**    | 60 seconds | Reports error and suggests troubleshooting if fails         |
+WSS operation timeouts| Operation | Timeout | Behavior |
+| --- | --- | --- |
+| **SoftAP discovery** | 30 seconds | Retries up to 5 times, then falls back to User Guided Setup |
+| **Fleet Provisioning** | 30 seconds | Retries with exponential backoff if fails |
+| **WiFi connection** | 60 seconds | Reports error and suggests troubleshooting if fails |
 
 ### Best practices
 
@@ -267,12 +267,12 @@ If initial WSS setup fails, retry using UpdateManagedThing API.
 
 ### Common retry scenarios
 
-| WSS retry scenarios               | Scenario                                             | Solution |
-| --------------------------------- | ---------------------------------------------------- | -------- |
+WSS retry scenarios| Scenario | Solution |
+| --- | --- |
 | **Device not powered on in time** | Call UpdateManagedThing and power on device promptly |
-| **Provisioner unavailable**       | Ensure hub online, then retry                        |
-| **Network connectivity issues**   | Verify network stable, then retry                    |
-| **User error**                    | Retry with correct device                            |
+| **Provisioner unavailable** | Ensure hub online, then retry |
+| **Network connectivity issues** | Verify network stable, then retry |
+| **User error** | Retry with correct device |
 
 **Important:** Each UpdateManagedThing call creates a new 15-minute window. After 3-4 failures, consider checking provisioner status, verifying device functionality, or using User Guided Setup.
 
@@ -305,12 +305,12 @@ Disable or permanently remove WSS for a provisionee device.
 
 ### Comparison
 
-| Disable vs Delete comparison | Action                     | UpdateManagedThing                | DeleteManagedThing |
-| ---------------------------- | -------------------------- | --------------------------------- | ------------------ |
-| **Device record**            | Retained in cloud          | Permanently removed               |
-| **Device status**            | Changed to disabled        | No longer exists                  |
-| **Reactivation**             | Re-enable WSS anytime      | Must re-register device           |
-| **Use case**                 | Temporary disable, testing | Device retired, security incident |
+Disable vs Delete comparison| Action | UpdateManagedThing | DeleteManagedThing |
+| --- | --- | --- |
+| **Device record** | Retained in cloud | Permanently removed |
+| **Device status** | Changed to disabled | No longer exists |
+| **Reactivation** | Re-enable WSS anytime | Must re-register device |
+| **Use case** | Temporary disable, testing | Device retired, security incident |
 
 ### Security considerations
 

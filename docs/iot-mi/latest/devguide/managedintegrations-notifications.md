@@ -479,7 +479,7 @@ Reflects changes in status of device life cycle (this includes onboarding status
 
 - `ACCOUNT_ASSOCIATION`
 
-  - A notification when an account association state changes to IN_PROGRESS.
+  - A notification when an account association state changes to IN\_PROGRESS.
 
   ```
   {

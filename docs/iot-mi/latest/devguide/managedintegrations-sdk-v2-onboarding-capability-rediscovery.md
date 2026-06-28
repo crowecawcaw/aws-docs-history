@@ -10,7 +10,7 @@ Complete these steps before attempting capability rediscovery:
 - Onboard a hub device to the managed integrations hub.
 - Onboard one or more end devices to the hub.
 - Install the latest version of AWS CLI from the [Managed Integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md")
-- (Optional) Subscribe to [DEVICE_DISCOVERY_STATUS](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup") event notifications.
+- (Optional) Subscribe to [DEVICE\_DISCOVERY\_STATUS](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup") event notifications.
 
 ## When to use capability rediscovery
 

@@ -10,7 +10,7 @@ Publishes a control-related request to the managed integrations components. For 
 
 **Parameters**
 
-`request` (DataModel::iotmi_client_request_t) - A pointer to a request structure containing the details.
+`request` (DataModel::iotmi\_client\_request\_t) - A pointer to a request structure containing the details.
 
 **Returns**
 

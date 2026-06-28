@@ -58,15 +58,15 @@ dependencies, regardless of their original order.
 The End device SDK provides Jinja2 templates tailored for data model handlers and low level
 C-Functions.
 
-| Jinja2 templates                         | Template                                | Generated source                                                                                                      | Remarks |
-| ---------------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------- |
-| `cluster.h.jinja`                        | `iotmi_device_<cluster>.h`              | Creates low level C function header files.                                                                            |
-| `cluster.c.jinja`                        | `iotmi_device_<cluster>.c`              | Implement and register callback function pointers with the Data Model<br>Handler.                                     |
-| `cluster_type_helpers.h.jinja`           | `iotmi_device_type_helpers_<cluster>.h` | Defines function prototypes for data types.                                                                           |
-| `cluster_type_helpers.c.jinja`           | `iotmi_device_type_helpers_<cluster>.c` | Generates data type function prototypes for cluster-specific enumerations,<br>bitmaps, lists, and structures.         |
-| `iot_device_dm_types.h.jinja`            | `iotmi_device_dm_types.h`               | Defines C data types for global data types.                                                                           |
-| `iot_device_type_helpers_global.h.jinja` | `iotmi_device_type_helpers_global.h`    | Defines C data types for global operations.                                                                           |
-| `iot_device_type_helpers_global.c.jinja` | `iotmi_device_type_helpers_global.c`    | Declares standard data types including boolean, integers, floating<br>point, strings, bitmaps, lists, and structures. |
+Jinja2 templates| Template | Generated source | Remarks |
+| --- | --- | --- |
+| `cluster.h.jinja` | `iotmi_device_<cluster>.h` | Creates low level C function header files. |
+| `cluster.c.jinja` | `iotmi_device_<cluster>.c` | Implement and register callback function pointers with the Data Model<br>Handler. |
+| `cluster_type_helpers.h.jinja` | `iotmi_device_type_helpers_<cluster>.h` | Defines function prototypes for data types. |
+| `cluster_type_helpers.c.jinja` | `iotmi_device_type_helpers_<cluster>.c` | Generates data type function prototypes for cluster-specific enumerations,<br>bitmaps, lists, and structures. |
+| `iot_device_dm_types.h.jinja` | `iotmi_device_dm_types.h` | Defines C data types for global data types. |
+| `iot_device_type_helpers_global.h.jinja` | `iotmi_device_type_helpers_global.h` | Defines C data types for global operations. |
+| `iot_device_type_helpers_global.c.jinja` | `iotmi_device_type_helpers_global.c` | Declares standard data types including boolean, integers, floating<br>point, strings, bitmaps, lists, and structures. |
 
 ### (Optional) Custom schema
 

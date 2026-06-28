@@ -7,10 +7,10 @@ with the following condition context keys and values in an IAM policy to control
 (permissions) based on a resource's tags:
 
 - Use `aws:ResourceTag/`tag-key`:
-`tag-value`` to allow or deny user actions on resources
+ `tag-value`` to allow or deny user actions on resources
   with specific tags.
 - Use `aws:RequestTag/`tag-key`:
-`tag-value`` to require that a specific tag be used (or
+ `tag-value`` to require that a specific tag be used (or
   not used) when making an API request to create or modify a resource that allows
   tags.
 - Use `aws:TagKeys: [`tag-key`, ...]` to require

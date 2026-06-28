@@ -37,122 +37,122 @@ Since the Hub SDK already has an onboarding process and a connection to the clou
 
 ## Integrate with the End device SDK
 
-1.  Follow the instructions in [Code generator for Data Model](managedintegrations-sdk-device-codegen.md "managedintegrations-sdk-device-codegen.md") to generate the low level C code.
-2.  Follow the instructions in [Integrating the
-    End device SDK](managedintegrations-sdk-device-onboarding.md "managedintegrations-sdk-device-onboarding.md") to:
+1. Follow the instructions in [Code generator for Data Model](managedintegrations-sdk-device-codegen.md "managedintegrations-sdk-device-codegen.md") to generate the low level C code.
+2. Follow the instructions in [Integrating the
+   End device SDK](managedintegrations-sdk-device-onboarding.md "managedintegrations-sdk-device-onboarding.md") to:
 
-    1. ###### Set up the build environment
+   1. ###### Set up the build environment
 
-    Build the code on Amazon Linux 2023/x86_64 as your development host. Install the necessary
-    build dependencies:
+   Build the code on Amazon Linux 2023/x86\_64 as your development host. Install the necessary
+   build dependencies:
 
-    ```
-    dnf install make gcc gcc-c++ cmake
-    ```
-    2. ###### Develop hardware callback functions
+   ```
+   dnf install make gcc gcc-c++ cmake
+   ```
+   2. ###### Develop hardware callback functions
 
-    Before implementing the hardware callback functions, understand how the API works.
-    This example uses the On/Off cluster and OnOff attribute to control a device function. For
-    API details, see [Low level C-Function APIs](managedintegrations-sdk-device-api.md "managedintegrations-sdk-device-api.md").
+   Before implementing the hardware callback functions, understand how the API works.
+   This example uses the On/Off cluster and OnOff attribute to control a device function. For
+   API details, see [Low level C-Function APIs](managedintegrations-sdk-device-api.md "managedintegrations-sdk-device-api.md").
 
-    ```
-    struct DeviceState
-    {
-      struct iotmiDev_Agent *agent;
-      struct iotmiDev_Endpoint *endpointLight;
-      /* This simulates the HW state of OnOff */
-      bool hwState;
-    };
+   ```
+   struct DeviceState
+   {
+     struct iotmiDev_Agent *agent;
+     struct iotmiDev_Endpoint *endpointLight;
+     /* This simulates the HW state of OnOff */
+     bool hwState;
+   };
 
-    /* This implementation for OnOff getter just reads
-       the state from the DeviceState */
-    iotmiDev_DMStatus exampleGetOnOff(bool *value, void *user)
-    {
-       struct DeviceState *state = (struct DeviceState *)(user);
-      *value = state->hwState;
-      return iotmiDev_DMStatusOk;
-    }
-    ```
-    3. ###### Set up endpoints and hook hardware callback functions
+   /* This implementation for OnOff getter just reads
+      the state from the DeviceState */
+   iotmiDev_DMStatus exampleGetOnOff(bool *value, void *user)
+   {
+      struct DeviceState *state = (struct DeviceState *)(user);
+     *value = state->hwState;
+     return iotmiDev_DMStatusOk;
+   }
+   ```
+   3. ###### Set up endpoints and hook hardware callback functions
 
-    After implementing the functions, create endpoints and register your callbacks.
-    Complete these tasks:
+   After implementing the functions, create endpoints and register your callbacks.
+   Complete these tasks:
 
         1. Create a device agent
         2. Fill callback function points for each cluster struct you want to support
         3. Set up endpoints and register supported clusters
 
-    ```
-    struct DeviceState
-    {
-        struct iotmiDev_Agent * agent;
-        struct iotmiDev_Endpoint *endpoint1;
+   ```
+   struct DeviceState
+   {
+       struct iotmiDev_Agent * agent;
+       struct iotmiDev_Endpoint *endpoint1;
 
-        /* OnOff cluster states*/
-        bool hwState;
-    };
-
-
-    /* This implementation for OnOff getter just reads
-       the state from the DeviceState */
-    iotmiDev_DMStatus exampleGetOnOff( bool * value, void * user )
-    {
-        struct DeviceState * state = ( struct DeviceState * ) ( user );
-        *value = state->hwState;
-        printf( "%s(): state->hwState: %d\n", __func__, state->hwState );
-        return iotmiDev_DMStatusOk;
-    }
-
-    iotmiDev_DMStatus exampleGetOnTime( uint16_t * value, void * user )
-    {
-        *value = 0;
-        printf( "%s(): OnTime is %u\n", __func__, *value );
-        return iotmiDev_DMStatusOk;
-    }
-
-    iotmiDev_DMStatus exampleGetStartUpOnOff( iotmiDev_OnOff_StartUpOnOffEnum * value, void * user )
-    {
-        *value = iotmiDev_OnOff_StartUpOnOffEnum_Off;
-        printf( "%s(): StartUpOnOff is %d\n", __func__, *value );
-        return iotmiDev_DMStatusOk;
-    }
-
-    void setupOnOff( struct DeviceState *state )
-    {
-        struct iotmiDev_clusterOnOff clusterOnOff = {
-            .getOnOff = exampleGetOnOff,
-            .getOnTime = exampleGetOnTime,
-            .getStartUpOnOff = exampleGetStartUpOnOff,
-        };
-        iotmiDev_OnOffRegisterCluster( state->endpoint1,
-                                        &clusterOnOff,
-                                        ( void * ) state);
-    }
+       /* OnOff cluster states*/
+       bool hwState;
+   };
 
 
-    /* Here is the sample setting up an endpoint 1 with OnOff
-       cluster. Note all error handling code is omitted. */
-    void setupAgent(struct DeviceState *state)
-    {
-        struct iotmiDev_Agent_Config config = {
-            .thingId = IOTMI_DEVICE_MANAGED_THING_ID,
-            .clientId = IOTMI_DEVICE_CLIENT_ID,
-        };
-        iotmiDev_Agent_InitDefaultConfig(&config);
+   /* This implementation for OnOff getter just reads
+      the state from the DeviceState */
+   iotmiDev_DMStatus exampleGetOnOff( bool * value, void * user )
+   {
+       struct DeviceState * state = ( struct DeviceState * ) ( user );
+       *value = state->hwState;
+       printf( "%s(): state->hwState: %d\n", __func__, state->hwState );
+       return iotmiDev_DMStatusOk;
+   }
 
-        /* Create a device agent before calling other SDK APIs */
-        state->agent = iotmiDev_Agent_new(&config);
+   iotmiDev_DMStatus exampleGetOnTime( uint16_t * value, void * user )
+   {
+       *value = 0;
+       printf( "%s(): OnTime is %u\n", __func__, *value );
+       return iotmiDev_DMStatusOk;
+   }
 
-        /* Create endpoint#1 */
-        state->endpoint1 = iotmiDev_Agent_addEndpoint( state->agent,
-                                                        1,
-                                                        "Data Model Handler Test Device",
-                                                        (const char*[]){ "Camera" },
-                                                        1 );
-        setupOnOff(state);
-    }
+   iotmiDev_DMStatus exampleGetStartUpOnOff( iotmiDev_OnOff_StartUpOnOffEnum * value, void * user )
+   {
+       *value = iotmiDev_OnOff_StartUpOnOffEnum_Off;
+       printf( "%s(): StartUpOnOff is %d\n", __func__, *value );
+       return iotmiDev_DMStatusOk;
+   }
 
-    ```
+   void setupOnOff( struct DeviceState *state )
+   {
+       struct iotmiDev_clusterOnOff clusterOnOff = {
+           .getOnOff = exampleGetOnOff,
+           .getOnTime = exampleGetOnTime,
+           .getStartUpOnOff = exampleGetStartUpOnOff,
+       };
+       iotmiDev_OnOffRegisterCluster( state->endpoint1,
+                                       &clusterOnOff,
+                                       ( void * ) state);
+   }
+
+
+   /* Here is the sample setting up an endpoint 1 with OnOff
+      cluster. Note all error handling code is omitted. */
+   void setupAgent(struct DeviceState *state)
+   {
+       struct iotmiDev_Agent_Config config = {
+           .thingId = IOTMI_DEVICE_MANAGED_THING_ID,
+           .clientId = IOTMI_DEVICE_CLIENT_ID,
+       };
+       iotmiDev_Agent_InitDefaultConfig(&config);
+
+       /* Create a device agent before calling other SDK APIs */
+       state->agent = iotmiDev_Agent_new(&config);
+
+       /* Create endpoint#1 */
+       state->endpoint1 = iotmiDev_Agent_addEndpoint( state->agent,
+                                                       1,
+                                                       "Data Model Handler Test Device",
+                                                       (const char*[]){ "Camera" },
+                                                       1 );
+       setupOnOff(state);
+   }
+
+   ```
 
 ## Example: Build hub control
 
@@ -201,9 +201,9 @@ set up endpoints and manage communications between the end-user and iot-managed-
 
 The following examples have been built and tested:
 
-- iotmi_device_dm_air_purifier_demo
-- iotmi_device_basic_diagnostics
-- iotmi_device_dm_camera_demo
+- iotmi\_device\_dm\_air\_purifier\_demo
+- iotmi\_device\_basic\_diagnostics
+- iotmi\_device\_dm\_camera\_demo
 
 ## Supported platforms
 
@@ -211,5 +211,5 @@ The following table displays the supported platforms for hub control.
 
 | Architecture | Operating system | GCC version | Binutils version |
 | ------------ | ---------------- | ----------- | ---------------- |
-| X86_64       | Linux            | 10.5.0      | 2.37             |
+| X86\_64      | Linux            | 10.5.0      | 2.37             |
 | aarch64      | Linux            | 10.5.0      | 2.37             |
