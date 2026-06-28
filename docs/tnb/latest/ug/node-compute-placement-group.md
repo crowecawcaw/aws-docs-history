@@ -27,7 +27,7 @@ Required: Yes
 
 Type: String
 
-Possible values: CLUSTER | PARTITION | SPREAD_HOST | SPREAD_RACK
+Possible values: CLUSTER | PARTITION | SPREAD\_HOST | SPREAD\_RACK
 
 - **CLUSTER** – packs instances close
   together inside an Availability Zone. This strategy enables workloads to
@@ -40,10 +40,10 @@ Possible values: CLUSTER | PARTITION | SPREAD_HOST | SPREAD_RACK
   different partitions. This strategy is typically used by large
   distributed and replicated workloads, such as Hadoop, Cassandra, and
   Kafka.
-- **SPREAD_RACK** – places a small group of
+- **SPREAD\_RACK** – places a small group of
   instances across distinct underlying hardware to reduce correlated
   failures.
-- **SPREAD_HOST** – used only with Outpost
+- **SPREAD\_HOST** – used only with Outpost
   placement groups. Places a small group of instances across distinct
   underlying hardware to reduce correlated failures.
 

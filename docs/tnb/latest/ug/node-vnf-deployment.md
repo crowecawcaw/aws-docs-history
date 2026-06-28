@@ -3,7 +3,7 @@
 NF deployments are modeled by providing the infrastructure and the application
 associated to it. The [cluster](#node_vnf_deployment_cluster "#node_vnf_deployment_cluster") attribute
 specifies the EKS cluster to host your NFs. The [vnfs](#node_vnf_deployment_vnfs "#node_vnf_deployment_vnfs") attribute specifies the network functions for your deployment. You can also
-provide optional lifecycle hooks operations of type [pre_create](#node_vnf_deployment_pre_create "#node_vnf_deployment_pre_create") and [post_create](#node_vnf_deployment_post_create "#node_vnf_deployment_post_create") to run instructions
+provide optional lifecycle hooks operations of type [pre\_create](#node_vnf_deployment_pre_create "#node_vnf_deployment_pre_create") and [post\_create](#node_vnf_deployment_post_create "#node_vnf_deployment_post_create") to run instructions
 specific to your deployment, such as calling an Inventory Management system API.
 
 ## Syntax

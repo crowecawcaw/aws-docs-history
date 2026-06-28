@@ -2,7 +2,7 @@
 
 AWS TNB supports security group ingress rules to automate the provisioning of Amazon EC2
 Security Group Ingress Rules which can be attached to AWS.Networking.SecurityGroup. Note
-that you must provide a cidr_ip/source_security_group/source_prefix_list as the source for
+that you must provide a cidr\_ip/source\_security\_group/source\_prefix\_list as the source for
 ingress traffic.
 
 ## Syntax

@@ -63,12 +63,11 @@ refresh** in the **Deployment tasks**
 section to track the progress of each task.
 
 When the deployment status changes to `Completed`, the
-network instance is updated. 9. _ If validation fails, the network instance remains in the same
+network instance is updated. 9. * If validation fails, the network instance remains in the same
 state as it was before you requested the update - either
-`Instantiated` or `Updated`.
-_ If the update fails, the network instance state shows
+`Instantiated` or `Updated`. * If the update fails, the network instance state shows
 `Update failed`. Choose the link for each failed task
-to determine the reason. \* If the update succeeds, the network instance state shows
+to determine the reason. * If the update succeeds, the network instance state shows
 `Updated`.
 
 AWS CLI

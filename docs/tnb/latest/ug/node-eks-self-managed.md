@@ -209,7 +209,7 @@ instantiation will fail.
 When you set `network_interfaces`, AWS TNB obtains the
 permission related to ENIs from the `multus_role` property if you
 included the `multus` property in the [AWS.Compute.EKS](node-eks.md "node-eks.md") node. Otherwise,
-AWS TNB obtains the permission related to ENIs from the [node_role](#node_eks_self_managed_node_role "#node_eks_self_managed_node_role") property.
+AWS TNB obtains the permission related to ENIs from the [node\_role](#node_eks_self_managed_node_role "#node_eks_self_managed_node_role") property.
 
 Required: No
 
@@ -236,7 +236,7 @@ Type: String
 A [tosca.nodes.AWS.Compute.UserData](node-compute-user-data.md "node-compute-user-data.md") node reference. A user data
 script is passed to the Amazon EC2 instances launched by the self-managed node
 group. Add the permissions required for executing custom user data to the
-node_role passed to the node group.
+node\_role passed to the node group.
 
 Required: No
 
