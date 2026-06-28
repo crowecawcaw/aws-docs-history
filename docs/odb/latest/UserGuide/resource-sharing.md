@@ -58,7 +58,7 @@ Oracle Database@AWS shares the preceding resources through the following process
    accepted automatically.
 4. Before using shared resources, trusted accounts must initialize the
    Oracle Database@AWS service in their account by using the `aws odb
-initialize-service` command or by choosing **Activate
+ initialize-service` command or by choosing **Activate
    account** in the Oracle Database@AWS console.
 5. After initialization, trusted accounts can create their own resources on the shared
    infrastructure, such as VM clusters on shared Exadata infrastructure and ODB network.

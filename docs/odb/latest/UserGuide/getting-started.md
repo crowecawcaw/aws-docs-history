@@ -396,69 +396,68 @@ Exadata VM cluster
 
 ###### To create an Exadata VM cluster
 
-1.  Sign in to the AWS Management Console and open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/ "https://console.aws.amazon.com/odb/").
-2.  From the left pane, choose **Exadata VM clusters**.
-3.  Choose **Create VM cluster**.
-4.  For **VM cluster name**, enter a name. The name must be 1–255
-    characters and begin with an alphabetic character or underscore. It can't contain consecutive
-    hyphens.
-5.  (Optional) For **Grid Infrastructure cluster name**, enter a Grid
-    infrastructure version for your VM cluster that matches the Oracle Database version you are using.
-    The name must be 1–11 characters and can't contain hyphens.
-6.  For **Time zone**, enter a time zone.
-7.  For **License options**, choose **Bring Your Own License
-    (BYOL)** or **License Included**, and then choose
-    **Next**. This license is the OCI license provided by Oracle, not a license
-    provided by AWS.
-8.  Configure Exadata infrastructure settings as follows:
+1. Sign in to the AWS Management Console and open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/ "https://console.aws.amazon.com/odb/").
+2. From the left pane, choose **Exadata VM clusters**.
+3. Choose **Create VM cluster**.
+4. For **VM cluster name**, enter a name. The name must be 1–255
+   characters and begin with an alphabetic character or underscore. It can't contain consecutive
+   hyphens.
+5. (Optional) For **Grid Infrastructure cluster name**, enter a Grid
+   infrastructure version for your VM cluster that matches the Oracle Database version you are using.
+   The name must be 1–11 characters and can't contain hyphens.
+6. For **Time zone**, enter a time zone.
+7. For **License options**, choose **Bring Your Own License
+   (BYOL)** or **License Included**, and then choose
+   **Next**. This license is the OCI license provided by Oracle, not a license
+   provided by AWS.
+8. Configure Exadata infrastructure settings as follows:
 
-    1.  For **Infrastructure**, choose the following:
+   1. For **Infrastructure**, choose the following:
 
-        - For **Exadata infrastructure name**, choose the infrastructure to use
-          for this VM cluster.
-        - For **Grid Infrastructure version**, choose the version to use for
-          this VM cluster.
-        - For **Exadata image version**, choose the version to use for this
-          VM cluster. We recommend that you choose the version shown, which is the highest version
-          available.
+      - For **Exadata infrastructure name**, choose the infrastructure to use
+        for this VM cluster.
+      - For **Grid Infrastructure version**, choose the version to use for
+        this VM cluster.
+      - For **Exadata image version**, choose the version to use for this
+        VM cluster. We recommend that you choose the version shown, which is the highest version
+        available.
 
-    2.  For **Database servers**, select one or more database servers to host
-        your VM cluster.
-    3.  For **Configuration**, do the following:
+   2. For **Database servers**, select one or more database servers to host
+      your VM cluster.
+   3. For **Configuration**, do the following:
 
-        - Choose the **CPU core count**, **Memory**, and
-          **Local storage** for each VM, or accept the defaults.
-        - Choose the total amount of **Exadata storage** for the VM cluster, or
-          accept the default.
+      - Choose the **CPU core count**, **Memory**, and
+        **Local storage** for each VM, or accept the defaults.
+      - Choose the total amount of **Exadata storage** for the VM cluster, or
+        accept the default.
 
-    4.  (Optional) For **Storage allocation**, select any of the following
-        options:
+   4. (Optional) For **Storage allocation**, select any of the following
+      options:
 
-            * **Enable storage allocation for Exadata sparse snapshots**
-            * **Enable storage allocation for local backups**
-
+      - **Enable storage allocation for Exadata sparse snapshots**
+      - **Enable storage allocation for local backups**
         The usable storage allocation changes as you select options. You can't change this
         storage allocation later. Review your selection, and then choose
         **Next**.
 
-9.  Configure connectivity as follows:
+9. Configure connectivity as follows:
 
-    1. For **ODB network**, choose an existing ODB network.
-    2. For **Host name prefix**, enter a prefix for the VM cluster. Make sure not
-       to include the domain name. The prefix forms the first portion of the Oracle Exadata VM cluster host
-       name.
+   1. For **ODB network**, choose an existing ODB network.
+   2. For **Host name prefix**, enter a prefix for the VM cluster. Make sure not
+      to include the domain name. The prefix forms the first portion of the Oracle Exadata VM cluster host
+      name.
 
-    ###### Note
+   ###### Note
 
-    The **Host domain name** is fixed as
-    **oraclevcn.com**. 3. For **SCAN listener port (TCP/IP)**, enter a port number that for TCP
-    access to the single client access name (SCAN) listener. The default port is
-    **1521**. Or you can enter a custom SCAN port in the range
-    **1024–8999**, excluding the following port numbers:
-    **2484**, **6100**, **6200**,
-    **7060**, **7070**, **7085**, and
-    **7879**. Then choose **Next**. 4. For **SSH key pairs**, enter the public key portion of one or more key
-    pairs used for SSH access to the VM cluster. Then choose **Next**.
+   The **Host domain name** is fixed as
+   **oraclevcn.com**. 3. For **SCAN listener port (TCP/IP)**, enter a port number that for TCP
+   access to the single client access name (SCAN) listener. The default port is
+   **1521**. Or you can enter a custom SCAN port in the range
+   **1024–8999**, excluding the following port numbers:
+   **2484**, **6100**, **6200**,
+   **7060**, **7070**, **7085**, and
+   **7879**. Then choose **Next**. 4. For **SSH key pairs**, enter the public key portion of one or more key
+   pairs used for SSH access to the VM cluster. Then choose **Next**.
 
 10. (Optional) Choose diagnostics and tags as follows:
 

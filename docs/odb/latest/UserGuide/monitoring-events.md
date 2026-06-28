@@ -34,12 +34,12 @@ Oracle Database@AWS events from AWS include lifecycle changes related to the ODB
 creation and deletion. These events are delivered to the default event bus in your
 AWS account. The delivery type is [_best effort_](../../../eventbridge/latest/ref/event-delivery-level.md "../../../eventbridge/latest/ref/event-delivery-level.md").
 
-| ODB network events | Event          | Event ID                                     | Message |
-| ------------------ | -------------- | -------------------------------------------- | ------- |
-| Creation           | ODB-EVENT-0001 | Successfully created ODB network _odbnet_ID_ |
-| Creation failed    | ODB-EVENT-0011 | Failed to create ODB network _odbnet_ID_     |
-| Deletion           | ODB-EVENT-0002 | Successfully deleted ODB network _odbnet_ID_ |
-| Deletion failed    | ODB-EVENT-0012 | Failed to delete ODB network _odbnet_ID_     |
+ODB network events| Event | Event ID | Message |
+| --- | --- | --- |
+| Creation | ODB-EVENT-0001 | Successfully created ODB network _odbnet\_ID_ |
+| Creation failed | ODB-EVENT-0011 | Failed to create ODB network _odbnet\_ID_ |
+| Deletion | ODB-EVENT-0002 | Successfully deleted ODB network _odbnet\_ID_ |
+| Deletion failed | ODB-EVENT-0012 | Failed to delete ODB network _odbnet\_ID_ |
 
 ### Example: ODB network creation event
 

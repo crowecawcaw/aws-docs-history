@@ -20,7 +20,7 @@ Integration statuses include:
 - **creating** – Integration is being set up
 - **active** – Integration is running and replicating data
 - **modifying** – Integration configuration is being updated
-- **needs_attention** – Integration requires manual intervention
+- **needs\_attention** – Integration requires manual intervention
 - **failed** – Integration has encountered an error
 - **deleting** – Integration is being removed
 

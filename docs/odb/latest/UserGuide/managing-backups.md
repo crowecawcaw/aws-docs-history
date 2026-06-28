@@ -187,11 +187,10 @@ When you configure your file gateway, make sure that you do the following:
      activation. After activation, you can close this port.
 
 3. Create a Amazon VPC endpoint for private connectivity between your ODB network and the Storage Gateway. For
-   more information, see [Access an AWS service using an
-   interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md").
-4. Create a file share for your Amazon S3 bucket through the Storage Gateway console. For more
-   information, see [Creating a file
-   share](../../../filegateway/latest/files3/GettingStartedCreateFileShare.md "../../../filegateway/latest/files3/GettingStartedCreateFileShare.md").
+more information, see [Access an AWS service using an
+interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md"). 4. Create a file share for your Amazon S3 bucket through the Storage Gateway console. For more
+information, see [Creating a file
+share](../../../filegateway/latest/files3/GettingStartedCreateFileShare.md "../../../filegateway/latest/files3/GettingStartedCreateFileShare.md").
 
 ###### To back up your database to Amazon S3 using Storage Gateway
 

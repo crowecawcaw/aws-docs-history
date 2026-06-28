@@ -56,7 +56,7 @@ Consider the following when modifying data filters:
 
 - **Single PDB limitation** – You can only specify one
   pluggable database (PDB) per integration. Data filters like `include: pdb1.*.*,
-include: pdb2.*.*` aren't supported
+ include: pdb2.*.*` aren't supported
 - **Replication interruption** – Data replication stops
   during the modification process and resumes after the new filter is applied.
 - **Data reload** – The integration performs a full reload of
@@ -93,7 +93,7 @@ aws glue delete-integration \
 You can delete integrations in the following states:
 
 - **active**
-- **needs_attention**
+- **needs\_attention**
 - **failed**
 - **syncing**
 
