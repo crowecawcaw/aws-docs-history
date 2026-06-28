@@ -24,10 +24,10 @@ In the following example, VPCs have been assigned a contiguous IP
 space aligned by VPC environment to simplify application of
 security groups and NACLs.
 
-| Example VPC CIDR ranges |             | Dev VPCs     | Test VPCs     | QA VPCs       | Prod VPCs |
-| ----------------------- | ----------- | ------------ | ------------- | ------------- | --------- |
-| AWS Region 1            | 10.0.0.0/16 | 10.64.0.0/16 | 10.128.0.0/16 | 10.192.0.0/16 |
-| AWS Region 2            | 10.1.0.0/16 | 10.65.0.0/16 | 10.129.0.0/16 | 10.193.0.0/16 |
+Example VPC CIDR ranges| | Dev VPCs | Test VPCs | QA VPCs | Prod VPCs |
+| --- | --- | --- | --- | --- |
+| AWS Region 1 | 10.0.0.0/16 | 10.64.0.0/16 | 10.128.0.0/16 | 10.192.0.0/16 |
+| AWS Region 2 | 10.1.0.0/16 | 10.65.0.0/16 | 10.129.0.0/16 | 10.193.0.0/16 |
 
 - 10.0.0.0/15 represents all Dev VPCs
 - 10.64.0.0/15 represents all Test VPCs
@@ -37,10 +37,10 @@ security groups and NACLs.
 In the next example, VPCs have been assigned contiguous IP
 space aligned by AWS Region to simplify routing.
 
-| Example VPC CIDR ranges |             | Dev VPCs    | Test VPCs   | QA VPCs     | Prod VPCs |
-| ----------------------- | ----------- | ----------- | ----------- | ----------- | --------- |
-| AWS Region 1            | 10.0.0.0/16 | 10.1.0.0/16 | 10.2.0.0/16 | 10.3.0.0/16 |
-| AWS Region 2            | 10.4.0.0/16 | 10.5.0.0/16 | 10.6.0.0/16 | 10.7.0.0/16 |
+Example VPC CIDR ranges| | Dev VPCs | Test VPCs | QA VPCs | Prod VPCs |
+| --- | --- | --- | --- | --- |
+| AWS Region 1 | 10.0.0.0/16 | 10.1.0.0/16 | 10.2.0.0/16 | 10.3.0.0/16 |
+| AWS Region 2 | 10.4.0.0/16 | 10.5.0.0/16 | 10.6.0.0/16 | 10.7.0.0/16 |
 
 - 10.0.0.0/14 represents all VPCs in AWS Region 1
 - 10.4.0.0/14 represents all VPCs in AWS Region 2

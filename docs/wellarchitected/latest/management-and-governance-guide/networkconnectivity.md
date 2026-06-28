@@ -53,4 +53,4 @@ you can use the
 VPC Architecture](https://aws.amazon.com/quickstart/architecture/vpc/ "https://aws.amazon.com/quickstart/architecture/vpc/") from AWS Quick Starts as a building block
 for your own deployments. This template is also available within
 your console in the
-[Service Catalog Getting Started Library](https://console.aws.amazon.com/servicecatalog/home?portfolios%3FactiveTab=gslAdminPortfolios&region=us-east-1#getting-started-library "https://console.aws.amazon.com/servicecatalog/home?portfolios%3FactiveTab=gslAdminPortfolios®ion=us-east-1#getting-started-library").
+[Service Catalog Getting Started Library](https://console.aws.amazon.com/servicecatalog/home?portfolios%3FactiveTab=gslAdminPortfolios&region=us-east-1#getting-started-library "https://console.aws.amazon.com/servicecatalog/home?portfolios%3FactiveTab=gslAdminPortfolios&region=us-east-1#getting-started-library").
