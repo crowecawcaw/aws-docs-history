@@ -107,7 +107,7 @@ topic in the _AWS AppConfig API Reference_.
    This name describes the action point used by the action and the extension
    purpose.
 7. In the **Action point** list, choose
-   **PRE_CREATE_HOSTED_CONFIGURATION_VERSION**.
+   **PRE\_CREATE\_HOSTED\_CONFIGURATION\_VERSION**.
 8. For **Uri**, choose **Lambda function** and then
    choose the function in the **Lambda function** list. If you don't see
    your function, verify that you are in the same AWS Region where you created the

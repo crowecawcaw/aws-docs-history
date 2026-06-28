@@ -54,7 +54,7 @@ configuration stored in an S3 object.
 4. Update the following sample policy with information about your S3 bucket and
    configuration object. Then paste the policy into the text field on the
    **JSON** tab. Replace the `placeholder
-values` with your own information.
+ values` with your own information.
 
 JSON
 

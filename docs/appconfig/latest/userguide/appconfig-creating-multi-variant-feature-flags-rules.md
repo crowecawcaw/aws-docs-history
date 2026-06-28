@@ -8,7 +8,7 @@ following:
 
 1. Create a new feature flag configuration profile called _UI
    Refresh_.
-2. Create a new feature flag called _ui_refresh_.
+2. Create a new feature flag called _ui\_refresh_.
 3. Edit the feature flag after you create it to add variants.
 4. Create and enable a new variant called _BetaUsers_.
 5. Define a rule for _BetaUsers_ that selects the variant if the

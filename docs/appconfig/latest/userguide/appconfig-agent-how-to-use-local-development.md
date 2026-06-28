@@ -59,7 +59,7 @@ Mobile:Development:EnableMobilePaymentsFeatureFlagConfiguration
      The agent will return a content type of `.type/subtype`.
 
 5. Run the following command to restart the agent and request the configuration
-   data.
+data.
 
 ```
 curl http://localhost:2772/applications/`application_name`/environments/`environment_name`/configurations/`configuration_name`

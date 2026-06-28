@@ -72,8 +72,8 @@ Note the following information.
      data.
 
 3. Run the following `kubectl` command to apply the changes to your
-   cluster. Replace `my-deployment` with the name of your
-   deployment manifest.
+cluster. Replace `my-deployment` with the name of your
+deployment manifest.
 
 ```
 kubectl apply -f `my-deployment`.yml

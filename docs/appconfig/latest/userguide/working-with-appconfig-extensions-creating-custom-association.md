@@ -36,7 +36,7 @@ AWS AppConfig console.
    this walkthrough, choose **Application**.
 5. Choose an application in the list.
 6. In the **Parameters** section, verify that
-   **S3_BUCKET** is listed in the **Key** field. In the
+   **S3\_BUCKET** is listed in the **Key** field. In the
    **Value** field, paste the ARN of the Lambda extensions. For example:
    `arn:aws:lambda:`aws-region`:111122223333:function:MyS3ConfigurationBackUpExtension`.
 7. Choose **Create association to resource**.

@@ -7,5 +7,3 @@ Before you begin, complete the following tasks:
   - [Using AWS AppConfig Agent with AWS Lambda](appconfig-integration-lambda-extensions.md "appconfig-integration-lambda-extensions.md")
   - [Using AWS AppConfig Agent with Amazon EC2 and on-premises machines](appconfig-integration-ec2.md "appconfig-integration-ec2.md")
   - [Using AWS AppConfig Agent with Amazon ECS and Amazon EKS](appconfig-integration-containers-agent.md "appconfig-integration-containers-agent.md")Note that each section includes information about configuring IAM permissions so the agent can retrieve feature flags and other configuration data.
-
-- **Configure experiment assignment logging**: To capture treatment assignment data during an experiment run, set the `EXPERIMENT_ASSIGNMENT_LOG_DESTINATION` agent configuration option to a file path on disk (for example, `file:/var/log/appconfig/experiments/`). For more information about assignment log format and export, see [About data collection](appconfig-experimentation-about-data-collection.md "appconfig-experimentation-about-data-collection.md").

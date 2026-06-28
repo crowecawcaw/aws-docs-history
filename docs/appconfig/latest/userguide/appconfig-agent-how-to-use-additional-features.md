@@ -15,7 +15,7 @@ configurations for your applications.
 To enable these AWS AppConfig Agent features, you create a manifest. A manifest is a set of
 configuration data that you provide to control actions the agent can perform. A manifest
 is written in JSON. It contains a set of top-level keys that correspond to different
-configurations you’ve deployed using AWS AppConfig.
+configurations you've deployed using AWS AppConfig.
 
 A manifest can include multiple configurations. Furthermore, each configuration in the
 manifest can identify one or more agent features to use for the specified configuration.

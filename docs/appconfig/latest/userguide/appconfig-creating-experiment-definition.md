@@ -14,31 +14,30 @@ Use the following procedure to create an experiment definition using AWS AppConf
 
 ###### To create an experiment definition
 
-1.  Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/ "https://console.aws.amazon.com/systems-manager/appconfig/").
-2.  In the navigation pane, choose **Experiments**, and then choose
-    **Create experiment**.
-3.  For **Experiment Name**, enter a descriptive name to distinguish this experiment from other experiments.
-4.  For **Experiment hypothesis**, describe the goal or hypothesis you want to validate.
-5.  For **Launch criteria**, enter information about metrics or data essential to deploying a winning treatment. This information is helpful for long-running experiments.
-6.  For **Experiment application**, select the application where this experiment will run.
-7.  Choose **Next**.
-8.  On the **Specify target audience** page, for **Audience description**, enter information about the intended audience for the experiment.
-9.  In the **Audience rule** section, choose either the **Rule builder** tab or the **Editor** tab to create a rule that identifies or filters the audience. Choose **Rule blueprints** to view and select a pre-constructed rule for your experiment. When building a rule:
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/ "https://console.aws.amazon.com/systems-manager/appconfig/").
+2. In the navigation pane, choose **Experiments**, and then choose
+   **Create experiment**.
+3. For **Experiment Name**, enter a descriptive name to distinguish this experiment from other experiments.
+4. For **Experiment hypothesis**, describe the goal or hypothesis you want to validate.
+5. For **Launch criteria**, enter information about metrics or data essential to deploying a winning treatment. This information is helpful for long-running experiments.
+6. For **Experiment application**, select the application where this experiment will run.
+7. Choose **Next**.
+8. On the **Specify target audience** page, for **Audience description**, enter information about the intended audience for the experiment.
+9. In the **Audience rule** section, choose either the **Rule builder** tab or the **Editor** tab to create a rule that identifies or filters the audience. Choose **Rule blueprints** to view and select a pre-constructed rule for your experiment. When building a rule:
 
-        * Add a condition
+   - Add a condition
 
-        Choose an attribute, select an operator, and specify a value.
-        * Group conditions
+   Choose an attribute, select an operator, and specify a value.
+   - Group conditions
 
-        Use `AND` to require all conditions in a group to be true, or `OR` to match any condition.
-        * Nest groups
+   Use `AND` to require all conditions in a group to be true, or `OR` to match any condition.
+   - Nest groups
 
-        Combine multiple groups to create more advanced targeting logic.
-        * Refine the rule
+   Combine multiple groups to create more advanced targeting logic.
+   - Refine the rule
 
-        Add or remove conditions and groups as needed to match your targeting requirements.
-
-    For more information about building rules, including expression formats, supported operators, and rule examples, see [Creating audience rules](appconfig-experimentation-about-specifying-audience-rule-section.md "appconfig-experimentation-about-specifying-audience-rule-section.md").
+   Add or remove conditions and groups as needed to match your targeting requirements.
+   For more information about building rules, including expression formats, supported operators, and rule examples, see [Creating audience rules](appconfig-experimentation-about-specifying-audience-rule-section.md "appconfig-experimentation-about-specifying-audience-rule-section.md").
 
 10. Choose **Next**.
 11. On the **Select experiment feature flag** page, for **Environment**, select the environment where this experiment will run. For **Configuration profile**, select the configuration profile associated with the feature flag.

@@ -68,13 +68,12 @@ in IAM.
 - The name of the IAM role used by AWS AppConfig in the retrieval account. Here's a
   list of the roles used by AWS AppConfig, by default:
 
-      + For Amazon Elastic Compute Cloud (Amazon EC2), AWS AppConfig uses the instance role.
-      + For AWS Lambda, AWS AppConfig uses the Lambda execution role.
-      + For Amazon Elastic Container Service (Amazon ECS) and Amazon Elastic Kubernetes Service (Amazon EKS), AWS AppConfig uses the container
-       role.
-
-  If you configured AWS AppConfig Agent to use a different IAM role by specifying the
-  `ROLE_ARN` environment variable, make a note of that name.
+  - For Amazon Elastic Compute Cloud (Amazon EC2), AWS AppConfig uses the instance role.
+  - For AWS Lambda, AWS AppConfig uses the Lambda execution role.
+  - For Amazon Elastic Container Service (Amazon ECS) and Amazon Elastic Kubernetes Service (Amazon EKS), AWS AppConfig uses the container
+    role.
+    If you configured AWS AppConfig Agent to use a different IAM role by specifying the
+    `ROLE_ARN` environment variable, make a note of that name.
 
 ###### Create the permissions policy
 
@@ -92,7 +91,7 @@ data for the retrieval account.
 4. Choose the **JSON** option.
 5. In the **Policy editor**, replace the default JSON with the
    following policy statement. Update each `example resource
-placeholder` with vendor account details.
+ placeholder` with vendor account details.
 
 JSON
 
@@ -173,7 +172,7 @@ retrieval account.
 13. For **Step 1: Select trusted entities**, choose
     **Edit**. Replace the default JSON trust policy with the
     following policy. Update each `example resource
-placeholder` with information from your retrieval account.
+ placeholder` with information from your retrieval account.
 
 JSON
 

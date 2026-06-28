@@ -53,7 +53,7 @@ If you expose your endpoint to the internet without authentication, ensure that 
 configuration data does not leak sensitive data, including personally identifiable
 information (PII), user IDs, or unreleased feature names.
 
-If you choose to use `AWS_IAM`, you’ll need to manage credentials with [Amazon Cognito](../../../cognito/latest/developerguide/what-is-amazon-cognito.md "../../../cognito/latest/developerguide/what-is-amazon-cognito.md"). To get started with Amazon Cognito, you create an identity pool. An identity
+If you choose to use `AWS_IAM`, you'll need to manage credentials with [Amazon Cognito](../../../cognito/latest/developerguide/what-is-amazon-cognito.md "../../../cognito/latest/developerguide/what-is-amazon-cognito.md"). To get started with Amazon Cognito, you create an identity pool. An identity
 pool allows you to vend short-term credentials to your application for authenticated or
 guest users. You will need to add roles in the identity pool that permit users to use the
 `InvokeFunctionUrl` for your Lambda function. Doing so enables instances of your

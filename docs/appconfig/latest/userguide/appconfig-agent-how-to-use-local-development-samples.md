@@ -89,7 +89,7 @@ tiered release of a new feature.
 ```
 
 **Sample 2**: Multiple flags representing different UX
-displays based on the user’s ID. The first two flags are multi-variant and the final
+displays based on the user's ID. The first two flags are multi-variant and the final
 flag is basic.
 
 ```

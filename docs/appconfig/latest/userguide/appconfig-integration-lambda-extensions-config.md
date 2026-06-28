@@ -15,10 +15,10 @@ already available in the local cache before your function requests it.
 To use the prefetch capability, set the value of the environment variable to the path
 corresponding to your configuration data. For example, if your configuration corresponds
 to an application, environment, and configuration profile respectively named
-"my_application", "my_environment", and "my_configuration_data", the path would be
+"my\_application", "my\_environment", and "my\_configuration\_data", the path would be
 `/applications/my_application/environments/my_environment/configurations/my_configuration_data`.
 You can specify multiple configuration items by listing them as a comma-separated list (If
-you have a resource name that includes a comma, use the resource’s ID value instead of its
+you have a resource name that includes a comma, use the resource's ID value instead of its
 name).
 
 **Accessing configuration data from another
