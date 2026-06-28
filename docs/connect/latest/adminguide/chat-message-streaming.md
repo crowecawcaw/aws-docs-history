@@ -179,9 +179,9 @@ the following topics:
      Service Clients](../../../sdk-for-java/v1/developer-guide/creating-clients.md "../../../sdk-for-java/v1/developer-guide/creating-clients.md")
 
 2. Keep track of `ContactId` and `ParticipantToken` from
-   the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") response since these response attributes are used
-   for calling other chat APIs required to enable streaming. This is described in
-   the next steps.
+the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") response since these response attributes are used
+for calling other chat APIs required to enable streaming. This is described in
+the next steps.
 
 ## Step 3: Enable message streaming on the contact
 

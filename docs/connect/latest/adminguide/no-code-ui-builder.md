@@ -41,8 +41,7 @@ Views have two purposes:
     * **Workspace Views**: Used to build Workspace pages such as the home page, these views provide general interface components and functionality independent of contact handling.
 
 4. The UI builder page appears.
-   Quickly start with templates or build your views from scratch.
-5. Choose **Create new**. An empty UI builder page
-   appears, as shown in the following image.
+Quickly start with templates or build your views from scratch. 5. Choose **Create new**. An empty UI builder page
+appears, as shown in the following image.
 
 ![An empty UI builder page.](images/no-code-ui-builder-blank-page.png)

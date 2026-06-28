@@ -110,14 +110,14 @@ time-off balance. The following highlights an example of this feature:
 
 **There are two time offs configured:**
 
-- Vacation time - activity name: VACAY_SK
-- Sick time - activity name: SICK_SK
+- Vacation time - activity name: VACAY\_SK
+- Sick time - activity name: SICK\_SK
 
-Agent 1 has a vacation (VACAY_SK) balance of 30 hours.
+Agent 1 has a vacation (VACAY\_SK) balance of 30 hours.
 
-Agent 2 has a sick (SICK_SK) balance of 12 hours.
+Agent 2 has a sick (SICK\_SK) balance of 12 hours.
 
-Agent 3 has a vacation (VACAY_SK) balance of 15 hours.
+Agent 3 has a vacation (VACAY\_SK) balance of 15 hours.
 
 Agent 1, 2 and 3 have a 6 hours shift. In these shifts, there is a 30 minute
 **Break** activity for which **Deduct from time off
@@ -125,7 +125,7 @@ balance** is set to **NO**.
 
 **Scenarios**
 
-- Agent 1 requested an all day time off (VACAY_SK). Once time off is
+- Agent 1 requested an all day time off (VACAY\_SK). Once time off is
   approved, the system will deduct 5 hours 30 minutes from the current
   time off balance of 30 hours. 30 minutes for the
   **Break** activity will not be deducted because the

@@ -17,7 +17,7 @@ add permissions to your inline policies.
 
 ###### Contents
 
-- [AmazonConnect_FullAccess
+- [AmazonConnect\_FullAccess
   policy](#amazonconnectfullaccesspolicy "#amazonconnectfullaccesspolicy")
 - [AmazonConnectReadOnlyAccess policy](#amazonconnectreadonlyaccesspolicy "#amazonconnectreadonlyaccesspolicy")
 - [Home page](#console-home-page-permissions "#console-home-page-permissions")
@@ -42,7 +42,7 @@ add permissions to your inline policies.
 - [Forecasting, capacity planning, and scheduling page](#forecasting-page "#forecasting-page")
 - [Federations](#federations "#federations")
 
-## AWS managed policy: AmazonConnect_FullAccess policy
+## AWS managed policy: AmazonConnect\_FullAccess policy
 
 To allow full read/write access to Connect Customer, you must attach two policies to your users,
 groups, or roles. Attach the `AmazonConnect_FullAccess` policy and a custom

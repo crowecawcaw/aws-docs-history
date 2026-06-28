@@ -20,26 +20,23 @@ Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-
   following permission in the **Contact Control Panel**
   group:
 
-      + **Voice ID - Access**: Enables controls in the
-       Contact Control Panel so agents can:
+  - **Voice ID - Access**: Enables controls in the
+    Contact Control Panel so agents can:
 
+    - View authentication outcomes.
+    - Opt-out or re-authenticate a caller.
+    - Update `SpeakerID`.
+    - View fraud detection results, rerun fraud analysis (fraud
+      detection decision, fraud type and score).
 
+  ###### Note
 
-
-      	- View authentication outcomes.
-      	- Opt-out or re-authenticate a caller.
-      	- Update `SpeakerID`.
-      	- View fraud detection results, rerun fraud analysis (fraud
-      	 detection decision, fraud type and score).
-      ###### Note
-
-      The functionality to enter or update the `SpeakerID` is
-       not available with the default Voice ID widget in the CCP. To
-       include the option for updating the `SpeakerID`,
-       implement the `updateVoiceIdSpeakerId`
-      [Connect Customer
-       Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API in your custom CCP.
-
+  The functionality to enter or update the `SpeakerID` is
+  not available with the default Voice ID widget in the CCP. To
+  include the option for updating the `SpeakerID`,
+  implement the `updateVoiceIdSpeakerId`
+  [Connect Customer
+  Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API in your custom CCP.
   The following image shows an example of these controls on the CCP:
 
 ![Contact Control Panel (CCP) showing Voice ID controls including enrollment status, authentication result.](images/voiceid-ccp-controls.png)

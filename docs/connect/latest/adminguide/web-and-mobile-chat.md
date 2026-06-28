@@ -102,9 +102,9 @@ Wait block has two branches:
      new working queue or agent.
 
 3. In your inbound flow, add the [Set
-   Disconnect Flow](set-disconnect-flow.md "set-disconnect-flow.md") block. Use it to specify that when the agent or
-   Amazon Lex bot has disconnected from the chat and only the customer remains, the
-   set disconnect flow should run.
+Disconnect Flow](set-disconnect-flow.md "set-disconnect-flow.md") block. Use it to specify that when the agent or
+Amazon Lex bot has disconnected from the chat and only the customer remains, the
+set disconnect flow should run.
 
 In the following block, for example, we specified that the
 **Sample disconnect flow** should run.

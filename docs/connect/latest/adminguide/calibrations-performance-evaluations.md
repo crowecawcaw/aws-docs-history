@@ -7,7 +7,7 @@ evaluate the same contact using the same evaluation form. You can then review
 differences in evaluations filled by different managers to align managers on evaluation
 best practices and identify opportunities to improve the evaluation form, e.g.
 rephrasing an evaluation question to be more specific, so that it is consistently
-answered by managers. You can also compare manager’s answers with a designated expert,
+answered by managers. You can also compare manager's answers with a designated expert,
 to measure and improve manager accuracy on evaluating agent performance. The expert is
 usually the quality manager who is conducting the calibration session.
 
@@ -100,7 +100,7 @@ the session nor its evaluations can be edited. 3. Within a few seconds, a calibr
 in .csv format. This report contains the answers of participants that have
 submitted evaluations, along with the weighted scores for each question,
 section and the overall form, evaluator notes and comparison of the
-evaluator’s scores with the expert evaluator.
+evaluator's scores with the expert evaluator.
 
 Use the field **absolute deviation from expert** (lower
 is better) for each participant to determine if an evaluator is

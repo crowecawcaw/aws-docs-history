@@ -21,27 +21,26 @@ users, queues, and routing profiles for real-time metrics. For more information,
 To apply tags to control access to users, queues, and routing profiles metrics
 in historical metrics reports:
 
-1.  Apply tags to the resources that you're going use in the historical
-    metrics report, such as users, queues, and routing profiles. For more
-    information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
-2.  You need to be assigned to a security profile that specifically grants
-    you access to the resources that have been tagged. On the Security
-    profiles page, choose **Show advanced** options to
-    assign these permissions.
-3.  In addition, you need the one of following permissions to view the
-    historical metrics reports:
+1. Apply tags to the resources that you're going use in the historical
+   metrics report, such as users, queues, and routing profiles. For more
+   information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
+2. You need to be assigned to a security profile that specifically grants
+   you access to the resources that have been tagged. On the Security
+   profiles page, choose **Show advanced** options to
+   assign these permissions.
+3. In addition, you need the one of following permissions to view the
+   historical metrics reports:
 
-        * **Analytics and Optimization - Access metrics -
-         Access**: If you choose this option, access is also
-         granted to Real-time metrics, Historical metrics, Agent activity
-         audit, and Dashboards. This means you are granting users
-         permission see all data for Dashboards where tag-based access
-         controls are not currently applied.
+   - **Analytics and Optimization - Access metrics -
+     Access**: If you choose this option, access is also
+     granted to Real-time metrics, Historical metrics, Agent activity
+     audit, and Dashboards. This means you are granting users
+     permission see all data for Dashboards where tag-based access
+     controls are not currently applied.
+     OR
 
-    OR
-
-        * **Analytics and Optimization - Historical metrics -
-         Access**
+   - **Analytics and Optimization - Historical metrics -
+     Access**
 
 ## Limitations
 

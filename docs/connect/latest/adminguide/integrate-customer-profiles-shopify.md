@@ -81,20 +81,19 @@ of the following:
     		 event source.
 
 7. On the **Source set up** page, copy your AWS account ID to your clipboard, and then choose
-   **Log in to Shopify**.
-8. Use the following instructions to set up Shopify:
+**Log in to Shopify**. 8. Use the following instructions to set up Shopify:
 
-   1. Log in to partners.shopify.com.
-   2. Under Amazon EventBridge, choose **Create
-      source**.
-   3. Paste in your AWS account ID and select
-      your AWS Region.
-   4. After you set up the event source destination, return to
-      Customer Profiles. You will see an alert that indicates Connect Customer has
-      successfully connected with Shopify.
+    1. Log in to partners.shopify.com.
+    2. Under Amazon EventBridge, choose **Create
+     source**.
+    3. Paste in your AWS account ID and select
+     your AWS Region.
+    4. After you set up the event source destination, return to
+     Customer Profiles. You will see an alert that indicates Connect Customer has
+     successfully connected with Shopify.
 
 9. On the **Integration options** page, choose which
-   source objects you want to ingest and select their object type.
+source objects you want to ingest and select their object type.
 
 Object types store your ingested data. They also define how
 objects from your integrations are mapped to profiles when they are

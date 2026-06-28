@@ -41,53 +41,51 @@ Connect Customer admin website.
 
 ## How to create an AI guardrail
 
-1.  Log in to the Connect Customer admin website with an account that has **AI agent designer**,
-    **AI guardrails - Create** permission in its
-    security profile.
-2.  In the Connect Customer admin website, on the left navigation menu, choose **AI agent designer**,
-    **AI guardrails**.
-3.  On the **Guardrails** page, choose **Create
-    Guardrail**.
-4.  On the **Create AI Guardrail** dialog box, enter a name
-    and description of the guardrail, and then choose
-    **Create**.
-5.  On the **AI Guardrail builder** page, complete the
-    following fields as needed to create policies for your guardrail:
+1. Log in to the Connect Customer admin website with an account that has **AI agent designer**,
+   **AI guardrails - Create** permission in its
+   security profile.
+2. In the Connect Customer admin website, on the left navigation menu, choose **AI agent designer**,
+   **AI guardrails**.
+3. On the **Guardrails** page, choose **Create
+   Guardrail**.
+4. On the **Create AI Guardrail** dialog box, enter a name
+   and description of the guardrail, and then choose
+   **Create**.
+5. On the **AI Guardrail builder** page, complete the
+   following fields as needed to create policies for your guardrail:
 
-        * **Content filters**: Adjust filter strengths to
-         help block input prompts or model responses containing harmful
-         content. Filtering is done based on detection of certain predefined
-         harmful content categories - Hate, Insults, Sexual, Violence,
-         Misconduct and Prompt Attack.
-        * **Denied topics**: Define a set of topics that
-         are undesirable in the context of your application. The filter will
-         help block them if detected in user queries or model responses. You
-         can add up to 30 denied topics.
-        * **Contextual grounding check**: Help detect and
-         filter hallucinations in model responses based on grounding in a
-         source and relevance to the user query.
-        * **Word filters**: Configure filters to help block
-         undesirable words, phrases, and profanity (exact match). Such words
-         can include offensive terms, competitor names, etc.
-        * **Sensitive information filters**: Configure
-         filters to help block or mask sensitive information, such as
-         personally identifiable information (PII), or custom regex in user
-         inputs and model responses.
+   - **Content filters**: Adjust filter strengths to
+     help block input prompts or model responses containing harmful
+     content. Filtering is done based on detection of certain predefined
+     harmful content categories - Hate, Insults, Sexual, Violence,
+     Misconduct and Prompt Attack.
+   - **Denied topics**: Define a set of topics that
+     are undesirable in the context of your application. The filter will
+     help block them if detected in user queries or model responses. You
+     can add up to 30 denied topics.
+   - **Contextual grounding check**: Help detect and
+     filter hallucinations in model responses based on grounding in a
+     source and relevance to the user query.
+   - **Word filters**: Configure filters to help block
+     undesirable words, phrases, and profanity (exact match). Such words
+     can include offensive terms, competitor names, etc.
+   - **Sensitive information filters**: Configure
+     filters to help block or mask sensitive information, such as
+     personally identifiable information (PII), or custom regex in user
+     inputs and model responses.
 
+   Blocking or masking is done based on probabilistic detection of
+   sensitive information in standard formats in entities such as SSN
+   number, Date of Birth, address, etc. This also allows configuring
+   regular expression based detection of patterns for
+   identifiers.
+   - **Blocked messaging**: Customize the default
+     message that's displayed to the user if your guardrail blocks the
+     input or the model response.
+     Connect Customer does not support **Image content filter** to help
+     detect and filter inappropriate or toxic image content.
 
-        Blocking or masking is done based on probabilistic detection of
-         sensitive information in standard formats in entities such as SSN
-         number, Date of Birth, address, etc. This also allows configuring
-         regular expression based detection of patterns for
-         identifiers.
-        * **Blocked messaging**: Customize the default
-         message that's displayed to the user if your guardrail blocks the
-         input or the model response.
-
-    Connect Customer does not support **Image content filter** to help
-    detect and filter inappropriate or toxic image content.
-
-6.  When your guardrail is complete, choose **Save**.
+6. When your guardrail is complete, choose **Save**.
 
 When selecting from the versions dropdown,
 **Latest:Draft** always returns the saved state of the
@@ -117,7 +115,7 @@ guardrail."
 ###### To change the default blocked message
 
 1. Log in to the Connect Customer admin website at https://`instance
-name`.my.connect.aws/. Use an admin account, or an account with
+ name`.my.connect.aws/. Use an admin account, or an account with
    **AI agent designer** - **AI guardrails** -
    **Create** permission in it's security profile.
 2. On the navigation menu, choose **AI agent designer**, **AI

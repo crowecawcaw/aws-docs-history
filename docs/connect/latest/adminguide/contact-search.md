@@ -164,19 +164,19 @@ permissions:
   access to results on the **Contact search** page based on their
   agent hierarchy group. For example:
 
-      + Agents who are assigned to AgentGroup-1 can only view contact
-       records for contacts handled by agents in that hierarchy group, and any groups
-       below them. (If they have permissions for **Recorded
-       conversations**, they can also listen to call recordings and view
-       transcripts.)
-      + Agents assigned to AgentGroup-2 can only access contact records
-       for contacts handled by their group, and any groups below them.
-      + Managers and others who are in higher level groups can view contact records
-       for contacts handled by all the groups below them, such as AgentGroup-1 and
-       2.
+  - Agents who are assigned to AgentGroup-1 can only view contact
+    records for contacts handled by agents in that hierarchy group, and any groups
+    below them. (If they have permissions for **Recorded
+    conversations**, they can also listen to call recordings and view
+    transcripts.)
+  - Agents assigned to AgentGroup-2 can only access contact records
+    for contacts handled by their group, and any groups below them.
+  - Managers and others who are in higher level groups can view contact records
+    for contacts handled by all the groups below them, such as AgentGroup-1 and
+  2.
 
-  For this permission, **All** = **View**
-  since **View** is the only action granted.
+For this permission, **All** = **View**
+since **View** is the only action granted.
 
 For more information about hierarchy groups, see [Organize agents into teams and groups for reporting and access by creating hierarchies](agent-hierarchy.md "agent-hierarchy.md").
 

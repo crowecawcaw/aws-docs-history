@@ -281,7 +281,7 @@ Use case 1: AMD is on and leaving automatic voicemails
   answering machine types. Also, AMD can irritate customers because it adds a short delay to
   live calls.
 - **Best uses** – Calling consumers during the day
-  when you may get a large quantity of answering machines and it’s not urgent to ensure every
+  when you may get a large quantity of answering machines and it's not urgent to ensure every
   call receives a voicemail.
 
 Use case 2: AMD is on but not leaving automatic voicemails
@@ -291,7 +291,7 @@ Use case 2: AMD is on but not leaving automatic voicemails
 - **Cons** – Cannot leave any voicemails. Adds a delay
   to live calls which can annoy customers.
 - **Best uses** – Calling consumers during the day
-  when you may get a large quantity of voicemails and you don’t want to leave any
+  when you may get a large quantity of voicemails and you don't want to leave any
   voicemails.
 
 Use case 3: AMD is off and agents can leave manual voicemails

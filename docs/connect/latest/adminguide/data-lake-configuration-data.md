@@ -19,80 +19,110 @@ shared:
 
 ## Agent Hierarchy Groups
 
-Table Name: agent_hierarchy_groups
+**Table name:**
+`agent_hierarchy_groups`
 
-Composite Primary Key: agent_hierarchy_group_id
+**Description:** Dimension table containing the hierarchy group definitions for organizing agents, including group names, ARNs, and active status.
 
-| Column                             | Type      | Description                                                                                                                                                                                          |
-| ---------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                             |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                            |
-| aws_account_id                     | string    | The ID of the AWS account that owns the contact.                                                                                                                                                     |
-| agent_hierarchy_group_id           | string    | The identifier of the hierarchy group for the user.                                                                                                                                                  |
-| agent_hierarchy_group_arn          | string    | The ARN of the hierarchy group.                                                                                                                                                                      |
-| agent_hierarchy_group_name         | string    | The name of the hierarchy group.                                                                                                                                                                     |
-| last_modified_region               | string    | The AWS Region where this resource was last<br>modified.                                                                                                                                             |
-| last_modified_timestamp            | timestamp | The Timestamp when this resource was last modified.                                                                                                                                                  |
-| is_active                          | Boolean   | Whether the agent hierarchy group exists or has been deleted.                                                                                                                                        |
-| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data<br>freshness. |
+**Primary key:**
+`agent_hierarchy_group_id`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `agent_hierarchy_group_id` — Joins to users table, Agent Statistic Record and Agent Queue Statistic Record (as `agent_hierarchy_level_*_id`)
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | Yes         | The ID of the Connect Customer instance.                                                                                                                                                             |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                            |
+| aws\_account\_id                       | string    | Yes         | The ID of the AWS account that owns the contact.                                                                                                                                                     |
+| agent\_hierarchy\_group\_id            | string    | No          | The identifier of the hierarchy group for the user.                                                                                                                                                  |
+| agent\_hierarchy\_group\_arn           | string    | Yes         | The ARN of the hierarchy group.                                                                                                                                                                      |
+| agent\_hierarchy\_group\_name          | string    | Yes         | The name of the hierarchy group.                                                                                                                                                                     |
+| last\_modified\_region                 | string    | Yes         | The AWS Region where this resource was last<br>modified.                                                                                                                                             |
+| last\_modified\_timestamp              | timestamp | Yes         | The Timestamp when this resource was last modified.                                                                                                                                                  |
+| is\_active                             | Boolean   | Yes         | Whether the agent hierarchy group exists or has been deleted.                                                                                                                                        |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data<br>freshness. |
 
 ## Routing profiles
 
-Table Name: routing_profiles
+**Table name:**
+`routing_profiles`
 
-Composite Primary Key: agent_routing_profile_id
+**Description:** Dimension table containing routing profile configurations, including profile name, default outbound queue, and availability timer settings.
 
-| Column                             | Type      | Description                                                                                                                                                                                          |
-| ---------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| agent_routing_profile_id           | string    | The identifier of the routing profile.                                                                                                                                                               |
-| agent_routing_profile_arn          | string    | The ARN of the routing profile.                                                                                                                                                                      |
-| routing_profile_name               | string    | The name of the routing profile.                                                                                                                                                                     |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                             |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                            |
-| agent_availability_timer           | string    | Whether agents with this routing profile will have their<br>routing order calculated based on *longest idle<br>time<br>• or *time since their last inbound<br>contact\*.                             |
-| default_outbound_queue_id          | string    | The default outbound queue for the routing profile.                                                                                                                                                  |
-| routing_profile_description        | string    | Description of the routing profile.                                                                                                                                                                  |
-| last_modified_region               | string    | The AWS Region where this resource was last modified.                                                                                                                                                |
-| last_modified_timestamp            | Timestamp | The Timestamp when this resource was last modified.                                                                                                                                                  |
-| is_active                          | Boolean   | Whether the agent exists or has been deleted.                                                                                                                                                        |
-| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data<br>freshness. |
+**Primary key:**
+`agent_routing_profile_id`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `agent_routing_profile_id` — Joins to users table, Agent Statistic Record and Agent Queue Statistic Record (as `routing_profile_id`)
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| agent\_routing\_profile\_id            | string    | No          | The identifier of the routing profile.                                                                                                                                                               |
+| agent\_routing\_profile\_arn           | string    | Yes         | The ARN of the routing profile.                                                                                                                                                                      |
+| routing\_profile\_name                 | string    | Yes         | The name of the routing profile.                                                                                                                                                                     |
+| instance\_id                           | string    | Yes         | The ID of the Connect Customer instance.                                                                                                                                                             |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                            |
+| agent\_availability\_timer             | string    | Yes         | Whether agents with this routing profile will have their<br>routing order calculated based on *longest idle<br>time<br>• or _time since their last inbound<br>contact_.                              |
+| default\_outbound\_queue\_id           | string    | Yes         | The default outbound queue for the routing profile.                                                                                                                                                  |
+| routing\_profile\_description          | string    | Yes         | Description of the routing profile.                                                                                                                                                                  |
+| last\_modified\_region                 | string    | Yes         | The AWS Region where this resource was last modified.                                                                                                                                                |
+| last\_modified\_timestamp              | Timestamp | Yes         | The Timestamp when this resource was last modified.                                                                                                                                                  |
+| is\_active                             | Boolean   | Yes         | Whether the agent exists or has been deleted.                                                                                                                                                        |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data<br>freshness. |
 
 ## Users
 
-Table Name: users
+**Table name:**
+`users`
 
-Composite Primary Key: user_id
+**Description:** Master dimension table for agent data containing user identity, contact information, hierarchy assignments, routing profile, security profiles, and phone configuration.
 
-| Column                             | Type          | Description                                                                                                                                                                                          |
-| ---------------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------------------------------------------------------------- |
-| user_id                            | string        | The identifier of the user account.                                                                                                                                                                  |
-| user_arn                           | string        | The ARN of the user account.                                                                                                                                                                         |
-| directory_user_id                  | string        | The identifier of the user account in the directory used for<br>identity management.                                                                                                                 |
-| agent_hierarchy_group_id           | string        | The identifier of the hierarchy group for the user.                                                                                                                                                  |
-| agent_hierarchy_group_arn          | string        | The identifier of level 1 hierarchy group for the<br>user.                                                                                                                                           |
-| agent_hierarchy_group_level_1_id   | string        | The identifier of level 1 hierarchy group for the user.                                                                                                                                              |
-| agent_hierarchy_group_level_2_id   | string        | The identifier of level 2 hierarchy group for the user.                                                                                                                                              |
-| agent_hierarchy_group_level_3_id   | string        | The identifier of level 3 hierarchy group for the user.                                                                                                                                              |
-| agent_hierarchy_group_level_4_id   | string        | The identifier of level 4 hierarchy group for the user.                                                                                                                                              |
-| agent_hierarchy_group_level_5_id   | string        | The identifier of level 5 hierarchy group for the user.                                                                                                                                              |
-| agent_email                        | string        | The user's email address.                                                                                                                                                                            |
-| agent_secondary_email              | string        | The user's secondary email address.                                                                                                                                                                  |
-| first_name                         | string        | The first name of the agent.                                                                                                                                                                         |
-| last_name                          | string        | The last name of the agent.                                                                                                                                                                          |
-| mobile                             | string        | The user's mobile number.                                                                                                                                                                            |
-| agent_username                     | string        | The user name of the agent, as entered in their Connect Customer user<br>account.                                                                                                                    |
-| instance_id                        | string        | The ID of the Connect Customer instance.                                                                                                                                                             |
-| instance_arn                       | string        | The ARN of the Connect Customer instance.                                                                                                                                                            |
-| agent_routing_profile_id           | string        | The ID of the routing profile for the agent.                                                                                                                                                         |
-| agent_routing_profile_arn          | string        | The ARN of the routing profile for the agent.                                                                                                                                                        |
-| agent_security_profile_ids         | array<string> | The IDs of the security profiles for the user.                                                                                                                                                       |
-| agent_security_profile_arns        | array<string> | The ARNs of the security profiles for the user.                                                                                                                                                      |
-| last_modified_region               | string        | The AWS Region where this resource was last modified.                                                                                                                                                |
-| last_modified_timestamp            | Timestamp     | The Timestamp when this resource was last modified.                                                                                                                                                  |
-| after_contact_work_time_limit      | int           | The After Call Work (ACW) timeout setting, in seconds.                                                                                                                                               |
-| auto_accept                        | Boolean       | The Auto accept setting.                                                                                                                                                                             |
-| desk_phone_number                  | string        | The phone number for the user's desk phone.                                                                                                                                                          |
-| phone_type                         | string        | The phone type.                                                                                                                                                                                      |
-| is_active                          | Boolean       | Whether the agent exists or has been deleted.                                                                                                                                                        |
-| data_lake_last_processed_timestamp | Timestamp     | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data<br>freshness. |
-| agent_voice_enhancement_mode       | string        | The voice enhancement mode used by the agent.<br>Valid values: VOICE_ISOLATION                                                                                                                       | NOISE_SUPPRESSION | NONE.<br>A value of null indicates this mode has not yet been set for this user. |
+**Primary key:**
+`user_id`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `user_id` — Joins to Contact Record (as `agent_id`), Agent Statistic Record, Agent Queue Statistic Record, Contact Evaluation Record
+- `user_arn` — Joins to Agent Event (as `agent_arn`), scheduling tables (as `agent_arn`)
+- `agent_routing_profile_id` — Joins to routing\_profiles
+- `agent_hierarchy_group_id` — Joins to agent\_hierarchy\_groups
+
+| Column                                 | Type          | Description |
+| -------------------------------------- | ------------- | ----------- |
+| user\_id                               | string        | No          | The identifier of the user account.                                                                                                                                                                  |
+| user\_arn                              | string        | Yes         | The ARN of the user account.                                                                                                                                                                         |
+| directory\_user\_id                    | string        | Yes         | The identifier of the user account in the directory used for<br>identity management.                                                                                                                 |
+| agent\_hierarchy\_group\_id            | string        | Yes         | The identifier of the hierarchy group for the user.                                                                                                                                                  |
+| agent\_hierarchy\_group\_arn           | string        | Yes         | The identifier of level 1 hierarchy group for the<br>user.                                                                                                                                           |
+| agent\_hierarchy\_group\_level\_1\_id  | string        | Yes         | The identifier of level 1 hierarchy group for the user.                                                                                                                                              |
+| agent\_hierarchy\_group\_level\_2\_id  | string        | Yes         | The identifier of level 2 hierarchy group for the user.                                                                                                                                              |
+| agent\_hierarchy\_group\_level\_3\_id  | string        | Yes         | The identifier of level 3 hierarchy group for the user.                                                                                                                                              |
+| agent\_hierarchy\_group\_level\_4\_id  | string        | Yes         | The identifier of level 4 hierarchy group for the user.                                                                                                                                              |
+| agent\_hierarchy\_group\_level\_5\_id  | string        | Yes         | The identifier of level 5 hierarchy group for the user.                                                                                                                                              |
+| agent\_email                           | string        | Yes         | The user's email address.                                                                                                                                                                            |
+| agent\_secondary\_email                | string        | Yes         | The user's secondary email address.                                                                                                                                                                  |
+| first\_name                            | string        | Yes         | The first name of the agent.                                                                                                                                                                         |
+| last\_name                             | string        | Yes         | The last name of the agent.                                                                                                                                                                          |
+| mobile                                 | string        | Yes         | The user's mobile number.                                                                                                                                                                            |
+| agent\_username                        | string        | Yes         | The user name of the agent, as entered in their Connect Customer user<br>account.                                                                                                                    |
+| instance\_id                           | string        | Yes         | The ID of the Connect Customer instance.                                                                                                                                                             |
+| instance\_arn                          | string        | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                            |
+| agent\_routing\_profile\_id            | string        | Yes         | The ID of the routing profile for the agent.                                                                                                                                                         |
+| agent\_routing\_profile\_arn           | string        | Yes         | The ARN of the routing profile for the agent.                                                                                                                                                        |
+| agent\_security\_profile\_ids          | array<string> | Yes         | The IDs of the security profiles for the user.                                                                                                                                                       |
+| agent\_security\_profile\_arns         | array<string> | Yes         | The ARNs of the security profiles for the user.                                                                                                                                                      |
+| last\_modified\_region                 | string        | Yes         | The AWS Region where this resource was last modified.                                                                                                                                                |
+| last\_modified\_timestamp              | Timestamp     | Yes         | The Timestamp when this resource was last modified.                                                                                                                                                  |
+| after\_contact\_work\_time\_limit      | int           | Yes         | The After Call Work (ACW) timeout setting, in seconds.                                                                                                                                               |
+| auto\_accept                           | Boolean       | Yes         | The Auto accept setting.                                                                                                                                                                             |
+| desk\_phone\_number                    | string        | Yes         | The phone number for the user's desk phone.                                                                                                                                                          |
+| phone\_type                            | string        | Yes         | The phone type.                                                                                                                                                                                      |
+| is\_active                             | Boolean       | Yes         | Whether the agent exists or has been deleted.                                                                                                                                                        |
+| data\_lake\_last\_processed\_timestamp | Timestamp     | Yes         | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data<br>freshness. |
+| agent\_voice\_enhancement\_mode        | string        | Yes         | The voice enhancement mode used by the agent.<br>Valid values: VOICE\_ISOLATION                                                                                                                      | NOISE\_SUPPRESSION | NONE.<br>A value of null indicates this mode has not yet been set for this user. |

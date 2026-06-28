@@ -7,9 +7,9 @@ programmatically, see [UpdateQuickResponse](../../../amazon-q-connect/latest/API
 
 1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
-   account assigned to a security profile that has \*\*Content Management - Quick responses
+   account assigned to a security profile that has **Content Management - Quick responses
 
-- Edit\*\* permission.
+- Edit** permission.
 
 2. On the navigation bar, choose **Content Management**, then
    **Quick responses**.

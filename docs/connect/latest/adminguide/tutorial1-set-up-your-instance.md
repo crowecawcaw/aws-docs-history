@@ -61,8 +61,8 @@ later using the unique access URL. Choose **Next**.
      number.
 
 4. On the **Set telephony** page, accept the default
-   settings to allow incoming and outgoing calls. Choose
-   **Next**.
+settings to allow incoming and outgoing calls. Choose
+**Next**.
 
 ![The set telephony page, telephony options section.](images/tutorial1-telephony-defaults.png) 5. On the **Data storage** page, accept the default settings
 and choose **Next**.

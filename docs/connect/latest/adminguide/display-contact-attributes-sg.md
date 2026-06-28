@@ -44,22 +44,19 @@ page heading, description, and four examples.
   **Copyable** and **Url**. For more
   information see, [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute").
 
-      + **LinkType** can be external or an Connect Customer application
-       such as Connect Customer Cases.
+  - **LinkType** can be external or an Connect Customer application
+    such as Connect Customer Cases.
 
+    - When it is _external_, an agent can
+      navigate to a new browser page, which is configured with
+      **Url**.
+    - When it is _case_, an agent can navigate to
+      a new case detail on the agent workspace, which configured with
+      ResourceId.
 
-
-
-      	- When it is *external*, an agent can
-      	 navigate to a new browser page, which is configured with
-      	 **Url**.
-      	- When it is *case*, an agent can navigate to
-      	 a new case detail on the agent workspace, which configured with
-      	 ResourceId.
-      + **Copyable** allows agents to copy the ResourceId by
-       choosing it with your input device.
-
-  **Back (Optional)**
+  - **Copyable** allows agents to copy the ResourceId by
+    choosing it with your input device.
+    **Back (Optional)**
 
 - Optional, but required if no actions are included. If provided will display
   the back navigation link.

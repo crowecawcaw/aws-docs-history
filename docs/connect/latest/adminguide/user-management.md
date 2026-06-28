@@ -31,7 +31,7 @@ a secondary email configured in order to get it. If a secondary email is not con
 ###### Tip
 
 Mobile number is not currently used by Connect Customer. 6. Choose a routing profile and a security profile. 7. Optionally, add tags to identify, organize, search for, filter, and
-control who can access this hours of operation record. For more information,
+control who can access this user. For more information,
 see [Add tags to resources in Connect Customer](tagging.md "tagging.md"). 8. Choose **Save**. If the Save button isn't active, it
 means you're logged in with an Connect Customer account that doesn't have
 the required security profile permissions.
@@ -124,7 +124,7 @@ following image shows that this security profile permission is in the
 **Users and permissions** section of the **Add/Edit
 security profile** page.
 
-![The Users and permissions section of the security profile page.](images/security-profile-create-user-accounts.png)
+![The Users and permissions section of the security profile page.](images/SecurityProfile_cloudscape_users_create.png)
 
 By default, the Connect Customer
 **Admin** security profile has these permissions.

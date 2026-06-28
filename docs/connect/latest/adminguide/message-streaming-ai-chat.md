@@ -16,12 +16,11 @@ The following are integration options, along with features of each option:
 
 - Third-party bots via Amazon Lex or Lambda
 
-      + Eliminates Amazon Lex timeout limitations
-      + Standard bot response behavior
-
-  Instances created starting December 2025 are automatically opted into this feature.
-  For existing instances, you must enable message streaming manually using the API or
-  through the console.
+  - Eliminates Amazon Lex timeout limitations
+  - Standard bot response behavior
+    Instances created starting December 2025 are automatically opted into this feature.
+    For existing instances, you must enable message streaming manually using the API or
+    through the console.
 
 ## Enable message streaming using the API
 

@@ -59,15 +59,14 @@ where the value comes from. The values for contact attributes have the following
 - An external process, such as Amazon Lex or AWS Lambda, provides the value.
 - [User-defined](connect-attrib-list.md#user-defined-attributes "connect-attrib-list.md#user-defined-attributes").
 
-      + Contact attributes: In the flow, you can specify the value for an attribute
-       under User defined namespace.
-      + Contact segment attributes: In the flow, you can specify value for a attribute
-       under Segment attributes namespace. You must also predefine the attribute first
-       before assigning it as a contact segment attribute. For instructions, see [Use contact segment attributes](use-contact-segment-attributes.md "use-contact-segment-attributes.md").
-
-  [Flow attributes](connect-attrib-list.md#flow-attributes "connect-attrib-list.md#flow-attributes") are similar to user-defined
-  attributes. However, unlike user-defined attributes, flow attributes are restricted to
-  the flow in which they are configured.
+  - Contact attributes: In the flow, you can specify the value for an attribute
+    under User defined namespace.
+  - Contact segment attributes: In the flow, you can specify value for a attribute
+    under Segment attributes namespace. You must also predefine the attribute first
+    before assigning it as a contact segment attribute. For instructions, see [Use contact segment attributes](use-contact-segment-attributes.md "use-contact-segment-attributes.md").
+    [Flow attributes](connect-attrib-list.md#flow-attributes "connect-attrib-list.md#flow-attributes") are similar to user-defined
+    attributes. However, unlike user-defined attributes, flow attributes are restricted to
+    the flow in which they are configured.
 
 The following illustration lists the types of available contact attributes, and maps
 them to the three sources for the values: Connect Customer, external process such as Amazon Lex, and

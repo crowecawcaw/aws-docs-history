@@ -96,5 +96,5 @@ Seattle.
 
 ![A words and phrases rule with multiple conditions.](images/contact-lens-add-category-rules-3.png) 11. When done, choose **Next**. 12. In the **Assign contact category** box, add a
 name for the category. For example, **Compliant**
-or **Not_Compliant**. 13. Choose **Next**, then choose **Save and
+or **Not\_Compliant**. 13. Choose **Next**, then choose **Save and
 publish**.

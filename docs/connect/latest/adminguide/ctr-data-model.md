@@ -1182,7 +1182,7 @@ Length: 1-256
 A contact identifier that is common across all contacts linked by
 relatedContactId. This is used for email contacts in a thread.
 
-Type: Integer
+Type: String
 
 **TotalPauseCount**
 

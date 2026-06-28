@@ -9,7 +9,7 @@ This is the URL to the CCP website:
   This is the URL to the [agent workspace](#use-agent-workspace "#use-agent-workspace"):
 
 - **https://`instance
-name`.my.connect.aws/agent-app-v2/**
+ name`.my.connect.aws/agent-app-v2/**
 
 ## Steps to ensure agents can access the CCP
 
@@ -47,7 +47,7 @@ Customer Profiles, Cases, or Connect AI agents, share the following URL with you
 access it in the agent workspace:
 
 - **https://`instance
-name`.my.connect.aws/agent-app-v2/**
+ name`.my.connect.aws/agent-app-v2/**
 
 For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
 

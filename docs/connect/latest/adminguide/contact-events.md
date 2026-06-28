@@ -40,9 +40,9 @@ Contact events are generated in JSON. For each event type, a JSON blob is sent t
 target of your choice, as configured in the rule. The following contact events are
 available:
 
-- AMD_DISABLED - Answering machine detection is disabled.
+- AMD\_DISABLED - Answering machine detection is disabled.
 - INITIATED - A voice call, chat, task, or email is initiated or transferred.
-- CONNECTED_TO_SYSTEM - The contact has established media (for example, it was
+- CONNECTED\_TO\_SYSTEM - The contact has established media (for example, it was
   answered by a person or by voicemail). This event is generated for any of the
   [AnsweringMachineDetectionStatus](#AnsweringMachineDetectionStatus "#AnsweringMachineDetectionStatus")
   codes.
@@ -52,7 +52,7 @@ available:
 This event is generated for outbound calls (including [Connect Customer outbound campaigns](how-to-create-campaigns.md "how-to-create-campaigns.md"))
 tasks, and chats.
 
-- CONTACT_DATA_UPDATED - One or more of the following contact properties were
+- CONTACT\_DATA\_UPDATED - One or more of the following contact properties were
   updated on a voice call, chat, task, or email: scheduled timestamp (task only),
   accepted by agent timestamp (outbound campaign voice contact in preview dialing
   mode only), user-defined attributes and tags, routing criteria is updated or
@@ -60,7 +60,7 @@ tasks, and chats.
   contact.
 - QUEUED - A voice call, chat, task, or email is queued to be assigned to an
   agent.
-- CONNECTED_TO_AGENT - A voice call, chat, task, or email is connected to an
+- CONNECTED\_TO\_AGENT - A voice call, chat, task, or email is connected to an
   agent.
 - COMPLETED - The COMPLETED event indicates when a contact has fully ended,
   including After Contact Work (ACW) if applicable.
@@ -70,15 +70,15 @@ tasks, and chats.
   When an agent completes ACW for a voice call, chat, task, or email, the
   following fields are populated:
 
-      - AgentInfo.afterContactWorkStartTimestamp
-      - agentInfo.afterContactWorkEndTimestamp
-      - agentInfo.afterContactWorkDuration
+        - AgentInfo.afterContactWorkStartTimestamp
+        - agentInfo.afterContactWorkEndTimestamp
+        - agentInfo.afterContactWorkDuration
   - For contacts without ACW:
 
   These fields are not populated when:
 
-      - No agent was present on the contact.
-      - The agent did not enter ACW.
+        - No agent was present on the contact.
+        - The agent did not enter ACW.
 
   In these cases, the COMPLETED event is published immediately after the
   DISCONNECT event with the same data.
@@ -106,7 +106,7 @@ A disconnect event is when:
 
 - PAUSED - An active task contact was paused.
 - RESUMED - A paused task contact was resumed.
-- WEBRTC_API - The contact used the communication widget to make an in-app
+- WEBRTC\_API - The contact used the communication widget to make an in-app
   voice/video call to an agent.
 
 ###### Event objects
@@ -336,9 +336,9 @@ Valid values:
   center, where you called the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API, or it could be a tasks
   initiated by the customer by calling the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md") API, or it could be an email
   initiated by the customer by calling the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API.
-- QUEUE_TRANSFER: While the contact is one queue, and was then
+- QUEUE\_TRANSFER: While the contact is one queue, and was then
   transferred into another queue using a flow block.
-- EXTERNAL_OUTBOUND: An agent initiated voice (phone) contact
+- EXTERNAL\_OUTBOUND: An agent initiated voice (phone) contact
   with an external participant to your contact center using either
   quick connect in the CCP or a flow block.
 - MONITOR: A supervisor initiated monitor on an agent. The
@@ -360,12 +360,12 @@ flow runs. If a new contact is created while running a
 disconnect flow, then the initiation method for that new contact
 is DISCONNECT.
 
-- AGENT_REPLY: Represents an agent reply email contact
+- AGENT\_REPLY: Represents an agent reply email contact
   corresponding to the inbound email contact accepted by an
   agent.
 - FLOW: Represents an automated (flow-initiated) email
   contact.
-- CAMPAIGN_PREVIEW: The contact was initiated by an outbound
+- CAMPAIGN\_PREVIEW: The contact was initiated by an outbound
   campaign using preview dialing mode. The agent previews customer
   information before the call is placed.
 
@@ -377,15 +377,15 @@ failed.
 
 Valid values:
 
-- OUTBOUND_DESTINATION_ENDPOINT_ERROR: Current configurations do
+- OUTBOUND\_DESTINATION\_ENDPOINT\_ERROR: Current configurations do
   not allow this destination to be dialed (for example, calling an
   endpoint destination from an ineligible instance).
-- OUTBOUND_RESOURCE_ERROR: Instance has insufficient permissions
+- OUTBOUND\_RESOURCE\_ERROR: Instance has insufficient permissions
   to make outbound calls or necessary resources were not
   found.
-- OUTBOUND_ATTEMPT_FAILED: There was an unknown error, invalid
+- OUTBOUND\_ATTEMPT\_FAILED: There was an unknown error, invalid
   parameter, or insufficient permissions to call the API.
-- OUTBUND_PREVIEW_DISCARDED: No contact made; recipient removed
+- OUTBUND\_PREVIEW\_DISCARDED: No contact made; recipient removed
   from list; no further attempts will be made.
 - EXPIRED: Not enough agents available, or not enough telecom
   capacity for such calls.
@@ -434,8 +434,8 @@ The type of event published.
 
 Type: String
 
-Valid values: INITIATED, CONNECTED_TO_SYSTEM, CONTACT_DATA_UPDATED,
-QUEUED, CONNECTED_TO_AGENT, DISCONNECTED, PAUSED, RESUMED,
+Valid values: INITIATED, CONNECTED\_TO\_SYSTEM, CONTACT\_DATA\_UPDATED,
+QUEUED, CONNECTED\_TO\_AGENT, DISCONNECTED, PAUSED, RESUMED,
 COMPLETED
 
 **UpdatedProperties**
@@ -712,7 +712,7 @@ Type: Expiry
 
 The system endpoint. For example, for INBOUND, this is the phone number that the
 customer dialed or the email address where the customer reached out. For OUTBOUND
-and EXTERNAL_OUTBOUND, this is the outbound caller ID number assigned to the
+and EXTERNAL\_OUTBOUND, this is the outbound caller ID number assigned to the
 outbound queue that is used to dial the customer or the outbound email address
 that is assigned to the outbound queue that is used to reach out to the
 customer.
@@ -720,7 +720,7 @@ customer.
 ###### Note
 
 This field is currently not populated for contacts with initiation method of
-CALLBACK, MONITOR, QUEUE_TRANSFER contacts.
+CALLBACK, MONITOR, QUEUE\_TRANSFER contacts.
 
 **Type**
 
@@ -734,7 +734,7 @@ center.
 
 **Address**
 
-The value for the type of endpoint. For TELEPHONE_NUMBER, the value is
+The value for the type of endpoint. For TELEPHONE\_NUMBER, the value is
 a phone number in E.164 format.
 
 Type: String
@@ -746,8 +746,8 @@ Length: 1-256
 The endpoint type. Currently, an endpoint can only be a telephone
 number.
 
-Valid Values: TELEPHONE_NUMBER | VOIP | CONTACT_FLOW |
-CONNECT_PHONENUMBER_ARN | EMAIL_ADDRESS
+Valid Values: TELEPHONE\_NUMBER | VOIP | CONTACT\_FLOW |
+CONNECT\_PHONENUMBER\_ARN | EMAIL\_ADDRESS
 
 **DisplayName**
 
@@ -847,7 +847,7 @@ Where the recording/transcript is stored.
 
 Type: String
 
-Valid Values: Amazon S3 | KINESIS_VIDEO_STREAM
+Valid Values: Amazon S3 | KINESIS\_VIDEO\_STREAM
 
 ### ContactDetails
 
@@ -891,7 +891,7 @@ The status of the evaluation.
 
 Type: String
 
-Valid Values: COMPLETE, IN_PROGRESS, DELETED
+Valid Values: COMPLETE, IN\_PROGRESS, DELETED
 
 **StartTimestamp**
 
@@ -946,7 +946,7 @@ Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
 **State**
 
-Valid Values: SILENT_MONITOR | BARGE
+Valid Values: SILENT\_MONITOR | BARGE
 
 ### OutboundStrategy
 

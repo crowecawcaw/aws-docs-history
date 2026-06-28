@@ -26,7 +26,7 @@ can:
 - [Set up
   self-service](#enable-self-service-ai-agents "#enable-self-service-ai-agents")
 - [Custom actions for self-service](#custom-actions-for-connect-ai-agents-self-service "#custom-actions-for-connect-ai-agents-self-service")
-- [FOLLOW_UP_QUESTION
+- [FOLLOW\_UP\_QUESTION
   tool](#follow-up-question-tool "#follow-up-question-tool")
 
 ## Default system tools
@@ -44,9 +44,9 @@ Connect AI agents comes with the following built-in tools that work out-of-the-b
 When ESCALATION is selected, it takes the **Error**
 branch of the **Get customer input** block. 3. **CONVERSATION**: Engages in basic dialogue
 when there's no specific customer intent. 4. **COMPLETE**: Concludes the interaction when
-customer needs are met. 5. **FOLLOW_UP_QUESTION**: Enables more
+customer needs are met. 5. **FOLLOW\_UP\_QUESTION**: Enables more
 interactive and information-gathering conversations with customers. For more
-information about using this tool, see [FOLLOW_UP_QUESTION tool](#follow-up-question-tool "#follow-up-question-tool").
+information about using this tool, see [FOLLOW\_UP\_QUESTION tool](#follow-up-question-tool "#follow-up-question-tool").
 
 You can customize these default tools to meet your specific requirements.
 
@@ -54,42 +54,39 @@ You can customize these default tools to meet your specific requirements.
 
 Follow these steps to enable Connect AI agents for self-service:
 
-1.  Enable Connect AI agents in your Amazon Lex bot by activating the [AMAZON.QinConnectIntent](../../../lexv2/latest/dg/built-in-intent-qinconnect.md "../../../lexv2/latest/dg/built-in-intent-qinconnect.md"). For instructions, see [Create an Connect AI agents intent](create-qic-intent-connect.md "create-qic-intent-connect.md").
-2.  Add an [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to
-    your flow.
-3.  Add a [Get customer input](get-customer-input.md "get-customer-input.md") block to your flow to
-    specify:
+1. Enable Connect AI agents in your Amazon Lex bot by activating the [AMAZON.QinConnectIntent](../../../lexv2/latest/dg/built-in-intent-qinconnect.md "../../../lexv2/latest/dg/built-in-intent-qinconnect.md"). For instructions, see [Create an Connect AI agents intent](create-qic-intent-connect.md "create-qic-intent-connect.md").
+2. Add an [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to
+   your flow.
+3. Add a [Get customer input](get-customer-input.md "get-customer-input.md") block to your flow to
+   specify:
 
-        * When Connect AI agents should begin handling customer interactions.
-        * Which types of interactions it should handle.
+   - When Connect AI agents should begin handling customer interactions.
+   - Which types of interactions it should handle.
+     For instructions, see [Create a flow and add your conversational AI bot](create-bot-flow.md "create-bot-flow.md").
 
-    For instructions, see [Create a flow and add your conversational AI bot](create-bot-flow.md "create-bot-flow.md").
+4. (Optional) Add a [Check contact
+   attributes](check-contact-attributes.md "check-contact-attributes.md") block to your flow and
+   configure it to determine what should happen after Connect AI agents has completed its
+   turn of the conversation: In the **Attribute to check**
+   section, set the properties as follows:
 
-4.  (Optional) Add a [Check contact
-    attributes](check-contact-attributes.md "check-contact-attributes.md") block to your flow and
-    configure it to determine what should happen after Connect AI agents has completed its
-    turn of the conversation: In the **Attribute to check**
-    section, set the properties as follows:
+   - Set **Namespace** =
+     **Lex**
+   - Set **Key** = **Session
+     attributes**
+   - Set **Session Attribute Key** = Tool
+     Connect AI agents saves the selected tool name as a Lex session attribute. This
+     session attribute can then be accessed by using the **Check contact
+     attributes** block.
 
-        * Set **Namespace** =
-         **Lex**
-        * Set **Key** = **Session
-         attributes**
-        * Set **Session Attribute Key** = Tool
+5. (Optional) Define routing logic based on the tool selected by
+   Connect AI agents:
 
-    Connect AI agents saves the selected tool name as a Lex session attribute. This
-    session attribute can then be accessed by using the **Check contact
-    attributes** block.
-
-5.  (Optional) Define routing logic based on the tool selected by
-    Connect AI agents:
-
-        * Route COMPLETE responses to end the interaction.
-        * Route custom tool responses (like TRIP\_BOOKING) to specific
-         workflows.
-
-    The following image shows an example of how you can make a routing
-    decision based on what Connect AI agents decides.
+   - Route COMPLETE responses to end the interaction.
+   - Route custom tool responses (like TRIP\_BOOKING) to specific
+     workflows.
+     The following image shows an example of how you can make a routing
+     decision based on what Connect AI agents decides.
 
 ![Contact routing based on ai agent tool selections for COMPLETE and TRIP_BOOKING paths.](images/generative-ai-powered-self-service-q-3.png)
 
@@ -109,12 +106,11 @@ When adding a custom tool to your AI prompt:
   attributes](check-contact-attributes.md "check-contact-attributes.md") block to create
   branching logic.
 
-      + When you configure **Check contact attributes**,
-       in the **Attribute to check** section, enter the
-       name of your custom tool.
-
-  The following image shows a custom tool named TRIP_BOOKING is
-  specified.
+  - When you configure **Check contact attributes**,
+    in the **Attribute to check** section, enter the
+    name of your custom tool.
+    The following image shows a custom tool named TRIP\_BOOKING is
+    specified.
 
 ![A custom tool named TRIP_BOOKING in the Check contact attributes block.](images/trip-booking.png)
 
@@ -188,7 +184,7 @@ determine which tool Connect AI agents has selected, you can make branching deci
 select the relevant step-by-step guide for that user. For example, if a customer
 wants to book a trip during a self-service chat interaction, you can:
 
-- Match the TRIP_BOOKING tool response in your flow.
+- Match the TRIP\_BOOKING tool response in your flow.
 - Route to the appropriate step-by-step guide.
 - Display the step-by-step interface directly in the customer's chat
   window.
@@ -196,14 +192,14 @@ wants to book a trip during a self-service chat interaction, you can:
 For more information about implementing step-by-step guides in chat, see
 [Deploy step-by-step guides in Connect Customer chats](step-by-step-guides-chat.md "step-by-step-guides-chat.md").
 
-## FOLLOW_UP_QUESTION tool
+## FOLLOW\_UP\_QUESTION tool
 
-The FOLLOW_UP_QUESTION tool enhances Connect AI agents self-service capabilities by enabling
+The FOLLOW\_UP\_QUESTION tool enhances Connect AI agents self-service capabilities by enabling
 more interactive and information-gathering conversations with customers. This tool
 works alongside the default and custom tools. It helps collect necessary information
 before determining which action to take.
 
-The following code shows the configuration of the FOLLOW_UP_QUESTION tool.
+The following code shows the configuration of the FOLLOW\_UP\_QUESTION tool.
 
 ```
 - name: FOLLOW_UP_QUESTION
@@ -222,7 +218,7 @@ required:
   - message
 ```
 
-The FOLLOW_UP_QUESTION tool complements your defined tools by enabling Connect AI agents to
+The FOLLOW\_UP\_QUESTION tool complements your defined tools by enabling Connect AI agents to
 gather necessary information before deciding which action to take. It's particularly
 useful for:
 
@@ -236,10 +232,10 @@ questions before selecting the appropriate action.
 Collect required details for completing a task or answering a
 question.
 
-### Example FOLLOW_UP_QUESTION use case
+### Example FOLLOW\_UP\_QUESTION use case
 
 For a self-service bot designed to report fraud, you might define a tool named
-CONFIRM_SUBMISSION to collect specific information from the customer:
+CONFIRM\_SUBMISSION to collect specific information from the customer:
 
 ```
 - name: CONFIRM_SUBMISSION
@@ -268,7 +264,7 @@ required:
 
 ```
 
-However, you can use the FOLLOW_UP_QUESTION tool instead to collect this
+However, you can use the FOLLOW\_UP\_QUESTION tool instead to collect this
 information step-by-step, as shown in the following sample:
 
 ```
@@ -293,7 +289,7 @@ required:
 ### Prompt instructions
 
 Add instructions to your prompt to guide your self-service bot on when to use
-the FOLLOW_UP_QUESTION tool. For example:
+the FOLLOW\_UP\_QUESTION tool. For example:
 
 ```
 CRITICAL: Use FOLLOW_UP_QUESTION for all information gathering steps after the initial analysis.
@@ -311,22 +307,22 @@ When using FOLLOW_UP_QUESTION:
 
 ### Example conversations
 
-Following are three example conversations that show the FOLLOW_UP_QUESTION
+Following are three example conversations that show the FOLLOW\_UP\_QUESTION
 tool in use.
 
 - Example 1: When a customer asks about reporting fraud, the model needs
   to collect information (such as `report_details`,
   `reporter_info`, `subject_info`) from the
   customer to create a report. Instead of using a custom tool named
-  CONFIRM_SUBMISSION tool to collect the information, this example shows
+  CONFIRM\_SUBMISSION tool to collect the information, this example shows
   how it can start collecting required information using the
-  FOLLOW_UP_QUESTION tool.
+  FOLLOW\_UP\_QUESTION tool.
 - Example 2: This example continues the same theme, showcasing the
   alternate information that can be retrieved for reporter's contact
-  information by using the FOLLOW_UP_QUESTION tool.
+  information by using the FOLLOW\_UP\_QUESTION tool.
 - Example 3: This example indicates how the model should respond to
   vague requests from customer and clarify things by using the
-  FOLLOW_UP_QUESTION tool.
+  FOLLOW\_UP\_QUESTION tool.
 
 ```
 <examples>

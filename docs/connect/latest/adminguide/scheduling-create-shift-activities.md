@@ -153,10 +153,8 @@ shift activities** page.
 
     For more information about these options, see [Schedule Adherence](schedule-adherence.md "schedule-adherence.md").
 
-5. If desired, add another activity.
-6. Choose **Save**.
-7. The next time a schedule is created as part of the scheduling cycle, the
-   shift activities are applied.
+5. If desired, add another activity. 6. Choose **Save**. 7. The next time a schedule is created as part of the scheduling cycle, the
+shift activities are applied.
 
 ###### Tip
 

@@ -25,9 +25,7 @@ If you have view-only permissions, you will not see this action. 4. Build your l
 
     Rather than setting up a list of dates and times directly, you can link to the overrides set up on a different Hours of operation resource. Use this approach if you wish to share a master list that is maintained in one place.
 
-5. Follow the instructions on the window that opens.
-6. Select **Apply** to commit your selected date(s) and hours.
-7. Select **Save** at the top right of the hours of operation resource page.
+5. Follow the instructions on the window that opens. 6. Select **Apply** to commit your selected date(s) and hours. 7. Select **Save** at the top right of the hours of operation resource page.
 
 ![Hours of operations overrides table actions dropdown.](images/hours-of-operations-overrides.png)
 

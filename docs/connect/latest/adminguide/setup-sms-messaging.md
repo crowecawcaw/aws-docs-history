@@ -42,87 +42,87 @@ We also strongly recommend reviewing [Best practices for requesting SMS numbers]
 For instructions for using the CLI to perform this step, see [Request a phone number](../../../sms-voice/latest/userguide/phone-numbers-request.md "../../../sms-voice/latest/userguide/phone-numbers-request.md") in the _AWS End User Messaging SMS User
 Guide_.
 
-1.  Open the AWS SMS console at
-    [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
-2.  In the navigation pane, under **Configurations**, choose
-    **Phone numbers** and then **Request
-    originator**.
-3.  On the **Select country** page you must choose the
-    **Message destination country** from the drop down that
-    messages will be sent to. Choose **Next**.
-4.  On the **Messaging use case** section, enter the
-    following:
+1. Open the AWS SMS console at
+   [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
+2. In the navigation pane, under **Configurations**, choose
+   **Phone numbers** and then **Request
+   originator**.
+3. On the **Select country** page you must choose the
+   **Message destination country** from the drop down that
+   messages will be sent to. Choose **Next**.
+4. On the **Messaging use case** section, enter the
+   following:
 
-    - Under **Number capabilities** choose either
-      **SMS** or **Voice**, depending on
-      your requirements.
+   - Under **Number capabilities** choose either
+     **SMS** or **Voice**, depending on
+     your requirements.
 
-    ###### Important
+   ###### Important
 
-    Capabilities for SMS and Voice can't be changed after the phone
-    number has been purchased.
+   Capabilities for SMS and Voice can't be changed after the phone
+   number has been purchased.
 
         + **SMS** – Choose if you need SMS
          capabilities.
         + **Voice (text to audio)** – Choose if
          you need voice capabilities.
-    - Under **Estimated monthly SMS message volume per month –
-      optional** choose the estimated number of SMS messages you
-      will send each month.
-    - For **Company headquarters - optional** choose either
-      of the following:
+   - Under **Estimated monthly SMS message volume per month –
+     optional** choose the estimated number of SMS messages you
+     will send each month.
+   - For **Company headquarters - optional** choose either
+     of the following:
 
-      - **Local** – Choose this if your company
-        headquarters is in the same country as your customers who will
-        receive SMS messages. For example, you would choose this option
-        if your headquarters is in the United States and your users who
-        will receive messages are also in the United States.
-      - **International** – Choose this if your
-        company headquarters is not in the same country as your
-        customers who will receive SMS messages.
+     - **Local** – Choose this if your company
+       headquarters is in the same country as your customers who will
+       receive SMS messages. For example, you would choose this option
+       if your headquarters is in the United States and your users who
+       will receive messages are also in the United States.
+     - **International** – Choose this if your
+       company headquarters is not in the same country as your
+       customers who will receive SMS messages.
 
-    - For **Two-way messaging** choose
-      **Yes** if you require two-way messaging.
+   - For **Two-way messaging** choose
+     **Yes** if you require two-way messaging.
 
-5.  Choose **Next**.
-6.  Under **Select originator type** choose one of the
-    recommended phone number type or one of the available number types. The
-    available options are based on the use case information you filled out in the
-    previous steps.
+5. Choose **Next**.
+6. Under **Select originator type** choose one of the
+   recommended phone number type or one of the available number types. The
+   available options are based on the use case information you filled out in the
+   previous steps.
 
-    - If you choose 10DLC and already have a registered campaign, you can
-      choose the campaign from the **Associate to registered
-      campaign**.
-    - If the number type you want isn't available, you can choose
-      **Previous** to go back and modify your use case.
-      Also check the [Supported countries and regions (SMS channel)](../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md "../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md") to make sure
-      the originator type you want is supported in the destination
-      country.
-    - If you want to request a short code or long code, you need to open a
-      case with Support. For more information, see [Requesting short codes for SMS messaging with Amazon Pinpoint
-      SMS](../../../sms-voice/latest/userguide/phone-numbers-request-short-code.md "../../../sms-voice/latest/userguide/phone-numbers-request-short-code.md") and [Requesting dedicated long codes for SMS messaging with Amazon
-      Pinpoint SMS](../../../sms-voice/latest/userguide/phone-numbers-long-code.md "../../../sms-voice/latest/userguide/phone-numbers-long-code.md").
+   - If you choose 10DLC and already have a registered campaign, you can
+     choose the campaign from the **Associate to registered
+     campaign**.
+   - If the number type you want isn't available, you can choose
+     **Previous** to go back and modify your use case.
+     Also check the [Supported countries and regions (SMS channel)](../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md "../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md") to make sure
+     the originator type you want is supported in the destination
+     country.
+   - If you want to request a short code or long code, you need to open a
+     case with Support. For more information, see [Requesting short codes for SMS messaging with Amazon Pinpoint
+     SMS](../../../sms-voice/latest/userguide/phone-numbers-request-short-code.md "../../../sms-voice/latest/userguide/phone-numbers-request-short-code.md") and [Requesting dedicated long codes for SMS messaging with Amazon
+     Pinpoint SMS](../../../sms-voice/latest/userguide/phone-numbers-long-code.md "../../../sms-voice/latest/userguide/phone-numbers-long-code.md").
 
-7.  Choose **Next**.
-8.  On **Review and request** you can verify and edit your
-    request before submitting it. Choose **Request**.
-9.  A **Registration Required** window may appear depending on
-    the type of phone number you requested. Your phone number is associated with
-    this registration and can't send messages until your registration has been
-    approved. For more information about registrations requirements, see [Registrations](../../../sms-voice/latest/userguide/registrations.md "../../../sms-voice/latest/userguide/registrations.md").
+7. Choose **Next**.
+8. On **Review and request** you can verify and edit your
+   request before submitting it. Choose **Request**.
+9. A **Registration Required** window may appear depending on
+   the type of phone number you requested. Your phone number is associated with
+   this registration and can't send messages until your registration has been
+   approved. For more information about registrations requirements, see [Registrations](../../../sms-voice/latest/userguide/registrations.md "../../../sms-voice/latest/userguide/registrations.md").
 
-    1. For **Registration form name** enter a friendly
-       name.
-    2. Choose **Begin registration** to finish registering
-       the phone number or **Register later**.
+   1. For **Registration form name** enter a friendly
+      name.
+   2. Choose **Begin registration** to finish registering
+      the phone number or **Register later**.
 
-    ###### Important
+   ###### Important
 
-    Your phone number can't send messages until your registration has
-    been approved.
+   Your phone number can't send messages until your registration has
+   been approved.
 
-    You are still billed the recurring monthly lease fee for the
-    phone number regardless of registration status.
+   You are still billed the recurring monthly lease fee for the
+   phone number regardless of registration status.
 
 ## Step 2: Enable two-way SMS on the phone number
 
@@ -169,10 +169,10 @@ Connect Customer SMS](regions.md#messaging-integrations_region "regions.md#messa
     2. Choose **Import Phone Number**.
 
 11. After the number is successfully imported to Connect Customer, you can view
-    it in the Connect Customer admin website: In the left navigation, choose **Channels**,
-    **Phone numbers**. The SMS number appears on the
-    **Phone numbers** page, as shown in the following
-    image.
+it in the Connect Customer admin website: In the left navigation, choose **Channels**,
+**Phone numbers**. The SMS number appears on the
+**Phone numbers** page, as shown in the following
+image.
 
 ![The Connect Customer admin website, the Phone numbers page.](images/golden-sms-channel.png)
 

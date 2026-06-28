@@ -51,12 +51,12 @@ The format of this field is always a JSON accessor. The only supported
 target object is `_profile`.
 
 - `ContentType`: The following values are supported STRING,
-  NUMBER, PHONE_NUMBER, EMAIL_ADDRESS, NAME. If no
+  NUMBER, PHONE\_NUMBER, EMAIL\_ADDRESS, NAME. If no
   `ContentType` is specified STRING is assumed.
 
 `ContentType` is used to determine how to index the value
 so agents can search for it. For example, if `ContentType` is
-set to PHONE_NUMBER, a phone number is processed so agents can search
+set to PHONE\_NUMBER, a phone number is processed so agents can search
 for it in any format: the string "+15551234567" matches
 "(555)-123-4567".
 

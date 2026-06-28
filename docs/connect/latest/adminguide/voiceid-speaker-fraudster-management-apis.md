@@ -16,7 +16,7 @@ and fraudsters registered in the domain. All speaker APIs, except
 ## Speaker management APIs
 
 1. [DescribeSpeaker](../../../voiceid/latest/APIReference/API_DescribeSpeaker.md "../../../voiceid/latest/APIReference/API_DescribeSpeaker.md"): Describe a speaker's [status in a domain (ENROLLED,
-   OPTED_OUT, EXPIRED)](voiceid-domain.md#voiceid-speaker-enrollments "voiceid-domain.md#voiceid-speaker-enrollments"), and to map a
+   OPTED\_OUT, EXPIRED)](voiceid-domain.md#voiceid-speaker-enrollments "voiceid-domain.md#voiceid-speaker-enrollments"), and to map a
    `GeneratedSpeakerId` to a `CustomerSpeakerId`,
    and vice versa.
 2. [DeleteSpeaker](../../../voiceid/latest/APIReference/API_DeleteSpeaker.md "../../../voiceid/latest/APIReference/API_DeleteSpeaker.md"): Completely remove all records for a

@@ -98,7 +98,7 @@ Seattle.
 
 ![A words and phrases rule with multiple conditions.](images/contact-lens-add-category-rules-3.png) 11. When done, choose **Next**. 12. In the **Assign contact category** box, add a
 name for the category. For example, **Compliant**
-or **Not_Compliant**. 13. Choose **Add action** to specify what action
+or **Not\_Compliant**. 13. Choose **Add action** to specify what action
 Connect Customer should take when the conditions are met. You can configure
 supervisor alerts by using email notifications or by developing a
 custom integration with EventBridge.

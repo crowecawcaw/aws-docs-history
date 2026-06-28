@@ -268,25 +268,25 @@ to the following:
      addresses, ports, and protocols needed to use Connect Customer.
 
 2. **AWS**: The AWS layer includes Connect Customer and
-   AWS integrations including AWS Lambda, Amazon DynamoDB, Amazon API Gateway, Amazon S3, and
-   other services. Follow the security pillar guidelines for AWS services,
-   with special attention to the following:
+AWS integrations including AWS Lambda, Amazon DynamoDB, Amazon API Gateway, Amazon S3, and
+other services. Follow the security pillar guidelines for AWS services,
+with special attention to the following:
 
-   - Plan identity management, keeping in mind best practices noted in
+    * Plan identity management, keeping in mind best practices noted in
      [Security Best Practices for Connect Customer](security-best-practices.md "security-best-practices.md").
-   - Integrations with other AWS services: Identify each AWS
+    * Integrations with other AWS services: Identify each AWS
      service in the use case as well as any third-party integration
      points applicable for this use case.
-   - Connect Customer can integrate with AWS Lambda functions that run inside of a
+    * Connect Customer can integrate with AWS Lambda functions that run inside of a
      customer VPC through the [VPC endpoints for
      Lambda](../../../lambda/latest/dg/configuration-vpc.md "../../../lambda/latest/dg/configuration-vpc.md").
 
 3. **External**: The External layer includes
-   contact points including chat, click-to-call endpoints, and the PSTN for
-   voice calls, integrations you may have with legacy contact center solutions
-   in a Hybrid contact center architecture, and integrations you may have with
-   other third-party solutions. Any entry point or exit point for a third party
-   in your workload is considered the external layer.
+contact points including chat, click-to-call endpoints, and the PSTN for
+voice calls, integrations you may have with legacy contact center solutions
+in a Hybrid contact center architecture, and integrations you may have with
+other third-party solutions. Any entry point or exit point for a third party
+in your workload is considered the external layer.
 
 This layer also covers integrations customers may have with other
 third-party solutions and applications such as CRM systems, work force

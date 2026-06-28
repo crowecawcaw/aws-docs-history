@@ -8,47 +8,47 @@ profile.
 Also assume that the activities are set up as shown in the following Activity
 setup table.
 
-| Activity setup |       | START (Min) | END (Min) |
-| -------------- | ----- | ----------- | --------- | ---- |
-|                | EARLY | LATE        | EARLY     | LATE |
-| Work           | 5     | 7           | 10        | 15   |
-| Break          | -     | 5           | 5         | -    |
-| Lunch          | -     | 10          | 10        | -    |
+Activity setup| | START (Min) | END (Min) |
+| --- | --- | --- |
+| | EARLY | LATE | EARLY | LATE |
+| Work | 5 | 7 | 10 | 15 |
+| Break | - | 5 | 5 | - |
+| Lunch | - | 10 | 10 | - |
 
 Use Case 1: Agent Group 1 has been set up to use the shift profile shown in the
 previous image, with no overrides. As a result, agents assigned to Agent Group 1
 will have the following tolerances for schedule adherence.
 
-| Agent Group 1, Adherence thresholds with NO shift overrides |          | START    | END      |
-| ----------------------------------------------------------- | -------- | -------- | -------- | -------- | -------- | -------- |
-|                                                             | EARLY    | AT       | LATE     | EARLY    | AT       | LATE     |
-| Work                                                        | 8:55 AM  | 9:00 AM  | 9:07 AM  | 9:50 AM  | 10:00 AM | 10:15 AM |
-| Break                                                       | -        | 10:00 AM | 10:05 AM | 10:25 AM | 10:30 AM | -        |
-| Work                                                        | 10:25 AM | 10:30 AM | 10:37 AM | 11:50 AM | 12:00 PM | 12:15 PM |
-| Lunch                                                       | -        | 12:00 PM | 12:10 PM | 12:50 PM | 1:00 PM  | -        |
-| Work                                                        | 12:55 PM | 1:00 PM  | 1:07 PM  | 4:50 PM  | 5:00 PM  | 5:15 PM  |
+Agent Group 1, Adherence thresholds with NO shift overrides| | START | END |
+| --- | --- | --- |
+| | EARLY | AT | LATE | EARLY | AT | LATE |
+| Work | 8:55 AM | 9:00 AM | 9:07 AM | 9:50 AM | 10:00 AM | 10:15 AM |
+| Break | - | 10:00 AM | 10:05 AM | 10:25 AM | 10:30 AM | - |
+| Work | 10:25 AM | 10:30 AM | 10:37 AM | 11:50 AM | 12:00 PM | 12:15 PM |
+| Lunch | - | 12:00 PM | 12:10 PM | 12:50 PM | 1:00 PM | - |
+| Work | 12:55 PM | 1:00 PM | 1:07 PM | 4:50 PM | 5:00 PM | 5:15 PM |
 
 Use Case 2: Agent Group 2 has been setup to use the shift profile in the previous
 image, and the administrator has setup a shift profile override as shown in the
 following table.
 
-| Agent Group 2, Shift profile is overridden |       | START (Min) | END (Min) |
-| ------------------------------------------ | ----- | ----------- | --------- | ---- |
-|                                            | EARLY | LATE        | EARLY     | LATE |
-| Shift                                      | 10    | 7           | -         | 10   |
+Agent Group 2, Shift profile is overridden| | START (Min) | END (Min) |
+| --- | --- | --- |
+| | EARLY | LATE | EARLY | LATE |
+| Shift | 10 | 7 | - | 10 |
 
 As a result of these overrides, agents assigned to Agent Group 2 will have the
 following tolerances for schedule adherence.
 
-| Agent Group 2, Adherence thresholds with shift overrides |              | START       | END         |
-| -------------------------------------------------------- | ------------ | ----------- | ----------- | ----------- | ----------- | ----------- |
-|                                                          | EARLY        | AT          | LATE        | EARLY       | AT          | LATE        |
-| Shift                                                    | **8:50 AM**  | **9:00 AM** | **9:07 AM** | **-**       | **5:00 PM** | **5:10 PM** |
-| Work                                                     | **8:50 AM**  | 9:00 AM     | **9:07 AM** | 9:50 AM     | 10:00 AM    | 10:15 AM    |
-| Break                                                    | **-**        | 10:00 AM    | 10:05 AM    | 10:25 AM    | 10:30 AM    | -           |
-| Work                                                     | 10:25 AM     | 10:30 AM    | 10:37 AM    | 11:50 AM    | 12:00 PM    | 12:15 PM    |
-| Lunch                                                    | -            | 12:00 PM    | 12:10 PM    | 12:50 PM    | 1:00 PM     | -           |
-| Work                                                     | **12:50 PM** | 1:00 PM     | **1:07 PM** | **4:50 PM** | 5:00 PM     | **5:10 PM** |
+Agent Group 2, Adherence thresholds with shift overrides| | START | END |
+| --- | --- | --- |
+| | EARLY | AT | LATE | EARLY | AT | LATE |
+| Shift | **8:50 AM** | **9:00 AM** | **9:07 AM** | **-** | **5:00 PM** | **5:10 PM** |
+| Work | **8:50 AM** | 9:00 AM | **9:07 AM** | 9:50 AM | 10:00 AM | 10:15 AM |
+| Break | **-** | 10:00 AM | 10:05 AM | 10:25 AM | 10:30 AM | - |
+| Work | 10:25 AM | 10:30 AM | 10:37 AM | 11:50 AM | 12:00 PM | 12:15 PM |
+| Lunch | - | 12:00 PM | 12:10 PM | 12:50 PM | 1:00 PM | - |
+| Work | **12:50 PM** | 1:00 PM | **1:07 PM** | **4:50 PM** | 5:00 PM | **5:10 PM** |
 
 The bold cells are changed due to the override. The cells are overridden because:
 

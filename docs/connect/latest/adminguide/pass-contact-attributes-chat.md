@@ -70,7 +70,7 @@ attributes must follow the limitations set by the [StartChatContact](../APIRefer
 - The snippet code prepends `HostedWidget-` to all the
   contact attribute keys that it passes. In the following example, the
   agent side will see the key value pair `HostedWidget-foo:
-'bar'`.
+ 'bar'`.
 - Although these attributes are scoped with the
   `HostedWidget-` prefix, they are still mutable
   client-site. Use the JWT setup if you require PII or immutable data in
@@ -108,7 +108,7 @@ the flow block to add branching logic. The full path is
   Because JavaScript uses UTF-16 encoding, 2 bytes are used per character, so
   the maximum size of the `encoded_token` should be around 3000
   characters.
-- The encoded_token should be passed in to `callback(data)`. The
+- The encoded\_token should be passed in to `callback(data)`. The
   `authenticate` snippet does not need any additional changes.
   For example:
 

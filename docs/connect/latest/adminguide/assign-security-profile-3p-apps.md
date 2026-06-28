@@ -18,7 +18,7 @@ with your Connect Customer instance appear in the **Agent
 Applications** section of the **Security
 profiles** page, as in the following image.
 
-![The Agent applications section of the Security profiles page.](images/assign-security-profile-3p-apps-displayed.png)
+![The Agent applications section of the Security profiles page.](images/SecurityProfile_cloudscape_agent_apps.png)
 
 You also need to give access to the CCP in order for the app launcher menu to
 appear.

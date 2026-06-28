@@ -103,15 +103,15 @@ analytics settings.
   your **Contact details** page and Connect Customer
   analytics dashboards:
 
-      1. In the Connect Customer console, choose the name of your
-       instance. For instructions, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
-      2. On the navigation pane choose
-       **Flows**, and then choose
-       **Enable Bot Analytics and Transcripts in
-       Connect Customer**.
+        1. In the Connect Customer console, choose the name of your
+         instance. For instructions, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
+        2. On the navigation pane choose
+         **Flows**, and then choose
+         **Enable Bot Analytics and Transcripts in
+         Connect Customer**.
 
 - **Screen**: Use to enable or disable recording of the
-  agent's screen. For more information, see [Set up and review agent screen recordings in Connect Customer Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
+  agent's screen. For more information, see [Set up and review agent screen recordings in Connect Customer](agent-screen-recording.md "agent-screen-recording.md").
 - **Chat**: Use this option to enable chat analytics, a
   feature in Contact Lens. For more information, see [Enable conversational analytics in Connect Customer Contact Lens](enable-analytics.md "enable-analytics.md").
 

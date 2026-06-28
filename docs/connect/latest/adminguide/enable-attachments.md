@@ -103,7 +103,7 @@ appropriate permissions in their security profile.
 
 5. Choose **Save**.
 
-![The Edit security profile page with the Settings section expanded, showing the File attachments permission.](images/enable-attachments-security-profile-settings.png)
+![The Edit security profile page with the Settings section expanded, showing the File attachments permission.](images/SecurityProfile_cloudscape_settings.png)
 
 Users assigned a security profile with file attachment permissions see a
 **Settings** icon in the left navigation menu, below

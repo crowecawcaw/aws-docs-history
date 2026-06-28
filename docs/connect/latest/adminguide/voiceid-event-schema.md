@@ -140,7 +140,7 @@ Emits events when the internal session update succeeds or fails.
 ## Evaluate Session Action
 
 Emits events when the session evaluation succeeds or fails. Reasons can be
-KNOWN_FRAUDSTER or VOICE_SPOOFING.
+KNOWN\_FRAUDSTER or VOICE\_SPOOFING.
 
 ```
 {...commonfields

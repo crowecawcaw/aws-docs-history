@@ -79,6 +79,5 @@ And the corresponding JSON string that is actually passed to Connect Customer:
 
 ###### Note
 
-Using `json.dumps` adds an escape character
-**\*\* to each quotation mark
-(**"\*\*).
+Using `json.dumps` adds an escape character *_\*_ to each quotation mark
+(**"**).

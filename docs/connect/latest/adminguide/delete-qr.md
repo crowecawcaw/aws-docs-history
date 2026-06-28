@@ -12,9 +12,9 @@ response programmatically, see [DeleteQuickResponse](../../../amazon-q-connect/l
 
 1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
-   account assigned to a security profile that has \*\*Content Management - Quick responses
+   account assigned to a security profile that has **Content Management - Quick responses
 
-- Delete\*\* permission.
+- Delete** permission.
 
 2. On the navigation bar, choose **Content Management**, then
    **Quick responses**.

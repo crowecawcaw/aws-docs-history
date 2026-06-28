@@ -92,9 +92,9 @@ To customize the JSON with your own values, follow these guidelines:
   - TimestampSource: An expression specifying the field in your
     JSON object from which the date should be parsed. The expression
     should follow the structure of \"{ObjectTypeName.<Location of
-    timestamp field in JSON pointer format>}\". For example; if your
+       timestamp field in JSON pointer format>}\". For example; if your
     object type is MyType and source JSON is `{"generatedAt":
-{"timestamp": "1737587945945"}}`, then TimestampSource
+   {"timestamp": "1737587945945"}}`, then TimestampSource
     should be `"{MyType.generatedAt.timestamp}"`.
 
 - **ObjectCount**: Indicates how many

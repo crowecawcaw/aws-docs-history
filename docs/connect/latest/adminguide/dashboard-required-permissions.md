@@ -10,11 +10,10 @@ When you select **Access metrics - Access**:
 
 - Connect Customer automatically assigns the following permissions:
 
-      + **Real-time metrics - Access**
-      + **Historical metrics - Access**
-      + **Agent activity audit - Access**
-
-  These permissions are shown in the following image:
+  - **Real-time metrics - Access**
+  - **Historical metrics - Access**
+  - **Agent activity audit - Access**
+    These permissions are shown in the following image:
 
 ![The Access option is selected for Access metrics, Real-time metrics, Historical metrics, and Agent activity audit.](images/permissions-create-and-share-reports.png)
 
@@ -54,7 +53,7 @@ When you select only **Dashboards - Access**:
 - You must have the **Real-time metrics - Access**
   permission to view real-time metrics on dashboards.
 
-![The Dashboards - Access permission on the Security profiles page.](images/dashboards-edit-security-profiles-2.png)
+![The Dashboards - Access permission on the Security profiles page.](images/SecurityProfile_cloudscape_dashboards_access.png)
 
 The following image shows that you only have access to the
 **Dashboards** tab on the **Dashboards and

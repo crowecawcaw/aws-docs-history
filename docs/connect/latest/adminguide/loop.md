@@ -50,7 +50,7 @@ the following options:
 
 ![Loop configuration dialog with Select an action dropdown set to Set number of loops and Set loop name section highlighted.](images/set number of loops highlight.png)
 
-When select an action is set to “Set number of loops”, note the following properties:
+When select an action is set to "Set number of loops", note the following properties:
 
 - The loop block will loop over for the specified count
 - If the provided input is not a valid number, error branch is taken
@@ -61,7 +61,7 @@ When select an action is set to “Set number of loops”, note the following pr
 
 ![Loop configuration panel showing action selection, array for looping options, and loop name settings.](images/set array for looping.png)
 
-When select an action is set to “Set array for looping”, note the following
+When select an action is set to "Set array for looping", note the following
 properties :
 
 - You can provide an array or list to loop through each element in the loop

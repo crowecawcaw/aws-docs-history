@@ -23,31 +23,30 @@ Assume we have set up the following flows:
   requested a refund for..."
   In this example, John calls customer service. Here's what happens:
 
-1.  Inbound flow creates contact record-1:
+1. Inbound flow creates contact record-1:
 
-    1. John calls customer service at 11:35. The Inbound flow runs and
-       puts him in queue at 11:35.
-    2. The Customer queue flow runs. At 11:37, John chooses to schedule a
-       callback, so Connect Customer initiates a callback contact at
-       11:37, before the inbound contact is disconnected.
+   1. John calls customer service at 11:35. The Inbound flow runs and
+      puts him in queue at 11:35.
+   2. The Customer queue flow runs. At 11:37, John chooses to schedule a
+      callback, so Connect Customer initiates a callback contact at
+      11:37, before the inbound contact is disconnected.
 
-2.  Callback flow creates contact record-2:
+2. Callback flow creates contact record-2:
 
-        1. The callback contact was initiated at 11:37.
-        2. Because the initial delay is 99 seconds, the callback contact is
-         placed into CallbackQueue at 11:38:39, after the 99 seconds pass.
-         Now the callback contact is offered to an available agent.
-        3. After 21 seconds, an agent available at 11:39:00 and accepts the
-         contact. The 10-second agent whisper flow is played to the agent.
-        4. After the agent whisper flow is complete, Connect Customer calls
-         John at 11:39:10. John picks up, and listens to the 15-second
-         outbound whisper flow.
-        5. When the outbound whisper flow is complete, John is connected to
-         the agent at 11:39:25. They talk until 11:45, and then John hangs
-         up.
-
-    This scenario results in two contact records, which include the following
-    metadata.
+   1. The callback contact was initiated at 11:37.
+   2. Because the initial delay is 99 seconds, the callback contact is
+      placed into CallbackQueue at 11:38:39, after the 99 seconds pass.
+      Now the callback contact is offered to an available agent.
+   3. After 21 seconds, an agent available at 11:39:00 and accepts the
+      contact. The 10-second agent whisper flow is played to the agent.
+   4. After the agent whisper flow is complete, Connect Customer calls
+      John at 11:39:10. John picks up, and listens to the 15-second
+      outbound whisper flow.
+   5. When the outbound whisper flow is complete, John is connected to
+      the agent at 11:39:25. They talk until 11:45, and then John hangs
+      up.
+      This scenario results in two contact records, which include the following
+      metadata.
 
 | Contact record-1            | Data                       | Notes                                                                                    |
 | --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------- |

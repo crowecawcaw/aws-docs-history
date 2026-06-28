@@ -50,15 +50,14 @@ amazon_connect('supportedMessagingContentTypes', ['text/plain', 'application/vnd
 
 ```
 
-4.  Add the following to your allow list of URLs to allow step-by-step Guides
-    to work within chat:
+4. Add the following to your allow list of URLs to allow step-by-step Guides
+   to work within chat:
 
-        * ``your-website-url`/views/renderer/`
+   - ``your-website-url`/views/renderer/`
+     If you use a CSP for the chat widget to work on your website, you should
+     already have a cloudfront url. For example:
 
-    If you use a CSP for the chat widget to work on your website, you should
-    already have a cloudfront url. For example:
-
-        * `https://`unique-id`.cloudfront.net/amazon-connect-chat-interface.js`
+   - `https://`unique-id`.cloudfront.net/amazon-connect-chat-interface.js`
 
 ###### Note
 

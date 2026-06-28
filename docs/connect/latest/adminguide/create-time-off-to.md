@@ -28,16 +28,14 @@ Shift profile rules. Enter a **Reason** and choose
      allowance available for that hour.
 
 4. The request will enter a _pending_ state to allow
-   the system to analyze existing rules (even thought rules checks are
-   overridden) and will display a list of any rule failures.
-5. The agent will see the pending request in their schedule UI and will
-   receive an in-app notification next to the **Request**
-   icon which displays as an inbox icon at the top right above the metrics
-   view. This allows the agent to view the request details under the
-   **Time off** tab.
-6. After the rules validation completes, the time off request status of
-   **Approved** or **Rejected** will
-   be displayed in both the agent and supervisor views.
+the system to analyze existing rules (even thought rules checks are
+overridden) and will display a list of any rule failures. 5. The agent will see the pending request in their schedule UI and will
+receive an in-app notification next to the **Request**
+icon which displays as an inbox icon at the top right above the metrics
+view. This allows the agent to view the request details under the
+**Time off** tab. 6. After the rules validation completes, the time off request status of
+**Approved** or **Rejected** will
+be displayed in both the agent and supervisor views.
 
 ###### Tip
 

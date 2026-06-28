@@ -110,13 +110,13 @@ in Task Manager.
 2. Open log files that are present in the directory.
 3. In a successful installation the log files contain the
    following line: `Checking that services are still
-running, result : true`
+ running, result : true`
 4. Navigate to the following directory:
    `%USERPROFILE%\AppData\Local\Amazon\Amazon.Connect.Client.RecordingSession\Logs`
 5. Open log files that are present in the directory.
 6. In a successful installation the log files contain the
    following line: `Session initiation completed
-with result: True`
+ with result: True`
 
 #### Guidelines for specifying your Connect Customer domains allowlist
 
@@ -178,20 +178,19 @@ enabled.
 
 ###### To install Isolated Web App
 
-1.  Navigate to the [Google Admin
-    Portal](https://admin.google.com "https://admin.google.com") (https://admin.google.com) and login with your
-    Google enterprise admin credentials.
-2.  Select **Add an Isolated Web App**.
-3.  Copy and paste the following details, and then choose
-    **Save**:
+1. Navigate to the [Google Admin
+   Portal](https://admin.google.com "https://admin.google.com") (https://admin.google.com) and login with your
+   Google enterprise admin credentials.
+2. Select **Add an Isolated Web App**.
+3. Copy and paste the following details, and then choose
+   **Save**:
 
-        * Web Bundle ID:
-         `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`
-        * Update Manifest URL:
-         https://screenrecording.connect.aws/chromeos/amazon-connect-client-iwa/releases/update\_manifest.json
-
-    The following image shows an example **Add an Isolated Web
-    App** dialog box that has been completed.
+   - Web Bundle ID:
+     `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`
+   - Update Manifest URL:
+     https://screenrecording.connect.aws/chromeos/amazon-connect-client-iwa/releases/update\_manifest.json
+     The following image shows an example **Add an Isolated Web
+     App** dialog box that has been completed.
 
 ![A completed Add an Isolated Web App dialog box.](images/addisolatedwebapp.png) 4. Configure **Installation Policy** to `Force
  Install + Pin to ChromeOS Taskbar` and change
@@ -220,20 +219,19 @@ configuration** is shown in the following image.
 }
 ```
 
-6.  Complete the following steps to configure the Isolated Web App to
-    allow Direct sockets, Screen recording, and Window management
-    permissions:
+6. Complete the following steps to configure the Isolated Web App to
+   allow Direct sockets, Screen recording, and Window management
+   permissions:
 
-        * Navigate to **Devices**,
-         **Chrome**, **Web
-         capabilities**, **Add
-         Origin**.
-        * input
-         `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`,
-         and then choose **Save**.
-
-    The following image shows where Devices, ChromeS, and Web
-    capabilities are located in the left navigation menu in Chrome.
+   - Navigate to **Devices**,
+     **Chrome**, **Web
+     capabilities**, **Add
+     Origin**.
+   - input
+     `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`,
+     and then choose **Save**.
+     The following image shows where Devices, ChromeS, and Web
+     capabilities are located in the left navigation menu in Chrome.
 
 ![The left navigation menu in the Chrome OS.](images/allorigins.png)
 
@@ -269,8 +267,8 @@ following information:
     ![The Add Chrome app or extension by ID dialog box, the From a custom URL option.](images/chromeapp.png)
 
 3. Configure **Installation Policy** to
-   **Force Install**, and then choose
-   **Save**, as shown in the following
-   image.
+**Force Install**, and then choose
+**Save**, as shown in the following
+image.
 
 ![The Installation Policy option set to Force install.](images/forceinstall.png)

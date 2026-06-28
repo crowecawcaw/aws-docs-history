@@ -75,11 +75,11 @@ meta-data of the object type. 6. In the **Data source** section:
      [UpdateDomain](../../../customerprofiles/latest/APIReference/API_UpdateDomain.md "../../../customerprofiles/latest/APIReference/API_UpdateDomain.md") API.
 
 7. If you chose a source other than S3, in the **Establish a
-   connection with**
-   `application` section, choose an existing
-   Amazon AppFlow or Amazon EventBridge connection to connect your data, or create a new
-   connection. You can create a new connection by entering details
-   about your account for this data source.
+connection with**
+`application` section, choose an existing
+Amazon AppFlow or Amazon EventBridge connection to connect your data, or create a new
+connection. You can create a new connection by entering details
+about your account for this data source.
 
 After the connection is established, you will choose the objects
 that you want to ingest from your data source. 8. Choose **Next**.
@@ -119,7 +119,7 @@ attributes from the standard profile template.
   can create the name of your choice for each attribute that will
   be displayed to agents by using the following format:
   `/^Attributes\.[a-zA-Z0-9]+(?:[
-_\-]+[a-zA-Z0-9]+)*$/`
+ _\-]+[a-zA-Z0-9]+)*$/`
 - All ingested custom attributes will be displayed in the
   Connect Agent Application. If you do not wish to show certain
   information to your agents, do not ingest custom attributes at

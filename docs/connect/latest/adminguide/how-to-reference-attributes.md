@@ -26,7 +26,7 @@ accessing them.
 ## Amazon Lex examples
 
 - To reference an attribute from an Amazon Lex bot, you use the format $.Lex. and then
-  include the part of the Amazon Lex bot to reference, such as $.Lex.IntentName.
+ include the part of the Amazon Lex bot to reference, such as $.Lex.IntentName.
 - To reference the customer input to an Amazon Lex bot slot, use
   $.Lex.Slots._slotName_, replacing _slotName_
   with the name of the slot in the bot.

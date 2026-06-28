@@ -63,7 +63,7 @@ optimization**, **Scheduling**. 3. Choose the **Staffing Groups** tab, and then 
 to choose the forecast group to associate with this staffing group.
 
 In the following example, contacts from the queues in the
-Forecast_Group_20220124 will be routed to the agents in this staffing
+Forecast\_Group\_20220124 will be routed to the agents in this staffing
 group. 5. Choose **Add staff** to add agents and supervisors to
 this staffing group. Only names for Connect Customer users appear in the list of
 staff. The following image shows the name Jane Doe, which can be added

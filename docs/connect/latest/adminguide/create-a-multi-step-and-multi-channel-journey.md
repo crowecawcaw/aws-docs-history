@@ -12,7 +12,7 @@ or Guided Campaign Builder to create a single-channel with step-by-step guidance
 4. To connect with a journey, first create a **journey flow** that supports multi-step
    experiences triggered by events or audience segments, then select the flow you want to connect
    to this journey.
-5. If you haven’t created a journey flow yet, you can choose “create journey flow” and
+5. If you haven't created a journey flow yet, you can choose "create journey flow" and
    will take you to the flow canvas. Please refer to **Journey flow blocks definition** for details.
 6. If the selected journey flow has voice channel, you will use the
    **Voice setup** option to define the details.
@@ -28,7 +28,7 @@ You can control how often each recipient is contacted by setting communication l
 the Journey. Simply specify the maximum number of messages a recipient can receive within a
 defined time frame (e.g., per day, week, or month). If a recipient has already received the
 maximum number of communications within any of the time frames you set, Connect Customer Outbound
-Campaigns will automatically skip that recipient and they won’t receive additional messages
+Campaigns will automatically skip that recipient and they won't receive additional messages
 from the Journey.
 
 **Example:**

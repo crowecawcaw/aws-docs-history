@@ -3,7 +3,7 @@
 ###### To view the number of contacts waiting in a queue for an agent
 
 1. Log in to the Connect Customer admin website at https://`instance
-name`.my.connect.aws/. Use an **Admin**
+ name`.my.connect.aws/. Use an **Admin**
    account, or an account assigned to a security profile that has
    **Real-time metrics** - **Access
    metrics** permissions.

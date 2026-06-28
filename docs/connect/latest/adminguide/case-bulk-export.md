@@ -76,7 +76,7 @@ type is formatted in the CSV output.
 | Text          | Exported as-is.                                                                        |
 | Number        | Formatted according to the agent's locale settings.                                    |
 | Date/time     | Formatted using medium date style and short time style based on<br>the agent's locale. |
-| Boolean       | Displayed as **True\*<br>• or<br>**False\*\*.                                          |
+| Boolean       | Displayed as *_True_<br>• or<br>**False**.                                             |
 | Single-select | The option's display name is shown, not the internal<br>value.                         |
 | User          | The user's display name is resolved and shown.                                         |
 | Queue         | The queue's display name is shown.                                                     |

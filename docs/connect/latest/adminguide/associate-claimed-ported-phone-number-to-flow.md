@@ -7,7 +7,7 @@ that flow.
 ###### To associate a claimed or ported phone number with a published flow
 
 1. Log in to your Connect Customer instance (https://`instance
-name`.my.connect.aws/) with an Admin account or a user account that has **Phone number - Edit**
+ name`.my.connect.aws/) with an Admin account or a user account that has **Phone number - Edit**
    permissions in it's [security profile](connect-security-profiles.md "connect-security-profiles.md").
    (To find the name of your instance, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").)
 2. On the navigation menu, choose **Channels**, **Phone

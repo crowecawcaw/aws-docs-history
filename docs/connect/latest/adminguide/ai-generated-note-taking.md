@@ -37,7 +37,7 @@ agent analyzes the current transcript and produces an updated summary.
 ## How AI-generated note taking works
 
 The GenerateNotes tool automatically processes conversation transcripts through the
-NoteTaking AI Prompt with RESULT_TYPE: NOTES to produce and display HTML-formatted
+NoteTaking AI Prompt with RESULT\_TYPE: NOTES to produce and display HTML-formatted
 structured notes in the Agent Workspace.
 
 ![Sequence diagram showing the AI-generated note taking flow from Human Agent through Agent Assistance AI Agent.](images/ai-generated-note-taking.png)

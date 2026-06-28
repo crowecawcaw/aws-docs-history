@@ -102,7 +102,7 @@ capacity reduces if any other campaigns start actively dialing.
 
 - Enter the desired **Agent Allocation**.  This allocation
   is a weight assigned to this campaign and used to determine the total number of
-  *available* agents belonging to the provided queue for which an
+  _available_ agents belonging to the provided queue for which an
   outbound call should be placed.  This allocation is converted to a percentage based on the
   allocation provided to all other campaigns using the same queue.
 
@@ -117,7 +117,7 @@ capacity reduces if any other campaigns start actively dialing.
   [Supported channels for flow blocks in Connect Customer](block-support-by-channel.md "block-support-by-channel.md").
 - Preview dialing mode does not support [agent
   whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"), however the [outbound whisper
-  flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") can play the intended whisper to the customer.
+  flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") can play the intended whisper to the agent.
 - For preview dialing mode, please adjust contact flow to use profile id
   as the default search key in agent workspace. For more information, see
   [Use contact
@@ -163,7 +163,7 @@ Automated Voice
 SMS
 
 1. Select an **Originator**.  This is the phone number used
-   to *send* the text messages. For more information, see [Step 1: Request a number in AWS End User Messaging SMS](setup-sms-messaging.md#get-sms-number "setup-sms-messaging.md#get-sms-number").
+   to _send_ the text messages. For more information, see [Step 1: Request a number in AWS End User Messaging SMS](setup-sms-messaging.md#get-sms-number "setup-sms-messaging.md#get-sms-number").
 2. Select an **SMS Message Template** to use when
    sending.
 3. Select the **Template alias or version** number to use
@@ -189,7 +189,7 @@ must manually add this tag to enable these capabilities.
 For information about adding tags to your WABA, see [Getting started with AWS End User Messaging Social](../../../social-messaging/latest/userguide/getting-started-whatsapp.md "../../../social-messaging/latest/userguide/getting-started-whatsapp.md").
 
 1. Select an **Originator**.  This is the phone number used
-   to *send* the text messages. For more information, see [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md").
+   to _send_ the text messages. For more information, see [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md").
 2. Select a **WhatsApp Message Template** to use when
    sending.
 3. Select the **Template alias or version** number to use
@@ -208,7 +208,7 @@ You can control how often each recipient is contacted by setting communication l
 the campaign. Simply specify the maximum number of messages a recipient can receive within a
 defined time frame (e.g., per day, week, or month). If a recipient has already received the
 maximum number of communications within any of the time frames you set, Amazon Connect Outbound
-Campaigns will automatically skip that recipient and they won’t receive additional messages
+Campaigns will automatically skip that recipient and they won't receive additional messages
 from the campaign.
 
 **Example:**

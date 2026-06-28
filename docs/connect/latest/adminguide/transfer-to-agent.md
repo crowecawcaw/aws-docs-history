@@ -5,29 +5,27 @@ There are two ways to route contacts directly to an agent:
 - **Use routing criteria to prefer an agent**. This
   method is better when:
 
-      + You want the ability to target multiple agents simultaneously. For
-       example, a four-person support team that is primarily supporting a
-       customer.
-      + You want the option to fallback to a broader pool of agents in the
-       queue if the preferred agent(s) are not available.
-      + You want the contact to be reported within the standard queue's
-       metrics.
-
-  For this option, use the [Set routing criteria](set-routing-criteria.md "set-routing-criteria.md") block instead of the procedure
-  in this topic.
+  - You want the ability to target multiple agents simultaneously. For
+    example, a four-person support team that is primarily supporting a
+    customer.
+  - You want the option to fallback to a broader pool of agents in the
+    queue if the preferred agent(s) are not available.
+  - You want the contact to be reported within the standard queue's
+    metrics.
+    For this option, use the [Set routing criteria](set-routing-criteria.md "set-routing-criteria.md") block instead of the procedure
+    in this topic.
 
 - **Use the agent's queue**. This method is usually
   better when:
 
-      + The contact is intended for **only** that
-       specific agent and no one else.
-      + You don't want the contact to be reported under a standard queue. For
-       information about standard queues and agent queues, see [Queues: standard and
-       agent](concepts-queues-standard-and-agent.md "concepts-queues-standard-and-agent.md").
-
-  This topic explains how to route contacts for this second scenario.
-  Agent queues enable you to route contacts directly to a specific agent. Following are
-  a couple of scenarios where you might want to do this:
+  - The contact is intended for **only** that
+    specific agent and no one else.
+  - You don't want the contact to be reported under a standard queue. For
+    information about standard queues and agent queues, see [Queues: standard and
+    agent](concepts-queues-standard-and-agent.md "concepts-queues-standard-and-agent.md").
+    This topic explains how to route contacts for this second scenario.
+    Agent queues enable you to route contacts directly to a specific agent. Following are
+    a couple of scenarios where you might want to do this:
 
 - Route contacts to the last agent the customer interacted with. This provides a
   consistent customer experience.

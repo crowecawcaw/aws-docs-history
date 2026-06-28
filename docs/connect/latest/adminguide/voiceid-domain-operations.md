@@ -28,19 +28,16 @@ API:
      instance.
 
 2. [DeleteDomain](../../../voiceid/latest/APIReference/API_DeleteDomain.md "../../../voiceid/latest/APIReference/API_DeleteDomain.md"): To delete a Voice ID domain, you must invoke the
-   `DeleteDomain` Voice ID API and provide the domain ID. If
-   this domain was associated with an Connect Customer instance, Voice ID API calls, and
-   Voice ID flow blocks will return runtime error. Deleting a Voice ID domain
-   deletes all stored customer data such as audio recordings, voiceprints and
-   speaker identifiers, as well as fraudster lists that you managed.
-3. [DescribeDomain](../../../voiceid/latest/APIReference/API_DescribeDomain.md "../../../voiceid/latest/APIReference/API_DescribeDomain.md"): Use this API to return the name, description
-   and encryption configuration of an existing domain identified by its
-   `DomainID`.
-4. [ListDomains](../../../voiceid/latest/APIReference/API_ListDomains.md "../../../voiceid/latest/APIReference/API_ListDomains.md"): Use this API to list all your Voice ID domains
-   owned by your account in the Region.
-5. [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md"): To update the name and encryption configuration
-   for a domain, you can use the `UpdateDomain` Voice ID API. This
-   API clobbers existing attributes, and you must provide both these fields.
+`DeleteDomain` Voice ID API and provide the domain ID. If
+this domain was associated with an Connect Customer instance, Voice ID API calls, and
+Voice ID flow blocks will return runtime error. Deleting a Voice ID domain
+deletes all stored customer data such as audio recordings, voiceprints and
+speaker identifiers, as well as fraudster lists that you managed. 3. [DescribeDomain](../../../voiceid/latest/APIReference/API_DescribeDomain.md "../../../voiceid/latest/APIReference/API_DescribeDomain.md"): Use this API to return the name, description
+and encryption configuration of an existing domain identified by its
+`DomainID`. 4. [ListDomains](../../../voiceid/latest/APIReference/API_ListDomains.md "../../../voiceid/latest/APIReference/API_ListDomains.md"): Use this API to list all your Voice ID domains
+owned by your account in the Region. 5. [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md"): To update the name and encryption configuration
+for a domain, you can use the `UpdateDomain` Voice ID API. This
+API clobbers existing attributes, and you must provide both these fields.
 
 When you change the KMS key associated with the Voice ID domain,
 following the `UpdateDomain` call your domain's existing data

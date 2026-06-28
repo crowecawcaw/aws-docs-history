@@ -106,19 +106,17 @@ center agents.
 - Algorithm: **HS256**
 - Claims:
 
-      + **sub**:
-       `widgetId`
+  - **sub**:
+    `widgetId`
 
-
-      Replace `widgetId` with your own widgetId. To
-       find your widgetId, see the example [Communications widget script](add-chat-to-website.md#chat-widget-script "add-chat-to-website.md#chat-widget-script").
-      + **iat**: \*Issued At Time.
-      + **exp**: \*Expiration (10 minute
-       maximum).
-
-  \* For information about the date format, see the following
-  Internet Engineering Task Force (IETF) document: [JSON Web Token
-  (JWT)](https://tools.ietf.org/html/rfc7519 "https://tools.ietf.org/html/rfc7519"), page 5.
+  Replace `widgetId` with your own widgetId. To
+  find your widgetId, see the example [Communications widget script](add-chat-to-website.md#chat-widget-script "add-chat-to-website.md#chat-widget-script").
+  - **iat**: \*Issued At Time.
+  - **exp**: \*Expiration (10 minute
+    maximum).
+    \* For information about the date format, see the following
+    Internet Engineering Task Force (IETF) document: [JSON Web Token
+    (JWT)](https://tools.ietf.org/html/rfc7519 "https://tools.ietf.org/html/rfc7519"), page 5.
 
 The following code snippet shows an example of how to generate a JWT in
 Python:

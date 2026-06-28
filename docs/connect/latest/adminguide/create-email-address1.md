@@ -12,7 +12,7 @@ You can create up to 100 email addresses.
 ###### To create email addresses
 
 1. Log in to the Connect Customer admin website at https://`instance
-name`.my.connect.aws/. Use an admin account, or an account with
+ name`.my.connect.aws/. Use an admin account, or an account with
    **Channels and Flows** - **Email
    addresses** - **Create** permission in it's
    security profile.

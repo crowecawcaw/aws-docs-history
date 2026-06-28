@@ -144,7 +144,7 @@ Connect Customer instance](#enable-cl "#enable-cl"). 4. Choose one of the follow
      more information, see [Service-linked role permissions](connect-slr.md#slr-permissions "connect-slr.md#slr-permissions").
 
 5. Choose from the [list
-   of available languages](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens").
+of available languages](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens").
 
 For instructions about specifying the language dynamically, see [Dynamically enable redaction based on the customer's language](#dynamically-enable-analytics-contact-flow "#dynamically-enable-analytics-contact-flow"). 6. Optionally, enable redaction of sensitive data. For more information,
 see the next section, [Enable redaction](#enable-redaction "#enable-redaction"). 7. Choose **Save**. 8. If the contact is going to be transferred to another agent or queue,
@@ -318,7 +318,7 @@ The following image shows an example of how you can configure the
 **Set contact attributes** block to use contact
 attributes for redaction. Choose the **Use text**
 option, set **Destination key** to
-**redaction_option**, and set
+**redaction\_option**, and set
 **Value** to
 **RedactedAndOriginal**.
 

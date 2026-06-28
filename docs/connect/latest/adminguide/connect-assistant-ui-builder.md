@@ -137,7 +137,7 @@ with data from contact attributes or other sources.
    attributes."
 2. The Connect assistant configures the component by setting the component's
    property to dynamic, adding a sample reference (for example,
-   $.CustomerName_Sample), and creating sample data for the relevant
+   $.CustomerName\_Sample), and creating sample data for the relevant
    input.
 3. Review the configuration in the **Customize**
    panel to verify the dynamic field references are correct for your

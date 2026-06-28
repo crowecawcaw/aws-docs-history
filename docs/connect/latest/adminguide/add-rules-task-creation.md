@@ -22,9 +22,8 @@ the type equals a question. Then a task is generated.
     1. Select the instance for the external application.
     2. Choose the conditions that must be met to generate the task.
 
-6. Choose **Next**.
-7. On the **Action** page, specify the task to be generated when the
-   rule is met, as shown in the following image
+6. Choose **Next**. 7. On the **Action** page, specify the task to be generated when the
+rule is met, as shown in the following image
 
 ![The Action page, the task to be generated when the rule is met.](images/task-rule-action-to-take.png)
 

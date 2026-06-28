@@ -191,7 +191,7 @@ between the specified start and end time.
 **Calculation logic**:
 
 - (Count of conversations with
-  BOT_CONVERSATION_OUTCOME_TYPE)/(Total count of conversations) \* 100
+  BOT\_CONVERSATION\_OUTCOME\_TYPE)/(Total count of conversations) \* 100
 
 **Notes**:
 
@@ -218,5 +218,5 @@ module) started between the specified start and end time.
 
 **Calculation logic**:
 
-- (Count of intents with BOT_INTENT_OUTCOME_TYPE)/(Total
+- (Count of intents with BOT\_INTENT\_OUTCOME\_TYPE)/(Total
   count of intents) \* 100

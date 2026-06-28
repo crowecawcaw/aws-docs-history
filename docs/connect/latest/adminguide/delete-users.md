@@ -82,7 +82,7 @@ Before you can update permissions in a security profile, you must be logged in
 with an Connect Customer account that has the following permissions:
 **Users - Remove**.
 
-![The users and permissions section of the security profiles page, Users option.](images/delete-users-required-permissions.png)
+![The users and permissions section of the security profiles page, Users option.](images/SecurityProfile_cloudscape_users_edit.png)
 
 By default, the Connect Customer
 **Admin** security profile has these permissions.

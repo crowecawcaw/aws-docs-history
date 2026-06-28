@@ -16,12 +16,12 @@ accordingly, such as to disconnect.
 The following table lists how this block routes a contact who is using the
 specified channel.
 
-| Channel | Supported?                                                                                                                                                                                                                                      |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Voice   | Yes<br>• but only in Inbound flow when the **Keep<br>running while waiting\*<br>• option, or the<br>**Set event-based wait\*<br>• option is selected<br>(see the image below).                                                                  |
-| Chat    | Yes                                                                                                                                                                                                                                             |
-| Task    | Yes<br>• It always branches to **Time<br>Expired\*<br>• or **Error**. It never<br>branches to **Bot participant disconnected*<br>• or<br>**Participant not found**. The<br>\*\*Participant Type*<br>• setting does not<br>affect this behavior. |
-| Email   | Yes                                                                                                                                                                                                                                             |
+| Channel | Supported?                                                                                                                                                                                                                                   |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Voice   | Yes<br>• but only in Inbound flow when the *_Keep<br>running while waiting_<br>• option, or the<br>*_Set event-based wait_<br>• option is selected<br>(see the image below).                                                                 |
+| Chat    | Yes                                                                                                                                                                                                                                          |
+| Task    | Yes<br>• It always branches to *_Time<br>Expired_<br>• or **Error**. It never<br>branches to *_Bot participant disconnected_<br>• or<br>**Participant not found**. The<br>*_Participant Type_<br>• setting does not<br>affect this behavior. |
+| Email   | Yes                                                                                                                                                                                                                                          |
 
 ## Flow types
 

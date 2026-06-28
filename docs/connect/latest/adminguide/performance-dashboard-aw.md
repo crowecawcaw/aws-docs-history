@@ -59,20 +59,19 @@ access the **Agent workspace performance dashboard**:
 
 ## View the Agent workspace performance dashboard
 
-1.  Access the agent workspace using the following URL:
+1. Access the agent workspace using the following URL:
 
-        * **https://`instance
-         name`.my.connect.aws/agent-app-v2/**
-        * If you access your instance using the awsapps.com domain, use the
-         following URL: **https://`instance
-         name`.awsapps.com/connect/agent-app-v2/**
+   - **https://`instance
+  name`.my.connect.aws/agent-app-v2/**
+   - If you access your instance using the awsapps.com domain, use the
+     following URL: **https://`instance
+  name`.awsapps.com/connect/agent-app-v2/**
+     Where `instance name` is provided by your IT
+     department or the individuals that set up Connect Customer for your business.
 
-    Where `instance name` is provided by your IT
-    department or the individuals that set up Connect Customer for your business.
-
-2.  In the agent workspace, choose the **Apps** dropdown
-    menu, and then choose **Performance metrics** to display
-    the **Agent workspace performance dashboard**.
+2. In the agent workspace, choose the **Apps** dropdown
+   menu, and then choose **Performance metrics** to display
+   the **Agent workspace performance dashboard**.
 
 The following image shows the **Apps** option and the
 **Performance metrics** tab on the agent

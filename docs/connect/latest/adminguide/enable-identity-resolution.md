@@ -42,25 +42,26 @@ IDs.
      security issue. For more information and a sample policy, see [Connect Customer Customer Profiles cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#customer-profiles-cross-service "cross-service-confused-deputy-prevention.md#customer-profiles-cross-service").
 
 7. When done, choose **Enable Identity Resolution**. Both rule-based matching and
-   ML-based matching are enabled after you enable Identity Resolution. You can disable one of
-   them or both from the Identity Resolution page. For more information, see [Disable Identity Resolution in Connect Customer Customer Profiles](disable-identity-resolution.md "disable-identity-resolution.md").
-8. Rule-based matching for Identity Resolution:
+ML-based matching are enabled after you enable Identity Resolution. You can disable one of
+them or both from the Identity Resolution page. For more information, see [Disable Identity Resolution in Connect Customer Customer Profiles](disable-identity-resolution.md "disable-identity-resolution.md"). 8. Rule-based matching for Identity Resolution:
 
-   1. After you enable the rule-based matching with a new domain the matching
-      will start immediately if you set up an integration and the
-      integration is running.
-   2. After you enable the rule-based matching with an existing domain, the
-      matching process will start within one hour.
+    1. After you enable the rule-based matching with a new domain the matching
+     will start immediately if you set up an integration and the
+     integration is running.
+    2. After you enable the rule-based matching with an existing domain, the
+     matching process will start within one hour.
 
 9. ML-based matching for Identity Resolution:
 
-   1. After you enable Identity Resolution the Identity Resolution Job runs for the first time within 24
-      hours.
+    1. After you enable Identity Resolution the Identity Resolution Job runs for the first time within 24
+     hours.
 
-   ###### Note
 
-   Before running an Identity Resolution Job for the first time on a new Customer Profiles
-   domain, we recommend checking your profile metrics to make sure
-   that profiles have been created. Otherwise, there won't be any
-   matching results. 2. You may want to set up consolidation criteria for auto-merging
-   matching profiles. If so, see [Set up consolidation criteria for Identity Resolution in Connect Customer](create-consolidation-criteria.md "create-consolidation-criteria.md").
+    ###### Note
+
+    Before running an Identity Resolution Job for the first time on a new Customer Profiles
+     domain, we recommend checking your profile metrics to make sure
+     that profiles have been created. Otherwise, there won't be any
+     matching results.
+    2. You may want to set up consolidation criteria for auto-merging
+     matching profiles. If so, see [Set up consolidation criteria for Identity Resolution in Connect Customer](create-consolidation-criteria.md "create-consolidation-criteria.md").

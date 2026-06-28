@@ -34,10 +34,9 @@ SIP and Media metric messages.
      debug integration issues.
 
 8. In the **Source IP addresses** section, you can configure a
-   range of Source IP addresses that are allowed to send voice to this
-   connector.
-9. In the **Credentials - optional** section, we recommend that
-   you create credentials. They can help authenticate the SIPREC sessions.
+range of Source IP addresses that are allowed to send voice to this
+connector. 9. In the **Credentials - optional** section, we recommend that
+you create credentials. They can help authenticate the SIPREC sessions.
 
 ###### Note
 

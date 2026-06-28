@@ -248,26 +248,25 @@ threshold.
 You can use Contact Lens rules to configure notifications to be sent when
 agents are out of adherence.
 
-1.  In the Connect Customer admin website, navigate to **Analytics and Optimization**,
-    **Contact Lens**,
-    **Rules**, and then choose **Create a
-    rule**, **Real-time metrics**.
-2.  For **When**, choose **There is an update in
-    agent metrics** from the dropdown list.
-3.  Select **Trailing window of time** and then select the
-    following metric:
+1. In the Connect Customer admin website, navigate to **Analytics and Optimization**,
+   **Contact Lens**,
+   **Rules**, and then choose **Create a
+   rule**, **Real-time metrics**.
+2. For **When**, choose **There is an update in
+   agent metrics** from the dropdown list.
+3. Select **Trailing window of time** and then select the
+   following metric:
 
-        * Adherence: >= or <= X%
-        * Non-adherent time: >= or <= X seconds
+   - Adherence: >= or <= X%
+   - Non-adherent time: >= or <= X seconds
+     For example, in trailing 15 minutes, if adherence for a certain group of
+     agents is <= 80%, then take one of these actions: **Create a
+     task**, **Generate EventBridge event**, or
+     **Send email**.
 
-    For example, in trailing 15 minutes, if adherence for a certain group of
-    agents is <= 80%, then take one of these actions: **Create a
-    task**, **Generate EventBridge event**, or
-    **Send email**.
-
-4.  Choose **Next**.
-5.  Specify the action to take, choose **Next**, and then
-    choose **Save**.
+4. Choose **Next**.
+5. Specify the action to take, choose **Next**, and then
+   choose **Save**.
 
 For more information about creating rules, see [Create alerts on real-time
 metrics](rule-real-time-metrics.md "rule-real-time-metrics.md").

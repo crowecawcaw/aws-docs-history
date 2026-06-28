@@ -18,7 +18,7 @@ security profile. This permission is shown in the following image of
 Agent Applications permissions on the security profiles
 page.
 
-![The security profiles page, the agent applications section, the agent application schedule calendar permission.](images/security-profile-perms-accept-decline-wfm.png)
+![The security profiles page, the agent applications section, the agent application schedule calendar permission.](images/SecurityProfile_cloudscape_staff_calendar.png)
 
 ## Accept and Decline buttons for agents
 

@@ -9,9 +9,9 @@ _Connect AI agents API Reference_.
 
 1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
-   account assigned to a security profile that has \*\*Content Management - Quick responses
+   account assigned to a security profile that has **Content Management - Quick responses
 
-- Create\*\* permission.
+- Create** permission.
 
 2. On the navigation bar, choose **Content Management**, then
    **Quick responses**.
@@ -31,8 +31,7 @@ spreadsheet program. 5. In the .csv file, enter values in each column. Remember 
      the .csv file. They're only for information.
 
 6. Save the .csv file, return to the Connect Customer admin website, and in the **Import** dialog
-   box, choose **Upload file**.
-7. Locate and open the .csv file, then choose **Import**.
+box, choose **Upload file**. 7. Locate and open the .csv file, then choose **Import**.
 
 Success or failure messages appear when the import operation finishes. If the operation
 fails, choose the **Download failed imports link** in the message. Check the

@@ -48,7 +48,7 @@ The required permissions are:
 - **Channels and flows - Views**
 - **Routing - Quick Connects**
 
-![Security profile permissions for agent-initiated flows.](images/agent-initiated-flows-security-profile.png)
+![Security profile permissions for agent-initiated flows.](images/SecurityProfile_cloudscape_channels_flows.png)
 
 ## Create Quick Connect for agent-initiated flow
 

@@ -61,4 +61,4 @@ The **Agent status - View** permission is shown in the
 following image of the **Users and permissions** section of the
 security profile page.
 
-![The Agent status - View permission.](images/security-profile-change-agent-status2.png)
+![The Agent status - View permission.](images/SecurityProfile_cloudscape_agent_status_view.png)

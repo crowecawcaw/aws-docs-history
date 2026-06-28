@@ -44,29 +44,22 @@ You can access generative AI-powered post-contact summaries multiple ways:
 
 ###### To enable post-contact summaries on the agent's CCP for voice contacts
 
-1.  Add a [Set recording and analytics
-    behavior](set-recording-behavior.md "set-recording-behavior.md") block to your flow.
-2.  Configure the **Properties** page of the
-    block:
+1. Add a [Set recording and analytics
+   behavior](set-recording-behavior.md "set-recording-behavior.md") block to your flow.
+2. Configure the **Properties** page of the
+   block:
 
-        1. Set **Call recording** to
-         **On**. Choose **Agent and
-         customer**, as shown in the following image.
+   1. Set **Call recording** to
+      **On**. Choose **Agent and
+      customer**, as shown in the following image.
 
-
-
-        ![The properties page of the Set recording and analytics behavior block configured for call recording.](images/call-recording-summaries.png)
-        2. Set **Analytics** to **On**.
-        3. Choose **Enable speech analytics**.
-        4. Choose **Real-time and post-call
-         analytics**.
-        5. Under **Contact Lens Generative AI
-         capabilities**, choose **Post-contact
-         summary**.
-
-    The following image shows the **Analytics** section
-    of a **Properties** page that is configured to enable
-    post-contact summaries on the agent's CCP:
+   ![The properties page of the Set recording and analytics behavior block configured for call recording.](images/call-recording-summaries.png) 2. Set **Analytics** to **On**. 3. Choose **Enable speech analytics**. 4. Choose **Real-time and post-call
+   analytics**. 5. Under **Contact Lens Generative AI
+   capabilities**, choose **Post-contact
+   summary**.
+   The following image shows the **Analytics** section
+   of a **Properties** page that is configured to enable
+   post-contact summaries on the agent's CCP:
 
 ![The properties page of the Set recording and analytics behavior block.](images/set-block-post-contact-summaries-ccp.png) 3. Assign the following permissions to the agent's security
 profile:
@@ -82,17 +75,19 @@ profile:
      **Access** (least privilege is
      **Access** which is recommended)
     * **Analysis and Optimization - View my contacts**  or **Contact Search**
+    * **Analysis and Optimization -
+     Contact Lens - conversational analytics**
 
 ###### To enable post-contact summaries on Connect Customer admin website
 
-1.  Configure the **Properties** page of the [Set recording and analytics
-    behavior](set-recording-behavior.md "set-recording-behavior.md") as follows:
+1. Configure the **Properties** page of the [Set recording and analytics
+   behavior](set-recording-behavior.md "set-recording-behavior.md") as follows:
 
-    1. Set **Analytics** to **On**.
-    2. Choose either **Enable speech analytics**,
-       **Enable chat analytics**, or both.
+   1. Set **Analytics** to **On**.
+   2. Choose either **Enable speech analytics**,
+      **Enable chat analytics**, or both.
 
-    If you choose speech analytics, then choose either:
+   If you choose speech analytics, then choose either:
 
         * **Post-call analytics**
         * **Real-time and post-call
@@ -100,28 +95,30 @@ profile:
          wants to view post-contact summaries for in progress
          contacts (that is, the agent is still in ACW but the
          call has ended).
-    3. Granular redaction is not supported for post-contact summary.
-       When granular redaction is selected, post-contact summary
-       redacts all PII identified in text and replaces it with a [PII]
-       tag.
-    4. Under **Contact Lens Generative AI
-       capabilities**, choose **Post-contact
-       summary**.
 
-2.  Assign the following permissions to the user's security
-    profile:
+   3. Granular redaction is not supported for post-contact summary.
+   When granular redaction is selected, post-contact summary
+   redacts all PII identified in text and replaces it with a [PII]
+   tag. 4. Under **Contact Lens Generative AI
+   capabilities**, choose **Post-contact
+   summary**.
 
-    - **Analysis and Optimization - Contact
-      Search** OR **View my
-      contacts**
-    - **Analysis and Optimization -
-      Contact Lens–post-contact summary -
-      View**
-    - **Analysis and Optimization - Recorded conversations
-      (redacted)**, **View Recorded conversations
-      (unredacted)**, **All** or
-      **Access** (least privilege is
-      **Access** which is recommended)
+2. Assign the following permissions to the user's security
+   profile:
+
+   - **Analysis and Optimization - Contact
+     Search** OR **View my
+     contacts**
+   - **Analysis and Optimization -
+     Contact Lens–post-contact summary -
+     View**
+   - **Analysis and Optimization - Recorded conversations
+     (redacted)**, **View Recorded conversations
+     (unredacted)**, **All** or
+     **Access** (least privilege is
+     **Access** which is recommended)
+   - **Analysis and Optimization -
+     Contact Lens - conversational analytics**
 
 ## Enable contact summaries for email
 

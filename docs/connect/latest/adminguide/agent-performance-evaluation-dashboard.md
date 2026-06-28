@@ -91,7 +91,7 @@ settings.
 
 ## Examples of "Time range" and "Compare to" configurations
 
-- **Use case 1**: I want to compare my agents’
+- **Use case 1**: I want to compare my agents'
   performance today with my performance yesterday
 
 Configure the dashboard as follows:
@@ -108,7 +108,7 @@ Configure the dashboard as follows:
 
 ![Time range = Trailing, Time = Today, Comparison type = Prior time period.](images/agent-evaluations-dashboard-example1.png)
 
-- **Use case 2**: I want to compare my agents’
+- **Use case 2**: I want to compare my agents'
   performance last week with the prior week
 
 Configure the dashboard as follows:
@@ -125,7 +125,7 @@ Configure the dashboard as follows:
 
 ![Time range = Week, Time = Last week, Comparison type = Prior time period.](images/agent-evaluations-dashboard-example2.png)
 
-- **Use case 3**: I want to compare my agents’
+- **Use case 3**: I want to compare my agents'
   performance last week with the average of the contact center.
 
 Configure the dashboard as follows:

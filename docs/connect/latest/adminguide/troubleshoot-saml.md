@@ -45,7 +45,7 @@ following commands:
      encoded.
 
 3. Decode the URL response and then decode the Base64 contents using a
-   third-party tool or a simple script. For example:
+third-party tool or a simple script. For example:
 
 `$ cat samlresponse.txt | python3 -c "import sys; from urllib.parse
  import unquote; print(unquote(sys.stdin.read()));" | base64 --decode >
@@ -60,7 +60,7 @@ following image shows how to check `RoleSessionName`:
 user in your Connect Customer instance:
 
 $ aws connect list-users --instance-id [INSTANCE\_ID] | grep
-$username
+ $username
 
     * If the final grep does not return a result then this means that
      the user does not exist in your Connect Customer instance or it has been

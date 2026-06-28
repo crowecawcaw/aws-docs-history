@@ -22,39 +22,38 @@ fraudsters:
 To add fraudsters to a specified fraudster watchlist, pass the following data to
 the API:
 
-1.  The domain ID to specify the domain to associate recordings to.
-2.  An input file containing a list of fraudsters. See [Input and output file schema for the Fraudster Registration Job in Connect Customer Voice ID](fraudster-registration-schema.md "fraudster-registration-schema.md").
-3.  The location for output file.
-4.  A KMS key to use when writing the output.
-5.  A role that Voice ID can assume. It must have access to the S3 bucket
-    where the audio files are stored. This role must have access to any
-    KMS key used to encrypt the files. It must also be able to write to the
-    specified output location and use the KMS key requested for writing the
-    output. Specifically, it must have the following permissions:
+1. The domain ID to specify the domain to associate recordings to.
+2. An input file containing a list of fraudsters. See [Input and output file schema for the Fraudster Registration Job in Connect Customer Voice ID](fraudster-registration-schema.md "fraudster-registration-schema.md").
+3. The location for output file.
+4. A KMS key to use when writing the output.
+5. A role that Voice ID can assume. It must have access to the S3 bucket
+   where the audio files are stored. This role must have access to any
+   KMS key used to encrypt the files. It must also be able to write to the
+   specified output location and use the KMS key requested for writing the
+   output. Specifically, it must have the following permissions:
 
-        * `s3:GetObject` on the input bucket.
-        * `s3:PutObject` on the output bucket.
-        * `kms:Decrypt` on the KMS key used for input bucket’s
-         default encryption.
-        * `kms:Decrypt` and `kms:GenerateDataKey` on
-         the KMS key provided in the input which will be used for writing
-         output file to the output bucket.
+   - `s3:GetObject` on the input bucket.
+   - `s3:PutObject` on the output bucket.
+   - `kms:Decrypt` on the KMS key used for input bucket’s
+     default encryption.
+   - `kms:Decrypt` and `kms:GenerateDataKey` on
+     the KMS key provided in the input which will be used for writing
+     output file to the output bucket.
+     You must have `iam:PassRole` permissions when making the call
+     and providing the `dataAccessRole`. To enable confused deputy
+     protection for the `dataAccessRole`, see [Connect Customer Voice ID cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
 
-    You must have `iam:PassRole` permissions when making the call
-    and providing the `dataAccessRole`. To enable confused deputy
-    protection for the `dataAccessRole`, see [Connect Customer Voice ID cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
-
-6.  A watchlistId to register the fraudster to. If no watchlistId is
-    specified, fraudsters are registered to the default watchlist for that
-    Voice ID domain.
-7.  The threshold for establishing the duplicate status of fraudsters.
-8.  A flag to ignore fraudster duplicates.
-    Voice ID updates the fraudster list with successful additions, and return a
-    `GeneratedFraudsterID` associated with entry back to the same S3
-    location. If duplicates are identified, Voice ID returns a "duplicate" status for
-    the entry and provides the closest matching `GeneratedFraudsterId`. After
-    a fraudster is registered successfully, you can associate this fraudster identified
-    by the `GeneratedFraudsterID` into a new watchlist by using the [AssociateFraudster](../../../voiceid/latest/APIReference/API_AssociateFraudster.md "../../../voiceid/latest/APIReference/API_AssociateFraudster.md") API.
+6. A watchlistId to register the fraudster to. If no watchlistId is
+   specified, fraudsters are registered to the default watchlist for that
+   Voice ID domain.
+7. The threshold for establishing the duplicate status of fraudsters.
+8. A flag to ignore fraudster duplicates.
+   Voice ID updates the fraudster list with successful additions, and return a
+   `GeneratedFraudsterID` associated with entry back to the same S3
+   location. If duplicates are identified, Voice ID returns a "duplicate" status for
+   the entry and provides the closest matching `GeneratedFraudsterId`. After
+   a fraudster is registered successfully, you can associate this fraudster identified
+   by the `GeneratedFraudsterID` into a new watchlist by using the [AssociateFraudster](../../../voiceid/latest/APIReference/API_AssociateFraudster.md "../../../voiceid/latest/APIReference/API_AssociateFraudster.md") API.
 
 Voice ID is not able to perform detection of fraudsters in a watchlist before the fraudster list is
 created.

@@ -23,7 +23,7 @@ object.
 - traits.company.name
 - traits.company.id
 - traits.company.industry
-- traits.company.employee_count
+- traits.company.employee\_count
 - traits.company.plan
 - traits.createdAt
 - traits.description

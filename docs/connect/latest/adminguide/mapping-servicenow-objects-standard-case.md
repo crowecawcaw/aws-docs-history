@@ -7,73 +7,73 @@ standard case in Connect Customer Customer Profiles.
 
 Following is list of all the fields in a Servicenow-task object.
 
-- sys_id
+- sys\_id
 - active
-- activity_due
-- additional_assignee_list
+- activity\_due
+- additional\_assignee\_list
 - approval
-- approval_history
-- approval_set
-- assigned_to
-- assignment_group
-- business_duration
-- business_service
-- calendar_duration
-- closed_at
-- closed_by
-- cmdb_ci.display_value
-- cmdb_ci.link
+- approval\_history
+- approval\_set
+- assigned\_to
+- assignment\_group
+- business\_duration
+- business\_service
+- calendar\_duration
+- closed\_at
+- closed\_by
+- cmdb\_ci.display\_value
+- cmdb\_ci.link
 - comments
-- comments_and_work_notes
+- comments\_and\_work\_notes
 - company
-- contact_type
+- contact\_type
 - contract
-- correlation_display
+- correlation\_display
 - active
-- correlation_id
-- delivery_plan
-- delivery_task
+- correlation\_id
+- delivery\_plan
+- delivery\_task
 - description
-- due_date
+- due\_date
 - escalation
-- expected_start
-- follow_up
-- group_list
+- expected\_start
+- follow\_up
+- group\_list
 - impact
 - knowledge
 - location
-- made_sla
+- made\_sla
 - number
-- opened_at
-- opened_by.display_value
+- opened\_at
+- opened\_by.display\_value
 - order
 - parent
 - priority
-- reassignment_count
-- service_offering
-- short_description
-- sla_due
+- reassignment\_count
+- service\_offering
+- short\_description
+- sla\_due
 - state
-- sys_class_name
-- sys_created_by
-- sys_created_on
+- sys\_class\_name
+- sys\_created\_by
+- sys\_created\_on
 - active
-- sys_domain.global
-- sys_domain.link
-- sys_domain_path
-- sys_mod_count
-- sys_updated_by
-- sys_updated_on
-- time_worked
-- upon_approval
-- upon_reject
+- sys\_domain.global
+- sys\_domain.link
+- sys\_domain\_path
+- sys\_mod\_count
+- sys\_updated\_by
+- sys\_updated\_on
+- time\_worked
+- upon\_approval
+- upon\_reject
 - urgency
-- user_input
-- watch_list
-- work_end
-- work_notes
-- work_notes_list
-- work_start
+- user\_input
+- watch\_list
+- work\_end
+- work\_notes
+- work\_notes\_list
+- work\_start
 
 ## Mapping Servicenow-task to a standard case
 
@@ -85,22 +85,22 @@ Servicenow-task object to the standard case.
 
 | Servicenow-task source field | Standard case target field        |
 | ---------------------------- | --------------------------------- |
-| sys_id                       | Attributes.ServiceNowTaskId       |
-| opened_by.link               | Attributes.ServiceNowSystemUserId |
-| short_description            | Title                             |
+| sys\_id                      | Attributes.ServiceNowTaskId       |
+| opened\_by.link              | Attributes.ServiceNowSystemUserId |
+| short\_description           | Title                             |
 | description                  | Summary                           |
 | status                       | Status                            |
-| sys_created_by               | CreatedBy                         |
-| sys_created_on               | CreatedDate                       |
-| sys_updated_on               | UpdatedDate                       |
+| sys\_created\_by             | CreatedBy                         |
+| sys\_created\_on             | CreatedDate                       |
+| sys\_updated\_on             | UpdatedDate                       |
 
 The Servicenow-task customer data from Servicenow is associated with
 an Connect Customer standard case using the indexes in the following table.
 
 | Standard Index Name  | Servicenow-task source field |
 | -------------------- | ---------------------------- |
-| \_serviceNowTaskId   | sys_id                       |
-| \_serviceNowSystemId | open_by.link                 |
+| \_serviceNowTaskId   | sys\_id                      |
+| \_serviceNowSystemId | open\_by.link                |
 
 For example, you can use `_serviceNowTaskId` and
 `_serviceNowSystemId` as an
@@ -114,26 +114,26 @@ using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API
 
 Following is a list of all the fields in a Servicenow-incident object.
 
-- sys_id
-- business_stc
-- calendar_stc
-- caller_id.link
-- caller_id.value
+- sys\_id
+- business\_stc
+- calendar\_stc
+- caller\_id.link
+- caller\_id.value
 - category
-- caused_by
-- child_incidents
-- close_code
-- hold_reason
-- incident_state
+- caused\_by
+- child\_incidents
+- close\_code
+- hold\_reason
+- incident\_state
 - notify
-- parent_incident
-- problem_id
-- reopened_by
-- reopened_time
-- reopen_count
-- resolved_at
-- resolved_by.link
-- resolved_by.value
+- parent\_incident
+- problem\_id
+- reopened\_by
+- reopened\_time
+- reopen\_count
+- resolved\_at
+- resolved\_by.link
+- resolved\_by.value
 - rfc
 - severity
 - subcategory
@@ -146,14 +146,14 @@ standard case in Customer Profiles.
 The following table lists which fields can be mapped from the
 Servicenow-incident object to the standard case.
 
-| Servicenow-Incident source field | Standard case target field        |
-| -------------------------------- | --------------------------------- |
-| sys_id                           | Attributes_ServiceNowIncidentId   |
-| caller_id.link                   | Attributes_ServiceNowSystemUserId |
-| incident_status                  | Status                            |
-| caller_id.link                   | CreatedBy                         |
-| resolved_at                      | ClosedDate                        |
-| category                         | Reason                            |
+| Servicenow-Incident source field | Standard case target field         |
+| -------------------------------- | ---------------------------------- |
+| sys\_id                          | Attributes\_ServiceNowIncidentId   |
+| caller\_id.link                  | Attributes\_ServiceNowSystemUserId |
+| incident\_status                 | Status                             |
+| caller\_id.link                  | CreatedBy                          |
+| resolved\_at                     | ClosedDate                         |
+| category                         | Reason                             |
 
 The Servicenow-incident customer data from the Servicenow object is
 associated with an Connect Customer standard case using the indexes in the
@@ -161,8 +161,8 @@ following table.
 
 | Standard Index Name    | Servicenow source field |
 | ---------------------- | ----------------------- |
-| \_serviceNowIncidentId | sys_id                  |
-| \_serviceNowSystemId   | caller_id.link          |
+| \_serviceNowIncidentId | sys\_id                 |
+| \_serviceNowSystemId   | caller\_id.link         |
 
 For example, you can use `_serviceNowIncidentId` and
 `_serviceNowSystemId` as a ObjectFilter.KeyName with the

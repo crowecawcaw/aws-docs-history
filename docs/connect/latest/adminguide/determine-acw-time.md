@@ -136,9 +136,9 @@ Next, determine when a contact left ACW. Here's how to do that:
    state for the contact listed in the `PreviousAgentSnapshot` equals
    ENDED.
 
-Because a STATE_CHANGE event also occurs when the agent's configuration is
+Because a STATE\_CHANGE event also occurs when the agent's configuration is
 changed, such as when they are assigned a different routing profile, this step
-confirms you have the right event. 2. Find where the `EventType` = "STATE_CHANGE". 3. View the `EventTimeStamp` for it.
+confirms you have the right event. 2. Find where the `EventType` = "STATE\_CHANGE". 3. View the `EventTimeStamp` for it.
 For example, in the following agent event stream file, the contact left ACW at
 "**EventTimestamp**":
 "2019-05-25T18:55:32.022Z".

@@ -163,23 +163,23 @@ For more information about Predictive Insights, see [Get started with Predictive
 **The `ComparisonOperator` supports the following
 values:**
 
-| ComparisonOperator        | Comment                                                             | Supported type |
-| ------------------------- | ------------------------------------------------------------------- | -------------- |
-| **INCLUSIVE**             | Checks if the target includes all the specified values.             | String         |
-| **EXCLUSIVE**             | Checks if the target does not contain all the specified values.     | String         |
-| **CONTAINS**              | Checks if the target contain any of the specified values.           | String         |
-| **BEGINS_WITH**           | Checks if the target begins with the specified value.               | String         |
-| **ENDS_WITH**             | Checks if the target ends with the specified value.                 | String         |
-| **GREATER_THAN**          | True if the target is greater than the specified value.             | Number         |
-| **LESS_THAN**             | True if the target is less than the specified value.                | Number         |
-| **GREATER_THAN_OR_EQUAL** | True if the target is greater than or equal to the specified value. | Number         |
-| **LESS_THAN_OR_EQUAL**    | True if the target is less than or equal to the specified value.    | Number         |
-| **EQUAL**                 | True if the target is equal to the specified value.                 | Number         |
-| **BETWEEN**               | True if the target is within specific value range or timestamp.     | Number/Date\*  |
-| **NOT_BETWEEN**           | True if the target is not within specific value range or timestamp. | Number/Date\*  |
-| **BEFORE**                | True if the target is before the specified timestamp.               | Date           |
-| **AFTER**                 | True if the target is after the specified timestamp.                | Date           |
-| **ON**                    | True if the target is on the specified timestamp.                   | Date           |
+| ComparisonOperator           | Comment                                                             | Supported type |
+| ---------------------------- | ------------------------------------------------------------------- | -------------- |
+| **INCLUSIVE**                | Checks if the target includes all the specified values.             | String         |
+| **EXCLUSIVE**                | Checks if the target does not contain all the specified values.     | String         |
+| **CONTAINS**                 | Checks if the target contain any of the specified values.           | String         |
+| **BEGINS\_WITH**             | Checks if the target begins with the specified value.               | String         |
+| **ENDS\_WITH**               | Checks if the target ends with the specified value.                 | String         |
+| **GREATER\_THAN**            | True if the target is greater than the specified value.             | Number         |
+| **LESS\_THAN**               | True if the target is less than the specified value.                | Number         |
+| **GREATER\_THAN\_OR\_EQUAL** | True if the target is greater than or equal to the specified value. | Number         |
+| **LESS\_THAN\_OR\_EQUAL**    | True if the target is less than or equal to the specified value.    | Number         |
+| **EQUAL**                    | True if the target is equal to the specified value.                 | Number         |
+| **BETWEEN**                  | True if the target is within specific value range or timestamp.     | Number/Date\*  |
+| **NOT\_BETWEEN**             | True if the target is not within specific value range or timestamp. | Number/Date\*  |
+| **BEFORE**                   | True if the target is before the specified timestamp.               | Date           |
+| **AFTER**                    | True if the target is after the specified timestamp.                | Date           |
+| **ON**                       | True if the target is on the specified timestamp.                   | Date           |
 
 - **Source**: Used to define an attribute in the
   object.

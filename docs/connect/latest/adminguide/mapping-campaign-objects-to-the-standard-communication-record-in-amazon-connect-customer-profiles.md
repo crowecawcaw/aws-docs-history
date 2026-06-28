@@ -17,39 +17,39 @@ standard communication record object in Customer Profiles.
 The following table lists which fields can be mapped from the
 Campaign-Email object to the standard communication record.
 
-| Campaign-Email source field           | Standard communication record target field        |
-| ------------------------------------- | ------------------------------------------------- |
-| campaign_event_id                     | Attributes.LastCampaignEventId                    |
-| outbound_request_id                   | Attributes.OutboundCampaignRequestId              |
-| campaign_message_id                   | Attributes.CampaignMessageId                      |
-| channel.name                          | Channel                                           |
-| channel.subtype                       | Attributes.ChannelSubType                         |
-| endpoint_address                      | Endpoint.EndpointAddress                          |
-| endpoint_type                         | Endpoint.EndpointType                             |
-| instance_arn                          | ConnectInstanceArn                                |
-| campaign_name                         | Campaign.CampaignName                             |
-| campaign_id                           | Campaign.CampaignId                               |
-| campaign_run_id                       | Campaign.CampaignRunId                            |
-| campaign_activity_id                  | Campaign.CampaignActivityId                       |
-| segment_arn                           | Campaign.SegmentArn                               |
-| outbound_request_creation_timestamp   | CreatedDate                                       |
-| campaign_event_timestamp              | UpdatedDate                                       |
-| campaign_event_type                   | LastEventType                                     |
-| campaign_event_timestamp              | Events.{{campaign\_event\_type}}.UpdatedDate      |
-| campaign_event_id                     | Events.{{campaign\_event\_type}}.EventId          |
-| campaign_event_type                   | Events.{{campaign\_event\_type}}.EventType        |
-| email.bounce.bounceType               | Events.Bounce.Attributes.BounceType               |
-| email.bounce.bounceSubType            | Events.Bounce.Attributes.BounceSubType            |
-| email.choose.link                     | Events.Choose.Attributes.Link                     |
-| email.choose.ipAddress                | Events.Choose.Attributes.IpAddress                |
-| email.open.ipAddress                  | Events.Open.Attributes.IpAddress                  |
-| email.reject.reason                   | Events.Reject.Attributes.Reason                   |
-| email.renderingFailure.templateName   | Events.RenderingFailure.Attributes.TemplateName   |
-| email.renderingFailure.errorMessage   | Events.RenderingFailure.Attributes.ErrorMessage   |
-| email.deliveryDelay.delayType         | Events.DeliveryDelay.Attributes.DelayType         |
-| email.complaint.complaintFeedbackType | Events.Complaint.Attributes.ComplaintFeedbackType |
-| email.complaint.complaintSubType      | Events.Complaint.Attributes.ComplaintSubType      |
-| email.mail.commonHeaders.subject      | Attributes.Subject                                |
+| Campaign-Email source field            | Standard communication record target field        |
+| -------------------------------------- | ------------------------------------------------- |
+| campaign\_event\_id                    | Attributes.LastCampaignEventId                    |
+| outbound\_request\_id                  | Attributes.OutboundCampaignRequestId              |
+| campaign\_message\_id                  | Attributes.CampaignMessageId                      |
+| channel.name                           | Channel                                           |
+| channel.subtype                        | Attributes.ChannelSubType                         |
+| endpoint\_address                      | Endpoint.EndpointAddress                          |
+| endpoint\_type                         | Endpoint.EndpointType                             |
+| instance\_arn                          | ConnectInstanceArn                                |
+| campaign\_name                         | Campaign.CampaignName                             |
+| campaign\_id                           | Campaign.CampaignId                               |
+| campaign\_run\_id                      | Campaign.CampaignRunId                            |
+| campaign\_activity\_id                 | Campaign.CampaignActivityId                       |
+| segment\_arn                           | Campaign.SegmentArn                               |
+| outbound\_request\_creation\_timestamp | CreatedDate                                       |
+| campaign\_event\_timestamp             | UpdatedDate                                       |
+| campaign\_event\_type                  | LastEventType                                     |
+| campaign\_event\_timestamp             | Events.{{campaign\_event\_type}}.UpdatedDate      |
+| campaign\_event\_id                    | Events.{{campaign\_event\_type}}.EventId          |
+| campaign\_event\_type                  | Events.{{campaign\_event\_type}}.EventType        |
+| email.bounce.bounceType                | Events.Bounce.Attributes.BounceType               |
+| email.bounce.bounceSubType             | Events.Bounce.Attributes.BounceSubType            |
+| email.choose.link                      | Events.Choose.Attributes.Link                     |
+| email.choose.ipAddress                 | Events.Choose.Attributes.IpAddress                |
+| email.open.ipAddress                   | Events.Open.Attributes.IpAddress                  |
+| email.reject.reason                    | Events.Reject.Attributes.Reason                   |
+| email.renderingFailure.templateName    | Events.RenderingFailure.Attributes.TemplateName   |
+| email.renderingFailure.errorMessage    | Events.RenderingFailure.Attributes.ErrorMessage   |
+| email.deliveryDelay.delayType          | Events.DeliveryDelay.Attributes.DelayType         |
+| email.complaint.complaintFeedbackType  | Events.Complaint.Attributes.ComplaintFeedbackType |
+| email.complaint.complaintSubType       | Events.Complaint.Attributes.ComplaintSubType      |
+| email.mail.commonHeaders.subject       | Attributes.Subject                                |
 
 ## Campaign-SMS object
 
@@ -65,33 +65,33 @@ communication record object in Customer Profiles.
 The following table lists which fields can be mapped from the
 Campaign-SMS object to the standard communication record.
 
-| Campaign-SMS source field           | Standard communication record target field                           |
-| ----------------------------------- | -------------------------------------------------------------------- |
-| campaign_event_id                   | Attributes.LastCampaignEventId                                       |
-| outbound_request_id                 | Attributes.OutboundCampaignRequestId                                 |
-| campaign_message_id                 | Attributes.CampaignMessageId                                         |
-| channel.name                        | Channel                                                              |
-| channel.subtype                     | Attributes.ChannelSubType                                            |
-| endpoint_address                    | Endpoint.EndpointAddress                                             |
-| endpoint_type                       | Endpoint.EndpointType                                                |
-| instance_arn                        | ConnectInstanceArn                                                   |
-| campaign_name                       | Campaign.CampaignName                                                |
-| campaign.campaign_id                | Campaign.CampaignId                                                  |
-| campaign.campaign_run_id            | Campaign.CampaignRunId                                               |
-| campaign_activity_id                | Campaign.CampaignActivityId                                          |
-| segment_arn                         | Campaign.SegmentArn                                                  |
-| outbound_request_creation_timestamp | CreatedDate                                                          |
-| campaign_event_timestamp            | UpdatedDate                                                          |
-| campaign_event_type                 | LastEventType                                                        |
-| campaign_event_timestamp            | Events.{{campaign\_event\_type}}.UpdatedDate                         |
-| campaign_event_id                   | Events.{{campaign\_event\_type}}.EventId                             |
-| campaign_event_type                 | Events.{{campaign\_event\_type}}.EventType                           |
-| sms.messageType                     | Events.{{campaign\_event\_type}}.Attributes.MessageType              |
-| sms.messageStatus                   | Events.{{campaign\_event\_type}}.Attributes.MessageStatus            |
-| sms.messageStatusDescription        | Events.{{campaign\_event\_type}}.Attributes.MessageStatusDescription |
-| sms.totalMessagePrice               | Events.{{campaign\_event\_type}}.Attributes.TotalMessagePrice        |
-| sms.totalCarrierFee                 | Events.{{campaign\_event\_type}}.Attributes.TotalCarrierFee          |
-| sms.isoCountryCode                  | Events.{{campaign\_event\_type}}.Attributes.IsoCountryCode           |
+| Campaign-SMS source field              | Standard communication record target field                           |
+| -------------------------------------- | -------------------------------------------------------------------- |
+| campaign\_event\_id                    | Attributes.LastCampaignEventId                                       |
+| outbound\_request\_id                  | Attributes.OutboundCampaignRequestId                                 |
+| campaign\_message\_id                  | Attributes.CampaignMessageId                                         |
+| channel.name                           | Channel                                                              |
+| channel.subtype                        | Attributes.ChannelSubType                                            |
+| endpoint\_address                      | Endpoint.EndpointAddress                                             |
+| endpoint\_type                         | Endpoint.EndpointType                                                |
+| instance\_arn                          | ConnectInstanceArn                                                   |
+| campaign\_name                         | Campaign.CampaignName                                                |
+| campaign.campaign\_id                  | Campaign.CampaignId                                                  |
+| campaign.campaign\_run\_id             | Campaign.CampaignRunId                                               |
+| campaign\_activity\_id                 | Campaign.CampaignActivityId                                          |
+| segment\_arn                           | Campaign.SegmentArn                                                  |
+| outbound\_request\_creation\_timestamp | CreatedDate                                                          |
+| campaign\_event\_timestamp             | UpdatedDate                                                          |
+| campaign\_event\_type                  | LastEventType                                                        |
+| campaign\_event\_timestamp             | Events.{{campaign\_event\_type}}.UpdatedDate                         |
+| campaign\_event\_id                    | Events.{{campaign\_event\_type}}.EventId                             |
+| campaign\_event\_type                  | Events.{{campaign\_event\_type}}.EventType                           |
+| sms.messageType                        | Events.{{campaign\_event\_type}}.Attributes.MessageType              |
+| sms.messageStatus                      | Events.{{campaign\_event\_type}}.Attributes.MessageStatus            |
+| sms.messageStatusDescription           | Events.{{campaign\_event\_type}}.Attributes.MessageStatusDescription |
+| sms.totalMessagePrice                  | Events.{{campaign\_event\_type}}.Attributes.TotalMessagePrice        |
+| sms.totalCarrierFee                    | Events.{{campaign\_event\_type}}.Attributes.TotalCarrierFee          |
+| sms.isoCountryCode                     | Events.{{campaign\_event\_type}}.Attributes.IsoCountryCode           |
 
 ## Campaign-Telephony object
 
@@ -110,29 +110,29 @@ Campaign-Telephony object to the standard communication record.
 
 | Campaign-Telephony source field                  | Standard communication record target field                                  |
 | ------------------------------------------------ | --------------------------------------------------------------------------- |
-| campaign_event_id                                | Attributes.LastCampaignEventId                                              |
-| outbound_request_id                              | Attributes.OutboundCampaignRequestId                                        |
-| campaign_message_id                              | Attributes.CampaignMessageId                                                |
+| campaign\_event\_id                              | Attributes.LastCampaignEventId                                              |
+| outbound\_request\_id                            | Attributes.OutboundCampaignRequestId                                        |
+| campaign\_message\_id                            | Attributes.CampaignMessageId                                                |
 | channel.name                                     | Channel                                                                     |
 | channel.subtype                                  | Attributes.ChannelSubType                                                   |
-| endpoint.endpoint_address                        | Endpoint.EndpointAddress                                                    |
-| endpoint.endpoint_type                           | Endpoint.EndpointType                                                       |
-| instance_arn                                     | ConnectInstanceArn                                                          |
-| campaign.campaign_name                           | Campaign.CampaignName                                                       |
-| campaign.campaign_id                             | Campaign.CampaignId                                                         |
-| campaign.campaign_run_id                         | Campaign.CampaignRunId                                                      |
-| campaign.campaign_activity_id                    | Campaign.CampaignActivityId                                                 |
-| campaign.segment_arn                             | Campaign.SegmentArn                                                         |
-| outbound_request_creation_timestamp              | CreatedDate                                                                 |
-| campaign_event_timestamp                         | UpdatedDate                                                                 |
-| campaign_event_type                              | LastEventType                                                               |
-| campaign_event_timestamp                         | Events.{{campaign\_event\_type}}.UpdatedDate                                |
-| campaign_event_id                                | Events.{{campaign\_event\_type}}.EventId                                    |
-| campaign_event_type                              | Events.{{campaign\_event\_type}}.EventType                                  |
+| endpoint.endpoint\_address                       | Endpoint.EndpointAddress                                                    |
+| endpoint.endpoint\_type                          | Endpoint.EndpointType                                                       |
+| instance\_arn                                    | ConnectInstanceArn                                                          |
+| campaign.campaign\_name                          | Campaign.CampaignName                                                       |
+| campaign.campaign\_id                            | Campaign.CampaignId                                                         |
+| campaign.campaign\_run\_id                       | Campaign.CampaignRunId                                                      |
+| campaign.campaign\_activity\_id                  | Campaign.CampaignActivityId                                                 |
+| campaign.segment\_arn                            | Campaign.SegmentArn                                                         |
+| outbound\_request\_creation\_timestamp           | CreatedDate                                                                 |
+| campaign\_event\_timestamp                       | UpdatedDate                                                                 |
+| campaign\_event\_type                            | LastEventType                                                               |
+| campaign\_event\_timestamp                       | Events.{{campaign\_event\_type}}.UpdatedDate                                |
+| campaign\_event\_id                              | Events.{{campaign\_event\_type}}.EventId                                    |
+| campaign\_event\_type                            | Events.{{campaign\_event\_type}}.EventType                                  |
 | voice.agentInfo.connectedToAgentTimestamp        | Events.{{campaign\_event\_type}}.Attributes.ConnectedToAgentTimestamp       |
 | voice.customerVoiceActivity.greetingEndTimestamp | Events.{{campaign\_event\_type}}.Attributes.GreetingEndTimestamp            |
 | voice.answeringMachineDetectionStatus            | Events.{{campaign\_event\_type}}.Attributes.AnsweringMachineDetectionStatus |
-| campaign_event_timestamp                         | SourceLastUpdatedTimestamp                                                  |
+| campaign\_event\_timestamp                       | SourceLastUpdatedTimestamp                                                  |
 
 ## Campaign-WhatsApp object
 
@@ -146,30 +146,30 @@ The following table lists which fields can be mapped from the
 Campaign-WhatsApp object to the standard communication
 record.
 
-| Campaign-WhatsApp source field                          | Standard communication record target field        |
-| ------------------------------------------------------- | ------------------------------------------------- |
-| campaign_event_id                                       | Attributes.LastCampaignEventId                    |
-| engagement.outbound_request_id                          | Attributes.OutboundCampaignRequestId              |
-| campaign_message_id                                     | Attributes.CampaignMessageId                      |
-| engagement.channel.name                                 | Channel                                           |
-| engagement.channel.subtype                              | Attributes.ChannelSubType                         |
-| engagement.endpoint.endpoint_address                    | Endpoint.EndpointAddress                          |
-| engagement.endpoint.endpoint_type                       | Endpoint.EndpointType                             |
-| instance_arn                                            | ConnectInstanceArn                                |
-| campaign.campaign_name                                  | Campaign.CampaignName                             |
-| campaign.campaign_id                                    | Campaign.CampaignId                               |
-| campaign.campaign_run_id                                | Campaign.CampaignRunId                            |
-| campaign.campaign_activity_id                           | Campaign.CampaignActivityId                       |
-| campaign.segment_arn                                    | Campaign.SegmentArn                               |
-| engagement.outbound_request_creation_timestamp          | CreatedDate                                       |
-| campaign_event_timestamp                                | UpdatedDate                                       |
-| campaign_event_type                                     | LastEventType                                     |
-| campaign_event_timestamp                                | Events.{{campaign\_event\_type}}.UpdatedDate      |
-| campaign_event_id                                       | Events.{{campaign\_event\_type}}.EventId          |
-| campaign_event_type                                     | Events.{{campaign\_event\_type}}.EventType        |
-| engagement.engagement_details.whatsapp.errors[].code    | Events.{{campaign\_event\_type}}.Errors[].Code    |
-| engagement.engagement_details.whatsapp.errors[].message | Events.{{campaign\_event\_type}}.Errors[].Message |
-| campaign_event_timestamp                                | SourceLastUpdatedTimestamp                        |
+| Campaign-WhatsApp source field                           | Standard communication record target field        |
+| -------------------------------------------------------- | ------------------------------------------------- |
+| campaign\_event\_id                                      | Attributes.LastCampaignEventId                    |
+| engagement.outbound\_request\_id                         | Attributes.OutboundCampaignRequestId              |
+| campaign\_message\_id                                    | Attributes.CampaignMessageId                      |
+| engagement.channel.name                                  | Channel                                           |
+| engagement.channel.subtype                               | Attributes.ChannelSubType                         |
+| engagement.endpoint.endpoint\_address                    | Endpoint.EndpointAddress                          |
+| engagement.endpoint.endpoint\_type                       | Endpoint.EndpointType                             |
+| instance\_arn                                            | ConnectInstanceArn                                |
+| campaign.campaign\_name                                  | Campaign.CampaignName                             |
+| campaign.campaign\_id                                    | Campaign.CampaignId                               |
+| campaign.campaign\_run\_id                               | Campaign.CampaignRunId                            |
+| campaign.campaign\_activity\_id                          | Campaign.CampaignActivityId                       |
+| campaign.segment\_arn                                    | Campaign.SegmentArn                               |
+| engagement.outbound\_request\_creation\_timestamp        | CreatedDate                                       |
+| campaign\_event\_timestamp                               | UpdatedDate                                       |
+| campaign\_event\_type                                    | LastEventType                                     |
+| campaign\_event\_timestamp                               | Events.{{campaign\_event\_type}}.UpdatedDate      |
+| campaign\_event\_id                                      | Events.{{campaign\_event\_type}}.EventId          |
+| campaign\_event\_type                                    | Events.{{campaign\_event\_type}}.EventType        |
+| engagement.engagement\_details.whatsapp.errors[].code    | Events.{{campaign\_event\_type}}.Errors[].Code    |
+| engagement.engagement\_details.whatsapp.errors[].message | Events.{{campaign\_event\_type}}.Errors[].Message |
+| campaign\_event\_timestamp                               | SourceLastUpdatedTimestamp                        |
 
 ## Campaign-Orchestration object
 
@@ -185,21 +185,21 @@ record.
 
 | Campaign-Orchestration source field | Standard communication record target field   |
 | ----------------------------------- | -------------------------------------------- |
-| campaign_event_id                   | Attributes.LastCampaignEventId               |
+| campaign\_event\_id                 | Attributes.LastCampaignEventId               |
 | channel.name                        | Channel                                      |
 | channel.subtype                     | Attributes.ChannelSubType                    |
-| instance_arn                        | ConnectInstanceArn                           |
-| campaign.campaign_name              | Campaign.CampaignName                        |
-| campaign.campaign_id                | Campaign.CampaignId                          |
-| campaign.campaign_run_id            | Campaign.CampaignRunId                       |
-| campaign.campaign_activity_id       | Campaign.CampaignActivityId                  |
-| campaign.segment_arn                | Campaign.SegmentArn                          |
-| campaign_event_timestamp            | UpdatedDate                                  |
-| campaign_event_type                 | LastEventType                                |
-| campaign_event_timestamp            | Events.{{campaign\_event\_type}}.UpdatedDate |
-| campaign_event_id                   | Events.{{campaign\_event\_type}}.EventId     |
-| campaign_event_type                 | Events.{{campaign\_event\_type}}.EventType   |
-| campaign_event_timestamp            | SourceLastUpdatedTimestamp                   |
+| instance\_arn                       | ConnectInstanceArn                           |
+| campaign.campaign\_name             | Campaign.CampaignName                        |
+| campaign.campaign\_id               | Campaign.CampaignId                          |
+| campaign.campaign\_run\_id          | Campaign.CampaignRunId                       |
+| campaign.campaign\_activity\_id     | Campaign.CampaignActivityId                  |
+| campaign.segment\_arn               | Campaign.SegmentArn                          |
+| campaign\_event\_timestamp          | UpdatedDate                                  |
+| campaign\_event\_type               | LastEventType                                |
+| campaign\_event\_timestamp          | Events.{{campaign\_event\_type}}.UpdatedDate |
+| campaign\_event\_id                 | Events.{{campaign\_event\_type}}.EventId     |
+| campaign\_event\_type               | Events.{{campaign\_event\_type}}.EventType   |
+| campaign\_event\_timestamp          | SourceLastUpdatedTimestamp                   |
 
 ## Example
 

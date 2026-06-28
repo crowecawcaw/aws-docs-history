@@ -7,7 +7,7 @@ Connect Customer account that has the **Users - Edit** permission, as shown in
 the following image. Or, if you're creating the user's account for the first time,
 you need **Users - Create** permission.
 
-![The users and permissions section of the security profiles page.](images/security-profile-assign-security-profile.png)
+![The users and permissions section of the security profiles page.](images/SecurityProfile_cloudscape_users_edit.png)
 
 By default, the Connect Customer **Admin** security profile has these
 permissions.

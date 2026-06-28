@@ -88,7 +88,7 @@ the **Details** section, complete the following fields as needed:
     4. **Enforce valid values**: Choose to allow only predefined values when using this attribute as a contact segment attribute.
 
 5. Choose **Add value** to add values to the
-   attribute. For example, you might enter Sales, Marketing, and Accounts for Business units.
+attribute. For example, you might enter Sales, Marketing, and Accounts for Business units.
 
 ![Save to save the attribute and values.](images/predefined-attribute-add.png) 6. Choose **Save** to save the predefined attribute and values.
 

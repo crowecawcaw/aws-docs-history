@@ -74,7 +74,7 @@ To call `lambda:AddPermission`, you need to:
     * Set the source ARN to the ARN of your instance.For more information, see [Granting function access to other accounts](../../../lambda/latest/dg/access-control-resource-based.md#permissions-resource-xaccountinvoke "../../../lambda/latest/dg/access-control-resource-based.md#permissions-resource-xaccountinvoke").
 
 5. Choose **Add Lambda Function**. Confirm that the ARN of the
-   function is added under **Lambda Functions**.
+function is added under **Lambda Functions**.
 
 Now you can refer to that Lambda function in your flows.
 
@@ -265,9 +265,9 @@ let phone = event['Details']['ContactData']['CustomerEndpoint']['Address'];
 Referencing an array is not supported in a flow. Arrays can be used only in
 another Lambda function.
 
-The Lambda function response could be either a STRING_MAP or JSON and has to be set
+The Lambda function response could be either a STRING\_MAP or JSON and has to be set
 while configuring the **Invoke AWS Lambda function** block in the
-flow. If response validation is set to STRING_MAP, then the Lambda function should return
+flow. If response validation is set to STRING\_MAP, then the Lambda function should return
 a flat object of key/value pairs of the string type. Otherwise, if response validation
 is set to JSON, the Lambda function can return any valid JSON including nested
 JSON.
@@ -546,7 +546,7 @@ block, another **Play prompt** block, and finally a
     4. Choose **Save**.
 
 4. Drag a [Play prompt](play.md "play.md") block onto the
-   grid, and configure its properties page as shown in the following image:
+grid, and configure its properties page as shown in the following image:
 
 ![A play prompt block.](images/lambda-exampleFlow-play-prompt-1.png)
 
@@ -561,7 +561,7 @@ block, another **Play prompt** block, and finally a
     2. Choose **Save**.
 
 5. Drag another [Play prompt](play.md "play.md") block onto
-   the grid, and configure its properties page as shown in the following image:
+the grid, and configure its properties page as shown in the following image:
 
 ![A play prompt block.](images/lambda-exampleFlow-play-prompt-2.png)
 
@@ -575,8 +575,8 @@ block, another **Play prompt** block, and finally a
     2. Choose **Save**.
 
 6. Drag a [AWS Lambda
-   function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block onto the
-   grid, and configure its properties page as shown in the following image:
+function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block onto the
+grid, and configure its properties page as shown in the following image:
 
 ![An Invoke AWS Lambda function block.](images/lambda-exampleFlow-invoke-lambda.png)
 
@@ -594,9 +594,9 @@ block, another **Play prompt** block, and finally a
     6. Choose **Save**.
 
 7. Drag a [Set contact
-   attributes](set-contact-attributes.md "set-contact-attributes.md") block onto the grid,
-   choose **Add another attribute**, and configure its
-   properties page as shown in the following image:
+attributes](set-contact-attributes.md "set-contact-attributes.md") block onto the grid,
+choose **Add another attribute**, and configure its
+properties page as shown in the following image:
 
 ![A set contact attributes block.](images/lambda-exampleFlow-set-contact-attribute-2.png)
 
@@ -621,7 +621,7 @@ block, another **Play prompt** block, and finally a
     10. Choose **Save**.
 
 8. Drag a [Play prompt](play.md "play.md") block onto the
-   grid, and configure its properties page as shown in the following image:
+grid, and configure its properties page as shown in the following image:
 
 ![A play prompt block.](images/lambda-exampleFlow-play-prompt-3.png)
 
@@ -641,16 +641,11 @@ block, another **Play prompt** block, and finally a
     `Visit $.Attributes.MyURL for more information.`
     2. Choose **Save**.
 
-9. Drag a [Disconnect / hang up](disconnect-hang-up.md "disconnect-hang-up.md") block onto the grid.
-10. Connect the all blocks so your flow looks like the image shown at the top
-    of this procedure.
-11. Enter **MyFirstConnectFlow** as the name, and then choose
-    **Publish**.
-12. On the navigation menu, go to **Channels**,
-    **Phone numbers**.
-13. Select your phone number.
-14. Select **MyFirstConnectFlow** and choose
-    **Save**.
+9. Drag a [Disconnect / hang up](disconnect-hang-up.md "disconnect-hang-up.md") block onto the grid. 10. Connect the all blocks so your flow looks like the image shown at the top
+of this procedure. 11. Enter **MyFirstConnectFlow** as the name, and then choose
+**Publish**. 12. On the navigation menu, go to **Channels**,
+**Phone numbers**. 13. Select your phone number. 14. Select **MyFirstConnectFlow** and choose
+**Save**.
 
 Now try it out. Call the number. You should hear a greeting message, your balance,
 and the website to visit.

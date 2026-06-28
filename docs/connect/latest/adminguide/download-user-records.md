@@ -5,9 +5,9 @@ limited to the results that appear on the page; it does not include all the user
 you have more users than appear on the page.
 
 1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an **Admin** account, or an account
-   assigned to a security profile that has \*\*Users and permissions - Users
+   assigned to a security profile that has **Users and permissions - Users
 
-- View\*\* permissions.
+- View** permissions.
 
 2. In Connect Customer, on the left navigation menu, choose **Users**,
    **User management**.

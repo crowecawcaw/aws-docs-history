@@ -241,45 +241,44 @@ When the AI agent invokes a Return to Control tool:
 
 Follow these steps to add Return to Control routing to your contact flow:
 
-1.  Add a [Check contact
-    attributes](check-contact-attributes.md "check-contact-attributes.md") block after the
-    **Default** output of your **Get customer
-    input** block.
-2.  Configure the block to check the tool name:
+1. Add a [Check contact
+   attributes](check-contact-attributes.md "check-contact-attributes.md") block after the
+   **Default** output of your **Get customer
+   input** block.
+2. Configure the block to check the tool name:
 
-        * **Namespace**: **Lex**
-        * **Key**: **Session
-         attributes**
-        * **Session Attribute Key**:
-         `Tool`
+   - **Namespace**: **Lex**
+   - **Key**: **Session
+     attributes**
+   - **Session Attribute Key**:
+     `Tool`
+     Add conditions for each Return to Control tool you want to handle. For
+     example, add conditions where the value equals
+     `Complete`, `Escalate`, or the
+     name of any custom Return to Control tool you created.
 
-    Add conditions for each Return to Control tool you want to handle. For
-    example, add conditions where the value equals
-    `Complete`, `Escalate`, or the
-    name of any custom Return to Control tool you created.
+3. (Optional) Add a [Set contact
+   attributes](set-contact-attributes.md "set-contact-attributes.md") block to copy the tool's
+   input parameters from Amazon Lex session attributes to contact attributes. This
+   makes the context available for downstream routing and agent screen
+   pops.
+4. Connect each condition to the appropriate routing logic. For
+   example:
 
-3.  (Optional) Add a [Set contact
-    attributes](set-contact-attributes.md "set-contact-attributes.md") block to copy the tool's
-    input parameters from Amazon Lex session attributes to contact attributes. This
-    makes the context available for downstream routing and agent screen
-    pops.
-4.  Connect each condition to the appropriate routing logic. For
-    example:
+   - **Complete** – Route to a
+     **Disconnect** block to end the
+     interaction.
+   - **Escalate** – Route to a
+     **Set working queue** and **Transfer to
+     queue** block to transfer the contact to a human
+     agent.
+   - **Custom tools** – Route to
+     any additional flow logic specific to your use case.
 
-    - **Complete** – Route to a
-      **Disconnect** block to end the
-      interaction.
-    - **Escalate** – Route to a
-      **Set working queue** and **Transfer to
-      queue** block to transfer the contact to a human
-      agent.
-    - **Custom tools** – Route to
-      any additional flow logic specific to your use case.
-
-5.  Connect the **No match** output from the [Check contact
-    attributes](check-contact-attributes.md "check-contact-attributes.md") block to a
-    **Disconnect** block or additional routing
-    logic.
+5. Connect the **No match** output from the [Check contact
+   attributes](check-contact-attributes.md "check-contact-attributes.md") block to a
+   **Disconnect** block or additional routing
+   logic.
 
 #### Example: Routing an Escalate tool with context
 

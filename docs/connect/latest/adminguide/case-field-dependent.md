@@ -34,8 +34,7 @@ For example, the following configuration shows when **Country** equals **United 
     * **Target field** = **State/Province**
     * Mapping: "United States" → ["California", "New York", "Texas", "Florida"]
 
-7. Add additional mappings for other source field values as needed.
-8. Choose **Save**, and then proceed to the next step to add the condition to your template.
+7. Add additional mappings for other source field values as needed. 8. Choose **Save**, and then proceed to the next step to add the condition to your template.
 
 ## Step 2: Add field options conditions to a template
 

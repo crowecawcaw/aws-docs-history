@@ -59,31 +59,30 @@ Note the following:
 
 If you encounter any issues when sending a test message, follow these steps:
 
-1.  Confirm that you’ve allowlisted your email address/Apple ID as a tester in
-    your Messages for Business account.
-2.  Confirm the following settings on your Apple device:
+1. Confirm that you’ve allowlisted your email address/Apple ID as a tester in
+   your Messages for Business account.
+2. Confirm the following settings on your Apple device:
 
-    - Go to **Settings** >
-      **Messages** and check that
-      **iMessage** is enabled.
-    - Go to **Settings** >
-      **Messages** > **Send &
-      Receive** and check that the AppleID is correct and
-      messages are allowed to receive.
+   - Go to **Settings** >
+     **Messages** and check that
+     **iMessage** is enabled.
+   - Go to **Settings** >
+     **Messages** > **Send &
+     Receive** and check that the AppleID is correct and
+     messages are allowed to receive.
 
-3.  Check that you're using a supported iOS. Apple devices running iOS 11.3
-    and later or macOS 10.13.4 and later support Messages for Business.
-4.  When you selected Connect Customer as your MSP in your Apple Account, did you select
-    **Amazon Connect** from the dropdown? Or did you enter
-    the following URL:
+3. Check that you're using a supported iOS. Apple devices running iOS 11.3
+   and later or macOS 10.13.4 and later support Messages for Business.
+4. When you selected Connect Customer as your MSP in your Apple Account, did you select
+   **Amazon Connect** from the dropdown? Or did you enter
+   the following URL:
 
-        * https://messagingintegrations.connect.amazonaws.com/applebusinesschat
+   - https://messagingintegrations.connect.amazonaws.com/applebusinesschat
+     If you entered the URL, doublecheck for typos.
 
-    If you entered the URL, doublecheck for typos.
-
-5.  Confirm your Apple business account is **Online** in the
-    [Apple Business
-    Register](https://register.apple.com/ "https://register.apple.com/"). If the account is in a pending state, then select
-    **Send for review**. This needs to be repeated after
-    making additional Apple ID allow-listing changes or other Apple business
-    account configuration changes.
+5. Confirm your Apple business account is **Online** in the
+   [Apple Business
+   Register](https://register.apple.com/ "https://register.apple.com/"). If the account is in a pending state, then select
+   **Send for review**. This needs to be repeated after
+   making additional Apple ID allow-listing changes or other Apple business
+   account configuration changes.

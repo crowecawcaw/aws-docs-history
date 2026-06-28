@@ -57,15 +57,14 @@ equally because each is priority 1.
 
 - Agents may take contacts from the Tier 4 Support queue when:
 
-      + Customers in the Tier 4 Support queue have been waiting 80 seconds
-       or longer.
-      + And no contacts are in the Tier 1 Support, Tier 2 Support or Tier
-       3 Support queues.
-
-  **Priority takes precedence**. (You might
-  think that agents take contacts from Tier 4 Support when contacts are in
-  Tier 1 Support, Tier 2 Support, or Tier 3 Support and waiting 20 seconds or
-  longer, but that's not right.)
+  - Customers in the Tier 4 Support queue have been waiting 80 seconds
+    or longer.
+  - And no contacts are in the Tier 1 Support, Tier 2 Support or Tier
+    3 Support queues.
+    **Priority takes precedence**. (You might
+    think that agents take contacts from Tier 4 Support when contacts are in
+    Tier 1 Support, Tier 2 Support, or Tier 3 Support and waiting 80 seconds or
+    longer, but that's not right.)
 
 ## Example 4: Same Priority and Delay
 

@@ -70,14 +70,12 @@ In addition, you can exclude contacts that may have ended prematurely due to con
     * Talk time (for example, the customer speaks for over 10 seconds)
     * Potential disconnect issue when the issue does not exist or there is no known connectivity or device issue during the conversation
 
-3. On the **Define actions** page provide a category name to identify the rule.
-4. Choose **Add action**, select
-   **Submit automated evaluation**, and select
-   the form that you want to use for automatically submitting an
-   evaluation. (This action is already selected on the page if you
-   created the rule when you activate the form.)
-5. Choose **Next**. Review and then choose
-   **Save and Publish**.
+3. On the **Define actions** page provide a category name to identify the rule. 4. Choose **Add action**, select
+**Submit automated evaluation**, and select
+the form that you want to use for automatically submitting an
+evaluation. (This action is already selected on the page if you
+created the rule when you activate the form.) 5. Choose **Next**. Review and then choose
+**Save and Publish**.
 
 After you add rules, they are applied to new contacts that occur after
 the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.

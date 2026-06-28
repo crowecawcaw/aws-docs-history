@@ -84,9 +84,9 @@ with your Connect Customer instance:
     ![Ven diagram of rolesessionname and Connect Customer user.](images/saml-ven-diagram.png)
 
 4. Configure your identity provider for the SAML assertions, authentication
-   response, and relay state. Users log in to your identity provider. When
-   successful, they are redirected to your Connect Customer instance. The IAM role is used to
-   federate with AWS, which allows access to Connect Customer.
+response, and relay state. Users log in to your identity provider. When
+successful, they are redirected to your Connect Customer instance. The IAM role is used to
+federate with AWS, which allows access to Connect Customer.
 
 ## Select SAML 2.0-based authentication during instance creation
 
@@ -251,16 +251,12 @@ for SAML-based federation_ procedure.
      Role for SAML 2.0 Federation (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md") topic.
 
 3. Configure your network as a SAML provider for AWS. For more information, see
-   [Enabling SAML 2.0 Federated Users to Access the AWS Management
-   Console](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md "../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md").
-4. Configure SAML Assertions for the Authentication Response. For more
-   information, [Configuring SAML Assertions for the Authentication Response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md").
-5. For Connect Customer, leave the **Application Start URL** blank.
-6. Override the Application Consumer Service (ACS) URL in your identity provider
-   to use the regional endpoint that coincides with the AWS Region of your Connect Customer
-   instance. For more information, see [Configure the identity provider to use regional SAML endpoints](#regionally-isolated-saml "#regionally-isolated-saml").
-7. Configure the relay state of your identity provider to point to your Connect Customer
-   instance. The URL to use for the relay state is comprised as follows:
+[Enabling SAML 2.0 Federated Users to Access the AWS Management
+Console](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md "../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md"). 4. Configure SAML Assertions for the Authentication Response. For more
+information, [Configuring SAML Assertions for the Authentication Response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md"). 5. For Connect Customer, leave the **Application Start URL** blank. 6. Override the Application Consumer Service (ACS) URL in your identity provider
+to use the regional endpoint that coincides with the AWS Region of your Connect Customer
+instance. For more information, see [Configure the identity provider to use regional SAML endpoints](#regionally-isolated-saml "#regionally-isolated-saml"). 7. Configure the relay state of your identity provider to point to your Connect Customer
+instance. The URL to use for the relay state is comprised as follows:
 
 `https://`region-id`.console.aws.amazon.com/connect/federate/`instance-id``
 
@@ -285,6 +281,10 @@ _178c75e4-b3de-4839-a6aa-e321ab3f3770_.
 
 arn:aws:connect:us-east-1:450725743157:instance/_178c75e4-b3de-4839-a6aa-e321ab3f3770_
 
+###### Note
+
+HTTP is not supported for destination relay URLs. If you specify an HTTP URL, it is automatically transformed to HTTPS. This impacts local development with localhost URLs.
+
 ## Configure the identity provider to use regional SAML endpoints
 
 To provide the best availability we recommend using the regional SAML endpoint that
@@ -304,8 +304,8 @@ Ping, OneLogin, Shibboleth, ADFS, AzureAD, and more).
    Following is an example of a revision:
 
    `<AssertionConsumerService index="1" isDefault="true"
- Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
- Location="https://`region-id`.signin.aws.amazon.com/saml"/>`
+  Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+  Location="https://`region-id`.signin.aws.amazon.com/saml"/>`
    - **Option 2**: Override the
      AssertionConsumerService (ACS) URL in your IdP. For IdPs like Okta that
      provide prebaked AWS integrations, you can override the ACS URL in the

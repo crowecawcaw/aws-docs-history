@@ -16,25 +16,25 @@ function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") blo
 when an **Invoke AWS Lambda** block is the first block in your
 inbound chat flow.
 
-1.  [Enable real-time streaming of chat
-    messages](chat-message-streaming.md "chat-message-streaming.md").
-2.  Call the Connect Customer [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") API to add a custom participant
-    (`ParticipantRole` = `CUSTOM_BOT`) to the chat
-    contact.
+1. [Enable real-time streaming of chat
+   messages](chat-message-streaming.md "chat-message-streaming.md").
+2. Call the Connect Customer [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") API to add a custom participant
+   (`ParticipantRole` = `CUSTOM_BOT`) to the chat
+   contact.
 
-    1. For information about how to create the SDK client for calling Connect Customer APIs,
-       see the following topics:
+   1. For information about how to create the SDK client for calling Connect Customer APIs,
+      see the following topics:
 
-       - [Class AmazonConnectClientBuilder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md")
-       - [Creating Service Clients](../../../sdk-for-java/v1/developer-guide/creating-clients.md "../../../sdk-for-java/v1/developer-guide/creating-clients.md")
+      - [Class AmazonConnectClientBuilder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md")
+      - [Creating Service Clients](../../../sdk-for-java/v1/developer-guide/creating-clients.md "../../../sdk-for-java/v1/developer-guide/creating-clients.md")
 
-    2. Keep the `ParticipantToken` that is obtained from [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") to call [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md").
-       `CreateParticipantConnection` returns a
-       `ConnectionToken`, which you can use to call other Connect Customer
-       Participant APIs.
+   2. Keep the `ParticipantToken` that is obtained from [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") to call [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md").
+      `CreateParticipantConnection` returns a
+      `ConnectionToken`, which you can use to call other Connect Customer
+      Participant APIs.
 
-    When calling [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") to create a connection for a custom
-    participant:
+   When calling [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") to create a connection for a custom
+   participant:
 
         * Set `ConnectParticipant` to `True` to mark
          the custom participant as connected for message streaming.
@@ -43,9 +43,9 @@ inbound chat flow.
         * `CreateParticipantConnection` should be called within
          15 seconds of calling `CreateParticipant`.
 
-3.  After the participant is added to the contact, they can exchange messages with the
-    customer by using Connect Customer Participant Service APIs.
-4.  To disconnect the participant, call the [DisconnectParticipant](../../../connect-participant/latest/APIReference/API_DisconnectParticipant.md "../../../connect-participant/latest/APIReference/API_DisconnectParticipant.md") API.
+3. After the participant is added to the contact, they can exchange messages with the
+   customer by using Connect Customer Participant Service APIs.
+4. To disconnect the participant, call the [DisconnectParticipant](../../../connect-participant/latest/APIReference/API_DisconnectParticipant.md "../../../connect-participant/latest/APIReference/API_DisconnectParticipant.md") API.
 
 ###### Note
 
@@ -136,6 +136,6 @@ calling the `CreateParticipantConnection` API, check whether the
 
 - `AccessDeniedException`:
 
-If you get an `AccessDeniedException` error and the participant role is a CUSTOM_BOT,
-it indicates the bot is trying to access attachments. The participant role of CUSTOM_BOT is not permitted to
+If you get an `AccessDeniedException` error and the participant role is a CUSTOM\_BOT,
+it indicates the bot is trying to access attachments. The participant role of CUSTOM\_BOT is not permitted to
 access attachments that customers upload.

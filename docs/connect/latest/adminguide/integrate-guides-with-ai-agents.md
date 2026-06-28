@@ -114,9 +114,7 @@ the knowledge base, and copy and save its
 ### Create the content association
 
 To complete this step you need the `knowledgeBaseId`,
-`contentId` and `flowARN` that you obtained in Step
-
-1.
+`contentId` and `flowARN` that you obtained in Step 1.
 
 You can call the [CreateContentAssociation](../APIReference/API_amazon-q-connect_CreateContentAssociation.md "../APIReference/API_amazon-q-connect_CreateContentAssociation.md") API or the run the
 `create-content-association` CLI command to link the content

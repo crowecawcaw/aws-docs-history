@@ -68,7 +68,7 @@ thereby reducing call handling time and improving efficiency.
 - **Controlled clearing**: Stop and optionally
   store buffer contents when appropriate. You can configure encryption parameters
   to encrypt the buffer entry that gets stored into the `Stored customer
-input` system attribute to protect PII.
+ input` system attribute to protect PII.
 
 ## Block capabilities
 
@@ -85,7 +85,7 @@ Stop and Clear
 
 - Stops buffering collection and clears the buffer.
 - Optionally stores buffer contents in the `Stored
-customer input` system attribute.
+ customer input` system attribute.
 - Use stored values for downstream decisions if
   needed.
 

@@ -9,6 +9,12 @@ changes in contact patterns, such as a special event that could increase volume 
 10 percent during a specific week. If the edited forecast is no longer applicable,
 you can also remove the changes.
 
+###### Important
+
+Editing a forecast is not available when viewing data at the demand group
+level. However, edits that you make at the queue level do impact demand group
+level forecasts.
+
 ###### Contents
 
 - [How to edit a forecast](#howto-edit-forecast "#howto-edit-forecast")
@@ -151,8 +157,8 @@ the forecast:
     	 will automatically set the value to 0.
 
 6. After you've made your selection, choose **Preview**
-   to view the changes on your screen, as shown in the following
-   image
+to view the changes on your screen, as shown in the following
+image
 
 ![A preview of the forecast changes.](images/forecasts-edit4.png) 7. Choose **Save** to apply your changes. Your edits are
 reflected as overrides. You can make edits as many times as needed.
@@ -249,22 +255,21 @@ override.
 
 ## How to remove your forecast edits
 
-1.  On the **Forecasts** page, choose the forecast you
-    want to change, and then choose **Actions**,
-    **Remove forecast edits**.
-2.  In the **Remove forecast** pane, select a date range,
-    queues, channels, and metrics (Contact volume and Average handle time)
-    from which to remove your edits.
+1. On the **Forecasts** page, choose the forecast you
+   want to change, and then choose **Actions**,
+   **Remove forecast edits**.
+2. In the **Remove forecast** pane, select a date range,
+   queues, channels, and metrics (Contact volume and Average handle time)
+   from which to remove your edits.
 
-        * The **Date range** works the same way as
-         when you [edit a
-         forecast](#howto-edit-forecast "#howto-edit-forecast").
-        * You can apply multiple edits across different time ranges, and
-         all changes will be applied.
-
-    The following image shows an example **Remove
-    forecasts** pane. Edits made between 2025/06/06 and
-    2026/08/30 for all queues, for the voice and chat channels, and for only
-    the **Contact volume** metric will be removed.
+   - The **Date range** works the same way as
+     when you [edit a
+     forecast](#howto-edit-forecast "#howto-edit-forecast").
+   - You can apply multiple edits across different time ranges, and
+     all changes will be applied.
+     The following image shows an example **Remove
+     forecasts** pane. Edits made between 2025/06/06 and
+     2026/08/30 for all queues, for the voice and chat channels, and for only
+     the **Contact volume** metric will be removed.
 
 ![The Remove forecasts pane.](images/forecasts-edit6.png) 3. Choose **Remove** to apply the changes.

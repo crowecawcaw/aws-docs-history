@@ -16,40 +16,39 @@ through your widget, and then customize the widget's appearance and functionalit
 In this step, you create and customize a View that determines the behavior
 for contacts created through your widget.
 
-1.  Log in to the Connect Customer admin website at [https://instance name.my.connect.aws/](https://instance name.my.connect.aws/ "https://instance name.my.connect.aws/"). Under the
-    **Routing** tab, select **Flows**.
-2.  At the top left, choose **Views**.
-3.  Select **Create View**.
-4.  Here you can configure a contact form for your customers using the [no-code builder](no-code-ui-builder.md "no-code-ui-builder.md"). Some important
-    tips:
+1. Log in to the Connect Customer admin website at [https://instance name.my.connect.aws/](https://instance name.my.connect.aws/ "https://instance name.my.connect.aws/"). Under the
+   **Routing** tab, select **Flows**.
+2. At the top left, choose **Views**.
+3. Select **Create View**.
+4. Here you can configure a contact form for your customers using the [no-code builder](no-code-ui-builder.md "no-code-ui-builder.md"). Some important
+   tips:
 
-    - Using the Form component will allow you to link Form Inputs to your
-      contact on creation. Form linking will allow you to take input directly
-      from anyone interacting with your widget and use the information they
-      include in the form during contact creation.
-    - The Connect Action component is the most important element in the form
-      for creating a contact. This component should be used without any other
-      button type components in the form.
-    - Exactly one Connect Action component must be present to use the View
-      with a Contact Form widget.
-    - There are three options supported for ConnectActionType for the
-      Connect Action component:
+   - Using the Form component will allow you to link Form Inputs to your
+     contact on creation. Form linking will allow you to take input directly
+     from anyone interacting with your widget and use the information they
+     include in the form during contact creation.
+   - The Connect Action component is the most important element in the form
+     for creating a contact. This component should be used without any other
+     button type components in the form.
+   - Exactly one Connect Action component must be present to use the View
+     with a Contact Form widget.
+   - There are three options supported for ConnectActionType for the
+     Connect Action component:
 
-          + StartEmailContact
-          + StartTaskContact
-          + StartChatContact
+     - StartEmailContact
+     - StartTaskContact
+     - StartChatContact
+       Both Email and Task can be used in a contact form. To create a pre-chat
+       form for chat contacts, see [Add a chat user interface to your website hosted by Connect Customer](add-chat-to-website.md "add-chat-to-website.md").
 
-      Both Email and Task can be used in a contact form. To create a pre-chat
-      form for chat contacts, see [Add a chat user interface to your website hosted by Connect Customer](add-chat-to-website.md "add-chat-to-website.md").
+   - There are many style options for the View components, allowing you to
+     customize the form to fit your environment.
 
-    - There are many style options for the View components, allowing you to
-      customize the form to fit your environment.
-
-5.  Once you’ve added a **Connect Action button** to your form,
-    you can set values for the contacts created by the form by linking them to the
-    options in the Connect Action button. Components that you would like to link
-    must be in the same Form in the View as the **Connect Action
-    button**.
+5. Once you’ve added a **Connect Action button** to your form,
+   you can set values for the contacts created by the form by linking them to the
+   options in the Connect Action button. Components that you would like to link
+   must be in the same Form in the View as the **Connect Action
+   button**.
 
 ![The activation of security for new communication widget requests.](images/create-web-form-components-1.png)
 
@@ -163,11 +162,11 @@ Domain allowlist behavior:
      applications.
 
 2. Under **Add security for your communications widget**, we
-   recommend choosing **Yes**, and working with your website
-   administrator to set up your web servers to issue JSON Web Tokens (JWTs) for new
-   contact requests. This provides you more control when initiating new contacts,
-   including the ability to verify that requests sent to Connect Customer are from
-   authenticated users.
+recommend choosing **Yes**, and working with your website
+administrator to set up your web servers to issue JSON Web Tokens (JWTs) for new
+contact requests. This provides you more control when initiating new contacts,
+including the ability to verify that requests sent to Connect Customer are from
+authenticated users.
 
 ![The activation of security for new communication widget requests.](images/chatwidget-choose-security.png)
 
@@ -227,32 +226,30 @@ contact center agents.
 - Algorithm: **HS256**
 - Claims:
 
-      + **sub**:
-       `widgetId`
+  - **sub**:
+    `widgetId`
 
-
-      Replace `widgetId` with your own widgetId. To find
-       your widgetId, see the example at [Communications widget script](#communications-widget-script "#communications-widget-script").
-      + **iat**: \*Issued At Time.
-      + **exp**: \*Expiration (10 minute
-       maximum).
-      + **segmentAttributes (optional)**: A set of
-       system defined key-value pairs stored on individual contact
-       segments using an attribute map. For more information check
-       SegmentAttributes in the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes") API.
-      + **attributes (optional)**: Object with
-       string-to-string key-value pairs. The contact attributes must
-       follow the limitations set by the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes") API.
-      + **relatedContactId (optional)**: String with
-       valid contact id. The relatedContactId must follow limitations
-       set by the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.
-      + **customerId (optional)**: This can be either
-       an Connect Customer Customer Profiles ID or a custom identifier from an external system,
-       such as a CRM.
-
-  \* For information about the date format, see the following Internet
-  Engineering Task Force (IETF) document: [JSON Web Token
-  (JWT)](https://tools.ietf.org/html/rfc7519 "https://tools.ietf.org/html/rfc7519"), page 5.
+  Replace `widgetId` with your own widgetId. To find
+  your widgetId, see the example at [Communications widget script](#communications-widget-script "#communications-widget-script").
+  - **iat**: \*Issued At Time.
+  - **exp**: \*Expiration (10 minute
+    maximum).
+  - **segmentAttributes (optional)**: A set of
+    system defined key-value pairs stored on individual contact
+    segments using an attribute map. For more information check
+    SegmentAttributes in the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes") API.
+  - **attributes (optional)**: Object with
+    string-to-string key-value pairs. The contact attributes must
+    follow the limitations set by the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes") API.
+  - **relatedContactId (optional)**: String with
+    valid contact id. The relatedContactId must follow limitations
+    set by the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.
+  - **customerId (optional)**: This can be either
+    an Connect Customer Customer Profiles ID or a custom identifier from an external system,
+    such as a CRM.
+    \* For information about the date format, see the following Internet
+    Engineering Task Force (IETF) document: [JSON Web Token
+    (JWT)](https://tools.ietf.org/html/rfc7519 "https://tools.ietf.org/html/rfc7519"), page 5.
 
 The following code snippet shows an example of how to generate a JWT in
 Python:

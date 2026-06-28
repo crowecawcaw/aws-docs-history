@@ -29,68 +29,68 @@ search** AI agent.
 
 Connect AI agents support the following locales for agent assistance:
 
-- Afrikaans (South Africa) / af_ZA
+- Afrikaans (South Africa) / af\_ZA
 - Arabic (General) / ar
-- Arabic (United Arab Emirates, Gulf) / ar_AE
-- Armenian (Armenia) / hy_AM
-- Bulgarian (Bulgaria) / bg_BG
-- Catalan (Spain) / ca_ES
-- Chinese (China, Mandarin) / zh_CN
-- Chinese (Hong Kong, Cantonese) / zh_HK
-- Czech (Czech Republic) / cs_CZ
-- Danish (Denmark) / da_DK
-- Dutch (Belgium) / nl_BE
-- Dutch (Netherlands) / nl_NL
-- English (Australia) / en_AU
-- English (India) / en_IN
-- English (Ireland) / en_IE
-- English (New Zealand) / en_NZ
-- English (Singapore) / en_SG
-- English (South Africa) / en_ZA
-- English (United Kingdom) / en_GB
-- English (United States) / en_US
-- English (Wales) / en_CY
-- Estonian (Estonia) / et_EE
-- Farsi (Iran) / fa_IR
-- Finnish (Finland) / fi_FI
-- French (Belgium) / fr_BE
-- French (Canada) / fr_CA
-- French (France) / fr_FR
-- Gaelic (Ireland) / ga_IE
-- German (Austria) / de_AT
-- German (Germany) / de_DE
-- German (Switzerland) / de_CH
-- Hebrew (Israel) / he_IL
-- Hindi (India) / hi_IN
+- Arabic (United Arab Emirates, Gulf) / ar\_AE
+- Armenian (Armenia) / hy\_AM
+- Bulgarian (Bulgaria) / bg\_BG
+- Catalan (Spain) / ca\_ES
+- Chinese (China, Mandarin) / zh\_CN
+- Chinese (Hong Kong, Cantonese) / zh\_HK
+- Czech (Czech Republic) / cs\_CZ
+- Danish (Denmark) / da\_DK
+- Dutch (Belgium) / nl\_BE
+- Dutch (Netherlands) / nl\_NL
+- English (Australia) / en\_AU
+- English (India) / en\_IN
+- English (Ireland) / en\_IE
+- English (New Zealand) / en\_NZ
+- English (Singapore) / en\_SG
+- English (South Africa) / en\_ZA
+- English (United Kingdom) / en\_GB
+- English (United States) / en\_US
+- English (Wales) / en\_CY
+- Estonian (Estonia) / et\_EE
+- Farsi (Iran) / fa\_IR
+- Finnish (Finland) / fi\_FI
+- French (Belgium) / fr\_BE
+- French (Canada) / fr\_CA
+- French (France) / fr\_FR
+- Gaelic (Ireland) / ga\_IE
+- German (Austria) / de\_AT
+- German (Germany) / de\_DE
+- German (Switzerland) / de\_CH
+- Hebrew (Israel) / he\_IL
+- Hindi (India) / hi\_IN
 - Hmong (General) / hmn
-- Hungarian (Hungary) / hu_HU
-- Icelandic (Iceland) / is_IS
-- Indonesian (Indonesia) / id_ID
-- Italian (Italy) / it_IT
-- Japanese (Japan) / ja_JP
-- Khmer (Cambodia) / km_KH
-- Korean (South Korea) / ko_KR
-- Lao (Laos) / lo_LA
-- Latvian (Latvia) / lv_LV
-- Lithuanian (Lithuania) / lt_LT
-- Malay (Malaysia) / ms_MY
-- Norwegian (Norway) / no_NO
-- Polish (Poland) / pl_PL
-- Portuguese (Brazil) / pt_BR
-- Portuguese (Portugal) / pt_PT
-- Romanian (Romania) / ro_RO
-- Russian (Russia) / ru_RU
-- Serbian (Serbia) / sr_RS
-- Slovak (Slovakia) / sk_SK
-- Slovenian (Slovenia) / sl_SI
-- Spanish (Mexico) / es_MX
-- Spanish (Spain) / es_ES
-- Spanish (United States) / es_US
-- Swedish (Sweden) / sv_SE
-- Tagalog (Philippines) / tl_PH
-- Thai (Thailand) / th_TH
-- Turkish (Turkey) / tr_TR
-- Vietnamese (Vietnam) / vi_VN
-- Welsh (United Kingdom) / cy_GB
-- Xhosa (South Africa) / xh_ZA
-- Zulu (South Africa) / zu_ZA
+- Hungarian (Hungary) / hu\_HU
+- Icelandic (Iceland) / is\_IS
+- Indonesian (Indonesia) / id\_ID
+- Italian (Italy) / it\_IT
+- Japanese (Japan) / ja\_JP
+- Khmer (Cambodia) / km\_KH
+- Korean (South Korea) / ko\_KR
+- Lao (Laos) / lo\_LA
+- Latvian (Latvia) / lv\_LV
+- Lithuanian (Lithuania) / lt\_LT
+- Malay (Malaysia) / ms\_MY
+- Norwegian (Norway) / no\_NO
+- Polish (Poland) / pl\_PL
+- Portuguese (Brazil) / pt\_BR
+- Portuguese (Portugal) / pt\_PT
+- Romanian (Romania) / ro\_RO
+- Russian (Russia) / ru\_RU
+- Serbian (Serbia) / sr\_RS
+- Slovak (Slovakia) / sk\_SK
+- Slovenian (Slovenia) / sl\_SI
+- Spanish (Mexico) / es\_MX
+- Spanish (Spain) / es\_ES
+- Spanish (United States) / es\_US
+- Swedish (Sweden) / sv\_SE
+- Tagalog (Philippines) / tl\_PH
+- Thai (Thailand) / th\_TH
+- Turkish (Turkey) / tr\_TR
+- Vietnamese (Vietnam) / vi\_VN
+- Welsh (United Kingdom) / cy\_GB
+- Xhosa (South Africa) / xh\_ZA
+- Zulu (South Africa) / zu\_ZA

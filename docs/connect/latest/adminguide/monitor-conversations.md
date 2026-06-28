@@ -76,9 +76,9 @@ previous agent event stream.
   participant is being invited instead of being transferred to, see [Identify conferences and transfers by using Connect Customer contact records](identify-conferences-transfers.md "identify-conferences-transfers.md").
 - This feature is only available in CCPv2. That is, the URL to access the
   CCP is https://`instance
-name`.my.connect.aws/ccp-v2/ and the URL to access the agent
+ name`.my.connect.aws/ccp-v2/ and the URL to access the agent
   workspace is https://`instance
-name`.my.connect.aws/agent-app-v2/. It's also available in
+ name`.my.connect.aws/agent-app-v2/. It's also available in
   custom CCP using Connect Customer Streams.js.
 - Before enabling the multi-party calls, if you are using
   Contact Lens or planning to do so in the future, see [Multi-party calls and conversational analytics](enable-analytics.md#multiparty-calls-contactlens "enable-analytics.md#multiparty-calls-contactlens"). Contact Lens

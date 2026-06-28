@@ -311,7 +311,7 @@ Use case 1: AMD is on and leaving automatic voicemails
   answering machine types. Also, AMD can irritate customers because it adds a short delay to
   live calls.
 - **Best uses** – Calling consumers during the day
-  when you may get a large quantity of answering machines and it’s not urgent to ensure every
+  when you may get a large quantity of answering machines and it's not urgent to ensure every
   call receives a voicemail.
 
 Use case 2: AMD is on but not leaving automatic voicemails
@@ -321,7 +321,7 @@ Use case 2: AMD is on but not leaving automatic voicemails
 - **Cons** – Cannot leave any voicemails. Adds a delay
   to live calls which can annoy customers.
 - **Best uses** – Calling consumers during the day
-  when you may get a large quantity of voicemails and you don’t want to leave any
+  when you may get a large quantity of voicemails and you don't want to leave any
   voicemails.
 
 Use case 3: AMD is off and agents can leave manual voicemails
@@ -393,20 +393,19 @@ If a journey contains endpoints with multiple time zones:
 
 - When you enable `Recipient's local time zone`:
 
-      + The journey calls or sends a message according to the latest time zone for an
-       endpoint.
-      + The journey stops sending when all messages have been sent, or according to the
-       earliest time zone for an endpoint.
-
-  When you enable **Quiet time**, and you have endpoints on multiple time
-  zones, the journey does not call or send messages to an endpoint during the quiet time of any
-  timezone. The journey only calls and sends messages when all the endpoints can receive them,
-  as controlled by the journey's sending rules.
+  - The journey calls or sends a message according to the latest time zone for an
+    endpoint.
+  - The journey stops sending when all messages have been sent, or according to the
+    earliest time zone for an endpoint.
+    When you enable **Quiet time**, and you have endpoints on multiple time
+    zones, the journey does not call or send messages to an endpoint during the quiet time of any
+    timezone. The journey only calls and sends messages when all the endpoints can receive them,
+    as controlled by the journey's sending rules.
 
 For example, if your journey's quiet time runs from 20:00 (8:00 PM) to 08:00 (8:00 AM),
-and the journey uses endpoints in UTC-8 America/Los_Angeles and UTC-5 America/New_York, the
-journey starts sending messages at 08:00 America/Los_Angeles (11:00 America/New_York) and
-stops sending messages at 17:00 America/Los_Angeles (20:00 America/New_York).
+and the journey uses endpoints in UTC-8 America/Los\_Angeles and UTC-5 America/New\_York, the
+journey starts sending messages at 08:00 America/Los\_Angeles (11:00 America/New\_York) and
+stops sending messages at 17:00 America/Los\_Angeles (20:00 America/New\_York).
 
 To optimize participant engagement in a journey that has a scheduled start and end time,
 configure the journey to use each participant's local time zone. This helps to ensure that
@@ -568,35 +567,41 @@ C**. 5. Edit the branches in the split as follows:
     	 beep**.
 
 6. Add a **Wait** activity after each branch, then edit each
-   **Wait** activity as follows:
+**Wait** activity as follows:
 
-   - Branch A
+    * Branch A
 
-     1. In the **Time period** section, enter
-        **4**.
-     2. In the **Unit** list and select **hours**.
-     3. Select **Save**.
 
-   - Branch B
 
-     1. In the **Time period** section, enter
-        **1**.
-     2. In the **Unit** list and select **hours**.
-     3. Select **Save**.
 
-   - Branch C
+    	1. In the **Time period** section, enter
+    	 **4**.
+    	2. In the **Unit** list and select **hours**.
+    	3. Select **Save**.
+    * Branch B
 
-     1. In the **Time period** section, enter
-        **4**.
-     2. In the **Unit** list and select **days**.
-     3. Select **Save**.
+
+
+
+    	1. In the **Time period** section, enter
+    	 **1**.
+    	2. In the **Unit** list and select **hours**.
+    	3. Select **Save**.
+    * Branch C
+
+
+
+
+    	1. In the **Time period** section, enter
+    	 **4**.
+    	2. In the **Unit** list and select **days**.
+    	3. Select **Save**.
 
 7. After Branch A, add the **Send through a contact center** activity. Set
-   the parameters of this activity similar as Lab 2.
-8. After branches B and C, add the **Send an email** or **Send an
-   SMS** activities. Set up a message template to complete this activity. For more
-   information, see [Amazon Pinpoint message
-   templates](../../../pinpoint/latest/userguide/messages-templates.md "../../../pinpoint/latest/userguide/messages-templates.md").
+the parameters of this activity similar as Lab 2. 8. After branches B and C, add the **Send an email** or **Send an
+SMS** activities. Set up a message template to complete this activity. For more
+information, see [Amazon Pinpoint message
+templates](../../../pinpoint/latest/userguide/messages-templates.md "../../../pinpoint/latest/userguide/messages-templates.md").
 
 The following image shows the workflow:
 

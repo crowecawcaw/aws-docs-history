@@ -135,10 +135,10 @@ type of match:
      and phrases per semantic matching card.
 
 7. Using **Words or Phrases - Exact Match** as
-   an example, enter the words or phrases, separated by a comma,
-   that you want to highlight and choose **Add**.
-   Each word or phrase separated by a comma gets its own line in
-   the card.
+an example, enter the words or phrases, separated by a comma,
+that you want to highlight and choose **Add**.
+Each word or phrase separated by a comma gets its own line in
+the card.
 
 ![The new rules page, the Words or phrases - Exact match section.](images/contact-lens-add-category-rules-script.png)
 

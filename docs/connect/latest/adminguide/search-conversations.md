@@ -88,32 +88,38 @@ conversation you want to search. Note the following:
      used by any of the participants.
 
 6. In the **Logic** section, choose from the following
-   options:
+options:
 
-   - Choose **Match any** to return contacts that
+    * Choose **Match any** to return contacts that
      have any of the words present in the transcripts.
 
-   For example, the following query means match (hello OR
-   cancellation OR "example airline"). And, because no
-   **Used by** boxes are selected, it means
-   "find contacts where any of these words were used by any of the
-   participants."
 
-   ![The Words or phrases dialog box, the Match any option.](images/match-any.png)
-   - Choose **Match all** to return contacts that
+    For example, the following query means match (hello OR
+     cancellation OR "example airline"). And, because no
+     **Used by** boxes are selected, it means
+     "find contacts where any of these words were used by any of the
+     participants."
+
+
+
+    ![The Words or phrases dialog box, the Match any option.](images/match-any.png)
+    * Choose **Match all** to return contacts that
      have all of the words present in the transcripts.
 
-   For example, the following query means match ("thank you for
-   your business" AND cancellation AND "example airline"). And,
-   because all the participant boxes are selected, it means "find
-   contacts where all of these words and phrases were used by all
-   of the participants."
 
-   ![The Words or phrases dialog box, the Match all option.](images/match-all.png)
+    For example, the following query means match ("thank you for
+     your business" AND cancellation AND "example airline"). And,
+     because all the participant boxes are selected, it means "find
+     contacts where all of these words and phrases were used by all
+     of the participants."
+
+
+
+    ![The Words or phrases dialog box, the Match all option.](images/match-all.png)
 
 7. In the **Words or phrases** section, enter the words
-   to search, separated by commas. If you enter a phrase, surround it with
-   quotation marks.
+to search, separated by commas. If you enter a phrase, surround it with
+quotation marks.
 
 You can enter up to 128 characters.
 
@@ -136,38 +142,38 @@ scores](sentiment-scores.md "sentiment-scores.md").
 
 ###### To search for sentiment scores or evaluate sentiment shift
 
-1.  In Connect Customer, log in with a user account that is assigned the
-    **CallCenterManager** security profile, or that is
-    enabled for the **Search contacts by conversation
-    characteristics** permission.
-2.  On the **Contact search** page, specify whether you
-    want the sentiment score for words or phrases spoken by the customer or
-    agent.
-3.  In **Type of score analysis**, specify what type of
-    scores to return:
+1. In Connect Customer, log in with a user account that is assigned the
+   **CallCenterManager** security profile, or that is
+   enabled for the **Search contacts by conversation
+   characteristics** permission.
+2. On the **Contact search** page, specify whether you
+   want the sentiment score for words or phrases spoken by the customer or
+   agent.
+3. In **Type of score analysis**, specify what type of
+   scores to return:
 
-    - **Sentiment score**: This returns the average
-      score for the customer or agent's portion of the
-      conversation.
+   - **Sentiment score**: This returns the average
+     score for the customer or agent's portion of the
+     conversation.
 
-    In addition to searching for sentiment scores when the agent
-    or customer are on the contact, you can filter the search by
-    when the customer is:
+   In addition to searching for sentiment scores when the agent
+   or customer are on the contact, you can filter the search by
+   when the customer is:
 
         + **With agent on the chat**
         + **Without agent on the chat**: This
          is the time the customer is chatting with a bot,
          prompts, and time in queue.
 
-    ![The sentiment score filter, the participant dropdown, customer without agent on the chat option.](images/contact-lens-search-sentiment-participant.png)
-    - **Sentiment shift**: Identify where the
-      customer or agent's sentiment changed during the contact.
+   ![The sentiment score filter, the participant dropdown, customer without agent on the chat option.](images/contact-lens-search-sentiment-participant.png)
+   - **Sentiment shift**: Identify where the
+     customer or agent's sentiment changed during the contact.
 
-    For example, the following image shows an example of searching
-    for contacts where the customer's sentiment score begins at less
-    than or equal to -1 and ends at greater than or equal to +1. In
-    addition, the customer is on a chat with the agent
-    present.
+   For example, the following image shows an example of searching
+   for contacts where the customer's sentiment score begins at less
+   than or equal to -1 and ends at greater than or equal to +1. In
+   addition, the customer is on a chat with the agent
+   present.
 
 ![The sentiment score filter, the sentiment shift option.](images/contact-lens-search-sentiment-score.png)
 
@@ -208,23 +214,22 @@ response time was greater than or equal to 1 minute.
 
 ## Search a contact category
 
-1.  On the **Contact search** page, choose **Add
-    filter**, **Contact category**.
-2.  In the **Contact categories** box, use the dropdown
-    box to list all the current categories that are available for you to
-    search. Or, if you start typing, the input is used to match existing
-    categories and to filter those that don't match.
+1. On the **Contact search** page, choose **Add
+   filter**, **Contact category**.
+2. In the **Contact categories** box, use the dropdown
+   box to list all the current categories that are available for you to
+   search. Or, if you start typing, the input is used to match existing
+   categories and to filter those that don't match.
 
-        * **Match any**: Searches for contacts that
-         match any of the selected categories.
-        * **Match all**: Searches for contacts that
-         match all of the selected categories.
-        * **Match none**: Searches for contacts that
-         did not match any of the selected categories. Note that this
-         would only return contacts that were analyzed by
-         Contact Lens conversational analytics.
-
-    The following image shows a dropdown menu with all the current
-    categories listed.
+   - **Match any**: Searches for contacts that
+     match any of the selected categories.
+   - **Match all**: Searches for contacts that
+     match all of the selected categories.
+   - **Match none**: Searches for contacts that
+     did not match any of the selected categories. Note that this
+     would only return contacts that were analyzed by
+     Contact Lens conversational analytics.
+     The following image shows a dropdown menu with all the current
+     categories listed.
 
 ![The contact category filter, the match all option, the contact categories.](images/contact-lens-search-contact-category2.png)

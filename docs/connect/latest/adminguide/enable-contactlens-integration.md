@@ -26,7 +26,7 @@ for the following quotas in your Connect Customer account:
      instance
 
 4. Assign this permission to the security profiles for users who you want to
-   access the Contact Lens connectors.
+access the Contact Lens connectors.
 
 ###### Note
 

@@ -128,7 +128,7 @@ waits 1 hour before creating the matching rule. If it is a new
 domain, the system will skip the **PENDING**
 stage.
 
-- **IN_PROGRESS**
+- **IN\_PROGRESS**
 
 The system is creating the rule-based Matching rule. Under this
 status, the system is evaluating the existing data and you can

@@ -44,6 +44,10 @@ staffing, improved call routing strategies, or addressing queue bottlenecks.
 
 - (Contacts abandoned / Contacts queues ) \* 100.0
 
+###### Note
+
+When using the **Routing Profile** grouping, the abandonment rate shows as 0. This is because abandoned calls occur when customers disconnect before being connected to an agent, so there is no routing profile association. A routing profile is only assigned when an agent accepts a contact.
+
 ## Active AI Agents
 
 This metric measures the total number of unique [AI Agents](create-ai-agents.md "create-ai-agents.md"), where each AI
@@ -70,7 +74,7 @@ Agent is identified by its unique combination of `Name` and `Version`.
   - If aiAgentId is NOT present, then skip this record.
   - If aiAgentNameVersion is present, then return noncontroversial.
 
-- Return final_result = approximate unique count of aiAgentNameVersion values from matching records.
+- Return final\_result = approximate unique count of aiAgentNameVersion values from matching records.
 
 ## Active slots
 
@@ -198,7 +202,7 @@ configured timeout is reached.
     an agent) is present, then set result = 0.
   - Else, skip this record.
 
-- Return final_result = sum of all the result values from matching
+- Return final\_result = sum of all the result values from matching
   records.
 
 ## Agent Activity
@@ -536,13 +540,13 @@ and outbound calls.
 - For each contact record
 
   - If Agent.AgentInteractionDuration is present, then set
-    agent_interaction = Agent.AgentInteractionDuration.
-  - If Agent.CustomerHoldDuration is present, then set customer_hold =
+    agent\_interaction = Agent.AgentInteractionDuration.
+  - If Agent.CustomerHoldDuration is present, then set customer\_hold =
     Agent.CustomerHoldDuration.
   - If all above fields ARE null, then skip this record.
-  - Else set result = agent_interaction + customer_hold.
+  - Else set result = agent\_interaction + customer\_hold.
 
-- Return final_result = sum of all the result values from matching
+- Return final\_result = sum of all the result values from matching
   records.
 
 ## Agent interaction time
@@ -574,7 +578,7 @@ Work Time](#after-contact-work-time "#after-contact-work-time"), or agent pause 
   - If Agent.AgentInteractionDuration is present, then set result =
     Agent.AgentInteractionDuration
 
-- Return final_result = sum of all the result values from matching records (both
+- Return final\_result = sum of all the result values from matching records (both
   inbound and outbound contacts).
 
 ## Agent non-productive
@@ -825,7 +829,7 @@ agent.
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `AGENTS_ON_CONTACT`
 
-Legacy API Identifier: AGENTS_ON_CALL (still supported)
+Legacy API Identifier: AGENTS\_ON\_CALL (still supported)
 
 **How to access using the Connect Customer admin website**:
 
@@ -915,7 +919,7 @@ initially handle customer inquiries.
   - If aiAgentId is NOT present, then skip this record.
   - If aiAgentNameVersion is present, then return noncontroversial.
 
-- Return final_result = approximate unique count of aiAgentNameVersion values from matching records.
+- Return final\_result = approximate unique count of aiAgentNameVersion values from matching records.
 
 ## AI Handoff Rate
 
@@ -968,7 +972,7 @@ AI-Agents per instance.
   - If aiAgentId is present, then count this record as 1.
   - Else, skip this record.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## AI Agent Invocation Success
 
@@ -992,7 +996,7 @@ For each AI Agent record
 - If invocationSuccess is present and equals true, then count this record as 1.
 - Else, count this record as 0.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## AI Agent Invocation Success Rate
 
@@ -1045,7 +1049,7 @@ This metric measures the count of AI suggestions rated as helpful with a thumbs-
   - If helpfulResponseCount is present, then set result = helpfulResponseCount.
   - Else, skip this record.
 
-- Return final_result = sum of the result values from matching records.
+- Return final\_result = sum of the result values from matching records.
 
 ###### Note
 
@@ -1078,7 +1082,7 @@ This metric measures the count of AI suggestions rated as unhelpful with a thumb
   - If unhelpfulResponseCount is present, then set result = unhelpfulResponseCount.
   - Else, skip this record.
 
-- Return final_result = sum of the result values from matching records.
+- Return final\_result = sum of the result values from matching records.
 
 ###### Note
 
@@ -1142,7 +1146,7 @@ customer inquiries.
   - If sessionId is NOT present, then skip this record.
   - Else, count this record as 1.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## AI Prompt Invocation Success
 
@@ -1166,7 +1170,7 @@ Prompts](create-ai-prompts.md "create-ai-prompts.md") invocations that executed 
   - If invocationSuccess is present and equals true, then count this record as 1.
   - Else, count this record as 0.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## AI Prompt Invocation Success Rate
 
@@ -1218,7 +1222,7 @@ This metric measures the total count of [AI Prompts](create-ai-prompts.md "creat
   - If aiPromptId is present, then count this record as 1.
   - Else, skip this record.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## AI Tool Invocation Success
 
@@ -1242,7 +1246,7 @@ executed successfuly.
   - If invocationSuccess is present and equals true, then count this record as 1.
   - Else, count this record as 0.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## AI Tool Invocation Success Rate
 
@@ -1293,7 +1297,7 @@ This metric measures the percentage of [AI Tools](ai-agent-mcp-tools.md "ai-agen
   - If aiToolId is present, then count this record as 1.
   - Else, skip this record.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## AI Tool Parameter Accuracy
 
@@ -1322,7 +1326,7 @@ provided the correct parameters. Value is between 0-1, where 1 indicates perfect
   - If toolParameterAccuracy is present, then set result = toolParameterAccuracy.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ###### Note
 
@@ -1356,7 +1360,7 @@ Value is between 0-1, where 1 indicates optimal selection.
   - If toolSelectionAccuracy is present, then set result = toolSelectionAccuracy.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ###### Note
 
@@ -1390,7 +1394,7 @@ including proper parameters and selection. Value is between 0-1, where 1 indicat
   - If toolUtilizationAccuracy is present, then set result = toolUtilizationAccuracy.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ###### Note
 
@@ -1424,7 +1428,7 @@ Agents](create-ai-agents.md "create-ai-agents.md") took to reach an outcome.
   - If conversationTurnsInResponse is present, then set result = conversationTurnsInResponse.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ## Average AI Conversation Turns
 
@@ -1453,7 +1457,7 @@ This metric measures the average number of conversation turns across all AI invo
   - If avgConversationTurnsInResponse is present, then set result = avgConversationTurnsInResponse.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ## Average AI Prompt Invocation Latency
 
@@ -1482,7 +1486,7 @@ milliseconds.
   - If invocationLatency is present, then set result = invocationLatency.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ## Average AI Tool Invocation Latency
 
@@ -1511,7 +1515,7 @@ milliseconds.
   - If invocationLatency is present, then set result = invocationLatency.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ## Completeness Score
 
@@ -1542,7 +1546,7 @@ answers. Value is between 0-1, where 1 indicates complete responses across all s
   - If conversationCompletenessScore is present, then set result = conversationCompletenessScore.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ###### Note
 
@@ -1578,7 +1582,7 @@ Value is between 0-1, where 1 indicates perfect contextual fidelity.
   - If conversationFaithfulnessScore is present, then set result = conversationFaithfulnessScore.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ###### Note
 
@@ -1614,7 +1618,7 @@ across all sessions.
   - If goalSuccessRate is present, then set result = goalSuccessRate.
   - Else, skip this record.
 
-- Return final_result = average of the result values from matching records.
+- Return final\_result = average of the result values from matching records.
 
 ###### Note
 
@@ -1647,7 +1651,7 @@ Agents](create-ai-agents.md "create-ai-agents.md").
   - If knowledgeBaseId is present, then count this record as 1.
   - Else, skip this record.
 
-- Return final_result = sum of the result values from matching records.
+- Return final\_result = sum of the result values from matching records.
 
 ## Proactive Intents Answered
 
@@ -1671,7 +1675,7 @@ This metric measures the number of proactive intents (customer queries) that wer
   - If proactiveIntentsAnswered is present, then set result = proactiveIntentsAnswered.
   - Else, skip this record.
 
-- Return final_result = sum of the result values from matching records.
+- Return final\_result = sum of the result values from matching records.
 
 ## Proactive Intents Detected
 
@@ -1696,7 +1700,7 @@ particularly for Agent Assistance use cases.
   - If proactiveIntentsDetected is present, then set result = proactiveIntentsDetected.
   - Else, skip this record.
 
-- Return final_result = sum of the result values from matching records.
+- Return final\_result = sum of the result values from matching records.
 
 ## Proactive Intents Engaged
 
@@ -1721,7 +1725,7 @@ particularly for Agent Assistance use cases.
   - If proactiveIntentsEngaged is present, then set result = proactiveIntentsEngaged.
   - Else, skip this record.
 
-- Return final_result = sum of the result values from matching records.
+- Return final\_result = sum of the result values from matching records.
 
 ## Proactive Intent Engagement Rate
 
@@ -1801,10 +1805,10 @@ parameter set as follows:
 
 - For each contact record
 
-  - If CONTACTS_CREATED with INITIATION_METHOD = API, then count this
+  - If CONTACTS\_CREATED with INITIATION\_METHOD = API, then count this
     record.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## API contacts handled
 
@@ -1838,10 +1842,10 @@ parameter set as follows:
 
 - For each contact record
 
-  - If CONTACTS_HANDLED with INITIATION_METHOD = API, then count this
+  - If CONTACTS\_HANDLED with INITIATION\_METHOD = API, then count this
     record.
 
-- Return final_result = sum of the counts from matching records.
+- Return final\_result = sum of the counts from matching records.
 
 ## Automatic fails percent
 
@@ -1915,7 +1919,7 @@ Connect Customer doesn't count an agent's slots when:
 **Metric type**: COUNT
 
 - Min value: 0
-- Max value: MAX_AVAILABLE_SLOTS value
+- Max value: MAX\_AVAILABLE\_SLOTS value
 
 **Metric category**: Current Agent Metric
 
@@ -1986,18 +1990,18 @@ status.)
 
 - For each contact record
 
-  - If Agent.AgentInteractionDuration > 0, then set agent_interaction =
+  - If Agent.AgentInteractionDuration > 0, then set agent\_interaction =
     Agent.AgentInteractionDuration.
-  - If Agent.CustomerHoldDuration > 0, then set customer_hold =
+  - If Agent.CustomerHoldDuration > 0, then set customer\_hold =
     Agent.CustomerHoldDuration.
-  - If Agent.AfterContactWorkDuration > 0, then set after_contact_work =
+  - If Agent.AfterContactWorkDuration > 0, then set after\_contact\_work =
     Agent.AfterContactWorkDuration.
-  - If all three variables (agent_interaction AND customer_hold AND
-    after_contact_work )are null, then skip the record
+  - If all three variables (agent\_interaction AND customer\_hold AND
+    after\_contact\_work )are null, then skip the record
   - Else, set result = the sum of the non-null values of
-    agent_interaction, customer_hold AND after_contact_work
+    agent\_interaction, customer\_hold AND after\_contact\_work
 
-- Return final_result = sum of all the result values / total number of matching
+- Return final\_result = sum of all the result values / total number of matching
   contact records.
 
 ## Average after contact work time
@@ -2029,9 +2033,9 @@ This metric measures the average time that an agent spent doing After Contact Wo
     an agent) is present, then set result = 0
   - Else, skip this record.
 
-- Return final_result = average of the result values across all contact
+- Return final\_result = average of the result values across all contact
   records.
-- Return final_result = sum of all the result values / total number of contact
+- Return final\_result = sum of all the result values / total number of contact
   records (excluding skipped records).
 
 ## Average agent API connecting time
@@ -2126,7 +2130,7 @@ CHAT.
   - Else set result =
     `ChatMetrics.ContactMetrics.AgentFirstResponseTimeInMillis`
 
-- Final_result = average of result across all contacts not skipped
+- Final\_result = average of result across all contacts not skipped
 - Further divide the result by 1000.0 to convert milliseconds to seconds
 
 ## Average agent greeting time
@@ -2187,7 +2191,7 @@ parameter set as follows:
 **Calculation logic**:
 
 - In the agent event stream, this time is calculated by averaging the duration
-  between the contact state of STATE_CHANGE event changes from CONNECTING to
+  between the contact state of STATE\_CHANGE event changes from CONNECTING to
   CONNECTED/MISSED/ERROR.
 
 The following image shows the three parts that go into calculating this
@@ -2225,14 +2229,14 @@ outbound calls.
 - For each contact record
 
   - If Agent.AgentInteractionDuration is present, then set
-    agent_interaction = Agent.AgentInteractionDuration.
-  - If Agent.CustomerHoldDuration is present, then set customer_hold =
+    agent\_interaction = Agent.AgentInteractionDuration.
+  - If Agent.CustomerHoldDuration is present, then set customer\_hold =
     Agent.CustomerHoldDuration.
-  - If agent_interaction AND customer_hold ARE null, then skip this
+  - If agent\_interaction AND customer\_hold ARE null, then skip this
     record.
-  - Else, set result = (agent_interaction + customer_hold).
+  - Else, set result = (agent\_interaction + customer\_hold).
 
-- Return final_result = sum of all the result values / total number of contact
+- Return final\_result = sum of all the result values / total number of contact
   records (excluding skipped records).
 
 ## Average agent interaction time
@@ -2268,7 +2272,7 @@ Work Time](#after-contact-work-time "#after-contact-work-time"), or agent pause 
   - If Agent.AgentInteractionDuration is present, then set result =
     Agent.AgentInteractionDuration.
 
-- Return final_result = sum of all the result values / total number of contact
+- Return final\_result = sum of all the result values / total number of contact
   records (excluding skipped records).
 
 ## Average agent interruptions
@@ -2471,7 +2475,7 @@ the report for them.
     Agent.AgentPauseDuration.
   - Else, skip the record.
 
-- Return final_result = sum of all the result values / total number of matching
+- Return final\_result = sum of all the result values / total number of matching
   contact records.
 
 ## Average agent response time
@@ -2516,7 +2520,7 @@ first message to the agent's first message.
     - set numResponsesResult =
       `ChatMetrics.AgentMetrics.NumResponses`
 
-- Final_result = divide (sum of totalResponseTimeInMillisResult) / (sum of
+- Final\_result = divide (sum of totalResponseTimeInMillisResult) / (sum of
   numResponsesResult)
 - Further divide the result by 1000.0 to convert milliseconds to seconds
 
@@ -2641,7 +2645,7 @@ only supports filtering and grouping by channel = CHAT.
   - If present, set result =
     `ChatMetrics.ContactMetrics.TotalBotMessages`
 
-- final_result = average of result across all contact ids not skipped
+- final\_result = average of result across all contact ids not skipped
 
 ## Average case resolution time
 
@@ -2692,7 +2696,7 @@ timestamp to disconnect timestamp. For information about a contact, see [Contact
 
   - Else, skip this record.
 
-- Return final_result = sum of all the result values / total number of contact
+- Return final\_result = sum of all the result values / total number of contact
   records (excluding skipped records).
 
 ## Average contacts per case
@@ -2747,7 +2751,7 @@ CHAT.
   - If present, set result =
     `ChatMetrics.ContactMetrics.ConversationCloseTimeInMillis`
 
-- Return final_result = average of the result values across all contact records
+- Return final\_result = average of the result values across all contact records
   not skipped
 
 ## Average conversation duration
@@ -2819,7 +2823,7 @@ notice a value of 0 on the report for them.
     then skip this record.
   -
 
-- Return final_result = sum of all the result values / total number of contact
+- Return final\_result = sum of all the result values / total number of contact
   records (excluding skipped records.
 
 ## Average customer hold time all contacts
@@ -2853,7 +2857,7 @@ calculation includes contacts that were never put on hold.
   - Else, all above conditions checked and nothing added to final result,
     then skip this record.
 
-- Return final_result = sum of all the result values / total number of all
+- Return final\_result = sum of all the result values / total number of all
   contact records (excluding skipped records).
 
 ## Average customer message length
@@ -2926,7 +2930,7 @@ only supports filtering and grouping by channel = CHAT.
     `ChatMetrics.CustomerMetrics.MessagesSent` attribute
     value
 
-- Return final_result = average of the result values across all contact records
+- Return final\_result = average of the result values across all contact records
   not skipped
 
 ## Average customer response time
@@ -3084,7 +3088,7 @@ time.
 
 **Calculation logic**:
 
-- Check flow_endTimestamp present?
+- Check flow\_endTimestamp present?
 - Calculate duration in milliseconds (end time - start time)
 - Convert to seconds (duration / 1000.0)
 
@@ -3130,17 +3134,17 @@ identifying opportunities for process improvements and training.
 - For each contact record
 
   - If Agent.AgentInteractionDuration is present, then set
-    agent_interaction = Agent.AgentInteractionDuration.
-  - If Agent.CustomerHoldDuration is present, then set customer_hold =
+    agent\_interaction = Agent.AgentInteractionDuration.
+  - If Agent.CustomerHoldDuration is present, then set customer\_hold =
     Agent.CustomerHoldDuration.
   - If Agent.AfterContactWorkDuration is present, then set
-    after_contact_work = Agent.AfterContactWorkDuration.
-  - If Agent.AgentPauseDuration is present, then set agent_pause =
+    after\_contact\_work = Agent.AfterContactWorkDuration.
+  - If Agent.AgentPauseDuration is present, then set agent\_pause =
     Agent.AgentPauseDuration. If all fields ARE null, then skip this record
-  - Else, set result = sum of agent_interaction, customer_hold,
-    after_contact_work and agent_pause.
+  - Else, set result = sum of agent\_interaction, customer\_hold,
+    after\_contact\_work and agent\_pause.
 
-- Return final_result = sum of all the result values / total number of all
+- Return final\_result = sum of all the result values / total number of all
   contact records (excluding skipped records).
 
 ## Average holds
@@ -3174,7 +3178,7 @@ optimization.
     Agent.NumberOfHolds.
   - Else, set result = 0.
 
-- Return final_result = sum of all the result values / total number of all
+- Return final\_result = sum of all the result values / total number of all
   contact records (excluding skipped records).
 
 ## Average messages
@@ -3270,7 +3274,7 @@ parameter set as follows:
 
 **Calculation logic**:
 
-- Average after contact work time where INITIATION_METHOD = OUTBOUND.
+- Average after contact work time where INITIATION\_METHOD = OUTBOUND.
 
 ## Average outbound agent interaction time
 
@@ -3307,7 +3311,7 @@ parameter set as follows:
   - If Agent.AgentInteractionDuration is present, then set result =
     Agent.AgentInteractionDuration.
 
-- Return final_result = average of the result values across all outbound contact
+- Return final\_result = average of the result values across all outbound contact
   records.
 
 ## Average queue abandon time
@@ -3349,15 +3353,15 @@ staffing, leading to poor customer satisfaction.
   - If Agent.ConnectedToAgentTimestamp is present, then skip this
     record.
   - If NextContactId is present, then skip this record
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND ContactTraceRecord.TransferCompletedTimestamp is present), then skip
     this record.
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND TransferCompletedTimestamp is present), then skip this
     record.
   - Else, set result = QueueInfo.Duration .
 
-- Return final_result = average of the result values across all contact
+- Return final\_result = average of the result values across all contact
   records.
 
 ## Average queue abandon time - customer first callback
@@ -3377,8 +3381,8 @@ considered abandoned if it was removed from a queue but not answered by an agent
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
 
-  - MetricFilterKey = INITIATION_METHOD
-  - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
+  - MetricFilterKey = INITIATION\_METHOD
+  - MetricFilterValues = CALLBACK\_CUSTOMER\_FIRST\_DIALED
 
 **How to access using the Connect Customer admin website**:
 
@@ -3394,15 +3398,15 @@ considered abandoned if it was removed from a queue but not answered by an agent
   - If Agent.ConnectedToAgentTimestamp is present, then skip this
     record.
   - If NextContactId is present, then skip this record.
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND ContactTraceRecord.TransferCompletedTimestamp is present), then skip
     this record.
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND TransferCompletedTimestamp is present), then skip this
     record.
   - Else, set result = QueueInfo.Duration.
 
-- Return final_result = average of the result values across all contact
+- Return final\_result = average of the result values across all contact
   records.
 
 **Notes**:
@@ -3451,7 +3455,7 @@ better a customer experience.
   - If QueueInfo.Duration is NOT present, then skip this record.
   - Else, set result = QueueInfo.Duration.
 
-- Return final_result = average of the result values across all contact
+- Return final\_result = average of the result values across all contact
   records.
 
 ## Average queue answer time - customer first callback
@@ -3483,7 +3487,7 @@ first callback before being answered by an agent.
   - Else, set result = ContactTraceRecord.CallbackTotalQueueDurationMillis
     / 1000.
 
-- Return final_result = average of the result values across all contact
+- Return final\_result = average of the result values across all contact
   records.
 
 **Notes**:
@@ -3554,14 +3558,14 @@ contacts, leading to better customer satisfaction.
   - If Agent.AfterContactWorkEndTimestamp is present AND
     Agent.AfterContactWorkEndTimestamp > DisconnectTimestamp, then
 
-    - set end_time = Agent.AfterContactWorkEndTimestamp.
+    - set end\_time = Agent.AfterContactWorkEndTimestamp.
 
-  - Else, set end_time = DisconnectTimestamp.
-  - set diff_value = end_time - InitiationTimestamp
-  - If diff_value > 0, then set result = diff_value.
+  - Else, set end\_time = DisconnectTimestamp.
+  - set diff\_value = end\_time - InitiationTimestamp
+  - If diff\_value > 0, then set result = diff\_value.
   - Else, set result = 0.
 
-- Return final_result = average of the result values across all contact
+- Return final\_result = average of the result values across all contact
   records.
 
 ## Average speed of answer - customer first callback dialed
@@ -3582,8 +3586,8 @@ remains in queue until the whisper is completed.
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
 
-  - MetricFilterKey = INITIATION_METHOD
-  - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
+  - MetricFilterKey = INITIATION\_METHOD
+  - MetricFilterValues = CALLBACK\_CUSTOMER\_FIRST\_DIALED
 
 **How to access using the Connect Customer admin website**:
 
@@ -3600,7 +3604,7 @@ remains in queue until the whisper is completed.
   - If QueueInfo.Duration is NOT present, then skip this record.
   - Else, set result = QueueInfo.Duration.
 
-- Return final_result = average of the result values across all contact
+- Return final\_result = average of the result values across all contact
   records.
 
 **Notes**:
@@ -3687,7 +3691,7 @@ connected to an agent after they answer their first callback.
     this record.
   - If ContactTraceRecord.InitiationMethod is NOT present or
     ContactTraceRecord.InitiationMethod is NOT
-    CALLBACK_CUSTOMER_FIRST_DIALED, then skip this record.
+    CALLBACK\_CUSTOMER\_FIRST\_DIALED, then skip this record.
   - If Agent.ConnectedToAgentTimestamp is NOT present, then set the
     record's wait time to the contact record's
     (ContactTraceRecord.DisconnectTimestamp -
@@ -3695,7 +3699,7 @@ connected to an agent after they answer their first callback.
   - Else, set the record's wait time to (Agent.ConnectedToAgentTimestamp -
     ContactTraceRecord.GreetingEndTimestamp) / 1000.
 
-- Return final_result = average record wait time across all contact
+- Return final\_result = average record wait time across all contact
   records.
 
 **Notes**:
@@ -3911,12 +3915,12 @@ customer did not answer the call.
     record.
   - If ContactTraceRecord.NextContactId is NOT present, then skip this
     record.
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND ContactTraceRecord.TransferCompletedTimestamp is present), then skip
     this record.
   - If all above conditions checked, then count this record as 1.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Callback attempts - customer first callback
 
@@ -3934,8 +3938,8 @@ first time, but the customer did not answer the call.
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
 
-  - MetricFilterKey = INITIATION_METHOD
-  - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
+  - MetricFilterKey = INITIATION\_METHOD
+  - MetricFilterValues = CALLBACK\_CUSTOMER\_FIRST\_DIALED
 
 **How to access using the Connect Customer admin website**:
 
@@ -3952,12 +3956,12 @@ first time, but the customer did not answer the call.
     record.
   - If ContactTraceRecord.NextContactId is NOT present, then skip this
     record.
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND ContactTraceRecord.TransferCompletedTimestamp is present), then skip
     this record.
   - If all above conditions checked, then count this record as 1.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 **Notes**:
 
@@ -4147,7 +4151,7 @@ For a list of all Outbound campaigns driven metrics, see [Outbound campaign metr
 
 ## Campaign send exclusions
 
-This metric measures the count of outbound campaign send attempts that were excluded from the targeted segment during a campaign execution. Example exclusion reasons: MISSING_TIMEZONE, MISSING_CHANNEL
+This metric measures the count of outbound campaign send attempts that were excluded from the targeted segment during a campaign execution. Example exclusion reasons: MISSING\_TIMEZONE, MISSING\_CHANNEL
 
 **Metric type**: Integer
 
@@ -4165,7 +4169,7 @@ This metric measures the count of outbound campaign send attempts that were excl
 
 **Notes**:
 
-- For more details on the exclusion reasons, see campaign_event_type under [Outbound Campaign Events](data-lake.md#campaign-events "data-lake.md#campaign-events") in the Data Lake documentation.
+- For more details on the exclusion reasons, see campaign\_event\_type under [Outbound Campaign Events](data-lake.md#campaign-events "data-lake.md#campaign-events") in the Data Lake documentation.
 - Data for this metric is available starting from April 30, 2025 0:00:00 GMT.
 
 For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
@@ -4200,7 +4204,7 @@ This metric counts all the cases created.
 
 **Calculation logic**:
 
-- Check case_create_time createdDataTime present?
+- Check case\_create\_time createdDataTime present?
 - Return count = 1 for each case, or null if not present.
 
 **Notes**:
@@ -4232,7 +4236,7 @@ This metric measures the number of times cases have been reopened.
 
 **Calculation logic**:
 
-- Check case_reopened_time lastReopenedDateTime present?
+- Check case\_reopened\_time lastReopenedDateTime present?
 - Return count = 1 for each reopened case.
 
 **Notes**:
@@ -4264,7 +4268,7 @@ This metric measures the number of times cases have been resolved.
 
 **Calculation logic**:
 
-- Check case_resolved_time lastCloseDateTime present?
+- Check case\_resolved\_time lastCloseDateTime present?
 - Return count = 1 for each resolved case.
 
 **Notes**:
@@ -4360,11 +4364,11 @@ Outbound contacts don't start in a flow, so outbound contacts aren't included.
       contactFlowEndTime = TransferCompletedTimestamp
     - If QueueInfo.EnqueueTimestamp is present, the set
       contactFlowEndTime = QueueInfo.EnqueueTimestamp
-    - set diff_value = contactFlowEndTime -
+    - set diff\_value = contactFlowEndTime -
       ConnectedToSystemTimestamp
-    - set max_value = max of (diff_value, 0)
+    - set max\_value = max of (diff\_value, 0)
 
-- Return final_result = sum of the max_value across all contacts.
+- Return final\_result = sum of the max\_value across all contacts.
 
 ## Contact handle time
 
@@ -4391,18 +4395,18 @@ example, Training would be a custom status.)
 - For each contact record
 
   - If Agent.AgentInteractionDuration is present, then set
-    agent_interaction = Agent.AgentInteractionDuration.
-  - If Agent.CustomerHoldDuration is present, then set customer_hold =
+    agent\_interaction = Agent.AgentInteractionDuration.
+  - If Agent.CustomerHoldDuration is present, then set customer\_hold =
     Agent.CustomerHoldDuration.
   - If Agent.AfterContactWorkDuration is present, then set
-    after_contact_work = Agent.AfterContactWorkDuration.
-  - If Agent.AgentPauseDuration is present, then set agent_pause =
+    after\_contact\_work = Agent.AfterContactWorkDuration.
+  - If Agent.AgentPauseDuration is present, then set agent\_pause =
     Agent.AgentPauseDuration.
   - If all above fields ARE null, then skip this record.
-  - Else set result = sum of agent_interaction, customer_hold,
-    after_contact_work and agent_pause.
+  - Else set result = sum of agent\_interaction, customer\_hold,
+    after\_contact\_work and agent\_pause.
 
-- Return final_result = sum of the result values across all contact
+- Return final\_result = sum of the result values across all contact
   records.
 
 **Notes**:
@@ -4432,7 +4436,7 @@ contact state is Connected.
 ## Contact volume
 
 This metric counts the contacts that entered a queue with the following initiation
-methods: Inbound, Transfer, Queue_Transfer, Callback, and API.
+methods: Inbound, Transfer, Queue\_Transfer, Callback, and API.
 
 **Metric type**: Integer
 
@@ -4458,7 +4462,7 @@ for the first callback.
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
 
-  - MetricFilterKey = INITIATION_METHOD
+  - MetricFilterKey = INITIATION\_METHOD
   - MetricFilterValues = CALLBACK
 
 **How to access using the Connect Customer admin website**:
@@ -4471,7 +4475,7 @@ for the first callback.
   processed, effectively counting the number of contact records present within the
   specified time range.
 - For each contact record processed during the specified time period with an
-  INITIATION_METHOD of CALLBACK, the calculation returns a value of 1.
+  INITIATION\_METHOD of CALLBACK, the calculation returns a value of 1.
 - The metric aggregates these individual values of 1 using the SUM calculation
   statistic, resulting in the total count of contacts created within the time
   range.
@@ -4497,8 +4501,8 @@ for the first callback.
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
 
-  - MetricFilterKey = INITIATION_METHOD
-  - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_QUEUED
+  - MetricFilterKey = INITIATION\_METHOD
+  - MetricFilterValues = CALLBACK\_CUSTOMER\_FIRST\_QUEUED
 
 **How to access using the Connect Customer admin website**:
 
@@ -4510,7 +4514,7 @@ for the first callback.
   processed, effectively counting the number of contact records present within the
   specified time range.
 - For each contact record processed during the specified time period with an
-  INITIATION_METHOD of CALLBACK_CUSTOMER_FIRST_QUEUED, the calculation returns a
+  INITIATION\_METHOD of CALLBACK\_CUSTOMER\_FIRST\_QUEUED, the calculation returns a
   value of 1.
 - The metric aggregates these individual values of 1 using the SUM calculation
   statistic, resulting in the total count of contacts created within the time
@@ -4565,12 +4569,12 @@ customers abandoned the queue before being connected to an agent.
     record.
   - If ContactTraceRecord.NextContactId is present, then skip this
     record.
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND TransferCompletedTimestamp is present), then skip this
     record.
   - If all above conditions checked, then count this record as 1.
 
-- Return final_result = ssum of the counts across all contacts.
+- Return final\_result = ssum of the counts across all contacts.
 
 ## Contacts abandoned - customer first callback
 
@@ -4590,8 +4594,8 @@ abandoned the queue before being connected to an agent.
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
 
-  - MetricFilterKey = INITIATION_METHOD
-  - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
+  - MetricFilterKey = INITIATION\_METHOD
+  - MetricFilterValues = CALLBACK\_CUSTOMER\_FIRST\_DIALED
 
 **How to access using the Connect Customer admin website**:
 
@@ -4607,12 +4611,12 @@ abandoned the queue before being connected to an agent.
     record.
   - If ContactTraceRecord.NextContactId is present, then skip this
     record.
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND TransferCompletedTimestamp is present), then skip this
     record.
   - If all above conditions checked, then count this record as 1.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 **Notes**:
 
@@ -4652,13 +4656,13 @@ have a contact that goes longer than 7 days.
   - If Agent.ConnectedToAgentTimestamp is present, then skip this
     record.
   - If NextContactId is present, then skip this record.
-  - If (PreDisconnectState is present AND PreDisconnectState == "IN_QUEUE"
+  - If (PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE"
     AND TransferCompletedTimestamp is present), then skip this
     record.
   - If QueueInfo.Duration is less than the value of X, then count this
     record as 1.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 **Notes**:
 
@@ -4739,7 +4743,7 @@ have a contact that goes longer than 7 days.
   - If QueueInfo.Duration is less than value of X, then count this
     record.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Contacts created
 
@@ -4816,11 +4820,11 @@ queue.
 
 - For each contact record
 
-  - If PreDisconnectState is present AND PreDisconnectState == “IN_QUEUE”,
+  - If PreDisconnectState is present AND PreDisconnectState == “IN\_QUEUE”,
     then count this record as 1.
   - Else, skip this record.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Contacts handled
 
@@ -4860,7 +4864,7 @@ handled by their agents.
   - If Agent.ConnectedToAgentTimestamp is present, then count this record
     as 1.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 **Notes**:
 
@@ -4924,8 +4928,8 @@ dialed for their first callback.
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
 
-  - MetricFilterKey = INITIATION_METHOD
-  - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
+  - MetricFilterKey = INITIATION\_METHOD
+  - MetricFilterValues = CALLBACK\_CUSTOMER\_FIRST\_DIALED
 
 **How to access using the Connect Customer admin website**:
 
@@ -4938,8 +4942,8 @@ dialed for their first callback.
   - If Agent.ConnectedToAgentTimestamp is present, then count this record
     as 1.
 
-- Return final_result = sum of the counts across all
-  CALLBACK_CUSTOMER_FIRST_DIALED contacts.
+- Return final\_result = sum of the counts across all
+  CALLBACK\_CUSTOMER\_FIRST\_DIALED contacts.
 
 **Notes**:
 
@@ -4954,8 +4958,8 @@ contacts initiated using one of the following methods:
 
 - Inbound call (INBOUND)
 - Transfer to agent (TRANSFER)
-- Transfer to queue (QUEUE_TRANSFER)
-- Queue-to-queue transfer (QUEUE_TRANSFER)
+- Transfer to queue (QUEUE\_TRANSFER)
+- Queue-to-queue transfer (QUEUE\_TRANSFER)
 
 It also includes contacts for all channels, such as voice, chat, tasks, and
 email.
@@ -5041,12 +5045,12 @@ was on hold.
 
 - For each contact record
 
-  - If ContactTraceRecord.DisconnectReason == AGENT_DISCONNECT and
-    PreDisconnectState == CONNECTED_ONHOLD, then count this record as
+  - If ContactTraceRecord.DisconnectReason == AGENT\_DISCONNECT and
+    PreDisconnectState == CONNECTED\_ONHOLD, then count this record as
   1.
   - Else, skip this record.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Contacts hold customer disconnect
 
@@ -5098,11 +5102,11 @@ hold times or inefficient call handling procedures.
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
     record.
   - If PreDisconnectState is NOT present, then skip this record.
-  - If PreDisconnectState == "CONNECTED_ONHOLD", then count this
+  - If PreDisconnectState == "CONNECTED\_ONHOLD", then count this
     record.
   - Else, skip this record
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Contacts in queue
 
@@ -5190,7 +5194,7 @@ This metric counts the contacts put on hold by an agent one or more times.
 
 - If Agent.NumberOfHolds is NOT present, then skip this record.
 - If Agent.NumberOfHolds is present, then count this record.
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Contacts queued
 
@@ -5225,7 +5229,7 @@ center performance.
   - If QueueInfo.EnqueueTimestamp is present, then count this record as
   1.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 **Notes**:
 
@@ -5287,7 +5291,7 @@ For X you can choose from pre-set times in seconds: 15, 20, 25, 30, 45, 60, 90, 
   - If QueueInfo.Duration less than value of X, then count this record as
     1
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Contacts resolved in X seconds
 
@@ -5324,14 +5328,14 @@ inquiries within a specified time threshold.
     Agent.AfterContactWorkEndTimestamp is greater than DisconnectTimestamp,
     then:
 
-    - set end_time = Agent.AfterContactWorkEndTimestamp.
+    - set end\_time = Agent.AfterContactWorkEndTimestamp.
 
-  - Else, set end_time = DisconnectTimestamp.
-  - set diff_value = end_time - InitiationTimestamp.
-  - If diff_value is greater than 0, then set result = diff_value.
+  - Else, set end\_time = DisconnectTimestamp.
+  - set diff\_value = end\_time - InitiationTimestamp.
+  - If diff\_value is greater than 0, then set result = diff\_value.
   - Else, set result = 0.
 
-- Return final_result = sum of the counts across all contact records.
+- Return final\_result = sum of the counts across all contact records.
 
 ## Contacts transferred in
 
@@ -5457,7 +5461,7 @@ Following is the difference between **Contacts transferred out** and
     skip this record.
   - Else, then count this record.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Contacts transferred out by agent
 
@@ -5560,10 +5564,10 @@ out from their original queue to a different queue.
   - If TransferCompletedTimestamp is NOT present, then skip this
     record.
   - If PreDisconnectState is NOT present, then skip this record.
-  - If PreDisconnectState != "IN_QUEUE", then skip this record.
+  - If PreDisconnectState != "IN\_QUEUE", then skip this record.
   - If all above conditions checked, then count this record as 1.
 
-- Return final_result = sum of the counts across all contacts.
+- Return final\_result = sum of the counts across all contacts.
 
 ## Conversations abandoned
 
@@ -5596,7 +5600,7 @@ CHAT.
     absent skip the record
   - If present then count this record.
 
-- Return final_result = sum of the counts from matching records
+- Return final\_result = sum of the counts from matching records
 
 ## Current cases
 
@@ -5665,7 +5669,7 @@ does not include time spent in a queue.
   - Else all above conditions checked and nothing added to final result,
     then skip this record.
 
-- Return final_result = sum of all the result values from matching
+- Return final\_result = sum of all the result values from matching
   records.
 
 ## Customer talk time percent
@@ -5722,7 +5726,7 @@ or SMS message outcomes that were successfully sent to Connect Customer to be de
 - For details about telephony disposition definitions, see DisconnectReason
   for outbound campaigns and AnsweringMachineDetectionStatus in the
   [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
-  For details about email and SMS disposition definitions, see campaign_event_type
+  For details about email and SMS disposition definitions, see campaign\_event\_type
   in the [Outbound campaign events](data-lake-outbound-campaigns-data.md#data-lake-oc-events "data-lake-outbound-campaigns-data.md#data-lake-oc-events") table.
 - Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode and
   November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes.
@@ -5886,7 +5890,7 @@ the specified interval
 
 **Calculation logic**:
 
-- Check flow_endTimestamp present?
+- Check flow\_endTimestamp present?
 - Return Count = 1 if end timestamp is present, else return 0.
 
 **Notes**:
@@ -5900,23 +5904,23 @@ the specified interval
 
   - **DROPPED**: When a contact drops from the flow
     before reaching terminal block.
-  - **DISCONNECTED_PARTICIPANT**: When a contact reaches
+  - **DISCONNECTED\_PARTICIPANT**: When a contact reaches
     a [Disconnect / hang up](disconnect-hang-up.md "disconnect-hang-up.md") terminal block in a
     flow.
-  - **ENDED_FLOW_EXECUTION**: When a contact reaches an
+  - **ENDED\_FLOW\_EXECUTION**: When a contact reaches an
     [End flow / Resume](end-flow-resume.md "end-flow-resume.md") terminal block in a
     flow.
-  - **TRANSFERED_TO_AGENT**: When a contact is
+  - **TRANSFERED\_TO\_AGENT**: When a contact is
     transferred to an agent after running a [Transfer to agent
     (beta)](transfer-to-agent-block.md "transfer-to-agent-block.md") block.
-  - **TRANSFERED_TO_PHONE_NUMBER**: When a contact is
+  - **TRANSFERED\_TO\_PHONE\_NUMBER**: When a contact is
     transferred to a phone number specified in a [Transfer to phone
     number](transfer-to-phone-number.md "transfer-to-phone-number.md") block.
-  - **TRANSFERED_TO_FLOW**: When a contact is transferred
+  - **TRANSFERED\_TO\_FLOW**: When a contact is transferred
     to another flow specified in a [Transfer to flow](transfer-to-flow.md "transfer-to-flow.md") block.
-  - **TRANSFERED_TO_QUEUE**: When a contact is
+  - **TRANSFERED\_TO\_QUEUE**: When a contact is
     transferred to agent queue by using a [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block.
-  - **RETURNED_TO_FLOW**: When a contact returns back to
+  - **RETURNED\_TO\_FLOW**: When a contact returns back to
     its original flow from a module.
 
 ## Flows outcome percentage
@@ -5972,7 +5976,7 @@ where the start time is between the start and end interval specified.
 
 **Calculation logic**:
 
-- Check flow_startTimestamp present?
+- Check flow\_startTimestamp present?
 - Return Count = 1 if startTimestamp present, else return 0.
 
 **Notes**:
@@ -6029,7 +6033,7 @@ start time and end time.
 
 **Calculation logic**:
 
-- Check flow_endTimestamp present?
+- Check flow\_endTimestamp present?
 - Calculate duration in milliseconds (end time - start time).
 - Return maximum duration in seconds (duration / 1000.0).
 
@@ -6105,7 +6109,7 @@ start time and end time.
 
 **Calculation logic**:
 
-- Check flow_endTimestamp present?
+- Check flow\_endTimestamp present?
 - Calculate duration in milliseconds (end time - start time).
 - Return maximum duration in seconds (duration / 1000.0).
 
@@ -6358,7 +6362,8 @@ This metric doesn't mean that the agent was spending their time unproductively.
 
 **Calculation logic**:
 
-- (`SUM_NON_PRODUCTIVE_TIME_AGENT`/`SUM_ONLINE_TIME_AGENT`) \* 100
+- (`SUM_NON_PRODUCTIVE_TIME_AGENT`/`SUM_ONLINE_TIME_AGENT`)
+  \* 100
 
 ## Percent bot conversations outcome
 
@@ -6382,7 +6387,7 @@ between the specified start and end time.
 **Calculation logic**:
 
 - (Count of conversations with
-  BOT_CONVERSATION_OUTCOME_TYPE)/(Total count of conversations) \* 100
+  BOT\_CONVERSATION\_OUTCOME\_TYPE)/(Total count of conversations) \* 100
 
 **Notes**:
 
@@ -6411,7 +6416,7 @@ module) started between the specified start and end time.
 
 **Calculation logic**:
 
-- (Count of intents with BOT_INTENT_OUTCOME_TYPE)/(Total
+- (Count of intents with BOT\_INTENT\_OUTCOME\_TYPE)/(Total
   count of intents) \* 100
 
 For a list of all bot metrics, see [Connect Customer bot metrics and analytics](bot-metrics.md "bot-metrics.md").
@@ -6669,9 +6674,9 @@ This metric helps organizations:
 
 **Related metrics**:
 
-- AGENTS_ONLINE (includes all online agents regardless of status)
-- AGENTS_NON_PRODUCTIVE (shows agents in custom statuses)
-- AGENTS_AVAILABLE (shows agents ready for contact routing)
+- AGENTS\_ONLINE (includes all online agents regardless of status)
+- AGENTS\_NON\_PRODUCTIVE (shows agents in custom statuses)
+- AGENTS\_AVAILABLE (shows agents ready for contact routing)
 
 **Common use cases**:
 
@@ -6695,13 +6700,13 @@ This metric helps organizations:
 
 **Notes**:
 
-- The AGENTS_STAFFED metric is crucial for workforce management and operations
+- The AGENTS\_STAFFED metric is crucial for workforce management and operations
   as it provides the clearest picture of actual operational capacity by counting
   only those agents who are truly available for work (not in custom statuses).
   It's often used in conjunction with other metrics to understand the full
   staffing situation and make informed decisions about resource allocation and
   management.
-- The key distinction between this and other metrics like AGENTS_ONLINE is that
+- The key distinction between this and other metrics like AGENTS\_ONLINE is that
   it specifically excludes agents in custom statuses, providing a more accurate
   view of actual operational capacity.
 - For information about why this metric may appear incorrect in a report, see
@@ -6824,7 +6829,7 @@ The percentage of test runs completed with a failed outcome.
 
 **Calculation logic**:
 
-- TEST_CASE_EXECUTION_FAILED_COUNT / TEST_CASE_EXECUTION_COUNT
+- TEST\_CASE\_EXECUTION\_FAILED\_COUNT / TEST\_CASE\_EXECUTION\_COUNT
 
 ## Test case success rate
 
@@ -6840,4 +6845,4 @@ The percentage of test runs completed with a successful outcome.
 
 **Calculation logic**:
 
-- TEST_CASE_EXECUTION_SUCCESS_COUNT / TEST_CASE_EXECUTION_COUNT
+- TEST\_CASE\_EXECUTION\_SUCCESS\_COUNT / TEST\_CASE\_EXECUTION\_COUNT

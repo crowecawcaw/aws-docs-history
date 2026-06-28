@@ -11,7 +11,7 @@ contact center.
   the services that you use. To create an AWS account, see [How/
   do I create and activate an AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/")
 - To allow a user to create an instance, ensure that they have the permissions
-  granted by the **AmazonConnect_FullAccess** policy.
+  granted by the **AmazonConnect\_FullAccess** policy.
 - For a list of the minimum IAM permissions required to create an instance, see
   [Required permissions for using custom IAM policies to manage access to the Connect Customer console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
 - By default when you create an Connect Customer instance, Next Generation Connect Customer is
@@ -129,6 +129,10 @@ exception:**
 5. To enable up to six participants on a chat, choose **Enable
    Multi-Party Chats and Enhanced Monitoring for Chat**.
 6. Choose **Next**.
+
+###### Note
+
+Chat is enabled by default for all Connect Customer instances.
 
 ## Step 4: Data storage
 

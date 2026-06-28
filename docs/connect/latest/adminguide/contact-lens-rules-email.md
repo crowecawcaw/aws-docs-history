@@ -42,7 +42,7 @@ the rule. For more information, see:
      for evaluation forms](create-evaluation-rules.md#rule-conditions-eval "create-evaluation-rules.md#rule-conditions-eval").
 
 5. When you define actions for the rule, choose **Send email
-   notification** for the action.
+notification** for the action.
 
 ![The new rule page, the add action dropdown list, the send email notification action.](images/contact-lens-rules-email-action.png) 6. In the **Send email notification** section, choose
 who is going to receive the email by using one of these options:
@@ -81,8 +81,7 @@ Other rule types support different variables:
     * Rules for cases allow you to insert **rule name, instance URL** and **case ID**.
 
 8. Choose **Next**. Review your selections, and then
-   choose **Save**.
-9. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
+choose **Save**. 9. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.
 

@@ -17,7 +17,7 @@ agent event stream:
   contact, and they haven't missed it.
 - CONNECTED - The agent has accepted the contact. Now the customer is in a
   conversation with the agent.
-- CONNECTED_ONHOLD - They are in a conversation with the agent, and the
+- CONNECTED\_ONHOLD - They are in a conversation with the agent, and the
   agent has put the customer on hold.
 - PAUSED - The contact was paused. This is only applicable to task contacts.
 - MISSED - The contact was missed by the agent.

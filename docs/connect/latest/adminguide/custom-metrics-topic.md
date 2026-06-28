@@ -1,6 +1,6 @@
 # Custom metrics
 
-If your Connect instance is enabled Unlimited AI, you can create and manage custom
+If your Connect Customer instance has Unlimited AI pricing enabled, you can create and manage custom
 metrics with advanced filters and functions on metric primitives and have them available
 for your dashboards.
 
@@ -101,24 +101,24 @@ metrics, please see [link](metric-primitive-definitions.md "metric-primitive-def
 
 ###### Steps to create a custom metrics with Metric Builder:
 
-1. Choose the “Create Metric” button on the main dashboard page.
-2. In the “Create Custom Metric” page, select the “Metric Builder”
+1. Choose the "Create Metric" button on the main dashboard page.
+2. In the "Create Custom Metric" page, select the "Metric Builder"
    option.
 3. Start by defining the components for a custom metric.
 4. For example, we want to create a rate metric that calculates the
    percentage of total contacts handled that are SMS that is a channel
    subtype of Chat.
 
-   1. Specify “M1” or any variable name for “contacts handled”, then
-      add optional filters: channel = “Chat” and subtype =
-      “SMS”.
-   2. Next specify “M2” for another metric primitive. For example,
-      “contacts handled” with no filters.
+   1. Specify "M1" or any variable name for "contacts handled", then
+      add optional filters: channel = "Chat" and subtype =
+      "SMS".
+   2. Next specify "M2" for another metric primitive. For example,
+      "contacts handled" with no filters.
 
-5. In the definition, specify “100 \* SUM(M1) / SUM(M2)” which will be a
+5. In the definition, specify "100 \* SUM(M1) / SUM(M2)" which will be a
    rate metric that defines sum of all contacts handled for chat SMS
    channel versus all contacts handled.
-6. Select display format as “Percent”.
+6. Select display format as "Percent".
 7. Select appropriate value for optional field positive trend
    indicator.
 8. Specify a unique name for your metric.
@@ -126,7 +126,7 @@ metrics, please see [link](metric-primitive-definitions.md "metric-primitive-def
 10. Check if there are any errors in the form, the "Save" button will
     automatically become enabled once there are no
     errors.
-11. Choose “Save” to create your custom
+11. Choose "Save" to create your custom
     metric.
 12. When this custom metric is added to a widget, appropriate grouping
     will apply to the metric.
@@ -189,15 +189,15 @@ format:**
 Specifies the display format for
 calculated custom metric value on dashboards.
 
-- Percent - “%” added to the end of the calculated custom metric
+- Percent - "%" added to the end of the calculated custom metric
   value display
 - Integer - integer value on the calculated custom metric. If
-  the calculated metric is “3.141592”, the value will be
-  “3.00”
+  the calculated metric is "3.141592", the value will be
+  "3.00"
 - Double - decimal value on the calculated custom metric. If the
-  calculated metric is “3.141592”, the displayed value will be
-  “3.142” after rounding up to 3 decimal places.
-- Seconds - “HH:MM:SS” formatted value on the calculated custom
+  calculated metric is "3.141592", the displayed value will be
+  "3.142" after rounding up to 3 decimal places.
+- Seconds - "HH:MM:SS" formatted value on the calculated custom
   metric.
   **Positive trend
   indicator:**

@@ -4,11 +4,11 @@ The following table lists all the fields in the Customer Profiles standard
 profile object.
 
 | Standard profile field | Data type             | Description                                                                                            |
-| ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------ | --------------- | --------- |
+| ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------ |
 | ProfileId              | String                | The unique identifier of a customer profile.                                                           |
 | AccountNumber          | String                | A unique account number that you have given to the<br>customer.                                        |
 | AdditionalInformation  | String                | Any additional information relevant to the<br>customer's profile.                                      |
-| PartyType              | String                | The type of profile used to describe the<br>customer.<br>Valid values: INDIVIDUAL                      | BUSINESS        | <br>OTHER |
+| PartyType              | String                | The type of profile used to describe the<br>customer.<br>Valid values: INDIVIDUAL                      | BUSINESS         | <br>OTHER |
 | BusinessName           | String                | The name of the customer's business.                                                                   |
 | FirstName              | String                | The customer's first name.                                                                             |
 | MiddleName             | String                | The customer's middle name.                                                                            |
@@ -27,7 +27,7 @@ profile object.
 | MailingAddress         | Address               | The customer's mailing address.                                                                        |
 | BillingAddress         | Address               | The customer's billing address.                                                                        |
 | Attributes             | String-to-string map  | Key-value pair of attributes of a customer<br>profile.                                                 |
-| ProfileType            | String                | The type of the profile.<br>Valid values: PROFILE                                                      | ACCOUNT_PROFILE |
+| ProfileType            | String                | The type of the profile.<br>Valid values: PROFILE                                                      | ACCOUNT\_PROFILE |
 | EngagementPreferences  | EngagementPreferences | The customer or account’s engagement<br>preferences.                                                   |
 
 The standard profile objects are indexed by the keys in the following
@@ -70,7 +70,7 @@ with the search value.
 ## ContactPreference data type
 
 | Standard profile field | Data type | Description                                                        |
-| ---------------------- | --------- | ------------------------------------------------------------------ | ----------------- | ------------------- | ------------------- | ---------------- | -------------------- | -------------------- |
+| ---------------------- | --------- | ------------------------------------------------------------------ |
 | KeyName                | String    | A searchable, unique identifier of a customer<br>profile.          |
 | KeyValue               | String    | The key value used to look up profile based off<br>the keyName.    |
 | ProfileId              | String    | The unique identifier of a customer<br>profile.                    |

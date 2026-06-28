@@ -36,9 +36,9 @@ You can follow these steps when creating or updating a quick response.
 
 1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
-   account assigned to a security profile that has \*\*Content Management - Quick responses
+   account assigned to a security profile that has **Content Management - Quick responses
 
-- Create or Edit\*\* permission.
+- Create or Edit** permission.
 
 2. On the left navigation bar, choose **Content Management**, then
    **Quick responses**.

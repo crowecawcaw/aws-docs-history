@@ -383,7 +383,7 @@ on the evaluation.
 **Usage**
 
 - `{{#if
-`value`}}`
+ `value`}}`
 
 You can replace `y` and
 `n` with other values, such as
@@ -392,7 +392,7 @@ You can replace `y` and
 want returned, depending on the condition.
 
 - `{{#if
-``value``}}`
+ ``value``}}`
 
 Condition is true.
 
@@ -601,8 +601,8 @@ false, then an else statement is returned.
 **Usage**
 
 - `{{not `value`
-yes='`y`'
-no='`n`'}}`
+ yes='`y`'
+ no='`n`'}}`
 
 You can replace `y` and
 `n` with other values, such as
@@ -611,7 +611,7 @@ You can replace `y` and
 want returned, depending on the condition.
 
 - `{{#not
-``value``}}`
+ ``value``}}`
 
 Condition is true.
 
@@ -892,7 +892,7 @@ returns
 _dateFormat_
 
 Sets the default date style for the date in any response. For a
-list of the time zone IDs, see [https://en.wikipedia.org/wiki/List_of_tz_database_time_zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones").
+list of the time zone IDs, see [https://en.wikipedia.org/wiki/List\_of\_tz\_database\_time\_zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones").
 
 **Usage**
 
@@ -904,7 +904,7 @@ The `format` parameter must be one of:
 
 - "`full`": full date format. For example:
   `Tuesday, September 19,
-2020`
+ 2020`
 - "`long`": long date format. For example:
   `September 19, 2020`
 - "`medium`": medium date format. For example:
@@ -1058,7 +1058,7 @@ returns
 _now_
 
 Prints out the current date based on the passed time zone ID. For
-a list of the time zone IDs, see [https://en.wikipedia.org/wiki/List_of_tz_database_time_zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones").
+a list of the time zone IDs, see [https://en.wikipedia.org/wiki/List\_of\_tz\_database\_time\_zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones").
 
 **Usage**
 
@@ -1069,7 +1069,7 @@ The `format` parameter must be one of:
 
 - "`full`": full date format. For example:
   `Tuesday, September 19,
-2020`
+ 2020`
 - "`long`": long date format. For example:
   `September 19, 2020`
 - "`medium`": medium date format. For example:
@@ -1137,7 +1137,7 @@ must be literal. Wildcard characters are not supported.
 In this example, an underscore (\_) replaces a white space.
 
 `{{replace `Location.City`
-`" " "\_"`}}` returns
+`" " "_"`}}` returns
 
 `Los_Angeles` if the `Location.City` is `Los Angeles`.
 

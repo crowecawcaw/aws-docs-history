@@ -216,9 +216,9 @@ Outcome:
 
 - IP addresses between `200.255.0.0 - 200.255.255.255` are
   allowed, minus `(200.255.10.0 - 200.255.10.255 AND
-200.255.40.50)`.
+ 200.255.40.50)`.
 - Effectively, `200.255.0.0 - 200.255.9.255, 200.255.11.0 -
-200.255.40.49, 200.255.40.51 - 200.255.255.255` are
+ 200.255.40.49, 200.255.40.51 - 200.255.255.255` are
   allowed.
 - `192.123.211.211` is effectively ignored since it is not within
   range of the Allowed range.

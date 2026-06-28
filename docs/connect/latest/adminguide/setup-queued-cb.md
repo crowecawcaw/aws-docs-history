@@ -180,11 +180,10 @@ number**, and then choose one of the following:
      than the one where you created your instance.
 
 9. Add a [Set callback number](set-callback-number.md "set-callback-number.md") block to
-   your flow.
-10. Configure the block to set **Type** to
-    **System**, as shown in the following image. For
-    **Attribute**, choose **Store customer
-    input**. This attribute stores the customer's phone number.
+your flow. 10. Configure the block to set **Type** to
+**System**, as shown in the following image. For
+**Attribute**, choose **Store customer
+input**. This attribute stores the customer's phone number.
 
 ![The Properties page of the set callback number block.](images/set-callback-number2.png) 11. Add a [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block. 12. In the **Transfer to queue** block, configure the
 **Transfer to callback queue** tab as shown in the
@@ -222,9 +221,9 @@ The following properties are available:
      In the previous example, we wait 10 minutes between attempts.
 
 13. In the **Optional parameters** section, choose **Set
-    working queue** if you want to transfer the contact to a queue that
-    you set up specifically for callbacks. This option is shown in the following
-    image.
+working queue** if you want to transfer the contact to a queue that
+you set up specifically for callbacks. This option is shown in the following
+image.
 
 ![The optional parameters, set a queue set to callback queue.](images/transfer-to-callback-queue-tab-set-working-queue.png)
 
@@ -300,10 +299,9 @@ block, as shown in the following image.
     		 number.
 
 16. To save and test this flow, configure the other branches and add error
-    handling. To see an example of how this is done, see [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md"). For previous instances, see
-    [Sample queued callback flow in Connect Customer](sample-queued-callback.md "sample-queued-callback.md").
-17. For information about how callbacks appear in real-time metrics reports and
-    contact records, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md").
+handling. To see an example of how this is done, see [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md"). For previous instances, see
+[Sample queued callback flow in Connect Customer](sample-queued-callback.md "sample-queued-callback.md"). 17. For information about how callbacks appear in real-time metrics reports and
+contact records, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md").
 
 ## Callbacks from a chat, task, or email contact
 

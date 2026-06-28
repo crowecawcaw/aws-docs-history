@@ -70,10 +70,10 @@ and use a [Set working queue](set-working-queue.md "set-working-queue.md") block
      **User name**.
 
 6. Add a [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block. You don't need to
-   configure this block. The following image shows the
-   **Success** branch of the **Set working
-   queue** block connecting to the **Transfer to
-   queue** block.
+configure this block. The following image shows the
+**Success** branch of the **Set working
+queue** block connecting to the **Transfer to
+queue** block.
 
 ![The transfer to queue block on the flow designer.](images/agent-to-agent-transfer.png) 7. Save and publish this flow. 8. To show your agents how to transfer chats to another agent, see [Transfer a chat to an agent's queue, with all context preserved](transfer-chats.md "transfer-chats.md").
 

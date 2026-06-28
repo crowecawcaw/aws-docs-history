@@ -281,8 +281,8 @@ flow. 4. Select the [Call phone number](call-phone-number.md "call-phone-number.
      not using them.
 
 6. Add any additional blocks to complete your flow, and connect the
-   **Success** branch of the [Call phone number](call-phone-number.md "call-phone-number.md")
-   block to the next block in the flow.
+**Success** branch of the [Call phone number](call-phone-number.md "call-phone-number.md")
+block to the next block in the flow.
 
 There is no error branch for the block. If a call is not successfully
 initiated, the flow ends and the agent is placed in an

@@ -8,7 +8,7 @@ There are two ways you can delete a quick connect:
 ###### To delete a quick connect
 
 1. Log in to your Connect Customer instance (https://`instance
-name`.my.connect.aws/) with an Admin account or a user account
+ name`.my.connect.aws/) with an Admin account or a user account
    that has **Quick connects - Delete** permissions in its [security profile](connect-security-profiles.md "connect-security-profiles.md"). (To find the
    name of your instance, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").)
 2. On the navigation menu, choose **Routing**, **Quick

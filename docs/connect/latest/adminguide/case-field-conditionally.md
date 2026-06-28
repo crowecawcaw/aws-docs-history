@@ -120,15 +120,14 @@ condition is applied to the **State** field.
 
 ### Example 1: Require agents to enter a reason for closing a case
 
-1.  Create the following condition:
+1. Create the following condition:
 
-        * If **Status** is **Closed**,
-         then a case field will be required. If
-         **Status** is not
-         **Closed**, then a case field will be
-         optional.
-
-    The following image shows how to set up this condition.
+   - If **Status** is **Closed**,
+     then a case field will be required. If
+     **Status** is not
+     **Closed**, then a case field will be
+     optional.
+     The following image shows how to set up this condition.
 
 ![The Create new field condition page, example settings to make a field optional.](images/cfc-example1-2.png) 2. Assign this condition to the **Closed Reason** field
 on the cases template. 3. Result: When agents save a case and the **Closed

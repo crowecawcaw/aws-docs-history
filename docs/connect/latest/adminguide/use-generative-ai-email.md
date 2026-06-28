@@ -108,7 +108,7 @@ agent can:
   response shown in the Connect assistant panel.
 - Choose the Thumbs up or Thumbs down icons to provide immediate feedback to
   their contact center manager so they can improve the AI agent responses. For
-  more information, see [TRANSCRIPT_RESULT_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
+  more information, see [TRANSCRIPT\_RESULT\_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
 - Choose **Copy** to copy the contents of the response. By
   default, the content copied from any of the responses are in raw HTML format
   to work best with Connect Customer's rich text editor for agents responding to email
@@ -156,6 +156,6 @@ practices:
 - Monitor Connect AI agent performance through Amazon CloudWatch logs for:
 
   - Response feedback from your agents. For more information, see
-    [TRANSCRIPT_RESULT_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
+    [TRANSCRIPT\_RESULT\_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
   - Generated email responses shown to agents. For more information,
-    see [TRANSCRIPT_RECOMMENDATION](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
+    see [TRANSCRIPT\_RECOMMENDATION](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").

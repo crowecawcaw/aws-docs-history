@@ -3,7 +3,7 @@
 To enable agents to make outbound calls, assign **Make outbound calls**
 permissions to the agent's security profile as shown in the following image:
 
-![The CCP security profile permissions page, the make outbound calls permission.](images/outboundcalls-security-profile-permissions.png)
+![The CCP security profile permissions page, the make outbound calls permission.](images/SecurityProfile_cloudscape_outbound_calls.png)
 To enable call center managers to create outbound campaigns, assign the following permissions to
 their security profile:
 

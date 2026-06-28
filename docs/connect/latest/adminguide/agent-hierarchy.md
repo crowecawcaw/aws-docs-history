@@ -37,7 +37,7 @@ The following image shows the **Users and Permissions - Agent
 hierarchy** permissions on the **Security profile
 permissions** page.
 
-![The Users and Permissions - Agent hierarchy on the Security profile permissions page.](images/permission-agent-hierarchy.png)
+![The Users and Permissions - Agent hierarchy on the Security profile permissions page.](images/SecurityProfile_cloudscape_users_edit.png)
 
 ## Define your organization's hierarchy levels
 

@@ -55,4 +55,4 @@ configuration. These issues are described below.
 ### Amazon Nova Pro configuration
 
 If you're using Amazon Nova Pro for your custom AI prompts, ensure that
-the tool_use examples follow [Python-compatible format](create-ai-prompts.md#nova-pro-aiprompt "create-ai-prompts.md#nova-pro-aiprompt").
+the tool\_use examples follow [Python-compatible format](create-ai-prompts.md#nova-pro-aiprompt "create-ai-prompts.md#nova-pro-aiprompt").

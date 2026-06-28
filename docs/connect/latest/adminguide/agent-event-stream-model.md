@@ -6,7 +6,7 @@ included in agent event streams:
 
 - LOGIN—An agent login to the contact center.
 - LOGOUT—An agent logout from the contact center.
-- STATE_CHANGE—One of the following changed:
+- STATE\_CHANGE—One of the following changed:
 
   - The agent changed their status in the Contact Control Panel (CCP). For
     example, they changed it from Available to on Break.
@@ -22,7 +22,7 @@ included in agent event streams:
     - Agent hierarchy group
     - Language preference setting in the CCP
 
-- HEART_BEAT—This event is published every 120 seconds if there are no
+- HEART\_BEAT—This event is published every 120 seconds if there are no
   other events published during that interval.
 
 ###### Note

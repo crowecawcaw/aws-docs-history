@@ -19,7 +19,7 @@ Sets routing criteria on a contact.
   requirements: **Language:English >= 4** AND
   **Technology:AWS Kinesis >= 2**.
 - A requirement is a condition created using a predefined attribute name,
-  it’s value, comparison operator and proficiency level. For example,
+  it's value, comparison operator and proficiency level. For example,
   **Technology:AWS Kinesis >= 2**.
 - Use the **Set routing criteria** block with the
   **Transfer to queue** block, as the latter transfers
@@ -72,17 +72,16 @@ There are two ways to route contacts directly to an agent:
   criteria** block to specify routing criteria to prefer an
   agent**. This option is better when:
 
-      + You want the ability to target multiple agents simultaneously. For
-       example, a four-person support team that is primarily supporting a
-       customer.
-      + You want the option to fallback to a broader pool of agents in the
-       queue if the preferred agent(s) are not available.
-      + You want the contact to be reported within the standard queue's
-       metrics.
-
-  An advantage of choosing this option is that it uses the agent's userID
-  (such as janedoe) so it's easier to configure than Option 2, which uses the
-  ARN.
+  - You want the ability to target multiple agents simultaneously. For
+    example, a four-person support team that is primarily supporting a
+    customer.
+  - You want the option to fallback to a broader pool of agents in the
+    queue if the preferred agent(s) are not available.
+  - You want the contact to be reported within the standard queue's
+    metrics.
+    An advantage of choosing this option is that it uses the agent's userID
+    (such as janedoe) so it's easier to configure than Option 2, which uses the
+    ARN.
 
 The main downside of routing criteria is that it impacts queue metrics
 (SLA, queue time, and more). If a contact in QueueA is waiting specifically
@@ -99,14 +98,13 @@ this scenario in mind to accommodate these impacts.
 - **Option 2: Use the agent's queue**. This
   option is usually better when:
 
-      + The contact is intended for **only**
-       that specific agent and no one else.
-      + You don't want the contact to be reported under a standard queue.
-       For information about standard queues and agent queues, see [Queues: standard and
-       agent](concepts-queues-standard-and-agent.md "concepts-queues-standard-and-agent.md").
-
-  For instructions about setting up this option, see [Transfer contacts to agent
-  queue](transfer-to-agent.md "transfer-to-agent.md").
+  - The contact is intended for **only**
+    that specific agent and no one else.
+  - You don't want the contact to be reported under a standard queue.
+    For information about standard queues and agent queues, see [Queues: standard and
+    agent](concepts-queues-standard-and-agent.md "concepts-queues-standard-and-agent.md").
+    For instructions about setting up this option, see [Transfer contacts to agent
+    queue](transfer-to-agent.md "transfer-to-agent.md").
 
 ## How routing criteria works
 
@@ -151,7 +149,7 @@ You can place an AND inside an OR, but not the other way around.
 In addition, attributes and routing criteria must have the following;
 
 - Each attribute must have an associated proficiency level.
-- Each proficiency level must use the “>=” comparison operator or a
+- Each proficiency level must use the ">=" comparison operator or a
   range of proficiency levels from 1 to 5.
 - Each step of the criteria must have a timed expiration timer.
 - The last step of the criteria can have a timed or non-expiring expiration

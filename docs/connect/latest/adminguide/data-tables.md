@@ -60,9 +60,9 @@ As attributes are added, they are inserted into the table in the leftmost column
 
 4. When ready, select **Add value** to insert a row into your table.
 
-   1. When adding the first value, you must acknowledge that primary attributes cannot be changed if values exist in the table.
-   2. Data inputs are automatically validated (type, length, etc.).
-   3. As values are added, they are sorted based on primary value(s), for example if the first column is text, the values (rows) will be sequenced from A-Z.
+    1. When adding the first value, you must acknowledge that primary attributes cannot be changed if values exist in the table.
+    2. Data inputs are automatically validated (type, length, etc.).
+    3. As values are added, they are sorted based on primary value(s), for example if the first column is text, the values (rows) will be sequenced from A-Z.
 
 ![Data table management page.](images/data-table-management.png)
 Example of a table structure where two primary attributes are used to uniquely identify each record, and two attributes have been defined.
@@ -132,6 +132,20 @@ It's also possible to query for the exact message by adding a third dimension fo
 
 Flows can read and write values from data tables. For more information, see [Flow block in Connect Customer: Data Table](data-table-block.md "data-table-block.md").
 
+After a data table query runs in your flow, you can reference the retrieved values in subsequent blocks using the following namespace format:
+
+`$.DataTables.`QueryName`.`AttributeName``
+
+For attribute names that contain spaces or special characters, use bracket notation:
+
+`$.DataTables.`QueryName`['`attribute name`']`
+
+For example, if you have a query named `TranslationLookup` that retrieves a `Greeting` attribute, reference it as `$.DataTables.TranslationLookup.Greeting`.
+
+###### Note
+
+When you use the **Data tables** namespace dropdown in the block configuration UI, the `$.DataTables.` prefix must be omitted. The UI adds it automatically.
+
 ###### Use Data tables to build custom user interfaces
 
 Data tables can empower business users to make routine contact center operational adjustments without requiring direct access to underlying Connect Customer systems. Custom interfaces can be created from Data tables using the Views no-code UI builder, then assigned to workspaces. Operations teams can then use the custom UIs to respond quickly to changing conditions, without requiring IT intervention and working within approved governance and security frameworks. Data tables can combine multiple resources, so business users do not need permission to each (e.g. flows, prompts, queues).
@@ -158,7 +172,7 @@ Connect provides:
 - Attributes (columns) — 100 per table
 - Values (cells) — 1000 per table
 - Lists — 100 items for text and number list values
-- Characters — 5k for non-primary text values, 1k for TEXT_LIST items and primary text values
+- Characters — 5k for non-primary text values, 1k for TEXT\_LIST items and primary text values
   To learn more about service quotas and how to manage them, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ###### Track changes to Data tables

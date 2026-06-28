@@ -15,10 +15,9 @@ parameters:
 - `maxSearchResults` – 25
 - Search priority order:
 
-      1. `shortcut key`
-      2. `name`
-      3. `content`
-      4. `description`
-
-  For information about the agent's experience using quick responses, see [Search for quick responses to
-  customers](search-qr-ccp.md "search-qr-ccp.md").
+  1.  `shortcut key`
+  2.  `name`
+  3.  `content`
+  4.  `description`
+      For information about the agent's experience using quick responses, see [Search for quick responses to
+      customers](search-qr-ccp.md "search-qr-ccp.md").

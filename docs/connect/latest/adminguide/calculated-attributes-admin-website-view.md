@@ -1,7 +1,7 @@
 # View calculated attributes in Connect Customer
 
 1. Log in to the Connect Customer admin website at https://`instance
-name`.my.connect.aws/. Use an Admin account, or an
+ name`.my.connect.aws/. Use an Admin account, or an
    account assigned to a security profile that has **Customer
    Profiles - Calculated Attributes** permission. permission.
 2. In Connect Customer, on the left navigation pane, choose **Customer

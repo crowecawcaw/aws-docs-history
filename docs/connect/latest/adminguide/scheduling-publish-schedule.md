@@ -62,8 +62,8 @@ Schedulers can:
     * View failed rules and goals.
 
 13. When you're satisfied with the schedule, choose
-    **Publish**. You'll get a confirmation page. Choose
-    **Proceed** to make the schedule official!
+**Publish**. You'll get a confirmation page. Choose
+**Proceed** to make the schedule official!
 
 ![A schedule page, the Publish button, the Proceed button.](images/wfm-scheduling-publish-confirmation.png)
 

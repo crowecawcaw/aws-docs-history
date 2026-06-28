@@ -32,35 +32,35 @@ they don't count against your tags-per-resource limit.
 The following table describes the Connect Customer resources that can be tagged using the AWS CLI or an
 AWS SDK.
 
-| Tagging support for Connect Customer resources | Resource | Supports tagging using the Connect Customer admin website | Supports tagging using the CLI/SDK | Supports tagging on creation |
-| ---------------------------------------------- | -------- | --------------------------------------------------------- | ---------------------------------- | ---------------------------- |
-| Agent                                          | Yes      | Yes                                                       | Yes                                |
-| Agent group                                    | No       | Yes                                                       | Yes                                |
-| Agent group level                              | No       | No                                                        | Yes                                |
-| Agent state                                    | No       | Yes                                                       | Yes                                |
-| Case                                           | Yes      | Yes                                                       | Yes                                |
-| Contact                                        | No       | No                                                        | No                                 |
-| Contact evaluations                            | No       | Yes                                                       | Yes                                |
-| Email addresses                                | Yes      | Yes                                                       | Yes                                |
-| Evaluation forms                               | Yes      | Yes                                                       | Yes                                |
-| Flow                                           | Yes      | Yes                                                       | Yes                                |
-| Flow module                                    | Yes      | Yes                                                       | Yes                                |
-| Hours of operation                             | Yes      | Yes                                                       | Yes                                |
-| Instance                                       | Yes      | Yes                                                       | Yes                                |
-| Integration association                        | No       | Yes                                                       | Yes                                |
-| Outbound campaign                              | No       | Yes                                                       | Yes                                |
-| Phone number                                   | No       | Yes                                                       | Yes                                |
-| Prompts                                        | Yes      | Yes                                                       | Yes                                |
-| Queue agent                                    | No       | No                                                        | Yes                                |
-| Queues                                         | Yes      | Yes                                                       | Yes                                |
-| Quick connects                                 | No       | Yes                                                       | Yes                                |
-| Routing Profile                                | Yes      | Yes                                                       | Yes                                |
-| Security profile                               | Yes      | Yes                                                       | Yes                                |
-| Task template                                  | No       | No                                                        | Yes                                |
-| Traffic distribution group                     | No       | Yes                                                       | Yes                                |
-| Transfer destination                           | No       | Yes                                                       | Yes                                |
-| Use case                                       | No       | Yes                                                       | Yes                                |
-| Vocabulary                                     | No       | Yes                                                       | Yes                                |
+Tagging support for Connect Customer resources| Resource | Supports tagging using the Connect Customer admin website | Supports tagging using the CLI/SDK | Supports tagging on creation |
+| --- | --- | --- | --- |
+| Agent | Yes | Yes | Yes |
+| Agent group | No | Yes | Yes |
+| Agent group level | No | No | Yes |
+| Agent state | No | Yes | Yes |
+| Case | Yes | Yes | Yes |
+| Contact | No | No | No |
+| Contact evaluations | No | Yes | Yes |
+| Email addresses | Yes | Yes | Yes |
+| Evaluation forms | Yes | Yes | Yes |
+| Flow | Yes | Yes | Yes |
+| Flow module | Yes | Yes | Yes |
+| Hours of operation | Yes | Yes | Yes |
+| Instance | Yes | Yes | Yes |
+| Integration association | No | Yes | Yes |
+| Outbound campaign | No | Yes | Yes |
+| Phone number | No | Yes | Yes |
+| Prompts | Yes | Yes | Yes |
+| Queue agent | No | No | Yes |
+| Queues | Yes | Yes | Yes |
+| Quick connects | No | Yes | Yes |
+| Routing Profile | Yes | Yes | Yes |
+| Security profile | Yes | Yes | Yes |
+| Task template | No | No | Yes |
+| Traffic distribution group | No | Yes | Yes |
+| Transfer destination | No | Yes | Yes |
+| Use case | No | Yes | Yes |
+| Vocabulary | No | Yes | Yes |
 
 To learn more about tagging, including best practices, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the
 _AWS General Reference_.

@@ -36,396 +36,549 @@ shared:
 
 ## Staff scheduling profile
 
-Table Name: `staff_scheduling_profile`
+**Table name:**
+`staff_scheduling_profile`
 
-Composite Primary Key: `{instance_id, agent_arn,
- staff_scheduling_profile_version}`
+**Description:** Contains agent scheduling configuration including staffing group assignment, shift profile or rotation pattern assignment, and scheduling validity window.
 
-| Column                             | Type      | Description                                                                                                                                                                                       |
-| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                          |
-| agent_arn                          | string    | The ARN of the Agent.                                                                                                                                                                             |
-| staff_scheduling_profile_version   | bigint    | The Staff Scheduling Profile Version.                                                                                                                                                             |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                         |
-| staffing_group_arn                 | string    | The ARN of the Staffing Group to which the Agent is<br>assigned.                                                                                                                                  |
-| start_timestamp                    | Timestamp | StartTimestamp for the Agent configured in Staff Rules<br>(schedules are generated only after this Timestamp).                                                                                    |
-| end_timestamp                      | Timestamp | EndTimestamp for the Agent configured in Staff Rules<br>(schedules are not generated beyond this Timestamp).                                                                                      |
-| shift_profile_arn                  | string    | The ARN of the Shift Profile assigned to the Agent in Staff Rules. Mutually exclusive with Shift Rotation Pattern.                                                                                |
-| shift_rotation_pattern_arn         | string    | The ARN of the Shift Rotation Pattern assigned to the Agent in Staff Rules. Mutually exclusive with Shift Profile.                                                                                |
-| shift_rotation_start_step_id       | bigint    | The step ID where the Agent begins in the assigned Shift Rotation Pattern.                                                                                                                        |
-| timezone                           | string    | Timezone configured for the Agent.                                                                                                                                                                |
-| is_deleted                         | Boolean   | Set to True if the Agent is deleted. Else set to False.                                                                                                                                           |
-| last_updated_timestamp             | Timestamp | Timestamp when the Staff Scheduling Profile was<br>created/updated/deleted.                                                                                                                       |
-| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data freshness. |
+**Primary key:**
+`instance_id, agent_arn, staff_scheduling_profile_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `agent_arn` — Joins to Agent Event, Contact Record, staff\_shifts, staff\_timeoffs, users (as `user_arn`)
+- `staffing_group_arn` — Joins to staffing\_groups, staffing\_group\_forecast\_groups, staffing\_group\_supervisors
+- `shift_profile_arn` — Joins to shift\_profiles
+- `shift_rotation_pattern_arn` — Joins to shift\_rotation\_patterns
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                          |
+| agent\_arn                             | string    | No          | The ARN of the Agent.                                                                                                                                                                             |
+| staff\_scheduling\_profile\_version    | bigint    | No          | The Staff Scheduling Profile Version.                                                                                                                                                             |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                         |
+| staffing\_group\_arn                   | string    | Yes         | The ARN of the Staffing Group to which the Agent is<br>assigned.                                                                                                                                  |
+| start\_timestamp                       | Timestamp | Yes         | StartTimestamp for the Agent configured in Staff Rules<br>(schedules are generated only after this Timestamp).                                                                                    |
+| end\_timestamp                         | Timestamp | Yes         | EndTimestamp for the Agent configured in Staff Rules<br>(schedules are not generated beyond this Timestamp).                                                                                      |
+| shift\_profile\_arn                    | string    | Yes         | The ARN of the Shift Profile assigned to the Agent in Staff Rules. Mutually exclusive with Shift Rotation Pattern.                                                                                |
+| shift\_rotation\_pattern\_arn          | string    | Yes         | The ARN of the Shift Rotation Pattern assigned to the Agent in Staff Rules. Mutually exclusive with Shift Profile.                                                                                |
+| shift\_rotation\_start\_step\_id       | bigint    | Yes         | The step ID where the Agent begins in the assigned Shift Rotation Pattern.                                                                                                                        |
+| timezone                               | string    | Yes         | Timezone configured for the Agent.                                                                                                                                                                |
+| is\_deleted                            | Boolean   | Yes         | Set to True if the Agent is deleted. Else set to False.                                                                                                                                           |
+| last\_updated\_timestamp               | Timestamp | Yes         | Timestamp when the Staff Scheduling Profile was<br>created/updated/deleted.                                                                                                                       |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot reliably be used to determine data freshness. |
 
 ## Shift activities
 
-Table Name: `shift_activities`
+**Table name:**
+`shift_activities`
 
-Composite Primary Key: `{instance_id, shift_activity_arn,
- shift_activity_version}`
+**Description:** Defines the types of activities that can be assigned within shifts, including activity type (productive, non-productive, leave), adherence tracking, and paid status.
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                 |
-| shift_activity_arn                 | string    | The ARN of the Shift Activity.                                                                                                                                                                           |
-| shift_activity_version             | bigint    | The Shift Activity Version.                                                                                                                                                                              |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                |
-| shift_activity_name                | string    | Name of the Shift Activity.                                                                                                                                                                              |
-| type                               | string    | Type of the Shift Activity. The possible values are:<br>PRODUCTIVE, NON_PRODUCTIVE, and LEAVE.                                                                                                           |
-| sub_type                           | string    | The sub-type of the Shift Activity. This is only valid for<br>NON_PRODUCTIVE type activities. The possible values are:<br>BREAK_OR_MEAL and NONE.                                                        |
-| is_adherence_tracked               | Boolean   | Set to True if the Shift Activity is configured for<br>Adherence tracking. Else set to False.                                                                                                            |
-| is_paid                            | Boolean   | Set to True if the Shift Activity is configured as Paid.<br>Else set to False.                                                                                                                           |
-| is_deleted                         | Boolean   | Set to True if the Shift Activity is deleted. Else set to<br>False.                                                                                                                                      |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Shift Activity was<br>created/updated/deleted.                                                                                                                                    |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
+**Primary key:**
+`instance_id, shift_activity_arn, shift_activity_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `shift_activity_arn` — Joins to staff\_shift\_activities, staff\_timeoff\_balance\_changes, staff\_timeoffs
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                 |
+| shift\_activity\_arn                   | string    | No          | The ARN of the Shift Activity.                                                                                                                                                                           |
+| shift\_activity\_version               | bigint    | No          | The Shift Activity Version.                                                                                                                                                                              |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                |
+| shift\_activity\_name                  | string    | Yes         | Name of the Shift Activity.                                                                                                                                                                              |
+| type                                   | string    | Yes         | Type of the Shift Activity. The possible values are:<br>PRODUCTIVE, NON\_PRODUCTIVE, and LEAVE.                                                                                                          |
+| sub\_type                              | string    | Yes         | The sub-type of the Shift Activity. This is only valid for<br>NON\_PRODUCTIVE type activities. The possible values are:<br>BREAK\_OR\_MEAL and NONE.                                                     |
+| is\_adherence\_tracked                 | Boolean   | Yes         | Set to True if the Shift Activity is configured for<br>Adherence tracking. Else set to False.                                                                                                            |
+| is\_paid                               | Boolean   | Yes         | Set to True if the Shift Activity is configured as Paid.<br>Else set to False.                                                                                                                           |
+| is\_deleted                            | Boolean   | Yes         | Set to True if the Shift Activity is deleted. Else set to<br>False.                                                                                                                                      |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Shift Activity was<br>created/updated/deleted.                                                                                                                                    |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
 ## Shift profiles
 
-Table Name: `shift_profiles`
+**Table name:**
+`shift_profiles`
 
-Composite Primary Key: `{instance_id, shift_profile_arn,
- shift_profile_version}`
+**Description:** Defines shift profile templates that can be assigned to agents, specifying the shift pattern for schedule generation.
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                 |
-| shift_profile_arn                  | string    | The ARN of the Shift Profile.                                                                                                                                                                            |
-| shift_profile_version              | bigint    | The Shift Profile Version.                                                                                                                                                                               |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                |
-| shift_profile_name                 | string    | The name of the Shift Profile.                                                                                                                                                                           |
-| is_deleted                         | Boolean   | Set to True if the Shift Profile is deleted. Else set to<br>False.                                                                                                                                       |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Shift Profile was<br>created/updated/deleted.                                                                                                                                     |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
+**Primary key:**
+`instance_id, shift_profile_arn, shift_profile_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `shift_profile_arn` — Joins to staff\_scheduling\_profile, shift\_rotation\_steps
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                 |
+| shift\_profile\_arn                    | string    | No          | The ARN of the Shift Profile.                                                                                                                                                                            |
+| shift\_profile\_version                | bigint    | No          | The Shift Profile Version.                                                                                                                                                                               |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                |
+| shift\_profile\_name                   | string    | Yes         | The name of the Shift Profile.                                                                                                                                                                           |
+| is\_deleted                            | Boolean   | Yes         | Set to True if the Shift Profile is deleted. Else set to<br>False.                                                                                                                                       |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Shift Profile was<br>created/updated/deleted.                                                                                                                                     |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
 ## Staffing groups
 
-Table Name: `staffing_groups`
+**Table name:**
+`staffing_groups`
 
-Composite Primary Key: `{instance_id, staffing_group_arn,
- staffing_group_version}`
+**Description:** Defines staffing groups that organize agents for scheduling purposes, serving as the primary organizational unit for workforce management.
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                 |
-| staffing_group_arn                 | string    | The ARN of the Staffing Group.                                                                                                                                                                           |
-| staffing_group_version             | bigint    | The Staffing Group Version.                                                                                                                                                                              |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                |
-| staffing_group_name                | string    | The name of the Staffing Group.                                                                                                                                                                          |
-| is_deleted                         | Boolean   | Set to True if the Staffing Group is deleted. Else set to<br>False.                                                                                                                                      |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Staffing Group was<br>created/updated/deleted.                                                                                                                                    |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
+**Primary key:**
+`instance_id, staffing_group_arn, staffing_group_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `staffing_group_arn` — Joins to staff\_scheduling\_profile, staffing\_group\_forecast\_groups, staffing\_group\_supervisors, staffing\_group\_demand\_group
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                 |
+| staffing\_group\_arn                   | string    | No          | The ARN of the Staffing Group.                                                                                                                                                                           |
+| staffing\_group\_version               | bigint    | No          | The Staffing Group Version.                                                                                                                                                                              |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                |
+| staffing\_group\_name                  | string    | Yes         | The name of the Staffing Group.                                                                                                                                                                          |
+| is\_deleted                            | Boolean   | Yes         | Set to True if the Staffing Group is deleted. Else set to<br>False.                                                                                                                                      |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Staffing Group was<br>created/updated/deleted.                                                                                                                                    |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
 ## Staffing groups - Forecast groups
 
-Table Name: `staffing_group_forecast_groups`
+**Table name:**
+`staffing_group_forecast_groups`
 
-Composite Primary Key: `{instance_id, staffing_group_arn,
- staffing_group_version, forecast_group_arn}`
+**Description:** Maps the association between staffing groups and forecast groups, linking workforce capacity to demand forecasting.
 
-This table should be queried by joining with `staffing_groups`
-table on `staffing_group_arn` and
-`staffing_group_version`.
+**Primary key:**
+`instance_id, staffing_group_arn, staffing_group_version, forecast_group_arn`
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                 |
-| staffing_group_arn                 | string    | The ARN of the Staffing Group.                                                                                                                                                                           |
-| staffing_group_version             | bigint    | The Staffing Group Version.                                                                                                                                                                              |
-| forecast_group_arn                 | string    | The ARN of the Forecast Group associated to the Staffing<br>Group.                                                                                                                                       |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                |
-| is_deleted                         | Boolean   | Set to False when the StaffingGroup-ForecastGroup<br>association is valid.                                                                                                                               |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Staffing Group was created/updated.                                                                                                                                               |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `staffing_group_arn, staffing_group_version` — Joins to staffing\_groups
+- `forecast_group_arn` — Joins to schedule\_metrics, schedule\_goals, staff\_shift\_activity\_allocations
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                 |
+| staffing\_group\_arn                   | string    | No          | The ARN of the Staffing Group.                                                                                                                                                                           |
+| staffing\_group\_version               | bigint    | No          | The Staffing Group Version.                                                                                                                                                                              |
+| forecast\_group\_arn                   | string    | No          | The ARN of the Forecast Group associated to the Staffing<br>Group.                                                                                                                                       |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                |
+| is\_deleted                            | Boolean   | Yes         | Set to False when the StaffingGroup-ForecastGroup<br>association is valid.                                                                                                                               |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Staffing Group was created/updated.                                                                                                                                               |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
 ## Staffing groups - Supervisors
 
-Table Name: `staffing_group_supervisors`
+**Table name:**
+`staffing_group_supervisors`
 
-Composite Primary Key: `{instance_id, staffing_group_arn,
- staffing_group_version, supervisor_arn}`
+**Description:** Maps supervisor associations to staffing groups, tracking which supervisors are responsible for each staffing group.
 
-This table should be queried by joining with `staffing_groups`
-table on `staffing_group_arn` and
-`staffing_group_version`.
+**Primary key:**
+`instance_id, staffing_group_arn, staffing_group_version, supervisor_arn`
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                 |
-| staffing_group_arn                 | string    | The ARN of the Staffing Group.                                                                                                                                                                           |
-| staffing_group_version             | bigint    | The Staffing Group Version.                                                                                                                                                                              |
-| supervisor_arn                     | string    | The Agent ARN of the Supervisor associated to the Staffing<br>Group.                                                                                                                                     |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                |
-| is_deleted                         | Boolean   | Set to False when the StaffingGroup-ForecastGroup<br>association is valid.                                                                                                                               |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Staffing Group was created/updated.                                                                                                                                               |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `staffing_group_arn, staffing_group_version` — Joins to staffing\_groups
+- `supervisor_arn` — Joins to Agent Event (as agent\_arn), Contact Record (as agent\_arn)
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                 |
+| staffing\_group\_arn                   | string    | No          | The ARN of the Staffing Group.                                                                                                                                                                           |
+| staffing\_group\_version               | bigint    | No          | The Staffing Group Version.                                                                                                                                                                              |
+| supervisor\_arn                        | string    | No          | The Agent ARN of the Supervisor associated to the Staffing<br>Group.                                                                                                                                     |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                |
+| is\_deleted                            | Boolean   | Yes         | Set to False when the StaffingGroup-ForecastGroup<br>association is valid.                                                                                                                               |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Staffing Group was created/updated.                                                                                                                                               |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
 ## Staff shifts
 
-Table Name: `staff_shifts`
+**Table name:**
+`staff_shifts`
 
-Composite Primary Key: `{instance_id, shift_id, shift_version}`
+**Description:** Contains individual shift instances assigned to agents, including shift start and end times and creation metadata.
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                 |
-| shift_id                           | string    | The ID of the Shift.                                                                                                                                                                                     |
-| shift_version                      | bigint    | The Shift Version.                                                                                                                                                                                       |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                |
-| agent_arn                          | string    | The ARN of the Agent.                                                                                                                                                                                    |
-| shift_start_timestamp              | Timestamp | The Timestamp when the Shift Starts.                                                                                                                                                                     |
-| shift_end_timestamp                | Timestamp | The Timestamp when the Shift Ends.                                                                                                                                                                       |
-| created_timestamp                  | Timestamp | The Timestamp when the Shift was Created.                                                                                                                                                                |
-| is_deleted                         | Boolean   | Set to True if the Shift is deleted. Else set to False.                                                                                                                                                  |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Shift was created/updated/deleted.                                                                                                                                                |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
+**Primary key:**
+`instance_id, shift_id, shift_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `shift_id, shift_version` — Joins to staff\_shift\_activities, staff\_shift\_activity\_allocations
+- `agent_arn` — Joins to staff\_scheduling\_profile, Agent Event, Contact Record, users (as `user_arn`)
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                 |
+| shift\_id                              | string    | No          | The ID of the Shift.                                                                                                                                                                                     |
+| shift\_version                         | bigint    | No          | The Shift Version.                                                                                                                                                                                       |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                |
+| agent\_arn                             | string    | Yes         | The ARN of the Agent.                                                                                                                                                                                    |
+| shift\_start\_timestamp                | Timestamp | Yes         | The Timestamp when the Shift Starts.                                                                                                                                                                     |
+| shift\_end\_timestamp                  | Timestamp | Yes         | The Timestamp when the Shift Ends.                                                                                                                                                                       |
+| created\_timestamp                     | Timestamp | Yes         | The Timestamp when the Shift was Created.                                                                                                                                                                |
+| is\_deleted                            | Boolean   | Yes         | Set to True if the Shift is deleted. Else set to False.                                                                                                                                                  |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Shift was created/updated/deleted.                                                                                                                                                |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
 ## Staff shift activities
 
-Table Name: `staff_shift_activities`
+**Table name:**
+`staff_shift_activities`
 
-Composite Primary Key: `{instance_id, shift_id, shift_version,
- activity_id}`
+**Description:** Contains individual activity blocks within a shift, including activity start and end times, overtime flags, and activity status.
 
-This table should be queried by joining with `staff_shifts` table
-on `shift_id` and `shift_version`.
+**Primary key:**
+`instance_id, shift_id, shift_version, activity_id`
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                 |
-| shift_id                           | string    | The ID of the Shift.                                                                                                                                                                                     |
-| shift_version                      | bigint    | The Shift Version.                                                                                                                                                                                       |
-| activity_id                        | string    | The ID of the Activity.                                                                                                                                                                                  |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                |
-| activity_start_timestamp           | Timestamp | The Timestamp when the activity starts.                                                                                                                                                                  |
-| activity_end_timestamp             | Timestamp | The Timestamp when the activity ends.                                                                                                                                                                    |
-| shift_activity_arn                 | string    | The ARN of the Shift Activity. If the shift_activity_arn is<br>null, then it indicates 'Work' activity.                                                                                                  |
-| activity_status                    | string    | Status of the Activity. This is set to INACTIVE if the<br>activity overlaps with a timeoff.                                                                                                              |
-| is_overtime                        | Boolean   | Set to True if the Activity is part of Overtime. Else set to<br>False.                                                                                                                                   |
-| is_deleted                         | Boolean   | Set to False when the Shift Activities are valid.                                                                                                                                                        |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Shift was created/updated.                                                                                                                                                        |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `shift_id, shift_version` — Joins to staff\_shifts
+- `activity_id` — Joins to staff\_shift\_activity\_allocations
+- `shift_activity_arn` — Joins to shift\_activities
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                 |
+| shift\_id                              | string    | No          | The ID of the Shift.                                                                                                                                                                                     |
+| shift\_version                         | bigint    | No          | The Shift Version.                                                                                                                                                                                       |
+| activity\_id                           | string    | No          | The ID of the Activity.                                                                                                                                                                                  |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                |
+| activity\_start\_timestamp             | Timestamp | Yes         | The Timestamp when the activity starts.                                                                                                                                                                  |
+| activity\_end\_timestamp               | Timestamp | Yes         | The Timestamp when the activity ends.                                                                                                                                                                    |
+| shift\_activity\_arn                   | string    | Yes         | The ARN of the Shift Activity. If the shift\_activity\_arn is<br>null, then it indicates 'Work' activity.                                                                                                |
+| activity\_status                       | string    | Yes         | Status of the Activity. This is set to INACTIVE if the<br>activity overlaps with a timeoff.                                                                                                              |
+| is\_overtime                           | Boolean   | Yes         | Set to True if the Activity is part of Overtime. Else set to<br>False.                                                                                                                                   |
+| is\_deleted                            | Boolean   | Yes         | Set to False when the Shift Activities are valid.                                                                                                                                                        |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Shift was created/updated.                                                                                                                                                        |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness. |
 
 ## Staff timeoff balance changes
 
-Table Name: `staff_timeoff_balance_changes`
+**Table name:**
+`staff_timeoff_balance_changes`
 
-Composite Primary Key: `{instance_id, agent_arn, shift_activity_arn,
- timeoff_balance_version}`
+**Description:** Tracks time-off balance changes for agents, recording credits and deductions from various sources including uploads, requests, and schedule publishing.
 
-| Column                             | Type      | Description                                                                                                                                                                                                                                                                                  |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                                                                                                    |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                                                                                                     |
-| account_id                         | string    | The ID of the AWS account.                                                                                                                                                                                                                                                                   |
-| agent_arn                          | string    | The ARN of the agent.                                                                                                                                                                                                                                                                        |
-| shift_activity_arn                 | string    | The ARN of the Shift Activity this balance is allocated to.                                                                                                                                                                                                                                  |
-| timeoff_balance_version            | bigint    | The Time Off balance version, an incrementing number to<br>denote order of changes.                                                                                                                                                                                                          |
-| balance_update_source              | string    | Source of the balance update. The possible values are<br>TIME_OFF_BALANCE_UPLOAD, CONNECT_TIME_OFF_REQUEST,<br>SCHEDULE_PUBLISH, CSV_TIME_OFF_BALANCE_DELETION,<br>TIME_OFF_BALANCE_BACKFILL, SYSTEM_UPDATE                                                                                  |
-| timeoff_id                         | string    | The ID of the Time Off that caused this balance change, if<br>one exists.                                                                                                                                                                                                                    |
-| last_updated_by                    | string    | The ARN of the agent who caused this balance change, if one<br>exists.                                                                                                                                                                                                                       |
-| balance_change_in_hours            | double    | Amount of Time Off balance updated through this change in<br>hours. If this value is positive, this change is crediting Time<br>Off balance. If this value is negative, this change is deducting<br>Time Off balance. This value is undefined for any balance upload<br>and deletion events. |
-| remaining_balance_in_hours         | double    | Remaining Time Off balance hours after this change event.<br>This value is undefined for any balance deletion event.                                                                                                                                                                         |
-| last_created_timestamp             | Timestamp | The Timestamp when the Time Off balance change record was<br>created.                                                                                                                                                                                                                        |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness.                                                                                     |
+**Primary key:**
+`instance_id, agent_arn, shift_activity_arn, timeoff_balance_version`
+
+**Partition key:**
+`last_created_timestamp` (daily)
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `agent_arn` — Joins to staff\_scheduling\_profile, staff\_shifts, Agent Event, Contact Record
+- `shift_activity_arn` — Joins to shift\_activities
+- `timeoff_id` — Joins to staff\_timeoffs
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                                                                                                    |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                                                                                                     |
+| account\_id                            | string    | Yes         | The ID of the AWS account.                                                                                                                                                                                                                                                                   |
+| agent\_arn                             | string    | No          | The ARN of the agent.                                                                                                                                                                                                                                                                        |
+| shift\_activity\_arn                   | string    | No          | The ARN of the Shift Activity this balance is allocated to.                                                                                                                                                                                                                                  |
+| timeoff\_balance\_version              | bigint    | No          | The Time Off balance version, an incrementing number to<br>denote order of changes.                                                                                                                                                                                                          |
+| balance\_update\_source                | string    | Yes         | Source of the balance update. The possible values are<br>TIME\_OFF\_BALANCE\_UPLOAD, CONNECT\_TIME\_OFF\_REQUEST,<br>SCHEDULE\_PUBLISH, CSV\_TIME\_OFF\_BALANCE\_DELETION,<br>TIME\_OFF\_BALANCE\_BACKFILL, SYSTEM\_UPDATE                                                                   |
+| timeoff\_id                            | string    | Yes         | The ID of the Time Off that caused this balance change, if<br>one exists.                                                                                                                                                                                                                    |
+| last\_updated\_by                      | string    | Yes         | The ARN of the agent who caused this balance change, if one<br>exists.                                                                                                                                                                                                                       |
+| balance\_change\_in\_hours             | double    | Yes         | Amount of Time Off balance updated through this change in<br>hours. If this value is positive, this change is crediting Time<br>Off balance. If this value is negative, this change is deducting<br>Time Off balance. This value is undefined for any balance upload<br>and deletion events. |
+| remaining\_balance\_in\_hours          | double    | Yes         | Remaining Time Off balance hours after this change event.<br>This value is undefined for any balance deletion event.                                                                                                                                                                         |
+| last\_created\_timestamp               | Timestamp | Yes         | The Timestamp when the Time Off balance change record was<br>created.                                                                                                                                                                                                                        |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was<br>touched by the data lake. This can include transformation and<br>backfill. This field cannot be used to determine reliably data<br>freshness.                                                                                     |
 
 ## Staff timeoffs
 
-Table Name: `staff_timeoffs`
+**Table name:**
+`staff_timeoffs`
 
-Composite Primary Key: `{instance_id, timeoff_id, agent_arn,
- timeoff_version}`
+**Description:** Records time-off requests and approvals for agents, including status tracking through the approval workflow and effective hours.
 
-| Column                             | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                                                                                                                                                                                                                 |
-| timeoff_id                         | string    | The ID of the Time Off.                                                                                                                                                                                                                                                                                                                                                                                  |
-| agent_arn                          | string    | The ARN of the Agent.                                                                                                                                                                                                                                                                                                                                                                                    |
-| timeoff_version                    | bigint    | The Time Off Version.                                                                                                                                                                                                                                                                                                                                                                                    |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                                                                                                                                                                                                                |
-| timeoff_type                       | string    | Type of Time Off. The possible values are: TIME_OFF and<br>VOLUNTARY_TIME_OFF.                                                                                                                                                                                                                                                                                                                           |
-| timeoff_start_timestamp            | Timestamp | Timestamp when the Time Off starts.                                                                                                                                                                                                                                                                                                                                                                      |
-| timeoff_end_timestamp              | Timestamp | Timestamp when the Time Off ends.                                                                                                                                                                                                                                                                                                                                                                        |
-| timeoff_status                     | string    | Status of the Time Off. The possible values are:<br>PENDING_CREATE, PENDING_UPDATE, PENDING_CANCEL, PENDING_ACCEPT,<br>PENDING_APPROVE, PENDING_DECLINE, APPROVED, ACCEPTED, REJECTED,<br>CANCELLED, WAITING_ACCEPT, and WAITING_APPROVE. The WAITING<br>statuses indicate timeoff is waiting on User action. PENDING<br>statuses indicate timeoff is waiting for system processing of a<br>user action. |
-| shift_activity_arn                 | string    | The ARN of the Shift Activity used for the Timeoff.                                                                                                                                                                                                                                                                                                                                                      |
-| effective_timeoff_hours            | double    | Total effective Time Off hours. Effective timeoff hours are<br>calculated based on [timeoff deduction logic](upload-timeoff-balance.md#how-system-calculates-time-off-deductions "upload-timeoff-balance.md#how-system-calculates-time-off-deductions"). This is only set for<br>TIME_OFF type.                                                                                                          |
-| last_updated_timestamp             | Timestamp | Timestamp when the Time Off was created/updated/deleted.                                                                                                                                                                                                                                                                                                                                                 |
-| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data freshness.                                                                                                                                                                                                        |
+**Primary key:**
+`instance_id, timeoff_id, agent_arn, timeoff_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `timeoff_id, timeoff_version` — Joins to staff\_timeoff\_intervals
+- `agent_arn` — Joins to staff\_scheduling\_profile, staff\_shifts, Agent Event, Contact Record
+- `shift_activity_arn` — Joins to shift\_activities
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                                                                                                                                                                                                                         |
+| timeoff\_id                            | string    | No          | The ID of the Time Off.                                                                                                                                                                                                                                                                                                                                                                                          |
+| agent\_arn                             | string    | No          | The ARN of the Agent.                                                                                                                                                                                                                                                                                                                                                                                            |
+| timeoff\_version                       | bigint    | No          | The Time Off Version.                                                                                                                                                                                                                                                                                                                                                                                            |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                                                                                                                                                                                                                        |
+| timeoff\_type                          | string    | Yes         | Type of Time Off. The possible values are: TIME\_OFF and<br>VOLUNTARY\_TIME\_OFF.                                                                                                                                                                                                                                                                                                                                |
+| timeoff\_start\_timestamp              | Timestamp | Yes         | Timestamp when the Time Off starts.                                                                                                                                                                                                                                                                                                                                                                              |
+| timeoff\_end\_timestamp                | Timestamp | Yes         | Timestamp when the Time Off ends.                                                                                                                                                                                                                                                                                                                                                                                |
+| timeoff\_status                        | string    | Yes         | Status of the Time Off. The possible values are:<br>PENDING\_CREATE, PENDING\_UPDATE, PENDING\_CANCEL, PENDING\_ACCEPT,<br>PENDING\_APPROVE, PENDING\_DECLINE, APPROVED, ACCEPTED, REJECTED,<br>CANCELLED, WAITING\_ACCEPT, and WAITING\_APPROVE. The WAITING<br>statuses indicate timeoff is waiting on User action. PENDING<br>statuses indicate timeoff is waiting for system processing of a<br>user action. |
+| shift\_activity\_arn                   | string    | Yes         | The ARN of the Shift Activity used for the Timeoff.                                                                                                                                                                                                                                                                                                                                                              |
+| effective\_timeoff\_hours              | double    | Yes         | Total effective Time Off hours. Effective timeoff hours are<br>calculated based on [timeoff deduction logic](upload-timeoff-balance.md#how-system-calculates-time-off-deductions "upload-timeoff-balance.md#how-system-calculates-time-off-deductions"). This is only set for<br>TIME\_OFF type.                                                                                                                 |
+| last\_updated\_timestamp               | Timestamp | Yes         | Timestamp when the Time Off was created/updated/deleted.                                                                                                                                                                                                                                                                                                                                                         |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot reliably be used to determine data freshness.                                                                                                                                                                                                                |
 
 ## Staff timeoff intervals
 
-Table Name: `staff_timeoff_intervals`
+**Table name:**
+`staff_timeoff_intervals`
 
-Composite Primary Key: {`instance_id, timeoff_id, timeoff_version,
- interval_id}`
+**Description:** Contains the individual time intervals within a time-off request, breaking multi-day or multi-period time-off into discrete intervals with effective hours per interval.
 
-This table should be queried by joining with `staff_timeoffs`
-table on `timeoff_id` and `timeoff_version`.
+**Primary key:**
+`instance_id, timeoff_id, timeoff_version, interval_id`
 
-| Column                             | Type      | Description                                                                                                                                                                                                                                                                               |
-| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                                                                                                                  |
-| timeoff_id                         | string    | The ID of the Time Off.                                                                                                                                                                                                                                                                   |
-| timeoff_version                    | bigint    | The Time Off Version.                                                                                                                                                                                                                                                                     |
-| interval_id                        | string    | The ID of the Time Off Interval.                                                                                                                                                                                                                                                          |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                                                                                                                 |
-| timeoff_interval_start_timestamp   | Timestamp | Timestamp when the specific interval of Time Off starts.                                                                                                                                                                                                                                  |
-| timeoff_interval_end_timestamp     | Timestamp | Timestamp when the specific interval of Time Off ends.                                                                                                                                                                                                                                    |
-| interval_effective_timeoff_hours   | double    | Effective Time Off hours for this specific interval of Time<br>Off. Effective timeoff hours are calculated based on [timeoff deduction logic](upload-timeoff-balance.md#how-system-calculates-time-off-deductions "upload-timeoff-balance.md#how-system-calculates-time-off-deductions"). |
-| last_updated_timestamp             | Timestamp | Timestamp when the Time Off was created/updated/deleted.                                                                                                                                                                                                                                  |
-| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data freshness.                                                                                         |
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `timeoff_id, timeoff_version` — Joins to staff\_timeoffs
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                                                                                                                  |
+| timeoff\_id                            | string    | No          | The ID of the Time Off.                                                                                                                                                                                                                                                                   |
+| timeoff\_version                       | bigint    | No          | The Time Off Version.                                                                                                                                                                                                                                                                     |
+| interval\_id                           | string    | No          | The ID of the Time Off Interval.                                                                                                                                                                                                                                                          |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                                                                                                                 |
+| timeoff\_interval\_start\_timestamp    | Timestamp | Yes         | Timestamp when the specific interval of Time Off starts.                                                                                                                                                                                                                                  |
+| timeoff\_interval\_end\_timestamp      | Timestamp | Yes         | Timestamp when the specific interval of Time Off ends.                                                                                                                                                                                                                                    |
+| interval\_effective\_timeoff\_hours    | double    | Yes         | Effective Time Off hours for this specific interval of Time<br>Off. Effective timeoff hours are calculated based on [timeoff deduction logic](upload-timeoff-balance.md#how-system-calculates-time-off-deductions "upload-timeoff-balance.md#how-system-calculates-time-off-deductions"). |
+| last\_updated\_timestamp               | Timestamp | Yes         | Timestamp when the Time Off was created/updated/deleted.                                                                                                                                                                                                                                  |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot reliably be used to determine data freshness.                                                                                         |
 
 ## Staff demand group
 
-Table name: `staff_demand_group`
+**Table name:**
+`staff_demand_group`
 
-Composite Primary Key: `{instance_id, agent_arn, demand_group_arn, staff_demand_group_version}`
+**Description:** Maps agents to demand groups with priority assignments, supporting both staffing group-level defaults and agent-level overrides for demand allocation.
 
-| Column                             | Type      | Description                                                                                                                                                                                           |
-| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                              |
-| agent_arn                          | string    | The ARN of the agent.                                                                                                                                                                                 |
-| demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                          |
-| staff_demand_group_version         | Long      | Version for this agent to demand group association                                                                                                                                                    |
-| priority                           | string    | Priority of the demand group for this agent. Can be LOW, MEDIUM or<br>HIGH                                                                                                                            |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                             |
-| is_override                        | Boolean   | Set to 'true' if this is Agent to Demand Group association is Agent level override.                                                                                                                   |
-| is_deleted                         | Boolean   | Set to true if agent to demand group association is deleted.                                                                                                                                          |
-| last_updated_timestamp             | Timestamp | The Timestamp when the agent to demand group association was created/updated.                                                                                                                         |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake.<br>This can include transformation and backfill. This field cannot be used to determine<br>reliably data freshness. |
+**Primary key:**
+`instance_id, agent_arn, demand_group_arn, staff_demand_group_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `agent_arn` — Joins to staff\_scheduling\_profile, staff\_shifts, Agent Event, Contact Record
+- `demand_group_arn` — Joins to staffing\_group\_demand\_group, staff\_shift\_activity\_allocations
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                              |
+| agent\_arn                             | string    | No          | The ARN of the agent.                                                                                                                                                                                 |
+| demand\_group\_arn                     | string    | No          | The ARN of the demand group.                                                                                                                                                                          |
+| staff\_demand\_group\_version          | Long      | No          | Version for this agent to demand group association                                                                                                                                                    |
+| priority                               | string    | Yes         | Priority of the demand group for this agent. Can be LOW, MEDIUM or<br>HIGH                                                                                                                            |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                             |
+| is\_override                           | Boolean   | Yes         | Set to 'true' if this is Agent to Demand Group association is Agent level override.                                                                                                                   |
+| is\_deleted                            | Boolean   | Yes         | Set to true if agent to demand group association is deleted.                                                                                                                                          |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the agent to demand group association was created/updated.                                                                                                                         |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was touched by the data lake.<br>This can include transformation and backfill. This field cannot be used to determine<br>reliably data freshness. |
 
 ## Staffing groups demand group
 
-Table name: `staffing_group_demand_group`
+**Table name:**
+`staffing_group_demand_group`
 
-Composite Primary Key: `{instance_id, staffing_group_arn, demand_group_arn,
- staffing_group_demand_group_version}`
+**Description:** Maps the association between staffing groups and demand groups with priority, linking organizational units to demand allocation targets.
 
-| Column                              | Type      | Description                                                                                                                                                                                           |
-| ----------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                         | string    | The ID of the Connect Customer instance.                                                                                                                                                              |
-| staffing_group_arn                  | string    | The ARN of the Staffing Group.                                                                                                                                                                        |
-| demand_group_arn                    | string    | The ARN of the demand group.                                                                                                                                                                          |
-| staffing_group_demand_group_version | Long      | Version for this Staffing Group to Demand Group association                                                                                                                                           |
-| priority                            | string    | Priority of the Demand Group for this Staffing Group. Can be LOW, MEDIUM or<br>HIGH                                                                                                                   |
-| instance_arn                        | string    | The ARN of the Connect Customer instance.                                                                                                                                                             |
-| is_deleted                          | Boolean   | Set to true if the staffing group to demand group association is deleted.                                                                                                                             |
-| last_updated_timestamp              | Timestamp | Timestamp when the staffing group to demand group association was created/updated/deleted.                                                                                                            |
-| data_lake_last_processed_timestamp  | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake.<br>This can include transformation and backfill. This field cannot be used to determine<br>reliably data freshness. |
+**Primary key:**
+`instance_id, staffing_group_arn, demand_group_arn, staffing_group_demand_group_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `staffing_group_arn` — Joins to staffing\_groups, staff\_scheduling\_profile
+- `demand_group_arn` — Joins to staff\_demand\_group, staff\_shift\_activity\_allocations
+
+| Column                                  | Type      | Description |
+| --------------------------------------- | --------- | ----------- |
+| instance\_id                            | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                              |
+| staffing\_group\_arn                    | string    | No          | The ARN of the Staffing Group.                                                                                                                                                                        |
+| demand\_group\_arn                      | string    | No          | The ARN of the demand group.                                                                                                                                                                          |
+| staffing\_group\_demand\_group\_version | Long      | No          | Version for this Staffing Group to Demand Group association                                                                                                                                           |
+| priority                                | string    | Yes         | Priority of the Demand Group for this Staffing Group. Can be LOW, MEDIUM or<br>HIGH                                                                                                                   |
+| instance\_arn                           | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                             |
+| is\_deleted                             | Boolean   | Yes         | Set to true if the staffing group to demand group association is deleted.                                                                                                                             |
+| last\_updated\_timestamp                | Timestamp | Yes         | Timestamp when the staffing group to demand group association was created/updated/deleted.                                                                                                            |
+| data\_lake\_last\_processed\_timestamp  | Timestamp | Yes         | The Timestamp, which shows the last time the record was touched by the data lake.<br>This can include transformation and backfill. This field cannot be used to determine<br>reliably data freshness. |
 
 ## Staff shift activity allocation
 
-Table name: `staff_shift_activity_allocations`
+**Table name:**
+`staff_shift_activity_allocations`
 
-Composite Primary Key: `{instance_id, shift_id, shift_version, activity_id, demand_group_arn}`
+**Description:** Records the percentage allocation of shift activities to demand groups, enabling proportional assignment of agent capacity across multiple demand groups within a single activity.
 
-| Column                             | Type      | Description                                                                                                                                                                                     |
-| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                        |
-| shift_id                           | string    | The ID of the shift.                                                                                                                                                                            |
-| shift_version                      | Long      | The Shift Version.                                                                                                                                                                              |
-| activity_id                        | string    | The ID of the activity.                                                                                                                                                                         |
-| demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                    |
-| foecast_group_arn                  | string    | The ARN of the forecast group.                                                                                                                                                                  |
-| allocation_percentage              | double    | Percentage allocation of the Activity to the Demand Group.                                                                                                                                      |
-| is_deleted                         | Boolean   | Set to False when the StaffingGroup-ForecastGroupassociation is valid.                                                                                                                          |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Staffing Group was created/updated.                                                                                                                                      |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+**Primary key:**
+`instance_id, shift_id, shift_version, activity_id, demand_group_arn`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `shift_id, shift_version` — Joins to staff\_shifts, staff\_shift\_activities
+- `activity_id` — Joins to staff\_shift\_activities
+- `demand_group_arn` — Joins to staff\_demand\_group, staffing\_group\_demand\_group
+- `foecast_group_arn` — Joins to staffing\_group\_forecast\_groups (as forecast\_group\_arn)
+
+| Column                                 | Type      | Description        |
+| -------------------------------------- | --------- | ------------------ |
+| instance\_id                           | string    | No                 | The ID of the Connect Customer instance.                                                                                                                                                        |
+| shift\_id                              | string    | No                 | The ID of the shift.                                                                                                                                                                            |
+| shift\_version                         | Long      | The Shift Version. |
+| activity\_id                           | string    | No                 | The ID of the activity.                                                                                                                                                                         |
+| demand\_group\_arn                     | string    | No                 | The ARN of the demand group.                                                                                                                                                                    |
+| foecast\_group\_arn                    | string    | Yes                | The ARN of the forecast group.                                                                                                                                                                  |
+| allocation\_percentage                 | double    | Yes                | Percentage allocation of the Activity to the Demand Group.                                                                                                                                      |
+| is\_deleted                            | Boolean   | Yes                | Set to False when the StaffingGroup-ForecastGroupassociation is valid.                                                                                                                          |
+| last\_updated\_timestamp               | Timestamp | Yes                | The Timestamp when the Staffing Group was created/updated.                                                                                                                                      |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes                | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
 
 ## Schedule metrics
 
-Table Name: `schedule_metrics`
+**Table name:**
+`schedule_metrics`
 
-Composite Primary Key: `{instance_id, metric_id, interval_start_timestamp}`
+**Description:** Contains schedule performance metrics by interval, including required versus scheduled agent counts, occupancy, service level percentage, and average speed of answer.
 
-| Column                             | Type      | Description                                                                                                                                                                            |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ARN of the Amazon Connect instance.                                                                                                                                                |
-| instance_arn                       | string    | The ID of the Amazon Connect instance.                                                                                                                                                 |
-| metric_id                          | string    | Unique identifier for the metric value                                                                                                                                                 |
-| aws_account_id                     | string    | The ID of the AWS account.                                                                                                                                                             |
-| entity_type                        | string    | Denotes whether the metric is for a forecast group or demand group.                                                                                                                    |
-| entity_arn                         | string    | Arn of the forecast group or demand group                                                                                                                                              |
-| channel                            | string    | Denotes the media channel like Voice, chat. If the row contains metrics that are not channel level, then it's populated as ALL                                                         |
-| interval_start_timestamp           | timestamp | Timestamp denoting the start of the interval                                                                                                                                           |
-| required_agent_count               | float     | Denotes the forecasted agents count                                                                                                                                                    |
-| scheduled_agent_count              | float     | Denotes the schedule agents count                                                                                                                                                      |
-| scheduled_occupancy                | float     | Denotes the occupancy percentage                                                                                                                                                       |
-| scheduled_service_level_percentage | float     | Denotes the schedule service level percentage                                                                                                                                          |
-| service_level_seconds              | integer   | Denotes the service level seconds                                                                                                                                                      |
-| scheduled_average_speed_of_answer  | float     | Denotes the average speed of answer                                                                                                                                                    |
-| is_deleted                         | boolean   | Denotes whether the metric is deleted                                                                                                                                                  |
-| last_updated_timestamp             | timestamp | The Timestamp when the metric record was created.                                                                                                                                      |
-| data_lake_last_processed_timestamp | timestamp | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+**Primary key:**
+`instance_id, metric_id, interval_start_timestamp`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `entity_arn` — Joins to staffing\_group\_forecast\_groups (as forecast\_group\_arn), staff\_demand\_group (as demand\_group\_arn)
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ARN of the Amazon Connect instance.                                                                                                                                                |
+| instance\_arn                          | string    | Yes         | The ID of the Amazon Connect instance.                                                                                                                                                 |
+| metric\_id                             | string    | No          | Unique identifier for the metric value                                                                                                                                                 |
+| aws\_account\_id                       | string    | Yes         | The ID of the AWS account.                                                                                                                                                             |
+| entity\_type                           | string    | Yes         | Denotes whether the metric is for a forecast group or demand group.                                                                                                                    |
+| entity\_arn                            | string    | Yes         | Arn of the forecast group or demand group                                                                                                                                              |
+| channel                                | string    | Yes         | Denotes the media channel like Voice, chat. If the row contains metrics that are not channel level, then it's populated as ALL                                                         |
+| interval\_start\_timestamp             | timestamp | No          | Timestamp denoting the start of the interval                                                                                                                                           |
+| required\_agent\_count                 | float     | Yes         | Denotes the forecasted agents count                                                                                                                                                    |
+| scheduled\_agent\_count                | float     | Yes         | Denotes the schedule agents count                                                                                                                                                      |
+| scheduled\_occupancy                   | float     | Yes         | Denotes the occupancy percentage                                                                                                                                                       |
+| scheduled\_service\_level\_percentage  | float     | Yes         | Denotes the schedule service level percentage                                                                                                                                          |
+| service\_level\_seconds                | integer   | Yes         | Denotes the service level seconds                                                                                                                                                      |
+| scheduled\_average\_speed\_of\_answer  | float     | Yes         | Denotes the average speed of answer                                                                                                                                                    |
+| is\_deleted                            | boolean   | Yes         | Denotes whether the metric is deleted                                                                                                                                                  |
+| last\_updated\_timestamp               | timestamp | Yes         | The Timestamp when the metric record was created.                                                                                                                                      |
+| data\_lake\_last\_processed\_timestamp | timestamp | Yes         | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |
 
 ## Schedule goals
 
-Table Name: `schedule_goals`
+**Table name:**
+`schedule_goals`
 
-Composite Primary Key: `{instance_id, goal_id}`
+**Description:** Stores service level goals for scheduling, including target service level percentage, service level seconds, and average speed of answer for forecast or demand groups.
 
-| Column                             | Type      | Description                                                                                                                                                                            |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ARN of the Amazon Connect instance.                                                                                                                                                |
-| instance_arn                       | string    | The ID of the Amazon Connect instance.                                                                                                                                                 |
-| goal_id                            | string    | Unique identifier for the goal value                                                                                                                                                   |
-| aws_account_id                     | string    | The ID of the AWS account.                                                                                                                                                             |
-| entity_type                        | string    | Denotes whether the goal is for a forecast group or demand group.                                                                                                                      |
-| entity_arn                         | string    | Arn of the forecast group or demand group                                                                                                                                              |
-| channel                            | string    | Denotes the media channel like Voice, chat.                                                                                                                                            |
-| start_date_timestamp               | timestamp | Timestamp denoting start of the goal                                                                                                                                                   |
-| end_date_timestamp                 | timestamp | Timestamp denoting end of the goal                                                                                                                                                     |
-| goal_service_level_percentage      | float     | Denotes the goal service level percentage                                                                                                                                              |
-| goal_service_level_seconds         | integer   | Denotes the service level seconds                                                                                                                                                      |
-| goal_average_speed_of_answer       | float     | Denotes the average speed of answer                                                                                                                                                    |
-| is_deleted                         | boolean   | Denotes whether the goal is deleted                                                                                                                                                    |
-| last_updated_timestamp             | timestamp | The Timestamp when the goals record was created.                                                                                                                                       |
-| data_lake_last_processed_timestamp | timestamp | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+**Primary key:**
+`instance_id, goal_id`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `entity_arn` — Joins to staffing\_group\_forecast\_groups (as forecast\_group\_arn), staff\_demand\_group (as demand\_group\_arn)
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ARN of the Amazon Connect instance.                                                                                                                                                |
+| instance\_arn                          | string    | Yes         | The ID of the Amazon Connect instance.                                                                                                                                                 |
+| goal\_id                               | string    | No          | Unique identifier for the goal value                                                                                                                                                   |
+| aws\_account\_id                       | string    | Yes         | The ID of the AWS account.                                                                                                                                                             |
+| entity\_type                           | string    | Yes         | Denotes whether the goal is for a forecast group or demand group.                                                                                                                      |
+| entity\_arn                            | string    | Yes         | Arn of the forecast group or demand group                                                                                                                                              |
+| channel                                | string    | Yes         | Denotes the media channel like Voice, chat.                                                                                                                                            |
+| start\_date\_timestamp                 | timestamp | Yes         | Timestamp denoting start of the goal                                                                                                                                                   |
+| end\_date\_timestamp                   | timestamp | Yes         | Timestamp denoting end of the goal                                                                                                                                                     |
+| goal\_service\_level\_percentage       | float     | Yes         | Denotes the goal service level percentage                                                                                                                                              |
+| goal\_service\_level\_seconds          | integer   | Yes         | Denotes the service level seconds                                                                                                                                                      |
+| goal\_average\_speed\_of\_answer       | float     | Yes         | Denotes the average speed of answer                                                                                                                                                    |
+| is\_deleted                            | boolean   | Yes         | Denotes whether the goal is deleted                                                                                                                                                    |
+| last\_updated\_timestamp               | timestamp | Yes         | The Timestamp when the goals record was created.                                                                                                                                       |
+| data\_lake\_last\_processed\_timestamp | timestamp | Yes         | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |
 
 ## Shift rotation patterns
 
-Table Name: `shift_rotation_patterns`
+**Table name:**
+`shift_rotation_patterns`
 
-Composite Primary Key: `{instance_id, shift_rotation_pattern_arn,
- shift_rotation_pattern_version}`
+**Description:** Defines shift rotation pattern configurations that cycle agents through different shift profiles over time, with a configurable start date.
 
-| Column                             | Type      | Description                                                                                                                                                                                     |
-| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                        |
-| shift_rotation_pattern_arn         | string    | The ARN of the Shift Rotation Pattern.                                                                                                                                                          |
-| shift_rotation_pattern_version     | bigint    | The Shift Rotation Pattern Version.                                                                                                                                                             |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                       |
-| shift_rotation_pattern_name        | string    | The name of the Shift Rotation Pattern.                                                                                                                                                         |
-| start_date                         | string    | The start date of the Shift Rotation Pattern in `yyyy-mm-dd` format.                                                                                                                            |
-| is_deleted                         | Boolean   | Set to True if the Shift Rotation Pattern is deleted. Else set to False.                                                                                                                        |
-| last_updated_by                    | string    | The ARN of the user who created/updated/deleted the Shift Rotation Pattern.                                                                                                                     |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Shift Rotation Pattern was created/updated/deleted.                                                                                                                      |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+**Primary key:**
+`instance_id, shift_rotation_pattern_arn, shift_rotation_pattern_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `shift_rotation_pattern_arn, shift_rotation_pattern_version` — Joins to shift\_rotation\_steps
+- `shift_rotation_pattern_arn` — Joins to staff\_scheduling\_profile
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                        |
+| shift\_rotation\_pattern\_arn          | string    | No          | The ARN of the Shift Rotation Pattern.                                                                                                                                                          |
+| shift\_rotation\_pattern\_version      | bigint    | No          | The Shift Rotation Pattern Version.                                                                                                                                                             |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                       |
+| shift\_rotation\_pattern\_name         | string    | Yes         | The name of the Shift Rotation Pattern.                                                                                                                                                         |
+| start\_date                            | string    | Yes         | The start date of the Shift Rotation Pattern in `yyyy-mm-dd` format.                                                                                                                            |
+| is\_deleted                            | Boolean   | Yes         | Set to True if the Shift Rotation Pattern is deleted. Else set to False.                                                                                                                        |
+| last\_updated\_by                      | string    | Yes         | The ARN of the user who created/updated/deleted the Shift Rotation Pattern.                                                                                                                     |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Shift Rotation Pattern was created/updated/deleted.                                                                                                                      |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |
 
 ## Shift rotation steps
 
-Table Name: `shift_rotation_steps`
+**Table name:**
+`shift_rotation_steps`
 
-Composite Primary Key: `{instance_id, shift_rotation_pattern_arn,
- shift_rotation_pattern_version, step_id}`
+**Description:** Defines the individual steps within a shift rotation pattern, each associating a shift profile with a duration in weeks (up to 52 steps per rotation).
 
-This table should be queried by joining with `shift_rotation_patterns`
-table on `shift_rotation_pattern_arn` and
-`shift_rotation_pattern_version`.
+**Primary key:**
+`instance_id, shift_rotation_pattern_arn, shift_rotation_pattern_version, step_id`
 
-| Column                             | Type      | Description                                                                                                                                                                                     |
-| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                        |
-| shift_rotation_pattern_arn         | string    | The ARN of the Shift Rotation Pattern.                                                                                                                                                          |
-| shift_rotation_pattern_version     | bigint    | The Shift Rotation Pattern Version.                                                                                                                                                             |
-| step_id                            | bigint    | The ID of the step within the Shift Rotation Pattern. Steps are numbered sequentially (1, 2, 3, ... up to 52).                                                                                  |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                       |
-| shift_profile_arn                  | string    | The ARN of the Shift Profile associated with the rotation step.                                                                                                                                 |
-| duration                           | bigint    | The duration of the rotation step in weeks.                                                                                                                                                     |
-| is_deleted                         | Boolean   | Set to False when the Shift Rotation Step is valid.                                                                                                                                             |
-| last_updated_by                    | string    | The ARN of the user who created/updated the Shift Rotation Pattern.                                                                                                                             |
-| last_updated_timestamp             | Timestamp | The Timestamp when the Shift Rotation Pattern was created/updated.                                                                                                                              |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `shift_rotation_pattern_arn, shift_rotation_pattern_version` — Joins to shift\_rotation\_patterns
+- `shift_profile_arn` — Joins to shift\_profiles
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The ID of the Connect Customer instance.                                                                                                                                                        |
+| shift\_rotation\_pattern\_arn          | string    | No          | The ARN of the Shift Rotation Pattern.                                                                                                                                                          |
+| shift\_rotation\_pattern\_version      | bigint    | No          | The Shift Rotation Pattern Version.                                                                                                                                                             |
+| step\_id                               | bigint    | No          | The ID of the step within the Shift Rotation Pattern. Steps are numbered sequentially (1, 2, 3, ... up to 52).                                                                                  |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                       |
+| shift\_profile\_arn                    | string    | Yes         | The ARN of the Shift Profile associated with the rotation step.                                                                                                                                 |
+| duration                               | bigint    | Yes         | The duration of the rotation step in weeks.                                                                                                                                                     |
+| is\_deleted                            | Boolean   | Yes         | Set to False when the Shift Rotation Step is valid.                                                                                                                                             |
+| last\_updated\_by                      | string    | Yes         | The ARN of the user who created/updated the Shift Rotation Pattern.                                                                                                                             |
+| last\_updated\_timestamp               | Timestamp | Yes         | The Timestamp when the Shift Rotation Pattern was created/updated.                                                                                                                              |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |
 
 ## Data schema
 

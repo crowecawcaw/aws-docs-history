@@ -40,7 +40,7 @@ Following is a description of each contact.
    voice contact. It looks like every other inbound customer contact.
 2. **Queued callback contact (C2)** is the queued
    leg of the customer first callback. It has a new initiation method of
-   CALLBACK_CUSTOMER_FIRST_QUEUED.
+   CALLBACK\_CUSTOMER\_FIRST\_QUEUED.
 
    - C2 triggers the creation flow, if you selected **Set creation
      flow** in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block. It does this before
@@ -53,7 +53,7 @@ Following is a description of each contact.
 
 3. **Dialed callback contact (C3)** is the dialed
    leg of the customer first callback. It has a new initiation method of
-   CALLBACK_CUSTOMER_FIRST_DIALED.
+   CALLBACK\_CUSTOMER\_FIRST\_DIALED.
 
    - C3 triggers the required outbound callback flow that you specified in
      the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") flow block. You only

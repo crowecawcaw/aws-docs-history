@@ -158,7 +158,7 @@ an Amazon Lex bot:
 
 ![Flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](images/chat-rtf-get-customer-flow.png)
 
-The following image shows how the prompt appears in the SYSTEM_MESSAGE and various BOT message types:
+The following image shows how the prompt appears in the SYSTEM\_MESSAGE and various BOT message types:
 
 ![Image showing Review our FAQ and give us a call links in SYSTEM and BOT messages.](images/chat-rtf-sys-bot-messages.png)
 

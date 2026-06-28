@@ -91,9 +91,9 @@ WebRTC issues occur when a request to Connect Customer Soft-phone Media
 times out and the CCP is unable to collect ICE candidates to establish a connection.
 The result is missed calls.
 
-- Error message title: **ice_collection_timeout title, WebRTC
+- Error message title: **ice\_collection\_timeout title, WebRTC
   issue**
-- Messages: **ice_collection_timeout message, Call failed due to a
+- Messages: **ice\_collection\_timeout message, Call failed due to a
   browser-side WebRTC issue.**
 
 ### How to fix

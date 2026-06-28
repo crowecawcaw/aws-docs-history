@@ -57,15 +57,13 @@ details such as:
      this agent eligible to trade shifts.
 
 5. In the **Shift profile override** section, choose
-   **Enabled** to define a specific shift profile or
-   shift rotation pattern for each agent.
-6. In the **Staff contract rules** section, define rules
-   that must be applied when scheduling this agent. For example, they must
-   get 2 consecutive days off every week, they cannot work more than 40
-   hours per week, they must have a gap of 11 hours between consecutive
-   shifts, and more.
-7. Choose **Apply to Staff**. This saves the rules, and
-   ensures they are applied during the next scheduling cycle.
+**Enabled** to define a specific shift profile or
+shift rotation pattern for each agent. 6. In the **Staff contract rules** section, define rules
+that must be applied when scheduling this agent. For example, they must
+get 2 consecutive days off every week, they cannot work more than 40
+hours per week, they must have a gap of 11 hours between consecutive
+shifts, and more. 7. Choose **Apply to Staff**. This saves the rules, and
+ensures they are applied during the next scheduling cycle.
 
 ## Import time off balance for individuals
 

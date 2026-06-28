@@ -24,9 +24,8 @@ analysis on contacts. Data streaming sends data to Amazon Kinesis.
      Managing Streams](../../../streams/latest/dev/working-with-streams.md "../../../streams/latest/dev/working-with-streams.md").
 
 6. For **Agent Events**, select an existing Kinesis stream or
-   choose **Create a new Kinesis stream** to open the Kinesis console
-   and create the stream.
-7. Choose **Save**.
+choose **Create a new Kinesis stream** to open the Kinesis console
+and create the stream. 7. Choose **Save**.
 
 ## Use server-side encryption for the Kinesis stream
 

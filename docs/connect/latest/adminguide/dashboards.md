@@ -96,11 +96,11 @@ Following are tips for specifying the time range:
      1st of the selected month to the current date.
 
 2. **Compare to** benchmark time range: You can customize a
-   comparison time period to benchmark your Time range selection against, such as
-   an exact week over week comparison called **Compare to: Prior week same
-   day, time range, and time**. This benchmark time range powers the
-   benchmarking in all of the widgets in the dashboard. Your benchmark time range
-   must be a date in the past compared to your time range.
+comparison time period to benchmark your Time range selection against, such as
+an exact week over week comparison called **Compare to: Prior week same
+day, time range, and time**. This benchmark time range powers the
+benchmarking in all of the widgets in the dashboard. Your benchmark time range
+must be a date in the past compared to your time range.
 
 **Week to date** supports comparing to prior week same time
 range. This means:

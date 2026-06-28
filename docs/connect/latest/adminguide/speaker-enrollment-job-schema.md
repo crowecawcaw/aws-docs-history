@@ -102,47 +102,46 @@ Following is a description of each attribute of the output schema.
 - - `RequestId`: The request identifier associated with
     this request. This is the same as the `RequestId`
     specified in the input file for this request.
-  - `ErrorCode`: The HTTP error code representing the
-    type of error. Some example error scenarios are described below.
+    - `ErrorCode`: The HTTP error code representing the
+      type of error. Some example error scenarios are described below.
 
-  ###### Note
+    ###### Note
 
-  This is not an exhaustive list.
+    This is not an exhaustive list.
 
-      - 400 (Bad Request Exception):
-
-
-
-
-      	* The input JSON file is malformed and cannot be
-      	 parsed.
-      	* The provided audio files do not have enough
-      	 speech for enrollment.
-      	* Fraud verification checks failed for the given
-      	 speaker.
-      - 402 (ServiceQuotaLimitExceededException):
+        - 400 (Bad Request Exception):
 
 
 
 
-      	* Speaker limit exceeded.
-      - 409 (Conflict Exception):
+        	* The input JSON file is malformed and cannot be
+        	 parsed.
+        	* The provided audio files do not have enough
+        	 speech for enrollment.
+        	* Fraud verification checks failed for the given
+        	 speaker.
+        - 402 (ServiceQuotaLimitExceededException):
 
 
 
 
-      	* Conflicting action: You cannot request an
-      	 enrollment for an opted out speaker.
-      - 500 (Internal Failure):
+        	* Speaker limit exceeded.
+        - 409 (Conflict Exception):
 
 
 
 
-      	* Internal Server Error (Unexpected error on the
-      	 Service-side).
-  - `ErrorMessage`: A message describing the cause of
-    the enrollment failure.
+        	* Conflicting action: You cannot request an
+        	 enrollment for an opted out speaker.
+        - 500 (Internal Failure):
 
+
+
+
+        	* Internal Server Error (Unexpected error on the
+        	 Service-side).
+    - `ErrorMessage`: A message describing the cause of
+      the enrollment failure.
 - `SuccessfulEnrollments`: The list of enrollment requests
   that succeeded.
 

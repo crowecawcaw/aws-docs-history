@@ -96,15 +96,14 @@ always live on your website.
   integrate with third-party messaging apps, use the [Connect Customer APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that enable you to subscribe to a real-time
   stream of chat messages. Using these APIs, you can:
 
-      + Stream chat messages in real time when a new chat contact is
-       created.
-      + Extend the current Connect Customer chat functionality to support use
-       cases like building integrations with SMS solutions and
-       third-party messaging applications, enabling mobile push
-       notifications, and creating analytics dashboards to monitor and
-       track chat message activity.
-
-  For more information, see [Enable real-time chat message streaming in Connect Customer](chat-message-streaming.md "chat-message-streaming.md").
+  - Stream chat messages in real time when a new chat contact is
+    created.
+  - Extend the current Connect Customer chat functionality to support use
+    cases like building integrations with SMS solutions and
+    third-party messaging applications, enabling mobile push
+    notifications, and creating analytics dashboards to monitor and
+    track chat message activity.
+    For more information, see [Enable real-time chat message streaming in Connect Customer](chat-message-streaming.md "chat-message-streaming.md").
 
 ### In-app, web, and video calling
 
@@ -516,14 +515,13 @@ select **Monthly** from the dropdown.
   Service Level or Average speed of answer targets. You can generate and
   manage agent schedules based on the following:
 
-      + A short-term published forecast
-      + Shift profiles (templates for weekly shifts)
-      + Staffing groups (agents that can handle specific types of
-       contacts from a specific forecast group)
-      + Human resources and business rules
-
-  The following image shows a sample schedule in the Connect Customer admin website for a
-  supervisor's team.
+  - A short-term published forecast
+  - Shift profiles (templates for weekly shifts)
+  - Staffing groups (agents that can handle specific types of
+    contacts from a specific forecast group)
+  - Human resources and business rules
+    The following image shows a sample schedule in the Connect Customer admin website for a
+    supervisor's team.
 
 ![A sample schedule for the supervisor team.](images/scheduling-view-schedule-supervisors-filter2.png)
 

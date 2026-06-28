@@ -154,7 +154,7 @@ Contacts can be routed down the following branches:
   **Create profile** action.
 
 The following example block is configured to create a profile with a
-**PhoneNumber** and a custom attribute named “Language".
+**PhoneNumber** and a custom attribute named "Language".
 Following the profile creation, the **Attributes.Language**
 response field is stored in contact attributes, making it available for use in
 subsequent blocks.
@@ -272,7 +272,7 @@ the following:
   **ProfileID** by using a preceding **Get
   profile** block, as illustrated in the following image. Use the
   **Get profile** block to pinpoint the specific profile
-  before moving forward to retrieve the profile’s object in the subsequent
+  before moving forward to retrieve the profile's object in the subsequent
   block.
 
   - You have the option to manually input the Profile ID or use a
@@ -438,9 +438,9 @@ recommendations** block, please refer to [Step 4: Using Predictive Insights acro
 
 ## How to persist fields throughout the flow
 
-Let’s say you want customers to interact with your contact center and learn the
+Let's say you want customers to interact with your contact center and learn the
 status of their delivery order without directly communicating with an agent.
-Additionally, let’s say you want to prioritize incoming calls from customers who
+Additionally, let's say you want to prioritize incoming calls from customers who
 have experienced more than 10 minutes delay in the past.
 
 In these scenarios, the IVR needs to fetch the relevant information about the

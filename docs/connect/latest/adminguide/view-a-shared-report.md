@@ -5,14 +5,13 @@ To view a report that someone has shared with you, you need the following:
 - A link to the report.
 - Permissions in your security profile:
 
-      + **Access metrics**, if the report is a real-time or
-       historical metrics report
-      + **View** Login/Logout report, if the report is a
-       login/logout report
-      + **View** Saved reports
-
-  These permissions are shown in the following image of the **Analytics
-  and Optimization** section of the security profiles page.
+  - **Access metrics**, if the report is a real-time or
+    historical metrics report
+  - **View** Login/Logout report, if the report is a
+    login/logout report
+  - **View** Saved reports
+    These permissions are shown in the following image of the **Analytics
+    and Optimization** section of the security profiles page.
 
 ![The Analytics and optimization section of the security profiles page.](images/permissions-view-saved-metrics-reports.png)
 

@@ -121,8 +121,8 @@ You can choose from the following types of attributes:
     	 campaigns, see [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-campaigns-using-event-triggers.md").
 
 5. When you choose an attribute in the Attribute finder, it is automatically
-   placed in your message. You can copy and paste the attribute to another
-   location.
+placed in your message. You can copy and paste the attribute to another
+location.
 
 After you paste attribute, Connect Customer displays it enclosed in two sets of curly
 braces—for example, `{{Attributes.Agent.FirstName}}`. The

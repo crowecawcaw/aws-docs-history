@@ -29,138 +29,200 @@ shared:
 - The Forecast groups table stores versioned records. A new version is
   created when forecast group details are changed, for example, adding or
   removing queues from the forecast group. You can get the latest record
-  using the highest value of forecast_group_version.
+  using the highest value of forecast\_group\_version.
 - You can join the Forecast groups table to the Long-term and Short-term
-  forecasts tables by using the following columns: forecast_group_arn and
-  forecast_group_version.
+  forecasts tables by using the following columns: forecast\_group\_arn and
+  forecast\_group\_version.
 
 ## Forecast groups table
 
-Table name: forecast_groups
+**Table name:**
+`forecast_groups`
 
-Composite primary key: {instance_id, forecast_group_arn,
-forecast_group_version}
+**Description:** Defines forecast groups that organize queues and channels for demand forecasting, using versioning for change tracking.
 
-| Column                             | Type      | Description                                                                                                                                                                                          |
-| ---------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | String    | The identifier of the Connect Customer instance.                                                                                                                                                     |
-| forecast_group_arn                 | String    | The ARN of the forecast group.                                                                                                                                                                       |
-| forecast_group_version             | Number    | The version of the forecast group. A new version is<br>created every time a change is made to a forecast group, for<br>example, addition of new queues.                                              |
-| forecast_group_name                | String    | The name of the forecast group.                                                                                                                                                                      |
-| instance_arn                       | String    | The ARN of the Connect Customer instance.                                                                                                                                                            |
-| is_deleted                         | Boolean   | Whether the forecast group is deleted.                                                                                                                                                               |
-| last_updated_timestamp             | String    | The epoch Timestamp in milliseconds when the last time the<br>forecast group was created/updated/deleted.                                                                                            |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness. |
+**Primary key:**
+`instance_id, forecast_group_arn, forecast_group_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `forecast_group_arn, forecast_group_version` — Joins to long\_term\_forecasts, short\_term\_forecasts
+- `forecast_group_arn` — Joins to staffing\_group\_forecast\_groups
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | String    | No          | The identifier of the Connect Customer instance.                                                                                                                                                     |
+| forecast\_group\_arn                   | String    | No          | The ARN of the forecast group.                                                                                                                                                                       |
+| forecast\_group\_version               | Number    | No          | The version of the forecast group. A new version is<br>created every time a change is made to a forecast group, for<br>example, addition of new queues.                                              |
+| forecast\_group\_name                  | String    | Yes         | The name of the forecast group.                                                                                                                                                                      |
+| instance\_arn                          | String    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                            |
+| is\_deleted                            | Boolean   | Yes         | Whether the forecast group is deleted.                                                                                                                                                               |
+| last\_updated\_timestamp               | String    | Yes         | The epoch Timestamp in milliseconds when the last time the<br>forecast group was created/updated/deleted.                                                                                            |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness. |
 
 ## Long-term forecasts table
 
-Table name: long_term_forecasts
+**Table name:**
+`long_term_forecasts`
 
-Composite primary key: {instance_id, long_term_forcast_id}
+**Description:** Contains long-term (daily interval) forecast data including contact volume and average handle time predictions, with support for customer-applied overrides.
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | String    | The ID of the Connect Customer instance                                                                                                                                                                  |
-| long_term_forcast_id               | String    | Unique Identifier of the forecast data row. Key is hash of<br>multiple values: instanceId, forecastGroupId,<br>forecastGroupVersion, forecastType, queueId, channel,<br>forecastStarttime, creationTime. |
-| forecast_group_arn                 | String    | The ARN of the forecast group.                                                                                                                                                                           |
-| forecast_group_version             | Number    | The version of the forecast group.                                                                                                                                                                       |
-| interval                           | String    | Time interval of the forecast data. For example, Daily for<br>long term forecast data.                                                                                                                   |
-| queue_id                           | String    | The ID of the queue for the forecast.                                                                                                                                                                    |
-| channel                            | String    | The channel of the forecast. For example, VOICE.                                                                                                                                                         |
-| forecast_interval_start_time_ms    | Timestamp | Epoch in milliseconds of the start time of the time interval<br>for this data row.                                                                                                                       |
-| creation_timestamp_ms              | Timestamp | Epoch in milliseconds of when this forecast is first computed<br>or published.                                                                                                                           |
-| computed_timestamp_ms              | Timestamp | Epoch in milliseconds of when this forecast is first<br>computed.                                                                                                                                        |
-| published_timestamp_ms             | Timestamp | Epoch in milliseconds of when this forecast is first<br>published.                                                                                                                                       |
-| timezone                           | String    | The timezone of the forecast, for example, UTC.                                                                                                                                                          |
-| is_published                       | Boolean   | Whether this forecast is published or not.                                                                                                                                                               |
-| average_handle_time                | Number    | The average handle time metric value of the forecast data<br>row.                                                                                                                                        |
-| contact_volume                     | Number    | The contact volume metric value of the forecast data<br>row.                                                                                                                                             |
-| average_handle_time_override       | Number    | The customer applied override value of the average handle<br>time metric.                                                                                                                                |
-| contact_volume_override            | Number    | The customer applied override value of the contact volume<br>metric value.                                                                                                                               |
-| instance_arn                       | String    | The ARN of the Connect Customer instance of the forecast.                                                                                                                                                |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness.     |
+**Primary key:**
+`instance_id, long_term_forcast_id`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `forecast_group_arn, forecast_group_version` — Joins to forecast\_groups
+- `queue_id` — Joins to Agent Queue Statistic Record
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | String    | No          | The ID of the Connect Customer instance                                                                                                                                                                  |
+| long\_term\_forcast\_id                | String    | Yes         | Unique Identifier of the forecast data row. Key is hash of<br>multiple values: instanceId, forecastGroupId,<br>forecastGroupVersion, forecastType, queueId, channel,<br>forecastStarttime, creationTime. |
+| forecast\_group\_arn                   | String    | Yes         | The ARN of the forecast group.                                                                                                                                                                           |
+| forecast\_group\_version               | Number    | Yes         | The version of the forecast group.                                                                                                                                                                       |
+| interval                               | String    | Yes         | Time interval of the forecast data. For example, Daily for<br>long term forecast data.                                                                                                                   |
+| queue\_id                              | String    | Yes         | The ID of the queue for the forecast.                                                                                                                                                                    |
+| channel                                | String    | Yes         | The channel of the forecast. For example, VOICE.                                                                                                                                                         |
+| forecast\_interval\_start\_time\_ms    | Timestamp | Yes         | Epoch in milliseconds of the start time of the time interval<br>for this data row.                                                                                                                       |
+| creation\_timestamp\_ms                | Timestamp | Yes         | Epoch in milliseconds of when this forecast is first computed<br>or published.                                                                                                                           |
+| computed\_timestamp\_ms                | Timestamp | Yes         | Epoch in milliseconds of when this forecast is first<br>computed.                                                                                                                                        |
+| published\_timestamp\_ms               | Timestamp | Yes         | Epoch in milliseconds of when this forecast is first<br>published.                                                                                                                                       |
+| timezone                               | String    | Yes         | The timezone of the forecast, for example, UTC.                                                                                                                                                          |
+| is\_published                          | Boolean   | Yes         | Whether this forecast is published or not.                                                                                                                                                               |
+| average\_handle\_time                  | Number    | Yes         | The average handle time metric value of the forecast data<br>row.                                                                                                                                        |
+| contact\_volume                        | Number    | Yes         | The contact volume metric value of the forecast data<br>row.                                                                                                                                             |
+| average\_handle\_time\_override        | Number    | Yes         | The customer applied override value of the average handle<br>time metric.                                                                                                                                |
+| contact\_volume\_override              | Number    | Yes         | The customer applied override value of the contact volume<br>metric value.                                                                                                                               |
+| instance\_arn                          | String    | Yes         | The ARN of the Connect Customer instance of the forecast.                                                                                                                                                |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness.     |
 
 ## Short-term forecasts table
 
-Table name: short_term_forecasts
+**Table name:**
+`short_term_forecasts`
 
-Composite primary key: {instance_id, short_term_forecast_id}
+**Description:** Contains short-term (15-minute interval) forecast data including contact volume and average handle time predictions, with support for customer-applied overrides.
 
-| Column                             | Type      | Description                                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | String    | The ID of the Connect Customer instance.                                                                                                                                                                 |
-| short_term_forecast_id             | String    | Unique Identifier of the forecast data row. Key is hash of<br>multiple values: instanceId, forecastGroupId,<br>forecastGroupVersion, forecastType, queueId, channel,<br>forecastStarttime, creationTime. |
-| forecast_group_arn                 | String    | The ARN of the forecast group for the forecast data<br>row.                                                                                                                                              |
-| forecast_group_version             | Number    | The version of the forecast group.                                                                                                                                                                       |
-| interval                           | String    | Time interval of the forecast data row. For example,<br>FIFTEEN_MINUTES for short term 15 minutes forecast data<br>row.                                                                                  |
-| queue_id                           | String    | The ID of the queue for the forecast.                                                                                                                                                                    |
-| channel                            | String    | The channel of this forecast, for example, VOICE.                                                                                                                                                        |
-| forecast_interval_start_time_ms    | Timestamp | Epoch in milliseconds of the start time of the time interval<br>for this data row.                                                                                                                       |
-| creation_timestamp_ms              | Timestamp | Epoch in milliseconds of when this forecast is first computed<br>or published.                                                                                                                           |
-| computed_timestamp_ms              | Timestamp | Epoch in milliseconds of when this forecast is first<br>computed.                                                                                                                                        |
-| published_timestamp_ms             | Timestamp | Epoch in milliseconds of when this forecast is first<br>published.                                                                                                                                       |
-| is_published                       | Boolean   | Whether this forecast is published or not.                                                                                                                                                               |
-| average_handle_time                | Number    | The average handle time metric value of the forecast data<br>row.                                                                                                                                        |
-| contact_volume                     | Number    | The contact volume metric value of the forecast data<br>row.                                                                                                                                             |
-| average_handle_time_override       | Number    | The customer applied override value of the average handle<br>time metric.                                                                                                                                |
-| contact_volume_override            | Number    | The customer applied override value of the contact volume<br>metric value.                                                                                                                               |
-| instance_arn                       | String    | The ARN of the Connect Customer instance of the forecast.                                                                                                                                                |
-| data_lake_last_processed_timestamp | Timestamp | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness.     |
+**Primary key:**
+`instance_id, short_term_forecast_id`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `forecast_group_arn, forecast_group_version` — Joins to forecast\_groups
+- `queue_id` — Joins to Agent Queue Statistic Record
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | String    | No          | The ID of the Connect Customer instance.                                                                                                                                                                 |
+| short\_term\_forecast\_id              | String    | Yes         | Unique Identifier of the forecast data row. Key is hash of<br>multiple values: instanceId, forecastGroupId,<br>forecastGroupVersion, forecastType, queueId, channel,<br>forecastStarttime, creationTime. |
+| forecast\_group\_arn                   | String    | Yes         | The ARN of the forecast group for the forecast data<br>row.                                                                                                                                              |
+| forecast\_group\_version               | Number    | Yes         | The version of the forecast group.                                                                                                                                                                       |
+| interval                               | String    | Yes         | Time interval of the forecast data row. For example,<br>FIFTEEN\_MINUTES for short term 15 minutes forecast data<br>row.                                                                                 |
+| queue\_id                              | String    | Yes         | The ID of the queue for the forecast.                                                                                                                                                                    |
+| channel                                | String    | Yes         | The channel of this forecast, for example, VOICE.                                                                                                                                                        |
+| forecast\_interval\_start\_time\_ms    | Timestamp | Yes         | Epoch in milliseconds of the start time of the time interval<br>for this data row.                                                                                                                       |
+| creation\_timestamp\_ms                | Timestamp | Yes         | Epoch in milliseconds of when this forecast is first computed<br>or published.                                                                                                                           |
+| computed\_timestamp\_ms                | Timestamp | Yes         | Epoch in milliseconds of when this forecast is first<br>computed.                                                                                                                                        |
+| published\_timestamp\_ms               | Timestamp | Yes         | Epoch in milliseconds of when this forecast is first<br>published.                                                                                                                                       |
+| is\_published                          | Boolean   | Yes         | Whether this forecast is published or not.                                                                                                                                                               |
+| average\_handle\_time                  | Number    | Yes         | The average handle time metric value of the forecast data<br>row.                                                                                                                                        |
+| contact\_volume                        | Number    | Yes         | The contact volume metric value of the forecast data<br>row.                                                                                                                                             |
+| average\_handle\_time\_override        | Number    | Yes         | The customer applied override value of the average handle<br>time metric.                                                                                                                                |
+| contact\_volume\_override              | Number    | Yes         | The customer applied override value of the contact volume<br>metric value.                                                                                                                               |
+| instance\_arn                          | String    | Yes         | The ARN of the Connect Customer instance of the forecast.                                                                                                                                                |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness.     |
 
 ## Intraday forecasts table
 
-Table name: intraday_forecasts
+**Table name:**
+`intraday_forecasts`
 
-Composite primary key: {instance_id, intraday_forecast_id}
+**Description:** Contains intraday forecast data including forecasted contact volume, average handle time, queue answer time, and effective agent staffing for real-time workforce adjustments.
 
-| **Column**                         | **Type**  | **Description**                                                                                                                                                                              |
-| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| intraday_forecast_id               | string    | Unique identifier of this intraday forecast data.                                                                                                                                            |
-| aws_account_id                     | string    | The identifier of the AWS account that owns the Intraday<br>Forecast.                                                                                                                        |
-| instance_id                        | string    | The identifier of the Connect Customer instance. You can [find the instance ID](find-instance-arn.md "find-instance-arn.md") in<br>the Amazon Resource Name (ARN) of the instance.           |
-| instance_arn                       | string    | Instance ARN of the Connect Customer instance.                                                                                                                                               |
-| channel                            | string    | The method used to contact your contact center.                                                                                                                                              |
-| queue_arn                          | string    | The Amazon Resource Name of the queue.                                                                                                                                                       |
-| forecast_interval_start_time       | Timestamp | Start Timestamp of the forecast interval.                                                                                                                                                    |
-| creation_timestamp                 | Timestamp | When the forecast was computed in forecasting<br>system.                                                                                                                                     |
-| average_handle_time                | Double    | Forecasted metric data: average handle time.                                                                                                                                                 |
-| average_queue_answer_time          | Double    | Forecasted metric data: average queue answer time.                                                                                                                                           |
-| contact_volume                     | Double    | Forecasted metric data: contact volume.                                                                                                                                                      |
-| effective_agent_staffing           | Double    | Forecasted metric data: effective agent staffing.                                                                                                                                            |
-| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the data lake processed<br>the record. This can include transformation and backfill. This<br>field cannot be used to determine reliably data freshness. |
+**Primary key:**
+`instance_id, intraday_forecast_id`
+
+**Partition key:**
+`forecast_interval_start_timestamp` (daily)
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `queue_arn` — Joins to Agent Queue Statistic Record (via queue ARN and ID mapping)
+
+| **Column**                             | **Type**  | **Nullable** | **Description**                                                                                                                                                                              |
+| -------------------------------------- | --------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| intraday\_forecast\_id                 | string    | No           | Unique identifier of this intraday forecast data.                                                                                                                                            |
+| aws\_account\_id                       | string    | Yes          | The identifier of the AWS account that owns the Intraday<br>Forecast.                                                                                                                        |
+| instance\_id                           | string    | No           | The identifier of the Connect Customer instance. You can [find the instance ID](find-instance-arn.md "find-instance-arn.md") in<br>the Amazon Resource Name (ARN) of the instance.           |
+| instance\_arn                          | string    | Yes          | Instance ARN of the Connect Customer instance.                                                                                                                                               |
+| channel                                | string    | Yes          | The method used to contact your contact center.                                                                                                                                              |
+| queue\_arn                             | string    | Yes          | The Amazon Resource Name of the queue.                                                                                                                                                       |
+| forecast\_interval\_start\_time        | Timestamp | Yes          | Start Timestamp of the forecast interval.                                                                                                                                                    |
+| creation\_timestamp                    | Timestamp | Yes          | When the forecast was computed in forecasting<br>system.                                                                                                                                     |
+| average\_handle\_time                  | Double    | Yes          | Forecasted metric data: average handle time.                                                                                                                                                 |
+| average\_queue\_answer\_time           | Double    | Yes          | Forecasted metric data: average queue answer time.                                                                                                                                           |
+| contact\_volume                        | Double    | Yes          | Forecasted metric data: contact volume.                                                                                                                                                      |
+| effective\_agent\_staffing             | Double    | Yes          | Forecasted metric data: effective agent staffing.                                                                                                                                            |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes          | Timestamp, which shows the last time the data lake processed<br>the record. This can include transformation and backfill. This<br>field cannot reliably be used to determine data freshness. |
 
 ## Demand group table
 
-Table name: `demand_group`
+**Table name:**
+`demand_group`
 
-Composite Primary Key: `{instance_id, demand_group_arn, demand_group_version}`
+**Description:** Defines demand groups that represent specific queue-channel combinations for capacity planning, associating demand targets with forecast groups.
 
-| Column                             | Type      | Description                                                                                                                                                                                 |
-| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The identifier of the Connect Customer instance.                                                                                                                                            |
-| demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                |
-| demand_group_version               | Long      | The version of the demand group. A new version is created every time a change is made to a demand group, for example, addition of new queues.                                               |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                   |
-| demand_group_name                  | string    | Name of the demand group.                                                                                                                                                                   |
-| foecast_group_arn                  | string    | The ARN of the forecast group.                                                                                                                                                              |
-| is_deleted                         | Boolean   | Whether the demand group is deleted.                                                                                                                                                        |
-| last_updated_timestamp             | Timestamp | Timestamp when the demand group was last created/updated/deleted.                                                                                                                           |
-| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+**Primary key:**
+`instance_id, demand_group_arn, demand_group_version`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `foecast_group_arn` — Joins to forecast\_groups (as `forecast_group_arn`)
+- `demand_group_arn, demand_group_version` — Joins to demand\_group\_definitions
+- `demand_group_arn` — Joins to staffing\_group\_demand\_group, staff\_demand\_group
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The identifier of the Connect Customer instance.                                                                                                                                            |
+| demand\_group\_arn                     | string    | No          | The ARN of the demand group.                                                                                                                                                                |
+| demand\_group\_version                 | Long      | No          | The version of the demand group. A new version is created every time a change is made to a demand group, for example, addition of new queues.                                               |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                   |
+| demand\_group\_name                    | string    | Yes         | Name of the demand group.                                                                                                                                                                   |
+| foecast\_group\_arn                    | string    | Yes         | The ARN of the forecast group.                                                                                                                                                              |
+| is\_deleted                            | Boolean   | Yes         | Whether the demand group is deleted.                                                                                                                                                        |
+| last\_updated\_timestamp               | Timestamp | Yes         | Timestamp when the demand group was last created/updated/deleted.                                                                                                                           |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |
 
 ## Demand group definitions table
 
-Table name: `demand_group_definitions`
+**Table name:**
+`demand_group_definitions`
 
-Composite Primary Key: `{instance_id, demand_group_definition_id}`
+**Description:** Defines the queue and channel combinations that make up each demand group, mapping specific workload types to demand allocation targets.
 
-| Column                             | Type      | Description                                                                                                                                                                                 |
-| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The identifier of the Connect Customer instance.                                                                                                                                            |
-| demand_group_definition_id         | string    | Unique Identifier for the demandGroup definition row.                                                                                                                                       |
-| demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                |
-| demand_group_version               | Long      | The version of the demand group. A new version is created every time a change is made to a demand group, for example, addition of new queues.                                               |
-| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                   |
-| queue_id                           | string    | ID of the queue that is part of the demand group.                                                                                                                                           |
-| is_deleted                         | Boolean   | Whether the demand group is deleted.                                                                                                                                                        |
-| last_updated_timestamp             | Timestamp | Timestamp when the demand group was last created/updated/deleted.                                                                                                                           |
-| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+**Primary key:**
+`instance_id, demand_group_definition_id`
+
+**Join keys:**
+
+- `instance_id` — Joins to all tables
+- `demand_group_arn, demand_group_version` — Joins to demand\_group
+- `queue_id` — Joins to Agent Queue Statistic Record
+
+| Column                                 | Type      | Description |
+| -------------------------------------- | --------- | ----------- |
+| instance\_id                           | string    | No          | The identifier of the Connect Customer instance.                                                                                                                                            |
+| demand\_group\_definition\_id          | string    | No          | Unique Identifier for the demandGroup definition row.                                                                                                                                       |
+| demand\_group\_arn                     | string    | Yes         | The ARN of the demand group.                                                                                                                                                                |
+| demand\_group\_version                 | Long      | Yes         | The version of the demand group. A new version is created every time a change is made to a demand group, for example, addition of new queues.                                               |
+| instance\_arn                          | string    | Yes         | The ARN of the Connect Customer instance.                                                                                                                                                   |
+| queue\_id                              | string    | Yes         | ID of the queue that is part of the demand group.                                                                                                                                           |
+| is\_deleted                            | Boolean   | Yes         | Whether the demand group is deleted.                                                                                                                                                        |
+| last\_updated\_timestamp               | Timestamp | Yes         | Timestamp when the demand group was last created/updated/deleted.                                                                                                                           |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes         | Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |

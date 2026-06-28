@@ -59,27 +59,25 @@ of the following:
     		3. Copy the URL from your browser.
 
 7. Customer Profiles uses Amazon EventBridge for integrations with Segment. On the
-   **Source set up** page, copy your AWS account ID to your clipboard, and then choose
-   **Log in to Segment** to configure Amazon EventBridge.
-8. Use the following instructions to set up Segment:
+**Source set up** page, copy your AWS account ID to your clipboard, and then choose
+**Log in to Segment** to configure Amazon EventBridge. 8. Use the following instructions to set up Segment:
 
-   1. Log in to Segment.
-   2. In your application, select a source to set up the
-      destination to Amazon EventBridge.
-   3. Paste in your AWS account ID and select
-      your AWS Region.
-   4. Toggle **ON**, to activate your partner
-      event source.
+    1. Log in to Segment.
+    2. In your application, select a source to set up the
+     destination to Amazon EventBridge.
+    3. Paste in your AWS account ID and select
+     your AWS Region.
+    4. Toggle **ON**, to activate your partner
+     event source.
 
 9. Go to **Event Tester**, and
-   send
-   a test event to complete activating your partner
-   event source.
-10. **Client ID**: This is a string that uniquely
-    distinguishes the client in your external application. This client
-    ID is the Source Name available on the application website. You use
-    the ID that you specify to identify the client that you want Customer Profiles to
-    ingest your objects from.
+send
+a test event to complete activating your partner
+event source. 10. **Client ID**: This is a string that uniquely
+distinguishes the client in your external application. This client
+ID is the Source Name available on the application website. You use
+the ID that you specify to identify the client that you want Customer Profiles to
+ingest your objects from.
 
 To find your source ID:
 

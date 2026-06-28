@@ -46,13 +46,11 @@ block:
     ![The No match path in the sample queue configurations flow.](images/sample-queue-configurations-priority.png)
 
 5. Next we use a **Check queue status** block to check whether
-   the time in queue is less than 300 seconds.
-6. We use a **Play prompt** block to tell the customer the
-   results.
-7. We use a **Check contact attributes** block again to check
-   the customer's channel: chat or voice/No Match.
-   These next steps apply to customers who were routed down the voice/**No
-   Match** branch, as shown in the following image:
+the time in queue is less than 300 seconds. 6. We use a **Play prompt** block to tell the customer the
+results. 7. We use a **Check contact attributes** block again to check
+the customer's channel: chat or voice/No Match.
+These next steps apply to customers who were routed down the voice/**No
+Match** branch, as shown in the following image:
 
 ![The No match path in the sample queue configurations flow.](images/sample-queue-configurations.png)
 

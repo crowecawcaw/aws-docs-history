@@ -264,7 +264,7 @@ configure the following settings:
     	 seconds/minutes/hours/days**
 
 5. The service level calculation preview updates automatically as you
-   configure these settings.
+configure these settings.
 
 ![The Add a custom service level definition page.](images/dashboards-create-custom-sl-calc.png)
 

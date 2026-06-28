@@ -49,7 +49,7 @@ When you choose to enter your own key, make note of the following restrictions:
     ```
 
 7. Specify a number and unit for the **Data retention
-   period**.
+period**.
 
 ###### Important
 

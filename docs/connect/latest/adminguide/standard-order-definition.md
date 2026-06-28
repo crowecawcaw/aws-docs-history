@@ -4,7 +4,7 @@ The following table lists all the fields in the Customer Profiles standard order
 object.
 
 | Standard order field  | Data type            | Description                                       |
-| --------------------- | -------------------- | ------------------------------------------------- | ------------- |
+| --------------------- | -------------------- | ------------------------------------------------- |
 | OrderId               | String               | The unique identifier of a standard order.        |
 | CustomerEmail         | String               | The customer's email address.                     |
 | CustomerPhone         | String               | The customer's phone number.                      |

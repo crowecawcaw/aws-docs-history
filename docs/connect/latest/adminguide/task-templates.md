@@ -92,11 +92,10 @@ page. 4. In the **Task assignment** section:
     ![The Self assign checkbox section, the Default state option set to True.](images/task-templates-task-selfassigment.png)
 
 5. In the **Task schedule** section, choose whether you
-   want agents to be able to schedule a future start date and time for
-   tasks.
-6. In the **Expiry** section, specify how long the task
-   should exist before it expires. The default is 7 days. You can configure
-   it for up to 90 days (129,600 minutes)
+want agents to be able to schedule a future start date and time for
+tasks. 6. In the **Expiry** section, specify how long the task
+should exist before it expires. The default is 7 days. You can configure
+it for up to 90 days (129,600 minutes)
 
 ![The Task durations section of the template. list.](images/task-expiry-duration.png)
 

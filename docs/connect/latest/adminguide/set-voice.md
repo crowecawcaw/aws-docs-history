@@ -95,7 +95,7 @@ few configurations that must be followed when modifying the block:
 - If the voice is selected dynamically and the speaking style is
   overridden, then the engine and style must be selected
   dynamically.
-- If the voice or engine are invalid, or the selected voice doesn’t
+- If the voice or engine are invalid, or the selected voice doesn't
   support the selected engine, the error branch will be taken.
 
 ###### Note
@@ -145,12 +145,12 @@ operation fails because Ruth doesn't support the standard engine.
 The following table contains some examples on configurations and their
 results:
 
-| Configuration Examples | Language Code | Voice  | Engine         | Speaking style                                                                                                                                                                                                                         | Result + Reasoning |
-| ---------------------- | ------------- | ------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| en-US                  | Ruth          | N/D    | N/D            | \*_Error branch:_<br>• engine is not<br>specified, thus it defaults to standard. Ruth does not support<br>standard engine, which results in error branch being taken.                                                                  |
-| en-US                  | Ruth          | neural | none           | \*_Success branch:_<br>• Ruth supports<br>neural engine                                                                                                                                                                                |
-| en-US                  | Ruth          | neural | conversational | \*_Success branch:_<br>• Even though Ruth<br>does not support conversational speech style, the block does not<br>take the error branch. Instead, when the voice is synthesized, it<br>just uses no speaking style.                     |
-| ar-AE                  | Ruth          | neural | none           | \*_Success branch:_<br>• This block does<br>not do validation on language code. Only the voice is used to<br>synthesize speech. However, language code being incorrect may result<br>in erroneous behavior when used with Lex V2 bots. |
+Configuration Examples| Language Code | Voice | Engine | Speaking style | Result + Reasoning |
+| --- | --- | --- | --- | --- |
+| en-US | Ruth | N/D | N/D | **Error branch:_<br>• engine is not<br>specified, thus it defaults to standard. Ruth does not support<br>standard engine, which results in error branch being taken. |
+| en-US | Ruth | neural | none | \**Success branch:_<br>• Ruth supports<br>neural engine |
+| en-US | Ruth | neural | conversational | **Success branch:_<br>• Even though Ruth<br>does not support conversational speech style, the block does not<br>take the error branch. Instead, when the voice is synthesized, it<br>just uses no speaking style. |
+| ar-AE | Ruth | neural | none | \**Success branch:_<br>• This block does<br>not do validation on language code. Only the voice is used to<br>synthesize speech. However, language code being incorrect may result<br>in erroneous behavior when used with Lex V2 bots. |
 
 ## Use an Amazon Lex V2 bot with Connect Customer
 
@@ -158,14 +158,14 @@ If you're using an Amazon Lex V2 bot, your language attribute in Connect Custome
 language model used to build your Lex bot. This is different than Amazon Lex (Classic).
 
 - If you build an Amazon Lex V2 bot with a different language model—for
-  example, en_AU, fr_FR, es_ES, and more—under
+  example, en\_AU, fr\_FR, es\_ES, and more—under
   **Voice**, choose a voice that corresponds to that
   language, and then must choose **Set language attribute**,
   as shown in the following image.
 - If you're not using an en-US voice with an Amazon Lex V2 bot and don't choose
   **Set language attribute**, the [Get customer input](get-customer-input.md "get-customer-input.md")
   block results in an error.
-- For bots with multiple languages (for example, en_AU and en_GB) choose
+- For bots with multiple languages (for example, en\_AU and en\_GB) choose
   **Set language attribute** for one of the languages, as
   shown in the following image.
 

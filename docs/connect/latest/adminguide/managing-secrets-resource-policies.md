@@ -7,22 +7,21 @@ provider's API key. Creating the secret is a two step process:
 - Create the secret containing the API key. For instructions, see [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md").
 - Configure the necessary permissions:
 
-      + Attach a resource-based policy to the secret.
-      + Attach a resource-based policy to the KMS key (not the API key) associated
-       with the secret. The KMS key protects the API key in the secret.
-
-  These policies allow Connect Customer to access to the API key within the secret. Note that you
-  cannot use the default `aws/secretsmanager` KMS key; you will have to
-  create a new key or use an existing customer-managed key. For more information about
-  how KMS keys secure secrets, see [Secret encryption
-  and decryption in Secrets Manager](../../../secretsmanager/latest/userguide/security-encryption.md "../../../secretsmanager/latest/userguide/security-encryption.md").
-  Make sure that the resource-based policy for the secret includes the
-  `aws:SourceAccount` and `aws:SourceArn` confused deputy conditions
-  (see [The confused
-  deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md")) and that the resource-based policy for the KMS key includes the
-  `kms:EncryptionContext:SecretARN` condition. This will ensure that Connect Customer can
-  only access your API key secret in context of a single specific instance, and can only access
-  your KMS key in context of both that instance and the specific secret.
+  - Attach a resource-based policy to the secret.
+  - Attach a resource-based policy to the KMS key (not the API key) associated
+    with the secret. The KMS key protects the API key in the secret.
+    These policies allow Connect Customer to access to the API key within the secret. Note that you
+    cannot use the default `aws/secretsmanager` KMS key; you will have to
+    create a new key or use an existing customer-managed key. For more information about
+    how KMS keys secure secrets, see [Secret encryption
+    and decryption in Secrets Manager](../../../secretsmanager/latest/userguide/security-encryption.md "../../../secretsmanager/latest/userguide/security-encryption.md").
+    Make sure that the resource-based policy for the secret includes the
+    `aws:SourceAccount` and `aws:SourceArn` confused deputy conditions
+    (see [The confused
+    deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md")) and that the resource-based policy for the KMS key includes the
+    `kms:EncryptionContext:SecretARN` condition. This will ensure that Connect Customer can
+    only access your API key secret in context of a single specific instance, and can only access
+    your KMS key in context of both that instance and the specific secret.
 
 ## Example of a resource-based policy for Secrets Manager secrets
 

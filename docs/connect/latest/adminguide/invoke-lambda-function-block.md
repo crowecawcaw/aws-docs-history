@@ -82,10 +82,10 @@ times, for maximum until timeout specified. At that point, the contact
 is routed down the **Error** branch.
 
 - **Response validation**: The Lambda function response
-  may be either a STRING_MAP or JSON. You must set it when you configure
+  may be either a STRING\_MAP or JSON. You must set it when you configure
   the **AWS Lambda function** block in the flow.
 
-  - When the response validation is set to STRING_MAP, the Lambda
+  - When the response validation is set to STRING\_MAP, the Lambda
     function returns a flat object of key/value pairs of the string
     type.
   - When the response validation is set to JSON, the Lambda

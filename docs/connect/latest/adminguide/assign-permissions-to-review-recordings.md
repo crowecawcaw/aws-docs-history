@@ -69,34 +69,34 @@ example, with chat bots).
 
 – OR –
 
-1.  Assign the following individual permissions:
+1. Assign the following individual permissions:
 
-    - **Call recordings (redacted) - Access**: If your
-      organization uses Connect Customer Contact Lens, you can assign this permission so
-      agents access only those agent call recordings in which sensitive data has
-      been redacted.
-    - **Contact transcripts (redacted) - Access**: If your
-      organization uses Connect Customer Contact Lens, you can assign this permission so
-      agents access only those contact transcripts in which sensitive data has
-      been redacted.
+   - **Call recordings (redacted) - Access**: If your
+     organization uses Connect Customer Contact Lens, you can assign this permission so
+     agents access only those agent call recordings in which sensitive data has
+     been redacted.
+   - **Contact transcripts (redacted) - Access**: If your
+     organization uses Connect Customer Contact Lens, you can assign this permission so
+     agents access only those contact transcripts in which sensitive data has
+     been redacted.
 
-    The redaction feature is provided as part of Contact Lens. For more
-    information, see [Use sensitive data redaction to protect customer privacy using Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
-    - **Manager monitor**: This permission allows users to
-      monitor live conversations and listen to recordings.
+   The redaction feature is provided as part of Contact Lens. For more
+   information, see [Use sensitive data redaction to protect customer privacy using Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
+   - **Manager monitor**: This permission allows users to
+     monitor live conversations and listen to recordings.
 
-    ###### Tip
+   ###### Tip
 
-    Be sure to assign managers to the **Agent** security
-    profile so they can access the Contact Control Panel (CCP). This enables
-    them can monitor the conversation through the CCP.
-    - **Call recordings (unredacted) - Access**: Use this
-      permission to manage who can access recordings on the **Contact
-      search** and **Contact details** pages,
-      through corresponding URLs that are generated in S3. From there, these users
-      can delete recordings.
+   Be sure to assign managers to the **Agent** security
+   profile so they can access the Contact Control Panel (CCP). This enables
+   them can monitor the conversation through the CCP.
+   - **Call recordings (unredacted) - Access**: Use this
+     permission to manage who can access recordings on the **Contact
+     search** and **Contact details** pages,
+     through corresponding URLs that are generated in S3. From there, these users
+     can delete recordings.
 
-    Note the following:
+   Note the following:
 
         + If users do not have **Call recordings (unredacted) -
          Access** permission—or they're not logged in to
@@ -105,12 +105,12 @@ example, with chat bots).
         + The **Call recordings (unredacted) - Enable download button**
          permission controls only whether the download button appears in the
          user interface. It does not control access to the recording.
-    - **Contact transcripts (unredacted) - Access**: Use this
-      permission to manage who can view unredacted chat and email conversations,
-      and unredacted voice transcripts produced by Contact Lens on the **Contact
-      search** and **Contact details** pages.
+   - **Contact transcripts (unredacted) - Access**: Use this
+     permission to manage who can view unredacted chat and email conversations,
+     and unredacted voice transcripts produced by Contact Lens on the **Contact
+     search** and **Contact details** pages.
 
-    Note the following:
+   Note the following:
 
         + If users do not have **Call recordings (unredacted) -
          Access** permission—or they're not logged in to Connect Customer.
@@ -118,16 +118,16 @@ example, with chat bots).
          button** permission controls only whether the download
          button appears in the user interface. It does not control access to
          the recording.
-    - **Delete recorded conversations**: To enable a user to
-      delete recordings on the **Contact search** and **Contact details** pages, choose
-      the **Delete** permission.
-    - **Automated interaction voice (IVR) recordings
-      (unredacted)**: Use this permission to grant access to manage
-      and view IVR recordings on the **Contact details**
-      page.
-    - **Automated interaction voice (IVR) transcripts
-      (unredacted)**: Use this permission to grant access to
-      transcripts for the above Automated Interaction Voice (IVR) Recordings.
+   - **Delete recorded conversations**: To enable a user to
+     delete recordings on the **Contact search** and **Contact details** pages, choose
+     the **Delete** permission.
+   - **Automated interaction voice (IVR) recordings
+     (unredacted)**: Use this permission to grant access to manage
+     and view IVR recordings on the **Contact details**
+     page.
+   - **Automated interaction voice (IVR) transcripts
+     (unredacted)**: Use this permission to grant access to
+     transcripts for the above Automated Interaction Voice (IVR) Recordings.
 
 ## Permissions to view automated interaction (IVR) recordings and transcripts
 

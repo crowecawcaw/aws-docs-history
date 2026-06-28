@@ -15,6 +15,10 @@ attribute retrieved from a Lambda function is overwritten when you invoke any ot
 function. Make sure you store external attributes if you want to reference them later in a
 flow.
 
+###### Important
+
+Contact attributes support string values only. If your Lambda function returns non-string data types such as booleans or numbers, you must convert them to strings before returning them. For example, return `"true"` instead of `true`.
+
 ###### Tip
 
 For information about invoking a Lambda function from a flow, see [Grant Connect Customer access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md") The topic

@@ -20,7 +20,7 @@ If you access your instance using the **awsapps.com** domain, use
 the following URL:
 
 - **https://`instance
-name`.awsapps.com/connect/agent-app-v2/**
+ name`.awsapps.com/connect/agent-app-v2/**
 
 For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
 

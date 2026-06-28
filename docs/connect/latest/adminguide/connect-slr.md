@@ -51,21 +51,20 @@ It also grants `s3:PutObject`, `s3:PutObjectAcl`, and
   associated with your Connect Customer instance, except for the following actions which are
   explicitly denied:
 
-      + `profile:CreateDomain`
-      + `profile:UpdateDomain`
-      + `profile:DeleteDomain`
-      + `profile:CreateEventStream`
-      + `profile:DeleteEventStream`
-      + `profile:DeleteWorkflow`
-      + `profile:DeleteProfileKey`
-      + `profile:UntagResource`
-      + `profile:TagResource`
-      + `profile:CreateIntegrationWorkflow`
-
-  Additionally, the following actions are allowed on all resources:
-  `profile:ListRecommenderRecipes`,
-  `profile:ListAccountIntegrations`, and
-  `profile:ListDomains`.
+  - `profile:CreateDomain`
+  - `profile:UpdateDomain`
+  - `profile:DeleteDomain`
+  - `profile:CreateEventStream`
+  - `profile:DeleteEventStream`
+  - `profile:DeleteWorkflow`
+  - `profile:DeleteProfileKey`
+  - `profile:UntagResource`
+  - `profile:TagResource`
+  - `profile:CreateIntegrationWorkflow`
+    Additionally, the following actions are allowed on all resources:
+    `profile:ListRecommenderRecipes`,
+    `profile:ListAccountIntegrations`, and
+    `profile:ListDomains`.
 
 ###### Note
 
@@ -102,14 +101,13 @@ domain names within the same instance that do not start with the
 - Action: Connect Customer Messaging WhatsApp integration. Grants Connect Customer permissions to the
   following AWS End User Messaging Social APIs:
 
-      + `social-messaging:SendWhatsAppMessage`
-      + `social-messaging:PostWhatsAppMessageMedia`
-      + `social-messaging:GetWhatsAppMessageMedia`
-      + `social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber`
-
-  The Social APIs are restricted to your phone number resources that are enabled for
-  Connect Customer. A phone number is tagged with `AmazonConnectEnabled : True` when it is
-  imported into an Connect Customer instance.
+  - `social-messaging:SendWhatsAppMessage`
+  - `social-messaging:PostWhatsAppMessageMedia`
+  - `social-messaging:GetWhatsAppMessageMedia`
+  - `social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber`
+    The Social APIs are restricted to your phone number resources that are enabled for
+    Connect Customer. A phone number is tagged with `AmazonConnectEnabled : True` when it is
+    imported into an Connect Customer instance.
 
 - Action: Connect Customer Messaging WhatsApp message template integration. Grants Connect Customer
   permission to call AWS End User Messaging Social APIs. An AWS account's WhatsApp business
@@ -123,24 +121,20 @@ domain names within the same instance that do not start with the
 
 - Action: Amazon SES
 
-      + `ses:DescribeReceiptRule`
-      + `ses:UpdateReceiptRule`
+  - `ses:DescribeReceiptRule`
+  - `ses:UpdateReceiptRule`
+    on all Amazon SES receipt rules. Used to send and receive emails.
 
-  on all Amazon SES receipt rules. Used to send and receive emails.
+  - `ses:DeleteEmailIdentity` for
+    {`instance-alias`}.email.connect.aws SES domain identity.
+    Used for email domain management that is provided by Connect Customer.
 
-      + `ses:DeleteEmailIdentity` for
-       {`instance-alias`}.email.connect.aws SES domain identity.
-       Used for email domain management that is provided by Connect Customer.
+  - `ses:SendRawEmail` for sending emails with an SES configuration set
+    that is provided by Connect Customer (configuration-set-for-connect-DO-NOT-DELETE).
 
-
-      + `ses:SendRawEmail` for sending emails with an SES configuration set
-       that is provided by Connect Customer (configuration-set-for-connect-DO-NOT-DELETE).
-
-
-
-      + `iam:PassRole` for `AmazonConnectEmailSESAccessRole` service
-       role which is used by Amazon SES. For Amazon SES Receipt rule management, Amazon SES requires a role
-       to be passed, which it assumes.
+  - `iam:PassRole` for `AmazonConnectEmailSESAccessRole` service
+    role which is used by Amazon SES. For Amazon SES Receipt rule management, Amazon SES requires a role
+    to be passed, which it assumes.
 
 - Action: Amazon Polly
 
@@ -166,20 +160,19 @@ policies:
   domains.
 - Action: outbound campaigns
 
-      + `connect-campaigns:CreateCampaign`
-      + `connect-campaigns:DeleteCampaign`
-      + `connect-campaigns:DescribeCampaign`
-      + `connect-campaigns:UpdateCampaignName`
-      + `connect-campaigns:GetCampaignState`
-      + `connect-campaigns:GetCampaignStateBatch`
-      + `connect-campaigns:ListCampaigns`
-      + `connect-campaigns:UpdateOutboundCallConfig`
-      + `connect-campaigns:UpdateDialerConfig`
-      + `connect-campaigns:PauseCampaign`
-      + `connect-campaigns:ResumeCampaign`
-      + `connect-campaigns:StopCampaign`
-
-  for all operations related to outbound campaigns.
+  - `connect-campaigns:CreateCampaign`
+  - `connect-campaigns:DeleteCampaign`
+  - `connect-campaigns:DescribeCampaign`
+  - `connect-campaigns:UpdateCampaignName`
+  - `connect-campaigns:GetCampaignState`
+  - `connect-campaigns:GetCampaignStateBatch`
+  - `connect-campaigns:ListCampaigns`
+  - `connect-campaigns:UpdateOutboundCallConfig`
+  - `connect-campaigns:UpdateDialerConfig`
+  - `connect-campaigns:PauseCampaign`
+  - `connect-campaigns:ResumeCampaign`
+  - `connect-campaigns:StopCampaign`
+    for all operations related to outbound campaigns.
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

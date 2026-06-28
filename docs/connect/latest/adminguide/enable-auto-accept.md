@@ -1,7 +1,7 @@
 # Enable auto-accept for agents
 
 When auto-accept is enabled for an available agent, the agent will be automatically connected to contacts
-from that channel, and won’t need to manually choose accept or reject.
+from that channel, and won't need to manually choose accept or reject.
 
 Auto-accept can be enabled for calls, callbacks, chats, tasks, and emails. Auto-accept for customer-first
 callbacks, inbound calls, and Outbound Campaigns calls are covered under the Voice auto-accept settings.
@@ -25,7 +25,7 @@ template; instead, first create the users then use Bulk Edit to modify their per
 To Edit or Bulk Edit:
 
 1. Log in to the Connect Customer admin website at https://`instance
-name`.my.connect.aws/. Use an Admin account, or an account with
+ name`.my.connect.aws/. Use an Admin account, or an account with
    **Users and Permissions** - **Users**
 
 - **Create** or **Edit** permission in

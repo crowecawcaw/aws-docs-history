@@ -14,7 +14,7 @@ questions for forecasting, capacity planning, and scheduling.
   forecast?**
 
 Forecasts are processed automatically, delivering short-term forecasts
-daily, and long-term forecasts weekly, so users don’t need to worry
+daily, and long-term forecasts weekly, so users don't need to worry
 about running forecasts manually. However, you may want to see how a
 forecast is updated when you add or modify historical data.
 
@@ -126,8 +126,8 @@ on the UI.
 - **Why am I unable to publish a
   forecast?**
 
-It’s possible that you do not have permissions to publish a forecast.
-It’s also possible that the forecasts (both contact volume and handle
+It's possible that you do not have permissions to publish a forecast.
+It's also possible that the forecasts (both contact volume and handle
 time for each of short-term and long-term) have not been successfully
 generated. Check if you have the permission for **Analytics,
 Forecasting - Publish** and check if the forecasts have
@@ -190,7 +190,7 @@ results in better performance as displays daily granularity over a
 period of months.
 
 Handle time is important when calculating a workload. It generally
-doesn’t vary much in the short term but can vary over longer time
+doesn't vary much in the short term but can vary over longer time
 periods, which is reflected in our models.
 
 - **Is call volume counted at the time when the call
@@ -230,7 +230,7 @@ match the actual forecast group names in forecasting module.
 
 This can occur because the last date an agent can be
 scheduled is before the time of the schedule and/or the agent's maximum
-working hours don’t allow them to work in that shift profile. Review the
+working hours don't allow them to work in that shift profile. Review the
 following steps to address this issue.
 
     1. Check **Staff Rules** to ensure that the
@@ -282,26 +282,24 @@ overlap of activity placement windows to solve this issue.
 - **Why do I see agents get scheduled at different
   start times than expected?**
 
-This is commonly caused by challenges with time zones. Shift profiles
-are set using Coordinated Universal Time (UTC), and staff rules specify
-which time zone agents should use. Review the following steps to address
-this issue.
+This is commonly caused by a mismatch between the time zone of the
+shift profile and the time zones configured for your agents. Shift
+profiles support any time zone, and staff rules specify which time
+zone each agent should use. Review the following steps to address this
+issue.
 
-    + Ensure the **shift profile** start time and
-     end time are configured in the UTC time-zone.
-    + Ensure the correct user time-zones are set in the
-     **Staff rules** UI. For example, if you
-     want to schedule agents in Boston (EST time-zone) from 9am to
-     5pm, you must do the following.
-
-
-
-
-    	- Set **Shift profile** start time as
-    	 1:00PM and end time as 9PM. Usually shift profiles are
-    	 set once and later re-used.
-    	- Updated the timezone for all agents to EST time zone
-    	 in the **Staff rules** UI.
+    + On the **shift profile**, set the
+     **Time zone** to the time zone in which
+     you want to enter the **Start time** and
+     **End time**, then enter the times in
+     that time zone. For example, to schedule agents in Boston
+     from 9 AM to 5 PM Eastern time, set the shift profile time
+     zone to America/New\_York, the start time to 9:00 AM, and the
+     end time to 5:00 PM.
+    + Ensure the correct time zone is set for each agent in the
+     **Staff rules** UI so that agents and
+     supervisors see schedules rendered in their local time
+     zone.
 
 - **Can I view the schedule in my local
   time?**
@@ -345,7 +343,7 @@ been added to the roster for the remainder of the week.
   hours?**
 
 The shift profile operation hours apply to staffing groups. If you
-don’t set the staffing groups rule for **shift start
+don't set the staffing groups rule for **shift start
 time**, Connect Customer optimizes your agent start time based on the
 forecasted workload.
 

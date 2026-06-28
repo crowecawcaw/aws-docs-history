@@ -58,7 +58,7 @@ This metric counts all the cases created.
 
 **Calculation logic**:
 
-- Check case_create_time createdDataTime present?
+- Check case\_create\_time createdDataTime present?
 - Return count = 1 for each case, or null if not present.
 
 **Notes**:
@@ -88,7 +88,7 @@ This metric measures the number of times cases have been reopened.
 
 **Calculation logic**:
 
-- Check case_reopened_time lastReopenedDateTime present?
+- Check case\_reopened\_time lastReopenedDateTime present?
 - Return count = 1 for each reopened case.
 
 **Notes**:
@@ -118,7 +118,7 @@ This metric measures the number of times cases have been resolved.
 
 **Calculation logic**:
 
-- Check case_resolved_time lastCloseDateTime present?
+- Check case\_resolved\_time lastCloseDateTime present?
 - Return count = 1 for each resolved case.
 
 **Notes**:

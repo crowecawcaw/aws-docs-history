@@ -320,7 +320,7 @@ represented by the [ShowView](../APIReference/participant-actions-showview.md ".
 
 ### This view has sensitive data
 
-It’s recommended that you enable **This view has sensitive
+It's recommended that you enable **This view has sensitive
 data** when collecting credit card data, home addresses, or any
 other type of sensitive data from customers. By enabling this option, the data
 submitted by a customer will not be recorded in transcripts or contact records,
@@ -424,7 +424,7 @@ their use of the view resource.
 
 - When the block receives a response back from the client
   application, to reference the output data in flows use ``$.Views.Action` and
-  `$.Views.ViewResultData`.
+ `$.Views.ViewResultData`.
 - When using a view with the **Show view** block,
   `Action` represents a branch that is captured in the
   contact attribute under the Views namespace as

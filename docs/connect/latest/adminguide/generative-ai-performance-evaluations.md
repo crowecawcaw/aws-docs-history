@@ -10,7 +10,7 @@ security, and the responsible use of artificial intelligence (AI).
 Managers can specify their evaluation criteria in natural language, and use
 generative AI for automating evaluations of up to 100% of customer interactions.
 Generative AI can enable you to automate evaluations of additional agent behaviors (for
-example, was the agent able to resolve the customer’s issue?), enabling managers to
+example, was the agent able to resolve the customer's issue?), enabling managers to
 comprehensively monitor and improve regulatory compliance, agent adherence to quality
 standards and sensitive data collection, while reducing the time spent on evaluating
 agent performance. Along with answers, you are also provided with context and
@@ -124,7 +124,7 @@ To set the language of the evaluation form:
 1. Select the **Additional settings**
    tab while creating or updating an evaluation form.
 2. Choose **Form language** from the dropdown.
-3. Ensure your form’s questions, instructions and answer choices are in the same
+3. Ensure your form's questions, instructions and answer choices are in the same
    language as the selected **Form language**, for optimal
    AI performance.
 
@@ -149,7 +149,7 @@ To set the language of the evaluation form:
 
 1. Use complete sentences to word questions, for example, replacing
    _ID validation_ with "Did the agent attempt to
-   validate the customer’s identity?" enables the generative AI to better
+   validate the customer's identity?" enables the generative AI to better
    understand the question.
 2. It is recommended that you provide detailed criteria for answering the
    question within the **instructions to
@@ -158,7 +158,7 @@ To set the language of the evaluation form:
    "Did the agent try to validate the customer identity?" you may want to
    provide additional instructions such as, _The agent is required to
    always ask a customer their membership ID and postal code before
-   addressing the customer’s questions_.
+   addressing the customer's questions_.
 3. If answering a question requires knowledge of some business specific
    terms, then specify those terms in the instruction. For example, if the
    agent needs to specify the name of the department in the greeting, then list
@@ -174,4 +174,4 @@ To set the language of the evaluation form:
    instruction is to check for the agent saying `"Have a nice day"`,
    then the generative AI will not detect _Have a nice
    afternoon_. Instead the instruction should say: `The
-agent wished the customer a nice day`.
+ agent wished the customer a nice day`.

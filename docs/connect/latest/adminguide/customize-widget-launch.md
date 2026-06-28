@@ -208,7 +208,7 @@ you can set the domain property of the cookie. For example, you own two subdomai
 add the property `domain=.example.com` so that the cookie can be accessed
 from all subdomains.
 
-1. Copy the following code next to the other amazon_connect functions in the
+1. Copy the following code next to the other amazon\_connect functions in the
    hosted widget snippet. This uses the `registerCallback` event
    handlers to store the `persistedChatSession` as a cookie so it
    can be accessed in the new tab. It also cleans up the cookie when the chat

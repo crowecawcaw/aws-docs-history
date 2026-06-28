@@ -68,16 +68,21 @@ information:
      maximum time off. The total work week would be at least 36 hours.
 
 7. In the **Optimization inputs** section, enter the
-   operational goals for your organization:
+operational goals for your organization:
 
-   1. **Service level**: The percentage of contacts
-      answered within a defined target time threshold.
+    1. **Service level**: The percentage of contacts
+     answered within a defined target time threshold.
 
-   The following image shows service level targets where 80 percent
-   of voice contacts and 70 percent of chat contacts will be answered
-   within 30 seconds.
 
-   ![The optimization inputs section, the service level option.](images/wfm-capacity-planning-servicelevel.png) 2. **Average speed of answer** (ASA): The average
-   amount of time it takes for contacts to be answered in a call center
-   during a specific time period. 3. You can create one goal per channel. Choose **Add another
-   goal** to add another goal.
+    The following image shows service level targets where 80 percent
+     of voice contacts and 70 percent of chat contacts will be answered
+     within 30 seconds.
+
+
+
+    ![The optimization inputs section, the service level option.](images/wfm-capacity-planning-servicelevel.png)
+    2. **Average speed of answer** (ASA): The average
+     amount of time it takes for contacts to be answered in a call center
+     during a specific time period.
+    3. You can create one goal per channel. Choose **Add another
+     goal** to add another goal.

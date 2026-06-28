@@ -43,7 +43,7 @@ Here's how customized AI agents work:
 ## How to create AI agents
 
 1. Log in to the Connect Customer admin website at https://`instance
-name`.my.connect.aws/. Use an admin account, or an account with
+ name`.my.connect.aws/. Use an admin account, or an account with
    **AI agent designer** - **AI agents** -
    **Create** permission in it's security profile.
 2. On the navigation menu, choose **AI agent designer**, **AI

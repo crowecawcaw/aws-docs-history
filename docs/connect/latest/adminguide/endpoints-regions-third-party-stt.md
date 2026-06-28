@@ -20,10 +20,10 @@ object:
 
 The following regions are supported:
 
-| **Provider** | **apiTokenRegion**             | **Endpoint**                                                                                                                    |
-| ------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| Deepgram     | eu                             | [https://api.eu.deepgram.com](https://api.eu.deepgram.com "https://api.eu.deepgram.com") (only supported for<br>speech-to-text) |
-| Deepgram     | {SHORT_UID}.{REGION_SUBDOMAIN} | https://{SHORT_UID}.{REGION_SUBDOMAIN}.api.deepgram.com (Deepgram Dedicated<br>endpoints)                                       |
-| ElevenLabs   | us                             | [https://api.us.elevenlabs.io](https://api.us.elevenlabs.io "https://api.us.elevenlabs.io")                                     |
-| ElevenLabs   | eu                             | [https://api.eu.residency.elevenlabs.io](https://api.eu.residency.elevenlabs.io "https://api.eu.residency.elevenlabs.io")       |
-| ElevenLabs   | in                             | [https://api.in.residency.elevenlabs.io](https://api.in.residency.elevenlabs.io "https://api.in.residency.elevenlabs.io")       |
+| **Provider** | **apiTokenRegion**               | **Endpoint**                                                                                                                    |
+| ------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Deepgram     | eu                               | [https://api.eu.deepgram.com](https://api.eu.deepgram.com "https://api.eu.deepgram.com") (only supported for<br>speech-to-text) |
+| Deepgram     | {SHORT\_UID}.{REGION\_SUBDOMAIN} | https://{SHORT\_UID}.{REGION\_SUBDOMAIN}.api.deepgram.com (Deepgram Dedicated<br>endpoints)                                     |
+| ElevenLabs   | us                               | [https://api.us.elevenlabs.io](https://api.us.elevenlabs.io "https://api.us.elevenlabs.io")                                     |
+| ElevenLabs   | eu                               | [https://api.eu.residency.elevenlabs.io](https://api.eu.residency.elevenlabs.io "https://api.eu.residency.elevenlabs.io")       |
+| ElevenLabs   | in                               | [https://api.in.residency.elevenlabs.io](https://api.in.residency.elevenlabs.io "https://api.in.residency.elevenlabs.io")       |

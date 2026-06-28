@@ -113,7 +113,7 @@ The following image shows an example of thresholds set on the
 
 You can filter by contact states to identify specific agents who have a
 contact within a specific state. For example, if you want to quickly identify
-agents who have a contact in error and can’t be routed additional contacts, you
+agents who have a contact in error and can't be routed additional contacts, you
 can filter for "Missed" and "Rejected" to identify those agents and change their
 status.
 

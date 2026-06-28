@@ -18,7 +18,7 @@ To end contacts programmatically, use the [StopContact](../APIReference/API_Stop
 
   - DISCONNECT
   - TRANSFER
-  - QUEUE_TRANSFER
+  - QUEUE\_TRANSFER
 
 - You can end chat and task contacts regardless of how they were
   initiated.

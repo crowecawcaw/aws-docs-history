@@ -39,10 +39,9 @@ for all of the selected users:
     * Tags
 
 7. Choose **Save** to apply your changes to the selected
-   records.
-8. While that batch of user records is being updated, you can continue working on
-   the **User management** page, performing other create, edit,
-   and delete tasks on user records.
+records. 8. While that batch of user records is being updated, you can continue working on
+the **User management** page, performing other create, edit,
+and delete tasks on user records.
 
 ## Perform other edit tasks while a batch of bulk edits is being processed
 

@@ -36,21 +36,20 @@ select **Confirm**.
 
 ## Option 2: Use CLI or CloudShell
 
-1.  Generate the `generate Association api` request file by running
-    the `aws connect batch-associate-analytics-data-set
---generate-cli-skeleton input > input_batch_association.json`
-    command.
-2.  Open the JSON file in a text editor and enter the following:
+1. Generate the `generate Association api` request file by running
+   the `aws connect batch-associate-analytics-data-set
+ --generate-cli-skeleton input > input_batch_association.json`
+   command.
+2. Open the JSON file in a text editor and enter the following:
 
-        * **Instance ID** – Your Connect Customer
-         instance ID.
-        * **DataSetID** – Enter the
-         required tables. For more information about required tables, see
-         [Associate tables for the Connect Customer analytics data lake](datalake-tables.md "datalake-tables.md").
-        * **TargetAccountId** – Account
-         ID to share data.
-
-    Following is an example of the JSON file with all of the [tables](datalake-tables.md "datalake-tables.md").
+   - **Instance ID** – Your Connect Customer
+     instance ID.
+   - **DataSetID** – Enter the
+     required tables. For more information about required tables, see
+     [Associate tables for the Connect Customer analytics data lake](datalake-tables.md "datalake-tables.md").
+   - **TargetAccountId** – Account
+     ID to share data.
+     Following is an example of the JSON file with all of the [tables](datalake-tables.md "datalake-tables.md").
 
 ```
 {
@@ -70,5 +69,5 @@ select **Confirm**.
 
 3. Associate the data lake to a single account by running the
    `aws connect batch-associate-analytics-data-set --cli-input-json
-file:`///path/to/request/file`` command
+ file:`///path/to/request/file`` command
    (where this path is based on the location of the JSON file).

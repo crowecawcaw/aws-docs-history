@@ -150,7 +150,7 @@ per page** to include all results.
    the **Share report** menu (arrow) next to
    **Save**.
 3. Choose **Download CSV**. The file `Login_Logout
-report.csv` is downloaded to your computer.
+ report.csv` is downloaded to your computer.
 
 ## Share a Login/Logout report
 

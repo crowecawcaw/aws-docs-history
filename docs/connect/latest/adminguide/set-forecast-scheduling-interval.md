@@ -6,9 +6,9 @@ schedules.
 ###### Important things to know
 
 - You must have security profile permissions for
-  **Analytics**, \*\*Forecast and schedule interval
+  **Analytics**, **Forecast and schedule interval
 
-* Edit\*\*. For more information, see [Assign
+* Edit**. For more information, see [Assign
   permissions](required-optimization-permissions.md "required-optimization-permissions.md").
 
 - You must specify an interval for short-term forecasting and

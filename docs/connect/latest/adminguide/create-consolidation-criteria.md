@@ -40,15 +40,14 @@ profiles that are not duplicates, we recommend the following steps:
 - Avoid single attribute criteria. Select multiple attributes to create
   a combination of attributes to improve targeting. For example:
 
-      + **Phone number** with **First
-       name**, **Middle name**,
-       **Last name** is stronger criteria
+  - **Phone number** with **First
+    name**, **Middle name**,
+    **Last name** is stronger criteria
+    than
 
-  than
-
-      + **Phone number** alone, or
-      + The combination of **First name, Middle, name, Last
-       name** alone
+  - **Phone number** alone, or
+  - The combination of **First name, Middle, name, Last
+    name** alone
 
 - Select all attributes within a specific attribute group, when
   applicable. For example, if you want to use name, select all the related

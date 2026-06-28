@@ -39,13 +39,13 @@ the Connect Customer data lake tables. For more information, see [Creating a dat
 link** radio button. **Resource link
 name** can be any value you wish to name the linked table. For
 example, for the **contact record** data type you
-may want to define the link name as contact_record. 9. Specify the **Database** previously created
+may want to define the link name as contact\_record. 9. Specify the **Database** previously created
 from step 5. 10. In the **Shared table** choose the shared
 table whose RAM invite was previously accepted and you wish to map to this
 Resource link name.  For example, select the `contact_record` shared
 table to map to the contact record resource link. 11. Information for the Shared table's database and owner ID will automatically
 be populated. 12. Choose **Create**. 13. Repeat for all data types shared to the consumer account. 14. Open the Amazon Athena [console](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home"), and run a
-query to check if the data with the shared instance_id is provided in the
+query to check if the data with the shared instance\_id is provided in the
 request file. For example:
 
 `select * from

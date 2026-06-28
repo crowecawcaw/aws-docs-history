@@ -40,7 +40,7 @@ You can configure the **Check communication status** block in the admin website 
 |          | Sit tone invalid number             |
 |          | Human answered                      |
 |          | AMD unresolved                      |
-|          | AMD unresolved_silence              |
+|          | AMD unresolved\_silence             |
 |          | AMD not applicable                  |
 |          | Sit tone detected                   |
 |          | Fax machine detected                |
@@ -52,7 +52,7 @@ You can configure the **Check communication status** block in the admin website 
 |          | Expired                             |
 |          | AMD disabled                        |
 |          | Initiated                           |
-|          | connected_to_system                 |
+|          | connected\_to\_system               |
 |          | Contact data updated                |
 |          | Queued                              |
 |          | Connected to agent                  |

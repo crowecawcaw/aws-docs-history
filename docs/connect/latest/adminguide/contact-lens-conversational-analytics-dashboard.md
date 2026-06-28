@@ -12,7 +12,7 @@ understand:
 - Why customers are contacting your contact center
 - The trends of contact drivers over time
 - The performance of each of those call drivers (for example, average handle
-  time for call driver "Where’s my stuff?")
+  time for call driver "Where's my stuff?")
   You can view key metrics for categories such as contacts handled and average handle
   time compared to a custom-defined benchmark time-range with color indicators (for
   example, green = good, red = bad) for quick insights within seconds (for example, "Am I

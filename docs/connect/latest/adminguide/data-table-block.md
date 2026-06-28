@@ -76,7 +76,7 @@ The following image shows the **Properties** page of the **Data Table** block co
 
 ### Accessing retrieved data for Evaluate
 
-After executing an Evaluate action, you can access the retrieved attribute values using the following namespace format: `$.DataTables.`QueryName`.`AttributeName``. Use brackets and single quotes to reference attribute names with special characters. For example, `$.DataTables.CustomQuery['my attribute name with spaces']`. If using the **Data tables** namespace dynamic dropdown selection, the root namespace, `$.DataTables.`, can be ommitted.
+After executing an Evaluate action, you can access the retrieved attribute values using the following namespace format: `$.DataTables.`QueryName`.`AttributeName``. Use brackets and single quotes to reference attribute names with special characters. For example, `$.DataTables.CustomQuery['my attribute name with spaces']`. If using the **Data tables** namespace dynamic dropdown selection, the root namespace, `$.DataTables.`, must be omitted.
 
 - **Components:**
 
@@ -112,20 +112,16 @@ The following image shows the **Properties** page of the **Data Table** block co
 
 ### Configuration steps
 
-1.  Select **Read from data table** as the Action.
-2.  Select **List Data Table values** from the read action dropdown.
-3.  Configure Primary Value Groups:
+1. Select **Read from data table** as the Action.
+2. Select **List Data Table values** from the read action dropdown.
+3. Configure Primary Value Groups:
 
-        * You can add up to 5 primary value groups to define different sets of filtering criteria.
-        * For each primary value group:
+   - You can add up to 5 primary value groups to define different sets of filtering criteria.
+   - For each primary value group:
 
-
-
-
-        	+ **Group Name (Required)** – Provide a descriptive name for the primary value group. This name will be used to reference the retrieved record set in subsequent flow blocks. Important: Group names must be unique throughout the entire flow, not just within this specific block.
-        	+ **Primary Attributes** – When you manually select a data table, the UI automatically populates the list of primary attributes from that table's schema. All primary attribute fields are required - you must provide values for each primary attribute displayed. These attributes act as filters to identify the specific rows in your data table that will be returned.
-
-    Note: Unlike the Evaluate action which retrieves specific attribute values, the List action returns entire records (all attributes) that match the primary attribute criteria.
+     - **Group Name (Required)** – Provide a descriptive name for the primary value group. This name will be used to reference the retrieved record set in subsequent flow blocks. Important: Group names must be unique throughout the entire flow, not just within this specific block.
+     - **Primary Attributes** – When you manually select a data table, the UI automatically populates the list of primary attributes from that table's schema. All primary attribute fields are required - you must provide values for each primary attribute displayed. These attributes act as filters to identify the specific rows in your data table that will be returned.
+       Note: Unlike the Evaluate action which retrieves specific attribute values, the List action returns entire records (all attributes) that match the primary attribute criteria.
 
 ### Key details for List
 

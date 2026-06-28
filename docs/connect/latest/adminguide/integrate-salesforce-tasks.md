@@ -46,25 +46,27 @@ The following image shows the requirements for Salesforce.
     ![The change data capture page.](images/tasks-verify-app-salesforce.png)
 
 6. After you verify Salesforce requirements, on the **Select
-   application** page, choose **Next**.
-7. On the **Establish connection** page, choose one of the
-   following:
+application** page, choose **Next**. 7. On the **Establish connection** page, choose one of the
+following:
 
-   - **Use an existing connection**. This allows you to
+    * **Use an existing connection**. This allows you to
      reuse existing EventBridge resources that are linked to Amazon AppFlow flows that you may
      have created in your AWS account.
-   - **Create a new connection**: Enter the information
+    * **Create a new connection**: Enter the information
      required by the external application.
 
-     1. Enter your application instance URL. This URL is used for
-        deep-linking into the tasks created in your external
-        application.
-     2. Provide a friendly name for your connection, for example,
-        **Salesforce - Test instance**. Later, when
-        you [add rules](add-rules-task-creation.md "add-rules-task-creation.md"),
-        you'll refer to this friendly name.
-     3. Specify whether this is a production or sandbox
-        environment.
+
+
+
+    	1. Enter your application instance URL. This URL is used for
+    	 deep-linking into the tasks created in your external
+    	 application.
+    	2. Provide a friendly name for your connection, for example,
+    	 **Salesforce - Test instance**. Later, when
+    	 you [add rules](add-rules-task-creation.md "add-rules-task-creation.md"),
+    	 you'll refer to this friendly name.
+    	3. Specify whether this is a production or sandbox
+    	 environment.
 
 ![The establish connection page.](images/tasks-establish-connection.png) 8. Choose **Log in to Salesforce**. 9. In Salesforce, choose to allow access to Connect Customer Embedded Login App [Region].
 

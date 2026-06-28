@@ -18,7 +18,7 @@ the new domain using the following methods:
 - For non-SAML Connect Customer instances, change your access URL from
   **.awsapps.com/connect** to
   **.my.connect.aws** and log in again.
-- For SAML-enabled instances, specify an extra query parameter new_domain=true
+- For SAML-enabled instances, specify an extra query parameter new\_domain=true
   in the relay state URL and log in again. For more information, see [Use a destination in your relay state URL](configure-saml.md#destination-relay "configure-saml.md#destination-relay").
 
 ## Other requirements

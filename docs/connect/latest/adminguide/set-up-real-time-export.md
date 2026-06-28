@@ -86,11 +86,11 @@ Timestamp of the event using the ISO8601 standard.
 
 The type of event exported.
 
-Values: CREATED, UPDATED, HEALTH_CHECK
+Values: CREATED, UPDATED, HEALTH\_CHECK
 
 - CREATED: The export event was for CreateProfile.
 - UPDATED: The export event was for a UpdateProfile.
-- HEALTH_CHECK: The export event was for a HealthCheck event to
+- HEALTH\_CHECK: The export event was for a HealthCheck event to
   make sure Customer Profiles could successfully
   `putEvent` in Kinesis Stream.
 

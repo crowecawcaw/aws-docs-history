@@ -86,18 +86,17 @@ integration will be visible in the Connect Customer console and the Connect Cust
   security profiles permissions to Admins and other users who need to access the
   Contact Lens connectors:
 
-      + **Analytics and Optimization - Contact Lens connectors
-       - View** and **Edit**. The
-       **View** permission allows you see the list of
-       available Contact Lens connectors. The **Edit**
-       permission allows you to associate flows with a Contact Lens
-       connector.
-      + **Channels and Flows - Flows - View**: This
-       permission enables you to see the available flows you can associate with
-       a Contact Lens connector.
-
-  Only users who have these permissions will be able to access the
-  Contact Lens connector on the Connect Customer admin website.
+  - **Analytics and Optimization - Contact Lens connectors
+  * View** and **Edit**. The
+    **View** permission allows you see the list of
+    available Contact Lens connectors. The **Edit**
+    permission allows you to associate flows with a Contact Lens
+    connector.
+  - **Channels and Flows - Flows - View**: This
+    permission enables you to see the available flows you can associate with
+    a Contact Lens connector.
+    Only users who have these permissions will be able to access the
+    Contact Lens connector on the Connect Customer admin website.
 
 - Create a flow to specify how to process the call audio including recording,
   live or post call analytics, and [associate the flow with the

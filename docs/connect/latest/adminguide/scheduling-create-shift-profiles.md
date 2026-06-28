@@ -88,11 +88,11 @@ following options:
      separated by OR.
 
 9. In the **Daily shift activities** section, complete the
-   **Default shift activity group** section to specify
-   when activities such as lunch breaks and training should be scheduled during
-   the shift. The shift activities apply to everyone in the shift. In the
-   following image, agents are scheduled for a **Break** 6
-   hours after starting their shift and within 7 hours.
+**Default shift activity group** section to specify
+when activities such as lunch breaks and training should be scheduled during
+the shift. The shift activities apply to everyone in the shift. In the
+following image, agents are scheduled for a **Break** 6
+hours after starting their shift and within 7 hours.
 
 ![The default shift activity group.](images/wfm-schedule-dailyshiftactivities.png)
 

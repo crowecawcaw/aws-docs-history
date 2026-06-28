@@ -82,7 +82,7 @@ automatically merged, the FirstName “John” will be preserved.
     `phone number`, then all similar profiles
     in a match group that have the exact same value of
     `email address` and `phone
-number` are merged.
+   number` are merged.
   - If one or more of the similar profiles in a match
     group have a different value or missing value for one or
     more of the attributes in a criteria, the similar

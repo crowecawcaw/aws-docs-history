@@ -8,7 +8,7 @@ Before you can update permissions in a security profile, you must be logged in
 with an Connect Customer account that has the following permissions: **Security
 profiles - Edit**.
 
-![The users and permissions section of the security profiles page.](images/security-profile-edit.png)
+![The users and permissions section of the security profiles page.](images/SecurityProfile_cloudscape_sp_edit.png)
 
 By default, the Connect Customer **Admin** security profile has these
 permissions.
@@ -19,9 +19,12 @@ permissions.
    permissions to update security profiles.
 2. Choose **Users**, **Security
    profiles**.
-3. Select the name of the profile.
-4. Update the name, description, permissions, access control, and resource
-   tags as needed.
+3. Select the name of the profile. The security profile detail page
+   opens.
+4. To update permissions, choose **Edit permissions**
+   from the **Permissions** tab. To update the name or
+   description, choose the **Details** tab. To update
+   access control or resource tags, choose the corresponding tab.
 5. Choose **Save**.
 
 ###### Note

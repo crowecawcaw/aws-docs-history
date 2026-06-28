@@ -58,9 +58,23 @@ The following tabs appear at the top of the evaluation form page:
      also apply scoring to sections or questions.
 
 5. Choose **Save** at any time while creating your form.
-   This enables you to navigate away from the page and return to the form
-   later.
-6. Continue to the next step to add sections and questions.
+This enables you to navigate away from the page and return to the form
+later. 6. Continue to the next step to add sections and questions.
+
+###### Import evaluation forms from another instance
+
+You can export an evaluation form from one Connect Customer instance
+(say a test instance) and import it into another Connect Customer instance (say a production instance)
+using the Connect UI:
+
+1. While viewing an existing evaluation form select **Actions > Export as JSON**
+
+![The evaluation form page, the export as json action.](images/evaluation-forms-export-json.png) 2. Open the instance where you want to import this form 3. On the page **Evaluation Forms** page, click import form.
+Select **Choose File** to upload the previously exported JSON and click **Import**
+
+![The evaluation forms page, the import form action.](images/evaluation-forms-import-json.png)
+The form will be created including questions, instructions, answers, scoring and automation configuration.
+Note that any instance-specific settings such as rule categories and tags will not be present in the exported/imported file.
 
 ## Step 2: Add sections and questions
 
@@ -236,13 +250,12 @@ The following image shows an example of ranges and scoring for a
      score of 1 (worst).
 
 3. For **Multiple selection** questions, assign a score
-   value (0-10) to each option. When multiple options are selected, the
-   total score is the sum of selected options' scores, capped at 10.
-4. (Optional) Configure **Automatic fail** for an
-   answer option. You can choose to apply automatic fail to the section,
-   the subsection, or the entire form. When the evaluator selects this
-   answer during an evaluation, the score for the affected scope is set to
-   zero.
+value (0-10) to each option. When multiple options are selected, the
+total score is the sum of selected options' scores, capped at 10. 4. (Optional) Configure **Automatic fail** for an
+answer option. You can choose to apply automatic fail to the section,
+the subsection, or the entire form. When the evaluator selects this
+answer during an evaluation, the score for the affected scope is set to
+zero.
 
 ![The Automatic fail option.](images/evaluationforms-automaticfail.png) 5. (Optional) Exclude individual questions or entire sections from
 scoring. When a question or section is excluded, it is automatically
@@ -455,8 +468,8 @@ contacts](rules.md "rules.md").
   answers to a multiple selection question. Unlike single select questions, all of the
   conditions are executed sequentially to answer a multiple selection question. In the
   following example, if the categories **StatusCheck** and **ChangeExistingRequest** are both present on the contact, then the answer
-  would be both “Checking status of existing service request” and “Changing a service
-  request”.
+  would be both "Checking status of existing service request" and "Changing a service
+  request".
 
 ![A question section, the automation tab with Contact Lens categories.](images/evaluationforms-automation1b.png)
 

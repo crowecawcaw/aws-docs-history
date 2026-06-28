@@ -10,11 +10,11 @@ instance, please reach out to [AWS Support](https://console.aws.amazon.com/suppo
 When you onboard to this feature, your Connect Customer alias will be updated to a new
 sub-domain with the format
 ``region`.`sourcealias`.my.connect.aws`.
- For example, if your ACGR instance is deployed in US East (N.
- Virginia) and US West (Oregon) with source alias configured as
- `source.my.connect.aws`and replica alias as
-`replica.my.connect.aws`, after onboarding your Connect Customer instances to this feature, the new sub-domains will be 
- `us-east-1.source.my.connect.aws`and`us-west-2.source.my.connect.aws`.
+For example, if your ACGR instance is deployed in US East (N.
+Virginia) and US West (Oregon) with source alias configured as
+`source.my.connect.aws` and replica alias as
+`replica.my.connect.aws`, after onboarding your Connect Customer instances to this feature, the new sub-domains will be
+`us-east-1.source.my.connect.aws` and `us-west-2.source.my.connect.aws`.
 
 Additionally, supervisors and admins must be authenticated using the [global sign-in endpoint](integrate-idp.md "integrate-idp.md") instead of regional endpoints.
 

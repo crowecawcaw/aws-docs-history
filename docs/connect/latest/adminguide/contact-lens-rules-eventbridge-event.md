@@ -30,7 +30,7 @@ The value you assign for **Action name** is
 visible in the EventBridge payload. When you aggregate events, the action
 name provides an additional dimension that you can use to process
 them. For example, you have 200 category names, but only 50 have a
-specific action name, such as NOTIFY_CUSTOMER_RETENTION.
+specific action name, such as NOTIFY\_CUSTOMER\_RETENTION.
 
 ![The take these actions section, the assign contact category section, the Generate an EventBridge event section.](images/contact-lens-rules-add-eb-action.png) 3. Choose **Next**. Review and then
 **Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.

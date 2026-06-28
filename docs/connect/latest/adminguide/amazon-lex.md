@@ -101,27 +101,26 @@ information, and another to speak with an agent.
 
 Amazon Lex
 
-1.  After you created the bot, you are on the
-    **Intents** page the Amazon Lex console. If you're
-    not there, you can get there by choosing **Bots**,
-    **AccountBalance**, **Bot
-    versions**, **Draft version**,
-    **Intents**. Choose **Add
-    intent**, **Add empty intent**.
-2.  In the **Intent name** box, enter
-    **AccountLookup**.
-3.  Scroll down the page to **Sample utterances**. In
-    this step you enter utterances that allow the customer to elicit the
-    AccountLookup intent. Enter the following utterances, and choose
-    **Add utterance** after each one.
+1. After you created the bot, you are on the
+   **Intents** page the Amazon Lex console. If you're
+   not there, you can get there by choosing **Bots**,
+   **AccountBalance**, **Bot
+   versions**, **Draft version**,
+   **Intents**. Choose **Add
+   intent**, **Add empty intent**.
+2. In the **Intent name** box, enter
+   **AccountLookup**.
+3. Scroll down the page to **Sample utterances**. In
+   this step you enter utterances that allow the customer to elicit the
+   AccountLookup intent. Enter the following utterances, and choose
+   **Add utterance** after each one.
 
-        * **Check my account balance**
-        * **One**: This assigns the utterance of
-         "one" or key press of "1" to the
-         **AccountLookup** intent.
-
-    The following image shows where to add the utterance in the
-    **Sample utterances** section.
+   - **Check my account balance**
+   - **One**: This assigns the utterance of
+     "one" or key press of "1" to the
+     **AccountLookup** intent.
+     The following image shows where to add the utterance in the
+     **Sample utterances** section.
 
 ![The sample utterances section of the Intents page.](images/lexv2-enter-utterances.png) 4. Scroll to the **Slots** section, and choose
 **Add slot**. Complete the box as follows:
@@ -247,9 +246,9 @@ shows where you enter intent.
     2. Type the intents you want to test.
 
 4. To confirm that the **SpeakToAgent** intent is working,
-   clear the test box, and then type **2** and press Enter.
-   The following image shows what the test looks like after you clear it and
-   then enter 2.
+clear the test box, and then type **2** and press Enter.
+The following image shows what the test looks like after you clear it and
+then enter 2.
 
 ![The test box.](images/lexv2-test2.png) 5. Close the **Test Draft version** pane.
 
@@ -402,10 +401,9 @@ the message played to callers.
      attribute.
 
 8. Under **Intents**, choose **Add an
-   intent**.
-9. Type **AccountLookup** and choose **Add another
-   intent**. The following image shows the **Intents**
-   section configured with this information.
+intent**. 9. Type **AccountLookup** and choose **Add another
+intent**. The following image shows the **Intents**
+section configured with this information.
 
 ![The Intents section of Amazon Lex tab.](images/lex-get-customer-input3.png) 10. Type **SpeakToAgent** and choose **Save**.
 

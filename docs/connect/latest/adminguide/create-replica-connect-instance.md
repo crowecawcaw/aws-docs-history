@@ -127,13 +127,12 @@ resource.
   already exist. This default traffic distribution group has three types of traffic
   distribution:
 
-      + Sign in
-      + Agent
-      + Telephony
-
-  Use the [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API to create more traffic distribution groups,
-  however, these additional traffic distribution groups are not default traffic distribution groups and thus only
-  support agent and telephony distributions.
+  - Sign in
+  - Agent
+  - Telephony
+    Use the [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API to create more traffic distribution groups,
+    however, these additional traffic distribution groups are not default traffic distribution groups and thus only
+    support agent and telephony distributions.
 
 - The default traffic distribution group is the only traffic distribution group where you can change the
   `SignInConfig` distribution. See the

@@ -10,37 +10,37 @@ object.
 
 - id
 - url
-- external_id
+- external\_id
 - email
 - active
-- chat_only
-- customer_role_id
-- role_type
+- chat\_only
+- customer\_role\_id
+- role\_type
 - details
-- last_login_at
+- last\_login\_at
 - locale
-- locale_id
+- locale\_id
 - moderator
 - notes
-- only_private_comments
-- default_group_id
+- only\_private\_comments
+- default\_group\_id
 - phone
-- shared_phone_number
+- shared\_phone\_number
 - photo
-- restricted_agent
+- restricted\_agent
 - role
 - shared
 - tags
 - signature
 - suspended
-- ticket_restriction
-- time_zone
-- two_factor_auth_enabled
-- user_fields
+- ticket\_restriction
+- time\_zone
+- two\_factor\_auth\_enabled
+- user\_fields
 - verified
-- report_csv
-- created_at
-- updated_at
+- report\_csv
+- created\_at
+- updated\_at
 
 ## Mapping Zendesk users to a standard profile
 
@@ -51,7 +51,7 @@ be mapped from the Zendesk-users object to the standard profile.
 | Zendesk-users source field | Standard profile target field |
 | -------------------------- | ----------------------------- |
 | id                         | Attributes.ZendeskUserId      |
-| external_id                | Attributes.ZendeskExternalId  |
+| external\_id               | Attributes.ZendeskExternalId  |
 | email                      | EmailAddress                  |
 | phone                      | PhoneNumber                   |
 
@@ -61,7 +61,7 @@ a Connect Customer customer profile using the following indexes.
 | Standard Index Name | Zendesk-user source field |
 | ------------------- | ------------------------- |
 | \_zendeskUserId     | Id                        |
-| \_zendeskExternalId | external_id               |
+| \_zendeskExternalId | external\_id              |
 
 For example, you can use `_zendeskUserId` and
 `_zendeskExternalId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Connect Customer customer profile. You can

@@ -61,12 +61,12 @@ This flow block is designed to be used in the following scenarios:
 
 ## Contact types
 
-| Contact type | Supported?                                                                                                                                           |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Voice        | Yes                                                                                                                                                  |
-| Chat         | Yes<br>If a chat contact is routed to this block, but the block is<br>configured for calls, the contact is routed down the<br>\*_Error_<br>• branch. |
-| Task         | Yes<br>If a task contact is routed to this block, but the block is<br>configured for calls, the contact is routed down the<br>\*_Error_<br>• branch. |
-| Email        | No<br>• takes the \*_Success_<br>• branch but it<br>has no effect                                                                                    |
+| Contact type | Supported?                                                                                                                                          |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Voice        | Yes                                                                                                                                                 |
+| Chat         | Yes<br>If a chat contact is routed to this block, but the block is<br>configured for calls, the contact is routed down the<br>*_Error_<br>• branch. |
+| Task         | Yes<br>If a task contact is routed to this block, but the block is<br>configured for calls, the contact is routed down the<br>*_Error_<br>• branch. |
+| Email        | No<br>• takes the *_Success_<br>• branch but it<br>has no effect                                                                                    |
 
 If a callback contact without an agent or customer is routed to this block, the
 contact is routed down the **Error** branch.

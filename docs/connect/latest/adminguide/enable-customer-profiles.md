@@ -156,7 +156,7 @@ When using Data Vault, Customer Profiles stores your data by object type and enc
 2. Converting hyphens - to underscores \_
 3. Appending "standard" to any Customer Profiles standard object type
 4. Appending “domain” to any Customer Profiles domain object type
-5. Appending “domain_standard” to any Customer Profiles standard domain object type
+5. Appending “domain\_standard” to any Customer Profiles standard domain object type
    You can't enable Data Store if Customer Profiles detects naming conflicts. After you enable Data Store, you can't create object types that conflict with existing object type names under these normalization rules.
 
 6. Open the Connect Customer console at

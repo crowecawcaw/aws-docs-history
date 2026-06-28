@@ -261,7 +261,7 @@ Metrics include:
 
 - Campaign send exclusion: The count of outbound campaign send attempts that
   were excluded from the targeted segment during a campaign execution. Example
-  exclusion reasons include: MISSING_TIMEZONE, MISSING_CHANNEL
+  exclusion reasons include: MISSING\_TIMEZONE, MISSING\_CHANNEL
 
 ![Campaign metrics by recipients table screenshot.](images/campaign-metrics-recipients-table.png)
 

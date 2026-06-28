@@ -142,7 +142,7 @@ to fit the 280x60 logo component space.
    in the communications widget.
 2. - **System Message Display Name**: Type a new display
      name to override the default. The default is
-     **SYSTEM_MESSAGE**.
+     **SYSTEM\_MESSAGE**.
    - **Bot Message Display Name**: Type a new display name
      to override the default. The default is **BOT**.
    - **Text Input Placeholder**: Type new placeholder text
@@ -182,11 +182,11 @@ Domain allowlist behavior:
      applications.
 
 2. Under **Add security for your communications widget**, we recommend
-   choosing **Yes**, and working with your website administrator
-   to set up your web servers to issue JSON Web Tokens (JWTs) for new chat
-   requests. This provides you more control when initiating new chats, including
-   the ability to verify that chat requests sent to Connect Customer are from authenticated
-   users.
+choosing **Yes**, and working with your website administrator
+to set up your web servers to issue JSON Web Tokens (JWTs) for new chat
+requests. This provides you more control when initiating new chats, including
+the ability to verify that chat requests sent to Connect Customer are from authenticated
+users.
 
 ![The activation of security for new communication widget requests.](images/chatwidget-choose-security.png)
 
@@ -245,32 +245,30 @@ contact center agents.
 - Algorithm: **HS256**
 - Claims:
 
-      + **sub**:
-       `widgetId`
+  - **sub**:
+    `widgetId`
 
-
-      Replace `widgetId` with your own widgetId. To find
-       your widgetId, see the example at [Communications widget script](#chat-widget-script "#chat-widget-script").
-      + **iat**: \*Issued At Time.
-      + **exp**: \*Expiration (10 minute
-       maximum).
-      + **segmentAttributes (optional)**: A set of
-       system defined key-value pairs stored on individual contact
-       segments using an attribute map. For more information check
-       SegmentAttributes in the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes") API.
-      + **attributes (optional)**: Object with
-       string-to-string key-value pairs. The contact attributes must
-       follow the limitations set by the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes") API.
-      + **relatedContactId (optional)**: String with
-       valid contact id. The relatedContactId must follow limitations
-       set by the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.
-      + **customerId (optional)**: This can be either
-       an Connect Customer Customer Profiles ID or a custom identifier from an external system,
-       such as a CRM.
-
-  \* For information about the date format, see the following Internet
-  Engineering Task Force (IETF) document: [JSON Web Token
-  (JWT)](https://tools.ietf.org/html/rfc7519 "https://tools.ietf.org/html/rfc7519"), page 5.
+  Replace `widgetId` with your own widgetId. To find
+  your widgetId, see the example at [Communications widget script](#chat-widget-script "#chat-widget-script").
+  - **iat**: \*Issued At Time.
+  - **exp**: \*Expiration (10 minute
+    maximum).
+  - **segmentAttributes (optional)**: A set of
+    system defined key-value pairs stored on individual contact
+    segments using an attribute map. For more information check
+    SegmentAttributes in the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes") API.
+  - **attributes (optional)**: Object with
+    string-to-string key-value pairs. The contact attributes must
+    follow the limitations set by the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes") API.
+  - **relatedContactId (optional)**: String with
+    valid contact id. The relatedContactId must follow limitations
+    set by the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.
+  - **customerId (optional)**: This can be either
+    an Connect Customer Customer Profiles ID or a custom identifier from an external system,
+    such as a CRM.
+    \* For information about the date format, see the following Internet
+    Engineering Task Force (IETF) document: [JSON Web Token
+    (JWT)](https://tools.ietf.org/html/rfc7519 "https://tools.ietf.org/html/rfc7519"), page 5.
 
 The following code snippet shows an example of how to generate a JWT in
 Python:

@@ -79,10 +79,9 @@ this section.
      long the bot should wait to get input from a caller before
      ending the session.
 
-5. Choose **Next**.
-6. On the **Add language to bot** page, choose the
-   language and voice for your bot to use when speaking to callers. The
-   default voice for Connect Customer is Joanna.
+5. Choose **Next**. 6. On the **Add language to bot** page, choose the
+language and voice for your bot to use when speaking to callers. The
+default voice for Connect Customer is Joanna.
 
 ![The Add language to bot page, the select language dropdown menu set to English.](images/tutorial1-bot-config2.png) 7. Choose **Done**.
 

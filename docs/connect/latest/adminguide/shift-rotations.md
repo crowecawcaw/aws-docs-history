@@ -20,29 +20,28 @@ feature specifications, see [Forecasting, capacity planning, and scheduling feat
 
 ## Set up shift rotation patterns
 
-1.  Log in to the Connect Customer admin website with an account that has security profile
-    permissions for **Scheduling, Schedule manager -
-    Edit**.
-2.  On the Connect Customer navigation menu, select **Analytics and
-    Optimization**, **Scheduling**.
-3.  On the **Scheduling** page, choose the
-    **Shift rotations patterns** tab, and then choose
-    **Create shift rotation pattern**.
-4.  On the **Add shift rotation pattern** page, complete
-    the following boxes:
+1. Log in to the Connect Customer admin website with an account that has security profile
+   permissions for **Scheduling, Schedule manager -
+   Edit**.
+2. On the Connect Customer navigation menu, select **Analytics and
+   Optimization**, **Scheduling**.
+3. On the **Scheduling** page, choose the
+   **Shift rotations patterns** tab, and then choose
+   **Create shift rotation pattern**.
+4. On the **Add shift rotation pattern** page, complete
+   the following boxes:
 
-        * **Name** and **Description
-         (optional)**
-        * **Start date**: The start date will be used
-         as the reference point to rotate to the next shift in the
-         pattern.
-        * **Define rotation**: In this section, choose
-         the shift profile from the dropdown menu, timezone, and
-         duration.
-
-    The following image shows an **Add shift rotation
-    pattern** page. This pattern has two rotation steps, each 1
-    week long.
+   - **Name** and **Description
+     (optional)**
+   - **Start date**: The start date will be used
+     as the reference point to rotate to the next shift in the
+     pattern.
+   - **Define rotation**: In this section, choose
+     the shift profile from the dropdown menu, timezone, and
+     duration.
+     The following image shows an **Add shift rotation
+     pattern** page. This pattern has two rotation steps, each 1
+     week long.
 
 ![The Add shift rotation pattern page with two rotation steps, each one week long.](images/shift-rotation-add.png)
 
@@ -90,17 +89,16 @@ file template.
 - On the **Staff rules** page, choose one of the
   following options:
 
-      + **Download snapshot**, **Shift
-       profile override** to download a snapshot of
-       existing shift rotation pattern assignments for your
-       agents.
-      + **Download template**, **Shift
-       profile override** to download a blank .csv
-       file.
-
-  The following image shows the an example **Staff
-  rules** page, and the option to download a snapshot of
-  existing shift rotation pattern assignments for your agents.
+  - **Download snapshot**, **Shift
+    profile override** to download a snapshot of
+    existing shift rotation pattern assignments for your
+    agents.
+  - **Download template**, **Shift
+    profile override** to download a blank .csv
+    file.
+    The following image shows the an example **Staff
+    rules** page, and the option to download a snapshot of
+    existing shift rotation pattern assignments for your agents.
 
 ![The Staff rules page, the Download snapshot, Shift profile override option.](images/shift-rotation-download.png)
 
@@ -114,8 +112,8 @@ The .csv templates contain key fields that you can update:
 ###### Note
 
 In the .csv template, you can't populate column B and column C in the
-same row. That is, you can't set both the SHIFT_PROFILE_NAME and
-SHIFT_ROTATION_PATTERN_NAME for an agent in the same .csv file. You can
+same row. That is, you can't set both the SHIFT\_PROFILE\_NAME and
+SHIFT\_ROTATION\_PATTERN\_NAME for an agent in the same .csv file. You can
 set only one.
 
 - To set the shift profile name for the agent, add it to column

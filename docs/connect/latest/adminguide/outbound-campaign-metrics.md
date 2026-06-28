@@ -182,7 +182,7 @@ A campaign send request represents a send attempt made to reach out to an recipi
 
 ## Campaign send exclusions
 
-This metric measures the count of outbound campaign send attempts that were excluded from the targeted segment during a campaign execution. Example exclusion reasons: MISSING_TIMEZONE, MISSING_CHANNEL
+This metric measures the count of outbound campaign send attempts that were excluded from the targeted segment during a campaign execution. Example exclusion reasons: MISSING\_TIMEZONE, MISSING\_CHANNEL
 
 **Metric type**: Integer
 
@@ -200,7 +200,7 @@ This metric measures the count of outbound campaign send attempts that were excl
 
 **Notes**:
 
-- For more details on the exclusion reasons, see campaign_event_type under [Outbound Campaign Events](data-lake.md#campaign-events "data-lake.md#campaign-events") in the Data Lake documentation.
+- For more details on the exclusion reasons, see campaign\_event\_type under [Outbound Campaign Events](data-lake.md#campaign-events "data-lake.md#campaign-events") in the Data Lake documentation.
 - Data for this metric is available starting from April 30, 2025 0:00:00 GMT.
 
 ## Delivery attempts
@@ -227,7 +227,7 @@ or SMS message outcomes that were successfully sent to Connect Customer to be de
 - For details about telephony disposition definitions, see DisconnectReason
   for outbound campaigns and AnsweringMachineDetectionStatus in the
   [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
-  For details about email and SMS disposition definitions, see campaign_event_type
+  For details about email and SMS disposition definitions, see campaign\_event\_type
   in the [Outbound campaign events](data-lake-outbound-campaigns-data.md#data-lake-oc-events "data-lake-outbound-campaigns-data.md#data-lake-oc-events") table.
 - Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode and
   November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes.

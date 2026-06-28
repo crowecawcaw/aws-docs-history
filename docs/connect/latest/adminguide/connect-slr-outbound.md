@@ -35,48 +35,43 @@ permissions are added for the service-linked role to access the resources:
   AWS account.
 - Action: Connect Customer
 
-      + `connect:BatchPutContact`
-      + `connect:StopContact`
-
-  for all Connect Customer instances.
+  - `connect:BatchPutContact`
+  - `connect:StopContact`
+    for all Connect Customer instances.
 
 - Action: Connect Customer
 
-      + `connect:StartOutboundVoiceContact`
-      + `connect:GetMetricData`
-      + `connect:GetCurrentMetricData`
-      + `connect:BatchPutContact`
-      + `connect:StopContact`
-      + `connect:GetMetricDataV2`
-      + `connect:DescribeContactFlow`
-      + `connect:SendOutboundEmail`
-
-  For the Connect Customer instance specified.
-
-- Action: EventBridge:
-
-      + `events:ListRules`
-
-  For all events.
+  - `connect:StartOutboundVoiceContact`
+  - `connect:GetMetricData`
+  - `connect:GetCurrentMetricData`
+  - `connect:BatchPutContact`
+  - `connect:StopContact`
+  - `connect:GetMetricDataV2`
+  - `connect:DescribeContactFlow`
+  - `connect:SendOutboundEmail`
+    For the Connect Customer instance specified.
 
 - Action: EventBridge:
 
-      + `events:DeleteRule`
-      + `events:PutRule`
-      + `events:PutTargets`
-      + `events:RemoveTargets`
-      + `events:ListTargetsByRule`
+  - `events:ListRules`
+    For all events.
 
-  for rules named `ConnectCampaignsRule*` managed by
-  `connect-campaigns.amazonaws.com`.
+- Action: EventBridge:
+
+  - `events:DeleteRule`
+  - `events:PutRule`
+  - `events:PutTargets`
+  - `events:RemoveTargets`
+  - `events:ListTargetsByRule`
+    for rules named `ConnectCampaignsRule*` managed by
+    `connect-campaigns.amazonaws.com`.
 
 - Action: Connect AI agents Message Templates:
 
-      + `wisdom:GetMessageTemplate`
-      + `wisdom:RenderMessageTemplate`
-
-  on all resources tagged with
-  `aws:ResourceTag/AmazonConnectCampaignsEnabled`.
+  - `wisdom:GetMessageTemplate`
+  - `wisdom:RenderMessageTemplate`
+    on all resources tagged with
+    `aws:ResourceTag/AmazonConnectCampaignsEnabled`.
 
 Permissions for Connect Customer Customer Profiles will be added to ezCRC template:
 `ConnectCampaignsCustomerProfilesIntegrationAccess`.

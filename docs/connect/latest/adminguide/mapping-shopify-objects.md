@@ -8,54 +8,54 @@ standard profile object in Connect Customer Customer Profiles.
 Following is a list of all the fields in a Shopify-Customer
 object.
 
-- accepts_marketing
-- accepts_marketing_updated_at
+- accepts\_marketing
+- accepts\_marketing\_updated\_at
 - addresses
 - currency
-- created_at
-- default_address.address1
-- default_address.address2
-- default_address.city
-- default_address.company
-- default_address.country
-- default_address.country_code
-- default_address.country_name
-- default_address.customer_id
-- default_address.default
-- default_address.first_name
-- default_address.id
-- default_address.last_name
-- default_address.name
-- default_address.phone
-- default_address.province
-- default_address.province_code
-- default_address.zip
+- created\_at
+- default\_address.address1
+- default\_address.address2
+- default\_address.city
+- default\_address.company
+- default\_address.country
+- default\_address.country\_code
+- default\_address.country\_name
+- default\_address.customer\_id
+- default\_address.default
+- default\_address.first\_name
+- default\_address.id
+- default\_address.last\_name
+- default\_address.name
+- default\_address.phone
+- default\_address.province
+- default\_address.province\_code
+- default\_address.zip
 - email
-- first_name
+- first\_name
 - id
-- last_name
-- last_order_id
-- last_order_name
+- last\_name
+- last\_order\_id
+- last\_order\_name
 - metafield.key
 - metafield.value
 - metafield.namespace
-- metafield.value_type
-- marketing_opt_in_level
-- multipass_identifier
+- metafield.value\_type
+- marketing\_opt\_in\_level
+- multipass\_identifier
 - note
-- orders_count
+- orders\_count
 - phone
-- sms_marketing_consent.state
-- sms_marketing_consent.opt_in_level
-- sms_marketing_consent.consent_updated_at
-- sms_marketing_consent.consent_collected_from
+- sms\_marketing\_consent.state
+- sms\_marketing\_consent.opt\_in\_level
+- sms\_marketing\_consent.consent\_updated\_at
+- sms\_marketing\_consent.consent\_collected\_from
 - state
 - tags
-- tax_exempt
-- tax_exemptions
-- total_spent
-- updated_at
-- verified_email
+- tax\_exempt
+- tax\_exemptions
+- total\_spent
+- updated\_at
+- verified\_email
 
 ## Mapping a Shopify-Customer object to a standard profile
 
@@ -69,16 +69,16 @@ Shopify-Customer object to the standard profile.
 | ----------------------------- | ----------------------------- |
 | id                            | Attributes.ShopifyCustomerId  |
 | email                         | EmailAddress                  |
-| first_name                    | FirstName                     |
-| last_name                     | LastName                      |
+| first\_name                   | FirstName                     |
+| last\_name                    | LastName                      |
 | note                          | AdditionalInformation         |
 | phone                         | PhoneNumber                   |
-| default_address.address1      | Address.Address1              |
-| default_address.address2      | Address.Address2              |
-| default_address.city          | Address.City                  |
-| default_address.province      | Address.Province              |
-| default_address.country       | Address.Country               |
-| default_address.zip           | Address.PostalCode            |
+| default\_address.address1     | Address.Address1              |
+| default\_address.address2     | Address.Address2              |
+| default\_address.city         | Address.City                  |
+| default\_address.province     | Address.Province              |
+| default\_address.country      | Address.Country               |
+| default\_address.zip          | Address.PostalCode            |
 
 ### Example
 

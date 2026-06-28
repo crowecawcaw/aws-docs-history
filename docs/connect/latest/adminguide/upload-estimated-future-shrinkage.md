@@ -18,8 +18,8 @@ Planning**. 3. On the **Import Data** tab, choose **Upload
 data**.
 
 The .csv file you upload must have the following headings:
-FORECAST_GROUP, Date, AVAILABLE_FTE,
-IN_OFFICE_SHRINKAGE_OUT_OFFICE_SHRINKAGE. These are shown in the
+FORECAST\_GROUP, Date, AVAILABLE\_FTE,
+IN\_OFFICE\_SHRINKAGE\_OUT\_OFFICE\_SHRINKAGE. These are shown in the
 following image of a .csv file opened with Excel.
 
 ![A csv file with correct headings.](images/wfm-capacity-planning-csv-template.png) 4. Update values in this template, and then choose `Upload
@@ -31,7 +31,7 @@ the name of the forecast group that you created.
 
 ## Important things to know about your .csv file
 
-- FORECAST_GROUP: Enter the EXACT name of the forecast group you
+- FORECAST\_GROUP: Enter the EXACT name of the forecast group you
   created. You can add multiple forecast groups in this `.csv`
   file.
 - Date: Each row is one day. In the previous image, row 2 is January 1,
@@ -40,7 +40,7 @@ the name of the forecast group that you created.
   the time zone of the long term forecast. For example, if the long term
   forecast is in US/Pacific time, then the Date field should be as
   follows: 2024-05-30T07:00:00Z
-- AVAILABLE_FTE: Based on your estimation, how many full-time agents
+- AVAILABLE\_FTE: Based on your estimation, how many full-time agents
   will be available for working that day. For example, your contact center
   currently has 100 FTEs and you expect this number to be the same next
   year.
@@ -56,10 +56,10 @@ required to meet the Service Level target. For example, if the
 Required FTE = 120 and Available FTE = 100 for next year, then that
 means a deficit = 20.
 
-- IN_OFFICE_SHRINKAGE: Percentage of agents in the office but not in
+- IN\_OFFICE\_SHRINKAGE: Percentage of agents in the office but not in
   production mode. For example, they might be in training or in
   meetings.
-- OUT_OFFICE_SHRINKAGE: Percentage of agents absent from work (for
+- OUT\_OFFICE\_SHRINKAGE: Percentage of agents absent from work (for
   example, no show or personal time off).
 
 ###### Note

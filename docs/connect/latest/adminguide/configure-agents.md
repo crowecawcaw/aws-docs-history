@@ -69,7 +69,7 @@ next available agent.
        and **ACW timeout** setting.
 
        - Note -To configure auto-accept or ACW timeouts for Outbound Campaigns calls
-         or customer-first callbacks, use the “Voice” settings.
+         or customer-first callbacks, use the "Voice" settings.
        - ![The Edit User page, the contact handling section.](images/agent-contact-handling-config.png)
 
 7. If desired, choose **Show advanced settings** to access the
@@ -81,4 +81,4 @@ next available agent.
     * [Organize agents into teams and groups for reporting and access by creating hierarchies](agent-hierarchy.md "agent-hierarchy.md")
 
 9. Under **Tags**, optionally add resource [tags](tagging.md "tagging.md") to identify, organize, search for, filter and
-   control who can access this user.
+control who can access this user.

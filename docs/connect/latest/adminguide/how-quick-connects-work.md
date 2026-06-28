@@ -37,7 +37,7 @@ The call is not yet connected to Maria. 3. John hears the first **Play prompt**,
 agent." 4. Maria receives a notification in her CCP to either accept or reject the
 call. 5. Maria accepts the incoming call. The banner in her CCP changes to
 **Connecting**. 6. The first [Set whisper flow](set-whisper-flow.md "set-whisper-flow.md") block is triggered. This block
-sets the custom agent whisper flow. It plays the Custom_Agent_Whisper to
+sets the custom agent whisper flow. It plays the Custom\_Agent\_Whisper to
 Maria, for example, "This is an internal call transferred from another
 agent."
 
@@ -46,7 +46,7 @@ agent."
 If you don't create and then select a custom agent whisper flow, Connect Customer
 plays the [default agent whisper
 flow](default-agent-whisper.md "default-agent-whisper.md"), which says the queue name. 7. The next [Set whisper flow](set-whisper-flow.md "set-whisper-flow.md") block is triggered. It plays
-the Custom_Customer_Whisper to John, for example, "Your call is now
+the Custom\_Customer\_Whisper to John, for example, "Your call is now
 connecting to an agent."
 
 ###### Note

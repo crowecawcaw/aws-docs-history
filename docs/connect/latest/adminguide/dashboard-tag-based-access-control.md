@@ -34,43 +34,38 @@ modules, evaluation forms, and test cases metrics in dashboards and reports:
   dashboards in the same security profile that has tag based access controls
   enabled:
 
-      + **Analytics and Optimization - Access metrics -
-       Access**: If you choose this option, access is granted
-       to Real-time metrics, Historical metrics reports, Dashboards, and
-       Agent activity audit.
+  - **Analytics and Optimization - Access metrics -
+    Access**: If you choose this option, access is granted
+    to Real-time metrics, Historical metrics reports, Dashboards, and
+    Agent activity audit.
+    OR
 
-  OR
+  - **Analytics and Optimization - Real-time metrics -
+    Access**
+    OR
 
-      + **Analytics and Optimization - Real-time metrics -
-       Access**
+  - **Analytics and Optimization - Historical metrics -
+    Access**
+    OR
 
-  OR
+  - **Analytics and Optimization - Dashboards -
+    Access**
+    OR
 
-      + **Analytics and Optimization - Historical metrics -
-       Access**
+  - **Analytics and Optimization - Agent Activity Audit -
+    Access**
+    OR
 
-  OR
-
-      + **Analytics and Optimization - Dashboards -
-       Access**
-
-  OR
-
-      + **Analytics and Optimization - Agent Activity Audit -
-       Access**
-
-  OR
-
-      + **Analytics and Optimization - Login/Logout report -
-       View**
+  - **Analytics and Optimization - Login/Logout report -
+    View**
 
 Additionally, you will need one or more relevant permissions to view specific
 resource data on dashboards and reports: **Routing profiles -
 View**, **Queues - View**, **Users -
-View**, **Test Cases - View**, \*\*Evaluation forms
+View**, **Test Cases - View**, **Evaluation forms
 
 - manage form definitions - View**, **Flows - View**,
-  **Flow modules - View**, and **Bot - View\*\*.
+  **Flow modules - View**, and **Bot - View**.
   The following image shows an example of security profile permissions that grant
   users the ability to view routing profiles, queues, and Connect Customer user accounts.
 
@@ -137,7 +132,7 @@ View**, **Test Cases - View**, \*\*Evaluation forms
 | Agent evaluation performance overview                  | AGENT         |
 | Agent performance overview                             | AGENT         |
 | AI agent performance trend                             | QUEUE         |
-| Average execution duration                             | TEST_CASE     |
+| Average execution duration                             | TEST\_CASE    |
 | Average handle time                                    | AGENT         |
 | Average queue answer time and contacts queued<br>trend | QUEUE         |
 | Average speed of answer                                | QUEUE         |
@@ -153,7 +148,7 @@ View**, **Test Cases - View**, \*\*Evaluation forms
 | Intraday performance overview                          | QUEUE         |
 | Queue performance summary                              | QUEUE         |
 | Self service AI performance summary                    | QUEUE         |
-| Test execution summary                                 | TEST_CASE     |
+| Test execution summary                                 | TEST\_CASE    |
 
 ## How to transition to tag-based access control
 

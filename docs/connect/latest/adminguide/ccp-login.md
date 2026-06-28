@@ -5,10 +5,9 @@ you the following information:
 
 - The URL to launch the CCP:
 
-      + https://`instance name`.my.connect.aws/ccp-v2/
-
-  Where `instance name` is provided by your IT
-  department or whoever set up Connect Customer for your business.
+  - https://`instance name`.my.connect.aws/ccp-v2/
+    Where `instance name` is provided by your IT
+    department or whoever set up Connect Customer for your business.
 
 - Your agent ID.
 - Your agent password.

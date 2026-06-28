@@ -26,12 +26,12 @@ SDK with Connect Customer.
 
   ###### Important
 
-      - The 2503 release will be the first version to
-       support ICE restart functionality. Earlier versions
-       do not support this feature.
-      - Omnissa Horizon Client version 2503 will be
-       available through [Omnissa Customer Connect](https://customerconnect.omnissa.com/downloads/info/slug/desktop_end_user_computing/omnissa_horizon_clients/8 "https://customerconnect.omnissa.com/downloads/info/slug/desktop_end_user_computing/omnissa_horizon_clients/8"). Check Customer
-       Connect for the latest version.
+        - The 2503 release will be the first version to
+         support ICE restart functionality. Earlier versions
+         do not support this feature.
+        - Omnissa Horizon Client version 2503 will be
+         available through [Omnissa Customer Connect](https://customerconnect.omnissa.com/downloads/info/slug/desktop_end_user_computing/omnissa_horizon_clients/8 "https://customerconnect.omnissa.com/downloads/info/slug/desktop_end_user_computing/omnissa_horizon_clients/8"). Check Customer
+         Connect for the latest version.
 
 - **Omnissa Extension and SDK
   Requirements**
@@ -53,43 +53,35 @@ SDK with Connect Customer.
   Agent Virtual Machine (preferably through Registry Editor
   (regedit)):
 
-      + **Open Registry Editor**
+  - **Open Registry Editor**
 
+    - For Windows:
 
+      - Press **Windows + R**
+      - Type **regedit** and press
+        **Enter**.
 
+  - Create/Navigate to the following registry path:
 
-      	- For Windows:
+  ```
+  Key Path: Computer\HKLM\SOFTWARE\Policies\Omnissa\Horizon\WebRTCRedirSDKWebApp
+  Key Names and Values:
+  chrome_enabled (REG_DWORD) = 1
+  edge_chrome_enabled (REG_DWORD) = 1
+  enabled (REG_DWORD) = 1
+  ```
 
+  ```
+  Key Path: Computer\HKLM\SOFTWARE\Policies\Omnissa\Horizon\WebRTCRedirSDKWebApp\UrlAllowList
+  Key Name: https://*.connect.aws/*
+  Key Name: https://*.connect.aws.a2z.com/*
+  Key Type: REG_SZ
+  ```
 
-
-
-      		* Press **Windows + R**
-      		* Type **regedit** and press
-      		 **Enter**.
-      + Create/Navigate to the following registry path:
-
-
-
-      ```
-      Key Path: Computer\HKLM\SOFTWARE\Policies\Omnissa\Horizon\WebRTCRedirSDKWebApp
-      Key Names and Values:
-      chrome_enabled (REG_DWORD) = 1
-      edge_chrome_enabled (REG_DWORD) = 1
-      enabled (REG_DWORD) = 1
-      ```
-
-
-      ```
-      Key Path: Computer\HKLM\SOFTWARE\Policies\Omnissa\Horizon\WebRTCRedirSDKWebApp\UrlAllowList
-      Key Name: https://*.connect.aws/*
-      Key Name: https://*.connect.aws.a2z.com/*
-      Key Type: REG_SZ
-      ```
-
-  After Omnissa agent installation, html5server.exe and wsnm.exe
-  processes will always be running in Task Manager, regardless of SDK
-  enablement status. The following image shows the html5server.exe process
-  running in Task Manager.
+After Omnissa agent installation, html5server.exe and wsnm.exe
+processes will always be running in Task Manager, regardless of SDK
+enablement status. The following image shows the html5server.exe process
+running in Task Manager.
 
 ![Task Manager, the html5server.exe process running.](images/omnissa-1.png)
 
@@ -218,17 +210,16 @@ optimization fails. This means:
 
 ## How to verify the media flow between thin client and Amazon Connect during the call
 
-1.  Ensure Omnissa Horizon WebRTC browser extension is enabled and in
-    Ready state.
-2.  Check the extension icon in your browser toolbar:
+1. Ensure Omnissa Horizon WebRTC browser extension is enabled and in
+   Ready state.
+2. Check the extension icon in your browser toolbar:
 
-        1. Blue icon indicates Ready state and proper
-         functionality.
-        2. Grey icon indicates Not Ready state and potential
-         issues.
-
-    The following image shows what the Omnissa Horizon WebRTC browser
-    extension looks like when it is enabled and in Ready state.
+   1. Blue icon indicates Ready state and proper
+      functionality.
+   2. Grey icon indicates Not Ready state and potential
+      issues.
+      The following image shows what the Omnissa Horizon WebRTC browser
+      extension looks like when it is enabled and in Ready state.
 
 ![The Omnissa Horizon WebRTC browser extension when it is enabled.](images/omnissa-4.png) 3. Check process status:
 
@@ -240,11 +231,11 @@ optimization fails. This means:
 
 4. Test audio flow:
 
-   1. Make a test call
-   2. Verify audio optimization by disabling microphone access in
-      the VM's browser - calls should continue to work as audio is
-      being processed locally
-   3. Check for any audio latency or quality issues.
+    1. Make a test call
+    2. Verify audio optimization by disabling microphone access in
+     the VM's browser - calls should continue to work as audio is
+     being processed locally
+    3. Check for any audio latency or quality issues.
 
 5. Use Wireshark to verify:
 

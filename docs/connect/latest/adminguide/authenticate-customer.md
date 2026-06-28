@@ -41,12 +41,12 @@ This flow block is designed to be used in the following scenarios:
 
 ## Contact types
 
-| Contact type | Supported?                    |
-| ------------ | ----------------------------- |
-| Voice        | No<br>• \*_Error_<br>• branch |
-| Chat         | Yes                           |
-| Task         | No<br>• \*_Error_<br>• branch |
-| Email        | No<br>• \*_Error_<br>• branch |
+| Contact type | Supported?                   |
+| ------------ | ---------------------------- |
+| Voice        | No<br>• *_Error_<br>• branch |
+| Chat         | Yes                          |
+| Task         | No<br>• *_Error_<br>• branch |
+| Email        | No<br>• *_Error_<br>• branch |
 
 ## Flow types
 

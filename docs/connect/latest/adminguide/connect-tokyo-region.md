@@ -22,10 +22,9 @@ Asia Pacific (Tokyo) Region.
 
 - **Toll Free numbers**
 
-      + 0120 prefix numbers.
-      + 0800 prefix numbers.
-
-  Connect Customer does not offer phone numbers for other cities in Japan at this time.
+  - 0120 prefix numbers.
+  - 0800 prefix numbers.
+    Connect Customer does not offer phone numbers for other cities in Japan at this time.
 
 ###### Note
 

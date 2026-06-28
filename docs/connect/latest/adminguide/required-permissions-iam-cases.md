@@ -192,9 +192,9 @@ Note the following:
 
 The following combination of policies will also work:
 
-- **AmazonConnect_FullAccess** policy
+- **AmazonConnect\_FullAccess** policy
 - `iam:PutRolePolicy` to modify the service-linked role. For
-  an example, see [AWS managed policy: AmazonConnect_FullAccess policy](security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy "security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy").
+  an example, see [AWS managed policy: AmazonConnect\_FullAccess policy](security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy "security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy").
 - The following IAM policy:
 
 JSON

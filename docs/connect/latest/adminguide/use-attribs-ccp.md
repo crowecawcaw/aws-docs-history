@@ -16,9 +16,9 @@ contact.getAttributes(). You can access endpoints using contact.getConnections()
 connection has a getEndpoint() invocation on it.
 
 To access the attribute directly from a Lambda function, use $.External.AttributeName. If
-the attribute is stored to a user-defined attribute from a [Set contact
-attributes](set-contact-attributes.md "set-contact-attributes.md") block, use
-$.Attributes.AttributeName.
+ the attribute is stored to a user-defined attribute from a [Set contact
+ attributes](set-contact-attributes.md "set-contact-attributes.md") block, use
+ $.Attributes.AttributeName.
 
 For example, included with your Connect Customer instance, there is a flow named "Sample note for
 screenpop." In this flow, a [Set contact

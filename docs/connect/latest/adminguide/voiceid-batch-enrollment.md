@@ -29,38 +29,32 @@ For each speaker the file must include:
     * A channel for the caller in the audio recording. If the audio has
      multiple channels, you can select only one.
 
-4.  A KMS key to use when writing the output.
-5.  A role that Voice ID can assume. It must have access to the S3 bucket
-    where the audio files are stored. This role must have access to any
-    KMS key used to encrypt the files. It must also be able to write to the
-    specified output location and use the KMS key requested for writing the
-    output. Specifically, it must have the following permissions:
+4. A KMS key to use when writing the output. 5. A role that Voice ID can assume. It must have access to the S3 bucket
+where the audio files are stored. This role must have access to any
+KMS key used to encrypt the files. It must also be able to write to the
+specified output location and use the KMS key requested for writing the
+output. Specifically, it must have the following permissions:
 
-        * `s3:GetObject` on the input bucket.
-        * `s3:PutObject` on the output bucket.
-        * `kms:Decrypt` on the KMS key used for input bucket’s
-         default encryption.
-        * `kms:Decrypt` and `kms:GenerateDataKey` on
-         the KMS key provided in the input which will be used for writing
-         output file to the output bucket.
+    * `s3:GetObject` on the input bucket.
+    * `s3:PutObject` on the output bucket.
+    * `kms:Decrypt` on the KMS key used for input bucket’s
+     default encryption.
+    * `kms:Decrypt` and `kms:GenerateDataKey` on
+     the KMS key provided in the input which will be used for writing
+     output file to the output bucket.
 
-    You must have `iam:PassRole` permissions when making the call
-    and providing the `dataAccessRole`. To enable confused deputy
-    protection for the `dataAccessRole`, see [Connect Customer Voice ID cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
-
-6.  Optionally, a fraud check skip flag in case you want to skip checks for
-    fraud and voice spoofing on the enrollment audio.
-7.  Optionally, specify a fraudster watchlist that you want to perform fraud
-    checks against. If no watchlist is specified, Voice ID uses the default
-    fraudster watchlist for the domain.
-8.  Optionally, the fraud threshold in case you want to raise or lower the
-    risk.
-9.  Optionally, a flag to re-enroll enrolled customers. This is useful if you
-    want to refresh the audio recording, since the default is to ignore
-    previously enrolled customers.
-    The batch enrollment returns the `CustomerSpeakerId`,
-    `GeneratedSpeakerId`, and associated status for each entry. It stores
-    this data in a JSON file at the output path you specify in the API.
+You must have `iam:PassRole` permissions when making the call
+and providing the `dataAccessRole`. To enable confused deputy
+protection for the `dataAccessRole`, see [Connect Customer Voice ID cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service"). 6. Optionally, a fraud check skip flag in case you want to skip checks for
+fraud and voice spoofing on the enrollment audio. 7. Optionally, specify a fraudster watchlist that you want to perform fraud
+checks against. If no watchlist is specified, Voice ID uses the default
+fraudster watchlist for the domain. 8. Optionally, the fraud threshold in case you want to raise or lower the
+risk. 9. Optionally, a flag to re-enroll enrolled customers. This is useful if you
+want to refresh the audio recording, since the default is to ignore
+previously enrolled customers.
+The batch enrollment returns the `CustomerSpeakerId`,
+`GeneratedSpeakerId`, and associated status for each entry. It stores
+this data in a JSON file at the output path you specify in the API.
 
 ###### Note
 

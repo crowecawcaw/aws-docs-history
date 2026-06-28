@@ -90,8 +90,8 @@ Choose **Add domain** to add up to 50 domains.
      applications.
 
 2. Under **Add security for your communications widget requests**,
-   for the fastest setup experience choose **No - I will
-   skip**.
+for the fastest setup experience choose **No - I will
+skip**.
 
 We recommend choosing **Yes** for the ability to verify
 the user is authenticated. For more information, see [Personalize the customer experience for in-app, web, and video calling in Connect Customer](optional-widget-steps.md "optional-widget-steps.md"). 3. Choose **Save and continue**.

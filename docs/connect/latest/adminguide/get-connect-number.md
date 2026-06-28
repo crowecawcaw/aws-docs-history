@@ -31,7 +31,7 @@ Create a case by choosing the [Account and billing](https://support.console.aws.
      request.The following image shows the **Account and
 
 billing** option on the **Create a
-case** page of the **Support Center\*\*
+case** page of the **Support Center**
 console.
 
 ![The Account and billing option on the Create a case page.](images/create-case-support.png) 4. Enter a description for the number and, if required, attach it to a

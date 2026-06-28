@@ -68,7 +68,7 @@ If you use SAML 2.0 to manage identity, then do the following steps:
 - When you configure the relay state for your identity provider, update
   the `loginUrl` with `new_domain=true`.
 - You must use [URL
-  encoding](https://en.wikipedia.org/wiki/Percent-encoding "https://en.wikipedia.org/wiki/Percent-encoding") for the destination and new_domain in the
+  encoding](https://en.wikipedia.org/wiki/Percent-encoding "https://en.wikipedia.org/wiki/Percent-encoding") for the destination and new\_domain in the
   URL.
 
 If you have old instances that were set up with SAML, do the following
@@ -76,11 +76,11 @@ steps:
 
 1. If `loginUrl` contains
    `destination=%2Fconnect%2F`your-destination-endpoint``,
-remove the `%2Fconnect` endpoint prefix from the new domain
+   remove the `%2Fconnect` endpoint prefix from the new domain
    destination.
 2. Add `new_domain=true` before or after
    `destination=%2F`your-destination-endpoint``.
-It should be separated by `&`.
+   It should be separated by `&`.
 3. If `loginUrl` does not contain destination or any other
    parameter, add `?new_domain=true` after the relay state
    URL.

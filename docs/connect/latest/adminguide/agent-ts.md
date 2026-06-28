@@ -22,7 +22,7 @@ This topic explains how to investigate device problems.
     workstation settings.
 
   `"deviceInfo": { "platformName": "Chrome", "platformVersion":
- "116", "operatingSystem": "Windows" },`
+   "116", "operatingSystem": "Windows" },`
   - Check whether there are any recent operating system or browser
     upgrades/patches applied for the impacted agents. If so, confirm whether
     the issue can be resolved by rolling back to the last known working
@@ -46,13 +46,12 @@ This topic explains how to investigate device problems.
   - Check whether any recent software/application installed on the
     workstation that may be doing one of the following:
 
-        - Taking exclusive control of agent's mic/speaker. This issue
-         documented in [Contact Control Panel (CCP) Issues](common-ccp-issues.md "common-ccp-issues.md")
-        - Consuming excessive network bandwidth, and thus preventing the
-         bandwidth from being available to Connect Customer.
-
-    If so, to find the problematic application, remove the recently
-    installed applications one at a time until the issue is resolved.
+    - Taking exclusive control of agent's mic/speaker. This issue
+      documented in [Contact Control Panel (CCP) Issues](common-ccp-issues.md "common-ccp-issues.md")
+    - Consuming excessive network bandwidth, and thus preventing the
+      bandwidth from being available to Connect Customer.
+      If so, to find the problematic application, remove the recently
+      installed applications one at a time until the issue is resolved.
 
 - Investigate your custom CCP
 

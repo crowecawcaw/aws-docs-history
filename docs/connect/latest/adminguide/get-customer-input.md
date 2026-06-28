@@ -38,12 +38,12 @@ This block is designed to be used in the following scenarios:
 
 The following table shows how this block routes a contact for each channel.
 
-| Channel | Supported?                                                                    |
-| ------- | ----------------------------------------------------------------------------- |
-| Voice   | Yes                                                                           |
-| Chat    | Yes, when Amazon Lex is used, otherwise it takes the<br>\*_Error_<br>• branch |
-| Task    | No                                                                            |
-| Email   | No                                                                            |
+| Channel | Supported?                                                                   |
+| ------- | ---------------------------------------------------------------------------- |
+| Voice   | Yes                                                                          |
+| Chat    | Yes, when Amazon Lex is used, otherwise it takes the<br>*_Error_<br>• branch |
+| Task    | No                                                                           |
+| Email   | No                                                                           |
 
 ## Flow types
 
@@ -113,12 +113,11 @@ Choose the following options:
 - **Set timeout**: Specify how long to wait while the
   user decides how they want to respond to the prompt.
 
-      + Minimum value: 1 second
-      + Maximum value: 180 seconds
-
-  After this time elapses, a timeout error occurs. For the Voice
-  channel, this is the timeout until the first DTMF digit is entered. Must
-  be defined statically, and must be a valid integer larger than zero.
+  - Minimum value: 1 second
+  - Maximum value: 180 seconds
+    After this time elapses, a timeout error occurs. For the Voice
+    channel, this is the timeout until the first DTMF digit is entered. Must
+    be defined statically, and must be a valid integer larger than zero.
 
 - **Add condition**: The number against which the
   customer input is compared.
@@ -196,12 +195,12 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
 
   There are a few ways you can add intents:
 
-      - Enter them manually in the text box.
-      - Search for intents.
-      - Select intents from a dropdown list.
-      - Filter the dropdown list of intents by locale. Based
-       on the locale selected, intents for the bot are listed
-       in the dropdown list.
+        - Enter them manually in the text box.
+        - Search for intents.
+        - Select intents from a dropdown list.
+        - Filter the dropdown list of intents by locale. Based
+         on the locale selected, intents for the bot are listed
+         in the dropdown list.
 
   When you select a Lex bot ARN and alias from a dropdown lists,
   you can add intents for that bot by searching using locale. In
@@ -213,41 +212,40 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
   is dynamically set. For these intents, try the following options
   to find them.
 
-      - Check whether the
-       **AmazonConnectEnabled** tag is set
-       to true:
+        - Check whether the
+         **AmazonConnectEnabled** tag is set
+         to True:
 
 
 
 
-      	1. Open the Amazon Lex console, choose
-      	 **Bots**, select the bot, then
-      	 choose **Tags**.
-      	2. If the
-      	 **AmazonConnectEnabled** tag is
-      	 not present, add **AmazonConnectEnabled =
-      	 true**.
-      	3. Return to the Connect Customer admin website. Refresh the flow
-      	 designer to see the selections in **Get
-      	 customer input** block.
-      - Check if the version is associated with the alias:
+        	1. Open the Amazon Lex console, choose
+        	 **Bots**, select the bot, then
+        	 choose **Tags**.
+        	2. If the
+        	 **AmazonConnectEnabled** tag is
+        	 not present, add **AmazonConnectEnabled = True**.
+        	3. Return to the Connect Customer admin website. Refresh the flow
+        	 designer to see the selections in **Get
+        	 customer input** block.
+        - Check if the version is associated with the alias:
 
 
 
 
-      	1. In Connect Customer admin website, choose **Routing**,
-      	 **Flows**, the bot,
-      	 **Aliases**. Verify that
-      	 **Use in flow and flow modules**
-      	 is enabled, as shown in the following
-      	 image.
+        	1. In Connect Customer admin website, choose **Routing**,
+        	 **Flows**, the bot,
+        	 **Aliases**. Verify that
+        	 **Use in flow and flow modules**
+        	 is enabled, as shown in the following
+        	 image.
 
 
 
-      	![The Aliases tab, the Use in flow and flow modules toggle.](images/bot-alias-enabled.png)
-      	2. Refresh the flow designer to see the
-      	 selections in **Get customer
-      	 input** block.
+        	![The Aliases tab, the Use in flow and flow modules toggle.](images/bot-alias-enabled.png)
+        	2. Refresh the flow designer to see the
+        	 selections in **Get customer
+        	 input** block.
   - **Use sentiment override**: Branch based on
     sentiment score, before the Amazon Lex intent.
 
@@ -289,16 +287,16 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
   A custom message is set by typing in a manual initial message
   or dynamically passing an attribute.
 
-      - **User initial customer utterance
-       (text-only)**: Always serializes the block
-       with bot initialization message as
-       ``$.Media.InitialMessage``.
-      - **Set manually**: Accepts any plain
-       text message or [attribute references](connect-attrib-list.md "connect-attrib-list.md"). Supports a maximum of
-       1024 characters.
-      - **Set dynamically**: Accepts any
-       selected attribute that has a text value. Supports a
-       maximum of 1024 characters.
+        - **User initial customer utterance
+         (text-only)**: Always serializes the block
+         with bot initialization message as
+         ``$.Media.InitialMessage``.
+        - **Set manually**: Accepts any plain
+         text message or [attribute references](connect-attrib-list.md "connect-attrib-list.md"). Supports a maximum of
+         1024 characters.
+        - **Set dynamically**: Accepts any
+         selected attribute that has a text value. Supports a
+         maximum of 1024 characters.
   - **Required**: No. This is not a
     required parameter.
   - **Use cases**:
@@ -727,7 +725,7 @@ Following are some examples of how you can use wildcards:
 
 Wildcards apply across bots but not across blocks in a flow.
 
-For example, you have a Get_Account_Number bot. In the flow, you have
+For example, you have a Get\_Account\_Number bot. In the flow, you have
 two **Get customer input** blocks. The first block sets
 the session attribute with a wildcard. The second one doesn't set the
 attribute. In this scenario, the change in behavior for the bot applies

@@ -38,17 +38,16 @@ The available email addresses come from the default outbound queue configured in
 
 To select a From email address:
 
-1.  Choose the **From** dropdown to see all available email addresses.
-2.  Use the search box to quickly find the right address.
-3.  Review the information displayed for each address:
+1. Choose the **From** dropdown to see all available email addresses.
+2. Use the search box to quickly find the right address.
+3. Review the information displayed for each address:
 
-        * Friendly sender name (if configured)
-        * Email address
-        * Description (if configured)
+   - Friendly sender name (if configured)
+   - Email address
+   - Description (if configured)
+     For example: `Support Team <support@example.com> - For customer support inquiries`
 
-    For example: `Support Team <support@example.com> - For customer support inquiries`
-
-4.  Select the appropriate address for your use case.
+4. Select the appropriate address for your use case.
 
 ![The From address selector showing the search box, and email addresses displayed with friendly sender names.](images/email-from-selector-search.png)
 

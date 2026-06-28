@@ -21,16 +21,15 @@ Voice ID results using the following filters:
 - **Authentication result**: Use this filter to search for
   contacts where Voice ID authentication returned the following results:
 
-      + Authenticated
-      + Not authenticated
-      + Opted out
-      + Inconclusive
-      + Not enrolled
-
-  For example, if you want to search for all contacts where the authentication
-  status was returned as **Not authenticated** or **Opted
-  out**, select both these options and choose
-  **Apply**.
+  - Authenticated
+  - Not authenticated
+  - Opted out
+  - Inconclusive
+  - Not enrolled
+    For example, if you want to search for all contacts where the authentication
+    status was returned as **Not authenticated** or **Opted
+    out**, select both these options and choose
+    **Apply**.
 
 - **Fraud detection result**: Use this filter to search for
   contacts where Voice ID fraud analysis returned the following results:

@@ -301,8 +301,8 @@ these steps:
     ![The Customer managed keys page showing a typical key.](images/ai-agents-create-kms-key.png)
 
 2. Return to the **Connect AI agents** browser tab, open the
-   **AWS KMS key** list, and select the key that
-   you created in the previous steps.
+**AWS KMS key** list, and select the key that
+you created in the previous steps.
 
 ![Encryption settings interface with option to customize and select an AWS KMS key.](images/ai-agents-choose-kms-key.png) 3. Choose **Add domain**.
 
@@ -354,7 +354,7 @@ these steps:
      **Allow**.
 
 4. Under **Encryption**, open the **AWS
-   KMS Key** list and choose a key.
+KMS Key** list and choose a key.
 
 —OR—
 
@@ -452,21 +452,20 @@ these steps:
     9. Choose **Next**.
 
 4. Select the fields for the knowledge base. The following fields are
-   required:
+required:
 
-   - short_description
-   - number
-   - workflow_state
-   - sys_mod_count
-   - active
-   - text
-   - sys_updated_on
-   - latest
-   - sys_id
+    * short\_description
+    * number
+    * workflow\_state
+    * sys\_mod\_count
+    * active
+    * text
+    * sys\_updated\_on
+    * latest
+    * sys\_id
 
-5. Choose **Next**.
-6. Review your settings, change them as needed, then choose
-   **Add integration**.
+5. Choose **Next**. 6. Review your settings, change them as needed, then choose
+**Add integration**.
 
 ###### Prerequisites
 
@@ -518,30 +517,26 @@ these steps:
      section.
 
 3. (Optional) Under **Sync frequency**, open the
-   **Sync frequency** list and select and select a
-   synchronization interval. The system defaults to an hour.
-4. (Optional) Under **Ingestion start date**, choose
-   **Ingest records created after**, then select a
-   start date. The system defaults to ingesting all records.
-5. Choose **Next**.
-6. Select the fields for the knowledge base, then choose
-   **Next**.
-7. Review your settings, change them as needed, then choose
-   **Add integration**.
-   After you create the integration, you can only edit its URL.
+**Sync frequency** list and select and select a
+synchronization interval. The system defaults to an hour. 4. (Optional) Under **Ingestion start date**, choose
+**Ingest records created after**, then select a
+start date. The system defaults to ingesting all records. 5. Choose **Next**. 6. Select the fields for the knowledge base, then choose
+**Next**. 7. Review your settings, change them as needed, then choose
+**Add integration**.
+After you create the integration, you can only edit its URL.
 
 ###### Prerequisites
 
 You must have the following item to connect to SharePoint:
 
 - In SharePoint, a Redirect URL configured with `https://[AWS
-REGION].console.aws.amazon.com/connect/v2/oauth`. For
+ REGION].console.aws.amazon.com/connect/v2/oauth`. For
   example,
   `https://ap-southeast-2.console.aws.amazon.com/connect/v2/oauth`.
 
 ###### Note
 
-Only AUTHORIZATION_CODE is supported for SharePoint Online connections. CLIENT_CREDENTIALS is not supported.
+Only AUTHORIZATION\_CODE is supported for SharePoint Online connections. CLIENT\_CREDENTIALS is not supported.
 
 After you have this item, follow these steps:
 
@@ -582,14 +577,13 @@ these steps:
     5. Choose **Next**.
 
 3. Under **Select Microsoft SharePoint Online
-   site**, open the list and select a site.
-4. Under **Select folders from**
-   _site name_, select the folders that you want to
-   include in your domain, then choose
-   **Next**.
-5. Review your settings, change them as needed, then choose
-   **Add integration**.
-6. In the **Integration name** box, enter a name for
+site**, open the list and select a site. 4. Under **Select folders from**
+_site name_, select the folders that you want to
+include in your domain, then choose
+**Next**. 5. Review your settings, change them as needed, then choose
+**Add integration**.
+
+1. In the **Integration name** box, enter a name for
    your integration.
 
 ###### Tip
@@ -748,8 +742,7 @@ the default KMS key or a Customer Managed Key (CMK). 5. Under **Sync scope**
 
     	![The URL Regex patterns section showing an example of an exclude pattern for PDF files.](images/web-crawler-q-config-3.png)
 
-6. Choose **Next**.
-7. Review all the integration details.
+6. Choose **Next**. 7. Review all the integration details.
 
 ![The review page showing all integration details for the Web Crawler configuration before final submission.](images/web-crawler-q-config-4.png) 8. Select **Add integration.** 9. The integration is added to your list.
 

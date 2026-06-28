@@ -27,7 +27,7 @@ Console](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md
 To configure Approved Origins at the instance level, follow the
 steps in [Use an allowlist for integrated applications in Connect Customer](app-integration.md "app-integration.md").
 
-- Agents must be created already in _both_ your
+- Agents must exist in _both_ your
   source and replica Connect Customer instances and have the same username as the
   role session name from your identity provider (IdP). Otherwise, you
   will receive a `UserNotOnboardedException` exception and
@@ -69,8 +69,8 @@ steps in [Use an allowlist for integrated applications in Connect Customer](app-
      the source AWS Region in which the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API was called.
 
 2. Add the following trust policy to your IAM Federation role. Use
-   the URL for the global sign-in SAML endpoint as shown in the
-   following example.
+the URL for the global sign-in SAML endpoint as shown in the
+following example.
 
 JSON
 

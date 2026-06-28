@@ -27,7 +27,7 @@ Managed Synchronization uses the service-linked role that is prefixed with
 account will contain the prefix and a unique ID that will be similar to the
 following:
 
-`**AWSServiceRoleForAmazonConnectSynchronization**`\_unique-id``
+`**AWSServiceRoleForAmazonConnectSynchronization**`_unique-id``
 
 The **AWSServiceRoleForAmazonConnectSynchronization** prefixed service-linked role trusts the following
 services to assume the role:

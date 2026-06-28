@@ -43,9 +43,8 @@ select.
      agents and interval level agent headcount estimation.
 
 7. Choose **Save**. If the forecast group has already been
-   included in a forecast, an error message is displayed.
-8. If the forecast was created successfully, it's Status =
-   **Scheduled**.
+included in a forecast, an error message is displayed. 8. If the forecast was created successfully, it's Status =
+**Scheduled**.
 
 The status is **Complete** when the computation
 finishes. You can use **Search** to find forecasts by

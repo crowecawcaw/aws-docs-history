@@ -89,7 +89,7 @@ you must enable the appropriate security profile permission.
 3. Expand **Contact Control Panel (CCP)** permissions.
 4. Select **Audio device settings**.
 
-![The Audio device settings permission in the Contact Control Panel (CCP) section of the security profile.](images/audio-device-settings-security-profile.png) 5. Choose **Save**.
+![The Audio device settings permission in the Contact Control Panel (CCP) section of the security profile.](images/SecurityProfile_cloudscape_audio_device_settings.png) 5. Choose **Save**.
 
 After enabling this permission, agents will see Audio Enhancement controls in
 their CCP.

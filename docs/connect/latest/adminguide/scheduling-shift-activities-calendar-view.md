@@ -52,28 +52,28 @@ you selected in the previous step.
 
 7. Select activity placement method:
 
-   1. **Do not optimize**: activity will be placed
-      for the date and time that you specify.
-   2. **Anytime within shift**: Optimizes
-      placement across the entire shift to minimize impact to service
-      level targets. Specify a date range, and the system finds the
-      best time within each agent's shift. For individual activities,
-      placement may vary by agent. For shared activities, all agents
-      receive the same date and time.
-   3. **Time window**: Optimizes placement
-      within a specific date and time range you define. The system
-      finds the best time within that window to minimize impact to
-      service level targets. For individual activities, placement
-      may vary by agent. For shared activities, all agents receive
-      the same date and time.
-   4. **Relative to shift**: Optimizes
-      placement within a time window defined by offsets from each
-      agent's shift start and end (for example, "1 hour after shift
-      start" to "2 hours before shift end"). The system finds the
-      best time within that window to minimize impact to service
-      level targets. For individual activities, placement may vary
-      by agent. For shared activities, all agents receive the same
-      date and time.###### Note
+    1. **Do not optimize**: activity will be placed
+     for the date and time that you specify.
+    2. **Anytime within shift**: Optimizes
+     placement across the entire shift to minimize impact to service
+     level targets. Specify a date range, and the system finds the
+     best time within each agent's shift. For individual activities,
+     placement may vary by agent. For shared activities, all agents
+     receive the same date and time.
+    3. **Time window**: Optimizes placement
+     within a specific date and time range you define. The system
+     finds the best time within that window to minimize impact to
+     service level targets. For individual activities, placement
+     may vary by agent. For shared activities, all agents receive
+     the same date and time.
+    4. **Relative to shift**: Optimizes
+     placement within a time window defined by offsets from each
+     agent's shift start and end (for example, "1 hour after shift
+     start" to "2 hours before shift end"). The system finds the
+     best time within that window to minimize impact to service
+     level targets. For individual activities, placement may vary
+     by agent. For shared activities, all agents receive the same
+     date and time.###### Note
 
 Additional things to note when you select one of the optimized
 placement options:
@@ -93,8 +93,7 @@ placement options:
     * Wait for placement to complete before editing agent
      shifts within the placement window.
 
-8. Select the date and time for the activity.
-9. Select if you want to create this as a repeating activity.
+8. Select the date and time for the activity. 9. Select if you want to create this as a repeating activity.
 
 For example, let's say you have:
 
@@ -120,7 +119,7 @@ When you add this meeting to the current published schedule:
     	 meeting pattern.
 
 10. Choose **Override rules check** to bypass scheduling
-    restrictions like minimum and maximum working hours.
+restrictions like minimum and maximum working hours.
 
 If you don't select this option:
 
@@ -130,12 +129,10 @@ If you don't select this option:
      exclusion in the **Actions log**.
 
 11. Enter any note in the provided **Comment** text
-    box.
-12. Choose **Apply** to add the activity to agent
-    schedules.
-13. You can monitor the progress in the **Actions log**,
-    where the status will transition from **In progress**
-    to **Complete**.
+box. 12. Choose **Apply** to add the activity to agent
+schedules. 13. You can monitor the progress in the **Actions log**,
+where the status will transition from **In progress**
+to **Complete**.
 
 ###### Note
 
@@ -146,48 +143,47 @@ schedules.
 
 ## Edit a shift activity
 
-1.  From an agent's shift, choose the activity, select
-    **Edit**, and then select the activity name to open
-    the edit activity screen.
-2.  Select activity placement method. For details on placement methods,
-    see [Add a shift activity](#scheduling-add-shift-activities-calendar-view "#scheduling-add-shift-activities-calendar-view").
-3.  If the activity you are editing is part of a recurring series, you can
-    choose to edit just this occurrence. Or, you can edit the series.
+1. From an agent's shift, choose the activity, select
+   **Edit**, and then select the activity name to open
+   the edit activity screen.
+2. Select activity placement method. For details on placement methods,
+   see [Add a shift activity](#scheduling-add-shift-activities-calendar-view "#scheduling-add-shift-activities-calendar-view").
+3. If the activity you are editing is part of a recurring series, you can
+   choose to edit just this occurrence. Or, you can edit the series.
 
-    - To edit just this occurrence, continue editing using steps
-      below.
-    - To edit the series, choose **Go to series**.
-      When editing a series, you cannot edit activity name and
-      activity type, you can edit other fields.
+   - To edit just this occurrence, continue editing using steps
+     below.
+   - To edit the series, choose **Go to series**.
+     When editing a series, you cannot edit activity name and
+     activity type, you can edit other fields.
 
-    ###### Note
+   ###### Note
 
-    When a series is edited, any occurrences that are in the
-    past are not modified. Only future occurrences are modified
-    based on the latest repeating pattern.
+   When a series is edited, any occurrences that are in the
+   past are not modified. Only future occurrences are modified
+   based on the latest repeating pattern.
 
-4.  If the activity was added as a **Shared activity**,
-    then all of the agents added to the activity will be listed under
-    **Staff**.
+4. If the activity was added as a **Shared activity**,
+   then all of the agents added to the activity will be listed under
+   **Staff**.
 
-    1. From here, you can add or remove agents, change the date or
-       time of the activity, apply the **Override rules
-       check**, and add or update
-       **Comments**.
-    2. Choose **Apply** to commit the
-       changes.
+   1. From here, you can add or remove agents, change the date or
+      time of the activity, apply the **Override rules
+      check**, and add or update
+      **Comments**.
+   2. Choose **Apply** to commit the
+      changes.
 
-5.  If the activity was added as an **Individual
-    activity**, then only the agent whose shift you chose will
-    be listed under **Staff**.
+5. If the activity was added as an **Individual
+   activity**, then only the agent whose shift you chose will
+   be listed under **Staff**.
 
-        1. From here, you can: change the date or time of the activity,
-         apply the **Override rules check**, and add or
-         update **Comments**.
-        2. Choose **Apply** to commit the
-         changes.
-
-    ![Displays the edit shift activity menu.](images/scheduling-edit-shift-activities.png)
+   1. From here, you can: change the date or time of the activity,
+      apply the **Override rules check**, and add or
+      update **Comments**.
+   2. Choose **Apply** to commit the
+      changes.
+      ![Displays the edit shift activity menu.](images/scheduling-edit-shift-activities.png)
 
 ## Remove a shift activity
 

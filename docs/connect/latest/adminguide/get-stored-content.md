@@ -29,7 +29,7 @@ This flow block is designed to be used in the following scenarios::
   - In the [Check contact attributes](check-contact-attributes.md "check-contact-attributes.md") block, for namespace, choose **Email**
     and for **Key** choose **Email Message**. Then, add conditions depending on
     your use case. For example, if you wanted to route to a specific
-    queue any time an email message contained the word “Refund” (**Note**:
+    queue any time an email message contained the word "Refund" (**Note**:
     keywords are case-sensitive).
   - In the [Send message](send-message.md "send-message.md") block, select an email template or type in a message to send the automated response.
 

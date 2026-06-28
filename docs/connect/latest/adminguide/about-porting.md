@@ -76,16 +76,14 @@ information** 6. On the **Additional information** page:
      required documents. This is described in [Step 3: Submit the required documents by using a link we provide to you](#step3-porting "#step3-porting").
 
 7. Choose **Next step: Solve now or contact
-   us**.
-8. On the **Solve now or contact us** page:
+us**. 8. On the **Solve now or contact us** page:
 
-   1. Choose the **Contact us** tab and select
-      your **Preferred contact language** and
-      your preferred contact method.
+    1. Choose the **Contact us** tab and select
+     your **Preferred contact language** and
+     your preferred contact method.
 
-9. Choose **Submit**.
-10. The Connect Customer team will review your ticket and get back
-    to you.
+9. Choose **Submit**. 10. The Connect Customer team will review your ticket and get back
+to you.
 
 ## Step 2: Complete Letter of Authorization (LOA)
 
@@ -236,11 +234,11 @@ following steps:
      flow has been associated with each phone number.
 
 3. [Submit a service
-   quota request](amazon-connect-service-limits.md "amazon-connect-service-limits.md") at least five days in advance of the
-   mutually agreed date for any changes to your service quotas required
-   to support your use case. For example, you may need to increase the
-   number of concurrent calls per instance, or enable countries for
-   outbound calling.
+quota request](amazon-connect-service-limits.md "amazon-connect-service-limits.md") at least five days in advance of the
+mutually agreed date for any changes to your service quotas required
+to support your use case. For example, you may need to increase the
+number of concurrent calls per instance, or enable countries for
+outbound calling.
 
 ## Step 6: Checklist of activities on your porting date
 

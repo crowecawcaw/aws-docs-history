@@ -35,31 +35,29 @@ experiencing performance issues if you add a lot of them. 5. To customize a repo
      current time zone.
 
 7. (Optional) On the **Filters** tab, specify filters to
-   scope the data to be included in the report. The available filters depend on
-   the report type. The following are the possible filters:
+scope the data to be included in the report. The available filters depend on
+the report type. The following are the possible filters:
 
-   - **Queues**—Includes data only for the
+    * **Queues**—Includes data only for the
      queues that you select from **Include**.
-   - **Routing profiles**—Includes data only
+    * **Routing profiles**—Includes data only
      for the routing profiles that you select from
      **Include**.
-   - **Agents**—Includes data only for the
+    * **Agents**—Includes data only for the
      agents that you select from **Include**.
-   - **Agent Hierarchies**—Includes data only
+    * **Agent Hierarchies**—Includes data only
      for the agent hierarchies that you select from
      **Include**.
-   - **Channel**—Available for Queues and
+    * **Channel**—Available for Queues and
      Routing Profile report type. Includes data only for Channels you
      select.
 
 8. On the **Metrics** tab, choose the metrics and fields to
-   include in the report. The available metrics and fields depend on the report
-   type and filters that you select. For more information, see [Metric definitions in Connect Customer](metrics-definitions.md "metrics-definitions.md").
-9. When you are finished customizing the report, choose
-   **Apply**.
-10. (Optional) To save your report for future reference, choose
-    **Save**, provide a name for the report, and then
-    choose **Save**.
+include in the report. The available metrics and fields depend on the report
+type and filters that you select. For more information, see [Metric definitions in Connect Customer](metrics-definitions.md "metrics-definitions.md"). 9. When you are finished customizing the report, choose
+**Apply**. 10. (Optional) To save your report for future reference, choose
+**Save**, provide a name for the report, and then
+choose **Save**.
 
 To view your saved real-time metrics reports, choose **Analytics
 and optimization**, **Dashboards and

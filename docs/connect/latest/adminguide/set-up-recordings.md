@@ -60,11 +60,9 @@ following:
      instance. To stop recording chat transcripts, remove the S3 bucket.
 
 6. Choose **Save** and then **Publish** to
-   publish the updated flow.
-7. [Assign security
-   profile permissions](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md") to managers so they can review recordings.
-8. Show managers how to access past recordings in Connect Customer. See [Review recorded
-   conversations](review-recorded-conversations.md "review-recorded-conversations.md").
+publish the updated flow. 7. [Assign security
+profile permissions](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md") to managers so they can review recordings. 8. Show managers how to access past recordings in Connect Customer. See [Review recorded
+conversations](review-recorded-conversations.md "review-recorded-conversations.md").
 
 ###### To set up recording behavior for outbound calls
 

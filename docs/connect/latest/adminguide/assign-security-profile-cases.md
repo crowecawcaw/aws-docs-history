@@ -7,7 +7,7 @@ use Connect Customer Cases. For a list of Cases permissions and their API name, 
 
 The following image shows the security permissions used to manage access to [Connect Customer Cases](cases.md "cases.md") functionality:
 
-![Cases security profile permissions.](images/cases-security-profile-permissions.png)
+![Cases security profile permissions.](images/SecurityProfile_cloudscape_cases.png)
 
 ## Required Customer Profiles permissions
 

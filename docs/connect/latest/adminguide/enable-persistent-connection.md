@@ -12,7 +12,7 @@ This functionality doesn't apply to chats or tasks.
 ## How to configure persistent connection for an agent
 
 1. Log in to the Connect Customer admin website at https://`instance
-name`.my.connect.aws/. Use an Admin account, or an account with
+ name`.my.connect.aws/. Use an Admin account, or an account with
    **Users and Permissions** - **Users**
 
 - **Create** or **Edit** permission in
@@ -37,7 +37,7 @@ include duplicate users with different information in the CSV template, you will
 receive an error.
 
 1. Log in to the Connect Customer admin website at https://`instance
-name`.my.connect.aws/. Use an Admin account, or an account with
+ name`.my.connect.aws/. Use an Admin account, or an account with
    **Users and Permissions** - **Users**
 
 - **Create** permission in it's security profile.

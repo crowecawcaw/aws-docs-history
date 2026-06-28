@@ -73,10 +73,10 @@ shift details on the left side of the screen.
     ![The Offer shift to trade pool dialog box, the Confirm button.](images/shiftexchange-offerpool.png)
 
 3. After you offer a trade, your calendar shows a pending trade request.
-   You can choose on that item to get the details on the right side of the
-   pane, as shown in the following image. The image shows you have offered
-   a shift to trade but you haven't received any offers from other
-   agents.
+You can choose on that item to get the details on the right side of the
+pane, as shown in the following image. The image shows you have offered
+a shift to trade but you haven't received any offers from other
+agents.
 
 ![The Shift trade pane.](images/shiftexchange-request1.png)
 

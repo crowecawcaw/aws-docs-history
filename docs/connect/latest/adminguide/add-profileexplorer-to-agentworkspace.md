@@ -75,11 +75,10 @@ fields:
      host.
 
 5. Completing the next two sections—**Permissions**
-   and **Iframe configuration**—is optional and not
-   required to add the Profile explorer to the agent workspace. For information
-   about these sections, see [Integrations](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate").
-6. **Instance association**: Choose the instance
-   your agents are using.
+and **Iframe configuration**—is optional and not
+required to add the Profile explorer to the agent workspace. For information
+about these sections, see [Integrations](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate"). 6. **Instance association**: Choose the instance
+your agents are using.
 
 You can give any instance(s) within this account-region access to this
 integration. 7. Choose **Add integration**.
@@ -88,16 +87,15 @@ integration. 7. Choose **Add integration**.
 
 In this step you need to assign agents permissions to access the new integration AND view permission to the Profile explorer.
 
-1.  In the Connect Customer admin website, navigate to the **Agent** security profile.
-2.  On the **Edit security profile** page, assign the
-    following permissions:
+1. In the Connect Customer admin website, navigate to the **Agent** security profile.
+2. On the **Edit security profile** page, assign the
+   following permissions:
 
-        * **Customer Profiles** - **Profile
-         explorer** - **View**
-        * **Agent Applications** - **name of your
-         integration** - **Access**
-
-    The following image shows an example of permissions added for a new integration named **Profile explorer**.
+   - **Customer Profiles** - **Profile
+     explorer** - **View**
+   - **Agent Applications** - **name of your
+     integration** - **Access**
+     The following image shows an example of permissions added for a new integration named **Profile explorer**.
 
 ![Security profile permissions for the new integration.](images/profile-explorer-securityperms.png)
 

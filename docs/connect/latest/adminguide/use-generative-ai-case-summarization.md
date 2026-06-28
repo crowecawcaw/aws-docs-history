@@ -33,7 +33,7 @@ After a case summary is generated, the agent can:
 3. Regenerate a new summary from scratch.
 4. Cancel the summary without storing it.
 5. Choose **Copy** to copy the contents of the summary.
-6. Choose the Thumbs up or Thumbs down icons to provide immediate feedback to their contact center manager so they can improve the AI agent responses. For more information, see [TRANSCRIPT_RESULT_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
+6. Choose the Thumbs up or Thumbs down icons to provide immediate feedback to their contact center manager so they can improve the AI agent responses. For more information, see [TRANSCRIPT\_RESULT\_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
 
 ![Screenshot showing case summary action options.](images/case-summary-actions.png)
 
@@ -54,5 +54,5 @@ To ensure the best quality response from AI agent, implement the following best 
 - Use AI guardrails to ensure appropriate content generation. For more information, see [Create AI guardrails for Connect AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
 - Monitor AI agent performance through CloudWatch Logs logs for:
 
-  - Response feedback from your agents. For more information, see [TRANSCRIPT_RESULT_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
-  - Generated email responses shown to agents. For more information, see [TRANSCRIPT_RECOMMENDATION](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
+  - Response feedback from your agents. For more information, see [TRANSCRIPT\_RESULT\_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
+  - Generated email responses shown to agents. For more information, see [TRANSCRIPT\_RECOMMENDATION](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").

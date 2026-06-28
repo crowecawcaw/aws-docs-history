@@ -103,7 +103,7 @@ it.
 
 ## Example: How matching works
 
-### Example for ONE_TO_ONE
+### Example for ONE\_TO\_ONE
 
 You can choose `ONE_TO_ONE` as the
 `AttributeMatchingModel`. When choosing
@@ -153,7 +153,7 @@ The Profile A and Profile B matches at rule level 1 since the
 `EmailAddress` type, `LastName`, and
 `FirstName` match.
 
-### Example for MANY_TO_MANY
+### Example for MANY\_TO\_MANY
 
 You can choose `MANY_TO_MANY` as the
 `AttributeMatchingModel`. When choosing
