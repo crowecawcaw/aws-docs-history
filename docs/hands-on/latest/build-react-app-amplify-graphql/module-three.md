@@ -46,7 +46,7 @@ npm install aws-amplify @aws-amplify/ui-react
 - Update the Notes UI
 
 On your local machine, navigate to
-the \***\*notesapp/src/index.css\*\*** file,
+the ****notesapp/src/index.css**** file,
 and **update** it with the
 following code to set the style of the Notes UI. Then,
 **save** the file.
@@ -88,7 +88,7 @@ following code to set the style of the Notes UI. Then,
 ```
 
 ![File directory structure of a "notesapp" project, with "App.jsx" highlighted in the "src" folder.](images/file-directory-structure-notesapp-project-1.png)
-In this step, you will update the **src/App.jsx** to configure the Amplify library with the client configuration file (**amplify_outputs.json**). Then, it will generate a data client using the **generateClient()** function.
+In this step, you will update the **src/App.jsx** to configure the Amplify library with the client configuration file (**amplify\_outputs.json**). Then, it will generate a data client using the **generateClient()** function.
 
 The code uses the Amplify Authenticator component to scaffold out an entire user authentication flow allowing users to sign up, sign in, reset their password, and confirm sign-in for multifactor authentication (MFA).
 

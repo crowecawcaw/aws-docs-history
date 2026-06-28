@@ -29,7 +29,7 @@ sign up, they receive a verification email.
 - Set auth resource
 
 By default, your auth resource is configured as shown inside
-the \***\*notesapp/amplify/auth/resource.ts\*\*** file.
+the ****notesapp/amplify/auth/resource.ts**** file.
 For this tutorial, **keep** the
 default auth set up as is.
 
@@ -41,7 +41,8 @@ delete, and list) applications.
 
 - Update authorization rule
 
-On your local machine, navigate to the \***\*notesapp/amplify/data/resource.ts\*\***
+On your local machine, navigate to the
+****notesapp/amplify/data/resource.ts****
 file and **update** it with the
 following code. Then, **save** the
 file.
@@ -80,16 +81,19 @@ export const data = defineData({
 
 1. Create a storage folder
 
-On your local machine, navigate to the \***\*notesapp/amplify\*\***
+On your local machine, navigate to the
+****notesapp/amplify****
 folder, and **create** a new folder
-named \***\*storage\*\***,
-and then **create** a file named \***\*resource.ts\*\*** inside
+named
+****storage****,
+and then **create** a file named
+****resource.ts**** inside
 of the new storage folder.
 
 ![File directory structure of a "notesapp" project, with the "storage" folder and its "resource.ts" file highlighted in red.](images/file-directory-structure-notesapp-project.png) 2. Configure a storage resource for your app
 
 Update
-the \***\*amplify/storage/resource.ts\*\*** file
+the ****amplify/storage/resource.ts**** file
 with the following code to configure a storage resource for your
 app. Then, **save** the file.
 
@@ -114,7 +118,8 @@ export const storage = defineStorage({
 
 1. Import backend definitions
 
-On your local machine, navigate to the \***\*amplify/backend.ts\*\***
+On your local machine, navigate to the
+****amplify/backend.ts****
 file, and **update** it with the
 following code. Then, **save** the
 file.
@@ -163,7 +168,7 @@ display a confirmation message.
 
 ![Interface element requiring manual review.](images/interface-1.png) 4. Verify JSON file was added
 
-The \***\*amplify_outputs.json\*\*** file
+The ****amplify\_outputs.json**** file
 will be generated and added to your project. 
 
 ![Interface element requiring manual review.](images/interface-interface-element.png)
