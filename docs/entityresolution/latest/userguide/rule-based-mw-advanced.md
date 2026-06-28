@@ -15,27 +15,27 @@ Console
 
 ###### To create a rule-based matching workflow with the **Advanced** rule type using the console
 
-1.  Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
-2.  In the left navigation pane, under **Workflows**, choose
-    **Matching**.
-3.  On the **Matching workflows** page, in the upper right
-    corner, choose **Create matching workflow**.
-4.  For **Step 1: Specify matching workflow details**, do the
-    following:
+1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
+2. In the left navigation pane, under **Workflows**, choose
+   **Matching**.
+3. On the **Matching workflows** page, in the upper right
+   corner, choose **Create matching workflow**.
+4. For **Step 1: Specify matching workflow details**, do the
+   following:
 
-    1. Enter a **Matching workflow name** and an optional
-       **Description**.
-    2. For **Data input**, choose an
-       **AWS Region**, **AWS Glue database**, the
-       **AWS Glue table**, and then the corresponding
-       **Schema mapping**.
+   1. Enter a **Matching workflow name** and an optional
+      **Description**.
+   2. For **Data input**, choose an
+      **AWS Region**, **AWS Glue database**, the
+      **AWS Glue table**, and then the corresponding
+      **Schema mapping**.
 
-    You can add up to 19 data inputs.
+   You can add up to 19 data inputs.
 
-    ###### Note
+   ###### Note
 
-    To use **Advanced** rules, your schema mappings must
-    meet the following requirements:
+   To use **Advanced** rules, your schema mappings must
+   meet the following requirements:
 
         1. Each input field must be mapped to a unique match key, unless the
          fields are grouped together.
@@ -66,15 +66,16 @@ Console
         3. If your data table has a DELETE column, the schema mapping's type
          must be `String` and you can't have a `matchKey`
          and `groupName`.
-    3. The **Normalize data** option is selected by default, so
-       that data inputs are normalized before matching. If you don't want to
-       normalize data, deselect the **Normalize data**
-       option.
 
-    ###### Note
+   3. The **Normalize data** option is selected by default, so
+   that data inputs are normalized before matching. If you don't want to
+   normalize data, deselect the **Normalize data**
+   option.
 
-    Normalization is only supported for the following scenarios in
-    **Create schema mapping**:
+   ###### Note
+
+   Normalization is only supported for the following scenarios in
+   **Create schema mapping**:
 
         * If the following **Name** sub-types are grouped:
          **First name**, **Middle name**,
@@ -87,199 +88,199 @@ Console
         * If the following **Phone** sub-types are grouped:
          **Phone number**, **Phone country
          code**.
-    4. To specify the **Service access** permissions, choose an
-       option and take the recommended action.
 
-    | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-    | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | **Create and use a new service role** | • AWS Entity Resolution creates a service role with the required policy<br>for this table.<br>• The default **Service role name** is<br>`entityresolution-matching-workflow-<timestamp>`.<br>• You must have permissions to create roles and attach<br>policies.<br>• If your input data is encrypted, you can choose the<br>**This data is encrypted with a KMS key**<br>option and then enter an \*_AWS KMS key_<br>• that<br>will be used to decrypt your data input.                                                                                                                                                  |
-    | **Use an existing service role**      | 1. Choose an **Existing service role name**<br>from the dropdown list.<br>The list of roles are displayed if you have permissions to<br>list roles.<br>If you don't have permissions to list roles, you can enter<br>the Amazon Resource Name (ARN) of the role that you want to<br>use.<br>If there are no existing service roles, the option to<br>**Use an existing service role\*<br>• is<br>unavailable.<br>2. View the service role by choosing the **View in<br>IAM\*<br>• external link.<br>By default, AWS Entity Resolution doesn't attempt to update the existing<br>role policy to add necessary permissions. |
-    5. (Optional) To enable **Tags** for the resource, choose
-       **Add new tag**, and then enter the
-       **Key** and **Value** pair.
-    6. Choose **Next**.
+   4. To specify the **Service access** permissions, choose an
+   option and take the recommended action.
 
-5.  For **Step 2: Choose matching technique**:
+   | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+   | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **Create and use a new service role** | • AWS Entity Resolution creates a service role with the required policy<br>for this table.<br>• The default **Service role name** is<br>`entityresolution-matching-workflow-<timestamp>`.<br>• You must have permissions to create roles and attach<br>policies.<br>• If your input data is encrypted, you can choose the<br>**This data is encrypted with a KMS key**<br>option and then enter an *_AWS KMS key_<br>• that<br>will be used to decrypt your data input.                                                                                                                                                 |
+   | **Use an existing service role**      | 1. Choose an **Existing service role name**<br>from the dropdown list.<br>The list of roles are displayed if you have permissions to<br>list roles.<br>If you don't have permissions to list roles, you can enter<br>the Amazon Resource Name (ARN) of the role that you want to<br>use.<br>If there are no existing service roles, the option to<br>*_Use an existing service role_<br>• is<br>unavailable.<br>2. View the service role by choosing the *_View in<br>IAM_<br>• external link.<br>By default, AWS Entity Resolution doesn't attempt to update the existing<br>role policy to add necessary permissions. |
+   5. (Optional) To enable **Tags** for the resource, choose
+      **Add new tag**, and then enter the
+      **Key** and **Value** pair.
+   6. Choose **Next**.
 
-    1. For **Matching method**, choose **Rule-based
-       matching**.
-    2. For **Rule type**, choose
-       **Advanced**.
+5. For **Step 2: Choose matching technique**:
 
-    ![Choose matching technique screen with the Advanced rule-based matching option selected.](images/choose-matching-method-rule-based-advanced.PNG) 3. For **Processing cadence**, select one of the following
-    options.
+   1. For **Matching method**, choose **Rule-based
+      matching**.
+   2. For **Rule type**, choose
+      **Advanced**.
+
+   ![Choose matching technique screen with the Advanced rule-based matching option selected.](images/choose-matching-method-rule-based-advanced.PNG) 3. For **Processing cadence**, select one of the following
+   options.
 
         * Choose **Manual** to run a workflow on demand for a
          bulk update
         * Choose **Automatic** to run a workflow as soon as new
          data is in your S3 bucket
 
-    ###### Note
+   ###### Note
 
-    If you choose **Automatic**, ensure that you have
-    Amazon EventBridge notifications turned on for your S3 bucket. For instructions on
-    enabling Amazon EventBridge using the S3 console, see [Enabling Amazon EventBridge](../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md "../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md") in the _Amazon S3 User
-    Guide_. 4. For **Matching rules**, enter a **Rule
-    name** and then build the **Rule condition** by
-    choosing the appropriate matching functions and operators from the dropdown
-    list based on your goal.
+   If you choose **Automatic**, ensure that you have
+   Amazon EventBridge notifications turned on for your S3 bucket. For instructions on
+   enabling Amazon EventBridge using the S3 console, see [Enabling Amazon EventBridge](../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md "../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md") in the _Amazon S3 User
+   Guide_. 4. For **Matching rules**, enter a **Rule
+   name** and then build the **Rule condition** by
+   choosing the appropriate matching functions and operators from the dropdown
+   list based on your goal.
 
-    You can create up to 25 rules.
+   You can create up to 25 rules.
 
-    ###### Note
+   ###### Note
 
-    AWS Entity Resolution also supports [transitive matching](transitive-matching.md "transitive-matching.md"), which
-    processes records across all rule levels to connect match groups
-    transitively. Transitive matching is available as an API-only feature.
-    When transitive matching is enabled, the **EmptyValues=Ignore**
-    modifier is not supported. For more information, see [Using transitive matching](transitive-matching.md "transitive-matching.md").
+   AWS Entity Resolution also supports [transitive matching](transitive-matching.md "transitive-matching.md"), which
+   processes records across all rule levels to connect match groups
+   transitively. Transitive matching is available as an API-only feature.
+   When transitive matching is enabled, the **EmptyValues=Ignore**
+   modifier is not supported. For more information, see [Using transitive matching](transitive-matching.md "transitive-matching.md").
 
-    You must combine a fuzzy matching function (**Cosine**,
-    **Levenshtein**, or **Soundex**) with an
-    exact matching function (**Exact**,
-    **ExactManyToMany**) using the **AND**
-    operator.
+   You must combine a fuzzy matching function (**Cosine**,
+   **Levenshtein**, or **Soundex**) with an
+   exact matching function (**Exact**,
+   **ExactManyToMany**) using the **AND**
+   operator.
 
-    You can use the following table to help decide what type of function or
-    operator you want to use, depending on your goal.
+   You can use the following table to help decide what type of function or
+   operator you want to use, depending on your goal.
 
-    | Your goal                                                                                                                                                                | Recommended function or operator                    | Recommended optional modifier | Pros                                                                                                                                                                                                |
-    | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | Match identical strings on accurate data but don't match on empty<br>values.                                                                                             | **Exact**                                           | **EmptyValues=Process**       |                                                                                                                                                                                                     |
-    | Match identical strings on accurate data and ignore empty<br>values.                                                                                                     | **Exact(`matchKey`)**                               | **EmptyValues=Ignore**        |                                                                                                                                                                                                     |
-    | Match multiple records across match keys. Suitable for flexible<br>pairings. Limit: 15 match keys                                                                        | **ExactManyToMany**(`matchKey`,<br>`matchKey`, ...) | n/a                           |                                                                                                                                                                                                     |
-    | Measure similarity between numerical representations of data but<br>don't match on empty values. Suitable for text, numbers, or a mix of<br>both.                        | **Cosine**                                          | **EmptyValues=Process**       | Simple, efficient.<br>Works well with long text when combined with TF-IDF weighting.<br>Good for exact word-based matching.                                                                         |
-    | Measure similarity between numerical representations of data and<br>ignore empty values.                                                                                 | **Cosine(`matchKey`,<br>`threshold`, ...)**         | **EmptyValues=Ignore**        | Handles typos, spelling errors, and transpositions well.<br>Effective on a wide range of PII types.<br>Good for short strings (for example, names or phone<br>numbers).                             |
-    | Count the minimum number of changes needed to change one word<br>into another but don't match on empty values. Suitable for text with<br>slight differences in spelling. | **Levenshtein**                                     | **EmptyValues=Process**       |
-    | Count the minimum number of changes needed to change one word<br>into another and ignore empty values.                                                                   | **Levenshtein(`matchKey`,<br>`threshold`, ...)**    | **EmptyValues=Ignore**        |
-    | Compare and match text strings based on how similar they sound<br>but don't match on empty values. Suitable for text with variations in<br>spelling or pronunciation.    | **Soundex**                                         | **EmptyValues=Process**       | Effective for phonetic matching, identifying similar-sounding<br>words.<br>Fast and computationally inexpensive.<br>Good for matching names with similar pronunciations but<br>different spellings. |
-    | Compare and match text strings based on how similar they sound<br>and ignore empty values.                                                                               | \***\*Soundex**(`matchKey`)\*\*                     | **EmptyValues=Ignore**        |
-    | Combine functions.                                                                                                                                                       | **AND**                                             | n/a                           |                                                                                                                                                                                                     |
-    | Separate functions.                                                                                                                                                      | **OR**                                              | n/a                           |                                                                                                                                                                                                     |
-    | Group conditions to create nested conditions.                                                                                                                            | **(…)**                                             | n/a                           |                                                                                                                                                                                                     |
+   | Your goal                                                                                                                                                                | Recommended function or operator                    | Recommended optional modifier | Pros                                                                                                                                                                                                |
+   | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | Match identical strings on accurate data but don't match on empty<br>values.                                                                                             | **Exact**                                           | **EmptyValues=Process**       |                                                                                                                                                                                                     |
+   | Match identical strings on accurate data and ignore empty<br>values.                                                                                                     | **Exact(`matchKey`)**                               | **EmptyValues=Ignore**        |                                                                                                                                                                                                     |
+   | Match multiple records across match keys. Suitable for flexible<br>pairings. Limit: 15 match keys                                                                        | **ExactManyToMany**(`matchKey`,<br>`matchKey`, ...) | n/a                           |                                                                                                                                                                                                     |
+   | Measure similarity between numerical representations of data but<br>don't match on empty values. Suitable for text, numbers, or a mix of<br>both.                        | **Cosine**                                          | **EmptyValues=Process**       | Simple, efficient.<br>Works well with long text when combined with TF-IDF weighting.<br>Good for exact word-based matching.                                                                         |
+   | Measure similarity between numerical representations of data and<br>ignore empty values.                                                                                 | **Cosine(`matchKey`,<br>`threshold`, ...)**         | **EmptyValues=Ignore**        | Handles typos, spelling errors, and transpositions well.<br>Effective on a wide range of PII types.<br>Good for short strings (for example, names or phone<br>numbers).                             |
+   | Count the minimum number of changes needed to change one word<br>into another but don't match on empty values. Suitable for text with<br>slight differences in spelling. | **Levenshtein**                                     | **EmptyValues=Process**       |
+   | Count the minimum number of changes needed to change one word<br>into another and ignore empty values.                                                                   | **Levenshtein(`matchKey`,<br>`threshold`, ...)**    | **EmptyValues=Ignore**        |
+   | Compare and match text strings based on how similar they sound<br>but don't match on empty values. Suitable for text with variations in<br>spelling or pronunciation.    | **Soundex**                                         | **EmptyValues=Process**       | Effective for phonetic matching, identifying similar-sounding<br>words.<br>Fast and computationally inexpensive.<br>Good for matching names with similar pronunciations but<br>different spellings. |
+   | Compare and match text strings based on how similar they sound<br>and ignore empty values.                                                                               | ****Soundex**(`matchKey`)**                         | **EmptyValues=Ignore**        |
+   | Combine functions.                                                                                                                                                       | **AND**                                             | n/a                           |                                                                                                                                                                                                     |
+   | Separate functions.                                                                                                                                                      | **OR**                                              | n/a                           |                                                                                                                                                                                                     |
+   | Group conditions to create nested conditions.                                                                                                                            | **(…)**                                             | n/a                           |                                                                                                                                                                                                     |
 
-    ###### Example Rule condition that matches on phone numbers and email
+   ###### Example Rule condition that matches on phone numbers and email
 
-    The following is an example of a rule condition that matches records on
-    phone numbers (**Phone** match key) and email addresses
-    (**Email address** match key):
+   The following is an example of a rule condition that matches records on
+   phone numbers (**Phone** match key) and email addresses
+   (**Email address** match key):
 
-    `Exact(Phone,EmptyValues=Process) AND Levenshtein("Email
- address",2)`
+   `Exact(Phone,EmptyValues=Process) AND Levenshtein("Email
+  address",2)`
 
-    ![Example of a rule condition that matches records on phone numbers and email addresses.](images/matching-rule-condition-example.png)
-    The **Phone** match key uses the
-    **Exact** matching function to match identical strings.
-    The **Phone** match key processes empty values in matching
-    using the **EmptyValues=Process** modifier.
+   ![Example of a rule condition that matches records on phone numbers and email addresses.](images/matching-rule-condition-example.png)
+   The **Phone** match key uses the
+   **Exact** matching function to match identical strings.
+   The **Phone** match key processes empty values in matching
+   using the **EmptyValues=Process** modifier.
 
-    The **Email address** match key uses the
-    **Levenshtein** matching function to match data with
-    misspellings using the default Levenshtein Distance algorithm threshold of 2. The **Email** match key doesn't use any optional
-    modifiers.
+   The **Email address** match key uses the
+   **Levenshtein** matching function to match data with
+   misspellings using the default Levenshtein Distance algorithm threshold of 2. The **Email** match key doesn't use any optional
+   modifiers.
 
-    The **AND** operator combines the
-    **Exact** matching function and the
-    **Levenshtein** matching function.
+   The **AND** operator combines the
+   **Exact** matching function and the
+   **Levenshtein** matching function.
 
-    ###### Example Rule condition that uses ExactManyToMany to perform matchkey matching
+   ###### Example Rule condition that uses ExactManyToMany to perform matchkey matching
 
-    The following is an example of a rule condition that matches records on
-    three address fields (**HomeAddress** match key,
-    **BillingAddress** match key, and
-    **ShippingAddress** match key to find potential matches
-    by checking if any if any of them have identical values.
+   The following is an example of a rule condition that matches records on
+   three address fields (**HomeAddress** match key,
+   **BillingAddress** match key, and
+   **ShippingAddress** match key to find potential matches
+   by checking if any if any of them have identical values.
 
-    The `ExactManyToMany` operator evaluates all possible
-    combinations of the specified address fields to identify exact matches
-    between any two or more addresses. For example, it would detect if the
-    `HomeAddress` matches either the `BillingAddress` or
-    `ShippingAddress`, or if all three addresses match
-    exactly.
+   The `ExactManyToMany` operator evaluates all possible
+   combinations of the specified address fields to identify exact matches
+   between any two or more addresses. For example, it would detect if the
+   `HomeAddress` matches either the `BillingAddress` or
+   `ShippingAddress`, or if all three addresses match
+   exactly.
 
-    ```
-    ExactManyToMany(HomeAddress, BillingAddress, ShippingAddress)
-    ```
+   ```
+   ExactManyToMany(HomeAddress, BillingAddress, ShippingAddress)
+   ```
 
-    ###### Example Rule condition that uses clustering
+   ###### Example Rule condition that uses clustering
 
-    In Advanced Rule Based Matching with fuzzy conditions, the system first
-    groups records into clusters based on exact matches. Once these initial
-    clusters are formed, the system applies fuzzy matching filters to identify
-    additional matches within each cluster. For optimal performance, you should
-    select exact match conditions based on your data patterns to create
-    well-defined initial clusters.
+   In Advanced Rule Based Matching with fuzzy conditions, the system first
+   groups records into clusters based on exact matches. Once these initial
+   clusters are formed, the system applies fuzzy matching filters to identify
+   additional matches within each cluster. For optimal performance, you should
+   select exact match conditions based on your data patterns to create
+   well-defined initial clusters.
 
-    The following is an example of a rule condition that combines multiple
-    exact matches with a fuzzy match requirement. It uses `AND`
-    operators to check that three fields — `FullName`, Date of
-    Birth (`DOB`), and `Address` — match exactly
-    between records. It also allows for minor variations in the
-    `InternalID` field using a Levenshtein distance of
-    `1`. The Levenshtein distance measures the minimum number of
-    single-character edits required to change one string into another. A
-    distance of 1 means it will match `InternalIDs` that differ by
-    only one character (like a single typo, deletion, or insertion). This
-    combination of conditions helps identify records that are very likely to
-    represent the same entity, even if there are small discrepancies in the
-    identifier.
+   The following is an example of a rule condition that combines multiple
+   exact matches with a fuzzy match requirement. It uses `AND`
+   operators to check that three fields — `FullName`, Date of
+   Birth (`DOB`), and `Address` — match exactly
+   between records. It also allows for minor variations in the
+   `InternalID` field using a Levenshtein distance of
+   `1`. The Levenshtein distance measures the minimum number of
+   single-character edits required to change one string into another. A
+   distance of 1 means it will match `InternalIDs` that differ by
+   only one character (like a single typo, deletion, or insertion). This
+   combination of conditions helps identify records that are very likely to
+   represent the same entity, even if there are small discrepancies in the
+   identifier.
 
-    ```
-    Exact(FullName) AND Exact(DOB) AND Exact(Address) and Levenshtein(InternalID, 1)
-    ```
-    5. Choose **Next**.
+   ```
+   Exact(FullName) AND Exact(DOB) AND Exact(Address) and Levenshtein(InternalID, 1)
+   ```
+   5. Choose **Next**.
 
-6.  For **Step 3: Specify data output and format**:
+6. For **Step 3: Specify data output and format**:
 
-    1. For **Data output destination and format**, choose the
-       **Amazon S3 location** for the data output and whether the
-       **Data format** will be **Normalized
-       data** or **Original data**.
-    2. For **Encryption**, if you choose to **Customize
-       encryption settings**, enter the **AWS KMS key**
-       ARN.
-    3. View the **System generated output**.
-    4. For **Data output**, decide which fields you want to
-       include, hide, or mask, and then take the recommended actions based on your
-       goals.
+   1. For **Data output destination and format**, choose the
+      **Amazon S3 location** for the data output and whether the
+      **Data format** will be **Normalized
+      data** or **Original data**.
+   2. For **Encryption**, if you choose to **Customize
+      encryption settings**, enter the **AWS KMS key**
+      ARN.
+   3. View the **System generated output**.
+   4. For **Data output**, decide which fields you want to
+      include, hide, or mask, and then take the recommended actions based on your
+      goals.
 
-    | Your goal                         | Recommended action                                               |
-    | --------------------------------- | ---------------------------------------------------------------- |
-    | Include fields                    | Keep the output state as **Included**.                           |
-    | Hide fields (exclude from output) | Choose the **Output field**, and then choose<br>**Hide**.        |
-    | Mask fields                       | Choose the **Output field**, and then choose<br>**Hash output**. |
-    | Reset the previous settings       | Choose **Reset**.                                                |
-    5. Choose **Next**.
+   | Your goal                         | Recommended action                                               |
+   | --------------------------------- | ---------------------------------------------------------------- |
+   | Include fields                    | Keep the output state as **Included**.                           |
+   | Hide fields (exclude from output) | Choose the **Output field**, and then choose<br>**Hide**.        |
+   | Mask fields                       | Choose the **Output field**, and then choose<br>**Hash output**. |
+   | Reset the previous settings       | Choose **Reset**.                                                |
+   5. Choose **Next**.
 
-7.  For **Step 4: Review and create**:
+7. For **Step 4: Review and create**:
 
-    1. Review the selections that you made for the previous steps and edit if
-       necessary.
-    2. Choose **Create and run**.
+   1. Review the selections that you made for the previous steps and edit if
+      necessary.
+   2. Choose **Create and run**.
 
-    A message appears, indicating that the matching workflow has been created
-    and that the job has started.
+   A message appears, indicating that the matching workflow has been created
+   and that the job has started.
 
-8.  On the matching workflow details page, on the **Metrics**
-    tab, view the following under **Last job metrics**:
+8. On the matching workflow details page, on the **Metrics**
+   tab, view the following under **Last job metrics**:
 
-        * The **Job ID**.
-        * The **Status** of the matching workflow job:
-         **Queued**, **In progress**,
-         **Completed**, **Failed**
-        * The **Time completed** for the workflow job.
-        * The number of **Records processed**.
-        * The number of **Records not processed**.
-        * The **Unique match IDs generated**.
-        * The number of **Input records**.
+   - The **Job ID**.
+   - The **Status** of the matching workflow job:
+     **Queued**, **In progress**,
+     **Completed**, **Failed**
+   - The **Time completed** for the workflow job.
+   - The number of **Records processed**.
+   - The number of **Records not processed**.
+   - The **Unique match IDs generated**.
+   - The number of **Input records**.
+     You can also view the job metrics for matching workflow jobs that have been
+     previously run under the **Job history**.
 
-    You can also view the job metrics for matching workflow jobs that have been
-    previously run under the **Job history**.
-
-9.  After the matching workflow job completes (**Status** is
-    **Completed**), you can go to the **Data
-    output** tab and then select your **Amazon S3 location** to
-    view the results.
+9. After the matching workflow job completes (**Status** is
+   **Completed**), you can go to the **Data
+   output** tab and then select your **Amazon S3 location** to
+   view the results.
 10. (**Manual** processing type only) If you have created a
     **Rule-based matching** workflow with the
     **Manual** processing type, you can run the matching workflow
@@ -288,12 +289,11 @@ Console
 11. (**Automatic** processing type only) If your data table has a
     DELETE column, then:
 
-        * Records set to `true` in the DELETE column are
-         deleted.
-        * Records set to `false` in the DELETE column are
-         ingested into S3.
-
-    For more information, see [Step 1: Prepare first-party data tables](prepare-input-data.md#prepare-first-party-tables "prepare-input-data.md#prepare-first-party-tables").
+    - Records set to `true` in the DELETE column are
+      deleted.
+    - Records set to `false` in the DELETE column are
+      ingested into S3.
+      For more information, see [Step 1: Prepare first-party data tables](prepare-input-data.md#prepare-first-party-tables "prepare-input-data.md#prepare-first-party-tables").
 
 API
 
@@ -402,7 +402,7 @@ Optional parameters include:
     * `tags` – Up to 200 key-value pairs
 
 5. (Optional) To use incremental processing instead of the default standard
-   (batch) processing, add the following parameter to the request body:
+(batch) processing, add the following parameter to the request body:
 
 ```
 "incrementalRunConfig": {

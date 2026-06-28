@@ -239,12 +239,10 @@ A new tab appears.
     | `assetId` | The ID of the asset, found on the AWS Data Exchange<br>console. |
 
 8. Go back to your original tab and under **Add permissions**,
-   enter the name of the policy that you just created. (You might need to reload
-   the page.)
-9. Select the check box next to the name of the policy that you created, and then
-   choose **Next**.
-10. For **Name, review, and create**, enter the **Role
-    name** and **Description**.
+enter the name of the policy that you just created. (You might need to reload
+the page.) 9. Select the check box next to the name of the policy that you created, and then
+choose **Next**. 10. For **Name, review, and create**, enter the **Role
+name** and **Description**.
 
 ###### Note
 

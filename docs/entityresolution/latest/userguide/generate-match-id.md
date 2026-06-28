@@ -67,11 +67,11 @@ default. 7. Choose the **Processing type**.
 
 8. For **Record attributes**,
 
-   1. Enter the **Value** for the **Unique
-      ID**.
-   2. Enter a **Value** for each **Match key**
-      that will match with existing records based on the rules configured in your
-      workflow.
+    1. Enter the **Value** for the **Unique
+     ID**.
+    2. Enter a **Value** for each **Match key**
+     that will match with existing records based on the rules configured in your
+     workflow.
 
 9. Choose **Find match ID and save record**.
 

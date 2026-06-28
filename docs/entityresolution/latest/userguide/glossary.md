@@ -193,8 +193,8 @@ configured to compare data using “or” statements in all input fields with th
 section).
 
 If you want rule-based matching to consider different types of phone number information
-completely separately, you can create more specific match keys like “Mobile_Phone” and
-“Home_Phone”. Then, when setting up a matching workflow, you can specify how each phone match key
+completely separately, you can create more specific match keys like “Mobile\_Phone” and
+“Home\_Phone”. Then, when setting up a matching workflow, you can specify how each phone match key
 will be used in rule-based matching.
 
 If no MatchKey is specified for a particular input field, it can't be used in matching but
@@ -266,7 +266,7 @@ For ML-based matching specifically, see [Normalization (ApplyNormalization) – 
 - [Phone](#normalization-rule-phone "#normalization-rule-phone")
 - [Address](#normalization-rule-address "#normalization-rule-address")
 - [Hashed](#normalization-rule-hashed "#normalization-rule-hashed")
-- [Source_ID](#normalization-rule-source-id "#normalization-rule-source-id")
+- [Source\_ID](#normalization-rule-source-id "#normalization-rule-source-id")
 
 ### Name
 
@@ -289,9 +289,9 @@ If you want to normalize the sub-types of the **Name** group type:
 
 - **TRIM** = Trims leading and trailing whitespace
 - **LOWERCASE** = Lowercases all alpha characters
-- **CONVERT_ACCENT** = Covert accented letter to regular
+- **CONVERT\_ACCENT** = Covert accented letter to regular
   letter
-- **REMOVE_ALL_NON_ALPHA** = Removes all non-alpha characters
+- **REMOVE\_ALL\_NON\_ALPHA** = Removes all non-alpha characters
   [a-zA-Z]
 
 ### Email
@@ -305,12 +305,12 @@ the console and as `EMAIL_ADDRESS` in the API.
 
 - **TRIM** = Trims leading and trailing whitespace
 - **LOWERCASE** = Lowercases all alpha characters
-- **CONVERT_ACCENT** = Covert accented letter to regular
+- **CONVERT\_ACCENT** = Covert accented letter to regular
   letter
-- **EMAIL_ADDRESS_UTIL_NORM** = Removes any dots (.) from the
+- **EMAIL\_ADDRESS\_UTIL\_NORM** = Removes any dots (.) from the
   username, removes anything after a plus sign (+) in the username, and standardizes common
   domain variations
-- **REMOVE_ALL_NON_EMAIL_CHARS** = Removes all
+- **REMOVE\_ALL\_NON\_EMAIL\_CHARS** = Removes all
   non-alpha-numeric characters [a-zA-Z0-9] and [.@-]
 
 ### Phone
@@ -332,11 +332,11 @@ If you want to normalize the sub-types of the **Phone** group type:
   `PHONE_COUNTRYCODE`.
 
 - **TRIM** = Trims leading and trailing whitespace
-- **REMOVE_ALL_NON_NUMERIC** = Removes all non-numeric
+- **REMOVE\_ALL\_NON\_NUMERIC** = Removes all non-numeric
   characters [0-9]
-- **REMOVE_ALL_LEADING_ZEROES** = Removes all leading
+- **REMOVE\_ALL\_LEADING\_ZEROES** = Removes all leading
   zeroes
-- **ENSURE_PREFIX_WITH_MAP, "phonePrefixMap"** = Examines each
+- **ENSURE\_PREFIX\_WITH\_MAP, "phonePrefixMap"** = Examines each
   phone number and tries to match it against patterns in the phonePrefixMap. If a match is
   found, the rule will add or modify the prefix of the phone number to ensure it conforms to the
   standardized format specified in the map.
@@ -365,23 +365,23 @@ If you want to normalize the sub-types of the **Address** group type:
 
 - **TRIM** = Trims leading and trailing whitespace
 - **LOWERCASE** = Lowercases all alpha characters
-- **CONVERT_ACCENT** = Covert accented letter to regular
+- **CONVERT\_ACCENT** = Covert accented letter to regular
   letter
-- **REMOVE_ALL_NON_ALPHA** = Removes all non-alpha characters
+- **REMOVE\_ALL\_NON\_ALPHA** = Removes all non-alpha characters
   [a-zA-Z]
-- **RENAME_WORDS using ADDRESS_RENAME_WORD_MAP** = replace
-  words in Address string with words from[ADDRESS_RENAME_WORD_MAP](#ADDRESS_RENAME_WORD_MAP "#ADDRESS_RENAME_WORD_MAP")
-- **RENAME_DELIMITERS using ADDRESS_RENAME_DELIMITER_MAP** =
-  replace delimiters in Address string with string from [ADDRESS_RENAME_DELIMITER_MAP](#ADDRESS_RENAME_DELIMITER_MAP "#ADDRESS_RENAME_DELIMITER_MAP")
-- **RENAME_DIRECTIONS using ADDRESS_RENAME_DIRECTION_MAP**=
-  replace delimiters in Address string with string from [ADDRESS_RENAME_DIRECTION_MAP](#ADDRESS_RENAME_DIRECTION_MAP "#ADDRESS_RENAME_DIRECTION_MAP")
-- **RENAME_NUMBERS using ADDRESS_RENAME_NUMBER_MAP** = replace
-  numbers in Address string with string from [ADDRESS_RENAME_NUMBER_MAP](#ADDRESS_RENAME_NUMBER_MAP.title "#ADDRESS_RENAME_NUMBER_MAP.title")
-- **RENAME_SPECIAL_CHARS using
-  ADDRESS_RENAME_SPECIAL_CHAR_MAP** = replace special characters in Address string
-  with string from [ADDRESS_RENAME_SPECIAL_CHAR_MAP](#ADDRESS_RENAME_SPECIAL_CHAR_MAP.title "#ADDRESS_RENAME_SPECIAL_CHAR_MAP.title")
+- **RENAME\_WORDS using ADDRESS\_RENAME\_WORD\_MAP** = replace
+  words in Address string with words from[ADDRESS\_RENAME\_WORD\_MAP](#ADDRESS_RENAME_WORD_MAP "#ADDRESS_RENAME_WORD_MAP")
+- **RENAME\_DELIMITERS using ADDRESS\_RENAME\_DELIMITER\_MAP** =
+  replace delimiters in Address string with string from [ADDRESS\_RENAME\_DELIMITER\_MAP](#ADDRESS_RENAME_DELIMITER_MAP "#ADDRESS_RENAME_DELIMITER_MAP")
+- **RENAME\_DIRECTIONS using ADDRESS\_RENAME\_DIRECTION\_MAP**=
+  replace delimiters in Address string with string from [ADDRESS\_RENAME\_DIRECTION\_MAP](#ADDRESS_RENAME_DIRECTION_MAP "#ADDRESS_RENAME_DIRECTION_MAP")
+- **RENAME\_NUMBERS using ADDRESS\_RENAME\_NUMBER\_MAP** = replace
+  numbers in Address string with string from [ADDRESS\_RENAME\_NUMBER\_MAP](#ADDRESS_RENAME_NUMBER_MAP.title "#ADDRESS_RENAME_NUMBER_MAP.title")
+- **RENAME\_SPECIAL\_CHARS using
+  ADDRESS\_RENAME\_SPECIAL\_CHAR\_MAP** = replace special characters in Address string
+  with string from [ADDRESS\_RENAME\_SPECIAL\_CHAR\_MAP](#ADDRESS_RENAME_SPECIAL_CHAR_MAP.title "#ADDRESS_RENAME_SPECIAL_CHAR_MAP.title")
 
-#### ADDRESS_RENAME_WORD_MAP
+#### ADDRESS\_RENAME\_WORD\_MAP
 
 These are the words that will be renamed when normalizing the address string.
 
@@ -417,7 +417,7 @@ These are the words that will be renamed when normalizing the address string.
  "str.": "strasse"
 ```
 
-#### ADDRESS_RENAME_DELIMITER_MAP
+#### ADDRESS\_RENAME\_DELIMITER\_MAP
 
 These are the delimiters that will be renamed when normalizing the address string.
 
@@ -431,7 +431,7 @@ These are the delimiters that will be renamed when normalizing the address strin
 "#": " number "
 ```
 
-#### ADDRESS_RENAME_DIRECTION_MAP
+#### ADDRESS\_RENAME\_DIRECTION\_MAP
 
 These are the direction identifiers that will be renamed when normalizing the address
 string.
@@ -447,7 +447,7 @@ string.
 "southwest": "sw"
 ```
 
-#### ADDRESS_RENAME_NUMBER_MAP
+#### ADDRESS\_RENAME\_NUMBER\_MAP
 
 These are the number strings that will be renamed when normalizing the address
 string.
@@ -460,7 +460,7 @@ string.
  "num": "number"
 ```
 
-#### ADDRESS_RENAME_SPECIAL_CHAR_MAP
+#### ADDRESS\_RENAME\_SPECIAL\_CHAR\_MAP
 
 These are the special characters string that will be renamed when normalizing the address
 string.
@@ -478,7 +478,7 @@ string.
 
 - **TRIM** = Trims leading and trailing whitespace
 
-### Source_ID
+### Source\_ID
 
 - **TRIM** = Trims leading and trailing whitespace
 
@@ -515,11 +515,11 @@ The following sections describe the normalization rules for [machine learning-ba
 ### Phone
 
 - **TRIM** = Trims leading and trailing whitespace
-- **REMOVE_ALL_NON_NUMERIC** = Removes all non-numeric
+- **REMOVE\_ALL\_NON\_NUMERIC** = Removes all non-numeric
   characters [0-9]
-- **REMOVE_ALL_LEADING_ZEROES** = Removes all leading
+- **REMOVE\_ALL\_LEADING\_ZEROES** = Removes all leading
   zeroes
-- **ENSURE_PREFIX_WITH_MAP, "phonePrefixMap"** = Examines each
+- **ENSURE\_PREFIX\_WITH\_MAP, "phonePrefixMap"** = Examines each
   phone number and tries to match it against patterns in the phonePrefixMap. If a match is
   found, the rule will add or modify the prefix of the phone number to ensure it conforms to the
   standardized format specified in the map.
@@ -545,8 +545,8 @@ match key will return a match. For match key “Phone” to find a match, `Recor
 
 Matching rules evaluate data in input fields with different match keys with an (and)
 operation. If you want rule-based matching to consider different types of phone number
-information completely separately, you can create more specific match keys like “mobile_phone”
-and “home_phone”. If you want to use both match keys in a rule to find matches, `Record One
+information completely separately, you can create more specific match keys like “mobile\_phone”
+and “home\_phone”. If you want to use both match keys in a rule to find matches, `Record One
  mobile_phone = Record Two mobile_phone` AND `Record One home_phone = Record Two
  home_phone`.
 

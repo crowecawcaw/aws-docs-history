@@ -319,21 +319,19 @@ User Guide_. 4. In the modal, do the following, depending on the type of Log del
 
 5. For **More settings - optional**, choose the following:
 
-   1. For **Field selection**, select the log fields to include in
-      each log record.
-   2. (CloudWatch Logs) For **Output format**, choose the output format for
-      the log.
-   3. For **Field delimiter**, choose how to separate each log
-      field.
-   4. (Amazon S3) For **Suffix**, specify the suffix path to
-      partition your data.
-   5. (Amazon S3) For **Hive-compatible**, choose
-      **Enable** if you want to use Hive-compatible S3 paths.
+    1. For **Field selection**, select the log fields to include in
+     each log record.
+    2. (CloudWatch Logs) For **Output format**, choose the output format for
+     the log.
+    3. For **Field delimiter**, choose how to separate each log
+     field.
+    4. (Amazon S3) For **Suffix**, specify the suffix path to
+     partition your data.
+    5. (Amazon S3) For **Hive-compatible**, choose
+     **Enable** if you want to use Hive-compatible S3 paths.
 
-6. Choose **Add**.
-7. On the workflow page, choose **Run**.
-8. After the workflow jobs completes, check the workflow logs in the log delivery
-   destination you specified.
+6. Choose **Add**. 7. On the workflow page, choose **Run**. 8. After the workflow jobs completes, check the workflow logs in the log delivery
+destination you specified.
 
 ## Disabling logging (console)
 

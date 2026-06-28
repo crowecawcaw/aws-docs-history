@@ -27,10 +27,10 @@ option will appear inactive. To use this option, edit your workflow to use the
 **Automatic** processing cadence. For more information about
 editing workflows, see [Editing a matching workflow](edit-matching-workflow.md "edit-matching-workflow.md"). 6. Do one of the following:
 
-| If ...                                                                  | Then ...                                                        |
-| ----------------------------------------------------------------------- | --------------------------------------------------------------- |
-| There is only one schema mapping associated with this workflow.         | View the \*_Schema mapping_<br>• that's selected by<br>default. |
-| There is more than one schema mapping associated with this<br>workflow. | Choose the \*_Schema mapping_<br>• from the dropdown<br>list.   |
+| If ...                                                                  | Then ...                                                       |
+| ----------------------------------------------------------------------- | -------------------------------------------------------------- |
+| There is only one schema mapping associated with this workflow.         | View the *_Schema mapping_<br>• that's selected by<br>default. |
+| There is more than one schema mapping associated with this<br>workflow. | Choose the *_Schema mapping_<br>• from the dropdown<br>list.   |
 
 7. For **Record attributes**, enter the **Value**
    for an existing **Match key** to look up for each existing

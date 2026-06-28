@@ -43,13 +43,13 @@ A new tab opens.
      and then choose **Next**.
 
 7. For **Name, review, and create**, enter the **Role
-   name** and **Description**.
+name** and **Description**.
 
-   1. Review **Select trusted entities**, enter the
-      AWS account for the person or persons who will assume the role (if
-      necessary).
-   2. Review the permissions in **Add permissions**, and
-      edit if necessary.
-   3. Review the **Tags**, and add tags if
-      necessary.
-   4. Choose **Create role**.
+    1. Review **Select trusted entities**, enter the
+     AWS account for the person or persons who will assume the role (if
+     necessary).
+    2. Review the permissions in **Add permissions**, and
+     edit if necessary.
+    3. Review the **Tags**, and add tags if
+     necessary.
+    4. Choose **Create role**.

@@ -15,30 +15,30 @@ Console
 
 ###### To create a rule-based matching workflow with the **Simple** rule type using the console
 
-1.  Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
-2.  In the left navigation pane, under **Workflows**, choose
-    **Matching**.
-3.  On the **Matching workflows** page, in the upper right
-    corner, choose **Create matching workflow**.
-4.  For **Step 1: Specify matching workflow details**, do the
-    following:
+1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
+2. In the left navigation pane, under **Workflows**, choose
+   **Matching**.
+3. On the **Matching workflows** page, in the upper right
+   corner, choose **Create matching workflow**.
+4. For **Step 1: Specify matching workflow details**, do the
+   following:
 
-    1. Enter a **Matching workflow name** and an optional
-       **Description**.
-    2. For **Data input**, choose an
-       **AWS Region**, **AWS Glue database**, the
-       **AWS Glue table**, and then the corresponding
-       **Schema mapping**.
+   1. Enter a **Matching workflow name** and an optional
+      **Description**.
+   2. For **Data input**, choose an
+      **AWS Region**, **AWS Glue database**, the
+      **AWS Glue table**, and then the corresponding
+      **Schema mapping**.
 
-    You can add up to 19 data inputs. 3. The **Normalize data** option is selected by default, so
-    that data inputs are normalized before matching. If you don't want to
-    normalize data, deselect the **Normalize data**
-    option.
+   You can add up to 19 data inputs. 3. The **Normalize data** option is selected by default, so
+   that data inputs are normalized before matching. If you don't want to
+   normalize data, deselect the **Normalize data**
+   option.
 
-    ###### Note
+   ###### Note
 
-    Normalization is only supported for the following scenarios in
-    **Create schema mapping**:
+   Normalization is only supported for the following scenarios in
+   **Create schema mapping**:
 
         * If the following **Name** sub-types are grouped:
          **First name**, **Middle name**,
@@ -51,110 +51,110 @@ Console
         * If the following **Phone** sub-types are grouped:
          **Phone number**, **Phone country
          code**.
-    4. To specify the **Service access** permissions, choose an
-       option and take the recommended action.
 
-    | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-    | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | **Create and use a new service role** | • AWS Entity Resolution creates a service role with the required policy<br>for this table.<br>• The default **Service role name** is<br>`entityresolution-matching-workflow-<timestamp>`.<br>• You must have permissions to create roles and attach<br>policies.<br>• If your input data is encrypted, you can choose the<br>**This data is encrypted with a KMS key**<br>option and then enter an \*_AWS KMS key_<br>• that<br>will be used to decrypt your data input.                                                                                                                                                  |
-    | **Use an existing service role**      | 1. Choose an **Existing service role name**<br>from the dropdown list.<br>The list of roles are displayed if you have permissions to<br>list roles.<br>If you don't have permissions to list roles, you can enter<br>the Amazon Resource Name (ARN) of the role that you want to<br>use.<br>If there are no existing service roles, the option to<br>**Use an existing service role\*<br>• is<br>unavailable.<br>2. View the service role by choosing the **View in<br>IAM\*<br>• external link.<br>By default, AWS Entity Resolution doesn't attempt to update the existing<br>role policy to add necessary permissions. |
-    5. (Optional) To enable **Tags** for the resource, choose
-       **Add new tag**, and then enter the
-       **Key** and **Value** pair.
-    6. Choose **Next**.
+   4. To specify the **Service access** permissions, choose an
+   option and take the recommended action.
 
-5.  For **Step 2: Choose matching technique**:
+   | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+   | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **Create and use a new service role** | • AWS Entity Resolution creates a service role with the required policy<br>for this table.<br>• The default **Service role name** is<br>`entityresolution-matching-workflow-<timestamp>`.<br>• You must have permissions to create roles and attach<br>policies.<br>• If your input data is encrypted, you can choose the<br>**This data is encrypted with a KMS key**<br>option and then enter an *_AWS KMS key_<br>• that<br>will be used to decrypt your data input.                                                                                                                                                 |
+   | **Use an existing service role**      | 1. Choose an **Existing service role name**<br>from the dropdown list.<br>The list of roles are displayed if you have permissions to<br>list roles.<br>If you don't have permissions to list roles, you can enter<br>the Amazon Resource Name (ARN) of the role that you want to<br>use.<br>If there are no existing service roles, the option to<br>*_Use an existing service role_<br>• is<br>unavailable.<br>2. View the service role by choosing the *_View in<br>IAM_<br>• external link.<br>By default, AWS Entity Resolution doesn't attempt to update the existing<br>role policy to add necessary permissions. |
+   5. (Optional) To enable **Tags** for the resource, choose
+      **Add new tag**, and then enter the
+      **Key** and **Value** pair.
+   6. Choose **Next**.
 
-    1. For **Matching method**, choose **Rule-based
-       matching**.
-    2. For **Rule type**, choose
-       **Simple**.
+5. For **Step 2: Choose matching technique**:
 
-    ![Choose matching technique screen with the Simple rule-based matching option selected.](images/choose-matching-method-rule-based-simple.PNG) 3. For **Processing cadence**, select one of the following
-    options.
+   1. For **Matching method**, choose **Rule-based
+      matching**.
+   2. For **Rule type**, choose
+      **Simple**.
+
+   ![Choose matching technique screen with the Simple rule-based matching option selected.](images/choose-matching-method-rule-based-simple.PNG) 3. For **Processing cadence**, select one of the following
+   options.
 
         * Choose **Manual** to run a workflow on demand for a
          bulk update
         * Choose **Automatic** to run a workflow as soon as new
          data is in your S3 bucket
 
-    ###### Note
+   ###### Note
 
-    If you choose **Automatic**, ensure that you have
-    Amazon EventBridge notifications turned on for your S3 bucket. For instructions on
-    enabling Amazon EventBridge using the S3 console, see [Enabling Amazon EventBridge](../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md "../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md") in the _Amazon S3 User
-    Guide_. 4. (Optional) For **Index only for ID mapping**, You can
-    choose to **Turn on** the ability to only index the data and
-    not generate IDs.
+   If you choose **Automatic**, ensure that you have
+   Amazon EventBridge notifications turned on for your S3 bucket. For instructions on
+   enabling Amazon EventBridge using the S3 console, see [Enabling Amazon EventBridge](../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md "../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md") in the _Amazon S3 User
+   Guide_. 4. (Optional) For **Index only for ID mapping**, You can
+   choose to **Turn on** the ability to only index the data and
+   not generate IDs.
 
-    By default, matching workflow generate IDs after the data is indexed. 5. For **Matching rules**, enter a **Rule
-    name** and then choose the **Match keys** for that
-    rule.
+   By default, matching workflow generate IDs after the data is indexed. 5. For **Matching rules**, enter a **Rule
+   name** and then choose the **Match keys** for that
+   rule.
 
-    You can create up to 15 rules and you can apply up to 15 different match
-    keys across your rules to define match criteria.
+   You can create up to 15 rules and you can apply up to 15 different match
+   keys across your rules to define match criteria.
 
-    ![Matching rules interface with fields to enter rule name and select match keys.](images/matching-rules.PNG) 6. For **Comparison type**, choose one of the following
-    options based on your goal.
+   ![Matching rules interface with fields to enter rule name and select match keys.](images/matching-rules.PNG) 6. For **Comparison type**, choose one of the following
+   options based on your goal.
 
-    | Your goal                                                                      | Recommended option        |
-    | ------------------------------------------------------------------------------ | ------------------------- |
-    | Find any combination of matches across data stored in multiple<br>input fields | **Multiple input fields** |
-    | Limit comparison to a single input field                                       | **Single input field**    |
+   | Your goal                                                                      | Recommended option        |
+   | ------------------------------------------------------------------------------ | ------------------------- |
+   | Find any combination of matches across data stored in multiple<br>input fields | **Multiple input fields** |
+   | Limit comparison to a single input field                                       | **Single input field**    |
 
-    ![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](images/comparison-type.PNG) 7. Choose **Next**.
+   ![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](images/comparison-type.PNG) 7. Choose **Next**.
 
-6.  For **Step 3: Specify data output and format**:
+6. For **Step 3: Specify data output and format**:
 
-    1. For **Data output destination and format**, choose the
-       **Amazon S3 location** for the data output and whether the
-       **Data format** will be **Normalized
-       data** or **Original data**.
-    2. For **Encryption**, if you choose to **Customize
-       encryption settings**, enter the **AWS KMS key**
-       ARN.
-    3. View the **System generated output**.
-    4. For **Data output**, decide which fields you want to
-       include, hide, or mask, and then take the recommended actions based on your
-       goals.
+   1. For **Data output destination and format**, choose the
+      **Amazon S3 location** for the data output and whether the
+      **Data format** will be **Normalized
+      data** or **Original data**.
+   2. For **Encryption**, if you choose to **Customize
+      encryption settings**, enter the **AWS KMS key**
+      ARN.
+   3. View the **System generated output**.
+   4. For **Data output**, decide which fields you want to
+      include, hide, or mask, and then take the recommended actions based on your
+      goals.
 
-    | Your goal                         | Recommended action                                               |
-    | --------------------------------- | ---------------------------------------------------------------- |
-    | Include fields                    | Keep the output state as **Included**.                           |
-    | Hide fields (exclude from output) | Choose the **Output field**, and then choose<br>**Hide**.        |
-    | Mask fields                       | Choose the **Output field**, and then choose<br>**Hash output**. |
-    | Reset the previous settings       | Choose **Reset**.                                                |
-    5. Choose **Next**.
+   | Your goal                         | Recommended action                                               |
+   | --------------------------------- | ---------------------------------------------------------------- |
+   | Include fields                    | Keep the output state as **Included**.                           |
+   | Hide fields (exclude from output) | Choose the **Output field**, and then choose<br>**Hide**.        |
+   | Mask fields                       | Choose the **Output field**, and then choose<br>**Hash output**. |
+   | Reset the previous settings       | Choose **Reset**.                                                |
+   5. Choose **Next**.
 
-7.  For **Step 4: Review and create**:
+7. For **Step 4: Review and create**:
 
-    1. Review the selections that you made for the previous steps and edit if
-       necessary.
-    2. Choose **Create and run**.
+   1. Review the selections that you made for the previous steps and edit if
+      necessary.
+   2. Choose **Create and run**.
 
-    A message appears, indicating that the matching workflow has been created
-    and that the job has started.
+   A message appears, indicating that the matching workflow has been created
+   and that the job has started.
 
-8.  On the matching workflow details page, on the **Metrics**
-    tab, view the following under **Last job metrics**:
+8. On the matching workflow details page, on the **Metrics**
+   tab, view the following under **Last job metrics**:
 
-        * The **Job ID**.
-        * The **Status** of the matching workflow job:
-         **Queued**, **In progress**,
-         **Completed**, **Failed**
-        * The **Time completed** for the workflow job.
-        * The number of **Records processed**.
-        * The number of **Records not processed**.
-        * The **Unique match IDs generated**.
-        * The number of **Input records**.
+   - The **Job ID**.
+   - The **Status** of the matching workflow job:
+     **Queued**, **In progress**,
+     **Completed**, **Failed**
+   - The **Time completed** for the workflow job.
+   - The number of **Records processed**.
+   - The number of **Records not processed**.
+   - The **Unique match IDs generated**.
+   - The number of **Input records**.
+     You can also view the job metrics for matching workflow jobs that have been
+     previously run under the **Job history**.
 
-    You can also view the job metrics for matching workflow jobs that have been
-    previously run under the **Job history**.
-
-9.  After the matching workflow job completes (**Status** is
-    **Completed**), you can go to the **Data
-    output** tab and then select your **Amazon S3 location** to
-    view the results.
+9. After the matching workflow job completes (**Status** is
+   **Completed**), you can go to the **Data
+   output** tab and then select your **Amazon S3 location** to
+   view the results.
 10. (**Manual** processing type only) If you have created a
     **Rule-based matching** workflow with the
     **Manual** processing type, you can run the matching workflow
@@ -268,7 +268,7 @@ Optional parameters include:
     * `tags` – Up to 200 key-value pairs
 
 5. (Optional) To use incremental processing instead of the default standard
-   (batch) processing, add the following parameter to the request body:
+(batch) processing, add the following parameter to the request body:
 
 ```
 "incrementalRunConfig": {

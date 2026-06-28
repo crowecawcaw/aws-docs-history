@@ -22,48 +22,48 @@ Import from AWS Glue
 
 ###### To create schema mapping by importing existing input data from AWS Glue
 
-1.  Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
-2.  In the left navigation pane, under **Data preparation**, choose
-    **Schema mappings**.
-3.  On the **Schema mappings** page, in the upper right corner,
-    choose **Create schema mapping**.
-4.  For **Step 1: Specify schema details**, do the following:
+1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
+2. In the left navigation pane, under **Data preparation**, choose
+   **Schema mappings**.
+3. On the **Schema mappings** page, in the upper right corner,
+   choose **Create schema mapping**.
+4. For **Step 1: Specify schema details**, do the following:
 
-    1. For **Name and creation method**, enter a **Schema
-       mapping name** and an optional
-       **Description**.
-    2. For **Creation method**, choose **Import from
-       AWS Glue**.
-    3. Choose the **AWS Region**.
-    4. Choose the **AWS Glue database**.
-    5. Choose the **AWS Glue table**.
+   1. For **Name and creation method**, enter a **Schema
+      mapping name** and an optional
+      **Description**.
+   2. For **Creation method**, choose **Import from
+      AWS Glue**.
+   3. Choose the **AWS Region**.
+   4. Choose the **AWS Glue database**.
+   5. Choose the **AWS Glue table**.
 
-    To create a new table, go to the AWS Glue console [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/"). For more
-    information, see [AWS Glue
-    tables](../../../glue/latest/dg/tables-described.md "../../../glue/latest/dg/tables-described.md") in the _AWS Glue User
-    Guide_. 6. For **Unique ID**, specify the column that distinctly
-    references each row of your data.
+   To create a new table, go to the AWS Glue console [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/"). For more
+   information, see [AWS Glue
+   tables](../../../glue/latest/dg/tables-described.md "../../../glue/latest/dg/tables-described.md") in the _AWS Glue User
+   Guide_. 6. For **Unique ID**, specify the column that distinctly
+   references each row of your data.
 
-    ###### Example
+   ###### Example
 
-    For example: `Primary_key`,
-    `Row_ID`, or `Record_ID`.
+   For example: `Primary_key`,
+   `Row_ID`, or `Record_ID`.
 
-    ###### Note
+   ###### Note
 
-    The **Unique ID** column is required. The
-    **Unique ID** must be a unique identifier within a single
-    table. However, across different tables, the **Unique ID**
-    can have duplicate values. If the **Unique ID** isn't
-    specified, isn't unique within the same source, or overlaps in terms of
-    attribute names across sources, then AWS Entity Resolution rejects the record when the
-    matching workflow is run. If you are using this schema mapping in a rule-based
-    matching workflow, the **Unique ID** must not exceed 38
-    characters. 7. For **Input fields**, choose the columns you want to use
-    for matching and for optional pass through.
+   The **Unique ID** column is required. The
+   **Unique ID** must be a unique identifier within a single
+   table. However, across different tables, the **Unique ID**
+   can have duplicate values. If the **Unique ID** isn't
+   specified, isn't unique within the same source, or overlaps in terms of
+   attribute names across sources, then AWS Entity Resolution rejects the record when the
+   matching workflow is run. If you are using this schema mapping in a rule-based
+   matching workflow, the **Unique ID** must not exceed 38
+   characters. 7. For **Input fields**, choose the columns you want to use
+   for matching and for optional pass through.
 
-    You can choose a maximum of 34 columns total for both matching and pass
-    through.
+   You can choose a maximum of 34 columns total for both matching and pass
+   through.
 
         1. Under **Matching**, choose the columns you to use as
          input fields for matching.
@@ -75,34 +75,34 @@ Import from AWS Glue
         3. (Optional) Under **Pass through**, choose the columns
          to include as pass through columns.###### Note
 
-    Do not use any of the following reserved names as a column name in your
-    data when running machine learning-based matching workflows:
-    "`MatchId`", "`MatchRule`", `RecordId`,
-    `SourceId`", " and `TargetId`". Using any of these
-    reserved names will result in naming conflicts and failed ML-based matching
-    workflows. 8. (Optional) If you want to enable **Tags** for the resource,
-    choose **Add new tag**, and then enter the
-    **Key** and **Value** pair. 9. Choose **Next**.
+   Do not use any of the following reserved names as a column name in your
+   data when running machine learning-based matching workflows:
+   "`MatchId`", "`MatchRule`", `RecordId`,
+   `SourceId`", " and `TargetId`". Using any of these
+   reserved names will result in naming conflicts and failed ML-based matching
+   workflows. 8. (Optional) If you want to enable **Tags** for the resource,
+   choose **Add new tag**, and then enter the
+   **Key** and **Value** pair. 9. Choose **Next**.
 
-5.  For **Step 2: Map input fields**, define the input fields you
-    want to use for matching and for optional pass through.
+5. For **Step 2: Map input fields**, define the input fields you
+   want to use for matching and for optional pass through.
 
-    1. For **Input fields for matching**, for each **Input
-       field**,
+   1. For **Input fields for matching**, for each **Input
+      field**,
 
-       - Specify the **Attribute type** to classify the
-         data.
-       - Specify the **Match key name** to enable input field
-         comparison to your matching workflow. Certain match key names are
-         automatically associated with specific attribute types by default.
-       - Select the **Hashed** checkbox if the column value for
-         that input field is hashed or leave the checkbox blank if the value is
-         cleartext.
+      - Specify the **Attribute type** to classify the
+        data.
+      - Specify the **Match key name** to enable input field
+        comparison to your matching workflow. Certain match key names are
+        automatically associated with specific attribute types by default.
+      - Select the **Hashed** checkbox if the column value for
+        that input field is hashed or leave the checkbox blank if the value is
+        cleartext.
 
-    ###### Note
+   ###### Note
 
-    If you're creating a schema mapping to use with the LiveRamp provider
-    service-based matching technique, then you can:
+   If you're creating a schema mapping to use with the LiveRamp provider
+   service-based matching technique, then you can:
 
         * Specify the **Attribute type** for the Provider ID as
          **LiveRamp ID**.
@@ -123,11 +123,11 @@ Import from AWS Glue
          (**Phone number**) with a name, those fields can match
          against the street address.
 
-    ###### Note
+   ###### Note
 
-    If you're creating a schema mapping to use with the TransUnion provider
-    service-based matching technique, then you can specify any of the following
-    **Attribute types**:
+   If you're creating a schema mapping to use with the TransUnion provider
+   service-based matching technique, then you can specify any of the following
+   **Attribute types**:
 
         * **Full name**, **First name**,
          **Last name**
@@ -140,11 +140,11 @@ Import from AWS Glue
         * **Digital Identifiers**: **IPV4**,
          **IPV6**, or **MAID**
 
-    ###### Note
+   ###### Note
 
-    If you're creating a schema mapping to use with the machine learning-based
-    matching workflow, your dataset must contain at least one of the following
-    **Attribute types**:
+   If you're creating a schema mapping to use with the machine learning-based
+   matching workflow, your dataset must contain at least one of the following
+   **Attribute types**:
 
         * **Full name**
         * **Full address**
@@ -153,17 +153,17 @@ Import from AWS Glue
         * **Date** with a **Match key name**
          of **Date of birth**Don't specify the **Attribute type** for any of these
 
-    attributes as a **Custom string**. 2. (Optional) For **Input ﬁelds for pass through**, add the
-    input ﬁelds that won't be matched and their corresponding **Hashing
-    status**.
+   attributes as a **Custom string**. 2. (Optional) For **Input ﬁelds for pass through**, add the
+   input ﬁelds that won't be matched and their corresponding **Hashing
+   status**.
 
-    The **Hashing status** indicates if the column value for
-    that input field is hashed or cleartext. 3. Choose **Next**.
+   The **Hashing status** indicates if the column value for
+   that input field is hashed or cleartext. 3. Choose **Next**.
 
-6.  For **Step 3: Group data**, you can group the
-    **Name**, **Address**, and **Phone
-    number** input fields if they have been separated into multiple
-    fields.
+6. For **Step 3: Group data**, you can group the
+   **Name**, **Address**, and **Phone
+   number** input fields if they have been separated into multiple
+   fields.
 
 This step concatenates the related input fields into one field, which enables
 you to compare them as one field in a matching workflow.
@@ -263,15 +263,16 @@ You can also add more groups if you have more types of data.
 
 7. For **Step 4: Review and create**, do the following:
 
-   1. Review the selections that you made for the previous steps and edit if
-      necessary.
-   2. Choose **Create schema mapping**.
+    1. Review the selections that you made for the previous steps and edit if
+     necessary.
+    2. Choose **Create schema mapping**.
 
-   ###### Note
 
-   You can’t modify a schema mapping after you associate it to a workflow.
-   You can clone a schema mapping if you want to use an existing configuration to
-   create a new schema mapping.
+    ###### Note
+
+    You can’t modify a schema mapping after you associate it to a workflow.
+     You can clone a schema mapping if you want to use an existing configuration to
+     create a new schema mapping.
 
 After you create the schema mapping, you're ready to [create a
 matching workflow](create-matching-workflow.md "create-matching-workflow.md") or [create an ID namespace](id-namespace.md "id-namespace.md").
@@ -394,8 +395,8 @@ You can define a maximum of 34 columns total for both matching and pass through.
     7. Choose **Next**.
 
 6. For **Step 3: Group data**, you can group the
-   **Name**, **Address**, **Phone
-   number** input fields if they have been separated into multiple fields.
+**Name**, **Address**, **Phone
+number** input fields if they have been separated into multiple fields.
 
 This step concatenates the related input fields into one field, which enables
 you to compare them as one field in a matching workflow.
@@ -495,15 +496,16 @@ You can also add more groups if you have more types of data.
 
 7. For **Step 4: Review and create**, do the following:
 
-   1. Review the selections that you made for the previous steps and edit if
-      necessary.
-   2. Choose **Create schema mapping**.
+    1. Review the selections that you made for the previous steps and edit if
+     necessary.
+    2. Choose **Create schema mapping**.
 
-   ###### Note
 
-   You can’t modify a schema mapping after you associate it with a workflow.
-   You can clone a schema mapping if you want to use an existing configuration to
-   create a new schema mapping.
+    ###### Note
+
+    You can’t modify a schema mapping after you associate it with a workflow.
+     You can clone a schema mapping if you want to use an existing configuration to
+     create a new schema mapping.
 
 After you create the schema mapping, you're ready to [create a
 matching workflow](create-matching-workflow.md "create-matching-workflow.md") or [create an ID namespace](id-namespace.md "id-namespace.md").
@@ -533,10 +535,10 @@ Use JSON editor
    1. Start building the schema in the JSON editor or choose one of the following
       options based on your goal:
 
-   | Your goal                          | Recommended option                                                         |
-   | ---------------------------------- | -------------------------------------------------------------------------- |
-   | Start building your schema mapping | \*_Insert sample JSON_<br>• and then edit the<br>information as necessary. |
-   | Use an existing JSON file          | **Import from file**                                                       |
+   | Your goal                          | Recommended option                                                        |
+   | ---------------------------------- | ------------------------------------------------------------------------- |
+   | Start building your schema mapping | *_Insert sample JSON_<br>• and then edit the<br>information as necessary. |
+   | Use an existing JSON file          | **Import from file**                                                      |
 
    ###### Note
 

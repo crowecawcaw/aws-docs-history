@@ -29,10 +29,10 @@ AWS Glue database.
 6. For **Data input**, choose the **Input type** that
    you want to use and then take the recommended actions.
 
-| Input type                    | Recommended actions                                                                                                                                                                                                                                                                                                                                               |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| An existing schema mapping    | 1. Choose **Schema mapping**.<br>2. Choose the **AWS Region**, **AWS Glue<br>database**, the **AWS Glue table**, and the<br>\*_Schema mapping_<br>• from the dropdown list.<br>You can add up to 19 data inputs.<br>NoteIf your data table has a DELETE column, the schema mapping's type must<br>be `String` and you can't have a `matchKey` and<br>`groupName`. |
-| An existing matching workflow | 1. Choose the **Matching workflow**.<br>2. Choose the account that’s associated with the ID namespace: either<br>**Your AWS account\*<br>• or **Another<br>AWS account**.<br>3. Depending on the type of account, select the **Matching<br>workflow name\*<br>• or enter the **Matching workflow<br>ARN**.                                                        |
+| Input type                    | Recommended actions                                                                                                                                                                                                                                                                                                                                              |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| An existing schema mapping    | 1. Choose **Schema mapping**.<br>2. Choose the **AWS Region**, **AWS Glue<br>database**, the **AWS Glue table**, and the<br>*_Schema mapping_<br>• from the dropdown list.<br>You can add up to 19 data inputs.<br>NoteIf your data table has a DELETE column, the schema mapping's type must<br>be `String` and you can't have a `matchKey` and<br>`groupName`. |
+| An existing matching workflow | 1. Choose the **Matching workflow**.<br>2. Choose the account that’s associated with the ID namespace: either<br>*_Your AWS account_<br>• or **Another<br>AWS account**.<br>3. Depending on the type of account, select the *_Matching<br>workflow name_<br>• or enter the **Matching workflow<br>ARN**.                                                         |
 
 7. For **Rule parameters**, do the following.
 
@@ -50,10 +50,10 @@ AWS Glue database.
    this results in an error. 2. Specify the **Matching rules** by choosing one of the following
    options based on your data input type.
 
-   | Data input type       | Recommended action                                                                                                                           |
-   | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Schema mapping**    | Choose **Add another rule\*<br>• to add a matching rule.<br>You can apply up to 25 **Matching rules\*<br>• to define<br>your match criteria. |
-   | **Matching workflow** | Choose either **Use rules from matching workflow\*<br>• or<br>**Provide new rules\*<br>• to define your **Matching<br>rules**.               |
+   | Data input type       | Recommended action                                                                                                                         |
+   | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+   | **Schema mapping**    | Choose *_Add another rule_<br>• to add a matching rule.<br>You can apply up to 25 *_Matching rules_<br>• to define<br>your match criteria. |
+   | **Matching workflow** | Choose either *_Use rules from matching workflow_<br>• or<br>*_Provide new rules_<br>• to define your **Matching<br>rules**.               |
 
 8. For **Comparison and matching parameters**, do the
    following.
