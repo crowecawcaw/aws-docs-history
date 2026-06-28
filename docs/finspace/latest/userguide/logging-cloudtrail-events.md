@@ -269,9 +269,9 @@ The following example CloudTrail data event log entry demonstrates the event gen
 accessing a dataset from Amazon S3 CLI.
 
 The `principalId` element contains details about the FinSpace user ID that
-accesses a given FinSpace dataset ID. In this example, the user ID is the string **_jmiupn9hiyavwdw6pwdyva_** with
-the prefix **_u\__** and the
-dataset ID is the string **_64hzb00_** with the prefix **_ds\__**.
+accesses a given FinSpace dataset ID. In this example, the user ID is the string _**jmiupn9hiyavwdw6pwdyva**_ with
+the prefix _**u\_**_ and the
+dataset ID is the string _**64hzb00**_ with the prefix _**ds\_**_.
 
 ```
 {

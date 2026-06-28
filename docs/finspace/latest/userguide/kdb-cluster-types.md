@@ -145,9 +145,9 @@ specify the contents of the database that you want to cache.
 
 FinSpace supports the following cache types:
 
-- **CACHE_1000** – This type allows a throughput of 1000 MB/s per unit storage (TiB).
-- **CACHE_250** – This type allows a throughput of 250 MB/s per unit storage (TiB).
-- **CACHE_12** – This type allows a throughput of 12 MB/s per unit storage (TiB).
+- **CACHE\_1000** – This type allows a throughput of 1000 MB/s per unit storage (TiB).
+- **CACHE\_250** – This type allows a throughput of 250 MB/s per unit storage (TiB).
+- **CACHE\_12** – This type allows a throughput of 12 MB/s per unit storage (TiB).
 
 **Considerations**
 

@@ -58,14 +58,10 @@ following:
      `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
     2. **Value** – `user.email`
 
-12. Choose **Next**.
-13. Choose **I'm an Okta customer adding an internal
-    app**.
-14. Choose **Finish**.
-15. Choose **Identity Provider metadata** and then choose
-    **Copy Link Address**.
-16. Save the link to a notepad. You can also choose to save SAML metadata
-    document instead of the link.
+12. Choose **Next**. 13. Choose **I'm an Okta customer adding an internal
+app**. 14. Choose **Finish**. 15. Choose **Identity Provider metadata** and then choose
+**Copy Link Address**. 16. Save the link to a notepad. You can also choose to save SAML metadata
+document instead of the link.
 
 Now that you have the SAML metadata document or its URL, let's create a FinSpace
 environment.

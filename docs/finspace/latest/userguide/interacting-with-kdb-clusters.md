@@ -99,7 +99,7 @@ account.
       created.
 
    In the following example, replace each `*user
- input placeholder*` with your own
+  input placeholder*` with your own
    values.
 
    JSON

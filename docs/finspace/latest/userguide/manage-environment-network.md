@@ -76,8 +76,8 @@ deny outbound traffic for each port range and destination.
     * We process the ACL rules according to the rule numbers, in ascending order.
 
 7. Choose **Save**. The connection creation process begins and the environment
-   details page opens from where you can check the status under the
-   **Network** tab.
+details page opens from where you can check the status under the
+**Network** tab.
 
 ## Editing a network
 

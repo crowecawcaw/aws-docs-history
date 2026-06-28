@@ -62,7 +62,7 @@ other datasets. For more information, see [Access datasets from a notebook](acce
 **Specifying additional parameters**
 
 With external datasets, you can also specify additional parameters to pre-filter the
-data that returns to a Spark DataFrame. To do this, you use the _partition_filter_ parameter. The parameters that you specify depend on the
+data that returns to a Spark DataFrame. To do this, you use the _partition\_filter_ parameter. The parameters that you specify depend on the
 particular data provider that you use. For information on the specific parameters for
 the Goldman Sachs Financial Cloud for Data, refer to the [Marquee
 documentation](https://developer.gs.com/p/docs/services/data/ "https://developer.gs.com/p/docs/services/data/").
@@ -79,6 +79,6 @@ partition_filter={
 )
 ```
 
-In the preceding example, the <dataset_id> is a FinSpace dataset ID such as
-_rgg1nj1_, and <data_view_id> is a FinSpace data
+In the preceding example, the <dataset\_id> is a FinSpace dataset ID such as
+_rgg1nj1_, and <data\_view\_id> is a FinSpace data
 view ID such as _VrvKEKnA1El2nr821BaLTQ_.

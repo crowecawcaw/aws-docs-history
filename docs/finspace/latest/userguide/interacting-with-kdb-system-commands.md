@@ -73,11 +73,11 @@ system commands that FinSpace supports.
 You can quickly access user directories through the following environment
 variables that return a string of the folder path.
 
-| Helper environment variables | Use for                                                                                 | Directory                  |
-| ---------------------------- | --------------------------------------------------------------------------------------- | -------------------------- |
-| `.aws.akcp`                  | Primary user code path.                                                                 | `/opt/kx/app/code`         |
-| `.aws.akcsp`                 | Secondary user code path that's available only for<br>\*_General purpose_<br>• cluster. | `/opt/kx/app/code_scratch` |
-| `.aws.akscp`                 | Primarily used for handling savedown functionality with an<br>RDB cluster.              | `/opt/kx/app/scratch`      |
+| Helper environment variables | Use for                                                                                | Directory                  |
+| ---------------------------- | -------------------------------------------------------------------------------------- | -------------------------- |
+| `.aws.akcp`                  | Primary user code path.                                                                | `/opt/kx/app/code`         |
+| `.aws.akcsp`                 | Secondary user code path that's available only for<br>*_General purpose_<br>• cluster. | `/opt/kx/app/code_scratch` |
+| `.aws.akscp`                 | Primarily used for handling savedown functionality with an<br>RDB cluster.             | `/opt/kx/app/scratch`      |
 
 ## Loading databases relative to code directory
 

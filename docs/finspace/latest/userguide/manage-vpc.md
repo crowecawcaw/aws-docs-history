@@ -61,36 +61,35 @@ considerations:
 
 ###### To set up a VPC connection
 
-1.  Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
-2.  Open a technical support case to enable the VPC connection for FinSpace, and
-    provide the following information:
+1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
+2. Open a technical support case to enable the VPC connection for FinSpace, and
+   provide the following information:
 
-        * The FinSpace environment ID
-        * The transit gateway ID
-        * The AWS Region of the FinSpace environment
-        * The /26 IP range to use for the customer-facing side of the NAT
-         gateway
-        * (Optional) The custom DNS domain name
-        * (Optional) The custom DNS server IP address
+   - The FinSpace environment ID
+   - The transit gateway ID
+   - The AWS Region of the FinSpace environment
+   - The /26 IP range to use for the customer-facing side of the NAT
+     gateway
+   - (Optional) The custom DNS domain name
+   - (Optional) The custom DNS server IP address
+     For more information, see [Creating a support
+     case](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md") in the _AWS Support User Guide_.
 
-    For more information, see [Creating a support
-    case](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md") in the _AWS Support User Guide_.
-
-3.  Create a RAM share for your transit gateway to the FinSpace environment
-    infrastructure account. For more information, see [Share a transit
-    gateway](../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-sharing "../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-sharing") in the _AWS Transit Gateway User Guide_.
-4.  After verifying the support case, a FinSpace operator runs a setup program. This
-    program accepts the RAM share request, disables internet in the FinSpace
-    environment infrastructure account, and issues a VPC attachment request to your
-    transit gateway.
-5.  When the request is complete, the FinSpace operator sends a notification, and
-    adds the transit gateway attachment ID and the Availability Zone (AZ) to the
-    VPC attachment request.
-6.  Accept the VPC attachment request that FinSpace issues to your transit gateway.
-    For more information, see [Accept a shared attachment](../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-accept-shared-attachment "../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-accept-shared-attachment") in the _AWS Transit Gateway User
-    Guide_.
-7.  Configure the routing tables in your transit gateway traffic, and route
-    to/from the subnets in the VPC that were attached in the VPC attachment.
+3. Create a RAM share for your transit gateway to the FinSpace environment
+   infrastructure account. For more information, see [Share a transit
+   gateway](../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-sharing "../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-sharing") in the _AWS Transit Gateway User Guide_.
+4. After verifying the support case, a FinSpace operator runs a setup program. This
+   program accepts the RAM share request, disables internet in the FinSpace
+   environment infrastructure account, and issues a VPC attachment request to your
+   transit gateway.
+5. When the request is complete, the FinSpace operator sends a notification, and
+   adds the transit gateway attachment ID and the Availability Zone (AZ) to the
+   VPC attachment request.
+6. Accept the VPC attachment request that FinSpace issues to your transit gateway.
+   For more information, see [Accept a shared attachment](../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-accept-shared-attachment "../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-accept-shared-attachment") in the _AWS Transit Gateway User
+   Guide_.
+7. Configure the routing tables in your transit gateway traffic, and route
+   to/from the subnets in the VPC that were attached in the VPC attachment.
 
 ###### Note
 

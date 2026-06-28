@@ -36,7 +36,7 @@ column of the VPC table. To view your default VPC:
      Take note of the ID of the default VPC.
 
 7. For **Subnet IDs**, choose 3 subnets from the availability zones
-   where the environment is created.
+where the environment is created.
 
 To check the availability zones ID mapping for your AWS account, go to the
 AWS Resource Access Manager in your account. Navigate to the product console, find the AZ ID at the bottom

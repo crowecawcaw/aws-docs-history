@@ -37,12 +37,10 @@ cluster by choosing a deployment mode. The following options are available.
      immediately.
 
 9. Specify the **S3 URI** and the **Object version**. This
-   allows you to choose the _.zip_ file containing code that should be available
-   on the cluster.
-10. For **Initialization script**, enter the relative path that contains a q
-    program script that will run at the launch of a cluster.
-11. (Optional) Add or update the key-value pairs as command line arguments to configure the
-    behavior of clusters.
+allows you to choose the _.zip_ file containing code that should be available
+on the cluster. 10. For **Initialization script**, enter the relative path that contains a q
+program script that will run at the launch of a cluster. 11. (Optional) Add or update the key-value pairs as command line arguments to configure the
+behavior of clusters.
 
 You can use the command-line arguments to set [zip defaults](https://code.kx.com/q/ref/dotz/#zzd-zip-defaults "https://code.kx.com/q/ref/dotz/#zzd-zip-defaults") for your
 cluster. The cluster has to be restarted for the changes to take effect. For this, pass the
@@ -70,4 +68,4 @@ following key-value pair:
     ```
 
 12. Choose **Save changes**. The cluster details page opens and the updated code
-    configuration is displayed once the cluster updates successfully.
+configuration is displayed once the cluster updates successfully.

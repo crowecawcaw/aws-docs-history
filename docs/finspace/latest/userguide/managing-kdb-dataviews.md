@@ -58,8 +58,8 @@ The following sections provide a detailed overview of the operations that you ca
      cache.
 
 12. Choose **Create dataview**. The database details page opens and the table
-    under **Dataviews** lists the newly created database along with its
-    status.
+under **Dataviews** lists the newly created database along with its
+status.
 
 You can choose the dataview name from the list to view its details.
 
@@ -67,37 +67,37 @@ You can choose the dataview name from the list to view its details.
 
 ###### To view and get details of a kdb dataview
 
-1.  Sign in to the AWS Management Console and open the Amazon FinSpace console at [https://console.aws.amazon.com/finspace](https://console.aws.amazon.com/finspace/landing "https://console.aws.amazon.com/finspace/landing").
-2.  In the left pane, under **Managed kdb Insights**, choose **Kdb
-    environments**.
-3.  From the kdb environments table, choose the name of the environment.
-4.  On the environment details page, choose **Databases** tab.
-5.  From the list of databases, choose a database name. The database details page
-    opens.
-6.  On the database details page, choose the **Dataviews** tab that
-    shows a list of dataviews along with its status, availability zones where they were
-    created, and their creation time.
-7.  From the list of dataviews, choose a name to view its details. The dataviews details page
-    opens where you can view the following details.
+1. Sign in to the AWS Management Console and open the Amazon FinSpace console at [https://console.aws.amazon.com/finspace](https://console.aws.amazon.com/finspace/landing "https://console.aws.amazon.com/finspace/landing").
+2. In the left pane, under **Managed kdb Insights**, choose **Kdb
+   environments**.
+3. From the kdb environments table, choose the name of the environment.
+4. On the environment details page, choose **Databases** tab.
+5. From the list of databases, choose a database name. The database details page
+   opens.
+6. On the database details page, choose the **Dataviews** tab that
+   shows a list of dataviews along with its status, availability zones where they were
+   created, and their creation time.
+7. From the list of dataviews, choose a name to view its details. The dataviews details page
+   opens where you can view the following details.
 
-    - **Dataview details** section – Displays the metadata of
-      the dataview that you created.
-    - **Configuration** tab – Displays the details
-      about the dataview update mode and ID, and the availability zones ID.
-    - **Active versions** tab – Displays a list of active versions of the dataview. Each update of the dataview creates a new version,
-      including changeset details and the cache configurations. Each version triggers a
-      workflow to cache database based on the cache configuration. A dataview version
-      becomes active once the workflow finishes.
+   - **Dataview details** section – Displays the metadata of
+     the dataview that you created.
+   - **Configuration** tab – Displays the details
+     about the dataview update mode and ID, and the availability zones ID.
+   - **Active versions** tab – Displays a list of active versions of the dataview. Each update of the dataview creates a new version,
+     including changeset details and the cache configurations. Each version triggers a
+     workflow to cache database based on the cache configuration. A dataview version
+     becomes active once the workflow finishes.
 
-    The dataview version is deactivated under the following conditions
+   The dataview version is deactivated under the following conditions
 
         + It's not the latest active version.
         + No cluster is currently mounting this version.
 
-    You can choose the **Version ID** to see details of each active
-    version.
-    - **Clusters** tab – Displays a list of
-      clusters that mounts the dataview.
+   You can choose the **Version ID** to see details of each active
+   version.
+   - **Clusters** tab – Displays a list of
+     clusters that mounts the dataview.
 
 ## Updating a kdb dataview
 

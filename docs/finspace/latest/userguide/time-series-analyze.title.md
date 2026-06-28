@@ -228,7 +228,7 @@ prices from a moving average of price. Learn [more](https://www.investopedia.com
 **Parameters**
 
 - `tenor` (int) – window to perform the calculation over
-- **no_std** (int) – number of standard deviations
+- **no\_std** (int) – number of standard deviations
 - `time_col_name` (str) – name of time column
 - `price_col_name` (str) – input array of asset prices, determined by user, default is close for intraday calculations
 - `high_col_name` (str) – input array of high asset prices
@@ -338,9 +338,9 @@ It is calculated as a 10-month weighted moving average of the sum of the 14-mont
 
 **Parameters**
 
-- **roc1_period** (int) – rate of change 1 look back period
-- **roc2_period** (int) – rate of change 2 look back period
-- **wma_period** (int) – weighted moving average look back period
+- **roc1\_period** (int) – rate of change 1 look back period
+- **roc2\_period** (int) – rate of change 2 look back period
+- **wma\_period** (int) – weighted moving average look back period
 - `time_col_name` (str) – name of time column
 - `price_col_name` (str) – input array of high prices over bar
 
@@ -642,9 +642,9 @@ points and filter price movements.
 
 - `time_col_name` (str) – name of time column
 - `price_col_name` (str) – input array of prices over bar
-- **er_period** (int) – efficiency ratio tenor
-- **slow_ema_period** (int)
-- **fast_ema_period** (int)
+- **er\_period** (int) – efficiency ratio tenor
+- **slow\_ema\_period** (int)
+- **fast\_ema\_period** (int)
 
 **Return type**
 `Callable[. . . , Column]`
@@ -669,9 +669,9 @@ to and subtracted from the middle moving average line.
 - `price_col_name` (str) – input array of asset prices, determined by user, default is close for intraday calculations
 - `high_col_name` (str) – input array of high asset prices
 - `low_col_name` (str) – input array of high asset price
-- **atr_factor** (float) – ATR multiplier
-- **ewm_tenor** (int) – tenor of expo moving average
-- **atr_tenor** (int) – tenor of ATR
+- **atr\_factor** (float) – ATR multiplier
+- **ewm\_tenor** (int) – tenor of expo moving average
+- **atr\_tenor** (int) – tenor of ATR
 
 **Return type**
 `Callable[. . . , Column]`
@@ -711,8 +711,8 @@ provide additional trade signals.
 aws.finspace.timeseries.spark.analytics.linear_regression(tenor, time_col_name, input1_col_name, input2_col_name)
 ```
 
-Takes two arrays of asset prices and then produces slope and intercept, where input1_col_name is the independent variable and
-input2_col_name is the dependent variable.
+Takes two arrays of asset prices and then produces slope and intercept, where input1\_col\_name is the independent variable and
+input2\_col\_name is the dependent variable.
 
 **Parameters**
 
@@ -914,7 +914,7 @@ Compute momentum
 aws.finspace.timeseries.spark.analytics.moving_average(tenor, time_col_name, input_array_col_name)
 ```
 
-Compute moving average on window of tenor size utilizing function average_at_point
+Compute moving average on window of tenor size utilizing function average\_at\_point
 
 **Parameters**
 
@@ -1182,7 +1182,7 @@ Takes in an array of asset prices and computes realized volatility. Learn [more]
 
 - `tenor` (int) – window size
 - `time_col_name` (str) – name of time column
-- **asset_price_col_name** – name of input array column
+- **asset\_price\_col\_name** – name of input array column
 
 **Return type**
 `Callable[. . . , Column]`
@@ -1331,7 +1331,7 @@ traders an idea of whether the current RSI value is overbought or oversold.
 
 **Parameters**
 
-- **rsi_tenor** (int) – window size for rsi
+- **rsi\_tenor** (int) – window size for rsi
 - `tenor` (int) – window size for stoch rsi
 - `time_col_name` (str) – name of time column
 - `price_col_name` (str) – input array of closing prices over bar
@@ -1579,7 +1579,7 @@ aws.finspace.timeseries.spark.analytics.weighted_ts_linear_regression(tenor, sca
 ```
 
 Takes three arrays, the first is the time axis, and the second is the value axis and third is weights and then produces
-slope and intercept, where time axis is the independent variable and value_axis is the dependent variable, and weights.
+slope and intercept, where time axis is the independent variable and value\_axis is the dependent variable, and weights.
 
 **Parameters**
 

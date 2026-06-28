@@ -115,6 +115,6 @@ Bases: object
 
 This class models the input time window specification, and associated calendar.
 
-### to_window()
+### to\_window()
 
 Create an equivalent spark window from TimeBarSpec.

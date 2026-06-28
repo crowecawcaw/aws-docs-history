@@ -47,11 +47,9 @@ Alternatively, you can also perform the following steps:
      opens.
 
 3. On the **Data Providers** page, for the
-   **Goldman Sachs Financial Cloud for Data** provider, choose **Add
-   connector**.
-4. On the **Connector details** page, provide a unique **Connector
-   name**, and choose an account with superuser to run the connector.
-5. For **Scheduled runs**, select this option if you want to schedule automatic connector runs. The data connector will run daily at 00:00 UTC.
+**Goldman Sachs Financial Cloud for Data** provider, choose **Add
+connector**. 4. On the **Connector details** page, provide a unique **Connector
+name**, and choose an account with superuser to run the connector. 5. For **Scheduled runs**, select this option if you want to schedule automatic connector runs. The data connector will run daily at 00:00 UTC.
 
 Clear this option if you don't want to schedule automatic runs. You will
 need to manually start the data connector run from the console. For more
@@ -165,8 +163,7 @@ attach the new policy to it.
 
     Remember this role name because you will need it in the next step.
 
-3. Return to the **Select customer IAM role** tab. For **Customer IAM role**, enter the name of the role you created in the previous step.
-4. Choose **Next** and proceed to [Step 4: Review and create](#step-4-review-gsm "#step-4-review-gsm").
+3. Return to the **Select customer IAM role** tab. For **Customer IAM role**, enter the name of the role you created in the previous step. 4. Choose **Next** and proceed to [Step 4: Review and create](#step-4-review-gsm "#step-4-review-gsm").
 
 ###### Note
 

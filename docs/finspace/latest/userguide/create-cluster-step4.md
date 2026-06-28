@@ -51,11 +51,11 @@ Dedicated clusters
       for storing a subset of your database content for faster read
       performance. You can choose from one of the following options:
 
-      - **CACHE_1000** – Provides a throughput of 1000 MB/s per unit storage (TiB).
-      - **CACHE_250** – Provides a throughput of 250 MB/s per unit storage (TiB).
-      - **CACHE_12** – Provides a throughput of 12 MB/s per unit storage (TiB).
+      - **CACHE\_1000** – Provides a throughput of 1000 MB/s per unit storage (TiB).
+      - **CACHE\_250** – Provides a throughput of 250 MB/s per unit storage (TiB).
+      - **CACHE\_12** – Provides a throughput of 12 MB/s per unit storage (TiB).
 
-   2. Choose the size of the cache. For cache type **CACHE_1000** and **CACHE_250** you can select cache size as 1200 GB or increments of 2400 GB. For cache type **CACHE_12** you can select the cache size in increments of 6000 GB.
+   2. Choose the size of the cache. For cache type **CACHE\_1000** and **CACHE\_250** you can select cache size as 1200 GB or increments of 2400 GB. For cache type **CACHE\_12** you can select the cache size in increments of 6000 GB.
 
 4. Choose **Next**. The **Review and
    create** page opens.
@@ -162,18 +162,18 @@ Dedicated clusters
          faster read performance. You can choose from one of the
          following options:
 
-         - **CACHE_1000** – Provides a
+         - **CACHE\_1000** – Provides a
            throughput of 1000 MB/s per unit storage (TiB).
-         - **CACHE_250** – Provides a
+         - **CACHE\_250** – Provides a
            throughput of 250 MB/s per unit storage (TiB).
-         - **CACHE_12** – Provides a
+         - **CACHE\_12** – Provides a
            throughput of 12 MB/s per unit storage (TiB).
 
       3. Choose the size of the cache. For cache type
-         **CACHE_1000** and
-         **CACHE_250** you can select cache size
+         **CACHE\_1000** and
+         **CACHE\_250** you can select cache size
          as 1200 GB or increments of 2400 GB. For cache type
-         **CACHE_12** you can select the cache
+         **CACHE\_12** you can select the cache
          size in increments of 6000 GB.
 
 2. **(Optional) Savedown database configuration**

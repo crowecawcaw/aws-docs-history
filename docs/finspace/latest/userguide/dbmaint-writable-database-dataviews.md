@@ -71,9 +71,9 @@ Before you proceed, complete the following prerequisites:
      **False**.
 
 13. Choose **Create dataview**. The database details page opens and the table
-    under **Dataviews** lists the newly created database along with its
-    status.
-    Before you proceed, complete the following prerequisites:
+under **Dataviews** lists the newly created database along with its
+status.
+Before you proceed, complete the following prerequisites:
 
 - Create a kdb environment by using the [CreateKxEnvironment](../management-api/API_CreateKxEnvironment.md "../management-api/API_CreateKxEnvironment.md") API operation.
 - Create a kdb database by using the [CreateKxDatabase](../management-api/API_CreateKxDatabase.md "../management-api/API_CreateKxDatabase.md") API operation.
@@ -121,7 +121,7 @@ Following are some of the considerations for the above request.
 - The `dbPath` must be set as "/\*" for writable dataview.
 - Only a single `segmentConfiguration` is allowed when
   `readWrite` is true. The `dbPaths` on the segment should be
-  set as "\\\*" .
+  set as "\\*" .
 - A dataview with `readWrite` set as `true` is not allowed to
   be updated.
 - You cannot update the `readWrite` property later.

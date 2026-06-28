@@ -105,5 +105,5 @@ script can run for multiple hours without being interrupted which is required fo
 long-running database maintenance tasks. When database maintenance script is running,
 monitor the cluster logs for progress and any errors. After the database maintenance
 script completes, connect to the cluster to verify the updated kdb database and commit
-changes to the underlying kdb database by using the commit_kx_database q API. You can
+changes to the underlying kdb database by using the commit\_kx\_database q API. You can
 also automate verification and commit steps in your database maintenance script itself.

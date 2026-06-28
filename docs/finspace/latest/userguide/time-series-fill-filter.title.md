@@ -89,7 +89,7 @@ Creates a list of dates associated with a particular type of calendar.
 **Return type**
 `array`
 
-**Returns** raw_calendar_data()
+**Returns** raw\_calendar\_data()
 
 Return type `Dict[str,Any]`
 
@@ -121,7 +121,7 @@ create_schedule_from_to(from_date, to_date, time_bar_spec_window_duration, from_
 **Return type**
 `array`
 
-**Returns** raw_calendar_data()
+**Returns** raw\_calendar\_data()
 
 Return type `Dict[str,Any]`
 
@@ -152,7 +152,7 @@ create_schedule_from_to(from_date, to_date, time_bar_spec_window_duration, from_
 **Return type**
 `array`
 
-**Returns** raw_calendar_data()
+**Returns** raw\_calendar\_data()
 
 Return type `Dict[str,Any]`
 

@@ -7,16 +7,15 @@ Specify details for each of the following sections on **Add cluster details** pa
 
 ## Cluster details
 
-1.  Choose from one of the following types of clusters that you want to
-    add.
+1. Choose from one of the following types of clusters that you want to
+   add.
 
-        * **(HDB) Historical Database**
-        * **(RDB) Realtime Database**
-        * **Gateway**
-        * **General purpose**
-        * **Tickerplant**
-
-    For more information about cluster types, see [Managed kdb Insights clusters](finspace-managed-kdb-clusters.md "finspace-managed-kdb-clusters.md").
+   - **(HDB) Historical Database**
+   - **(RDB) Realtime Database**
+   - **Gateway**
+   - **General purpose**
+   - **Tickerplant**
+     For more information about cluster types, see [Managed kdb Insights clusters](finspace-managed-kdb-clusters.md "finspace-managed-kdb-clusters.md").
 
 ###### Note
 
@@ -28,13 +27,11 @@ Specify details for each of the following sections on **Add cluster details** pa
      Configure data and storage** page will change based on the
      cluster type and running mode that you select in this step.
 
-2. Add a unique name and a brief description for your cluster.
-3. For `Release label`, choose the package version to run
-   in the cluster.
-4. (Optional) Choose the IAM role that defines a set of permissions
-   associated with this cluster. This is an execution role that will be
-   associated with the cluster. You can use this role to control access
-   to other clusters in your Managed kdb environment.
+2. Add a unique name and a brief description for your cluster. 3. For `Release label`, choose the package version to run
+in the cluster. 4. (Optional) Choose the IAM role that defines a set of permissions
+associated with this cluster. This is an execution role that will be
+associated with the cluster. You can use this role to control access
+to other clusters in your Managed kdb environment.
 
 ## Cluster running mode
 

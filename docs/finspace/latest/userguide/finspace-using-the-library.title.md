@@ -20,7 +20,7 @@ dataset available with the [sample capital markets data bundle](sample-data-bund
 
 ![time series library 2](images/07-prepare-and-analyze-data/time-series-library-2.png)
 
-**Collect Bars** – In this stage, the FinSpace create_time_bars function is used to collect raw data events into 1-minute time bars.
+**Collect Bars** – In this stage, the FinSpace create\_time\_bars function is used to collect raw data events into 1-minute time bars.
 
 ![time series library 3](images/07-prepare-and-analyze-data/time-series-library-3.png)
 The window represents the 1-min time interval for the bar. The Activity count shows the number of events collected in each bar. Note that the data events collected
