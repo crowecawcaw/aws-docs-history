@@ -457,7 +457,7 @@ connection.
    - **Endpoint 2** is the CIDR block of your
      VPC
    - **Authentication mode** is `Require
-inbound and clear outbound`
+  inbound and clear outbound`
    - **Authentication method** is
      `Custom`
    - **Endpoint 1 port** is
@@ -517,57 +517,55 @@ IPsec settings to work with the virtual private gateway.
 
 ###### To configure the Windows firewall
 
-1.  Open Server Manager, choose **Tools**, select
-    **Windows Defender Firewall with Advanced
-    Security**, and then choose
-    **Properties**.
-2.  On the **IPsec Settings** tab, under **IPsec
-    exemptions**, verify that **Exempt ICMP from
-    IPsec** is **No (default)**. Verify that
-    **IPsec tunnel authorization** is
-    **None**.
-3.  Under **IPsec defaults**, choose
-    **Customize**.
-4.  Under **Key exchange (Main Mode)**, select
-    **Advanced** and then choose
-    **Customize**.
-5.  In **Customize Advanced Key Exchange Settings**,
-    under **Security methods**, verify that the following
-    default values are used for the first entry:
+1. Open Server Manager, choose **Tools**, select
+   **Windows Defender Firewall with Advanced
+   Security**, and then choose
+   **Properties**.
+2. On the **IPsec Settings** tab, under **IPsec
+   exemptions**, verify that **Exempt ICMP from
+   IPsec** is **No (default)**. Verify that
+   **IPsec tunnel authorization** is
+   **None**.
+3. Under **IPsec defaults**, choose
+   **Customize**.
+4. Under **Key exchange (Main Mode)**, select
+   **Advanced** and then choose
+   **Customize**.
+5. In **Customize Advanced Key Exchange Settings**,
+   under **Security methods**, verify that the following
+   default values are used for the first entry:
 
-        * Integrity: SHA-1
-        * Encryption: AES-CBC 128
-        * Key exchange algorithm: Diffie-Hellman Group 2
-        * Under **Key lifetimes**, verify that
-         **Minutes** is `480` and
-         **Sessions** is `0`.
-
-    These settings correspond to these entries in the configuration
-    file.
+   - Integrity: SHA-1
+   - Encryption: AES-CBC 128
+   - Key exchange algorithm: Diffie-Hellman Group 2
+   - Under **Key lifetimes**, verify that
+     **Minutes** is `480` and
+     **Sessions** is `0`.
+     These settings correspond to these entries in the configuration
+     file.
 
 ```
 MainModeSecMethods: DHGroup2-AES128-SHA1,DHGroup2-3DES-SHA1
 MainModeKeyLifetime: 480min,0sec
 ```
 
-6.  Under **Key exchange options**, select **Use
-    Diffie-Hellman for enhanced security**, and then choose
-    **OK**.
-7.  Under **Data protection (Quick Mode)**, select
-    **Advanced**, and then choose
-    **Customize**.
-8.  Select **Require encryption for all connection security rules
-    that use these settings**.
-9.  Under **Data integrity and encryption**, leave the
-    default values:
+6. Under **Key exchange options**, select **Use
+   Diffie-Hellman for enhanced security**, and then choose
+   **OK**.
+7. Under **Data protection (Quick Mode)**, select
+   **Advanced**, and then choose
+   **Customize**.
+8. Select **Require encryption for all connection security rules
+   that use these settings**.
+9. Under **Data integrity and encryption**, leave the
+   default values:
 
-        * Protocol: ESP
-        * Integrity: SHA-1
-        * Encryption: AES-CBC 128
-        * Lifetime: 60 minutes
-
-    These values correspond to the following entry from the configuration
-    file.
+   - Protocol: ESP
+   - Integrity: SHA-1
+   - Encryption: AES-CBC 128
+   - Lifetime: 60 minutes
+     These values correspond to the following entry from the configuration
+     file.
 
 ```
 QuickModeSecMethods:
@@ -590,7 +588,7 @@ key, you must reboot the server.
 
 1. From your Windows Server, launch the command prompt or a PowerShell session,
    and enter **regedit** to start Registry Editor.
-2. Expand **HKEY_LOCAL_MACHINE**, expand
+2. Expand **HKEY\_LOCAL\_MACHINE**, expand
    **SYSTEM**, expand **CurrentControlSet**,
    expand **Services**, expand **Tcpip**, and
    then expand **Parameters**.

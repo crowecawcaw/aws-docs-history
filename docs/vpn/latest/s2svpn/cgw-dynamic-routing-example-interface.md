@@ -221,22 +221,19 @@ and then choose **OK** when you're done:
     	 SHA-1
 
 8. In the category pane, choose **Tunnel
-   Management**. Choose **Set Permanent
-   Tunnels**, **On all tunnels in the
-   community**. In the **VPN Tunnel
-   Sharing** section, choose **One VPN tunnel per
-   Gateway pair**.
-9. In the category pane, expand **Advanced
-   Settings**, and choose **Shared
-   Secret**.
-10. Select the peer name for the first tunnel, choose
-    **Edit**, and then enter the pre-shared key as
-    specified in the configuration file in the `IPSec Tunnel
-#1` section.
-11. Select the peer name for the second tunnel, choose
-    **Edit**, and then enter the pre-shared key as
-    specified in the configuration file in the `IPSec Tunnel
-#2` section.
+Management**. Choose **Set Permanent
+Tunnels**, **On all tunnels in the
+community**. In the **VPN Tunnel
+Sharing** section, choose **One VPN tunnel per
+Gateway pair**. 9. In the category pane, expand **Advanced
+Settings**, and choose **Shared
+Secret**. 10. Select the peer name for the first tunnel, choose
+**Edit**, and then enter the pre-shared key as
+specified in the configuration file in the `IPSec Tunnel
+ #1` section. 11. Select the peer name for the second tunnel, choose
+**Edit**, and then enter the pre-shared key as
+specified in the configuration file in the `IPSec Tunnel
+ #2` section.
 
 ![Check Point Interoperable Shared Secret dialog box](images/check-point-shared-secret.png) 12. Still in the **Advanced Settings** category,
 choose **Advanced VPN Properties**, configure the
@@ -307,7 +304,7 @@ You then install the policy on your gateway.
 7. In the dialog box, choose your gateway and choose
    **OK** to install the policy.
 
-###### To modify the tunnel_keepalive_method property
+###### To modify the tunnel\_keepalive\_method property
 
 Your Check Point gateway can use Dead Peer Detection (DPD) to identify
 when an IKE association is down. To configure DPD for a permanent
@@ -338,7 +335,7 @@ the GuiDBedit tool.
    **Domain Management Server**.
 6. In the upper left pane, choose **Table**,
    **Network Objects**,
-   **network_objects**.
+   **network\_objects**.
 7. In the upper right pane, select the relevant **Security
    Gateway**, **Cluster** object.
 8. Press CTRL+F, or use the **Search** menu to
@@ -368,7 +365,7 @@ TCP MSS clamping reduces the maximum segment size of TCP packets to
 prevent packet fragmentation.
 
 1. Navigate to the following directory: `C:\Program Files
-(x86)\CheckPoint\SmartConsole\R77.10\PROGRAM\`.
+ (x86)\CheckPoint\SmartConsole\R77.10\PROGRAM\`.
 2. Open the Check Point Database Tool by running the
    `GuiDBEdit.exe` file.
 3. Choose **Table**, **Global
@@ -395,7 +392,7 @@ over the connection are being encrypted. For example, the following log
 indicates that a packet to the VPC was sent over tunnel 1 and was
 encrypted.
 
-![Check Point log file](images/check-point-log.png)
+![Check Point log file](/images/vpn/latest/s2svpn/images/check-point-log.png)
 
 SonicWALL
 You can configure a SonicWALL device using the SonicOS management

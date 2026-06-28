@@ -72,7 +72,7 @@ can use AS PATH prepending and Local Preference to prefer one tunnel over
 the other. However, when the egress path changes, this may cause traffic to
 drop.
 
-- When the AS PATHs are the same length and if the first AS in the AS_SEQUENCE
+- When the AS PATHs are the same length and if the first AS in the AS\_SEQUENCE
   is the same across multiple paths, multi-exit discriminators
   (MEDs) are compared. The path with the lowest MED value is preferred.
   Route priority is affected during [VPN

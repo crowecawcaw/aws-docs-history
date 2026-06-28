@@ -52,7 +52,7 @@ The following information is included in the Site-to-Site VPN tunnel activity lo
 stream file name uses VpnConnectionID and TunnelOutsideIPAddress.
 
 | Field                                              | Description                                                  |
-| -------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ------ |
+| -------------------------------------------------- | ------------------------------------------------------------ |
 | VpnLogCreationTimestamp (`event_timestamp`)        | Log creation timestamp in epoch time format.                 |
 | VpnLogCreationTimestampReadable (`timestamp`)      | Log creation timestamp in human readable time format.        |
 | TunnelDPDEnabled (`dpd_enabled`)                   | Dead Peer Detection Protocol Enabled Status<br>(True/False). |
@@ -64,14 +64,14 @@ stream file name uses VpnConnectionID and TunnelOutsideIPAddress.
 The following information is included in the Site-to-Site VPN tunnel BGP log. The log
 stream file name uses VpnConnectionID and TunnelOutsideIPAddress.
 
-| Field           | Description                                                                                                                                                                                  |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------- | -------------------------------------------------- |
-| resource_id     | A unique ID to identify the tunnel and the VPN connection the log is associated with.                                                                                                        |
-| event_timestamp | Log creation timestamp in epoch time format.                                                                                                                                                 |
-| timestamp       | Log creation timestamp in human readable time format.                                                                                                                                        |
-| type            | Type of BGP Log Event (BGPStatus                                                                                                                                                             | RouteStatus).                                                        |
-| status          | status update for a specific type of log event<br>(BGPStatus: UP                                                                                                                             | DOWN)<br>(RouteStatus: ADVERTISED {route was advertised by the peer} | <br>UPDATED: {existing route was updated by the peer} | <br>WITHDRAWN: {route was withdrawn by peer})<br>. |
-| message         | Provides additional details on the log even and status. This field will<br>help you understand why the BGPStatus is down what route attributes were exchanged<br>in the RouteStatus message. |
+| Field            | Description                                                                                                                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| resource\_id     | A unique ID to identify the tunnel and the VPN connection the log is associated with.                                                                                                        |
+| event\_timestamp | Log creation timestamp in epoch time format.                                                                                                                                                 |
+| timestamp        | Log creation timestamp in human readable time format.                                                                                                                                        |
+| type             | Type of BGP Log Event (BGPStatus                                                                                                                                                             | RouteStatus).                                                        |
+| status           | status update for a specific type of log event<br>(BGPStatus: UP                                                                                                                             | DOWN)<br>(RouteStatus: ADVERTISED {route was advertised by the peer} | <br>UPDATED: {existing route was updated by the peer} | <br>WITHDRAWN: {route was withdrawn by peer})<br>. |
+| message          | Provides additional details on the log even and status. This field will<br>help you understand why the BGPStatus is down what route attributes were exchanged<br>in the RouteStatus message. |
 
 ###### Contents
 
@@ -89,34 +89,34 @@ stream file name uses VpnConnectionID and TunnelOutsideIPAddress.
 | AWS tunnel payload decryption was unsuccessful due to invalid Pre-shared Key | Same Pre-Shared key needs to be configured on both IKE Peers.                                                                                      |
 | No Proposal Match Found by AWS                                               | Proposed Attributes for Phase 1 (Encryption, Hashing and<br>DH Group) are not supported by AWS VPN Endpoint— for<br>example, `3DES`.               |
 | No Proposal Match Found. Notifying with "No proposal chosen"                 | No Proposal Chosen error message is exchanged between Peers to inform that correct Proposals/Policies must be configured for phase 2 on IKE Peers. |
-| AWS tunnel received DELETE for Phase 2 SA with SPI: xxxx                     | CGW has sent the Delete_SA message for Phase 2.                                                                                                    |
-| AWS tunnel received DELETE for IKE_SA from CGW                               | CGW has sent the Delete_SA message for Phase 1.                                                                                                    |
+| AWS tunnel received DELETE for Phase 2 SA with SPI: xxxx                     | CGW has sent the Delete\_SA message for Phase 2.                                                                                                   |
+| AWS tunnel received DELETE for IKE\_SA from CGW                              | CGW has sent the Delete\_SA message for Phase 1.                                                                                                   |
 
 ### IKEv2 Error Messages
 
-| Message                                                                       | Explanation                                                                                                                                     |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS tunnel DPD timed out after {retry_count}<br>retransmits                   | Peer has not responded to DPD Messages, enforcing DPD<br>time-out action.                                                                       |
-| AWS tunnel received DELETE for IKE_SA from CGW                                | Peer has sent the Delete_SA message for<br>Parent/IKE_SA.                                                                                       |
-| AWS tunnel received DELETE for Phase 2 SA with SPI:<br>xxxx                   | Peer has sent the Delete_SA message for CHILD_SA.                                                                                               |
-| AWS tunnel detected a (CHILD_REKEY) collision as CHILD_DELETE                 | CGW has sent the Delete_SA message for the Active SA, which is being rekeyed.                                                                   |
-| AWS tunnel (CHILD_SA) redundant SA is being deleted due to detected collision | Due to Collision, If redundant SAs are generated, Peers will close redundant SA after matching<br>the nonce values as per RFC.                  |
-| AWS tunnel Phase 2 was unable to establish while keeping Phase 1              | Peer was unable to establish CHILD_SA due to negotiation error — for example, incorrect<br>proposal.                                            |
-| AWS: Traffic Selector: TS_UNACCEPTABLE: received from responder               | Peer has proposed Incorrect Traffic Selectors/Encryption Domain. Peers should be configured with identical and correct CIDRs.                   |
-| AWS tunnel is sending AUTHENTICATION_FAILED as the response                   | Peer is unable to Authenticate the Peer by verifying IKE_AUTH message's contents                                                                |
-| AWS tunnel detected a pre-shared key mismatch with cgw: xxxx                  | Same Pre-Shared key needs to be configured on both IKE Peers.                                                                                   |
-| AWS tunnel Timeout: deleting un-established Phase 1 IKE_SA with cgw: xxxx     | Deleting the half-opened IKE_SA as peer has not proceeded with negotiations                                                                     |
-| No Proposal Match Found. Notifying with "No proposal chosen"                  | No Proposal Chosen error message is exchanged between Peers to inform that correct Proposals must be configured on IKE Peers.                   |
-| No Proposal Match Found by AWS                                                | Proposed Attributes for Phase 1 or Phase 2 (Encryption, Hashing and DH Group) are not<br>supported by AWS VPN Endpoint— for example,<br>`3DES`. |
+| Message                                                                        | Explanation                                                                                                                                     |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS tunnel DPD timed out after {retry\_count}<br>retransmits                   | Peer has not responded to DPD Messages, enforcing DPD<br>time-out action.                                                                       |
+| AWS tunnel received DELETE for IKE\_SA from CGW                                | Peer has sent the Delete\_SA message for<br>Parent/IKE\_SA.                                                                                     |
+| AWS tunnel received DELETE for Phase 2 SA with SPI:<br>xxxx                    | Peer has sent the Delete\_SA message for CHILD\_SA.                                                                                             |
+| AWS tunnel detected a (CHILD\_REKEY) collision as CHILD\_DELETE                | CGW has sent the Delete\_SA message for the Active SA, which is being rekeyed.                                                                  |
+| AWS tunnel (CHILD\_SA) redundant SA is being deleted due to detected collision | Due to Collision, If redundant SAs are generated, Peers will close redundant SA after matching<br>the nonce values as per RFC.                  |
+| AWS tunnel Phase 2 was unable to establish while keeping Phase 1               | Peer was unable to establish CHILD\_SA due to negotiation error — for example, incorrect<br>proposal.                                           |
+| AWS: Traffic Selector: TS\_UNACCEPTABLE: received from responder               | Peer has proposed Incorrect Traffic Selectors/Encryption Domain. Peers should be configured with identical and correct CIDRs.                   |
+| AWS tunnel is sending AUTHENTICATION\_FAILED as the response                   | Peer is unable to Authenticate the Peer by verifying IKE\_AUTH message's contents                                                               |
+| AWS tunnel detected a pre-shared key mismatch with cgw: xxxx                   | Same Pre-Shared key needs to be configured on both IKE Peers.                                                                                   |
+| AWS tunnel Timeout: deleting un-established Phase 1 IKE\_SA with cgw: xxxx     | Deleting the half-opened IKE\_SA as peer has not proceeded with negotiations                                                                    |
+| No Proposal Match Found. Notifying with "No proposal chosen"                   | No Proposal Chosen error message is exchanged between Peers to inform that correct Proposals must be configured on IKE Peers.                   |
+| No Proposal Match Found by AWS                                                 | Proposed Attributes for Phase 1 or Phase 2 (Encryption, Hashing and DH Group) are not<br>supported by AWS VPN Endpoint— for example,<br>`3DES`. |
 
 ### IKEv2 Negotiation Messages
 
-| Message                                                     | Explanation                                               |
-| ----------------------------------------------------------- | --------------------------------------------------------- |
-| AWS tunnel processed request (id=xxx) for CREATE_CHILD_SA   | AWS has received the CREATE_CHILD_SA request from<br>CGW. |
-| AWS tunnel is sending response (id=xxx) for CREATE_CHILD_SA | AWS is sending CREATE_CHILD_SA response to CGW.           |
-| AWS tunnel is sending request (id=xxx) for CREATE_CHILD_SA  | AWS is sending CREATE_CHILD_SA request to CGW.            |
-| AWS tunnel processed response (id=xxx) for CREATE_CHILD_SA  | AWS has received CREATE_CHILD_SA response form<br>CGW.    |
+| Message                                                       | Explanation                                                 |
+| ------------------------------------------------------------- | ----------------------------------------------------------- |
+| AWS tunnel processed request (id=xxx) for CREATE\_CHILD\_SA   | AWS has received the CREATE\_CHILD\_SA request from<br>CGW. |
+| AWS tunnel is sending response (id=xxx) for CREATE\_CHILD\_SA | AWS is sending CREATE\_CHILD\_SA response to CGW.           |
+| AWS tunnel is sending request (id=xxx) for CREATE\_CHILD\_SA  | AWS is sending CREATE\_CHILD\_SA request to CGW.            |
+| AWS tunnel processed response (id=xxx) for CREATE\_CHILD\_SA  | AWS has received CREATE\_CHILD\_SA response form<br>CGW.    |
 
 ### BGP Status Messages
 

@@ -64,11 +64,10 @@ device supports Border Gateway Protocol (BGP):
      **Static**.
 
 15. For **Tunnel inside IP version**, specify whether the VPN
-    tunnels support IPv4 or IPv6 traffic.
-16. (Optional) If you specified **IPv4** for **Tunnel
-    inside IP Version**, you can optionally specify the IPv4 CIDR
-    ranges for the customer gateway and AWS sides that are allowed to communicate
-    over the VPN tunnels. The default is `0.0.0.0/0`.
+tunnels support IPv4 or IPv6 traffic. 16. (Optional) If you specified **IPv4** for **Tunnel
+inside IP Version**, you can optionally specify the IPv4 CIDR
+ranges for the customer gateway and AWS sides that are allowed to communicate
+over the VPN tunnels. The default is `0.0.0.0/0`.
 
 If you specified **IPv6** for **Tunnel inside IP
 version**, you can optionally specify the IPv6 CIDR ranges for the

@@ -81,7 +81,7 @@ tunnel to check if the tunnel is up.
    and specify a priority of 1.
 5. Select **Ping**.
 6. Repeat steps 3 and 4 for the second tunnel, using the `VGW
-Tunnel IP` value under the `IPSec Tunnel #2`
+ Tunnel IP` value under the `IPSec Tunnel #2`
    section of the configuration file. Specify a priority of 2.
 
 ![Check Point Edit Destination Route dialog box](images/check-point-static-routes.png) 7. Choose **Save**.
@@ -191,11 +191,11 @@ settings.
 10. Select the peer name for the first tunnel, choose
     **Edit**, and then enter the pre-shared key as
     specified in the configuration file in the `IPSec Tunnel
-#1` section.
+ #1` section.
 11. Select the peer name for the second tunnel, choose
     **Edit**, and then enter the pre-shared key as
     specified in the configuration file in the `IPSec Tunnel
-#2` section.
+ #2` section.
 
 ![Check Point Interoperable Shared Secret dialog box](images/check-point-shared-secret.png) 12. Still in the **Advanced Settings** category,
 choose **Advanced VPN Properties**, configure the
@@ -266,7 +266,7 @@ local network. You then install the policy on your gateway.
 7. In the dialog box, choose your gateway and choose
    **OK** to install the policy.
 
-###### To modify the tunnel_keepalive_method property
+###### To modify the tunnel\_keepalive\_method property
 
 Your Check Point gateway can use Dead Peer Detection (DPD) to identify
 when an IKE association is down. To configure DPD for a permanent
@@ -297,7 +297,7 @@ the GuiDBedit tool.
    **Domain Management Server**.
 6. In the upper left pane, choose **Table**,
    **Network Objects**,
-   **network_objects**.
+   **network\_objects**.
 7. In the upper right pane, select the relevant **Security
    Gateway**, **Cluster** object.
 8. Press CTRL+F, or use the **Search** menu to
@@ -327,7 +327,7 @@ TCP MSS clamping reduces the maximum segment size of TCP packets to
 prevent packet fragmentation.
 
 1. Navigate to the following directory: `C:\Program Files
-(x86)\CheckPoint\SmartConsole\R77.10\PROGRAM\`.
+ (x86)\CheckPoint\SmartConsole\R77.10\PROGRAM\`.
 2. Open the Check Point Database Tool by running the
    `GuiDBEdit.exe` file.
 3. Choose **Table**, **Global
@@ -464,7 +464,7 @@ information:
      that's typically designated for public IP addresses.
 
 7. Choose **OK**. On the
-   **Settings** page, the
-   **Enable** check box for the tunnel should be
-   selected by default. A green dot indicates that the tunnel is
-   up.
+**Settings** page, the
+**Enable** check box for the tunnel should be
+selected by default. A green dot indicates that the tunnel is
+up.

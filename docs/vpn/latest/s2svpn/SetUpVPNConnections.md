@@ -301,21 +301,21 @@ tunnels. The default for both ranges is `::/0`. 10. For **Outside IP address typ
     * **IPv6** - Use IPv6 addresses for the outer tunnel IPs. This option is only available for VPN connections on a transit gateway or Cloud WAN.
 
 11. (Optional) For **Tunnel options**, you can specify the
-    following information for each tunnel:
+following information for each tunnel:
 
-    - A size /30 IPv4 CIDR block from the `169.254.0.0/16` range
-      for the inside tunnel IPv4 addresses.
-    - If you specified **IPv6** for **Tunnel inside
-      IP version**, a /126 IPv6 CIDR block from the
-      `fd00::/8` range for the inside tunnel IPv6
-      addresses.
-    - The IKE pre-shared key (PSK). The following versions are supported:
-      IKEv1 or IKEv2.
-    - To edit the advanced options for your tunnel, choose **Edit tunnel options**.
-      For more information, see [VPN tunnel options](VPNTunnels.md "VPNTunnels.md").
+    * A size /30 IPv4 CIDR block from the `169.254.0.0/16` range
+     for the inside tunnel IPv4 addresses.
+    * If you specified **IPv6** for **Tunnel inside
+     IP version**, a /126 IPv6 CIDR block from the
+     `fd00::/8` range for the inside tunnel IPv6
+     addresses.
+    * The IKE pre-shared key (PSK). The following versions are supported:
+     IKEv1 or IKEv2.
+    * To edit the advanced options for your tunnel, choose **Edit tunnel options**.
+     For more information, see [VPN tunnel options](VPNTunnels.md "VPNTunnels.md").
 
 12. Choose **Create VPN connection**. It might take a few minutes
-    to create the VPN connection.
+to create the VPN connection.
 
 ###### To create a VPN connection using the command line or API
 

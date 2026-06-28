@@ -56,13 +56,13 @@ Bandwidth Tunnels is designed to be used in the following use cases:
 
 Large Bandwidth Tunnels are available in all Regions except the following:
 
-| Unavailable AWS Regions | AWS Region               | Description |
-| ----------------------- | ------------------------ | ----------- |
-| ap-southeast-4          | Asia Pacific (Melbourne) |
-| ca-west-1               | Canada West (Calgary)    |
-| eu-central-2            | Europe (Zurich)          |
-| il-central-1            | Israel (Tel Aviv)        |
-| me-central-1            | Middle East (UAE)        |
+Unavailable AWS Regions| AWS Region | Description |
+| --- | --- |
+| ap-southeast-4 | Asia Pacific (Melbourne) |
+| ca-west-1 | Canada West (Calgary) |
+| eu-central-2 | Europe (Zurich) |
+| il-central-1 | Israel (Tel Aviv) |
+| me-central-1 | Middle East (UAE) |
 
 ### Requirements and limitations
 

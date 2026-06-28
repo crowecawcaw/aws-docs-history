@@ -83,15 +83,15 @@ the following:
      `::/0`
 
 12. For **Outside IP address type**, choose one of the following
-    options:
+options:
 
-    - **Public IPv4** - (Default) Use IPv4 addresses for the
-      outer tunnel IPs.
-    - **Private IPv4** - Use a private IPv4 address for use
-      within private networks.
-    - **IPv6** - Use IPv6 addresses for the outer tunnel IPs.
-      This option requires that your customer gateway device supports IPv6
-      addressing.
+    * **Public IPv4** - (Default) Use IPv4 addresses for the
+     outer tunnel IPs.
+    * **Private IPv4** - Use a private IPv4 address for use
+     within private networks.
+    * **IPv6** - Use IPv6 addresses for the outer tunnel IPs.
+     This option requires that your customer gateway device supports IPv6
+     addressing.
 
 ###### Note
 
@@ -117,5 +117,4 @@ following information for each tunnel:
      [Tunnel endpoint lifecycle](tunnel-endpoint-lifecycle.md "tunnel-endpoint-lifecycle.md").
 
 14. (Optional) Choose **Tunnel 2 options** and follow the previous
-    steps to set up a second tunnel.
-15. Choose **Create VPN connection**.
+steps to set up a second tunnel. 15. Choose **Create VPN connection**.
