@@ -79,10 +79,6 @@ With Distributor, you can deploy software packages to Amazon Elastic Compute Clo
 and AWS IoT Greengrass core devices for Linux and Windows Server. For a list of supported
 instance operating system types, see [Supported package platforms and architectures](#what-is-a-package-platforms "#what-is-a-package-platforms").
 
-###### Note
-
-Distributor isn't supported on the macOS operating system.
-
 - **Deploy packages one time, or on an automated
   schedule**
 
@@ -162,19 +158,22 @@ Systems Manager doesn't support all of the following operating systems for AWS I
 devices. For more information, see [Setting up AWS IoT Greengrass core
 devices](../../../greengrass/v2/developerguide/setting-up.md "../../../greengrass/v2/developerguide/setting-up.md") in the _AWS IoT Greengrass Version 2 Developer Guide_.
 
-| Platform                             | Code value in manifest file | Supported architectures                                                |
-| ------------------------------------ | --------------------------- | ---------------------------------------------------------------------- |
-| AlmaLinux                            | `almalinux`                 | x86_64<br>ARM64                                                        |
-| Amazon Linux 2 and Amazon Linux 2023 | `amazon`                    | x86_64 or x86<br>ARM64 (Amazon Linux 2 and AL2023, A1 instance types)  |
-| Debian Server                        | `debian`                    | x86_64 or x86                                                          |
-| openSUSE                             | `opensuse`                  | x86_64                                                                 |
-| openSUSE Leap                        | `opensuseleap`              | x86_64                                                                 |
-| Oracle Linux                         | `oracle`                    | x86_64                                                                 |
-| Red Hat Enterprise Linux (RHEL)      | `redhat`                    | x86_64<br>ARM64 (RHEL 7.6 and later, A1 instance types)                |
-| Rocky Linux                          | `rocky`                     | x86_64<br>ARM64                                                        |
-| SUSE Linux Enterprise Server (SLES)  | `suse`                      | x86_64                                                                 |
-| Ubuntu Server                        | `ubuntu`                    | x86_64 or x86<br>ARM64 (Ubuntu Server 16 and later, A1 instance types) |
-| Windows Server                       | `windows`                   | x86_64                                                                 |
+| Platform                             | Code value in manifest file | Supported architectures                                                 |
+| ------------------------------------ | --------------------------- | ----------------------------------------------------------------------- |
+| AlmaLinux                            | `almalinux`                 | x86\_64<br>ARM64                                                        |
+| Amazon Linux 2 and Amazon Linux 2023 | `amazon`                    | x86\_64 or x86<br>ARM64 (Amazon Linux 2 and AL2023, A1 instance types)  |
+| Bottlerocket                         | `bottlerocket`              | x86\_64<br>ARM64                                                        |
+| Debian Server                        | `debian`                    | x86\_64 or x86                                                          |
+| Fedora Linux                         | `fedora`                    | x86\_64<br>ARM64                                                        |
+| macOS                                | `mac_os_x`                  | x86\_64<br>ARM64                                                        |
+| openSUSE                             | `opensuse`                  | x86\_64                                                                 |
+| openSUSE Leap                        | `opensuseleap`              | x86\_64                                                                 |
+| Oracle Linux                         | `oracle`                    | x86\_64                                                                 |
+| Red Hat Enterprise Linux (RHEL)      | `redhat`                    | x86\_64<br>ARM64 (RHEL 7.6 and later, A1 instance types)                |
+| Rocky Linux                          | `rocky`                     | x86\_64<br>ARM64                                                        |
+| SUSE Linux Enterprise Server (SLES)  | `suse`                      | x86\_64                                                                 |
+| Ubuntu Server                        | `ubuntu`                    | x86\_64 or x86<br>ARM64 (Ubuntu Server 16 and later, A1 instance types) |
+| Windows Server                       | `windows`                   | x86\_64                                                                 |
 
 ###### Topics
 

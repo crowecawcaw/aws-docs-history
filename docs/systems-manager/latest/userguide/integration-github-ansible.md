@@ -68,13 +68,13 @@ a `SecureString` parameter, see [Creating Parameter Store parameters in Systems 
    `branch`. For example:
 
    `"getOptions":
- "commitID:bbc1ddb94...b76d3bEXAMPLE",`
+  "commitID:bbc1ddb94...b76d3bEXAMPLE",`
    - In the **Command Line** field, enter
      parameters for the script execution. Here is an
      example.
 
    `ansible-playbook -i “localhost,” --check -c
- local webserver.yml`
+  local webserver.yml`
    - (Optional) In the **Working Directory**
      field, enter the name of a directory on the node where you
      want to download and run the script.
@@ -97,24 +97,25 @@ tips. 7. For **Other parameters**:
 
 8. For **Rate control**:
 
-   - For **Concurrency**, specify either a number or a percentage of
+    * For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
 
-   ###### Note
 
-   If you selected targets by specifying tags applied to managed nodes or by
-   specifying AWS resource groups, and you aren't certain how many managed
-   nodes are targeted, then restrict the number of targets that can run the
-   document at the same time by specifying a percentage.
-   - For **Error threshold**, specify when to stop running the command
+    ###### Note
+
+    If you selected targets by specifying tags applied to managed nodes or by
+     specifying AWS resource groups, and you aren't certain how many managed
+     nodes are targeted, then restrict the number of targets that can run the
+     document at the same time by specifying a percentage.
+    * For **Error threshold**, specify when to stop running the command
      on other managed nodes after it fails on either a number or a percentage of nodes.
      For example, if you specify three errors, then Systems Manager stops sending the command when
      the fourth error is received. Managed nodes still processing the command might also
      send errors.
 
 9. (Optional) For **Output options**, to save the command output to a file,
-   select the **Write command output to an S3 bucket** box. Enter the bucket
-   and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 

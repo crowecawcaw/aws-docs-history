@@ -68,8 +68,7 @@ bucket-naming conventions, see [Bucket Restrictions and Limitations](../../../Am
      account to store session log data.
 
 7. (Optional) For **S3 key prefix**, enter the name of an
-   existing or new folder to store logs in the selected bucket.
-8. Choose **Save**.
-   For more information about working with Amazon S3 and Amazon S3 buckets, see the
-   _[Amazon Simple Storage Service User Guide](../../../AmazonS3/latest/userguide.md "../../../AmazonS3/latest/userguide.md")_ and the
-   _[Amazon Simple Storage Service User Guide](../../../AmazonS3/latest/userguide.md "../../../AmazonS3/latest/userguide.md")_.
+existing or new folder to store logs in the selected bucket. 8. Choose **Save**.
+For more information about working with Amazon S3 and Amazon S3 buckets, see the
+_[Amazon Simple Storage Service User Guide](../../../AmazonS3/latest/userguide.md "../../../AmazonS3/latest/userguide.md")_ and the
+_[Amazon Simple Storage Service User Guide](../../../AmazonS3/latest/userguide.md "../../../AmazonS3/latest/userguide.md")_.

@@ -130,8 +130,8 @@ cloud:
     For more information about creating this role, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
 
 7. For **Activation expiry date**, specify an expiration
-   date for the activation. The expiry date must be in the future, and not more
-   than 30 days into the future. The default value is 24 hours.
+date for the activation. The expiry date must be in the future, and not more
+than 30 days into the future. The default value is 24 hours.
 
 ###### Note
 

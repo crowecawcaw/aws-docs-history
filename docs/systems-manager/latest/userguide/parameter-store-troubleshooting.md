@@ -53,29 +53,26 @@ the parameter isn't available.
   This process can take up to a few minutes. To monitor the parameter
   creation and validation process, you can do the following:
 
-      + Use EventBridge to send you notifications about your
-       `create` and `update` parameter
-       operations. These notifications report whether a parameter
-       operation was successful or not. For information about
-       subscribing to Parameter Store events in EventBridge, see [Setting up notifications or triggering actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").
-      + In the Parameter Store section of the Systems Manager console, refresh the list
-       of parameters periodically to search for the new or updated
-       parameter details.
-      + Use the **GetParameter** command to check for
-       the new or updated parameter. For example, using the AWS Command Line Interface
-       (AWS CLI):
+  - Use EventBridge to send you notifications about your
+    `create` and `update` parameter
+    operations. These notifications report whether a parameter
+    operation was successful or not. For information about
+    subscribing to Parameter Store events in EventBridge, see [Setting up notifications or triggering actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").
+  - In the Parameter Store section of the Systems Manager console, refresh the list
+    of parameters periodically to search for the new or updated
+    parameter details.
+  - Use the **GetParameter** command to check for
+    the new or updated parameter. For example, using the AWS Command Line Interface
+    (AWS CLI):
 
+  ```
+  aws ssm get-parameter name `MyParameter`
+  ```
 
-
-      ```
-      aws ssm get-parameter name `MyParameter`
-      ```
-
-      For a new parameter, a `ParameterNotFound` message
-       is returned until the parameter is validated. For an existing
-       parameter that you're updating, information about the new
-       version isn't included until the parameter is validated.
-
+  For a new parameter, a `ParameterNotFound` message
+  is returned until the parameter is validated. For an existing
+  parameter that you're updating, information about the new
+  version isn't included until the parameter is validated.
   If you attempt to create or update the parameter again before the
   validation process is complete, the system reports that validation is
   still in process. If the parameter isn't created or updated, you can try

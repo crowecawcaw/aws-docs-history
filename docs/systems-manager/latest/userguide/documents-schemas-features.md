@@ -17,14 +17,14 @@ By using the latest schema version for `Command` and
 `Policy` documents, you can take advantage of the following
 features.
 
-| Schema version 2.2 document features | Feature                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Details |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Document editing                     | Documents can now be updated. With version 1.2, any update to<br>a document required that you save it with a different<br>name.                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Automatic versioning                 | Any update to a document creates a new version. This isn't a<br>schema version, but a version of the document.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Default version                      | If you have multiple versions of a document, you can specify<br>which version is the default document.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Sequencing                           | Plugins or \*steps<br>• in a document run in the<br>order that you specified.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Cross-platform support               | Cross-platform support allows you to specify different<br>operating systems for different plugins within the same SSM<br>document. Cross-platform support uses the<br>`precondition` parameter within a step.                                                                                                                                                                                                                                                                                                                                   |
-| Parameter interpolation              | Interpolation means to insert or substitute a variable<br>value into a string. Think of it as filling in a blank space<br>with actual values before the string is used. In the context of<br>SSM documents, parameter interpolation allows string<br>parameters to be interpolated into environment variables before<br>command execution, providing better security against command<br>injections. When set to `ENV_VAR`, the agent creates<br>an environment variable named<br>`SSM_`parameter-name``<br>that contains the parameter's value. |
+Schema version 2.2 document features| Feature | Details |
+| --- | --- |
+| Document editing | Documents can now be updated. With version 1.2, any update to<br>a document required that you save it with a different<br>name. |
+| Automatic versioning | Any update to a document creates a new version. This isn't a<br>schema version, but a version of the document. |
+| Default version | If you have multiple versions of a document, you can specify<br>which version is the default document. |
+| Sequencing | Plugins or *steps<br>• in a document run in the<br>order that you specified. |
+| Cross-platform support | Cross-platform support allows you to specify different<br>operating systems for different plugins within the same SSM<br>document. Cross-platform support uses the<br>`precondition` parameter within a step. |
+| Parameter interpolation | Interpolation means to insert or substitute a variable<br>value into a string. Think of it as filling in a blank space<br>with actual values before the string is used. In the context of<br>SSM documents, parameter interpolation allows string<br>parameters to be interpolated into environment variables before<br>command execution, providing better security against command<br>injections. When set to `ENV_VAR`, the agent creates<br>an environment variable named<br>`SSM_`parameter-name``<br>that contains the parameter's value. |
 
 ###### Note
 
@@ -358,8 +358,9 @@ JSON
 On SSM Agent versions prior to 3.3.2746.0, the agent ignores the
 `interpolationType` parameter and instead performs a raw
 string substitution. If you are referencing
-`SSM_`parameter-name`` explicitly, you must set this explicitly. In the following example for
- Linux, the`SSM_Message` environment variable is referenced
+`SSM_`parameter-name``
+explicitly, you must set this explicitly. In the following example for
+Linux, the `SSM_Message` environment variable is referenced
 explicitly.
 
 ```
@@ -1093,7 +1094,7 @@ documents:
 
 - **Use environment variable
   interpolation** - Always use `interpolationType:
-"ENV_VAR"` for string parameters that will be used in command
+ "ENV_VAR"` for string parameters that will be used in command
   execution.
 - **Implement input validation** - Use
   `allowedPattern` to restrict parameter values to safe

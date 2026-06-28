@@ -45,87 +45,96 @@ monitor the current state of the execution. For more information, see
     * For issues reported in the **Network configurations
      issues** section, continue with the next step.
 
-6.  In the list of finding types, in the **Recommendations**
-    column, for a particular issue, choose the link, such as **2
-    recommendations**.
-7.  In the **Recommendations** pane that opens, choose from
-    the available mitigations:
+6. In the list of finding types, in the **Recommendations**
+column, for a particular issue, choose the link, such as **2
+recommendations**. 7. In the **Recommendations** pane that opens, choose from
+the available mitigations:
 
-    - **Learn more** – Open a topic with
-      information about how to resolve an issue manually.
-    - **View runbook** – Open a pane with
-      information about the Automation runbook you can execute to resolve
-      the issue with your EC2 instances, as well as options for generating
-      a _preview_ of the actions that runbook would
-      take. Continue with the next step.
+    * **Learn more** – Open a topic with
+     information about how to resolve an issue manually.
+    * **View runbook** – Open a pane with
+     information about the Automation runbook you can execute to resolve
+     the issue with your EC2 instances, as well as options for generating
+     a *preview* of the actions that runbook would
+     take. Continue with the next step.
 
-8.  In the runbook pane, do the following:
+8. In the runbook pane, do the following:
 
     1. For **Document description**, review the content,
-       which provides an overview of the actions the runbook can take to
-       remediate your unmanaged EC2 instance issues. Choose **View
-       steps** to preview the individual actions the runbook
-       would take.
+     which provides an overview of the actions the runbook can take to
+     remediate your unmanaged EC2 instance issues. Choose **View
+     steps** to preview the individual actions the runbook
+     would take.
     2. For **Targets**, do the following:
 
-       - If you are managing remediations for an organization, for
-         **Accounts**, specify whether this
-         runbook would target all accounts, or only a subset of
-         accounts you choose.
-       - For **Regions**, specify whether this
-         runbook would target all AWS Regions in your account or
-         organization, or only a subset of Regions you choose.
 
+
+
+    	* If you are managing remediations for an organization, for
+    	 **Accounts**, specify whether this
+    	 runbook would target all accounts, or only a subset of
+    	 accounts you choose.
+    	* For **Regions**, specify whether this
+    	 runbook would target all AWS Regions in your account or
+    	 organization, or only a subset of Regions you choose.
     3. For **Runbook preview**, carefully review the
-       information. This information explains what the scope and impact
-       would be if you choose to execute the runbook.
+     information. This information explains what the scope and impact
+     would be if you choose to execute the runbook.
+
 
     ###### Note
 
     Choosing to execute the runbook would incur charges. Review
-    the preview information carefully before deciding whether to
-    proceed.
+     the preview information carefully before deciding whether to
+     proceed.
+
 
     The **Runbook preview** content provides the
-    following information:
-
-        * How many Regions the runbook operation would occur
-         in.
-        * (Organizations only) How many organizational units (OUs)
-         the operation would run in.
-        * The types of actions that would be taken, and how many of
-         each.
-
-
-        Action types include the following:
+     following information:
 
 
 
 
-        	+ **Mutating**: The
-        	 runbook step would make changes to the targets
-        	 through actions that create, modify, or delete
-        	 resources.
-        	+ **Non-mutating**: The
-        	 runbook step would retrieve data about resources but
-        	 not make changes to them. This category generally
-        	 includes `Describe*`, `List*`,
-        	 `Get*`, and similar read-only API
-        	 actions.
-        	+ **Undetermined**: An
-        	 undetermined step invokes executions performed by
-        	 another orchestration service like AWS Lambda,
-        	 AWS Step Functions, or AWS Systems Manager Run Command. An undetermined
-        	 step might also call a third-party API. Systems Manager
-        	 Automation doesn’t know the outcome of the
-        	 orchestration processes or third-party API
-        	 executions, so the results of the steps are
-        	 undetermined.
-    4.  At this point, you can choose one of the following actions:
+    	* How many Regions the runbook operation would occur
+    	 in.
+    	* (Organizations only) How many organizational units (OUs)
+    	 the operation would run in.
+    	* The types of actions that would be taken, and how many of
+    	 each.
 
-            * Stop and do not execute the runbook.
-            * Choose **Execute** to run the runbook
-             with the options you have already selected.If you choose to run the operation, choose **View
 
-        progress** or **View executions\*\* to monitor
-        the current state of the execution. For more information, see [Viewing execution progress and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md").
+    	Action types include the following:
+
+
+
+
+    		+ **Mutating**: The
+    		 runbook step would make changes to the targets
+    		 through actions that create, modify, or delete
+    		 resources.
+    		+ **Non-mutating**: The
+    		 runbook step would retrieve data about resources but
+    		 not make changes to them. This category generally
+    		 includes `Describe*`, `List*`,
+    		 `Get*`, and similar read-only API
+    		 actions.
+    		+ **Undetermined**: An
+    		 undetermined step invokes executions performed by
+    		 another orchestration service like AWS Lambda,
+    		 AWS Step Functions, or AWS Systems Manager Run Command. An undetermined
+    		 step might also call a third-party API. Systems Manager
+    		 Automation doesn’t know the outcome of the
+    		 orchestration processes or third-party API
+    		 executions, so the results of the steps are
+    		 undetermined.
+    4. At this point, you can choose one of the following actions:
+
+
+
+
+    	* Stop and do not execute the runbook.
+    	* Choose **Execute** to run the runbook
+    	 with the options you have already selected.If you choose to run the operation, choose **View
+
+progress** or **View executions** to monitor
+the current state of the execution. For more information, see [Viewing execution progress and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md").

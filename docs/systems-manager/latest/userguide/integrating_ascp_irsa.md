@@ -75,7 +75,7 @@ You can view most errors by describing the Pod deployment.
 
 1. Get a list of Pod names with the following command. If you aren't
    using the default namespace, use `-n
-`name-space``.
+ `name-space``.
 
 ```
 kubectl get pods
@@ -85,7 +85,7 @@ kubectl get pods
    `pod-id` use the Pod ID from the Pods
    you found in the previous step. If you aren't using the default
    namespace, use `-n
-`nameSpace``.
+ `nameSpace``.
 
 ```
 kubectl describe pod/`pod-id`

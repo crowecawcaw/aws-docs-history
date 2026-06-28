@@ -117,13 +117,13 @@ in your fleet that are out of patch compliance.
 2. In the navigation pane, choose
    **Findings**.
 3. Choose the **Add filters** (
-   ![The Search icon](/images/systems-manager/latest/userguide/images/search-icon.png)
+   ![The Search icon](images/search-icon.png)
    ) box.
 4. In the menu, under **Filters**, choose
    **Product name**.
 5. In the dialog box that opens, choose **is** in
    the first field and then enter `Systems Manager
-Patch Manager` in the second field.
+ Patch Manager` in the second field.
 6. Choose **Apply**.
 7. Add any additional filters you want to help narrow down your
    results.

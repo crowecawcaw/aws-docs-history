@@ -6,22 +6,21 @@ make calls to IPv6 service endpoints.
 
 ###### To patch a server in an IPv6 only environment
 
-1.  Ensure that SSM Agent version 3.3270.0 or later is installed on the managed
-    node.
-2.  On the managed node, navigate to the SSM Agent configuration file. You can
-    find the `amazon-ssm-agent.json` file in the following
-    directories:
+1. Ensure that SSM Agent version 3.3270.0 or later is installed on the managed
+   node.
+2. On the managed node, navigate to the SSM Agent configuration file. You can
+   find the `amazon-ssm-agent.json` file in the following
+   directories:
 
-        * Linux: `/etc/amazon/ssm/`
-        * macOS: `/opt/aws/ssm/`
-        * Windows Server: `C:\Program Files\Amazon\SSM`
+   - Linux: `/etc/amazon/ssm/`
+   - macOS: `/opt/aws/ssm/`
+   - Windows Server: `C:\Program Files\Amazon\SSM`
+     If `amazon-ssm-agent.json` doesn't exist yet, copy the
+     contents of `amazon-ssm-agent.json.template` under the
+     same directory to `amazon-ssm-agent.json`.
 
-    If `amazon-ssm-agent.json` doesn't exist yet, copy the
-    contents of `amazon-ssm-agent.json.template` under the
-    same directory to `amazon-ssm-agent.json`.
-
-3.  Update the following entry to set the correct Region and set
-    `UseDualStackEndpoint` to `true`:
+3. Update the following entry to set the correct Region and set
+   `UseDualStackEndpoint` to `true`:
 
 ```
 {
@@ -34,35 +33,34 @@ make calls to IPv6 service endpoints.
 }
 ```
 
-4.  Restart the SSM Agent service using the appropriate command for your
-    operating system:
+4. Restart the SSM Agent service using the appropriate command for your
+   operating system:
 
-        * Linux: `sudo systemctl restart amazon-ssm-agent`
-        * Ubuntu Server using Snap: `sudo snap restart
-         amazon-ssm-agent`
-        * macOS: `sudo launchctl stop com.amazon.aws.ssm`
-         followed by `sudo launchctl start
-         com.amazon.aws.ssm`
-        * Windows Server: `Stop-Service AmazonSSMAgent` followed by
-         `Start-Service AmazonSSMAgent`
+   - Linux: `sudo systemctl restart amazon-ssm-agent`
+   - Ubuntu Server using Snap: `sudo snap restart
+  amazon-ssm-agent`
+   - macOS: `sudo launchctl stop com.amazon.aws.ssm`
+     followed by `sudo launchctl start
+  com.amazon.aws.ssm`
+   - Windows Server: `Stop-Service AmazonSSMAgent` followed by
+     `Start-Service AmazonSSMAgent`
+     For the full list of commands per operating system, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md").
 
-    For the full list of commands per operating system, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md").
-
-5.  Execute any patching operation to verify patching operations succeed in
-    your IPv6-only environment. Ensure that the nodes being patched have
-    connectivity to the patch source. You can check the Run Command output from the
-    patching execution to check for warnings about inaccessible repositories.
-    When patching a node that is running in an IPv6 only environment, ensure
-    that the node has connectivity to the patch source. You can check the
-    Run Command output from the patching execution to check for warnings about
-    inaccessible repositories. For DNF-based operating systems, it is possible
-    to configure unavailable repositories to be skipped during patching if the
-    `skip_if_unavailable` option is set to `True`
-    under `/etc/dnf/dnf.conf`. DNF-based operating systems
-    include Amazon Linux 2023, Red Hat Enterprise Linux 8 and later versions, Oracle Linux 8 and
-    later versions, Rocky Linux, AlmaLinux, & CentOS 8 and later versions. On
-    Amazon Linux 2023, the `skip_if_unavailable` option is set to
-    `True` by default.
+5. Execute any patching operation to verify patching operations succeed in
+   your IPv6-only environment. Ensure that the nodes being patched have
+   connectivity to the patch source. You can check the Run Command output from the
+   patching execution to check for warnings about inaccessible repositories.
+   When patching a node that is running in an IPv6 only environment, ensure
+   that the node has connectivity to the patch source. You can check the
+   Run Command output from the patching execution to check for warnings about
+   inaccessible repositories. For DNF-based operating systems, it is possible
+   to configure unavailable repositories to be skipped during patching if the
+   `skip_if_unavailable` option is set to `True`
+   under `/etc/dnf/dnf.conf`. DNF-based operating systems
+   include Amazon Linux 2023, Red Hat Enterprise Linux 8 and later versions, Oracle Linux 8 and
+   later versions, Rocky Linux, AlmaLinux, & CentOS 8 and later versions. On
+   Amazon Linux 2023, the `skip_if_unavailable` option is set to
+   `True` by default.
 
 ###### Note
 

@@ -1,7 +1,8 @@
 # Install the Session Manager plugin on Windows
 
-You can install the Session Manager plugin on Windows Vista or later using
-the standalone installer.
+You can install the Session Manager plugin on 64-bit Windows 10 or
+later, or Windows Server 2016 or later, using the standalone
+installer.
 
 When updates are released, you must repeat the installation process to get the
 latest version of the Session Manager plugin.
@@ -45,7 +46,7 @@ default directory.
     * `%PROGRAMFILES%\Amazon\SessionManagerPlugin\bin\`
 
 3. Verify that the installation was successful. For information, see
-   [Verify the Session Manager plugin installation](install-plugin-verify.md "install-plugin-verify.md").
+[Verify the Session Manager plugin installation](install-plugin-verify.md "install-plugin-verify.md").
 
 ###### Note
 

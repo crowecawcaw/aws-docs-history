@@ -25,7 +25,7 @@ accounts.
 - [Before you begin](#OpsCenter-before-you-begin "#OpsCenter-before-you-begin")
 - [Step 1: Creating a resource data sync](#OpsCenter-getting-started-multiple-accounts-onboarding-rds "#OpsCenter-getting-started-multiple-accounts-onboarding-rds")
 - [Step 2: Enabling the Systems Manager service principal in AWS Organizations](#OpsCenter-getting-started-multiple-accounts-onboarding-service-principal "#OpsCenter-getting-started-multiple-accounts-onboarding-service-principal")
-- [Step 3: Creating the AWSServiceRoleForAmazonSSM_AccountDiscovery service-linked role](#OpsCenter-getting-started-multiple-accounts-onboarding-SLR "#OpsCenter-getting-started-multiple-accounts-onboarding-SLR")
+- [Step 3: Creating the AWSServiceRoleForAmazonSSM\_AccountDiscovery service-linked role](#OpsCenter-getting-started-multiple-accounts-onboarding-SLR "#OpsCenter-getting-started-multiple-accounts-onboarding-SLR")
 - [Step 4: Configuring permissions to work with OpsItems across accounts](#OpsCenter-getting-started-multiple-accounts-onboarding-resource-policy "#OpsCenter-getting-started-multiple-accounts-onboarding-resource-policy")
 - [Step 5: Configuring permissions to work with related resources across accounts](#OpsCenter-getting-started-multiple-accounts-onboarding-related-resources-permissions "#OpsCenter-getting-started-multiple-accounts-onboarding-related-resources-permissions")
 

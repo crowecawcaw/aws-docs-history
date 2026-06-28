@@ -103,19 +103,16 @@ following.
      in [Step 2: Create the JSON package manifest](#packages-manifest "#packages-manifest").
 
 9. For **Platform version**, verify that the operating
-   system platform version shown is either `_any`, a
-   major release version followed by a wildcard (7.\*), or the exact
-   operating system release version to which you want your software to
-   apply. For more information about specifying an operating system
-   platform version, see step 4 in [Step 2: Create the JSON package manifest](#packages-manifest "#packages-manifest").
-10. For **Architecture**, choose the correct processor
-    architecture for each installable file from the dropdown list. For more
-    information about supported processor architectures, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms "distributor.md#what-is-a-package-platforms").
-11. (Optional) Expand **Scripts**, and review the scripts
-    that Distributor generates for your installable software.
-12. (Optional) To provide an update script for use with in-place updates,
-    expand **Scripts**, choose the **Update
-    script** tab, and enter your update script commands.
+system platform version shown is either `_any`, a
+major release version followed by a wildcard (7.\*), or the exact
+operating system release version to which you want your software to
+apply. For more information about specifying an operating system
+platform version, see step 4 in [Step 2: Create the JSON package manifest](#packages-manifest "#packages-manifest"). 10. For **Architecture**, choose the correct processor
+architecture for each installable file from the dropdown list. For more
+information about supported processor architectures, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms "distributor.md#what-is-a-package-platforms"). 11. (Optional) Expand **Scripts**, and review the scripts
+that Distributor generates for your installable software. 12. (Optional) To provide an update script for use with in-place updates,
+expand **Scripts**, choose the **Update
+script** tab, and enter your update script commands.
 
 Systems Manager doesn't generate update scripts on your behalf. 13. To add more installable software files, choose **Add
 software**. Otherwise, go to the next step. 14. (Optional) Expand **Manifest**, and review the JSON
@@ -206,7 +203,7 @@ The following item is optional in each .zip file:
   makes it possible for you to use the `In-place update`
   option to install a package. When you want to add new or updated
   files to an existing package installation, the `In-place
-update` option doesn't take the package application
+ update` option doesn't take the package application
   offline while the update is performed. Windows Server-based managed nodes
   require a PowerShell script (script named
   `update.ps1`). Linux-based managed nodes

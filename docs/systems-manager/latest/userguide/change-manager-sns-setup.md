@@ -46,7 +46,7 @@ send notifications for the events you add the topic for.
 4. Expand **Access policy**.
 5. Add and update the following `Sid` block to the
    existing policy and replace each `user input
-placeholder` with your own information .
+ placeholder` with your own information .
 
 ```
 {

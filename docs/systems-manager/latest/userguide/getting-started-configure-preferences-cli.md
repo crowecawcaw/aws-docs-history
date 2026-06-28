@@ -90,9 +90,8 @@ information, see the following topics:
     * Add AWS KMS permissions for managed nodes in your account:
      [Step 2: Verify or add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md").
 
-3. Save the file.
-4. In the directory where you created the JSON file, run the following
-   command.
+3. Save the file. 4. In the directory where you created the JSON file, run the following
+command.
 
 Linux & macOS
 

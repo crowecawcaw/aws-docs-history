@@ -34,8 +34,8 @@ rule to run:
      role**.
 
 11. In **Additional settings**, for **Configure
-    target input**, choose **Input
-    Transformer**.
+target input**, choose **Input
+Transformer**.
 
 You can use the **Input transformer** option to specify a
 deduplication string and other important information for OpsItems, such as

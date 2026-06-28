@@ -197,7 +197,7 @@ various AWS resources, including a few other service consoles. Some examples:
 - **AWS Config rule identifier**:
   `EC2_INSTANCE_MANAGED_BY_SSM`
 - **AWS Command Line Interface (AWS CLI) commands**: `aws ssm
-describe-patch-baselines`
+ describe-patch-baselines`
 - **AWS Identity and Access Management (IAM) managed policy names**:
   `AmazonSSMReadOnlyAccess`
 - **Systems Manager resource ARNs**:

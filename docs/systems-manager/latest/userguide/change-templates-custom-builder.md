@@ -197,10 +197,10 @@ the following:
     	 notification**.
 
 8. (Optional) To add an additional level of approvers, choose
-   **Add approval level** and choose between
-   template-specified approvers and request-specified approvers for
-   this level. Then choose an SNS topic to notify this level of
-   approvers.
+**Add approval level** and choose between
+template-specified approvers and request-specified approvers for
+this level. Then choose an SNS topic to notify this level of
+approvers.
 
 After all approvals have been received by first-level approvers,
 second-level approvers are notified, and so on.
@@ -250,7 +250,7 @@ following:
     2. Choose **Add notification**.
 
 11. (Optional) In the **Tags** section, apply one or
-    more tag key name/value pairs to the change template.
+more tag key name/value pairs to the change template.
 
 Tags are optional metadata that you assign to a resource. By using
 tags, you can categorize a resource in different ways, such as by
@@ -262,8 +262,7 @@ following key name/value pairs:
     * `Key=TaskType,Value=InstanceRepair`
     * `Key=Environment,Value=Production`
 
-12. Choose **Save and preview**.
-13. Review the details of the change template you're creating.
+12. Choose **Save and preview**. 13. Review the details of the change template you're creating.
 
 If you want to make change to the change template before
 submitting it for review, choose **Actions,

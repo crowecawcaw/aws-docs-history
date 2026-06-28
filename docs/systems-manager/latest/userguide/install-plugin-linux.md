@@ -5,7 +5,7 @@ Use the following procedure to install the Session Manager plugin on Amazon Linu
 
 1. Download and install the Session Manager plugin RPM package.
 
-x86_64
+x86\_64
 On Amazon Linux 2 and RHEL 7, run the following
 command:
 

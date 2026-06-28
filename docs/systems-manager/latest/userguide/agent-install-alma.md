@@ -44,7 +44,7 @@ Even though URLs in the following commands include an
 `ec2-downloads-windows` directory, these
 are the correct global installation files for AlmaLinux.
 
-x86_64 instances
+x86\_64 instances
 
 ```
 sudo dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
@@ -119,7 +119,7 @@ information. For a list of supported `region` values, see the
 **Region** column in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
 _Amazon Web Services General Reference_.
 
-**x86_64**
+**x86\_64**
 
 ```
 sudo dnf install -y https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_amd64/amazon-ssm-agent.rpm

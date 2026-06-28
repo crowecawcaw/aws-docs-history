@@ -433,7 +433,7 @@ The following examples demonstrate different ways to use attachments with the
 This example shows how to use a single Python file as an attachment to process
 EC2 instance data.
 
-###### Attachment file: process_instance.py
+###### Attachment file: process\_instance.py
 
 Create a Python file with the following content:
 

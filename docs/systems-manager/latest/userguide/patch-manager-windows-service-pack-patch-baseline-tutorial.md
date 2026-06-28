@@ -84,7 +84,7 @@ use the fields to create one or more auto-approval rules.
      specified.
 
 9. (Optional) For **Manage tags**, apply one or more tag key
-   name/value pairs to the patch baseline.
+name/value pairs to the patch baseline.
 
 Tags are optional metadata that you assign to a resource. Tags allow you
 to categorize a resource in different ways, such as by purpose, owner, or

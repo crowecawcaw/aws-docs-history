@@ -193,8 +193,8 @@ tips. 6. For **Rate control**:
      send errors.
 
 7. (Optional) For **Output options**, to save the command output to a file,
-   select the **Write command output to an S3 bucket** box. Enter the bucket
-   and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 
@@ -297,8 +297,8 @@ tips. 8. For **Rate control**:
      send errors.
 
 9. (Optional) For **Output options**, to save the command output to a file,
-   select the **Write command output to an S3 bucket** box. Enter the bucket
-   and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 
@@ -379,8 +379,8 @@ tips. 6. For **Rate control**:
      send errors.
 
 7. (Optional) For **Output options**, to save the command output to a file,
-   select the **Write command output to an S3 bucket** box. Enter the bucket
-   and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 
@@ -431,8 +431,8 @@ tips. 6. For **Status**, choose `Disabled`. 7. For **Rate control**:
      send errors.
 
 8. (Optional) For **Output options**, to save the command output to a file,
-   select the **Write command output to an S3 bucket** box. Enter the bucket
-   and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 
@@ -546,8 +546,8 @@ tips. 7. For **Rate control**:
      send errors.
 
 8. (Optional) For **Output options**, to save the command output to a file,
-   select the **Write command output to an S3 bucket** box. Enter the bucket
-   and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 
@@ -599,8 +599,8 @@ tips. 7. For **Rate control**:
      send errors.
 
 8. (Optional) For **Output options**, to save the command output to a file,
-   select the **Write command output to an S3 bucket** box. Enter the bucket
-   and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 

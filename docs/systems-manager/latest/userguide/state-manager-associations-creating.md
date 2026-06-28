@@ -162,7 +162,7 @@ Note the following information about this step.
      or automations do not run.
 
 9. For **Targets**, choose an option. For information
-   about using targets, see [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md").
+about using targets, see [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md").
 
 ###### Note
 
@@ -212,8 +212,8 @@ option:
      associations on additional targets.
 
 14. (Optional) For **Output options**, to save the command output to a file,
-    select the **Enable writing output to S3** box. Enter the bucket and prefix
-    (folder) names in the boxes.
+select the **Enable writing output to S3** box. Enter the bucket and prefix
+(folder) names in the boxes.
 
 ###### Note
 

@@ -57,9 +57,8 @@ proxy service (if IMDSv1 fallback is enabled) or calls to Systems Manager fail
      in the *Amazon EC2 User Guide*.
 
 3. Save the file with the name
-   `amazon-ssm-agent.override` in the following
-   location: `/etc/init/`
-4. Stop and restart SSM Agent using the following commands.
+`amazon-ssm-agent.override` in the following
+location: `/etc/init/` 4. Stop and restart SSM Agent using the following commands.
 
 ```
 sudo service stop amazon-ssm-agent
@@ -142,32 +141,42 @@ proxy service (if IMDSv1 fallback is enabled) or calls to Systems Manager fail
      in the *Amazon EC2 User Guide*.
 
 4. Save your changes. The system automatically creates one of the
-   following files, depending on the operating system type.
+following files, depending on the operating system type.
 
-   - On Ubuntu Server instances where SSM Agent is installed by using
+    * On Ubuntu Server instances where SSM Agent is installed by using
      a snap:
 
-   `/etc/systemd/system/snap.amazon-ssm-agent.amazon-ssm-agent.service.d/**override.conf**`
-   - On Amazon Linux 2, Amazon Linux 2023, and RHEL instances:
 
-   `/etc/systemd/system/amazon-ssm-agent.service.d/**override.conf**`
-   - On other operating systems:
 
-   `/etc/systemd/system/amazon-ssm-agent.service.d/**amazon-ssm-agent.override**`
+    `/etc/systemd/system/snap.amazon-ssm-agent.amazon-ssm-agent.service.d/**override.conf**`
+    * On Amazon Linux 2, Amazon Linux 2023, and RHEL instances:
+
+
+
+    `/etc/systemd/system/amazon-ssm-agent.service.d/**override.conf**`
+    * On other operating systems:
+
+
+
+    `/etc/systemd/system/amazon-ssm-agent.service.d/**amazon-ssm-agent.override**`
 
 5. Restart SSM Agent by using one of the following commands, depending on
-   the operating system type.
+the operating system type.
 
-   - On Ubuntu Server instances installed by using a snap:
+    * On Ubuntu Server instances installed by using a snap:
 
-   ```
-   sudo systemctl daemon-reload && sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
-   ```
-   - On other operating systems:
 
-   ```
-   sudo systemctl daemon-reload && sudo systemctl restart amazon-ssm-agent
-   ```
+
+    ```
+    sudo systemctl daemon-reload && sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
+    ```
+    * On other operating systems:
+
+
+
+    ```
+    sudo systemctl daemon-reload && sudo systemctl restart amazon-ssm-agent
+    ```
 
 ###### Note
 

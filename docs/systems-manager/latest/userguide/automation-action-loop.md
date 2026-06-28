@@ -160,9 +160,7 @@ Required: Yes
 
 CurrentIteration
 
-The current loop iteration as an integer. Iteration values start at
-
-1.
+The current loop iteration as an integer. Iteration values start at 1.
 
 Type: Integer
 

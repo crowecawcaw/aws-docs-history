@@ -61,11 +61,10 @@ resource data syncs:
   aggregation in opt-in Regions. Support was added for the following
   opt-in Regions on June 30, 2025.
 
-      + Europe (Milan)
-      + Africa (Cape Town)
-      + Middle East (Bahrain)
-      + Asia Pacific (Hong Kong)
-
-  Note that you can't use a delegated administrator account to
-  create a resource data sync in opt-in Regions. You must use an
-  AWS Organizations management account.
+  - Europe (Milan)
+  - Africa (Cape Town)
+  - Middle East (Bahrain)
+  - Asia Pacific (Hong Kong)
+    Note that you can't use a delegated administrator account to
+    create a resource data sync in opt-in Regions. You must use an
+    AWS Organizations management account.

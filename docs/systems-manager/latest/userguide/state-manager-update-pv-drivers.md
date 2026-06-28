@@ -82,8 +82,8 @@ along with the severity level you indicate here. For more information, see [Abou
      send errors.
 
 11. (Optional) For **Output options**, to save the command output to a file,
-    select the **Enable writing output to S3** box. Enter the bucket and prefix
-    (folder) names in the boxes.
+select the **Enable writing output to S3** box. Enter the bucket and prefix
+(folder) names in the boxes.
 
 ###### Note
 
@@ -112,8 +112,8 @@ Note the following information about this step.
      automations do not run.
 
 13. Choose **Create association**, and then choose
-    **Close**. The system attempts to create the association on
-    the instances and immediately apply the state.
+**Close**. The system attempts to create the association on
+the instances and immediately apply the state.
 
 If you created the association on one or more Amazon EC2 instances for Windows Server,
 the status changes to **Success**. If your instances aren't

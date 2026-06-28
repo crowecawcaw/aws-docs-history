@@ -36,11 +36,13 @@ access:
   are supported. For more information, see the following topics in the
   _IAM User Guide_:
 - - [Temporary
-    security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") + [Comparing AWS STS credentials](../../../IAM/latest/UserGuide/id_credentials_sts-comparison.md "../../../IAM/latest/UserGuide/id_credentials_sts-comparison.md") + [Requesting temporary security credentials](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md")
-    The following IAM policies outline the permissions needed to administer and allow
-    users to create just-in-time node access requests to nodes with Systems Manager. After verifying
-    you have the required permissions to use just-in-time node access with Systems Manager, you can
-    continue the setting up process. Replace each `example resource
+    security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md")
+    - [Comparing AWS STS credentials](../../../IAM/latest/UserGuide/id_credentials_sts-comparison.md "../../../IAM/latest/UserGuide/id_credentials_sts-comparison.md")
+    - [Requesting temporary security credentials](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md")
+      The following IAM policies outline the permissions needed to administer and allow
+      users to create just-in-time node access requests to nodes with Systems Manager. After verifying
+      you have the required permissions to use just-in-time node access with Systems Manager, you can
+      continue the setting up process. Replace each `example resource
  placeholder` with your own information.
 
 JSON

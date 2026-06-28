@@ -38,8 +38,8 @@ helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets
 
 3. Install the chart. To configure throttling, add the following
    flag: `--set-json 'k8sThrottlingParams={"qps":
-"`number of queries per second`",
-"burst": "`number of queries per
+ "`number of queries per second`",
+ "burst": "`number of queries per
    second`"}'`
 
 ```

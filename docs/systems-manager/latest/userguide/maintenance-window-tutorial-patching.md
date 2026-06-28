@@ -55,7 +55,7 @@ to become inactive. This allows you to set a date and time in the future
 after which the maintenance window no longer runs. 12. (Optional) For **Schedule timezone**, specify the time
 zone to base scheduled maintenance window executions on, in Internet
 Assigned Numbers Authority (IANA) format. For example:
-"America/Los_Angeles", "etc/UTC", or "Asia/Seoul".
+"America/Los\_Angeles", "etc/UTC", or "Asia/Seoul".
 
 For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones") on the
 IANA website. 13. (Optional) In the **Manage tags** area, apply one or more
@@ -69,52 +69,42 @@ following key name/value pair:
 
     * `Key=TaskType,Value=Patching`
 
-14. Choose **Create maintenance window**.
-15. In the maintenance windows list, choose the maintenance window you just
-    created, and then choose **Actions**, **Register
-    targets**.
-16. (Optional) In the **Maintenance window target details**
-    section, provide a name, a description, and owner information (your name or
-    alias) for this target.
-17. For **Target selection**, choose **Specify
-    instance tags**.
-18. For **Specify instance tags**, enter a tag key and a tag
-    value to identify the nodes to register with the maintenance window, and
-    then choose **Add**.
-19. Choose **Register target**. The system creates a
-    maintenance window target.
-20. In the details page of the maintenance window you created, choose
-    **Actions**, **Register Run command
-    task**.
-21. (Optional) For **Maintenance window task details**,
-    provide a name and description for this task.
-22. For **Command document**, choose
-    `AWS-RunPatchBaseline`.
-23. For **Task priority**, choose a priority. Zero
-    (`0`) is the highest priority.
-24. For **Targets**, under **Target by**,
-    choose the maintenance window target you created earlier in this
-    procedure.
-25. For **Rate control**:
+14. Choose **Create maintenance window**. 15. In the maintenance windows list, choose the maintenance window you just
+created, and then choose **Actions**, **Register
+targets**. 16. (Optional) In the **Maintenance window target details**
+section, provide a name, a description, and owner information (your name or
+alias) for this target. 17. For **Target selection**, choose **Specify
+instance tags**. 18. For **Specify instance tags**, enter a tag key and a tag
+value to identify the nodes to register with the maintenance window, and
+then choose **Add**. 19. Choose **Register target**. The system creates a
+maintenance window target. 20. In the details page of the maintenance window you created, choose
+**Actions**, **Register Run command
+task**. 21. (Optional) For **Maintenance window task details**,
+provide a name and description for this task. 22. For **Command document**, choose
+`AWS-RunPatchBaseline`. 23. For **Task priority**, choose a priority. Zero
+(`0`) is the highest priority. 24. For **Targets**, under **Target by**,
+choose the maintenance window target you created earlier in this
+procedure. 25. For **Rate control**:
 
-    - For **Concurrency**, specify either a number or a percentage of
-      managed nodes on which to run the command at the same time.
+    * For **Concurrency**, specify either a number or a percentage of
+     managed nodes on which to run the command at the same time.
+
 
     ###### Note
 
     If you selected targets by specifying tags applied to managed nodes or by
-    specifying AWS resource groups, and you aren't certain how many managed
-    nodes are targeted, then restrict the number of targets that can run the
-    document at the same time by specifying a percentage.
-    - For **Error threshold**, specify when to stop running the command
-      on other managed nodes after it fails on either a number or a percentage of nodes.
-      For example, if you specify three errors, then Systems Manager stops sending the command when
-      the fourth error is received. Managed nodes still processing the command might also
-      send errors.
+     specifying AWS resource groups, and you aren't certain how many managed
+     nodes are targeted, then restrict the number of targets that can run the
+     document at the same time by specifying a percentage.
+    * For **Error threshold**, specify when to stop running the command
+     on other managed nodes after it fails on either a number or a percentage of nodes.
+     For example, if you specify three errors, then Systems Manager stops sending the command when
+     the fourth error is received. Managed nodes still processing the command might also
+     send errors.
 
 26. (Optional) For **IAM service role**, choose a role to
-    provide permissions for Systems Manager to assume when running a maintenance window
-    task.
+provide permissions for Systems Manager to assume when running a maintenance window
+task.
 
 If you don't specify a service role ARN, Systems Manager uses a service-linked role
 in your account. If no appropriate service-linked role for Systems Manager exists in
@@ -171,9 +161,9 @@ For more information about configuring Amazon SNS notifications for Run Command,
      is considered unsuccessful.
 
 30. Choose **Register Run command task**.
-    After the maintenance window task is complete, you can view patch compliance
-    details in the Systems Manager console in the [Fleet Manager](fleet-manager.md "fleet-manager.md")
-    tool.
+After the maintenance window task is complete, you can view patch compliance
+details in the Systems Manager console in the [Fleet Manager](fleet-manager.md "fleet-manager.md")
+tool.
 
 You can also view compliance information in the [Patch Manager](patch-manager.md "patch-manager.md") tool, on the **Compliance reporting** tab.
 

@@ -75,7 +75,7 @@ using Run Command, a tool in AWS Systems Manager.
 
 1. To reset the password for a user on a managed node, run the following
    command. Replace each `example resource
-placeholder` with your own information.
+ placeholder` with your own information.
 
 ###### Note
 

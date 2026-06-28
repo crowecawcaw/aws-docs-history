@@ -447,7 +447,7 @@ Amazon EC2 instance using the Amazon EC2 console.
    role**.
 5. For **IAM role**, select the instance profile you
    created using the procedure in [Alternative configuration for EC2 instance permissions](#instance-profile-add-permissions "#instance-profile-add-permissions").
-6. Choose **Update **IAM role\*\*\*\*.
+6. Choose **Update **IAM role****.
 
 For more information about attaching IAM roles to instances, choose one of the
 following, depending on your selected operating system type:

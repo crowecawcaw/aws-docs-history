@@ -2,7 +2,7 @@
 
 1. Download the Session Manager plugin deb package.
 
-x86_64
+x86\_64
 
 ```
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"

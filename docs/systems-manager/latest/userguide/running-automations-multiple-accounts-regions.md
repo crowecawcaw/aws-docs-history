@@ -98,7 +98,7 @@ automations.
 -or-
 
 If your accounts are managed by AWS Organizations [`AWS-SystemsManager-AutomationAdministrationRole
-(org).zip`](samples/AWS-SystemsManager-AutomationAdministrationRole (org).zip.md "samples/AWS-SystemsManager-AutomationAdministrationRole (org).zip.md").
+ (org).zip`](samples/AWS-SystemsManager-AutomationAdministrationRole (org).zip.md "samples/AWS-SystemsManager-AutomationAdministrationRole (org).zip.md").
 
 These files contain the
 `AWS-SystemsManager-AutomationAdministrationRole.yaml`
@@ -115,8 +115,8 @@ any options you want to use. Choose **Next**. 10. On the **Review** page, scroll
 **I acknowledge that CloudFormation might create IAM resources with
 custom names** option. 11. Choose **Create stack**.
 
-CloudFormation shows the **CREATE_IN_PROGRESS** status for approximately
-three minutes. The status changes to **CREATE_COMPLETE**.
+CloudFormation shows the **CREATE\_IN\_PROGRESS** status for approximately
+three minutes. The status changes to **CREATE\_COMPLETE**.
 
 You must repeat the following procedure in _every_ account that
 you want to target to run multi-Region and multi-account automations.
@@ -128,7 +128,7 @@ you want to target to run multi-Region and multi-account automations.
 -or
 
 If your accounts are managed by AWS Organizations [`AWS-SystemsManager-AutomationExecutionRole
-(org).zip`](samples/AWS-SystemsManager-AutomationExecutionRole (org).zip.md "samples/AWS-SystemsManager-AutomationExecutionRole (org).zip.md").
+ (org).zip`](samples/AWS-SystemsManager-AutomationExecutionRole (org).zip.md "samples/AWS-SystemsManager-AutomationExecutionRole (org).zip.md").
 
 These files contains the
 `AWS-SystemsManager-AutomationExecutionRole.yaml` and
@@ -150,8 +150,8 @@ any options you want to use. Choose **Next**. 12. On the **Review** page, scroll
 **I acknowledge that CloudFormation might create IAM resources with
 custom names** option. 13. Choose **Create stack**.
 
-CloudFormation shows the **CREATE_IN_PROGRESS** status for approximately
-three minutes. The status changes to **CREATE_COMPLETE**.
+CloudFormation shows the **CREATE\_IN\_PROGRESS** status for approximately
+three minutes. The status changes to **CREATE\_COMPLETE**.
 
 ## Run an automation in multiple Regions and accounts (console)
 
@@ -201,87 +201,90 @@ the following version options:
     * **1 (Default)** – Choose this option to run the first
      version of the document, which is the default.
 
-5. Choose **Next**.
-6. On the **Execute automation document** page, choose
-   **Multi-account and Region**.
-7. In the **Target accounts and Regions** section, use the
-   **Accounts, organizational units (OUs), and roots**
-   field to specify the different AWS accounts or AWS organizational units
-   (OUs) where you want to run the automation. Separate multiple accounts or
-   OUs with a comma.
+5. Choose **Next**. 6. On the **Execute automation document** page, choose
+**Multi-account and Region**. 7. In the **Target accounts and Regions** section, use the
+**Accounts, organizational units (OUs), and roots**
+field to specify the different AWS accounts or AWS organizational units
+(OUs) where you want to run the automation. Separate multiple accounts or
+OUs with a comma.
 
-   1. (Optional) Select the **Include child OUs**
-      checkbox to include all child organizational units within the
-      specified OUs.
-   2. (Optional) In the **Exclude accounts and organizational
-      units (OUs)** field, enter a comma-separated list of
-      account IDs and OU IDs that you want to exclude from the expanded
-      entities entered above.
+    1. (Optional) Select the **Include child OUs**
+     checkbox to include all child organizational units within the
+     specified OUs.
+    2. (Optional) In the **Exclude accounts and organizational
+     units (OUs)** field, enter a comma-separated list of
+     account IDs and OU IDs that you want to exclude from the expanded
+     entities entered above.
 
 8. Use the **Regions** list to choose one or more Regions
-   where you want to run the automation.
-9. Use the **Multi-Region and account rate control** options
-   to restrict the automation to a limited number of accounts running in a
-   limited number of Regions. These options don't restrict the number of AWS
-   resources that can run the automations.
+where you want to run the automation. 9. Use the **Multi-Region and account rate control** options
+to restrict the automation to a limited number of accounts running in a
+limited number of Regions. These options don't restrict the number of AWS
+resources that can run the automations.
 
-   1. In the **Location (account-Region pair)
-      concurrency** section, choose an option to restrict the
-      number of automations that can run in multiple accounts and Regions
-      at the same time. For example, if you choose to run an automation in
-      five (5) AWS accounts, which are located in four (4)
-      AWS Regions, then Systems Manager runs automations in a total of 20
-      account-Region pairs. You can use this option to specify an absolute
-      number, such as `2`, so that the automation
-      only runs in two account-Region pairs at the same time. Or you can
-      specify a percentage of the account-Region pairs that can run at the
-      same time. For example, with 20 account-Region pairs, if you specify
-      20%, then the automation simultaneously runs in a maximum of five
-      (5) account-Region pairs.
+    1. In the **Location (account-Region pair)
+     concurrency** section, choose an option to restrict the
+     number of automations that can run in multiple accounts and Regions
+     at the same time. For example, if you choose to run an automation in
+     five (5) AWS accounts, which are located in four (4)
+     AWS Regions, then Systems Manager runs automations in a total of 20
+     account-Region pairs. You can use this option to specify an absolute
+     number, such as `2`, so that the automation
+     only runs in two account-Region pairs at the same time. Or you can
+     specify a percentage of the account-Region pairs that can run at the
+     same time. For example, with 20 account-Region pairs, if you specify
+     20%, then the automation simultaneously runs in a maximum of five
+     (5) account-Region pairs.
 
-      - Choose **targets** to enter an absolute
-        number of account-Region pairs that can run the automation
-        simultaneously.
-      - Choose **percent** to enter a percentage
-        of the total number of account-Region pairs that can run the
-        automation simultaneously.
 
-   2. In the **Error threshold** section, choose an
-      option:
 
-      - Choose **errors** to enter an absolute
-        number of errors allowed before Automation stops sending the
-        automation to other resources.
-      - Choose **percent** to enter a percentage
-        of errors allowed before Automation stops sending the
-        automation to other resources.
+
+    	* Choose **targets** to enter an absolute
+    	 number of account-Region pairs that can run the automation
+    	 simultaneously.
+    	* Choose **percent** to enter a percentage
+    	 of the total number of account-Region pairs that can run the
+    	 automation simultaneously.
+    2. In the **Error threshold** section, choose an
+     option:
+
+
+
+
+    	* Choose **errors** to enter an absolute
+    	 number of errors allowed before Automation stops sending the
+    	 automation to other resources.
+    	* Choose **percent** to enter a percentage
+    	 of errors allowed before Automation stops sending the
+    	 automation to other resources.
 
 10. In the **Targets** section, choose how you want to target the AWS
-    resources where you want to run the Automation. These options are required.
+resources where you want to run the Automation. These options are required.
 
     1. Use the **Parameter** list to choose a parameter. The items in
-       the **Parameter** list are determined by the parameters in the
-       Automation runbook that you selected at the start of this procedure. By choosing a
-       parameter you define the type of resource on which the Automation workflow runs.
+     the **Parameter** list are determined by the parameters in the
+     Automation runbook that you selected at the start of this procedure. By choosing a
+     parameter you define the type of resource on which the Automation workflow runs.
     2. Use the **Targets** list to choose how you want to target
-       resources.
+     resources.
 
-       1. If you chose to target resources by using parameter values, then enter the
-          parameter value for the parameter you chose in the **Input
-          parameters** section.
-       2. If you chose to target resources by using AWS Resource Groups, then choose the name
-          of the group from the **Resource Group** list.
-       3. If you chose to target resources by using tags, then enter the tag key and
-          (optionally) the tag value in the fields provided. Choose
-          **Add**.
-       4. If you want to run an Automation runbook on all instances in the current
-          AWS account and AWS Region, then choose **All
-          instances**.
+
+    	1. If you chose to target resources by using parameter values, then enter the
+    	 parameter value for the parameter you chose in the **Input
+    	 parameters** section.
+    	2. If you chose to target resources by using AWS Resource Groups, then choose the name
+    	 of the group from the **Resource Group** list.
+    	3. If you chose to target resources by using tags, then enter the tag key and
+    	 (optionally) the tag value in the fields provided. Choose
+    	 **Add**.
+    	4. If you want to run an Automation runbook on all instances in the current
+    	 AWS account and AWS Region, then choose **All
+    	 instances**.
 
 11. In the **Input parameters** section, specify the required
-    inputs. Choose the
-    `AWS-SystemsManager-AutomationAdministrationRole` IAM
-    service role from the **AutomationAssumeRole** list.
+inputs. Choose the
+`AWS-SystemsManager-AutomationAdministrationRole` IAM
+service role from the **AutomationAssumeRole** list.
 
 ###### Note
 
@@ -311,10 +314,10 @@ In the **Concurrency** section, choose an option:
 
 14. In the **Error threshold** section, choose an option:
 
-    - Choose **errors** to enter an absolute number of errors
-      allowed before Automation stops sending the workflow to other resources.
-    - Choose **percentage** to enter a percentage of errors allowed
-      before Automation stops sending the workflow to other resources.
+    * Choose **errors** to enter an absolute number of errors
+     allowed before Automation stops sending the workflow to other resources.
+    * Choose **percentage** to enter a percentage of errors allowed
+     before Automation stops sending the workflow to other resources.
 
 15. Choose **Execute**.
 

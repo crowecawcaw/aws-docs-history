@@ -11,7 +11,7 @@ use Distributor, a tool in AWS Systems Manager.
 - [Package isn't supported (package is missing install action)](#distributor-tshoot-4 "#distributor-tshoot-4")
 - [Error: Failed to download manifest : Document with name does not exist](#distributor-tshoot-5 "#distributor-tshoot-5")
 - [Upload failed.](#distributor-tshoot-6 "#distributor-tshoot-6")
-- [Error: Failed to find platform: no manifest found for platform: oracle, version 8.9, architecture x86_64](#distributor-tshoot-7 "#distributor-tshoot-7")
+- [Error: Failed to find platform: no manifest found for platform: oracle, version 8.9, architecture x86\_64](#distributor-tshoot-7 "#distributor-tshoot-7")
 
 ## Wrong package with the same name is installed
 
@@ -119,7 +119,7 @@ Upload failed. At least one of your files was not successfully uploaded to your 
 **Cause:** The name of your software package includes
 a space. For example, `Hello World.msi` would fail to upload.
 
-## Error: Failed to find platform: no manifest found for platform: oracle, version 8.9, architecture x86_64
+## Error: Failed to find platform: no manifest found for platform: oracle, version 8.9, architecture x86\_64
 
 **Problem:** You received an error like the
 following.

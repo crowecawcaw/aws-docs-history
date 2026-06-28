@@ -36,7 +36,7 @@ aws ssm list-document-versions \
 
 4. Run the following command to run a command that uses an SSM
    document version. Replace each `example resource
-placeholder` with your own information.
+ placeholder` with your own information.
 
 ```
 aws ssm send-command \
@@ -73,7 +73,7 @@ aws ssm list-document-versions ^
 
 4. Run the following command to run a command that uses an SSM
    document version. Replace each `example resource
-placeholder` with your own information.
+ placeholder` with your own information.
 
 ```
 aws ssm send-command ^
@@ -110,7 +110,7 @@ Get-SSMDocumentVersionList `
 
 4. Run the following command to run a command that uses an SSM
    document version. Replace each `example resource
-placeholder` with your own information.
+ placeholder` with your own information.
 
 ```
 Send-SSMCommand `

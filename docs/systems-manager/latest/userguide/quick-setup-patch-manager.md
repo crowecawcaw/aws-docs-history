@@ -269,30 +269,31 @@ targets daily at 1:00 AM UTC.
      nodes as they become targets.
 
 7. If you chose **Scan and install**, choose the
-   **Installation schedule** to use when installing
-   patches to the specified targets. If you choose **Use
-   recommended defaults**, Patch Manager will install weekly
-   patches at 2:00 AM UTC on Sunday.
+**Installation schedule** to use when installing
+patches to the specified targets. If you choose **Use
+recommended defaults**, Patch Manager will install weekly
+patches at 2:00 AM UTC on Sunday.
 
-   - If you choose **Custom install schedule**,
+    * If you choose **Custom install schedule**,
      select the **Installation Frequency**.
-   - If you choose **Daily**, enter the time, in
+    * If you choose **Daily**, enter the time, in
      UTC, that you want to install updates on your targets.
-   - If you choose **Custom CRON expression**,
+    * If you choose **Custom CRON expression**,
      enter the schedule as a **CRON expression**.
      For more information about formatting CRON expressions for
      Systems Manager, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
-   Also, clear **Wait to install updates until first CRON
-   interval** to immediately install updates on nodes
-   as they become targets. By default, Patch Manager waits until the
-   first CRON interval to install updates.
-   - Choose **Reboot if needed** to reboot the
+
+    Also, clear **Wait to install updates until first CRON
+     interval** to immediately install updates on nodes
+     as they become targets. By default, Patch Manager waits until the
+     first CRON interval to install updates.
+    * Choose **Reboot if needed** to reboot the
      nodes after patch installation. Rebooting after installation is
      recommended but can cause availability issues.
 
 8. In the **Patch baseline** section, choose the patch
-   baselines to use when scanning and updating your targets.
+baselines to use when scanning and updating your targets.
 
 By default, Patch Manager uses the predefined patch baselines. For more
 information, see [Predefined baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-pre-defined "patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-pre-defined").
@@ -380,45 +381,47 @@ configuration.
     	 to.
 
 12. For **Choose how you want to target instances**,
-    choose one of the following to identify the nodes to patch:
+choose one of the following to identify the nodes to patch:
 
-    - **All managed nodes** – All managed
-      nodes in the selected OUs and Regions.
-    - **Specify the resource group** –
-      Choose the name of a resource group from the list to target its
-      associated resources.
+    * **All managed nodes** – All managed
+     nodes in the selected OUs and Regions.
+    * **Specify the resource group** –
+     Choose the name of a resource group from the list to target its
+     associated resources.
+
 
     ###### Note
 
     Currently, selecting resource groups is supported only for
-    single account configurations. To patch resources in
-    multiple accounts, choose a different targeting
-    option.
-    - **Specify a node tag** – Only nodes
-      tagged with the key-value pair that you specify are patched in
-      all accounts and Regions you have targeted.
-    - **Manual** – Choose managed nodes from
-      all specified accounts and Regions manually from a list.
+     single account configurations. To patch resources in
+     multiple accounts, choose a different targeting
+     option.
+    * **Specify a node tag** – Only nodes
+     tagged with the key-value pair that you specify are patched in
+     all accounts and Regions you have targeted.
+    * **Manual** – Choose managed nodes from
+     all specified accounts and Regions manually from a list.
+
 
     ###### Note
 
     This option currently supports only Amazon EC2 instances. You
-    can add a maximum of 25 instances manually in a patch policy
-    configuration.
+     can add a maximum of 25 instances manually in a patch policy
+     configuration.
 
 13. In the **Rate control** section, do the
-    following:
+following:
 
-    - For **Concurrency**, enter a number or
-      percentage of nodes to run the patch policy on at the same
-      time.
-    - For **Error threshold**, enter the number or
-      percentage of nodes that can experience an error before the
-      patch policy fails.
+    * For **Concurrency**, enter a number or
+     percentage of nodes to run the patch policy on at the same
+     time.
+    * For **Error threshold**, enter the number or
+     percentage of nodes that can experience an error before the
+     patch policy fails.
 
 14. (Optional) Select the **Add required IAM policies to
-    existing instance profiles attached to your instances**
-    check box.
+existing instance profiles attached to your instances**
+check box.
 
 This selection applies the IAM policies created by this Quick Setup
 configuration to nodes that already have an instance profile attached

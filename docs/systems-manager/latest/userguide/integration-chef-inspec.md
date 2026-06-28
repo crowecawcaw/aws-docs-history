@@ -142,8 +142,8 @@ you want the Compliance scan to run. 10. For **Rate control**:
      send errors.
 
 11. (Optional) For **Output options**, to save the command output to a file,
-    select the **Write command output to an S3 bucket** box. Enter the bucket
-    and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 

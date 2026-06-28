@@ -7,35 +7,34 @@ presents comprehensive information about the node.
 
 ###### To view individual node details and take action on a node
 
-1.  Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2.  In the navigation pane, choose **Explore nodes**.
-3.  (Optional) Follow the steps in [Choosing a filter view for managed node summaries](explore-nodes-filter-view.md "explore-nodes-filter-view.md") to refine the list of managed
-    nodes displayed for your organization or account.
-4.  In the **Node ID** column, choose the linked ID of a
-    node.
-5.  To view more details about the node, in the left navigation, in the
-    **Properties** list, choose a property to view more
-    information about:
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
+2. In the navigation pane, choose **Explore nodes**.
+3. (Optional) Follow the steps in [Choosing a filter view for managed node summaries](explore-nodes-filter-view.md "explore-nodes-filter-view.md") to refine the list of managed
+   nodes displayed for your organization or account.
+4. In the **Node ID** column, choose the linked ID of a
+   node.
+5. To view more details about the node, in the left navigation, in the
+   **Properties** list, choose a property to view more
+   information about:
 
-        * **Tags** – View a list of tags applied to the
-         node. You can also add or remove tags.
-        * **Inventory** – Choose an inventory type, such
-         as **AWS:Application** or
-         **AWS:Network**, to view inventory details for the
-         node.
-        * **Associations** – View details about all
-         State Manager associations applied to the node, including details such as
-         status and associated SSM document name.
-        * **Patches** – View summary information about
-         patches and patch status for the node.
-        * **Configuration compliance** – View compliance
-         details for the node, such as compliance status and compliance issue
-         severity.
+   - **Tags** – View a list of tags applied to the
+     node. You can also add or remove tags.
+   - **Inventory** – Choose an inventory type, such
+     as **AWS:Application** or
+     **AWS:Network**, to view inventory details for the
+     node.
+   - **Associations** – View details about all
+     State Manager associations applied to the node, including details such as
+     status and associated SSM document name.
+   - **Patches** – View summary information about
+     patches and patch status for the node.
+   - **Configuration compliance** – View compliance
+     details for the node, such as compliance status and compliance issue
+     severity.
+     For more information about details on the tabs, see [What is the unified console?](systems-manager-unified-console.md "systems-manager-unified-console.md").
 
-    For more information about details on the tabs, see [What is the unified console?](systems-manager-unified-console.md "systems-manager-unified-console.md").
-
-6.  To take actions on the node, use the following options in the **Node
-    actions** menu:
+6. To take actions on the node, use the following options in the **Node
+   actions** menu:
 
 ###### Note
 

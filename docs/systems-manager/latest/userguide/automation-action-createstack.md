@@ -69,7 +69,7 @@ their capabilities by specifying this parameter.
 
 Valid values include `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, and `CAPABILITY_AUTO_EXPAND`.
 
-###### CAPABILITY_IAM and CAPABILITY_NAMED_IAM
+###### CAPABILITY\_IAM and CAPABILITY\_NAMED\_IAM
 
 If you have IAM resources, you can specify either capability. If you
 have IAM resources with custom names, you must specify `CAPABILITY_NAMED_IAM`. If you don't specify this
@@ -92,7 +92,7 @@ necessary.
 For more information, see [Acknowledging
 IAM Resources in CloudFormation Templates](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#capabilities "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#capabilities").
 
-###### CAPABILITY_AUTO_EXPAND
+###### CAPABILITY\_AUTO\_EXPAND
 
 Some template contain macros. Macros perform custom processing on
 templates; this can include simple actions like find-and-replace

@@ -44,20 +44,16 @@ the following version options:
     * **1 (Default)** – Choose this option to run the first
      version of the document, which is the default.
 
-5. Choose **Next**.
-6. In the **Execution Mode** section, choose
-   **Manual execution**.
-7. In the **Input parameters** section, specify the required inputs.
-   Optionally, you can choose an IAM service role from the
-   **AutomationAssumeRole** list.
-8. Choose **Execute**.
-9. Choose **Execute this step** when you're ready to start
-   the first step of the automation. The automation proceeds with step one and
-   pauses before running any subsequent steps specified in the runbook you
-   chose in step 3 of this procedure. If the runbook has multiple steps, you
-   must select **Execute this step** for each step for the
-   automation to proceed. Each time you choose **Execute this
-   step** the action runs.
+5. Choose **Next**. 6. In the **Execution Mode** section, choose
+**Manual execution**. 7. In the **Input parameters** section, specify the required inputs.
+Optionally, you can choose an IAM service role from the
+**AutomationAssumeRole** list. 8. Choose **Execute**. 9. Choose **Execute this step** when you're ready to start
+the first step of the automation. The automation proceeds with step one and
+pauses before running any subsequent steps specified in the runbook you
+chose in step 3 of this procedure. If the runbook has multiple steps, you
+must select **Execute this step** for each step for the
+automation to proceed. Each time you choose **Execute this
+step** the action runs.
 
 ###### Note
 
@@ -167,7 +163,7 @@ ba9cd881-1b36-4d31-a698-0123456789ab
 
 3. Run the following command when you're ready to start the first step of the
    automation. Replace each `example resource
-placeholder` with your own information. The automation
+ placeholder` with your own information. The automation
    proceeds with step one and pauses before running any subsequent steps
    specified in the runbook you chose in step 1 of this procedure. If the
    runbook has multiple steps, you must run the following command for each step

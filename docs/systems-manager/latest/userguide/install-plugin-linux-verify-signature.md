@@ -24,7 +24,7 @@ Download the Session Manager plugin installer package you want to verify.
 **Amazon Linux 2, AL2023, and RHEL RPM
 packages**
 
-x86_64
+x86\_64
 
 ```
 curl -o "session-manager-plugin.rpm" "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm"
@@ -39,7 +39,7 @@ curl -o "session-manager-plugin.rpm" "https://s3.amazonaws.com/session-manager-d
 **Debian Server and Ubuntu Server Deb
 packages**
 
-x86_64
+x86\_64
 
 ```
 curl -o "session-manager-plugin.deb" "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb"
@@ -64,7 +64,7 @@ security needs.
 **Amazon Linux 2, AL2023, and RHEL signature
 packages**
 
-x86_64
+x86\_64
 Package:
 
 ```
@@ -93,7 +93,7 @@ curl -o "session-manager-plugin.sig" "https://s3.amazonaws.com/session-manager-d
 **Debian Server and Ubuntu Server Deb signature
 packages**
 
-x86_64
+x86\_64
 Package:
 
 ```
@@ -224,7 +224,7 @@ topic.
 gpg --verify `signature-filename` `downloaded-plugin-filename`
 ```
 
-For example, for the x86_64 architecture on Amazon Linux 2, the command
+For example, for the x86\_64 architecture on Amazon Linux 2, the command
 is as follows:
 
 ```

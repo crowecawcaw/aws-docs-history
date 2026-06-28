@@ -37,10 +37,10 @@ For more information, see [Importing events from third-party calendar providers]
      the duration of an associated event.
 
 8. (Optional) In **Change management events**, select
-   **Add change management events to the calendar**. This
-   selection displays all scheduled maintenance windows, State Manager associations,
-   Automation workflows, and Change Manager change requests in your monthly calendar
-   display.
+**Add change management events to the calendar**. This
+selection displays all scheduled maintenance windows, State Manager associations,
+Automation workflows, and Change Manager change requests in your monthly calendar
+display.
 
 ###### Tip
 

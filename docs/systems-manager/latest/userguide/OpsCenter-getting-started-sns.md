@@ -84,9 +84,7 @@ Step 3.
 If you turned on AWS KMS server-side encryption for your Amazon SNS topic, you must
 also update the access policy of the AWS KMS key that you chose when you
 configured the topic. Use the following procedure to update the access policy so
-that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in Step
-
-1.
+that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in Step 1.
 
 ###### Note
 

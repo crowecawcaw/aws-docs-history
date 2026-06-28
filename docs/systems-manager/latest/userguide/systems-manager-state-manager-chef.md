@@ -332,8 +332,8 @@ In **Error threshold**, choose an option:
      on additional targets.
 
 17. (Optional) For **Output options**, to save the command output to a file,
-    select the **Enable writing output to S3** box. Enter the bucket and prefix
-    (folder) names in the boxes.
+select the **Enable writing output to S3** box. Enter the bucket and prefix
+(folder) names in the boxes.
 
 ###### Note
 
@@ -526,7 +526,7 @@ information.
      expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
 3. Run the following command to view the status of the association you just
-   created.
+created.
 
 ```
 aws ssm describe-association --association-id "`ID`"

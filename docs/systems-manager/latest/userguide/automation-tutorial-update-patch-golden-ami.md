@@ -89,7 +89,7 @@ JSON
 9. Choose **Create policy**.
 10. Repeat steps 2 and 3.
 11. Paste the following policy. Replace each `example
-resource placeholder` with your own
+ resource placeholder` with your own
     information.
 
 JSON
@@ -160,14 +160,14 @@ updates the value of the `latestAmi` parameter.
    3.11**.
 6. For **Architecture**, select the type of computer
    processor for Lambda to use to run the function,
-   **x86_64** or **arm64**,
+   **x86\_64** or **arm64**,
 7. In the **Permissions** section, expand
    **Change default execution role**.
 8. Choose **Use an existing role**, and then choose
    the service role for Lambda that you created in Task 2.
 9. Choose **Create function**.
 10. In the **Code source** area, on the
-    **lambda_function** tab, delete the
+    **lambda\_function** tab, delete the
     pre-populated code in the field, and then paste the following code
     sample.
 

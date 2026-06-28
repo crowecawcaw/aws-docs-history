@@ -55,11 +55,9 @@ the following version options:
     * **1 (Default)** – Choose this option to run the first
      version of the document, which is the default.
 
-5. Choose **Next**.
-6. On the **Execute automation document** page, choose
-   **Simple execution**.
-7. In the **Input parameters** section, specify the required
-   input parameters.
+5. Choose **Next**. 6. On the **Execute automation document** page, choose
+**Simple execution**. 7. In the **Input parameters** section, specify the required
+input parameters.
 
 For example, if you chose the
 `**AWS-StartEC2InstanceWithApproval**`

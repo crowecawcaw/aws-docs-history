@@ -40,50 +40,49 @@ is stared.
 
 ###### To enable or disable creating the Session Manager temporary log file to disk
 
-1.  Either install SSM Agent on your instance or upgrade to version 3.2.2086 or
-    higher. For information about how to check the agent version number, see
-    [Checking the SSM Agent version number](ssm-agent-get-version.md "ssm-agent-get-version.md"). For information about how to
-    manually install the agent, locate the procedure for your operating system
-    in the following sections:
+1. Either install SSM Agent on your instance or upgrade to version 3.2.2086 or
+   higher. For information about how to check the agent version number, see
+   [Checking the SSM Agent version number](ssm-agent-get-version.md "ssm-agent-get-version.md"). For information about how to
+   manually install the agent, locate the procedure for your operating system
+   in the following sections:
 
-    - [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
-    - [Manually installing and uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md")
-    - [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
+   - [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
+   - [Manually installing and uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md")
+   - [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
 
-2.  Connect to your instance and locate the
-    `amazon-ssm-agent.json` file in the following
-    location.
+2. Connect to your instance and locate the
+   `amazon-ssm-agent.json` file in the following
+   location.
 
-        * **Linux**: /etc/amazon/ssm/
-        * **macOS**: /opt/aws/ssm/
-        * **Windows Server**: C:\Program
-         Files\Amazon\SSM
+   - **Linux**: /etc/amazon/ssm/
+   - **macOS**: /opt/aws/ssm/
+   - **Windows Server**: C:\Program
+     Files\Amazon\SSM
+     If the file `amazon-ssm-agent.json` doesn't exist, copy
+     the contents of the `amazon-ssm-agent.json.template` to a
+     new file in the same directory. Name the new file
+     `amazon-ssm-agent.json`.
 
-    If the file `amazon-ssm-agent.json` doesn't exist, copy
-    the contents of the `amazon-ssm-agent.json.template` to a
-    new file in the same directory. Name the new file
-    `amazon-ssm-agent.json`.
-
-3.  Specify either `none` or `disk` for the
-    `SessionLogsDestination` parameter. Save your changes.
-4.  [Restart](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md") SSM Agent.
-    If you specified `disk` for the `SessionLogsDestination`
-    parameter, you can verify that SSM Agent creates the temporary log file by starting a
-    new session and then locating the `ipcTempFile.log` in the
-    following location:
+3. Specify either `none` or `disk` for the
+   `SessionLogsDestination` parameter. Save your changes.
+4. [Restart](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md") SSM Agent.
+   If you specified `disk` for the `SessionLogsDestination`
+   parameter, you can verify that SSM Agent creates the temporary log file by starting a
+   new session and then locating the `ipcTempFile.log` in the
+   following location:
 
 - **Linux**:
   /var/lib/amazon/ssm/`target
-ID`/session/orchestration/`session
-ID`/Standard_Stream/ipcTempFile.log
+ ID`/session/orchestration/`session
+ ID`/Standard\_Stream/ipcTempFile.log
 - **macOS**:
   /opt/aws/ssm/data/`target
-ID`/session/orchestration/`session
-ID`/Standard_Stream/ipcTempFile.log
+ ID`/session/orchestration/`session
+ ID`/Standard\_Stream/ipcTempFile.log
 - **Windows Server**:
   C:\ProgramData\Amazon\SSM\InstanceData\`target
   ID`\session\orchestration\`session
-  ID`\Standard_Stream\ipcTempFile.log
+  ID`\Standard\_Stream\ipcTempFile.log
 
 ###### Note
 

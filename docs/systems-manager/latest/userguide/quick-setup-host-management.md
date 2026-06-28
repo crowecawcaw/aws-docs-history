@@ -298,8 +298,8 @@ deploy this host management configuration.
 
 ###### To specify an instance profile option
 
-- **\*Entire organization** and
-  **Custom** targets only.\*
+- _**Entire organization** and
+  **Custom** targets only._
 
 In the **Instance profile options** section, choose
 whether you want to add the required IAM policies to the existing

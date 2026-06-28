@@ -64,13 +64,11 @@ following:
      package.
 
 8. For **Name**, verify that the name of the package you
-   selected is entered.
-9. (Optional) For **Version**, enter the version name
-   value of the package. If you leave this field blank, Run Command installs
-   the default version that you selected in Distributor.
-10. In the **Targets** section, choose the managed nodes
-    on which you want to run this operation by specifying tags, selecting
-    instances or devices manually, or by specifying a resource group.
+selected is entered. 9. (Optional) For **Version**, enter the version name
+value of the package. If you leave this field blank, Run Command installs
+the default version that you selected in Distributor. 10. In the **Targets** section, choose the managed nodes
+on which you want to run this operation by specifying tags, selecting
+instances or devices manually, or by specifying a resource group.
 
 ###### Note
 
@@ -82,27 +80,28 @@ If you don't see a managed node in the list, see [Troubleshooting managed node a
 
 12. For **Rate Control**:
 
-    - For **Concurrency**, specify either a number
-      or a percentage of targets on which to run the command at the
-      same time.
+    * For **Concurrency**, specify either a number
+     or a percentage of targets on which to run the command at the
+     same time.
+
 
     ###### Note
 
     If you selected targets by specifying tags or resource
-    groups and you aren't certain how many managed nodes are
-    targeted, then restrict the number of targets that can run
-    the document at the same time by specifying a
-    percentage.
-    - For **Error threshold**, specify when to stop
-      running the command on other targets after it fails on either a
-      number or a percentage of managed nodes. For example, if you
-      specify three errors, then Systems Manager stops sending the
-      command when the fourth error is received. Managed nodes still
-      processing the command might also send errors.
+     groups and you aren't certain how many managed nodes are
+     targeted, then restrict the number of targets that can run
+     the document at the same time by specifying a
+     percentage.
+    * For **Error threshold**, specify when to stop
+     running the command on other targets after it fails on either a
+     number or a percentage of managed nodes. For example, if you
+     specify three errors, then Systems Manager stops sending the
+     command when the fourth error is received. Managed nodes still
+     processing the command might also send errors.
 
 13. (Optional) For **Output options**, to save the command output to a file,
-    select the **Write command output to an S3 bucket** box. Enter the bucket
-    and prefix (folder) names in the boxes.
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 
@@ -162,15 +161,13 @@ following:
      process.
 
 9. For **Name**, verify that the name of your package is
-   entered.
-10. For **Version**, if you to want to install a package
-    version other than the latest published version, enter the version
-    identifier.
-11. For **Targets**, choose **Selecting all
-    managed instances in this account**, **Specifying
-    tags**, or **Manually Selecting
-    Instance**. If you target resources by using tags, enter a tag
-    key and a tag value in the fields provided.
+entered. 10. For **Version**, if you to want to install a package
+version other than the latest published version, enter the version
+identifier. 11. For **Targets**, choose **Selecting all
+managed instances in this account**, **Specifying
+tags**, or **Manually Selecting
+Instance**. If you target resources by using tags, enter a tag
+key and a tag value in the fields provided.
 
 ###### Note
 

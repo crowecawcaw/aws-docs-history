@@ -131,7 +131,7 @@ Systems Manager applies inventory associations in the following priority order:
 
 3. **Global inventory associations** -
    Associations that target all managed nodes (using `--targets
-"Key=InstanceIds,Values=*"`) but were **not** created through Quick Setup.
+ "Key=InstanceIds,Values=*"`) but were **not** created through Quick Setup.
 
 ### Common scenarios
 

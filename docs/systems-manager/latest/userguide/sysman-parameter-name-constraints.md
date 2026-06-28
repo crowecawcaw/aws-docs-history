@@ -59,7 +59,7 @@ hierarchies in parameter names. For example:
 When you specify a parameter in an SSM document, command, or
 script, include `ssm` as part of the syntax. For example,
 {{ssm:`parameter-name`}} and {{
- ssm:`parameter-name` }}, such as
+, such as
 `{{ssm:MyParameter}}`, and `{{ ssm:MyParameter
  }}.`
 
@@ -67,32 +67,29 @@ script, include `ssm` as part of the syntax. For example,
   unique within an AWS Region. For example, Systems Manager treats the following
   as separate parameters, if they exist in the same Region:
 
-      + `/Test/TestParam1`
-      + `/TestParam1`
+  - `/Test/TestParam1`
+  - `/TestParam1`
+    The following examples are also unique:
 
-  The following examples are also unique:
+  - `/Test/TestParam1/Logpath1`
+  - `/Test/TestParam1`
+    The following examples, however, if in the same Region, aren't
+    unique:
 
-      + `/Test/TestParam1/Logpath1`
-      + `/Test/TestParam1`
-
-  The following examples, however, if in the same Region, aren't
-  unique:
-
-      + `/TestParam1`
-      + `TestParam1`
+  - `/TestParam1`
+  - `TestParam1`
 
 - **Hierarchy depth**: If you specify a
   parameter hierarchy, the hierarchy can have a maximum depth of fifteen
   levels. You can define a parameter at any level of the hierarchy. Both
   of the following examples are structurally valid:
 
-      + `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/parameter-name`
-      + `parameter-name`
+  - `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/parameter-name`
+  - `parameter-name`
+    Attempting to create the following parameter would fail with a
+    `HierarchyLevelLimitExceededException` exception:
 
-  Attempting to create the following parameter would fail with a
-  `HierarchyLevelLimitExceededException` exception:
-
-      + `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/L15/L16/parameter-name`
+  - `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/L15/L16/parameter-name`
 
 ###### Important
 

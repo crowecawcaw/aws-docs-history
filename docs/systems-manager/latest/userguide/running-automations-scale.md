@@ -50,36 +50,35 @@ the following version options:
     * **1 (Default)** – Choose this option to run the first
      version of the document, which is the default.
 
-5. Choose **Next**.
-6. In the **Execution Mode** section, choose **Rate
-   Control**. You must use this mode or **Multi-account
-   and Region** if you want to use targets and rate
-   controls.
-7. In the **Targets** section, choose how you want to target the AWS
-   resources where you want to run the Automation. These options are required.
+5. Choose **Next**. 6. In the **Execution Mode** section, choose **Rate
+Control**. You must use this mode or **Multi-account
+and Region** if you want to use targets and rate
+controls. 7. In the **Targets** section, choose how you want to target the AWS
+resources where you want to run the Automation. These options are required.
 
-   1. Use the **Parameter** list to choose a parameter. The items in
-      the **Parameter** list are determined by the parameters in the
-      Automation runbook that you selected at the start of this procedure. By choosing a
-      parameter you define the type of resource on which the Automation workflow runs.
-   2. Use the **Targets** list to choose how you want to target
-      resources.
+    1. Use the **Parameter** list to choose a parameter. The items in
+     the **Parameter** list are determined by the parameters in the
+     Automation runbook that you selected at the start of this procedure. By choosing a
+     parameter you define the type of resource on which the Automation workflow runs.
+    2. Use the **Targets** list to choose how you want to target
+     resources.
 
-      1. If you chose to target resources by using parameter values, then enter the
-         parameter value for the parameter you chose in the **Input
-         parameters** section.
-      2. If you chose to target resources by using AWS Resource Groups, then choose the name
-         of the group from the **Resource Group** list.
-      3. If you chose to target resources by using tags, then enter the tag key and
-         (optionally) the tag value in the fields provided. Choose
-         **Add**.
-      4. If you want to run an Automation runbook on all instances in the current
-         AWS account and AWS Region, then choose **All
-         instances**.
+
+    	1. If you chose to target resources by using parameter values, then enter the
+    	 parameter value for the parameter you chose in the **Input
+    	 parameters** section.
+    	2. If you chose to target resources by using AWS Resource Groups, then choose the name
+    	 of the group from the **Resource Group** list.
+    	3. If you chose to target resources by using tags, then enter the tag key and
+    	 (optionally) the tag value in the fields provided. Choose
+    	 **Add**.
+    	4. If you want to run an Automation runbook on all instances in the current
+    	 AWS account and AWS Region, then choose **All
+    	 instances**.
 
 8. In the **Input parameters** section, specify the required inputs.
-   Optionally, you can choose an IAM service role from the
-   **AutomationAssumeRole** list.
+Optionally, you can choose an IAM service role from the
+**AutomationAssumeRole** list.
 
 ###### Note
 
@@ -100,20 +99,19 @@ In the **Concurrency** section, choose an option:
 
 10. In the **Error threshold** section, choose an option:
 
-    - Choose **errors** to enter an absolute number of errors
-      allowed before Automation stops sending the workflow to other resources.
-    - Choose **percentage** to enter a percentage of errors allowed
-      before Automation stops sending the workflow to other resources.
+    * Choose **errors** to enter an absolute number of errors
+     allowed before Automation stops sending the workflow to other resources.
+    * Choose **percentage** to enter a percentage of errors allowed
+     before Automation stops sending the workflow to other resources.
 
 11. (Optional) Choose a CloudWatch alarm to apply to your automation for monitoring.
-    To attach a CloudWatch alarm to your automation, the IAM principal that starts
-    the automation must have permission for the
-    `iam:createServiceLinkedRole` action. For more information
-    about CloudWatch alarms, see [Using
-    Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). Note that if your alarm activates, the
-    automation is stopped. If you use AWS CloudTrail, you will see the API call in
-    your trail.
-12. Choose **Execute**.
+To attach a CloudWatch alarm to your automation, the IAM principal that starts
+the automation must have permission for the
+`iam:createServiceLinkedRole` action. For more information
+about CloudWatch alarms, see [Using
+Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). Note that if your alarm activates, the
+automation is stopped. If you use AWS CloudTrail, you will see the API call in
+your trail. 12. Choose **Execute**.
 
 To view automations started by your rate control automation, in the navigation
 pane, choose Automation, and then select **Show child

@@ -80,9 +80,8 @@ the name `GetInstanceState`.
      **String**.
 
 6. Drag a **Branch** action from the **Actions**
-   browser, and drop it below the **`GetInstanceState`** step.
-7. For **Step name**, enter a value. For this tutorial, use the name
-   `BranchOnInstanceState`.
+browser, and drop it below the **`GetInstanceState`** step. 7. For **Step name**, enter a value. For this tutorial, use the name
+`BranchOnInstanceState`.
 
 To define the branching logic, do the following:
 
@@ -128,55 +127,53 @@ To define the branching logic, do the following:
      for the **Default step**.
 
 8. Drag a **Change an instance state** action to the empty
-   **Drag action here** box under the **{{
-   GetInstanceState.InstanceState }} == "stopped"** condition.
+**Drag action here** box under the **{{
+ == "stopped"** condition.
 
-   1. For the **Step name**, enter
-      `StartInstance`.
-   2. In the **Inputs** tab, under **Instance IDs**,
-      choose the **InstanceId** document input value from the
-      dropdown.
-   3. For the **Desired state**, specify
-      **`running`**.
+    1. For the **Step name**, enter
+     `StartInstance`.
+    2. In the **Inputs** tab, under **Instance IDs**,
+     choose the **InstanceId** document input value from the
+     dropdown.
+    3. For the **Desired state**, specify
+     **`running`**.
 
 9. Drag a **Wait on AWS resource** action to the empty
-   **Drag action here** box under the **{{
-   GetInstanceState.InstanceState }} == "stopping"** condition.
-10. For **Step name**, enter a value. For this tutorial, use the name
-    `WaitForInstanceStop`.
+**Drag action here** box under the **{{
+ == "stopping"** condition. 10. For **Step name**, enter a value. For this tutorial, use the name
+`WaitForInstanceStop`.
 
     1. For the **Service** field, choose
-       **Amazon EC2**.
+     **Amazon EC2**.
     2. For the **API** field, choose
-       **DescribeInstances**.
+     **DescribeInstances**.
     3. For the **Property selector** field, enter
-       `$.Reservations[0].Instances[0].State.Name`.
+     `$.Reservations[0].Instances[0].State.Name`.
     4. For the **Desired values** parameter, enter
-       `["stopped"]`.
+     ``["stopped"]``.
     5. In the **Configuration** tab of the
-       **WaitForInstanceStop** action, choose
-       **StartInstance** from the **Next step**
-       dropdown.
+     **WaitForInstanceStop** action, choose
+     **StartInstance** from the **Next step**
+     dropdown.
 
 11. Drag a **Run command on instances** action to the empty
-    **Drag action here** box under the **{{
-    GetInstanceState.InstanceState }} == "running"** condition.
-12. For the **Step name**, enter
-    `SayHello`.
+**Drag action here** box under the **{{
+ == "running"** condition. 12. For the **Step name**, enter
+`SayHello`.
 
     1. In the **Inputs** tab, enter
-       `AWS-RunShellScript` for the **Document
-       name** parameter.
+     `AWS-RunShellScript` for the **Document
+     name** parameter.
     2. For **InstanceIds**, choose the **InstanceId**
-       document input value from the dropdown.
+     document input value from the dropdown.
     3. Expand the **Additional inputs** dropdown, and in the
-       **Input name** dropdown, choose
-       **Parameters**.
+     **Input name** dropdown, choose
+     **Parameters**.
     4. In the **Input value** field, enter
-       `{"commands": "echo 'Hello World'"}`.
+     ``{"commands": "echo 'Hello World'"}``.
 
 13. Review the completed runbook in the canvas and select **Create
-    runbook** to save the tutorial runbook.
+runbook** to save the tutorial runbook.
 
 ![Review and create the runbook.](images/visual_designer_tutorial_complete.png)
 
@@ -219,19 +216,15 @@ the following version options:
     * **1 (Default)** – Choose this option to run the first
      version of the document, which is the default.
 
-5. Choose **Next**.
-6. In the **Execute automation runbook** section, choose
-   **Simple execution**.
-7. In the **Input parameters** section, specify the required inputs.
-   Optionally, you can choose an IAM service role from the
-   **AutomationAssumeRole** list.
-8. (Optional) Choose an Amazon CloudWatch alarm to apply to your automation for monitoring. To
-   attach a CloudWatch alarm to your automation, the IAM principal that starts the automation
-   must have permission for the `iam:createServiceLinkedRole` action. For more
-   information about CloudWatch alarms, see [Using Amazon CloudWatch
-   alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). If your alarm activates, the automation is stopped. If you use
-   AWS CloudTrail, you will see the API call in your trail.
-9. Choose **Execute**.
+5. Choose **Next**. 6. In the **Execute automation runbook** section, choose
+**Simple execution**. 7. In the **Input parameters** section, specify the required inputs.
+Optionally, you can choose an IAM service role from the
+**AutomationAssumeRole** list. 8. (Optional) Choose an Amazon CloudWatch alarm to apply to your automation for monitoring. To
+attach a CloudWatch alarm to your automation, the IAM principal that starts the automation
+must have permission for the `iam:createServiceLinkedRole` action. For more
+information about CloudWatch alarms, see [Using Amazon CloudWatch
+alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). If your alarm activates, the automation is stopped. If you use
+AWS CloudTrail, you will see the API call in your trail. 9. Choose **Execute**.
 
 ## Step 5: Clean up
 

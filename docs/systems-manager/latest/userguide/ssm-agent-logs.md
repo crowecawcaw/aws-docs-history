@@ -52,7 +52,7 @@ On most Linux managed node types, the file is located in the
 directory
 `/etc/amazon/ssm/seelog.xml.template`.
 
-On Ubuntu Server 20.04, 18.04, and 16.04 LTS, the file is
+On Ubuntu Server 20.04 and 18.04 LTS, the file is
 located in the directory
 `/snap/amazon-ssm-agent/current/seelog.xml.template`.
 Copy this file from the
@@ -68,7 +68,7 @@ directory `/opt/aws/ssm/seelog.xml.template`. 3. Change the file name from `seel
 
 ###### Note
 
-On Ubuntu Server 20.04, 18.04, and 16.04 LTS, the file
+On Ubuntu Server 20.04 and 18.04 LTS, the file
 `seelog.xml` must be created in the directory
 `/etc/amazon/ssm/`. You can create this
 directory and file by running the following commands.

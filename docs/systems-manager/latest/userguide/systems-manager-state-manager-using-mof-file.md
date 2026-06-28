@@ -54,7 +54,7 @@ in Amazon S3.
 - If you're using Amazon S3 as a module source, upload the module as a Zip file
   in the following case-sensitive format:
   `ModuleName`\_`ModuleVersion`.zip.
-  For example: MyModule_1.0.0.zip.
+  For example: MyModule\_1.0.0.zip.
 - All files must be in the bucket root. Folder structures aren't
   supported.
 
@@ -201,130 +201,131 @@ nodes have the following prerequisites installed:
 
 ###### To create an association that runs MOF files
 
-1.  Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2.  In the navigation pane, choose **State Manager**.
-3.  Choose **State Manager**, and then choose **Create
-    association**.
-4.  In the **Name** field, specify a name. This is optional,
-    but recommended. A name can help you understand the purpose of the
-    association when you created it. Spaces aren't allowed in the name.
-5.  In the **Document** list, choose
-    **`AWS-ApplyDSCMofs`**.
-6.  In the **Parameters** section, specify your choices for
-    the required and optional input parameters.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
+2. In the navigation pane, choose **State Manager**.
+3. Choose **State Manager**, and then choose **Create
+   association**.
+4. In the **Name** field, specify a name. This is optional,
+   but recommended. A name can help you understand the purpose of the
+   association when you created it. Spaces aren't allowed in the name.
+5. In the **Document** list, choose
+   **`AWS-ApplyDSCMofs`**.
+6. In the **Parameters** section, specify your choices for
+   the required and optional input parameters.
 
-    1. **Mofs To Apply**: Specify one or more MOF files
-       to run when this association runs. Use commas to separate a list of
-       MOF files. Systems Manager iterates through the list of MOF files and runs
-       them in the order specified by the comma separated list.
+   1. **Mofs To Apply**: Specify one or more MOF files
+      to run when this association runs. Use commas to separate a list of
+      MOF files. Systems Manager iterates through the list of MOF files and runs
+      them in the order specified by the comma separated list.
 
-       - An Amazon S3 bucket name. Bucket names must use lowercase
-         letters. Specify this information by using the following
-         format.
+      - An Amazon S3 bucket name. Bucket names must use lowercase
+        letters. Specify this information by using the following
+        format.
 
-       ```
-       s3:`amzn-s3-demo-bucket`:`MOF_file_name`.mof
-       ```
+      ```
+      s3:`amzn-s3-demo-bucket`:`MOF_file_name`.mof
+      ```
 
-       If you want to specify an AWS Region, then use the
-       following format.
+      If you want to specify an AWS Region, then use the
+      following format.
 
-       ```
-       s3:`bucket_Region`:`amzn-s3-demo-bucket`:`MOF_file_name`.mof
-       ```
-       - A secure website. Specify this information by using the
-         following format.
+      ```
+      s3:`bucket_Region`:`amzn-s3-demo-bucket`:`MOF_file_name`.mof
+      ```
+      - A secure website. Specify this information by using the
+        following format.
 
-       ```
-       https://`domain_name`/`MOF_file_name`.mof
-       ```
+      ```
+      https://`domain_name`/`MOF_file_name`.mof
+      ```
 
-       Here is an example.
+      Here is an example.
 
-       ```
-       https://www.example.com/TestMOF.mof
-       ```
-       - A file system on a local share. Specify this information
-         by using the following format.
+      ```
+      https://www.example.com/TestMOF.mof
+      ```
+      - A file system on a local share. Specify this information
+        by using the following format.
 
-       ```
-       \`server_name`\`shared_folder_name`\`MOF_file_name`.mof
-       ```
+      ```
+      \`server_name`\`shared_folder_name`\`MOF_file_name`.mof
+      ```
 
-       Here is an example.
+      Here is an example.
 
-       ```
-       \StateManagerAssociationsBox\MOFs_folder\MyMof.mof
-       ```
+      ```
+      \StateManagerAssociationsBox\MOFs_folder\MyMof.mof
+      ```
 
-    2. **Service Path**: (Optional) A service path is
-       either an Amazon S3 bucket prefix where you want to write reports and
-       status information. Or, a service path is a path for Parameter Store
-       parameter-based tags. When resolving parameter-based tags, the
-       system uses
-       {ssm:%servicePath%/`parameter_name`} to
-       inject the servicePath value into the parameter name. For example,
-       if your service path is "WebServers/Production" then the systems
-       resolves the parameter as:
-       WebServers/Production/`parameter_name`.
-       This is useful for when you're running multiple environments in the
-       same account.
-    3. **Report Bucket Name**: (Optional) Enter the name
-       of an Amazon S3 bucket where you want to write compliance data. Reports
-       are saved in this bucket in JSON format.
+   2. **Service Path**: (Optional) A service path is
+      either an Amazon S3 bucket prefix where you want to write reports and
+      status information. Or, a service path is a path for Parameter Store
+      parameter-based tags. When resolving parameter-based tags, the
+      system uses
+      {ssm:%servicePath%/`parameter_name`} to
+      inject the servicePath value into the parameter name. For example,
+      if your service path is "WebServers/Production" then the systems
+      resolves the parameter as:
+      WebServers/Production/`parameter_name`.
+      This is useful for when you're running multiple environments in the
+      same account.
+   3. **Report Bucket Name**: (Optional) Enter the name
+      of an Amazon S3 bucket where you want to write compliance data. Reports
+      are saved in this bucket in JSON format.
 
-    ###### Note
+   ###### Note
 
-    You can prefix the bucket name with a Region where the bucket
-    is located. Here's an example: us-west-2:MyMOFBucket. If you're
-    using a proxy for Amazon S3 endpoints in a specific Region that
-    doesn't include us-east-1, prefix the bucket name with a Region.
-    If the bucket name isn't prefixed, it automatically discovers
-    the bucket Region by using the us-east-1 endpoint. 4. **Mof Operation Mode**: Choose State Manager behavior
-    when running the **`AWS-ApplyDSCMofs`**
-    association:
+   You can prefix the bucket name with a Region where the bucket
+   is located. Here's an example: us-west-2:MyMOFBucket. If you're
+   using a proxy for Amazon S3 endpoints in a specific Region that
+   doesn't include us-east-1, prefix the bucket name with a Region.
+   If the bucket name isn't prefixed, it automatically discovers
+   the bucket Region by using the us-east-1 endpoint. 4. **Mof Operation Mode**: Choose State Manager behavior
+   when running the **`AWS-ApplyDSCMofs`**
+   association:
 
         * **Apply**: Correct node configurations
          that aren't compliant.
         * **ReportOnly**: Don't correct node
          configurations, but instead log all compliance data and
          report nodes that aren't compliant.
-    5. **Status Bucket Name**: (Optional) Enter the name
-       of an Amazon S3 bucket where you want to write MOF execution status
-       information. These status reports are singleton summaries of the
-       most recent compliance run of a node. This means that the report is
-       overwritten the next time the association runs MOF files.
 
-    ###### Note
+   5. **Status Bucket Name**: (Optional) Enter the name
+   of an Amazon S3 bucket where you want to write MOF execution status
+   information. These status reports are singleton summaries of the
+   most recent compliance run of a node. This means that the report is
+   overwritten the next time the association runs MOF files.
 
-    You can prefix the bucket name with a Region where the bucket
-    is located. Here's an example:
-    `us-west-2:amzn-s3-demo-bucket`. If you're using
-    a proxy for Amazon S3 endpoints in a specific Region that doesn't
-    include us-east-1, prefix the bucket name with a Region. If the
-    bucket name isn't prefixed, it automatically discovers the
-    bucket Region using the us-east-1 endpoint. 6. **Module Source Bucket Name**: (Optional) Enter
-    the name of an Amazon S3 bucket that contains PowerShell module files. If
-    you specify **None**, choose
-    **True** for the next option, **Allow
-    PS Gallery Module Source**.
+   ###### Note
 
-    ###### Note
+   You can prefix the bucket name with a Region where the bucket
+   is located. Here's an example:
+   `us-west-2:amzn-s3-demo-bucket`. If you're using
+   a proxy for Amazon S3 endpoints in a specific Region that doesn't
+   include us-east-1, prefix the bucket name with a Region. If the
+   bucket name isn't prefixed, it automatically discovers the
+   bucket Region using the us-east-1 endpoint. 6. **Module Source Bucket Name**: (Optional) Enter
+   the name of an Amazon S3 bucket that contains PowerShell module files. If
+   you specify **None**, choose
+   **True** for the next option, **Allow
+   PS Gallery Module Source**.
 
-    You can prefix the bucket name with a Region where the bucket
-    is located. Here's an example:
-    `us-west-2:amzn-s3-demo-bucket`. If you're using
-    a proxy for Amazon S3 endpoints in a specific Region that doesn't
-    include us-east-1, prefix the bucket name with a Region. If the
-    bucket name isn't prefixed, it automatically discovers the
-    bucket Region using the us-east-1 endpoint. 7. **Allow PS Gallery Module Source**: (Optional)
-    Choose **True** to download PowerShell modules from
-    [https://www.powershellgallery.com/](https://www.powershellgallery.com/ "https://www.powershellgallery.com/"). If you choose
-    **False**, specify a source for the previous
-    option, **ModuleSourceBucketName**. 8. **Proxy Uri**: (Optional) Use this option to
-    download MOF files from a proxy server. 9. **Reboot Behavior**: (Optional) Specify one of
-    the following reboot behaviors if your MOF file execution requires
-    rebooting:
+   ###### Note
+
+   You can prefix the bucket name with a Region where the bucket
+   is located. Here's an example:
+   `us-west-2:amzn-s3-demo-bucket`. If you're using
+   a proxy for Amazon S3 endpoints in a specific Region that doesn't
+   include us-east-1, prefix the bucket name with a Region. If the
+   bucket name isn't prefixed, it automatically discovers the
+   bucket Region using the us-east-1 endpoint. 7. **Allow PS Gallery Module Source**: (Optional)
+   Choose **True** to download PowerShell modules from
+   [https://www.powershellgallery.com/](https://www.powershellgallery.com/ "https://www.powershellgallery.com/"). If you choose
+   **False**, specify a source for the previous
+   option, **ModuleSourceBucketName**. 8. **Proxy Uri**: (Optional) Use this option to
+   download MOF files from a proxy server. 9. **Reboot Behavior**: (Optional) Specify one of
+   the following reboot behaviors if your MOF file execution requires
+   rebooting:
 
         * **AfterMof**: Reboots the node after all
          MOF executions are complete. Even if multiple MOF executions
@@ -336,65 +337,65 @@ nodes have the following prerequisites installed:
          multiple times.
         * **Never**: Nodes aren't rebooted, even if
          the MOF execution explicitly requests a reboot.
-    10. **Use Computer Name For Reporting**: (Optional)
-        Turn on this option to use the name of the computer when reporting
-        compliance information. The default value is
-        **false**, which means that the system uses the
-        node ID when reporting compliance information.
-    11. **Turn on Verbose Logging**: (Optional) We
-        recommend that you turn on verbose logging when deploying MOF files
-        for the first time.
 
-    ###### Important
+   10. **Use Computer Name For Reporting**: (Optional)
+   Turn on this option to use the name of the computer when reporting
+   compliance information. The default value is
+   **false**, which means that the system uses the
+   node ID when reporting compliance information. 11. **Turn on Verbose Logging**: (Optional) We
+   recommend that you turn on verbose logging when deploying MOF files
+   for the first time.
 
-    When allowed, verbose logging writes more data to your Amazon S3
-    bucket than standard association execution logging. This might
-    result in slower performance and higher storage charges for
-    Amazon S3. To mitigate storage size issues, we recommend that you
-    turn on lifecycle policies on your Amazon S3 bucket. For more
-    information, see [How Do I Create a Lifecycle Policy for an S3
-    Bucket?](../../../AmazonS3/latest/userguide/create-lifecycle.md "../../../AmazonS3/latest/userguide/create-lifecycle.md") in the
-    _Amazon Simple Storage Service User Guide_. 12. **Turn on Debug Logging**: (Optional) We
-    recommend that you turn on debug logging to troubleshoot MOF
-    failures. We also recommend that you deactivate this option for
-    normal use.
+   ###### Important
 
-    ###### Important
+   When allowed, verbose logging writes more data to your Amazon S3
+   bucket than standard association execution logging. This might
+   result in slower performance and higher storage charges for
+   Amazon S3. To mitigate storage size issues, we recommend that you
+   turn on lifecycle policies on your Amazon S3 bucket. For more
+   information, see [How Do I Create a Lifecycle Policy for an S3
+   Bucket?](../../../AmazonS3/latest/userguide/create-lifecycle.md "../../../AmazonS3/latest/userguide/create-lifecycle.md") in the
+   _Amazon Simple Storage Service User Guide_. 12. **Turn on Debug Logging**: (Optional) We
+   recommend that you turn on debug logging to troubleshoot MOF
+   failures. We also recommend that you deactivate this option for
+   normal use.
 
-    When allowed, debug logging writes more data to your Amazon S3
-    bucket than standard association execution logging. This might
-    result in slower performance and higher storage charges for
-    Amazon S3. To mitigate storage size issues, we recommend that you
-    turn on lifecycle policies on your Amazon S3 bucket. For more
-    information, see [How Do I Create a Lifecycle Policy for an S3
-    Bucket?](../../../AmazonS3/latest/userguide/create-lifecycle.md "../../../AmazonS3/latest/userguide/create-lifecycle.md") in the
-    _Amazon Simple Storage Service User Guide_. 13. **Compliance Type**: (Optional) Specify the
-    compliance type to use when reporting compliance information. The
-    default compliance type is **Custom:DSC**. If you
-    create multiple associations that run MOF files, then be sure to
-    specify a different compliance type for each association. If you
-    don't, each additional association that uses
-    **Custom:DSC** overwrites the existing
-    compliance data. 14. **Pre Reboot Script**: (Optional) Specify a
-    script to run if the configuration has indicated that a reboot is
-    necessary. The script runs before the reboot. The script must be a
-    single line. Separate additional lines by using semicolons.
+   ###### Important
 
-7.  In the **Targets** section, choose either
-    **Specifying tags** or **Manually Selecting
-    Instance**. If you choose to target resources by using tags,
-    then enter a tag key and a tag value in the fields provided. For more
-    information about using targets, see [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md").
-8.  In the **Specify schedule** section, choose either
-    **On Schedule** or **No schedule**. If
-    you choose **On Schedule**, then use the buttons provided
-    to create a cron or rate schedule for the association.
-9.  In the **Advanced options** section:
+   When allowed, debug logging writes more data to your Amazon S3
+   bucket than standard association execution logging. This might
+   result in slower performance and higher storage charges for
+   Amazon S3. To mitigate storage size issues, we recommend that you
+   turn on lifecycle policies on your Amazon S3 bucket. For more
+   information, see [How Do I Create a Lifecycle Policy for an S3
+   Bucket?](../../../AmazonS3/latest/userguide/create-lifecycle.md "../../../AmazonS3/latest/userguide/create-lifecycle.md") in the
+   _Amazon Simple Storage Service User Guide_. 13. **Compliance Type**: (Optional) Specify the
+   compliance type to use when reporting compliance information. The
+   default compliance type is **Custom:DSC**. If you
+   create multiple associations that run MOF files, then be sure to
+   specify a different compliance type for each association. If you
+   don't, each additional association that uses
+   **Custom:DSC** overwrites the existing
+   compliance data. 14. **Pre Reboot Script**: (Optional) Specify a
+   script to run if the configuration has indicated that a reboot is
+   necessary. The script runs before the reboot. The script must be a
+   single line. Separate additional lines by using semicolons.
 
-    - In **Compliance severity**, choose a severity
-      level for the association. Compliance reporting indicates whether
-      the association state is compliant or noncompliant, along with the
-      severity level you indicate here. For more information, see [About State Manager association compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association").
+7. In the **Targets** section, choose either
+   **Specifying tags** or **Manually Selecting
+   Instance**. If you choose to target resources by using tags,
+   then enter a tag key and a tag value in the fields provided. For more
+   information about using targets, see [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md").
+8. In the **Specify schedule** section, choose either
+   **On Schedule** or **No schedule**. If
+   you choose **On Schedule**, then use the buttons provided
+   to create a cron or rate schedule for the association.
+9. In the **Advanced options** section:
+
+   - In **Compliance severity**, choose a severity
+     level for the association. Compliance reporting indicates whether
+     the association state is compliant or noncompliant, along with the
+     severity level you indicate here. For more information, see [About State Manager association compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association").
 
 10. In the **Rate control** section, configure options for
     running State Manager associations across of fleet of managed nodes. For more
@@ -418,8 +419,8 @@ option:
      additional targets.
 
 11. (Optional) For **Output options**, to save the command output to a file,
-    select the **Enable writing output to S3** box. Enter the bucket and prefix
-    (folder) names in the boxes.
+select the **Enable writing output to S3** box. Enter the bucket and prefix
+(folder) names in the boxes.
 
 ###### Note
 

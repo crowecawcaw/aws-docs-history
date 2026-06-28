@@ -128,10 +128,10 @@ improve security against command injection attacks by treating
 parameter inputs as string literals rather than potentially
 executable commands. In this case, the agent creates an environment
 variable named
-`SSM_`parameter-name``with
- the parameter's value. We recommend updating all your existing SSM
- documents that include`String`type parameters to
- include`"interpolationType": "ENV_VAR"`. For more
+`SSM_`parameter-name`` with
+the parameter's value. We recommend updating all your existing SSM
+documents that include `String` type parameters to
+include `"interpolationType": "ENV_VAR"`. For more
 information, see [Writing SSM document content](documents-creating-content.md#writing-ssm-doc-content "documents-creating-content.md#writing-ssm-doc-content").
 
 ## Block public sharing for SSM documents

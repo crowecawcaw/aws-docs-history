@@ -83,7 +83,7 @@ following procedure to fix this issue.
 ###### To troubleshoot a StackSets failed:delegatedAdmin error
 
 1. If you received the `Deployment to these
-StackSets failed: delegatedAdmin` error in a
+ StackSets failed: delegatedAdmin` error in a
    red banner in the Quick Setup console, sign in to the delegated
    administrator account and the AWS Region designated as the
    Quick Setup home Region.

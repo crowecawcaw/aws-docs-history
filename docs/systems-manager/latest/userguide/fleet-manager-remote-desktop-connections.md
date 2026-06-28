@@ -568,40 +568,39 @@ not supported.
 
 ###### To connect to a managed node using Fleet Manager Remote Desktop
 
-1.  Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2.  In the navigation pane, choose **Fleet Manager**.
-3.  Choose the node that you want to connect to. You can select either the
-    check box or the node name.
-4.  On the **Node actions** menu, choose **Connect
-    with Remote Desktop**.
-5.  Choose your preferred **Authentication type**. If you
-    choose **User credentials**, enter the user name and
-    password for a Windows user account on the node that you're
-    connecting to. If you choose **Key pair**, you can provide
-    authentication using one of the following methods:
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
+2. In the navigation pane, choose **Fleet Manager**.
+3. Choose the node that you want to connect to. You can select either the
+   check box or the node name.
+4. On the **Node actions** menu, choose **Connect
+   with Remote Desktop**.
+5. Choose your preferred **Authentication type**. If you
+   choose **User credentials**, enter the user name and
+   password for a Windows user account on the node that you're
+   connecting to. If you choose **Key pair**, you can provide
+   authentication using one of the following methods:
 
-    1. Choose **Browse local machine** if you want to
-       select the PEM key associated with your instance from your local
-       file system.
-    - or -
-    2. Choose **Paste key pair content** if you want to
-       copy the contents of the PEM file and paste them in to the provided
-       field.
+   1. Choose **Browse local machine** if you want to
+      select the PEM key associated with your instance from your local
+      file system.
+   - or -
+   2. Choose **Paste key pair content** if you want to
+      copy the contents of the PEM file and paste them in to the provided
+      field.
 
-6.  Select **Connect**.
-7.  To choose your preferred display resolution, in the
-    **Actions** menu, choose
-    **Resolutions**, and then select from the
-    following:
+6. Select **Connect**.
+7. To choose your preferred display resolution, in the
+   **Actions** menu, choose
+   **Resolutions**, and then select from the
+   following:
 
-        * **Adapt Automatically**
-        * **1920 x 1080**
-        * **1400 x 900**
-        * **1366 x 768**
-        * **800 x 600**
-
-    The **Adapt Automatically** option sets the resolution
-    based on your detected screen size.
+   - **Adapt Automatically**
+   - **1920 x 1080**
+   - **1400 x 900**
+   - **1366 x 768**
+   - **800 x 600**
+     The **Adapt Automatically** option sets the resolution
+     based on your detected screen size.
 
 ## Viewing information about current and completed connections
 

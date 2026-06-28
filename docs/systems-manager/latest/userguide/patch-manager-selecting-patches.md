@@ -75,7 +75,7 @@ repositories (repos) on a node:
 
 ###### Note
 
-`architecture` can be x86_64 or (for
+`architecture` can be x86\_64 or (for
 Graviton processors) aarch64.
 
 When you create an Amazon Linux 2023 (AL2023) instance, it contains the
@@ -199,9 +199,9 @@ that are part of the associated repo for that version, as
 follows:
 
 - Debian Server 11: `debian-security
-bullseye`
+ bullseye`
 - Debian Server 12: `debian-security
-bookworm`
+ bookworm`
 
 Oracle Linux
 On Oracle Linux, the Systems Manager patch baseline service uses preconfigured
@@ -448,27 +448,21 @@ Systems Manager performs the equivalent of a `sudo apt-get update`
 command.
 
 Packages are then filtered from
-``codename`-security`  repos, where the codename is unique to the release version, such as
- `trusty` for Ubuntu Server 14. Patch Manager only identifies
+``codename`-security`
+repos, where the codename is unique to the release version, such as
+`plucky` for Ubuntu Server 25.04. Patch Manager only identifies
 upgrades that are part of these repos:
 
--
-- Ubuntu Server 16.04 LTS:
-  `xenial-security`
 - Ubuntu Server 18.04 LTS:
   `bionic-security`
 - Ubuntu Server 20.04 LTS:
   `focal-security`
--
-- Ubuntu Server 22.04 LTS
-  (`jammy-security`)
--
--
-- Ubuntu Server 24.04 LTS
-  (`noble-security`)
--
-- Ubuntu Server 25.04
-  (`plucky-security`)
+- Ubuntu Server 22.04 LTS:
+  `jammy-security`
+- Ubuntu Server 24.04 LTS:
+  `noble-security`
+- Ubuntu Server 25.04:
+  `plucky-security`
 
 Windows Server
 On Microsoft Windows operating systems, Patch Manager retrieves a list of

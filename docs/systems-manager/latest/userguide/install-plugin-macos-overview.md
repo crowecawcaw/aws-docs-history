@@ -17,7 +17,7 @@ signed installer.
 
 1. Download the signed installer.
 
-x86_64
+x86\_64
 
 ```
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/session-manager-plugin.pkg" -o "session-manager-plugin.pkg"
@@ -63,7 +63,7 @@ Note the following important information.
 
 1. Download the bundled installer.
 
-x86_64
+x86\_64
 
 ```
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/sessionmanager-bundle.zip" -o "sessionmanager-bundle.zip"

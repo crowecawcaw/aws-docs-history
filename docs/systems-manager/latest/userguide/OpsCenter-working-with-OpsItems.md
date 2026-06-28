@@ -21,18 +21,17 @@ You can view and manage OpsItems by using the following pages in the Systems Man
   insights and tools that you can use to manage an OpsItem. The OpsItems details page
   has the following tabs:
 
-      + **Overview** – Displays related resources,
-       runbooks that ran in the last 30 days, and a list of available runbooks
-       that you can run. You can also view similar OpsItems, add operational data,
-       and add related OpsItems.
-      + **Related resource details** – Displays
-       information about the resource from several AWS services. Expand the
-       **Resource details** section to view information
-       about this resource as provided by the AWS service that hosts it. You
-       can also toggle through other related resources associated with this
-       OpsItem by using the **Related resources** list.
-
-  For more information about how to manage OpsItems, see the following topics.
+  - **Overview** – Displays related resources,
+    runbooks that ran in the last 30 days, and a list of available runbooks
+    that you can run. You can also view similar OpsItems, add operational data,
+    and add related OpsItems.
+  - **Related resource details** – Displays
+    information about the resource from several AWS services. Expand the
+    **Resource details** section to view information
+    about this resource as provided by the AWS service that hosts it. You
+    can also toggle through other related resources associated with this
+    OpsItem by using the **Related resources** list.
+    For more information about how to manage OpsItems, see the following topics.
 
 ###### Topics
 

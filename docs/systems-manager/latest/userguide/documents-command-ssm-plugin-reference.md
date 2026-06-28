@@ -679,7 +679,7 @@ Required: Yes
 **LogStream**
 
 The destination log stream. If you use
-**{instance_id}**, the default, the
+**{instance\_id}**, the default, the
 instance ID of this instance is used as the log stream
 name.
 
@@ -692,9 +692,9 @@ Valid values: `{instance_id}` |
 If you enter a log stream name that doesn't already exist,
 CloudWatch Logs automatically creates it for you. You can use a literal
 string or predefined variables
-(**{instance_id}**,
+(**{instance\_id}**,
 **{hostname}**,
-**{ip_address}**, or a combination of all
+**{ip\_address}**, or a combination of all
 three to define a log stream name.
 
 The log stream name specified in this parameter is displayed

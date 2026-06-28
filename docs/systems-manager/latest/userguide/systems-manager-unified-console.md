@@ -23,14 +23,14 @@ information on a series of tabs:
 
 ![Node overview details in the Explore nodes section](images/unified-console-explore-nodes-node-details.png)
 
-\***\*Tags\*\***
+****Tags****
 
 (Optional) Manage resource tags to group and filter the managed node with
 other resources. Tags consist of a case-senstive key-value pair and are used
 to categorize resources in different ways, such as by purpose, owner, or
 environment.
 
-\***\*Inventory\*\***
+****Inventory****
 
 Displays metadata about the managed node, which you can view according to
 over 10 different inventory types. For example, when you select the type
@@ -40,7 +40,7 @@ details about applications installed on the node, such as
 **Architecture**, and more. For more information about
 Inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md "systems-manager-inventory.md").
 
-\***\*Associations\*\***
+****Associations****
 
 An association is a resource type in State Manager that defines the target
 state for a managed node and maintains all managed nodes in your account in
@@ -51,7 +51,7 @@ node. An association can drive compliance reporting of required states for
 resources in your account. For more information about State Manager and
 assocations, see [AWS Systems Manager State Manager](systems-manager-state.md "systems-manager-state.md").
 
-\***\*Patches\*\***
+****Patches****
 
 Displays metadata about the managed node, such as which patch baseline is
 assigned to the node and the total number of updates for packages that have
@@ -79,7 +79,7 @@ you define what patch compliance means for managed nodes in your
 organization or account in a _patch
 baseline_. For more information, see [What is compliance in Patch Manager?](patch-manager.md#patch-manager-definition-of-compliance "patch-manager.md#patch-manager-definition-of-compliance") and [Predefined and custom patch baselines](patch-manager-predefined-and-custom-patch-baselines.md "patch-manager-predefined-and-custom-patch-baselines.md").
 
-\***\*Configuration compliance\*\***
+****Configuration compliance****
 
 Reports patch compliance and configuration inconsistencies on the node
 (whether the state of a package on the managed node is

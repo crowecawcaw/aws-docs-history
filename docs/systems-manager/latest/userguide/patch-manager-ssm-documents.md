@@ -281,7 +281,7 @@ the following parameter configuration with the recommended replacement document,
 - `Action` = `Install`
 - `Allow Reboot` = `True`
 - `Include Kbs` = `comma-separated list of KB
-articles`
+ articles`
 
 ## Known limitations of the SSM documents for patching managed nodes
 

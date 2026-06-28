@@ -22,7 +22,7 @@ CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/CWL_GettingStarted.md "..
 On most Linux node types:
 `/etc/amazon/ssm/seelog.xml.template`.
 
-On Ubuntu Server 20.04, 18.04, and 16.04 LTS:
+On Ubuntu Server 20.04 and 18.04 LTS:
 `/snap/amazon-ssm-agent/current/seelog.xml.template`
 
 ###### macOS
@@ -36,7 +36,7 @@ On Ubuntu Server 20.04, 18.04, and 16.04 LTS:
 
 ###### Note
 
-On Ubuntu Server 20.04, 18.04, and 16.04 LTS, the file
+On Ubuntu Server 20.04 and 18.04 LTS, the file
 `seelog.xml` must be created in the directory
 `/etc/amazon/ssm/`. You can create this directory and
 file by running the following commands.

@@ -8,13 +8,12 @@ parameter tier in Parameter Store by doing one of the following:
 - Make sure that you have permission to change the default tier
   setting by using the following API operations:
 
-      + [GetServiceSetting](../APIReference/API_GetServiceSetting.md "../APIReference/API_GetServiceSetting.md")
-      + [UpdateServiceSetting](../APIReference/API_UpdateServiceSetting.md "../APIReference/API_UpdateServiceSetting.md")
-      + [ResetServiceSetting](../APIReference/API_ResetServiceSetting.md "../APIReference/API_ResetServiceSetting.md")
-
-  Grant the following permissions to the IAM entity to allow a user to
-  view and change the default tier setting for parameters in a specific
-  AWS Region in an AWS account.
+  - [GetServiceSetting](../APIReference/API_GetServiceSetting.md "../APIReference/API_GetServiceSetting.md")
+  - [UpdateServiceSetting](../APIReference/API_UpdateServiceSetting.md "../APIReference/API_UpdateServiceSetting.md")
+  - [ResetServiceSetting](../APIReference/API_ResetServiceSetting.md "../APIReference/API_ResetServiceSetting.md")
+    Grant the following permissions to the IAM entity to allow a user to
+    view and change the default tier setting for parameters in a specific
+    AWS Region in an AWS account.
 
 JSON
 

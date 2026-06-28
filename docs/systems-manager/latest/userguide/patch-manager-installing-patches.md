@@ -180,9 +180,9 @@ version is applied. 7. The YUM update API (Amazon Linux 2) or the DNF update API
      of the same transitive dependencies.
 
 8. The managed node is rebooted if any updates were installed.
-   (Exception: If the `RebootOption` parameter is set to `NoReboot` in
-   the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after
-   Patch Manager runs. For more information, see [Parameter name: RebootOption](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption "patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption").)
+(Exception: If the `RebootOption` parameter is set to `NoReboot` in
+the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after
+Patch Manager runs. For more information, see [Parameter name: RebootOption](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption "patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption").)
 
 ###### Note
 
@@ -375,9 +375,9 @@ reported as `Missing`.
      and nonsecurity updates are applied.
 
 8. The managed node is rebooted if any updates were installed.
-   (Exception: If the `RebootOption` parameter is set to `NoReboot` in
-   the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after
-   Patch Manager runs. For more information, see [Parameter name: RebootOption](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption "patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption").)
+(Exception: If the `RebootOption` parameter is set to `NoReboot` in
+the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after
+Patch Manager runs. For more information, see [Parameter name: RebootOption](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption "patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption").)
 
 Oracle Linux
 On Oracle Linux managed nodes, the patch installation workflow is as
@@ -760,27 +760,23 @@ For each version of Ubuntu Server, patch candidate versions
 are limited to patches that are part of the associated repo
 for that version, as follows:
 
-    * Ubuntu Server 16.04 LTS:
-     `xenial-security`
     * Ubuntu Server 18.04 LTS:
      `bionic-security`
-    * Ubuntu Server 20.04 LTS):
+    * Ubuntu Server 20.04 LTS:
      `focal-security`
     * Ubuntu Server 22.04 LTS:
      `jammy-security`
-    * Ubuntu Server 24.04 LTS
-     (`noble-security`)
-    * Ubuntu Server 25.04
-     (`plucky-security`)
+    * Ubuntu Server 24.04 LTS:
+     `noble-security`
+    * Ubuntu Server 25.04:
+     `plucky-security`
 
 5. Apply [ApprovedPatches](../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-ApprovedPatches "../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-ApprovedPatches") as specified in the patch
-   baseline. The approved patches are approved for update even if
-   they're discarded by [GlobalFilters](../APIReference/API_CreatePatchBaseline.md#systemsmanager-CreatePatchBaseline-request-GlobalFilters "../APIReference/API_CreatePatchBaseline.md#systemsmanager-CreatePatchBaseline-request-GlobalFilters") or if no approval rule
-   specified in [ApprovalRules](../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-ApprovalRules "../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-ApprovalRules") grants it approval.
-6. Apply [RejectedPatches](../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-RejectedPatches "../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-RejectedPatches") as specified in the patch
-   baseline. The rejected patches are removed from the list of
-   approved patches and won't be applied.
-7. The APT library is used to upgrade packages.
+baseline. The approved patches are approved for update even if
+they're discarded by [GlobalFilters](../APIReference/API_CreatePatchBaseline.md#systemsmanager-CreatePatchBaseline-request-GlobalFilters "../APIReference/API_CreatePatchBaseline.md#systemsmanager-CreatePatchBaseline-request-GlobalFilters") or if no approval rule
+specified in [ApprovalRules](../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-ApprovalRules "../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-ApprovalRules") grants it approval. 6. Apply [RejectedPatches](../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-RejectedPatches "../APIReference/API_CreatePatchBaseline.md#EC2-CreatePatchBaseline-request-RejectedPatches") as specified in the patch
+baseline. The rejected patches are removed from the list of
+approved patches and won't be applied. 7. The APT library is used to upgrade packages.
 
 ###### Note
 

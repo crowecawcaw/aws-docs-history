@@ -93,40 +93,44 @@ exceptions** section:
      patches in the list.
 
 10. If you want to explicitly reject any patches that otherwise meet
-    your approval rules, do the following in the **Patch
-    exceptions** section:
+your approval rules, do the following in the **Patch
+exceptions** section:
 
-    - For **Rejected patches**, enter a
-      comma-separated list of the patches you want to
-      reject.
+    * For **Rejected patches**, enter a
+     comma-separated list of the patches you want to
+     reject.
+
 
     For information about accepted formats for lists of approved patches and rejected patches,
-    see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
-    - For **Rejected patches action**, select
-      the action for Patch Manager to take on patches included in the
-      **Rejected patches** list.
+     see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+    * For **Rejected patches action**, select
+     the action for Patch Manager to take on patches included in the
+     **Rejected patches** list.
 
-      - **Allow as
-        dependency**: A package in the
-        **Rejected patches** list is
-        installed only if it's a dependency of another
-        package. It's considered compliant with the patch
-        baseline and its status is reported as
-        _InstalledOther_. This is the
-        default action if no option is specified.
-      - **Block**: Packages
-        in the **Rejected patches** list,
-        and packages that include them as dependencies,
-        aren't installed by Patch Manager under any
-        circumstances. If a package was installed before it
-        was added to the **Rejected
-        patches** list, or is installed outside
-        of Patch Manager afterward, it's considered noncompliant
-        with the patch baseline and its status is reported
-        as _InstalledRejected_.
+
+
+
+    	+ **Allow as
+    	 dependency**: A package in the
+    	 **Rejected patches** list is
+    	 installed only if it's a dependency of another
+    	 package. It's considered compliant with the patch
+    	 baseline and its status is reported as
+    	 *InstalledOther*. This is the
+    	 default action if no option is specified.
+    	+ **Block**: Packages
+    	 in the **Rejected patches** list,
+    	 and packages that include them as dependencies,
+    	 aren't installed by Patch Manager under any
+    	 circumstances. If a package was installed before it
+    	 was added to the **Rejected
+    	 patches** list, or is installed outside
+    	 of Patch Manager afterward, it's considered noncompliant
+    	 with the patch baseline and its status is reported
+    	 as *InstalledRejected*.
 
 11. (Optional) For **Manage tags**, apply one or more
-    tag key name/value pairs to the patch baseline.
+tag key name/value pairs to the patch baseline.
 
 Tags are optional metadata that you assign to a resource. Tags
 allow you to categorize a resource in different ways, such as by

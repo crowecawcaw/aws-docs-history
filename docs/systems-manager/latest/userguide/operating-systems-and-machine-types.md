@@ -59,69 +59,69 @@ Select an OS platform to see the supported major and minor versions.
 
 ### Linux
 
-| AlmaLinux | Versions | x86 | x86_64 | ARM64 |
-| --------- | -------- | --- | ------ | ----- |
-| 8.3–8.10  |          | ✓   | ✓      |
-| 9*.x*     |          | ✓   | ✓      |
+AlmaLinux| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 8.3–8.10 | | ✓ | ✓ |
+| 9*.x* | | ✓ | ✓ |
 
-| Amazon Linux 2             | Versions | x86 | x86_64 | ARM64 |
-| -------------------------- | -------- | --- | ------ | ----- |
-| 2.0 and all later versions |          | ✓   | ✓      |
+Amazon Linux 2| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 2.0 and all later versions | | ✓ | ✓ |
 
-| Amazon Linux 2023                        | Versions | x86 | x86_64 | ARM64 |
-| ---------------------------------------- | -------- | --- | ------ | ----- |
-| 2023.0.20230315.0 and all later versions |          | ✓   | ✓      |
+Amazon Linux 2023| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 2023.0.20230315.0 and all later versions | | ✓ | ✓ |
 
-| Bottlerocket                 | Versions | x86_64 | ARM64 |
-| ---------------------------- | -------- | ------ | ----- |
-| 1.0.0 and all later versions | ✓        | ✓      |
+Bottlerocket| Versions | x86\_64 | ARM64 |
+| --- | --- | --- |
+| 1.0.0 and all later versions | ✓ | ✓ |
 
-| CentOS Stream | Versions | x86 | x86_64 | ARM64 |
-| ------------- | -------- | --- | ------ | ----- |
-| 9             |          | ✓   | ✓      |
+CentOS Stream| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 9 | | ✓ | ✓ |
 
-| Debian Server | Versions | x86 | x86_64 | ARM64 |
-| ------------- | -------- | --- | ------ | ----- |
-| Bullseye (11) |          | ✓   | ✓      |
-| Bookworm (12) |          | ✓   | ✓      |
+Debian Server| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| Bullseye (11) | | ✓ | ✓ |
+| Bookworm (12) | | ✓ | ✓ |
 
-| Oracle Linux | Versions | x86 | x86_64 | ARM64 |
-| ------------ | -------- | --- | ------ | ----- |
-| 7.5–7.8      |          | ✓   |        |
-| 8*.x*        |          | ✓   |        |
-| 9*.x*        |          | ✓   |        |
+Oracle Linux| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 7.5–7.8 | | ✓ | |
+| 8*.x* | | ✓ | |
+| 9*.x* | | ✓ | |
 
-| Red Hat Enterprise Linux (RHEL) | Versions | x86 | x86_64 | ARM64 |
-| ------------------------------- | -------- | --- | ------ | ----- |
-| 7.0–7.5                         |          | ✓   |        |
-| 7.6–8*.x*                       |          | ✓   | ✓      |
-| 9*.x*                           |          | ✓   | ✓      |
-| 10._x_                          |          | ✓   | ✓      |
+Red Hat Enterprise Linux (RHEL)| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 7.0–7.5 | | ✓ | |
+| 7.6–8*.x* | | ✓ | ✓ |
+| 9*.x* | | ✓ | ✓ |
+| 10._x_ | | ✓ | ✓ |
 
-| Rocky Linux | Versions | x86 | x86_64 | ARM64 |
-| ----------- | -------- | --- | ------ | ----- |
-| 8*.x*       |          | ✓   | ✓      |
-| 9*.x*       |          | ✓   | ✓      |
+Rocky Linux| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 8*.x* | | ✓ | ✓ |
+| 9*.x* | | ✓ | ✓ |
 
-| SUSE Linux Enterprise Server (SLES) | Versions | x86 | x86_64 | ARM64 |
-| ----------------------------------- | -------- | --- | ------ | ----- |
-| 15.3 and later versionsx            |          | ✓   | ✓      |
+SUSE Linux Enterprise Server (SLES)| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 15.3 and later versionsx | | ✓ | ✓ |
 
-| Ubuntu Server           | Versions | x86 | x86_64 | ARM64 |
-| ----------------------- | -------- | --- | ------ | ----- |
-| 16.04 LTS and 18.04 LTS |          | ✓   | ✓      |
-| 20.04 LTS               |          | ✓   | ✓      |
-| 22.04 LTS               |          | ✓   | ✓      |
-| 24.04 LTS               |          | ✓   | ✓      |
-| 25.04                   |          | ✓   | ✓      |
+Ubuntu Server| Versions | x86 | x86\_64 | ARM64 |
+| --- | --- | --- | --- |
+| 18.04 LTS | | ✓ | ✓ |
+| 20.04 LTS | | ✓ | ✓ |
+| 22.04 LTS | | ✓ | ✓ |
+| 24.04 LTS | | ✓ | ✓ |
+| 25.04 | | ✓ | ✓ |
 
 ### macOS (Amazon EC2 instances only)
 
-| Version               | x86 | x86_64 | Mac with Apple silicon |
-| --------------------- | --- | ------ | ---------------------- |
-| 13\*.x<br>• (Ventura) |     | ✓      | ✓                      |
-| 14\*.x<br>• (Sonoma)  |     | ✓      | ✓                      |
-| 15\*.x<br>• (Sequoia) |     | ✓      | ✓                      |
+| Version              | x86 | x86\_64 | Mac with Apple silicon |
+| -------------------- | --- | ------- | ---------------------- |
+| 13*.x<br>• (Ventura) |     | ✓       | ✓                      |
+| 14*.x<br>• (Sonoma)  |     | ✓       | ✓                      |
+| 15*.x<br>• (Sequoia) |     | ✓       | ✓                      |
 
 ###### Note
 
@@ -138,13 +138,13 @@ your Windows Server instances are running Windows Management Framework
 3.0 or later. This framework includes Windows
 PowerShell. For more information, see [Windows Management Framework 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True "https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True").
 
-| Version               | x86 | x86_64 | ARM64 |
-| --------------------- | --- | ------ | ----- |
-| 2012 and 2012 R2**²** |     | ✓      |       |
-| 2016                  |     | ✓      |       |
-| 2019                  |     | ✓      |       |
-| 2022                  |     | ✓      |       |
-| 2025                  |     | ✓      |       |
+| Version               | x86 | x86\_64 | ARM64 |
+| --------------------- | --- | ------- | ----- |
+| 2012 and 2012 R2**²** |     | ✓       |       |
+| 2016                  |     | ✓       |       |
+| 2019                  |     | ✓       |       |
+| 2022                  |     | ✓       |       |
+| 2025                  |     | ✓       |       |
 
 **¹**
 **Windows Server 2012 and 2012 R2 support**: Windows Server

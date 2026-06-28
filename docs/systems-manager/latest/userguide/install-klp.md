@@ -86,7 +86,7 @@ patches, such as i-02573cafcfEXAMPLE. To turn on the feature on multiple managed
 you can use either of the following formats.
 
 - `--targets
-"Key=instanceids,Values=`instance-id1`,`instance-id2`"`
+ "Key=instanceids,Values=`instance-id1`,`instance-id2`"`
 - `--targets
  "Key=tag:`tag-key`,Values=`tag-value`"`
   For information about other options you can use in these commands, see

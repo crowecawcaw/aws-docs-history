@@ -33,9 +33,9 @@ Systems Manager Automation by using CloudFormation.
    resources** option.
 10. Choose **Create**.
 
-CloudFormation shows the **CREATE_IN_PROGRESS** status for
+CloudFormation shows the **CREATE\_IN\_PROGRESS** status for
 approximately three minutes. The status changes to
-**CREATE_COMPLETE** after the stack is created and your
+**CREATE\_COMPLETE** after the stack is created and your
 roles are ready to use.
 
 ###### Important

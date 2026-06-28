@@ -18,7 +18,7 @@ updates.
   installations sometimes require managed nodes to reboot, the patching
   operation is divided into two events, for a total of three hooks that
   support custom functionality. The first hook is before the `Install
-with NoReboot` operation. The second hook is after the
+ with NoReboot` operation. The second hook is after the
   `Install with NoReboot` operation. The third hook is
   available after the reboot of the managed node.
 - **No custom patch list support** –
@@ -107,82 +107,81 @@ For information about viewing patch compliance data, see [About patch compliance
 When the `AWS-RunPatchBaselineWithHooks` runs, the following steps
 are performed:
 
-1.  **Scan** - A `Scan` operation
-    using `AWS-RunPatchBaseline` is run on the managed node, and
-    a compliance report is generated and uploaded.
-2.  **Verify local patch states** - A script
-    is run to determine what steps will be performed based on the selected
-    operation and `Scan` result from Step 1.
+1. **Scan** - A `Scan` operation
+   using `AWS-RunPatchBaseline` is run on the managed node, and
+   a compliance report is generated and uploaded.
+2. **Verify local patch states** - A script
+   is run to determine what steps will be performed based on the selected
+   operation and `Scan` result from Step 1.
 
-    1. If the selected operation is `Scan`, the operation
-       is marked complete. The operation concludes.
-    2. If the selected operation is `Install`, Patch Manager
-       evaluates the `Scan` result from Step 1 to determine
-       what to run next:
+   1. If the selected operation is `Scan`, the operation
+      is marked complete. The operation concludes.
+   2. If the selected operation is `Install`, Patch Manager
+      evaluates the `Scan` result from Step 1 to determine
+      what to run next:
 
-       1. If no missing patches are detected, and no pending
-          reboots required, the operation proceeds directly to the
-          final step (Step 8), which includes a hook you have
-          provided. Any steps in between are skipped.
-       2. If no missing patches are detected, but there are
-          pending reboots required and the selected reboot option
-          is `NoReboot`, the operation proceeds
-          directly to the final step (Step 8), which includes a
-          hook you have provided. Any steps in between are
-          skipped.
-       3. Otherwise, the operation proceeds to the next
-          step.
+      1. If no missing patches are detected, and no pending
+         reboots required, the operation proceeds directly to the
+         final step (Step 8), which includes a hook you have
+         provided. Any steps in between are skipped.
+      2. If no missing patches are detected, but there are
+         pending reboots required and the selected reboot option
+         is `NoReboot`, the operation proceeds
+         directly to the final step (Step 8), which includes a
+         hook you have provided. Any steps in between are
+         skipped.
+      3. Otherwise, the operation proceeds to the next
+         step.
 
-3.  **Pre-patch hook operation** - The SSM
-    document you have provided for the first lifecycle hook,
-    `PreInstallHookDocName`, is run on the managed node.
-4.  **Install with NoReboot** - An
-    `Install` operation with the reboot option of
-    `NoReboot` using `AWS-RunPatchBaseline` is run
-    on the managed node, and a compliance report is generated and uploaded.
-5.  **Post-install hook operation** - The
-    SSM document you have provided for the second lifecycle hook,
-    `PostInstallHookDocName`, is run on the managed
-    node.
-6.  **Verify reboot** - A script runs to
-    determine whether a reboot is needed for the managed node and what steps
-    to run:
+3. **Pre-patch hook operation** - The SSM
+   document you have provided for the first lifecycle hook,
+   `PreInstallHookDocName`, is run on the managed node.
+4. **Install with NoReboot** - An
+   `Install` operation with the reboot option of
+   `NoReboot` using `AWS-RunPatchBaseline` is run
+   on the managed node, and a compliance report is generated and uploaded.
+5. **Post-install hook operation** - The
+   SSM document you have provided for the second lifecycle hook,
+   `PostInstallHookDocName`, is run on the managed
+   node.
+6. **Verify reboot** - A script runs to
+   determine whether a reboot is needed for the managed node and what steps
+   to run:
 
-    1.  If the selected reboot option is `NoReboot`, the
-        operation proceeds directly to the final step (Step 8), which
-        includes a hook you have provided. Any steps in between are
-        skipped.
-    2.  If the selected reboot option is `RebootIfNeeded`,
-        Patch Manager checks whether there are any pending reboots required
-        from the inventory collected in Step 4. This means that the
-        operation continues to Step 7 and the managed node is rebooted
-        in either of the following cases:
+   1. If the selected reboot option is `NoReboot`, the
+      operation proceeds directly to the final step (Step 8), which
+      includes a hook you have provided. Any steps in between are
+      skipped.
+   2. If the selected reboot option is `RebootIfNeeded`,
+      Patch Manager checks whether there are any pending reboots required
+      from the inventory collected in Step 4. This means that the
+      operation continues to Step 7 and the managed node is rebooted
+      in either of the following cases:
 
-            1. Patch Manager installed one or more patches. (Patch Manager
-             doesn't evaluate whether a reboot is required by the
-             patch. The system is rebooted even if the patch doesn't
-             require a reboot.)
-            2. Patch Manager detects one or more patches with a status of
-             `INSTALLED_PENDING_REBOOT` during the
-             Install operation. The
-             `INSTALLED_PENDING_REBOOT` status can
-             mean that the option `NoReboot` was selected
-             the last time the Install operation was run, or that a
-             patch was installed outside of Patch Manager since the last
-             time the managed node was rebooted.
+      1. Patch Manager installed one or more patches. (Patch Manager
+         doesn't evaluate whether a reboot is required by the
+         patch. The system is rebooted even if the patch doesn't
+         require a reboot.)
+      2. Patch Manager detects one or more patches with a status of
+         `INSTALLED_PENDING_REBOOT` during the
+         Install operation. The
+         `INSTALLED_PENDING_REBOOT` status can
+         mean that the option `NoReboot` was selected
+         the last time the Install operation was run, or that a
+         patch was installed outside of Patch Manager since the last
+         time the managed node was rebooted.
+         If no patches meeting these criteria are found, the managed
+         node patching operation is complete, and the operation proceeds
+         directly to the final step (Step 8), which includes a hook you
+         have provided. Any steps in between are skipped.
 
-        If no patches meeting these criteria are found, the managed
-        node patching operation is complete, and the operation proceeds
-        directly to the final step (Step 8), which includes a hook you
-        have provided. Any steps in between are skipped.
-
-7.  **Reboot and report** - An installation
-    operation with the reboot option of `RebootIfNeeded` runs on
-    the managed node using `AWS-RunPatchBaseline`, and a
-    compliance report is generated and uploaded.
-8.  **Post-reboot hook operation** - The
-    SSM document you have provided for the third lifecycle hook,
-    `OnExitHookDocName`, is run on the managed node.
+7. **Reboot and report** - An installation
+   operation with the reboot option of `RebootIfNeeded` runs on
+   the managed node using `AWS-RunPatchBaseline`, and a
+   compliance report is generated and uploaded.
+8. **Post-reboot hook operation** - The
+   SSM document you have provided for the third lifecycle hook,
+   `OnExitHookDocName`, is run on the managed node.
 
 For a `Scan` operation, if Step 1 fails, the process of running the
 document stops and the step is reported as failed, although subsequent steps are
@@ -276,10 +275,10 @@ optional, our best practice recommendation depends on whether or not you're
 running `AWS-RunPatchBaselineWithHooks` in a maintenance window,
 as described in the following table.
 
-| `AWS-RunPatchBaselineWithHooks` best practices                                                                                                                                                                                                                  | Mode                                                                 | Best practice                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Details |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Running `AWS-RunPatchBaselineWithHooks` inside<br>a maintenance window                                                                                                                                                                                          | Don't supply a Snapshot ID. Patch Manager will supply it for<br>you. | If you use a maintenance window to run<br>`AWS-RunPatchBaselineWithHooks`, you<br>shouldn't provide your own generated Snapshot ID. In<br>this scenario, Systems Manager provides a GUID value based on the<br>maintenance window execution ID. This ensures that a<br>correct ID is used for all the invocations of<br>`AWS-RunPatchBaselineWithHooks` in that<br>maintenance window.<br>If you do specify a value in this scenario, note that<br>the snapshot of the patch baseline might not remain in<br>place for more than 3 days. After that, a new snapshot<br>will be generated even if you specify the same ID after<br>the snapshot expires.                                                                                                                                                                                                                                                                                                                                |
-| Running `AWS-RunPatchBaselineWithHooks`<br>outside of a maintenance window                                                                                                                                                                                      | Generate and specify a custom GUID value for the Snapshot<br>ID.¹    | When you aren't using a maintenance window to run<br>`AWS-RunPatchBaselineWithHooks`, we<br>recommend that you generate and specify a unique<br>Snapshot ID for each patch baseline, particularly if<br>you're running the<br>`AWS-RunPatchBaselineWithHooks` document<br>on multiple managed nodes in the same operation. If you<br>don't specify an ID in this scenario, Systems Manager generates a<br>different Snapshot ID for each managed node the command<br>is sent to. This might result in varying sets of patches<br>being specified among the nodes.<br>For instance, say that you're running the<br>`AWS-RunPatchBaselineWithHooks` document<br>directly through Run Command, a tool inAWS Systems Manager, and<br>targeting a group of 50 managed nodes. Specifying a<br>custom Snapshot ID results in the generation of a single<br>baseline snapshot that is used to evaluate and patch all<br>the managed nodes, ensuring that they end up in a<br>consistent state. |
+`AWS-RunPatchBaselineWithHooks` best practices| Mode | Best practice | Details |
+| --- | --- | --- |
+| Running `AWS-RunPatchBaselineWithHooks` inside<br>a maintenance window | Don't supply a Snapshot ID. Patch Manager will supply it for<br>you. | If you use a maintenance window to run<br>`AWS-RunPatchBaselineWithHooks`, you<br>shouldn't provide your own generated Snapshot ID. In<br>this scenario, Systems Manager provides a GUID value based on the<br>maintenance window execution ID. This ensures that a<br>correct ID is used for all the invocations of<br>`AWS-RunPatchBaselineWithHooks` in that<br>maintenance window.<br>If you do specify a value in this scenario, note that<br>the snapshot of the patch baseline might not remain in<br>place for more than 3 days. After that, a new snapshot<br>will be generated even if you specify the same ID after<br>the snapshot expires. |
+| Running `AWS-RunPatchBaselineWithHooks`<br>outside of a maintenance window | Generate and specify a custom GUID value for the Snapshot<br>ID.¹ | When you aren't using a maintenance window to run<br>`AWS-RunPatchBaselineWithHooks`, we<br>recommend that you generate and specify a unique<br>Snapshot ID for each patch baseline, particularly if<br>you're running the<br>`AWS-RunPatchBaselineWithHooks` document<br>on multiple managed nodes in the same operation. If you<br>don't specify an ID in this scenario, Systems Manager generates a<br>different Snapshot ID for each managed node the command<br>is sent to. This might result in varying sets of patches<br>being specified among the nodes.<br>For instance, say that you're running the<br>`AWS-RunPatchBaselineWithHooks` document<br>directly through Run Command, a tool inAWS Systems Manager, and<br>targeting a group of 50 managed nodes. Specifying a<br>custom Snapshot ID results in the generation of a single<br>baseline snapshot that is used to evaluate and patch all<br>the managed nodes, ensuring that they end up in a<br>consistent state. |
 | ¹ You can use any tool capable of generating a<br>GUID to generate a value for the Snapshot ID parameter.<br>For example, in PowerShell, you can use the<br>`New-Guid` cmdlet to generate a GUID in<br>the format of<br>`12345699-9405-4f69-bc5e-9315aEXAMPLE`. |
 
 ### Parameter name: `RebootOption`

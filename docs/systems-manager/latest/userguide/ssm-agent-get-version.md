@@ -124,31 +124,9 @@ Version : 3.0.655.0-1
 
 Ubuntu Server
 
-###### Note
-
-To check if your Ubuntu Server 16.04 instance uses deb or Snap
-packages, see [Manually installing SSM Agent on Ubuntu Server instances](agent-install-ubuntu.md "agent-install-ubuntu.md").
-
 1. Log in to your managed node.
-2. Run the following command for Ubuntu Server 16.04 64-bit (with deb
-   installer package).
-
-```
-apt list amazon-ssm-agent
-```
-
-This command returns output similar to the following.
-
-```
-apt list amazon-ssm-agent
-Listing... Done
-amazon-ssm-agent/now 3.0.655.0-1 amd64 [installed,local]
-
-3.0.655.0 is the version of SSM agent
-```
-
-Run the following command for Ubuntu Server 16.04 LTS 64-bit (Snap),
-18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04.
+2. Run the following command for Ubuntu Server
+   18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04.
 
 ```
 sudo snap list amazon-ssm-agent

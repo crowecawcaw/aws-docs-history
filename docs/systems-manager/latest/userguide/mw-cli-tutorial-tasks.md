@@ -108,7 +108,7 @@ aws ssm describe-maintenance-window-tasks ^
 4. Wait until the task has had time to run, based on the schedule you
    specified in [Step 1: Create the maintenance window using the AWS CLI](mw-cli-tutorial-create-mw.md "mw-cli-tutorial-create-mw.md"). For example, if you
    specified `--schedule "rate(5
-minutes)"`, wait five minutes. Then run the
+ minutes)"`, wait five minutes. Then run the
    following command to view information about any executions that
    occurred for this task.
 

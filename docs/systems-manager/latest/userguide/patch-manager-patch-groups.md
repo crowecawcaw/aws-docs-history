@@ -38,13 +38,12 @@ details about using tags for patch groups:
   that you have tagged five nodes with the first of the following
   key-value pairs, and five with the second:
 
-      + `key=PatchGroup,value=DEV`
-      + `key=Patch Group,value=DEV`
-
-  The Patch Manager command to create a baseline combines these 10 managed
-  nodes into a single group based on the value `DEV`. The AWS CLI
-  equivalent for the command to create a patch baseline for patch groups
-  is as follows:
+  - `key=PatchGroup,value=DEV`
+  - `key=Patch Group,value=DEV`
+    The Patch Manager command to create a baseline combines these 10 managed
+    nodes into a single group based on the value `DEV`. The AWS CLI
+    equivalent for the command to create a patch baseline for patch groups
+    is as follows:
 
 ```
 aws ssm register-patch-baseline-for-patch-group \
@@ -76,7 +75,7 @@ aws ssm send-command \
   pairs.
 - We recommend that you choose only one of these tag key conventions,
   either `PatchGroup` (without a space) or `Patch
-Group` (with a space). However, if you have [allowed tags in EC2 instance metadata](../../../AWSEC2/latest/UserGuide/Using_Tags.md#allow-access-to-tags-in-IMDS "../../../AWSEC2/latest/UserGuide/Using_Tags.md#allow-access-to-tags-in-IMDS") on an instance, you
+ Group` (with a space). However, if you have [allowed tags in EC2 instance metadata](../../../AWSEC2/latest/UserGuide/Using_Tags.md#allow-access-to-tags-in-IMDS "../../../AWSEC2/latest/UserGuide/Using_Tags.md#allow-access-to-tags-in-IMDS") on an instance, you
   must use `PatchGroup`.
 - The key is case-sensitive. You can specify any _value_ to help you identify and target the resources in
   that group, for example "web servers" or "US-EAST-PROD", but the key

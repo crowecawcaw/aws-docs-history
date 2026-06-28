@@ -37,7 +37,7 @@ AWS Config requires AWS Identity and Access Management (IAM) permissions to get 
 resources. In the following procedure, you must specify an Amazon Resource Name (ARN)
 for an IAM role that gives AWS Config permission to Systems Manager resources. You can attach the
 `AWS_ConfigRole` managed policy to the IAM role that you assign to
-AWS Config. For more information about this role, see [AWS managed policy: AWS_ConfigRole](../../../config/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole "../../../config/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole") in the
+AWS Config. For more information about this role, see [AWS managed policy: AWS\_ConfigRole](../../../config/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole "../../../config/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole") in the
 _AWS Config Developer Guide_. For information about how to create an IAM
 role and assign the `AWS_ConfigRole` managed policy to that role, see
 [Creating a role to

@@ -14,7 +14,7 @@ installed:
 - Amazon EKS-Optimized Amazon Linux AMIs
 - macOS 13.x (Ventura), 14.x (Sonoma), and 15.x (Sequoia)
 - SUSE Linux Enterprise Server (SLES) 15.3 and later
-- Ubuntu Server 16.04 LTS 64-bit (Snap), 18.04, 20.04, 22.04 LTS, 24.04 LTS,
+- Ubuntu Server 18.04, 20.04, 22.04 LTS, 24.04 LTS,
   24.0, and 25.04
 - Windows Server 2012 R2 AMIs published in November 2016 or later
 - Windows Server 2016, 2019, 2022 (excluding Nano versions), and 2025

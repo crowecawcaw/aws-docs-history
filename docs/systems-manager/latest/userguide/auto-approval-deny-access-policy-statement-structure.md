@@ -4,7 +4,7 @@ The following table shows the structure of auto-approval and deny-access
 policies.
 
 | Component        | Syntax                                                                   |
-| ---------------- | ------------------------------------------------------------------------ | ------- |
+| ---------------- | ------------------------------------------------------------------------ |
 | effect           | `permit                                                                  | forbid` |
 | scope            | `(principal, action, resource)`                                          |
 | condition clause | ``<br>when {<br>`principal or resource` has `attribute name`<br>};<br>`` |
@@ -138,7 +138,7 @@ can use to add additional expressive power to your policy conditions. The
 following table contains all the built-in operators for reference.
 
 | Operator                        | Types and overloads                                            | Description                                                                                                                                                                                                                                                                                      |
-| ------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- | ------------------------------ | -------------------------------------------- |
+| ------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | !                               | Boolean → Boolean                                              | Logical not.                                                                                                                                                                                                                                                                                     |
 | ==                              | any → any                                                      | Equality. Works on arguments of any type, even if the<br>types don't match. Values of different types are never<br>equal to each other.                                                                                                                                                          |
 | !=                              | any → any                                                      | Inequality; the exact inverse of equality (see<br>above).                                                                                                                                                                                                                                        |

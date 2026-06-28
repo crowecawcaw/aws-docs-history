@@ -182,7 +182,7 @@ JSON
 2. Open the AWS CLI or Tools for Windows PowerShell and run one of the following commands, depending
    on the operating system type of your local machine, to create a service role
    in your account. Replace each `example resource
-placeholder` with your own information.
+ placeholder` with your own information.
 
 Linux & macOS
 
@@ -214,7 +214,7 @@ New-IAMRole `
 3. Run the following command to attach the
    `AmazonSSMManagedEC2InstanceDefaultPolicy` managed policy to
    your newly created role. Replace each `example resource
-placeholder` with your own information.
+ placeholder` with your own information.
 
 Linux & macOS
 

@@ -127,7 +127,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    system).
 5. In the **Command** field, run an AWS CLI command like
    the following. Replace each `example resource
-placeholder` with your own information.
+ placeholder` with your own information.
 
 ```
 aws ssm start-automation-execution \

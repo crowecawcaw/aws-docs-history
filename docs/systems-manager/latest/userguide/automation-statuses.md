@@ -20,25 +20,25 @@ the overall automation.
 The overall automation status can be different than the status reported by an
 individual action or step as noted in the following tables.
 
-| Detailed status for actions | Status                                                                                                                                                                                                                                                                                  | Details |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Pending                     | The step hasn't started running. If your automation uses<br>conditional actions, steps remain in this state after an automation<br>has completed if the condition wasn't met to run the step. Steps<br>also remain in this state if the automation is canceled before the<br>step runs. |
-| InProgress                  | The step is running.                                                                                                                                                                                                                                                                    |
-| Waiting                     | The step is waiting for input.                                                                                                                                                                                                                                                          |
-| Success                     | The step completed successfully. This is a terminal<br>state.                                                                                                                                                                                                                           |
-| TimedOut                    | A step or approval wasn't completed before the specified timeout<br>period. This is a terminal state.                                                                                                                                                                                   |
-| Cancelling                  | The step is in the process of stopping after being canceled by a<br>requester.                                                                                                                                                                                                          |
-| Cancelled                   | The step was stopped by a requester before it completed. This is<br>a terminal state.                                                                                                                                                                                                   |
-| Failed                      | The step didn't complete successfully. This is a terminal<br>state.                                                                                                                                                                                                                     |
-| Exited                      | Only returned by the `aws:loop` action. The loop<br>didn't fully complete. A step inside the loop moved to an<br>outside step using the `nextStep`,<br>`onCancel`, or `onFailure`<br>properties.                                                                                        |
+Detailed status for actions| Status | Details |
+| --- | --- |
+| Pending | The step hasn't started running. If your automation uses<br>conditional actions, steps remain in this state after an automation<br>has completed if the condition wasn't met to run the step. Steps<br>also remain in this state if the automation is canceled before the<br>step runs. |
+| InProgress | The step is running. |
+| Waiting | The step is waiting for input. |
+| Success | The step completed successfully. This is a terminal<br>state. |
+| TimedOut | A step or approval wasn't completed before the specified timeout<br>period. This is a terminal state. |
+| Cancelling | The step is in the process of stopping after being canceled by a<br>requester. |
+| Cancelled | The step was stopped by a requester before it completed. This is<br>a terminal state. |
+| Failed | The step didn't complete successfully. This is a terminal<br>state. |
+| Exited | Only returned by the `aws:loop` action. The loop<br>didn't fully complete. A step inside the loop moved to an<br>outside step using the `nextStep`,<br>`onCancel`, or `onFailure`<br>properties. |
 
-| Detailed status for an automation | Status                                                                                                | Details |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
-| Pending                           | The automation hasn't started running.                                                                |
-| InProgress                        | The automation is running.                                                                            |
-| Waiting                           | The automation is waiting for input.                                                                  |
-| Success                           | The automation completed successfully. This is a terminal<br>state.                                   |
-| TimedOut                          | A step or approval wasn't completed before the specified timeout<br>period. This is a terminal state. |
-| Cancelling                        | The automation is in the process of stopping after being canceled<br>by a requester.                  |
-| Cancelled                         | The automation was stopped by a requester before it completed.<br>This is a terminal state.           |
-| Failed                            | The automation didn't complete successfully. This is a<br>terminal state.                             |
+Detailed status for an automation| Status | Details |
+| --- | --- |
+| Pending | The automation hasn't started running. |
+| InProgress | The automation is running. |
+| Waiting | The automation is waiting for input. |
+| Success | The automation completed successfully. This is a terminal<br>state. |
+| TimedOut | A step or approval wasn't completed before the specified timeout<br>period. This is a terminal state. |
+| Cancelling | The automation is in the process of stopping after being canceled<br>by a requester. |
+| Cancelled | The automation was stopped by a requester before it completed.<br>This is a terminal state. |
+| Failed | The automation didn't complete successfully. This is a<br>terminal state. |

@@ -1,6 +1,6 @@
 # AWS Systems Manager Parameter Store
 
-Parameter Store enables you to securely store, organize, and retrieve configuration simple configuration data at scale. It is designed to simplify configuration management across environments, allowing teams to standardize how applications access critical data without hardcoding values or relying on fragmented storage solutions.
+Parameter Store enables you to securely store, organize, and retrieve simple configuration data at scale. It is designed to simplify configuration management across environments, allowing teams to standardize how applications access critical data without hardcoding values or relying on fragmented storage solutions.
 
 Beyond simple storage, Parameter Store provides versioning, access control through AWS Identity and Access Management (IAM), and seamless integration with other AWS services such as Amazon EC2, Lambda, and CloudFormation. This enables dynamic configuration updates without requiring code changes or redeployments, improving operational agility and reducing risk. With features like hierarchical naming, parameter policies, and change tracking, Parameter Store helps teams maintain consistency, enforce governance, and build more secure and maintainable systems.
 
@@ -14,7 +14,7 @@ If you manage credentials that require automatic rotation, cross-account access,
 Here are some examples of the types of configuration data you can store and manage in Parameter Store:
 
 - **Database connection strings (non-rotating)** – jdbc:mysql://host:3306/appdb
-- **Application environment variables** – ENV=production, LOG_LEVEL=debug
+- **Application environment variables** – ENV=production, LOG\_LEVEL=debug
 - **Service endpoint URLs** – internal microservice endpoints or third-party base URLs
 - **Resource identifiers** – S3 bucket names, DynamoDB table names, ARNs
 - **Application tuning parameters** – cache TTLs, batch sizes, polling intervals
@@ -107,7 +107,7 @@ You can retrieve parameters from Parameter Store using the AWS Management Consol
 
 - [GetParameter](../APIReference/API_GetParameter.md "../APIReference/API_GetParameter.md")
 - [GetParameters](../APIReference/API_GetParameters.md "../APIReference/API_GetParameters.md")
-- [API_GetParametersByPath](../APIReference/API_GetParametersByPath.md "../APIReference/API_GetParametersByPath.md")
+- [API\_GetParametersByPath](../APIReference/API_GetParametersByPath.md "../APIReference/API_GetParametersByPath.md")
 
 **AWS CLI**: The following table includes sample AWS CLI commands for Parameter Store.
 

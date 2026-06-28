@@ -35,31 +35,31 @@ tips. 7. For **Other parameters**:
 
 8. For **Rate control**:
 
-   - For **Concurrency**, specify either a number or a percentage of
+    * For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
 
-   ###### Note
 
-   If you selected targets by specifying tags applied to managed nodes or by
-   specifying AWS resource groups, and you aren't certain how many managed
-   nodes are targeted, then restrict the number of targets that can run the
-   document at the same time by specifying a percentage.
-   - For **Error threshold**, specify when to stop running the command
+    ###### Note
+
+    If you selected targets by specifying tags applied to managed nodes or by
+     specifying AWS resource groups, and you aren't certain how many managed
+     nodes are targeted, then restrict the number of targets that can run the
+     document at the same time by specifying a percentage.
+    * For **Error threshold**, specify when to stop running the command
      on other managed nodes after it fails on either a number or a percentage of nodes.
      For example, if you specify three errors, then Systems Manager stops sending the command when
      the fourth error is received. Managed nodes still processing the command might also
      send errors.
 
 9. (Optional) Choose a CloudWatch alarm to apply to your command for monitoring. To
-   attach a CloudWatch alarm to your command, the IAM principal that runs the
-   command must have permission for the
-   `iam:createServiceLinkedRole` action. For more information
-   about CloudWatch alarms, see [Using
-   Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). Note that if your alarm activates, any pending
-   command invocations do not run.
-10. (Optional) For **Output options**, to save the command output to a file,
-    select the **Write command output to an S3 bucket** box. Enter the bucket
-    and prefix (folder) names in the boxes.
+attach a CloudWatch alarm to your command, the IAM principal that runs the
+command must have permission for the
+`iam:createServiceLinkedRole` action. For more information
+about CloudWatch alarms, see [Using
+Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). Note that if your alarm activates, any pending
+command invocations do not run. 10. (Optional) For **Output options**, to save the command output to a file,
+select the **Write command output to an S3 bucket** box. Enter the bucket
+and prefix (folder) names in the boxes.
 
 ###### Note
 

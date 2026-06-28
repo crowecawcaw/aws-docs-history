@@ -130,34 +130,37 @@ Step Functions
      same priority scheduled in parallel.
 
 9. In the **Targets** area, choose one of the
-   following:
+following:
 
-   - **Selecting registered target groups**: Select
+    * **Selecting registered target groups**: Select
      one or more maintenance window targets you have registered with the
      current maintenance window.
-   - **Selecting unregistered targets**: Choose
+    * **Selecting unregistered targets**: Choose
      available resources one by one as targets for the task.
 
-   If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
-   tips.
-   - **Task target not required**: Targets for the
+
+    If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+     tips.
+    * **Task target not required**: Targets for the
      task might already be specified in other functions for all but
      Run Command-type tasks.
 
-   Specify one or more targets for maintenance window Run Command-type tasks. Depending on the
-   task, targets are optional for other maintenance window task types (Automation, AWS Lambda,
-   and AWS Step Functions). For more information about running tasks that don't specify targets,
-   see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
 
-   ###### Note
+    Specify one or more targets for maintenance window Run Command-type tasks. Depending on the
+     task, targets are optional for other maintenance window task types (Automation, AWS Lambda,
+     and AWS Step Functions). For more information about running tasks that don't specify targets,
+     see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
 
-   In many cases, you don't need to explicitly specify a target for an automation task.
-   For example, say that you're creating an Automation-type task to update an Amazon Machine Image
-   (AMI) for Linux using the `AWS-UpdateLinuxAmi` runbook. When the task runs, the
-   AMI is updated with the latest available Linux distribution packages and Amazon software.
-   New instances created from the AMI already have these updates installed. Because the ID of
-   the AMI to be updated is specified in the input parameters for the runbook, there is no
-   need to specify a target again in the maintenance window task.
+
+    ###### Note
+
+    In many cases, you don't need to explicitly specify a target for an automation task.
+     For example, say that you're creating an Automation-type task to update an Amazon Machine Image
+     (AMI) for Linux using the `AWS-UpdateLinuxAmi` runbook. When the task runs, the
+     AMI is updated with the latest available Linux distribution packages and Amazon software.
+     New instances created from the AMI already have these updates installed. Because the ID of
+     the AMI to be updated is specified in the input parameters for the runbook, there is no
+     need to specify a target again in the maintenance window task.
 
 10. _Automation tasks only:_
 
@@ -188,8 +191,8 @@ of the pseudo parameter placeholders. For information, see [Using pseudo paramet
      send errors.
 
 12. (Optional) For **IAM service role**, choose a role to
-    provide permissions for Systems Manager to assume when running a maintenance window
-    task.
+provide permissions for Systems Manager to assume when running a maintenance window
+task.
 
 If you don't specify a service role ARN, Systems Manager uses a service-linked role
 in your account. This role is not listed in the drop-down menu. If no

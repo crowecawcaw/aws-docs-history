@@ -17,8 +17,8 @@ _Amazon Web Services General Reference_.
 
 | Architecture | Operating system                                                                 | Signature file URL                                                                                                                                                                                             | Agent download file name |
 | ------------ | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| x86_64       | AlmaLinux, Amazon Linux 2, Amazon Linux 2023, RHEL, Oracle Linux,<br>Rocky Linux | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_amd64/amazon-ssm-agent.rpm.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm.sig`   | `amazon-ssm-agent.rpm`   |
-| x86_64       | Debian Server, Ubuntu Server                                                     | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/debian_amd64/amazon-ssm-agent.deb.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb.sig` | `amazon-ssm-agent.deb`   |
+| x86\_64      | AlmaLinux, Amazon Linux 2, Amazon Linux 2023, RHEL, Oracle Linux,<br>Rocky Linux | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_amd64/amazon-ssm-agent.rpm.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm.sig`   | `amazon-ssm-agent.rpm`   |
+| x86\_64      | Debian Server, Ubuntu Server                                                     | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/debian_amd64/amazon-ssm-agent.deb.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb.sig` | `amazon-ssm-agent.deb`   |
 | ARM64        | Amazon Linux 2, Amazon Linux 2023, RHEL                                          | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_arm64/amazon-ssm-agent.rpm.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm.sig`   | `amazon-ssm-agent.rpm`   |
 
 ## Verifying the SSM Agent package on a Linux server (v3.3.1802.0 and later)
@@ -139,7 +139,7 @@ topic.
 gpg --verify `signature-filename` `agent-download-filename`
 ```
 
-For example, for the x86_64 architecture on
+For example, for the x86\_64 architecture on
 Amazon Linux 2:
 
 ```
@@ -265,7 +265,7 @@ listed in the table earlier in this topic.
 rpm --checksig `agent-download-filename`
 ```
 
-For example, for the x86_64 architecture on
+For example, for the x86\_64 architecture on
 Amazon Linux 2:
 
 ```
@@ -394,7 +394,7 @@ topic.
 gpg --verify `signature-filename` `agent-download-filename`
 ```
 
-For example, for the x86_64 architecture on
+For example, for the x86\_64 architecture on
 Amazon Linux 2:
 
 ```
@@ -512,7 +512,7 @@ listed in the table earlier in this topic.
 rpm --checksig `agent-download-filename`
 ```
 
-For example, for the x86_64 architecture on
+For example, for the x86\_64 architecture on
 Amazon Linux 2:
 
 ```

@@ -328,7 +328,7 @@ manually using the following procedure.
 ###### To modify your PATH variable (Windows)
 
 1. Press the Windows key and enter `environment
-variables`.
+ variables`.
 2. Choose **Edit environment variables for your
    account**.
 3. Choose **PATH** and then choose
@@ -346,8 +346,7 @@ example.
      `C:\Program
      Files\Amazon\SessionManagerPlugin\bin\`
 
-5. Choose **OK** twice to apply the new settings.
-6. Close any running command prompts and re-open.
+5. Choose **OK** twice to apply the new settings. 6. Close any running command prompts and re-open.
 
 ## Session Manager plugin becomes unresponsive
 

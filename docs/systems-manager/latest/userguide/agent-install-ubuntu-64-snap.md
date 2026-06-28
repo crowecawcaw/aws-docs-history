@@ -1,20 +1,14 @@
-# Install SSM Agent on Ubuntu Server 16.04 LTS 64-bit (Snap), 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04
+# Install SSM Agent on Ubuntu Server 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04
 
 ###### Before you begin
 
-Before you install SSM Agent on an Ubuntu Server 16.04 LTS 64-bit (Snap),
+Before you install SSM Agent on an Ubuntu Server
 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04, note the
 following:
 
-Version 16.04 installation by Snaps or deb installers
-
-On Ubuntu Server 16.04, SSM Agent is installed using either Snaps
-or deb installation packages, depending on the version of the
-16.04 AMI.
-
 SSM Agent installer files locations
 
-On Ubuntu Server 16.04 LTS 64-bit (Snap), 18.04, 20.04, 22.04
+On Ubuntu Server 18.04, 20.04, 22.04
 LTS, 23.10, 24.04 LTS, 24.0, and 25.04, SSM Agent installer
 files, including agent binaries and config files, are stored in
 the following directory:
@@ -36,7 +30,7 @@ the differences between the candidate and stable channels, see
 
 If you want to track SSM Agent version information on the
 candidate channel, run the following command on your Ubuntu Server
-20.04, 18.04, and 16.04 LTS 64-bit instances.
+20.04 and 18.04 LTS 64-bit instances.
 
 ```
 sudo snap switch --channel=candidate amazon-ssm-agent
@@ -47,13 +41,7 @@ Snaps recommended on versions 18.04 and later
 On Ubuntu Server 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS,
 24.0, and 25.04, we recommend you only use Snaps. Also verify
 that only one instance of the agent is installed and running on
-your instances. If you want to use SSM Agent without Snaps,
-uninstall the SSM Agent. Then [install the SSM Agent
-as a debian package](agent-install-ubuntu-64-deb.md "agent-install-ubuntu-64-deb.md") using the instructions for
-installing SSM Agent on Ubuntu Server 16.04 (deb). Before
-installing, ensure you don't have any Snaps installed that
-overlap with the list of packages you want managed as debian
-packages.
+your instances.
 
 `Maximum timeout exceeded` error message
 
@@ -75,10 +63,10 @@ sudo systemctl stop snap.amazon-ssm-agent.amazon-ssm-agent.service
 sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
 ```
 
-###### To install SSM Agent on Ubuntu Server 16.04 LTS 64-bit (Snap), 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04 (with Snap package)
+###### To install SSM Agent on Ubuntu Server 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04 (with Snap package)
 
-1. SSM Agent is installed, by default, on Ubuntu Server 16.04 LTS 64-bit
-   (Snap), 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04
+1. SSM Agent is installed, by default, on Ubuntu Server
+   18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04
    AMIs with an identifier of `20180627` or
    later.
 
@@ -101,7 +89,7 @@ sudo snap list amazon-ssm-agent
 
 3. Run the following command to start the service if the previous
    command returned `amazon-ssm-agent is
-stopped`,
+ stopped`,
    `inactive`, or
    `disabled`.
 

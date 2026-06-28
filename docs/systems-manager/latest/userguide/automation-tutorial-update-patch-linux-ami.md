@@ -95,7 +95,7 @@ This step stops the updated instance.
 This step creates a new AMI with a descriptive name that links
 it to the source ID and creation time. For example: “AMI Generated
 by EC2 Automation on {{global:DATE\_TIME}} from {{SourceAmiId}}”
-where DATE_TIME and SourceID represent Automation variables.
+where DATE\_TIME and SourceID represent Automation variables.
 
 **Step 5: terminateInstance (`aws:changeInstanceState`
 action)**

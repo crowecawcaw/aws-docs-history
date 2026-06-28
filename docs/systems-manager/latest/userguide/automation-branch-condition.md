@@ -653,13 +653,14 @@ mainSteps:
 steps by using the `onFailure` option**
 
 The following example uses the `onFailure: step:`step
-name``, `nextStep`, and `isEnd`  options to create a dynamic automation. With this example, if the
- `InstallMsiPackage` action fails, then the automation jumps to an
- action called *PostFailure* (`onFailure:
-step:PostFailure`) to run an AWS Lambda function to perform some action
- in the event the install failed. If the install succeeds, then the automation
- jumps to the TestInstall action (`nextStep: TestInstall`). Both the
- `TestInstall`and the`PostFailure`steps use the
+name``, `nextStep`, and `isEnd`
+options to create a dynamic automation. With this example, if the
+`InstallMsiPackage` action fails, then the automation jumps to an
+action called _PostFailure_ (`onFailure:
+ step:PostFailure`) to run an AWS Lambda function to perform some action
+in the event the install failed. If the install succeeds, then the automation
+jumps to the TestInstall action (`nextStep: TestInstall`). Both the
+`TestInstall` and the `PostFailure` steps use the
 `isEnd` option (`isEnd: true`) so that the automation
 finishes when either of those steps is completed.
 

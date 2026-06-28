@@ -164,28 +164,24 @@ Note the following exceptions to ARN formats.
   both Amazon and third-party sources, do not include account IDs
   in their ARN formats. For example:
 
-      + The SSM document
-       `AWS-RunPatchBaseline`:
+  - The SSM document
+    `AWS-RunPatchBaseline`:
 
+  `arn:aws:ssm:us-east-2::document/AWS-RunPatchBaseline`
+  - The automation runbook
+    `AWS-ConfigureMaintenanceWindows`:
 
-      `arn:aws:ssm:us-east-2::document/AWS-RunPatchBaseline`
-      + The automation runbook
-       `AWS-ConfigureMaintenanceWindows`:
+  `arn:aws:ssm:us-east-2::automation-definition/AWS-ConfigureMaintenanceWindows`
+  - The public parameter
+    `/aws/service/bottlerocket/aws-ecs-1-nvidia/x86_64/1.13.4/image_version`:
 
-
-      `arn:aws:ssm:us-east-2::automation-definition/AWS-ConfigureMaintenanceWindows`
-      + The public parameter
-       `/aws/service/bottlerocket/aws-ecs-1-nvidia/x86_64/1.13.4/image_version`:
-
-
-      `arn:aws:ssm:us-east-2::parameter/aws/service/bottlerocket/aws-ecs-1-nvidia/x86_64/1.13.4/image_version`
-
+  `arn:aws:ssm:us-east-2::parameter/aws/service/bottlerocket/aws-ecs-1-nvidia/x86_64/1.13.4/image_version`
   For more information about these three resource types, see the
   following topics:
 
-      + [Working with documents](documents-using.md "documents-using.md")
-      + [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md")
-      + [Working with public parameters in Parameter Store](parameter-store-public-parameters.md "parameter-store-public-parameters.md")
+  - [Working with documents](documents-using.md "documents-using.md")
+  - [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md")
+  - [Working with public parameters in Parameter Store](parameter-store-public-parameters.md "parameter-store-public-parameters.md")
 
 - Quick Setup uses the prefix `ssm-quicksetup:` before
   actions.
@@ -309,7 +305,7 @@ in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elem
 `ssm:resourceTag/`key-name``,
  `aws:ResourceTag/`key-name``,
 `aws:RequestTag/`key-name``, or
- `aws:TagKeys` condition keys. You can add tags to the following
+`aws:TagKeys` condition keys. You can add tags to the following
 resource types when you create or update them:
 
 - Document

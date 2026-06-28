@@ -103,8 +103,8 @@ specify rate controls.
      errors.
 
 11. In the **Input Parameters** section, specify parameters
-    for the runbook. For runbooks, the system auto-populates some of the values.
-    You can keep or replace these values.
+for the runbook. For runbooks, the system auto-populates some of the values.
+You can keep or replace these values.
 
 ###### Important
 

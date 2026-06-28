@@ -81,8 +81,8 @@ permissions for your node:
      *[Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md")*.
 
 3. Edit the IAM role attached to the node and add the following policy.
-   This policy gives the node permissions to call the `kms:Decrypt`
-   and the `ssm:CreateDocument` API.
+This policy gives the node permissions to call the `kms:Decrypt`
+and the `ssm:CreateDocument` API.
 
 JSON
 

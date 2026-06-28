@@ -156,85 +156,95 @@ one of the following:
      non-restricted period when changes can be made.
 
 10. In the **Change request approvals** section, do
-    the following:
+the following:
 
-    1.  If **Approval type** options are
-        presented, choose one of the following:
+    1. If **Approval type** options are
+     presented, choose one of the following:
 
-        - **Automatic approval** –
-          The change template you selected is configured to
-          allow change requests to run automatically without
-          review by any approvers. Continue to Step 11.
 
-        ###### Note
 
-        The permissions specified in the IAM
-        policies that govern your use of Systems Manager must not
-        restrict you from submitting auto-approval
-        change requests in order for them to run
-        automatically.
-        - **Specify approvers** –
-          You must add one or more users, groups, or IAM
-          roles to review and approve this
-          change request.
 
-        ###### Note
+    	* **Automatic approval** –
+    	 The change template you selected is configured to
+    	 allow change requests to run automatically without
+    	 review by any approvers. Continue to Step 11.
 
-        You can choose to specify reviewers even if
-        the permissions specified in the IAM policies
-        that govern your use of Systems Manager allow you to run
-        auto-approval change requests.
 
-    2.  Choose **Add approver**, and then select
-        one or more users, groups, or AWS Identity and Access Management (IAM) roles from
-        the lists of available reviewers.
+    	###### Note
+
+    	The permissions specified in the IAM
+    	 policies that govern your use of Systems Manager must not
+    	 restrict you from submitting auto-approval
+    	 change requests in order for them to run
+    	 automatically.
+    	* **Specify approvers** –
+    	 You must add one or more users, groups, or IAM
+    	 roles to review and approve this
+    	 change request.
+
+
+    	###### Note
+
+    	You can choose to specify reviewers even if
+    	 the permissions specified in the IAM policies
+    	 that govern your use of Systems Manager allow you to run
+    	 auto-approval change requests.
+    2. Choose **Add approver**, and then select
+     one or more users, groups, or AWS Identity and Access Management (IAM) roles from
+     the lists of available reviewers.
+
 
     ###### Note
 
     One or more approvers might already be specified. This
-    means that mandatory approvers are already specified in
-    the change template you have selected. These approvers
-    can't be removed from the request. If the **Add
-    approver** button isn't available, the
-    template you have chosen doesn't allow additional
-    reviewers to be added to requests.
+     means that mandatory approvers are already specified in
+     the change template you have selected. These approvers
+     can't be removed from the request. If the **Add
+     approver** button isn't available, the
+     template you have chosen doesn't allow additional
+     reviewers to be added to requests.
+
 
     For more information about approvals for change requests,
-    see [About change request approvals](#cm-approvals-requests "#cm-approvals-requests"). 3. Under **SNS topic to notify approvers**,
-    choose one of the following to specify the Amazon SNS topic in
-    your account to use for sending notifications to the
-    approvers you are adding to this change request.
+     see [About change request approvals](#cm-approvals-requests "#cm-approvals-requests").
+    3. Under **SNS topic to notify approvers**,
+     choose one of the following to specify the Amazon SNS topic in
+     your account to use for sending notifications to the
+     approvers you are adding to this change request.
+
 
     ###### Note
 
     If the option to specify an Amazon SNS topic isn't
-    available, the change template you selected already
-    specifies the Amazon SNS topic to use.
+     available, the change template you selected already
+     specifies the Amazon SNS topic to use.
 
-        * **Enter an SNS Amazon Resource Name
-         (ARN)** – For **Topic
-         ARN**, enter the ARN of an existing Amazon SNS
-         topic. This topic can be in any of your
-         organization's accounts.
-        * **Select an existing SNS topic**
-         – For **Target notification
-         topic**, select the ARN of an existing
-         Amazon SNS topic in your current account. (This option
-         isn't available if you haven't yet created any Amazon SNS
-         topics in your current AWS account and
-         AWS Region.)
 
+
+
+    	* **Enter an SNS Amazon Resource Name
+    	 (ARN)** – For **Topic
+    	 ARN**, enter the ARN of an existing Amazon SNS
+    	 topic. This topic can be in any of your
+    	 organization's accounts.
+    	* **Select an existing SNS topic**
+    	 – For **Target notification
+    	 topic**, select the ARN of an existing
+    	 Amazon SNS topic in your current account. (This option
+    	 isn't available if you haven't yet created any Amazon SNS
+    	 topics in your current AWS account and
+    	 AWS Region.)
     ###### Note
 
     The Amazon SNS topic you select must be configured to specify the notifications it sends
-    and the subscribers they're sent to. Its access policy must also grant permissions
-    to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md"). 4. Choose **Add notification**.
+     and the subscribers they're sent to. Its access policy must also grant permissions
+     to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
+    4. Choose **Add notification**.
 
-11. Choose **Next**.
-12. For **IAM role**, select an IAM role
-    _in your current account_ that
-    has the permissions needed to run the runbooks that are specified
-    for this change request.
+11. Choose **Next**. 12. For **IAM role**, select an IAM role
+_in your current account_ that
+has the permissions needed to run the runbooks that are specified
+for this change request.
 
 This role is also referred to as the service role, or assume role,
 for Automation. For more information about this role, see [Setting up Automation](automation-setup.md "automation-setup.md"). 13. In the **Deployment location** section, choose
@@ -292,60 +302,68 @@ specify a deployment location.
     	 is stopped.
 
 14. In the **Deployment targets** section, do the
-    following:
+following:
 
-    1.  Choose one of the following:
+    1. Choose one of the following:
 
-        - **Single resource** – The
-          change is to be made for just one resource. For
-          example, a single node or a single Amazon Machine Image
-          (AMI), depending on the operation defined in the
-          runbooks for this change request.
-        - **Multiple resources** –
-          For **Parameter**, select from the
-          available parameters from the runbooks for this
-          change request. This selection reflects the type of
-          resource being updated.
 
-        For example, if the runbook for this change
-        request is `AWS-RetartEC2Instance`, you
-        might choose `InstanceId`, and then
-        define which instances are updated by selecting from
-        the following:
 
-            + **Specify tags** –
-             Enter a key-value pair that all resources to be
-             updated are tagged with.
-            + **Choose a resource group**
-             – Choose the name of the resource group
-             that all resources to be updated belong to.
-            + **Specify parameter
-             values** – Identify the resources
-             to update in the **Runbook
-             parameters** section.
-            + **Target all instances**
-             – Make the change on all managed nodes in
-             the target locations.
 
-    2.  If you chose **Multiple resources**,
-        expand **Rate control**.
+    	* **Single resource** – The
+    	 change is to be made for just one resource. For
+    	 example, a single node or a single Amazon Machine Image
+    	 (AMI), depending on the operation defined in the
+    	 runbooks for this change request.
+    	* **Multiple resources** –
+    	 For **Parameter**, select from the
+    	 available parameters from the runbooks for this
+    	 change request. This selection reflects the type of
+    	 resource being updated.
+
+
+    	For example, if the runbook for this change
+    	 request is `AWS-RetartEC2Instance`, you
+    	 might choose `InstanceId`, and then
+    	 define which instances are updated by selecting from
+    	 the following:
+
+
+
+
+    		+ **Specify tags** –
+    		 Enter a key-value pair that all resources to be
+    		 updated are tagged with.
+    		+ **Choose a resource group**
+    		 – Choose the name of the resource group
+    		 that all resources to be updated belong to.
+    		+ **Specify parameter
+    		 values** – Identify the resources
+    		 to update in the **Runbook
+    		 parameters** section.
+    		+ **Target all instances**
+    		 – Make the change on all managed nodes in
+    		 the target locations.
+    2. If you chose **Multiple resources**,
+     expand **Rate control**.
+
 
     For **Concurrency**, enter a number, then
-    from the list select whether this represents the number or
-    percentage of targets the runbook workflow can update at the
-    same time.
+     from the list select whether this represents the number or
+     percentage of targets the runbook workflow can update at the
+     same time.
+
 
     For **Error threshold**, enter a number,
-    then from the list select whether this represents the number
-    or percentage of targets where the update can fail before
-    the operation is stopped.
+     then from the list select whether this represents the number
+     or percentage of targets where the update can fail before
+     the operation is stopped.
 
 15. If you chose **Specify parameter values** to
-    update multiple resources in the previous step: In the
-    **Runbook parameters** section, specify values
-    for the required input parameters. The parameter values you must
-    supply are based on the contents of the Automation runbooks
-    associated with the change template you chose.
+update multiple resources in the previous step: In the
+**Runbook parameters** section, specify values
+for the required input parameters. The parameter values you must
+supply are based on the contents of the Automation runbooks
+associated with the change template you chose.
 
 For example, if the change template uses the
 `AWS-RetartEC2Instance` runbook, then you must enter

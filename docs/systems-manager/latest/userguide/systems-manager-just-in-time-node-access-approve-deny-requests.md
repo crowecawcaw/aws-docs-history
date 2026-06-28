@@ -26,7 +26,7 @@ node access requests.
    `oi-12345abcdef`.
 2. Run the following command to return details about the access request
    approval workflow, making sure to replace the `placeholder
-values` with your own information.
+ values` with your own information.
 
 ```
 aws ssm get-ops-item \

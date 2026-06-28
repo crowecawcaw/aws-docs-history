@@ -26,6 +26,8 @@ _IAM User Guide_.
 - [AWS managed policy: AWSQuickSetupDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy")
 - [AWS managed policy: AWSQuickSetupPatchPolicyDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyDeploymentRolePolicy")
 - [AWS managed policy: AWSQuickSetupPatchPolicyBaselineAccess](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyBaselineAccess "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyBaselineAccess")
+- [AWS managed policy: AWSQuickSetupPatchPolicyLambdaExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyLambdaExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyLambdaExecutionPolicy")
+- [AWS managed policy: AWSQuickSetupPatchPolicyTagManagementExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyTagManagementExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyTagManagementExecutionPolicy")
 - [AWS managed policy: AWSSystemsManagerEnableExplorerExecutionPolicy](#security-iam-awsmanpol-AWSSystemsManagerEnableExplorerExecutionPolicy "#security-iam-awsmanpol-AWSSystemsManagerEnableExplorerExecutionPolicy")
 - [AWS managed policy: AWSSystemsManagerEnableConfigRecordingExecutionPolicy](#security-iam-awsmanpol-AWSSystemsManagerEnableConfigRecordingExecutionPolicy "#security-iam-awsmanpol-AWSSystemsManagerEnableConfigRecordingExecutionPolicy")
 - [AWS managed policy: AWSQuickSetupDevOpsGuruPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupDevOpsGuruPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupDevOpsGuruPermissionsBoundary")
@@ -544,6 +546,62 @@ This policy includes the following permission.
 
 To view more details about the policy, including the latest version of the JSON policy
 document, see [AWSQuickSetupPatchPolicyBaselineAccess](../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyBaselineAccess.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyBaselineAccess.md") in the _AWS Managed
+Policy Reference Guide_.
+
+## AWS managed policy: AWSQuickSetupPatchPolicyLambdaExecutionPolicy
+
+The managed policy `AWSQuickSetupPatchPolicyLambdaExecutionPolicy`
+supports the [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md") Quick Setup type. This configuration type
+helps automate patching of applications and nodes in a single account or across your
+organization.
+
+You can attach `AWSQuickSetupPatchPolicyLambdaExecutionPolicy` to
+your IAM entities. Systems Manager also attaches this policy to a service role that allows
+Systems Manager to perform actions on your behalf.
+
+This policy grants permissions to manage State Manager associations for automated
+cleanup operations when Quick Setup configurations are deleted.
+
+**Permissions details**
+
+This policy includes the following permissions.
+
+- `ssm` – Allows principals to query and update State Manager
+  associations by ID during automated cleanup operations. The policy grants
+  permissions to describe association details, view association execution history,
+  and update association configurations. Wildcard resources are required because
+  association ARNs are dynamically generated.
+- `iam` – Allows principals to pass automation roles to Systems Manager
+  for association operations. The permission is scoped to Quick Setup automation
+  roles with the pattern `AWS-QuickSetup-AutomationRole-*` and includes
+  a condition that restricts role passing to the Systems Manager service only.
+
+To view more details about the policy, including the latest version of the JSON policy
+document, see [AWSQuickSetupPatchPolicyLambdaExecutionPolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyLambdaExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyLambdaExecutionPolicy.md") in the _AWS
+Managed Policy Reference Guide_.
+
+## AWS managed policy: AWSQuickSetupPatchPolicyTagManagementExecutionPolicy
+
+The managed policy `AWSQuickSetupPatchPolicyTagManagementExecutionPolicy`
+supports the [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md") Quick Setup type. This configuration type
+helps automate patching of applications and nodes in a single account or across your
+organization.
+
+You can attach `AWSQuickSetupPatchPolicyTagManagementExecutionPolicy` to your
+IAM entities. Systems Manager also attaches this policy to a service role that allows
+Systems Manager to perform actions on your behalf.
+
+This policy grants permissions to track which instances are managed by Quick Setup patch policy configurations through automated tagging and inventory collection.
+
+**Permissions details**
+
+This policy includes the following permissions.
+
+- `ssm` – Allows principals to retrieve inventory information from managed instances; and to add or remove configuration tracking tags on SSM managed instances.
+- `ec2` – Allows principals to add or remove configuration tracking tags on Amazon EC2 instances.
+
+To view more details about the policy, including the latest version of the JSON policy
+document, see [AWSQuickSetupPatchPolicyTagManagementExecutionPolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyTagManagementExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyTagManagementExecutionPolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
 ## AWS managed policy: `AWSSystemsManagerEnableExplorerExecutionPolicy`
@@ -1357,11 +1415,8 @@ _AWS Managed Policy Reference Guide_.
 ## AWS managed policy: AWSQuickSetupManagedInstanceProfileExecutionPolicy
 
 This policy grants administrative permissions that allow Systems Manager to create a default
-IAM instance profile for the Quick Setup tool, and to attach it to Amazon EC2 instances that
-don't already have an instance profile attached. The policy also grants Systems Manager the
-ability to attach permissions to existing instance profiles. This is done to ensure that
-the permissions required for Systems Manager to communicate with SSM Agent on EC2 instances are
-in place.
+IAM instance profile for the Quick Setup capability and attach it to Amazon EC2 instances that
+don't already have an instance profile attached.
 
 You can attach `AWSQuickSetupManagedInstanceProfileExecutionPolicy`
 to your IAM entities. Systems Manager also attaches this policy to a service role that
@@ -1371,15 +1426,15 @@ allows Systems Manager to perform actions on your behalf.
 
 This policy includes the following permissions.
 
-- `ssm` – Allows principals to start automation workflows
-  associated with Quick Setup processes.
-- `ec2` – Allows principals to attach IAM instance profiles
-  to EC2 instances that are managed by Quick Setup.
-- `iam` – Allows principals to create, update, and retrieve
-  information about roles from IAM that are used in Quick Setup processes; to
-  create IAM instance profiles; to attach the
-  `AmazonSSMManagedInstanceCore` managed policy to IAM instance
-  profiles.
+- `ec2` – Allows principals to associate IAM instance
+  profiles to Amazon EC2 instances and retrieve information about instance profile
+  associations and instances.
+- `iam` – Allows principals to create and manage the default
+  IAM role and instance profile for Quick Setup, attach managed policies to roles,
+  tag roles, and pass roles to Amazon EC2 and Systems Manager services.
+- `ssm` – Allows principals to start and monitor automation
+  executions, retrieve instance information, update managed instance roles, and add
+  tags to automation resources.
 
 To view more details about the policy, including the latest version of the JSON policy
 document, see [AWSQuickSetupManagedInstanceProfileExecutionPolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupManagedInstanceProfileExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupManagedInstanceProfileExecutionPolicy.md") in the _AWS
@@ -1707,6 +1762,9 @@ Systems Manager [Document history](systems-manager-release-history.md "systems-m
 
 | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Date               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSQuickSetupPatchPolicyLambdaExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyLambdaExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyLambdaExecutionPolicy") –<br>New managed policy                                                                                                                                                                                                                                                                                                                                                                                                                                        | Systems Manager added a new managed policy<br>`AWSQuickSetupPatchPolicyLambdaExecutionPolicy` that<br>grants permissions to manage State Manager associations for automated<br>cleanup operations when Quick Setup configurations are deleted.                                                                                                                                                                                                                                                                                                                                                       | June 3, 2026       |
+| [AWSQuickSetupPatchPolicyTagManagementExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyTagManagementExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyTagManagementExecutionPolicy") –<br>New managed policy                                                                                                                                                                                                                                                                                                                                                                                                                   | Systems Manager added a new managed policy to enable Quick Setup patch policy configurations to track which instances are managed through automated tagging and inventory collection. The policy grants permissions to add or remove QSConfigName-\<br>• tags on Amazon EC2 instances and SSM managed instances, along with SSM inventory retrieval capabilities.                                                                                                                                                                                                                                    | June 3, 2026       |
+| [AWSQuickSetupManagedInstanceProfileExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy") –<br>Updated managed policy                                                                                                                                                                                                                                                                                                                                                                                                                     | Systems Manager updated the managed policy to support Quick Setup PatchPolicy migration from CloudFormation inline policies to managed policies. The update adds automation execution capabilities including instance discovery, role updates, role tagging, and expanded PassRole permissions to Systems Manager. A protective Deny statement prevents modification of Quick Setup automation roles.                                                                                                                                                                                                | June 3, 2026       |
 | [AmazonSSMAutomationRole](#security-iam-awsmanpol-AmazonSSMAutomationRole "#security-iam-awsmanpol-AmazonSSMAutomationRole") – Update to an existing<br>policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Systems Manager added the `cloudformation:TagResource` and `cloudformation:UntagResource`<br>permissions. These permissions allow Automation runbooks that create CloudFormation stacks<br>to add and remove tags from resources.                                                                                                                                                                                                                                                                                                                                                                    | March 20, 2026     |
 | [AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy](#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy "#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy") –<br>Updated managed policy                                                                                                                                                                                                                                                                                                                                                                                                                              | Systems Manager updated the managed policy to add additional EC2 and SSM permissions for enhanced diagnosis capabilities. The policy now includes permissions to describe EC2 instance status and network ACLs, as well as SSM activations and service settings, providing more comprehensive diagnostic information for troubleshooting managed node issues.                                                                                                                                                                                                                                        | December 19, 2025  |
 | [AWSQuickSetupDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy") –<br>Updated managed policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Systems Manager updated the managed policy<br>`AWSQuickSetupDeploymentRolePolicy` to add support for<br>two additional SSM documents:<br>`AWSQuickSetupType-ConfigureDevOpsGuru` and<br>`AWSQuickSetupType-DeployConformancePack`. These additions<br>enable Quick Setup to deploy DevOps Guru configurations and conformance<br>packs through the policy.                                                                                                                                                                                                                                           | December 15, 2025  |
@@ -1810,7 +1868,7 @@ policies are also supported by Systems Manager.
   – AWS managed policy that provides permissions for creating and
   updating operational insight _OpsItems_ in
   Systems Manager. Used to provide permissions through the service-linked role
-  [AWSServiceRoleForAmazonSSM_OpsInsights](using-service-linked-roles-service-action-4.md "using-service-linked-roles-service-action-4.md").
+  [AWSServiceRoleForAmazonSSM\_OpsInsights](using-service-linked-roles-service-action-4.md "using-service-linked-roles-service-action-4.md").
 - [`AWSSystemsManagerAccountDiscoveryServicePolicy`](../../../aws-managed-policy/latest/reference/AWSSystemsManagerAccountDiscoveryServicePolicy.md "../../../aws-managed-policy/latest/reference/AWSSystemsManagerAccountDiscoveryServicePolicy.md")
   – AWS managed policy that grants Systems Manager permission to discover
   AWS account information.

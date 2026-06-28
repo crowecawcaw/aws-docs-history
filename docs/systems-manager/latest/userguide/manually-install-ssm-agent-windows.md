@@ -105,7 +105,7 @@ SSM Agent to your instance by using the following link. If
 you want, update this URL with an AWS Region-specific
 URL.
 
-[https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe](https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe "https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe")
+[https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows\_amd64/AmazonSSMAgentSetup.exe](https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe "https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe")
 
 Run the downloaded
 `AmazonSSMAgentSetup.exe` file to

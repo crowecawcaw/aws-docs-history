@@ -5,7 +5,7 @@ in AWS Systems Manager.
 
 ###### Topics
 
-- [Issue: "Invoke-PatchBaselineOperation : Access Denied" error or "Unable to download file from S3" error for baseline_overrides.json](#patch-manager-troubleshooting-patch-policy-baseline-overrides "#patch-manager-troubleshooting-patch-policy-baseline-overrides")
+- [Issue: "Invoke-PatchBaselineOperation : Access Denied" error or "Unable to download file from S3" error for baseline\_overrides.json](#patch-manager-troubleshooting-patch-policy-baseline-overrides "#patch-manager-troubleshooting-patch-policy-baseline-overrides")
 - [Issue: Patching fails without an apparent cause or error message](#race-condition-conflict "#race-condition-conflict")
 - [Issue: Unexpected patch compliance results](#patch-manager-troubleshooting-compliance "#patch-manager-troubleshooting-compliance")
 - [Errors when running AWS-RunPatchBaseline on Linux](#patch-manager-troubleshooting-linux "#patch-manager-troubleshooting-linux")
@@ -279,7 +279,7 @@ Debian Server and Ubuntu Server managed nodes.
 certain packages by specifying them in the `/etc/yum.conf`
 file, in the format
 `exclude=`package-name``, but they aren't
- excluded during the Patch Manager `Install` operation.
+excluded during the Patch Manager `Install` operation.
 
 **Cause**: Patch Manager doesn't incorporate
 exclusions specified in the `/etc/yum.conf` file.

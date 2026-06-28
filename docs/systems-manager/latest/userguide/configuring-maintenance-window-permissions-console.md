@@ -144,14 +144,11 @@ For example:
      Automation runbooks, see the runbook descriptions in the [AWS Systems Manager Automation Runbook Reference](../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md").
 
 6. After completing the policy revisions, choose
-   **Next**.
-7. For **Policy name**, enter a name that identifies
-   this as the policy attached to the service role you create. For example:
-   `my-maintenance-window-role-policy`.
-8. (Optional) In the **Add tags** area, add one or more
-   tag-key value pairs to organize, track, or control access for this
-   policy.
-9. Choose **Create policy**.
+**Next**. 7. For **Policy name**, enter a name that identifies
+this as the policy attached to the service role you create. For example:
+`my-maintenance-window-role-policy`. 8. (Optional) In the **Add tags** area, add one or more
+tag-key value pairs to organize, track, or control access for this
+policy. 9. Choose **Create policy**.
 
 Make a note of the name you specified for the policy. You refer to it
 in the next procedure, [Task 2: Create a custom service role for maintenance windows using the console](#create-custom-role-console "#create-custom-role-console").
@@ -207,7 +204,7 @@ created in the previous task to the custom service role you create.
    `my-maintenance-window-role`.
 7. (Optional) Change the default role description to reflect the purpose
    of this role. For example: `Performs maintenance window tasks
-on your behalf`.
+ on your behalf`.
 8. For **Step 1: Select trusted entities**, verify that
    the following policy is displayed in the **Trusted
    policy** box.

@@ -184,13 +184,12 @@ You can skip the **Sample event** section. 8. For **Event pattern**, do the foll
     }
     ```
 
-9. Choose **Next**.
-10. For **Target 1**, choose a target type and a
-    supported resource. For example, if you choose **SNS
-    topic**, make a selection for **Topic**.
-    If you choose **CodePipeline**, enter a pipeline ARN
-    for **Pipeline ARN**. Provide additional configuration
-    values as required.
+9. Choose **Next**. 10. For **Target 1**, choose a target type and a
+supported resource. For example, if you choose **SNS
+topic**, make a selection for **Topic**.
+If you choose **CodePipeline**, enter a pipeline ARN
+for **Pipeline ARN**. Provide additional configuration
+values as required.
 
 ###### Tip
 

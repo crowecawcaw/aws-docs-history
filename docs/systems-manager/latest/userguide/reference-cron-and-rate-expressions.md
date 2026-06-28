@@ -78,12 +78,12 @@ specifying months in cron expressions for associations.) An additional
 field, the `Seconds` field (the first in a cron expression), is
 optional. Fields are separated by a space.
 
-| Cron expression examples | Minutes | Hours | Day of month | Month   | Day of week | Year                                                                        | Meaning |
-| ------------------------ | ------- | ----- | ------------ | ------- | ----------- | --------------------------------------------------------------------------- | ------- |
-| 0                        | 10      | \*    | \*           | ?       | \*          | Run at 10:00 am (UTC) every day                                             |
-| 15                       | 12      | \*    | \*           | ?       | \*          | Run at 12:15 PM (UTC) every day                                             |
-| 0                        | 18      | ?     | \*           | MON-FRI | \*          | Run at 6:00 PM (UTC) every Monday through Friday (maintenance windows only) |
-| 0                        | 8       | 1     | \*           | ?       | \*          | Run at 8:00 AM (UTC) every 1st day of the month                             |
+Cron expression examples| Minutes | Hours | Day of month | Month | Day of week | Year | Meaning |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 10 | \* | \* | ? | \* | Run at 10:00 am (UTC) every day |
+| 15 | 12 | \* | \* | ? | \* | Run at 12:15 PM (UTC) every day |
+| 0 | 18 | ? | \* | MON-FRI | \* | Run at 6:00 PM (UTC) every Monday through Friday (maintenance windows only) |
+| 0 | 8 | 1 | \* | ? | \* | Run at 8:00 AM (UTC) every 1st day of the month |
 
 ###### Note
 
@@ -94,14 +94,14 @@ Day-of-week ranges (such as `MON-FRI`) and comma-separated day lists (such as `M
 The following table shows supported values for required cron
 entries.
 
-| Supported values for cron expressions | Field                      | Values           | Wildcards |
-| ------------------------------------- | -------------------------- | ---------------- | --------- |
-| Minutes                               | `0`-`59`                   | `,<br>• /`       |
-| Hours                                 | `0`-`23`                   | `,<br>• /`       |
-| Day-of-month                          | `1`-`31`                   | `,<br>• ? / L W` |
-| Month (maintenance windows only)      | `1`-`12` or<br>`JAN`-`DEC` | `,<br>• /`       |
-| Day-of-week                           | `1`-`7` or<br>`SUN`-`SAT`  | `,<br>• ? / L #` |
-| Year                                  | `1970`-`2199`              | `,<br>• /`       |
+Supported values for cron expressions| Field | Values | Wildcards |
+| --- | --- | --- |
+| Minutes | `0`-`59` | `,<br>• /` |
+| Hours | `0`-`23` | `,<br>• /` |
+| Day-of-month | `1`-`31` | `,<br>• ? / L W` |
+| Month (maintenance windows only) | `1`-`12` or<br>`JAN`-`DEC` | `,<br>• /` |
+| Day-of-week | `1`-`7` or<br>`SUN`-`SAT` | `,<br>• ? / L #` |
+| Year | `1970`-`2199` | `,<br>• /` |
 
 ###### Note
 
@@ -121,26 +121,26 @@ supported. Support for specifying both a day-of-week and a day-of-month
 value isn't complete. Use the question mark (?) character in one of
 these fields.
 
-| Supported wildcards for cron expressions | Wildcard                                                                                                                                                                                                                                                      | Description |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **,**                                    | The `,` (comma) wildcard includes additional<br>values. In the Month field, JAN,FEB,MAR would include<br>January, February, and March.                                                                                                                        |
-| **-**                                    | The `-` (dash) wildcard specifies ranges. In<br>the Day field, 1-15 would include days 1 through 15 of the<br>specified month.                                                                                                                                |
-| **\***                                   | The `*` (asterisk) wildcard includes all<br>values in the field. In the Hours field, \<br>• would include<br>every hour.                                                                                                                                      |
-| **/**                                    | The `/` (forward slash) wildcard specifies<br>increments. In the Minutes field, you could enter 1/10 to<br>specify every tenth minute, starting from the first minute<br>of the hour. So 1/10 specifies the first, 11th, 21st, and<br>31st minute, and so on. |
-| **?**                                    | The `?` (question mark) wildcard specifies one<br>or another. In the Day-of-month field you could enter 7 and<br>if you didn't care what day of the week the 7th was, you<br>could enter ? in the Day-of-week field.                                          |
-| **L**                                    | The `L` wildcard in the Day-of-month or<br>Day-of-week fields specifies the last day of the month or<br>week.                                                                                                                                                 |
-| **W**                                    | The `W` wildcard in the Day-of-month field<br>specifies a weekday. In the Day-of-month field, 3W specifies<br>the day closest to the third weekday of the month.                                                                                              |
-| **#**                                    | The `#` wildcard in the day-of-week field<br>followed by a number between one and five specifies a given<br>day of the month. 5#3 specifies the 3rd Thursday of the<br>month.                                                                                 |
+Supported wildcards for cron expressions| Wildcard | Description |
+| --- | --- |
+| **,** | The `,` (comma) wildcard includes additional<br>values. In the Month field, JAN,FEB,MAR would include<br>January, February, and March. |
+| **-** | The `-` (dash) wildcard specifies ranges. In<br>the Day field, 1-15 would include days 1 through 15 of the<br>specified month. |
+| **\*** | The `*` (asterisk) wildcard includes all<br>values in the field. In the Hours field, \<br>• would include<br>every hour. |
+| **/** | The `/` (forward slash) wildcard specifies<br>increments. In the Minutes field, you could enter 1/10 to<br>specify every tenth minute, starting from the first minute<br>of the hour. So 1/10 specifies the first, 11th, 21st, and<br>31st minute, and so on. |
+| **?** | The `?` (question mark) wildcard specifies one<br>or another. In the Day-of-month field you could enter 7 and<br>if you didn't care what day of the week the 7th was, you<br>could enter ? in the Day-of-week field. |
+| **L** | The `L` wildcard in the Day-of-month or<br>Day-of-week fields specifies the last day of the month or<br>week. |
+| **W** | The `W` wildcard in the Day-of-month field<br>specifies a weekday. In the Day-of-month field, 3W specifies<br>the day closest to the third weekday of the month. |
+| **#** | The `#` wildcard in the day-of-week field<br>followed by a number between one and five specifies a given<br>day of the month. 5#3 specifies the 3rd Thursday of the<br>month. |
 
 **Rate expressions**
 
 Rate expressions have the following two required fields. Fields are
 separated by spaces.
 
-| Required fields for rate expressions | Field                                                         | Values |
-| ------------------------------------ | ------------------------------------------------------------- | ------ |
-| Value                                | positive number, such as `1` or<br>`15`                       |
-| Unit                                 | `minute`<br>`minutes`<br>`hour`<br>`hours`<br>`day`<br>`days` |
+Required fields for rate expressions| Field | Values |
+| --- | --- |
+| Value | positive number, such as `1` or<br>`15` |
+| Unit | `minute`<br>`minutes`<br>`hour`<br>`hours`<br>`day`<br>`days` |
 
 If the value is equal to `1`, then the unit must be singular.
 Similarly, for values greater than `1`, the unit must be plural.
@@ -206,26 +206,26 @@ option tells State Manager not to run an association immediately after you creat
 
 The following table presents cron examples for associations.
 
-| Cron examples for associations       | Example                                      | Details |
-| ------------------------------------ | -------------------------------------------- | ------- |
-| cron(0/30 \<br>• \<br>• \<br>• ? \*) | Every 30 minutes                             |
-| cron(0 0/1 \<br>• \<br>• ? \*)       | Every hour                                   |
-| cron(0 0/2 \<br>• \<br>• ? \*)       | Every 2 hours                                |
-| cron(0 0/4 \<br>• \<br>• ? \*)       | Every 4 hours                                |
-| cron(0 0/8 \<br>• \<br>• ? \*)       | Every 8 hours                                |
-| cron(0 0/12 \<br>• \<br>• ? \*)      | Every 12 hours                               |
-| cron(15 13 ? \<br>• \<br>• \*)       | Every day at 1:15 PM                         |
-| cron(15 13 ? \<br>• MON \*)          | Every Monday at 1:15 PM                      |
-| cron(30 23 ? \<br>• TUE#3 \*)        | The third Tuesday of every month at 11:30 PM |
+Cron examples for associations| Example | Details |
+| --- | --- |
+| cron(0/30 \<br>• \<br>• \<br>• ? \*) | Every 30 minutes |
+| cron(0 0/1 \<br>• \<br>• ? \*) | Every hour |
+| cron(0 0/2 \<br>• \<br>• ? \*) | Every 2 hours |
+| cron(0 0/4 \<br>• \<br>• ? \*) | Every 4 hours |
+| cron(0 0/8 \<br>• \<br>• ? \*) | Every 8 hours |
+| cron(0 0/12 \<br>• \<br>• ? \*) | Every 12 hours |
+| cron(15 13 ? \<br>• \<br>• \*) | Every day at 1:15 PM |
+| cron(15 13 ? \<br>• MON \*) | Every Monday at 1:15 PM |
+| cron(30 23 ? \<br>• TUE#3 \*) | The third Tuesday of every month at 11:30 PM |
 
 Here are some rate examples for associations.
 
-| Rate examples for associations | Example          | Details |
-| ------------------------------ | ---------------- | ------- |
-| rate(30 minutes)               | Every 30 minutes |
-| rate(1 hour)                   | Every hour       |
-| rate(5 hours)                  | Every 5 hours    |
-| rate(15 days)                  | Every 15 days    |
+Rate examples for associations| Example | Details |
+| --- | --- |
+| rate(30 minutes) | Every 30 minutes |
+| rate(1 hour) | Every hour |
+| rate(5 hours) | Every 5 hours |
+| rate(15 days) | Every 15 days |
 
 ###### **AWS CLI examples for associations**
 
@@ -291,22 +291,22 @@ cron(24 30 09 ? * * *)
 The following table provides additional 6-field cron examples for maintenance
 windows.
 
-| Cron examples for maintenance windows | Example                                                           | Details |
-| ------------------------------------- | ----------------------------------------------------------------- | ------- |
-| cron(0 2 ? \<br>• THU#3 \*)           | 02:00 AM the third Thursday of every month                        |
-| cron(15 10 ? \<br>• \<br>• \*)        | 10:15 AM every day                                                |
-| cron(15 10 ? \<br>• MON-FRI \*)       | 10:15 AM every Monday, Tuesday, Wednesday, Thursday and<br>Friday |
-| cron(0 2 L \<br>• ? \*)               | 02:00 AM on the last day of every month                           |
-| cron(15 10 ? \<br>• 6L \*)            | 10:15 AM on the last Friday of every month                        |
+Cron examples for maintenance windows| Example | Details |
+| --- | --- |
+| cron(0 2 ? \<br>• THU#3 \*) | 02:00 AM the third Thursday of every month |
+| cron(15 10 ? \<br>• \<br>• \*) | 10:15 AM every day |
+| cron(15 10 ? \<br>• MON-FRI \*) | 10:15 AM every Monday, Tuesday, Wednesday, Thursday and<br>Friday |
+| cron(0 2 L \<br>• ? \*) | 02:00 AM on the last day of every month |
+| cron(15 10 ? \<br>• 6L \*) | 10:15 AM on the last Friday of every month |
 
 The following table provides rate examples for maintenance windows.
 
-| Rate examples for maintenance windows | Example          | Details |
-| ------------------------------------- | ---------------- | ------- |
-| rate(30 minutes)                      | Every 30 minutes |
-| rate(1 hour)                          | Every hour       |
-| rate(5 hours)                         | Every 5 hours    |
-| rate(25 days)                         | Every 25 days    |
+Rate examples for maintenance windows| Example | Details |
+| --- | --- |
+| rate(30 minutes) | Every 30 minutes |
+| rate(1 hour) | Every hour |
+| rate(5 hours) | Every 5 hours |
+| rate(25 days) | Every 25 days |
 
 ###### **AWS CLI examples for maintenance windows**
 

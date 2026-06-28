@@ -28,123 +28,99 @@ This procedure uses globally available installation files.
 
 ###### To install SSM Agent on SLES using quick copy and paste commands
 
-1.  Connect to your SLES instance using your preferred method, such
-    as SSH.
-2.  **Option 1**: Use a
-    `zypper` command:
+1. Connect to your SLES instance using your preferred method, such
+   as SSH.
+2. **Option 1**: Use a
+   `zypper` command:
 
-        * Run the following command:
+   - Run the following command:
 
+   ```
+   sudo zypper install amazon-ssm-agent
+   ```
+   - Enter `y` in response to any prompts.
+     **Option 2**: Use an `rpm`
+     command.
 
+   - Create a temporary directory on the instance.
 
-        ```
-        sudo zypper install amazon-ssm-agent
-        ```
-        * Enter `y` in response to any prompts.
+   ```
+   mkdir /tmp/ssm
+   ```
+   - Change to the temporary directory.
 
-    **Option 2**: Use an `rpm`
-    command.
+   ```
+   cd /tmp/ssm
+   ```
+   - Run the following commands one at a time to download and
+     run the SSM Agent installer.
 
-        * Create a temporary directory on the instance.
+   ###### Note
 
+   Even though URLs in the following commands include an
+   `ec2-downloads-windows`
+   directory, these are the correct global installation
+   files for SLES.
 
+   x86\_64 instances:
 
-        ```
-        mkdir /tmp/ssm
-        ```
-        * Change to the temporary directory.
+   ```
+   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+   ```
 
+   ARM64 instances:
 
+   ```
+   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
+   ```
+   - Run the following command.
 
-        ```
-        cd /tmp/ssm
-        ```
-        * Run the following commands one at a time to download and
-         run the SSM Agent installer.
+   ```
+   sudo rpm ‐‐install amazon-ssm-agent.rpm
+   ```
+   - (Recommended) Run the following command to verify that the
+     agent is running.
 
+   ```
+   sudo systemctl status amazon-ssm-agent
+   ```
 
-        ###### Note
+   In most cases, the command reports that the agent is
+   running, as shown in the following example.
 
-        Even though URLs in the following commands include an
-         `ec2-downloads-windows`
-         directory, these are the correct global installation
-         files for SLES.
+   ```
+   ● amazon-ssm-agent.service - amazon-ssm-agent
+    Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor preset: disabled)
+    Active: active (running) since Mon 2025-02-21 23:13:28 UTC; 7s ago
+    Main PID: 2102 (amazon-ssm-agen)
+    Tasks: 15 (limit: 512)
+    CGroup: /system.slice/amazon-ssm-agent.service
+    ├─2102 /usr/sbin/amazon-ssm-agent
+    └─2107 /usr/sbin/ssm-agent-worker
+               ‐‐truncated‐‐
+   ```
 
+   In rare cases, the command reports that the agent is
+   installed but not running, as shown in the following
+   example.
 
-        x86\_64 instances:
+   ```
+   ● amazon-ssm-agent.service - amazon-ssm-agent
+      Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; disabled; vendor preset: disabled)
+      Active: inactive (dead)
+               ‐‐truncated‐‐
+   ```
 
+   To activate the agent in these cases, run the following
+   commands.
 
+   ```
+   sudo systemctl enable amazon-ssm-agent
+   ```
 
-        ```
-        wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-        ```
-
-        ARM64 instances:
-
-
-
-        ```
-        wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
-        ```
-        * Run the following command.
-
-
-
-        ```
-        sudo rpm ‐‐install amazon-ssm-agent.rpm
-        ```
-        * (Recommended) Run the following command to verify that the
-         agent is running.
-
-
-
-        ```
-        sudo systemctl status amazon-ssm-agent
-        ```
-
-        In most cases, the command reports that the agent is
-         running, as shown in the following example.
-
-
-
-        ```
-        ● amazon-ssm-agent.service - amazon-ssm-agent
-         Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor preset: disabled)
-         Active: active (running) since Mon 2025-02-21 23:13:28 UTC; 7s ago
-         Main PID: 2102 (amazon-ssm-agen)
-         Tasks: 15 (limit: 512)
-         CGroup: /system.slice/amazon-ssm-agent.service
-         ├─2102 /usr/sbin/amazon-ssm-agent
-         └─2107 /usr/sbin/ssm-agent-worker
-                    ‐‐truncated‐‐
-        ```
-
-        In rare cases, the command reports that the agent is
-         installed but not running, as shown in the following
-         example.
-
-
-
-        ```
-        ● amazon-ssm-agent.service - amazon-ssm-agent
-           Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; disabled; vendor preset: disabled)
-           Active: inactive (dead)
-                    ‐‐truncated‐‐
-        ```
-
-        To activate the agent in these cases, run the following
-         commands.
-
-
-
-        ```
-        sudo systemctl enable amazon-ssm-agent
-        ```
-
-
-        ```
-        sudo systemctl start amazon-ssm-agent
-        ```
+   ```
+   sudo systemctl start amazon-ssm-agent
+   ```
 
 ## Create custom agent installation commands for SLES in your Region
 
@@ -165,7 +141,7 @@ information. For a list of supported `region` values, see the
 **Region** column in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
 _Amazon Web Services General Reference_.
 
-**x86_64**
+**x86\_64**
 
 ```
 wget https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_amd64/amazon-ssm-agent.rpm

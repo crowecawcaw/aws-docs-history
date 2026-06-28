@@ -63,19 +63,19 @@ operations only. For `Scan` operations, Patch Manager attempts to
 scan up to 1,000 nodes concurrently, and continue scanning until it has
 encountered up to 1,000 errors.
 
-| Concurrency: Install operations | Total number of managed nodes in the \*_Patch<br>now_<br>• operation | Number of managed nodes scanned or patched at a<br>time |
-| ------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------- |
-| Fewer than 25                   | 1                                                                    |
-| 25-100                          | 5%                                                                   |
-| 101 to 1,000                    | 8%                                                                   |
-| More than 1,000                 | 10%                                                                  |
+Concurrency: Install operations| Total number of managed nodes in the *_Patch<br>now_<br>• operation | Number of managed nodes scanned or patched at a<br>time |
+| --- | --- |
+| Fewer than 25 | 1 |
+| 25-100 | 5% |
+| 101 to 1,000 | 8% |
+| More than 1,000 | 10% |
 
-| Error threshold: Install operations | Total number of managed nodes in the \*_Patch<br>now_<br>• operation | Number of errors permitted before the operation<br>fails |
-| ----------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------- |
-| Fewer than 25                       | 1                                                                    |
-| 25-100                              | 5                                                                    |
-| 101 to 1,000                        | 10                                                                   |
-| More than 1,000                     | 10                                                                   |
+Error threshold: Install operations| Total number of managed nodes in the *_Patch<br>now_<br>• operation | Number of errors permitted before the operation<br>fails |
+| --- | --- |
+| Fewer than 25 | 1 |
+| 25-100 | 5 |
+| 101 to 1,000 | 10 |
+| More than 1,000 | 10 |
 
 ### Using 'Patch now' lifecycle hooks
 
@@ -91,11 +91,11 @@ The following table lists the lifecycle hooks available for each of the
 three **Patch now** reboot options, in addition to sample
 uses for each hook.
 
-| Lifecycle hooks and sample uses | Reboot option                                                                                                                    | Hook: Before installation                                                                                                                                                                               | Hook: After installation                                                                                                                                                        | Hook: On exit                                                                                                                                                  | Hook: After scheduled reboot |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| **Reboot if needed**            | Run an SSM document before patching begins.<br>Example use: Safely shut down applications before the<br>patching process begins. | Run an SSM document at the end of the patching<br>operation and before managed node reboot.<br>Example use: Run operations such as installing<br>third-party applications before a potential<br>reboot. | Run an SSM document after the patching operation is<br>complete and instances are rebooted.<br>Example use: Ensure that applications are running as<br>expected after patching. | _Not available_                                                                                                                                                |
-| **Do not reboot my instances**  | Same as above.                                                                                                                   | Run an SSM document at the end of the patching<br>operation.<br>Example use: Ensure that applications are running as<br>expected after patching.                                                        | _Not available_                                                                                                                                                                 | _Not available_                                                                                                                                                |
-| **Schedule a reboot time**      | Same as above.                                                                                                                   | Same as for **Do not reboot my<br>instances**.                                                                                                                                                          | _Not available_                                                                                                                                                                 | Run an SSM document immediately after a scheduled<br>reboot is complete.<br>Example use: Ensure that applications are running as<br>expected after the reboot. |
+Lifecycle hooks and sample uses| Reboot option | Hook: Before installation | Hook: After installation | Hook: On exit | Hook: After scheduled reboot |
+| --- | --- | --- | --- | --- |
+| **Reboot if needed** | Run an SSM document before patching begins.<br>Example use: Safely shut down applications before the<br>patching process begins. | Run an SSM document at the end of the patching<br>operation and before managed node reboot.<br>Example use: Run operations such as installing<br>third-party applications before a potential<br>reboot. | Run an SSM document after the patching operation is<br>complete and instances are rebooted.<br>Example use: Ensure that applications are running as<br>expected after patching. | _Not available_ |
+| **Do not reboot my instances** | Same as above. | Run an SSM document at the end of the patching<br>operation.<br>Example use: Ensure that applications are running as<br>expected after patching. | _Not available_ | _Not available_ |
+| **Schedule a reboot time** | Same as above. | Same as for **Do not reboot my<br>instances**. | _Not available_ | Run an SSM document immediately after a scheduled<br>reboot is complete.<br>Example use: Ensure that applications are running as<br>expected after the reboot. |
 
 ## Running 'Patch now'
 

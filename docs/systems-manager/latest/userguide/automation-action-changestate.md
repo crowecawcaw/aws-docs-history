@@ -25,7 +25,7 @@ retry. For more information, see [Configuring automatic retry for throttled oper
 YAML
 
 ```
-name: stopMyInstance
+name: startMyInstance
 action: aws:changeInstanceState
 maxAttempts: 3
 timeoutSeconds: 3600
@@ -34,14 +34,15 @@ inputs:
   InstanceIds:
   - i-1234567890abcdef0
   CheckStateOnly: true
-  DesiredState: stopped
+  DesiredState: running
+  FailOnUnexpectedStopped: true
 ```
 
 JSON
 
 ```
 {
-    "name":"stopMyInstance",
+    "name":"startMyInstance",
     "action": "aws:changeInstanceState",
     "maxAttempts": 3,
     "timeoutSeconds": 3600,
@@ -49,7 +50,8 @@ JSON
     "inputs": {
         "InstanceIds": ["i-1234567890abcdef0"],
         "CheckStateOnly": true,
-        "DesiredState": "stopped"
+        "DesiredState": "running",
+        "FailOnUnexpectedStopped": true
     }
 }
 ```
@@ -93,6 +95,17 @@ If set, forces the instances to stop. The instances don't have an
 opportunity to flush file system caches or file system metadata. If you use
 this option, you must perform file system check and repair procedures. This
 option isn't recommended for EC2 instances for Windows Server.
+
+Type: Boolean
+
+Required: No
+
+FailOnUnexpectedStopped
+
+If set to true, the automation step fails when an instance transitions
+to the stopped state during a start operation. This is useful for detecting
+cases where an instance fails to start successfully, such as when an instance
+has an encrypted EBS volume but lacks the required KMS key permissions.
 
 Type: Boolean
 

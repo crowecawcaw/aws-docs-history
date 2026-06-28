@@ -21,7 +21,7 @@ operation. The procedure in this section uses the AWS Command Line Interface (AW
 - Run the following command to show the state of one or more calendars at a
   specific time. The `--calendar-names` parameter is required, but
   `--at-time` is optional. Replace each `example
-resource placeholder` with your own information.
+ resource placeholder` with your own information.
 
 Linux & macOS
 

@@ -4,7 +4,7 @@ You can view all executions for a specific association ID by using the [Describe
 the status, detailed status, results, last execution time, and more information for
 a State Manager association. State Manager is a tool in AWS Systems Manager. This API operation also
 includes filters to help you locate associations according to the criteria you
-specify. For example, you can specify an exact date and time, and use a GREATER_THAN
+specify. For example, you can specify an exact date and time, and use a GREATER\_THAN
 filter to view executions processed after the specified date and time.
 
 If, for example, an association execution failed, you can drill down into the

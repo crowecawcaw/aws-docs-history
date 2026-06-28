@@ -42,6 +42,6 @@ the following options.
     * Individually choose Regions that you want to include.
 
 8. Choose **Create resource data sync**.
-   The system can take several minutes to populate Explorer with data after you
-   create a resource data sync. You can view the sync by choosing it from the
-   **Select a resource data sync** list in Explorer.
+The system can take several minutes to populate Explorer with data after you
+create a resource data sync. You can view the sync by choosing it from the
+**Select a resource data sync** list in Explorer.

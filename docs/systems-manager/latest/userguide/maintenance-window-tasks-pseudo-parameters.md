@@ -153,14 +153,14 @@ If the target type you specify is `RESOURCE_GROUP`, the value
 referenced for the task execution is the full ARN of the resource. For
 example:
 `arn:aws:ec2:us-east-1:123456789012:instance/`i-078a280217EXAMPLE``.
- The following table provides sample `TARGET_ID` values for
+The following table provides sample `TARGET_ID` values for
 particular resource types in a resource group.
 
 ###### Note
 
 `TARGET_ID` isn't supported for Run Command tasks.
 
-| Resource type               | Example TARGET_ID                                                                        |
+| Resource type               | Example TARGET\_ID                                                                       |
 | --------------------------- | ---------------------------------------------------------------------------------------- |
 | `AWS::CloudWatch::Alarm`    | `arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyCloudWatchAlarm`i-078a280217EXAMPLE`` |
 | `AWS::DynamoDB::Table`      | `arn:aws:dynamodb:us-east-1:123456789012:table/MyTable`                                  |
@@ -184,7 +184,7 @@ particular resource types in a resource group.
 
 `RESOURCE_ID` isn't supported for Run Command tasks.
 
-| Resource type               | Example RESOURCE_ID      |
+| Resource type               | Example RESOURCE\_ID     |
 | --------------------------- | ------------------------ |
 | `AWS::CloudWatch::Alarm`    | `MyCloudWatchAlarm`      |
 | `AWS::DynamoDB::Table`      | `MyTable`                |

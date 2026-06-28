@@ -225,9 +225,9 @@ details, and then scroll down and choose the **I
 acknowledge that CloudFormation might create IAM
 resources** option. 13. Choose **Create stack**.
 
-CloudFormation shows the **CREATE_IN_PROGRESS**
+CloudFormation shows the **CREATE\_IN\_PROGRESS**
 status for a few minutes. The status changes to
-**CREATE_COMPLETE** after the stack has
+**CREATE\_COMPLETE** after the stack has
 been created. You can also choose the refresh icon to check
 the status of the create process. 14. In the **Stacks** list, choose the option
 button the stack you just created, and then choose the

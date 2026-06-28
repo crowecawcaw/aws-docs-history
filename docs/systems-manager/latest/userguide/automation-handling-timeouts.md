@@ -12,10 +12,10 @@ if an action times out. In this example, you specify the length of time to wait
 before the action times out using the `timeoutSeconds` property. Then you
 specify the action, or step, the automation should go to if there is a timeout.
 Specify a value using the format `step:`step
-name``for the`onFailure`property rather than
- the default value of`Abort`. By default, if an action times out, the
- automation execution status will be `Timed Out`. To prevent a timeout
- from affecting the automation execution status, specify `false`for the
+name`` for the `onFailure` property rather than
+the default value of `Abort`. By default, if an action times out, the
+automation execution status will be `Timed Out`. To prevent a timeout
+from affecting the automation execution status, specify `false` for the
 `isCritical` property.
 
 The following example shows how to define the shared properties for an action

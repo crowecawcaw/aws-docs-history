@@ -109,7 +109,7 @@ You don't need to specify a URL for the download, because the
 [Snap app
 store](https://snapcraft.io/amazon-ssm-agent "https://snapcraft.io/amazon-ssm-agent") at [https://snapcraft.io](https://snapcraft.io "https://snapcraft.io").
 
-On Ubuntu Server 20.04, 18.04, and 16.04 LTS, SSM Agent installer files,
+On Ubuntu Server 20.04 and 18.04 LTS, SSM Agent installer files,
 including agent binaries and config files, are stored in the following
 directory: `/snap/amazon-ssm-agent/current/`. If you
 make changes to any configuration files in this directory, then you must
@@ -130,8 +130,8 @@ sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
 The _candidate_ channel in the Snap store
 contains the latest version of SSM Agent; not the stable channel. If
 you want to track SSM Agent version information on the candidate
-channel, run the following command on your Ubuntu Server 18.04 and
-16.04 LTS 64-bit managed nodes.
+channel, run the following command on your Ubuntu Server 18.04 LTS
+64-bit managed nodes.
 
 ```
 sudo snap switch --channel=candidate amazon-ssm-agent

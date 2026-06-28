@@ -203,8 +203,8 @@ option:
      on additional targets.
 
 16. (Optional) For **Output options**, to save the command output to a file,
-    select the **Enable writing output to S3** box. Enter the bucket and prefix
-    (folder) names in the boxes.
+select the **Enable writing output to S3** box. Enter the bucket and prefix
+(folder) names in the boxes.
 
 ###### Note
 

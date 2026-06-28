@@ -67,10 +67,10 @@ services**. 11. For **AWS service**, choose
      an API call, which are recorded by CloudTrail. For an example, see [Monitoring session activity using Amazon EventBridge (console)](session-manager-auditing.md#session-manager-auditing-eventbridge-events "session-manager-auditing.md#session-manager-auditing-eventbridge-events").
 
 13. (Optional) To make the rule more specific, add filter values. For example, if
-    you chose **State Manager** and want to limit the rule to the state
-    of a single managed instance that is targeted by an Association, for
-    **Specific type(s)**, choose **EC2 State Manager
-    Instance Association State Change**.
+you chose **State Manager** and want to limit the rule to the state
+of a single managed instance that is targeted by an Association, for
+**Specific type(s)**, choose **EC2 State Manager
+Instance Association State Change**.
 
 For complete details about supported detail types, see [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
 
@@ -88,14 +88,10 @@ run:
      existing role**.
 
 18. (Optional) Choose **Add another target** to add another
-    target for this rule.
-19. Choose **Next**.
-20. (Optional) Enter one or more tags for the rule. For more information, see
-    [Amazon EventBridge tags](../../../eventbridge/latest/userguide/eb-tagging.md "../../../eventbridge/latest/userguide/eb-tagging.md") in
-    the _Amazon EventBridge User Guide_.
-21. Choose **Next**.
-22. Review the details of the rule and choose **Create
-    rule**.
+target for this rule. 19. Choose **Next**. 20. (Optional) Enter one or more tags for the rule. For more information, see
+[Amazon EventBridge tags](../../../eventbridge/latest/userguide/eb-tagging.md "../../../eventbridge/latest/userguide/eb-tagging.md") in
+the _Amazon EventBridge User Guide_. 21. Choose **Next**. 22. Review the details of the rule and choose **Create
+rule**.
 
 **More info**
 

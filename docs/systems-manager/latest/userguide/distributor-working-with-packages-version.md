@@ -105,26 +105,22 @@ this limitation.
      end of step 4 in [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
 
 10. For **Platform version**, verify that the
-    operating system platform version shown is either
-    `_any`, a major release version followed by
-    a wildcard (8.\*), or the exact operating system release version to
-    which you want your software to apply. For more information about
-    specifying a platform version, see step 4 in [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
-11. For **Architecture**, choose the correct
-    processor architecture for each installable file from the drop-down
-    list. For more information about supported architectures, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms "distributor.md#what-is-a-package-platforms").
-12. (Optional) Expand **Scripts**, and review the
-    installation and uninstallation scripts that Distributor generates for
-    your installable software.
-13. To add more installable software files to the new version, choose
-    **Add software**. Otherwise, go to the next
-    step.
-14. (Optional) Expand **Manifest**, and review the
-    JSON package manifest that Distributor generates for your installable
-    software. If you changed any information about your installable
-    software since you began this procedure, such as platform version or
-    target platform, choose **Generate manifest** to
-    show the updated package manifest.
+operating system platform version shown is either
+`_any`, a major release version followed by
+a wildcard (8.\*), or the exact operating system release version to
+which you want your software to apply. For more information about
+specifying a platform version, see step 4 in [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest"). 11. For **Architecture**, choose the correct
+processor architecture for each installable file from the drop-down
+list. For more information about supported architectures, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms "distributor.md#what-is-a-package-platforms"). 12. (Optional) Expand **Scripts**, and review the
+installation and uninstallation scripts that Distributor generates for
+your installable software. 13. To add more installable software files to the new version, choose
+**Add software**. Otherwise, go to the next
+step. 14. (Optional) Expand **Manifest**, and review the
+JSON package manifest that Distributor generates for your installable
+software. If you changed any information about your installable
+software since you began this procedure, such as platform version or
+target platform, choose **Generate manifest** to
+show the updated package manifest.
 
 You can edit the manifest manually if you want to target a
 software installable at more than one operating system, as described

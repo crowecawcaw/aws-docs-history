@@ -50,20 +50,20 @@ of the following:
      **Settings** tab.
 
 5. For **User identity management**, choose one of the
-   following.
+following.
 
-   - **AWS Identity and Access Management (IAM)** – Identify the
+    * **AWS Identity and Access Management (IAM)** – Identify the
      users who make and approve requests and perform other actions in
      Change Manager by using your existing user, groups, and roles.
-   - **AWS IAM Identity Center (IAM Identity Center)** – Allow [IAM Identity Center](../../../singlesignon/latest/userguide.md "../../../singlesignon/latest/userguide.md") to create and manage identities, or connect
+    * **AWS IAM Identity Center (IAM Identity Center)** – Allow [IAM Identity Center](../../../singlesignon/latest/userguide.md "../../../singlesignon/latest/userguide.md") to create and manage identities, or connect
      to your existing identity source to identify the users who
      perform actions in Change Manager.
 
 6. In the **Template reviewer notification** section,
-   specify the Amazon Simple Notification Service (Amazon SNS) topics to use to notify template reviewers
-   that a new change template or change template version is ready for
-   review. Ensure that the Amazon SNS topic you choose is configured to send
-   notifications to your template reviewers.
+specify the Amazon Simple Notification Service (Amazon SNS) topics to use to notify template reviewers
+that a new change template or change template version is ready for
+review. Ensure that the Amazon SNS topic you choose is configured to send
+notifications to your template reviewers.
 
 For information about creating and configuring Amazon SNS topics for
 change template reviewer notifications, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
@@ -94,9 +94,9 @@ change template reviewer notifications, see [Configuring Amazon SNS topics for C
     2. Choose **Add notification**.
 
 7. In the **Change template reviewers** section, select
-   the users in your organization or account to review new
-   change templates or change template versions before they can be used
-   in your operations.
+the users in your organization or account to review new
+change templates or change template versions before they can be used
+in your operations.
 
 Change template reviewers are responsible for verifying the
 suitability and security of templates other users have submitted for use
@@ -157,62 +157,71 @@ following:
     3. Choose **Add approvers**.
 
 4. In the **Best practices** section near the bottom of
-   the page, turn on the best practices you want to enforce for each of the
-   following options.
+the page, turn on the best practices you want to enforce for each of the
+following options.
 
-   - Option: **Check Change Calendar for restricted change
+    * Option: **Check Change Calendar for restricted change
      events**
 
-   To specify that Change Manager checks a calendar in Change Calendar to make
-   sure changes aren't blocked by scheduled events, first select
-   the **Enabled** check box, and then select the
-   calendar to check for restricted events from the
-   **Change Calendar** list.
 
-   For more information about Change Calendar, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md "systems-manager-change-calendar.md").
-   - Option: **SNS topic for approvers for closed
+    To specify that Change Manager checks a calendar in Change Calendar to make
+     sure changes aren't blocked by scheduled events, first select
+     the **Enabled** check box, and then select the
+     calendar to check for restricted events from the
+     **Change Calendar** list.
+
+
+    For more information about Change Calendar, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md "systems-manager-change-calendar.md").
+    * Option: **SNS topic for approvers for closed
      events**
 
-     1. Choose one of the following to specify the Amazon Simple Notification Service
-        (Amazon SNS) topic in your account to use for sending
-        notifications to approvers during change freeze events.
-        (Note that you must also specify approvers in the
-        **Approvers for change freeze
-        events** section above **Best
-        practices**.)
 
-        - **Enter an SNS Amazon Resource Name
-          (ARN)** – For **Topic
-          ARN**, enter the ARN of an existing Amazon SNS
-          topic. This topic can be in any of your
-          organization's accounts.
-        - **Select an existing SNS
-          topic** – For **Target
-          notification topic**, select the ARN of
-          an existing Amazon SNS topic in your current
-          AWS account. (This option isn't available if you
-          haven't yet created any Amazon SNS topics in your
-          current AWS account and AWS Region.)
 
-     ###### Note
 
-     The Amazon SNS topic you select must be configured to specify the notifications it sends
-     and the subscribers they're sent to. Its access policy must also grant permissions
-     to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md"). 2. Choose **Add notification**.
+    	1. Choose one of the following to specify the Amazon Simple Notification Service
+    	 (Amazon SNS) topic in your account to use for sending
+    	 notifications to approvers during change freeze events.
+    	 (Note that you must also specify approvers in the
+    	 **Approvers for change freeze
+    	 events** section above **Best
+    	 practices**.)
 
-   - Option: **Require monitors for all
+
+
+
+    		+ **Enter an SNS Amazon Resource Name
+    		 (ARN)** – For **Topic
+    		 ARN**, enter the ARN of an existing Amazon SNS
+    		 topic. This topic can be in any of your
+    		 organization's accounts.
+    		+ **Select an existing SNS
+    		 topic** – For **Target
+    		 notification topic**, select the ARN of
+    		 an existing Amazon SNS topic in your current
+    		 AWS account. (This option isn't available if you
+    		 haven't yet created any Amazon SNS topics in your
+    		 current AWS account and AWS Region.)
+    	###### Note
+
+    	The Amazon SNS topic you select must be configured to specify the notifications it sends
+    	 and the subscribers they're sent to. Its access policy must also grant permissions
+    	 to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
+    	2. Choose **Add notification**.
+    * Option: **Require monitors for all
      templates**
 
-   If you want to ensure that all templates for your organization
-   or account specify an Amazon CloudWatch alarm to monitor your change
-   operation, select the **Enabled** check
-   box.
-   - Option: **Require template review and approval before
+
+    If you want to ensure that all templates for your organization
+     or account specify an Amazon CloudWatch alarm to monitor your change
+     operation, select the **Enabled** check
+     box.
+    * Option: **Require template review and approval before
      use**
 
-   To ensure that no change requests are created, and no
-   runbook workflows run, without being based on a template that
-   has been reviewed and approved, select the
-   **Enabled** check box.
+
+    To ensure that no change requests are created, and no
+     runbook workflows run, without being based on a template that
+     has been reviewed and approved, select the
+     **Enabled** check box.
 
 5. Choose **Save**.

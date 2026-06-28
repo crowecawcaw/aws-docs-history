@@ -89,7 +89,7 @@ _IAM User Guide_.
 ## Supported Regions for the Systems Manager  `AWSServiceRoleForAmazonSSM_OpsInsights` service-linked role
 
 Systems Manager does not support using service-linked roles in every Region
-where the service is available. You can use the AWSServiceRoleForAmazonSSM_OpsInsights role in the
+where the service is available. You can use the AWSServiceRoleForAmazonSSM\_OpsInsights role in the
 following Regions.
 
 | Region name               | Region identity | Support in Systems Manager |

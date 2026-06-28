@@ -44,7 +44,7 @@ $Passwd = Read-Host -AsSecureString
   screen utility is installed by default. To
   install screen manually, depending on your
   version of Linux, run either `sudo yum install
-screen` or `sudo apt-get install screen`.
+ screen` or `sudo apt-get install screen`.
 - Logging isn't available for Session Manager sessions that connect through port forwarding or
   SSH. This is because SSH encrypts all session data within the secure TLS connection established between the AWS CLI
   and Session Manager endpoints, and Session Manager only serves as a tunnel for

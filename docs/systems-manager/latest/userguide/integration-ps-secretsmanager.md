@@ -63,27 +63,26 @@ reference is stateless.
 
 ###### To reference a Secrets Manager secret by using Parameter Store
 
-1.  Create a secret in Secrets Manager. For more information, see [Create
-    and manage secrets with AWS Secrets Manager](../../../secretsmanager/latest/userguide/managing-secrets.md "../../../secretsmanager/latest/userguide/managing-secrets.md").
-2.  Reference a secret by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDK. When you
-    reference a Secrets Manager secret, the name must begin with the following
-    reserved path: `/aws/reference/secretsmanager/`. By
-    specifying this path, Systems Manager knows to retrieve the secret from Secrets Manager
-    instead of Parameter Store. Here are some example names that correctly
-    reference the Secrets Manager secrets, `CFCreds1` and
-    `DBPass`, using Parameter Store.
+1. Create a secret in Secrets Manager. For more information, see [Create
+   and manage secrets with AWS Secrets Manager](../../../secretsmanager/latest/userguide/managing-secrets.md "../../../secretsmanager/latest/userguide/managing-secrets.md").
+2. Reference a secret by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDK. When you
+   reference a Secrets Manager secret, the name must begin with the following
+   reserved path: `/aws/reference/secretsmanager/`. By
+   specifying this path, Systems Manager knows to retrieve the secret from Secrets Manager
+   instead of Parameter Store. Here are some example names that correctly
+   reference the Secrets Manager secrets, `CFCreds1` and
+   `DBPass`, using Parameter Store.
 
-        * `/aws/reference/secretsmanager/CFCreds1`
-        * `/aws/reference/secretsmanager/DBPass`
-
-    Here is a Java code example that references an access key and a secret
-    key that are stored in Secrets Manager. This code example sets up an Amazon DynamoDB
-    client. The code retrieves configuration data and credentials from
-    Parameter Store. The configuration data is stored as a string parameter in
-    Parameter Store and the credentials are stored in Secrets Manager. Even though the
-    configuration data and credentials are stored in separate services, both
-    sets of data can be accessed from Parameter Store by using the
-    `GetParameter` API.
+   - `/aws/reference/secretsmanager/CFCreds1`
+   - `/aws/reference/secretsmanager/DBPass`
+     Here is a Java code example that references an access key and a secret
+     key that are stored in Secrets Manager. This code example sets up an Amazon DynamoDB
+     client. The code retrieves configuration data and credentials from
+     Parameter Store. The configuration data is stored as a string parameter in
+     Parameter Store and the credentials are stored in Secrets Manager. Even though the
+     configuration data and credentials are stored in separate services, both
+     sets of data can be accessed from Parameter Store by using the
+     `GetParameter` API.
 
 ```
 /**

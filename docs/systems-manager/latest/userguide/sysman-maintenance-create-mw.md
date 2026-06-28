@@ -58,7 +58,7 @@ to become inactive. This allows you to set a date and time in the future
 after which the maintenance window no longer runs. 12. (Optional) For **Schedule timezone**, specify the time
 zone to use as the basis for when scheduled maintenance windows run, in
 Internet Assigned Numbers Authority (IANA) format. For example:
-"America/Los_Angeles", "etc/UTC", or "Asia/Seoul".
+"America/Los\_Angeles", "etc/UTC", or "Asia/Seoul".
 
 For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones") on the
 IANA website. 13. (Optional) For **Schedule offset**, enter the number of
@@ -84,5 +84,5 @@ name/value pairs:
     * `Key=Environment,Value=Production`
 
 15. Choose **Create maintenance window**. The system returns
-    you to the maintenance window page. The state of the maintenance window you
-    just created is **Enabled**.
+you to the maintenance window page. The state of the maintenance window you
+just created is **Enabled**.

@@ -112,8 +112,8 @@ rules.
      level you specified.
 
 10. (Optional) In the **Approval rules for
-    applications** section, use the fields to create one or
-    more auto-approval rules.
+applications** section, use the fields to create one or
+more auto-approval rules.
 
 ###### Note
 
@@ -172,58 +172,62 @@ and 11.
      level you specified.
 
 11. (Optional) If you want to explicitly approve any patches instead
-    of letting patches be selected according to approval rules, do the
-    following in the **Patch exceptions**
-    section:
+of letting patches be selected according to approval rules, do the
+following in the **Patch exceptions**
+section:
 
-    - For **Approved patches**, enter a
-      comma-separated list of the patches you want to
-      approve.
+    * For **Approved patches**, enter a
+     comma-separated list of the patches you want to
+     approve.
+
 
     For information about accepted formats for lists of approved patches and rejected patches,
-    see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
-    - (Optional) For **Approved patches compliance
-      level**, assign a compliance level to the
-      patches in the list.
+     see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+    * (Optional) For **Approved patches compliance
+     level**, assign a compliance level to the
+     patches in the list.
 
 12. If you want to explicitly reject any patches that otherwise meet
-    your approval rules, do the following in the **Patch
-    exceptions** section:
+your approval rules, do the following in the **Patch
+exceptions** section:
 
-    - For **Rejected patches**, enter a
-      comma-separated list of the patches you want to
-      reject.
+    * For **Rejected patches**, enter a
+     comma-separated list of the patches you want to
+     reject.
+
 
     For information about accepted formats for lists of approved patches and rejected patches,
-    see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
-    - For **Rejected patches action**, select
-      the action for Patch Manager to take on patches included in the
-      **Rejected patches** list.
+     see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+    * For **Rejected patches action**, select
+     the action for Patch Manager to take on patches included in the
+     **Rejected patches** list.
 
-          + **Allow as
-           dependency**: Windows Server doesn't support
-           the concept of package dependencies. If a package in
-           the **Rejected patches** list and
-           already installed on the node, its status is
-           reported as `INSTALLED_OTHER`. Any
-           package not already installed on the node is
-           skipped.
-          + **Block**: Packages
-           in the **Rejected patches** list
-           aren't installed by Patch Manager under any
-           circumstances. If a package was installed before it
-           was added to the **Rejected
-           patches** list, or is installed outside
-           of Patch Manager afterward, it's considered noncompliant
-           with the patch baseline and its status is reported
-           as `INSTALLED_REJECTED`.
 
-      For more information about rejected package actions, see
-      [Rejected patch
-      list options in custom patch baselines](patch-manager-windows-and-linux-differences.md#rejected-patches-diff "patch-manager-windows-and-linux-differences.md#rejected-patches-diff").
+
+
+    	+ **Allow as
+    	 dependency**: Windows Server doesn't support
+    	 the concept of package dependencies. If a package in
+    	 the **Rejected patches** list and
+    	 already installed on the node, its status is
+    	 reported as `INSTALLED_OTHER`. Any
+    	 package not already installed on the node is
+    	 skipped.
+    	+ **Block**: Packages
+    	 in the **Rejected patches** list
+    	 aren't installed by Patch Manager under any
+    	 circumstances. If a package was installed before it
+    	 was added to the **Rejected
+    	 patches** list, or is installed outside
+    	 of Patch Manager afterward, it's considered noncompliant
+    	 with the patch baseline and its status is reported
+    	 as `INSTALLED_REJECTED`.
+    For more information about rejected package actions, see
+     [Rejected patch
+     list options in custom patch baselines](patch-manager-windows-and-linux-differences.md#rejected-patches-diff "patch-manager-windows-and-linux-differences.md#rejected-patches-diff").
 
 13. (Optional) For **Manage tags**, apply one or more
-    tag key name/value pairs to the patch baseline.
+tag key name/value pairs to the patch baseline.
 
 Tags are optional metadata that you assign to a resource. Tags
 allow you to categorize a resource in different ways, such as by

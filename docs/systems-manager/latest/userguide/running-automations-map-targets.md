@@ -30,7 +30,7 @@ You can specify a single tag as the target of an automation. Many AWS
 resources support tags, including Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Relational Database Service (Amazon RDS)
 instances, Amazon Elastic Block Store (Amazon EBS) volumes and snapshots, Resource Groups,and Amazon Simple Storage Service (Amazon S3)
 buckets, to name a few. You can quickly run automation on your AWS resources
-by targeting a tag. A tag is a key-value pair, such as Operating_System:Linux or
+by targeting a tag. A tag is a key-value pair, such as Operating\_System:Linux or
 Department:Finance. If you assign a specific name to a resource, then you can
 also use the word "Name" as a key, and the name of the resource as the
 value.
@@ -247,7 +247,7 @@ aws ssm start-automation-execution \
 Here is an example scenario to help you understand the
 `TargetMaps` option. In this scenario, a user wants to create
 Amazon EC2 instances of different types from different AMIs. To perform this
-task, the user creates a runbook named AMI_Testing. This runbook defines two
+task, the user creates a runbook named AMI\_Testing. This runbook defines two
 input parameters: `instanceType` and `imageId`.
 
 ```

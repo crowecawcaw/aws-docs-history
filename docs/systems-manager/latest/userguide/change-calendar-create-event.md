@@ -27,7 +27,7 @@ entry.
    `nighttime-hours`.
 6. For **Description**, enter a description for your
    event. For example, `The support team isn't available during
-these hours`.
+ these hours`.
 7. (Optional) If you want this event to serve as a visual notification or
    reminder only, select the **Advisory** check box.
    Advisory events play no functional role on your calendar. They serve

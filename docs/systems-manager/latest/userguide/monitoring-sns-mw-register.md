@@ -95,11 +95,9 @@ following:
      (invocations) or the command summary.
 
 14. In the **Parameters** section, enter the required
-    parameters based on the Command document you chose.
-15. Choose **Register Run command task**.
-16. After the next time your maintenance window runs, check your email for
-    a message from Amazon SNS and open the email message. Amazon SNS can take a few
-    minutes to send the email message.
+parameters based on the Command document you chose. 15. Choose **Register Run command task**. 16. After the next time your maintenance window runs, check your email for
+a message from Amazon SNS and open the email message. Amazon SNS can take a few
+minutes to send the email message.
 
 ## Registering a Run Command task to a maintenance window that returns notifications (CLI)
 

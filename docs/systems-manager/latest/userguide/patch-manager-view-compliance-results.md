@@ -114,8 +114,8 @@ Fleet Manager, a tool in AWS Systems Manager.
      **Patches**.
 
 2. (Optional) In the Search box (
-   ![The Search icon](images/search-icon.png)
-   ), choose from the available filters.
+![The Search icon](images/search-icon.png)
+), choose from the available filters.
 
 For example, for Red Hat Enterprise Linux (RHEL), choose from the
 following:
@@ -133,11 +133,11 @@ For Windows Server, choose from the following:
     * Severity
 
 3. Choose one of the available values for the filter type you chose.
-   For example, if you chose **State**, now choose a
-   compliance state such as
-   **InstalledPendingReboot**,
-   **Failed** or
-   **Missing**.
+For example, if you chose **State**, now choose a
+compliance state such as
+**InstalledPendingReboot**,
+**Failed** or
+**Missing**.
 
 ###### Note
 

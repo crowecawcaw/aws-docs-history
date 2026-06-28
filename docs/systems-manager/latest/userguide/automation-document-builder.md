@@ -256,79 +256,87 @@ following.
     ```
 
 8. Choose **Add a parameter** to create the second
-   parameter, `tagValue`, and enter the
-   following.
+parameter, `tagValue`, and enter the
+following.
 
-   1. For **Parameter name**, enter
-      `tagValue`.
-   2. For **Type**, choose
-      `String`.
-   3. For **Required**, choose `No`.
-   4. For **Default value**, enter
-      `LaunchedBySsmAutomation`. This adds
-      the tag key-pair value `Name:LaunchedBySsmAutomation`
-      to the instance.
-   5. For **Description**, enter the
-      following.
+    1. For **Parameter name**, enter
+     `tagValue`.
+    2. For **Type**, choose
+     `String`.
+    3. For **Required**, choose `No`.
+    4. For **Default value**, enter
+     `LaunchedBySsmAutomation`. This adds
+     the tag key-pair value `Name:LaunchedBySsmAutomation`
+     to the instance.
+    5. For **Description**, enter the
+     following.
 
-   ```
-   (Optional) The tag value to add to the instance. The default value is LaunchedBySsmAutomation.
-   ```
+
+
+    ```
+    (Optional) The tag value to add to the instance. The default value is LaunchedBySsmAutomation.
+    ```
 
 9. Choose **Add a parameter** to create the third
-   parameter, `instanceType`, and enter the following
-   information.
+parameter, `instanceType`, and enter the following
+information.
 
-   1. For **Parameter name**, enter
-      `instanceType`.
-   2. For **Type**, choose
-      `String`.
-   3. For **Required**, choose `No`.
-   4. For **Default value**, enter
-      `t2.micro`.
-   5. For **Parameter description**, enter the
-      following.
+    1. For **Parameter name**, enter
+     `instanceType`.
+    2. For **Type**, choose
+     `String`.
+    3. For **Required**, choose `No`.
+    4. For **Default value**, enter
+     `t2.micro`.
+    5. For **Parameter description**, enter the
+     following.
 
-   ```
-   (Optional) The instance type to use for the instance. The default value is t2.micro.
-   ```
+
+
+    ```
+    (Optional) The instance type to use for the instance. The default value is t2.micro.
+    ```
 
 10. Expand **Target type** and choose
-    `"/"`.
-11. (Optional) Expand **Document tags** to apply resource
-    tags to your runbook. For **Tag key**, enter
-    `Purpose`, and for **Tag
-    value**, enter
-    `LaunchInstanceAndCheckState`.
-12. In the **Step 1** section, complete the following
-    steps.
+`"/"`. 11. (Optional) Expand **Document tags** to apply resource
+tags to your runbook. For **Tag key**, enter
+`Purpose`, and for **Tag
+value**, enter
+`LaunchInstanceAndCheckState`. 12. In the **Step 1** section, complete the following
+steps.
 
     1. For **Step name**, enter this descriptive
-       step name for the first step of the automation:
-       `LaunchEc2Instance`.
+     step name for the first step of the automation:
+     `LaunchEc2Instance`.
     2. For **Action type**, choose **Run a
-       script**
-       (`aws:executeScript`).
+     script**
+     (`aws:executeScript`).
     3. For **Description**, enter a description for
-       the automation step, such as the following.
+     the automation step, such as the following.
 
-    ````
+
+
+    ```
     **About This Step**
 
         This step first launches an EC2 instance using the ```aws:executeScript``` action and the provided script.
-    ````
+    ```
     4. Expand **Inputs**.
     5. For **Runtime**, choose the runtime language
-       to use to run the provided script.
+     to use to run the provided script.
     6. For **Handler**, enter
-       `launch_instance`. This is the function
-       name declared in the following script.
+     `launch_instance`. This is the function
+     name declared in the following script.
+
 
     ###### Note
 
-    This is not required for PowerShell. 7. For **Script**, replace the default contents
-    with the following. Be sure to match the script with the
-    corresponding runtime value.
+    This is not required for PowerShell.
+    7. For **Script**, replace the default contents
+     with the following. Be sure to match the script with the
+     corresponding runtime value.
+
+
 
     Python
 
@@ -351,6 +359,7 @@ following.
 
           return { 'InstanceId' : instance_id }
     ```
+
 
     PowerShell
 
@@ -384,8 +393,10 @@ following.
     ```
     8. Expand **Additional inputs**.
     9. For **Input name**, choose
-       **InputPayload**. For **Input
-       value**, enter the following YAML data.
+     **InputPayload**. For **Input
+     value**, enter the following YAML data.
+
+
 
     ```
     image_id: "{{ imageId }}"
@@ -395,43 +406,48 @@ following.
 
 13. Expand **Outputs** and do the following:
 
-    - For **Name**, enter
-      `payload`.
-    - For **Selector**, enter
-      `$.Payload`.
-    - For **Type**, choose
-      `StringMap`.
+    * For **Name**, enter
+     `payload`.
+    * For **Selector**, enter
+     `$.Payload`.
+    * For **Type**, choose
+     `StringMap`.
 
 14. Choose **Add step** to add a second step to the
-    runbook. The second step queries the status of the instance launched in
-    Step 1 and waits until the status returned is `ok`.
-15. In the **Step 2** section, do the following.
+runbook. The second step queries the status of the instance launched in
+Step 1 and waits until the status returned is `ok`. 15. In the **Step 2** section, do the following.
 
     1. For **Step name**, enter this descriptive
-       name for the second step of the automation:
-       `WaitForInstanceStatusOk`.
+     name for the second step of the automation:
+     `WaitForInstanceStatusOk`.
     2. For **Action type**, choose **Run a
-       script**
-       (`aws:executeScript`).
+     script**
+     (`aws:executeScript`).
     3. For **Description**, enter a description for
-       the automation step, such as the following.
+     the automation step, such as the following.
 
-    ````
+
+
+    ```
     **About This Step**
 
         The script continuously polls the instance status check value for the instance launched in Step 1 until the ```ok``` status is returned.
-    ````
+    ```
     4. For **Runtime**, choose the runtime language
-       to be used for executing the provided script.
+     to be used for executing the provided script.
     5. For **Handler**, enter
-       `poll_instance`. This is the function
-       name declared in the following script.
+     `poll_instance`. This is the function
+     name declared in the following script.
+
 
     ###### Note
 
-    This is not required for PowerShell. 6. For **Script**, replace the default contents
-    with the following. Be sure to match the script with the
-    corresponding runtime value.
+    This is not required for PowerShell.
+    6. For **Script**, replace the default contents
+     with the following. Be sure to match the script with the
+     corresponding runtime value.
+
+
 
     Python
 
@@ -468,6 +484,7 @@ following.
           return {'Status': instance_status, 'InstanceId': instance_id}
     ```
 
+
     PowerShell
 
     ```
@@ -492,12 +509,14 @@ following.
     ```
     7. Expand **Additional inputs**.
     8. For **Input name**, choose
-       **InputPayload**. For **Input
-       value**, enter the following:
+     **InputPayload**. For **Input
+     value**, enter the following:
+
+
 
     ```
     {{ LaunchEc2Instance.payload }}
     ```
 
 16. Choose **Create automation** to save the
-    runbook.
+runbook.

@@ -260,9 +260,9 @@ runs, the types of targets or other resources involved, and
 the environment it runs in. 11. Choose **Next** 12. On the **Review** page, review the stack
 details, and then scroll down and choose the **I
 acknowledge that CloudFormation might create IAM
-resources** option. 13. CloudFormation shows the **CREATE_IN_PROGRESS**
+resources** option. 13. CloudFormation shows the **CREATE\_IN\_PROGRESS**
 status for a few minutes. The status changes to
-**CREATE_COMPLETE** after the stack has
+**CREATE\_COMPLETE** after the stack has
 been created. You can also choose the refresh icon to check
 the status of the create process. 14. In the stack list, choose the option next to the stack you
 just created, and then choose the

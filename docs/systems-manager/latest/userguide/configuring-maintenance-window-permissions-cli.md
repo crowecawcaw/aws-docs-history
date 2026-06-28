@@ -509,7 +509,7 @@ entity (user or group), run one of the following commands.
     ```
 
 4. Run the following command to verify that the policy has been assigned
-   to the group.
+to the group.
 
 Linux & macOS
 

@@ -130,7 +130,7 @@ resources.
     	 see [Targeting parameter values](running-automations-map-targets.md#target-parameter-values "running-automations-map-targets.md#target-parameter-values").
 
 7. In the **Input parameters** section, specify the required
-   input parameters.
+input parameters.
 
 If you chose to target resources by using tags or a resource group, then
 you might not need to choose some of the options in the **Input

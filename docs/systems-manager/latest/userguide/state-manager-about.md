@@ -135,10 +135,9 @@ according to your schedule. State Manager also attempts to run the association i
 following situations:
 
 - **Association edit** – State Manager runs
-  the association after a user edits and saves their changes to any of the
-  following association fields: `DOCUMENT_VERSION`,
-  `PARAMETERS`, `SCHEDULE_EXPRESSION`,
-  `OUTPUT_S3_LOCATION`.
+  the association after a user edits and saves changes to any association
+  field. Any call to the `UpdateAssociation` API action that
+  modifies the association triggers an immediate execution.
 - **Document edit** – State Manager runs the
   association after a user edits and saves changes to the SSM document that
   defines the association's configuration state. Specifically, the association

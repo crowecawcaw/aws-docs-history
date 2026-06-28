@@ -46,15 +46,14 @@ information, see [AWS Systems Manager Change Manager availability change](chang
 
 - AWS customers who perform the following action types:
 
-      + Create or run Automation runbooks.
-      + Create change requests in Change Manager.
-      + Run maintenance windows.
-      + Create associations in State Manager.
-
-  Automation, Change Manager, Maintenance Windows, and State Manager are all tools AWS Systems Manager. By
-  integrating these tools with Change Calendar, you can allow or block these action types
-  depending on the current state of the change calendar you associate with each
-  one.
+  - Create or run Automation runbooks.
+  - Create change requests in Change Manager.
+  - Run maintenance windows.
+  - Create associations in State Manager.
+    Automation, Change Manager, Maintenance Windows, and State Manager are all tools AWS Systems Manager. By
+    integrating these tools with Change Calendar, you can allow or block these action types
+    depending on the current state of the change calendar you associate with each
+    one.
 
 - Administrators who are responsible for keeping the configurations of Systems Manager
   managed nodes consistent, stable, and functional.

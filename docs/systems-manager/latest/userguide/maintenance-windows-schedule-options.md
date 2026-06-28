@@ -36,7 +36,7 @@ following options:
 
 - `--start-date 2021-01-01T00:00:00-08:00`
 - `--schedule-timezone
-"America/Los_Angeles"`
+ "America/Los_Angeles"`
 - `--schedule "cron(0 09 ? * WED *)"`
 
 For example:
@@ -83,11 +83,11 @@ Time.
 Suppose that next you create a maintenance window with these options:
 
 - `--start-date
-2019-01-01T00:03:15+09:00`
+ 2019-01-01T00:03:15+09:00`
 - `--end-date
-2019-06-30T00:06:15+09:00`
+ 2019-06-30T00:06:15+09:00`
 - `--schedule-timezone
-"Asia/Tokyo"`
+ "Asia/Tokyo"`
 - `--schedule "rate(7 days)"`
 
 For example:

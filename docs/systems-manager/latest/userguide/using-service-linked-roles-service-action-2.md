@@ -80,9 +80,9 @@ _IAM User Guide_.
 Systems Manager supports using service-linked roles in all of the regions where
 the service is available. For more information, see [AWS Systems Manager endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md").
 
-## Updates to the AWSServiceRoleForAmazonSSM_AccountDiscovery service-linked role
+## Updates to the AWSServiceRoleForAmazonSSM\_AccountDiscovery service-linked role
 
-View details about updates to the AWSServiceRoleForAmazonSSM_AccountDiscovery service-linked role since
+View details about updates to the AWSServiceRoleForAmazonSSM\_AccountDiscovery service-linked role since
 this service began tracking these changes. For automatic alerts about changes to
 this page, subscribe to the RSS feed on the Systems Manager [Document history](systems-manager-release-history.md "systems-manager-release-history.md") page.
 

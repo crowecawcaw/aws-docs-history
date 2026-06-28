@@ -38,36 +38,34 @@ you can specify any of the following:
   `dbus.x86_64:1:1.12.28-1.amzn2023.0.1`, the
   components are as follows:
 
-      + `name`: `dbus`
-      + `architecture`:
-       `x86_64`
-      + `epoch`: `1`
-      + `version`: `1.12.28`
-      + `release`:
-       `1.amzn2023.0.1`
+  - `name`: `dbus`
+  - `architecture`:
+    `x86_64`
+  - `epoch`: `1`
+  - `version`: `1.12.28`
+  - `release`:
+    `1.amzn2023.0.1`
+    Package names with the following constructions are
+    supported:
 
-  Package names with the following constructions are
-  supported:
+  - `name`
+  - `name.arch`
+  - `name-version`
+  - `name-version-release`
+  - `name-version-release.arch`
+  - `version`
+  - `version-release`
+  - `epoch:version-release`
+  - `name-epoch:version-release`
+  - `name-epoch:version-release.arch`
+  - `epoch:name-version-release.arch`
+  - `name.arch:epoch:version-release`
+    Some examples:
 
-      + `name`
-      + `name.arch`
-      + `name-version`
-      + `name-version-release`
-      + `name-version-release.arch`
-      + `version`
-      + `version-release`
-      + `epoch:version-release`
-      + `name-epoch:version-release`
-      + `name-epoch:version-release.arch`
-      + `epoch:name-version-release.arch`
-      + `name.arch:epoch:version-release`
-
-  Some examples:
-
-      + `dbus.x86_64`
-      + `dbus-1.12.28`
-      + `dbus-1.12.28-1.amzn2023.0.1`
-      + `dbus-1:1.12.28-1.amzn2023.0.1.x86_64`
+  - `dbus.x86_64`
+  - `dbus-1.12.28`
+  - `dbus-1.12.28-1.amzn2023.0.1`
+  - `dbus-1:1.12.28-1.amzn2023.0.1.x86_64`
 
 - We also support package name components with a single wild card in
   the above formats, such as the following:
@@ -85,36 +83,34 @@ you can specify any of the following:
   `dbus.x86_64:1:1.12.28-1.amzn2023.0.1`, the
   components are as follows:
 
-      + `name`: `dbus`
-      + `architecture`;
-       `x86_64`
-      + `epoch`: `1`
-      + `version`: `1.12.28`
-      + `release`:
-       `1.amzn2023.0.1`
+  - `name`: `dbus`
+  - `architecture`;
+    `x86_64`
+  - `epoch`: `1`
+  - `version`: `1.12.28`
+  - `release`:
+    `1.amzn2023.0.1`
+    Package names with the following constructions are
+    supported:
 
-  Package names with the following constructions are
-  supported:
+  - `name`
+  - `name.arch`
+  - `name-version`
+  - `name-version-release`
+  - `name-version-release.arch`
+  - `version`
+  - `version-release`
+  - `epoch:version-release`
+  - `name-epoch:version-release`
+  - `name-epoch:version-release.arch`
+  - `epoch:name-version-release.arch`
+  - `name.arch:epoch:version-release`
+    Some examples:
 
-      + `name`
-      + `name.arch`
-      + `name-version`
-      + `name-version-release`
-      + `name-version-release.arch`
-      + `version`
-      + `version-release`
-      + `epoch:version-release`
-      + `name-epoch:version-release`
-      + `name-epoch:version-release.arch`
-      + `epoch:name-version-release.arch`
-      + `name.arch:epoch:version-release`
-
-  Some examples:
-
-      + `dbus.x86_64`
-      + `dbus-1.12.28`
-      + `dbus-1.12.28-1.amzn2023.0.1`
-      + `dbus-1:1.12.28-1.amzn2023.0.1.x86_64`
+  - `dbus.x86_64`
+  - `dbus-1.12.28`
+  - `dbus-1.12.28-1.amzn2023.0.1`
+  - `dbus-1:1.12.28-1.amzn2023.0.1.x86_64`
 
 - We also support package name components with a single wild card in
   the above formats, such as the following:

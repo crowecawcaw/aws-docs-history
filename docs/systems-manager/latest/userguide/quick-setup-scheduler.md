@@ -112,5 +112,4 @@ to:
      Regions** where you want to set up scheduling.
 
 7. Verify the schedule information in the **Summary**
-   section.
-8. Choose **Create**.
+section. 8. Choose **Create**.

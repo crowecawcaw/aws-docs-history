@@ -608,7 +608,7 @@ again.
   [enable
   it](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md"). If it is `Pending Import`, complete the [import
   procedure](../../../kms/latest/developerguide/importing-keys.md "../../../kms/latest/developerguide/importing-keys.md"). If the key state is `Pending
-Deletion`, [cancel the key deletion](../../../kms/latest/developerguide/deleting-keys-scheduling-key-deletion.md "../../../kms/latest/developerguide/deleting-keys-scheduling-key-deletion.md") or use a different
+ Deletion`, [cancel the key deletion](../../../kms/latest/developerguide/deleting-keys-scheduling-key-deletion.md "../../../kms/latest/developerguide/deleting-keys-scheduling-key-deletion.md") or use a different
   KMS key.
 
 To find the [key state](../../../kms/latest/developerguide/key-state.md "../../../kms/latest/developerguide/key-state.md") of

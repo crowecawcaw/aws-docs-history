@@ -65,13 +65,12 @@ following:
      Region.
 
 5. In the **Schedule** section, choose how frequently you
-   want Quick Setup to remediate changes made to resources that differ from your
-   configuration. The **Default** option runs once. If you
-   don't want Quick Setup to remediate changes made to resources that differ from
-   your configuration, choose **Disable remediation** under
-   **Custom**.
-6. In the **Targets** section, choose one of the following
-   to identify the accounts and Regions for recording.
+want Quick Setup to remediate changes made to resources that differ from your
+configuration. The **Default** option runs once. If you
+don't want Quick Setup to remediate changes made to resources that differ from
+your configuration, choose **Disable remediation** under
+**Custom**. 6. In the **Targets** section, choose one of the following
+to identify the accounts and Regions for recording.
 
 ###### Note
 

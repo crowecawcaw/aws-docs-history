@@ -18,7 +18,7 @@ Install `wget` using Homebrew.
 
 ###### To install SSM Agent on macOS
 
-1. Download the agent installer file for x86_64 instances using the following
+1. Download the agent installer file for x86\_64 instances using the following
    command.
 
 In the following command, replace `region` with your own
@@ -44,7 +44,7 @@ sudo wget https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/darwin_
 
 2. Use the following command to run the SSM Agent installer.
 
-x86_64:
+x86\_64:
 
 ```
 sudo installer -pkg amazon-ssm-agent.pkg -target /

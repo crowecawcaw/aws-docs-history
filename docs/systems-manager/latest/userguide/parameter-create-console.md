@@ -72,8 +72,8 @@ more information about advanced parameters, see [Managing tiers](parameter-store
     ```
 
 8. In the **Value** box, type a value. For example, type
-   `This is my first parameter` or
-   `ami-0dbf5ea29aEXAMPLE`.
+`This is my first parameter` or
+`ami-0dbf5ea29aEXAMPLE`.
 
 ###### Note
 
@@ -103,11 +103,10 @@ pairs:
     * `Key=OS,Value=Windows`
     * `Key=ParameterType,Value=LicenseKey`
 
-10. Choose **Create parameter**.
-11. In the parameters list, choose the name of the parameter you just
-    created. Verify the details on the **Overview** tab. If
-    you created a `SecureString` parameter, choose
-    **Show** to view the unencrypted value.
+10. Choose **Create parameter**. 11. In the parameters list, choose the name of the parameter you just
+created. Verify the details on the **Overview** tab. If
+you created a `SecureString` parameter, choose
+**Show** to view the unencrypted value.
 
 ###### Note
 
