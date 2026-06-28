@@ -184,8 +184,8 @@ JSON
 
 ## AWS managed policy: AmazonWorkSpacesPoolServiceAccess
 
-This policy is used in the workspaces_DefaultRole, which WorkSpaces uses to access required
-resources in the customer AWS account for WorkSpaces Pools. For more information see [Create the workspaces_DefaultRole Role](workspaces-access-control.md#create-default-role "workspaces-access-control.md#create-default-role"). It provides the
+This policy is used in the workspaces\_DefaultRole, which WorkSpaces uses to access required
+resources in the customer AWS account for WorkSpaces Pools. For more information see [Create the workspaces\_DefaultRole Role](workspaces-access-control.md#create-default-role "workspaces-access-control.md#create-default-role"). It provides the
 following permissions:
 
 - `ec2` - Allows access to manage Amazon EC2 resources associated with a

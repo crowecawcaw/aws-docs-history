@@ -26,7 +26,7 @@ for issues with your WorkSpaces clients, contact AWS Support. For more informati
 ###### To enable advanced logging for Web Access
 
 1. Open your Amazon WorkSpaces Web Access client.
-2. At the top of the WorkSpaces sign in page, choose **Diagnostic logging**.
+2. On the WorkSpaces sign in page, choose **Diagnostic logging**.
 3. In the pop-up dialog box, ensure that **Diagnostic logging** is enabled.
 4. For **Log level**, choose **Advanced logging**.
 
@@ -312,8 +312,7 @@ following:
     4. Choose **Modify**.
 
 5. Connect to your Linux WorkSpace through SSH. For more information, see
-   [Enable SSH connections for your Linux WorkSpaces in WorkSpaces Personal](connect-to-linux-workspaces-with-ssh.md "connect-to-linux-workspaces-with-ssh.md").
-6. To update the PCoIP agent, run the following command:
+[Enable SSH connections for your Linux WorkSpaces in WorkSpaces Personal](connect-to-linux-workspaces-with-ssh.md "connect-to-linux-workspaces-with-ssh.md"). 6. To update the PCoIP agent, run the following command:
 
 ```
 sudo yum --enablerepo=pcoip-stable install pcoip-agent-standard-20.10.6
@@ -677,17 +676,17 @@ Group Policy. For more information, see [Configuring the agent](https://www.tera
 
 1. Set the following registry key value to 1 (enabled):
 
-KeyPath = **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Teradici\PCoIP\pcoip_admin**
+KeyPath = **HKEY\_LOCAL\_MACHINE\SOFTWARE\Policies\Teradici\PCoIP\pcoip\_admin**
 
-KeyName = **pcoip.enable_usb**
+KeyName = **pcoip.enable\_usb**
 
 KeyType = **DWORD**
 
 KeyValue = **1** 2. Set the following registry key value to 1 (enabled):
 
-KeyPath = **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Teradici\PCoIP\pcoip_admin_defaults**
+KeyPath = **HKEY\_LOCAL\_MACHINE\SOFTWARE\Policies\Teradici\PCoIP\pcoip\_admin\_defaults**
 
-KeyName = **pcoip.enable_usb**
+KeyName = **pcoip.enable\_usb**
 
 KeyType = **DWORD**
 
@@ -1159,7 +1158,7 @@ following issues:
   for the user. For more information, see step 1 in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites").
 - The (optional) `ObjectSid` attribute in your SAML assertion
   does not match the Active Directory security identifier (SID) for user
-  specified in the SAML_Subject `NameID`. Confirm that attribute
+  specified in the SAML\_Subject `NameID`. Confirm that attribute
   mapping is correct in your SAML federation and that your SAML identity
   provider is synchronizing the SID attribute for the Active Directory
   user.

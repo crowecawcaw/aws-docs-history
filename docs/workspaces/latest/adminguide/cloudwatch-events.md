@@ -9,7 +9,7 @@ following purposes:
 - Use the WAN IP address to determine where users are logged in from, and then
   use policies to allow users access only to files or data from WorkSpaces that
   meet the access criteria found in the event type of `WorkSpaces
-Access`.
+ Access`.
 - Analyze login data and perform automated actions using AWS Lambda.
 - Use policy controls to block access to files and applications from
   unauthorized IP addresses.
@@ -82,7 +82,7 @@ The following values are case-sensitive.
 - `AmazonWorkSpacesThinClient` — Amazon WorkSpaces Thin
   Client device
 - `Teradici PCoIP Zero Client, Teradici PCoIP Desktop
-Client, or Dell Wyse PCoIP Client` — Zero
+ Client, or Dell Wyse PCoIP Client` — Zero
   Client
 
 `loginTime`

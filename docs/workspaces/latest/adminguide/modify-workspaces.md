@@ -176,7 +176,11 @@ automatically rebooted during the compute type change process.
 To avoid data loss, make sure users save any open documents and other application
 files before you change the WorkSpace compute type.
 
-The compute type change process might take up to an hour.
+The compute type change process might take up to an hour. This time does not
+include any delay between when you submit the request and when the system begins the
+modification. When you modify a large number of WorkSpaces simultaneously, this delay
+might be longer. For bulk operations, consider staggering modifications in smaller
+batches.
 
 ###### To change the compute type of a WorkSpace
 

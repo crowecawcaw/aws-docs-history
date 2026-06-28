@@ -241,16 +241,15 @@ manage-bde -off  `DriveLetter`:
 manage-bde -Status  `DriveLetter`:
 ```
 
-4.  Ensure the values shown match these:
+4. Ensure the values shown match these:
 
-        * **BitLocker Version** – None
-        * **Conversion Status** – Fully Decrypted
-        * **Percentage Encrypted** – 0.0%
-        * **Encryption Method** – None
-        * **Protection Status** – Protection Off
-        * **Lock Status** – Unlocked
-
-    Perform these steps to run the Image Compatibility Checker script.
+   - **BitLocker Version** – None
+   - **Conversion Status** – Fully Decrypted
+   - **Percentage Encrypted** – 0.0%
+   - **Encryption Method** – None
+   - **Protection Status** – Protection Off
+   - **Lock Status** – Unlocked
+     Perform these steps to run the Image Compatibility Checker script.
 
 ###### To run the Image Compatibility Checker script
 
@@ -337,16 +336,16 @@ WorkSpaces automatically creates an Amazon EC2 Image Builder pipeline to build y
 
 5. Go to **Advanced settings** and select if you want to terminate the EC2 build instance if your image encounters import errors.
 
-   - If you choose to terminate the instance on failure, you will not be able to access the instance to debug errors during the image import workflow.
-   - If you choose to not terminate the instance, the instance can be used to debug errors but you may incur additional costs for running the EC2 instance.
+    * If you choose to terminate the instance on failure, you will not be able to access the instance to debug errors during the image import workflow.
+    * If you choose to not terminate the instance, the instance can be used to debug errors but you may incur additional costs for running the EC2 instance.
 
 6. Go to **Image details** to specify the properties of your image: including an image name.
 
-   - **Image Name** – Unique identifier for your image.
-   - **Compute type** – Specify if this image should use non-graphics/base hardware or Graphics hardware
-   - **OS version** – Choose the Windows operating system version of the image
-   - **Semantic version** – Define a semantic version for the image, which will be stored in EC2 Image Builder. For more information,
-     see [Semantic versioning in Image Builder](../../../imagebuilder/latest/userguide/ibhow-semantic-versioning.md "../../../imagebuilder/latest/userguide/ibhow-semantic-versioning.md") in the _EC2 Image Builder User Guide_
+    * **Image Name** – Unique identifier for your image.
+    * **Compute type** – Specify if this image should use non-graphics/base hardware or Graphics hardware
+    * **OS version** – Choose the Windows operating system version of the image
+    * **Semantic version** – Define a semantic version for the image, which will be stored in EC2 Image Builder. For more information,
+     see [Semantic versioning in Image Builder](../../../imagebuilder/latest/userguide/ibhow-semantic-versioning.md "../../../imagebuilder/latest/userguide/ibhow-semantic-versioning.md") in the *EC2 Image Builder User Guide*
 
 ###### Note
 
@@ -451,13 +450,12 @@ Add the following folders to the exclusion list in Windows Defender:
     * `C:\Program Files (x86)\AWS SDK for .NET\*`
     * `C:\AWSEUC\` ((This is for the session scrip)
 
-5. Disable Windows update on startup by entering the following command.
-6. Open Powershell as administrator.
+5. Disable Windows update on startup by entering the following command. 6. Open Powershell as administrator.
 
-   1. Select the Windows Start button.
-   2. Right-click **Windows PowerShell**.
-   3. Choose **Run as administrator**.
-   4. If prompted by User Account Control, choose **Yes**.
+    1. Select the Windows Start button.
+    2. Right-click **Windows PowerShell**.
+    3. Choose **Run as administrator**.
+    4. If prompted by User Account Control, choose **Yes**.
 
 7. Run following commands:
 

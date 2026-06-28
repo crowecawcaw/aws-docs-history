@@ -249,27 +249,24 @@ The following is an example of the SSH command where:
 
 ###### To connect to an Linux WorkSpace using PuTTY
 
-1.  Open PuTTY.
-2.  In the **PuTTY Configuration** dialog box, do the
-    following:
+1. Open PuTTY.
+2. In the **PuTTY Configuration** dialog box, do the
+   following:
 
-        * For **Host Name (or IP address)**, enter the following
-         command. Replace the values with the NetBIOS name of the Active Directory
-         domain that you are connected to, the user name that you use to connect to the
-         WorkSpace, and the IP address of the WorkSpace that you want to connect
-         to.
+   - For **Host Name (or IP address)**, enter the following
+     command. Replace the values with the NetBIOS name of the Active Directory
+     domain that you are connected to, the user name that you use to connect to the
+     WorkSpace, and the IP address of the WorkSpace that you want to connect
+     to.
 
+   ```
+   `NetBIOS_NAME``\``Username``@``WorkSpaceIP`
+   ```
+   - For **Port**, enter `22`.
+   - For **Connection type**, choose
+     **SSH**.
+     For an example of the SSH command, see step 1 in the previous procedure.
 
-
-        ```
-        `NetBIOS_NAME``\``Username``@``WorkSpaceIP`
-        ```
-        * For **Port**, enter `22`.
-        * For **Connection type**, choose
-         **SSH**.
-
-    For an example of the SSH command, see step 1 in the previous procedure.
-
-3.  Choose **Open**.
-4.  When prompted, enter the same password that you use when authenticating with the
-    WorkSpaces client (your Active Directory password).
+3. Choose **Open**.
+4. When prompted, enter the same password that you use when authenticating with the
+   WorkSpaces client (your Active Directory password).

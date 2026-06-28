@@ -204,11 +204,11 @@ client side.
 
 You can use Group Policy settings to configure printer support as needed.
 
-| Basic vs. Advanced Printing | Aspect                 | Basic Printing                                                        | Advanced Printing |
-| --------------------------- | ---------------------- | --------------------------------------------------------------------- | ----------------- |
-| **Driver Used**             | Generic XPS driver     | Printer-specific driver                                               |
-| **Driver Installation**     | Automatic              | Manual (host and client)                                              |
-| **Features**                | Standard printing only | Full printer features (duplex, paper tray selection, finishing, etc.) |
+Basic vs. Advanced Printing| Aspect | Basic Printing | Advanced Printing |
+| --- | --- | --- |
+| **Driver Used** | Generic XPS driver | Printer-specific driver |
+| **Driver Installation** | Automatic | Manual (host and client) |
+| **Features** | Standard printing only | Full printer features (duplex, paper tray selection, finishing, etc.) |
 
 **When to use Advanced Printing:** - Double-sided (duplex) printing
 
@@ -253,7 +253,7 @@ You can use Group Policy settings to configure printer support as needed.
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
    - In an administrative command prompt, enter `gpupdate
-/force`.
+  /force`.
 
 #### Configure Advanced Printer Redirection
 
@@ -275,11 +275,11 @@ will use basic printing.
 When Advanced printing is selected, three driver validation modes
 are supported:
 
-| Driver Validation Modes      | Mode                                         | Behavior                                          | Use When |
-| ---------------------------- | -------------------------------------------- | ------------------------------------------------- | -------- |
-| \*_Name Only_<br>• (Default) | Matches driver name only, ignores version    | Maximum compatibility needed                      |
-| **Partial Match**            | Matches Major.Minor version (e.g., 10.6.x.x) | Balancing compatibility and features              |
-| **Exact Match**              | Requires exact version match                 | Specialized printers (e.g., Zebra label printers) |
+Driver Validation Modes| Mode | Behavior | Use When |
+| --- | --- | --- |
+| *_Name Only_<br>• (Default) | Matches driver name only, ignores version | Maximum compatibility needed |
+| **Partial Match** | Matches Major.Minor version (e.g., 10.6.x.x) | Balancing compatibility and features |
+| **Exact Match** | Requires exact version match | Specialized printers (e.g., Zebra label printers) |
 
 **To configure validation mode**, set name only, partial match,
 or exact match in the printer driver validation dropdown in the GPO.
@@ -342,17 +342,16 @@ redirection options** will become available:
     * Choose **Paste Only** to allow pasting data
      from the client clipboard to the server clipboard only.
 
-4. Choose **OK**.
-5. The Group Policy setting change takes effect after the next Group
-   Policy update for the WorkSpace and after the WorkSpace session is
-   restarted. To apply the Group Policy changes, do one of the
-   following:
+4. Choose **OK**. 5. The Group Policy setting change takes effect after the next Group
+Policy update for the WorkSpace and after the WorkSpace session is
+restarted. To apply the Group Policy changes, do one of the
+following:
 
-   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+    * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
-   - In an administrative command prompt, enter `gpupdate
-/force`.
+    * In an administrative command prompt, enter `gpupdate
+     /force`.
 
 ###### Known limitation
 
@@ -369,110 +368,106 @@ domain's Group Policy settings.
 
 ###### To set the automatic session resume timeout value
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Enable/disable automatic reconnect**
-    setting.
-3.  In the **Enable/disable automatic reconnect** dialog
-    box, choose **Enabled**, and then set
-    **Reconnect timeout (seconds)** to the desired
-    timeout in seconds.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Enable/disable automatic reconnect**
+   setting.
+3. In the **Enable/disable automatic reconnect** dialog
+   box, choose **Enabled**, and then set
+   **Reconnect timeout (seconds)** to the desired
+   timeout in seconds.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, WorkSpaces supports redirecting data from a local camera. If needed for
-    Windows WorkSpaces, you can use Group Policy settings to disable this feature.
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, WorkSpaces supports redirecting data from a local camera. If needed for
+     Windows WorkSpaces, you can use Group Policy settings to disable this feature.
 
 ###### To configure video-in redirection for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Enable/disable video-in redirection**
-    setting.
-3.  In the **Enable/disable video-in redirection** dialog
-    box, choose **Enabled** or
-    **Disabled**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Enable/disable video-in redirection**
+   setting.
+3. In the **Enable/disable video-in redirection** dialog
+   box, choose **Enabled** or
+   **Disabled**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, WorkSpaces supports redirecting data from a local microphone. If needed
-    for Windows WorkSpaces, you can use Group Policy settings to disable this feature.
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, WorkSpaces supports redirecting data from a local microphone. If needed
+     for Windows WorkSpaces, you can use Group Policy settings to disable this feature.
 
 ###### To configure audio-in redirection for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Enable/disable audio-in redirection**
-    setting.
-3.  In the **Enable/disable audio-in redirection** dialog
-    box, choose **Enabled** or
-    **Disabled**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Enable/disable audio-in redirection**
+   setting.
+3. In the **Enable/disable audio-in redirection** dialog
+   box, choose **Enabled** or
+   **Disabled**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, WorkSpaces redirects data to a local speaker. If needed for Windows
-    WorkSpaces, you can use Group Policy settings to disable this feature.
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, WorkSpaces redirects data to a local speaker. If needed for Windows
+     WorkSpaces, you can use Group Policy settings to disable this feature.
 
 ###### To configure audio-out redirection for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Enable/disable audio-out redirection**
-    setting.
-3.  In the **Enable/disable audio-out redirection**
-    dialog box, choose **Enabled** or
-    **Disabled**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Enable/disable audio-out redirection**
+   setting.
+3. In the **Enable/disable audio-out redirection**
+   dialog box, choose **Enabled** or
+   **Disabled**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions** >
-         **Reboot WorkSpaces**.
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, the time within a Workspace is set to mirror the time zone of the
-    client that is being used to connect to the WorkSpace. This behavior is
-    controlled through time zone redirection. You might want to turn off time zone
-    direction for various reasons. For example:
+   - Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions** >
+     **Reboot WorkSpaces**.
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, the time within a Workspace is set to mirror the time zone of the
+     client that is being used to connect to the WorkSpace. This behavior is
+     controlled through time zone redirection. You might want to turn off time zone
+     direction for various reasons. For example:
 
 - Your company wants all employees to work in a certain time zone (even
   if some employees are in other time zones).
@@ -503,7 +498,7 @@ domain's Group Policy settings.
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
    - In an administrative command prompt, enter `gpupdate
-/force`.
+  /force`.
 
 6. Set the time zone for the WorkSpaces to the desired time zone.
    The time zone of the WorkSpaces is now static and no longer mirrors the time zone
@@ -527,30 +522,29 @@ server negotiate which cipher to use:
 
 ###### To configure DCV security settings
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open **Configure security settings**.
-3.  In the **Configure security settings** dialog box,
-    choose **Enabled**. Add cipher suites that you want to
-    allow and remove cipher suites that you want to block. For more
-    information about these settings, see the descriptions provided in the
-    **Configure security settings** dialog box.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace, and after you restart the WorkSpace
-    session. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open **Configure security settings**.
+3. In the **Configure security settings** dialog box,
+   choose **Enabled**. Add cipher suites that you want to
+   allow and remove cipher suites that you want to block. For more
+   information about these settings, see the descriptions provided in the
+   **Configure security settings** dialog box.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace, and after you restart the WorkSpace
+   session. To apply the Group Policy changes, do one of the
+   following:
 
-        * To reboot the WorkSpace, in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**.
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, support for WorkSpaces extensions is disabled. If needed, you can
-    configure your WorkSpace to use extensions in the following ways:
+   - To reboot the WorkSpace, in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**.
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, support for WorkSpaces extensions is disabled. If needed, you can
+     configure your WorkSpace to use extensions in the following ways:
 
 - Server and client – Enable extensions for both server and
   client
@@ -561,33 +555,32 @@ server negotiate which cipher to use:
 
 ###### To configure extensions for DCV
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Configure extensions** setting.
-3.  In the **Configure extensions** dialog box, choose
-    **Enabled** and then set the desired support
-    option. Choose **Client Only**, **Server and
-    Client**, or **Server only**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after you restart the WorkSpace
-    session. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Configure extensions** setting.
+3. In the **Configure extensions** dialog box, choose
+   **Enabled** and then set the desired support
+   option. Choose **Client Only**, **Server and
+   Client**, or **Server only**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after you restart the WorkSpace
+   session. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**.
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, Amazon WorkSpaces are not enabled to support the use of smart cards for
-    either _pre-session authentication_ or _in-session
-    authentication_. Pre-session authentication refers to smart card
-    authentication that's performed while users are logging in to their WorkSpaces.
-    In-session authentication refers to authentication that's performed after
-    logging in.
+   - Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**.
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, Amazon WorkSpaces are not enabled to support the use of smart cards for
+     either _pre-session authentication_ or _in-session
+     authentication_. Pre-session authentication refers to smart card
+     authentication that's performed while users are logging in to their WorkSpaces.
+     In-session authentication refers to authentication that's performed after
+     logging in.
 
 If needed, you can enable pre-session and in-session authentication for
 Windows WorkSpaces by using Group Policy settings. Pre-session authentication must
@@ -868,7 +861,8 @@ You can block the installation of the extension by applying the following config
 
 WebRTC redirection enhances real-time communication by offloading audio and video processing from WorkSpaces
 to your local client, which improves performance and reduces latency. However, WebRTC redirection isn't universal
-and requires third-party application vendors to develop specific integrations with WorkSpaces. By default, WebRTC
+and requires third-party application vendors to develop specific integrations with WorkSpaces.
+For integration guidance, see [Integrate your web application with WebRTC redirection](webrtc-redirection-integration.md "webrtc-redirection-integration.md"). By default, WebRTC
 redirection isn't enabled on WorkSpaces. To use WebRTC redirection, ensure the following:
 
 - Third-party application vendor integration
@@ -1041,31 +1035,30 @@ WorkSpaces by using Group Policy settings.
 
 ###### To configure disconnect session on screen lock for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Enable/disable disconnect session on screen
-    lock** setting.
-3.  In the **Enable/disable disconnect session on screen
-    lock** dialog box, choose **Enabled** or
-    **Disabled**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Enable/disable disconnect session on screen
+   lock** setting.
+3. In the **Enable/disable disconnect session on screen
+   lock** dialog box, choose **Enabled** or
+   **Disabled**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    Screen Capture Protection prevents screenshots, screen recordings, and screen
-    sharing of WorkSpaces sessions from local client tools. When enabled, attempts
-    to capture screen content from client side will show either the background or
-    a black rectangle, helping protect sensitive information from exfiltration.
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     Screen Capture Protection prevents screenshots, screen recordings, and screen
+     sharing of WorkSpaces sessions from local client tools. When enabled, attempts
+     to capture screen content from client side will show either the background or
+     a black rectangle, helping protect sensitive information from exfiltration.
 
 #### Requirements
 
@@ -1104,58 +1097,56 @@ Screen capture protection for DCV requires the following:
 
 ###### To configure Screen Capture Protection for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Configure Screen Capture Protection**
-    setting.
-3.  In the **Configure Screen Capture Protection**
-    dialog box, choose **Enabled** or
-    **Disabled**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Configure Screen Capture Protection**
+   setting.
+3. In the **Configure Screen Capture Protection**
+   dialog box, choose **Enabled** or
+   **Disabled**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        1. Reboot the WorkSpace (in the WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        2. In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, WorkSpaces supports using Indirect Display Driver (IDD). If
-    needed for Windows WorkSpaces, you can use Group Policy settings to disable this
-    feature.
+   1. Reboot the WorkSpace (in the WorkSpaces console, select the
+      WorkSpace, then choose **Actions**,
+      **Reboot WorkSpaces**).
+   2. In an administrative command prompt, enter `gpupdate
+  /force`.
+      By default, WorkSpaces supports using Indirect Display Driver (IDD). If
+      needed for Windows WorkSpaces, you can use Group Policy settings to disable this
+      feature.
 
 ###### To configure Indirect Display Driver (IDD) for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Enable the AWS Indirect Display Driver**
-    setting.
-3.  In the **Enable the AWS Indirect Display Driver**
-    dialog box, choose **Enabled** or
-    **Disabled**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Enable the AWS Indirect Display Driver**
+   setting.
+3. In the **Enable the AWS Indirect Display Driver**
+   dialog box, choose **Enabled** or
+   **Disabled**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        1. Reboot the WorkSpace (in the WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        2. In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    WorkSpaces allows you to configure several different display settings, including
-    the maximum frame rate, minimum image quality, maximum image quality, and YUV
-    encoding. Adjust these settings based on the image quality, responsiveness, and
-    color accuracy that you need.
+   1. Reboot the WorkSpace (in the WorkSpaces console, select the
+      WorkSpace, then choose **Actions**,
+      **Reboot WorkSpaces**).
+   2. In an administrative command prompt, enter `gpupdate
+  /force`.
+      WorkSpaces allows you to configure several different display settings, including
+      the maximum frame rate, minimum image quality, maximum image quality, and YUV
+      encoding. Adjust these settings based on the image quality, responsiveness, and
+      color accuracy that you need.
 
 By default, the maximum frame rate value is 25. The maximum frame rate value
 specifies the maximum allowed frames per second (fps). A value of 0 means no
@@ -1180,67 +1171,65 @@ frame rate, minimum image quality, and maximum image quality values.
 
 ###### To configure display settings for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Configure display settings**
-    setting.
-3.  In the **Configure display settings** dialog box,
-    choose **Enabled** and then set the **Maximum
-    frame rate (fps)**, **minimum image
-    quality**, and **maximum image quality**
-    values to the desired levels.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after you restart the WorkSpace
-    session. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Configure display settings**
+   setting.
+3. In the **Configure display settings** dialog box,
+   choose **Enabled** and then set the **Maximum
+   frame rate (fps)**, **minimum image
+   quality**, and **maximum image quality**
+   values to the desired levels.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after you restart the WorkSpace
+   session. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace. the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, WorkSpaces supports using the VSync feature for the AWS Virtual
-    Display-Only Driver. If needed for Windows WorkSpaces, you can use Group Policy
-    settings to disable this feature.
+   - Reboot the WorkSpace. the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, WorkSpaces supports using the VSync feature for the AWS Virtual
+     Display-Only Driver. If needed for Windows WorkSpaces, you can use Group Policy
+     settings to disable this feature.
 
 ###### To configure VSync for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Enable VSync feature of the AWS Virtual Display
-    Only Driver** setting.
-3.  In the **Enable VSync feature of the AWS Virtual Display
-    Only Driver** dialog box, choose
-    **Enabled** or
-    **Disabled**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do the following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Enable VSync feature of the AWS Virtual Display
+   Only Driver** setting.
+3. In the **Enable VSync feature of the AWS Virtual Display
+   Only Driver** dialog box, choose
+   **Enabled** or
+   **Disabled**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do the following:
 
-        1. Restart the WorkSpace by doing the either of the
-         following:
+   1. Restart the WorkSpace by doing the either of the
+      following:
 
+      1. Option 1 — In the WorkSpaces console, choose the
+         WorkSpace you want to reboot. Then, choose
+         **Actions**, **Reboot
+         WorkSpaces**.
+      2. Option 2 — In an administrative command prompt,
+         enter `gpupdate /force`.
 
-        	1. Option 1 — In the WorkSpaces console, choose the
-        	 WorkSpace you want to reboot. Then, choose
-        	 **Actions**, **Reboot
-        	 WorkSpaces**.
-        	2. Option 2 — In an administrative command prompt,
-        	 enter `gpupdate /force`.
-        2. Reconnect to the WorkSpace in order to apply the
-         setting.
-        3. Reboot the Workspace again.
-
-    By default, the log verbosity level for DCV WorkSpaces is set to
-    **Info**. You can set log levels to verbosity levels
-    ranging from least verbose to most verbose, as detailed here:
+   2. Reconnect to the WorkSpace in order to apply the
+      setting.
+   3. Reboot the Workspace again.
+      By default, the log verbosity level for DCV WorkSpaces is set to
+      **Info**. You can set log levels to verbosity levels
+      ranging from least verbose to most verbose, as detailed here:
 
 - Error – least verbose
 - Warning
@@ -1251,29 +1240,28 @@ frame rate, minimum image quality, and maximum image quality values.
 
 ###### To configure log verbosity levels for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Configure log verbosity** setting.
-3.  In the **Configure log verbosity** dialog box, choose
-    **Enabled** and then set the log verbosity level to
-    **debug**, **error**,
-    **info**, or **warning**.
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after you restart the WorkSpace
-    session. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Configure log verbosity** setting.
+3. In the **Configure log verbosity** dialog box, choose
+   **Enabled** and then set the log verbosity level to
+   **debug**, **error**,
+   **info**, or **warning**.
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after you restart the WorkSpace
+   session. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**.
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    WorkSpaces allows you to configure how long a user can be inactive, while connected to a WorkSpace,
-    before they are disconnected. Examples of user activity input include the following:
+   - Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**.
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     WorkSpaces allows you to configure how long a user can be inactive, while connected to a WorkSpace,
+     before they are disconnected. Examples of user activity input include the following:
 
 - Keyboard events
 - Mouse events (cursor movement, scrolling, clicking)
@@ -1338,7 +1326,7 @@ you can use Group Policy settings to configure this feature.
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**.
    - In an administrative command prompt, enter `gpupdate
-/force`.
+  /force`.
 
 #### Overview
 
@@ -1356,7 +1344,7 @@ Amazon recommends using generic redirection only for devices where optimized red
 
 #### Configuration
 
-USB redirection is disabled by default. You can enable the feature by using Group Policy Objects (GPO). After the feature is enabled, you can add devices to the allowlist for redirection. By default, devices not in the allowlist are not available for redirection.
+USB redirection is disabled by default. You can enable the feature by using Group Policy Objects (GPO). After the feature is enabled, you can add devices to the device compatibility filter for redirection. By default, devices not in the filter are not available for redirection.
 
 ##### Group Policy Configuration
 
@@ -1377,11 +1365,11 @@ Changes to this setting are applied on the next connection.
 
 #### Device Management
 
-After USB redirection is enabled, you can configure the device allowlist in the GPO to add devices that you want to support for redirection.
+After USB redirection is enabled, you can configure the device compatibility filter in the GPO to add devices that you want to support for redirection.
 
-##### Device Allowlist Configuration
+##### Device compatibility filter configuration
 
-USB redirection follows a default deny-all security stance. Administrators must explicitly allow devices by adding them to the allowlist in the GPO using the following format:
+The device compatibility filter determines which USB devices are recognized for redirection. This filter is not a security access control. Do not rely on it as a security boundary. Administrators must explicitly add devices to the filter in the GPO using the following format:
 
 ```
 Name, Base class, Subclass, Protocol, Id Vendor, Id Product, Support Auto-share, Skip reset
@@ -1406,16 +1394,13 @@ Credit Card Reader, *, *, *, 0x0483, 0x2016, 1, 0
 
 ###### Note
 
-Test devices for compatibility and performance before adding them to the allowlist.
+Test devices for compatibility and performance before adding them to the device compatibility filter.
 
-#### Security Considerations
-
-##### Best Practices
+#### Best practices
 
 - Use dedicated redirection methods when available for supported devices for best performance and compatibility. For example, for security keys like YubiKey, use WebAuthn redirection instead.
-- Implement strict device allowlists.
+- Keep the device compatibility filter limited to devices your users need. This filter is a compatibility control, not a security boundary.
 - Monitor device access through audit logs.
-- Assess data security implications before allowing new devices.
 
 Use this setting to configure webcam resolution settings. If you enable this policy setting, you can specify:
 
@@ -1427,26 +1412,25 @@ Use this setting to configure webcam resolution settings. If you enable this pol
 
 ###### To configure webcam resolution for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Configure webcam resolution** setting.
-3.  In the **Configure webcam resolution** dialog box, choose
-    **Enabled** and then set the **Maximum webcam resolution** (in pixels) and/or **Preferred webcam resolution** (in pixels).
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after you restart the WorkSpace
-    session. To apply the Group Policy changes, do one of the
-    following:
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Configure webcam resolution** setting.
+3. In the **Configure webcam resolution** dialog box, choose
+   **Enabled** and then set the **Maximum webcam resolution** (in pixels) and/or **Preferred webcam resolution** (in pixels).
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after you restart the WorkSpace
+   session. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**.
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    This setting controls whether to use server side keyboard layout for key interpretation, as opposed to the default client side keyboard layout. Changes to this setting are applied on the next connection. For more details on keyboard handling please see the _Amazon WorkSpaces User Guide_.
+   - Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**.
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     This setting controls whether to use server side keyboard layout for key interpretation, as opposed to the default client side keyboard layout. Changes to this setting are applied on the next connection. For more details on keyboard handling please see the _Amazon WorkSpaces User Guide_.
 
 If you enable this policy setting, you can choose one of the following options:
 
@@ -1477,7 +1461,7 @@ This feature is supported in the Amazon WorkSpaces Windows client version 5.29.2
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**.
    - In an administrative command prompt, enter `gpupdate
-/force`.
+  /force`.
 
 ## Install the Group Policy administrative template for PCoIP
 
@@ -1523,7 +1507,7 @@ files](https://docs.microsoft.com/troubleshoot/windows-server/group-policy/manag
 
 1. From a running Windows WorkSpace, make a copy of the
    `pcoip.adm` file in the `C:\Program
-Files (x86)\Teradici\PCoIP Agent\configuration`
+ Files (x86)\Teradici\PCoIP Agent\configuration`
    directory.
 2. On a directory administration WorkSpace or an Amazon EC2 instance that is
    joined to your WorkSpaces directory, open the Group Policy Management tool
@@ -1591,7 +1575,7 @@ WorkSpaces directory.
 1. From a running Windows WorkSpace, make a copy of the
    `PCoIP.admx` and `PCoIP.adml`
    files in the `C:\Program Files\Teradici\PCoIP
-Agent\configuration\policyDefinitions` directory. The
+ Agent\configuration\policyDefinitions` directory. The
    `PCoIP.adml` file is in the
    `en-US` subfolder of that directory.
 2. On a directory administration WorkSpace or an Amazon EC2 instance that is
@@ -1689,47 +1673,46 @@ support as needed.
 
 ###### To configure printer support
 
-1.  Make sure that you've installed the most recent [WorkSpaces Group Policy
-    administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy
-    administrative template for PCoIP (64-Bit)](#gp_install_template_pcoip_64_bit "#gp_install_template_pcoip_64_bit").
-2.  On a directory administration WorkSpace or an Amazon EC2 instance that is
-    joined to your WorkSpaces directory, open the Group Policy Management tool
-    (**gpmc.msc**) and navigate to **PCoIP
-    Session Variables**.
-3.  Open the **Configure remote printing**
-    setting.
-4.  In the **Configure remote printing** dialog box, do
-    one of the following:
+1. Make sure that you've installed the most recent [WorkSpaces Group Policy
+   administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy
+   administrative template for PCoIP (64-Bit)](#gp_install_template_pcoip_64_bit "#gp_install_template_pcoip_64_bit").
+2. On a directory administration WorkSpace or an Amazon EC2 instance that is
+   joined to your WorkSpaces directory, open the Group Policy Management tool
+   (**gpmc.msc**) and navigate to **PCoIP
+   Session Variables**.
+3. Open the **Configure remote printing**
+   setting.
+4. In the **Configure remote printing** dialog box, do
+   one of the following:
 
-    - To enable Advanced remote printing, choose
-      **Enabled**, and then under
-      **Options,**
-      **Configure remote printing**, choose
-      **Basic and Advanced printing for Windows
-      clients**. To automatically use the client
-      computer's current default printer, select
-      **Automatically set default
-      printer**.
-    - To disable printing, choose **Enabled**, and
-      then under **Options,**
-      **Configure remote printing**, choose
-      **Printing disabled**.
+   - To enable Advanced remote printing, choose
+     **Enabled**, and then under
+     **Options,**
+     **Configure remote printing**, choose
+     **Basic and Advanced printing for Windows
+     clients**. To automatically use the client
+     computer's current default printer, select
+     **Automatically set default
+     printer**.
+   - To disable printing, choose **Enabled**, and
+     then under **Options,**
+     **Configure remote printing**, choose
+     **Printing disabled**.
 
-5.  Choose **OK**.
-6.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+5. Choose **OK**.
+6. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, local printer auto-redirection is disabled. You can use Group
-    Policy settings to enable this feature so that your local printer is set as the
-    default printer every time that you connect to your WorkSpace.
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, local printer auto-redirection is disabled. You can use Group
+     Policy settings to enable this feature so that your local printer is set as the
+     default printer every time that you connect to your WorkSpace.
 
 ###### Note
 
@@ -1737,38 +1720,37 @@ Local printer redirection is not available for Amazon Linux WorkSpaces.
 
 ###### To enable local printer auto-redirection
 
-1.  Make sure that you've installed the most recent [WorkSpaces Group Policy
-    administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy
-    administrative template for PCoIP (64-Bit)](#gp_install_template_pcoip_64_bit "#gp_install_template_pcoip_64_bit").
-2.  On a directory administration WorkSpace or an Amazon EC2 instance that is
-    joined to your WorkSpaces directory, open the Group Policy Management tool
-    (**gpmc.msc**) and navigate to **PCoIP
-    Session Variables**.
-3.  Open the **Configure remote printing**
-    setting.
-4.  Choose **Enabled**, and then under
-    **Options**, **Configure remote
-    printing**, choose one of the following:
+1. Make sure that you've installed the most recent [WorkSpaces Group Policy
+   administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy
+   administrative template for PCoIP (64-Bit)](#gp_install_template_pcoip_64_bit "#gp_install_template_pcoip_64_bit").
+2. On a directory administration WorkSpace or an Amazon EC2 instance that is
+   joined to your WorkSpaces directory, open the Group Policy Management tool
+   (**gpmc.msc**) and navigate to **PCoIP
+   Session Variables**.
+3. Open the **Configure remote printing**
+   setting.
+4. Choose **Enabled**, and then under
+   **Options**, **Configure remote
+   printing**, choose one of the following:
 
-    - **Basic and Advanced printing for Windows
-      clients**
-    - **Basic printing**
+   - **Basic and Advanced printing for Windows
+     clients**
+   - **Basic printing**
 
-5.  Select **Automatically set default printer**, and
-    then choose **OK**.
-6.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+5. Select **Automatically set default printer**, and
+   then choose **OK**.
+6. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, WorkSpaces supports clipboard redirection. If needed for Windows WorkSpaces,
-    you can use Group Policy settings to disable this feature.
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, WorkSpaces supports clipboard redirection. If needed for Windows WorkSpaces,
+     you can use Group Policy settings to disable this feature.
 
 ###### To enable or disable clipboard redirection
 
@@ -1803,7 +1785,7 @@ Local printer redirection is not available for Amazon Linux WorkSpaces.
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
    - In an administrative command prompt, enter `gpupdate
-/force`.
+  /force`.
 
 ###### Known limitation
 
@@ -1820,34 +1802,33 @@ Policy settings.
 
 ###### To set the automatic session resume timeout value
 
-1.  Make sure that you've installed the most recent [WorkSpaces Group Policy
-    administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy
-    administrative template for PCoIP (64-Bit)](#gp_install_template_pcoip_64_bit "#gp_install_template_pcoip_64_bit").
-2.  On a directory administration WorkSpace or an Amazon EC2 instance that is
-    joined to your WorkSpaces directory, open the Group Policy Management tool
-    (**gpmc.msc**) and navigate to **PCoIP
-    Session Variables**.
-3.  Open the **Configure Session Automatic Reconnection
-    Policy** setting.
-4.  In the **Configure Session Automatic Reconnection
-    Policy** dialog box, choose **Enabled**,
-    set the **Configure Session Automatic Reconnection
-    Policy** option to the desired timeout, in minutes, and
-    choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. Make sure that you've installed the most recent [WorkSpaces Group Policy
+   administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy
+   administrative template for PCoIP (64-Bit)](#gp_install_template_pcoip_64_bit "#gp_install_template_pcoip_64_bit").
+2. On a directory administration WorkSpace or an Amazon EC2 instance that is
+   joined to your WorkSpaces directory, open the Group Policy Management tool
+   (**gpmc.msc**) and navigate to **PCoIP
+   Session Variables**.
+3. Open the **Configure Session Automatic Reconnection
+   Policy** setting.
+4. In the **Configure Session Automatic Reconnection
+   Policy** dialog box, choose **Enabled**,
+   set the **Configure Session Automatic Reconnection
+   Policy** option to the desired timeout, in minutes, and
+   choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, Amazon WorkSpaces supports redirecting data from a local microphone. If
-    needed for Windows WorkSpaces, you can use Group Policy settings to disable this
-    feature.
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, Amazon WorkSpaces supports redirecting data from a local microphone. If
+     needed for Windows WorkSpaces, you can use Group Policy settings to disable this
+     feature.
 
 ###### Note
 
@@ -1858,34 +1839,33 @@ WorkSpace. For more information about this Group Policy setting, see [Allow logo
 
 ###### To enable or disable audio-in redirection
 
-1.  Make sure that you've installed the most recent [WorkSpaces Group Policy
-    administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy
-    administrative template for PCoIP (64-Bit)](#gp_install_template_pcoip_64_bit "#gp_install_template_pcoip_64_bit").
-2.  On a directory administration WorkSpace or an Amazon EC2 instance that is
-    joined to your WorkSpaces directory, open the Group Policy Management tool
-    (**gpmc.msc**) and navigate to **PCoIP
-    Session Variables**.
-3.  Open the **Enable/disable audio in the PCoIP
-    session** setting.
-4.  In the **Enable/disable audio in the PCoIP session**
-    dialog box, choose **Enabled** or
-    **Disabled**.
-5.  Choose **OK**.
-6.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+1. Make sure that you've installed the most recent [WorkSpaces Group Policy
+   administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy
+   administrative template for PCoIP (64-Bit)](#gp_install_template_pcoip_64_bit "#gp_install_template_pcoip_64_bit").
+2. On a directory administration WorkSpace or an Amazon EC2 instance that is
+   joined to your WorkSpaces directory, open the Group Policy Management tool
+   (**gpmc.msc**) and navigate to **PCoIP
+   Session Variables**.
+3. Open the **Enable/disable audio in the PCoIP
+   session** setting.
+4. In the **Enable/disable audio in the PCoIP session**
+   dialog box, choose **Enabled** or
+   **Disabled**.
+5. Choose **OK**.
+6. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
-
-    By default, the time within a Workspace is set to mirror the time zone of the
-    client that is being used to connect to the WorkSpace. This behavior is
-    controlled through time zone redirection. You might want to turn off time zone
-    direction for various reasons:
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+     By default, the time within a Workspace is set to mirror the time zone of the
+     client that is being used to connect to the WorkSpace. This behavior is
+     controlled through time zone redirection. You might want to turn off time zone
+     direction for various reasons:
 
 - Your company wants all employees to work in a certain time zone (even
   if some employees are in other time zones).
@@ -1919,7 +1899,7 @@ WorkSpace. For more information about this Group Policy setting, see [Allow logo
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
    - In an administrative command prompt, enter `gpupdate
-/force`.
+  /force`.
 
 7. Set the time zone for the WorkSpaces to the desired time zone.
    The time zone of the WorkSpaces is now static and no longer mirrors the time zone
@@ -1969,7 +1949,7 @@ Settings** Group Policy dialog box.
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
    - In an administrative command prompt, enter `gpupdate
-/force`.
+  /force`.
 
 ###### Note
 

@@ -30,13 +30,13 @@ WorkSpaces Pools doesn't support IP-based SAML 2.0 configurations.
 The following requirements apply when setting up SAML for a WorkSpaces Pools
 directory.
 
-- The workspaces_DefaultRole IAM role must exist in your AWS account. This
+- The workspaces\_DefaultRole IAM role must exist in your AWS account. This
   role is automatically created when you use the WorkSpaces Quick Setup or if you
   previously launched a WorkSpace using the AWS Management Console. It grants Amazon WorkSpaces
   permission to access specific AWS resources on your behalf. If the role
   already exists, you might need to attach the AmazonWorkSpacesPoolServiceAccess
   managed policy to it, which Amazon WorkSpaces uses to access required resources in the
-  AWS account for WorkSpaces Pools. For more information, see [Create the workspaces_DefaultRole Role](workspaces-access-control.md#create-default-role "workspaces-access-control.md#create-default-role") and
+  AWS account for WorkSpaces Pools. For more information, see [Create the workspaces\_DefaultRole Role](workspaces-access-control.md#create-default-role "workspaces-access-control.md#create-default-role") and
   [AWS managed policy: AmazonWorkSpacesPoolServiceAccess](managed-policies.md#workspaces-pools-service-access "managed-policies.md#workspaces-pools-service-access").
 - You can configure SAML 2.0 authentication for WorkSpaces Pools in the
   AWS Regions that support the feature. For more information, see [AWS Regions and Availability Zones for WorkSpaces Pools](wsp-pools-regions.md "wsp-pools-regions.md").
@@ -136,10 +136,9 @@ don't plan on using an AD with your WorkSpaces Pools. 9. In the **Streaming prop
      only if you enabled AD configuration earlier in this procedure.
 
 10. In the **Storage** section of the page, you can choose to
-    enable home folders.
-11. In the **IAM role section** of the page, choose an IAM
-    role to be available to all desktop streaming instances. To create a new one,
-    choose **Create new IAM role**.
+enable home folders. 11. In the **IAM role section** of the page, choose an IAM
+role to be available to all desktop streaming instances. To create a new one,
+choose **Create new IAM role**.
 
 When you apply an IAM role from your account to a WorkSpace Pool
 directory, you can make AWS API requests from a WorkSpace in the
@@ -163,11 +162,11 @@ IAM console.
    SAML identity provider in IAM](../../../IAM/latest/UserGuide/id_roles_providers_create_saml.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml.md").
 6. Choose **Allow programmatic access only** for the access to
    be allowed.
-7. Choose **SAML:sub_type** for the attribute.
+7. Choose **SAML:sub\_type** for the attribute.
 8. For **Value**, enter `https://signin.aws.amazon.com/saml`.
    This value restricts role
    access to SAML user streaming requests that include a SAML subject type
-   assertion with a value of `persistent`. If the SAML:sub_type is
+   assertion with a value of `persistent`. If the SAML:sub\_type is
    persistent, your IdP sends the same unique value for the `NameID`
    element in all SAML requests from a particular user. For more information, see
    [Uniquely identifying users in SAML-based federation](../../../IAM/latest/UserGuide/id_roles_providers_saml.md#CreatingSAML-userid "../../../IAM/latest/UserGuide/id_roles_providers_saml.md#CreatingSAML-userid") in

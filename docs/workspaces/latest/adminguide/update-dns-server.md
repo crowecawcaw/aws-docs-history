@@ -69,7 +69,7 @@ Both procedures are described in this section.
    your device?", choose **Yes**.
 3. In the Registry Editor, navigate to the following registry entry:
 
-**HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\SkyLight** 4. Open the **DomainJoinDns** registry key. Update
+**HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\SkyLight** 4. Open the **DomainJoinDns** registry key. Update
 `OldIP1` with `NewIP1`,
 and then choose **OK**. 5. Close the Registry Editor. 6. Reboot the WorkSpace, or restart the service SkyLightWorkspaceConfigService.
 

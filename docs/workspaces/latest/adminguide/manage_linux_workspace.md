@@ -56,8 +56,10 @@ this feature, if needed. This setting takes effect when you disconnect and recon
 ```
 
 2. ```
-   clipboard = `X`
+
    ```
+
+clipboard = `X`
 
 ```
 

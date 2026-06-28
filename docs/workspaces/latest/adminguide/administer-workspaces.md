@@ -20,6 +20,7 @@ To perform directory administration tasks, see [Set up Active Directory Administ
 - [Manage your Linux WorkSpaces in WorkSpaces Personal](manage-linux-workspaces.md "manage-linux-workspaces.md")
 - [Manage your Amazon Linux 2 WorkSpaces in WorkSpaces Personal](manage_linux_workspace.md "manage_linux_workspace.md")
 - [Optimize WorkSpaces for real-time communication in WorkSpaces Personal](communication-optimization.md "communication-optimization.md")
+- [Integrate your web application with WebRTC redirection](webrtc-redirection-integration.md "webrtc-redirection-integration.md")
 - [Manage the running mode in WorkSpaces Personal](running-mode.md "running-mode.md")
 - [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md")
 - [Modify a WorkSpace in WorkSpaces Personal](modify-workspaces.md "modify-workspaces.md")

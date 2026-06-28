@@ -19,7 +19,7 @@ username for each WorkSpace.
 
 For example, if you have a user named Mary Major with the Active Directory username mmajor, create
 WorkSpaces for her with usernames such as mmajor, mmajor1, mmajor2, mmajor3, or other variants, such
-as mmajor_windows or mmajor_linux. As long as all the WorkSpaces have the same starting base username
+as mmajor\_windows or mmajor\_linux. As long as all the WorkSpaces have the same starting base username
 (mmajor), you can sort on the username in your WorkSpaces console to group all of the WorkSpaces for
 that user together.
 

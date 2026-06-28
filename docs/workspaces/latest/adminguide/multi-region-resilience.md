@@ -153,22 +153,21 @@ redirection in your account, and requesting standby WorkSpaces limit increase th
 
 ###### To create a standby WorkSpace
 
-1.  Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2.  In the upper-right corner of the console, select the primary AWS Region for your WorkSpaces.
-3.  In the navigation pane, choose **WorkSpaces**.
-4.  Select a WorkSpace you want to create a standby WorkSpace for.
-5.  Choose **Actions** and then choose **Create standby WorkSpace**.
-6.  Select the secondary Region, where you will create your standby WorkSpace, and then choose
-    **Next**.
-7.  Select the user directory in your secondary Region and then choose **Next**.
-8.  (Optional) Add encryption key, enable data encryption, and manage tags.
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
+2. In the upper-right corner of the console, select the primary AWS Region for your WorkSpaces.
+3. In the navigation pane, choose **WorkSpaces**.
+4. Select a WorkSpace you want to create a standby WorkSpace for.
+5. Choose **Actions** and then choose **Create standby WorkSpace**.
+6. Select the secondary Region, where you will create your standby WorkSpace, and then choose
+   **Next**.
+7. Select the user directory in your secondary Region and then choose **Next**.
+8. (Optional) Add encryption key, enable data encryption, and manage tags.
 
-        * To add an encryption key, enter it under Input encryption key.
-        * To enable data replication, choose **Enable data replication**.
-         Then, check the checkbox to confirm that you authorize additional monthly charge.
-        * To add a new tag, choose **Add new tag**.
-
-    Then, choose **Next**.
+   - To add an encryption key, enter it under Input encryption key.
+   - To enable data replication, choose **Enable data replication**.
+     Then, check the checkbox to confirm that you authorize additional monthly charge.
+   - To add a new tag, choose **Add new tag**.
+     Then, choose **Next**.
 
 ###### Note
 

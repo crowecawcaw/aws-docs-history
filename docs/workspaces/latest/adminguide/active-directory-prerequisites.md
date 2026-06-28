@@ -51,14 +51,18 @@ from authenticating and logging in your domain users. Otherwise, when your users
 to log in to WorkSpaces the login may not succeed. Instead, a message displays, notifying
 users that "An unknown error occurred."
 
-- \*\*Computer Configuration > Administrative Templates
-  > Windows Components > Windows Logon Options > Disable or
-  > Enable software Secure Attention Sequence** — Set this to
-  > **Enabled** for **Services\*\*.
-- \*\*Computer Configuration > Administrative Templates
-  > System > Logon > Exclude credential providers\**
-  > — Ensure that the following CLSID is *not\* listed:
-  > `e7c1bab5-4b49-4e64-a966-8d99686f8c7c`
+- **Computer Configuration > Administrative Templates
+
+> Windows Components > Windows Logon Options > Disable or
+> Enable software Secure Attention Sequence** — Set this to
+> **Enabled** for **Services**.
+
+- **Computer Configuration > Administrative Templates
+
+> System > Logon > Exclude credential providers**
+> — Ensure that the following CLSID is _not_ listed:
+> `e7c1bab5-4b49-4e64-a966-8d99686f8c7c`
+
 - **Computer Configuration > Policies > Windows
   Settings > Security Settings > Local Policies > Security
   Options > Interactive Logon > Interactive Logon: Message text for

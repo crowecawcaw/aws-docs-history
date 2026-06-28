@@ -85,7 +85,7 @@ one private subnet.
      default value, **No Preference**.
    - For **Public subnet name**, type a name
      for the subnet; for example, `WorkSpaces Public
-Subnet`.
+  Subnet`.
 
 7. Configure the first private subnet as follows:
 
@@ -97,7 +97,7 @@ Subnet`.
      select.
    - For **Private subnet name**, type a name
      for the subnet; for example, `WorkSpaces Private
-Subnet1`.
+  Subnet1`.
    - For the remaining fields, where applicable, keep the
      default values.
 
@@ -125,12 +125,9 @@ To specify an Amazon S3 endpoint, do the following:
      **Full Access**.
 
 10. For **Enable DNS hostnames**, keep the default
-    value, **Yes**.
-11. For **Hardware tenancy**, keep the default value,
-    **Default**.
-12. Choose **Create VPC**.
-13. Note that it takes several minutes to set up your VPC. After the
-    VPC is created, choose **OK**.
+value, **Yes**. 11. For **Hardware tenancy**, keep the default value,
+**Default**. 12. Choose **Create VPC**. 13. Note that it takes several minutes to set up your VPC. After the
+VPC is created, choose **OK**.
 
 ## Step 3: Add a Second Private Subnet
 
@@ -181,7 +178,7 @@ to specify a name for your route tables, and to verify that:
 
 1. In the navigation pane, choose **Subnets**, and
    select the public subnet that you created; for example, `WorkSpaces
-Public Subnet`.
+ Public Subnet`.
 
    1. On the **Route Table** tab, choose the ID
       of the route table; for example,

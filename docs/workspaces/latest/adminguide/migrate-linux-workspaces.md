@@ -374,7 +374,7 @@ sudo mkdir -p /home/CORP
 sudo mv /home/jsmith /home/CORP/jsmith
 ```
 
-**Step 3: Remove the override_homedir setting from
+**Step 3: Remove the override\_homedir setting from
 /etc/sssd/sssd.conf**
 
 ```
@@ -406,37 +406,36 @@ rebuild or migration.
 The migration system uses two notification mechanisms to keep the user
 informed:
 
-1.  **Phase 2 systemd service notifications**
-    — If the user is connected to the desktop when Phase 2 starts or
-    completes, they see notifications directly from the service:
+1. **Phase 2 systemd service notifications**
+   — If the user is connected to the desktop when Phase 2 starts or
+   completes, they see notifications directly from the service:
 
-    - **At Phase 2 start:**
-      "Completing file migration in background. You can continue working
-      normally. Some files may remain inaccessible until migration is
-      finished."
-    - **At Phase 2 completion:**
-      "File migration completed successfully. All files should now have
-      correct ownership. See ~/workspace-migration-log-\* for
-      details."
+   - **At Phase 2 start:**
+     "Completing file migration in background. You can continue working
+     normally. Some files may remain inaccessible until migration is
+     finished."
+   - **At Phase 2 completion:**
+     "File migration completed successfully. All files should now have
+     correct ownership. See ~/workspace-migration-log-\* for
+     details."
 
-2.  **XDG autostart login notification** —
-    An autostart entry
-    (`~/.config/autostart/ws-migration-notify.desktop`) runs
-    `/usr/lib/skylight/check-migration-status` on first login
-    after migration. This handles the case where the user connects while Phase 2
-    is still running or after it has already completed:
+2. **XDG autostart login notification** —
+   An autostart entry
+   (`~/.config/autostart/ws-migration-notify.desktop`) runs
+   `/usr/lib/skylight/check-migration-status` on first login
+   after migration. This handles the case where the user connects while Phase 2
+   is still running or after it has already completed:
 
-        * **If Phase 2 is still
-         running:** "File migration is running in the background. You
-         can continue working normally. Some files may remain inaccessible until
-         migration is finished."
-        * **If Phase 2 has
-         completed:** "File migration completed successfully. All files
-         should now have correct ownership. See ~/workspace-migration-log-\* for
-         details."
-
-    The autostart entry is removed after showing the completion notification so
-    it does not run on subsequent logins.
+   - **If Phase 2 is still
+     running:** "File migration is running in the background. You
+     can continue working normally. Some files may remain inaccessible until
+     migration is finished."
+   - **If Phase 2 has
+     completed:** "File migration completed successfully. All files
+     should now have correct ownership. See ~/workspace-migration-log-\* for
+     details."
+     The autostart entry is removed after showing the completion notification so
+     it does not run on subsequent logins.
 
 If the user is not connected (for example, an auto-stop WorkSpace that hasn't been
 accessed), Phase 2 runs silently without error.
@@ -587,8 +586,8 @@ Common causes:
   `id `username`` should return the user's UID
   and groups.
 - Check SSSD status:
-  `sudo sssctl domain-status `domain``should
-show`Online status: Online`.
+  `sudo sssctl domain-status `domain`` should
+  show `Online status: Online`.
 
 ### Desktop appears broken or has wrong theme
 

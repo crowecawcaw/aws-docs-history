@@ -41,7 +41,7 @@ Complete the following steps before enabling certificate-based authentication.
    required to perform strong mapping to the Active Directory user.
    Certificate-based authentication will fail if the attribute does not match the
    Active Directory security identifier (SID) for user specified in the
-   SAML_Subject `NameID`. For more information, see [Create Assertions for the SAML Authentication Response](setting-up-saml.md#create-assertions-saml-auth "setting-up-saml.md#create-assertions-saml-auth").
+   SAML\_Subject `NameID`. For more information, see [Create Assertions for the SAML Authentication Response](setting-up-saml.md#create-assertions-saml-auth "setting-up-saml.md#create-assertions-saml-auth").
 
 ###### Note
 
@@ -83,51 +83,53 @@ most common for certificate-based authentication use cases:
      blocking public access. For more information on these options, see
      [Planning a certificate revocation list (CRL)](../../../privateca/latest/userguide/crl-planning.md#s3-bpa "../../../privateca/latest/userguide/crl-planning.md#s3-bpa").
 
-6.  Tag your private CA with a key entitled `euc-private-ca` to
-    designate the CA for use with EUC certificate-based authentication. The key does
-    not require a value. For more information, see [Managing tags for your
-    private CA](../../../privateca/latest/userguide/PcaCaTagging.md "../../../privateca/latest/userguide/PcaCaTagging.md").
-7.  Certificate-based authentication utilizes virtual smart cards for logon.
-    Following the [Guidelines for enabling smart card logon with third-party certification
-    authorities](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities") in Active Directory, perform the following steps:
+6. Tag your private CA with a key entitled `euc-private-ca` to
+designate the CA for use with EUC certificate-based authentication. The key does
+not require a value. For more information, see [Managing tags for your
+private CA](../../../privateca/latest/userguide/PcaCaTagging.md "../../../privateca/latest/userguide/PcaCaTagging.md"). 7. Certificate-based authentication utilizes virtual smart cards for logon.
+Following the [Guidelines for enabling smart card logon with third-party certification
+authorities](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities") in Active Directory, perform the following steps:
 
-    - Configure domain controllers with a domain controller certificate to
-      authenticate smart card users. If you have an Active Directory
-      Certificate Services enterprise CA configured in your Active Directory,
-      domain controllers are automatically enrolled with certificates to
-      enable smart card logon. If you don't have Active Directory Certificate
-      Services, see [Requirements for domain controller certificates from a third-party
-      CA](https://learn.microsoft.com/en-US/troubleshoot/windows-server/windows-security/requirements-domain-controller "https://learn.microsoft.com/en-US/troubleshoot/windows-server/windows-security/requirements-domain-controller"). You can create a domain controller certificate with
-      AWS Private CA. If you do this, don't use a private CA configured for short-lived
-      certificates.
+    * Configure domain controllers with a domain controller certificate to
+     authenticate smart card users. If you have an Active Directory
+     Certificate Services enterprise CA configured in your Active Directory,
+     domain controllers are automatically enrolled with certificates to
+     enable smart card logon. If you don't have Active Directory Certificate
+     Services, see [Requirements for domain controller certificates from a third-party
+     CA](https://learn.microsoft.com/en-US/troubleshoot/windows-server/windows-security/requirements-domain-controller "https://learn.microsoft.com/en-US/troubleshoot/windows-server/windows-security/requirements-domain-controller"). You can create a domain controller certificate with
+     AWS Private CA. If you do this, don't use a private CA configured for short-lived
+     certificates.
+
 
     ###### Note
 
     If you are using AWS Managed Microsoft AD, you can configure Certificate
-    Services on an EC2 instance to satisfy the requirement for domain
-    controller certificates. See [AWS Launch Wizard](../../../launchwizard/latest/userguide/launch-wizard-ad-deploying-new-vpc.md "../../../launchwizard/latest/userguide/launch-wizard-ad-deploying-new-vpc.md") for example deployments of AWS Managed Microsoft AD
-    configured with Active Directory Certificate Services. AWS Private CA can be
-    configured as a subordinate to the Active Directory Certificate Services CA,
-    or can be configured as its own root when using AWS Managed Microsoft AD.
+     Services on an EC2 instance to satisfy the requirement for domain
+     controller certificates. See [AWS Launch Wizard](../../../launchwizard/latest/userguide/launch-wizard-ad-deploying-new-vpc.md "../../../launchwizard/latest/userguide/launch-wizard-ad-deploying-new-vpc.md") for example deployments of AWS Managed Microsoft AD
+     configured with Active Directory Certificate Services. AWS Private CA can be
+     configured as a subordinate to the Active Directory Certificate Services CA,
+     or can be configured as its own root when using AWS Managed Microsoft AD.
 
     An additional configuration task with AWS Managed Microsoft AD and Active
-    Directory Certificate Services is to create outbound rules from the
-    controllers VPC security group to the EC2 instance running
-    Certificate Services allowing TCP ports 135 and 49152-65535 to
-    enable certificate autoenrollment. In addition, the EC2 instance
-    running must allow inbound access on the same ports from domain
-    instances, including domain controllers. For more information on
-    locating the security group for AWS Managed Microsoft AD see [Configure your VPC subnets and security groups](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust_prepare_mad.md#tutorial_setup_trust_open_vpc "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust_prepare_mad.md#tutorial_setup_trust_open_vpc").
-    - On the AWS Private CA console or using the SDK or CLI, select your CA and under
-      the CA certificate, export the CA private certificate. For more
-      information, see [Exporting a private
-      certificate](../../../acm/latest/userguide/export-private.md "../../../acm/latest/userguide/export-private.md").
-    - Publish the CA to Active Directory. Logon to a domain controller or a
-      domain-joined machine. Copy the CA private certificate to any
-      `<path>\<file>` and run the following
-      commands as a domain administrator. Alternatively, you can use Group
-      Policy and the Microsoft PKI Health Tool (PKIView) tool to publish the
-      CA. For more information, see [Configuration instructions](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#configuration-instructions "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#configuration-instructions").
+     Directory Certificate Services is to create outbound rules from the
+     controllers VPC security group to the EC2 instance running
+     Certificate Services allowing TCP ports 135 and 49152-65535 to
+     enable certificate autoenrollment. In addition, the EC2 instance
+     running must allow inbound access on the same ports from domain
+     instances, including domain controllers. For more information on
+     locating the security group for AWS Managed Microsoft AD see [Configure your VPC subnets and security groups](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust_prepare_mad.md#tutorial_setup_trust_open_vpc "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust_prepare_mad.md#tutorial_setup_trust_open_vpc").
+    * On the AWS Private CA console or using the SDK or CLI, select your CA and under
+     the CA certificate, export the CA private certificate. For more
+     information, see [Exporting a private
+     certificate](../../../acm/latest/userguide/export-private.md "../../../acm/latest/userguide/export-private.md").
+    * Publish the CA to Active Directory. Logon to a domain controller or a
+     domain-joined machine. Copy the CA private certificate to any
+     `<path>\<file>` and run the following
+     commands as a domain administrator. Alternatively, you can use Group
+     Policy and the Microsoft PKI Health Tool (PKIView) tool to publish the
+     CA. For more information, see [Configuration instructions](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#configuration-instructions "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#configuration-instructions").
+
+
 
     ```
     certutil -dspublish -f <path>\<file> RootCA
@@ -135,15 +137,18 @@ most common for certificate-based authentication use cases:
     ```
 
     Ensure that the commands complete successfully, and then remove the
-    private certificate file. Depending on Active Directory replication
-    settings, it can take several minutes for the CA to be published to your
-    domain controllers and desktop instances.
+     private certificate file. Depending on Active Directory replication
+     settings, it can take several minutes for the CA to be published to your
+     domain controllers and desktop instances.
+
 
     ###### Note
 
-        + It is required that Active Directory distribute the CA to the
-         Trusted Root Certification Authorities and Enterprise NTAuth stores
-         automatically for WorkSpaces desktops when they are joined to the domain.
+
+
+    	+ It is required that Active Directory distribute the CA to the
+    	 Trusted Root Certification Authorities and Enterprise NTAuth stores
+    	 automatically for WorkSpaces desktops when they are joined to the domain.
 
 ## Enable certificate-based authentication
 

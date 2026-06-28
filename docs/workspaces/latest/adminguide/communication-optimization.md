@@ -191,6 +191,9 @@ performance of Remote RTC mode. The optimization measures encompass:
 These optimizations collectively contribute to a robust and fluid experience in
 Remote RTC mode.
 
+For information about integrating your web application with WebRTC redirection,
+see [Integrate your web application with WebRTC redirection](webrtc-redirection-integration.md "webrtc-redirection-integration.md").
+
 #### Sizing recommendations
 
 To effectively support Remote RTC mode, it's crucial to ensure proper sizing
@@ -200,7 +203,7 @@ outlines the minimum supported and recommended WorkSpaces configurations for pop
 UC applications when used for video and audio calls:
 
 |                 | Video<br>calls                      | Audio<br>calls               |                               |
-| --------------- | ----------------------------------- | ---------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | ----------------------------------- | ---------------------------- | ----------------------------- |
 | Application     | CPU requirements for RTC app        | RAM requirements for RTC app | Minimally supported WorkSpace | Recommended WorkSpace                                                                                                                    | Minimally supported WorkSpace     | Recommended WorkSpace                                                                                                                    | Reference                                                                                                                                                                                                                                                 |
 | Microsoft Teams | 2 core required, 4 core recommended | 4.0 GB RAM                   | Power (4 vCPU, 16 GB memory)  | • PowerPro (8 vCPU, 32 GB memory)<br>• GeneralPurpose.4xlarge (16vCPU, 64 GB memory)<br>• GeneralPurpose.8xlarge (32vCPU, 128 GB memory) | Performance (2 vCPU, 8 GB memory) | • PowerPro (8 vCPU, 32 GB memory)<br>• GeneralPurpose.4xlarge (16vCPU, 64 GB memory)<br>• GeneralPurpose.8xlarge (32vCPU, 128 GB memory) | [Hardware requirements for Microsoft<br>Teams](https://learn.microsoft.com/en-us/microsoftteams/hardware-requirements-for-the-teams-app "https://learn.microsoft.com/en-us/microsoftteams/hardware-requirements-for-the-teams-app")                       |
 | Zoom            | 2 core required, 4 core recommended | 4.0 GB RAM                   | Power (4 vCPU, 16 GB memory)  | • PowerPro (8 vCPU, 32 GB memory)<br>• GeneralPurpose.4xlarge (16vCPU, 64 GB memory)<br>• GeneralPurpose.8xlarge (32vCPU, 128 GB memory) | Performance (2 vCPU, 8 GB memory) | • PowerPro (8 vCPU, 32 GB memory)<br>• GeneralPurpose.4xlarge (16vCPU, 64 GB memory)<br>• GeneralPurpose.8xlarge (32vCPU, 128 GB memory) | [Zoom system requirements: Windows, macOS,<br>Linux](https://support.zoom.us/hc/en-us/articles/201362023-Zoom-system-requirements-Windows-macOS-Linux "https://support.zoom.us/hc/en-us/articles/201362023-Zoom-system-requirements-Windows-macOS-Linux") |

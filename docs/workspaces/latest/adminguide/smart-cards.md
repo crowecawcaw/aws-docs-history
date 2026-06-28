@@ -246,7 +246,8 @@ for all CAs issuing smart cards, and for all CAs issuing domain controller certi
 
   1.  Log into the CA server using an administrator account.
   2.  From the Windows **Start** menu, open a command prompt window (**Start**
-      > **Windows System** > **Command Prompt**).
+
+  > **Windows System** > **Command Prompt**).
   3.  Use the following command to export the CA certificate to a new file, where
       ``rootca`.cer` is the name of the new file:
 
@@ -324,7 +325,7 @@ Linux WorkSpace image. For more information about adding system-wide policies to
 ###### To enable users to use smart cards in Firefox
 
 1. On the WorkSpace that you're using to create your WorkSpace image, create a new file named `policies.json`
-   in ``PREFIX`/firefox/distribution/`, where ``PREFIX``is`/usr/lib64`on Fedora-based systems (Amazon Linux 2, Red Hat Enterprise Linux, and Rocky Linux WorkSpaces), and`/usr/lib` on Debian-based systems (Ubuntu WorkSpaces).
+   in ``PREFIX`/firefox/distribution/`, where ``PREFIX`` is `/usr/lib64` on Fedora-based systems (Amazon Linux 2, Red Hat Enterprise Linux, and Rocky Linux WorkSpaces), and `/usr/lib` on Debian-based systems (Ubuntu WorkSpaces).
 2. In the JSON file, add the following SecurityDevices policy, where `NAME_OF_DEVICE`
    is whatever value you want to use to identify the `pkcs` module. For example, you might want to
    use a value such as `"OpenSC"`:
@@ -378,7 +379,7 @@ and keys) might be manufacturer-specific. Additional tools that you can use to w
 
 ###### To enable debug logging
 
-- Add `debug_level = `LEVEL``line in`/etc/sssd/sssd.conf`for each individual section, where`LEVEL`is the desired verbosity level, from 1 to 10. The logs for each corresponding section can then be found in`/var/log/sssd/` directory. For more details, see [SSSD Troubleshooting](https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs "https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs") and [SSSD Debug Logs](https://sssd.io/troubleshooting/basics.html#sssd-debug-logs "https://sssd.io/troubleshooting/basics.html#sssd-debug-logs") in the SSSD documentation.
+- Add `debug_level = `LEVEL`` line in `/etc/sssd/sssd.conf` for each individual section, where `LEVEL` is the desired verbosity level, from 1 to 10. The logs for each corresponding section can then be found in `/var/log/sssd/` directory. For more details, see [SSSD Troubleshooting](https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs "https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs") and [SSSD Debug Logs](https://sssd.io/troubleshooting/basics.html#sssd-debug-logs "https://sssd.io/troubleshooting/basics.html#sssd-debug-logs") in the SSSD documentation.
 
 ## Enable smart cards for Amazon Linux 2 WorkSpaces (deprecated)
 
@@ -412,7 +413,8 @@ certificate file in the PEM format in the WorkSpace image.
 
   1.  Log into the root CA server using an administrator account.
   2.  From the Windows **Start** menu, open a command prompt window (**Start**
-      > **Windows System** > **Command Prompt**).
+
+  > **Windows System** > **Command Prompt**).
   3.  Use the following command to export the root CA certificate to a new file, where
       ``rootca`.cer` is the name of the new file:
 

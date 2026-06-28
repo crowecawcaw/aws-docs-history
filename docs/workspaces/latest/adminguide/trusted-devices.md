@@ -51,7 +51,7 @@ up to a root certificate.
 - Root certificates must be Base64-encoded certificate files in CRT, CERT, or PEM format.
 - Root certificates must satisfy the following regular expression pattern, which means that every encoded line,
   beside the last one, has to be exactly 64 characters long: `-{5}BEGIN CERTIFICATE-{5}\u000D?\u000A([A-Za-z0-9/+]{64}
-\u000D?\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\u000D?\u000A-{5}END CERTIFICATE-{5}(\u000D?\u000A)`.
+ \u000D?\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\u000D?\u000A-{5}END CERTIFICATE-{5}(\u000D?\u000A)`.
 - Device certificates must include a Common Name.
 - Device certificates must include the following extensions: `Key Usage: Digital Signature`,
   and `Enhanced Key Usage: Client Authentication`.

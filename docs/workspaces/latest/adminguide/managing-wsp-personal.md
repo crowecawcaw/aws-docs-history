@@ -214,11 +214,9 @@ of the following:
      Access**.
 
 3. Start the client, enter the registration code from the invitation
-   email, and choose **Register**.
-4. When prompted to sign in, enter the sign-in credentials, and then
-   choose **Sign In**.
-5. (Optional) When prompted to save your credentials, choose
-   **Yes**.
+email, and choose **Register**. 4. When prompted to sign in, enter the sign-in credentials, and then
+choose **Sign In**. 5. (Optional) When prompted to save your credentials, choose
+**Yes**.
 
 For more information about using the client applications, such as setting up
 multiple monitors or using peripheral devices, see [WorkSpaces Clients](../userguide/amazon-workspaces-clients.md "../userguide/amazon-workspaces-clients.md") and

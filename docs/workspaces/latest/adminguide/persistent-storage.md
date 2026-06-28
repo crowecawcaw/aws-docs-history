@@ -25,7 +25,7 @@ locations:
 - For single-session, non-domain-joined Windows WorkSpaces:
   `C:\Users\PhotonUser\My Files\Home Folder`
 - Domain-joined Windows WorkSpaces: `C:\Users\%username%\My Files\Home
-Folder`
+ Folder`
 
 As an administrator, use the applicable path if you configure your applications to
 save to the home folder. In some cases, your users may not be able to find their home

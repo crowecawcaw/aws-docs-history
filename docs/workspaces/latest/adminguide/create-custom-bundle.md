@@ -222,13 +222,13 @@ WORKSPA-`xxxxxxx`.
      are required values.
 
 4. Save your changes to the `Unattend.xml`
-   file.
+file.
 
 1. If you are using Windows 10, open `C:\Program
-Files\Amazon\Ec2ConfigService\Sysprep2008.xml` in
+ Files\Amazon\Ec2ConfigService\Sysprep2008.xml` in
    Notepad or another text editor. If you are using Windows 11, open
    `C:\ProgramData\Amazon\EC2Launch\sysprep\OOBE_unattend.xml`.
-1. In the `<settings pass="specialize">` section,
+2. In the `<settings pass="specialize">` section,
    if you're using Windows 10, uncomment `<ComputerName>*</ComputerName>`.
    If you're using Windows 11, you won't need to uncomment this section.
    Make sure that `<ComputerName>` is set to an
@@ -236,7 +236,7 @@ Files\Amazon\Ec2ConfigService\Sysprep2008.xml` in
    set to any other value, your custom computer name settings will be
    ignored. For more information about the
    `<ComputerName>` setting, see [ComputerName](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-computername "https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-computername") in the Microsoft documentation.
-1. In the `<settings pass="specialize">` section,
+3. In the `<settings pass="specialize">` section,
    the `<RegisteredOrganization>` field will be present
    for Windows 10 and Windows 11.
    The `<RegisteredOwner>` tag
@@ -267,9 +267,9 @@ EC2AMAZ-`xxxxxxx`.
      are required values.
 
 4. If you are using Windows 10, save your changes to the
-   `Sysprep2008.xml` file. If you are using
-   Windows 11, save your changes to
-   `OOBE_unattend.xml`
+`Sysprep2008.xml` file. If you are using
+Windows 11, save your changes to
+`OOBE_unattend.xml`
 
 ## Step 2: Run the Image Checker
 
@@ -388,7 +388,7 @@ local account.
 ###### To run services under a local account
 
 1. Open `C:\Program
-Files\Amazon\ImageChecker_`yyyyMMddhhmmss`.log`
+ Files\Amazon\ImageChecker_`yyyyMMddhhmmss`.log`
    and find the list of services that are running under a domain
    account.
 2. In the Windows search box, enter
@@ -413,7 +413,7 @@ instead of static IP addresses.
 ###### To set all network adapters to use DHCP
 
 1. In the Windows search box, enter `control
-panel` to open the Control Panel.
+ panel` to open the Control Panel.
 2. Choose **Network and Internet**.
 3. Choose **Network and Sharing Center**.
 4. Choose **Change adapter settings**, and
@@ -461,7 +461,7 @@ Create Image to run.
 ###### To configure your environment variable path
 
 1. In the Windows search box, enter `environment
-variables` and then choose **Edit the
+ variables` and then choose **Edit the
    system environment variables**.
 2. In the **System Properties** dialog box, open
    the **Advanced** tab, and choose
@@ -553,7 +553,7 @@ profiles on it:
      **System and Security** >
      **System** dialog box.
    - In the Windows search box, enter `control
-panel`. In the Control Panel, choose
+  panel`. In the Control Panel, choose
      **System and Security**, then
      choose System, and then choose **Advanced system
      settings** in the left pane of the
@@ -796,10 +796,9 @@ _Amazon WorkSpaces API Reference_. 9. Enter a bundle name and a description, and
     	 WorkSpace with a minimum of 175GB for the root volume and 100 GB
     	 for the user volume.
 
-10. Choose **Create bundle**.
-11. To confirm that your bundle has been created, choose
-    **Bundles** and verify that the bundle is
-    listed.
+10. Choose **Create bundle**. 11. To confirm that your bundle has been created, choose
+**Bundles** and verify that the bundle is
+listed.
 
 ## What's included with Windows WorkSpaces custom images
 
@@ -881,8 +880,8 @@ the following applicable folders and keys, which are removed:
 
 The following keys are shredded during custom image creation:
 
-- /etc/ssh/ssh_host\_\*\_key
-- /etc/ssh/ssh_host\_\*\_key.pub
+- /etc/ssh/ssh\_host\_\*\_key
+- /etc/ssh/ssh\_host\_\*\_key.pub
 - /var/lib/skylight/tls.\*
 - /var/lib/skylight/private.key
 - /var/lib/skylight/public.key

@@ -234,10 +234,10 @@ This is a one-time setup.
    2. Choose **Store a new secret**.
    3. On the **Choose secret type** page, for **Secret type**,
       select **Other type of secret**.
-   4. For **Key/value pairs**, in the key box, enter “application_id” into the key box, then copy the Entra ID application ID
+   4. For **Key/value pairs**, in the key box, enter “application\_id” into the key box, then copy the Entra ID application ID
       from [Step 2](launch-workspaces-tutorials.md#entra-step-2 "launch-workspaces-tutorials.md#entra-step-2") and paste it into
       the value box.
-   5. Choose **Add row**, in the key box, enter “application_password”, then copy the Entra ID application client secret
+   5. Choose **Add row**, in the key box, enter “application\_password”, then copy the Entra ID application client secret
       from [Step 2](launch-workspaces-tutorials.md#entra-step-2 "launch-workspaces-tutorials.md#entra-step-2") and paste it into
       the value box.
    6. Choose the AWS KMS key that you created in the previous step from the **Encryption key** drop-down list.

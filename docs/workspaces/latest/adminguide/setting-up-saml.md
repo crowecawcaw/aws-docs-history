@@ -51,14 +51,13 @@ directory endpoint to which users are forwarded after successfully signing in to
   Amazon WorkSpaces [Client
   Downloads](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/") to find the latest versions:
 
-      + Windows client application version 5.1.0.3029 or later
-      + macOS client version 5.x or later
-      + Linux client for Ubuntu 22.04 version 2024.1 or later, Ubuntu 20.04
-       version 24.1 or later
-      + Web Access
-
-  Other client versions won't be able to connect to WorkSpaces enabled for SAML 2.0 authentication
-  unless fallback is enabled. For more information, see [Enable SAML 2.0 authentication on the WorkSpaces directory.](https://d1.awsstatic.com/workspaces-saml-guide.pdf "https://d1.awsstatic.com/workspaces-saml-guide.pdf")
+  - Windows client application version 5.1.0.3029 or later
+  - macOS client version 5.x or later
+  - Linux client for Ubuntu 22.04 version 2024.1 or later, Ubuntu 20.04
+    version 24.1 or later
+  - Web Access
+    Other client versions won't be able to connect to WorkSpaces enabled for SAML 2.0 authentication
+    unless fallback is enabled. For more information, see [Enable SAML 2.0 authentication on the WorkSpaces directory.](https://d1.awsstatic.com/workspaces-saml-guide.pdf "https://d1.awsstatic.com/workspaces-saml-guide.pdf")
 
 For step-by-step instructions to integrate SAML 2.0 with WorkSpaces using ADFS, Azure
 AD, Duo Single Sign-On, Okta, OneLogin, PingFederate and PingOne for Enterprise, review
@@ -125,11 +124,11 @@ To create an IAM role for SAML IdP
 Don't choose either of the two SAML 2.0 access methods, **Allow
 programmatic access only** or **Allow programmatic and
 Amazon Web Services Management Console access**. 5. For **Attribute**, choose
-**SAML:sub_type**. 6. For **Value** enter `persistent`. This value
+**SAML:sub\_type**. 6. For **Value** enter `persistent`. This value
 restricts role access to SAML user streaming requests that include a SAML subject
-type assertion with a value of persistent. If the SAML:sub_type is persistent,
+type assertion with a value of persistent. If the SAML:sub\_type is persistent,
 your IdP sends the same unique value for the NameID element in all SAML requests
-from a particular user. For more information about the SAML:sub_type assertion,
+from a particular user. For more information about the SAML:sub\_type assertion,
 see the **Uniquely identifying users in SAML-based federation**
 section in [Using SAML-based federation for API access to AWS](../../../IAM/latest/UserGuide/id_roles_providers_saml.md#CreatingSAML-configuring "../../../IAM/latest/UserGuide/id_roles_providers_saml.md#CreatingSAML-configuring"). 7. Review your SAML 2.0 trust information, confirming the correct trusted entity
 and condition, and then choose **Next: Permissions**. 8. On the **Attach permissions policies** page, choose
@@ -279,7 +278,7 @@ following:
   `persistent`) – Setting the value to `persistent` ensures
   that your IdP sends the same unique value for the `NameID` element in
   all SAML requests from a particular user. Make sure that your IAM policy includes
-  a condition to only allow SAML requests with a SAML sub_type set to
+  a condition to only allow SAML requests with a SAML sub\_type set to
   `persistent`, as described in [Step 2: Create a SAML 2.0 federation IAM role](../../../appstream2/latest/developerguide/external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms "../../../appstream2/latest/developerguide/external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms").
 - **`Attribute` element with the `Name` attribute
   set to `https://aws.amazon.com/SAML/Attributes/Role`** –
@@ -330,7 +329,7 @@ following:
   **\_ : / . + = @ -** characters. For more information, see [Rules for tagging in IAM and AWS STS](../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules "../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules") in the _IAM User
   Guide_.
   To claim `corp\username` or `corp.example.com\username`
-  formats, replace **\*\* with **/\*\*in the SAML assertion.
+  formats, replace *_\*_ with **/**in the SAML assertion.
 - **`Attribute`element with the `Name` attribute
   set to https://aws.amazon.com/SAML/Attributes/PrincipalTag:Domain
   (optional)** – This element contains one `AttributeValue` element that
@@ -387,24 +386,24 @@ will allow users to authenticate during a failover event.
 The following table lists the relay state endpoints for the Regions where WorkSpaces SAML
 2.0 authentication is available.
 
-| Regions where WorkSpaces SAML 2.0 authentication is available | Region                                                                                                                                                                                                                                                                                                                                                           | Relay state endpoint |
-| ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| US East (N. Virginia) Region                                  | • workspaces.euc-sso.us-east-1.aws.amazon.com<br>• (FIPS) workspaces.euc-sso-fips.us-east-1.aws.amazon.com                                                                                                                                                                                                                                                       |
-| US West (Oregon) Region                                       | • workspaces.euc-sso.us-west-2.aws.amazon.com<br>• (FIPS) workspaces.euc-sso-fips.us-west-2.aws.amazon.com                                                                                                                                                                                                                                                       |
-| Africa (Cape Town) Region                                     | workspaces.euc-sso.af-south-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                     |
-| Asia Pacific (Mumbai) Region                                  | workspaces.euc-sso.ap-south-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                     |
-| Asia Pacific (Seoul) Region                                   | workspaces.euc-sso.ap-northeast-2.aws.amazon.com                                                                                                                                                                                                                                                                                                                 |
-| Asia Pacific (Singapore) Region                               | workspaces.euc-sso.ap-southeast-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                 |
-| Asia Pacific (Sydney) Region                                  | workspaces.euc-sso.ap-southeast-2.aws.amazon.com                                                                                                                                                                                                                                                                                                                 |
-| Asia Pacific (Tokyo) Region                                   | workspaces.euc-sso.ap-northeast-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                 |
-| Canada (Central) Region                                       | workspaces.euc-sso.ca-central-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                   |
-| Europe (Frankfurt) Region                                     | workspaces.euc-sso.eu-central-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                   |
-| Europe (Ireland) Region                                       | workspaces.euc-sso.eu-west-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                      |
-| Europe (London) Region                                        | workspaces.euc-sso.eu-west-2.aws.amazon.com                                                                                                                                                                                                                                                                                                                      |
-| South America (São Paulo) Region                              | workspaces.euc-sso.sa-east-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                      |
-| Israel (Tel Aviv) Region                                      | workspaces.euc-sso.il-central-1.aws.amazon.com                                                                                                                                                                                                                                                                                                                   |
-| AWS GovCloud (US-West)                                        | • workspaces.euc-sso.us-gov-west-1.amazonaws-us-gov.com<br>• (FIPS) workspaces.euc-sso-fips.us-gov-west-1.amazonaws-us-gov.com<br>NoteFor more information about, see<br>[Amazon WorkSpaces](../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md "../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md") in the _AWS GovCloud (US) User Guide_. |
-| AWS GovCloud (US-East)                                        | • workspaces.euc-sso.us-gov-east-1.amazonaws-us-gov.com<br>• (FIPS) workspaces.euc-sso-fips.us-gov-east-1.amazonaws-us-gov.com<br>NoteFor more information about, see<br>[Amazon WorkSpaces](../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md "../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md") in the _AWS GovCloud (US) User Guide_. |
+Regions where WorkSpaces SAML 2.0 authentication is available| Region | Relay state endpoint |
+| --- | --- |
+| US East (N. Virginia) Region | • workspaces.euc-sso.us-east-1.aws.amazon.com<br>• (FIPS) workspaces.euc-sso-fips.us-east-1.aws.amazon.com |
+| US West (Oregon) Region | • workspaces.euc-sso.us-west-2.aws.amazon.com<br>• (FIPS) workspaces.euc-sso-fips.us-west-2.aws.amazon.com |
+| Africa (Cape Town) Region | workspaces.euc-sso.af-south-1.aws.amazon.com |
+| Asia Pacific (Mumbai) Region | workspaces.euc-sso.ap-south-1.aws.amazon.com |
+| Asia Pacific (Seoul) Region | workspaces.euc-sso.ap-northeast-2.aws.amazon.com |
+| Asia Pacific (Singapore) Region | workspaces.euc-sso.ap-southeast-1.aws.amazon.com |
+| Asia Pacific (Sydney) Region | workspaces.euc-sso.ap-southeast-2.aws.amazon.com |
+| Asia Pacific (Tokyo) Region | workspaces.euc-sso.ap-northeast-1.aws.amazon.com |
+| Canada (Central) Region | workspaces.euc-sso.ca-central-1.aws.amazon.com |
+| Europe (Frankfurt) Region | workspaces.euc-sso.eu-central-1.aws.amazon.com |
+| Europe (Ireland) Region | workspaces.euc-sso.eu-west-1.aws.amazon.com |
+| Europe (London) Region | workspaces.euc-sso.eu-west-2.aws.amazon.com |
+| South America (São Paulo) Region | workspaces.euc-sso.sa-east-1.aws.amazon.com |
+| Israel (Tel Aviv) Region | workspaces.euc-sso.il-central-1.aws.amazon.com |
+| AWS GovCloud (US-West) | • workspaces.euc-sso.us-gov-west-1.amazonaws-us-gov.com<br>• (FIPS) workspaces.euc-sso-fips.us-gov-west-1.amazonaws-us-gov.com<br>NoteFor more information about, see<br>[Amazon WorkSpaces](../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md "../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md") in the _AWS GovCloud (US) User Guide_. |
+| AWS GovCloud (US-East) | • workspaces.euc-sso.us-gov-east-1.amazonaws-us-gov.com<br>• (FIPS) workspaces.euc-sso-fips.us-gov-east-1.amazonaws-us-gov.com<br>NoteFor more information about, see<br>[Amazon WorkSpaces](../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md "../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md") in the _AWS GovCloud (US) User Guide_. |
 
 With an identity provider (IdP)-initiated flow, you can opt to specify the client you want to use for
 SAML 2.0 federation. To do so, specify either `native` or `web` at end of the relay state URL, after
@@ -429,17 +428,17 @@ You can use the WorkSpaces console to enable SAML 2.0 authentication on the Work
    The following table lists user access URL and parameter names that are unique to various identity
    providers for applications.
 
-| Domains and IP addresses to add to your allow list | Identity provider | Parameter                                                                             | User access URL |
-| -------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------- | --------------- |
-| ADFS                                               | `RelayState`      | `https://<host>/adfs/ls/idpinitiatedsignon.aspx?RelayState=RPID=<relaying-party-uri>` |
-| Azure AD                                           | `RelayState`      | `https://myapps.microsoft.com/signin/<app_id>?tenantId=<tenant_id>`                   |
-| Duo Single Sign-On                                 | `RelayState`      | `https://<sub-domain>.sso.duosecurity.com/saml2/sp/<app_id>/sso`                      |
-| Okta                                               | `RelayState`      | `https://<sub_domain>.okta.com/app/<app_name>/<app_id>/sso/saml`                      |
-| OneLogin                                           | `RelayState`      | `https://<sub-domain>.onelogin.com/trust/saml2/http-post/sso/<app-id>`                |
-| JumpCloud                                          | `RelayState`      | `https://sso.jumpcloud.com/saml2/<app-id>`                                            |
-| Auth0                                              | `RelayState`      | `https://<DefaultTenatName>.us.auth0.com/samlp/<Client_Id>`                           |
-| PingFederate                                       | `TargetResource`  | `https://<host>/idp/startSSO.ping?PartnerSpId=<sp_id>`                                |
-| PingOne for Enterprise                             | `TargetResource`  | `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<app_id>&idpid=<idp_id>`  |
+Domains and IP addresses to add to your allow list| Identity provider | Parameter | User access URL |
+| --- | --- | --- |
+| ADFS | `RelayState` | `https://<host>/adfs/ls/idpinitiatedsignon.aspx?RelayState=RPID=<relaying-party-uri>` |
+| Azure AD | `RelayState` | `https://myapps.microsoft.com/signin/<app_id>?tenantId=<tenant_id>` |
+| Duo Single Sign-On | `RelayState` | `https://<sub-domain>.sso.duosecurity.com/saml2/sp/<app_id>/sso` |
+| Okta | `RelayState` | `https://<sub_domain>.okta.com/app/<app_name>/<app_id>/sso/saml` |
+| OneLogin | `RelayState` | `https://<sub-domain>.onelogin.com/trust/saml2/http-post/sso/<app-id>` |
+| JumpCloud | `RelayState` | `https://sso.jumpcloud.com/saml2/<app-id>` |
+| Auth0 | `RelayState` | `https://<DefaultTenatName>.us.auth0.com/samlp/<Client_Id>` |
+| PingFederate | `TargetResource` | `https://<host>/idp/startSSO.ping?PartnerSpId=<sp_id>` |
+| PingOne for Enterprise | `TargetResource` | `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<app_id>&idpid=<idp_id>` |
 
 The user access URL is usually defined by the provider for unsolicited IdP-initiated SSO. A user can enter this
 URL in a web browser to federate directly to the SAML application. To test the user access URL and parameter values

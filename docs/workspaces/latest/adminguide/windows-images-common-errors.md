@@ -25,7 +25,7 @@ DISKPART> automount enable
 
 Automatic mounting of new volumes enabled.
 
-WorkSpaces_BYOL account must be enabled. For more information, see
+WorkSpaces\_BYOL account must be enabled. For more information, see
 [Enable BYOL for your account for BYOL using the Amazon WorkSpaces console](byol-windows-images.md#windows_images_enable_byol "byol-windows-images.md#windows_images_enable_byol").
 
 Network interface must be changed to use DHCP. For more information, see
@@ -104,8 +104,10 @@ The Legacy BIOS BootMode must be used for Windows 10.For more information, see
 3. Run either of the following command in Powershell as an administrator.
 
    - ```
-     Set-WindowsReservedStorageState -State Disabled
+
      ```
+
+   Set-WindowsReservedStorageState -State Disabled
 
    ````
    * ```
@@ -146,15 +148,14 @@ manage-bde -off  `DriveLetter`:
 manage-bde -Status  `DriveLetter`:
 ```
 
-4.  Ensure the values shown match these:
+4. Ensure the values shown match these:
 
-        * **BitLocker Version** – None
-        * **Conversion Status** – Fully Decrypted
-        * **Percentage Encrypted** – 0.0%
-        * **Encryption Method** – None
-        * **Protection Status** – Protection Off
-        * **Lock Status** – Unlocked
-
-    By default, custom images reach out to "time.windows.com" as the default NTP server. If the NTP server is not reachable, time synchronization issues can occur, causing RDP/Skylight certificate validation failures and SSL connection problems that prevent WorkSpaces creation.
+   - **BitLocker Version** – None
+   - **Conversion Status** – Fully Decrypted
+   - **Percentage Encrypted** – 0.0%
+   - **Encryption Method** – None
+   - **Protection Status** – Protection Off
+   - **Lock Status** – Unlocked
+     By default, custom images reach out to "time.windows.com" as the default NTP server. If the NTP server is not reachable, time synchronization issues can occur, causing RDP/Skylight certificate validation failures and SSL connection problems that prevent WorkSpaces creation.
 
 If you encounter time synchronization issues, update the NTP server to use the Amazon Time Sync Service at 169.254.169.123. For more information, see [Configure the time for your Windows instance](../../../AWSEC2/latest/UserGuide/configure-ec2-ntp.md "../../../AWSEC2/latest/UserGuide/configure-ec2-ntp.md").

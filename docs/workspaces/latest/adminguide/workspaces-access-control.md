@@ -23,10 +23,9 @@ in the _IAM User Guide_.
 
 - IAM users:
 
-      + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
-      + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
-
-  Following are additional resources for IAM:
+  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
+  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
+    Following are additional resources for IAM:
 
 - For more information about IAM policies, see [Policies and Permissions](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the
   _IAM User Guide_ guide.
@@ -43,7 +42,7 @@ in the _IAM User Guide_.
 
 - [Example policies](#workspaces-example-iam-policies "#workspaces-example-iam-policies")
 - [Specify WorkSpaces resources in an IAM policy](#wsp_iam_resource "#wsp_iam_resource")
-- [Create the workspaces_DefaultRole Role](#create-default-role "#create-default-role")
+- [Create the workspaces\_DefaultRole Role](#create-default-role "#create-default-role")
 - [Create the AmazonWorkSpacesPCAAccess service role](#create-pca-access-role "#create-pca-access-role")
 - [AWS managed policies for WorkSpaces](managed-policies.md "managed-policies.md")
 - [Access to WorkSpaces and scripts on streaming instances](using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md "using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md")
@@ -383,12 +382,12 @@ _region_
 The Region that the WorkSpace is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_workspace_identifier_
+_workspace\_identifier_
 
 The ID of the WorkSpace (for example, `ws-a1bcd2efg`).
 
@@ -413,12 +412,12 @@ _region_
 The Region that the WorkSpace is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_workspacespool_identifier_
+_workspacespool\_identifier_
 
 The ID of the WorkSpace pool (for example,
 `ws-a1bcd2efg`).
@@ -444,12 +443,12 @@ _region_
 The Region that the WorkSpace is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_workspacecertificate_identifier_
+_workspacecertificate\_identifier_
 
 The ID of the WorkSpace certificate (for example,
 `ws-a1bcd2efg`).
@@ -474,12 +473,12 @@ _region_
 The Region that the WorkSpace image is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_bundle_identifier_
+_bundle\_identifier_
 
 The ID of the WorkSpace image (for example,
 `wsi-a1bcd2efg`).
@@ -505,12 +504,12 @@ _region_
 The Region that the WorkSpace is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_bundle_identifier_
+_bundle\_identifier_
 
 The ID of the WorkSpace bundle (for example,
 `wsb-a1bcd2efg`).
@@ -536,12 +535,12 @@ _region_
 The Region that the WorkSpace is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_ipgroup_identifier_
+_ipgroup\_identifier_
 
 The ID of the IP group (for example,
 `wsipg-a1bcd2efg`).
@@ -567,12 +566,12 @@ _region_
 The Region that the WorkSpace is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_directory_identifier_
+_directory\_identifier_
 
 The ID of the directory (for example,
 `d-12345a67b8`).
@@ -598,12 +597,12 @@ _region_
 The Region that the connection alias is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_connectionalias_identifier_
+_connectionalias\_identifier_
 
 The ID of the connection alias (for example,
 `wsca-12345a67b8`).
@@ -659,7 +658,7 @@ when the resource isn't owned by the account:
 "arn:aws:workspaces:`region`:*:`resource_type`/`resource_identifier`"
 ```
 
-## Create the workspaces_DefaultRole Role
+## Create the workspaces\_DefaultRole Role
 
 Before you can register a directory using the API, you must verify that a role named
 `workspaces_DefaultRole` exists. This role is created by the Quick Setup or if
@@ -667,7 +666,7 @@ you launch a WorkSpace using the AWS Management Console, and it grants Amazon Wo
 specific AWS resources on your behalf. If this role does not exist, you can create it using
 the following procedure.
 
-###### To create the workspaces_DefaultRole role
+###### To create the workspaces\_DefaultRole role
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane on the left, choose **Roles**.
@@ -695,7 +694,7 @@ the following procedure.
     `workspaces_DefaultRole`.
 14. (Optional) For **Role description**, enter a description.
 15. Choose **Create Role**.
-16. On the **Summary** page for the workspaces_DefaultRole role, choose
+16. On the **Summary** page for the workspaces\_DefaultRole role, choose
     the **Trust relationships** tab.
 17. On the **Trust relationships** tab, choose **Edit trust
     relationship**.

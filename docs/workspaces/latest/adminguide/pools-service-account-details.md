@@ -63,7 +63,7 @@ directory config value with a specific directory name.
     	 WorkSpaces streaming instances.
 
 3. For **Service account**, continue to the [Specify the service account for your AD](#pools-specify-access-account "#pools-specify-access-account") next section of this
-   page.
+page.
 
 ## Specify the service account for your AD
 
@@ -125,7 +125,7 @@ account credentials.
    the key, and the name of the service account for the value, such as
    `domain\username`.
 5. For the second key/value pair, enter a `Service Account
-Password` for the key, and the password of the service account for
+ Password` for the key, and the password of the service account for
    the value.
 6. For the encryption key, choose the AWS KMS customer managed key that you created
    earlier, and then choose **Next**.

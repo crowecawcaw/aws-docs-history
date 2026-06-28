@@ -15,7 +15,7 @@ assertion. For more information, see [Step 7: Create assertions for the SAML aut
 can use this attribute to perform strong mapping with the Active Directory
 user. Certificate-based authentication fails if the `ObjectSid`
 attribute doesn't match the Active Directory security identifier (SID) for
-the user specified in the SAML_Subject `NameID`. For more
+the user specified in the SAML\_Subject `NameID`. For more
 information, see [Step 7: Create assertions for the SAML authentication response](create-directory-pools.md#saml-directory-create-assertions "create-directory-pools.md#saml-directory-create-assertions").
 
 ###### Note
@@ -70,78 +70,85 @@ authentication use cases:
      *AWS Private Certificate Authority User Guide*.
 
 6. Tag your private CA with a key entitled `euc-private-ca` to
-   designate the CA for use with WorkSpaces Pools certificate-based authentication.
-   This key doesn't require a value. For more information, see [Managing tags for your private CA](../../../privateca/latest/userguide/PcaCaTagging.md "../../../privateca/latest/userguide/PcaCaTagging.md") in the _AWS Private Certificate Authority
-   User Guide_..
-7. Certificate-based authentication uses virtual smart cards to log on. For
-   more information, see [Guidelines for enabling smart card logon with third-party certification
-   authorities](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities"). Follow these steps:
+designate the CA for use with WorkSpaces Pools certificate-based authentication.
+This key doesn't require a value. For more information, see [Managing tags for your private CA](../../../privateca/latest/userguide/PcaCaTagging.md "../../../privateca/latest/userguide/PcaCaTagging.md") in the _AWS Private Certificate Authority
+User Guide_.. 7. Certificate-based authentication uses virtual smart cards to log on. For
+more information, see [Guidelines for enabling smart card logon with third-party certification
+authorities](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities"). Follow these steps:
 
-   1. Configure domain controllers with a domain controller certificate
-      to authenticate smart card users. If you have an Active Directory
-      Certificate Services enterprise CA configured in your Active
-      Directory, it automatically enrolls domain controllers with
-      certificates that enable smart card logon. If you don't have Active
-      Directory Certificate Services, see [Requirements for domain controller certificates from a
-      third-party CA](https://learn.microsoft.com/en-US/troubleshoot/windows-server/windows-security/requirements-domain-controller "https://learn.microsoft.com/en-US/troubleshoot/windows-server/windows-security/requirements-domain-controller"). You can create a domain controller
-      certificate with AWS Private CA. If you do this, don't use a
-      private CA configured for short-lived certificates.
+    1. Configure domain controllers with a domain controller certificate
+     to authenticate smart card users. If you have an Active Directory
+     Certificate Services enterprise CA configured in your Active
+     Directory, it automatically enrolls domain controllers with
+     certificates that enable smart card logon. If you don't have Active
+     Directory Certificate Services, see [Requirements for domain controller certificates from a
+     third-party CA](https://learn.microsoft.com/en-US/troubleshoot/windows-server/windows-security/requirements-domain-controller "https://learn.microsoft.com/en-US/troubleshoot/windows-server/windows-security/requirements-domain-controller"). You can create a domain controller
+     certificate with AWS Private CA. If you do this, don't use a
+     private CA configured for short-lived certificates.
 
-   ###### Note
 
-   If you use AWS Managed Microsoft AD, you can configure
-   Certificate Services on an Amazon EC2 instance that satisfies the
-   requirement for domain controller certificates. See [Deploy Active Directory to a new Amazon Virtual Private
-   Cloud](../../../launchwizard/latest/userguide/launch-wizard-ad-deploying-new-vpc.md "../../../launchwizard/latest/userguide/launch-wizard-ad-deploying-new-vpc.md") for example deployments of AWS Managed
-   Microsoft AD configured with Active Directory Certificate
-   Services.
+    ###### Note
 
-   With AWS Managed Microsoft AD and Active Directory
-   Certificate Services, you must also create outbound rules from
-   the controller's VPC security group to the Amazon EC2 instance
-   running Certificate Services. You must provide the security
-   group access to TCP port 135, and ports 49152 through 65535 to
-   enable certificate auto-enrollment. The Amazon EC2 instance must also
-   allow inbound access on these same ports from domain instances,
-   including domain controllers. For more information on locating
-   the security group for AWS Managed Microsoft AD, see [Configure your VPC subnets and security
-   groups](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust_prepare_mad.md#tutorial_setup_trust_open_vpc "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust_prepare_mad.md#tutorial_setup_trust_open_vpc"). 2. On the AWS Private CA console, or with the SDK or CLI, export
-   the private CA certificate. For more information, see [Exporting a
-   private certificate](../../../acm/latest/userguide/export-private.md "../../../acm/latest/userguide/export-private.md"). 3. Publish the private CA to Active Directory. Log on to a domain
-   controller or a domain-joined machine. Copy the private CA
-   certificate to any
-   ``<path>`\`<file>``
-   and run the following commands as a domain administrator. You can
-   also use Group Policy and the Microsoft PKI Health Tool (PKIView) to
-   publish the CA. For more information, see [Configuration instructions](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#configuration-instructions "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#configuration-instructions").
+    If you use AWS Managed Microsoft AD, you can configure
+     Certificate Services on an Amazon EC2 instance that satisfies the
+     requirement for domain controller certificates. See [Deploy Active Directory to a new Amazon Virtual Private
+     Cloud](../../../launchwizard/latest/userguide/launch-wizard-ad-deploying-new-vpc.md "../../../launchwizard/latest/userguide/launch-wizard-ad-deploying-new-vpc.md") for example deployments of AWS Managed
+     Microsoft AD configured with Active Directory Certificate
+     Services.
 
-   ```
-   certutil -dspublish -f `<path>`\<file> RootCA
-   ```
+    With AWS Managed Microsoft AD and Active Directory
+     Certificate Services, you must also create outbound rules from
+     the controller's VPC security group to the Amazon EC2 instance
+     running Certificate Services. You must provide the security
+     group access to TCP port 135, and ports 49152 through 65535 to
+     enable certificate auto-enrollment. The Amazon EC2 instance must also
+     allow inbound access on these same ports from domain instances,
+     including domain controllers. For more information on locating
+     the security group for AWS Managed Microsoft AD, see [Configure your VPC subnets and security
+     groups](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust_prepare_mad.md#tutorial_setup_trust_open_vpc "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust_prepare_mad.md#tutorial_setup_trust_open_vpc").
+    2. On the AWS Private CA console, or with the SDK or CLI, export
+     the private CA certificate. For more information, see [Exporting a
+     private certificate](../../../acm/latest/userguide/export-private.md "../../../acm/latest/userguide/export-private.md").
+    3. Publish the private CA to Active Directory. Log on to a domain
+     controller or a domain-joined machine. Copy the private CA
+     certificate to any
+     ``<path>`\`<file>``
+     and run the following commands as a domain administrator. You can
+     also use Group Policy and the Microsoft PKI Health Tool (PKIView) to
+     publish the CA. For more information, see [Configuration instructions](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#configuration-instructions "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#configuration-instructions").
 
-   ```
-   certutil -dspublish -f `<path>`\<file> NTAuthCA
-   ```
 
-   Make sure that the commands complete successfully, then remove the
-   private CA certificate file. Depending on your Active Directory
-   replication settings, it can take several minutes for the CA to
-   publish to your domain controllers and WorkSpaces in WorkSpaces Pools.
 
-   ###### Note
+    ```
+    certutil -dspublish -f `<path>`\<file> RootCA
+    ```
 
-   Active Directory must distribute the CA to the Trusted Root
-   Certification Authorities and Enterprise NTAuth stores
-   automatically for WorkSpaces in WorkSpaces Pools when they join the
-   domain.
 
-   ###### Note
+    ```
+    certutil -dspublish -f `<path>`\<file> NTAuthCA
+    ```
 
-   Active Directory domain controllers must be in Compatibility
-   mode for certificate strong enforcement to support
-   certificate-based authentication. For more information, see
-   [KB5014754—Certificate-based authentication changes on
-   Windows domain controllers](https://support.microsoft.com/en-us/topic/kb5014754-certificate-based-authentication-changes-on-windows-domain-controllers-ad2c23b0-15d8-4340-a468-4d4f3b188f16 "https://support.microsoft.com/en-us/topic/kb5014754-certificate-based-authentication-changes-on-windows-domain-controllers-ad2c23b0-15d8-4340-a468-4d4f3b188f16") in the Microsoft Support
-   documentation. If you are using AWS Managed Microsoft AD, see
-   [Configure directory security settings](../../../directoryservice/latest/admin-guide/ms_ad_directory_settings.md "../../../directoryservice/latest/admin-guide/ms_ad_directory_settings.md") for more
-   information.
+    Make sure that the commands complete successfully, then remove the
+     private CA certificate file. Depending on your Active Directory
+     replication settings, it can take several minutes for the CA to
+     publish to your domain controllers and WorkSpaces in WorkSpaces Pools.
+
+
+    ###### Note
+
+    Active Directory must distribute the CA to the Trusted Root
+     Certification Authorities and Enterprise NTAuth stores
+     automatically for WorkSpaces in WorkSpaces Pools when they join the
+     domain.
+
+
+    ###### Note
+
+    Active Directory domain controllers must be in Compatibility
+     mode for certificate strong enforcement to support
+     certificate-based authentication. For more information, see
+     [KB5014754—Certificate-based authentication changes on
+     Windows domain controllers](https://support.microsoft.com/en-us/topic/kb5014754-certificate-based-authentication-changes-on-windows-domain-controllers-ad2c23b0-15d8-4340-a468-4d4f3b188f16 "https://support.microsoft.com/en-us/topic/kb5014754-certificate-based-authentication-changes-on-windows-domain-controllers-ad2c23b0-15d8-4340-a468-4d4f3b188f16") in the Microsoft Support
+     documentation. If you are using AWS Managed Microsoft AD, see
+     [Configure directory security settings](../../../directoryservice/latest/admin-guide/ms_ad_directory_settings.md "../../../directoryservice/latest/admin-guide/ms_ad_directory_settings.md") for more
+     information.

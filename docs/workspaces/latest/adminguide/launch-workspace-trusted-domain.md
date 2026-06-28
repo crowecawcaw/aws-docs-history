@@ -26,14 +26,14 @@ or AD Connector cannot launch WorkSpaces for users from a trusted domain.
      within replicated Regions.
 
 2. Create a trust relationship between your AWS Managed Microsoft AD and your on-premises domain.
-   Ensure that the trust is configured as a two-way trust.
-   For more information, see [Tutorial:
-   Create a Trust Relationship Between Your AWS Managed Microsoft AD and Your On-Premises Domain](../../../directoryservice/latest/admin-guide/tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/tutorial_setup_trust.md")
-   in the _AWS Directory Service Administration Guide_.
-   A one-way or two-way trust can be used to manage and authenticate with WorkSpaces, and so that WorkSpaces
-   can be provisioned to on-premises users and groups. For more information, see
-   [Deploy Amazon WorkSpaces
-   using a One-Way Trust Resource Domain with AWS Directory Service](https://aws.amazon.com/getting-started/hands-on/deploy-workspaces-one-way-trust/ "https://aws.amazon.com/getting-started/hands-on/deploy-workspaces-one-way-trust/").
+Ensure that the trust is configured as a two-way trust.
+For more information, see [Tutorial:
+Create a Trust Relationship Between Your AWS Managed Microsoft AD and Your On-Premises Domain](../../../directoryservice/latest/admin-guide/tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/tutorial_setup_trust.md")
+in the _AWS Directory Service Administration Guide_.
+A one-way or two-way trust can be used to manage and authenticate with WorkSpaces, and so that WorkSpaces
+can be provisioned to on-premises users and groups. For more information, see
+[Deploy Amazon WorkSpaces
+using a One-Way Trust Resource Domain with AWS Directory Service](https://aws.amazon.com/getting-started/hands-on/deploy-workspaces-one-way-trust/ "https://aws.amazon.com/getting-started/hands-on/deploy-workspaces-one-way-trust/").
 
 ###### Note
 

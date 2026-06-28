@@ -226,7 +226,7 @@ local account.
 ###### To run services under a local account
 
 1. Open `C:\Program
-Files\Amazon\ImageChecker_`yyyyMMddhhmmss`.log`
+ Files\Amazon\ImageChecker_`yyyyMMddhhmmss`.log`
    and find the list of services that are running under a domain
    account.
 2. In the Windows search box, enter
@@ -250,7 +250,7 @@ Files\Amazon\ImageChecker_`yyyyMMddhhmmss`.log`
 ###### To set all network adapters to use DHCP
 
 1. In the Windows search box, enter `control
-panel` to open the Control Panel.
+ panel` to open the Control Panel.
 2. Choose **Network and Internet**.
 3. Choose **Network and Sharing Center**.
 4. Choose **Change adapter settings**, and
@@ -296,7 +296,7 @@ Create Image to run.
 ###### To configure your environment variable path
 
 1. In the Windows search box, enter `environment
-variables` and then choose **Edit the
+ variables` and then choose **Edit the
    system environment variables**.
 2. In the **System Properties** dialog box, open
    the **Advanced** tab, and choose
@@ -385,7 +385,7 @@ profiles on it:
      **System and Security** >
      **System** dialog box.
    - In the Windows search box, enter `control
-panel`. In the Control Panel, choose
+  panel`. In the Control Panel, choose
      **System and Security**, then
      choose System, and then choose **Advanced system
      settings** in the left pane of the
@@ -569,8 +569,8 @@ bundle**. 9. Enter a bundle name and a description, and then do the following:
     * The default available size combinations for the root volume is 200 GB per WorkSpace.
 
 10. To confirm that your bundle has been created, choose
-    **Bundles** and verify that the bundle is
-    listed.
+**Bundles** and verify that the bundle is
+listed.
 
 ## What's included with Windows WorkSpaces custom images
 

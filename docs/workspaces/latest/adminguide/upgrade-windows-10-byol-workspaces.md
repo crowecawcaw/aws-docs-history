@@ -101,16 +101,16 @@ rebuild or migration process.
 To enable the in-place upgrade process and to specify where you would like the user
 profile to be after the upgrade, you must set a number of registry keys.
 
-| Registry path: **HKLM:\Software\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1** | Registry key | Type                                                                                                                                                                                                                                          | Values |
-| ------------------------------------------------------------------------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| **Enabled**                                                                          | DWORD        | **0\*<br>• – (Default) Disables in-place<br>upgrade<br>**1\*<br>• – Enables in-place upgrade                                                                                                                                                  |
-| **PostUpgradeRestoreProfileOnD**                                                     | DWORD        | **0\*<br>• – (Default) Does not attempt to restore<br>the user profile path after the in-place upgrade<br>**1\*<br>• – Restores the user profile path<br>(**ProfileImagePath**) after the in-place<br>upgrade                                 |
-| **UserShellFoldersRedirection**                                                      | DWORD        | **0\*<br>• – Does not enable redirection of user<br>shell folders<br>**1\*<br>• – (Default) Enables redirection of user<br>shell folders to `D:\Users\%USERNAME%` after the user<br>profile is regenerated on `C:\Users\%USERNAME%`           |
-| **NoReboot**                                                                         | DWORD        | **0\*<br>• – (Default) Allows you to control when a<br>reboot occurs after modifying the registry for the user profile<br>**1\*<br>• – Does not allow the script to reboot<br>the WorkSpace after modifying the registry for the user profile |
+Registry path: **HKLM:\Software\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1**| Registry key | Type | Values |
+| --- | --- | --- |
+| **Enabled** | DWORD | *_0_<br>• – (Default) Disables in-place<br>upgrade<br>*_1_<br>• – Enables in-place upgrade |
+| **PostUpgradeRestoreProfileOnD** | DWORD | *_0_<br>• – (Default) Does not attempt to restore<br>the user profile path after the in-place upgrade<br>*_1_<br>• – Restores the user profile path<br>(**ProfileImagePath**) after the in-place<br>upgrade |
+| **UserShellFoldersRedirection** | DWORD | *_0_<br>• – Does not enable redirection of user<br>shell folders<br>*_1_<br>• – (Default) Enables redirection of user<br>shell folders to `D:\Users\%USERNAME%` after the user<br>profile is regenerated on `C:\Users\%USERNAME%` |
+| **NoReboot** | DWORD | *_0_<br>• – (Default) Allows you to control when a<br>reboot occurs after modifying the registry for the user profile<br>*_1_<br>• – Does not allow the script to reboot<br>the WorkSpace after modifying the registry for the user profile |
 
-| Registry path: **HKLM:\Software\Amazon\WorkSpacesConfig\update-pvdrivers.ps1** | Registry key | Type                                                                                                   | Values |
-| ------------------------------------------------------------------------------ | ------------ | ------------------------------------------------------------------------------------------------------ | ------ |
-| **Enabled**                                                                    | DWORD        | **0\*<br>• – (Default) Disables AWS PV drivers<br>update<br>**1\*<br>• – Enables AWS PV drivers update |
+Registry path: **HKLM:\Software\Amazon\WorkSpacesConfig\update-pvdrivers.ps1**| Registry key | Type | Values |
+| --- | --- | --- |
+| **Enabled** | DWORD | *_0_<br>• – (Default) Disables AWS PV drivers<br>update<br>*_1_<br>• – Enables AWS PV drivers update |
 
 ## Perform an in-place upgrade
 
@@ -132,8 +132,8 @@ script, see [Update your WorkSpace registry using a PowerShell script](#update-w
    **1**. These registry changes enable in-place upgrades for the
    WorkSpace.
 
-   - **HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1**
-   - **HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\update-pvdrivers.ps1**
+   - **HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1**
+   - **HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\update-pvdrivers.ps1**
 
 ###### Note
 
@@ -144,7 +144,7 @@ when the system is rebooted.
 perform the upgrade, set the following key value to **1** to
 prevent the computer from rebooting:
 
-**HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1\NoReboot** 3. Decide which drive you want user profiles to be on after the in-place upgrade
+**HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1\NoReboot** 3. Decide which drive you want user profiles to be on after the in-place upgrade
 process (for more information, see [Considerations](#upgrade_byol_important_considerations "#upgrade_byol_important_considerations")), and set the registry
 keys as follows:
 
@@ -186,7 +186,7 @@ keys as follows:
     Key value: **0**
 
 4. After saving the changes to the registry, reboot the WorkSpace again so that
-   the changes are applied.
+the changes are applied.
 
 ###### Note
 
@@ -199,7 +199,7 @@ keys as follows:
 (Optional) Confirm that the following key value is set to
 **1**, which unblocks the WorkSpace for updating:
 
-**HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1\profileImagePathDeleted** 5. Perform the in-place upgrade. You can use whichever method you like, such as
+**HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1\profileImagePathDeleted** 5. Perform the in-place upgrade. You can use whichever method you like, such as
 SCCM, ISO, or Windows Update (WU). Depending on your original Windows 10 and 11 version
 and how many apps were installed, this process can take from 40 to 120
 minutes.
@@ -219,7 +219,7 @@ information about troubleshooting, see the [Microsoft documentation](https://doc
 (Optional) To confirm that the update scripts have been run successfully,
 verify that the following key value is set to **1**:
 
-**HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1\scriptExecutionComplete** 7. If you modified the running mode of the WorkSpace by setting it to AlwaysOn or
+**HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1\scriptExecutionComplete** 7. If you modified the running mode of the WorkSpace by setting it to AlwaysOn or
 by changing the AutoStop time period so that the in-place upgrade process could
 run without interruption, set the running mode back to your original settings. For
 more information, see [Modify the running mode](running-mode.md#modify-running-mode "running-mode.md#modify-running-mode").
@@ -239,17 +239,17 @@ following shell folders to drive D:
 - `D:\Users\%USERNAME%\Videos`
 - `D:\Users\%USERNAME%\Documents`
 - `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Network
-Shortcuts`
+ Shortcuts`
 - `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Printer
-Shortcuts`
+ Shortcuts`
 - `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start
-Menu\Programs`
+ Menu\Programs`
 - `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Recent`
 - `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\SendTo`
 - `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start
-Menu`
+ Menu`
 - `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start
-Menu\Programs\Startup`
+ Menu\Programs\Startup`
 - `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Templates`
 
 If you redirect the shell folders to other locations on your WorkSpaces, perform the
@@ -286,7 +286,7 @@ corrupted system driver file that prevents the installation from completing succ
 
 *Error Code:*0xC1900101 - 0x40017
 
-*Error Description:*Installation failure during SECOND_BOOT phase with BOOT operation error
+*Error Description:*Installation failure during SECOND\_BOOT phase with BOOT operation error
 
 1. Ensure you have the Windows 11 24H2 ISO file.
 2. Open a command prompt as administrator.

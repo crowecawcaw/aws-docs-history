@@ -179,10 +179,10 @@ By default, the public bundles have local search indexing disabled. If you were 
 enable it, the default is to search `C:\Users` and not
 `D:\Users`, so you need to adjust that as well. If you've set
 local search indexing specifically to
-`D:\Users\`username``and not to
+`D:\Users\`username`` and not to
 `D:\Users`, then local search indexing might not work
- post-migration for any user files that are in the
- `D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated` folder.
+post-migration for any user files that are in the
+`D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated` folder.
 
 Any tags assigned to the original WorkSpace are carried over during migration, and
 the running mode of the WorkSpace is preserved. However, the new WorkSpace gets a new
@@ -215,7 +215,7 @@ Before you migrate a WorkSpace, do the following:
 - If your users report missing files after migration, check to see if their user
   profile files did not get moved during the migration process. You can see which
   files got moved in `C:\Program
-Files\Amazon\WorkspacesConfig\Logs\MigrationLogs`. The files that
+ Files\Amazon\WorkspacesConfig\Logs\MigrationLogs`. The files that
   didn't get moved will be located in the
   `D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated` folder. You
   can manually move any files that didn't get moved automatically.
