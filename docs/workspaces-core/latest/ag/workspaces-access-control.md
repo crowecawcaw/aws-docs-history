@@ -18,10 +18,9 @@ in the _IAM User Guide_.
 
 - IAM users:
 
-      + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
-      + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
-
-  Following are additional resources for IAM:
+  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
+  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
+    Following are additional resources for IAM:
 
 - For more information about IAM policies, see [Policies and Permissions](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the
   _IAM User Guide_ guide.
@@ -137,12 +136,12 @@ _region_
 The Region that the WorkSpaces Instance is in (for example,
 `us-east-1`).
 
-_account_id_
+_account\_id_
 
 The ID of the AWS account, with no hyphens (for example,
 `123456789012`).
 
-_workspace_instance_identifier_
+_workspace\_instance\_identifier_
 
 The ID of the WorkSpaces Instance (for example, `"Resource": "arn:aws:workspaces-instances:region:account_id:workspaceinstance/workspace_instance_identifier"`).
 

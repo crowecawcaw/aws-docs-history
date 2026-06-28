@@ -66,7 +66,7 @@ for cost optimization. You are billed for an hourly service fee in addition to c
 WorkSpaces Core Managed Instances only support instances with all sizes as shown below:
 
 | Purpose               | Size |
-| --------------------- | ---- | ---- | ---- | --- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----- | ----- | ---- | ---- | ---- | ---- | -------- | -------- | ---- | ---- | ---- | ----- | ------ | ------ | --- | --- |
+| --------------------- | ---- |
 | General purpose       | M5   | M5a  | M5ad | M5d | M5dn | M5n  | M5zn | M6a  | M6g  | M6gd | M6i  | M6id  | M6idn | M6in | M7a  | M7g  | M7gd | M7i      | M7i-flex | M8g  | M8gd | T3   | T3a   | T4g    |
 | Compute optimized     | C5   | C5a  | C5ad | C5d | C5n  | C6a  | C6g  | C6gd | C6gn | C6i  | C6id | C6in  | C7a   | C7g  | C7gd | C7gn | C7i  | C7i-flex | C8g      | C8gd |
 | Memory optimized      | R5   | R5a  | R5ad | R5b | R5d  | R5dn | R5n  | R6a  | R6g  | R6gd | R6i  | R6idn | R6in  | R6id | R7a  | R7g  | R7gd | R7i      | R7iz     | R8g  | R8gd | X2gd | X2idn | X2iedn | X2iezn | X8g | z1d |
