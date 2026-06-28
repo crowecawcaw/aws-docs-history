@@ -53,11 +53,11 @@ steps.
 
 You can't use the `AWS_` prefix (not case sensitive) in a key when you specify a custom attribute.
 
-| Instance type                                | Steps                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IP address                                   | 1. Under **Standard attributes**, for **IPv4<br>address**, provide an IPv4 address, if any, where your<br>application can access the resource that's associated with this service<br>instance.<br>2. For **IPv6 address**, provide an IPv6 IP address,<br>if any, where your applications can access the resource that's<br>associated with this service instance.<br>3. For **Port**, specify any port your application<br>must include to access the resource that's associated with this service<br>instance. **Port\*<br>• is required when the service<br>includes an SRV record or an Amazon Route 53 health check.<br>4. (Optional) Under **Custom attributes\*\*, specify any<br>key-value pairs you want to associate with the resource. |
-| EC2 instance                                 | 1. For **EC2 instance ID**, select the ID of the Amazon EC2<br>instance that you want to register as a AWS Cloud Map service instance.<br>2. (Optional) Under **Custom attributes**, specify any<br>key-value pairs you want to associate with the resource.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Identifying information for another resource | 1. Under **Standard attributes**, if the service<br>configuration includes a **CNAME\*<br>• DNS record, you'll<br>see a **CNAME\*<br>• field. For **CNAME**,<br>specify the domain name that you want Route 53 to return in response to DNS<br>queries (for example, `example.com`).<br>2. Under **Custom attributes**, specify any<br>identifying information for a resource that isn't an IP address or an<br>Amazon EC2 instance ID as a key-value pair. For example, you can register a<br>Lambda function by specifying a key called `function` and<br>providing the name of the Lambda function as a value. You can also<br>specify a key called `name` and provide a name that you can<br>use for programmatic instance discovery.         |
+| Instance type                                | Steps                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IP address                                   | 1. Under **Standard attributes**, for **IPv4<br>address**, provide an IPv4 address, if any, where your<br>application can access the resource that's associated with this service<br>instance.<br>2. For **IPv6 address**, provide an IPv6 IP address,<br>if any, where your applications can access the resource that's<br>associated with this service instance.<br>3. For **Port**, specify any port your application<br>must include to access the resource that's associated with this service<br>instance. *_Port_<br>• is required when the service<br>includes an SRV record or an Amazon Route 53 health check.<br>4. (Optional) Under **Custom attributes**, specify any<br>key-value pairs you want to associate with the resource. |
+| EC2 instance                                 | 1. For **EC2 instance ID**, select the ID of the Amazon EC2<br>instance that you want to register as a AWS Cloud Map service instance.<br>2. (Optional) Under **Custom attributes**, specify any<br>key-value pairs you want to associate with the resource.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Identifying information for another resource | 1. Under **Standard attributes**, if the service<br>configuration includes a *_CNAME_<br>• DNS record, you'll<br>see a *_CNAME_<br>• field. For **CNAME**,<br>specify the domain name that you want Route 53 to return in response to DNS<br>queries (for example, `example.com`).<br>2. Under **Custom attributes**, specify any<br>identifying information for a resource that isn't an IP address or an<br>Amazon EC2 instance ID as a key-value pair. For example, you can register a<br>Lambda function by specifying a key called `function` and<br>providing the name of the Lambda function as a value. You can also<br>specify a key called `name` and provide a name that you can<br>use for programmatic instance discovery.        |
 
 9. Choose **Register service instance**.
 
@@ -65,16 +65,15 @@ AWS CLI
 
 - When you submit a `RegisterInstance` request:
 
-      + For each DNS record that you define in the service that's specified by
-       `ServiceId`, a record is created or updated in the hosted zone that's
-       associated with the corresponding namespace.
-      + If the service includes `HealthCheckConfig`, a health check is
-       created based on the settings in the health check configuration.
-      + Any health checks are associated with each of the new or updated
-       records.
-
-  Register a service instance with the `register-instance` command (replace the
-  `red` values with your own).
+  - For each DNS record that you define in the service that's specified by
+    `ServiceId`, a record is created or updated in the hosted zone that's
+    associated with the corresponding namespace.
+  - If the service includes `HealthCheckConfig`, a health check is
+    created based on the settings in the health check configuration.
+  - Any health checks are associated with each of the new or updated
+    records.
+    Register a service instance with the `register-instance` command (replace the
+    `red` values with your own).
 
 ```
 `aws servicediscovery register-instance \
@@ -96,18 +95,17 @@ import boto3
 client = boto3.client('servicediscovery')
 ```
 
-3.  When you submit a `RegisterInstance` request:
+3. When you submit a `RegisterInstance` request:
 
-        * For each DNS record that you define in the service that's specified by
-         `ServiceId`, a record is created or updated in the hosted zone that's
-         associated with the corresponding namespace.
-        * If the service includes `HealthCheckConfig`, a health check is
-         created based on the settings in the health check configuration.
-        * Any health checks are associated with each of the new or updated
-         records.
-
-    Register a service instance with `register_instance()` (replace the
-    `red` values with your own).
+   - For each DNS record that you define in the service that's specified by
+     `ServiceId`, a record is created or updated in the hosted zone that's
+     associated with the corresponding namespace.
+   - If the service includes `HealthCheckConfig`, a health check is
+     created based on the settings in the health check configuration.
+   - Any health checks are associated with each of the new or updated
+     records.
+     Register a service instance with `register_instance()` (replace the
+     `red` values with your own).
 
 ```
 response = client.register_instance(

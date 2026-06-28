@@ -40,13 +40,12 @@ AWS Management Console
      library.
 
 4. (Optional) For **Namespace description**, enter information about the
-   namespace that will be visible on the **Namespaces** page and under
-   **Namespace information**. You can use this information to easily identify
-   a namespace.
-5. For **Instance discovery**, you can choose between **API
-   calls**, **API calls and DNS queries in VPCs**, and **API
-   calls and public DNS queries** to create a HTTP, private DNS, or public DNS
-   namespace respectively. For more information, see [Instance discovery options](#working-with-namespaces-instance-discovery "#working-with-namespaces-instance-discovery").
+namespace that will be visible on the **Namespaces** page and under
+**Namespace information**. You can use this information to easily identify
+a namespace. 5. For **Instance discovery**, you can choose between **API
+calls**, **API calls and DNS queries in VPCs**, and **API
+calls and public DNS queries** to create a HTTP, private DNS, or public DNS
+namespace respectively. For more information, see [Instance discovery options](#working-with-namespaces-instance-discovery "#working-with-namespaces-instance-discovery").
 
 Based on your selection, follow these steps.
 
@@ -61,12 +60,11 @@ Based on your selection, follow these steps.
      Guide*.
 
 6. (Optional) Under **Tags**, choose **Add tags** and
-   then specify a key and a value to tag your namespace. You can specify one or more tags to add
-   to your namespace. Tags allow you to categorize your AWS resources so you can more easily
-   manage them. For more information, see [Tagging your AWS Cloud Map resources](using-tags.md "using-tags.md").
-7. Choose **Create namespace**. You can view the status of the operation
-   by using [ListOperations](../api/API_ListOperations.md "../api/API_ListOperations.md"). For more information, see [ListOperations](../api/API_ListOperations.md "../api/API_ListOperations.md") in the
-   _AWS Cloud Map API Reference_
+then specify a key and a value to tag your namespace. You can specify one or more tags to add
+to your namespace. Tags allow you to categorize your AWS resources so you can more easily
+manage them. For more information, see [Tagging your AWS Cloud Map resources](using-tags.md "using-tags.md"). 7. Choose **Create namespace**. You can view the status of the operation
+by using [ListOperations](../api/API_ListOperations.md "../api/API_ListOperations.md"). For more information, see [ListOperations](../api/API_ListOperations.md "../api/API_ListOperations.md") in the
+_AWS Cloud Map API Reference_
 
 AWS CLI
 

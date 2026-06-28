@@ -95,23 +95,22 @@ Consider the following:
 - The values of `priority` and `weight`
   are both set to 1 and can't be changed.
 - For `port`, AWS Cloud Map uses the value that you
-  specify for **Port** (AWS_INSTANCE_PORT) when
+  specify for **Port** (AWS\_INSTANCE\_PORT) when
   you register an instance.
 - The value of `service-hostname` is a concatenation
   of the following values:
 
-      + The value that you specify for **Service
-       instance ID** (InstanceID) when you
-       register an instance
-      + The name of the service
-      + The name of the namespace
-
-  For example, suppose you specify **test** as
-  an instance ID when you register an instance. The name of the
-  service is **backend** and the name of the
-  namespace is **example.com**. AWS Cloud Map
-  assigns the following value to the `service-hostname`
-  attribute in the **SRV** record:
+  - The value that you specify for **Service
+    instance ID** (InstanceID) when you
+    register an instance
+  - The name of the service
+  - The name of the namespace
+    For example, suppose you specify **test** as
+    an instance ID when you register an instance. The name of the
+    service is **backend** and the name of the
+    namespace is **example.com**. AWS Cloud Map
+    assigns the following value to the `service-hostname`
+    attribute in the **SRV** record:
 
 `test.backend.example.com`
 

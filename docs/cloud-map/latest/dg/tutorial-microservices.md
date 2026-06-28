@@ -113,7 +113,7 @@ choose.
 | ------------- | ---------------------- |
 | Function name | writefunction          |
 | Runtime       | Python 3.12            |
-| Architecture  | x86_64                 |
+| Architecture  | x86\_64                |
 | Permissions   | Use an existing role   |
 | Existing role | cloudmap-tutorial-role |
 
@@ -203,7 +203,7 @@ choose.
 | ------------- | ---------------------- |
 | Function name | readfunction           |
 | Runtime       | Python 3.12            |
-| Architecture  | x86_64                 |
+| Architecture  | x86\_64                |
 | Permissions   | Use an existing role   |
 | Existing role | cloudmap-tutorial-role |
 

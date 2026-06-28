@@ -40,10 +40,10 @@ time of creation, you don't need to run custom tagging scripts after resource cr
 The following table describes the AWS Cloud Map resources that can be tagged, and the resources that can be tagged on
 creation.
 
-| Tagging support for AWS Cloud Map resources | Resource | Supports tags                                                                            | Supports tag propagation | Supports tagging on creation (AWS Cloud Map API, AWS CLI, AWS SDK) |
-| ------------------------------------------- | -------- | ---------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------------------------------ |
-| AWS Cloud Map namespaces                    | Yes      | No. Namespace tags don't propagate to any other resources associated with the namespace. | Yes                      |
-| AWS Cloud Map services                      | Yes      | No. Service tags don't propagate to any other resources associated with the service.     | Yes                      |
+Tagging support for AWS Cloud Map resources| Resource | Supports tags | Supports tag propagation | Supports tagging on creation (AWS Cloud Map API, AWS CLI, AWS SDK) |
+| --- | --- | --- | --- |
+| AWS Cloud Map namespaces | Yes | No. Namespace tags don't propagate to any other resources associated with the namespace. | Yes |
+| AWS Cloud Map services | Yes | No. Service tags don't propagate to any other resources associated with the service. | Yes |
 
 ## Restrictions
 

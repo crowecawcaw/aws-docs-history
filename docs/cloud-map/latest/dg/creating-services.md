@@ -93,11 +93,11 @@ to configure DNS records. You can add or remove DNS records.
      updated settings.
 
 8. Under **Health check configuration**, for
-   **Health check options**, choose the type of
-   health check applicable for service instances. You can choose not to
-   configure any health checks, or you can choose between a Route 53
-   health check or an external health check for your instances. For
-   more information, see [AWS Cloud Map service health check configuration](services-health-checks.md "services-health-checks.md").
+**Health check options**, choose the type of
+health check applicable for service instances. You can choose not to
+configure any health checks, or you can choose between a Route 53
+health check or an external health check for your instances. For
+more information, see [AWS Cloud Map service health check configuration](services-health-checks.md "services-health-checks.md").
 
 ###### Note
 
@@ -187,7 +187,7 @@ client = boto3.client('servicediscovery')
 
 2. Create a service with `create_service()`. Replace the
    `red` values with your own. For more
-   information, see [create_service](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery/client/create_service.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery/client/create_service.html").
+   information, see [create\_service](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery/client/create_service.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery/client/create_service.html").
 
 ```
 response = client.create_service(
