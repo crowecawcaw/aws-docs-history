@@ -17,22 +17,21 @@ create a new REST API.
 
 ###### To create a new API
 
-1.  Open the API Gateway console at
-    [https://console.aws.amazon.com/apigateway/](https://console.aws.amazon.com/apigateway/ "https://console.aws.amazon.com/apigateway/").
-2.  Choose **Create API**. Make the following selections:
+1. Open the API Gateway console at
+   [https://console.aws.amazon.com/apigateway/](https://console.aws.amazon.com/apigateway/ "https://console.aws.amazon.com/apigateway/").
+2. Choose **Create API**. Make the following selections:
 
-        * Under **Choose the protocol**, choose
-         **REST**.
-        * Under **Create new API**, choose **New
-         API**.
-        * Under **Settings**, for **Name**,
-         enter a name, such as `RegistrationForm`. For
-         **Description**, optionally enter some text that
-         describes the purpose of the API. For **Endpoint
-         Type**, choose **Regional**. Then, choose
-         **Create API**.
-
-    An example of these settings is shown in the following image.
+   - Under **Choose the protocol**, choose
+     **REST**.
+   - Under **Create new API**, choose **New
+     API**.
+   - Under **Settings**, for **Name**,
+     enter a name, such as `RegistrationForm`. For
+     **Description**, optionally enter some text that
+     describes the purpose of the API. For **Endpoint
+     Type**, choose **Regional**. Then, choose
+     **Create API**.
+     An example of these settings is shown in the following image.
 
 ![Protocol set to REST, Create new API set to New API, API name set to RegistrationForm, and Endpoint Type set to Regional.](images/SMS_Reg_Tutorial_APIGW_Step2.png)
 Now that you've created an API, you can start to add resources to it. After that, you
@@ -71,17 +70,16 @@ function.
 The API is now ready to use. At this point, you have to deploy it in order to create a
 publicly accessible endpoint.
 
-1.  On the **Actions** menu, choose **Deploy
-    API**. On the **Deploy API** window, make the
-    following selections:
+1. On the **Actions** menu, choose **Deploy
+   API**. On the **Deploy API** window, make the
+   following selections:
 
-        * For **Deployment stage**, choose **[New
-         Stage]**.
-        * For **Stage name**, enter
-         `v1`.
-        * Choose **Deploy**.
-
-    An example of these selections is shown in the following image.
+   - For **Deployment stage**, choose **[New
+     Stage]**.
+   - For **Stage name**, enter
+     `v1`.
+   - Choose **Deploy**.
+     An example of these selections is shown in the following image.
 
 ![The deploy API windows with Stage name set to v1](images/SMS_Reg_Tutorial_APIGW_Step6.png) 2. In the **v1 Stage Editor** pane, choose the
 **/register** resource, and then choose the

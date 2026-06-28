@@ -17,7 +17,7 @@ Verify that logging is turned on to assist in identifying the cause of failure. 
   variables and endpoint data causing emails to fail during sending.
 - To identify rendering failures, review the Amazon SES CloudWatch metric `RenderingFailure` during the time frame that the
   campaign ran. Rendering failures
-  appear in the Amazon Pinpoint event logs as [\_email.rendering_failure events](../developerguide/event-streams-data-email.md#event-streams-data-email-attributes "../developerguide/event-streams-data-email.md#event-streams-data-email-attributes").
+  appear in the Amazon Pinpoint event logs as [\_email.rendering\_failure events](../developerguide/event-streams-data-email.md#event-streams-data-email-attributes "../developerguide/event-streams-data-email.md#event-streams-data-email-attributes").
 - To resolve the issue, verify that all message variables have a corresponding
   endpoint attribute present and are in the correct format. For more information,
   see [Adding personalized content to message templates](message-templates-personalizing.md "message-templates-personalizing.md").
@@ -43,7 +43,7 @@ Verify that logging is turned on to assist in identifying the cause of failure. 
 
 - The specific error codes related to soft bounces are 421, 450, 451, or 452. For the
   descriptions of these error codes, see [Simple Mail Transfer Protocol (SMTP) Enhanced Status Codes
-  Registry](https://www.iana.org/assignments/smtp-enhanced-status-codes/smtp-enhanced-status-codes.xhtml "https://www.iana.org/assignments/smtp-enhanced-status-codes/smtp-enhanced-status-codes.xhtml"). The **smtp_response** in the logs provide the
+  Registry](https://www.iana.org/assignments/smtp-enhanced-status-codes/smtp-enhanced-status-codes.xhtml "https://www.iana.org/assignments/smtp-enhanced-status-codes/smtp-enhanced-status-codes.xhtml"). The **smtp\_response** in the logs provide the
   error code for the bounce event.
 
 ###### **Solution for hard bounce**

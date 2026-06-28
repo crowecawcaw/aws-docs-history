@@ -80,10 +80,9 @@ following options:
      activities that are based on customer interactions.
 
 5. Choose **Send test**. Amazon Pinpoint creates a new journey with
-   `Test-` added to the beginning of the journey name. The test
-   participants are added to the journey.
-6. When you finish testing, choose **Stop journey** to
-   permanently end the test journey.
+`Test-` added to the beginning of the journey name. The test
+participants are added to the journey. 6. When you finish testing, choose **Stop journey** to
+permanently end the test journey.
 
 ###### Tip
 

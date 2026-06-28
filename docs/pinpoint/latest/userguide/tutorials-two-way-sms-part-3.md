@@ -176,32 +176,30 @@ async function sendConfirmation(destinationNumber) {
 }
 ```
 
-7.  On the **Configuration** tab for **Environment
-    variables**, choose **Edit** and then
-    **Add environment variable**, do the following:
+7. On the **Configuration** tab for **Environment
+   variables**, choose **Edit** and then
+   **Add environment variable**, do the following:
 
-        * In the first row, create a variable with a key of
-         `originationNumber`. Next, set the value to the
-         phone number of the dedicated long code that you received in [Step
-         1.2](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-set-up-channel "tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-set-up-channel").
+   - In the first row, create a variable with a key of
+     `originationNumber`. Next, set the value to the
+     phone number of the dedicated long code that you received in [Step
+     1.2](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-set-up-channel "tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-set-up-channel").
 
+   ###### Note
 
-        ###### Note
-
-        Be sure to include the plus sign (+) and the country code for the
-         phone number. Don't include any other special characters, such as
-         dashes (-), periods (.), or parentheses.
-        * In the second row, create a variable with a key of
-         `projectId`. Next, set the value to the unique
-         ID of the project that you created in [Step
-         1.1](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-create-project "tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-create-project").
-        * In the third row, create a variable with a key of
-         `region`. Next, set the value to the Region
-         that you use Amazon Pinpoint in, such as `us-east-1` or
-         `us-west-2`.
-
-    When you finish, the **Environment Variables** section should
-    resemble the example shown in the following image.
+   Be sure to include the plus sign (+) and the country code for the
+   phone number. Don't include any other special characters, such as
+   dashes (-), periods (.), or parentheses.
+   - In the second row, create a variable with a key of
+     `projectId`. Next, set the value to the unique
+     ID of the project that you created in [Step
+     1.1](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-create-project "tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-create-project").
+   - In the third row, create a variable with a key of
+     `region`. Next, set the value to the Region
+     that you use Amazon Pinpoint in, such as `us-east-1` or
+     `us-west-2`.
+     When you finish, the **Environment Variables** section should
+     resemble the example shown in the following image.
 
 ![The Environment Variables for originationNumber, projectId, and region.](images/SMS_Reg_Tutorial_LAM_Step1.7.png) 8. At the top of the page, choose **Save**.
 
@@ -278,27 +276,26 @@ targeted by segments.
 
 ###### To create the Lambda function
 
-1.  Open the AWS Lambda console at
-    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
-2.  Choose **Create function**.
-3.  Under **Create function**, choose
-    **Blueprints**.
-4.  In the search field, enter `hello`, and then press Enter.
-    In the list of results, choose the `hello-world` Node.js function, as
-    shown in the following image. Choose **Configure**.
-5.  Under **Basic information**, do the following:
+1. Open the AWS Lambda console at
+   [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+2. Choose **Create function**.
+3. Under **Create function**, choose
+   **Blueprints**.
+4. In the search field, enter `hello`, and then press Enter.
+   In the list of results, choose the `hello-world` Node.js function, as
+   shown in the following image. Choose **Configure**.
+5. Under **Basic information**, do the following:
 
-        * For **Name**, enter a name for the function, such as
-         `RegistrationForm_OptIn`.
-        * For **Role**, select **Choose an existing
-         role**.
-        * For **Existing role**, choose the SMSRegistrationForm
-         role that you created in [Create an IAM role](tutorials-two-way-sms-part-2.md#tutorials-two-way-sms-part-2-create-role "tutorials-two-way-sms-part-2.md#tutorials-two-way-sms-part-2-create-role").
+   - For **Name**, enter a name for the function, such as
+     `RegistrationForm_OptIn`.
+   - For **Role**, select **Choose an existing
+     role**.
+   - For **Existing role**, choose the SMSRegistrationForm
+     role that you created in [Create an IAM role](tutorials-two-way-sms-part-2.md#tutorials-two-way-sms-part-2-create-role "tutorials-two-way-sms-part-2.md#tutorials-two-way-sms-part-2-create-role").
+     When you finish, choose **Create function**.
 
-    When you finish, choose **Create function**.
-
-6.  Delete the sample function in the code editor, and then paste the following
-    code:
+6. Delete the sample function in the code editor, and then paste the following
+   code:
 
 ```
 import { PinpointClient, UpdateEndpointCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
@@ -363,27 +360,25 @@ async function updateEndpointOptIn(originationNumber, timestamp) {
 }
 ```
 
-7.  Under **Environment variables**, do the following:
+7. Under **Environment variables**, do the following:
 
-        * In the first row, create a variable with a key of
-         `projectId`. Next, set the value to the unique
-         ID of the project that you created in [Create an Amazon Pinpoint project](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-create-project "tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-create-project").
-        * In the second row, create a variable with a key of
-         `region`. Next, set the value to the Region
-         that you use Amazon Pinpoint in, such as `us-east-1` or
-         `us-west-2`.
-        * In the third row, create a variable with a key of
-         `confirmKeyword`. Next, set the value to the
-         confirmation keyword that you created in [Enable two-way SMS](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-set-up-channel "tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-set-up-channel").
+   - In the first row, create a variable with a key of
+     `projectId`. Next, set the value to the unique
+     ID of the project that you created in [Create an Amazon Pinpoint project](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-create-project "tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-create-project").
+   - In the second row, create a variable with a key of
+     `region`. Next, set the value to the Region
+     that you use Amazon Pinpoint in, such as `us-east-1` or
+     `us-west-2`.
+   - In the third row, create a variable with a key of
+     `confirmKeyword`. Next, set the value to the
+     confirmation keyword that you created in [Enable two-way SMS](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-set-up-channel "tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-set-up-channel").
 
+   ###### Note
 
-        ###### Note
-
-        The keyword isn't case sensitive. This function converts the
-         incoming message to lowercase letters.
-
-    When you finish, the **Environment Variables** section should
-    resemble the example shown in the following image.
+   The keyword isn't case sensitive. This function converts the
+   incoming message to lowercase letters.
+   When you finish, the **Environment Variables** section should
+   resemble the example shown in the following image.
 
 ![The Environment Variables for projectId, region, and confirmKeyword.](images/SMS_Reg_Tutorial_LAM_Step2.7.png) 8. At the top of the page, choose **Save**.
 

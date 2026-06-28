@@ -102,34 +102,33 @@ represents your typical sending practices.
 - **Overall status** – Indicates the health of the
   metric. The status could be one of the following:
 
-      + **Healthy** – The bounce rate for your
-       account is within normal levels.
-      + **Almost healed** – Your account was placed
-       under review because the bounce rate was too high. Since the review
-       period began, the bounce rate has stayed below the maximum rate. If
-       the bounce rate remains below the maximum rate, the status of this
-       metric changes to **Healthy** at the end of the
-       review period.
-      + **Under review** – Your account was placed
-       under review because the bounce rate was too high. Since your
-       account was placed under review, the bounce rate hasn't improved. If
-       the issue that caused the bounce rate to exceed 5% isn't resolved by
-       the end of the review period, we might pause your account's ability
-       to send email.
-      + **Sending pause** – Your account's ability
-       to send email was paused because the bounce rate was too high. While
-       your account's ability to send email is paused, you can't send
-       email. You can request that we review this decision.
-      + **Pending sending pause** – The metric
-       caused us to place your account under review. The issues that caused
-       this review period haven't been resolved. These issues might cause
-       us to pause your account's ability to send email. A member of our
-       team has to review your account before we take any further
-       action.
-
-  To learn more about each status value and how we work with you to
-  address issues that impact your account, see the [sending review process
-  FAQs](../../../ses/latest/dg/faqs-enforcement.md "../../../ses/latest/dg/faqs-enforcement.md") in the _Amazon Simple Email Service Developer Guide_.
+  - **Healthy** – The bounce rate for your
+    account is within normal levels.
+  - **Almost healed** – Your account was placed
+    under review because the bounce rate was too high. Since the review
+    period began, the bounce rate has stayed below the maximum rate. If
+    the bounce rate remains below the maximum rate, the status of this
+    metric changes to **Healthy** at the end of the
+    review period.
+  - **Under review** – Your account was placed
+    under review because the bounce rate was too high. Since your
+    account was placed under review, the bounce rate hasn't improved. If
+    the issue that caused the bounce rate to exceed 5% isn't resolved by
+    the end of the review period, we might pause your account's ability
+    to send email.
+  - **Sending pause** – Your account's ability
+    to send email was paused because the bounce rate was too high. While
+    your account's ability to send email is paused, you can't send
+    email. You can request that we review this decision.
+  - **Pending sending pause** – The metric
+    caused us to place your account under review. The issues that caused
+    this review period haven't been resolved. These issues might cause
+    us to pause your account's ability to send email. A member of our
+    team has to review your account before we take any further
+    action.
+    To learn more about each status value and how we work with you to
+    address issues that impact your account, see the [sending review process
+    FAQs](../../../ses/latest/dg/faqs-enforcement.md "../../../ses/latest/dg/faqs-enforcement.md") in the _Amazon Simple Email Service Developer Guide_.
 
 ### Complaint rate
 
@@ -149,33 +148,32 @@ This section contains the following information:
 - **Overall status** – Indicates the health of the
   metric. The status could be one of the following:
 
-      + **Healthy** – The complaint rate for your account
-       is within normal levels.
-      + **Almost healed** – Your account was placed
-       under review because the complaint rate was too high. Since the
-       review period began, the complaint rate has stayed below the maximum
-       rate. If the complaint rate remains below the maximum rate, the
-       status of this metric changes to **Healthy** at the
-       end of the review period.
-      + **Under review** – Your account was placed
-       under review because the complaint rate was too high. Since your
-       account was placed under review, the complaint rate hasn't improved.
-       If the issue that caused the complaint rate to exceed 0.1% isn't
-       resolved by the end of the review period, we might pause your
-       account's ability to send email.
-      + **Sending pause** – Your account's ability
-       to send email was paused because the complaint rate was too high.
-       While your account's ability to send email is paused, you can't send
-       email. You can request that we review this decision.
-      + **Pending sending pause** – Your account
-       was placed under review because the complaint rate was too high. The
-       issues that caused this review period haven't been resolved. These
-       issues might cause us to pause your account's ability to send email.
-       A member of our team has to review your account before we take any
-       further action.
-
-  To learn more about each status value and how we work with you to address issues
-  that impact your account, see the [sending review process FAQs](../../../ses/latest/dg/faqs-enforcement.md "../../../ses/latest/dg/faqs-enforcement.md") in the _Amazon Simple Email Service Developer Guide_.
+  - **Healthy** – The complaint rate for your account
+    is within normal levels.
+  - **Almost healed** – Your account was placed
+    under review because the complaint rate was too high. Since the
+    review period began, the complaint rate has stayed below the maximum
+    rate. If the complaint rate remains below the maximum rate, the
+    status of this metric changes to **Healthy** at the
+    end of the review period.
+  - **Under review** – Your account was placed
+    under review because the complaint rate was too high. Since your
+    account was placed under review, the complaint rate hasn't improved.
+    If the issue that caused the complaint rate to exceed 0.1% isn't
+    resolved by the end of the review period, we might pause your
+    account's ability to send email.
+  - **Sending pause** – Your account's ability
+    to send email was paused because the complaint rate was too high.
+    While your account's ability to send email is paused, you can't send
+    email. You can request that we review this decision.
+  - **Pending sending pause** – Your account
+    was placed under review because the complaint rate was too high. The
+    issues that caused this review period haven't been resolved. These
+    issues might cause us to pause your account's ability to send email.
+    A member of our team has to review your account before we take any
+    further action.
+    To learn more about each status value and how we work with you to address issues
+    that impact your account, see the [sending review process FAQs](../../../ses/latest/dg/faqs-enforcement.md "../../../ses/latest/dg/faqs-enforcement.md") in the _Amazon Simple Email Service Developer Guide_.
 
 ## Alarms
 
@@ -185,38 +183,38 @@ levels.
 
 ###### To create an alarm
 
-1.  Open the Amazon Pinpoint console at
-    [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
-2.  In the navigation pane, choose **Deliverability dashboard**.
-3.  On the **Alarms** tab, choose **Create
-    alarm**.
-4.  On the **Create alarm** page, do the following:
+1. Open the Amazon Pinpoint console at
+   [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
+2. In the navigation pane, choose **Deliverability dashboard**.
+3. On the **Alarms** tab, choose **Create
+   alarm**.
+4. On the **Create alarm** page, do the following:
 
-    1. For **Alarm name**, enter a name that helps you
-       easily identify the alarm.
-    2. For **Send a notification when the**, choose one of
-       the following options:
+   1. For **Alarm name**, enter a name that helps you
+      easily identify the alarm.
+   2. For **Send a notification when the**, choose one of
+      the following options:
 
-       - **Bounce rate**
-       - **Complaint rate**
+      - **Bounce rate**
+      - **Complaint rate**
 
-    3. Configure the values that cause the alarm to be triggered. For
-       example, if you want to be notified when the bounce rate for your
-       account is 5% or greater, choose **>=**. Then
-       enter a value of `5`, as shown in the following
-       image.
+   3. Configure the values that cause the alarm to be triggered. For
+      example, if you want to be notified when the bounce rate for your
+      account is 5% or greater, choose **>=**. Then
+      enter a value of `5`, as shown in the following
+      image.
 
-    ![An example of an email bounce rate alarm at five percent.](images/deliverability_dashboard_bounce_alarms_threshold.png) 4. Specify the amount of time that has to elapse before the alarm is
-    triggered. For example, you can configure the alarm so that it only
-    sends a notification when the bounce rate exceeds a certain rate and
-    stays at that rate for more than 2 hours. In this example, next to
-    **for at least**, enter a value of
-    `2`. Then, next to **consecutive
-    period(s) of**, choose **1 hour**, as
-    shown in the following image.
+   ![An example of an email bounce rate alarm at five percent.](images/deliverability_dashboard_bounce_alarms_threshold.png) 4. Specify the amount of time that has to elapse before the alarm is
+   triggered. For example, you can configure the alarm so that it only
+   sends a notification when the bounce rate exceeds a certain rate and
+   stays at that rate for more than 2 hours. In this example, next to
+   **for at least**, enter a value of
+   `2`. Then, next to **consecutive
+   period(s) of**, choose **1 hour**, as
+   shown in the following image.
 
-    ![An example of an email bounce rate alarm for a two hour period.](images/deliverability_dashboard_deny_list_ip_alarms_period.png) 5. Under **Notification method**, choose one of the
-    following options:
+   ![An example of an email bounce rate alarm for a two hour period.](images/deliverability_dashboard_deny_list_ip_alarms_period.png) 5. Under **Notification method**, choose one of the
+   following options:
 
         * **Use an existing SNS topic** – Choose
          this option if you've already created an Amazon SNS topic and
@@ -231,7 +229,7 @@ levels.
         When you create a new topic, you have to subscribe one or
          more endpoints to it. For more information, see [Subscribing an Endpoint to a Topic](../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md "../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md") in the
          *Amazon Simple Notification Service Developer Guide*.
-    6. (Optional) You can choose or create more than one Amazon SNS topic. To add
-       a topic, choose **Notify an additional SNS
-       topic**.
-    7. When you finish, choose **Create**.
+
+   6. (Optional) You can choose or create more than one Amazon SNS topic. To add
+   a topic, choose **Notify an additional SNS
+   topic**. 7. When you finish, choose **Create**.

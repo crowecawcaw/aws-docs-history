@@ -59,7 +59,7 @@ This error occurs when attempting to add more than 15 endpoints associated with 
 
 ###### Note
 
-If the new endpoint has a channel type of ADM, GCM, APNS, APNS_VOICE, APNS_VOIP_SANDBOX, or
+If the new endpoint has a channel type of ADM, GCM, APNS, APNS\_VOICE, APNS\_VOIP\_SANDBOX, or
 BAIDU, the request will succeed if there's already an endpoint with one of those
 channel types. For more information, see [Managing
 an audience members maximum number of endpoints](../developerguide/audience-define-auto-inactive.md "../developerguide/audience-define-auto-inactive.md") in the _Amazon Pinpoint

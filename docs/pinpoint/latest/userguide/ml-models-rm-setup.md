@@ -32,36 +32,35 @@ recommendations.
 
 ###### To set up a recommender model
 
-1.  Open the Amazon Pinpoint console at
-    [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
-2.  In the navigation pane, choose **Machine learning models**.
-3.  On the **Machine learning models** page, choose **Add recommender
-    model**.
-4.  Under **Model details**, for **Recommender model name**,
-    enter a name for the model in Amazon Pinpoint. The name must begin with a letter or number. It can
-    contain up to 128 characters. The characters can be letters, numbers, underscores (\_), or
-    hyphens (‐).
-5.  (Optional) For **Recommender model description**, enter a brief
-    description of the model. The description can contain up to 128 characters. The characters can
-    be letters, numbers, spaces, or the following symbols: underscores (\_), semicolons (;),
-    parentheses (), commas (,), and hyphens ( ‐).
-6.  Under **Model configuration**, for **IAM role**, choose
-    the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to connect to and retrieve recommendations
-    from the Amazon Personalize campaign that uses the model. You have the following options:
+1. Open the Amazon Pinpoint console at
+   [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
+2. In the navigation pane, choose **Machine learning models**.
+3. On the **Machine learning models** page, choose **Add recommender
+   model**.
+4. Under **Model details**, for **Recommender model name**,
+   enter a name for the model in Amazon Pinpoint. The name must begin with a letter or number. It can
+   contain up to 128 characters. The characters can be letters, numbers, underscores (\_), or
+   hyphens (‐).
+5. (Optional) For **Recommender model description**, enter a brief
+   description of the model. The description can contain up to 128 characters. The characters can
+   be letters, numbers, spaces, or the following symbols: underscores (\_), semicolons (;),
+   parentheses (), commas (,), and hyphens ( ‐).
+6. Under **Model configuration**, for **IAM role**, choose
+   the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to connect to and retrieve recommendations
+   from the Amazon Personalize campaign that uses the model. You have the following options:
 
-        * **Use an existing role** – Choose this option to use an IAM
-         role that already exists for your AWS account. Then, from the list of roles, choose the
-         role that you want.
-        * **Automatically create a role** – Choose this option to
-         automatically create an IAM role that has the required permissions. Then, enter a name for
-         the role.
+   - **Use an existing role** – Choose this option to use an IAM
+     role that already exists for your AWS account. Then, from the list of roles, choose the
+     role that you want.
+   - **Automatically create a role** – Choose this option to
+     automatically create an IAM role that has the required permissions. Then, enter a name for
+     the role.
+     Another option is to work with your administrator to create the role manually. For
+     information about creating the role manually, see [IAM role for retrieving
+     recommendations](../developerguide/permissions-get-recommendations.md "../developerguide/permissions-get-recommendations.md") in the _Amazon Pinpoint Developer Guide_.
 
-    Another option is to work with your administrator to create the role manually. For
-    information about creating the role manually, see [IAM role for retrieving
-    recommendations](../developerguide/permissions-get-recommendations.md "../developerguide/permissions-get-recommendations.md") in the _Amazon Pinpoint Developer Guide_.
-
-7.  For **Recommender model**, choose the Amazon Personalize campaign that you want to
-    retrieve recommendations from.
+7. For **Recommender model**, choose the Amazon Personalize campaign that you want to
+   retrieve recommendations from.
 
 This list displays all the Amazon Personalize campaigns that you're allowed to access with your
 AWS account in the current AWS Region. If the list doesn't include the campaign that you
@@ -105,7 +104,7 @@ how you want Amazon Pinpoint to process the recommendations that it retrieves:
      recommendations with AWS Lambda](../developerguide/ml-models-rm-lambda.md "../developerguide/ml-models-rm-lambda.md") in the *Amazon Pinpoint Developer Guide*.
 
 11. When you finish entering these settings, choose **Next** to proceed to
-    the next step—adding attribute settings for the recommender model.
+the next step—adding attribute settings for the recommender model.
 
 ## Step 2: Add attributes to the model
 

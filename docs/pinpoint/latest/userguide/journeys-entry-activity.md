@@ -30,9 +30,9 @@ Contact Center activities aren't supported in event triggered journeys.
 
 _Participant_ refers to either a user and their endpoints or individual
 endpoints, depending on the data. If the journey entry segment
-consists of user-level data (user_id), then the _participant_ is the
+consists of user-level data (user\_id), then the _participant_ is the
 user and all the endpoints associated with the user progress through the journey
-together. If the journey entry segment consists of endpoint-level data (no user_id),
+together. If the journey entry segment consists of endpoint-level data (no user\_id),
 then the _participant_ is the individual endpoints.
 
 ## Add participants when they perform an activity
@@ -68,15 +68,15 @@ Events can be submitted by using any of the following:
      [App events](../developerguide/event-streams-data-app.md "../developerguide/event-streams-data-app.md")  in the Amazon Pinpoint Developer Guide.
 
 3. (Optional) An event attribute is a specific piece of information used to
-   refine an event. It's composed of an attribute name and a value. We'll narrow
-   down the `artist.download` by adding an
-   `artistName` attribute For **Attribute**, choose the attribute from the list. Because you want
-   to add participants based on specific a specific artist, you'd choose
-   `artistName` as the **Attribute**, and then choose a specific artist for the **Value** – for example, `Bruce
-Springsteen`. Your journey event now adds any participants from
-   the `artist.download` event and the
-   `artistName` is `Bruce
-Springsteen`.
+refine an event. It's composed of an attribute name and a value. We'll narrow
+down the `artist.download` by adding an
+`artistName` attribute For **Attribute**, choose the attribute from the list. Because you want
+to add participants based on specific a specific artist, you'd choose
+`artistName` as the **Attribute**, and then choose a specific artist for the **Value** – for example, `Bruce
+ Springsteen`. Your journey event now adds any participants from
+the `artist.download` event and the
+`artistName` is `Bruce
+ Springsteen`.
 
 If you want to refine the journey even further, add additional attributes and
 values by choosing **Add new attribute** for each

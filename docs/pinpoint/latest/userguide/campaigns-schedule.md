@@ -157,12 +157,11 @@ create event-based campaigns:
   app should use the following versions of the SDK in order to work properly
   with event-based campaigns:
 
-      + AWS Mobile SDK for Android version 2.7.2 or later
-      + AWS Mobile SDK for iOS version 2.6.30 or later
-
-  Because of this restriction, we recommend that you set up your segments to
-  include only customers who use a version of your app that runs a compatible
-  version of the SDK.
+  - AWS Mobile SDK for Android version 2.7.2 or later
+  - AWS Mobile SDK for iOS version 2.6.30 or later
+    Because of this restriction, we recommend that you set up your segments to
+    include only customers who use a version of your app that runs a compatible
+    version of the SDK.
 
 - Choose your events carefully. For example, if you send an event-based
   campaign every time a `session.start` event occurs, you might

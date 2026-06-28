@@ -40,7 +40,7 @@ transactional push notifications that are not sent via a Campaign or Journey, lo
   delivered to the endpoint, and no logs will be generated.
 - Token environment – Verify that the channel type for your Amazon Pinpoint endpoint matches
   the token generated for the device. For example, use GCM as a channel for an app
-  token address with FCM integration and for APNs, APNS_Sandbox for your app in
+  token address with FCM integration and for APNs, APNS\_Sandbox for your app in
   sandbox, or APNS for app in production.
 
 For insights on delivery attempts with a failure status, see the [Push Notification Response codes for the respective

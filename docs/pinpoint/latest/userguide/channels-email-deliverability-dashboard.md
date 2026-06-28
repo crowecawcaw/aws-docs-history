@@ -8,6 +8,10 @@ supported by AWS End User Messaging.
 
 # The Amazon Pinpoint Deliverability dashboard
 
+###### Note
+
+Email deliverability dashboard functionality is now available in [Amazon Simple Email Service Virtual Deliverability Manager](../../../ses/latest/dg/vdm-global-deliverability.md "../../../ses/latest/dg/vdm-global-deliverability.md").
+
 The Deliverability dashboard helps you identify and address issues that could impact the delivery
 of the emails that you send. By addressing the issues that the Deliverability dashboard identifies,
 you can increase the chances that the emails you send from Amazon Pinpoint and Amazon Simple Email Service (Amazon SES)

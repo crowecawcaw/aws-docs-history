@@ -92,8 +92,8 @@ options:
     * Europe (Ireland)
 
 2. In the **Apps** folder, choose the
-   **CreateApp**
-   operation>.
+**CreateApp**
+operation>.
 
 ![The Apps folder in the Amazon Pinpoint Postman collection.](images/Postman_Tutorial_3.2_2.png)
 
@@ -106,11 +106,10 @@ expanded and show the following requests:
     * `DeleteApp`
 
 3. On the **Body** tab, next to `"Name"`, replace the
-   placeholder value (`"string"`) with a name for the campaign, such as
-   `"MySampleProject"`.
-4. Delete the comma after the campaign name, and then delete the entire
-   `tags` object on lines 3 through 5. When you finish, your request
-   should resemble the example that's shown in the following code snippet.
+placeholder value (`"string"`) with a name for the campaign, such as
+`"MySampleProject"`. 4. Delete the comma after the campaign name, and then delete the entire
+`tags` object on lines 3 through 5. When you finish, your request
+should resemble the example that's shown in the following code snippet.
 
 ```
 {
@@ -168,7 +167,7 @@ options:
     * Europe (Ireland)
 
 3. In the **Messages** folder, choose the
-   **SendMessages** operation.
+**SendMessages** operation.
 
 ![The Messages folder in the Amazon Pinpoint Postman collection. The folder contents are expanded, and the SendMessages and SendUsersMessages requests are shown.](images/Postman_Tutorial_3.3_3.png) 4. On the **Pre-request Script** tab, replace the value of the
 `projectId` variable with the ID of a project that already exists

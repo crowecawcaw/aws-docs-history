@@ -181,9 +181,9 @@ that use the template:
      in the content view of the push notification.
 
 9. If you added personalized content to the template by using message variables,
-   specify a default value for each variable. If you do this, Amazon Pinpoint replaces the variable
-   with the value that you specify, if a corresponding value doesn't exist for a recipient. We recommend that
-   you do this for each variable in the template.
+specify a default value for each variable. If you do this, Amazon Pinpoint replaces the variable
+with the value that you specify, if a corresponding value doesn't exist for a recipient. We recommend that
+you do this for each variable in the template.
 
 To
 specify default values for variables, expand the **Default attribute

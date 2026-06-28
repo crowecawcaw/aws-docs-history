@@ -89,12 +89,11 @@ email, add the following two headers:
      `List-Unsubscribe=One-Click`.
 
 9. (Optional) Under **Plain text version**, enter the content that
-   you want to display in the body of messages that use the template and are sent to
-   recipients whose email applications don't display HTML content.
-10. If you added personalized content to the template by using message variables,
-    specify a default value for each variable. If you do this, Amazon Pinpoint replaces the variable
-    with the value that you specify, if a corresponding value doesn't exist for a recipient. We recommend that
-    you do this for each variable in the template.
+you want to display in the body of messages that use the template and are sent to
+recipients whose email applications don't display HTML content. 10. If you added personalized content to the template by using message variables,
+specify a default value for each variable. If you do this, Amazon Pinpoint replaces the variable
+with the value that you specify, if a corresponding value doesn't exist for a recipient. We recommend that
+you do this for each variable in the template.
 
 To
 specify default values for variables, expand the **Default attribute

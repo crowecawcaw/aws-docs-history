@@ -173,60 +173,63 @@ about verifying destination numbers, see [SMS sandbox](../../../sms-voice/latest
      multi-factor authentication.
 
 6. (Optional) If necessary, expand the **Additional
-   settings** section to configure optional SMS-related settings.
-   The **Additional settings** section contains two
-   tabs:
+settings** section to configure optional SMS-related settings.
+The **Additional settings** section contains two
+tabs:
 
-   - On the **SMS Settings** tab you can configure the
+    * On the **SMS Settings** tab you can configure the
      following settings:
 
-     - **Origination phone number** – The
-       phone number that messages will be sent from. This list
-       contains all of the dedicated phone numbers that are present
-       in your Amazon Pinpoint account.
-     - **Sender ID** – An alphanumeric ID
-       that identifies the sender of the SMS message. The Sender ID
-       appears on your recipients' devices only if the recipient is
-       in a country where
-       Sender IDs are supported. If you specify a Sender ID in a
-       journey activity, it overrides the default value for your
-       account. To learn more about which countries support Sender
-       IDs, see [Supported countries and regions (SMS channel)](../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md "../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md") in the _AWS End User Messaging SMS User Guide_.
 
-   ###### Note
 
-   You only need to set one of these values. If you specify both
-   values, Amazon Pinpoint attempts to send the message using the dedicated
-   origination phone number.
-   - On the **Regulatory Settings** tab, you can
+
+    	+ **Origination phone number** – The
+    	 phone number that messages will be sent from. This list
+    	 contains all of the dedicated phone numbers that are present
+    	 in your Amazon Pinpoint account.
+    	+ **Sender ID** – An alphanumeric ID
+    	 that identifies the sender of the SMS message. The Sender ID
+    	 appears on your recipients' devices only if the recipient is
+    	 in a country where
+    	 Sender IDs are supported. If you specify a Sender ID in a
+    	 journey activity, it overrides the default value for your
+    	 account. To learn more about which countries support Sender
+    	 IDs, see [Supported countries and regions (SMS channel)](../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md "../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md")  in the *AWS End User Messaging SMS User Guide*.
+    ###### Note
+
+    You only need to set one of these values. If you specify both
+     values, Amazon Pinpoint attempts to send the message using the dedicated
+     origination phone number.
+    * On the **Regulatory Settings** tab, you can
      configure settings that apply specifically to sending messages to
      recipients in India. If you send messages to recipients in India,
      you must specify a Sender ID and both of the following
      values:
 
-     - **Entity ID** – The ID that's
-       associated with your company or brand, provided by TRAI
-       during the Sender ID registration process.
-     - **Template ID** – The ID that's
-       associated with your message template. This value is also
-       provided by TRAI during the Sender ID registration
-       process.
 
-   ###### Note
 
-   If you don't send messages to recipients in India, or if you
-   send messages to India using International Long-Distance
-   Operator routes, you don't need to specify the **Entity
-   ID** and **Template ID**
-   values.
 
-   For more information about the regulatory requirements for
-   sending SMS messages to India, see [India sender ID registration process](../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md "../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md") in the _AWS End User Messaging SMS User Guide_.
+    	+ **Entity ID** – The ID that's
+    	 associated with your company or brand, provided by TRAI
+    	 during the Sender ID registration process.
+    	+ **Template ID** – The ID that's
+    	 associated with your message template. This value is also
+    	 provided by TRAI during the Sender ID registration
+    	 process.
+    ###### Note
+
+    If you don't send messages to recipients in India, or if you
+     send messages to India using International Long-Distance
+     Operator routes, you don't need to specify the **Entity
+     ID** and **Template ID**
+     values.
+
+    For more information about the regulatory requirements for
+     sending SMS messages to India, see [India sender ID registration process](../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md "../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md")  in the *AWS End User Messaging SMS User Guide*.
 
 7. (Optional) For **Description**, enter text that describes
-   the purpose of the activity. When you save the activity, this text appears
-   as its label.
-8. When you finish, choose **Save**.
+the purpose of the activity. When you save the activity, this text appears
+as its label. 8. When you finish, choose **Save**.
 
 ![The send an SMS message window to set up an SMS activity.](images/journeys-create-step-3-add-activities-procedures-sms.png)
 
@@ -498,7 +501,7 @@ has to specify the User ID and Endpoint ID values. For more information, see
 [Integrating Amazon Pinpoint with your
 application](../developerguide/integrate.md "../developerguide/integrate.md") in the _Amazon Pinpoint Developer Guide_.
 
-If the Journey segment is at the user-level, with user_id in the data and the
+If the Journey segment is at the user-level, with user\_id in the data and the
 criteria used for evaluating a conditional split is an endpoint attribute, Amazon Pinpoint
 processes the journey attributes using a logical OR between the attribute values for
 the different endpoints of the user. For example, if a single user has multiple
@@ -508,174 +511,174 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
 ###### To set up a yes/no split activity
 
-1.  Choose **Add activity**.
-2.  For **Add an activity**, choose **Yes/no
-    split**.
-3.  For **Select a condition type**, choose one of the
-    following options:
+1. Choose **Add activity**.
+2. For **Add an activity**, choose **Yes/no
+   split**.
+3. For **Select a condition type**, choose one of the
+   following options:
 
-    - **Segment** – Choose this option to send
-      all members of the chosen segment down the "Yes" path. Then, for
-      **Segments**, choose a segment.
-    - **Event** – Choose this option to send
-      users down the "Yes" path based on their interactions with a
-      previous step in this journey. Then, complete the following
-      steps:
+   - **Segment** – Choose this option to send
+     all members of the chosen segment down the "Yes" path. Then, for
+     **Segments**, choose a segment.
+   - **Event** – Choose this option to send
+     users down the "Yes" path based on their interactions with a
+     previous step in this journey. Then, complete the following
+     steps:
 
-      1. For **Events**, select the messaging
-         activity you want to split on:
-      2. For **Choose an activity**, choose the
-         message activity that the split should be applied to.
-         Depending on the channel type of messaging activity you
-         select you will have the following options on split
-         on:
+     1. For **Events**, select the messaging
+        activity you want to split on:
+     2. For **Choose an activity**, choose the
+        message activity that the split should be applied to.
+        Depending on the channel type of messaging activity you
+        select you will have the following options on split
+        on:
 
-         - For **Email** here are the events
-           you can select.
+        - For **Email** here are the events
+          you can select.
 
-           - **Send** – Amazon Pinpoint accepted the
-             message and will attempt to deliver it.
-           - **Delivered** – The message
-             was successfully delivered to the recipient.
-           - **Rejected** – Amazon Pinpoint rejected
-             the message because it contained a virus or malware.
-           - **Hard bounce** – The email
-             wasn't delivered to the recipient because of a permanent
-             issue. For example, the recipient's email address might not
-             exist anymore. When a message generates a hard bounce, Amazon Pinpoint
-             doesn't attempt to re-deliver it.
-           - **Soft bounce** – The email
-             wasn't delivered to the recipient because of a temporary
-             issue. For example, the recipient's inbox could be full, or
-             their email provider might be experiencing a temporary
-             issue. When a soft bounce occurs, Amazon Pinpoint attempts to
-             re-deliver the message for a certain period of time. If the
-             message still can't be delivered, the message becomes a hard
-             bounce.
-           - **Complaint** – The recipient
-             received the email, but used the "Report spam" or similar
-             button in their email client to report the message as
-             unwanted.
+          - **Send** – Amazon Pinpoint accepted the
+            message and will attempt to deliver it.
+          - **Delivered** – The message
+            was successfully delivered to the recipient.
+          - **Rejected** – Amazon Pinpoint rejected
+            the message because it contained a virus or malware.
+          - **Hard bounce** – The email
+            wasn't delivered to the recipient because of a permanent
+            issue. For example, the recipient's email address might not
+            exist anymore. When a message generates a hard bounce, Amazon Pinpoint
+            doesn't attempt to re-deliver it.
+          - **Soft bounce** – The email
+            wasn't delivered to the recipient because of a temporary
+            issue. For example, the recipient's inbox could be full, or
+            their email provider might be experiencing a temporary
+            issue. When a soft bounce occurs, Amazon Pinpoint attempts to
+            re-deliver the message for a certain period of time. If the
+            message still can't be delivered, the message becomes a hard
+            bounce.
+          - **Complaint** – The recipient
+            received the email, but used the "Report spam" or similar
+            button in their email client to report the message as
+            unwanted.
 
-           ###### Note
+          ###### Note
 
-           Amazon Pinpoint relies on complaint reports from email providers
-           to generate complaint events. Some email providers give
-           us these reports on a regular basis, while others send
-           them infrequently.
-           - **Open** – The recipient
-             received the email and opened it.
+          Amazon Pinpoint relies on complaint reports from email providers
+          to generate complaint events. Some email providers give
+          us these reports on a regular basis, while others send
+          them infrequently.
+          - **Open** – The recipient
+            received the email and opened it.
 
-           ###### Note
+          ###### Note
 
-           For Amazon Pinpoint to capture an **Email
-           open** event, the recipient's email client
-           has to download the images contained in the message.
-           Many common email clients, such as Microsoft Outlook,
-           don't download email images by default.
-           - **Click** – The recipient
-             received the email and followed one of the links contained
-             in the body of the message.
-           - **Unsubscribe** – The
-             recipient received the email and used the "Unsubscribe" link
-             to opt out of future messages.
+          For Amazon Pinpoint to capture an **Email
+          open** event, the recipient's email client
+          has to download the images contained in the message.
+          Many common email clients, such as Microsoft Outlook,
+          don't download email images by default.
+          - **Click** – The recipient
+            received the email and followed one of the links contained
+            in the body of the message.
+          - **Unsubscribe** – The
+            recipient received the email and used the "Unsubscribe" link
+            to opt out of future messages.
 
-         - For **SMS**, here are the events
-           you can select.
+        - For **SMS**, here are the events
+          you can select.
 
-           - **Send** – Amazon Pinpoint
-             attempted to send the message.
-           - **Delivered** – Amazon Pinpoint
-             received a confirmation that the message was
-             delivered.
-           - **Failed** – An error
-             occurred when delivering the message to the
-             endpoint address.
-           - **Opt-out** – The
-             user who's associated with the endpoint address
-             has opted out of receiving messages from you.
+          - **Send** – Amazon Pinpoint
+            attempted to send the message.
+          - **Delivered** – Amazon Pinpoint
+            received a confirmation that the message was
+            delivered.
+          - **Failed** – An error
+            occurred when delivering the message to the
+            endpoint address.
+          - **Opt-out** – The
+            user who's associated with the endpoint address
+            has opted out of receiving messages from you.
 
-         - For **Push**, here are the events
-           you can select.
+        - For **Push**, here are the events
+          you can select.
 
-           - **Send** – Amazon Pinpoint
-             attempted to send the message.
-           - **Opened notification**
-             – Amazon Pinpoint received a confirmation that the
-             message was opened by the user.
-           - **Received foreground**
-             – Amazon Pinpoint received a confirmation that the
-             message was received by the users device and
-             displayed in the foreground.
-           - **Received background**
-             – Amazon Pinpoint received a confirmation that the
-             message was received by the users device and
-             displayed in the background.
+          - **Send** – Amazon Pinpoint
+            attempted to send the message.
+          - **Opened notification**
+            – Amazon Pinpoint received a confirmation that the
+            message was opened by the user.
+          - **Received foreground**
+            – Amazon Pinpoint received a confirmation that the
+            message was received by the users device and
+            displayed in the foreground.
+          - **Received background**
+            – Amazon Pinpoint received a confirmation that the
+            message was received by the users device and
+            displayed in the background.
 
-         - For **Contact Center**, here are
-           the events you can select.
+        - For **Contact Center**, here are
+          the events you can select.
 
-           - **Connected** – Amazon Pinpoint
-             received a confirmation that the call was
-             connected to an agent.
-           - **SIT tone** – Amazon Pinpoint
-             received a response that the call gave back a busy
-             tone.
-           - **Fax** – Amazon Pinpoint
-             received a response that the call gave back a fax
-             tone.
-           - **Voicemail beep** –
-             Amazon Pinpoint received a response that the call gave back
-             a voicemail with beep.
-           - **Voicemail no beep**
-             – Amazon Pinpoint received a response that the call
-             gave back a voicemail without beep.
-           - **Not answered** –
-             Amazon Pinpoint received a response that the call was not
-             answered and rang out without a voicemail.
+          - **Connected** – Amazon Pinpoint
+            received a confirmation that the call was
+            connected to an agent.
+          - **SIT tone** – Amazon Pinpoint
+            received a response that the call gave back a busy
+            tone.
+          - **Fax** – Amazon Pinpoint
+            received a response that the call gave back a fax
+            tone.
+          - **Voicemail beep** –
+            Amazon Pinpoint received a response that the call gave back
+            a voicemail with beep.
+          - **Voicemail no beep**
+            – Amazon Pinpoint received a response that the call
+            gave back a voicemail without beep.
+          - **Not answered** –
+            Amazon Pinpoint received a response that the call was not
+            answered and rang out without a voicemail.
 
-         - **Custom channel** – For
-           the custom channel activity you can define the
-           response attribute and value you would like to split
-           on. Make sure that this attribute and value is
-           passed back to Amazon Pinpoint journeys in a way that can be
-           read. For more information about how this response
-           should be structured, see [Creating custom
-           channels](../developerguide/channels-custom.md "../developerguide/channels-custom.md") in Amazon Pinpoint in the Amazon Pinpoint Developer
-           Guide.
+        - **Custom channel** – For
+          the custom channel activity you can define the
+          response attribute and value you would like to split
+          on. Make sure that this attribute and value is
+          passed back to Amazon Pinpoint journeys in a way that can be
+          read. For more information about how this response
+          should be structured, see [Creating custom
+          channels](../developerguide/channels-custom.md "../developerguide/channels-custom.md") in Amazon Pinpoint in the Amazon Pinpoint Developer
+          Guide.
 
-      3. ###### Note
+     3. ###### Note
 
-      (Optional) For custom channel activities you can split
-      based on the **Call to a function or webhook
-      response**. To configure this, can you
-      define:
+     (Optional) For custom channel activities you can split
+     based on the **Call to a function or webhook
+     response**. To configure this, can you
+     define:
 
-          + **Attribute** – The
-           name of the attribute to evaluate.
-          + **Value** – The value
-           used to determine in which way to split.
+           + **Attribute** – The
+            name of the attribute to evaluate.
+           + **Value** – The value
+            used to determine in which way to split.
 
-4.  For **Condition evaluation**, choose when Amazon Pinpoint should
-    evaluate the condition. You can choose from the following options:
+4. For **Condition evaluation**, choose when Amazon Pinpoint should
+   evaluate the condition. You can choose from the following options:
 
-    - **Evaluate immediately** – If you choose
-      this option, Amazon Pinpoint checks to see if the event condition that you
-      specified has been met the moment when the journey participant
-      arrives on the activity.
-    - **Evaluate after** – If you choose this
-      option, Amazon Pinpoint waits for a specified period of time. After the
-      specified period of time has elapsed, Amazon Pinpoint checks to see if the
-      event condition that you specified has been met.
-    - **Evaluate on** – If you choose this
-      option, Amazon Pinpoint waits until a specific date and time. When that date
-      and time arrives, Amazon Pinpoint checks to see if the event condition that
-      you specified has been met.
+   - **Evaluate immediately** – If you choose
+     this option, Amazon Pinpoint checks to see if the event condition that you
+     specified has been met the moment when the journey participant
+     arrives on the activity.
+   - **Evaluate after** – If you choose this
+     option, Amazon Pinpoint waits for a specified period of time. After the
+     specified period of time has elapsed, Amazon Pinpoint checks to see if the
+     event condition that you specified has been met.
+   - **Evaluate on** – If you choose this
+     option, Amazon Pinpoint waits until a specific date and time. When that date
+     and time arrives, Amazon Pinpoint checks to see if the event condition that
+     you specified has been met.
 
-5.  (Optional) For **Description**, enter text that describes
-    the purpose of the activity. When you save the activity, this text appears
-    as its label.
-6.  When you finish, choose **Save**.
+5. (Optional) For **Description**, enter text that describes
+   the purpose of the activity. When you save the activity, this text appears
+   as its label.
+6. When you finish, choose **Save**.
 
 ![The yes/no split window to set up a yes or no split activity.](images/journeys-yes-no-split-activity.png)
 
@@ -708,7 +711,7 @@ has to specify the User ID and Endpoint ID values. For more information, see
 [Integrating Amazon Pinpoint with your
 application](../developerguide/integrate.md "../developerguide/integrate.md") in the _Amazon Pinpoint Developer Guide_.
 
-If the Journey segment is at the user-level, with user_id in the data and the
+If the Journey segment is at the user-level, with user\_id in the data and the
 criteria used for evaluating a conditional split is an endpoint attribute, Amazon Pinpoint
 processes the journey attributes using a logical OR between the attribute values for
 the different endpoints of the user. For example, if a single user has multiple
@@ -718,194 +721,175 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
 ###### To set up a multivariate split activity
 
-1.  Choose **Add activity**.
-2.  For **Add an activity**, choose **Multivariate
-    split**.
-3.  Determine how many different paths (branches) you want to create. Choose
-    **Add another branch** to create additional
-    paths.
-4.  On each branch, for **Select a condition type**, choose
-    one of the following options:
+1. Choose **Add activity**.
+2. For **Add an activity**, choose **Multivariate
+   split**.
+3. Determine how many different paths (branches) you want to create. Choose
+   **Add another branch** to create additional
+   paths.
+4. On each branch, for **Select a condition type**, choose
+   one of the following options:
 
-        * **Segment** – Choose this option to send
-         all members of the chosen segment down the path. Then, for
-         **Segments**, choose a segment.
-        * **Event** – Choose this option to send
-         users down the path based on their interactions with a previous step
-         in this journey. Then, complete the following steps:
+   - **Segment** – Choose this option to send
+     all members of the chosen segment down the path. Then, for
+     **Segments**, choose a segment.
+   - **Event** – Choose this option to send
+     users down the path based on their interactions with a previous step
+     in this journey. Then, complete the following steps:
 
+     1. For **Events**, select the messaging
+        activity you would like to split on.
+     2. For **Choose an activity**, choose the
+        message activity that the split should be applied to.
+        Depending on the channel type of messaging activity you
+        select you will have the following options on split
+        on:
 
+        - For **Email**, here are the
+          events you can select.
 
+          - **Send** – Amazon Pinpoint accepted the
+            message and will attempt to deliver it.
+          - **Delivered** – The message
+            was successfully delivered to the recipient.
+          - **Rejected** – Amazon Pinpoint rejected
+            the message because it contained a virus or malware.
+          - **Hard bounce** – The email
+            wasn't delivered to the recipient because of a permanent
+            issue. For example, the recipient's email address might not
+            exist anymore. When a message generates a hard bounce, Amazon Pinpoint
+            doesn't attempt to re-deliver it.
+          - **Soft bounce** – The email
+            wasn't delivered to the recipient because of a temporary
+            issue. For example, the recipient's inbox could be full, or
+            their email provider might be experiencing a temporary
+            issue. When a soft bounce occurs, Amazon Pinpoint attempts to
+            re-deliver the message for a certain period of time. If the
+            message still can't be delivered, the message becomes a hard
+            bounce.
+          - **Complaint** – The recipient
+            received the email, but used the "Report spam" or similar
+            button in their email client to report the message as
+            unwanted.
 
-        	1. For **Events**, select the messaging
-        	 activity you would like to split on.
-        	2. For **Choose an activity**, choose the
-        	 message activity that the split should be applied to.
-        	 Depending on the channel type of messaging activity you
-        	 select you will have the following options on split
-        	 on:
+          ###### Note
 
+          Amazon Pinpoint relies on complaint reports from email providers
+          to generate complaint events. Some email providers give
+          us these reports on a regular basis, while others send
+          them infrequently.
+          - **Open** – The recipient
+            received the email and opened it.
 
+          ###### Note
 
+          For Amazon Pinpoint to capture an **Email
+          open** event, the recipient's email client
+          has to download the images contained in the message.
+          Many common email clients, such as Microsoft Outlook,
+          don't download email images by default.
+          - **Click** – The recipient
+            received the email and followed one of the links contained
+            in the body of the message.
+          - **Unsubscribe** – The
+            recipient received the email and used the "Unsubscribe" link
+            to opt out of future messages.
 
-        		+ For **Email**, here are the
-        		 events you can select.
+        - For **SMS**, here are the events
+          you can select.
 
+          - **Send** – Amazon Pinpoint
+            attempted to send the message.
+          - **Delivered** – Amazon Pinpoint
+            received a confirmation that the message was
+            delivered.
+          - **Failed** – An error
+            occurred when delivering the message to the
+            endpoint address.
+          - **Opt-out** – The
+            user who's associated with the endpoint address
+            has opted out of receiving messages from you.
 
+        - For **Push**, here are the events
+          you can select.
 
+          - **Send** – Amazon Pinpoint
+            attempted to send the message.
+          - **Opened notification**
+            – Amazon Pinpoint received a confirmation that the
+            message was opened by the user.
+          - **Received foreground**
+            – Amazon Pinpoint received a confirmation that the
+            message was received by the users device and
+            displayed in the foreground.
+          - **Received background**
+            – Amazon Pinpoint received a confirmation that the
+            message was received by the users device and
+            displayed in the background.
 
-        			- **Send** – Amazon Pinpoint accepted the
-        			 message and will attempt to deliver it.
-        			- **Delivered** – The message
-        			 was successfully delivered to the recipient.
-        			- **Rejected** – Amazon Pinpoint rejected
-        			 the message because it contained a virus or malware.
-        			- **Hard bounce** – The email
-        			 wasn't delivered to the recipient because of a permanent
-        			 issue. For example, the recipient's email address might not
-        			 exist anymore. When a message generates a hard bounce, Amazon Pinpoint
-        			 doesn't attempt to re-deliver it.
-        			- **Soft bounce** – The email
-        			 wasn't delivered to the recipient because of a temporary
-        			 issue. For example, the recipient's inbox could be full, or
-        			 their email provider might be experiencing a temporary
-        			 issue. When a soft bounce occurs, Amazon Pinpoint attempts to
-        			 re-deliver the message for a certain period of time. If the
-        			 message still can't be delivered, the message becomes a hard
-        			 bounce.
-        			- **Complaint** – The recipient
-        			 received the email, but used the "Report spam" or similar
-        			 button in their email client to report the message as
-        			 unwanted.
+        - For **Contact Center**, here are
+          the events you can select.
 
+          - **Connected** – Amazon Pinpoint
+            received a confirmation that the call was
+            connected to an agent.
+          - **SIT tone** – Amazon Pinpoint
+            received a response that the call gave back a busy
+            tone.
+          - **Fax** – Amazon Pinpoint
+            received a response that the call gave back a fax
+            tone.
+          - **Voicemail beep** –
+            Amazon Pinpoint received a response that the call gave back
+            a voicemail with beep.
+          - **Voicemail no beep**
+            – Amazon Pinpoint received a response that the call
+            gave back a voicemail without beep.
+          - **Not answered** –
+            Amazon Pinpoint received a response that the call was not
+            answered and rang out without a voicemail.
 
-        			###### Note
+        - **Custom channel** – For
+          the custom channel activity you can define the
+          response attribute and value you would like to split
+          on. Make sure that this attribute and value is
+          passed back to Amazon Pinpoint journeys in a way that can be
+          read. For more information about how this response
+          should be structured, see [Creating custom
+          channels](../developerguide/channels-custom.md "../developerguide/channels-custom.md") in Amazon Pinpoint in the Amazon Pinpoint Developer
+          Guide.
 
-        			Amazon Pinpoint relies on complaint reports from email providers
-        			 to generate complaint events. Some email providers give
-        			 us these reports on a regular basis, while others send
-        			 them infrequently.
-        			- **Open** – The recipient
-        			 received the email and opened it.
+     3. For **Choose a journey message activity and
+        event** choose Call to a function or webhook
+        response.
 
+        - **Attribute** – The name of
+          the attribute to evaluate.
+        - **Value** – The value used
+          to determine which branch to traverse for the
+          path.
+          Repeat this step for each path in the activity.
 
-        			###### Note
+5. For **Condition evaluation**, choose when Amazon Pinpoint should
+   evaluate the condition. You can choose from the following options:
 
-        			For Amazon Pinpoint to capture an **Email
-        			 open** event, the recipient's email client
-        			 has to download the images contained in the message.
-        			 Many common email clients, such as Microsoft Outlook,
-        			 don't download email images by default.
-        			- **Click** – The recipient
-        			 received the email and followed one of the links contained
-        			 in the body of the message.
-        			- **Unsubscribe** – The
-        			 recipient received the email and used the "Unsubscribe" link
-        			 to opt out of future messages.
-        		+ For **SMS**, here are the events
-        		 you can select.
+   - **Evaluate immediately** – If you choose
+     this option, Amazon Pinpoint checks to see if the event condition that you
+     specified has been met at the moment the journey participant arrives
+     on the activity.
+   - **Evaluate after** – If you choose this
+     option, Amazon Pinpoint waits for a specified period of time. After the
+     specified period of time has elapsed, Amazon Pinpoint checks to see if the
+     event condition that you specified has been met.
+   - **Evaluate on** – If you choose this
+     option, Amazon Pinpoint waits until a specific date and time. When that date
+     and time arrives, Amazon Pinpoint checks to see if the event condition that
+     you specified has been met.
 
-
-
-
-        			- **Send** – Amazon Pinpoint
-        			 attempted to send the message.
-        			- **Delivered** – Amazon Pinpoint
-        			 received a confirmation that the message was
-        			 delivered.
-        			- **Failed** – An error
-        			 occurred when delivering the message to the
-        			 endpoint address.
-        			- **Opt-out** – The
-        			 user who's associated with the endpoint address
-        			 has opted out of receiving messages from you.
-        		+ For **Push**, here are the events
-        		 you can select.
-
-
-
-
-        			- **Send** – Amazon Pinpoint
-        			 attempted to send the message.
-        			- **Opened notification**
-        			 – Amazon Pinpoint received a confirmation that the
-        			 message was opened by the user.
-        			- **Received foreground**
-        			 – Amazon Pinpoint received a confirmation that the
-        			 message was received by the users device and
-        			 displayed in the foreground.
-        			- **Received background**
-        			 – Amazon Pinpoint received a confirmation that the
-        			 message was received by the users device and
-        			 displayed in the background.
-        		+ For **Contact Center**, here are
-        		 the events you can select.
-
-
-
-
-        			- **Connected** – Amazon Pinpoint
-        			 received a confirmation that the call was
-        			 connected to an agent.
-        			- **SIT tone** – Amazon Pinpoint
-        			 received a response that the call gave back a busy
-        			 tone.
-        			- **Fax** – Amazon Pinpoint
-        			 received a response that the call gave back a fax
-        			 tone.
-        			- **Voicemail beep** –
-        			 Amazon Pinpoint received a response that the call gave back
-        			 a voicemail with beep.
-        			- **Voicemail no beep**
-        			 – Amazon Pinpoint received a response that the call
-        			 gave back a voicemail without beep.
-        			- **Not answered** –
-        			 Amazon Pinpoint received a response that the call was not
-        			 answered and rang out without a voicemail.
-        		+ **Custom channel** – For
-        		 the custom channel activity you can define the
-        		 response attribute and value you would like to split
-        		 on. Make sure that this attribute and value is
-        		 passed back to Amazon Pinpoint journeys in a way that can be
-        		 read. For more information about how this response
-        		 should be structured, see [Creating custom
-        		 channels](../developerguide/channels-custom.md "../developerguide/channels-custom.md") in Amazon Pinpoint in the Amazon Pinpoint Developer
-        		 Guide.
-        	3. For **Choose a journey message activity and
-        	 event** choose Call to a function or webhook
-        	 response.
-
-
-
-
-        		+ **Attribute** – The name of
-        		 the attribute to evaluate.
-        		+ **Value** – The value used
-        		 to determine which branch to traverse for the
-        		 path.
-
-    Repeat this step for each path in the activity.
-
-5.  For **Condition evaluation**, choose when Amazon Pinpoint should
-    evaluate the condition. You can choose from the following options:
-
-    - **Evaluate immediately** – If you choose
-      this option, Amazon Pinpoint checks to see if the event condition that you
-      specified has been met at the moment the journey participant arrives
-      on the activity.
-    - **Evaluate after** – If you choose this
-      option, Amazon Pinpoint waits for a specified period of time. After the
-      specified period of time has elapsed, Amazon Pinpoint checks to see if the
-      event condition that you specified has been met.
-    - **Evaluate on** – If you choose this
-      option, Amazon Pinpoint waits until a specific date and time. When that date
-      and time arrives, Amazon Pinpoint checks to see if the event condition that
-      you specified has been met.
-
-6.  (Optional) For **Description**, enter text that describes
-    the purpose of the activity. When you save the activity, this text appears
-    as its label.
-7.  When you finish, choose **Save**.
+6. (Optional) For **Description**, enter text that describes
+   the purpose of the activity. When you save the activity, this text appears
+   as its label.
+7. When you finish, choose **Save**.
 
 ![The multivariate split window to set up a multivariate split activity.](images/journeys-multivariate-split-activity.png)
 

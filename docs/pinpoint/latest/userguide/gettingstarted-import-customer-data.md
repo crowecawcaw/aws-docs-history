@@ -103,7 +103,7 @@ the segment so that you're the only member of the segment.
 
    1. Next to **Include endpoints that are in any of the following
       segments**, choose the
-      **Pinpoint_Sample_Import** segment that you created
+      **Pinpoint\_Sample\_Import** segment that you created
       in the previous step.
    2. Choose **Add criteria**.
    3. From the menu under **Attribute**, choose

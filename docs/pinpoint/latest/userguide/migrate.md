@@ -35,8 +35,7 @@ capabilities) were renamed in Q3 2024 as [AWS End User Messaging](https://aws.am
 message delivery with customers. Use of APIs related to SMS, Voice, Mobile Push, OTP and
 Phone Number Validate will not be affected by this change. If you are using Amazon Pinpoint to
 send email, we recommend you migrate to [Amazon Simple Email Service](https://aws.amazon.com/ses "https://aws.amazon.com/ses")
-(SES). If you are using email deliverability dashboard in Amazon Pinpoint, we will offer similar
-functionality in SES by October 30, 2026.
+(SES). If you are using email deliverability dashboard in Amazon Pinpoint, we now offer email deliverability dashboard functionality in [Amazon Simple Email Service Virtual Deliverability Manager](../../../ses/latest/dg/vdm-global-deliverability.md "../../../ses/latest/dg/vdm-global-deliverability.md").
 
 ###### Topics
 

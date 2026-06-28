@@ -61,46 +61,46 @@ section.
 
 ###### To create an alarm
 
-1.  Open the Amazon Pinpoint console at
-    [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
-2.  In the navigation pane, choose **Deliverability dashboard**.
-3.  On the **Alarms** tab, choose **Create
-    alarm**.
-4.  On the **Create alarm** page, do the following:
+1. Open the Amazon Pinpoint console at
+   [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
+2. In the navigation pane, choose **Deliverability dashboard**.
+3. On the **Alarms** tab, choose **Create
+   alarm**.
+4. On the **Create alarm** page, do the following:
 
-    1. For **Alarm name**, enter a name that helps you
-       easily identify the alarm.
-    2. For **Send notification when the**, choose one of
-       the following options:
+   1. For **Alarm name**, enter a name that helps you
+      easily identify the alarm.
+   2. For **Send notification when the**, choose one of
+      the following options:
 
-       - **Inbox placement rate** – When you
-         choose this option, the alarm considers the inbox placement
-         rate across all email providers.
-       - **Inbox placement rate** – When you
-         choose this option, the alarm considers the inbox placement
-         rate for specific email providers, such as Gmail or Yahoo.
-         When you choose this option, you also have to choose the
-         email provider that the alarm applies to.
+      - **Inbox placement rate** – When you
+        choose this option, the alarm considers the inbox placement
+        rate across all email providers.
+      - **Inbox placement rate** – When you
+        choose this option, the alarm considers the inbox placement
+        rate for specific email providers, such as Gmail or Yahoo.
+        When you choose this option, you also have to choose the
+        email provider that the alarm applies to.
 
-    3. Configure the values that cause the alarm to be triggered. For
-       example, if you want to be notified when the inbox placement rate
-       for your account is 75% or less, choose
-       **<=**. Then enter a value of
-       `75`, as shown in the following
-       image.
+   3. Configure the values that cause the alarm to be triggered. For
+      example, if you want to be notified when the inbox placement rate
+      for your account is 75% or less, choose
+      **<=**. Then enter a value of
+      `75`, as shown in the following
+      image.
 
-    ![An example of an alarm if the inbox placement rate is below 75 percent.](images/deliverability_dashboard_domain_alarms_threshold.png) 4. Specify the amount of time that has to elapse before the alarm is
-    triggered. For example, you can configure the alarm so that it only
-    sends a notification when the inbox placement rate goes below a
-    certain rate and stays below that rate for more than two days. In
-    this example, next to **for at least**, enter a
-    value of `2`. Then, next to
-    **consecutive period(s) of**, choose
-    **1 day**, as shown in the following
-    image.
+   ![An example of an alarm if the inbox placement rate is below 75 percent.](images/deliverability_dashboard_domain_alarms_threshold.png) 4. Specify the amount of time that has to elapse before the alarm is
+   triggered. For example, you can configure the alarm so that it only
+   sends a notification when the inbox placement rate goes below a
+   certain rate and stays below that rate for more than two days. In
+   this example, next to **for at least**, enter a
+   value of `2`. Then, next to
+   **consecutive period(s) of**, choose
+   **1 day**, as shown in the following
+   image.
 
-    ![An example of an email bounce rate alarm if inbox placement stays below a threshold for two days.](images/deliverability_dashboard_domain_alarms_period.png) 5. Under **Notification method**, choose one of the
-    following options:
+   ![An example of an email bounce rate alarm if inbox placement stays below a threshold for two days.](images/deliverability_dashboard_domain_alarms_period.png) 5. Under **Notification method**, choose one of the
+   following options:
 
         * **Use an existing SNS topic** –
          Choose this option if you've already created an Amazon SNS topic
@@ -116,10 +116,10 @@ section.
          more endpoints to it. For more information, see [Subscribing an Amazon SNS
          topic](../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md "../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md") in the
          *Amazon Simple Notification Service Developer Guide*.
-    6. (Optional) You can choose or create more than one Amazon SNS topic. To
-       add a topic, choose **Notify an additional SNS
-       topic**.
-    7. When you finish, choose **Create**.
+
+   6. (Optional) You can choose or create more than one Amazon SNS topic. To
+   add a topic, choose **Notify an additional SNS
+   topic**. 7. When you finish, choose **Create**.
 
 ## Inbox placement by email provider
 

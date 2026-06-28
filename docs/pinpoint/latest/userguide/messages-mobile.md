@@ -68,8 +68,8 @@ you want to send:
      message content, skip to step 12.
 
 9. Under **Message**, for **Message content**,
-   choose whether you want to **Create a new message** or
-   **Use an existing template**.
+choose whether you want to **Create a new message** or
+**Use an existing template**.
 
 If you choose to use an existing template, choose the template from the
 **Template** list. After you choose a template from the list,
@@ -93,6 +93,5 @@ recipient taps the notification:
      to special promotions for in-app purchases.
 
 11. (Optional) In the **Media URLs** section, provide URLs that point
-    to media files that you want to display in the message. The URLs must be publicly
-    accessible so that push notification services can retrieve the files.
-12. When you finish, choose **Send message**.
+to media files that you want to display in the message. The URLs must be publicly
+accessible so that push notification services can retrieve the files. 12. When you finish, choose **Send message**.

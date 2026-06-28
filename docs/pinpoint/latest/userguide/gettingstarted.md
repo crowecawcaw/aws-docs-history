@@ -55,10 +55,10 @@ There's no charge for creating an AWS account. However, by implementing this sol
 you might incur some or all of the costs that are listed in the following
 table.
 
-| Description                     | Cost (US dollars)                                                                                                                                                                                                                                                                         |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Message sending costs           | You pay $0.0001 for each email that you send through Amazon Pinpoint.                                                                                                                                                                                                                     |
-| Monthly targeted audience costs | You pay $0 for the first 5,000 endpoints that you target in Amazon Pinpoint<br>each month. (An \*endpoint<br>• is a<br>destination that you can send messages to, such as a user's email<br>address or mobile phone number.) After that, you pay $0.0012 per<br>endpoint that you target. |
+| Description                     | Cost (US dollars)                                                                                                                                                                                                                                                                        |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Message sending costs           | You pay $0.0001 for each email that you send through Amazon Pinpoint.                                                                                                                                                                                                                    |
+| Monthly targeted audience costs | You pay $0 for the first 5,000 endpoints that you target in Amazon Pinpoint<br>each month. (An *endpoint<br>• is a<br>destination that you can send messages to, such as a user's email<br>address or mobile phone number.) After that, you pay $0.0012 per<br>endpoint that you target. |
 
 If you use this tutorial to send 5 messages to 5 separate endpoints in one month, you
 incur charges of $0.0005.

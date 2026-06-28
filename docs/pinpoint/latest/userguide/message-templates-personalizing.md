@@ -192,9 +192,9 @@ To add a recommended attribute:
     3. Choose **Connect model**.
 
 6. When you choose an attribute from the **Attribute finder**,
-   Amazon Pinpoint creates a message variable for the attribute and copies it to your
-   clipboard. Paste the variable in the location that you want. If you have a long
-   list of attributes, enter search text to narrow down the list. Choose **X** to clear the search field.
+Amazon Pinpoint creates a message variable for the attribute and copies it to your
+clipboard. Paste the variable in the location that you want. If you have a long
+list of attributes, enter search text to narrow down the list. Choose **X** to clear the search field.
 
 After you paste the variable, Amazon Pinpoint displays it as the name of the associated
 attribute, enclosed in two sets of curly braces—for example,

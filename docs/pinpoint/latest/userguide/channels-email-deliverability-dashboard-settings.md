@@ -8,6 +8,10 @@ supported by AWS End User Messaging.
 
 # Deliverability dashboard settings
 
+###### Note
+
+Email deliverability dashboard functionality is now available in [Amazon Simple Email Service Virtual Deliverability Manager](../../../ses/latest/dg/vdm-global-deliverability.md "../../../ses/latest/dg/vdm-global-deliverability.md").
+
 On the **Dashboard settings** page, you can change several settings that
 are related to the Deliverability dashboard. You can also find information that tells you about your
 usage of the Deliverability dashboard for the current month.

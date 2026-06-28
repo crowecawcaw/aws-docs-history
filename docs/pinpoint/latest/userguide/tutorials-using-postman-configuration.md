@@ -45,8 +45,8 @@ environment from the **Environment** menu in Postman.
    **Environment**.
 3. On the **MANAGE ENVIRONMENTS** window, for
    **Environment Name**, enter `Amazon Pinpoint -
-`Region Name``. Replace
-`Region Name` with one of the following
+ `Region Name``. Replace
+   `Region Name` with one of the following
    values:
 
    - US East (N. Virginia)
@@ -145,16 +145,16 @@ environments in the following ways:
      other user.
 
 6. When you finish creating environments, proceed to the next section.
-   In Postman, a _collection_ is a group of API requests. Requests in
-   a collection are typically united by a common purpose. In this section, you create a new
-   collection that contains a request template for each operation in the Amazon Pinpoint API.
+In Postman, a _collection_ is a group of API requests. Requests in
+a collection are typically united by a common purpose. In this section, you create a new
+collection that contains a request template for each operation in the Amazon Pinpoint API.
 
 ###### To create the Amazon Pinpoint collection
 
 1. In Postman, choose the more actions menu, choose **File**,
    then choose **Import**.
 2. On the **Import** window, choose **Import From
-   Link**, and then enter the following URL: [https://raw.githubusercontent.com/awsdocs/amazon-pinpoint-developer-guide/master/Amazon%20Pinpoint.postman_collection.json](https://raw.githubusercontent.com/awsdocs/amazon-pinpoint-developer-guide/master/Amazon%20Pinpoint.postman_collection.json "https://raw.githubusercontent.com/awsdocs/amazon-pinpoint-developer-guide/master/Amazon%20Pinpoint.postman_collection.json").
+   Link**, and then enter the following URL: [https://raw.githubusercontent.com/awsdocs/amazon-pinpoint-developer-guide/master/Amazon%20Pinpoint.postman\_collection.json](https://raw.githubusercontent.com/awsdocs/amazon-pinpoint-developer-guide/master/Amazon%20Pinpoint.postman_collection.json "https://raw.githubusercontent.com/awsdocs/amazon-pinpoint-developer-guide/master/Amazon%20Pinpoint.postman_collection.json").
 
 Choose **Import**. Postman imports the Amazon Pinpoint collection,
 which contains 120 example requests.
@@ -196,7 +196,7 @@ resolve them.
 | Error message                                                                                                                                                                                               | Problem                                                                                                    | Resolution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`Could not get any response`**<br>**`There was an error connecting to<br>https://%7B%7Bendpoint%7D%7D/v1/apps.`**                                                                                         | There is no current value for the `{{endpoint}}`<br>variable, which is set when you choose an environment. | Use the environment selector to choose an<br>environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **`The security token included in the request is<br>invalid.`**                                                                                                                                             | Postman wasn't able to find the current value of your access<br>key ID or secret access key.               | Choose the gear icon near the environment selector, and then<br>choose the current environment. Verify that the<br>`accessKey` and `secretAccessKey`<br>values appear in both the **INITIAL VALUE\*<br>• and<br>**CURRENT VALUE\*<br>• columns, and that you<br>entered the credentials correctly.                                                                                                                                                                                                            |
+| **`The security token included in the request is<br>invalid.`**                                                                                                                                             | Postman wasn't able to find the current value of your access<br>key ID or secret access key.               | Choose the gear icon near the environment selector, and then<br>choose the current environment. Verify that the<br>`accessKey` and `secretAccessKey`<br>values appear in both the *_INITIAL VALUE_<br>• and<br>*_CURRENT VALUE_<br>• columns, and that you<br>entered the credentials correctly.                                                                                                                                                                                                              |
 | **`"Message": "User:<br>arn:aws:iam::123456789012:user/PinpointPostmanUser<br>is not authorized to perform: mobiletargeting:GetApps on<br>resource:<br>arn:aws:mobiletargeting:us-west-2:123456789012:*"`** | The IAM policy associated with your user doesn't include the<br>appropriate permissions.                   | Verify that your user has the permissions that are described<br>in [Create an IAM policy](tutorials-using-postman-iam-user.md#tutorials-using-postman-iam-user-create-policy "tutorials-using-postman-iam-user.md#tutorials-using-postman-iam-user-create-policy"), and that you provided the correct<br>credentials when you created the environment in [Create Postman workspace](#tutorials-using-postman-configuration-create-environments "#tutorials-using-postman-configuration-create-environments"). |
 
 **Next**: [Send additional requests](tutorials-using-postman-sample-requests.md "tutorials-using-postman-sample-requests.md")

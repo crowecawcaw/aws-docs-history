@@ -44,7 +44,7 @@ about Amazon Personalize, see the [Amazon Personalize Developer Guide](../../../
 For Amazon Pinpoint to retrieve recommendations from an Amazon Personalize campaign, the campaign and its
 components have to meet the following requirements:
 
-- The recipe has to be a _USER_PERSONALIZATION_
+- The recipe has to be a _USER\_PERSONALIZATION_
   recipe. It can use any supported algorithm settings (hyperparameters) for this
   type of recipe. For information about this type of recipe, see [Using predefined
   recipes](../../../personalize/latest/dg/working-with-predefined-recipes.md "../../../personalize/latest/dg/working-with-predefined-recipes.md") in the _Amazon Personalize Developer Guide_.

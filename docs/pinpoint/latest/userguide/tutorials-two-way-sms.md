@@ -105,7 +105,7 @@ solution, you might incur the following costs:
   send through Amazon Pinpoint. The price that you pay for each message depends on the
   country or region of the recipient. If you send messages to recipients in the
   United States (excluding US Territories), you pay $0.00645 per message. If you
-  send messages to recipients in Canada, you pay between $0.00109–$0.02,
+ send messages to recipients in Canada, you pay between $0.00109–$0.02,
   depending on the recipient's carrier and location.
 - **Message receiving costs** – This solution
   also receives and processes incoming SMS messages. You pay for each incoming
@@ -113,7 +113,7 @@ solution, you might incur the following costs:
   account. The price that you pay depends on where the receiving phone number is
   based. If your receiving number is based in the United States (excluding US
   Territories), you pay $0.0075 per incoming message. If your number is based in
-  Canada, you pay $0.00155 per incoming message.
+ Canada, you pay $0.00155 per incoming message.
 - **Lambda usage** – This solution uses two
   Lambda functions that interact with the Amazon Pinpoint API. When you call a Lambda
   function, you're charged based on the number of requests for your functions, for

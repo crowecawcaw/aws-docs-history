@@ -117,24 +117,20 @@ add the following two headers:
      `List-Unsubscribe=One-Click`.
 
 5. (Optional) In the field below the message editor, enter the content
-   that you want to display in the body of messages that are sent to
-   recipients whose email applications don't display HTML.
-6. If you created this campaign as an A/B test campaign (as opposed to a
-   standard campaign), repeat the steps in this section for each treatment.
-   You can switch between treatments by using the tabs at the top of the
-   **Email details** section.
-7. For **Sender email address**, choose the verified
-   email address used to set up the email channel.
-8. Choose where you want to send the test message to. This can be an
-   existing segment of up to ten email addresses or endpoint IDs.
-9. Choose **Next**.
-   Use in-app messages to send targeted messages to users of your applications.
-   In-app messages are highly customizable. They can include buttons that open
-   websites or take users to specific parts of your app. You can configure
-   background and text colors, position the text, and add images to the
-   notification. You can send a single message, or create a
-   _carousel_ that contains up to five unique messages that
-   your users can scroll through.
+that you want to display in the body of messages that are sent to
+recipients whose email applications don't display HTML. 6. If you created this campaign as an A/B test campaign (as opposed to a
+standard campaign), repeat the steps in this section for each treatment.
+You can switch between treatments by using the tabs at the top of the
+**Email details** section. 7. For **Sender email address**, choose the verified
+email address used to set up the email channel. 8. Choose where you want to send the test message to. This can be an
+existing segment of up to ten email addresses or endpoint IDs. 9. Choose **Next**.
+Use in-app messages to send targeted messages to users of your applications.
+In-app messages are highly customizable. They can include buttons that open
+websites or take users to specific parts of your app. You can configure
+background and text colors, position the text, and add images to the
+notification. You can send a single message, or create a
+_carousel_ that contains up to five unique messages that
+your users can scroll through.
 
 When creating an in-app message, you can either choose to create a campaign
 from an existing template or create a new message.
@@ -143,120 +139,119 @@ If you chose to create an A/B testing campaign, you can apply a different
 template to each treatment. An A/B testing campaign can contain up to five
 different treatments.
 
-1.  On the **Create your message** page, do one of the
-    following:
+1. On the **Create your message** page, do one of the
+   following:
 
-    - To create a new message for the campaign, select
-      **Create a new in-app message**, and then
-      proceed to step 2.
-    - To create a message that's based on an existing in-app
-      template, do the following:
+   - To create a new message for the campaign, select
+     **Create a new in-app message**, and then
+     proceed to step 2.
+   - To create a message that's based on an existing in-app
+     template, do the following:
 
-      1. Select **Choose an existing in-app messaging
-         template**, and then select
-         **Choose a template**.
-      2. Select the template that you want to use. When you
-         select a template from the list, Amazon Pinpoint displays a
-         preview of the active version of the template. The
-         active version is typically the version of a template
-         that's been reviewed and approved for use.
-      3. When you find the template that you want do use,
-         select it, and then select **Choose
-         template**.
-      4. Under **Template version**, specify
-         whether you want Amazon Pinpoint to automatically update the
-         message to include changes that are made to the template
-         before the message is sent. To learn more about these
-         options, see [Managing versions of message templates](message-templates-versioning.md "message-templates-versioning.md").
-      5. When you finish choosing template options for the
-         message, proceed to step 11.
+     1. Select **Choose an existing in-app messaging
+        template**, and then select
+        **Choose a template**.
+     2. Select the template that you want to use. When you
+        select a template from the list, Amazon Pinpoint displays a
+        preview of the active version of the template. The
+        active version is typically the version of a template
+        that's been reviewed and approved for use.
+     3. When you find the template that you want do use,
+        select it, and then select **Choose
+        template**.
+     4. Under **Template version**, specify
+        whether you want Amazon Pinpoint to automatically update the
+        message to include changes that are made to the template
+        before the message is sent. To learn more about these
+        options, see [Managing versions of message templates](message-templates-versioning.md "message-templates-versioning.md").
+     5. When you finish choosing template options for the
+        message, proceed to step 11.
 
-2.  In the **In-app message details** section, under
-    **Layout**, choose the type of layout for the
-    message. You can choose from the following options:
+2. In the **In-app message details** section, under
+   **Layout**, choose the type of layout for the
+   message. You can choose from the following options:
 
-    - **Top banner** – a message that appears
-      as a banner at the top of the page.
-    - **Bottom banner** – a message that
-      appears as a banner at the bottom of the page.
-    - **Middle banner** – a message that
-      appears as a banner in the middle of the page.
-    - **Full screen** – a message that covers
-      the entire screen.
-    - **Modal** – a message that appears in a
-      window in front of the page.
-    - **Carousel** – a scrollable layout of
-      up to five unique messages.
+   - **Top banner** – a message that appears
+     as a banner at the top of the page.
+   - **Bottom banner** – a message that
+     appears as a banner at the bottom of the page.
+   - **Middle banner** – a message that
+     appears as a banner in the middle of the page.
+   - **Full screen** – a message that covers
+     the entire screen.
+   - **Modal** – a message that appears in a
+     window in front of the page.
+   - **Carousel** – a scrollable layout of
+     up to five unique messages.
 
-3.  Under **Header**, configure the title that appears at
-    the beginning of the message. If you created a Carousel message, you
-    must create the first message for the Carousel, which includes the
-    header.
+3. Under **Header**, configure the title that appears at
+   the beginning of the message. If you created a Carousel message, you
+   must create the first message for the Carousel, which includes the
+   header.
 
-    1. For **Header text** to display in the banner.
-       You can enter up to 64 characters.
-    2. For **Header text color**, choose the text
-       color for the header. You can optionally enter RGB values or a
-       hex color code.
-    3. For **Header alignment**, choose whether you
-       want the text to be **Left**,
-       **Center**, or **Right**
-       justified.
+   1. For **Header text** to display in the banner.
+      You can enter up to 64 characters.
+   2. For **Header text color**, choose the text
+      color for the header. You can optionally enter RGB values or a
+      hex color code.
+   3. For **Header alignment**, choose whether you
+      want the text to be **Left**,
+      **Center**, or **Right**
+      justified.
 
-4.  Under **Message**, configure the body of the
-    message.
+4. Under **Message**, configure the body of the
+   message.
 
-    1. For **Message**, enter the body text for the
-       message. The message can contain up to 150 characters.
-    2. For **Text color**, choose the text color for
-       the message body. You can optionally enter RGB values or a hex
-       color code.
-    3. For **Text alignment**, choose whether you
-       want the text to be **Left**,
-       **Center**, or **Right**
-       justified.
+   1. For **Message**, enter the body text for the
+      message. The message can contain up to 150 characters.
+   2. For **Text color**, choose the text color for
+      the message body. You can optionally enter RGB values or a hex
+      color code.
+   3. For **Text alignment**, choose whether you
+      want the text to be **Left**,
+      **Center**, or **Right**
+      justified.
 
-5.  (Optional) Change the background color of the message. Under
-    **Background** , choose a background color for the
-    message. You can optionally enter RGB values or a hex color code.
-6.  (Optional) Add an image to the message. Under **Image
-    URL**, enter the URL of the image that you want to appear
-    in the message. Only .jpg and .png files are accepted. The dimensions of
-    the image depend on the message type:
+5. (Optional) Change the background color of the message. Under
+   **Background** , choose a background color for the
+   message. You can optionally enter RGB values or a hex color code.
+6. (Optional) Add an image to the message. Under **Image
+   URL**, enter the URL of the image that you want to appear
+   in the message. Only .jpg and .png files are accepted. The dimensions of
+   the image depend on the message type:
 
-    - For a **Banner**, the image should be 100
-      pixels by 100 pixels, or a 1:1 aspect ratio.
-    - For a **Carousel**, the image should be 300
-      pixels by 200 pixels, or a 3:2 aspect ratio.
-    - For a **Fullscreen** message, the image
-      should be 300 pixels by 200 pixels, or a 3:2 aspect
-      ratio.
+   - For a **Banner**, the image should be 100
+     pixels by 100 pixels, or a 1:1 aspect ratio.
+   - For a **Carousel**, the image should be 300
+     pixels by 200 pixels, or a 3:2 aspect ratio.
+   - For a **Fullscreen** message, the image
+     should be 300 pixels by 200 pixels, or a 3:2 aspect
+     ratio.
 
-7.  (Optional) Add a button to the message. Under **Primary
-    button**, do the following:
+7. (Optional) Add a button to the message. Under **Primary
+   button**, do the following:
 
-    1.  Choose **Add primary button**.
-    2.  For **Button text**, enter the text to
-        display on the button. You can enter up to 64 characters.
-    3.  (Optional) For **Button text color**, choose
-        a color for the button text. You can optionally enter RGB values
-        or a hex color code.
-    4.  (Optional) For **Background color**, choose a
-        background color for the button. You can optionally enter RGB
-        values or a hex color code.
-    5.  (Optional) For **Border radius**, enter a
-        radius value. Lower values result in sharper corners, while
-        higher numbers result in more rounded corners.
-    6.  Under **Actions**, choose the event that
-        occurs when the user taps the button:
+   1. Choose **Add primary button**.
+   2. For **Button text**, enter the text to
+      display on the button. You can enter up to 64 characters.
+   3. (Optional) For **Button text color**, choose
+      a color for the button text. You can optionally enter RGB values
+      or a hex color code.
+   4. (Optional) For **Background color**, choose a
+      background color for the button. You can optionally enter RGB
+      values or a hex color code.
+   5. (Optional) For **Border radius**, enter a
+      radius value. Lower values result in sharper corners, while
+      higher numbers result in more rounded corners.
+   6. Under **Actions**, choose the event that
+      occurs when the user taps the button:
 
-            * **Close** – Dismisses the
-             message.
-            * **Go to URL** – Opens a
-             website.
-            * **Go to deep link** – Opens an
-             app or opens a particular place in an app.
-
+      - **Close** – Dismisses the
+        message.
+      - **Go to URL** – Opens a
+        website.
+      - **Go to deep link** – Opens an
+        app or opens a particular place in an app.
         If you want the button behavior to be different for different
         device types, you can override the default action. Under
         **Action**, use the tabs to choose the
@@ -266,30 +261,30 @@ different treatments.
         default actions**. Finally, specify an
         action.
 
-8.  (Optional) Add a secondary button to the message. Under
-    **Secondary button**, choose **Add
-    secondary button**. Follow the procedures in the preceding
-    step to configure the secondary button.
-9.  (Optional) Add custom data to the message. Custom data are key-value
-    pairs delivered with your message. For example, you might want to pass a
-    promotional code along with your message. If you're sending a carousel
-    message, you can add custom data to each of the carousel messages. To
-    add custom data, do the following:
+8. (Optional) Add a secondary button to the message. Under
+   **Secondary button**, choose **Add
+   secondary button**. Follow the procedures in the preceding
+   step to configure the secondary button.
+9. (Optional) Add custom data to the message. Custom data are key-value
+   pairs delivered with your message. For example, you might want to pass a
+   promotional code along with your message. If you're sending a carousel
+   message, you can add custom data to each of the carousel messages. To
+   add custom data, do the following:
 
-    1. Under **Custom data**, choose **Add
-       new item**.
-    2. Enter a **Key**. For example, this might be
-       `PromoCode`.
-    3. Enter a **Value** for the key. Your
-       `PromoCode` might be
-       `12345`.
-    4. When the message is sent, the code
-       `12345` is included in your
-       message.
-    5. To add more key-value pairs, choose **Add new
-       item**. You can add up to 10 key-value pairs to the
-       message. When you finish adding custom data, proceed to the next
-       step.
+   1. Under **Custom data**, choose **Add
+      new item**.
+   2. Enter a **Key**. For example, this might be
+      `PromoCode`.
+   3. Enter a **Value** for the key. Your
+      `PromoCode` might be
+      `12345`.
+   4. When the message is sent, the code
+      `12345` is included in your
+      message.
+   5. To add more key-value pairs, choose **Add new
+      item**. You can add up to 10 key-value pairs to the
+      message. When you finish adding custom data, proceed to the next
+      step.
 
 10. If your message is a carousel, you can add up to four more unique
     messages. To add messages to a carousel, expand the **Carousel
@@ -717,12 +712,12 @@ or more from this list. 4. Choose **Send message**.
    **Send a test message to**, choose one of the options
    in the following table.
 
-| If you're sending...       | Choose...                                              | And then enter...                                                                                                 |
-| -------------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| An email                   | **Email addresses**                                    | A comma-separated list of valid email addresses.                                                                  |
-| An in-app message          | Either **Endpoint IDs\*<br>• or **A<br>Segment\*\*.    | A comma-separated list of endpoint IDs, or a single<br>segment. You can also build a new segment for the<br>test. |
-| An SMS message             | **Phone numbers**                                      | A comma-separated list of E.164-formatted phone<br>numbers.                                                       |
-| A mobile push notification | Either **Endpoint IDs\*<br>• or<br>**Device tokens\*\* | A comma-separated list of endpoint IDs or device tokens,<br>depending on the type of address you chose.           |
+| If you're sending...       | Choose...                                           | And then enter...                                                                                                 |
+| -------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| An email                   | **Email addresses**                                 | A comma-separated list of valid email addresses.                                                                  |
+| An in-app message          | Either *_Endpoint IDs_<br>• or **A<br>Segment**.    | A comma-separated list of endpoint IDs, or a single<br>segment. You can also build a new segment for the<br>test. |
+| An SMS message             | **Phone numbers**                                   | A comma-separated list of E.164-formatted phone<br>numbers.                                                       |
+| A mobile push notification | Either *_Endpoint IDs_<br>• or<br>**Device tokens** | A comma-separated list of endpoint IDs or device tokens,<br>depending on the type of address you chose.           |
 
 3. Choose **Send message**.
 

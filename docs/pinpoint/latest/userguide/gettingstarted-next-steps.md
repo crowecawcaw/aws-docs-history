@@ -18,9 +18,9 @@ capabilities of Amazon Pinpoint. For example:
 - You can obtain dedicated IP addresses for sending your email. Dedicated IP
   addresses are a great option for sending email in certain use cases. For more
   information, see [Using dedicated IP addresses with Amazon Pinpoint](channels-email-dedicated-ips.md "channels-email-dedicated-ips.md").
-- You can enable the Amazon Pinpoint Deliverability dashboard. The Deliverability dashboard
-  helps you identify issues that could impact the delivery of your emails. For more
-  information, see [The Amazon Pinpoint Deliverability dashboard](channels-email-deliverability-dashboard.md "channels-email-deliverability-dashboard.md").
+- You can use email deliverability features through [Amazon Simple Email Service Virtual Deliverability Manager](../../../ses/latest/dg/vdm-global-deliverability.md "../../../ses/latest/dg/vdm-global-deliverability.md"). Virtual Deliverability
+  Manager helps you identify issues that could impact the delivery of your
+  emails.
 - You can send messages through other channels, such as SMS or push. Before you can
   use these channels, you have to enable and configure them on the Settings page. For
   more information about using the Settings page to enable and configure channels, see

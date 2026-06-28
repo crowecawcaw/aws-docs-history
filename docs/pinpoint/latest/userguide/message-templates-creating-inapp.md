@@ -25,56 +25,56 @@ users can scroll through.
 
 ###### To create an in-app template
 
-1.  Open the Amazon Pinpoint console at
-    [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
-2.  In the navigation pane, choose **Message templates**.
-3.  Choose **Create template**.
-4.  Under **Channel**, choose **In-app
-    messaging**.
-5.  Under **Template details**, for **Template
-    name**, enter a name for the template. The name must begin with a
-    letter or number. It can contain up to 128 characters. The characters can be
-    letters, numbers, underscores (\_), or hyphens (‐).
-6.  (Optional) For **Version description**, enter a brief description
-    of the template. The description can contain up to 500 characters.
-7.  In the **In-app message details** section, under
-    **Layout**, choose the type of layout for the message template.
-    You can choose from the following options:
+1. Open the Amazon Pinpoint console at
+   [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
+2. In the navigation pane, choose **Message templates**.
+3. Choose **Create template**.
+4. Under **Channel**, choose **In-app
+   messaging**.
+5. Under **Template details**, for **Template
+   name**, enter a name for the template. The name must begin with a
+   letter or number. It can contain up to 128 characters. The characters can be
+   letters, numbers, underscores (\_), or hyphens (‐).
+6. (Optional) For **Version description**, enter a brief description
+   of the template. The description can contain up to 500 characters.
+7. In the **In-app message details** section, under
+   **Layout**, choose the type of layout for the message template.
+   You can choose from the following options:
 
-    - **Top banner** – a message that appears as a banner
-      at the top of the page.
-    - **Bottom banner** – a message that appears as a
-      banner at the bottom of the page.
-    - **Middle banner** – a message that appears as a
-      notification in the middle of the page.
-    - **Full screen** – a message that covers the entire
-      screen.
-    - **Modal** – a message that appears in a window in
-      front of the page.
-    - **Carousel** – a scrollable layout of up to five
-      unique messages.
+   - **Top banner** – a message that appears as a banner
+     at the top of the page.
+   - **Bottom banner** – a message that appears as a
+     banner at the bottom of the page.
+   - **Middle banner** – a message that appears as a
+     notification in the middle of the page.
+   - **Full screen** – a message that covers the entire
+     screen.
+   - **Modal** – a message that appears in a window in
+     front of the page.
+   - **Carousel** – a scrollable layout of up to five
+     unique messages.
 
-8.  Under **Header**, configure the title that appears at the
-    beginning of the message. If you created a Carousel message, you must create the
-    first message for the Carousel, which includes the header.
+8. Under **Header**, configure the title that appears at the
+   beginning of the message. If you created a Carousel message, you must create the
+   first message for the Carousel, which includes the header.
 
-    1. For **Header text** to display in the banner. You can
-       enter up to 64 characters.
-    2. For **Header text color**, choose the text color for the
-       header. You can optionally enter RGB values or a hex color code.
-    3. For **Header alignment**, choose whether you want the
-       text to be **Left**, **Center**, or
-       **Right** justified.
+   1. For **Header text** to display in the banner. You can
+      enter up to 64 characters.
+   2. For **Header text color**, choose the text color for the
+      header. You can optionally enter RGB values or a hex color code.
+   3. For **Header alignment**, choose whether you want the
+      text to be **Left**, **Center**, or
+      **Right** justified.
 
-9.  Under **Message**, configure the body of the message.
+9. Under **Message**, configure the body of the message.
 
-    1. For **Message**, enter the body text for the message. The
-       message can contain up to 150 characters.
-    2. For **Text color**, choose the text color for the message
-       body. You can optionally enter RGB values or a hex color code.
-    3. For **Text alignment**, choose whether you want the text
-       to be **Left**, **Center**, or
-       **Right** justified.
+   1. For **Message**, enter the body text for the message. The
+      message can contain up to 150 characters.
+   2. For **Text color**, choose the text color for the message
+      body. You can optionally enter RGB values or a hex color code.
+   3. For **Text alignment**, choose whether you want the text
+      to be **Left**, **Center**, or
+      **Right** justified.
 
 10. (Optional) Change the background color of the message. Under **Background** , choose a background color for the message. You can optionally enter RGB
     values or a hex color code.
@@ -93,33 +93,32 @@ users can scroll through.
 12. (Optional) Add a button to the message. Under **Primary button**,
     do the following:
 
-    1.  Choose **Add primary button**.
-    2.  For **Button text**, enter the text to display on the
-        button. You can enter up to 64 characters.
-    3.  (Optional) For **Button text color**, choose a color for
-        the button text. You can optionally enter RGB values or a hex color
-        code.
-    4.  (Optional) For **Background color**, choose a background
-        color for the button. You can optionally enter RGB values or a hex color
-        code.
-    5.  (Optional) For **Border radius**, enter a radius value.
-        Lower values result in sharper corners, while higher numbers result in more
-        rounded corners.
-    6.  Under **Actions**, choose the event that occurs when the
-        user taps the button:
+    1. Choose **Add primary button**.
+    2. For **Button text**, enter the text to display on the
+       button. You can enter up to 64 characters.
+    3. (Optional) For **Button text color**, choose a color for
+       the button text. You can optionally enter RGB values or a hex color
+       code.
+    4. (Optional) For **Background color**, choose a background
+       color for the button. You can optionally enter RGB values or a hex color
+       code.
+    5. (Optional) For **Border radius**, enter a radius value.
+       Lower values result in sharper corners, while higher numbers result in more
+       rounded corners.
+    6. Under **Actions**, choose the event that occurs when the
+       user taps the button:
 
-            * **Close** – Dismisses the message.
-            * **Go to URL** – Opens a website.
-            * **Go to deep link** – Opens an app or opens
-             a particular place in an app.
-
-        If you want the button behavior to be different for different device
-        types, you can override the default action. Under
-        **Action**, use the tabs to choose the device type that
-        you want to modify the button behavior for. For example, choose
-        **iOS** to modify the button behavior for iOS devices.
-        Next, choose **Override the default actions**. Finally,
-        specify an action.
+       - **Close** – Dismisses the message.
+       - **Go to URL** – Opens a website.
+       - **Go to deep link** – Opens an app or opens
+         a particular place in an app.
+         If you want the button behavior to be different for different device
+         types, you can override the default action. Under
+         **Action**, use the tabs to choose the device type that
+         you want to modify the button behavior for. For example, choose
+         **iOS** to modify the button behavior for iOS devices.
+         Next, choose **Override the default actions**. Finally,
+         specify an action.
 
 13. (Optional) Add a secondary button to the message. Under **Secondary
     button**, choose **Add secondary button**. Follow the

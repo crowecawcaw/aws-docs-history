@@ -133,8 +133,7 @@ Choose **Next**. 4. On the **Messaging use case** section, enter the following:
     Capabilities for SMS and Voice can't be changed once the phone number has been purchased.
     * For **Two-way messaging** choose **Yes**.
 
-5. Choose **Next**.
-6. Under **Select originator type** choose either **Long code** or **10DLC**.
+5. Choose **Next**. 6. Under **Select originator type** choose either **Long code** or **10DLC**.
 
 If you choose 10DLC and already have a registered campaign you can choose the campaign
 from the **Associate to registered campaign**. 7. Choose **Next**. 8. On **Review and request** you can verify and edit your request before submitting it. Choose **Request**. 9. A **Registration Required** window may appear depending on
