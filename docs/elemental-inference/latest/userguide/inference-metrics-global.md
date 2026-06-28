@@ -4,7 +4,7 @@
 
 The duration of API calls from request initiation to response completion.
 
-\***\*Details\*\***
+****Details****
 
 - Name: ApiLatency
 - Supported dimension sets: Feed

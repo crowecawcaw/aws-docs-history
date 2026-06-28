@@ -67,11 +67,10 @@ The number of PutMedia API requests made to submit video segments for processing
 - Name: PutMediaRequestCount
 - Supported dimension sets:
 
-      + Feed,
-      + Feed, StatusCode: to monitor API requests that result in a specific category
-       HTTP response codes.
-
-  Recommended statistic: Sum
+  - Feed,
+  - Feed, StatusCode: to monitor API requests that result in a specific category
+    HTTP response codes.
+    Recommended statistic: Sum
 
 - Units: Count
 - Meaning of zero: This metric will never emit zero.

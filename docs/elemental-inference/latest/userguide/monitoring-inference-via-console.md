@@ -31,7 +31,7 @@ These statuses are listed in lifetime order, from **CREATING** to
   **CREATING** to **AVAILABLE** to
   **ACTIVE**. **ACTIVE** means that the feed is
   associated with its resource.
-- When MediaLive deletes a feed, its status changes to **DELETED**, then
+- When Elemental Inference deletes a feed, its status changes to **DELETED**, then
   after a short period, it changes to **ARCHIVED**. There is no way to
   change the status of a feed that is **DELETED** or
   **ARCHIVED**.

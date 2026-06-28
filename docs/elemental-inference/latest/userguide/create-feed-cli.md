@@ -22,9 +22,8 @@ note of:
      this processing.
 
 3. After the feed is created, the status of the feed will eventually change
-   to `AVAILABLE`, indicating that it is ready to have a resource
-   (source media) associated with it.
-4. Use `associate-feed` to associate the source media with the
-   feed. The source media is the resource for the feed.
+to `AVAILABLE`, indicating that it is ready to have a resource
+(source media) associated with it. 4. Use `associate-feed` to associate the source media with the
+feed. The source media is the resource for the feed.
 
 You now have a useable feed: resource - feed - output.

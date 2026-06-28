@@ -29,12 +29,11 @@ means it is impossible to track in a meaningful way.
 - ACTIVE to ARCHIVED. When you no longer need the feed, you can archive it in one of
   these ways:
 
-      + On the console, display the feed details and choose **Archive**.
-      + On the CLI, use the `DisassociateFeed` operation, which indirectly sets
-       the status to ARCHIVED.
-
-  When the feed is ARCHIVED, you can't use it any more. Your quota for feeds decreases
-  by 1.
+  - On the console, display the feed details and choose **Archive**.
+  - On the CLI, use the `DisassociateFeed` operation, which indirectly sets
+    the status to ARCHIVED.
+    When the feed is ARCHIVED, you can't use it any more. Your quota for feeds decreases
+    by 1.
 
 - When you are ready, delete the feed. The feed will disappear from the array of lists,
   so you won't actually see it with a DELETED status.

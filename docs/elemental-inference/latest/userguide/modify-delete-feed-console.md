@@ -9,9 +9,9 @@
    appears.
 4. Take the appropriate action, as follows.
 
-| Action                         | Description                                                                                                                                                                                            |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| To change output properties    | In the section for the output, choose the edit icon and<br>make any changes. Then choose \*_Save_<br>• on the<br>dialog.                                                                               |
-| To enable or disable an output | In the section for the output, choose the edit icon and change<br>the **Status\*<br>• field. Then choose<br>**Save\*<br>• on the dialog.                                                               |
-| To add an output               | In the **Feed outputs\*<br>• tab, choose<br>Add output.<br>In the dialog that appears, enter a name and optional description,<br>then choose the feature type. Then choose **Add\*\*<br>on the dialog. |
-| To remove an output            | In the section for that output, choose the delete icon on the<br>right side of the section.                                                                                                            |
+| Action                         | Description                                                                                                                                                                                         |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| To change output properties    | In the section for the output, choose the edit icon and<br>make any changes. Then choose *_Save_<br>• on the<br>dialog.                                                                             |
+| To enable or disable an output | In the section for the output, choose the edit icon and change<br>the *_Status_<br>• field. Then choose<br>*_Save_<br>• on the dialog.                                                              |
+| To add an output               | In the *_Feed outputs_<br>• tab, choose<br>Add output.<br>In the dialog that appears, enter a name and optional description,<br>then choose the feature type. Then choose **Add**<br>on the dialog. |
+| To remove an output            | In the section for that output, choose the delete icon on the<br>right side of the section.                                                                                                         |

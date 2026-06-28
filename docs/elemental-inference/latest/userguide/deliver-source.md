@@ -6,7 +6,7 @@ media using the Elemental Inference console.
 1. Obtain the data endpoint for the feed:
 
    - Using an AWS API or SDK: Use the `GetFeed` operation of
-     Elemental Inference. For information about the operation and parameters, see [https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_GetFeed](../APIReference/API_GetFeed.md "../APIReference/API_GetFeed.md").
+     Elemental Inference. For information about the operation and parameters, see [https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API\_GetFeed](../APIReference/API_GetFeed.md "../APIReference/API_GetFeed.md").
    - Using the Elemental Inference console: Choose Feed in the left
      navigation bar, then select the feed. In the details page, the data
      endpoint is in the **Integration** field.

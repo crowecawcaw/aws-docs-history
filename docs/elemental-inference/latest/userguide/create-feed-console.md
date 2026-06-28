@@ -29,31 +29,29 @@ feed.
 associated with a source media.
 **Associate the resource**
 
-1.  In **Feed association**, choose **Add
-    association**. Enter a friendly name for the source media
-    (resource) that you intend for this feed. You might want to specify a name
-    that helps you to identify the feed that this source media belongs to. For
-    example, `source-soccer`.
-2.  In the **Feed association** section, choose
-    **Save** to confirm the association. The
-    **Feed** information on the page is updated:
+1. In **Feed association**, choose **Add
+   association**. Enter a friendly name for the source media
+   (resource) that you intend for this feed. You might want to specify a name
+   that helps you to identify the feed that this source media belongs to. For
+   example, `source-soccer`.
+2. In the **Feed association** section, choose
+   **Save** to confirm the association. The
+   **Feed** information on the page is updated:
 
-        * In **Feed association**, the
-         **Integration** field appears, showing the data
-         endpoint for the feed.
-        * In **General details**, the status of the feed
-         changes to **Active**, which means that a resource
-         is associated with the feed.
-        * In **Outputs**, the status of each output changes
-         to **Enabled**.
+   - In **Feed association**, the
+     **Integration** field appears, showing the data
+     endpoint for the feed.
+   - In **General details**, the status of the feed
+     changes to **Active**, which means that a resource
+     is associated with the feed.
+   - In **Outputs**, the status of each output changes
+     to **Enabled**.
 
+   If you want to disable an output or change any other information
+   for the output, select the **Edit** button (a
+   pencil) on the right.
+   For information about feed and output status, see [Lifecycle of an AWS Elemental Inference workflow](monitor-inference-feed-lifecycle.md "monitor-inference-feed-lifecycle.md").
 
-        If you want to disable an output or change any other information
-         for the output, select the **Edit** button (a
-         pencil) on the right.
-
-    For information about feed and output status, see [Lifecycle of an AWS Elemental Inference workflow](monitor-inference-feed-lifecycle.md "monitor-inference-feed-lifecycle.md").
-
-3.  Make a note of the data endpoint (in the **Integration**
-    field). You will need this value in order to deliver the source media to
-    Elemental Inference.
+3. Make a note of the data endpoint (in the **Integration**
+   field). You will need this value in order to deliver the source media to
+   Elemental Inference.
