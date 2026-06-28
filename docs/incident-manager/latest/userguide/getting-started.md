@@ -68,7 +68,7 @@ about your Incident Manager replication set, see [Configuring the Incident Manag
      AWS KMS key**.
 
 5. (Optional) In the **Tags** area, add one or more tags to the replication
-   set. A tag includes a key and, optionally, a value.
+set. A tag includes a key and, optionally, a value.
 
 Tags are optional metadata that you assign to a resource. Tags allow you to categorize a
 resource in different ways, such as by purpose, owner, or environment. For more information,
@@ -132,7 +132,7 @@ We recommend defining at least two channels in the engagement plan.
      engagement**.
 
 6. (Optional) In the **Tags** area, add one or more tags to the contact. A
-   tag includes a key and, optionally, a value.
+tag includes a key and, optionally, a value.
 
 Tags are optional metadata that you assign to a resource. Tags allow you to categorize a
 resource in different ways, such as by purpose, owner, or environment. For more information,
@@ -160,9 +160,8 @@ plan. 4. In the **Stage 1** area, do the following:
      channel**.
 
 5. To create a new stage in the escalation plan, choose **Add stage** and
-   add its stage details.
-6. (Optional) In the **Tags** area, add one or more tags to the escalation
-   plan. A tag includes a key and, optionally, a value.
+add its stage details. 6. (Optional) In the **Tags** area, add one or more tags to the escalation
+plan. A tag includes a key and, optionally, a value.
 
 Tags are optional metadata that you assign to a resource. Tags allow you to categorize a
 resource in different ways, such as by purpose, owner, or environment. For more information,

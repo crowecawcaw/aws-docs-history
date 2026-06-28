@@ -146,89 +146,85 @@ IAM permission `secretsmanager:GetSecretValue`.
 
 ###### To store PagerDuty access credentials in an AWS Secrets Manager secret
 
-1.  Follow the steps through Step 3a in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in
-    the _AWS Secrets Manager User Guide_.
-2.  For Step 3b, for **Key/value pairs**, do the following:
+1. Follow the steps through Step 3a in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in
+   the _AWS Secrets Manager User Guide_.
+2. For Step 3b, for **Key/value pairs**, do the following:
 
-    - Choose the **Plaintext** tab.
-    - Replace the default contents of the box with the following JSON structure:
+   - Choose the **Plaintext** tab.
+   - Replace the default contents of the box with the following JSON structure:
 
-    ```
-    {
-        "pagerDutyToken": "`pagerduty-token`",
-        "pagerDutyServiceRegion": "`pagerduty-region`",
-        "pagerDutyFromEmail": "`pagerduty-email`"
-    }
-    ```
-    - In the JSON sample you pasted, replace the `placeholder values`
-      as follows:
+   ```
+   {
+       "pagerDutyToken": "`pagerduty-token`",
+       "pagerDutyServiceRegion": "`pagerduty-region`",
+       "pagerDutyFromEmail": "`pagerduty-email`"
+   }
+   ```
+   - In the JSON sample you pasted, replace the `placeholder values`
+     as follows:
 
-          + `pagerduty-token`: The value of a General Access REST API Key or a
-           User Token REST API Key from your PagerDuty account.
+     - `pagerduty-token`: The value of a General Access REST API Key or a
+       User Token REST API Key from your PagerDuty account.
 
+     For related information, see [API Access Keys](https://support.pagerduty.com/docs/api-access-keys "https://support.pagerduty.com/docs/api-access-keys") in the
+     _PagerDuty Knowledge Base_.
+     - `pagerduty-region`: The service region of the PagerDuty data
+       center that hosts your PagerDuty subdomain.
 
-          For related information, see [API Access Keys](https://support.pagerduty.com/docs/api-access-keys "https://support.pagerduty.com/docs/api-access-keys") in the
-           *PagerDuty Knowledge Base*.
-          + `pagerduty-region`: The service region of the PagerDuty data
-           center that hosts your PagerDuty subdomain.
+     For related information, see [Service Regions](https://support.pagerduty.com/docs/service-regions "https://support.pagerduty.com/docs/service-regions") in the
+     _PagerDuty Knowledge Base_.
+     - `pagerduty-email`: The valid email address for a user that
+       belongs to your PagerDuty subdomain.
 
+     For related information, see [Manage Users](https://support.pagerduty.com/docs/users "https://support.pagerduty.com/docs/users") in the _PagerDuty Knowledge Base_.
+     The following example shows a completed JSON secret containing the required PagerDuty
+     credentials:
 
-          For related information, see [Service Regions](https://support.pagerduty.com/docs/service-regions "https://support.pagerduty.com/docs/service-regions") in the
-           *PagerDuty Knowledge Base*.
-          + `pagerduty-email`: The valid email address for a user that
-           belongs to your PagerDuty subdomain.
+   ```
+   {
+       "pagerDutyToken": "`y_NbAkKc66ryYEXAMPLE`",
+       "pagerDutyServiceRegion": "`US`",
+       "pagerDutyFromEmail": "`JohnDoe@example.com`"
+   }
+   ```
 
+3. On Step 3c, for **Encryption key**, choose a customer managed key you created that
+   meets the requirements listed under the previous **Prerequisites**
+   section.
+4. On Step 4c, for **Resource permissions**, do the following:
 
-          For related information, see [Manage Users](https://support.pagerduty.com/docs/users "https://support.pagerduty.com/docs/users") in the *PagerDuty Knowledge Base*.
+   - Expand **Resource permissions**.
+   - Choose **Edit permissions**.
+   - Replace the default contents of the policy box with the following JSON structure:
 
-      The following example shows a completed JSON secret containing the required PagerDuty
-      credentials:
+   ```
+   {
+       "Effect": "Allow",
+       "Principal": {
+           "Service": "ssm-incidents.amazonaws.com"
+       },
+       "Action": "secretsmanager:GetSecretValue",
+       "Resource": "*"
+   }
+   ```
+   - Choose **Save**.
 
-    ```
-    {
-        "pagerDutyToken": "`y_NbAkKc66ryYEXAMPLE`",
-        "pagerDutyServiceRegion": "`US`",
-        "pagerDutyFromEmail": "`JohnDoe@example.com`"
-    }
-    ```
+5. On Step 4d, for **Replicate secret**, do the following if you replicated
+   your response plan to more than one AWS Region:
 
-3.  On Step 3c, for **Encryption key**, choose a customer managed key you created that
-    meets the requirements listed under the previous **Prerequisites**
-    section.
-4.  On Step 4c, for **Resource permissions**, do the following:
+   - Expand **Replicate secret**.
+   - For **AWS Region**, select the Region where you replicated your
+     response plan to.
+   - For **Encryption key**, choose a customer managed key you created in, or
+     replicated to, this Region that meets the requirements listed under the **Prerequisites** section.
+   - For each additional AWS Region, choose **Add Region** and select the
+     Region name and customer managed key.
 
-    - Expand **Resource permissions**.
-    - Choose **Edit permissions**.
-    - Replace the default contents of the policy box with the following JSON structure:
-
-    ```
-    {
-        "Effect": "Allow",
-        "Principal": {
-            "Service": "ssm-incidents.amazonaws.com"
-        },
-        "Action": "secretsmanager:GetSecretValue",
-        "Resource": "*"
-    }
-    ```
-    - Choose **Save**.
-
-5.  On Step 4d, for **Replicate secret**, do the following if you replicated
-    your response plan to more than one AWS Region:
-
-    - Expand **Replicate secret**.
-    - For **AWS Region**, select the Region where you replicated your
-      response plan to.
-    - For **Encryption key**, choose a customer managed key you created in, or
-      replicated to, this Region that meets the requirements listed under the **Prerequisites** section.
-    - For each additional AWS Region, choose **Add Region** and select the
-      Region name and customer managed key.
-
-6.  Complete the remaining steps in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in
-    the _AWS Secrets Manager User Guide_.
-    For information about how to add a PagerDuty service to a Incident Manager incident workflow, see
-    [Integrate a PagerDuty service into the response plan](response-plans.md#anchor-pagerduty "response-plans.md#anchor-pagerduty") in
-    the topic [Creating a response plan](response-plans.md#response-plans-create "response-plans.md#response-plans-create").
+6. Complete the remaining steps in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in
+   the _AWS Secrets Manager User Guide_.
+   For information about how to add a PagerDuty service to a Incident Manager incident workflow, see
+   [Integrate a PagerDuty service into the response plan](response-plans.md#anchor-pagerduty "response-plans.md#anchor-pagerduty") in
+   the topic [Creating a response plan](response-plans.md#response-plans-create "response-plans.md#response-plans-create").
 
 **Related information**
 

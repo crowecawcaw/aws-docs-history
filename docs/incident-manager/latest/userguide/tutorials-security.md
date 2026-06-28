@@ -55,10 +55,8 @@ template for created incidents. 18. EventBridge can create the IAM role needed f
     * To use an IAM role that already exists in your account, choose
      **Use existing role**.
 
-19. (Optional) Enter one or more tags for the rule.
-20. Choose **Next**.
-21. Review the details of the rule and choose **Create
-    rule**.
-    Now that you've created this EventBridge rule, security findings that match the attribute
-    values you defined will create incidents in Incident Manager. You can triage, manage,
-    monitor, and create post-incident analysis from these incidents.
+19. (Optional) Enter one or more tags for the rule. 20. Choose **Next**. 21. Review the details of the rule and choose **Create
+rule**.
+Now that you've created this EventBridge rule, security findings that match the attribute
+values you defined will create incidents in Incident Manager. You can triage, manage,
+monitor, and create post-incident analysis from these incidents.

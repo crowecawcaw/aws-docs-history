@@ -169,10 +169,10 @@ override for shifts that occur no more than six months in the future.
      the rotation contact who is on call during the override period.
 
 6. Choose **Create override**.
-   After you create an override, you can identify it by its striped background. When you
-   choose the contact name for an overridden shift, an information box identifies it as an
-   overridden shift. You can choose **Delete override** to remove it and
-   restore the original on-call assignment.
+After you create an override, you can identify it by its striped background. When you
+choose the contact name for an overridden shift, an information box identifies it as an
+overridden shift. You can choose **Delete override** to remove it and
+restore the original on-call assignment.
 
 ## Deleting an on-call schedule
 

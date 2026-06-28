@@ -136,12 +136,9 @@ plan** dropdown list. 15. EventBridge can create the IAM role needed for your ru
     * To use an IAM role that you created before, choose **Use
      existing role**.
 
-16. Choose **Next**.
-17. (Optional) Enter one or more tags for the rule. For more information, see
-    [Amazon EventBridge
-    tags](../../../eventbridge/latest/userguide/eventbridge-tagging.md "../../../eventbridge/latest/userguide/eventbridge-tagging.md") in the _Amazon EventBridge User Guide_.
-18. Choose **Next**.
-19. Review your rule then choose **Create rule**.
+16. Choose **Next**. 17. (Optional) Enter one or more tags for the rule. For more information, see
+[Amazon EventBridge
+tags](../../../eventbridge/latest/userguide/eventbridge-tagging.md "../../../eventbridge/latest/userguide/eventbridge-tagging.md") in the _Amazon EventBridge User Guide_. 18. Choose **Next**. 19. Review your rule then choose **Create rule**.
 
 ### Creating incidents using AWS service events
 
@@ -185,12 +182,9 @@ plan** dropdown list. 15. EventBridge can create the IAM role needed for your ru
     * To use an IAM role that you created before, choose **Use
      existing role**.
 
-16. Choose **Next**.
-17. (Optional) Enter one or more tags for the rule. For more information, see
-    [Amazon EventBridge
-    tags](../../../eventbridge/latest/userguide/eventbridge-tagging.md "../../../eventbridge/latest/userguide/eventbridge-tagging.md") in the _Amazon EventBridge User Guide_.
-18. Choose **Next**.
-19. Review your rule then choose **Create rule**.
+16. Choose **Next**. 17. (Optional) Enter one or more tags for the rule. For more information, see
+[Amazon EventBridge
+tags](../../../eventbridge/latest/userguide/eventbridge-tagging.md "../../../eventbridge/latest/userguide/eventbridge-tagging.md") in the _Amazon EventBridge User Guide_. 18. Choose **Next**. 19. Review your rule then choose **Create rule**.
 
 ## Creating incidents manually
 

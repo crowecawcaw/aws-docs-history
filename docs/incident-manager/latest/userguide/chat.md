@@ -84,8 +84,7 @@ Replace the `placeholder values` as follows:
     * `account-id` is the ID of the AWS account that you are
      working in, such as `111122223333`.
 
-5. Choose **Save changes**.
-6. Repeat the process in each Region included in your replication set.
+5. Choose **Save changes**. 6. Repeat the process in each Region included in your replication set.
 
 ## Task 2: Create a chat channel in Amazon Q Developer in chat applications
 

@@ -230,8 +230,8 @@ Choose from the following:
      the policy won't support other runbooks.
 
 4. For **Runbook service role**, specify the IAM role
-   to use to provide the permissions needed to access and start the
-   workflow for the runbook itself.
+to use to provide the permissions needed to access and start the
+workflow for the runbook itself.
 
 At minimum, the role must allow the
 `ssm:StartAutomationExecution` action for your specific
@@ -263,23 +263,24 @@ Choose from the following:
      existing role to use.
 
 5. Expand **Additional options** and choose one of the
-   following to specify the AWS account where the runbook workflow should
-   run.
+following to specify the AWS account where the runbook workflow should
+run.
 
-   - **Response plan owner's account** –
+    * **Response plan owner's account** –
      Start the runbook workflow in the AWS account that created
      it.
-   - **Impacted account** – Start the
+    * **Impacted account** – Start the
      runbook workflow in the account that began or reported the
      incident.
 
-   Choose **Impacted account** when you use
-   Incident Manager for cross-account scenarios and the runbook needs to
-   access resources in the impacted account to remediate
-   them.
+
+    Choose **Impacted account** when you use
+     Incident Manager for cross-account scenarios and the runbook needs to
+     access resources in the impacted account to remediate
+     them.
 
 6. Continue by optionally [integrating a
-   PagerDuty service into the response plan](#integrations "#integrations").
+PagerDuty service into the response plan](#integrations "#integrations").
 
 ### (Optional) Integrating a PagerDuty service into the response plan
 

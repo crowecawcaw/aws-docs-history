@@ -106,12 +106,9 @@ To engage a contact, you must define an engagement plan.
     3. To add another contact channel, choose **Add engagement**.
 
 7. After defining your engagement plan, choose **Create**. Incident Manager sends
-   an activation code to each of the defined contact channels.
-8. (Optional) To activate the contact channels, enter the activation code that Incident Manager
-   sent to each defined contact channel.
-9. (Optional) To send a new activation code, choose **Send new
-   code**.
-10. Choose **Finish**.
+an activation code to each of the defined contact channels. 8. (Optional) To activate the contact channels, enter the activation code that Incident Manager
+sent to each defined contact channel. 9. (Optional) To send a new activation code, choose **Send new
+code**. 10. Choose **Finish**.
 
 After you define a contact and activate its contact channels, you can add contacts to
 escalation plans to form a chain of escalation. To learn more about escalation plans, see [Creating an escalation plan for responder engagement in Incident Manager](escalation.md "escalation.md"). You can add contacts to a response plan for

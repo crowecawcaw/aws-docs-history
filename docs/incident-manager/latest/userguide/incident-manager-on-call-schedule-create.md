@@ -78,7 +78,7 @@ As you configure your rotation, you can see how the overall schedule looks in a
    on-call schedule** page, for **Rotation
    name**, enter a name that identifies the rotation, such as
    `00:00 - 7:59 Support`, or `Dublin
-Support Group`.
+ Support Group`.
 2. For **Start date**, enter the date when this rotation
    becomes active in `YYYY/MM/DD` format, such as
    `2023/07/14`.
@@ -87,7 +87,7 @@ Support Group`.
    rotation.
 
 You can use any time zone defined by the Internet Assigned Numbers
-Authority (IANA). For example: "America/Los_Angeles", "UTC", "Asia/Seoul".
+Authority (IANA). For example: "America/Los\_Angeles", "UTC", "Asia/Seoul".
 For more information, see the [Time Zone Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones") on the IANA website.
 
 ###### Warning
