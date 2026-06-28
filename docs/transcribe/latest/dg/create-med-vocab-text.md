@@ -103,7 +103,7 @@ list of allowed characters, see [Character set for Amazon Transcribe Medical](ch
   it's output. For example, if the word or phrase is
   `cerebral-autosomal-dominant-arteriopathy-with-subcortical-infarcts-and-leukoencephalopathy`,
   you can specify the display form as `cerebral autosomal dominant
-arteriopathy with subcortical infarcts and leukoencephalopathy`,
+ arteriopathy with subcortical infarcts and leukoencephalopathy`,
   so that the hyphen is not present. You can also specify
   `DisplayAs` as `CADASIL` if you'd like to show the
   acronym instead of the full term in the output.

@@ -32,31 +32,29 @@ alternative results when you configure your job.
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API, specify
   the following.
 
-      1. For `MedicalTranscriptionJobName`, specify a name that
-       is unique in your AWS account.
-      2. For `LanguageCode`, specify the language code that
-       corresponds to the language spoken in your audio file and the
-       language of your vocabulary filter.
-      3. In the `MediaFileUri` parameter of the
-       `Media` object, specify the location of the audio file
-       you want to transcribe.
-      4. For `Specialty`, specify the medical specialty of the
-       clinician speaking in the audio file.
-      5. For `Type`, specify whether you're transcribing a
-       medical conversation or a dictation.
-      6. For `OutputBucketName`, specify the Amazon S3
-       bucket to store the transcription results.
-      7. For the `Settings` object, specify the
-       following.
+  1.  For `MedicalTranscriptionJobName`, specify a name that
+      is unique in your AWS account.
+  2.  For `LanguageCode`, specify the language code that
+      corresponds to the language spoken in your audio file and the
+      language of your vocabulary filter.
+  3.  In the `MediaFileUri` parameter of the
+      `Media` object, specify the location of the audio file
+      you want to transcribe.
+  4.  For `Specialty`, specify the medical specialty of the
+      clinician speaking in the audio file.
+  5.  For `Type`, specify whether you're transcribing a
+      medical conversation or a dictation.
+  6.  For `OutputBucketName`, specify the Amazon S3
+      bucket to store the transcription results.
+  7.  For the `Settings` object, specify the
+      following.
 
-
-      	1. `ShowAlternatives` –
-      	 `true`.
-      	2. `MaxAlternatives` - An integer between 2 and 10
-      	 to indicate the number of alternative transcriptions
-      	 you want in the transcription output.
-
-  The following request uses the AWS SDK for Python (Boto3) to start a transcription job that generates up to two alternative transcriptions.
+      1. `ShowAlternatives` –
+         `true`.
+      2. `MaxAlternatives` - An integer between 2 and 10
+         to indicate the number of alternative transcriptions
+         you want in the transcription output.
+         The following request uses the AWS SDK for Python (Boto3) to start a transcription job that generates up to two alternative transcriptions.
 
 ```
 

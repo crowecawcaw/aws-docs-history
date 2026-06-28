@@ -2,14 +2,14 @@
 
 AWS HealthScribe can use one of the following templates for the clinical note summary. The default is `HISTORY_AND_PHYSICAL`.
 
-- HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation. Examples of sections include Chief Complaint, History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.
+- HISTORY\_AND\_PHYSICAL: Provides summaries for key sections of the clinical documentation. Examples of sections include Chief Complaint, History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.
 - GIRPP: Provides summaries based on the patients progress toward goals. Examples of sections include Goal, Intervention,
   Response, Progress, and Plan.
 - BIRP: Focuses on the patient's behavioral patterns and responses. Examples of sections include Behavior, Intervention, Response, and Plan.
 - SIRP: Emphasizes the situational context of therapy. Examples of sections include Situation, Intervention, Response, and Plan.
 - DAP: Provides a simplified format for clinical documentation. Examples of sections include Data, Assessment, and Plan.
-- BH_SOAP: Behavioral health focused documentation format. Examples of sections include Subjective, Objective, Assessment, and Plan.
-- PH_SOAP: Physical health focused documentation format. Examples of sections include Subjective, Objective, Assessment, and Plan.
+- BH\_SOAP: Behavioral health focused documentation format. Examples of sections include Subjective, Objective, Assessment, and Plan.
+- PH\_SOAP: Physical health focused documentation format. Examples of sections include Subjective, Objective, Assessment, and Plan.
   To specify what template to use, do the following:
 
 - For transcription jobs, specify the template to use in the `NoteTemplate` of the
@@ -35,17 +35,17 @@ For information on how to set up the medical scribe context, see [MedicalScribeC
 
 ###### Topics
 
-- [HISTORY_AND_PHYSICAL template sections](#health-scribe-history-physical-insights "#health-scribe-history-physical-insights")
+- [HISTORY\_AND\_PHYSICAL template sections](#health-scribe-history-physical-insights "#health-scribe-history-physical-insights")
 - [GIRPP template sections](#health-scribe-GIRPP-insights "#health-scribe-GIRPP-insights")
 - [BIRP template sections](#health-scribe-BIRP-insights "#health-scribe-BIRP-insights")
 - [SIRP template sections](#health-scribe-SIRP-insights "#health-scribe-SIRP-insights")
 - [DAP template sections](#health-scribe-DAP-insights "#health-scribe-DAP-insights")
-- [BH_SOAP template sections](#health-scribe-BH-SOAP-insights "#health-scribe-BH-SOAP-insights")
-- [PH_SOAP template sections](#health-scribe-PH-SOAP-insights "#health-scribe-PH-SOAP-insights")
+- [BH\_SOAP template sections](#health-scribe-BH-SOAP-insights "#health-scribe-BH-SOAP-insights")
+- [PH\_SOAP template sections](#health-scribe-PH-SOAP-insights "#health-scribe-PH-SOAP-insights")
 
-## HISTORY_AND_PHYSICAL template sections
+## HISTORY\_AND\_PHYSICAL template sections
 
-The HISTORY_AND_PHYSICAL insights template includes the following sections.
+The HISTORY\_AND\_PHYSICAL insights template includes the following sections.
 
 | Section                    | Description                                                                                                                                                     |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,10 +55,10 @@ The HISTORY_AND_PHYSICAL insights template includes the following sections.
 | PAST MEDICAL HISTORY       | Details a patient's previous medical conditions, surgeries, and treatments.                                                                                     |
 | ASSESSMENT                 | Notes that provide information on clinician's assessment of patient's health.                                                                                   |
 | PLAN                       | Notes that reference any medical treatments, lifestyle adjustments, and further appointments.                                                                   |
-| PHYSICAL_EXAMINATION       | Documentation of clinician's findings from physical examination of patient's body systems and vital signs.                                                      |
-| PAST_FAMILY_HISTORY        | Information about health conditions that run in the patient's family.                                                                                           |
-| PAST_SOCIAL_HISTORY        | Details about patient's social life, habits, occupation, and environmental factors affecting health.                                                            |
-| DIAGNOSTIC_TESTING         | Results and interpretation of laboratory tests, imaging studies, and other diagnostic procedures.                                                               |
+| PHYSICAL\_EXAMINATION      | Documentation of clinician's findings from physical examination of patient's body systems and vital signs.                                                      |
+| PAST\_FAMILY\_HISTORY      | Information about health conditions that run in the patient's family.                                                                                           |
+| PAST\_SOCIAL\_HISTORY      | Details about patient's social life, habits, occupation, and environmental factors affecting health.                                                            |
+| DIAGNOSTIC\_TESTING        | Results and interpretation of laboratory tests, imaging studies, and other diagnostic procedures.                                                               |
 
 Each sentence present in the `Summary` includes `EvidenceLinks` that provide the
 `SegmentId` for the relevant dialogues in the
@@ -114,9 +114,9 @@ The DAP insights template includes the following sections.
 | Assessment | The clinician's diagnosis of the patient's situation.                                             |
 | Plan       | The next steps in treatment, including future interventions, homework assignments, and referrals. |
 
-## BH_SOAP template sections
+## BH\_SOAP template sections
 
-The BH_SOAP insights template includes the following sections.
+The BH\_SOAP insights template includes the following sections.
 
 | Section    | Description                                                                                       |
 | ---------- | ------------------------------------------------------------------------------------------------- |
@@ -125,9 +125,9 @@ The BH_SOAP insights template includes the following sections.
 | Assessment | The clinician's diagnosis of the patient's situation.                                             |
 | Plan       | The next steps in treatment, including future interventions, homework assignments, and referrals. |
 
-## PH_SOAP template sections
+## PH\_SOAP template sections
 
-The PH_SOAP insights template includes the following sections.
+The PH\_SOAP insights template includes the following sections.
 
 | Section    | Description                                                                                       |
 | ---------- | ------------------------------------------------------------------------------------------------- |

@@ -50,7 +50,7 @@ To partition speakers in a batch transcription, see the following examples:
    **Create job** (top right). This opens the **Specify job
    details** page.
 
-![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](images/console-batch-job-details-1.png) 3. Fill in any fields you want to include on the **Specify job details**
+![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](/images/transcribe/latest/dg/images/console-batch-job-details-1.png) 3. Fill in any fields you want to include on the **Specify job details**
 page, then select **Next**. This takes you to the
 **Configure job - _optional_** page.
 
@@ -98,7 +98,7 @@ The file _my-first-transcription-job.json_ contains the following request body.
 ```
 
 This example uses the AWS SDK for Python (Boto3) to identify channels using the
-[start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more
+[start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more
 information, see [StartTranscriptionJob](../APIReference/API_StartTranscriptionJob.md "../APIReference/API_StartTranscriptionJob.md").
 
 ```

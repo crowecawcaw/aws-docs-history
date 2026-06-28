@@ -32,10 +32,9 @@ Features supported with subtitles:
   subtitle segment, dashes are used to distinguish each speaker. This applies to both WebVTT
   and SubRip formats; for example:
 
-      + -- Text spoken by Person 1
-      + -- Text spoken by Person 2
-
-  Subtitle files are stored in the same Amazon S3 location as your transcription output.
+  - -- Text spoken by Person 1
+  - -- Text spoken by Person 2
+    Subtitle files are stored in the same Amazon S3 location as your transcription output.
 
 For a video walkthrough of creating subtitles, see:
 
@@ -103,7 +102,7 @@ The file _my-first-subtitle-job.json_ contains the following request body.
 
 This example uses the AWS SDK for Python (Boto3) to add subtitles using the
 `Subtitles` argument for the
-[start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more
+[start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more
 information, see [`StartTranscriptionJob`](../APIReference/API_StartTranscriptionJob.md "../APIReference/API_StartTranscriptionJob.md") and
 [`Subtitles`](../APIReference/API_Subtitles.md "../APIReference/API_Subtitles.md").
 

@@ -90,7 +90,7 @@ aws transcribe get-vocabulary \
 
 This example uses the AWS SDK for Python (Boto3) to create a custom vocabulary from a list
 using the
-[create_vocabulary](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary") method. For more
+[create\_vocabulary](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary") method. For more
 information, see [`CreateVocabulary`](../APIReference/API_CreateVocabulary.md "../APIReference/API_CreateVocabulary.md").
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and

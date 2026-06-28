@@ -187,8 +187,8 @@ Here's what generative call summarization looks like in your transcription outpu
 
 The analytics job will complete without summary generation in the following cases:
 
-- Insufficient conversation content: The conversation must include at least one turn from both the agent and the customer. When there is insufficient conversation content, the service will return the error code INSUFFICIENT_CONVERSATION_CONTENT.
-- Safety guardrails: The conversation must meet safety guardrails in place to ensure appropriate summary is generated. When these guardrails are not met, the service will return the error code FAILED_SAFETY_GUIDELINES.
+- Insufficient conversation content: The conversation must include at least one turn from both the agent and the customer. When there is insufficient conversation content, the service will return the error code INSUFFICIENT\_CONVERSATION\_CONTENT.
+- Safety guardrails: The conversation must meet safety guardrails in place to ensure appropriate summary is generated. When these guardrails are not met, the service will return the error code FAILED\_SAFETY\_GUIDELINES.
 
 The error code can be found in `Skipped` section within `AnalyticsJobDetails` in the output. You may also find the error reason in `CallAnalyticsJobDetails` in the [`GetCallAnalyticsJob`](../APIReference/API_GetCallAnalyticsJob.md "../APIReference/API_GetCallAnalyticsJob.md") API Response.
 

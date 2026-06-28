@@ -143,7 +143,7 @@ Here, you have three options:
     ![Amazon Transcribe console screenshot: the 'create and import vocabulary' page.](images/vocab-create-console-manual.png)
 
 4. You can edit your vocabulary the **View and edit vocabulary** pane. To
-   make changes, click on the entry you want to modify.
+make changes, click on the entry you want to modify.
 
 ![Amazon Transcribe console screenshot: the 'create and edit vocabulary' pane.](images/vocab-create-edit2.png)
 
@@ -212,7 +212,7 @@ aws transcribe get-vocabulary \
 
 This example uses the AWS SDK for Python (Boto3) to create a custom vocabulary from a table
 using the
-[create_vocabulary](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary") method. For more
+[create\_vocabulary](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary") method. For more
 information, see [`CreateVocabulary`](../APIReference/API_CreateVocabulary.md "../APIReference/API_CreateVocabulary.md").
 
 To use an existing custom vocabulary in a transcription job, set the

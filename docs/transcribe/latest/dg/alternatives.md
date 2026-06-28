@@ -117,7 +117,7 @@ see the following for examples:
    **Create job** (top right). This opens the **Specify job
    details** page.
 
-![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](/images/transcribe/latest/dg/images/console-batch-job-details-1.png) 3. Fill in any fields you want to include on the **Specify job details**
+![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](images/console-batch-job-details-1.png) 3. Fill in any fields you want to include on the **Specify job details**
 page, then select **Next**. This takes you to the
 **Configure job - _optional_** page.
 
@@ -171,7 +171,7 @@ The file _my-first-alt-transcription-job.json_ contains the following request bo
 
 The following example uses the AWS SDK for Python (Boto3) to request alternative transcriptions by
 using the `ShowAlternatives` argument for the
-[start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more information,
+[start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more information,
 see [`StartTranscriptionJob`](../APIReference/API_StartTranscriptionJob.md "../APIReference/API_StartTranscriptionJob.md") and [`ShowAlternatives`](../APIReference/API_Settings.md#transcribe-Type-Settings-ShowAlternatives "../APIReference/API_Settings.md#transcribe-Type-Settings-ShowAlternatives").
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and

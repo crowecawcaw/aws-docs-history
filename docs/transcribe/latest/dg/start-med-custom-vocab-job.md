@@ -22,29 +22,27 @@ accuracy.
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API,
   specify the following.
 
-      1. For `MedicalTranscriptionJobName`, specify a name
-       that is unique in your AWS account.
-      2. For `LanguageCode`, specify the language code that
-       corresponds to the language spoken in your audio file and the
-       language of your vocabulary filter.
-      3. For the `MediaFileUri` parameter of the
-       `Media` object, specify the name of the audio
-       file that you want to transcribe.
-      4. For `Specialty`, specify the medical specialty of
-       the clinician speaking in the audio file.
-      5. For `Type`, specify whether the audio file is a
-       conversation or a dictation.
-      6. For `OutputBucketName`, specify the Amazon S3
-       bucket to store the transcription results.
-      7. For the `Settings` object, specify the
-       following.
+  1.  For `MedicalTranscriptionJobName`, specify a name
+      that is unique in your AWS account.
+  2.  For `LanguageCode`, specify the language code that
+      corresponds to the language spoken in your audio file and the
+      language of your vocabulary filter.
+  3.  For the `MediaFileUri` parameter of the
+      `Media` object, specify the name of the audio
+      file that you want to transcribe.
+  4.  For `Specialty`, specify the medical specialty of
+      the clinician speaking in the audio file.
+  5.  For `Type`, specify whether the audio file is a
+      conversation or a dictation.
+  6.  For `OutputBucketName`, specify the Amazon S3
+      bucket to store the transcription results.
+  7.  For the `Settings` object, specify the
+      following.
 
-
-      	1. `VocabularyName` – the name of your
-      	 custom vocabulary.
-
-  The following request uses the AWS SDK for Python (Boto3) to start a batch transcription
-  job with a custom vocabulary.
+      1. `VocabularyName` – the name of your
+         custom vocabulary.
+         The following request uses the AWS SDK for Python (Boto3) to start a batch transcription
+         job with a custom vocabulary.
 
 ```
 

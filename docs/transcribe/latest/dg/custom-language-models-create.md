@@ -130,7 +130,7 @@ The file _my-first-language-model.json_ contains the following request body.
 ```
 
 This example uses the AWS SDK for Python (Boto3) to create a CLM using the
-[create_language_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_language_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_language_model") method. For more
+[create\_language\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_language_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_language_model") method. For more
 information, see [`CreateLanguageModel`](../APIReference/API_CreateLanguageModel.md "../APIReference/API_CreateLanguageModel.md") and
 [`LanguageModel`](../APIReference/API_LanguageModel.md "../APIReference/API_LanguageModel.md").
 

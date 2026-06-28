@@ -32,10 +32,10 @@ Supported media types differ between batch transcriptions and streaming
 transcriptions, though lossless formats are recommended for both. See the following
 table for details:
 
-|                     | Batch                                                                  | Streaming                                                                                           |
-| ------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Supported formats   | • AMR<br>• FLAC<br>• M4A<br>• MP3<br>• MP4<br>• Ogg<br>• WebM<br>• WAV | • FLAC<br>• Ogg Opus<br>• PCM encoding                                                              |
-| Recommended formats | • FLAC<br>• WAV with PCM 16-bit encoding                               | • FLAC<br>• PCM signed 16-bit little-endian audio (note that this does<br>\*_not_<br>• include WAV) |
+|                     | Batch                                                                  | Streaming                                                                                          |
+| ------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Supported formats   | • AMR<br>• FLAC<br>• M4A<br>• MP3<br>• MP4<br>• Ogg<br>• WebM<br>• WAV | • FLAC<br>• Ogg Opus<br>• PCM encoding                                                             |
+| Recommended formats | • FLAC<br>• WAV with PCM 16-bit encoding                               | • FLAC<br>• PCM signed 16-bit little-endian audio (note that this does<br>*_not_<br>• include WAV) |
 
 For best results, use a lossless format, such as FLAC or WAV with PCM 16-bit encoding.
 

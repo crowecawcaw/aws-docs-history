@@ -2,22 +2,21 @@
 
 There are two options for creating a custom vocabulary filter:
 
-1.  Save a list of line-separated words as a plain text file with UTF-8 encoding.
+1. Save a list of line-separated words as a plain text file with UTF-8 encoding.
 
-    - You can use this approach with the AWS Management Console, AWS CLI,
-      or AWS SDKs.
-    - If using the AWS Management Console, you can provide a local path or an
-      Amazon S3 URI for your custom vocabulary file.
-    - If using the AWS CLI or AWS SDKs, you must upload
-      your custom vocabulary file to an Amazon S3 bucket and include the Amazon S3 URI in
-      your request.
+   - You can use this approach with the AWS Management Console, AWS CLI,
+     or AWS SDKs.
+   - If using the AWS Management Console, you can provide a local path or an
+     Amazon S3 URI for your custom vocabulary file.
+   - If using the AWS CLI or AWS SDKs, you must upload
+     your custom vocabulary file to an Amazon S3 bucket and include the Amazon S3 URI in
+     your request.
 
-2.  Include a list of comma-separated words directly in your API request.
+2. Include a list of comma-separated words directly in your API request.
 
-        * You can use this approach with the AWS CLI or AWS
-         SDKs using the [`Words`](../APIReference/API_CreateVocabularyFilter.md#transcribe-CreateVocabularyFilter-request-Words "../APIReference/API_CreateVocabularyFilter.md#transcribe-CreateVocabularyFilter-request-Words") parameter.
-
-    For examples of each method, refer to [Creating custom vocabulary filters](#vocabulary-filtering-create-examples "#vocabulary-filtering-create-examples")
+   - You can use this approach with the AWS CLI or AWS
+     SDKs using the [`Words`](../APIReference/API_CreateVocabularyFilter.md#transcribe-CreateVocabularyFilter-request-Words "../APIReference/API_CreateVocabularyFilter.md#transcribe-CreateVocabularyFilter-request-Words") parameter.
+     For examples of each method, refer to [Creating custom vocabulary filters](#vocabulary-filtering-create-examples "#vocabulary-filtering-create-examples")
 
 Things to note when creating your custom vocabulary filter:
 
@@ -129,7 +128,7 @@ If you include `VocabularyFilterFileUri` in your request, you cannot use
 `Words`; you must choose one or the other.
 
 This example uses the AWS SDK for Python (Boto3) to create a custom vocabulary filter using the
-[create_vocabulary_filter](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary_filter "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary_filter") method. For more
+[create\_vocabulary\_filter](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary_filter "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary_filter") method. For more
 information, see [`CreateVocabularyFilter`](../APIReference/API_CreateVocabularyFilter.md "../APIReference/API_CreateVocabularyFilter.md").
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and

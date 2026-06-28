@@ -27,17 +27,17 @@ Amazon Transcribe Medical supports sample rates of 16,000 Hz or higher.
 For analysis of your transcripts, you can use other AWS services, such as
 [Amazon Comprehend Medical](../../../comprehend/latest/dg/comprehend-medical.md "../../../comprehend/latest/dg/comprehend-medical.md").
 
-| Supported specialties | Specialty                          | Sub-specialty    | Audio input |
-| --------------------- | ---------------------------------- | ---------------- | ----------- |
-| Cardiology            | none                               | streaming only   |
-| Neurology             | none                               | streaming only   |
-| Oncology              | none                               | streaming only   |
-| Primary Care          | Family Medicine                    | batch, streaming |
-| Primary Care          | Internal Medicine                  | batch, streaming |
-| Primary Care          | Obstetrics and Gynecology (OB-GYN) | batch, streaming |
-| Primary Care          | Pediatrics                         | batch, streaming |
-| Radiology             | none                               | streaming only   |
-| Urology               | none                               | streaming only   |
+Supported specialties| Specialty | Sub-specialty | Audio input |
+| --- | --- | --- |
+| Cardiology | none | streaming only |
+| Neurology | none | streaming only |
+| Oncology | none | streaming only |
+| Primary Care | Family Medicine | batch, streaming |
+| Primary Care | Internal Medicine | batch, streaming |
+| Primary Care | Obstetrics and Gynecology (OB-GYN) | batch, streaming |
+| Primary Care | Pediatrics | batch, streaming |
+| Radiology | none | streaming only |
+| Urology | none | streaming only |
 
 ## Region availability and quotas
 

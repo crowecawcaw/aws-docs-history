@@ -55,7 +55,7 @@ The file `my-first-medical-scribe-job.json` contains the following request body.
 
 ```
 
-The following example uses the AWS SDK for Python (Boto3) to make a [start_medical_scribe_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_medical_scribe_job.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_medical_scribe_job.html") request. For more information, see [StartMedicalScribeJob](../APIReference/API_StartMedicalScribeJob.md "../APIReference/API_StartMedicalScribeJob.md").
+The following example uses the AWS SDK for Python (Boto3) to make a [start\_medical\_scribe\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_medical_scribe_job.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_medical_scribe_job.html") request. For more information, see [StartMedicalScribeJob](../APIReference/API_StartMedicalScribeJob.md "../APIReference/API_StartMedicalScribeJob.md").
 
 ```
 

@@ -101,12 +101,11 @@ clinical documentation file, with summaries and evidence links. For more informa
 - **Transcription jobs** – With transcription jobs, AWS HealthScribe analyzes completed medical consultation
   media files from an Amazon S3 bucket. The following are API operations specific to AWS HealthScribe transcription jobs.
 
-      + [StartMedicalScribeJob](../APIReference/API_StartMedicalScribeJob.md "../APIReference/API_StartMedicalScribeJob.md")
-      + [ListMedicalScribeJobs](../APIReference/API_ListMedicalScribeJobs.md "../APIReference/API_ListMedicalScribeJobs.md")
-      + [GetMedicalScribeJob](../APIReference/API_GetMedicalScribeJob.md "../APIReference/API_GetMedicalScribeJob.md")
-      + [DeleteMedicalScribeJob](../APIReference/API_DeleteMedicalScribeJob.md "../APIReference/API_DeleteMedicalScribeJob.md")
-
-  For more information, including code examples, see [AWS HealthScribe transcription jobs](health-scribe-job.md "health-scribe-job.md").
+  - [StartMedicalScribeJob](../APIReference/API_StartMedicalScribeJob.md "../APIReference/API_StartMedicalScribeJob.md")
+  - [ListMedicalScribeJobs](../APIReference/API_ListMedicalScribeJobs.md "../APIReference/API_ListMedicalScribeJobs.md")
+  - [GetMedicalScribeJob](../APIReference/API_GetMedicalScribeJob.md "../APIReference/API_GetMedicalScribeJob.md")
+  - [DeleteMedicalScribeJob](../APIReference/API_DeleteMedicalScribeJob.md "../APIReference/API_DeleteMedicalScribeJob.md")
+    For more information, including code examples, see [AWS HealthScribe transcription jobs](health-scribe-job.md "health-scribe-job.md").
 
 - **Streaming** – AWS HealthScribe streaming is a real-time HTTP2 based bi-directional
   service that accepts audio stream on one channel and vends an audio transcription on the other channel.

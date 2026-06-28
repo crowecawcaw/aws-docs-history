@@ -139,7 +139,7 @@ body.
 
 This example uses the AWS SDK for Python (Boto3) to create a category using the
 `CategoryName` and `Rules` arguments for the
-[create_call_analytics_category](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category")
+[create\_call\_analytics\_category](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category")
 method. For more information, see [`CreateCallAnalyticsCategory`](../APIReference/API_CreateCallAnalyticsCategory.md "../APIReference/API_CreateCallAnalyticsCategory.md"),
 [`CategoryProperties`](../APIReference/API_CategoryProperties.md "../APIReference/API_CategoryProperties.md"), and
 [`Rule`](../APIReference/API_Rule.md "../APIReference/API_Rule.md").

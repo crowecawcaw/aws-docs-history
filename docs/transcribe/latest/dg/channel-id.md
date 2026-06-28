@@ -116,7 +116,7 @@ The file _my-first-transcription-job.json_ contains the following request body.
 ```
 
 This example uses the AWS SDK for Python (Boto3) to identify channels using the
-[start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more
+[start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more
 information, see [StartTranscriptionJob](../APIReference/API_StartTranscriptionJob.md "../APIReference/API_StartTranscriptionJob.md").
 
 ```

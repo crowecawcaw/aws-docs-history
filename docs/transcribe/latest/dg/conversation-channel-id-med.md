@@ -55,19 +55,18 @@ in the AWS Management Console.
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API,
   specify the following.
 
-      1. For `TranscriptionJobName`, specify a name
-       unique to your AWS account.
-      2. For `LanguageCode`, specify the language code
-       that corresponds to the language spoken in the audio file.
-       The valid value is `en-US`.
-      3. For the `MediaFileUri` parameter of the
-       `Media` object, specify the name of the media
-       file that you want to transcribe.
-      4. For the `Settings` object, set
-       `ChannelIdentification` to
-       `true`.
-
-  The following is an example request using the AWS SDK for Python (Boto3).
+  1.  For `TranscriptionJobName`, specify a name
+      unique to your AWS account.
+  2.  For `LanguageCode`, specify the language code
+      that corresponds to the language spoken in the audio file.
+      The valid value is `en-US`.
+  3.  For the `MediaFileUri` parameter of the
+      `Media` object, specify the name of the media
+      file that you want to transcribe.
+  4.  For the `Settings` object, set
+      `ChannelIdentification` to
+      `true`.
+      The following is an example request using the AWS SDK for Python (Boto3).
 
 ```
 

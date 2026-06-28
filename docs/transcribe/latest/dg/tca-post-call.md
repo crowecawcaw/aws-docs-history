@@ -41,16 +41,15 @@ analytics insights](call-analytics-streaming.md#call-analytics-insights-streamin
 - If redaction is enabled **with** the unredacted option
   (`redacted_and_unredacted`), your output files are:
 
-      1. A redacted transcript
-      2. A redacted audio file
-      3. An unredacted transcript
-      4. An unredacted audio file
-
-  Note that if you enable post-call analytics ([`PostCallAnalyticsSettings`](../APIReference/API_streaming_PostCallAnalyticsSettings.md "../APIReference/API_streaming_PostCallAnalyticsSettings.md"))
-  with your request, and you're using `FLAC` or `OPUS-OGG` media, you
-  **do not** get `loudnessScore` in your transcript and no audio
-  recordings of your stream are created. Transcribe may also not be able to provide post-call analytics for
-  long-running audio streams lasting longer than 90 minutes.
+  1.  A redacted transcript
+  2.  A redacted audio file
+  3.  An unredacted transcript
+  4.  An unredacted audio file
+      Note that if you enable post-call analytics ([`PostCallAnalyticsSettings`](../APIReference/API_streaming_PostCallAnalyticsSettings.md "../APIReference/API_streaming_PostCallAnalyticsSettings.md"))
+      with your request, and you're using `FLAC` or `OPUS-OGG` media, you
+      **do not** get `loudnessScore` in your transcript and no audio
+      recordings of your stream are created. Transcribe may also not be able to provide post-call analytics for
+      long-running audio streams lasting longer than 90 minutes.
 
 For more information on the insights available with post-call analytics for audio streams, refer to
 the [post-call analytics insights](call-analytics-batch.md#call-analytics-insights-batch "call-analytics-batch.md#call-analytics-insights-batch")

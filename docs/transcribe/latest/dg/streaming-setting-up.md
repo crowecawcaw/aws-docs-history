@@ -98,46 +98,46 @@ data are raw bytes.
 UklGRjzxPQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YVTwPQAAAAAAAAAAAAAAAAD//wIA/f8EAA==
 ```
 
-4.  Create an audio message that contains your audio data.
+4. Create an audio message that contains your audio data.
 
-    1. Your audio message data frame contains event-encoding headers that
-       include the current date and a signature for the audio chunk and the audio
-       event.
+   1. Your audio message data frame contains event-encoding headers that
+      include the current date and a signature for the audio chunk and the audio
+      event.
 
-    | Header name byte length | Header name (string) | Header value type | Value string byte length | Value               |
-    | ----------------------- | -------------------- | ----------------- | ------------------------ | ------------------- |
-    | 16                      | :chunk-signature     | 6                 | varies                   | generated signature |
-    | 5                       | :date                | 8                 | 8                        | timestamp           |
+   | Header name byte length | Header name (string) | Header value type | Value string byte length | Value               |
+   | ----------------------- | -------------------- | ----------------- | ------------------------ | ------------------- |
+   | 16                      | :chunk-signature     | 6                 | varies                   | generated signature |
+   | 5                       | :date                | 8                 | 8                        | timestamp           |
 
-    Binary data in this request are base64-encoded. In an actual request, data
-    are raw bytes.
+   Binary data in this request are base64-encoded. In an actual request, data
+   are raw bytes.
 
-    ```
-    :date: 2019-01-29T01:56:17.291Z
-    :chunk-signature: `signature`
+   ```
+   :date: 2019-01-29T01:56:17.291Z
+   :chunk-signature: `signature`
 
-    AAAA0gAAAIKVoRFcTTcjb250ZW50LXR5cGUHABhhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0LOmV2ZW50LXR5
-    cGUHAApBdWRpb0V2ZW50DTptZXNzYWdlLXR5cGUHAAVldmVudAxDb256ZW50LVR5cGUHABphcHBsaWNhdGlv
-    bi94LWFtei1qc29uLTEuMVJJRkY88T0AV0FWRWZtdCAQAAAAAQABAIA+AAAAfQAAAgAQAGRhdGFU8D0AAAAA
-    AAAAAAAAAAAA//8CAP3/BAC7QLFf
-    ```
-    2. Construct a string to sign, as outlined in [Create a string to sign for Signature
-       Version 4](../../../general/latest/gr/sigv4-create-string-to-sign.md "../../../general/latest/gr/sigv4-create-string-to-sign.md"). Your string follows this format:
+   AAAA0gAAAIKVoRFcTTcjb250ZW50LXR5cGUHABhhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0LOmV2ZW50LXR5
+   cGUHAApBdWRpb0V2ZW50DTptZXNzYWdlLXR5cGUHAAVldmVudAxDb256ZW50LVR5cGUHABphcHBsaWNhdGlv
+   bi94LWFtei1qc29uLTEuMVJJRkY88T0AV0FWRWZtdCAQAAAAAQABAIA+AAAAfQAAAgAQAGRhdGFU8D0AAAAA
+   AAAAAAAAAAAA//8CAP3/BAC7QLFf
+   ```
+   2. Construct a string to sign, as outlined in [Create a string to sign for Signature
+      Version 4](../../../general/latest/gr/sigv4-create-string-to-sign.md "../../../general/latest/gr/sigv4-create-string-to-sign.md"). Your string follows this format:
 
-    ```
-    String stringToSign =
-    "AWS4-HMAC-SHA256" +
-    "\n" +
-    `DateTime` +
-    "\n" +
-    `Keypath` +
-    "\n" +
-    Hex(`priorSignature`) +
-    "\n" +
-    HexHash(`nonSignatureHeaders`) +
-    "\n" +
-    HexHash(`payload`);
-    ```
+   ```
+   String stringToSign =
+   "AWS4-HMAC-SHA256" +
+   "\n" +
+   `DateTime` +
+   "\n" +
+   `Keypath` +
+   "\n" +
+   Hex(`priorSignature`) +
+   "\n" +
+   HexHash(`nonSignatureHeaders`) +
+   "\n" +
+   HexHash(`payload`);
+   ```
 
         * **DateTime**: The date and time the signature is created. The format
          is YYYYMMDDTHHMMSSZ, where YYYY=year, MM=month, DD=day, HH=hour, MM=minute,
@@ -157,20 +157,21 @@ UklGRjzxPQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YVTwPQAAAAAAAAAAAAAAAAD//wIA
          string.
         * **payload**: The byte buffer containing the audio event
          data.
-    3. Derive a signing key from your AWS secret access key and use it to sign the
-       `stringToSign`. For a greater degree of protection, the derived key is specific
-       to the date, service, and AWS Region. For more information, see
-       [Calculate the signature for
-       AWSSignature Version 4](../../../general/latest/gr/sigv4-calculate-signature.md "../../../general/latest/gr/sigv4-calculate-signature.md").
 
-    Make sure you implement the `GetSignatureKey` function to
-    derive your signing key. If you have not yet derived a signing key, refer to
-    [Examples
-    of how to derive a signing key for Signature Version 4](../../../general/latest/gr/signature-v4-examples.md "../../../general/latest/gr/signature-v4-examples.md").
+   3. Derive a signing key from your AWS secret access key and use it to sign the
+   `stringToSign`. For a greater degree of protection, the derived key is specific
+   to the date, service, and AWS Region. For more information, see
+   [Calculate the signature for
+   AWSSignature Version 4](../../../general/latest/gr/sigv4-calculate-signature.md "../../../general/latest/gr/sigv4-calculate-signature.md").
 
-    ```
-    String signature = HMACSHA256(derivedSigningKey, stringToSign);
-    ```
+   Make sure you implement the `GetSignatureKey` function to
+   derive your signing key. If you have not yet derived a signing key, refer to
+   [Examples
+   of how to derive a signing key for Signature Version 4](../../../general/latest/gr/signature-v4-examples.md "../../../general/latest/gr/signature-v4-examples.md").
+
+   ```
+   String signature = HMACSHA256(derivedSigningKey, stringToSign);
+   ```
 
         * **HMACSHA256**: A function that creates a signature using
          the SHA-256 hash function.
@@ -179,13 +180,13 @@ UklGRjzxPQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YVTwPQAAAAAAAAAAAAAAAAD//wIA
         * **stringToSign**: The string you calculated for the data
          frame.
 
-    After you've calculated the signature for the data frame, construct a byte buffer
-    containing the date, signature, and audio event payload. Send the byte array to
-    Amazon Transcribe for transcription.
+   After you've calculated the signature for the data frame, construct a byte buffer
+   containing the date, signature, and audio event payload. Send the byte array to
+   Amazon Transcribe for transcription.
 
-5.  To indicate the audio stream is complete, send an end frame (an empty data frame)
-    that contains only the date and signature. You construct this end frame the same way
-    that you construct a data frame.
+5. To indicate the audio stream is complete, send an end frame (an empty data frame)
+   that contains only the date and signature. You construct this end frame the same way
+   that you construct a data frame.
 
 Amazon Transcribe responds with a stream of transcription events, sent to your application.
 This response is event stream encoded. It contains the standard prelude and the following
@@ -430,9 +431,9 @@ refer to the following steps. Examples are in pseudocode.
     ```
 
 3. Create the string to sign, which contains meta information about your request. You use
-   the string to sign in the next step when you calculate the request signature. For more
-   information, see [Create a String to Sign for Signature
-   Version 4](../../../general/latest/gr/sigv4-create-string-to-sign.md "../../../general/latest/gr/sigv4-create-string-to-sign.md").
+the string to sign in the next step when you calculate the request signature. For more
+information, see [Create a String to Sign for Signature
+Version 4](../../../general/latest/gr/sigv4-create-string-to-sign.md "../../../general/latest/gr/sigv4-create-string-to-sign.md").
 
 ```
 string_to_sign=algorithm + "\n"

@@ -34,18 +34,17 @@ of the text file containing your words or phrases.
 - For the [`StartTranscriptionJob`](../APIReference/API_StartTranscriptionJob.md "../APIReference/API_StartTranscriptionJob.md") API, specify the
   following.
 
-      1. For `LanguageCode`, specify
-       `en-US`.
-      2. For `VocabularyFileUri`, specify the Amazon S3 location
-       of the text file that you use to define your custom
-       vocabulary.
-      3. For `VocabularyName`, specify a name for your
-       custom vocabulary. The name you specify must be unique within
-       your AWS account.
-
-  To see the processing status of your custom vocabulary, use the
-  [`GetMedicalVocabulary`](../APIReference/API_GetMedicalVocabulary.md "../APIReference/API_GetMedicalVocabulary.md")
-  API.
+  1.  For `LanguageCode`, specify
+      `en-US`.
+  2.  For `VocabularyFileUri`, specify the Amazon S3 location
+      of the text file that you use to define your custom
+      vocabulary.
+  3.  For `VocabularyName`, specify a name for your
+      custom vocabulary. The name you specify must be unique within
+      your AWS account.
+      To see the processing status of your custom vocabulary, use the
+      [`GetMedicalVocabulary`](../APIReference/API_GetMedicalVocabulary.md "../APIReference/API_GetMedicalVocabulary.md")
+      API.
 
 The following is an example request using the AWS SDK for Python (Boto3) to create a custom
 vocabulary.

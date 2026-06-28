@@ -42,15 +42,14 @@ PHI:
 
 - Other PHI:
 
-      + Web Uniform Resource Location
-       (URL)
-      + Internet Protocol (IP) address numbers
-
-  Amazon Transcribe Medical is a Health Insurance Portability and Accountability Act of 1996 (HIPAA) eligible
-  service. For more information, see [Amazon Transcribe Medical](transcribe-medical.md "transcribe-medical.md"). For information about identifying PHI in an
-  audio file, see [Identifying PHI in an audio file](phi-id-batch.md "phi-id-batch.md"). For information
-  about identifying PHI in a stream, see
-  [Identifying PHI in a real-time stream](phi-id-stream.md "phi-id-stream.md").
+  - Web Uniform Resource Location
+    (URL)
+  - Internet Protocol (IP) address numbers
+    Amazon Transcribe Medical is a Health Insurance Portability and Accountability Act of 1996 (HIPAA) eligible
+    service. For more information, see [Amazon Transcribe Medical](transcribe-medical.md "transcribe-medical.md"). For information about identifying PHI in an
+    audio file, see [Identifying PHI in an audio file](phi-id-batch.md "phi-id-batch.md"). For information
+    about identifying PHI in a stream, see
+    [Identifying PHI in a real-time stream](phi-id-stream.md "phi-id-stream.md").
 
 ###### Topics
 
