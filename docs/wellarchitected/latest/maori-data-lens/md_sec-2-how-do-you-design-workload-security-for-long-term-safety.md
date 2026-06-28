@@ -1,4 +1,4 @@
-# MD_SEC 2: How do you design workload security for long-term safety?
+# MD\_SEC 2: How do you design workload security for long-term safety?
 
 Certain Māori data may need to be available for generations to come. Consult with Māori
 customers and advisers about what data retention policies they recommend according to the
@@ -16,7 +16,7 @@ always an available backup, no matter the circumstances. Where irreplaceable dig
 identified, it is important to consider offline replication in addition to the appropriate
 data protection and resilience controls.
 
-- **MD_SEC02-BP01: Understand data protection options available through
+- **MD\_SEC02-BP01: Understand data protection options available through
   your provider to protect data at the level of control your customer wants.**
   Customers control how they configure their environments and secure their content,
   including whether they encrypt their content (at rest and in transit), and what other
@@ -30,7 +30,7 @@ data protection and resilience controls.
   and choose a solution that meets your requirements. Choose a cloud provider that offers
   contractual restrictions on their access to your data and operational restrictions. AWS,
   for example, is one of those cloud providers who offers both.
-- **MD_SEC02-BP02: Understand what encryption options are available to
+- **MD\_SEC02-BP02: Understand what encryption options are available to
   protect your data at rest and in transit.** Encryption of data at rest is a
   recommended best practice for protecting your data from unauthorised access. AWS
   provides several options for data encryption. One option is to have AWS create and
@@ -40,7 +40,7 @@ data protection and resilience controls.
   control over the key material, the rotation policy, and the permissions that define who
   can use or manage the key. AWS KMS is designed so that no one, not even an AWS employee,
   can retrieve your plaintext KMS keys from the service.
-- **MD_SEC02-BP03: Make informed decisions about where data is
+- **MD\_SEC02-BP03: Make informed decisions about where data is
   stored**. Māori users of your system may prefer their data to be stored in New
   Zealand. AWS allows customers to control where their data is stored and processed, and
   your content won't be replicated or moved outside of your chosen AWS Region except as

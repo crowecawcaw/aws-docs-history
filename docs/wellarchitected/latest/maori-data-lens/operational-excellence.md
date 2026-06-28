@@ -64,7 +64,7 @@ the way, operational excellence drives towards continuous integration and contin
 
 ###### Topics
 
-- [MD_OPS 1: How do you incorporate Māori views into your technology governance and operations?](md_ops-1-how-do-you-incorporate-m%C4%81ori-views-into-your-technology-governance-and-operations.md "md_ops-1-how-do-you-incorporate-m%C4%81ori-views-into-your-technology-governance-and-operations.md")
-- [MD_OPS 2: How can you design data collection with your Māori customer(s) in mind?](md_ops-2-how-can-you-design-data-collection-with-your-m%C4%81ori-customers-in-mind.md "md_ops-2-how-can-you-design-data-collection-with-your-m%C4%81ori-customers-in-mind.md")
-- [MD_OPS 3: How do you use or share Māori data back with Māori?](md_ops-3-how-do-you-use-or-share-m%C4%81ori-data.md "md_ops-3-how-do-you-use-or-share-m%C4%81ori-data.md")
+- [MD\_OPS 1: How do you incorporate Māori views into your technology governance and operations?](md_ops-1-how-do-you-incorporate-m%C4%81ori-views-into-your-technology-governance-and-operations.md "md_ops-1-how-do-you-incorporate-m%C4%81ori-views-into-your-technology-governance-and-operations.md")
+- [MD\_OPS 2: How can you design data collection with your Māori customer(s) in mind?](md_ops-2-how-can-you-design-data-collection-with-your-m%C4%81ori-customers-in-mind.md "md_ops-2-how-can-you-design-data-collection-with-your-m%C4%81ori-customers-in-mind.md")
+- [MD\_OPS 3: How do you use or share Māori data back with Māori?](md_ops-3-how-do-you-use-or-share-m%C4%81ori-data.md "md_ops-3-how-do-you-use-or-share-m%C4%81ori-data.md")
 - [Resources](md_ops-resources.md "md_ops-resources.md")

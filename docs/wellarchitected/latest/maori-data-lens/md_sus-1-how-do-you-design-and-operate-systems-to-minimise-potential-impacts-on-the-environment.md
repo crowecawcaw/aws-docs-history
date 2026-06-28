@@ -1,6 +1,6 @@
-# MD_SUS 1 How do you design and operate systems to minimise potential impacts on the environment?
+# MD\_SUS 1 How do you design and operate systems to minimise potential impacts on the environment?
 
-- **MD_SUS01-BP01: Develop an understanding of the unique relationship
+- **MD\_SUS01-BP01: Develop an understanding of the unique relationship
   between Māori and the land**. As tangata whenua (people of the land), Māori
   have deep connections to the land and the natural world. Whenua is seen as taonga that
   must be protected for future generations. It is important to understand the possible
@@ -8,7 +8,7 @@
   customers in the context of their natural environment, their priorities, and their
   interests, and incorporate their perspectives into your technology when considering
   opportunities and environmental impact.
-- **MD_SUS01-BP02: Consider how your solution could positively impact
+- **MD\_SUS01-BP02: Consider how your solution could positively impact
   the environment.**Technology is often used to improve processes by making them
   more efficient or effective. When designing products, consider how you can incorporate
   features that could have direct or indirect positive impacts on the environment. For
@@ -17,7 +17,7 @@
   nitrates making their way into farm waterways. Similarly, you can reduce landfill waste by
   using machine learning in your manufacturing process to help determine the optimal use of
   resources.
-- **MD_SUS01-BP03: Consider where you might store and run your workload
+- **MD\_SUS01-BP03: Consider where you might store and run your workload
   to make the most of the sustainability of the cloud.** A study by 451 Research
   shows that "moving IT workloads from on-premises data centres to the cloud would improve
   energy efficiency and reduce associated carbon emissions by nearly 80% on average" (among
@@ -31,7 +31,7 @@
   Pacific (Auckland) Region is planned to be powered by 100% renewable energy. This is part
   of Amazon's Climate Pledge whereby Amazon is on path towards powering its infrastructure
   operations by 100 percent renewable energy by 2025.
-- **MD_SUS01-BP04: Measure and report on carbon footprint.**
+- **MD\_SUS01-BP04: Measure and report on carbon footprint.**
   AWS offers customers free use of the [Customer Carbon Footprint
   Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/") (CCFT). The CCFT provides the following features:
 

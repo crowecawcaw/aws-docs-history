@@ -1,6 +1,6 @@
-# MD_CO 1 Understand costs associated with infrastructure options
+# MD\_CO 1 Understand costs associated with infrastructure options
 
-- **MD_CO01-BP01: How are you presenting the costs/benefit tradeoffs
+- **MD\_CO01-BP01: How are you presenting the costs/benefit tradeoffs
   for infrastructure options?** Clearly present the cost to benefit trade-offs
   when looking at all infrastructure options. When designing technology solutions,
   organisations need to balance delivering functional and non-functional requirements with

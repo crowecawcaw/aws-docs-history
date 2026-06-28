@@ -43,8 +43,8 @@ whitepaper provides in-depth, best-practice guidance for architecting secure wor
 
 ###### Topics
 
-- [MD_SEC 1: How is Māori data protected?](md_sec-1-how-is-m%C4%81ori-data-protected.md "md_sec-1-how-is-m%C4%81ori-data-protected.md")
-- [MD_SEC 2: How do you design workload security for long-term safety?](md_sec-2-how-do-you-design-workload-security-for-long-term-safety.md "md_sec-2-how-do-you-design-workload-security-for-long-term-safety.md")
-- [MD_SEC 3: How can you identify and classify Māori data?](md_sec-3-how-can-you-identify-and-classify-m%C4%81ori-data.md "md_sec-3-how-can-you-identify-and-classify-m%C4%81ori-data.md")
-- [MD_SEC 4: How do you maintain privacy of personal Māori data?](md_sec-4-how-do-you-maintain-privacy-of-personal-m%C4%81ori-data.md "md_sec-4-how-do-you-maintain-privacy-of-personal-m%C4%81ori-data.md")
+- [MD\_SEC 1: How is Māori data protected?](md_sec-1-how-is-m%C4%81ori-data-protected.md "md_sec-1-how-is-m%C4%81ori-data-protected.md")
+- [MD\_SEC 2: How do you design workload security for long-term safety?](md_sec-2-how-do-you-design-workload-security-for-long-term-safety.md "md_sec-2-how-do-you-design-workload-security-for-long-term-safety.md")
+- [MD\_SEC 3: How can you identify and classify Māori data?](md_sec-3-how-can-you-identify-and-classify-m%C4%81ori-data.md "md_sec-3-how-can-you-identify-and-classify-m%C4%81ori-data.md")
+- [MD\_SEC 4: How do you maintain privacy of personal Māori data?](md_sec-4-how-do-you-maintain-privacy-of-personal-m%C4%81ori-data.md "md_sec-4-how-do-you-maintain-privacy-of-personal-m%C4%81ori-data.md")
 - [Resources](md_sec-resources.md "md_sec-resources.md")
