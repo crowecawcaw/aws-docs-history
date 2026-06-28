@@ -83,12 +83,12 @@ Specify an S3 output path where the service delivers the completed pre-visit sum
 
 After you submit a patient insights job, you can track its progress by polling the GetPatientInsightsJob API. The following table describes the possible job statuses:
 
-| Status      | Description                                                                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| SUBMITTED   | The job has been accepted and is queued for processing.                                                                               |
-| IN_PROGRESS | The service is retrieving clinical data, processing source documents, and generating the patient summary.                             |
-| SUCCEEDED   | The job has completed successfully. The generated summary is available at the specified S3 output path.                               |
-| FAILED      | The job did not complete successfully. Check the error details in the GetPatientInsightsJob response for the specific failure reason. |
+| Status       | Description                                                                                                                           |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| SUBMITTED    | The job has been accepted and is queued for processing.                                                                               |
+| IN\_PROGRESS | The service is retrieving clinical data, processing source documents, and generating the patient summary.                             |
+| SUCCEEDED    | The job has completed successfully. The generated summary is available at the specified S3 output path.                               |
+| FAILED       | The job did not complete successfully. Check the error details in the GetPatientInsightsJob response for the specific failure reason. |
 
 ## Output
 
@@ -117,13 +117,13 @@ HccIncluded (boolean)
 
 The pre-visit summary is organized into five sections:
 
-| Section                        | What it contains                                                                                                                                                                 |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PATIENT_AND_ENCOUNTER_OVERVIEW | Medical history, active conditions, current medications, allergies, past surgeries, and family history.                                                                          |
-| SINCE_LAST_VISIT               | New labs, specialist notes, medication changes, symptoms, and interventions that have occurred since the patient’s last encounter with this provider.                            |
-| TRENDS                         | Patterns over time for key clinical metrics such as A1c, blood pressure, weight, and lab values.                                                                                 |
-| CMS_HCC_CODING_ANALYSIS        | Conditions previously documented that are relevant to CMS Hierarchical Condition Category (HCC) risk adjustment. The clinician confirms whether each condition is still present. |
-| HHS_HCC_CODING_ANALYSIS        | Conditions previously documented that are relevant to HHS-HCC risk adjustment. The clinician confirms whether each condition is still present.                                   |
+| Section                           | What it contains                                                                                                                                                                 |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PATIENT\_AND\_ENCOUNTER\_OVERVIEW | Medical history, active conditions, current medications, allergies, past surgeries, and family history.                                                                          |
+| SINCE\_LAST\_VISIT                | New labs, specialist notes, medication changes, symptoms, and interventions that have occurred since the patient’s last encounter with this provider.                            |
+| TRENDS                            | Patterns over time for key clinical metrics such as A1c, blood pressure, weight, and lab values.                                                                                 |
+| CMS\_HCC\_CODING\_ANALYSIS        | Conditions previously documented that are relevant to CMS Hierarchical Condition Category (HCC) risk adjustment. The clinician confirms whether each condition is still present. |
+| HHS\_HCC\_CODING\_ANALYSIS        | Conditions previously documented that are relevant to HHS-HCC risk adjustment. The clinician confirms whether each condition is still present.                                   |
 
 Each section contains an array of clinical narrative objects. A clinical narrative is a discrete unit of clinical content that the service generates from the patient’s data. The text within clinical narratives might include markdown formatting (such as bullet markers, headers, and emphasis) that your application can parse and render according to your display context.
 

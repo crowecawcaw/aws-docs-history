@@ -114,8 +114,8 @@ The following fields are required to configure the Epic EHR integration in the A
 | Field                           | Description                                                       | Example                                                                                 |
 | ------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | Organization Email              | Administrative email address associated with the Epic environment | [admin@healthsystem.org](mailto:admin@healthsystem.org "mailto:admin@healthsystem.org") |
-| FHIR Server Endpoint            | Base URL of the Epic FHIR R4 API endpoint                         | https://epic_xyz.xxyy.com/FhirProxy/api/FHIR/R4/                                        |
-| Metadata Endpoint               | URL used to retrieve OAuth 2.0 server metadata                    | https://epic_xyz.xxyy.com/FhirProxy/api/FHIR/R4/metadata                                |
+| FHIR Server Endpoint            | Base URL of the Epic FHIR R4 API endpoint                         | https://epic\_xyz.xxyy.com/FhirProxy/api/FHIR/R4/                                       |
+| Metadata Endpoint               | URL used to retrieve OAuth 2.0 server metadata                    | https://epic\_xyz.xxyy.com/FhirProxy/api/FHIR/R4/metadata                               |
 | MRN Identifier System           | System URI used to identify MRN values within Epic                | urn:oid:1.2.840.114350.646473.0                                                         |
 | MRN Identifier Type             | Code used to classify the MRN identifier                          | MR                                                                                      |
 | Appointment Serial Number (ASN) | Identifier system used for appointment serial numbers within Epic | urn:oid:1.2.840.114350.1.13.0.1.7.2.798268                                              |

@@ -106,7 +106,7 @@ A session is bound to the transport on which it was started. You cannot start a 
 
 If your audio has two channels, you can use channel identification to transcribe the speech from each channel separately. Ambient documentation currently supports audio with up to two channels. In your transcript, channels are assigned the labels `ch_0` and `ch_1`.
 
-In addition to the standard transcript sections (transcripts and items), requests with channel identification enabled include a channel_labels section. This section contains each utterance or punctuation mark, grouped by channel, and its associated channel label, timestamps, and confidence score. Note that if a person on one channel speaks at the same time as a person on a separate channel, timestamps for each channel overlap while the individuals are speaking over each other.
+In addition to the standard transcript sections (transcripts and items), requests with channel identification enabled include a channel\_labels section. This section contains each utterance or punctuation mark, grouped by channel, and its associated channel label, timestamps, and confidence score. Note that if a person on one channel speaks at the same time as a person on a separate channel, timestamps for each channel overlap while the individuals are speaking over each other.
 
 ### Streaming over HTTP/2
 
@@ -515,19 +515,19 @@ Templates define the structure, sections, and formatting rules that the agent fo
 
 ### Managed templates
 
-Ambient documentation provides seven pre-built note templates. The configuration object for managed templates, `managedTemplate`, specifies the template through the `templateType` parameter. The default template is HISTORY_AND_PHYSICAL.
+Ambient documentation provides seven pre-built note templates. The configuration object for managed templates, `managedTemplate`, specifies the template through the `templateType` parameter. The default template is HISTORY\_AND\_PHYSICAL.
 
-| Template                       | Description                                       | Use case                                            |
-| ------------------------------ | ------------------------------------------------- | --------------------------------------------------- |
-| HISTORY_AND_PHYSICAL (default) | Summaries for key clinical documentation sections | General physical health encounters                  |
-| PHYSICAL_SOAP                  | Physical health focused SOAP format               | Physical health encounters using SOAP structure     |
-| BEHAVIORAL_SOAP                | Behavioral health focused SOAP format             | Behavioral health encounters using SOAP structure   |
-| GIRPP                          | Progress-toward-goals format                      | Behavioral health — tracking patient progress       |
-| BIRP                           | Behavioral patterns and responses format          | Behavioral health — documenting behavioral patterns |
-| SIRP                           | Situational context of therapy format             | Behavioral health — emphasizing situational context |
-| DAP                            | Simplified clinical documentation format          | Brief or focused encounters                         |
+| Template                         | Description                                       | Use case                                            |
+| -------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
+| HISTORY\_AND\_PHYSICAL (default) | Summaries for key clinical documentation sections | General physical health encounters                  |
+| PHYSICAL\_SOAP                   | Physical health focused SOAP format               | Physical health encounters using SOAP structure     |
+| BEHAVIORAL\_SOAP                 | Behavioral health focused SOAP format             | Behavioral health encounters using SOAP structure   |
+| GIRPP                            | Progress-toward-goals format                      | Behavioral health — tracking patient progress       |
+| BIRP                             | Behavioral patterns and responses format          | Behavioral health — documenting behavioral patterns |
+| SIRP                             | Situational context of therapy format             | Behavioral health — emphasizing situational context |
+| DAP                              | Simplified clinical documentation format          | Brief or focused encounters                         |
 
-#### HISTORY_AND_PHYSICAL sections
+#### HISTORY\_AND\_PHYSICAL sections
 
 | Section                    | Description                                                                                                     |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -542,7 +542,7 @@ Ambient documentation provides seven pre-built note templates. The configuration
 | ASSESSMENT                 | Clinician’s assessment of patient’s health                                                                      |
 | PLAN                       | Clinician-recommended medical treatments, lifestyle adjustments, and further appointments                       |
 
-#### PHYSICAL_SOAP and BEHAVIORAL_SOAP sections
+#### PHYSICAL\_SOAP and BEHAVIORAL\_SOAP sections
 
 | Section    | Description                                                                                 |
 | ---------- | ------------------------------------------------------------------------------------------- |
@@ -553,7 +553,7 @@ Ambient documentation provides seven pre-built note templates. The configuration
 
 ###### Note
 
-PHYSICAL_SOAP is optimized for physical health documentation. BEHAVIORAL_SOAP is optimized for behavioral health documentation. Both share the same section structure.
+PHYSICAL\_SOAP is optimized for physical health documentation. BEHAVIORAL\_SOAP is optimized for behavioral health documentation. Both share the same section structure.
 
 #### GIRPP sections
 
@@ -597,14 +597,14 @@ Ambient documentation uses a two-layer customization model: Base and Output Spec
 
 The Base (`templateType`) sets the organization structure of the clinical facts detected during the conversation. The following base templates are supported:
 
-| Base                 | Description                                       | Use case                                            |
-| -------------------- | ------------------------------------------------- | --------------------------------------------------- |
-| HISTORY_AND_PHYSICAL | Summaries for key clinical documentation sections | General physical health encounters                  |
-| BEHAVIORAL_SOAP      | Behavioral health focused SOAP format             | Behavioral health encounters using SOAP structure   |
-| GIRPP                | Progress-toward-goals format                      | Behavioral health — tracking patient progress       |
-| BIRP                 | Behavioral patterns and responses format          | Behavioral health — documenting behavioral patterns |
-| SIRP                 | Situational context of therapy format             | Behavioral health — emphasizing situational context |
-| DAP                  | Simplified clinical documentation format          | Brief or focused encounters                         |
+| Base                   | Description                                       | Use case                                            |
+| ---------------------- | ------------------------------------------------- | --------------------------------------------------- |
+| HISTORY\_AND\_PHYSICAL | Summaries for key clinical documentation sections | General physical health encounters                  |
+| BEHAVIORAL\_SOAP       | Behavioral health focused SOAP format             | Behavioral health encounters using SOAP structure   |
+| GIRPP                  | Progress-toward-goals format                      | Behavioral health — tracking patient progress       |
+| BIRP                   | Behavioral patterns and responses format          | Behavioral health — documenting behavioral patterns |
+| SIRP                   | Situational context of therapy format             | Behavioral health — emphasizing situational context |
+| DAP                    | Simplified clinical documentation format          | Brief or focused encounters                         |
 
 The Output Specification object (`templateInstructions`) is organized as an array of instructions, with a `sectionHeader` that defines the section name and `sectionInstructions` that combines instructions and a template for that section.
 
@@ -616,11 +616,11 @@ Customization instructions can include three types of directives:
 
 Templates can be provided as text with placeholders, structured JSON schemas, or example previous notes.
 
-| Method                          | Description                                                                                                                | Use when                                                                |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Text template with placeholders | A template with section headers and placeholder fields (such as <chief_complaint>) that the agent fills from the encounter | You want precise control over section layout and content placement      |
-| Structured JSON template        | A JSON schema defining fields, nesting, and per-field formatting rules                                                     | Your EHR requires structured data output rather than prose              |
-| Example previous note           | A prior clinical note provided as a reference for the desired format and style                                             | A provider wants notes that match their existing documentation patterns |
+| Method                          | Description                                                                                                                 | Use when                                                                |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Text template with placeholders | A template with section headers and placeholder fields (such as <chief\_complaint>) that the agent fills from the encounter | You want precise control over section layout and content placement      |
+| Structured JSON template        | A JSON schema defining fields, nesting, and per-field formatting rules                                                      | Your EHR requires structured data output rather than prose              |
+| Example previous note           | A prior clinical note provided as a reference for the desired format and style                                              | A provider wants notes that match their existing documentation patterns |
 
 ###### Note
 
