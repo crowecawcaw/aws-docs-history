@@ -30,7 +30,7 @@ covered by your Savings Plans commitment, your coverage would be 90 percent.
 ÷
 
 (9 Savings Plans covered instances \* $1.00/hour OD rate + 1 On-Demand
-Instance \* $1.00/hour OD rate)
+ Instance \* $1.00/hour OD rate)
 
 You can see your usage at an hourly, daily, or monthly granularity. Usage is
 calculated using your selected lookback period. You can customize your filters by

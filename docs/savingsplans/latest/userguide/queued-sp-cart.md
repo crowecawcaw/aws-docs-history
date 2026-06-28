@@ -31,6 +31,6 @@ start date**.
     1. Choose **Remove start date**.
 
 9. Choose **Submit order**.
-   Any queued purchases will appear with the status **Queued** in your
-   **Account Inventory** page. To delete any queued purchases before
-   the start date, see [Deleting a queued Savings Plan](ce-sp-queued-delete.md "ce-sp-queued-delete.md").
+Any queued purchases will appear with the status **Queued** in your
+**Account Inventory** page. To delete any queued purchases before
+the start date, see [Deleting a queued Savings Plan](ce-sp-queued-delete.md "ce-sp-queued-delete.md").

@@ -56,17 +56,17 @@ another. For example, `payment-pending` state changes to `active`, or an
 The state change event contains fields for resources (Savings Plans ARNs), previous state, current
 state, severity, and message.
 
-| Possible values for state change events | previousState   | currentState | severity                                                                     | message |
-| --------------------------------------- | --------------- | ------------ | ---------------------------------------------------------------------------- | ------- |
-| queued                                  | payment-pending | INFO         | `QueuedPurchaseFulfillment`                                                  |
-| queued                                  | payment-failed  | ERROR        | `LimitExceededException`<br>or<br>`SavingsPlanOfferingNotAvailableException` |
-| queued                                  | queued-deleted  | INFO         | `SavingsPlanQueuedDeleted`                                                   |
-| payment-pending                         | active          | INFO         | `PaymentSuccessful`                                                          |
-| payment-pending                         | payment-failed  | ERROR        | `LimitExceededException`<br>or<br>`PaymentUnsuccessful`                      |
-| active                                  | retired         | INFO         | `SavingsPlanExpiration`                                                      |
-| active                                  | pending-return  | INFO         | `SavingsPlanReturnRequested`                                                 |
-| pending-return                          | returned        | INFO         | `SavingsPlanReturnSuccessful`                                                |
-| pending-return                          | active          | ERROR        | `SavingsPlanReturnUnsuccessful`                                              |
+Possible values for state change events| previousState | currentState | severity | message |
+| --- | --- | --- | --- |
+| queued | payment-pending | INFO | `QueuedPurchaseFulfillment` |
+| queued | payment-failed | ERROR | `LimitExceededException`<br>or<br>`SavingsPlanOfferingNotAvailableException` |
+| queued | queued-deleted | INFO | `SavingsPlanQueuedDeleted` |
+| payment-pending | active | INFO | `PaymentSuccessful` |
+| payment-pending | payment-failed | ERROR | `LimitExceededException`<br>or<br>`PaymentUnsuccessful` |
+| active | retired | INFO | `SavingsPlanExpiration` |
+| active | pending-return | INFO | `SavingsPlanReturnRequested` |
+| pending-return | returned | INFO | `SavingsPlanReturnSuccessful` |
+| pending-return | active | ERROR | `SavingsPlanReturnUnsuccessful` |
 
 ### Savings Plans state change alert event
 
@@ -101,9 +101,9 @@ retiring, or a queued state is fulfilled.
 The state change alert event contains fields for resources (Savings Plans ARNs), current state, next
 state, remaining days, next state change date, and message.
 
-| Possible values for state change alert events | currentState | nextState | remainingDays                                                  | message |
-| --------------------------------------------- | ------------ | --------- | -------------------------------------------------------------- | ------- |
-| queued                                        | active       | 1         | Queued Savings Plans will go to active state on `YYYY-MM-DD`.  |
-| queued                                        | active       | 7         | Queued Savings Plans will go to active state on `YYYY-MM-DD`.  |
-| active                                        | retired      | 1         | Active Savings Plans will go to retired state on `YYYY-MM-DD`. |
-| active                                        | retired      | 7         | Active Savings Plans will go to retired state on `YYYY-MM-DD`. |
+Possible values for state change alert events| currentState | nextState | remainingDays | message |
+| --- | --- | --- | --- |
+| queued | active | 1 | Queued Savings Plans will go to active state on `YYYY-MM-DD`. |
+| queued | active | 7 | Queued Savings Plans will go to active state on `YYYY-MM-DD`. |
+| active | retired | 1 | Active Savings Plans will go to retired state on `YYYY-MM-DD`. |
+| active | retired | 7 | Active Savings Plans will go to retired state on `YYYY-MM-DD`. |

@@ -8,7 +8,7 @@ Savings Plan, filters, and lookback periods. Utilization is calculated based on 
 your Savings Plans applied to your usage over the lookback period.
 
 For example, if you have a $10/ hour commitment, and your usage
-billed with Savings Plans rates totals to $9.80 for the hour, your utilization for that
+ billed with Savings Plans rates totals to $9.80 for the hour, your utilization for that
 hour is 98 percent.
 
 ###### To view your utilization report

@@ -25,7 +25,7 @@ make a purchase.
    defined as 1,095 days (94,608,000 seconds).
    - **Region**: (Only applicable to EC2 Instance Savings Plans)
      The AWS Region you're committing to. For example, `US East (N.
-Virginia)`.
+  Virginia)`.
    - **Instance type**: The instance family (for example,
      M5, C5, R5, C5d, etc.) that you are committing to (only applicable
      to EC2 Instance Savings Plans).

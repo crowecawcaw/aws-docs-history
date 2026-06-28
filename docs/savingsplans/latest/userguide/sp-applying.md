@@ -36,14 +36,14 @@ following usage in a single hour:
 - 1 million requests for 512 MB (0.5 GB) memory of AWS Lambda usage in us-east-2,
   lasting for 3 seconds each
 
-| Pricing example                   |           | On-Demand rate | Compute Savings Plans rate | Compute Savings Plans savings % | EC2 Instance Savings Plans rate | EC2 Instance Savings Plans savings % |
-| --------------------------------- | --------- | -------------- | -------------------------- | ------------------------------- | ------------------------------- | ------------------------------------ |
-| r5.4xlarge Linux                  | $1.00     | $0.70          | 30%                        | $0.60                           | 40%                             |
-| Fargate vCPU                      | $0.04     | $0.03          | 25%                        | N/A                             | N/A                             |
-| Fargate GB                        | $0.004    | $0.003         | 25%                        | N/A                             | N/A                             |
-| m5.24xlarge Windows               | $10.00    | $8.20          | 18%                        | $7.80                           | 22%                             |
-| Lambda duration (per GB/sec)      | $0.000015 | $0.00001275    | 15%                        | N/A                             | N/A                             |
-| Lambda requests (per 1M requests) | $0.20     | $0.20          | 0%                         | N/A                             | N/A                             |
+Pricing example| | On-Demand rate | Compute Savings Plans rate | Compute Savings Plans savings % | EC2 Instance Savings Plans rate | EC2 Instance Savings Plans savings % |
+| --- | --- | --- | --- | --- | --- |
+| r5.4xlarge Linux | $1.00 | $0.70 | 30% | $0.60 | 40% |
+| Fargate vCPU | $0.04 | $0.03 | 25% | N/A | N/A |
+| Fargate GB | $0.004 | $0.003 | 25% | N/A | N/A |
+| m5.24xlarge Windows | $10.00 | $8.20 | 18% | $7.80 | 22% |
+| Lambda duration (per GB/sec) | $0.000015 | $0.00001275 | 15% | N/A | N/A |
+| Lambda requests (per 1M requests) | $0.20 | $0.20 | 0% | N/A | N/A |
 
 This example assumes one-year duration, partial upfront Savings Plans matching the
 configuration of your usage. Rates and discount percentages are hypothetical for
@@ -64,7 +64,7 @@ commitment.
 
 Your Savings Plan covers all of your usage because multiplying each of your
 usages by the equivalent Compute Savings Plans is $47.13. This is still less than the
-$50.00/hour commitment.
+ $50.00/hour commitment.
 
 Without Savings Plans, you would be charged at On-Demand rates in the amount of
 $59.10.
@@ -83,12 +83,12 @@ In any hour, your Savings Plans apply to your usage starting with the highest di
 percentage (30 percent).
 
 Your $2.00/hour commitment is used to cover approximately 2.9 units of this
-usage. The remaining 1.1 units are charged at On-Demand rates, resulting in
-$1.14 of On-Demand charges for `r5`.
+ usage. The remaining 1.1 units are charged at On-Demand rates, resulting in
+ $1.14 of On-Demand charges for `r5`.
 
 The Fargate `m5.24xlarge` and Lambda usage are also charged at
 On-Demand rates, resulting in $55.10 of On-Demand charges. The total On-Demand
-charges for this usage are $56.24.
+ charges for this usage are $56.24.
 
 ### Scenario 3: Savings Plans apply to some usage, across products
 
@@ -122,7 +122,7 @@ The `m5.24xlarge` and Lambda usage On-Demand charges are $32.70.
 
 You purchase a one-year, partial upfront EC2 Instance Family Savings Plan for
 the `r5` family in us-east-1 with a $3.00/hour commitment. You also
-have a one-year, partial upfront Compute Savings Plan with a $16.80/hour
+ have a one-year, partial upfront Compute Savings Plan with a $16.80/hour
 commitment.
 
 Your EC2 Instance Family Savings Plan (`r5`, us-east-1) covers all

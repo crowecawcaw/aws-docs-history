@@ -31,5 +31,5 @@ Savings Plan must be in active status. 4. Choose **Actions**. 5. Choose **Renew 
      the reference Savings Plan.
 
 7. On the **Cart** page, choose **Submit
-   order**.
-   To learn more about the **Cart** page, see [Reviewing and finalizing Savings Plans purchases](review-purchase-cart.md "review-purchase-cart.md").
+order**.
+To learn more about the **Cart** page, see [Reviewing and finalizing Savings Plans purchases](review-purchase-cart.md "review-purchase-cart.md").

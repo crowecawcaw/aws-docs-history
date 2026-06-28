@@ -12,17 +12,17 @@ EC2 Instance Savings Plans offer savings up to 72% off of On-Demand, similar to 
 automatically save you money on any instance usage within a given EC2 instance family in your
 Region of choice. For more information, see [Savings Plans types](plan-types.md "plan-types.md").
 
-| Comparing Savings Plans and RIs                                  |           | Compute Savings Plans | EC2 Instance Savings Plans | Convertible RIs\* | Standard RIs |
-| ---------------------------------------------------------------- | --------- | --------------------- | -------------------------- | ----------------- | ------------ |
-| Savings over On-Demand                                           | Up to 66% | Up to 72%             | Up to 66%                  | Up to 72%         |
-| Lower price in exchange for monetary commitment                  | ✓         | ✓                     | —                          | —                 |
-| Automatically applies pricing to any instance family             | ✓         | —                     | —                          | —                 |
-| Automatically applies pricing to any instance size               | ✓         | ✓                     | —\*\*                      | —\*\*             |
-| Automatically applies pricing to any Tenancy or OS               | ✓         | ✓                     | —                          | —                 |
-| Automatically applies to Amazon ECS and Amazon EKS using Fargate | ✓         | —                     | —                          | —                 |
-| Automatically applies to Lambda                                  | ✓         | —                     | —                          | —                 |
-| Automatically applies pricing across AWS Regions                 | ✓         | —                     | —                          | —                 |
-| Term length options of 1 or 3 years                              | ✓         | ✓                     | ✓                          | ✓                 |
+Comparing Savings Plans and RIs| | Compute Savings Plans | EC2 Instance Savings Plans | Convertible RIs\* | Standard RIs |
+| --- | --- | --- | --- | --- |
+| Savings over On-Demand | Up to 66% | Up to 72% | Up to 66% | Up to 72% |
+| Lower price in exchange for monetary commitment | ✓ | ✓ | — | — |
+| Automatically applies pricing to any instance family | ✓ | — | — | — |
+| Automatically applies pricing to any instance size | ✓ | ✓ | —\*\* | —\*\* |
+| Automatically applies pricing to any Tenancy or OS | ✓ | ✓ | — | — |
+| Automatically applies to Amazon ECS and Amazon EKS using Fargate | ✓ | — | — | — |
+| Automatically applies to Lambda | ✓ | — | — | — |
+| Automatically applies pricing across AWS Regions | ✓ | — | — | — |
+| Term length options of 1 or 3 years | ✓ | ✓ | ✓ | ✓ |
 
 **\*** Convertible RIs can be changed across instance family,
 instance size, OS, and tenancy, but requires you to manually perform exchanges.
