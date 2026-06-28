@@ -95,7 +95,7 @@ template:**
      `TransformLambdaFunction` in the
      template
    - Under `def lambda_handler(event,
-context)` set
+  context)` set
      `event["detail"]["incident-detection-response-identifier"]`
      to the json path where alarm name appears in the
      JSON payload of the APM alarm. Every APM will have
@@ -105,16 +105,16 @@ context)` set
      - **New Relic
        Example:**
        `event["detail"]["incident-detection-response-identifier"]
- = event["detail"]["workflowName"]`.
+   = event["detail"]["workflowName"]`.
      - **Datadog
        Example:**
        `event["detail"]["incident-detection-response-identifier"]
- =
- event["detail"]["meta"]["monitor"]["name"]`
+   =
+   event["detail"]["meta"]["monitor"]["name"]`
      - **Splunk
        Example:**
        `event["detail"]["incident-detection-response-identifier"]
- = event["detail"]["ruleName"]`
+   = event["detail"]["ruleName"]`
 
    - Save the CloudFormation template.
 
@@ -177,7 +177,7 @@ Template:**
    - CustomEventBus:
      NewRelic-AWSIncidentDetectionResponse-EventBus
    - EventBridgeRule:
-     aws.partner/newrelic.com/1234567/source_name|NewRelic-AWSIncidentDetectionResponse-EventBridgeRule
+     aws.partner/newrelic.com/1234567/source\_name|NewRelic-AWSIncidentDetectionResponse-EventBridgeRule
    - TransformLambdaExecutionRole:
      IDR-TransformLambdaExecutionRole-us-east-1
    - TransformLambdaFunction:
@@ -230,56 +230,55 @@ investigate impacted resources. Incidents and Support Cases are
 opened on the AWS Account where the APM alert was received
 from.
 
-1.  Create an EventBridge partner event bus by setting up
-    your APM as an Amazon EventBridge partner event source (for
-    example,
-    `aws.partner/apm_name/integrationName`).
-    For guidelines on setting up your APM as an event
-    source, see [Receiving events from a SaaS partner with
-    Amazon EventBridge](../../../eventbridge/latest/userguide/eb-saas.md "../../../eventbridge/latest/userguide/eb-saas.md").
-2.  Perform one of the following:
+1. Create an EventBridge partner event bus by setting up
+   your APM as an Amazon EventBridge partner event source (for
+   example,
+   `aws.partner/apm_name/integrationName`).
+   For guidelines on setting up your APM as an event
+   source, see [Receiving events from a SaaS partner with
+   Amazon EventBridge](../../../eventbridge/latest/userguide/eb-saas.md "../../../eventbridge/latest/userguide/eb-saas.md").
+2. Perform one of the following:
 
-        * (Recommended) Create an EventBridge custom
-         event bus named
-         `$YourApmName-AWSIncidentDetectionResponse-EventBus`.
-        * (Alternative) Use the default EventBridge
-         event bus instead of a custom event bus.
+   - (Recommended) Create an EventBridge custom
+     event bus named
+     `$YourApmName-AWSIncidentDetectionResponse-EventBus`.
+   - (Alternative) Use the default EventBridge
+     event bus instead of a custom event bus.
+     AWS Incident Detection and Response will install a managed rule
+     (`AWSHealthEventProcessorEventSource-DO-NOT-DELETE`)
+     on the custom or default event bus through the
+     `AWSServiceRoleForHealth_EventProcessor`
+     SLR. The rule source will be the custom or default event
+     bus, the rule destination will be AWS Incident Detection and Response, and the
+     rule will match the pattern for ingesting 3rd party APM
+     events.
 
-    AWS Incident Detection and Response will install a managed rule
-    (`AWSHealthEventProcessorEventSource-DO-NOT-DELETE`)
-    on the custom or default event bus through the
-    `AWSServiceRoleForHealth_EventProcessor`
-    SLR. The rule source will be the custom or default event
-    bus, the rule destination will be AWS Incident Detection and Response, and the
-    rule will match the pattern for ingesting 3rd party APM
-    events.
+3. Create an [Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md")
+   function named
+   `$YourApmName-AWSIncidentDetectionResponse-LambdaFunction`
+   to transform your partner event bus events. The
+   transformed events will match the managed rule
+   `AWSHealthEventProcessorEventSource-DO-NOT-DELETE`.
 
-3.  Create an [Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md")
-    function named
-    `$YourApmName-AWSIncidentDetectionResponse-LambdaFunction`
-    to transform your partner event bus events. The
-    transformed events will match the managed rule
-    `AWSHealthEventProcessorEventSource-DO-NOT-DELETE`.
+   - Transformed events include a unique AWS Incident Detection and Response
+     identifier, and sets the source and detail type of
+     the event to the required values. This allows the
+     transformed JSON payload structure to match the
+     managed rule pattern.
+   - Set the target of the Lambda function to either
+     the custom event bus (Recommended) created in Step
+     2 or to your default event bus.
 
-    - Transformed events include a unique AWS Incident Detection and Response
-      identifier, and sets the source and detail type of
-      the event to the required values. This allows the
-      transformed JSON payload structure to match the
-      managed rule pattern.
-    - Set the target of the Lambda function to either
-      the custom event bus (Recommended) created in Step
-      2 or to your default event bus.
-
-4.  Create an EventBridge rule and define the event
-    patterns that match the list of events that you want to
-    push to AWS Incident Detection and Response. The source of the rule is the partner
-    event bus you created in Step 1
-    (`aws.partner/apm_name/integrationName`).
-    The target of the rule is the Lambda function you created
-    in Step 3
-    (`[apm_name]-AWSIncidentDetectionResponse-LambdaFunction`).
-    For guidelines on defining your EventBridge rule, see
-    [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md").
+4. Create an EventBridge rule and define the event
+   patterns that match the list of events that you want to
+   push to AWS Incident Detection and Response. The source of the rule is the partner
+   event bus you created in Step 1
+   (`aws.partner/apm_name/integrationName`).
+   The target of the rule is the Lambda function you created
+   in Step 3
+   (`[apm_name]-AWSIncidentDetectionResponse-LambdaFunction`).
+   For guidelines on defining your EventBridge rule, see
+   [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md").
 
 For a step by step example on how to set up partner event bus
 integrations manually with AWS Incident Detection and Response, see [Integrating notifications from Datadog and

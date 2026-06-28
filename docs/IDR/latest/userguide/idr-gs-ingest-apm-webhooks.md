@@ -124,7 +124,7 @@ template:**
 
 6. The CloudFormation stack deploy the resources necessary to
    integrate your APM events to AWS Incident Detection and Response. Wait until the CloudFormation
-   Stack Status is **CREATE_COMPLETE**.
+   Stack Status is **CREATE\_COMPLETE**.
 7. The CloudFormation stack creates the below resources assuming the
    example value `Dynatrace` was input into the
    parameters and was executed in the US-EAST-1 Region.
@@ -139,7 +139,7 @@ template:**
      - Stage Name: Dynatrace-Stage-Prod
      - Authorizers:
        Dynatrace-APIGW-Authorizer
-     - Usage plan: APIGW_Throttling_Plan
+     - Usage plan: APIGW\_Throttling\_Plan
 
    - Lambda functions:
 

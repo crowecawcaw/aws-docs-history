@@ -58,7 +58,7 @@ template:**
      the template
 
      - Under `def lambda_handler(event,
-context)` set
+   context)` set
        `event["detail"]["incident-detection-response-identifier"]`
        to the json path where the alarm name appears in
        the JSON payload of the SNS record.
@@ -117,7 +117,7 @@ Template:**
 
 6. The CloudFormation stack will deploy the resources necessary to
    integrate your APM events to AWS Incident Detection and Response. Wait until the CloudFormation
-   Stack Status is **CREATE_COMPLETE**.
+   Stack Status is **CREATE\_COMPLETE**.
 7. The CloudFormation stack creates the below resources assuming the
    example values were input into the parameters for Grafana
    and was executed in the EU-WEST-1 Region.
@@ -171,48 +171,47 @@ AWS Incident Detection and Response**
 
 ![Diagram showing an example of integration using Amazon SNS.](images/example-int-sns.png)
 
-1.  Open the Amazon SNS Console and create a **Standard** Amazon SNS topic
-    named `[apm_name]-sns` to receive alarm events
-    from your APM. Ensure you select **Standard** (not FIFO) as the topic type. Note the ARN of the Amazon SNS topic created.
-2.  Perform one of the following:
+1. Open the Amazon SNS Console and create a **Standard** Amazon SNS topic
+   named `[apm_name]-sns` to receive alarm events
+   from your APM. Ensure you select **Standard** (not FIFO) as the topic type. Note the ARN of the Amazon SNS topic created.
+2. Perform one of the following:
 
-        * (Recommended) Create an EventBridge custom event
-         bus named
-         `[apm_name]-AWSIncidentDetectionResponse-EventBus`.
-        * (Alternative) Use the default EventBridge event
-         bus instead of a custom event bus.
+   - (Recommended) Create an EventBridge custom event
+     bus named
+     `[apm_name]-AWSIncidentDetectionResponse-EventBus`.
+   - (Alternative) Use the default EventBridge event
+     bus instead of a custom event bus.
+     AWS Incident Detection and Response will install a managed rule
+     (`AWSHealthEventProcessorEventSource-DO-NOT-DELETE`)
+     on the custom or default event bus through the
+     `AWSServiceRoleForHealth_EventProcessor` SLR.
+     The rule source will be the custom or default event bus, the
+     rule destination will be AWS Incident Detection and Response, and the rule will match
+     the pattern for ingesting 3rd party APM events.
 
-    AWS Incident Detection and Response will install a managed rule
-    (`AWSHealthEventProcessorEventSource-DO-NOT-DELETE`)
-    on the custom or default event bus through the
-    `AWSServiceRoleForHealth_EventProcessor` SLR.
-    The rule source will be the custom or default event bus, the
-    rule destination will be AWS Incident Detection and Response, and the rule will match
-    the pattern for ingesting 3rd party APM events.
+3. Create an [Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md")
+   function named
+   `$YourApmName-AWSIncidentDetectionResponse-LambdaFunction`
+   to transform your SNS payloads.
 
-3.  Create an [Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md")
-    function named
-    `$YourApmName-AWSIncidentDetectionResponse-LambdaFunction`
-    to transform your SNS payloads.
+   - Transformed events must meet the payload
+     requirements as set out in [Payload Requirements For Ingesting APM Alerts with EventBridge](idr-gs-apm-payload-requirements.md "idr-gs-apm-payload-requirements.md")
+   - Set the target of the Lambda function to either the
+     custom event bus (Recommended) created in Step 2 or
+     to your default event bus.
 
-    - Transformed events must meet the payload
-      requirements as set out in [Payload Requirements For Ingesting APM Alerts with EventBridge](idr-gs-apm-payload-requirements.md "idr-gs-apm-payload-requirements.md")
-    - Set the target of the Lambda function to either the
-      custom event bus (Recommended) created in Step 2 or
-      to your default event bus.
+4. Set the SNS topic as a trigger for your Lambda function
+   `$YourApmName-AWSIncidentDetectionResponse-LambdaFunction`.
 
-4.  Set the SNS topic as a trigger for your Lambda function
-    `$YourApmName-AWSIncidentDetectionResponse-LambdaFunction`.
+   - In the "Add Triggers" page, search for
+     "SNS".
+   - Add the ARN of your dedicated SNS Topic created in
+     Step 1.
+   - Choose "Add".
 
-    - In the "Add Triggers" page, search for
-      "SNS".
-    - Add the ARN of your dedicated SNS Topic created in
-      Step 1.
-    - Choose "Add".
-
-5.  Follow your APM documentation to set up an SNS destination
-    for your APM payloads that need to be ingested by
-    AWS Incident Detection and Response.
+5. Follow your APM documentation to set up an SNS destination
+   for your APM payloads that need to be ingested by
+   AWS Incident Detection and Response.
 
 AWS Incident Detection and Response will install a managed rule
 (`AWSHealthEventProcessorEventSource-DO-NOT-DELETE`)

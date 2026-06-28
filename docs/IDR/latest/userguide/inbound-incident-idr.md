@@ -62,7 +62,7 @@ To use the AWS Support App in Slack to request an Incident Response, complete th
 
 ![/awssupport create.](images/command_supportcreate.png) 3. Enter a **Subject** for this incident. For
 example, enter **AWS Incident Detection and Response - Active Incident -
-workload_name**. 4. Enter the **Problem Description** for this
+workload\_name**. 4. Enter the **Problem Description** for this
 incident. Add the following details:
 
 **Technical Information:**

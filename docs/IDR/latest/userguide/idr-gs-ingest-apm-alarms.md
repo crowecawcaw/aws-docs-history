@@ -12,7 +12,7 @@ Integration path examples:
 
 The following diagram shows an example integration using a partner event bus or other AWS event bus sources.
 
-![Diagram showing an example integration using a partner event bus or other AWS event bus sources.](/images/IDR/latest/userguide/images/example-int-partner-event-bus.png)
+![Diagram showing an example integration using a partner event bus or other AWS event bus sources.](images/example-int-partner-event-bus.png)
 For a complete list of APMs with partner integrations to Amazon EventBridge, see [Amazon EventBridge integrations](https://aws.amazon.com/eventbridge/integrations/ "https://aws.amazon.com/eventbridge/integrations/").
 
 **Example integration using Amazon API Gateway**

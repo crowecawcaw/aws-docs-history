@@ -18,7 +18,7 @@ aws iam create-service-linked-role --aws-service-name event-processor.health.ama
 
 ###### Note
 
-The service-linked role - AWSServiceRoleForHealth_EventProcessor needs to be created in each account you will use to send alarms to AWS Incident Detection and Response.
+The service-linked role - AWSServiceRoleForHealth\_EventProcessor needs to be created in each account you will use to send alarms to AWS Incident Detection and Response.
 
 **Related information**
 
@@ -26,4 +26,4 @@ For more information, see the following topics:
 
 - [Using service-linked roles for](../../../health/latest/ug/using-service-linked-roles.md "../../../health/latest/ug/using-service-linked-roles.md")
 - [Creating a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role")
-- [AWS managed policy: AWSHealth_EventProcessorServiceRolePolicy](../../../health/latest/ug/security-iam-awsmanpol.md#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy "../../../health/latest/ug/security-iam-awsmanpol.md#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy")
+- [AWS managed policy: AWSHealth\_EventProcessorServiceRolePolicy](../../../health/latest/ug/security-iam-awsmanpol.md#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy "../../../health/latest/ug/security-iam-awsmanpol.md#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy")

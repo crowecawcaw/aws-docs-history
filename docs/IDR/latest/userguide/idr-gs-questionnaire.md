@@ -25,18 +25,18 @@ Download the Workload onboarding questionnaire:
 
 ## Workload onboarding questionnaire - General questions
 
-| General questions                                   | Question                                                                                                                                                     | Example Response |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| Enterprise Name                                     | Amazon Inc.                                                                                                                                                  |
-| Name of this workload (include any abbreviations)   | Amazon Retail Operations (ARO)                                                                                                                               |
+General questions| Question | Example Response |
+| --- | --- |
+| Enterprise Name | Amazon Inc. |
+| Name of this workload (include any abbreviations) | Amazon Retail Operations (ARO) |
 | Primary end user and the function of this workload. | This workload is an e-commerce application that allows end users to purchase various items. This workload is the primary revenue generator for our business. |
 
 ## Workload onboarding questionnaire - Architecture questions
 
-| Architecture questions                                                                                                                                                                                                                                                                                          | Question                                                                                                                 | Example Response |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| A list of AWS resource tags used to define resources that are part of this workload. AWS uses these tags to identify this workload's resources to expedite support during incidents.<br>NoteTags are case sensitive. If you provide multiple tags, all resources used by this workload must have the same tags. | appName: Optimax<br>environment: Production                                                                              |
-| A list of AWS service(s) utilized by this workload, the AWS account(s) and AWS Region(s) that they are in.                                                                                                                                                                                                      | AWS services: Route 53, ALB, ECS, ...<br>Accounts: 123456789101, 123456789102, ...<br>Regions: US-EAST-1, US-WEST-2, ... |
+Architecture questions| Question | Example Response |
+| --- | --- |
+| A list of AWS resource tags used to define resources that are part of this workload. AWS uses these tags to identify this workload's resources to expedite support during incidents.<br>NoteTags are case sensitive. If you provide multiple tags, all resources used by this workload must have the same tags. | appName: Optimax<br>environment: Production |
+| A list of AWS service(s) utilized by this workload, the AWS account(s) and AWS Region(s) that they are in. | AWS services: Route 53, ALB, ECS, ...<br>Accounts: 123456789101, 123456789102, ...<br>Regions: US-EAST-1, US-WEST-2, ... |
 
 ## Alarm ingestion questionnaire - Overview
 
@@ -55,10 +55,10 @@ The Alarm Ingestion Questionnaire is divided into the following sections:
 
 ## Alarm ingestion questionnaire - Runbook questions
 
-| Runbook questions                                                                                                                                                                                                                                                                                                                                                                            | Question                                                                                                                                                                                                                                                                                                     | Example Response |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| AWS engages workload contacts through the Support case. Who is the primary contact when an alarm triggers for this workload?<br>Specify your preferred conferencing application and AWS will request these details during an incident.<br>NoteIf a preferred conferencing application isn't provided, then AWS will reach out during an incident and provide a Chime bridge for you to join. | Application Team<br>app@example.com<br>+61 2 3456 7890                                                                                                                                                                                                                                                       |
-| If the primary contact is unavailable during an incident, please provide escalation contacts and timeline in the preferred communication order.                                                                                                                                                                                                                                              | 1. After 10 minutes, if no response from Primary Contact, engage:<br>John Smith<br>• Application Supervisor<br>john.smith@example.com<br>+61 2 3456 7890<br>2. After 10 minutes, if no response from John Smith, contact:<br>Jane Smith<br>• Operations Manager<br>jane.smith@example.com<br>+61 2 3456 7890 |
+Runbook questions| Question | Example Response |
+| --- | --- |
+| AWS engages workload contacts through the Support case. Who is the primary contact when an alarm triggers for this workload?<br>Specify your preferred conferencing application and AWS will request these details during an incident.<br>NoteIf a preferred conferencing application isn't provided, then AWS will reach out during an incident and provide a Chime bridge for you to join. | Application Team<br>app@example.com<br>+61 2 3456 7890 |
+| If the primary contact is unavailable during an incident, please provide escalation contacts and timeline in the preferred communication order. | 1. After 10 minutes, if no response from Primary Contact, engage:<br>John Smith<br>• Application Supervisor<br>john.smith@example.com<br>+61 2 3456 7890<br>2. After 10 minutes, if no response from John Smith, contact:<br>Jane Smith<br>• Operations Manager<br>jane.smith@example.com<br>+61 2 3456 7890 |
 
 ## Alarm matrix
 
@@ -94,4 +94,4 @@ Alarm matrix table for CloudWatch alarms| **CloudWatch alarm ARN** | **Primary c
 
 Alarm matrix table for third-party APM alarms| **EventBridge Event Bus ARN**<br>**(This is created as part of the third-party APM integration to route alerts to AWS Incident Detection and Response.)** | Example: (There will be an event bus per Account/Region combination)<br>`arn:aws:events:us-east-1:123456789012:event-bus/APMName-AWSIncidentDetectionResponse-EventBus`<br>`arn:aws:events:us-west-1:123456789012:event-bus/APMName-AWSIncidentDetectionResponse-EventBus` |
 | **Alarm Identifier** | **What does this metric represent?**<br>**Why is this alarm important?** | **Primary contact for this alarm.**<br>**(If different from workload primary contact)** | **Specify the most relevant AWS service for this alarm to engage the right engineer. Enter N/A if not needed.** |
-| Example:<br>ALB_5xx_Target_Response<br>Account ID: 123456789012<br>Region: us-east-1 | Example:<br>This metric represents transaction responses from the targets behind the ALB. If 5XX errors exceeds threshold, it represents a critical failure to process business transactions. | Example:<br>Sam Smith<br>• Application Manager<br>sam.smith@example.com<br>+61 2 3456 7890 | Example:<br>ECS |
+| Example:<br>ALB\_5xx\_Target\_Response<br>Account ID: 123456789012<br>Region: us-east-1 | Example:<br>This metric represents transaction responses from the targets behind the ALB. If 5XX errors exceeds threshold, it represents a critical failure to process business transactions. | Example:<br>Sam Smith<br>• Application Manager<br>sam.smith@example.com<br>+61 2 3456 7890 | Example:<br>ECS |

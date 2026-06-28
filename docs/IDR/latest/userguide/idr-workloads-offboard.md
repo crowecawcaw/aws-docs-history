@@ -24,5 +24,4 @@ If you create a support case to offboard a workload from the incorrect account, 
     * **Account ID(s):** ID1, ID2, ID3, and so on.
     * **Reason for offboarding:** Provide a reason for offboarding the workload.
 
-8. In the **Additional contacts - optional** section, enter any email IDs that you want to receive correspondence about this offboarding request.
-9. Choose **Submit**.
+8. In the **Additional contacts - optional** section, enter any email IDs that you want to receive correspondence about this offboarding request. 9. Choose **Submit**.
