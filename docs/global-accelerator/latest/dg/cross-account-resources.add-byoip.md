@@ -34,5 +34,4 @@ account attachment. 8. Specify one or both static IP addresses for your accelera
     * If you chose your own IP address pool, also choose a specific IP address from the pool. If you
      choose the default Amazon IP address pool, Global Accelerator assigns a specific IP address to your accelerator.
 
-9. Optionally, add one or more tags to help you identify your accelerator resources.
-10. Choose **Next** to add listeners, endpoint groups, and endpoints.
+9. Optionally, add one or more tags to help you identify your accelerator resources. 10. Choose **Next** to add listeners, endpoint groups, and endpoints.

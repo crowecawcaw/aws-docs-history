@@ -71,22 +71,21 @@ For each port range that you provide, you also specify the protocol to use: UDP,
 
 ## To add an endpoint group
 
-1.  On the **Add endpoint groups** page, in the section for a listener,
-    choose a **Region**.
-2.  For **Ports and protocols sets**, enter port ranges and protocols for
-    your Amazon EC2 instances.
+1. On the **Add endpoint groups** page, in the section for a listener,
+   choose a **Region**.
+2. For **Ports and protocols sets**, enter port ranges and protocols for
+   your Amazon EC2 instances.
 
-        * Enter a **From port** and a **To port**
-         to specify a range of ports.
-        * For each port range, specify the protocol or protocols for that range.
+   - Enter a **From port** and a **To port**
+     to specify a range of ports.
+   - For each port range, specify the protocol or protocols for that range.
+     The port range doesn't have to be a subset of your listener port range, but there must be enough
+     total ports in the listener port range to support the total number of ports that you specify.
 
-    The port range doesn't have to be a subset of your listener port range, but there must be enough
-    total ports in the listener port range to support the total number of ports that you specify.
-
-3.  Choose **Save**.
-4.  Optionally, choose **Add endpoint group** to add additional endpoint
-    groups for this listener or other listeners.
-5.  Choose **Next**.
+3. Choose **Save**.
+4. Optionally, choose **Add endpoint group** to add additional endpoint
+   groups for this listener or other listeners.
+5. Choose **Next**.
 
 ## Step 4: Add VPC subnet endpoints
 
@@ -101,19 +100,18 @@ to specific EC2 instances.
 
 ## To add endpoints
 
-1.  On the **Add endpoints** page, in the section for the endpoint group that
-    you want to add the endpoint to, choose a subnet ID for **Endpoint**.
-2.  Optionally, do one of the following to enable traffic to EC2 instance destinations in the subnet:
+1. On the **Add endpoints** page, in the section for the endpoint group that
+   you want to add the endpoint to, choose a subnet ID for **Endpoint**.
+2. Optionally, do one of the following to enable traffic to EC2 instance destinations in the subnet:
 
-        * To allow traffic to be directed to all EC2 endpoints and ports on the subnet,
-         select **Allow all traffic**
-        * To allow traffic to specific EC2 endpoints and ports on the subnet,
-         select **Allow traffic to specific destination socket addresses**.
-         Then specify the IP addresses and ports or port ranges to allow. Finally, choose
-         **Allow these destinations**.
-
-    By default, no traffic is allowed to subnet endpoints. If you don't
-    select an option to allow traffic, traffic is denied to all destinations in the subnet.
+   - To allow traffic to be directed to all EC2 endpoints and ports on the subnet,
+     select **Allow all traffic**
+   - To allow traffic to specific EC2 endpoints and ports on the subnet,
+     select **Allow traffic to specific destination socket addresses**.
+     Then specify the IP addresses and ports or port ranges to allow. Finally, choose
+     **Allow these destinations**.
+     By default, no traffic is allowed to subnet endpoints. If you don't
+     select an option to allow traffic, traffic is denied to all destinations in the subnet.
 
 ###### Note
 
