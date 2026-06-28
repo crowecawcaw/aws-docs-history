@@ -51,7 +51,7 @@ Chats may be visible to others in your organization.
 3. Press Enter on your keyboard, or choose the run button, to send the prompt to the
    model. The response from the model will be generated in the playground.
 4. Continue chatting with the model by entering the prompt `Is there a museum
-there?`.
+ there?`.
 
 The model will use the previous prompt as context for generating its response to this question. 5. (Optional) Compare the output from multiple models, or [shared apps](../../../sagemaker-unified-studio/latest/userguide/bedrock-explore-chat-playground-app.md "../../../sagemaker-unified-studio/latest/userguide/bedrock-explore-chat-playground-app.md").
 
@@ -86,7 +86,7 @@ creates playlists for a radio station and shares the dates and locations of upco
      want to use and then choose **Continue**.
 
 3. On the app creation page, an untitled app will automatically be created for you. In **Untitled App - nnnn**, enter `Radio
-show` as the name for your app.
+ show` as the name for your app.
 4. In the **Configs** pane, do the following:
 
    1. For **Model**, select a model that supports
@@ -100,12 +100,12 @@ show` as the name for your app.
       Different models might not support all features.
    2. For **Enter a system instruction** in **Instructions for chat agent
       & examples**, enter `You are a
-chat agent app that creates 2 hour long playlists for a radio
-station that plays rock and pop music.`.
+  chat agent app that creates 2 hour long playlists for a radio
+  station that plays rock and pop music.`.
    3. In the **UI** section, update the user interface for the app by doing the following:
 
       1. In **Hint text for empty chat** enter `Hi!
-I'm your radio show playlist creator.`.
+  I'm your radio show playlist creator.`.
       2. In **Hint text for user input** enter
          `Enter a prompt that describes the playlist that you want.`.
       3. In **Quick start prompts** choose
@@ -113,7 +113,7 @@ I'm your radio show playlist creator.`.
       4. Choose **Reset** to clear the list of quick start
          prompts
       5. For **Quick-start prompt 1**, enter `Create a
-playlist of pop music songs.`.
+  playlist of pop music songs.`.
       6. (Optional). Enter quick start prompts of your choice in the remaining quick start prompt text boxes.
       7. Choose **Back to configs**.
 

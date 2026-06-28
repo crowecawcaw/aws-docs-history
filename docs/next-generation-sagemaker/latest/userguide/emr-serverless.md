@@ -49,7 +49,7 @@ from the second drop down box. 3. Run the code in your code block. The first tim
 a session for your connection. This means that you are connected to the serverless compute, and all codeblocks
 using this EMR compute this session will use this connection.
 
-For first-time users, we recommend starting with the EMR example notebook provided (getting_started.ipynb),
+For first-time users, we recommend starting with the EMR example notebook provided (getting\_started.ipynb),
 which demonstrates basic operations and best practices. You can access this notebook from the Examples tab in the Unified Studio
 file browser, pictured below:
 

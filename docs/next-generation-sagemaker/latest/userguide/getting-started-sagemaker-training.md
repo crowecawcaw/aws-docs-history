@@ -83,10 +83,9 @@ again. 4. On the **Fine-tune model** page, under
      Amazon S3.
 
 5. For **Output artifact location (S3 URI)**, specify where
-   Amazon SageMaker Unified Studio uploads the fine-tuned model. You can choose to use the default bucket,
-   or you can specify a custom location in Amazon S3.
-6. (Optional) Under **Hyperparameters**, update the
-   hyperparameters you want to change.
+Amazon SageMaker Unified Studio uploads the fine-tuned model. You can choose to use the default bucket,
+or you can specify a custom location in Amazon S3. 6. (Optional) Under **Hyperparameters**, update the
+hyperparameters you want to change.
 
 The hyperparameters available for each trainable model differ depending on the
 model. Review the help text and additional information in the model details

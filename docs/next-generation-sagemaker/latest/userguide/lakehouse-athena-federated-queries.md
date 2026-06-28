@@ -99,12 +99,11 @@ Studio Administrator Guide_.
 
 - Two SageMaker Unified Studio projects set up for this guide:
 
-      + An Admin project for creating connections. This project has a SQL analytics project profile.
-      + A Data Analyst project for analyzing data, which includes both administrator and
-       analysts as members. This project has a SQL analytics project profile.
-
-  For more information about how to create a project in SageMaker Unified Studio, see [Setting up Amazon SageMaker](setting-up.md "setting-up.md") in the
-  _Amazon SageMaker User Guide_.
+  - An Admin project for creating connections. This project has a SQL analytics project profile.
+  - A Data Analyst project for analyzing data, which includes both administrator and
+    analysts as members. This project has a SQL analytics project profile.
+    For more information about how to create a project in SageMaker Unified Studio, see [Setting up Amazon SageMaker](setting-up.md "setting-up.md") in the
+    _Amazon SageMaker User Guide_.
 
 ###### Note
 

@@ -16,15 +16,14 @@ A summary of the tasks in this getting started are as follows.
 - Multiple query options (Spark and Athena) and data visualization/analysis
   capabilities:
 
-      + Use Spark in Jupyter notebooks
-      + Use Athena in the query editor
-      + Create and modify tables using SQL
-      + Visualize results using charts
-
-  This getting started uses a .parquet file as sample S3 Raw file data to import that you
-  can retrieve from the public bucket. There are other formats of data you can import into
-  Lake Formation tables for AWS Glue Data Catalog, such as RDS tables, DynamoDB tables, or RedShift
-  tables.
+  - Use Spark in Jupyter notebooks
+  - Use Athena in the query editor
+  - Create and modify tables using SQL
+  - Visualize results using charts
+    This getting started uses a .parquet file as sample S3 Raw file data to import that you
+    can retrieve from the public bucket. There are other formats of data you can import into
+    Lake Formation tables for AWS Glue Data Catalog, such as RDS tables, DynamoDB tables, or RedShift
+    tables.
 
 ###### Topics
 
@@ -343,10 +342,10 @@ Lakehouse.
    **Create inline policy**.
 4. Choose **JSON**, and then paste the following policy
    statement into the Policy editor. The following is an example bucket policy.
-   Replace ACCOUNT_ID with the account ID where the domain resides,
-   <s3_bucket> with the name of the S3 bucket that you intend to query in
+   Replace ACCOUNT\_ID with the account ID where the domain resides,
+   <s3\_bucket> with the name of the S3 bucket that you intend to query in
    SageMaker Unified Studio, and
-   <datazone_usr_role_xxxxxxxxxxxxxx_yyyyyyyyyyyyyy> with the project
+   <datazone\_usr\_role\_xxxxxxxxxxxxxx\_yyyyyyyyyyyyyy> with the project
    role in SageMaker Unified Studio. For the purposes of this topic, replace
    the `amzn-s3-demo-bucket` value with the bucket name for the sample data
    (`s3://aws-bigdata-blog/generated_synthetic_reviews/*`).
@@ -464,7 +463,7 @@ includes all the partition folders. As a gene3ral recommendation, create
 tables at the top level.
 
 The SQL query creates an external table named
-"synthetic_reviews_video_games" that maps to Amazon product review data
+"synthetic\_reviews\_video\_games" that maps to Amazon product review data
 stored in Parquet format. The table defines columns for marketplace,
 customer information, product details, ratings, and review content. 6. Choose the **Run cell** icon.
 
