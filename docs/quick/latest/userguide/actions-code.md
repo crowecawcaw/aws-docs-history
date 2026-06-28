@@ -37,11 +37,10 @@ Code blocks are available through multiple interfaces:
 
 - **Build with Assistant:**
 
-      + Available during plan generation when the assistant determines custom code is needed
-      + The assistant automatically suggests code blocks for complex operations
-      + You can request code blocks by describing your custom logic needs
-
-  **Actions available:**
+  - Available during plan generation when the assistant determines custom code is needed
+  - The assistant automatically suggests code blocks for complex operations
+  - You can request code blocks by describing your custom logic needs
+    **Actions available:**
 
 ## Single Line Expressions
 
@@ -49,7 +48,7 @@ Single Line Expressions execute one-line Python statements that perform operatio
 
 **Properties:**
 
-- Expression (required): The Python expression to execute (e.g., "my_list.append('new item')")
+- Expression (required): The Python expression to execute (e.g., "my\_list.append('new item')")
 
 **Examples:**
 
@@ -72,7 +71,7 @@ Custom Code Blocks are multi-line Python functions that execute complex logic, a
 
 **Properties:**
 
-- **Function Title (required)**: Name identifier for the code block (e.g., "Calculate_Total")
+- **Function Title (required)**: Name identifier for the code block (e.g., "Calculate\_Total")
 - **Function (required):** Python code block that contains your custom logic.
 
   - Step 1: Define Parameters

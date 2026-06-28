@@ -99,13 +99,13 @@ relationship between entities.
 You can interact with the knowledge graph visualization using the
 following controls.
 
-| Action                 | How to perform                                                                           |
-| ---------------------- | ---------------------------------------------------------------------------------------- |
-| **Select a<br>node**   | Choose a node to select it and view its<br>details.                                      |
-| **Focus on a<br>node** | Double-click a node to focus the view on that entity<br>and its immediate connections.   |
-| **Zoom**               | Scroll to zoom in or out of the graph.                                                   |
-| **Pan**                | Choose and drag on the background to move the<br>view.                                   |
-| **Search**             | Use the \*_Search<br>entities_<br>• bar at the top to find specific<br>entities by name. |
+| Action                 | How to perform                                                                          |
+| ---------------------- | --------------------------------------------------------------------------------------- |
+| **Select a<br>node**   | Choose a node to select it and view its<br>details.                                     |
+| **Focus on a<br>node** | Double-click a node to focus the view on that entity<br>and its immediate connections.  |
+| **Zoom**               | Scroll to zoom in or out of the graph.                                                  |
+| **Pan**                | Choose and drag on the background to move the<br>view.                                  |
+| **Search**             | Use the *_Search<br>entities_<br>• bar at the top to find specific<br>entities by name. |
 
 ### Browsing entities
 

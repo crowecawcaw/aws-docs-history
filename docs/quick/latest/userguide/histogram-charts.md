@@ -57,9 +57,9 @@ The resulting histogram shows the following:
      each bin.
 
 5. (Optional) Choose **Format** on the visual control to
-   change the histogram format. You can format the bins either by count or
-   width, not both together. The count setting changes how many bins display.
-   The width setting changes how wide or long of an interval each bin contains.
+change the histogram format. You can format the bins either by count or
+width, not both together. The count setting changes how many bins display.
+The width setting changes how wide or long of an interval each bin contains.
 
 ## Formatting a histogram
 

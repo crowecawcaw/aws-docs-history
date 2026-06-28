@@ -91,10 +91,9 @@ explicit deny on either permission results in an
 - To remove custom namespaces, you need permission to run the following API
   operations:
 
-      + `quicksight:ListNamespaces`
-      + `quicksight:DeleteNamespace`
-
-  You don't need extra permissions to delete the default namespace.
+  - `quicksight:ListNamespaces`
+  - `quicksight:DeleteNamespace`
+    You don't need extra permissions to delete the default namespace.
 
 ###### Warning
 

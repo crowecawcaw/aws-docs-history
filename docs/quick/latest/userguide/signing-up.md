@@ -42,17 +42,15 @@ Your AWS account number is displayed for verification purposes. 2. Enter a uniqu
      notifications.
 
 3. Choose the AWS Region that you want to use for your initial data storage
-   capacity, called SPICE.
-4. Choose an authentication method that you want to connect to Quick
-   with. Select from one of the following:
+capacity, called SPICE. 4. Choose an authentication method that you want to connect to Quick
+with. Select from one of the following:
 
-   - **(Recommended) Password-based or Single-Sign
+    * **(Recommended) Password-based or Single-Sign
      On**
-   - **IAM Identity Center**
-   - **Single-Sign On Only**
-   - **Active Directory**
+    * **IAM Identity Center**
+    * **Single-Sign On Only**
+    * **Active Directory**
 
 5. Review the choices that you made, then choose **Create
-   account**.
-6. Upon completion, your Quick account is created. To open
-   Quick, choose **Go to Quick**.
+account**. 6. Upon completion, your Quick account is created. To open
+Quick, choose **Go to Quick**.

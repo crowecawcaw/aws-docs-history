@@ -92,52 +92,48 @@ the following:
     	* **Client secret** – The
     	 client secret from your Box app.
 
-7. Choose **Next**.
-8. A Box authorization window opens. Review the requested
-   permissions and choose **Grant access to
-   Box**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can
-    access the connector. You can enable access for everyone in
-    your organization or search for specific teams or
-    groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. A Box authorization window opens. Review the requested
+permissions and choose **Grant access to
+Box**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can
+access the connector. You can enable access for everyone in
+your organization or search for specific teams or
+groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are
 available.
 
-| Box Agent available actions | Category                 | Action                                                                                                | Description |
-| --------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- | ----------- |
-| AI                          | AI Q&A (Hub)             | Ask a question to a Box Hub using Box AI.                                                             |
-| AI                          | AI Q&A (Single File)     | Ask a question to a single file using Box AI.                                                         |
-| AI                          | AI Q&A (Multiple Files)  | Ask a question to multiple files using Box AI.                                                        |
-| AI                          | AI Extract (Freeform)    | Extract metadata from files using Box AI in freeform<br>format.                                       |
-| AI                          | AI Extract (Structured)  | Extract structured metadata from files using Box AI<br>based on custom fields or a metadata template. |
-| Files                       | Get File Content         | Extract and return file content in text format for<br>files under 50 MB.                              |
-| Files                       | Get File Details         | Get comprehensive file information including metadata,<br>permissions, and version details.           |
-| Files                       | Update File Properties   | Update file metadata including name, description, tags,<br>and collections.                           |
-| Files                       | Upload File              | Upload a new file to Box.                                                                             |
-| Files                       | Upload File Version      | Upload a new version of an existing file.                                                             |
-| Files                       | Search Files             | Search for files using keywords with support for<br>metadata filters and file extension filtering.    |
-| Folders                     | Create Folder            | Create a new folder in Box.                                                                           |
-| Folders                     | Get Folder Details       | Retrieve comprehensive folder information including<br>metadata and collaboration settings.           |
-| Folders                     | List Folder Content      | List files, folders, and web links in a folder.                                                       |
-| Folders                     | Update Folder Properties | Update folder metadata including name, description,<br>tags, and collections.                         |
-| Folders                     | Search Folders           | Search for folders by name using keyword<br>matching.                                                 |
-| Hubs                        | Create Hub               | Create a new hub for organizing content.                                                              |
-| Hubs                        | Get Hub Details          | Retrieve information about a specific hub.                                                            |
-| Hubs                        | Get Hub Items            | Retrieve items within a hub including files, folders,<br>and web links.                               |
-| Hubs                        | List Hubs                | List all hubs accessible to the current user.                                                         |
-| Hubs                        | Update Hub               | Update the title or description of a hub.                                                             |
-| Hubs                        | Add Items to Hub         | Add files, folders, or web links to a hub.                                                            |
-| Comments and tasks          | Create File Comment      | Create a new comment on a file.                                                                       |
-| Comments and tasks          | List File Comments       | List all comments on a file.                                                                          |
-| Comments and tasks          | List Tasks               | List all tasks associated with a file.                                                                |
-| Users                       | Who Am I                 | Return information about the currently authenticated<br>user.                                         |
+Box Agent available actions| Category | Action | Description |
+| --- | --- | --- |
+| AI | AI Q&A (Hub) | Ask a question to a Box Hub using Box AI. |
+| AI | AI Q&A (Single File) | Ask a question to a single file using Box AI. |
+| AI | AI Q&A (Multiple Files) | Ask a question to multiple files using Box AI. |
+| AI | AI Extract (Freeform) | Extract metadata from files using Box AI in freeform<br>format. |
+| AI | AI Extract (Structured) | Extract structured metadata from files using Box AI<br>based on custom fields or a metadata template. |
+| Files | Get File Content | Extract and return file content in text format for<br>files under 50 MB. |
+| Files | Get File Details | Get comprehensive file information including metadata,<br>permissions, and version details. |
+| Files | Update File Properties | Update file metadata including name, description, tags,<br>and collections. |
+| Files | Upload File | Upload a new file to Box. |
+| Files | Upload File Version | Upload a new version of an existing file. |
+| Files | Search Files | Search for files using keywords with support for<br>metadata filters and file extension filtering. |
+| Folders | Create Folder | Create a new folder in Box. |
+| Folders | Get Folder Details | Retrieve comprehensive folder information including<br>metadata and collaboration settings. |
+| Folders | List Folder Content | List files, folders, and web links in a folder. |
+| Folders | Update Folder Properties | Update folder metadata including name, description,<br>tags, and collections. |
+| Folders | Search Folders | Search for folders by name using keyword<br>matching. |
+| Hubs | Create Hub | Create a new hub for organizing content. |
+| Hubs | Get Hub Details | Retrieve information about a specific hub. |
+| Hubs | Get Hub Items | Retrieve items within a hub including files, folders,<br>and web links. |
+| Hubs | List Hubs | List all hubs accessible to the current user. |
+| Hubs | Update Hub | Update the title or description of a hub. |
+| Hubs | Add Items to Hub | Add files, folders, or web links to a hub. |
+| Comments and tasks | Create File Comment | Create a new comment on a file. |
+| Comments and tasks | List File Comments | List all comments on a file. |
+| Comments and tasks | List Tasks | List all tasks associated with a file. |
+| Users | Who Am I | Return information about the currently authenticated<br>user. |
 
 ## Managing and troubleshooting
 

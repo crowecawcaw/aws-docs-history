@@ -67,35 +67,35 @@ a status of **Available**.
 
 After you set up the integration, you can use the following actions.
 
-| New Relic available actions | Category                          | Action                                                                                                                                                                     | Description |
-| --------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Incident analysis           | Generate Alert Insights Report    | Generates an alert intelligence analysis report for a specific<br>issue. Provides insights into root cause, impact, and recommended<br>actions.                            |
-| Incident analysis           | Generate User Impact Report       | Analyzes affected entities and their relationships to quantify<br>end-user impact through metrics like affected user count, degraded<br>services, and severity indicators. |
-| Incident analysis           | Search Incident                   | Retrieves alert incident events with flexible filtering by issue<br>ID, entity GUID, or policy and condition pair.                                                         |
-| Incident analysis           | List Recent Issues                | Lists all recent issues (last 24 hours) for a specified<br>account.                                                                                                        |
-| Performance analysis        | Analyze Transactions              | Identifies slow and error-prone transactions, their traces,<br>common transaction paths, and error distributions.                                                          |
-| Performance analysis        | Analyze Golden Metrics            | Analyzes key health indicators (throughput, response time, error<br>rate, and saturation) across application and infrastructure<br>entities.                               |
-| Performance analysis        | Analyze Deployment Impact         | Compares metrics before and after a deployment to identify<br>regressions or improvements.                                                                                 |
-| Performance analysis        | Analyze Kafka Metrics             | Analyzes Kafka metrics including consumer lag, producer<br>throughput, message latency, partition balance, and resource<br>utilization.                                    |
-| Performance analysis        | Analyze Threads                   | Analyzes thread metric data including thread state, CPU usage,<br>and memory consumption. Provides language-specific insights for<br>applications.                         |
-| Performance analysis        | List Garbage Collection Metrics   | Retrieves garbage collection and memory metrics for a given<br>entity. Use this action to identify whether GC issues are affecting<br>application performance.             |
-| Log analysis                | Analyze Entity Logs               | Analyzes application logs to identify error patterns, anomalous<br>behavior, and recurring issues within a specified time<br>window.                                       |
-| Log analysis                | List Recent Logs                  | Retrieves recent logs for a specified account and entity<br>GUID.                                                                                                          |
-| Error analysis              | List Entity Error Groups          | Retrieves error groups from the Errors Inbox within a time<br>window. Groups errors by message and prioritizes by user<br>impact.                                          |
-| Queries                     | Natural Language to NRQL Query    | Converts a natural language request into a New Relic Query<br>Language (NRQL) query, runs it against New Relic, and returns the<br>results.                                |
-| Queries                     | Execute NRQL Query                | Runs an NRQL query directly against New Relic telemetry<br>data.                                                                                                           |
-| Entities                    | Get Entity                        | Retrieves entities by GUID or searches by name pattern.                                                                                                                    |
-| Entities                    | List Related Entities             | Retrieves entities that are related to a given entity<br>GUID.                                                                                                             |
-| Entities                    | Search Entity with Tag            | Searches for entities by using tag key and value<br>pairs.                                                                                                                 |
-| Entities                    | List Entity Types                 | Lists the complete catalog of New Relic entity types with their<br>domain, type, and metric definitions.                                                                   |
-| Alerts                      | List Alert Policies               | Lists alert policies for a specified account, with optional<br>filtering by policy name.                                                                                   |
-| Alerts                      | List Alert Conditions             | Retrieves alert condition details for a specific alert<br>policy.                                                                                                          |
-| Dashboards                  | List Dashboards                   | Lists all dashboards for a New Relic account.                                                                                                                              |
-| Dashboards                  | Get Dashboard                     | Retrieves detailed information for a specific dashboard by<br>entity GUID.                                                                                                 |
-| Change tracking             | List Change Events                | Retrieves a history of change events such as deployments,<br>configuration changes, and other tracked activities for an<br>entity.                                         |
-| Monitoring                  | List Synthetic Monitors           | Lists synthetic monitors that check service availability and<br>performance from multiple geographic locations.                                                            |
-| Account                     | List Available New Relic Accounts | Lists all New Relic account IDs that are accessible to the<br>authenticated user.                                                                                          |
-| Utilities                   | Convert Time Period to Epoch Ms   | Converts a natural language time period to epoch milliseconds<br>for use with time-based queries.                                                                          |
+New Relic available actions| Category | Action | Description |
+| --- | --- | --- |
+| Incident analysis | Generate Alert Insights Report | Generates an alert intelligence analysis report for a specific<br>issue. Provides insights into root cause, impact, and recommended<br>actions. |
+| Incident analysis | Generate User Impact Report | Analyzes affected entities and their relationships to quantify<br>end-user impact through metrics like affected user count, degraded<br>services, and severity indicators. |
+| Incident analysis | Search Incident | Retrieves alert incident events with flexible filtering by issue<br>ID, entity GUID, or policy and condition pair. |
+| Incident analysis | List Recent Issues | Lists all recent issues (last 24 hours) for a specified<br>account. |
+| Performance analysis | Analyze Transactions | Identifies slow and error-prone transactions, their traces,<br>common transaction paths, and error distributions. |
+| Performance analysis | Analyze Golden Metrics | Analyzes key health indicators (throughput, response time, error<br>rate, and saturation) across application and infrastructure<br>entities. |
+| Performance analysis | Analyze Deployment Impact | Compares metrics before and after a deployment to identify<br>regressions or improvements. |
+| Performance analysis | Analyze Kafka Metrics | Analyzes Kafka metrics including consumer lag, producer<br>throughput, message latency, partition balance, and resource<br>utilization. |
+| Performance analysis | Analyze Threads | Analyzes thread metric data including thread state, CPU usage,<br>and memory consumption. Provides language-specific insights for<br>applications. |
+| Performance analysis | List Garbage Collection Metrics | Retrieves garbage collection and memory metrics for a given<br>entity. Use this action to identify whether GC issues are affecting<br>application performance. |
+| Log analysis | Analyze Entity Logs | Analyzes application logs to identify error patterns, anomalous<br>behavior, and recurring issues within a specified time<br>window. |
+| Log analysis | List Recent Logs | Retrieves recent logs for a specified account and entity<br>GUID. |
+| Error analysis | List Entity Error Groups | Retrieves error groups from the Errors Inbox within a time<br>window. Groups errors by message and prioritizes by user<br>impact. |
+| Queries | Natural Language to NRQL Query | Converts a natural language request into a New Relic Query<br>Language (NRQL) query, runs it against New Relic, and returns the<br>results. |
+| Queries | Execute NRQL Query | Runs an NRQL query directly against New Relic telemetry<br>data. |
+| Entities | Get Entity | Retrieves entities by GUID or searches by name pattern. |
+| Entities | List Related Entities | Retrieves entities that are related to a given entity<br>GUID. |
+| Entities | Search Entity with Tag | Searches for entities by using tag key and value<br>pairs. |
+| Entities | List Entity Types | Lists the complete catalog of New Relic entity types with their<br>domain, type, and metric definitions. |
+| Alerts | List Alert Policies | Lists alert policies for a specified account, with optional<br>filtering by policy name. |
+| Alerts | List Alert Conditions | Retrieves alert condition details for a specific alert<br>policy. |
+| Dashboards | List Dashboards | Lists all dashboards for a New Relic account. |
+| Dashboards | Get Dashboard | Retrieves detailed information for a specific dashboard by<br>entity GUID. |
+| Change tracking | List Change Events | Retrieves a history of change events such as deployments,<br>configuration changes, and other tracked activities for an<br>entity. |
+| Monitoring | List Synthetic Monitors | Lists synthetic monitors that check service availability and<br>performance from multiple geographic locations. |
+| Account | List Available New Relic Accounts | Lists all New Relic account IDs that are accessible to the<br>authenticated user. |
+| Utilities | Convert Time Period to Epoch Ms | Converts a natural language time period to epoch milliseconds<br>for use with time-based queries. |
 
 ###### Note
 

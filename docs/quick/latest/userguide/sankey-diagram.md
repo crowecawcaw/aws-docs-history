@@ -127,20 +127,19 @@ therefore, the value for Next Step Number is 3.
 | 2           | 11:47 am | Step 2 | 2           | 3                |
 | 2           | 11:48 am | Step 3 | 3           | 4                |
 
-3.  Join the table with itself:
+3. Join the table with itself:
 
-    1.  For **Join type**, choose
-        **Inner**.
-    2.  For **Join clauses**, do the following:
+   1. For **Join type**, choose
+      **Inner**.
+   2. For **Join clauses**, do the following:
 
-            1. Choose **Customer ID** =
-             **Customer ID**
-            2. Choose **Next Step Number** =
-             **Step Number**Joining the two tables creates two columns for Customer ID, Time, Action,
-
-        Step Number and Next Step Number. The columns from the table at the left of
-        the join are Source columns. The columns from the table at the right of the
-        join are Destination columns.
+      1. Choose **Customer ID** =
+         **Customer ID**
+      2. Choose **Next Step Number** =
+         **Step Number**Joining the two tables creates two columns for Customer ID, Time, Action,
+         Step Number and Next Step Number. The columns from the table at the left of
+         the join are Source columns. The columns from the table at the right of the
+         join are Destination columns.
 
 For more information about joining data in Quick, see [Joining data](joining-data.md "joining-data.md"). 4. (Optional) Rename columns to indicate sources and destinations.
 

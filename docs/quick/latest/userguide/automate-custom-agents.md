@@ -36,14 +36,14 @@ Custom agent is an intelligent action that processes natural language inputs to 
 
   List of integrations which can be used as tools/actions in the custom agent
 
-      - Amazon S3
-      - Amazon Bedrock Data automation
-      - Amazon Comprehend
-      - Amazon Textract
-      - Custom REST API
-      - Custom MCP connector
-      - Microsoft Outlook
-      - Salesforce
+        - Amazon S3
+        - Amazon Bedrock Data automation
+        - Amazon Comprehend
+        - Amazon Textract
+        - Custom REST API
+        - Custom MCP connector
+        - Microsoft Outlook
+        - Salesforce
 
 - **Structured Output (optional)**
 

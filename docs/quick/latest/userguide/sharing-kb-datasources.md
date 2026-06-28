@@ -18,10 +18,10 @@ SharePoint and Google Drive connections.
 Knowledge base owners can share their knowledge bases with other users and
 assign one of two roles:
 
-| Knowledge base sharing roles | Role                                                                                                                                                                                                                                                                                                                                  | Permissions |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Owner                        | View all tabs (Summary, Sync History, Settings,<br>Permissions). Edit knowledge base details. Trigger manual<br>syncs. Update the sync schedule. Share the knowledge base<br>with others. Delete the knowledge base. Owners cannot<br>edit the underlying data source connection<br>unless they are also an Owner of the data source. |
-| Viewer                       | View the knowledge base in the list and access the<br>Summary tab only. Viewers cannot edit, share, delete, or<br>trigger syncs.                                                                                                                                                                                                      |
+Knowledge base sharing roles| Role | Permissions |
+| --- | --- |
+| Owner | View all tabs (Summary, Sync History, Settings,<br>Permissions). Edit knowledge base details. Trigger manual<br>syncs. Update the sync schedule. Share the knowledge base<br>with others. Delete the knowledge base. Owners cannot<br>edit the underlying data source connection<br>unless they are also an Owner of the data source. |
+| Viewer | View the knowledge base in the list and access the<br>Summary tab only. Viewers cannot edit, share, delete, or<br>trigger syncs. |
 
 Before you share, note the following:
 
@@ -97,10 +97,10 @@ Before you share, note the following:
 - Unlike knowledge bases, the original creator of a data source can
   be removed or have their role changed.
 
-| Data source sharing roles | Role                                                                                                                       | Permissions |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Owner                     | Use the shared data source to create knowledge bases and<br>edit the connection details (such as App ID or App<br>Secret). |
-| Viewer                    | Use the shared data source to create knowledge bases but<br>cannot edit the connection details.                            |
+Data source sharing roles| Role | Permissions |
+| --- | --- |
+| Owner | Use the shared data source to create knowledge bases and<br>edit the connection details (such as App ID or App<br>Secret). |
+| Viewer | Use the shared data source to create knowledge bases but<br>cannot edit the connection details. |
 
 ### Sharing a data source connection
 

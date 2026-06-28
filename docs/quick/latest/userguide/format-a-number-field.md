@@ -33,17 +33,16 @@ option:**
   that you want. The following quick formatting options are offered
   for number fields:
 
-      + Use commas to separate groups of thousands and use a
-       decimal point to show the fractional part of the number, for
-       example 1,234.56.
-      + Use a decimal point to show the fractional part of the
-       number, for example 1234.56.
-      + Show the number as an integer and use commas to separate
-       groups of thousands, for example 1,234.
-      + Show the number as an integer, for example 1234.
-
-  **To manually change a number field's
-  format:**
+  - Use commas to separate groups of thousands and use a
+    decimal point to show the fractional part of the number, for
+    example 1,234.56.
+  - Use a decimal point to show the fractional part of the
+    number, for example 1234.56.
+  - Show the number as an integer and use commas to separate
+    groups of thousands, for example 1,234.
+  - Show the number as an integer, for example 1234.
+    **To manually change a number field's
+    format:**
 
 1. Choose one of the following options:
 
@@ -77,47 +76,50 @@ the following options:
      default. If you choose a dot instead, use a comma as the
      decimal separator.
 
-4.  Expand the **Decimal Places** section and choose
-    from the following options:
+4. Expand the **Decimal Places** section and choose
+from the following options:
 
-    - Choose **Auto** to have Amazon Quick
-      automatically determine the appropriate number of decimal
-      places, or choose **Custom** to specify a
-      number of decimal places. **Auto** is the
-      default.
-    - If you chose **Custom**, enter the number
-      of decimal places to use. Field values are rounded to the
-      decimal places specified. For example, if you specify two
-      decimal places, the value 6.728 is rounded to 6.73.
+    * Choose **Auto** to have Amazon Quick
+     automatically determine the appropriate number of decimal
+     places, or choose **Custom** to specify a
+     number of decimal places. **Auto** is the
+     default.
+    * If you chose **Custom**, enter the number
+     of decimal places to use. Field values are rounded to the
+     decimal places specified. For example, if you specify two
+     decimal places, the value 6.728 is rounded to 6.73.
 
-5.  Expand the **Units** section and choose from the
-    following options:
+5. Expand the **Units** section and choose from the
+following options:
 
-    - Choose the unit to use. Choosing a unit adds the
-      appropriate suffix to the number value. For example, if you
-      choose **Thousands**, a field value of 1234
-      displays as 1.234K.
+    * Choose the unit to use. Choosing a unit adds the
+     appropriate suffix to the number value. For example, if you
+     choose **Thousands**, a field value of 1234
+     displays as 1.234K.
+
 
     The unit options are as follows:
 
-        + No unit suffix. This is the default.
-        + Thousands (K)
-        + Millions (M)
-        + Billions (B)
-        + Trillions (T)
-    - If you want to use a custom prefix or suffix, specify it
-      in the **Prefix** or
-      **Suffix** box. You can specify both.
-      You can also specify a custom prefix in addition to the
-      suffix added by selecting a unit.
 
-6.  Expand the **Negatives** section and choose
-    whether to display a negative value by using a minus sign or by
-    enclosing it in parentheses. Using a minus sign is the
-    default.
-7.  Expand the **Null values** section and choose
-    whether to display null values as `null` or as a custom
-    value. Using `null` is the default.
+
+
+    	+ No unit suffix. This is the default.
+    	+ Thousands (K)
+    	+ Millions (M)
+    	+ Billions (B)
+    	+ Trillions (T)
+    * If you want to use a custom prefix or suffix, specify it
+     in the **Prefix** or
+     **Suffix** box. You can specify both.
+     You can also specify a custom prefix in addition to the
+     suffix added by selecting a unit.
+
+6. Expand the **Negatives** section and choose
+whether to display a negative value by using a minus sign or by
+enclosing it in parentheses. Using a minus sign is the
+default. 7. Expand the **Null values** section and choose
+whether to display null values as `null` or as a custom
+value. Using `null` is the default.
 
 ###### Note
 

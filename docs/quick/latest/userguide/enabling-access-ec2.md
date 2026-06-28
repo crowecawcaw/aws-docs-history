@@ -1,8 +1,8 @@
 # Authorizing connections from Amazon Quick to Amazon EC2 instances
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 |                                             |
 | ------------------------------------------- |

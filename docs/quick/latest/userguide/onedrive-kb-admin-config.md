@@ -9,13 +9,13 @@ This setup involves multiple systems and might require coordination between
 different administrators in your organization. The following table summarizes
 each step and the role needed to complete it.
 
-| Setup steps and roles | Step                                                                                               | What you do                                            | Role needed |
-| --------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
-| 1. KMS key            | Create an asymmetric signing key in AWS KMS.                                                       | AWS administrator (KMS and IAM console<br>access)      |
-| 2. Certificate        | Generate a self-signed certificate using the KMS public<br>key.                                    | Same as Step 1 (AWS CLI and OpenSSL<br>required)       |
-| 3. Entra app          | Register an application in Microsoft Entra, assign API<br>permissions, and upload the certificate. | Microsoft 365 Global Admin or Privileged Role<br>Admin |
-| 4. KMS key access     | Grant Amazon Quick permission to use the KMS key for<br>signing.                                   | Amazon Quick administrator (Admin Pro)                 |
-| 5. Create KB          | Create the knowledge base in Amazon Quick using the<br>credentials from the previous steps.        | Any Amazon Quick user (Author Pro or Admin<br>Pro)     |
+Setup steps and roles| Step | What you do | Role needed |
+| --- | --- | --- |
+| 1. KMS key | Create an asymmetric signing key in AWS KMS. | AWS administrator (KMS and IAM console<br>access) |
+| 2. Certificate | Generate a self-signed certificate using the KMS public<br>key. | Same as Step 1 (AWS CLI and OpenSSL<br>required) |
+| 3. Entra app | Register an application in Microsoft Entra, assign API<br>permissions, and upload the certificate. | Microsoft 365 Global Admin or Privileged Role<br>Admin |
+| 4. KMS key access | Grant Amazon Quick permission to use the KMS key for<br>signing. | Amazon Quick administrator (Admin Pro) |
+| 5. Create KB | Create the knowledge base in Amazon Quick using the<br>credentials from the previous steps. | Any Amazon Quick user (Author Pro or Admin<br>Pro) |
 
 ###### Tip
 
@@ -46,13 +46,13 @@ organization and always enforces document-level access control. The Entra app
 registration requires the following Microsoft Graph application
 permissions.
 
-| Admin-managed setup permissions | Permission  | Type                                                                                                                                                                       | Purpose |
-| ------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `Files.Read.All`                | Application | Read files in all users' OneDrive content.                                                                                                                                 |
-| `Sites.Read.All`                | Application | Enumerate and read the OneDrive drives across the tenant.<br>OneDrive for Business is hosted on SharePoint, so this<br>permission is required to access each user's drive. |
-| `User.Read.All`                 | Application | Read user profiles to resolve document-level access<br>control.                                                                                                            |
-| `Group.Read.All`                | Application | Read group objects to resolve group-based access<br>control.                                                                                                               |
-| `GroupMember.Read.All`          | Application | Read group memberships to resolve document-level access<br>control.                                                                                                        |
+Admin-managed setup permissions| Permission | Type | Purpose |
+| --- | --- | --- |
+| `Files.Read.All` | Application | Read files in all users' OneDrive content. |
+| `Sites.Read.All` | Application | Enumerate and read the OneDrive drives across the tenant.<br>OneDrive for Business is hosted on SharePoint, so this<br>permission is required to access each user's drive. |
+| `User.Read.All` | Application | Read user profiles to resolve document-level access<br>control. |
+| `Group.Read.All` | Application | Read group objects to resolve group-based access<br>control. |
+| `GroupMember.Read.All` | Application | Read group memberships to resolve document-level access<br>control. |
 
 ###### Important
 
@@ -72,13 +72,13 @@ March 31, 2025. Use [User-managed setup](onedrive-kb-user-managed.md "onedrive-k
 The following table summarizes the values you create or collect during setup
 and where you use them.
 
-| Values reference                     | Value           | Created in step                       | Used in step |
-| ------------------------------------ | --------------- | ------------------------------------- | ------------ |
-| KMS Key ARN                          | 1 (KMS)         | 2 (Certificate), 4 (IAM), Quick setup |
-| Certificate file (`certificate.cer`) | 2 (Certificate) | 3 (Entra upload)                      |
-| Certificate thumbprint (base64url)   | 2 (Certificate) | Quick setup                           |
-| Application (Client) ID              | 3 (Entra)       | Quick setup                           |
-| Directory (Tenant) ID                | 3 (Entra)       | Quick setup                           |
+Values reference| Value | Created in step | Used in step |
+| --- | --- | --- |
+| KMS Key ARN | 1 (KMS) | 2 (Certificate), 4 (IAM), Quick setup |
+| Certificate file (`certificate.cer`) | 2 (Certificate) | 3 (Entra upload) |
+| Certificate thumbprint (base64url) | 2 (Certificate) | Quick setup |
+| Application (Client) ID | 3 (Entra) | Quick setup |
+| Directory (Tenant) ID | 3 (Entra) | Quick setup |
 
 ## Step 1: Create an AWS KMS asymmetric signing key
 
@@ -100,13 +100,13 @@ your Entra app registration.
 On the **Configure key** page, set the following
 values:
 
-| KMS key configuration | Setting                                                              | Value |
-| --------------------- | -------------------------------------------------------------------- | ----- |
-| Key type              | Asymmetric                                                           |
-| Key usage             | Sign and verify                                                      |
-| Key spec              | RSA_2048                                                             |
-| Key material origin   | KMS (recommended)                                                    |
-| Regionality           | Single-Region key (default). Multi-Region keys<br>are not supported. |
+KMS key configuration| Setting | Value |
+| --- | --- |
+| Key type | Asymmetric |
+| Key usage | Sign and verify |
+| Key spec | RSA\_2048 |
+| Key material origin | KMS (recommended) |
+| Regionality | Single-Region key (default). Multi-Region keys<br>are not supported. |
 
 ### Add labels
 
@@ -280,10 +280,10 @@ requires the base64url format.
 On the application **Overview** page, record the
 following values:
 
-| Application details     | Value                                               | Location |
-| ----------------------- | --------------------------------------------------- | -------- |
+Application details| Value | Location |
+| --- | --- |
 | Application (client) ID | Shown on the Overview page under<br>**Essentials**. |
-| Directory (tenant) ID   | Shown on the Overview page under<br>**Essentials**. |
+| Directory (tenant) ID | Shown on the Overview page under<br>**Essentials**. |
 
 ### Configure API permissions
 

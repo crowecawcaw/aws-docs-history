@@ -19,18 +19,18 @@ automatically for geospatial groupings, after you define these in the dataset.
 Use the following table to identify the field wells/on-visual editors that support
 drill-down for each visual type.
 
-| Visual type                 | Field well or on-visual editor           |
-| --------------------------- | ---------------------------------------- |
-| Bar charts (all horizontal) | **Y axis\*<br>• and<br>**Group/Color\*\* |
-| Bar charts (all vertical)   | **X axis\*<br>• and<br>**Group/Color\*\* |
-| Combo charts (all)          | **X axis\*<br>• and<br>**Group/Color\*\* |
-| Geospatial charts           | **Geospatial\*<br>• and<br>**Color\*\*   |
-| Heat map                    | **Rows\*<br>• and **Columns\*\*          |
-| KPIs                        | **Trend Group**                          |
-| Line charts (all)           | **X axis\*<br>• and **Color\*\*          |
-| Pie chart                   | **Group/Color**                          |
-| Scatter plot                | **Group/Color**                          |
-| Tree map                    | **Group by**                             |
+| Visual type                 | Field well or on-visual editor        |
+| --------------------------- | ------------------------------------- |
+| Bar charts (all horizontal) | *_Y axis_<br>• and<br>**Group/Color** |
+| Bar charts (all vertical)   | *_X axis_<br>• and<br>**Group/Color** |
+| Combo charts (all)          | *_X axis_<br>• and<br>**Group/Color** |
+| Geospatial charts           | *_Geospatial_<br>• and<br>**Color**   |
+| Heat map                    | *_Rows_<br>• and **Columns**          |
+| KPIs                        | **Trend Group**                       |
+| Line charts (all)           | *_X axis_<br>• and **Color**          |
+| Pie chart                   | **Group/Color**                       |
+| Scatter plot                | **Group/Color**                       |
+| Tree map                    | **Group by**                          |
 
 ###### Important
 

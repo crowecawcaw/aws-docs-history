@@ -76,29 +76,29 @@ The following scopes are requested when you connect to Zoom.
 When you create a custom Zoom app, add these scopes on the
 **Scopes** tab.
 
-| Zoom recommended scopes                     | Scope                            | Description |
-| ------------------------------------------- | -------------------------------- | ----------- |
-| `meeting:read:list_meetings`                | Lists meetings.                  |
-| `meeting:read:meeting`                      | Reads meeting details.           |
-| `meeting:read:summary`                      | Reads meeting summaries.         |
-| `meeting:read:list_past_participants`       | Lists past meeting participants. |
-| `meeting:read:list_past_instances`          | Lists past meeting instances.    |
-| `meeting:write:meeting`                     | Creates meetings.                |
-| `meeting:update:meeting`                    | Updates meetings.                |
-| `meeting:delete:meeting`                    | Deletes meetings.                |
-| `meeting:write:registrant`                  | Adds meeting registrants.        |
-| `cloud_recording:read:list_user_recordings` | Lists user recordings.           |
-| `cloud_recording:read:list_recording_files` | Lists recording files.           |
-| `cloud_recording:delete:meeting_recording`  | Deletes meeting recordings.      |
-| `webinar:read:webinar`                      | Reads webinar details.           |
-| `webinar:read:list_webinars`                | Lists webinars.                  |
-| `webinar:read:list_past_participants`       | Lists past webinar participants. |
-| `webinar:read:list_registrants`             | Lists webinar registrants.       |
-| `webinar:write:registrant`                  | Adds webinar registrants.        |
-| `user:read:user`                            | Reads user information.          |
-| `user:read:settings`                        | Reads user settings.             |
-| `user:read:list_collaboration_devices`      | Lists collaboration devices.     |
-| `contact:read:list_contacts`                | Lists contacts.                  |
+Zoom recommended scopes| Scope | Description |
+| --- | --- |
+| `meeting:read:list_meetings` | Lists meetings. |
+| `meeting:read:meeting` | Reads meeting details. |
+| `meeting:read:summary` | Reads meeting summaries. |
+| `meeting:read:list_past_participants` | Lists past meeting participants. |
+| `meeting:read:list_past_instances` | Lists past meeting instances. |
+| `meeting:write:meeting` | Creates meetings. |
+| `meeting:update:meeting` | Updates meetings. |
+| `meeting:delete:meeting` | Deletes meetings. |
+| `meeting:write:registrant` | Adds meeting registrants. |
+| `cloud_recording:read:list_user_recordings` | Lists user recordings. |
+| `cloud_recording:read:list_recording_files` | Lists recording files. |
+| `cloud_recording:delete:meeting_recording` | Deletes meeting recordings. |
+| `webinar:read:webinar` | Reads webinar details. |
+| `webinar:read:list_webinars` | Lists webinars. |
+| `webinar:read:list_past_participants` | Lists past webinar participants. |
+| `webinar:read:list_registrants` | Lists webinar registrants. |
+| `webinar:write:registrant` | Adds webinar registrants. |
+| `user:read:user` | Reads user information. |
+| `user:read:settings` | Reads user settings. |
+| `user:read:list_collaboration_devices` | Lists collaboration devices. |
+| `contact:read:list_contacts` | Lists contacts. |
 
 ###### Note
 
@@ -176,44 +176,40 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Zoom
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Zoom
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are available.
 
-| Zoom available actions | Category                       | Action                                                 | Description |
-| ---------------------- | ------------------------------ | ------------------------------------------------------ | ----------- |
-| Meetings               | List Meetings                  | Lists meetings for a user.                             |
-| Meetings               | Get Meeting                    | Retrieves details for a specific meeting.              |
-| Meetings               | Create Meeting                 | Creates a new meeting.                                 |
-| Meetings               | Update Meeting                 | Updates an existing meeting.                           |
-| Meetings               | Get Meeting Summary            | Retrieves the AI-generated summary for a<br>meeting.   |
-| Meetings               | List Meeting Summary Templates | Lists available meeting summary templates.             |
-| Meetings               | Get Past Meeting Participants  | Retrieves participants from a past meeting.            |
-| Meetings               | List Past Meeting Instances    | Lists instances of a recurring meeting.                |
-| Meetings               | Create Meeting Registrant      | Adds a registrant to a meeting.                        |
-| Recordings             | List Recordings                | Lists all recordings for a user.                       |
-| Recordings             | Get Meeting Recordings         | Retrieves recordings for a specific meeting.           |
-| Recordings             | List Archived Files            | Lists archived recording files.                        |
-| Webinars               | List Webinars                  | Lists webinars for a user.                             |
-| Webinars               | Get Webinar                    | Retrieves details for a specific webinar.              |
-| Webinars               | List Webinar Participants      | Lists participants for a webinar.                      |
-| Contacts               | Search Company Contacts        | Searches for contacts in the company<br>directory.     |
-| Devices                | List Devices                   | Lists Zoom devices.                                    |
-| Reports                | Get Daily Usage Report         | Retrieves a daily usage report.                        |
-| Users                  | Get User                       | Retrieves information about the authenticated<br>user. |
+Zoom available actions| Category | Action | Description |
+| --- | --- | --- |
+| Meetings | List Meetings | Lists meetings for a user. |
+| Meetings | Get Meeting | Retrieves details for a specific meeting. |
+| Meetings | Create Meeting | Creates a new meeting. |
+| Meetings | Update Meeting | Updates an existing meeting. |
+| Meetings | Get Meeting Summary | Retrieves the AI-generated summary for a<br>meeting. |
+| Meetings | List Meeting Summary Templates | Lists available meeting summary templates. |
+| Meetings | Get Past Meeting Participants | Retrieves participants from a past meeting. |
+| Meetings | List Past Meeting Instances | Lists instances of a recurring meeting. |
+| Meetings | Create Meeting Registrant | Adds a registrant to a meeting. |
+| Recordings | List Recordings | Lists all recordings for a user. |
+| Recordings | Get Meeting Recordings | Retrieves recordings for a specific meeting. |
+| Recordings | List Archived Files | Lists archived recording files. |
+| Webinars | List Webinars | Lists webinars for a user. |
+| Webinars | Get Webinar | Retrieves details for a specific webinar. |
+| Webinars | List Webinar Participants | Lists participants for a webinar. |
+| Contacts | Search Company Contacts | Searches for contacts in the company<br>directory. |
+| Devices | List Devices | Lists Zoom devices. |
+| Reports | Get Daily Usage Report | Retrieves a daily usage report. |
+| Users | Get User | Retrieves information about the authenticated<br>user. |
 
 ###### Note
 

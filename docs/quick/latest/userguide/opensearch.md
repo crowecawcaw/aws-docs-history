@@ -1,8 +1,8 @@
 # Authorizing connections to Amazon OpenSearch Service
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                             |
 | ------------------------------------------- |
@@ -128,19 +128,17 @@ permissions:
     * `indices:data/read/scroll/clear`,
 
 6. Under **Index permissions** specify
-   `*` as the index pattern.
-7. For **Index permissions**, add the following
-   permissions:
+`*` as the index pattern. 7. For **Index permissions**, add the following
+permissions:
 
-   - `indices:admin/get`
-   - `indices:admin/mappings/get`
-   - `indices:admin/mappings/fields/get*`
-   - `indices:data/read/search*`
-   - `indices:monitor/settings/get`
+    * `indices:admin/get`
+    * `indices:admin/mappings/get`
+    * `indices:admin/mappings/fields/get*`
+    * `indices:data/read/search*`
+    * `indices:monitor/settings/get`
 
-8. Choose **Create**.
-9. Repeat this procedure for each OpenSearch domain that you're planning to
-   use.
+8. Choose **Create**. 9. Repeat this procedure for each OpenSearch domain that you're planning to
+use.
 
 Use the following procedure to add a role mapping for the permissions that you
 added in the previous procedure. You might find it more efficient to add the

@@ -15,7 +15,7 @@ resources:
   A different approach to RCF appears in other AWS services. If you want to
   explore how RCF is used in other services, see the following:
 
-- _Amazon Managed Service for Apache Flink SQL Reference:_ [RANDOM_CUT_FOREST](../../../kinesisanalytics/latest/sqlref/sqlrf-random-cut-forest.md "../../../kinesisanalytics/latest/sqlref/sqlrf-random-cut-forest.md") and [RANDOM_CUT_FOREST_WITH_EXPLANATION](../../../kinesisanalytics/latest/sqlref/sqlrf-random-cut-forest-with-explanation.md "../../../kinesisanalytics/latest/sqlref/sqlrf-random-cut-forest-with-explanation.md")
+- _Amazon Managed Service for Apache Flink SQL Reference:_ [RANDOM\_CUT\_FOREST](../../../kinesisanalytics/latest/sqlref/sqlrf-random-cut-forest.md "../../../kinesisanalytics/latest/sqlref/sqlrf-random-cut-forest.md") and [RANDOM\_CUT\_FOREST\_WITH\_EXPLANATION](../../../kinesisanalytics/latest/sqlref/sqlrf-random-cut-forest-with-explanation.md "../../../kinesisanalytics/latest/sqlref/sqlrf-random-cut-forest-with-explanation.md")
 - _Amazon SageMaker Developer Guide:_ [Random Cut Forest (RCF) Algorithm](../../../sagemaker/latest/dg/randomcutforest.md "../../../sagemaker/latest/dg/randomcutforest.md"). This approach is also
   explained in [The
   Random Cut Forest Algorithm](https://freecontent.manning.com/the-randomcutforest-algorithm/ "https://freecontent.manning.com/the-randomcutforest-algorithm/"), a chapter in [Machine Learning for Business](https://www.amazon.com/Machine-Learning-Business-Doug-Hudgeon/dp/1617295833/ref=sr_1_3 "https://www.amazon.com/Machine-Learning-Business-Doug-Hudgeon/dp/1617295833/ref=sr_1_3") (October 2018).

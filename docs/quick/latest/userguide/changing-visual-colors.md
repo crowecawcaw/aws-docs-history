@@ -90,8 +90,8 @@ To select elements, do the following:
      wells**.
 
 3. Choose the color that you want to use. You can choose a color from the
-   existing palette, or you can choose a custom color. To use a custom
-   color, enter the hexadecimal code for that color.
+existing palette, or you can choose a custom color. To use a custom
+color, enter the hexadecimal code for that color.
 
 All elements on the visual are changed to use this color, except for
 any that have previously had their color individually set. In that case,

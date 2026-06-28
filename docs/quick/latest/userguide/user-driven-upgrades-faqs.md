@@ -1,8 +1,8 @@
 # User-driven license upgrades FAQ
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 **What are user-driven license upgrades?**
 

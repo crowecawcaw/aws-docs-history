@@ -87,13 +87,13 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 The following scopes are requested when you connect to Google
 Meet.
 
-| Google Meet recommended scopes                            | Scope                              | Description |
-| --------------------------------------------------------- | ---------------------------------- | ----------- |
-| `https://www.googleapis.com/auth/meetings.space.created`  | Creates meeting spaces.            |
-| `https://www.googleapis.com/auth/meetings.space.readonly` | Reads meeting space information.   |
-| `https://www.googleapis.com/auth/meetings.space.settings` | Manages meeting space settings.    |
-| `openid`                                                  | Authenticates the user's identity. |
-| `email`                                                   | Reads the user's email address.    |
+Google Meet recommended scopes| Scope | Description |
+| --- | --- |
+| `https://www.googleapis.com/auth/meetings.space.created` | Creates meeting spaces. |
+| `https://www.googleapis.com/auth/meetings.space.readonly` | Reads meeting space information. |
+| `https://www.googleapis.com/auth/meetings.space.settings` | Manages meeting space settings. |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
 
 ###### Note
 
@@ -173,40 +173,36 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Google
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Google
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are
 available.
 
-| Google Meet available actions | Category                  | Action                                            | Description |
-| ----------------------------- | ------------------------- | ------------------------------------------------- | ----------- |
-| Meetings                      | Create Meeting            | Creates a new meeting.                            |
-| Meetings                      | Get Meeting               | Retrieves details for a specific meeting.         |
-| Meetings                      | List Conference Records   | Lists conference records for past<br>meetings.    |
-| Spaces                        | Create Space              | Creates a new meeting space.                      |
-| Spaces                        | Get Space                 | Retrieves details for a meeting space.            |
-| Spaces                        | Update Space              | Updates meeting space settings.                   |
-| Participants                  | List Participants         | Lists participants for a conference<br>record.    |
-| Participants                  | List Participant Sessions | Lists sessions for a participant.                 |
-| Participants                  | Get Participant Session   | Retrieves details for a participant<br>session.   |
-| Recordings                    | List Recordings           | Lists recordings for a conference<br>record.      |
-| Recordings                    | Get Recordings            | Retrieves recordings by conference record<br>ID.  |
-| Transcripts                   | Get Transcripts           | Retrieves transcripts by conference record<br>ID. |
-| Transcripts                   | List Transcript Entries   | Lists individual entries in a<br>transcript.      |
-| Transcripts                   | Get Transcript Entry      | Retrieves a specific transcript entry.            |
+Google Meet available actions| Category | Action | Description |
+| --- | --- | --- |
+| Meetings | Create Meeting | Creates a new meeting. |
+| Meetings | Get Meeting | Retrieves details for a specific meeting. |
+| Meetings | List Conference Records | Lists conference records for past<br>meetings. |
+| Spaces | Create Space | Creates a new meeting space. |
+| Spaces | Get Space | Retrieves details for a meeting space. |
+| Spaces | Update Space | Updates meeting space settings. |
+| Participants | List Participants | Lists participants for a conference<br>record. |
+| Participants | List Participant Sessions | Lists sessions for a participant. |
+| Participants | Get Participant Session | Retrieves details for a participant<br>session. |
+| Recordings | List Recordings | Lists recordings for a conference<br>record. |
+| Recordings | Get Recordings | Retrieves recordings by conference record<br>ID. |
+| Transcripts | Get Transcripts | Retrieves transcripts by conference record<br>ID. |
+| Transcripts | List Transcript Entries | Lists individual entries in a<br>transcript. |
+| Transcripts | Get Transcript Entry | Retrieves a specific transcript entry. |
 
 ###### Note
 

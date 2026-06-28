@@ -6,20 +6,19 @@ radar chart.
 
 ###### To set the series style of a radar chart
 
-1.  Choose the radar chart visual that you want to change, and choose the
-    **Format visual** icon on the top right corner of the
-    visual.
-2.  In the **Properties** pane on the left, open the
-    **Radar chart** dropdown list.
-3.  Under **Series style**, choose the style that you want. You
-    can choose between the following styles:
+1. Choose the radar chart visual that you want to change, and choose the
+   **Format visual** icon on the top right corner of the
+   visual.
+2. In the **Properties** pane on the left, open the
+   **Radar chart** dropdown list.
+3. Under **Series style**, choose the style that you want. You
+   can choose between the following styles:
 
-        * **LINE**. When selected, the polygons that are
-         created by the data are outlined.
-        * **AREA**.When selected, the polygons that are created
-         by the data are filled in.
-
-    The default selected value is **LINE**.
+   - **LINE**. When selected, the polygons that are
+     created by the data are outlined.
+   - **AREA**.When selected, the polygons that are created
+     by the data are filled in.
+     The default selected value is **LINE**.
 
 ###### To choose the start angle of a radar chart
 

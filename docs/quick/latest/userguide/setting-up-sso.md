@@ -1,8 +1,8 @@
 # Using IAM Identity Center
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 |                                                                             |
 | --------------------------------------------------------------------------- |
@@ -53,9 +53,9 @@ configuration steps.
 
 ## Configure your Amazon Quick account with IAM Identity Center
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                             |
 | ------------------------------------------- |

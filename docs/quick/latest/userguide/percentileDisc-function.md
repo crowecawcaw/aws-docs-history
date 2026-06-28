@@ -71,15 +71,15 @@ shows the difference between the two values. The code for each calculated field
 is as follows:
 
 - `50%Cont = percentileCont(
-`example` , 50 )`
+ `example` , 50 )`
 - `median = median( `example`
-)`
+ )`
 - `50%Disc = percentileDisc(
-`example` , 50 )`
+ `example` , 50 )`
 - `Cont-Disc = percentileCont(
-`example`, 50 ) −
-percentileDisc(`example` , 50
-)`
+ `example`, 50 ) −
+ percentileDisc(`example` , 50
+ )`
 - `example = left( `category`, 1 )`
   (To make a simpler example, we used this expression to shorten the names
   of categories down to their first letter.)

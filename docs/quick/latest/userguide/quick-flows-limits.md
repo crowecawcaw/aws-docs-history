@@ -43,10 +43,9 @@ File upload limits depend on your knowledge source and file type:
 
 - **General knowledge:**
 
-      + Faster responses: Up to 1M characters total context limit
-      + Versatility and Performance: Up to 1M characters total context limit
-
-  The total context limit includes characters from output prompts defined at build time and characters from input steps and file upload steps at runtime.
+  - Faster responses: Up to 1M characters total context limit
+  - Versatility and Performance: Up to 1M characters total context limit
+    The total context limit includes characters from output prompts defined at build time and characters from input steps and file upload steps at runtime.
 
 - **Quick data:** 665,000 characters
 

@@ -32,88 +32,83 @@ The following rules apply:
 
 ###### To create or edit a control for an existing parameter
 
-1.  Choose an existing parameter's context menu, the `v` icon near
-    the parameter name, and choose **Add control**.
-2.  Enter a name to give the new control a label. This label appears at the top of
-    the workspace, and later at the top of the sheet that a dashboard displays on.
-3.  Choose a style for the control from the following:
+1. Choose an existing parameter's context menu, the `v` icon near
+   the parameter name, and choose **Add control**.
+2. Enter a name to give the new control a label. This label appears at the top of
+   the workspace, and later at the top of the sheet that a dashboard displays on.
+3. Choose a style for the control from the following:
 
-    - **Text field**
+   - **Text field**
 
-    A text field lets you type in their own value. A text field works with
-    numbers and text (strings).
-    - **Text field - multiline**
+   A text field lets you type in their own value. A text field works with
+   numbers and text (strings).
+   - **Text field - multiline**
 
-    A multiline text field lets you type in their own values. With this
-    option, you can choose to separate values you enter into the parameter
-    control by a line break, comma, pipe (|), or semicolon. A text field
-    works with numbers and text (strings).
-    - **Dropdown**
+   A multiline text field lets you type in their own values. With this
+   option, you can choose to separate values you enter into the parameter
+   control by a line break, comma, pipe (|), or semicolon. A text field
+   works with numbers and text (strings).
+   - **Dropdown**
 
-    A dropdown list control that you can use to select a single value. A
-    list control works with numbers and text (strings).
-    - **Dropdown multiselect**
+   A dropdown list control that you can use to select a single value. A
+   list control works with numbers and text (strings).
+   - **Dropdown multiselect**
 
-    A list control that you can use to select multiple values. A list
-    control works with numbers and text (strings).
-    - **List**
+   A list control that you can use to select multiple values. A list
+   control works with numbers and text (strings).
+   - **List**
 
-    A list control that you can use to select a single value. A list
-    control works with numbers and text (strings).
-    - **List - multiselect**
+   A list control that you can use to select a single value. A list
+   control works with numbers and text (strings).
+   - **List - multiselect**
 
-    A list control that you can use to select multiple values. A list
-    control works with numbers and text (strings).
-    - **Slider**
+   A list control that you can use to select multiple values. A list
+   control works with numbers and text (strings).
+   - **Slider**
 
-    A slider lets you select a numeric value by sliding the control from
-    one end of the bar to another. A slider works with numbers.
-    - **Date-picker**
+   A slider lets you select a numeric value by sliding the control from
+   one end of the bar to another. A slider works with numbers.
+   - **Date-picker**
 
-    Using a date-picker, you can choose a date from a calendar control.
-    When you choose to add a date-picker control, you can customize how to
-    format dates in the control. To do so, for **Date
-    format**, enter the date format that you want using the
-    tokens described in [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
+   Using a date-picker, you can choose a date from a calendar control.
+   When you choose to add a date-picker control, you can customize how to
+   format dates in the control. To do so, for **Date
+   format**, enter the date format that you want using the
+   tokens described in [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
 
-4.  (Optional) If you choose a dropdown control, the screen expands so you can
-    choose the values to display. You can either specify a list of values, or use a
-    field in a dataset. Choose one of the following:
+4. (Optional) If you choose a dropdown control, the screen expands so you can
+   choose the values to display. You can either specify a list of values, or use a
+   field in a dataset. Choose one of the following:
 
-        * **Specific values**
+   - **Specific values**
 
+   To create a list of specific values, type in one per line, with no
+   separating spaces or commas, as shown in the following
+   screenshot.
 
-        To create a list of specific values, type in one per line, with no
-         separating spaces or commas, as shown in the following
-         screenshot.
+   In the control, the values display alphabetically, not in the order
+   that you typed them.
+   - **Link to a data set field**
 
+   To link to a field, choose the dataset that contains your field, then
+   choose the field from the list.
 
-        In the control, the values display alphabetically, not in the order
-         that you typed them.
-        * **Link to a data set field**
+   If you change the default values in the parameter, choose
+   **Reset** on the control to show the new
+   values.
+   The values that you choose here are unioned with the static default values in
+   the parameter settings.
 
-
-        To link to a field, choose the dataset that contains your field, then
-         choose the field from the list.
-
-
-        If you change the default values in the parameter, choose
-         **Reset** on the control to show the new
-         values.
-
-    The values that you choose here are unioned with the static default values in
-    the parameter settings.
-
-5.  (Optional) Enable the option **Hide [ALL] option from the
-    control if the parameter has a default configured**. Doing this
-    shows only the data values and removes the option to select all items in the
-    control. If you don't configure a static default on the parameter, this
-    option doesn't work. You can add a default after adding a control by
-    choosing the parameter, and selecting **Edit
-    parameter**.
-6.  (Optional) You can limit the values displayed in the controls, so they only
-    show values that are valid for what is selected in other controls. This is
-    called a cascading control.
+5. (Optional) Enable the option **Hide [ALL] option from the
+   control if the parameter has a default configured**. Doing this
+   shows only the data values and removes the option to select all items in the
+   control. If you don't configure a static default on the parameter, this
+   option doesn't work. You can add a default after adding a control by
+   choosing the parameter, and selecting **Edit
+   parameter**.
+6. (Optional) You can limit the values displayed in the controls, so they only
+   show values that are valid for what is selected in other controls. This is
+   called a cascading control.
 
 To create one, choose **Show relevant values only**. Choose
 one or more controls that can change what displays in this control.
@@ -138,9 +133,9 @@ When creating cascading controls, the following limitations apply.
     	+ A date filter control (EXCLUDING Top-Bottom filters).
 
 7. When you finish choosing options for your control, choose
-   **Add**.
-   The finished control appears at the top of the workspace. The context menu, shaped
-   like a `v`, offers four options:
+**Add**.
+The finished control appears at the top of the workspace. The context menu, shaped
+like a `v`, offers four options:
 
 - **Reset** restores the user's selection to its default
   state.

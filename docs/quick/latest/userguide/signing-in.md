@@ -88,9 +88,8 @@ They must also contain each of the following:
      (~!@#$%^&\*\_-+=`|\(){}[]:;"'<>,.?/)
 
 2. If your account is multi-factor authentication enabled, enter the
-   multi-factor authentication code that you receive for **MFA
-   code**.
-3. Choose **Sign in**.
+multi-factor authentication code that you receive for **MFA
+code**. 3. Choose **Sign in**.
 
 ### Finishing Quick sign-in as an AWS root user
 

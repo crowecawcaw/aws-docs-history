@@ -120,9 +120,8 @@ following options:
      SPICE refresh schedules for datasets, see [Refreshing SPICE data](refreshing-imported-data.md "refreshing-imported-data.md").
 
 5. (Optional) Prepare your data for analysis. For more information about
-   preparing data, see [Preparing data in Amazon Quick Sight](preparing-data.md "preparing-data.md").
-6. (Optional) Set up row-level or column-level security (RLS/CLS) to restrict
-   access to the dataset. For more information about setting up RLS, see [Using row-level security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md"). For more information about setting up CLS, see [Using column-level security to restrict access to a dataset](restrict-access-to-a-data-set-using-column-level-security.md "restrict-access-to-a-data-set-using-column-level-security.md").
+preparing data, see [Preparing data in Amazon Quick Sight](preparing-data.md "preparing-data.md"). 6. (Optional) Set up row-level or column-level security (RLS/CLS) to restrict
+access to the dataset. For more information about setting up RLS, see [Using row-level security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md"). For more information about setting up CLS, see [Using column-level security to restrict access to a dataset](restrict-access-to-a-data-set-using-column-level-security.md "restrict-access-to-a-data-set-using-column-level-security.md").
 
 ###### Note
 

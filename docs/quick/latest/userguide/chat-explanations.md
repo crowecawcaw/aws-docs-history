@@ -21,7 +21,7 @@ in a sale. You open the Explanation and check the Assumptions section. Chat
 defined "electric car model" by using the vehicle model naming terminology. It
 searched for names that ended with "E" (electric) or "SE" (sport electric).
 Although that might be correct in most cases, the best field to ensure accuracy
-is "vehicle_fueltype". You type that directly in the chat: "use the vehicle fuel
+is "vehicle\_fueltype". You type that directly in the chat: "use the vehicle fuel
 type for identifying electric cars." You then open the refreshed and correct
 Explanation.
 

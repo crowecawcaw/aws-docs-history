@@ -119,7 +119,7 @@ table `"table_missing_table_type"` doesn't have the
 ```
 
 2. Edit the table definition in your editor to add `"TableType":
-"EXTERNAL_TABLE"` to the table definition, as shown in the
+ "EXTERNAL_TABLE"` to the table definition, as shown in the
    following example.
 
 ```

@@ -41,11 +41,7 @@ Some application integrations support data ingestion and read/write actions. The
     3. Wait until a success banner appears.
     4. Click the "Next" button.
 
-5. Select the data that should be ingested into the knowledge base using the file picker for OneDrive and click Add button.
-6. Type in a knowledge base a Name and Description (optional), then click Create.
-7. There will be a success toast notification and the data ingestion and sync will begin.
-8. The data can take several minutes to sync, depending on the number files that are being ingested. The Status column will stay in the Syncing status until it is ready changing to Available.
-9. When the knowledge base is ready, use the chat to ask questions and interact with it.
+5. Select the data that should be ingested into the knowledge base using the file picker for OneDrive and click Add button. 6. Type in a knowledge base a Name and Description (optional), then click Create. 7. There will be a success toast notification and the data ingestion and sync will begin. 8. The data can take several minutes to sync, depending on the number files that are being ingested. The Status column will stay in the Syncing status until it is ready changing to Available. 9. When the knowledge base is ready, use the chat to ask questions and interact with it.
 
 ###### Note
 

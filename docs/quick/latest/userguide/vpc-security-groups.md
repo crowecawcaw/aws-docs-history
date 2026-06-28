@@ -37,16 +37,14 @@ traffic:
 - From the port that Amazon Quick is connecting to
 - From one of the following options:
 
-      + The security group ID that's associated with Amazon Quick network
-       interface (recommended)
+  - The security group ID that's associated with Amazon Quick network
+    interface (recommended)
 
-
-      or
-      + The private IP address of the Amazon Quick network interface
-
-  For more information, see [Security
-  groups for your VPC](../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md "../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md") and [VPCs and
-  subnets](../../../AmazonVPC/latest/UserGuide/VPC_Subnets.md "../../../AmazonVPC/latest/UserGuide/VPC_Subnets.md") in the _Amazon VPC User Guide._
+  or
+  - The private IP address of the Amazon Quick network interface
+    For more information, see [Security
+    groups for your VPC](../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md "../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md") and [VPCs and
+    subnets](../../../AmazonVPC/latest/UserGuide/VPC_Subnets.md "../../../AmazonVPC/latest/UserGuide/VPC_Subnets.md") in the _Amazon VPC User Guide._
 
 Use the topics listed below to learn more about inbound and outbound rules.
 

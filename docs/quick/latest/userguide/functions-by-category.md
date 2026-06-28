@@ -30,10 +30,10 @@ aggregation, based on a condition.
   dimensions.
 - [countIf](../../../quicksight/latest/user/countIf-function.md "../../../quicksight/latest/user/countIf-function.md") calculates the count
   based on a conditional statement.
-- [distinct_count](../../../quicksight/latest/user/distinct_count-function.md "../../../quicksight/latest/user/distinct_count-function.md") calculates
+- [distinct\_count](../../../quicksight/latest/user/distinct_count-function.md "../../../quicksight/latest/user/distinct_count-function.md") calculates
   the number of distinct values in a dimension or measure, grouped by the
   chosen dimension or dimensions.
-- [distinct_countIf](../../../quicksight/latest/user/distinct_countIf-function.md "../../../quicksight/latest/user/distinct_countIf-function.md") calculates
+- [distinct\_countIf](../../../quicksight/latest/user/distinct_countIf-function.md "../../../quicksight/latest/user/distinct_countIf-function.md") calculates
   the distinct count based on a conditional statement.
 - [max](../../../quicksight/latest/user/max-function.md "../../../quicksight/latest/user/max-function.md") returns the maximum value of the
   specified measure, grouped by the chosen dimension or dimensions.
@@ -201,7 +201,7 @@ The mathematical functions for calculated fields in Amazon Quick include the
 following:
 
 - `Mod(`number`,
-`divisor`)` – Finds the
+ `divisor`)` – Finds the
   remainder after dividing a number by a divisor.
 - `Log(`expression`)` – Returns the base 10 logarithm of a given expression.
 - `Ln(`expression`)` – Returns the natural logarithm of a given expression.

@@ -29,8 +29,8 @@ previews.
   position.
 - **?** - Use a question mark to match
   a single character in a specific position.
-- **\*\* - Use a backslash to escape the
-  **\***, **?**, or **\*\* wildcard
+- *_\*_ - Use a backslash to escape the
+  **\***, **?**, or *_\*_ wildcard
   characters and search for them in your query. For example, you can
   search for phrases that end with a question mark.
 

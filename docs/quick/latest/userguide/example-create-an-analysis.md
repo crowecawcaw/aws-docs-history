@@ -32,23 +32,22 @@ wells.
 
 ###### To create a scatter plot visual
 
-1.  On the analysis page, choose **Insert** and then
-    **Add visual** on the application bar. A new,
-    blank visual is created, and AutoGraph is selected by
-    default.
-2.  In the **Visual types** pane, choose the scatter
-    plot icon.
-3.  Choose fields in the **Fields list** pane to add
-    to the **Field wells** pane:
+1. On the analysis page, choose **Insert** and then
+   **Add visual** on the application bar. A new,
+   blank visual is created, and AutoGraph is selected by
+   default.
+2. In the **Visual types** pane, choose the scatter
+   plot icon.
+3. Choose fields in the **Fields list** pane to add
+   to the **Field wells** pane:
 
-        * Choose **Desktop Uniques** to populate
-         the **X axis** field well.
-        * Choose **Mobile Uniques** to populate the
-         **Y axis** field well.
-        * Choose **Date** to populate the
-         **Group/Color** field well.
-
-    A scatter plot is created using these fields.
+   - Choose **Desktop Uniques** to populate
+     the **X axis** field well.
+   - Choose **Mobile Uniques** to populate the
+     **Y axis** field well.
+   - Choose **Date** to populate the
+     **Group/Color** field well.
+     A scatter plot is created using these fields.
 
 ## Next steps
 

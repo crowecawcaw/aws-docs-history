@@ -1,8 +1,8 @@
 # Setting up IdP federation using IAM and Amazon Quick
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 |                                             |
 | ------------------------------------------- |

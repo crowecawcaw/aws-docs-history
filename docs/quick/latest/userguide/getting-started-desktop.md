@@ -23,7 +23,7 @@ meets the following requirements.
 | Requirement      | Minimum                                                                                                                 |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Operating system | Windows 10 (64-bit) or later                                                                                            |
-| Processor        | x86_64 compatible                                                                                                       |
+| Processor        | x86\_64 compatible                                                                                                      |
 | Memory           | 8 GB RAM                                                                                                                |
 | Disk space       | 500 MB available (installation only). 10 GB or more<br>recommended for search indexing and knowledge graph<br>features. |
 | Internet         | Required for sign-in, AI model access, and connected<br>services                                                        |

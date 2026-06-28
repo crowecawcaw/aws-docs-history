@@ -1,8 +1,8 @@
 # Granting anyone on the internet access to an Amazon Quick Sight dashboard
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 You can also share your Amazon Quick Sight dashboard with anyone on the internet from the
 **Share** menu in the Amazon Quick console. When you do

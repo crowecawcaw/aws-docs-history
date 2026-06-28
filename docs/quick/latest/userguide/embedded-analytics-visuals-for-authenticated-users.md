@@ -1,8 +1,8 @@
 # Embedding Amazon Quick Sight visuals for registered users
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |
@@ -28,7 +28,7 @@ access and permissions to the visual. To make this possible, create an IAM role 
 your AWS account. Associate an IAM policy with the role to provide permissions
 to any user who assumes it. The IAM role needs to provide permissions to retrieve
 embedding URLs for a specific user pool. With the help of the wildcard character
-\*\*\*, you can grant the permissions to generate a URL for all
+_\*_, you can grant the permissions to generate a URL for all
 users in a specific namespace, or for a subset of users in specific namespaces. For
 this, you add `quicksight:GenerateEmbedUrlForRegisteredUser`.
 
@@ -485,9 +485,9 @@ If you get an `ExpiredToken` error when calling the
 previous `SESSION TOKEN` is still in the environment
 variables. Clear this by setting the following variables:
 
-- _AWS_ACCESS_KEY_ID_
-- _AWS_SECRET_ACCESS_KEY_
-- _AWS_SESSION_TOKEN_
+- _AWS\_ACCESS\_KEY\_ID_
+- _AWS\_SECRET\_ACCESS\_KEY_
+- _AWS\_SESSION\_TOKEN_
   The following example shows how to set these three parameters in the CLI.
   If you're using a Microsoft Windows machine, use `set` instead of
   `export`.

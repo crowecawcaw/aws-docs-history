@@ -85,13 +85,13 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 
 The following scopes are requested when you connect to Gmail.
 
-| Gmail recommended scopes                            | Scope                                           | Description |
-| --------------------------------------------------- | ----------------------------------------------- | ----------- |
-| `https://www.googleapis.com/auth/gmail.modify`      | Reads, sends, and manages emails and<br>labels. |
-| `https://www.googleapis.com/auth/gmail.send`        | Sends emails on behalf of the user.             |
-| `https://www.googleapis.com/auth/contacts.readonly` | Reads contact information.                      |
-| `openid`                                            | Authenticates the user's identity.              |
-| `email`                                             | Reads the user's email address.                 |
+Gmail recommended scopes| Scope | Description |
+| --- | --- |
+| `https://www.googleapis.com/auth/gmail.modify` | Reads, sends, and manages emails and<br>labels. |
+| `https://www.googleapis.com/auth/gmail.send` | Sends emails on behalf of the user. |
+| `https://www.googleapis.com/auth/contacts.readonly` | Reads contact information. |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
 
 ###### Note
 
@@ -171,55 +171,51 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Google
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Google
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are available.
 
-| Gmail available actions | Category                  | Action                                                         | Description |
-| ----------------------- | ------------------------- | -------------------------------------------------------------- | ----------- |
-| Messages                | Get Emails                | Retrieves emails from the mailbox.                             |
-| Messages                | Get Message By Thread Id  | Retrieves a message by its thread ID.                          |
-| Messages                | Get Message By Message Id | Retrieves a message by its message ID.                         |
-| Messages                | Send Email                | Sends a new email message.                                     |
-| Messages                | Send Thread Reply         | Replies to an existing email thread.                           |
-| Messages                | Forward Message           | Forwards an email to other recipients.                         |
-| Messages                | Get Attachment            | Retrieves an email attachment.                                 |
-| Messages                | Batch Update Message      | Modifies labels on multiple messages in a single<br>operation. |
-| Threads                 | List Threads              | Lists email threads in the mailbox.                            |
-| Threads                 | Update Thread Labels      | Modifies labels on a thread.                                   |
-| Trash                   | Delete Email              | Moves an email to the trash.                                   |
-| Trash                   | Delete Thread             | Moves a thread to the trash.                                   |
-| Trash                   | Restore Message           | Restores an email from the trash.                              |
-| Trash                   | Restore Thread            | Restores a thread from the trash.                              |
-| Labels                  | List Labels               | Lists all labels in the mailbox.                               |
-| Labels                  | Get Label                 | Retrieves details for a specific label.                        |
-| Labels                  | Create Label              | Creates a new label.                                           |
-| Labels                  | Update Label              | Updates a label's properties.                                  |
-| Labels                  | Tag Email                 | Adds a label to an email.                                      |
-| Drafts                  | List Drafts               | Lists email drafts.                                            |
-| Drafts                  | Get Draft                 | Retrieves a specific draft.                                    |
-| Drafts                  | Create Draft              | Creates a new email draft.                                     |
-| Drafts                  | Update Draft              | Updates an existing draft.                                     |
-| Drafts                  | Send Draft                | Sends an existing draft.                                       |
-| Contacts                | Search Contacts           | Searches for contacts by name or email.                        |
-| Contacts                | Get Contacts              | Retrieves contact information.                                 |
-| History                 | List History              | Lists mailbox change history.                                  |
-| Settings                | Get Profile               | Retrieves the authenticated user's Gmail<br>profile.           |
-| Settings                | Get Send As Alias         | Retrieves a specific send-as alias<br>configuration.           |
-| Settings                | List Send As Aliases      | Lists all send-as aliases for the account.                     |
+Gmail available actions| Category | Action | Description |
+| --- | --- | --- |
+| Messages | Get Emails | Retrieves emails from the mailbox. |
+| Messages | Get Message By Thread Id | Retrieves a message by its thread ID. |
+| Messages | Get Message By Message Id | Retrieves a message by its message ID. |
+| Messages | Send Email | Sends a new email message. |
+| Messages | Send Thread Reply | Replies to an existing email thread. |
+| Messages | Forward Message | Forwards an email to other recipients. |
+| Messages | Get Attachment | Retrieves an email attachment. |
+| Messages | Batch Update Message | Modifies labels on multiple messages in a single<br>operation. |
+| Threads | List Threads | Lists email threads in the mailbox. |
+| Threads | Update Thread Labels | Modifies labels on a thread. |
+| Trash | Delete Email | Moves an email to the trash. |
+| Trash | Delete Thread | Moves a thread to the trash. |
+| Trash | Restore Message | Restores an email from the trash. |
+| Trash | Restore Thread | Restores a thread from the trash. |
+| Labels | List Labels | Lists all labels in the mailbox. |
+| Labels | Get Label | Retrieves details for a specific label. |
+| Labels | Create Label | Creates a new label. |
+| Labels | Update Label | Updates a label's properties. |
+| Labels | Tag Email | Adds a label to an email. |
+| Drafts | List Drafts | Lists email drafts. |
+| Drafts | Get Draft | Retrieves a specific draft. |
+| Drafts | Create Draft | Creates a new email draft. |
+| Drafts | Update Draft | Updates an existing draft. |
+| Drafts | Send Draft | Sends an existing draft. |
+| Contacts | Search Contacts | Searches for contacts by name or email. |
+| Contacts | Get Contacts | Retrieves contact information. |
+| History | List History | Lists mailbox change history. |
+| Settings | Get Profile | Retrieves the authenticated user's Gmail<br>profile. |
+| Settings | Get Send As Alias | Retrieves a specific send-as alias<br>configuration. |
+| Settings | List Send As Aliases | Lists all send-as aliases for the account. |
 
 ###### Note
 

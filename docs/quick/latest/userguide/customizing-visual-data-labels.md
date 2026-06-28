@@ -93,4 +93,4 @@ You can immediately view the effect of each change on the visual. 6. To modify t
     * **Color**
 
 7. Close the **Properties** pane by choosing the X icon in
-   the upper-right corner of the pane.
+the upper-right corner of the pane.

@@ -58,7 +58,7 @@ Clicks on a webpage element. Used to interact with buttons, links, or other clic
 - **Mouse Button** (dropdown): Which mouse button to click - Left, Middle, or Right (default: Left, optional)
 - **Click Type** (dropdown): Single or Double click (default: Single, optional)
 - **Get File Download** (radio button): Enable if click downloads a file (default: OFF, optional)
-- **Downloaded File** (output, conditionally required): Variable name storing the downloaded file (default: downloaded_file)
+- **Downloaded File** (output, conditionally required): Variable name storing the downloaded file (default: downloaded\_file)
 
 **Element Identification:**
 
@@ -145,7 +145,7 @@ Reads a value from a webpage. Used to capture the text from an individual field.
   - **XPath Field** (conditionally required): XPath expression (e.g., "//input[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
-- **Extracted Text** (output): Variable name storing the extracted text (default: extracted_text)
+- **Extracted Text** (output): Variable name storing the extracted text (default: extracted\_text)
 
 **Element Identification:**
 
@@ -172,7 +172,7 @@ Intelligently extracts structured data from web pages using natural language tar
 - **Next Page Button Selector** (conditionally displayed): XPath expression for next page button (e.g., "//\*[@id='nextButton']", optional)
 - **Intelligent Data Extraction** (checkbox): Use AI to extract and structure data from complex tables (default: ON). Do not use for large table sizes of 100 rows or more. This option should be used for complex tables or table-like structures, where normal table extraction from a web browser fails
 - **Data to Extract** (multi-select dropdown): Choose what to extract - Text, Links (Href), or Element selectors (Xpath) (default: Text, optional)
-- **Extracted Table** (output): Variable name storing the extracted data table (default: extracted_table)
+- **Extracted Table** (output): Variable name storing the extracted data table (default: extracted\_table)
 
 **Element Identification:**
 
@@ -180,7 +180,7 @@ Intelligently extracts structured data from web pages using natural language tar
 
 **Usage Notes:**
 
-- Additional data types are saved in separate columns (e.g., columnName_Href for Links)
+- Additional data types are saved in separate columns (e.g., columnName\_Href for Links)
 - Disable intelligent extraction for tables with 100+ rows for better performance
 
 ## Take Screenshot
@@ -191,7 +191,7 @@ Captures an image of the webpage. The screenshot is saved to a file to be used l
 
 - **File Name** (optional): Name for the saved image file. Auto-generated if empty (e.g., "Screenshot image")
 - **File Type** (dropdown): Choose the image format - PNG or JPEG (default: PNG, optional)
-- **Screenshot File** (output): Variable name storing the screenshot file (default: screenshot_file)
+- **Screenshot File** (output): Variable name storing the screenshot file (default: screenshot\_file)
 
 ## Visual Q&A
 
@@ -201,7 +201,7 @@ Answer questions about a webpage. Uses AI to visually analyze the page and answe
 
 - **Question** (required): Enter your true/false question about the webpage content (e.g., "Is the product in-stock?")
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
-- **Answer** (output): Variable name storing the true/false response (default: is_true)
+- **Answer** (output): Variable name storing the true/false response (default: is\_true)
 
 ## Click and Upload Files
 
@@ -261,7 +261,7 @@ Checks for an element to appear. Used to wait for changes or validate conditions
 - **Action Title** (text-only): Display name for the action
 - **Element Selector** (required): XPath expression to define the element you want to check (e.g., "//input[@id='xyz']")
 - **Max Wait Time** (optional): Maximum time to wait in seconds for the element to appear (default: 30)
-- **Element Found** (output): Variable name storing whether the element was found (True/False) (default: is_found)
+- **Element Found** (output): Variable name storing whether the element was found (True/False) (default: is\_found)
 
 **Validation:**
 
@@ -274,7 +274,7 @@ Gets elements matching a pattern. Used to get a list of similar elements on a we
 **Properties:**
 
 - **Element Selector** (required): XPath expression to define the pattern for elements you want to get (e.g., "//div[@class='abc']")
-- **List of Elements** (output): Variable name storing the list of found elements (default: element_list)
+- **List of Elements** (output): Variable name storing the list of found elements (default: element\_list)
 
 **Usage Notes:**
 
@@ -288,7 +288,7 @@ Checks for a new window to open. Used after clicking a link or button that opens
 **Properties:**
 
 - **Max Wait Time** (optional): Maximum time to wait in seconds for the new window to appear (default: 30)
-- **Window Identifier** (output): Variable name storing the identifier for the new window (default: window_id)
+- **Window Identifier** (output): Variable name storing the identifier for the new window (default: window\_id)
 
 **Usage Notes:**
 
@@ -305,7 +305,7 @@ Changes browser windows. After switching focus to the specified window, subseque
 
 **Properties:**
 
-- **Window Identifier** (optional): The window you want to switch to, typically stored in a variable (e.g., window_id). Leave empty to switch to the main window
+- **Window Identifier** (optional): The window you want to switch to, typically stored in a variable (e.g., window\_id). Leave empty to switch to the main window
 
 ## Close Window
 
@@ -313,7 +313,7 @@ Closes a browser window. Once closed, the automation returns to the main window 
 
 **Properties:**
 
-- **Window Identifier** (required): The window you want to close, typically stored in a variable (e.g., window_id)
+- **Window Identifier** (required): The window you want to close, typically stored in a variable (e.g., window\_id)
 
 ## Save to Clipboard
 

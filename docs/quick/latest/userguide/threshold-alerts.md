@@ -1,8 +1,8 @@
 # Working with threshold alerts in Amazon Quick Sight
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 To stay informed about important changes in your data, you can create threshold alerts
 using KPI, Gauge, Table, and Pivot table visuals in an Amazon Quick Sight dashboard. With these

@@ -31,35 +31,33 @@ options:
 - **Insert code** – You can insert the following
   code blocks from this menu:
 
-      + **Expressions** – Add a free-form
-       expression.
-      + **Inline IF** – Add an IF statement that
-       displays inline with the existing block of text.
-      + **Inline FOR** – Add a FOR statement that
-       displays inline with the existing block of text.
-      + **Block IF** – Add an IF statement that
-       displays in a separate block of text.
-      + **Block FOR** – Add a FOR statement that
-       displays in a separate block of text.
-
-  The IF and FOR statements enable you to create content that is
-  conditionally formatted. For example, you might add a **block
-  IF** statement, then configure it to compare an integer to a
-  value from a calculation. To do this, you use the following steps, also
-  demonstrated in [Use the narrative expression editor](using-narratives-expression-editor-step-by-step.md "using-narratives-expression-editor-step-by-step.md"):
-
-      1. Open the calculations menu at right, and choose one of the blue
-       highlighted items from one of the calculations. Doing this adds the
-       item to the narrative.
-      2. Click once on the item to open it.
-      3. Enter the comparison that you want to make. The expression looks
-       something like this:
-       `PeriodOverPeriod.currentMetricValue.value>0`.
-      4. Save this expression in the pop-up editor, which prompts you for
-       **Conditional content**.
-      5. Enter what you want to display in the insight, and format it as
-       you want it to appear. Or if you prefer, you can add an image or a
-       URL—or add a URL to an image.
+  - **Expressions** – Add a free-form
+    expression.
+  - **Inline IF** – Add an IF statement that
+    displays inline with the existing block of text.
+  - **Inline FOR** – Add a FOR statement that
+    displays inline with the existing block of text.
+  - **Block IF** – Add an IF statement that
+    displays in a separate block of text.
+  - **Block FOR** – Add a FOR statement that
+    displays in a separate block of text.
+    The IF and FOR statements enable you to create content that is
+    conditionally formatted. For example, you might add a **block
+    IF** statement, then configure it to compare an integer to a
+    value from a calculation. To do this, you use the following steps, also
+    demonstrated in [Use the narrative expression editor](using-narratives-expression-editor-step-by-step.md "using-narratives-expression-editor-step-by-step.md"):
+  1.  Open the calculations menu at right, and choose one of the blue
+      highlighted items from one of the calculations. Doing this adds the
+      item to the narrative.
+  2.  Click once on the item to open it.
+  3.  Enter the comparison that you want to make. The expression looks
+      something like this:
+      `PeriodOverPeriod.currentMetricValue.value>0`.
+  4.  Save this expression in the pop-up editor, which prompts you for
+      **Conditional content**.
+  5.  Enter what you want to display in the insight, and format it as
+      you want it to appear. Or if you prefer, you can add an image or a
+      URL—or add a URL to an image.
 
 - **Paragraph** – This menu offers options for
   changes to the font size:

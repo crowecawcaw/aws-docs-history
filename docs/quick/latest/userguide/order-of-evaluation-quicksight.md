@@ -34,28 +34,29 @@ analysis.
    1. **Simple calculations**: Calculations at
       scalar level without any aggregations or window calculations. For
       example, `date_metric/60, parseDate(date, 'yyyy/MM/dd'),
-ifelse(metric > 0, metric, 0), split(string_column, '|'
-0)`.
-   2. **LAC-W function PRE_FILTER**: If any
-      LAC-W PRE_FILTER expression is involved in the visual, Amazon Quick Sight firstly
+  ifelse(metric > 0, metric, 0), split(string_column, '|'
+  0)`.
+   2. **LAC-W function PRE\_FILTER**: If any
+      LAC-W PRE\_FILTER expression is involved in the visual, Amazon Quick Sight firstly
       computes the window function at the original table level, before any
-      filters. If the LAC-W PRE_FILTER expression is used in filters, it is
+      filters. If the LAC-W PRE\_FILTER expression is used in filters, it is
       applied at this point. For example, `maxOver(Population, [State,
-County], PRE_FILTER) > 1000`.
+  County], PRE_FILTER) > 1000`.
 
-2. **LAC-W PRE_AGG**: Evaluates the data at the
+2. **LAC-W PRE\_AGG**: Evaluates the data at the
    original table cardinality before aggregations
 
    1. **Filters added during analysis**:
       Filters created for un-aggregated fields in the visuals are applied at
       this point, which are similar to WHERE clauses. For example, `year
-      > 2020`.
-   2. **LAC-W function PRE_AGG**: If any LAC-W
-      PRE_AGG expression is involved in the visual, Amazon Quick Sight computes the
-      window function before any aggregation applied. If the LAC-W PRE_AGG
+
+   > 2020`.
+   2. **LAC-W function PRE\_AGG**: If any LAC-W
+      PRE\_AGG expression is involved in the visual, Amazon Quick Sight computes the
+      window function before any aggregation applied. If the LAC-W PRE\_AGG
       expression is used in filters, it is applied at this point. For example,
       `maxOver(Population, [State, County], PRE_AGG) >
-1000`.
+  1000`.
    3. **Top/bottom N filters**: Filters that
       are configured on dimensions to display top/bottom N items.
 
@@ -67,7 +68,7 @@ County], PRE_FILTER) > 1000`.
       point. Based on the table after the filters mentioned above, Amazon
       QuickSight computes the aggregation, grouped by the dimensions that are
       specified in the calculated fields. For example, `max(Sales,
-[Region])`.
+  [Region])`.
 
 4. **Visual level**: Evaluates aggregations at
    visual level, and post-aggregation table calculations, with the remaining

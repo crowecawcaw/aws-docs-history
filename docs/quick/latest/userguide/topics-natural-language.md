@@ -1,8 +1,8 @@
 # Making Quick Sight topics natural-language-friendly
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                                               |
 | ------------------------------------------------------------- |

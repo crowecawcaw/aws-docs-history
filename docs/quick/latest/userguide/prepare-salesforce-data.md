@@ -41,10 +41,10 @@ viewing all items. 5. Prepare the data by doing one or more of the following:
     * [Filtering data in Quick Sight](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md")
 
 6. Check the [SPICE](spice.md "spice.md") indicator to see
-   if you have enough space to import the dataset. Importing data into
-   SPICE is required for Salesforce datasets. Importing occurs
-   when you choose either **Save & visualize** or
-   **Save**.
+if you have enough space to import the dataset. Importing data into
+SPICE is required for Salesforce datasets. Importing occurs
+when you choose either **Save & visualize** or
+**Save**.
 
 If you don't have enough SPICE capacity, you can remove fields
 from the dataset or apply a filter to decrease its size. For more information

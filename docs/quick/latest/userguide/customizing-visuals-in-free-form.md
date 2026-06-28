@@ -55,30 +55,29 @@ customized in the **Display settings** pane of the
 
 ###### To change the color of a visual's background, border, or selection frame
 
-1.  Choose the visual that you want to change.
-2.  On the menu in the upper-right hand side of the visual, choose the
-    **Properties** icon.
-3.  In the **Properties** pane that appears on the left,
-    choose **Display settings**.
-4.  Navigate to the **Card style** section and perform
-    one or more of the available actions:
+1. Choose the visual that you want to change.
+2. On the menu in the upper-right hand side of the visual, choose the
+   **Properties** icon.
+3. In the **Properties** pane that appears on the left,
+   choose **Display settings**.
+4. Navigate to the **Card style** section and perform
+   one or more of the available actions:
 
-        * To change the color of a visual's background, choose the
-         **Background** color box, and then choose
-         the color that you want.
-        * To change the color of a visual's border, choose the
-         **Border** color box, and then choose the
-         color that you want.
-        * To change the color of a visual's selection frame, choose
-         the **Selection** color box, and then choose
-         the color that you want.
-
-    If you want to use a custom color for your visual's background,
-    border, or selection frame, choose the color box of the property that
-    you want to change, and then choose **Custom color**.
-    In the **Custom color** window that appears, choose
-    your custom color or enter the color's hexadecimal code. When you are
-    finished, choose **Apply**.
+   - To change the color of a visual's background, choose the
+     **Background** color box, and then choose
+     the color that you want.
+   - To change the color of a visual's border, choose the
+     **Border** color box, and then choose the
+     color that you want.
+   - To change the color of a visual's selection frame, choose
+     the **Selection** color box, and then choose
+     the color that you want.
+     If you want to use a custom color for your visual's background,
+     border, or selection frame, choose the color box of the property that
+     you want to change, and then choose **Custom color**.
+     In the **Custom color** window that appears, choose
+     your custom color or enter the color's hexadecimal code. When you are
+     finished, choose **Apply**.
 
 You can also reset a visual's customized background back to its default
 appearance.

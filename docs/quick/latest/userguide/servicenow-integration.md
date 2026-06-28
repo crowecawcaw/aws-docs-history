@@ -36,9 +36,11 @@ ServiceNow documentation.
 To register the OAuth application, complete the following steps.
 
 1. In your ServiceNow instance, navigate to **All**
-   > **System OAuth** > **Application
-   > Registry** and choose
-   > **New**.
+
+> **System OAuth** > **Application
+> Registry** and choose
+> **New**.
+
 2. Choose **Create an OAuth API endpoint for external
    clients**.
 3. Complete the form:
@@ -75,7 +77,7 @@ DC](https://www.servicenow.com/community/developer-blog/up-your-oauth2-0-game-in
    - **Name** –
      `glide.oauth.inbound.client.credential.grant_type.enabled`
    - **Type** – `true |
-false`
+  false`
    - **Value** –
      `true`
 
@@ -173,34 +175,34 @@ flow.
 
 After you set up the integration, the following actions are available.
 
-| ServiceNow available actions | Category                         | Action                                                                                                                          | Description |
-| ---------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Incidents                    | List Incidents                   | Retrieve existing incidents.                                                                                                    |
-| Incidents                    | Create Incident                  | Create an incident record to document a deviation from an<br>expected standard of operation.                                    |
-| Incidents                    | View Incident                    | Retrieve the details of a specific incident.                                                                                    |
-| Incidents                    | Update Incident                  | Update an incident record.                                                                                                      |
-| Incidents                    | Delete Incident                  | Delete an incident.                                                                                                             |
-| Problems                     | List Problems                    | Retrieve existing problems.                                                                                                     |
-| Problems                     | Create Problem                   | Create a new problem record.                                                                                                    |
-| Problems                     | View Problem                     | Retrieve the details of a specific problem record.                                                                              |
-| Problems                     | Update Problem                   | Update a problem record.                                                                                                        |
-| Problems                     | Delete Problem                   | Delete a problem.                                                                                                               |
-| Change requests              | List Change Requests             | Retrieve all change requests.                                                                                                   |
-| Change requests              | Create Change Request            | Create a change request to implement a controlled process<br>for modifying approved and supported configuration items<br>(CIs). |
-| Change requests              | View Change Request              | Retrieve detailed information about a specific change<br>request.                                                               |
-| Change requests              | Update Change Request            | Modify a change request.                                                                                                        |
-| Change requests              | Delete Change Request            | Delete a change request.                                                                                                        |
-| Knowledge base articles      | Create Knowledge Base Article    | Create a knowledge base article. Requires the Knowledge API<br>(`sn_km_api`) plugin.                                            |
-| Knowledge base articles      | Update Knowledge Base Article    | Modify a knowledge base article.                                                                                                |
-| Knowledge base articles      | Delete Knowledge Base Article    | Delete a knowledge base article.                                                                                                |
-| Attachments                  | Retrieve Attachments Metadata    | Retrieve metadata for attachment files.                                                                                         |
-| Attachments                  | Retrieve Attachment Metadata     | Retrieve metadata for a specific attachment file.                                                                               |
-| Attachments                  | Retrieve Attachment Content      | Retrieve the binary file attachment content.                                                                                    |
-| Attachments                  | Upload Binary Attachment         | Upload a binary file as an attachment to a specified<br>record.                                                                 |
-| Attachments                  | Upload Multipart Form Attachment | Upload a multipart file attachment.                                                                                             |
-| Attachments                  | Delete Attachment                | Delete an attachment.                                                                                                           |
-| Users                        | List Users                       | List all user records.                                                                                                          |
-| System                       | List Choices                     | Retrieve choice list values from the sys_choice<br>table.                                                                       |
+ServiceNow available actions| Category | Action | Description |
+| --- | --- | --- |
+| Incidents | List Incidents | Retrieve existing incidents. |
+| Incidents | Create Incident | Create an incident record to document a deviation from an<br>expected standard of operation. |
+| Incidents | View Incident | Retrieve the details of a specific incident. |
+| Incidents | Update Incident | Update an incident record. |
+| Incidents | Delete Incident | Delete an incident. |
+| Problems | List Problems | Retrieve existing problems. |
+| Problems | Create Problem | Create a new problem record. |
+| Problems | View Problem | Retrieve the details of a specific problem record. |
+| Problems | Update Problem | Update a problem record. |
+| Problems | Delete Problem | Delete a problem. |
+| Change requests | List Change Requests | Retrieve all change requests. |
+| Change requests | Create Change Request | Create a change request to implement a controlled process<br>for modifying approved and supported configuration items<br>(CIs). |
+| Change requests | View Change Request | Retrieve detailed information about a specific change<br>request. |
+| Change requests | Update Change Request | Modify a change request. |
+| Change requests | Delete Change Request | Delete a change request. |
+| Knowledge base articles | Create Knowledge Base Article | Create a knowledge base article. Requires the Knowledge API<br>(`sn_km_api`) plugin. |
+| Knowledge base articles | Update Knowledge Base Article | Modify a knowledge base article. |
+| Knowledge base articles | Delete Knowledge Base Article | Delete a knowledge base article. |
+| Attachments | Retrieve Attachments Metadata | Retrieve metadata for attachment files. |
+| Attachments | Retrieve Attachment Metadata | Retrieve metadata for a specific attachment file. |
+| Attachments | Retrieve Attachment Content | Retrieve the binary file attachment content. |
+| Attachments | Upload Binary Attachment | Upload a binary file as an attachment to a specified<br>record. |
+| Attachments | Upload Multipart Form Attachment | Upload a multipart file attachment. |
+| Attachments | Delete Attachment | Delete an attachment. |
+| Users | List Users | List all user records. |
+| System | List Choices | Retrieve choice list values from the sys\_choice<br>table. |
 
 ###### Note
 

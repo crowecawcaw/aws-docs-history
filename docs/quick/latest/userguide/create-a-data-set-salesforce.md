@@ -32,17 +32,18 @@ Joined reports aren't supported as Quick Sight data sources. 8. Choose one of th
 
 9. Choose one of the following options:
 
-   - To create a dataset and an analysis using the data as-is, choose
+    * To create a dataset and an analysis using the data as-is, choose
      **Visualize**.
 
-   ###### Note
 
-   If you don't have enough [SPICE](spice.md "spice.md") capacity, choose
-   **Edit/Preview data**. In data preparation, you
-   can remove fields from the dataset to decrease its size or apply a
-   filter that reduces the number of rows returned. For more
-   information about data preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
-   - To prepare the data before creating an analysis, choose
+    ###### Note
+
+    If you don't have enough [SPICE](spice.md "spice.md") capacity, choose
+     **Edit/Preview data**. In data preparation, you
+     can remove fields from the dataset to decrease its size or apply a
+     filter that reduces the number of rows returned. For more
+     information about data preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
+    * To prepare the data before creating an analysis, choose
      **Edit/Preview data** to open data preparation for
      the selected report or object. For more information about data
      preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").

@@ -1,8 +1,8 @@
 # Using Active Directory with Amazon Quick Enterprise edition
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                             |
 | ------------------------------------------- |
@@ -68,9 +68,9 @@ change your AD groups later on.
 
 ## Directory integration with Quick Enterprise edition
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                             |
 | ------------------------------------------- |

@@ -1,8 +1,8 @@
 # Setting up service provider–initiated federation with Quick Enterprise edition
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                             |
 | ------------------------------------------- |

@@ -57,17 +57,17 @@ preparation. Otherwise, it's `Untitled data
 
 4. Prepare the data by doing one or more of the following:
 
-   - [Selecting fields](../../../quicksight/latest/user/selecting-fields.md "../../../quicksight/latest/user/selecting-fields.md")
-   - [Editing field names and
+    * [Selecting fields](../../../quicksight/latest/user/selecting-fields.md "../../../quicksight/latest/user/selecting-fields.md")
+    * [Editing field names and
      descriptions](../../../quicksight/latest/user/changing-a-field-name.md "../../../quicksight/latest/user/changing-a-field-name.md")
-   - [Changing a field data type](../../../quicksight/latest/user/changing-a-field-data-type.md "../../../quicksight/latest/user/changing-a-field-data-type.md")
-   - [Adding calculated fields](../../../quicksight/latest/user/adding-a-calculated-field-analysis.md "../../../quicksight/latest/user/adding-a-calculated-field-analysis.md")
-   - [Filtering data in Quick Sight](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md")
+    * [Changing a field data type](../../../quicksight/latest/user/changing-a-field-data-type.md "../../../quicksight/latest/user/changing-a-field-data-type.md")
+    * [Adding calculated fields](../../../quicksight/latest/user/adding-a-calculated-field-analysis.md "../../../quicksight/latest/user/adding-a-calculated-field-analysis.md")
+    * [Filtering data in Quick Sight](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md")
 
 5. If you aren't joining tables, choose whether to query the database directly or
-   to import the data into SPICE by selecting either the
-   **Query** or **SPICE**
-   radio button. We recommend using SPICE for enhanced performance.
+to import the data into SPICE by selecting either the
+**Query** or **SPICE**
+radio button. We recommend using SPICE for enhanced performance.
 
 If you want to use SPICE, check the SPICE
 indicator to see if you have enough space to import the dataset. Importing

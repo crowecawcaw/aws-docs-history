@@ -52,26 +52,25 @@ access.
 
 ###### To create a dashboard with CLS
 
-1.  On the Quick navigation pane, choose the
-    **Analyses** tab.
-2.  Choose the analysis that you want to create a dashboard of.
-3.  At upper right, choose **Publish**.
-4.  Choose one of the following:
+1. On the Quick navigation pane, choose the
+   **Analyses** tab.
+2. Choose the analysis that you want to create a dashboard of.
+3. At upper right, choose **Publish**.
+4. Choose one of the following:
 
-        * To create a new dashboard, choose **Publish new dashboard
-         as** and enter a name for the new dashboard.
-        * To replace an existing dashboard, choose **Replace an existing
-         dashboard** and choose the dashboard from the list.
+   - To create a new dashboard, choose **Publish new dashboard
+     as** and enter a name for the new dashboard.
+   - To replace an existing dashboard, choose **Replace an existing
+     dashboard** and choose the dashboard from the list.
+     Additionally, you can choose **Advanced publish options**.
+     For more information, see [Publishing dashboards](creating-a-dashboard.md "creating-a-dashboard.md").
 
-    Additionally, you can choose **Advanced publish options**.
-    For more information, see [Publishing dashboards](creating-a-dashboard.md "creating-a-dashboard.md").
+5. Choose **Publish dashboard**.
+6. (Optional) Do one of the following:
 
-5.  Choose **Publish dashboard**.
-6.  (Optional) Do one of the following:
-
-    - To publish a dashboard without sharing, choose **x**
-      at the upper right of the **Share dashboard with
-      users** screen when it appears. You can share the dashboard
-      later by choosing **Share** from the application
-      bar.
-    - To share the dashboard, follow the procedure in [Sharing Amazon Quick Sight dashboards](sharing-a-dashboard.md "sharing-a-dashboard.md").
+   - To publish a dashboard without sharing, choose **x**
+     at the upper right of the **Share dashboard with
+     users** screen when it appears. You can share the dashboard
+     later by choosing **Share** from the application
+     bar.
+   - To share the dashboard, follow the procedure in [Sharing Amazon Quick Sight dashboards](sharing-a-dashboard.md "sharing-a-dashboard.md").

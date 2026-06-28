@@ -129,12 +129,11 @@ distinguish them, as shown in the following examples:
 
 - Amazon Quick considers these two entities to be the same person:
 
-      + `arn:aws:quicksight:**us-east-1**:111122223333:user/**namespace-123**/username123`
-      + `arn:aws:quicksight:**us-west-2**:111122223333:user/**namespace-123**/username123`
-
-  When you use [RegisterUser](../../../quicksight/latest/APIReference/API_RegisterUser.md "../../../quicksight/latest/APIReference/API_RegisterUser.md"), you select an access level for each user. After a person's user
-  name is assigned to one of the security cohorts, their access to the console and API is
-  restricted. People using Amazon Quick can have a single access level, as follows:
+  - `arn:aws:quicksight:**us-east-1**:111122223333:user/**namespace-123**/username123`
+  - `arn:aws:quicksight:**us-west-2**:111122223333:user/**namespace-123**/username123`
+    When you use [RegisterUser](../../../quicksight/latest/APIReference/API_RegisterUser.md "../../../quicksight/latest/APIReference/API_RegisterUser.md"), you select an access level for each user. After a person's user
+    name is assigned to one of the security cohorts, their access to the console and API is
+    restricted. People using Amazon Quick can have a single access level, as follows:
 
 - Reader access, for read-only subscribers of a dashboard
 - Author access, for analysts and dashboard designers

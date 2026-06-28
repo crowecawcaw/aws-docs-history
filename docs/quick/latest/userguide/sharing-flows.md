@@ -31,7 +31,7 @@ Viewers can run the flow and view results, but cannot edit, share, or delete it.
 
 Co-owners can edit the flow, share it with others, manage permissions, publish changes, and access draft versions. Co-owners cannot remove the original owner. Only one person can edit at a time.
 
-| Permission reference | Permission | Can run? | Can edit? | Can share? | Can delete? |
-| -------------------- | ---------- | -------- | --------- | ---------- | ----------- |
-| Viewer               | Yes        | No       | No        | No         |
-| Co-owner             | Yes        | Yes      | Yes       | Yes        |
+Permission reference| Permission | Can run? | Can edit? | Can share? | Can delete? |
+| --- | --- | --- | --- | --- |
+| Viewer | Yes | No | No | No |
+| Co-owner | Yes | Yes | Yes | Yes |

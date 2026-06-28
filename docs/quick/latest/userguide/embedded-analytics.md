@@ -11,9 +11,9 @@ You can still use the `GetDashboardEmbedUrl` and
 Amazon Quick Sight console, but they don't contain the latest embedding capabilities. For
 more information about embedding using the old API operations, see [Embedding analytics using the GetDashboardEmbedURL and GetSessionEmbedURL API operations](embedded-analytics-deprecated.md "embedded-analytics-deprecated.md").
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |

@@ -92,7 +92,7 @@ field.
    title** to name the new calculated field. This name appears in
    the field list in the dataset, so it should look similar to the other
    fields. For this example, we name the field `Total Sales This
-Year`.
+ Year`.
 4. (Optional) Add a comment, for example to explain what the expression does,
    by enclosing text in slashes and asterisks.
 
@@ -100,14 +100,13 @@ Year`.
 /* Calculates sales per year for this year*/
 ```
 
-5.  Identify the metrics, functions, and other items to use. For this example,
-    we need to identify the following:
+5. Identify the metrics, functions, and other items to use. For this example,
+   we need to identify the following:
 
-        * The metric to use
-        * Functions: `ifelse` and `datediff`
-
-    We want to build a statement like "If the sale happened during this year,
-    show the total sales, and otherwise show 0."
+   - The metric to use
+   - Functions: `ifelse` and `datediff`
+     We want to build a statement like "If the sale happened during this year,
+     show the total sales, and otherwise show 0."
 
 To add the `ifelse` function, open the
 **Functions** list. Choose **All** to

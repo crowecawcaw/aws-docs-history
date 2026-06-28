@@ -77,7 +77,7 @@ connection.
 | **Command**                  | Yes      | The executable to run. Common values include<br>`python`, `npx`,<br>`node`, and `uvx`.                                                   |
 | **Arguments**                | No       | Command line arguments, separated by spaces (for<br>example, `-m mcp_server --port 8080`).                                               |
 | **Description**              | No       | A description of what this MCP server does and what<br>tools it provides. This helps Quick<br>understand when to use the server's tools. |
-| **Environment<br>variables** | No       | Environment variables required by the server. Choose<br>\*_+ Add variable_<br>• to add<br>key-value pairs.                               |
+| **Environment<br>variables** | No       | Environment variables required by the server. Choose<br>**+ Add variable*<br>• to add<br>key-value pairs.                                |
 | **Timeout<br>(seconds)**     | No       | Maximum time to wait for the server to start, from 5<br>to 300 seconds. The default is 30 seconds.                                       |
 
 ###### To add a local MCP server

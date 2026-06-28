@@ -112,22 +112,22 @@ Add the following as Delegated permissions in your Entra app registration. For
 the full permissions reference, see [Microsoft
 Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference "https://learn.microsoft.com/en-us/graph/permissions-reference") in the Microsoft documentation.
 
-| Teams action integration – delegated permissions | Permission                                                                                                                                       | Description |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `Chat.ReadWrite`                                 | Allows the app to read and write the signed-in user's chat<br>messages.                                                                          |
-| `ChatMessage.Send`                               | Allows the app to send chat messages on behalf of the<br>signed-in user.                                                                         |
-| `Team.ReadBasic.All`                             | Allows the app to read the names and descriptions of teams on<br>behalf of the signed-in user.                                                   |
-| `Channel.ReadBasic.All`                          | Allows the app to read channel names and descriptions on<br>behalf of the signed-in user.                                                        |
-| `Channel.Create`                                 | Allows the app to create channels in any team on behalf of<br>the signed-in user.                                                                |
-| `ChannelMessage.Read.All`                        | Allows the app to read all channel messages on behalf of the<br>signed-in user.                                                                  |
-| `ChannelMessage.Send`                            | Allows the app to send messages in channels on behalf of the<br>signed-in user.                                                                  |
-| `ChannelMember.ReadWrite.All`                    | Allows the app to add and remove members from channels on<br>behalf of the signed-in user.                                                       |
-| `TeamMember.ReadWrite.All`                       | Allows the app to add and remove members from all teams on<br>behalf of the signed-in user.                                                      |
-| `User.Read.All`                                  | Allows the app to read the full set of profile properties of<br>all users on behalf of the signed-in user.                                       |
-| `OnlineMeetings.ReadWrite`                       | Allows the app to read and create online meetings on behalf<br>of the signed-in user.                                                            |
-| `OnlineMeetingTranscript.Read.All`               | Allows the app to read all transcripts of online meetings on<br>behalf of the signed-in user.                                                    |
-| `Calendars.ReadWrite`                            | Allows the app to read and write events in user calendars on<br>behalf of the signed-in user.                                                    |
-| `offline_access`                                 | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
+Teams action integration – delegated permissions| Permission | Description |
+| --- | --- |
+| `Chat.ReadWrite` | Allows the app to read and write the signed-in user's chat<br>messages. |
+| `ChatMessage.Send` | Allows the app to send chat messages on behalf of the<br>signed-in user. |
+| `Team.ReadBasic.All` | Allows the app to read the names and descriptions of teams on<br>behalf of the signed-in user. |
+| `Channel.ReadBasic.All` | Allows the app to read channel names and descriptions on<br>behalf of the signed-in user. |
+| `Channel.Create` | Allows the app to create channels in any team on behalf of<br>the signed-in user. |
+| `ChannelMessage.Read.All` | Allows the app to read all channel messages on behalf of the<br>signed-in user. |
+| `ChannelMessage.Send` | Allows the app to send messages in channels on behalf of the<br>signed-in user. |
+| `ChannelMember.ReadWrite.All` | Allows the app to add and remove members from channels on<br>behalf of the signed-in user. |
+| `TeamMember.ReadWrite.All` | Allows the app to add and remove members from all teams on<br>behalf of the signed-in user. |
+| `User.Read.All` | Allows the app to read the full set of profile properties of<br>all users on behalf of the signed-in user. |
+| `OnlineMeetings.ReadWrite` | Allows the app to read and create online meetings on behalf<br>of the signed-in user. |
+| `OnlineMeetingTranscript.Read.All` | Allows the app to read all transcripts of online meetings on<br>behalf of the signed-in user. |
+| `Calendars.ReadWrite` | Allows the app to read and write events in user calendars on<br>behalf of the signed-in user. |
+| `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
 
 **For service authentication (application
 permissions):**
@@ -135,18 +135,18 @@ permissions):**
 Add the following as Application permissions in your Entra app
 registration.
 
-| Teams action integration – application permissions | Permission                                                                                          | Description |
-| -------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------- |
-| `Chat.Read.All`                                    | Allows the app to read all chat messages in your organization<br>without a signed-in user.          |
-| `Chat.Send`                                        | Allows the app to send chat messages without a signed-in<br>user.                                   |
-| `Team.ReadBasic.All`                               | Allows the app to read the names and descriptions of all<br>teams without a signed-in user.         |
-| `Channel.ReadBasic.All`                            | Allows the app to read all channel names and descriptions<br>without a signed-in user.              |
-| `ChannelMessage.Read.All`                          | Allows the app to read all channel messages without a<br>signed-in user.                            |
-| `ChannelMessage.Send`                              | Allows the app to send messages to any channel without a<br>signed-in user.                         |
-| `ChannelMember.ReadWrite.All`                      | Allows the app to add and remove members from all channels<br>without a signed-in user.             |
-| `TeamMember.ReadWrite.All`                         | Allows the app to add and remove members from all teams<br>without a signed-in user.                |
-| `User.Read.All`                                    | Allows the app to read the full set of profile properties of<br>all users without a signed-in user. |
-| `OnlineMeetingTranscript.Read.All`                 | Allows the app to read all transcripts of online meetings<br>without a signed-in user.              |
+Teams action integration – application permissions| Permission | Description |
+| --- | --- |
+| `Chat.Read.All` | Allows the app to read all chat messages in your organization<br>without a signed-in user. |
+| `Chat.Send` | Allows the app to send chat messages without a signed-in<br>user. |
+| `Team.ReadBasic.All` | Allows the app to read the names and descriptions of all<br>teams without a signed-in user. |
+| `Channel.ReadBasic.All` | Allows the app to read all channel names and descriptions<br>without a signed-in user. |
+| `ChannelMessage.Read.All` | Allows the app to read all channel messages without a<br>signed-in user. |
+| `ChannelMessage.Send` | Allows the app to send messages to any channel without a<br>signed-in user. |
+| `ChannelMember.ReadWrite.All` | Allows the app to add and remove members from all channels<br>without a signed-in user. |
+| `TeamMember.ReadWrite.All` | Allows the app to add and remove members from all teams<br>without a signed-in user. |
+| `User.Read.All` | Allows the app to read the full set of profile properties of<br>all users without a signed-in user. |
+| `OnlineMeetingTranscript.Read.All` | Allows the app to read all transcripts of online meetings<br>without a signed-in user. |
 
 ###### Important
 
@@ -161,11 +161,11 @@ requirements.
 Before leaving the Microsoft Entra admin center, confirm you have the
 following values. You need them for the Amazon Quick configuration.
 
-| Required credentials from Microsoft Entra | Value                          | Where to find it |
-| ----------------------------------------- | ------------------------------ | ---------------- |
-| Application (client) ID                   | App registration overview page |
-| Directory (tenant) ID                     | App registration overview page |
-| Client secret value                       | Certificates & secrets page    |
+Required credentials from Microsoft Entra| Value | Where to find it |
+| --- | --- |
+| Application (client) ID | App registration overview page |
+| Directory (tenant) ID | App registration overview page |
+| Client secret value | Certificates & secrets page |
 
 ## Setting up the connector in Amazon Quick
 
@@ -266,11 +266,10 @@ fields.
      is set automatically by Amazon Quick. You do not need
      to configure it manually.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Microsoft
-   authorization window opens. Review the requested permissions and
-   choose **Accept**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Microsoft
+authorization window opens. Review the requested permissions and
+choose **Accept**.
 
 If you see an error instead of the consent dialog, your
 organization might restrict third-party app access. See
@@ -284,26 +283,26 @@ organization or search for specific teams or groups. 11. Choose **Publish**.
 
 After you set up the integration, the following actions are available.
 
-| Microsoft Teams available actions | Category                 | Action                               | Description |
-| --------------------------------- | ------------------------ | ------------------------------------ | ----------- |
-| Chats                             | List Chats               | View your chat conversations.        |
-| Chats                             | Create Chat              | Start a new chat conversation.       |
-| Chats                             | Send Chat Message        | Send a message in a chat.            |
-| Teams                             | List Teams               | View teams you're a member of.       |
-| Teams                             | List Team Members        | View members of a team.              |
-| Teams                             | Add Team Member          | Add a member to a team.              |
-| Channels                          | List Channels            | View channels in a team.             |
-| Channels                          | Create Channel           | Create a new channel in a team.      |
-| Channels                          | List Channel Messages    | View messages in a channel.          |
-| Channels                          | Send Channel Message     | Post a message to a channel.         |
-| Channels                          | List Channel Members     | View members of a channel.           |
-| Channels                          | Add Channel Member       | Add a member to a channel.           |
-| Users                             | List Users               | View users in your organization.     |
-| Meetings                          | List Online Meetings     | View your scheduled online meetings. |
-| Meetings                          | Create Online Meeting    | Schedule a new online meeting.       |
-| Meetings                          | List Meeting Transcripts | View transcripts from meetings.      |
-| Calendar                          | List Calendar Events     | View events on your calendar.        |
-| Calendar                          | Create Calendar Event    | Create a new calendar event.         |
+Microsoft Teams available actions| Category | Action | Description |
+| --- | --- | --- |
+| Chats | List Chats | View your chat conversations. |
+| Chats | Create Chat | Start a new chat conversation. |
+| Chats | Send Chat Message | Send a message in a chat. |
+| Teams | List Teams | View teams you're a member of. |
+| Teams | List Team Members | View members of a team. |
+| Teams | Add Team Member | Add a member to a team. |
+| Channels | List Channels | View channels in a team. |
+| Channels | Create Channel | Create a new channel in a team. |
+| Channels | List Channel Messages | View messages in a channel. |
+| Channels | Send Channel Message | Post a message to a channel. |
+| Channels | List Channel Members | View members of a channel. |
+| Channels | Add Channel Member | Add a member to a channel. |
+| Users | List Users | View users in your organization. |
+| Meetings | List Online Meetings | View your scheduled online meetings. |
+| Meetings | Create Online Meeting | Schedule a new online meeting. |
+| Meetings | List Meeting Transcripts | View transcripts from meetings. |
+| Calendar | List Calendar Events | View events on your calendar. |
+| Calendar | Create Calendar Event | Create a new calendar event. |
 
 ## Manage and troubleshoot
 
@@ -324,11 +323,11 @@ To edit, share, or delete your integration, see [Managing existing integrations]
 ### Common error messages
 
 - **`Access denied. You do not have
-permission to perform this action`** – The
+ permission to perform this action`** – The
   authenticated user does not have the required permissions. Contact your
   administrator to verify and grant appropriate permissions.
 - **`AADSTS50020: User account from identity
-provider does not exist in tenant`** – The user
+ provider does not exist in tenant`** – The user
   account is not configured in the correct Microsoft Entra tenant. Verify
   the user account exists in the tenant that matches the Directory
   (tenant) ID in your app registration.
@@ -366,7 +365,7 @@ An administrator can grant consent in one of the following ways:
   applications**, locate the Amazon Quick application,
   choose **Permissions**, and choose
   **Grant admin consent for `Your
-Organization`**.
+ Organization`**.
 
 After consent is granted, any user in your organization can connect
 without being prompted for individual consent.

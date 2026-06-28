@@ -4,13 +4,13 @@ The following limitations apply to apps in Amazon Quick in its current release.
 
 ## Limits
 
-| Limits                    | Resource         | Limit |
-| ------------------------- | ---------------- | ----- |
-| Dashboard visuals per app | 8                |
-| Visual minimum size       | 100 × 100 pixels |
-| Storage value size        | 350 KB per item  |
-| Storage key length        | 255 characters   |
-| Table name length         | 255 characters   |
+Limits| Resource | Limit |
+| --- | --- |
+| Dashboard visuals per app | 8 |
+| Visual minimum size | 100 × 100 pixels |
+| Storage value size | 350 KB per item |
+| Storage key length | 255 characters |
+| Table name length | 255 characters |
 
 ## Building experience
 

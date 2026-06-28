@@ -92,6 +92,5 @@ enter `presto` to locate it. 4. Add the settings for the new data source:
     * **Enable SSL**
      – SSL is enabled by default.
 
-5. Choose **Validate connection** to test your settings.
-6. After you validate your settings, choose **Create data
-   source** to complete the connection.
+5. Choose **Validate connection** to test your settings. 6. After you validate your settings, choose **Create data
+source** to complete the connection.

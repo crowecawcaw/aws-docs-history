@@ -72,25 +72,24 @@ the following options:
      decimal separator.
 
 4. Expand the **Decimal Places** section and choose
-   from the following options:
+from the following options:
 
-   - Choose **Auto** to have Amazon Quick
+    * Choose **Auto** to have Amazon Quick
      automatically determine the appropriate number of decimal
      places, or choose **Custom** to specify a
      number of decimal places. **Auto** is the
      default.
-   - If you chose **Custom**, enter the number
+    * If you chose **Custom**, enter the number
      of decimal places to use. Field values are rounded to the
      decimal places specified. For example, if you specify two
      decimal places, the value 6.728 is rounded to 6.73.
 
 5. Expand the **Negatives** section and choose
-   whether to display a negative value by using a minus sign or by
-   enclosing it in parentheses. Using a minus sign is the
-   default.
-6. Expand the **Null values** section and choose
-   whether to display null values as `null` or as a custom
-   value. Using `null` is the default.
+whether to display a negative value by using a minus sign or by
+enclosing it in parentheses. Using a minus sign is the
+default. 6. Expand the **Null values** section and choose
+whether to display null values as `null` or as a custom
+value. Using `null` is the default.
 
 ###### Note
 

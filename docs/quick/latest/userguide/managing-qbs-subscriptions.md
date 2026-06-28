@@ -37,21 +37,20 @@ Use the following procedure to view your current user subscriptions.
 
 ###### To view your current user subscriptions
 
-1.  Choose your user name on the application bar and then choose **Manage
-    Quick**.
-2.  Choose **Manage pricing**.
-3.  Use the subscription meter to see how many accounts you have and how they are
-    billed. In the following example, the account has 21 users total:
+1. Choose your user name on the application bar and then choose **Manage
+   Quick**.
+2. Choose **Manage pricing**.
+3. Use the subscription meter to see how many accounts you have and how they are
+   billed. In the following example, the account has 21 users total:
 
-        * Seven users with annual subscriptions. Only currently active
-         subscriptions are shown here.
-        * 13 month-to-month users.
+   - Seven users with annual subscriptions. Only currently active
+     subscriptions are shown here.
+   - 13 month-to-month users.
+     Pause over any section of the meter bar to display details about that user
+     segment.
 
-    Pause over any section of the meter bar to display details about that user
-    segment.
-
-4.  Use the information in the subscriptions table to see what current and future
-    subscriptions you have.
+4. Use the information in the subscriptions table to see what current and future
+   subscriptions you have.
 
 ## Purchase subscriptions
 

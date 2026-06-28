@@ -87,11 +87,11 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 The following scopes are requested when you connect to Google
 Calendar.
 
-| Google Calendar recommended scopes         | Scope                                             | Description |
-| ------------------------------------------ | ------------------------------------------------- | ----------- |
+Google Calendar recommended scopes| Scope | Description |
+| --- | --- |
 | `https://www.googleapis.com/auth/calendar` | Reads and writes calendar events and<br>settings. |
-| `openid`                                   | Authenticates the user's identity.                |
-| `email`                                    | Reads the user's email address.                   |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
 
 ###### Note
 
@@ -171,44 +171,40 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Google
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Google
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are
 available.
 
-| Google Calendar available actions | Category              | Action                                          | Description |
-| --------------------------------- | --------------------- | ----------------------------------------------- | ----------- |
-| Events                            | List Events           | Lists events on a calendar.                     |
-| Events                            | Search Events         | Searches for events by keyword or criteria.     |
-| Events                            | Get Event             | Retrieves details for a specific event.         |
-| Events                            | Create Event          | Creates a new calendar event.                   |
-| Events                            | Create Quick Event    | Creates an event from a text string.            |
-| Events                            | Update Event          | Updates an existing event.                      |
-| Events                            | Update Event Calendar | Moves an event to a different calendar.         |
-| Events                            | Import Events         | Imports events into a calendar.                 |
-| Events                            | List Event Instances  | Lists instances of a recurring event.           |
-| Events                            | Delete Attendee       | Removes an attendee from an event.              |
-| Availability                      | List Free Slots       | Finds available time slots across<br>calendars. |
-| Calendars                         | List Calendars        | Lists calendars for the authenticated<br>user.  |
-| Calendars                         | List Calendar Events  | Lists events across all calendars.              |
-| Calendars                         | Get Calendar          | Retrieves details for a specific<br>calendar.   |
-| Calendars                         | Get Calendar List     | Retrieves a calendar list entry.                |
-| Calendars                         | Update Calendar List  | Updates a calendar list entry.                  |
-| Settings                          | List Settings         | Lists calendar settings for the<br>user.        |
-| Utilities                         | Get Current Date Time | Retrieves the current date and time.            |
+Google Calendar available actions| Category | Action | Description |
+| --- | --- | --- |
+| Events | List Events | Lists events on a calendar. |
+| Events | Search Events | Searches for events by keyword or criteria. |
+| Events | Get Event | Retrieves details for a specific event. |
+| Events | Create Event | Creates a new calendar event. |
+| Events | Create Quick Event | Creates an event from a text string. |
+| Events | Update Event | Updates an existing event. |
+| Events | Update Event Calendar | Moves an event to a different calendar. |
+| Events | Import Events | Imports events into a calendar. |
+| Events | List Event Instances | Lists instances of a recurring event. |
+| Events | Delete Attendee | Removes an attendee from an event. |
+| Availability | List Free Slots | Finds available time slots across<br>calendars. |
+| Calendars | List Calendars | Lists calendars for the authenticated<br>user. |
+| Calendars | List Calendar Events | Lists events across all calendars. |
+| Calendars | Get Calendar | Retrieves details for a specific<br>calendar. |
+| Calendars | Get Calendar List | Retrieves a calendar list entry. |
+| Calendars | Update Calendar List | Updates a calendar list entry. |
+| Settings | List Settings | Lists calendar settings for the<br>user. |
+| Utilities | Get Current Date Time | Retrieves the current date and time. |
 
 ###### Note
 

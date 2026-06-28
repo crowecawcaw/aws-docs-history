@@ -1,8 +1,8 @@
 # Managing access for IAM Identity Center users
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                                                             |
 | --------------------------------------------------------------------------- |

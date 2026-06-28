@@ -99,39 +99,39 @@ When you create a Dropbox app, configure the following scopes on the
 **Permissions** tab based on the actions that you want
 to use.
 
-| Dropbox recommended scopes   | Scope                                                   | Description |
-| ---------------------------- | ------------------------------------------------------- | ----------- |
-| `account_info.read`          | Reads account information.                              |
-| `account_info.write`         | Updates account information.                            |
-| `contacts.read`              | Reads contact information.                              |
-| `contacts.write`             | Updates contact information.                            |
-| `events.read`                | Reads event log entries.                                |
-| `events.write`               | Creates event log entries.                              |
-| `file_requests.read`         | Reads file requests.                                    |
-| `file_requests.write`        | Creates and manages file requests.                      |
-| `files.content.read`         | Reads file content.                                     |
-| `files.content.write`        | Creates, modifies, and deletes files.                   |
-| `files.metadata.read`        | Reads file and folder metadata.                         |
-| `files.metadata.write`       | Edits file and folder metadata.                         |
-| `files.permanent_delete`     | Permanently deletes files.                              |
-| `files.team_metadata.read`   | Reads team file metadata.                               |
-| `files.team_metadata.write`  | Edits team file metadata.                               |
-| `groups.read`                | Reads group information.                                |
-| `groups.write`               | Manages groups.                                         |
-| `members.delete`             | Removes team members.                                   |
-| `members.read`               | Reads team member information.                          |
-| `members.write`              | Manages team members.                                   |
-| `sessions.list`              | Lists active sessions.                                  |
-| `sessions.modify`            | Modifies active sessions.                               |
-| `sharing.read`               | Reads sharing settings and shared links.                |
-| `sharing.write`              | Creates and manages shared links and folder<br>sharing. |
-| `team_data.content.read`     | Reads team content.                                     |
-| `team_data.content.write`    | Manages team content.                                   |
-| `team_data.governance.read`  | Reads team data governance settings.                    |
-| `team_data.governance.write` | Manages team data governance settings.                  |
-| `team_data.team_space`       | Accesses team space data.                               |
-| `team_info.read`             | Reads team information.                                 |
-| `team_info.write`            | Updates team information.                               |
+Dropbox recommended scopes| Scope | Description |
+| --- | --- |
+| `account_info.read` | Reads account information. |
+| `account_info.write` | Updates account information. |
+| `contacts.read` | Reads contact information. |
+| `contacts.write` | Updates contact information. |
+| `events.read` | Reads event log entries. |
+| `events.write` | Creates event log entries. |
+| `file_requests.read` | Reads file requests. |
+| `file_requests.write` | Creates and manages file requests. |
+| `files.content.read` | Reads file content. |
+| `files.content.write` | Creates, modifies, and deletes files. |
+| `files.metadata.read` | Reads file and folder metadata. |
+| `files.metadata.write` | Edits file and folder metadata. |
+| `files.permanent_delete` | Permanently deletes files. |
+| `files.team_metadata.read` | Reads team file metadata. |
+| `files.team_metadata.write` | Edits team file metadata. |
+| `groups.read` | Reads group information. |
+| `groups.write` | Manages groups. |
+| `members.delete` | Removes team members. |
+| `members.read` | Reads team member information. |
+| `members.write` | Manages team members. |
+| `sessions.list` | Lists active sessions. |
+| `sessions.modify` | Modifies active sessions. |
+| `sharing.read` | Reads sharing settings and shared links. |
+| `sharing.write` | Creates and manages shared links and folder<br>sharing. |
+| `team_data.content.read` | Reads team content. |
+| `team_data.content.write` | Manages team content. |
+| `team_data.governance.read` | Reads team data governance settings. |
+| `team_data.governance.write` | Manages team data governance settings. |
+| `team_data.team_space` | Accesses team space data. |
+| `team_info.read` | Reads team information. |
+| `team_info.write` | Updates team information. |
 
 ## Setting up the connector in Amazon Quick
 
@@ -216,43 +216,39 @@ fields.
     	 address that is associated with your Dropbox
     	 account.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app** or
-   **Custom OAuth app**, a Dropbox
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can turn on access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app** or
+**Custom OAuth app**, a Dropbox
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can turn on access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are available.
 
-| Dropbox available actions | Category              | Action                                                   | Description |
-| ------------------------- | --------------------- | -------------------------------------------------------- | ----------- |
-| Files                     | List Files            | Lists files in a folder.                                 |
-| Files                     | Get File              | Reads the content of a file.                             |
-| Files                     | Import File           | Uploads a file to Dropbox.                               |
-| Files                     | Search Files          | Searches for files or folders by name or<br>content.     |
-| Files                     | Update File Location  | Moves a file or folder to a different location.          |
-| Files                     | Get Temporary Link    | Generates a temporary download link for a file.          |
-| Files                     | Get Metadata          | Retrieves metadata for a file or folder.                 |
-| Files                     | Save File From URL    | Saves a file to Dropbox from a URL.                      |
-| Folders                   | Create Folder         | Creates a new folder.                                    |
-| Folders                   | List Folders          | List of folders user has access to.                      |
-| Batch operations          | Get Batch Move Status | Checks the status of a batch move operation.             |
-| Sharing                   | Create Shared Link    | Creates a shared link for a file or folder.              |
-| Sharing                   | List Shared Links     | Lists shared links for a file or folder.                 |
-| Sharing                   | Update Folder Sharing | Shares a folder with other users.                        |
-| Sharing                   | List Received Files   | Lists files that other users have shared with<br>you.    |
-| File requests             | Create File Request   | Creates a file request for others to upload files<br>to. |
-| Account                   | Get User              | Retrieves information about the authenticated<br>user.   |
-| Account                   | Get Space Usage       | Retrieves storage space usage for the account.           |
+Dropbox available actions| Category | Action | Description |
+| --- | --- | --- |
+| Files | List Files | Lists files in a folder. |
+| Files | Get File | Reads the content of a file. |
+| Files | Import File | Uploads a file to Dropbox. |
+| Files | Search Files | Searches for files or folders by name or<br>content. |
+| Files | Update File Location | Moves a file or folder to a different location. |
+| Files | Get Temporary Link | Generates a temporary download link for a file. |
+| Files | Get Metadata | Retrieves metadata for a file or folder. |
+| Files | Save File From URL | Saves a file to Dropbox from a URL. |
+| Folders | Create Folder | Creates a new folder. |
+| Folders | List Folders | List of folders user has access to. |
+| Batch operations | Get Batch Move Status | Checks the status of a batch move operation. |
+| Sharing | Create Shared Link | Creates a shared link for a file or folder. |
+| Sharing | List Shared Links | Lists shared links for a file or folder. |
+| Sharing | Update Folder Sharing | Shares a folder with other users. |
+| Sharing | List Received Files | Lists files that other users have shared with<br>you. |
+| File requests | Create File Request | Creates a file request for others to upload files<br>to. |
+| Account | Get User | Retrieves information about the authenticated<br>user. |
+| Account | Get Space Usage | Retrieves storage space usage for the account. |
 
 ###### Note
 

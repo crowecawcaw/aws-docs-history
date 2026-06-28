@@ -22,9 +22,9 @@ IAM users.
 
 ## Inviting users to access Amazon Quick
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 |                                                   |
 | ------------------------------------------------- |
@@ -126,12 +126,10 @@ permission level to grant to that account.
     	 BI](../../../quicksight/latest/user/generative-bi-get-started.md "../../../quicksight/latest/user/generative-bi-get-started.md").
 
 7. For **IAM User**, verify that it says
-   **Yes** for accounts that are associated with
-   IAM users, and **No** for those that are
-   Amazon Quick-only.
-8. (Optional) To delete a user, choose the delete icon at the end of the
-   relevant row.
-9. Choose **Invite**.
+**Yes** for accounts that are associated with
+IAM users, and **No** for those that are
+Amazon Quick-only. 8. (Optional) To delete a user, choose the delete icon at the end of the
+relevant row. 9. Choose **Invite**.
 
 ## Viewing Amazon Quick account details
 
@@ -142,29 +140,28 @@ permission level to grant to that account.
 You can view Amazon Quick accounts on the **Manage Users** page.
 To view a Amazon Quick user account, use the following procedure.
 
-1.  Choose your user name on the application bar and then choose
-    **Manage Quick**.
-2.  Choose **Manage Users** to view details about people who
-    are Amazon Quick users. The information that displays includes:
+1. Choose your user name on the application bar and then choose
+   **Manage Quick**.
+2. Choose **Manage Users** to view details about people who
+   are Amazon Quick users. The information that displays includes:
 
-        * Username – The person's user name.
-        * Email – The email associated with this user name.
-        * Role – The security cohort that the person's user name
-         belongs to: **ADMIN**, **ADMIN
-         PRO**, **AUTHOR**, **AUTHOR
-         PRO**, **READER**, or **READER
-         PRO**.
-        * Last active – The last date and time that this person
-         accessed the Amazon Quick console. Anyone who isn't an active user
-         has a **Last active** status of `User has no
-         activity`.
+   - Username – The person's user name.
+   - Email – The email associated with this user name.
+   - Role – The security cohort that the person's user name
+     belongs to: **ADMIN**, **ADMIN
+     PRO**, **AUTHOR**, **AUTHOR
+     PRO**, **READER**, or **READER
+     PRO**.
+   - Last active – The last date and time that this person
+     accessed the Amazon Quick console. Anyone who isn't an active user
+     has a **Last active** status of `User has no
+  activity`.
+     You can also see deleted or inactive users in this screen.
 
-    You can also see deleted or inactive users in this screen.
-
-3.  To find a user name, enter a part or all of a user's name or email the
-    search box. Search is case-insensitive and wildcards aren't supported. To
-    clear the search results and view all user names, delete your search
-    entry.
+3. To find a user name, enter a part or all of a user's name or email the
+   search box. Search is case-insensitive and wildcards aren't supported. To
+   clear the search results and view all user names, delete your search
+   entry.
 
 ## Deleting a Amazon Quick user account
 

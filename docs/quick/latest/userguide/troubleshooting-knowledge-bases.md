@@ -107,7 +107,7 @@ Access denied errors typically occur due to authentication or authorization issu
 
 ## ACL validation errors
 
-If your sync report shows items with status **SKIPPED** and error type **VALIDATION_ERROR** with the message "File has no ACL while
+If your sync report shows items with status **SKIPPED** and error type **VALIDATION\_ERROR** with the message "File has no ACL while
 crawlACL is true, skipping ingestion," the app registration used by your
 knowledge base connector is missing the required ACL permissions.
 

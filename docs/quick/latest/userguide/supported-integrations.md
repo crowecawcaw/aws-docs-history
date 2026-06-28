@@ -2,70 +2,69 @@
 
 Amazon Quick supports integrations with various third-party applications and services. Each integration supports different combinations of actions and knowledge base creation capabilities. The following table shows the supported integrations and their capabilities.
 
-| Supported Integration Capabilities | Integration | Actions | Knowledge Base |
-| ---------------------------------- | ----------- | ------- | -------------- |
-| Adobe Marketing Agent              | ✓           | —       |
-| Airtable                           | ✓           | —       |
-| Amazon S3                          | ✓           | ✓       |
-| Amplitude                          | ✓           | —       |
-| Asana                              | ✓           | —       |
-| Atlassian Confluence Cloud         | ✓           | ✓       |
-| Atlassian Jira Cloud               | ✓           | —       |
-| BambooHR                           | ✓           | —       |
-| Box                                | ✓           | —       |
-| Canva                              | ✓           | —       |
-| Cisco Webex Meetings               | ✓           | —       |
-| Cisco Webex Video Messaging        | ✓           | —       |
-| Dropbox                            | ✓           | —       |
-| Dun & Bradstreet                   | ✓           | —       |
-| Figma                              | ✓           | —       |
-| GitHub                             | ✓           | —       |
-| Gmail                              | ✓           | —       |
-| Google Analytics                   | ✓           | —       |
-| Google Calendar                    | ✓           | —       |
-| Google Chat                        | ✓           | —       |
-| Google Docs                        | ✓           | —       |
-| Google Drive                       | ✓           | ✓       |
-| Google Meet                        | ✓           | —       |
-| Google Sheets                      | ✓           | —       |
-| Google Slides                      | ✓           | —       |
-| HG Insights                        | ✓           | —       |
-| HubSpot                            | ✓           | —       |
-| HuggingFace                        | ✓           | —       |
-| Intercom                           | ✓           | —       |
-| Linear                             | ✓           | —       |
-| Microsoft OneDrive                 | ✓           | ✓       |
-| Microsoft OneNote                  | ✓           | —       |
-| Microsoft Outlook                  | ✓           | —       |
-| Microsoft SharePoint Online        | ✓           | ✓       |
-| Microsoft Teams                    | ✓           | —       |
-| Model Context Protocol (MCP)       | ✓           | —       |
-| Monday.com                         | ✓           | —       |
-| Moodys GenAI Ready Data            | ✓           | —       |
-| New Relic                          | ✓           | —       |
-| Notion                             | ✓           | —       |
-| OpenAPI Specification              | ✓           | —       |
-| PagerDuty                          | ✓           | —       |
-| QuickBooks                         | ✓           | —       |
-| REST API                           | ✓           | —       |
-| Salesforce                         | ✓           | —       |
-| SAP Bill of Materials              | ✓           | —       |
-| SAP Business Partner               | ✓           | —       |
-| SAP Material Stock                 | ✓           | —       |
-| SAP Physical Inventory Docs        | ✓           | —       |
-| SAP Product Master                 | ✓           | —       |
-| ServiceNow                         | ✓           | —       |
-| Shopify                            | ✓           | —       |
-| Slack                              | ✓           | —       |
-| Smartsheet                         | ✓           | —       |
-| Snowflake Cortex Agent             | ✓           | —       |
-| Visier Agent                       | ✓           | —       |
-| Web Crawler                        | —           | ✓       |
-| WhatsApp                           | ✓           | —       |
-| Zapier                             | ✓           | —       |
-| Zendesk Suite                      | ✓           | —       |
-| Zoom                               | ✓           | —       |
-| ZoomInfo                           | ✓           | —       |
+Supported Integration Capabilities| Integration | Actions | Knowledge Base |
+| --- | --- | --- |
+| Adobe Marketing Agent | ✓ | — |
+| Airtable | ✓ | — |
+| Amazon S3 | ✓ | ✓ |
+| Asana | ✓ | — |
+| Atlassian Confluence Cloud | ✓ | ✓ |
+| Atlassian Jira Cloud | ✓ | — |
+| BambooHR | ✓ | — |
+| Box | ✓ | — |
+| Canva | ✓ | — |
+| Cisco Webex Meetings | ✓ | — |
+| Cisco Webex Video Messaging | ✓ | — |
+| Dropbox | ✓ | — |
+| Dun & Bradstreet | ✓ | — |
+| Figma | ✓ | — |
+| GitHub | ✓ | — |
+| Gmail | ✓ | — |
+| Google Analytics | ✓ | — |
+| Google Calendar | ✓ | — |
+| Google Chat | ✓ | — |
+| Google Docs | ✓ | — |
+| Google Drive | ✓ | ✓ |
+| Google Meet | ✓ | — |
+| Google Sheets | ✓ | — |
+| Google Slides | ✓ | — |
+| HG Insights | ✓ | — |
+| HubSpot | ✓ | — |
+| HuggingFace | ✓ | — |
+| Intercom | ✓ | — |
+| Linear | ✓ | — |
+| Microsoft OneDrive | ✓ | ✓ |
+| Microsoft OneNote | ✓ | — |
+| Microsoft Outlook | ✓ | — |
+| Microsoft SharePoint Online | ✓ | ✓ |
+| Microsoft Teams | ✓ | — |
+| Model Context Protocol (MCP) | ✓ | — |
+| Monday.com | ✓ | — |
+| Moodys GenAI Ready Data | ✓ | — |
+| New Relic | ✓ | — |
+| Notion | ✓ | — |
+| OpenAPI Specification | ✓ | — |
+| PagerDuty | ✓ | — |
+| QuickBooks | ✓ | — |
+| REST API | ✓ | — |
+| Salesforce | ✓ | — |
+| SAP Bill of Materials | ✓ | — |
+| SAP Business Partner | ✓ | — |
+| SAP Material Stock | ✓ | — |
+| SAP Physical Inventory Docs | ✓ | — |
+| SAP Product Master | ✓ | — |
+| ServiceNow | ✓ | — |
+| Shopify | ✓ | — |
+| Slack | ✓ | — |
+| Smartsheet | ✓ | — |
+| Snowflake Cortex Agent | ✓ | — |
+| Visier Agent | ✓ | — |
+| Web Crawler | — | ✓ |
+| WhatsApp | ✓ | — |
+| Zapier | ✓ | — |
+| Zendesk Suite | ✓ | — |
+| Zoom | ✓ | — |
+| ZoomInfo | ✓ | — |
 
 ###### Note
 

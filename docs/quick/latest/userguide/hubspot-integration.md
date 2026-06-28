@@ -118,14 +118,14 @@ with a status of **Connected**.
 After you set up the connector, you can use the following read-only
 actions to access your HubSpot CRM data.
 
-| HubSpot available actions | Action                                                                    | Description |
-| ------------------------- | ------------------------------------------------------------------------- | ----------- |
-| Get CRM Objects           | Fetches multiple CRM objects of the same object type in a single request. |
-| Get properties            | Fetches properties for the CRM objects.                                   |
-| Get user details          | Fetches user details.                                                     |
-| Search CRM Objects        | Searches across CRM objects.                                              |
-| Search Owners             | Searches across owners.                                                   |
-| Search properties         | Searches across properties.                                               |
+HubSpot available actions| Action | Description |
+| --- | --- |
+| Get CRM Objects | Fetches multiple CRM objects of the same object type in a single request. |
+| Get properties | Fetches properties for the CRM objects. |
+| Get user details | Fetches user details. |
+| Search CRM Objects | Searches across CRM objects. |
+| Search Owners | Searches across owners. |
+| Search properties | Searches across properties. |
 
 ###### Note
 

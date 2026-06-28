@@ -89,12 +89,12 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 The following scopes are requested when you connect to Google
 Analytics.
 
-| Google Analytics recommended scopes                  | Scope                                   | Description |
-| ---------------------------------------------------- | --------------------------------------- | ----------- |
+Google Analytics recommended scopes| Scope | Description |
+| --- | --- |
 | `https://www.googleapis.com/auth/analytics.readonly` | Reads Analytics data and configuration. |
-| `https://www.googleapis.com/auth/analytics.edit`     | Edits Analytics configuration and data. |
-| `openid`                                             | Authenticates the user's identity.      |
-| `email`                                              | Reads the user's email address.         |
+| `https://www.googleapis.com/auth/analytics.edit` | Edits Analytics configuration and data. |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
 
 ###### Note
 
@@ -174,46 +174,42 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Google
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Google
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are
 available.
 
-| Google Analytics available actions | Category               | Action                                                          | Description |
-| ---------------------------------- | ---------------------- | --------------------------------------------------------------- | ----------- |
-| Reports                            | Create Report          | Runs a report for a property.                                   |
-| Reports                            | Batch Create Report    | Runs multiple reports in a single request.                      |
-| Reports                            | Create Realtime Report | Runs a real-time report for a property.                         |
-| Reports                            | Create Funnel Report   | Runs a funnel report for a property.                            |
-| Audiences                          | List Audiences         | Lists audiences for a property.                                 |
-| Audiences                          | Create Audience List   | Creates an audience list for export.                            |
-| Audiences                          | List Audience Lists    | Lists audience lists for a property.                            |
-| Audiences                          | Get Audience List      | Retrieves data from an audience list.                           |
-| Audiences                          | Create Audience Export | Creates an audience export.                                     |
-| Audiences                          | Get Audience Export    | Retrieves data from an audience export.                         |
-| Accounts                           | List Account Summaries | Lists account summaries accessible to the<br>user.              |
-| Accounts                           | List Accounts          | Lists all accounts accessible to the user.                      |
-| Accounts                           | Get Account            | Retrieves details for a specific account.                       |
-| Properties                         | Get Property           | Retrieves details for a specific property.                      |
-| Properties                         | Search Properties      | Searches for properties with filtering.                         |
-| Properties                         | Get Property Quotas    | Retrieves quota usage for a property.                           |
-| Events                             | List Key Events        | Lists key events (conversions) for a<br>property.               |
-| Metadata                           | Get Metadata           | Retrieves available dimensions and metrics for<br>reporting.    |
-| Metadata                           | Get Compatibility      | Checks compatibility of dimensions and metrics for<br>a report. |
-| Annotations                        | List Annotations       | Lists reporting data annotations for a<br>property.             |
+Google Analytics available actions| Category | Action | Description |
+| --- | --- | --- |
+| Reports | Create Report | Runs a report for a property. |
+| Reports | Batch Create Report | Runs multiple reports in a single request. |
+| Reports | Create Realtime Report | Runs a real-time report for a property. |
+| Reports | Create Funnel Report | Runs a funnel report for a property. |
+| Audiences | List Audiences | Lists audiences for a property. |
+| Audiences | Create Audience List | Creates an audience list for export. |
+| Audiences | List Audience Lists | Lists audience lists for a property. |
+| Audiences | Get Audience List | Retrieves data from an audience list. |
+| Audiences | Create Audience Export | Creates an audience export. |
+| Audiences | Get Audience Export | Retrieves data from an audience export. |
+| Accounts | List Account Summaries | Lists account summaries accessible to the<br>user. |
+| Accounts | List Accounts | Lists all accounts accessible to the user. |
+| Accounts | Get Account | Retrieves details for a specific account. |
+| Properties | Get Property | Retrieves details for a specific property. |
+| Properties | Search Properties | Searches for properties with filtering. |
+| Properties | Get Property Quotas | Retrieves quota usage for a property. |
+| Events | List Key Events | Lists key events (conversions) for a<br>property. |
+| Metadata | Get Metadata | Retrieves available dimensions and metrics for<br>reporting. |
+| Metadata | Get Compatibility | Checks compatibility of dimensions and metrics for<br>a report. |
+| Annotations | List Annotations | Lists reporting data annotations for a<br>property. |
 
 ###### Note
 

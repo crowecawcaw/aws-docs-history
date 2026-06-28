@@ -28,7 +28,7 @@ that outputs a string.
 _format_
 
 (Optional) A string containing the format pattern that
-_date_string_ must match. For example, if you
+_date\_string_ must match. For example, if you
 are using a field with data like `01/03/2016`,
 you specify the format 'MM/dd/yyyy'. If you don't specify a
 format, it defaults to `yyyy-MM-dd`. Rows whose data

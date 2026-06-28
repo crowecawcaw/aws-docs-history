@@ -1,8 +1,8 @@
 # Refreshing Quick Sight topic indexes
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                                               |
 | ------------------------------------------------------------- |

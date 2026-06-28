@@ -27,9 +27,9 @@ Interrupts the process flow with an exception. Used to trigger or throw an excep
 - **Title** (optional) - Action name shown in the process visualization (e.g., "Raise validation error")
 - **Create custom exception** (required) - When selected on, create a new exception with custom details. When off, raise or re-raise an existing exception stored in a variable
 - **Exception type** (required) - Category of the exception (e.g., "Business exception", "System exception")
-- **Exception reason** (required) - Short identifier used to categorize similar exceptions for reporting (e.g., "REQUIRED_FIELD_MISSING", "INVALID_FORMAT")
+- **Exception reason** (required) - Short identifier used to categorize similar exceptions for reporting (e.g., "REQUIRED\_FIELD\_MISSING", "INVALID\_FORMAT")
 - **Exception message** (required) - Detailed description that will help with troubleshooting (e.g., "Customer email is required but not provided")
-- **Exception to raise** (required when Create custom exception is off) - The exception you want to raise or re-raise, typically stored as a variable (e.g., new_exception)
+- **Exception to raise** (required when Create custom exception is off) - The exception you want to raise or re-raise, typically stored as a variable (e.g., new\_exception)
 
 Create custom exception
 
@@ -37,18 +37,18 @@ Creates an exception without raising it. Used to prepare an exception variable t
 
 - **Title** (optional) - Action name shown in the process visualization (e.g., "Create validation exception")
 - **Exception type** (required) - Category of the exception (e.g., "Business exception", "System exception")
-- **Exception reason** (required) - Short identifier used to categorize similar exceptions for reporting (e.g., "REQUIRED_FIELD_MISSING")
+- **Exception reason** (required) - Short identifier used to categorize similar exceptions for reporting (e.g., "REQUIRED\_FIELD\_MISSING")
 - **Exception message** (required) - Detailed description that will help with troubleshooting (e.g., "Customer email is required but not provided")
 - **Error code** (optional) - Numerical code used to distinguish different types of errors (e.g., 404 for not found, 503 for service unavailable)
-- **Caused by** (optional) - Reference to another exception that triggered this one, typically stored as a variable (e.g., original_exception)
-- **New exception** (output) - Variable that will store the newly created exception (e.g., new_exception)
+- **Caused by** (optional) - Reference to another exception that triggered this one, typically stored as a variable (e.g., original\_exception)
+- **New exception** (output) - Variable that will store the newly created exception (e.g., new\_exception)
 
 Exception flow
 
 Defines how to handle exceptions that occur within a Process step. Used to create an alternative path to follow when exceptions occur in your process. After an exception is handled, the process continues with the next Step. Raise the exception again if you want to end the process. Add an Exception flow by clicking the **Exception flow** plus button found in the Process step. Properties:
 
 - **Title** (optional) - Action name shown in the process visualization (e.g., "Handle validation errors")
-- **Exception reference** (required) - Variable name to refer to the exception within the Exception flow. Access exception details using variable["property"] where property can be: type, reason, message, code, or caused_by (e.g., error)
+- **Exception reference** (required) - Variable name to refer to the exception within the Exception flow. Access exception details using variable["property"] where property can be: type, reason, message, code, or caused\_by (e.g., error)
 
 ###### Note
 
@@ -64,7 +64,7 @@ When handling exceptions, you can access these properties:
 - reason - Short identifier for the exception
 - message - Detailed description of the error
 - code - Numerical error code if provided
-- caused_by - Original exception that triggered this one if applicable
+- caused\_by - Original exception that triggered this one if applicable
 
 **Best practices**
 

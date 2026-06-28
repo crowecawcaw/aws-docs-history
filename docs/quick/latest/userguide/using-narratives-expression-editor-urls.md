@@ -19,12 +19,11 @@ Following are of examples of when you might add a static link in your narrative:
   another sheet in the same dashboard, by using the following
   steps:**
 
-      1. Go to the sheet that you want to make the link to.
-      2. Copy that sheet's URL.
-      3. Return to the narrative editor and create a link using the URL
-       that you just copied.
-
-  Following are examples of when you might add a dynamic link in your narrative:
+  1.  Go to the sheet that you want to make the link to.
+  2.  Copy that sheet's URL.
+  3.  Return to the narrative editor and create a link using the URL
+      that you just copied.
+      Following are examples of when you might add a dynamic link in your narrative:
 
 - **To search a website with a query, by using the
   following steps.**

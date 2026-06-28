@@ -80,9 +80,9 @@ https://us-east-2.quicksight.aws.amazon.com/sn/dashboards/abc123-abc1-abc2-abc3-
 The previous example sets four parameters:
 
 - `shipDate` is a date parameter: `Sept 30,
-2018`.
+ 2018`.
 - `city` is a multivalued string parameter: `New
-York`, and `Seattle`
+ York`, and `Seattle`
 - `teamMember` is an integer parameter: `12`.
 - `percentageRank` is a decimal parameter:
   `2.3`.

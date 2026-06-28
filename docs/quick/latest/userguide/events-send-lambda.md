@@ -21,7 +21,7 @@ when you create your rule.
 5. In **Runtime**, select **Node.js
    18.x**.
 6. For **Architecture**, choose
-   **x86_64**.
+   **x86\_64**.
 7. For **Execution role**, choose either **Create a
    new role with basic Lambda permissions** or **Use an
    existing role** and choose the role you want.

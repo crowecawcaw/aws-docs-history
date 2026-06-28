@@ -41,6 +41,15 @@ controls for keyword search indexing, semantic search indexing, and knowledge
 graph extraction. You can also set granular per-operation permissions for
 read and write operations.
 
+###### Note
+
+Quick also has access to system temporary directories
+regardless of your folder permission settings. On Windows, these are
+`C:\TEMP`, `C:\TMP`,
+`\TEMP`, and `\TMP`. On macOS and
+Linux, these are `/tmp`,
+`/var/tmp`, and `/usr/tmp`.
+
 To manage folder access and permissions, see
 [My Computer](desktop-settings.md#desktop-settings-my-computer "desktop-settings.md#desktop-settings-my-computer").
 

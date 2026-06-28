@@ -1,8 +1,8 @@
 # Embedding Amazon Quick Sight visuals and dashboards for registered users with a 1-click embed code
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 You can embed a visual or dashboard in your internal application for registered
 users of your Amazon Quick Sight account. You do so using the embed code that you get

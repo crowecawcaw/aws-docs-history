@@ -1,8 +1,8 @@
 # Embedding Amazon Quick Sight visuals and dashboards for anonymous users with a 1-click embed code
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 You can embed a visual or dashboard in public sites using the embed code that you
 get when you share the visual or dashboard in Amazon Quick Sight. You can also turn

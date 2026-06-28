@@ -1,8 +1,8 @@
 # Configuring email report settings for a Quick Sight dashboard
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 In Amazon Quick Enterprise edition, you can email a report from any sheet in a
 dashboard. You can send reports from interactive dashboards and pixel perfect report
@@ -127,12 +127,11 @@ following options are available.
      year after the report is sent.
 
 17. (Optional, recommended) To send a sample of the report before you save
-    changes, choose **Send test report**. This option displays
-    beside the user name of the owner of the dashboard.
-18. Do one of the following:
+changes, choose **Send test report**. This option displays
+beside the user name of the owner of the dashboard. 18. Do one of the following:
 
-    - (Recommended) Choose **Save** to confirm your
-      entries.
-    - To immediately send a report, choose **Save and run
-      now**. The report is sent immediately, even if your
-      schedule's start date is in the future.
+    * (Recommended) Choose **Save** to confirm your
+     entries.
+    * To immediately send a report, choose **Save and run
+     now**. The report is sent immediately, even if your
+     schedule's start date is in the future.

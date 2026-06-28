@@ -95,19 +95,19 @@ to return column values from field wells or themes:
 `getColumn` can access any column from the table:
 
 - `["getColumn", 0]` - returns array `[1, 2, 3, 4,
-5, ...]`
+ 5, ...]`
 - `["getColumn", 1]` - returns array `[1, 1, 1, 1,
-1, ...]`
+ 1, ...]`
 - `["getColumn", 2]` - returns array `[1674, 7425,
-4371, ...]`
+ 4371, ...]`
 
 `getColumnFromGroupBy` works similarly, but its index is
 limited to the columns in the group by field well:
 
 - `["getColumnFromGroupBy", 0]` - returns array `[1,
-2, 3, 4, 5, ...]`
+ 2, 3, 4, 5, ...]`
 - `["getColumnFromGroupBy", 1]` - returns array `[1,
-1, 1, 1, 1, ...]`
+ 1, 1, 1, 1, ...]`
 - `["getColumnFromGroupBy", 2]` - does not work, since
   there are only two columns in the group by field well
 
@@ -115,7 +115,7 @@ limited to the columns in the group by field well:
 to the columns in the value field well:
 
 - `["getColumnFromValue", 0]` - returns array `[1,
-2, 3, 4, 5, ...]`
+ 2, 3, 4, 5, ...]`
 - `["getColumnFromValue", 1]` - does not work, since
   there is only one column in the value field well
 - `["getColumnFromValue", 2]` - does not work, since

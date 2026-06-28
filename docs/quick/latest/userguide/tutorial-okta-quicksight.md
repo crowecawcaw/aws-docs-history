@@ -1,8 +1,8 @@
 # Tutorial: Amazon Quick and IAM identity federation
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 |                                                                               |
 | ----------------------------------------------------------------------------- |
@@ -285,39 +285,33 @@ User**. 7. Use the following settings:
     * For **Access type**, enable **Programmatic
      access**.
 
-8.  Choose **Next: Permissions**.
-9.  Choose **Attach existing policies directly**.
-10. For **Search**, enter
-    `OktaListRolesPolicy`, and choose
-    **OktaListRolesPolicy** from the search results.
-11. Choose **Next: Tags**, and then choose **Next:
-    Review**.
-12. Choose **Create user**. Now you can get the access
-    key.
-13. Download the key file by choosing **Download .csv**. The file
-    contains the same access key ID and secret access key that displays on this
-    screen. However, because AWS doesn't display this information a
-    second time, make sure to download the file.
-14. Verify that you completed this step correctly by doing the following:
+8. Choose **Next: Permissions**. 9. Choose **Attach existing policies directly**. 10. For **Search**, enter
+`OktaListRolesPolicy`, and choose
+**OktaListRolesPolicy** from the search results. 11. Choose **Next: Tags**, and then choose **Next:
+Review**. 12. Choose **Create user**. Now you can get the access
+key. 13. Download the key file by choosing **Download .csv**. The file
+contains the same access key ID and secret access key that displays on this
+screen. However, because AWS doesn't display this information a
+second time, make sure to download the file. 14. Verify that you completed this step correctly by doing the following:
 
-        1. Open the IAM console, and choose **Users**. Search
-         for **OktaSSOUser**, and open it by choosing the
-         username from the search results.
-        2. On the **Permissions** tab, verify that the
-         **OktaListRolesPolicy** is attached.
-        3. Use the
+    1. Open the IAM console, and choose **Users**. Search
+     for **OktaSSOUser**, and open it by choosing the
+     username from the search results.
+    2. On the **Permissions** tab, verify that the
+     **OktaListRolesPolicy** is attached.
+    3. Use the
 
-         ![](/images/quick/latest/userguide/images/caret-right-filled.png)
+     ![](/images/quick/latest/userguide/images/caret-right-filled.png)
 
-         icon to open the policy.
-         Verify that the text matches what is shown in this procedure.
-        4. On the **Security credentials** tab, you can check
-         the access key, although you already downloaded it. You can return to
-         this tab to create an access key when you need a new one.
+     icon to open the policy.
+     Verify that the text matches what is shown in this procedure.
+    4. On the **Security credentials** tab, you can check
+     the access key, although you already downloaded it. You can return to
+     this tab to create an access key when you need a new one.
 
-    In the following procedure, you return to Okta to provide the access key. The access
-    key works with your new security settings to allow AWS and the Okta IdP to work
-    together.
+In the following procedure, you return to Okta to provide the access key. The access
+key works with your new security settings to allow AWS and the Okta IdP to work
+together.
 
 ###### To finish configuring the Okta application with AWS settings
 
@@ -416,7 +410,7 @@ using the IdP page first.
 3. For **Configuration**, **IdP
    URL**, enter the URL that your IdP provides to authenticate users,
    for example
-   https://dev-`1-----0`.okta.com/home/amazon_aws/`0oabababababaGQei5d5/282`.
+   https://dev-`1-----0`.okta.com/home/amazon\_aws/`0oabababababaGQei5d5/282`.
    You can find this in your Okta app page, on the **General**
    tab, in **Embed Link**.
 4. For **IdP URL**, enter `RelayState`.

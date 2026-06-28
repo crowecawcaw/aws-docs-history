@@ -24,7 +24,7 @@ Boolean
 
 ## Example
 
-The following example evaluates the sales_amount field for null values.
+The following example evaluates the sales\_amount field for null values.
 
 ```
 isNull(salesAmount)

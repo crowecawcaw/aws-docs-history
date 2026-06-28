@@ -88,13 +88,13 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 The following scopes are requested when you connect to Google
 Sheets.
 
-| Google Sheets recommended scopes                 | Scope                                           | Description |
-| ------------------------------------------------ | ----------------------------------------------- | ----------- |
-| `https://www.googleapis.com/auth/spreadsheets`   | Reads and writes Google Sheets<br>spreadsheets. |
-| `https://www.googleapis.com/auth/drive`          | Reads and writes files in Google Drive.         |
-| `https://www.googleapis.com/auth/drive.readonly` | Reads files in Google Drive.                    |
-| `openid`                                         | Authenticates the user's identity.              |
-| `email`                                          | Reads the user's email address.                 |
+Google Sheets recommended scopes| Scope | Description |
+| --- | --- |
+| `https://www.googleapis.com/auth/spreadsheets` | Reads and writes Google Sheets<br>spreadsheets. |
+| `https://www.googleapis.com/auth/drive` | Reads and writes files in Google Drive. |
+| `https://www.googleapis.com/auth/drive.readonly` | Reads files in Google Drive. |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
 
 ###### Note
 
@@ -174,45 +174,41 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Google
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Google
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are
 available.
 
-| Google Sheets available actions | Category                        | Action                                                         | Description |
-| ------------------------------- | ------------------------------- | -------------------------------------------------------------- | ----------- |
-| Values                          | Get Values                      | Reads values from a cell range.                                |
-| Values                          | Batch Get Value                 | Reads values from multiple cell ranges in a<br>single request. |
-| Values                          | Get Values By Filter            | Reads values using a data filter.                              |
-| Values                          | Update Values                   | Writes values to a cell range.                                 |
-| Values                          | Batch Update Value              | Writes values to multiple cell ranges in a<br>single request.  |
-| Values                          | Append Values                   | Appends values after the last row of data in a<br>range.       |
-| Values                          | Delete Values                   | Clears values from a cell range.                               |
-| Values                          | Update Text                     | Finds and replaces text across a<br>spreadsheet.               |
-| Rows                            | Create Row                      | Creates a new row in a spreadsheet.                            |
-| Rows                            | Put Rows                        | Upserts rows in a spreadsheet.                                 |
-| Rows                            | Get Spreadsheet Row             | Looks up a row by matching criteria.                           |
-| Spreadsheets                    | Create Spreadsheet              | Creates a new spreadsheet.                                     |
-| Spreadsheets                    | Get Spreadsheet Info            | Retrieves metadata for a spreadsheet.                          |
-| Spreadsheets                    | Search Spreadsheets             | Searches for spreadsheets.                                     |
-| Sheets                          | Create Sheet                    | Adds a new sheet to a spreadsheet.                             |
-| Sheets                          | List Sheet Names                | Lists sheet names in a spreadsheet.                            |
-| Sheets                          | Update Sheet Properties         | Updates sheet properties such as name or<br>visibility.        |
-| Formatting                      | Update Cell Format              | Formats cells in a range.                                      |
-| Formatting                      | Update Conditional Format Rules | Creates or updates conditional formatting<br>rules.            |
+Google Sheets available actions| Category | Action | Description |
+| --- | --- | --- |
+| Values | Get Values | Reads values from a cell range. |
+| Values | Batch Get Value | Reads values from multiple cell ranges in a<br>single request. |
+| Values | Get Values By Filter | Reads values using a data filter. |
+| Values | Update Values | Writes values to a cell range. |
+| Values | Batch Update Value | Writes values to multiple cell ranges in a<br>single request. |
+| Values | Append Values | Appends values after the last row of data in a<br>range. |
+| Values | Delete Values | Clears values from a cell range. |
+| Values | Update Text | Finds and replaces text across a<br>spreadsheet. |
+| Rows | Create Row | Creates a new row in a spreadsheet. |
+| Rows | Put Rows | Upserts rows in a spreadsheet. |
+| Rows | Get Spreadsheet Row | Looks up a row by matching criteria. |
+| Spreadsheets | Create Spreadsheet | Creates a new spreadsheet. |
+| Spreadsheets | Get Spreadsheet Info | Retrieves metadata for a spreadsheet. |
+| Spreadsheets | Search Spreadsheets | Searches for spreadsheets. |
+| Sheets | Create Sheet | Adds a new sheet to a spreadsheet. |
+| Sheets | List Sheet Names | Lists sheet names in a spreadsheet. |
+| Sheets | Update Sheet Properties | Updates sheet properties such as name or<br>visibility. |
+| Formatting | Update Cell Format | Formats cells in a range. |
+| Formatting | Update Conditional Format Rules | Creates or updates conditional formatting<br>rules. |
 
 ###### Note
 

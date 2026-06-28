@@ -1,8 +1,8 @@
 # Authorizing connections from Amazon Quick Sight to Amazon RDS DB instances
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 |                                             |
 | ------------------------------------------- |
@@ -110,18 +110,14 @@ Use the following values:
      global.
 
 12. For **Description**, enter a useful description, for
-    example "`Europe (Ireland) QuickSight`".
-13. Choose **Save rules** to save your new inbound rule. Then
-    choose **Close**.
-14. Go back to the detailed view of the DB instance. Return the Amazon RDS console
-    ([https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/")) and choose
-    **Databases**.
-15. Choose the DB identifier for the relevant RDS instance. Choose
-    **Modify**. The same screen displays whether you choose
-    Modify from the databases screen or the DB instance screen: **Modify
-    DB Instance**.
-16. Locate the **Network & Security** section (the third
-    section from the top).
+example "`Europe (Ireland) QuickSight`". 13. Choose **Save rules** to save your new inbound rule. Then
+choose **Close**. 14. Go back to the detailed view of the DB instance. Return the Amazon RDS console
+([https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/")) and choose
+**Databases**. 15. Choose the DB identifier for the relevant RDS instance. Choose
+**Modify**. The same screen displays whether you choose
+Modify from the databases screen or the DB instance screen: **Modify
+DB Instance**. 16. Locate the **Network & Security** section (the third
+section from the top).
 
 The currently assigned security group or groups are already chosen for
 **Security Group**. Don't remove any of the existing

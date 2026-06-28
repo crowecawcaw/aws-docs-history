@@ -9,17 +9,16 @@ that you want to use. There are three filter types for dates:
   enter date values in the format MM/DD/YYYY. You can use the following comparison
   types:
 
-      + Between – Between a start date
-       and an end date
-      + After – After a specified
-       date
-      + Before – Before a specified
-       date
-      + Equals – On a specified
-       date
-
-  For each comparison type, you can alternatively choose a rolling date relative
-  to a period or dataset value.
+  - Between – Between a start date
+    and an end date
+  - After – After a specified
+    date
+  - Before – Before a specified
+    date
+  - Equals – On a specified
+    date
+    For each comparison type, you can alternatively choose a rolling date relative
+    to a period or dataset value.
 
 - Relative (analyses only) – A series of
   date and time elements based on the current date. You can filter records based
@@ -211,8 +210,8 @@ following options:
      parameter.
 
 9. (Optional) If you are filtering by using an existing parameter,
-   instead of specific dates, enable **Use parameters**,
-   then choose your parameter or parameters from the list.
+instead of specific dates, enable **Use parameters**,
+then choose your parameter or parameters from the list.
 
 To use parameters in a filter, create them first. Usually, you create
 a parameter, add a control for it, and then add a filter for it. For

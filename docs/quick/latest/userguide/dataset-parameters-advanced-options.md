@@ -118,7 +118,7 @@ on creating controls in an analysis that is using dataset parameters, see [Addin
 ###### To add multiple values to a control with a Select all option and a mapped dataset parameter
 
 1. Open the analysis that has the original dataset with a `Select
-all` custom SQL expression and a second dataset that includes
+ all` custom SQL expression and a second dataset that includes
    all possible values of the filtered column that exists in the original
    dataset.
 2. Navigate to the secondary dataset that was created earlier to return

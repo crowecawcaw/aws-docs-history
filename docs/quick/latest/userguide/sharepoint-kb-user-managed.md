@@ -115,10 +115,10 @@ users see an error when they attempt to use the feature.
 
 The following table describes the user experience with and without admin consent.
 
-| Admin consent scenarios   | Scenario                                                                                                                                                       | User experience |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+Admin consent scenarios| Scenario | User experience |
+| --- | --- |
 | Admin consent not granted | Each user sees the Microsoft permissions consent dialog on<br>first use. Users might be blocked if your tenant restricts<br>user consent for third-party apps. |
-| Admin consent granted     | Users aren't prompted for consent. The feature works<br>immediately for all users in the organization.                                                         |
+| Admin consent granted | Users aren't prompted for consent. The feature works<br>immediately for all users in the organization. |
 
 #### Granting consent through the consent dialog
 
@@ -192,14 +192,14 @@ The following delegated permissions are requested when a user signs in.
 Share this list with your administrator if they need to review the
 permissions before granting consent.
 
-| User-managed setup – permissions | Permission                   | API       | Type                                                         | Description |
-| -------------------------------- | ---------------------------- | --------- | ------------------------------------------------------------ | ----------- |
-| `Files.Read.All`                 | Microsoft Graph              | Delegated | Read all files the signed-in user can<br>access.             |
-| `Notes.Read.All`                 | Microsoft Graph              | Delegated | Read all OneNote notebooks the signed-in user can<br>access. |
-| `User.Read`                      | Microsoft Graph              | Delegated | Sign in and read the user's profile.                         |
-| `Sites.Read.All`                 | Microsoft Graph              | Delegated | Read documents and list items in all site<br>collections.    |
-| `offline_access`                 | Microsoft Graph              | Delegated | Maintain access using refresh tokens.                        |
-| `AllSites.Read`                  | Office 365 SharePoint Online | Delegated | Read items in all site collections.                          |
+User-managed setup – permissions| Permission | API | Type | Description |
+| --- | --- | --- | --- |
+| `Files.Read.All` | Microsoft Graph | Delegated | Read all files the signed-in user can<br>access. |
+| `Notes.Read.All` | Microsoft Graph | Delegated | Read all OneNote notebooks the signed-in user can<br>access. |
+| `User.Read` | Microsoft Graph | Delegated | Sign in and read the user's profile. |
+| `Sites.Read.All` | Microsoft Graph | Delegated | Read documents and list items in all site<br>collections. |
+| `offline_access` | Microsoft Graph | Delegated | Maintain access using refresh tokens. |
+| `AllSites.Read` | Office 365 SharePoint Online | Delegated | Read items in all site collections. |
 
 ## Manage and troubleshoot user-managed connections
 

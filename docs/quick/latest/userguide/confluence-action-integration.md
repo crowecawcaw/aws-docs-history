@@ -43,7 +43,7 @@ Atlassian Developer Console before you configure Amazon Quick.
 3. For **Name**, enter a descriptive name for your
    integration, for example
    ``your-app-name`
-   connector`.
+ connector`.
 4. Review and accept the Atlassian developer terms.
 5. Choose **Create**.
 
@@ -82,20 +82,20 @@ integration.
 On the **Classic scopes** tab, choose
 **Edit Scopes** and select the following scope.
 
-| Confluence action integration – classic scope | Scope                                          | Description |
-| --------------------------------------------- | ---------------------------------------------- | ----------- |
-| `search:confluence`                           | Search Confluence content and space summaries. |
+Confluence action integration – classic scope| Scope | Description |
+| --- | --- |
+| `search:confluence` | Search Confluence content and space summaries. |
 
 **Granular scopes**
 
 Choose the **Granular scopes** tab, then choose
 **Edit Scopes**. Select the following scopes.
 
-| Confluence action integration – granular scopes | Scope                     | Description |
-| ----------------------------------------------- | ------------------------- | ----------- |
-| `read:page:confluence`                          | View page content.        |
-| `write:page:confluence`                         | Create and update pages.  |
-| `read:space:confluence`                         | Access space information. |
+Confluence action integration – granular scopes| Scope | Description |
+| --- | --- |
+| `read:page:confluence` | View page content. |
+| `write:page:confluence` | Create and update pages. |
+| `read:space:confluence` | Access space information. |
 
 ### Configure authorization
 
@@ -124,10 +124,10 @@ the following values. You need them for the Amazon Quick configuration.
    **Client ID** and **Secret**
    values.
 
-| Required credentials from Atlassian Developer Console | Value                                       | Where to find it |
-| ----------------------------------------------------- | ------------------------------------------- | ---------------- |
-| Client ID                                             | Settings page, under Authentication details |
-| Secret                                                | Settings page, under Authentication details |
+Required credentials from Atlassian Developer Console| Value | Where to find it |
+| --- | --- |
+| Client ID | Settings page, under Authentication details |
+| Secret | Settings page, under Authentication details |
 
 ## Prepare authentication
 
@@ -144,8 +144,8 @@ configure the integration in Amazon Quick.
   for API calls. This is not the same URL that users log into. It
   resembles the following:
   `https://api.atlassian.com/ex/confluence/`yourInstanceId``.
-To find your instance ID, navigate to
-`https://`your-domain`.atlassian.net/\_edge/tenant_info`.
+  To find your instance ID, navigate to
+  `https://`your-domain`.atlassian.net/_edge/tenant_info`.
 - **Client ID** – From the Settings page of your Atlassian OAuth app.
 - **Client secret** – From the Settings page of your Atlassian OAuth app.
 - **Token URL** –
@@ -193,8 +193,8 @@ Amazon Quick.
       - **Base URL** – Your Confluence instance URL for API calls,
         in the format
         `https://api.atlassian.com/ex/confluence/`yourInstanceId``.
-To find your instance ID, navigate to
-`https://`your-domain`.atlassian.net/\_edge/tenant_info`.
+        To find your instance ID, navigate to
+        `https://`your-domain`.atlassian.net/_edge/tenant_info`.
       - **Client ID** – Client ID from the Settings page of your Atlassian OAuth app.
       - **Client secret** – Secret from the Settings page of your Atlassian OAuth app.
       - **Token URL** –
@@ -219,12 +219,12 @@ To find your instance ID, navigate to
 
 After you set up the integration, the following actions are available.
 
-| Confluence Cloud available actions | Action                    | Description |
-| ---------------------------------- | ------------------------- | ----------- |
-| Create Page                        | Create a new page.        |
-| Get Pages                          | View all pages.           |
-| Search                             | Search content using CQL. |
-| Update Page                        | Update page content.      |
+Confluence Cloud available actions| Action | Description |
+| --- | --- |
+| Create Page | Create a new page. |
+| Get Pages | View all pages. |
+| Search | Search content using CQL. |
+| Update Page | Update page content. |
 
 ## Manage and troubleshoot
 
@@ -243,13 +243,13 @@ To edit, share, or delete your integration, see [Managing existing integrations]
   API calls is not the same as the Confluence Cloud login URL. Verify you are
   using the API URL format:
   `https://api.atlassian.com/ex/confluence/`yourInstanceId``.
-To find your instance ID, navigate to
-`https://`your-domain`.atlassian.net/\_edge/tenant_info`.
+  To find your instance ID, navigate to
+  `https://`your-domain`.atlassian.net/_edge/tenant_info`.
 
 ### Common error messages
 
 - **`Access denied. You do not have
-permission to perform this action`** – The
+ permission to perform this action`** – The
   authenticated user does not have the required permissions in Confluence Cloud.
   Contact your Confluence Cloud administrator to verify and grant appropriate
   permissions.

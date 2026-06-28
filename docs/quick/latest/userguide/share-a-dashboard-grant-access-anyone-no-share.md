@@ -10,12 +10,12 @@ visual.
 The following table describes the different scenarios for when a dashboard
 is publicly available.
 
-| Account-level public setting | Dashboard-level public setting | Public access | Visual indicators                                                                                                                                                                                                     |
-| ---------------------------- | ------------------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Off                          | Off                            | Off           | None                                                                                                                                                                                                                  |
-| On                           | Off                            | Off           | None                                                                                                                                                                                                                  |
-| On                           | On                             | Yes           | An orange badge appears on the dashboard and an eye<br>icon appears on the dashboard in the<br>\*_Dashboards_<br>• page.                                                                                              |
-| Off                          | On                             | No            | A grey badge appears on the dashboard and an eye icon<br>with a slash appears on the dashboard in the<br>\*_Dashboards_<br>• page. It can take up<br>to two minutes for a dashboard's public access to be<br>revoked. |
+| Account-level public setting | Dashboard-level public setting | Public access | Visual indicators                                                                                                                                                                                                    |
+| ---------------------------- | ------------------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Off                          | Off                            | Off           | None                                                                                                                                                                                                                 |
+| On                           | Off                            | Off           | None                                                                                                                                                                                                                 |
+| On                           | On                             | Yes           | An orange badge appears on the dashboard and an eye<br>icon appears on the dashboard in the<br>*_Dashboards_<br>• page.                                                                                              |
+| Off                          | On                             | No            | A grey badge appears on the dashboard and an eye icon<br>with a slash appears on the dashboard in the<br>*_Dashboards_<br>• page. It can take up<br>to two minutes for a dashboard's public access to be<br>revoked. |
 
 ###### To turn off public sharing for a single dashboard
 

@@ -7,23 +7,23 @@ browser preferences and interactions with localized AWS websites.
 
 Quick supports the following languages:
 
-| Languages available in the Amazon Quick user interface | Official name | Language code       | Localized name |
-| ------------------------------------------------------ | ------------- | ------------------- | -------------- |
-| Dansk                                                  | da            | Danish              |
-| Deutsch                                                | de            | German              |
-| English                                                | en            | English             |
-| Español                                                | es            | Spanish             |
-| Français                                               | fr            | French              |
-| Italiano                                               | it            | Italian             |
-| Nederlands                                             | nl            | Dutch               |
-| Norsk                                                  | nb            | Norwegian           |
-| Português                                              | pt            | Portuguese          |
-| Suomi                                                  | fi            | Finnish             |
-| Svenska                                                | sv            | Swedish             |
-| 日本語                                                 | ja            | Japanese            |
-| 한국어                                                 | ko            | Korean              |
-| 中文 (简体)                                            | zh-CN         | Simplified Chinese  |
-| 中文 (繁體)                                            | zh-TW         | Traditional Chinese |
+Languages available in the Amazon Quick user interface| Official name | Language code | Localized name |
+| --- | --- | --- |
+| Dansk | da | Danish |
+| Deutsch | de | German |
+| English | en | English |
+| Español | es | Spanish |
+| Français | fr | French |
+| Italiano | it | Italian |
+| Nederlands | nl | Dutch |
+| Norsk | nb | Norwegian |
+| Português | pt | Portuguese |
+| Suomi | fi | Finnish |
+| Svenska | sv | Swedish |
+| 日本語 | ja | Japanese |
+| 한국어 | ko | Korean |
+| 中文 (简体) | zh-CN | Simplified Chinese |
+| 中文 (繁體) | zh-TW | Traditional Chinese |
 
 Choosing a language translates only user interface elements. It doesn't translate the
 following:

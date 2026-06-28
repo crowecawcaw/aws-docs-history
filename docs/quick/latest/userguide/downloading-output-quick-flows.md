@@ -20,5 +20,5 @@ User input and file upload steps cannot be downloaded. 4. Select your preferred 
 
 5. Choose your download destination:
 
-   - **Download** to save the file locally.
-   - **Save to a space** to save to a shared space (requires edit access).
+    * **Download** to save the file locally.
+    * **Save to a space** to save to a shared space (requires edit access).

@@ -1,8 +1,8 @@
 # Initiating sign-on from the identity provider (IdP)
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 |                                             |
 | ------------------------------------------- |

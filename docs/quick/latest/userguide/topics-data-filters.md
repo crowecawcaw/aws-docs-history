@@ -10,22 +10,22 @@ answer. You can add filters to a topic to support requests like these.
 
 ###### To add a filter to a topic
 
-1.  Open the topic that you want to add a filter to.
-2.  In the topic, choose the **Data** tab.
-3.  For **Actions**, choose **Add
-    filter**.
-4.  In the **Filter configuration** page that opens, do the
-    following:
+1. Open the topic that you want to add a filter to.
+2. In the topic, choose the **Data** tab.
+3. For **Actions**, choose **Add
+   filter**.
+4. In the **Filter configuration** page that opens, do the
+   following:
 
-    1. For **Name**, enter a friendly name for the
-       filter.
-    2. For **Dataset**, choose a dataset that you want
-       to apply the filter to.
-    3. For **Field**, choose the field that you want to
-       filter.
+   1. For **Name**, enter a friendly name for the
+      filter.
+   2. For **Dataset**, choose a dataset that you want
+      to apply the filter to.
+   3. For **Field**, choose the field that you want to
+      filter.
 
-    Depending on the type of field you choose, you're offered
-    different filtering options.
+   Depending on the type of field you choose, you're offered
+   different filtering options.
 
         * If you chose a text field (for example,
          `Region`), do the following:
@@ -70,22 +70,23 @@ answer. You can add filters to a topic to support requests like these.
         	 rule.
         For more information about filtering numeric fields, see
          [Adding numeric filters](add-a-numeric-filter-data-prep.md "add-a-numeric-filter-data-prep.md").
-    4. (Optional) To specify when the filter is applied, choose
-       **Apply the filter anytime the dataset is
-       used**, and then choose one of the following:
 
-       - **Apply always** – When you choose
+   4. (Optional) To specify when the filter is applied, choose
+   **Apply the filter anytime the dataset is
+   used**, and then choose one of the following:
+
+        * **Apply always** – When you choose
          this option, the filter is applied whenever any column from
          the dataset you specified is linked to a question.
-       - **Apply always, unless a question results in an
+        * **Apply always, unless a question results in an
          explicit filter from the dataset** –
          When you choose this option, the filter is applied whenever
          any column from the dataset you specified is linked to a
          question. However, if the question mentions an explicit
          filter on the same field, the filter isn't applied.
 
-    5. When finished, choose **Save**.
+   5. When finished, choose **Save**.
 
-    The filter is added to the list of fields in the topic. You can
-    edit the description for it or adjust when the filter is
-    applied.
+   The filter is added to the list of fields in the topic. You can
+   edit the description for it or adjust when the filter is
+   applied.

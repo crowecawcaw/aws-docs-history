@@ -104,22 +104,22 @@ Add the following as Delegated permissions in your Entra app registration.
 For the full permissions reference, see [Microsoft Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference "https://learn.microsoft.com/en-us/graph/permissions-reference") in the Microsoft
 documentation.
 
-| OneDrive action integration – delegated permissions | Permission                                                                                                                                       | Description |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `Files.ReadWrite`                                   | Allows the app to read, create, update, and delete the<br>signed-in user's files.                                                                |
-| `User.Read.All`                                     | Allows the app to read the full set of profile properties<br>of all users in the organization on behalf of the signed-in<br>user.                |
-| `offline_access`                                    | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
+OneDrive action integration – delegated permissions| Permission | Description |
+| --- | --- |
+| `Files.ReadWrite` | Allows the app to read, create, update, and delete the<br>signed-in user's files. |
+| `User.Read.All` | Allows the app to read the full set of profile properties<br>of all users in the organization on behalf of the signed-in<br>user. |
+| `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
 
 ### Record your credentials
 
 Before leaving the Microsoft Entra admin center, confirm you have the
 following values. You need them for the Amazon Quick configuration.
 
-| Required credentials from Microsoft Entra | Value                          | Where to find it |
-| ----------------------------------------- | ------------------------------ | ---------------- |
-| Application (client) ID                   | App registration overview page |
-| Directory (tenant) ID                     | App registration overview page |
-| Client secret value                       | Certificates & secrets page    |
+Required credentials from Microsoft Entra| Value | Where to find it |
+| --- | --- |
+| Application (client) ID | App registration overview page |
+| Directory (tenant) ID | App registration overview page |
+| Client secret value | Certificates & secrets page |
 
 ## Setting up the connector in Amazon Quick
 
@@ -222,11 +222,10 @@ fields.
      is set automatically by Amazon Quick. You do not need
      to configure it manually.
 
-8. Choose **Next**.
-9. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Microsoft
-   authorization window opens. Review the requested permissions and
-   choose **Accept**.
+8. Choose **Next**. 9. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Microsoft
+authorization window opens. Review the requested permissions and
+choose **Accept**.
 
 If you see an error instead of the consent dialog, your
 organization might restrict third-party app access. See
@@ -240,30 +239,30 @@ organization or search for specific teams or groups. 12. Choose **Publish**.
 
 After you set up the integration, the following actions are available.
 
-| Microsoft OneDrive available actions | Category           | Action                                                                        | Description |
-| ------------------------------------ | ------------------ | ----------------------------------------------------------------------------- | ----------- |
-| Drive and items                      | Get Drive          | Retrieve the properties and relationships of a drive.                         |
-| Drive and items                      | List Item          | Get all items contained in the drive.                                         |
-| Drive and items                      | Get Item           | Get an item contained in the drive.                                           |
-| Drive and items                      | Create Folder      | Create a new folder in the user's drive.                                      |
-| Drive and items                      | Update Item        | Update the metadata for a file or folder.                                     |
-| Drive and items                      | Delete Item        | Delete a file or folder. Moves the item to the recycle<br>bin.                |
-| Drive and items                      | List Child Folders | Return a collection of items in the children of a<br>folder.                  |
-| Drive and items                      | Copy Item          | Create a copy of a file or folder to another<br>location.                     |
-| Drive and items                      | Add Permissions    | Send a sharing invitation for a file or folder.                               |
-| Drive and items                      | Upload File        | Upload a new file or update an existing file. Supports<br>files up to 250 MB. |
-| Excel workbooks                      | List Sheets        | Retrieve a list of worksheet objects.                                         |
-| Excel workbooks                      | Add Sheet          | Add a new worksheet to the workbook.                                          |
-| Excel workbooks                      | Read Sheet         | Retrieve the properties of a worksheet object.                                |
-| Excel workbooks                      | Update Sheet       | Update the properties of a worksheet object.                                  |
-| Excel workbooks                      | Delete Sheet       | Delete the worksheet from the workbook.                                       |
-| Excel workbooks                      | Read Cell          | Get the value of a single cell by row and column<br>number.                   |
-| Excel workbooks                      | Write Cell         | Set the value of a single cell by row and column<br>number.                   |
-| Excel workbooks                      | Read Range         | Get the values of a range.                                                    |
-| Excel workbooks                      | Write Range        | Update the values of a range.                                                 |
-| Excel workbooks                      | Clear Range        | Clear range values, format, fill, and border.                                 |
-| Excel workbooks                      | Delete Range       | Delete the cells associated with the range.                                   |
-| Excel workbooks                      | Get Used Range     | Get the smallest range that encompasses cells with a value<br>or formatting.  |
+Microsoft OneDrive available actions| Category | Action | Description |
+| --- | --- | --- |
+| Drive and items | Get Drive | Retrieve the properties and relationships of a drive. |
+| Drive and items | List Item | Get all items contained in the drive. |
+| Drive and items | Get Item | Get an item contained in the drive. |
+| Drive and items | Create Folder | Create a new folder in the user's drive. |
+| Drive and items | Update Item | Update the metadata for a file or folder. |
+| Drive and items | Delete Item | Delete a file or folder. Moves the item to the recycle<br>bin. |
+| Drive and items | List Child Folders | Return a collection of items in the children of a<br>folder. |
+| Drive and items | Copy Item | Create a copy of a file or folder to another<br>location. |
+| Drive and items | Add Permissions | Send a sharing invitation for a file or folder. |
+| Drive and items | Upload File | Upload a new file or update an existing file. Supports<br>files up to 250 MB. |
+| Excel workbooks | List Sheets | Retrieve a list of worksheet objects. |
+| Excel workbooks | Add Sheet | Add a new worksheet to the workbook. |
+| Excel workbooks | Read Sheet | Retrieve the properties of a worksheet object. |
+| Excel workbooks | Update Sheet | Update the properties of a worksheet object. |
+| Excel workbooks | Delete Sheet | Delete the worksheet from the workbook. |
+| Excel workbooks | Read Cell | Get the value of a single cell by row and column<br>number. |
+| Excel workbooks | Write Cell | Set the value of a single cell by row and column<br>number. |
+| Excel workbooks | Read Range | Get the values of a range. |
+| Excel workbooks | Write Range | Update the values of a range. |
+| Excel workbooks | Clear Range | Clear range values, format, fill, and border. |
+| Excel workbooks | Delete Range | Delete the cells associated with the range. |
+| Excel workbooks | Get Used Range | Get the smallest range that encompasses cells with a value<br>or formatting. |
 
 ## Manage and troubleshoot
 
@@ -284,11 +283,11 @@ To edit, share, or delete your integration, see [Managing existing integrations]
 ### Common error messages
 
 - **`Access denied. You do not have
-permission to perform this action`** – The
+ permission to perform this action`** – The
   authenticated user does not have the required permissions. Contact your
   administrator to verify and grant appropriate permissions.
 - **`AADSTS50020: User account from identity
-provider does not exist in tenant`** – The user
+ provider does not exist in tenant`** – The user
   account is not configured in the correct Microsoft Entra tenant. Verify
   the user account exists in the tenant that matches the Directory
   (tenant) ID in your app registration.
@@ -326,7 +325,7 @@ An administrator can grant consent in one of the following ways:
   applications**, locate the Amazon Quick application,
   choose **Permissions**, and choose
   **Grant admin consent for `Your
-Organization`**.
+ Organization`**.
 
 After consent is granted, any user in your organization can connect
 without being prompted for individual consent.

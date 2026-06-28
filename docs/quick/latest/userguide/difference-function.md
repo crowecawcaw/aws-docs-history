@@ -43,9 +43,7 @@ _lookup index_
 The lookup index can be positive or negative, indicating a following
 row in the sort (positive) or a previous row in the sort (negative). The
 lookup index can be 1–2,147,483,647. For the engines MySQL,
-MariaDB and Aurora MySQL-Compatible Edition, the lookup index is limited to just
-
-1.
+MariaDB and Aurora MySQL-Compatible Edition, the lookup index is limited to just 1.
 
 _partition field_
 

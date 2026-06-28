@@ -39,28 +39,27 @@ Use the following procedure to add filters to analyses.
 
 ###### To add a filter to an analysis
 
-1.  Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
-2.  From the Quick homepage, choose
-    **Analyses**.
-3.  On the **Analyses** page, choose the analysis that you
-    want to work with.
-4.  In the analysis, choose the **Filter** icon to open the
-    **Filters** pane, and then choose
-    **ADD**.
-5.  Choose the new filter in the pane to configure it. Or you can choose the
-    three dots to the right of the new filter and choose
-    **Edit**.
-6.  In the **Edit filter** pane that opens, for
-    **Applied to**, choose one of the following
-    options.
+1. Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
+2. From the Quick homepage, choose
+   **Analyses**.
+3. On the **Analyses** page, choose the analysis that you
+   want to work with.
+4. In the analysis, choose the **Filter** icon to open the
+   **Filters** pane, and then choose
+   **ADD**.
+5. Choose the new filter in the pane to configure it. Or you can choose the
+   three dots to the right of the new filter and choose
+   **Edit**.
+6. In the **Edit filter** pane that opens, for
+   **Applied to**, choose one of the following
+   options.
 
-        * **Single visual** – The filter applies to
-         the selected item only.
-        * **Single sheet** – The filter applies to a
-         single sheet.
-        * **Cross sheet** – The filter applies to
-         multiple sheets in the dataset.
-
-    Depending on the data type of the field, your remaining options for
-    configuring the filter vary. For more information about the types of filters
-    you can create and their configurations, see [Filter types in Amazon Quick](filtering-types.md "filtering-types.md").
+   - **Single visual** – The filter applies to
+     the selected item only.
+   - **Single sheet** – The filter applies to a
+     single sheet.
+   - **Cross sheet** – The filter applies to
+     multiple sheets in the dataset.
+     Depending on the data type of the field, your remaining options for
+     configuring the filter vary. For more information about the types of filters
+     you can create and their configurations, see [Filter types in Amazon Quick](filtering-types.md "filtering-types.md").

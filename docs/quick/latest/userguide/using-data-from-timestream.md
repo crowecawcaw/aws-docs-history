@@ -19,33 +19,32 @@ more information, see [Configuring Amazon Quick Sight access to AWS data sources
 
 ###### To connect to Amazon Timestream
 
-1.  Begin by creating a new dataset. Choose **Data** from the
-    navigation pane at left.
-2.  Choose **Create** then **New
-    Dataset**.
-3.  Choose the Timestream data source card.
-4.  For **Data source name**, enter a descriptive name for
-    your Timestream data source connection, for example `US Timestream Data`.
-    Because you can create many datasets from a connection to Timestream, it's
-    best to keep the name simple.
-5.  Choose **Validate connection** to check that you can
-    successfully connect to Timestream.
-6.  Choose **Create data source** to proceed.
-7.  For **Database**, choose **Select** to
-    view the list of available options.
-8.  Choose the one you want to use, then choose **Select** to
-    continue.
-9.  Do one of the following:
+1. Begin by creating a new dataset. Choose **Data** from the
+   navigation pane at left.
+2. Choose **Create** then **New
+   Dataset**.
+3. Choose the Timestream data source card.
+4. For **Data source name**, enter a descriptive name for
+   your Timestream data source connection, for example `US Timestream Data`.
+   Because you can create many datasets from a connection to Timestream, it's
+   best to keep the name simple.
+5. Choose **Validate connection** to check that you can
+   successfully connect to Timestream.
+6. Choose **Create data source** to proceed.
+7. For **Database**, choose **Select** to
+   view the list of available options.
+8. Choose the one you want to use, then choose **Select** to
+   continue.
+9. Do one of the following:
 
-        * To import your data into Quick Sight's in-memory engine
-         (called SPICE), choose **Import to
-         SPICE for quicker analytics**.
-        * To allow Quick Sight to run a query against your data each time
-         you refresh the dataset or use the analysis or dashboard, choose
-         **Directly query your data**.
-
-    If you want to enable autorefresh on a published dashboard that uses
-    Timestream data, the Timestream dataset needs to use a direct query.
+   - To import your data into Quick Sight's in-memory engine
+     (called SPICE), choose **Import to
+     SPICE for quicker analytics**.
+   - To allow Quick Sight to run a query against your data each time
+     you refresh the dataset or use the analysis or dashboard, choose
+     **Directly query your data**.
+     If you want to enable autorefresh on a published dashboard that uses
+     Timestream data, the Timestream dataset needs to use a direct query.
 
 10. Choose **Edit/Preview** and then
     **Save** to save your dataset and close it.
@@ -66,7 +65,7 @@ active users in Quick Sight before you can add them.
 
 1. Choose **Data** at left, then scroll down to find the
    dataset for your Timestream connection. An example might be `US Timestream
-Data`.
+ Data`.
 2. Choose the **Timestream** dataset to open it.
 3. On the dataset details page that opens, choose the
    **Permissions**tab.
@@ -80,16 +79,15 @@ then follow these steps:
      them.
 
 5. (Optional) To edit permissions, you can choose **Viewer**
-   or **Owner**.
+or **Owner**.
 
-   - Choose **Viewer** to allow read access.
-   - Choose **Owner** to allow that user to edit,
+    * Choose **Viewer** to allow read access.
+    * Choose **Owner** to allow that user to edit,
      share, or delete this Quick Sight data source.
 
 6. (Optional) To revoke permissions, choose **Revoke
-   access**. After you revoke someone's access, they can't
-   create edit, share, or delete the dataset.
-7. When you are finished, choose **Close**.
+access**. After you revoke someone's access, they can't
+create edit, share, or delete the dataset. 7. When you are finished, choose **Close**.
 
 ## Adding a new Quick Sight dataset for Timestream
 

@@ -1,8 +1,8 @@
 # Using row-level security in Amazon Quick
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 In the Enterprise edition of Amazon Quick, you can restrict access to a dataset by
 configuring row-level security (RLS) on it. You can do this before or after you have shared

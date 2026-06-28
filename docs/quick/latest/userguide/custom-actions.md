@@ -19,7 +19,7 @@ You can set the following attributes and options for a custom action:
 - **Action
   name** – This is a descriptive name that you
   choose for the action. By default, actions are named `Action
-1`, `Action 2`, and so on. If your
+ 1`, `Action 2`, and so on. If your
   custom action is activated from a context menu, this name displays in the
   menu when you right-click on a data point.
 
@@ -43,87 +43,75 @@ example `<<fieldName>>`.
   Settings that are specific to an action type only display after you choose
   the action type.
 
-      + **Filter action** settings include the following:
+  - **Filter action** settings include the following:
 
+    - **Filter
+      scope** – The fields to
+      filter on. To filter on all fields, choose **All
+      fields**. Otherwise, choose **Select
+      fields** and then turn off the items you don't
+      want to target.
 
+    The default is **All fields**.
+    - **Target
+      visuals** – The dashboard
+      widgets to target. To apply the filter to all of them,
+      choose **All visuals**. Otherwise, choose
+      **Select visuals** and then turn off
+      the items you don't want to target. When you apply a filter
+      action to other visuals, the effect is called
+      _cascading filters_.
 
+    The default is **All visuals**.
 
-      	- **Filter
-      	 scope** – The fields to
-      	 filter on. To filter on all fields, choose **All
-      	 fields**. Otherwise, choose **Select
-      	 fields** and then turn off the items you don't
-      	 want to target.
+    A cascading filter applies all the visuals that are set up
+    in the **Target visuals** section of a
+    specific filter action. Amazon Quick Sight initially evaluates your
+    visuals and preconfigures the settings for you. But you can
+    change the defaults if you wish to do so. You can set up
+    multiple cascading filters on multiple visuals in the same
+    sheet or analysis. When you are using the analysis or
+    dashboard, you can use multiple cascading filters at the
+    same time, although you activate each of these one at a
+    time.
 
+    A filter action requires at least one target visual,
+    because a filter action requires a source and a target. To
+    filter only the current visual, create a regular filter
+    instead by choosing **Filter** at
+    left.
 
-      	The default is **All fields**.
-      	- **Target
-      	 visuals** – The dashboard
-      	 widgets to target. To apply the filter to all of them,
-      	 choose **All visuals**. Otherwise, choose
-      	 **Select visuals** and then turn off
-      	 the items you don't want to target. When you apply a filter
-      	 action to other visuals, the effect is called
-      	 *cascading filters*.
+  - **Navigation action** settings include the
+    following:
 
+    - **Target
+      sheet** – The sheet to
+      target.
+    - **Parameters** – The
+      parameters to send to the target sheet. Choose the plus icon
+      to add an existing parameter.
 
-      	The default is **All visuals**.
+  - **URL action** settings include the following:
 
-
-      	A cascading filter applies all the visuals that are set up
-      	 in the **Target visuals** section of a
-      	 specific filter action. Amazon Quick Sight initially evaluates your
-      	 visuals and preconfigures the settings for you. But you can
-      	 change the defaults if you wish to do so. You can set up
-      	 multiple cascading filters on multiple visuals in the same
-      	 sheet or analysis. When you are using the analysis or
-      	 dashboard, you can use multiple cascading filters at the
-      	 same time, although you activate each of these one at a
-      	 time.
-
-
-      	A filter action requires at least one target visual,
-      	 because a filter action requires a source and a target. To
-      	 filter only the current visual, create a regular filter
-      	 instead by choosing **Filter** at
-      	 left.
-      + **Navigation action** settings include the
-       following:
-
-
-
-
-      	- **Target
-      	 sheet** – The sheet to
-      	 target.
-      	- **Parameters** – The
-      	 parameters to send to the target sheet. Choose the plus icon
-      	 to add an existing parameter.
-      + **URL action** settings include the following:
-
-
-
-
-      	- **URL** – The URL to open. URL
-      	 actions can be deep links into another application. Valid
-      	 URL schemes include `https`, `http`,
-      	 and `mailto`.
-      	- ****+**
-      	 (Values)** – (Optional) The parameters
-      	 to send to the target URL. Parameter names start with a
-      	 `$`. The parameters on both the sending and
-      	 the receiving end must match in name and data type.
-      	- **Open
-      	 in** – Where to open the
-      	 URL. You can choose **New browser tab**,
-      	 **Same browser tab**, or **New
-      	 browser window**.
-
-  Some types of actions enable you to include values from parameters or fields that
-  are available in the visual or insight. You can type these in manually or choose
-  **+** to select from a list. For the custom action to work,
-  every field and parameter it references must be actively in use in the parent
-  widget.
+    - **URL** – The URL to open. URL
+      actions can be deep links into another application. Valid
+      URL schemes include `https`, `http`,
+      and `mailto`.
+    - ****+**
+      (Values)** – (Optional) The parameters
+      to send to the target URL. Parameter names start with a
+      `$`. The parameters on both the sending and
+      the receiving end must match in name and data type.
+    - **Open
+      in** – Where to open the
+      URL. You can choose **New browser tab**,
+      **Same browser tab**, or **New
+      browser window**.
+      Some types of actions enable you to include values from parameters or fields that
+      are available in the visual or insight. You can type these in manually or choose
+      **+** to select from a list. For the custom action to work,
+      every field and parameter it references must be actively in use in the parent
+      widget.
 
 Use the following procedure to create, view, or edit a custom action in an
 analysis.
@@ -146,40 +134,37 @@ To delete it, choose **Delete**. 3. To create a new action, choose either one of
     * The **Define a custom action** button
 
 4. For **Action name**, define an action name. To make the
-   action name dynamic, use the plus icon to add parameter or field values.
-5. For **Activation**, choose how the action runs.
-6. For **Action type**, choose the action type you want to
-   use.
-7. For a **Filter action**, do the following:
+action name dynamic, use the plus icon to add parameter or field values. 5. For **Activation**, choose how the action runs. 6. For **Action type**, choose the action type you want to
+use. 7. For a **Filter action**, do the following:
 
-   1. For **Filter scope**, choose the scope of the
-      filter.
-   2. For **Target visuals**, choose how far the filter
-      cascades
+    1. For **Filter scope**, choose the scope of the
+     filter.
+    2. For **Target visuals**, choose how far the filter
+     cascades
 
 8. For a **Navigation action**, do the following:
 
-   1. For **Target sheet**, choose the target
-      sheet.
-   2. For **Parameters**, choose the plus icon near the
-      **Parameters** heading, select a parameter, and
-      then choose a parameter value. You can choose all values, enter
-      custom values, or select specific fields.
+    1. For **Target sheet**, choose the target
+     sheet.
+    2. For **Parameters**, choose the plus icon near the
+     **Parameters** heading, select a parameter, and
+     then choose a parameter value. You can choose all values, enter
+     custom values, or select specific fields.
 
 9. For a **URL action**, do the following:
 
-   1. For **URL**, enter the hyperlink.
-   2. Choose the plus icon near the **URL** heading.
-      Then, add variables from the list.
-   3. For **Open in**, choose how to open the
-      URL.
+    1. For **URL**, enter the hyperlink.
+    2. Choose the plus icon near the **URL** heading.
+     Then, add variables from the list.
+    3. For **Open in**, choose how to open the
+     URL.
 
 10. After you are finished with the action, choose one of the following at the
-    bottom of the **Actions** panel (you might need to scroll
-    down):
+bottom of the **Actions** panel (you might need to scroll
+down):
 
-    - **Save** – Save your selections, and
-      create the custom action.
-    - **Close** – Close this custom action and
-      discard your changes.
-    - **Delete** – Delete this action.
+    * **Save** – Save your selections, and
+     create the custom action.
+    * **Close** – Close this custom action and
+     discard your changes.
+    * **Delete** – Delete this action.

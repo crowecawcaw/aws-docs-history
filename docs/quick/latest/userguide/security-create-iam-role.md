@@ -1,8 +1,8 @@
 # Passing IAM roles to Quick
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 When your IAM users sign up for Quick, they can choose to use the
 Amazon Quick-managed role (this is the default role). Or they can pass an existing IAM
@@ -52,25 +52,24 @@ _IAM User Guide_.
 - **Assign the following IAM permissions to your
   administrator (IAM users or roles)**:
 
-      + `quicksight:UpdateResourcePermissions` – This
-       grants IAM users who are Amazon Quick administrators the
-       permission to update resource-level permissions in Amazon Quick. For
-       more information about resource types defined by Amazon Quick, see
-       [Actions,
-       resources, and condition keys for Quick](../../../IAM/latest/UserGuide/list_amazonquicksight.md "../../../IAM/latest/UserGuide/list_amazonquicksight.md") in
-       the *IAM User Guide*.
-      + `iam:PassRole` – This grants users permission to
-       pass roles to Amazon Quick. For more information, see [Granting a
-       user permissions to pass a role to an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") in
-       the *IAM User Guide*.
-      + `iam:ListRoles` – (Optional) This grants users
-       permission to see a list of existing roles in Amazon Quick. If this
-       permission is not provided, they can use an ARN to use existing
-       IAM roles.
-
-  Following is an example IAM permissions policy that allows managing
-  resource-level permissions, listing IAM roles, and passing IAM roles in
-  Quick.
+  - `quicksight:UpdateResourcePermissions` – This
+    grants IAM users who are Amazon Quick administrators the
+    permission to update resource-level permissions in Amazon Quick. For
+    more information about resource types defined by Amazon Quick, see
+    [Actions,
+    resources, and condition keys for Quick](../../../IAM/latest/UserGuide/list_amazonquicksight.md "../../../IAM/latest/UserGuide/list_amazonquicksight.md") in
+    the _IAM User Guide_.
+  - `iam:PassRole` – This grants users permission to
+    pass roles to Amazon Quick. For more information, see [Granting a
+    user permissions to pass a role to an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") in
+    the _IAM User Guide_.
+  - `iam:ListRoles` – (Optional) This grants users
+    permission to see a list of existing roles in Amazon Quick. If this
+    permission is not provided, they can use an ARN to use existing
+    IAM roles.
+    Following is an example IAM permissions policy that allows managing
+    resource-level permissions, listing IAM roles, and passing IAM roles in
+    Quick.
 
 ```
 {

@@ -77,15 +77,15 @@ on the Intuit Developer website.
 When you create an Intuit Developer app, select the following
 authorization scopes based on the actions that you want to use.
 
-| QuickBooks recommended scopes      | Scope                                                                                                                      | Description |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------- |
+QuickBooks recommended scopes| Scope | Description |
+| --- | --- |
 | `com.intuit.quickbooks.accounting` | Accesses QuickBooks Online accounting data,<br>including invoices, customers, vendors, accounts,<br>and financial reports. |
-| `com.intuit.quickbooks.payment`    | Accesses QuickBooks Online payment data,<br>including purchases and payment<br>transactions.                               |
-| `openid`                           | Authenticates the user's identity.                                                                                         |
-| `email`                            | Reads the user's email address.                                                                                            |
-| `profile`                          | Reads the user's profile information.                                                                                      |
-| `phone`                            | Reads the user's phone number.                                                                                             |
-| `address`                          | Reads the user's address.                                                                                                  |
+| `com.intuit.quickbooks.payment` | Accesses QuickBooks Online payment data,<br>including purchases and payment<br>transactions. |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
+| `profile` | Reads the user's profile information. |
+| `phone` | Reads the user's phone number. |
+| `address` | Reads the user's address. |
 
 ###### Note
 
@@ -163,46 +163,42 @@ fields.
     	* **Redirect URL** – Pre-filled with
     	 the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app** or
-   **Custom OAuth app**, an Intuit
-   authorization window opens. Review the requested permissions and
-   choose **Connect**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app** or
+**Custom OAuth app**, an Intuit
+authorization window opens. Review the requested permissions and
+choose **Connect**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are available.
 
-| QuickBooks available actions | Category                    | Action                                                 | Description |
-| ---------------------------- | --------------------------- | ------------------------------------------------------ | ----------- |
-| Queries                      | Search Entities             | Searches across QuickBooks entities using a<br>query.  |
-| Accounts                     | Get Account Details         | Retrieves details for a specific account by<br>query.  |
-| Accounts                     | Get Account                 | Retrieves a specific account by ID.                    |
-| Accounts                     | Create Account              | Creates a new account in the chart of accounts.        |
-| Invoices                     | Get Invoice                 | Retrieves a specific invoice by ID.                    |
-| Invoices                     | List Invoices               | Lists invoices with optional filtering.                |
-| Invoices                     | Create Invoice              | Creates a new invoice.                                 |
-| Customers                    | Get Customer                | Retrieves a specific customer by ID.                   |
-| Customers                    | Create Customer             | Creates a new customer record.                         |
-| Vendors                      | Create Vendor               | Creates a new vendor record.                           |
-| Purchases                    | Create Purchase             | Creates a new purchase transaction.                    |
-| Purchases                    | Create Bill                 | Creates a new bill from a vendor.                      |
-| Journal entries              | Create Journal Entry        | Creates a new journal entry.                           |
-| Reports                      | Get Profit and Loss Report  | Generates a profit and loss report.                    |
-| Reports                      | Get Customer Balance Report | Generates a customer balance summary report.           |
-| Reports                      | Get Customer Balance Detail | Generates a detailed customer balance report.          |
-| Reports                      | Get Vendor Balance Report   | Generates a vendor balance summary report.             |
-| Reports                      | Get Vendor Balance Detail   | Generates a detailed vendor balance report.            |
-| Reports                      | Get General Ledger Report   | Generates a general ledger report.                     |
-| Batch operations             | Batch Execute Operation     | Runs multiple operations in a single batch<br>request. |
-| Company                      | Get Company Info            | Retrieves information about the connected<br>company.  |
+QuickBooks available actions| Category | Action | Description |
+| --- | --- | --- |
+| Queries | Search Entities | Searches across QuickBooks entities using a<br>query. |
+| Accounts | Get Account Details | Retrieves details for a specific account by<br>query. |
+| Accounts | Get Account | Retrieves a specific account by ID. |
+| Accounts | Create Account | Creates a new account in the chart of accounts. |
+| Invoices | Get Invoice | Retrieves a specific invoice by ID. |
+| Invoices | List Invoices | Lists invoices with optional filtering. |
+| Invoices | Create Invoice | Creates a new invoice. |
+| Customers | Get Customer | Retrieves a specific customer by ID. |
+| Customers | Create Customer | Creates a new customer record. |
+| Vendors | Create Vendor | Creates a new vendor record. |
+| Purchases | Create Purchase | Creates a new purchase transaction. |
+| Purchases | Create Bill | Creates a new bill from a vendor. |
+| Journal entries | Create Journal Entry | Creates a new journal entry. |
+| Reports | Get Profit and Loss Report | Generates a profit and loss report. |
+| Reports | Get Customer Balance Report | Generates a customer balance summary report. |
+| Reports | Get Customer Balance Detail | Generates a detailed customer balance report. |
+| Reports | Get Vendor Balance Report | Generates a vendor balance summary report. |
+| Reports | Get Vendor Balance Detail | Generates a detailed vendor balance report. |
+| Reports | Get General Ledger Report | Generates a general ledger report. |
+| Batch operations | Batch Execute Operation | Runs multiple operations in a single batch<br>request. |
+| Company | Get Company Info | Retrieves information about the connected<br>company. |
 
 ###### Note
 

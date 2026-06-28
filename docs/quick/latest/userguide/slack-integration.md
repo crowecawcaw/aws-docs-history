@@ -73,10 +73,10 @@ Credentials**, record the following values:
     * **Client secret**
 
 8. For **Bearer Token**: Install
-   the app to your workspace from the **OAuth &
-   Permissions** page. After installation, copy the
-   **Bot User OAuth Token** (starts with
-   `xoxb-`).
+the app to your workspace from the **OAuth &
+Permissions** page. After installation, copy the
+**Bot User OAuth Token** (starts with
+`xoxb-`).
 
 ### Recommended scopes
 
@@ -86,49 +86,49 @@ When you create a custom Slack app, add these scopes on the
 app, add them as **User Token Scopes**. For Bearer
 Token, add them as **Bot Token Scopes**.
 
-| Slack recommended scopes | Scope                                              | Description |
-| ------------------------ | -------------------------------------------------- | ----------- |
-| `calls:read`             | Reads call information.                            |
-| `calls:write`            | Creates and manages calls.                         |
-| `channels:history`       | Reads message history in public channels.          |
-| `channels:read`          | Reads information about public channels.           |
-| `channels:write`         | Manages public channels.                           |
-| `chat:write`             | Sends messages to channels and conversations.      |
-| `dnd:read`               | Reads Do Not Disturb settings.                     |
-| `dnd:write`              | Updates Do Not Disturb settings.                   |
-| `emoji:read`             | Reads custom emoji.                                |
-| `files:read`             | Reads files shared in channels.                    |
-| `files:write`            | Uploads and manages files.                         |
-| `groups:history`         | Reads message history in private channels.         |
-| `groups:read`            | Reads information about private channels.          |
-| `groups:write`           | Manages private channels.                          |
-| `im:history`             | Reads message history in direct messages.          |
-| `im:read`                | Reads information about direct messages.           |
-| `im:write`               | Starts direct messages.                            |
-| `links:read`             | Reads link previews.                               |
-| `links:write`            | Manages link previews.                             |
-| `mpim:history`           | Reads message history in group direct<br>messages. |
-| `mpim:read`              | Reads information about group direct<br>messages.  |
-| `mpim:write`             | Starts group direct messages.                      |
-| `pins:read`              | Reads pinned messages.                             |
-| `pins:write`             | Pins and unpins messages.                          |
-| `reactions:read`         | Reads emoji reactions on messages.                 |
-| `reactions:write`        | Adds and removes emoji reactions.                  |
-| `reminders:read`         | Reads reminders.                                   |
-| `reminders:write`        | Creates reminders.                                 |
-| `remote_files:read`      | Reads remote files.                                |
-| `remote_files:share`     | Shares remote files.                               |
-| `search:read`            | Searches messages and files.                       |
-| `stars:read`             | Reads starred items.                               |
-| `stars:write`            | Stars and unstars items.                           |
-| `team:read`              | Reads workspace information.                       |
-| `usergroups:read`        | Reads user group information.                      |
-| `usergroups:write`       | Manages user groups.                               |
-| `users:read`             | Reads user information.                            |
-| `users:read.email`       | Reads user email addresses.                        |
-| `users:write`            | Updates user information.                          |
-| `users.profile:read`     | Reads user profile information.                    |
-| `users.profile:write`    | Updates user profile information.                  |
+Slack recommended scopes| Scope | Description |
+| --- | --- |
+| `calls:read` | Reads call information. |
+| `calls:write` | Creates and manages calls. |
+| `channels:history` | Reads message history in public channels. |
+| `channels:read` | Reads information about public channels. |
+| `channels:write` | Manages public channels. |
+| `chat:write` | Sends messages to channels and conversations. |
+| `dnd:read` | Reads Do Not Disturb settings. |
+| `dnd:write` | Updates Do Not Disturb settings. |
+| `emoji:read` | Reads custom emoji. |
+| `files:read` | Reads files shared in channels. |
+| `files:write` | Uploads and manages files. |
+| `groups:history` | Reads message history in private channels. |
+| `groups:read` | Reads information about private channels. |
+| `groups:write` | Manages private channels. |
+| `im:history` | Reads message history in direct messages. |
+| `im:read` | Reads information about direct messages. |
+| `im:write` | Starts direct messages. |
+| `links:read` | Reads link previews. |
+| `links:write` | Manages link previews. |
+| `mpim:history` | Reads message history in group direct<br>messages. |
+| `mpim:read` | Reads information about group direct<br>messages. |
+| `mpim:write` | Starts group direct messages. |
+| `pins:read` | Reads pinned messages. |
+| `pins:write` | Pins and unpins messages. |
+| `reactions:read` | Reads emoji reactions on messages. |
+| `reactions:write` | Adds and removes emoji reactions. |
+| `reminders:read` | Reads reminders. |
+| `reminders:write` | Creates reminders. |
+| `remote_files:read` | Reads remote files. |
+| `remote_files:share` | Shares remote files. |
+| `search:read` | Searches messages and files. |
+| `stars:read` | Reads starred items. |
+| `stars:write` | Stars and unstars items. |
+| `team:read` | Reads workspace information. |
+| `usergroups:read` | Reads user group information. |
+| `usergroups:write` | Manages user groups. |
+| `users:read` | Reads user information. |
+| `users:read.email` | Reads user email addresses. |
+| `users:write` | Updates user information. |
+| `users.profile:read` | Reads user profile information. |
+| `users.profile:write` | Updates user profile information. |
 
 ###### Note
 
@@ -222,65 +222,61 @@ fields.
     	 token (starts with
     	 `xoxb-`).
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Slack
-   authorization window opens. Review the requested permissions,
-   select your workspace, and choose
-   **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Slack
+authorization window opens. Review the requested permissions,
+select your workspace, and choose
+**Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are available.
 
-| Slack available actions | Category                    | Action                                                                                                            | Description |
-| ----------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------- |
-| Messages                | Chat Post Message           | Posts a message to a channel, direct message, or<br>private group.                                                |
-| Messages                | Send Me Message             | Sends a third-person action message to a<br>channel.                                                              |
-| Messages                | Get Message Permalink       | Retrieves a permalink URL for a specific<br>message.                                                              |
-| Channels                | Conversations Create        | Creates a public or private channel.                                                                              |
-| Channels                | Conversations History       | Retrieves message history from a channel. Returns<br>main timeline messages only, not threaded<br>replies.        |
-| Channels                | Conversations Replies       | Retrieves threaded replies to a specific parent<br>message.                                                       |
-| Channels                | Conversations Invite        | Invites users to an existing channel.                                                                             |
-| Channels                | Conversations Join          | Joins an existing channel.                                                                                        |
-| Channels                | Conversations Kick          | Removes a user from a channel.                                                                                    |
-| Channels                | Conversations Leave         | Leaves a channel.                                                                                                 |
-| Channels                | Conversations Members       | Lists member IDs for a channel.                                                                                   |
-| Channels                | Conversations Open          | Opens or resumes a direct message or multi-person<br>direct message.                                              |
-| Channels                | Conversations Set Topic     | Sets or updates the topic for a channel.                                                                          |
-| Channels                | Get Conversation            | Retrieves metadata for a channel by ID.                                                                           |
-| Channels                | List Channels               | Lists channels available to the user.                                                                             |
-| Channels                | List Conversations For User | Lists channels and direct messages accessible to a<br>user.                                                       |
-| Reactions               | Create Reaction             | Adds an emoji reaction to a message.                                                                              |
-| Reactions               | Delete Reaction             | Removes an emoji reaction from a message.                                                                         |
-| Reactions               | List Reactions              | Lists reactions on a message, file, or file<br>comment.                                                           |
-| Files                   | Upload Or Create File       | Uploads files or media to channels or<br>threads.                                                                 |
-| Files                   | Upload To URL External      | Adds a reference to an external file for sharing in<br>Slack.                                                     |
-| Files                   | Download File               | Downloads a file shared in Slack.                                                                                 |
-| Files                   | Files Info                  | Retrieves metadata and comments for a<br>file.                                                                    |
-| Files                   | Files List                  | Lists files in a workspace with optional<br>filters.                                                              |
-| Search                  | Search All                  | Searches messages and files across the<br>workspace.                                                              |
-| Search                  | Search Messages             | Searches messages with date ranges and<br>filters.                                                                |
-| Search                  | Search Channels             | Searches channels by name, topic, or<br>purpose.                                                                  |
-| Search                  | Search Users                | Searches users by email, name, or display<br>name.                                                                |
-| Search                  | Search Context              | Searches across messages, files, channels, and<br>users. Supports semantic search on workspaces with<br>Slack AI. |
-| Search                  | Get Search Configuration    | Checks whether semantic search is available on the<br>workspace.                                                  |
-| Users                   | Get User Details            | Retrieves information for a user by ID.                                                                           |
-| Users                   | Get User Profile            | Retrieves profile information for a user.                                                                         |
-| Users                   | Users Profile Set           | Updates a user's profile fields.                                                                                  |
-| Users                   | Users List                  | Lists all users in the workspace.                                                                                 |
-| User groups             | User Groups Create          | Creates a new user group.                                                                                         |
-| User groups             | User Groups List            | Lists user groups in the workspace.                                                                               |
-| User groups             | User Groups Users Update    | Replaces all members of a user group.                                                                             |
-| Reminders               | Reminders Add               | Creates a reminder with specified text and<br>time.                                                               |
-| Workspace               | Get Team                    | Retrieves metadata about the Slack<br>workspace.                                                                  |
+Slack available actions| Category | Action | Description |
+| --- | --- | --- |
+| Messages | Chat Post Message | Posts a message to a channel, direct message, or<br>private group. |
+| Messages | Send Me Message | Sends a third-person action message to a<br>channel. |
+| Messages | Get Message Permalink | Retrieves a permalink URL for a specific<br>message. |
+| Channels | Conversations Create | Creates a public or private channel. |
+| Channels | Conversations History | Retrieves message history from a channel. Returns<br>main timeline messages only, not threaded<br>replies. |
+| Channels | Conversations Replies | Retrieves threaded replies to a specific parent<br>message. |
+| Channels | Conversations Invite | Invites users to an existing channel. |
+| Channels | Conversations Join | Joins an existing channel. |
+| Channels | Conversations Kick | Removes a user from a channel. |
+| Channels | Conversations Leave | Leaves a channel. |
+| Channels | Conversations Members | Lists member IDs for a channel. |
+| Channels | Conversations Open | Opens or resumes a direct message or multi-person<br>direct message. |
+| Channels | Conversations Set Topic | Sets or updates the topic for a channel. |
+| Channels | Get Conversation | Retrieves metadata for a channel by ID. |
+| Channels | List Channels | Lists channels available to the user. |
+| Channels | List Conversations For User | Lists channels and direct messages accessible to a<br>user. |
+| Reactions | Create Reaction | Adds an emoji reaction to a message. |
+| Reactions | Delete Reaction | Removes an emoji reaction from a message. |
+| Reactions | List Reactions | Lists reactions on a message, file, or file<br>comment. |
+| Files | Upload Or Create File | Uploads files or media to channels or<br>threads. |
+| Files | Upload To URL External | Adds a reference to an external file for sharing in<br>Slack. |
+| Files | Download File | Downloads a file shared in Slack. |
+| Files | Files Info | Retrieves metadata and comments for a<br>file. |
+| Files | Files List | Lists files in a workspace with optional<br>filters. |
+| Search | Search All | Searches messages and files across the<br>workspace. |
+| Search | Search Messages | Searches messages with date ranges and<br>filters. |
+| Search | Search Channels | Searches channels by name, topic, or<br>purpose. |
+| Search | Search Users | Searches users by email, name, or display<br>name. |
+| Search | Search Context | Searches across messages, files, channels, and<br>users. Supports semantic search on workspaces with<br>Slack AI. |
+| Search | Get Search Configuration | Checks whether semantic search is available on the<br>workspace. |
+| Users | Get User Details | Retrieves information for a user by ID. |
+| Users | Get User Profile | Retrieves profile information for a user. |
+| Users | Users Profile Set | Updates a user's profile fields. |
+| Users | Users List | Lists all users in the workspace. |
+| User groups | User Groups Create | Creates a new user group. |
+| User groups | User Groups List | Lists user groups in the workspace. |
+| User groups | User Groups Users Update | Replaces all members of a user group. |
+| Reminders | Reminders Add | Creates a reminder with specified text and<br>time. |
+| Workspace | Get Team | Retrieves metadata about the Slack<br>workspace. |
 
 ###### Note
 

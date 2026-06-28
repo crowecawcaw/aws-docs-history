@@ -88,13 +88,13 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 The following scopes are requested when you connect to Google
 Slides.
 
-| Google Slides recommended scopes                 | Scope                                            | Description |
-| ------------------------------------------------ | ------------------------------------------------ | ----------- |
-| `https://www.googleapis.com/auth/presentations`  | Reads and writes Google Slides<br>presentations. |
-| `https://www.googleapis.com/auth/drive`          | Reads and writes files in Google Drive.          |
-| `https://www.googleapis.com/auth/drive.readonly` | Reads files in Google Drive.                     |
-| `openid`                                         | Authenticates the user's identity.               |
-| `email`                                          | Reads the user's email address.                  |
+Google Slides recommended scopes| Scope | Description |
+| --- | --- |
+| `https://www.googleapis.com/auth/presentations` | Reads and writes Google Slides<br>presentations. |
+| `https://www.googleapis.com/auth/drive` | Reads and writes files in Google Drive. |
+| `https://www.googleapis.com/auth/drive.readonly` | Reads files in Google Drive. |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
 
 ###### Note
 
@@ -174,32 +174,28 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Google
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Google
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are
 available.
 
-| Google Slides available actions | Category                   | Action                                                             | Description |
-| ------------------------------- | -------------------------- | ------------------------------------------------------------------ | ----------- |
-| Presentations                   | Get Presentation           | Retrieves a presentation by ID.                                    |
-| Presentations                   | Create Presentation        | Creates a new presentation.                                        |
-| Presentations                   | Create Slides Markdown     | Creates slides from Markdown content.                              |
-| Presentations                   | Copy Presentation Template | Creates a presentation from a template.                            |
-| Presentations                   | Batch Update Presentation  | Applies multiple updates to a presentation in a<br>single request. |
-| Pages                           | Get Presentation Page      | Retrieves a specific page from a<br>presentation.                  |
+Google Slides available actions| Category | Action | Description |
+| --- | --- | --- |
+| Presentations | Get Presentation | Retrieves a presentation by ID. |
+| Presentations | Create Presentation | Creates a new presentation. |
+| Presentations | Create Slides Markdown | Creates slides from Markdown content. |
+| Presentations | Copy Presentation Template | Creates a presentation from a template. |
+| Presentations | Batch Update Presentation | Applies multiple updates to a presentation in a<br>single request. |
+| Pages | Get Presentation Page | Retrieves a specific page from a<br>presentation. |
 
 ###### Note
 

@@ -120,12 +120,12 @@ choose **Format visual**. You can use the following table to determine
 which field well contains the data point setting and what number of data points the
 visual type displays by default.
 
-| Visual type           | Where to find the data point setting                                                                     | Default number of data points |
-| --------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| Bar chart, horizontal | **Y-axis\*<br>• – **Number of data<br>points displayed\*\*                                               | 10,000                        |
-| Bar chart, vertical   | **X-axis\*<br>• – **Number of data<br>points displayed\*\*                                               | 10,000                        |
-| Combo chart           | **X-axis\*<br>• – **Number of data<br>points displayed\*\*                                               | 2,500                         |
-| Heat map              | **Rows\*<br>• – **Number of rows<br>displayed**<br>**Columns\*<br>• – **Number of columns<br>displayed** | 100                           |
-| Line chart            | **X-axis\*<br>• – **Number of data<br>points displayed\*\*                                               | 10,000                        |
-| Pie chart             | **Group/Color\*<br>• – **Number of<br>slices displayed\*\*                                               | 20                            |
-| Tree map              | **Group by\*<br>• – **Number of squares<br>displayed\*\*                                                 | 100                           |
+| Visual type           | Where to find the data point setting                                                                   | Default number of data points |
+| --------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------- |
+| Bar chart, horizontal | *_Y-axis_<br>• – **Number of data<br>points displayed**                                                | 10,000                        |
+| Bar chart, vertical   | *_X-axis_<br>• – **Number of data<br>points displayed**                                                | 10,000                        |
+| Combo chart           | *_X-axis_<br>• – **Number of data<br>points displayed**                                                | 2,500                         |
+| Heat map              | *_Rows_<br>• – **Number of rows<br>displayed**<br>*_Columns_<br>• – **Number of columns<br>displayed** | 100                           |
+| Line chart            | *_X-axis_<br>• – **Number of data<br>points displayed**                                                | 10,000                        |
+| Pie chart             | *_Group/Color_<br>• – **Number of<br>slices displayed**                                                | 20                            |
+| Tree map              | *_Group by_<br>• – **Number of squares<br>displayed**                                                  | 100                           |

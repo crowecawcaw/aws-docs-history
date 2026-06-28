@@ -13,14 +13,12 @@ following.
 - If the dataset is based on custom SQL, do one or more of the
   following:
 
-      + Edit the dataset.
-      + Edit the SQL statement.
+  - Edit the dataset.
+  - Edit the SQL statement.
 
-
-      For example, if the table name changed from `x_table`
-       to `y_table`, you can update the FROM clause in the SQL
-       statement to refer to the new table instead.
-
+  For example, if the table name changed from `x_table`
+  to `y_table`, you can update the FROM clause in the SQL
+  statement to refer to the new table instead.
   When you're done, choose **Save & visualize**, then
   choose each visual and readd the fields as needed.
 

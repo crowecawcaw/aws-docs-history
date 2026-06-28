@@ -92,12 +92,12 @@ true
 ### Example with conditional statements
 
 The `startsWith` function can be used as the conditional
-statement within the following If functions: [avgIf](../../../quicksight/latest/user/avgIf-function.md "../../../quicksight/latest/user/avgIf-function.md"), [minIf](../../../quicksight/latest/user/minIf-function.md "../../../quicksight/latest/user/minIf-function.md"), [distinct_countIf](../../../quicksight/latest/user/distinct_countIf-function.md "../../../quicksight/latest/user/distinct_countIf-function.md"), [countIf](../../../quicksight/latest/user/countIf-function.md "../../../quicksight/latest/user/countIf-function.md"),
+statement within the following If functions: [avgIf](../../../quicksight/latest/user/avgIf-function.md "../../../quicksight/latest/user/avgIf-function.md"), [minIf](../../../quicksight/latest/user/minIf-function.md "../../../quicksight/latest/user/minIf-function.md"), [distinct\_countIf](../../../quicksight/latest/user/distinct_countIf-function.md "../../../quicksight/latest/user/distinct_countIf-function.md"), [countIf](../../../quicksight/latest/user/countIf-function.md "../../../quicksight/latest/user/countIf-function.md"),
 [maxIf](../../../quicksight/latest/user/maxIf-function.md "../../../quicksight/latest/user/maxIf-function.md"), [medianIf](../../../quicksight/latest/user/medianIf-function.md "../../../quicksight/latest/user/medianIf-function.md"), [stdevIf](../../../quicksight/latest/user/stdevIf-function.md "../../../quicksight/latest/user/stdevIf-function.md"),
 [stdevpIf](../../../quicksight/latest/user/stdevpIf-function.md "../../../quicksight/latest/user/stdevpIf-function.md"),
 [sumIf](../../../quicksight/latest/user/sumIf-function.md "../../../quicksight/latest/user/sumIf-function.md"), [varIf](../../../quicksight/latest/user/varIf-function.md "../../../quicksight/latest/user/varIf-function.md"), and [varpIf](../../../quicksight/latest/user/varpIf-function.md "../../../quicksight/latest/user/varpIf-function.md").
 
-The following example sums `Sales` only if state_nm starts with
+The following example sums `Sales` only if state\_nm starts with
 `New`.
 
 ```

@@ -8,13 +8,12 @@ limitations that apply to Quick Sight folders.
 - For people who have Quick reader permissions, the following
   limitations apply:
 
-      + Readers can't own a personal or shared folder.
-      + Readers can't create or manage folders or folder content.
-      + Readers can't have the *contributor* access
-       level.
-      + In shared folders, readers can only see dashboard assets.
-
-  In addition, these limitations apply specifically to shared folders:
+  - Readers can't own a personal or shared folder.
+  - Readers can't create or manage folders or folder content.
+  - Readers can't have the _contributor_ access
+    level.
+  - In shared folders, readers can only see dashboard assets.
+    In addition, these limitations apply specifically to shared folders:
 
 - The name of a shared folder (at the top level of the tree) must be unique in
   your AWS account.

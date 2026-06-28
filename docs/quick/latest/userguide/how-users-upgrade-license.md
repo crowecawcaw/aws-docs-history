@@ -1,8 +1,8 @@
 # How users upgrade their license
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 ## To upgrade from the Home Page
 

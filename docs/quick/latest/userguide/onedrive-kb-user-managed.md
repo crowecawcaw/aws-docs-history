@@ -107,12 +107,12 @@ The following delegated permissions are requested when a user signs in.
 Share this list with your administrator if they need to review the
 permissions before granting consent.
 
-| User-managed setup – permissions | Permission      | API       | Type                                                         | Description |
-| -------------------------------- | --------------- | --------- | ------------------------------------------------------------ | ----------- |
-| `Files.Read.All`                 | Microsoft Graph | Delegated | Read all files the signed-in user can<br>access.             |
-| `Notes.Read.All`                 | Microsoft Graph | Delegated | Read all OneNote notebooks the signed-in user can<br>access. |
-| `User.Read`                      | Microsoft Graph | Delegated | Sign in and read the user's profile.                         |
-| `offline_access`                 | Microsoft Graph | Delegated | Maintain access using refresh tokens.                        |
+User-managed setup – permissions| Permission | API | Type | Description |
+| --- | --- | --- | --- |
+| `Files.Read.All` | Microsoft Graph | Delegated | Read all files the signed-in user can<br>access. |
+| `Notes.Read.All` | Microsoft Graph | Delegated | Read all OneNote notebooks the signed-in user can<br>access. |
+| `User.Read` | Microsoft Graph | Delegated | Sign in and read the user's profile. |
+| `offline_access` | Microsoft Graph | Delegated | Maintain access using refresh tokens. |
 
 ## Manage and troubleshoot user-managed connections
 

@@ -93,35 +93,37 @@ do anything to enable this. 10. Choose one of the following:
 
 11. Choose one of the following options:
 
-    - Prepare the data before creating an analysis. To do this,
-      choose **Edit/Preview data** to open data
-      preparation for the selected table. For more information about
-      data preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
-    - Create a dataset and analysis using the table data as-is and
-      to import the dataset data into SPICE for
-      improved performance (recommended). To do this, check the table
-      size and the SPICE indicator to see if you have
-      enough capacity.
+    * Prepare the data before creating an analysis. To do this,
+     choose **Edit/Preview data** to open data
+     preparation for the selected table. For more information about
+     data preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
+    * Create a dataset and analysis using the table data as-is and
+     to import the dataset data into SPICE for
+     improved performance (recommended). To do this, check the table
+     size and the SPICE indicator to see if you have
+     enough capacity.
+
 
     If you have enough SPICE capacity, choose
-    **Import to SPICE for quicker
-    analytics**, and then create an analysis by
-    choosing **Visualize**.
+     **Import to SPICE for quicker
+     analytics**, and then create an analysis by
+     choosing **Visualize**.
+
 
     ###### Note
 
     If you want to use SPICE and you don't have
-    enough space, choose **Edit/Preview data**.
-    In data preparation, you can remove fields from the dataset
-    to decrease its size. You can also apply a filter or write a
-    SQL query that reduces the number of rows or columns
-    returned. For more information about data preparation, see
-    [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
-    - To create a dataset and an analysis using the table data
-      as-is, and to have the data queried directly from the database,
-      choose the **Directly query your data** option.
-      Then create an analysis by choosing
-      **Visualize**.
+     enough space, choose **Edit/Preview data**.
+     In data preparation, you can remove fields from the dataset
+     to decrease its size. You can also apply a filter or write a
+     SQL query that reduces the number of rows or columns
+     returned. For more information about data preparation, see
+     [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
+    * To create a dataset and an analysis using the table data
+     as-is, and to have the data queried directly from the database,
+     choose the **Directly query your data** option.
+     Then create an analysis by choosing
+     **Visualize**.
 
 ## Creating a dataset using a database that's not autodiscovered
 
@@ -250,32 +252,34 @@ try validating again. 11. Choose one of the following:
 
 12. Choose one of the following options:
 
-    - Prepare the data before creating an analysis. To do this,
-      choose **Edit/Preview data** to open data
-      preparation for the selected table. For more information about
-      data preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
-    - Create a dataset and an analysis using the table data as-is
-      and import the dataset data into SPICE for
-      improved performance (recommended). To do this, check the table
-      size and the SPICE indicator to see if you have
-      enough space.
+    * Prepare the data before creating an analysis. To do this,
+     choose **Edit/Preview data** to open data
+     preparation for the selected table. For more information about
+     data preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
+    * Create a dataset and an analysis using the table data as-is
+     and import the dataset data into SPICE for
+     improved performance (recommended). To do this, check the table
+     size and the SPICE indicator to see if you have
+     enough space.
+
 
     If you have enough SPICE capacity, choose
-    **Import to SPICE for quicker
-    analytics**, and then create an analysis by
-    choosing **Visualize**.
+     **Import to SPICE for quicker
+     analytics**, and then create an analysis by
+     choosing **Visualize**.
+
 
     ###### Note
 
     If you want to use SPICE and you don't have
-    enough space, choose **Edit/Preview data**.
-    In data preparation, you can remove fields from the dataset
-    to decrease its size. You can also apply a filter or write a
-    SQL query that reduces the number of rows or columns
-    returned. For more information about data preparation, see
-    [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
-    - Create a dataset and an analysis using the table data as-is
-      and have the data queried directly from the database. To do
-      this, choose the **Directly query your data**
-      option. Then create an analysis by choosing
-      **Visualize**.
+     enough space, choose **Edit/Preview data**.
+     In data preparation, you can remove fields from the dataset
+     to decrease its size. You can also apply a filter or write a
+     SQL query that reduces the number of rows or columns
+     returned. For more information about data preparation, see
+     [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
+    * Create a dataset and an analysis using the table data as-is
+     and have the data queried directly from the database. To do
+     this, choose the **Directly query your data**
+     option. Then create an analysis by choosing
+     **Visualize**.

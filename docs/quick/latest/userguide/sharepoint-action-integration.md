@@ -111,11 +111,11 @@ Add the following as Delegated permissions in your Entra app registration.
 For the full permissions reference, see [Microsoft Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference "https://learn.microsoft.com/en-us/graph/permissions-reference") in the Microsoft
 documentation.
 
-| SharePoint action integration – delegated permissions | Permission                                                                                                                                       | Description |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `Files.ReadWrite`                                     | Allows the app to read, create, update, and delete the<br>signed-in user's files.                                                                |
-| `Sites.ReadWrite.All`                                 | Allows the application to edit or delete documents and list<br>items in all site collections on behalf of the signed-in<br>user.                 |
-| `offline_access`                                      | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
+SharePoint action integration – delegated permissions| Permission | Description |
+| --- | --- |
+| `Files.ReadWrite` | Allows the app to read, create, update, and delete the<br>signed-in user's files. |
+| `Sites.ReadWrite.All` | Allows the application to edit or delete documents and list<br>items in all site collections on behalf of the signed-in<br>user. |
+| `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
 
 **For service authentication (application
 permissions):**
@@ -123,9 +123,9 @@ permissions):**
 Add the following as Application permissions in your Entra app
 registration.
 
-| SharePoint action integration – application permissions | Permission                                                                                                                          | Description |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `Sites.ReadWrite.All`                                   | Allows the app to create, read, update, and delete<br>documents and list items in all site collections without a<br>signed-in user. |
+SharePoint action integration – application permissions| Permission | Description |
+| --- | --- |
+| `Sites.ReadWrite.All` | Allows the app to create, read, update, and delete<br>documents and list items in all site collections without a<br>signed-in user. |
 
 ###### Important
 
@@ -140,11 +140,11 @@ requirements.
 Before leaving the Microsoft Entra admin center, confirm you have the
 following values. You need them for the Amazon Quick configuration.
 
-| Required credentials from Microsoft Entra | Value                          | Where to find it |
-| ----------------------------------------- | ------------------------------ | ---------------- |
-| Application (client) ID                   | App registration overview page |
-| Directory (tenant) ID                     | App registration overview page |
-| Client secret value                       | Certificates & secrets page    |
+Required credentials from Microsoft Entra| Value | Where to find it |
+| --- | --- |
+| Application (client) ID | App registration overview page |
+| Directory (tenant) ID | App registration overview page |
+| Client secret value | Certificates & secrets page |
 
 ## Setting up the connector in Amazon Quick
 
@@ -247,11 +247,10 @@ fields.
      is set automatically by Amazon Quick. You do not need
      to configure it manually.
 
-8. Choose **Next**.
-9. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Microsoft
-   authorization window opens. Review the requested permissions and
-   choose **Accept**.
+8. Choose **Next**. 9. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Microsoft
+authorization window opens. Review the requested permissions and
+choose **Accept**.
 
 If you see an error instead of the consent dialog, your
 organization might restrict third-party app access. See
@@ -265,27 +264,27 @@ organization or search for specific teams or groups. 12. Choose **Publish**.
 
 After you set up the integration, the following actions are available.
 
-| Microsoft SharePoint available actions | Category                | Action                                                                        | Description |
-| -------------------------------------- | ----------------------- | ----------------------------------------------------------------------------- | ----------- |
-| Lists and items                        | View items              | Get the collection of items in a list.                                        |
-| Lists and items                        | Get Item                | Returns the metadata for an item in a list.                                   |
-| Lists and items                        | Get List                | Returns the metadata for a list.                                              |
-| Lists and items                        | Update Item             | Update the properties on a list item.                                         |
-| Lists and items                        | Delete Item             | Removes an item from a list.                                                  |
-| Files                                  | Upload File             | Upload a new file or update an existing file. Supports files up<br>to 250 MB. |
-| Files                                  | Search Site Drive Items | Search the hierarchy of items matching a query.                               |
-| Excel workbooks                        | List Sheets             | Retrieve a list of worksheet objects.                                         |
-| Excel workbooks                        | Add Sheet               | Add a new worksheet to the workbook.                                          |
-| Excel workbooks                        | Read Sheet              | Retrieve the properties of a worksheet object.                                |
-| Excel workbooks                        | Update Sheet            | Update the properties of a worksheet object.                                  |
-| Excel workbooks                        | Delete Sheet            | Delete the worksheet from the workbook.                                       |
-| Excel workbooks                        | Read Cell               | Get the value of a single cell by row and column<br>number.                   |
-| Excel workbooks                        | Write Cell              | Set the value of a single cell by row and column<br>number.                   |
-| Excel workbooks                        | Read Range              | Get the values of a range.                                                    |
-| Excel workbooks                        | Write Range             | Update the values of a range.                                                 |
-| Excel workbooks                        | Clear Range             | Clear range values, format, fill, and border.                                 |
-| Excel workbooks                        | Delete Range            | Delete the cells associated with the range.                                   |
-| Excel workbooks                        | Get Used Range          | Get the smallest range that encompasses cells with a value or<br>formatting.  |
+Microsoft SharePoint available actions| Category | Action | Description |
+| --- | --- | --- |
+| Lists and items | View items | Get the collection of items in a list. |
+| Lists and items | Get Item | Returns the metadata for an item in a list. |
+| Lists and items | Get List | Returns the metadata for a list. |
+| Lists and items | Update Item | Update the properties on a list item. |
+| Lists and items | Delete Item | Removes an item from a list. |
+| Files | Upload File | Upload a new file or update an existing file. Supports files up<br>to 250 MB. |
+| Files | Search Site Drive Items | Search the hierarchy of items matching a query. |
+| Excel workbooks | List Sheets | Retrieve a list of worksheet objects. |
+| Excel workbooks | Add Sheet | Add a new worksheet to the workbook. |
+| Excel workbooks | Read Sheet | Retrieve the properties of a worksheet object. |
+| Excel workbooks | Update Sheet | Update the properties of a worksheet object. |
+| Excel workbooks | Delete Sheet | Delete the worksheet from the workbook. |
+| Excel workbooks | Read Cell | Get the value of a single cell by row and column<br>number. |
+| Excel workbooks | Write Cell | Set the value of a single cell by row and column<br>number. |
+| Excel workbooks | Read Range | Get the values of a range. |
+| Excel workbooks | Write Range | Update the values of a range. |
+| Excel workbooks | Clear Range | Clear range values, format, fill, and border. |
+| Excel workbooks | Delete Range | Delete the cells associated with the range. |
+| Excel workbooks | Get Used Range | Get the smallest range that encompasses cells with a value or<br>formatting. |
 
 ## Manage and troubleshoot
 
@@ -306,11 +305,11 @@ To edit, share, or delete your integration, see [Managing existing integrations]
 ### Common error messages
 
 - **`Access denied. You do not have
-permission to perform this action`** – The
+ permission to perform this action`** – The
   authenticated user does not have the required permissions. Contact your
   administrator to verify and grant appropriate permissions.
 - **`AADSTS50020: User account from identity
-provider does not exist in tenant`** – The user
+ provider does not exist in tenant`** – The user
   account is not configured in the correct Microsoft Entra tenant. Verify
   the user account exists in the tenant that matches the Directory
   (tenant) ID in your app registration.
@@ -348,7 +347,7 @@ An administrator can grant consent in one of the following ways:
   applications**, locate the Amazon Quick application,
   choose **Permissions**, and choose
   **Grant admin consent for `Your
-Organization`**.
+ Organization`**.
 
 After consent is granted, any user in your organization can connect
 without being prompted for individual consent.

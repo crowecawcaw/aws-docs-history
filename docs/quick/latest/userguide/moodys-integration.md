@@ -63,24 +63,24 @@ below.
 
 ### Create from the Create for your team tab
 
-1.  In the Amazon Quick console, choose
-    **Connectors**.
-2.  Choose the **Create for your team** tab.
-3.  Find and choose **Moodys GenAI Ready Data**.
-4.  Enter a **Name** for your connector. Optionally,
-    choose **+ Add Description** to add a
-    description.
-5.  For **Connection type**, choose **Public
-    network**.
-6.  For **OAuth Configuration**, choose one of the
-    following authentication methods and configure the required
-    fields.
+1. In the Amazon Quick console, choose
+   **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Moodys GenAI Ready Data**.
+4. Enter a **Name** for your connector. Optionally,
+   choose **+ Add Description** to add a
+   description.
+5. For **Connection type**, choose **Public
+   network**.
+6. For **OAuth Configuration**, choose one of the
+   following authentication methods and configure the required
+   fields.
 
-    1. For **Default OAuth app**:
+   1. For **Default OAuth app**:
 
-    No additional credentials are needed. Choose
-    **Next** to continue. 2. For **Custom OAuth app**,
-    configure the following fields:
+   No additional credentials are needed. Choose
+   **Next** to continue. 2. For **Custom OAuth app**,
+   configure the following fields:
 
         * **Client ID** – The client ID
          from your Moody's OAuth app.
@@ -99,11 +99,11 @@ below.
         * **Redirect URL** – Pre-filled
          with the Amazon Quick callback URL.
 
-7.  Choose **Next**.
-8.  A Moody's authorization window opens. Review the requested
-    permissions and choose **Allow**.
-9.  On the **Review** page, review the available
-    actions for the connector. Choose **Next**.
+7. Choose **Next**.
+8. A Moody's authorization window opens. Review the requested
+   permissions and choose **Allow**.
+9. On the **Review** page, review the available
+   actions for the connector. Choose **Next**.
 10. On the **Publish** page, choose who can access
     the connector. You can enable access for everyone in your
     organization or search for specific teams or groups.

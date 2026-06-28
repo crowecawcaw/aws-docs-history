@@ -20,59 +20,58 @@ Use the following procedure to create a reader generated report.
 
 ###### To create a reader generated report
 
-1.  Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
-2.  Open the dashboard that you want to create a report for.
-3.  Choose the **Scheduling** at the top of the dashboard
-    page.
-4.  The scheduling pane opens. To add a new report schedule, choose
-    **Add**. If you do not see the **Add**
-    button, the dashboard does not contain a pixel perfect sheet, or your
-    Quick account does not have the Pixel perfect reports add on. For
-    more information about the paginater reports add on, see [Getting started](qs-reports-getting-started.md "qs-reports-getting-started.md").
-5.  For **Schedule name**, enter a name for the new schedule.
-    The schedule name can be up to 100 chatacters long.
-6.  For **Description**, choose the view option that you want
-    the report to use. You can choose from the following views:
+1. Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
+2. Open the dashboard that you want to create a report for.
+3. Choose the **Scheduling** at the top of the dashboard
+   page.
+4. The scheduling pane opens. To add a new report schedule, choose
+   **Add**. If you do not see the **Add**
+   button, the dashboard does not contain a pixel perfect sheet, or your
+   Quick account does not have the Pixel perfect reports add on. For
+   more information about the paginater reports add on, see [Getting started](qs-reports-getting-started.md "qs-reports-getting-started.md").
+5. For **Schedule name**, enter a name for the new schedule.
+   The schedule name can be up to 100 chatacters long.
+6. For **Description**, choose the view option that you want
+   the report to use. You can choose from the following views:
 
-    - **Custom view** – The current
-      view of the dashboard.
-    - **Original view** – The author
-      published view of the dashboard.
+   - **Custom view** – The current
+     view of the dashboard.
+   - **Original view** – The author
+     published view of the dashboard.
 
-7.  For **Content**, choose the pixel perfect report sheet that
-    you want to generate a PDF report for.
-8.  For **Dates**, choose the frequency at which you want to
-    receive the report. Scheduling options that are available for an email
-    report include the following:
+7. For **Content**, choose the pixel perfect report sheet that
+   you want to generate a PDF report for.
+8. For **Dates**, choose the frequency at which you want to
+   receive the report. Scheduling options that are available for an email
+   report include the following:
 
-        * **Once (Does not repeat)** – Sends the
-         report only once at the date and time that you choose.
-        * **Daily** – Repeats daily at the time that
-         you choose.
-        * **Weekly** – Repeats each week on the same
-         day or days at the time that you choose. You can also use this
-         option to send reports in weekly intervals, such as every other week
-         or every three weeks.
-        * **Monthly** – Repeats each month on the
-         same day of the month at the time that you choose. You can also use
-         this option to send reports on specific days of the month, such as
-         the second Wednesday or the last Friday of each month.
-        * **Yearly** – Repeats each year on the same
-         day of the month or months selected at the time that you choose. You
-         can also use this option to send reports on specific days or sets of
-         days in selected months. For example, you can configure a report to
-         be sent on the first Monday of January, March, and September, or on
-         July 14th, or on the second day of February, April, and June each
-         year.
-        * **Custom** – Configure your own scheduled
-         report that best fits your business needs.
+   - **Once (Does not repeat)** – Sends the
+     report only once at the date and time that you choose.
+   - **Daily** – Repeats daily at the time that
+     you choose.
+   - **Weekly** – Repeats each week on the same
+     day or days at the time that you choose. You can also use this
+     option to send reports in weekly intervals, such as every other week
+     or every three weeks.
+   - **Monthly** – Repeats each month on the
+     same day of the month at the time that you choose. You can also use
+     this option to send reports on specific days of the month, such as
+     the second Wednesday or the last Friday of each month.
+   - **Yearly** – Repeats each year on the same
+     day of the month or months selected at the time that you choose. You
+     can also use this option to send reports on specific days or sets of
+     days in selected months. For example, you can configure a report to
+     be sent on the first Monday of January, March, and September, or on
+     July 14th, or on the second day of February, April, and June each
+     year.
+   - **Custom** – Configure your own scheduled
+     report that best fits your business needs.
+     The scheduled report is sent within 1 hour from the specified time. Delays
+     may occur during peak hours.
 
-    The scheduled report is sent within 1 hour from the specified time. Delays
-    may occur during peak hours.
-
-9.  In the **Email** tab, for **E-mail subject
-    line**, enter a custom subject line, or leave it blank to use
-    the report title.
+9. In the **Email** tab, for **E-mail subject
+   line**, enter a custom subject line, or leave it blank to use
+   the report title.
 10. Enter the email addresses of the Quick group name of the users
     or groups that you want to receive the report.
 11. For **Email header**, enter the header that you want the

@@ -131,7 +131,7 @@ Use these guidelines to write clear and helpful descriptions.
 
 Structure your parameters for optimal usability.
 
-- **Flatten complex objects** - Instead of nested objects, use separate parameters (for example, start_date, start_time, end_date, end_time).
+- **Flatten complex objects** - Instead of nested objects, use separate parameters (for example, start\_date, start\_time, end\_date, end\_time).
 - **Use standard formats** - Use standard format values like "date-time" or "date" for ISO-8601 dates and times.
 - **Clear parameter names** - Use descriptive parameter names that clearly indicate their purpose.
 - **Required field marking** - Properly mark parameters as required or optional based on API behavior.

@@ -18,14 +18,14 @@ across all Amazon Quick log types, such as `resource_arn`,
 `account_id`, and `user_arn`. The event also
 includes the following index-specific fields:
 
-| Index usage log fields      | Field   | Type                                                                                    | Description |
-| --------------------------- | ------- | --------------------------------------------------------------------------------------- | ----------- |
-| `consumed_index_size`       | Integer | Total size (in bytes) consumed by the entire index.<br>This is the authoritative total. |
-| `source_type`               | String  | `SPACE` or `KB`.                                                                        |
-| `source_name`               | String  | Display name of the Space or knowledge base.                                            |
-| `source_arn`                | String  | Full ARN of the source.                                                                 |
-| `consumed_source_size`      | Integer | Size (in bytes) consumed by this individual<br>source.                                  |
-| `consumed_source_doc_count` | Integer | Number of documents in this source.                                                     |
+Index usage log fields| Field | Type | Description |
+| --- | --- | --- |
+| `consumed_index_size` | Integer | Total size (in bytes) consumed by the entire index.<br>This is the authoritative total. |
+| `source_type` | String | `SPACE` or `KB`. |
+| `source_name` | String | Display name of the Space or knowledge base. |
+| `source_arn` | String | Full ARN of the source. |
+| `consumed_source_size` | Integer | Size (in bytes) consumed by this individual<br>source. |
+| `consumed_source_doc_count` | Integer | Number of documents in this source. |
 
 ###### Note
 

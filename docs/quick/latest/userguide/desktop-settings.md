@@ -231,11 +231,11 @@ Control how you receive notifications from Quick.
 
 Choose which integrations surface items to your activity feed.
 
-| Category      | Sources                                                                                                       |
-| ------------- | ------------------------------------------------------------------------------------------------------------- |
-| **Messaging** | Slack — DMs & Mentions, Teams —<br>Messages & Mentions. Choose \*_Connect Slack or Teams_<br>• to<br>connect. |
-| **Mail**      | Outlook Email, Gmail. Choose \*_Connect Outlook or Gmail_<br>• to<br>connect.                                 |
-| **Calendar**  | Outlook Calendar, Google Calendar. Choose \*_Connect Outlook or Google<br>Calendar_<br>• to connect.          |
+| Category      | Sources                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Messaging** | Slack — DMs & Mentions, Teams —<br>Messages & Mentions. Choose *_Connect Slack or Teams_<br>• to<br>connect. |
+| **Mail**      | Outlook Email, Gmail. Choose *_Connect Outlook or Gmail_<br>• to<br>connect.                                 |
+| **Calendar**  | Outlook Calendar, Google Calendar. Choose *_Connect Outlook or Google<br>Calendar_<br>• to connect.          |
 
 **Check frequency** – How often the
 feed agent checks for new activity (for example, Every 15

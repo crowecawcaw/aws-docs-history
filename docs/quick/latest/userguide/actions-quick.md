@@ -77,7 +77,7 @@ Supported file types: HTML, TXT, JSON, CSV, PDF, XLSX, XLS, JPEG/JPG, PNG, DOCX,
 
 ### Best Practices
 
-- **Use descriptive filenames**: Include dates or identifiers in filenames to avoid confusion (for example, "report_2026-03-31.xlsx").
+- **Use descriptive filenames**: Include dates or identifiers in filenames to avoid confusion (for example, "report\_2026-03-31.xlsx").
 - **Clean up old files**: Regularly delete files that are no longer needed by using the Select File editor.
 - **Consider file size limits**: Individual files can be up to 200 MB, and total shared storage is limited to 1 GB per automation group. For large-scale file storage requirements, consider using Amazon S3 integration instead.
 - **Use consistent naming conventions**: Establish naming patterns across your automation group for easier file management.
@@ -143,7 +143,7 @@ Keep the following considerations in mind when using shared file actions.
 Manual steps:
 
 - The user opens the Select File editor from any Download Shared File action.
-- The user chooses Upload and selects "customer_list.xlsx" from their computer.
+- The user chooses Upload and selects "customer\_list.xlsx" from their computer.
 - The user chooses Save to confirm the upload.
 
 Automation steps:

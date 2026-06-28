@@ -16,8 +16,8 @@ elsewhere.
 | Amazon Redshift      | `pg_stats`<br>`pg_class`<br>`pg_namespace`                                                                         |
 | MariaDB              | `INFORMATION_SCHEMA.STATISTICS`<br>`INFORMATION_SCHEMA.TABLES`                                                     |
 | Microsoft SQL Server | `DBCC SHOW_STATISTICS`<br>`sp_statistics`                                                                          |
-| MySQL                | `INFORMATION_SCHEMA.STATISTICS`<br>INFORMATION_SCHEMA.TABLES                                                       |
-| **Oracle**           | DBA_TAB_COLS<br>ALL_TABLES<br>dba_segments<br>all_segments<br>user_segments                                        |
+| MySQL                | `INFORMATION_SCHEMA.STATISTICS`<br>INFORMATION\_SCHEMA.TABLES                                                      |
+| **Oracle**           | DBA\_TAB\_COLS<br>ALL\_TABLES<br>dba\_segments<br>all\_segments<br>user\_segments                                  |
 | PostgreSQL           | `pg_stats`<br>`pg_class`<br>`pg_namespace`                                                                         |
 | ServiceNow           | `sys_dictionary (column metadata)`<br>`sys_db_object (table metadata)`<br>`sys_glide_object (field type metadata)` |
 

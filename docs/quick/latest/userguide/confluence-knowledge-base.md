@@ -213,16 +213,15 @@ Use one of the following options to resolve this issue.
 - **Option 1 (Recommended): Admin authorizes the
   app directly**
 
-      1. An Atlassian site administrator navigates to Amazon Quick
-       and starts a new knowledge base setup with Confluence
-       Cloud.
-      2. Because the administrator has site-level permissions, a
-       clean consent screen appears without the error.
-      3. The administrator chooses **Accept** to
-       install the app.
-
-  After the administrator authorizes the app, all other users on the
-  site can connect without issues.
+  1.  An Atlassian site administrator navigates to Amazon Quick
+      and starts a new knowledge base setup with Confluence
+      Cloud.
+  2.  Because the administrator has site-level permissions, a
+      clean consent screen appears without the error.
+  3.  The administrator chooses **Accept** to
+      install the app.
+      After the administrator authorizes the app, all other users on the
+      site can connect without issues.
 
 - **Option 2: Temporarily allow user-installed
   apps** – An administrator goes to

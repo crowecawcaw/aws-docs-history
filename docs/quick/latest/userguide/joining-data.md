@@ -153,9 +153,8 @@ following options and complete the steps following:
      then choose the file that you want to join.
 
 6. (Optional) Choose **Use custom SQL** to open the query
-   editor and write a query for a SQL data source.
-7. (Optional) After you add data, interact with each table by choosing its
-   menu icon. Rearrange the tables by dragging and dropping them.
+editor and write a query for a SQL data source. 7. (Optional) After you add data, interact with each table by choosing its
+menu icon. Rearrange the tables by dragging and dropping them.
 
 An icon with red dots appears to indicate that you need to configure this
 join. Two red dots appear for joins that aren't yet configured. To create
@@ -177,9 +176,9 @@ table equal to a field in another table.
      identified all of the join columns for the two data objects.
 
 10. In the **Join configuration** pane, choose the kind of
-    join to apply. If the join fields are a unique key for one or both tables,
-    enable the unique key setting. Unique keys only apply to direct queries, not
-    to SPICE data.
+join to apply. If the join fields are a unique key for one or both tables,
+enable the unique key setting. Unique keys only apply to direct queries, not
+to SPICE data.
 
 For more information about joins, see [Join types](#join-types "#join-types"). 11. Choose **Apply** to confirm your choices.
 
@@ -201,7 +200,7 @@ field's menu to do one or more of the following:
      that's already in use.
 
 14. (Optional) In the **Filters** section, you can add or
-    edit filters. For more information, see [Filtering data in Amazon Quick Sight](adding-a-filter.md "adding-a-filter.md").
+edit filters. For more information, see [Filtering data in Amazon Quick Sight](adding-a-filter.md "adding-a-filter.md").
 
 ## Join types
 

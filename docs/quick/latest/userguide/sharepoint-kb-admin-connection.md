@@ -41,14 +41,14 @@ for verification. You can use an existing connection or choose
 After choosing **+ Add account**, fill in the following
 fields:
 
-| Service credentials form | Field                                                                                                                              | Description                                        | Example |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| Connection name          | A descriptive name for this SharePoint connection. You<br>see this name when selecting a connection for future<br>knowledge bases. | SharePoint Production                              |
-| SharePoint domain        | Your organization's SharePoint Online domain.                                                                                      | `https://contoso.sharepoint.com`                   |
-| Tenant ID                | The Microsoft Entra (Azure AD) tenant<br>identifier.                                                                               | `34567890-1234-1234-1234-123456789012`             |
-| Client ID                | The Application (client) ID from your Entra app<br>registration.                                                                   | `12345678-1234-4321-4321-210987654321`             |
-| KMS key ARN              | The ARN of the AWS KMS asymmetric signing<br>key.                                                                                  | `arn:aws:kms:us-west-2:123456789012:key/my-key-id` |
-| Certificate Thumbprint   | The base64url-encoded SHA-1 thumbprint of the<br>certificate uploaded to Entra.                                                    | `abc123DEF456ghi789EXAMPLE`                        |
+Service credentials form| Field | Description | Example |
+| --- | --- | --- |
+| Connection name | A descriptive name for this SharePoint connection. You<br>see this name when selecting a connection for future<br>knowledge bases. | SharePoint Production |
+| SharePoint domain | Your organization's SharePoint Online domain. | `https://contoso.sharepoint.com` |
+| Tenant ID | The Microsoft Entra (Azure AD) tenant<br>identifier. | `34567890-1234-1234-1234-123456789012` |
+| Client ID | The Application (client) ID from your Entra app<br>registration. | `12345678-1234-4321-4321-210987654321` |
+| KMS key ARN | The ARN of the AWS KMS asymmetric signing<br>key. | `arn:aws:kms:us-west-2:123456789012:key/my-key-id` |
+| Certificate Thumbprint | The base64url-encoded SHA-1 thumbprint of the<br>certificate uploaded to Entra. | `abc123DEF456ghi789EXAMPLE` |
 
 Fill in each field and choose **Next**.
 

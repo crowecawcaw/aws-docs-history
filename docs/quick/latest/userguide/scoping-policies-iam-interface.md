@@ -1,8 +1,8 @@
 # Setting granular access to AWS services through IAM
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                                                             |
 | --------------------------------------------------------------------------- |

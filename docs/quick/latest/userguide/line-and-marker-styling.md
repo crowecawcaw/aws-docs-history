@@ -18,22 +18,21 @@ instead.
 
 ###### To customize the styling for a visualization
 
-1.  Open your analysis, and choose the chart that you want to format.
-2.  On the top right of the visual you want to format, select **Format
-    visual**, which is represented by a pencil
-    icon.
-3.  At left, choose **Data series**.
-4.  Choose one of the following options:
+1. Open your analysis, and choose the chart that you want to format.
+2. On the top right of the visual you want to format, select **Format
+   visual**, which is represented by a pencil
+   icon.
+3. At left, choose **Data series**.
+4. Choose one of the following options:
 
-        * Base style – to edit the styling
-         of all lines and markers on the chart
-        * Select series to style – to edit
-         the styling of the field that you choose from the list
+   - Base style – to edit the styling
+     of all lines and markers on the chart
+   - Select series to style – to edit
+     the styling of the field that you choose from the list
+     Different options display depending on how many compatible fields are in the
+     visual.
 
-    Different options display depending on how many compatible fields are in the
-    visual.
-
-5.  Toggle **Line** to turn line styling on or off.
+5. Toggle **Line** to turn line styling on or off.
 
 You can customize the following line options:
 
@@ -52,16 +51,14 @@ You can customize the following marker options:
     * The color of the marker.
 
 7. For **Axis**, choose whether to display the axis on the left
-   or the right.
-8. Your changes are saved automatically.
-9. (Optional) To undo customizations, choose one or more of the following
-   options:
+or the right. 8. Your changes are saved automatically. 9. (Optional) To undo customizations, choose one or more of the following
+options:
 
-   - To undo one change, click the undo arrow at top left. Repeat as
+    * To undo one change, click the undo arrow at top left. Repeat as
      needed. There is also a redo arrow.
-   - To reset the base style for a data series, select **Base
+    * To reset the base style for a data series, select **Base
      style** and then click **Reset to
      default**.
-   - To remove all styling from a data series, listed in **Styled
+    * To remove all styling from a data series, listed in **Styled
      series**, select a field and then click **Remove
      styling**.

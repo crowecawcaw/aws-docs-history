@@ -126,39 +126,40 @@ Prepare SAP user authentication credentials and ensure proper system access perm
 
 After preparing your SAP system configuration and authentication credentials, the setup process is similar for all SAP integration types. Choose between OAuth 2.0 or Basic Authentication based on your security requirements.
 
-1.  In the Amazon Quick console, choose **Connectors**.
-2.  Choose the **Create for your team** tab.
-3.  Select one of the available SAP connectors:
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Select one of the available SAP connectors:
 
-    - **SAP Bill of Materials**
-    - **SAP Business Partner**
-    - **SAP Material Stock**
-    - **SAP Physical Inventory Documents**
-    - **SAP Product Master**
+   - **SAP Bill of Materials**
+   - **SAP Business Partner**
+   - **SAP Material Stock**
+   - **SAP Physical Inventory Documents**
+   - **SAP Product Master**
 
-4.  Click **Add** (plus "+" button).
-5.  Fill in the name and description for your SAP integration.
-6.  Choose the connection type for your integration.
-7.  Configure authentication using one of the supported methods:
+4. Click **Add** (plus "+" button).
+5. Fill in the name and description for your SAP integration.
+6. Choose the connection type for your integration.
+7. Configure authentication using one of the supported methods:
 
-    1. **OAuth 2.0 configuration**
+   1. **OAuth 2.0 configuration**
 
-    For OAuth 2.0 authentication, provide:
+   For OAuth 2.0 authentication, provide:
 
         * **Client ID** - Your SAP OAuth Client ID
         * **Client Secret** - Your SAP OAuth Client Secret
         * **Token URL** - OAuth token endpoint URL
         * **Domain URL** - SAP system API endpoint URL
-    2. **Basic Authentication configuration**
 
-    For Basic Authentication, provide:
+   2. **Basic Authentication configuration**
+
+   For Basic Authentication, provide:
 
         * **Username** - Your SAP system username
         * **Password** - Your SAP system password
         * **Domain URL** - SAP system API endpoint URL
 
-8.  Select **Create and continue**.
-9.  Choose users to share the integration with.
+8. Select **Create and continue**.
+9. Choose users to share the integration with.
 10. Click **Next**.
 
 ### Expected results
@@ -252,15 +253,15 @@ Available operations for managing product master data:
 SAP connectors support standard query parameters to filter, sort, and format API
 responses. Use these parameters to optimize data retrieval and processing.
 
-| Supported Query Parameters | #              | Parameter                                   | Description | Type |
-| -------------------------- | -------------- | ------------------------------------------- | ----------- | ---- |
-| 1                          | `$top`         | Limits the number of returned items         | integer     |
-| 2                          | `$skip`        | Skips the specified number of items         | integer     |
-| 3                          | `$filter`      | Filters results based on specified criteria | string      |
-| 4                          | `$orderby`     | Orders results by specified fields          | array       |
-| 5                          | `$select`      | Selects specific properties to return       | array       |
-| 6                          | `$expand`      | Expands related entities                    | array       |
-| 7                          | `$inlinecount` | Includes count of items in response         | string      |
+Supported Query Parameters| # | Parameter | Description | Type |
+| --- | --- | --- | --- |
+| 1 | `$top` | Limits the number of returned items | integer |
+| 2 | `$skip` | Skips the specified number of items | integer |
+| 3 | `$filter` | Filters results based on specified criteria | string |
+| 4 | `$orderby` | Orders results by specified fields | array |
+| 5 | `$select` | Selects specific properties to return | array |
+| 6 | `$expand` | Expands related entities | array |
+| 7 | `$inlinecount` | Includes count of items in response | string |
 
 ## Manage SAP workload integrations
 

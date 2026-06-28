@@ -47,14 +47,14 @@ _calculation-level_
 Specifies where to perform the calculation in relation to the order
 of evaluation. There are three supported calculation levels:
 
-- PRE_FILTER
-- PRE_AGG
-- POST_AGG_FILTER (default) – To use this calculation
+- PRE\_FILTER
+- PRE\_AGG
+- POST\_AGG\_FILTER (default) – To use this calculation
   level, you need to specify an aggregation on
   `measure`, for example
   `sum(measure)`.
 
-PRE_FILTER and PRE_AGG are applied before the aggregation occurs in a
+PRE\_FILTER and PRE\_AGG are applied before the aggregation occurs in a
 visualization. For these two calculation levels, you can't specify an
 aggregation on `measure` in the calculated field expression.
 To learn more about calculation levels and when they apply, see [Order of evaluation in Amazon Quick](../../../quicksight/latest/user/order-of-evaluation-quicksight.md "../../../quicksight/latest/user/order-of-evaluation-quicksight.md") and
@@ -79,11 +79,11 @@ each calculated field is as follows:
 - `example = left( `category`, 1 )`
   (A simplified example.)
 - `pre_agg = percentileDiscOver ( {Revenue} , 50 , [ example
-] , PRE_AGG)`
+ ] , PRE_AGG)`
 - `pre_filter = percentileDiscOver ( {Revenue} , 50 , [
-example ] , PRE_FILTER)`
+ example ] , PRE_FILTER)`
 - `post_agg_filter = percentileDiscOver ( sum ( {Revenue} )
-, 50 , [ example ], POST_AGG_FILTER )`
+ , 50 , [ example ], POST_AGG_FILTER )`
 
 ```
 example   pre_filter     pre_agg      post_agg_filter

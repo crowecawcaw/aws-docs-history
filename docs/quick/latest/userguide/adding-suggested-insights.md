@@ -42,12 +42,11 @@ can interact with include the following:
      analysis.
 
 4. Add a suggested insight to your analysis by choosing the plus sign
-   (**+**) near the insight title.
-5. (Optional) After you add an insight to your analysis, customize the
-   narrative that you want it to display. To do this, choose the
-   **v**-shaped on-visual menu, then choose
-   **Customize narrative**. For more information, see
-   [Creating autonarratives with Amazon Quick Sight](narratives-creating.md "narratives-creating.md").
+(**+**) near the insight title. 5. (Optional) After you add an insight to your analysis, customize the
+narrative that you want it to display. To do this, choose the
+**v**-shaped on-visual menu, then choose
+**Customize narrative**. For more information, see
+[Creating autonarratives with Amazon Quick Sight](narratives-creating.md "narratives-creating.md").
 
 If your insight is for anomalies (outliers), you can also change the
 settings for the anomaly detection job. To do this, choose

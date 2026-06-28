@@ -61,58 +61,60 @@ following options:
     * Display in euros (€).
     * Display in yen or yuan (¥).
 
-4.  Expand the **Separators** section and choose from
-    the following options:
+4. Expand the **Separators** section and choose from
+the following options:
 
-    - Under **Decimal**, choose a dot or a
-      comma for the decimal separator. A dot is the default. If
-      you choose a comma instead, use a dot or a space as the
-      thousands separator.
-    - Under **Thousands**, select or clear
-      **Enabled** to indicate whether you
-      want to use a thousands separator.
-      **Enabled** is selected by
-      default.
-    - If you are using a thousands separator, choose whether to
-      use a comma, dot, or space for the separator. A comma is the
-      default. If you choose a dot instead, use a comma as the
-      decimal separator.
+    * Under **Decimal**, choose a dot or a
+     comma for the decimal separator. A dot is the default. If
+     you choose a comma instead, use a dot or a space as the
+     thousands separator.
+    * Under **Thousands**, select or clear
+     **Enabled** to indicate whether you
+     want to use a thousands separator.
+     **Enabled** is selected by
+     default.
+    * If you are using a thousands separator, choose whether to
+     use a comma, dot, or space for the separator. A comma is the
+     default. If you choose a dot instead, use a comma as the
+     decimal separator.
 
-5.  Expand the **Decimal Places** section and choose
-    the number of decimal places to use. The default is 2. Field values
-    are rounded to the decimal places specified. For example, if you
-    specify two decimal places, the value 6.728 is rounded to
-    6.73.
-6.  Expand the **Units** section and choose from the
-    following options:
+5. Expand the **Decimal Places** section and choose
+the number of decimal places to use. The default is 2. Field values
+are rounded to the decimal places specified. For example, if you
+specify two decimal places, the value 6.728 is rounded to
+6.73. 6. Expand the **Units** section and choose from the
+following options:
 
-    - Choose the unit to use. Choosing a unit adds the
-      appropriate suffix to the number value. For example, if you
-      choose **Thousands**, a field value of 1234
-      displays as 1.234K.
+    * Choose the unit to use. Choosing a unit adds the
+     appropriate suffix to the number value. For example, if you
+     choose **Thousands**, a field value of 1234
+     displays as 1.234K.
+
 
     The unit options are as follows:
 
-        + No unit suffix. This is the default.
-        + Thousands (K)
-        + Millions (M)
-        + Billions (B)
-        + Trillions (T)
-    - If you want to use a custom prefix or suffix, specify it
-      in the **Prefix** or
-      **Suffix** box. Using a custom suffix
-      is a good way to specify a currency suffix outside of those
-      already offered by Amazon Quick. You can specify both. You
-      can also specify a custom prefix in addition to the suffix
-      added by selecting a unit.
 
-7.  Expand the **Negatives** section and choose
-    whether to display a negative value by using a minus sign or by
-    enclosing it in parentheses. Using a minus sign is the
-    default.
-8.  Expand the **Null values** section and choose
-    whether to display null values as `null` or as a custom
-    value. Using `null` is the default.
+
+
+    	+ No unit suffix. This is the default.
+    	+ Thousands (K)
+    	+ Millions (M)
+    	+ Billions (B)
+    	+ Trillions (T)
+    * If you want to use a custom prefix or suffix, specify it
+     in the **Prefix** or
+     **Suffix** box. Using a custom suffix
+     is a good way to specify a currency suffix outside of those
+     already offered by Amazon Quick. You can specify both. You
+     can also specify a custom prefix in addition to the suffix
+     added by selecting a unit.
+
+7. Expand the **Negatives** section and choose
+whether to display a negative value by using a minus sign or by
+enclosing it in parentheses. Using a minus sign is the
+default. 8. Expand the **Null values** section and choose
+whether to display null values as `null` or as a custom
+value. Using `null` is the default.
 
 ###### Note
 

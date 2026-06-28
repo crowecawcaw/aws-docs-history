@@ -76,11 +76,10 @@ You can verify the account number by following these steps:
      displays near the top of the page.To return to the original page, choose the AWS logo at upper left.
 
 2. Open Amazon Quick by first entering "`quicksight`" into
-   the **Find Services** search box. When the word Amazon Quick
-   appears following the search box, choose it from the list.
-3. In Amazon Quick, open the profile menu by choosing your profile icon at top
-   right. The AWS name of the AWS Region that Amazon Quick is using displays in
-   the menu.
+the **Find Services** search box. When the word Amazon Quick
+appears following the search box, choose it from the list. 3. In Amazon Quick, open the profile menu by choosing your profile icon at top
+right. The AWS name of the AWS Region that Amazon Quick is using displays in
+the menu.
 
 The same AWS Region also displays in the URL, for example:
 `https://`us-east-1`.quicksight.aws.amazon.com/sn/admin`.
@@ -96,44 +95,43 @@ can use, for example data sources and dashboards.
 
 ###### To view current SPICE capacity and usage (console)
 
-1.  Open Amazon Quick. Make sure that you're using the correct AWS account
-    and AWS Region as described previously in [Finding your current AWS account and AWS
-    Region](../../../quicksight/latest/user/current-aws-account-and-default-aws-region.md "../../../quicksight/latest/user/current-aws-account-and-default-aws-region.md").
-2.  Open the administration page by choosing **Manage
-    Quick** from your profile menu.
-3.  Choose **SPICE capacity** from the left
-    navigation pane . The following information displays:
+1. Open Amazon Quick. Make sure that you're using the correct AWS account
+   and AWS Region as described previously in [Finding your current AWS account and AWS
+   Region](../../../quicksight/latest/user/current-aws-account-and-default-aws-region.md "../../../quicksight/latest/user/current-aws-account-and-default-aws-region.md").
+2. Open the administration page by choosing **Manage
+   Quick** from your profile menu.
+3. Choose **SPICE capacity** from the left
+   navigation pane . The following information displays:
 
-    - The **Total SPICE capacity** section
-      displays the total amount of used and unused SPICE
-      capacity. A bar graph shows how much of this storage space is in each of
-      the following categories for this AWS account in the AWS Region
-      that's currently selected in Amazon Quick:
+   - The **Total SPICE capacity** section
+     displays the total amount of used and unused SPICE
+     capacity. A bar graph shows how much of this storage space is in each of
+     the following categories for this AWS account in the AWS Region
+     that's currently selected in Amazon Quick:
 
-          + Purchased SPICE capacity – This is the
-           additional SPICE capacity.
-          + SPICE capacity bundled with Amazon Quick
-           – This is the total default capacity associated with your
-           paid users.
+     - Purchased SPICE capacity – This is the
+       additional SPICE capacity.
+     - SPICE capacity bundled with Amazon Quick
+       – This is the total default capacity associated with your
+       paid users.
+       Hover over any section of the meter to see details on that capacity
+       type.
 
-      Hover over any section of the meter to see details on that capacity
-      type.
+   - The **SPICE usage** section displays
+     the total amount of the used and unused SPICE capacity. A
+     bar graph shows how much of this storage space is in each of the
+     following categories for this AWS account in the AWS Region that's
+     currently selected in Amazon Quick:
 
-    - The **SPICE usage** section displays
-      the total amount of the used and unused SPICE capacity. A
-      bar graph shows how much of this storage space is in each of the
-      following categories for this AWS account in the AWS Region that's
-      currently selected in Amazon Quick:
-
-      - Used SPICE capacity – This is the used
-        portion of the default SPICE capacity that you
-        get for each user.
-      - Unused SPICE capacity – This is the
-        unused portion of the default SPICE capacity that
-        you get for each user.
-      - Releasable unused capacity – This is the purchased
-        capacity that isn't in use, and so can be released to reduce
-        costs.
+     - Used SPICE capacity – This is the used
+       portion of the default SPICE capacity that you
+       get for each user.
+     - Unused SPICE capacity – This is the
+       unused portion of the default SPICE capacity that
+       you get for each user.
+     - Releasable unused capacity – This is the purchased
+       capacity that isn't in use, and so can be released to reduce
+       costs.
 
 ## Hiding SPICE capacity labels
 

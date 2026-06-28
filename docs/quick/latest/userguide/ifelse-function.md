@@ -205,9 +205,9 @@ The logic for the region tagging breaks down as follows:
    in quotation marks to make each list a string, as follows:
 
    - `'New York, New Jersey, Connecticut, Vermont, Maine,
-Rhode Island, New Hampshire'`
+  Rhode Island, New Hampshire'`
    - `'Georgia, Alabama, South Carolina,
-Louisiana'`
+  Louisiana'`
    - You can add more sets, or use countries, cities, provinces, or
      What3Words if you want.
 
@@ -258,7 +258,7 @@ locate('Georgia, Alabama, South Carolina, Louisiana',{State})
    final version. The following example leaves out the Southeast region
    states that were in the original. You can add them back in place of the
    `<insert more regions
-here>` tag.
+ here>` tag.
 
 If you want to add more regions, you can construct more copies of
 those two lines and alter the list of states to suit your purpose. You

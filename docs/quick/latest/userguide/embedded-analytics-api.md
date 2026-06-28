@@ -1,8 +1,8 @@
 # Embedding with the Amazon Quick Sight APIs
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |

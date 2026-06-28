@@ -38,22 +38,21 @@ Question examples include:
 
 - Entity name: _“Order Details"_
 
-      + ###### Note
+  - ###### Note
 
-      You can find the entities from the topic home page and in the
-       **What’s in `topic`**
-       tab at the top of the list.
-      + Field name: “Segment”
-      + Field values: “Acme Inc.,” “Washington DC”
-      + Vague (or implicit) filters: “best account managers," “bottom
-       products”
-
-  For precise questions that are supported, see this table of question types: [Types of
-  questions supported by Q](../../../quicksight/latest/user/quicksight-q-ask.md#quicksight-q-ask-types "../../../quicksight/latest/user/quicksight-q-ask.md#quicksight-q-ask-types"). Examples include “product with largest WoW growth
-  %” or “forecast sales for APAC customers by quarter.” It covers a range of filters, like
-  top/bottom, relative and absolute date filters, period-to-date and period-over-period,
-  and more. It also supports analytical questions, like percent of total, or “why did
-  sales drop in October 2023?"
+  You can find the entities from the topic home page and in the
+  **What’s in `topic`**
+  tab at the top of the list.
+  - Field name: “Segment”
+  - Field values: “Acme Inc.,” “Washington DC”
+  - Vague (or implicit) filters: “best account managers," “bottom
+    products”
+    For precise questions that are supported, see this table of question types: [Types of
+    questions supported by Q](../../../quicksight/latest/user/quicksight-q-ask.md#quicksight-q-ask-types "../../../quicksight/latest/user/quicksight-q-ask.md#quicksight-q-ask-types"). Examples include “product with largest WoW growth
+    %” or “forecast sales for APAC customers by quarter.” It covers a range of filters, like
+    top/bottom, relative and absolute date filters, period-to-date and period-over-period,
+    and more. It also supports analytical questions, like percent of total, or “why did
+    sales drop in October 2023?"
 
 ###### Tip
 
@@ -87,14 +86,11 @@ single visual.
   multiple interpretations to your question, it will display a list of alternate
   answers that you can select to align with your intended question.
 
-      + In the following example, the question "top customers” can be
-       interpreted in several ways, including by “Total Sales,” “Total Profit,”
-       or “number of customers."
+  - In the following example, the question "top customers” can be
+    interpreted in several ways, including by “Total Sales,” “Total Profit,”
+    or “number of customers."
 
-
-
-      ![Dashboard showing EMEA region sales data with bar chart, bubble chart, and order details table.](images/top-customers.png)
-
+  ![Dashboard showing EMEA region sales data with bar chart, bubble chart, and order details table.](images/top-customers.png)
   Other tips
 
 - To re-size the panel, drag the left side.

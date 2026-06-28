@@ -11,9 +11,9 @@ You can still use the `GetDashboardEmbedUrl` and
 Amazon Quick Sight console, but they do not contain the latest embedding
 capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your applications](../../../quicksight/latest/user/embedding-overview.md "../../../quicksight/latest/user/embedding-overview.md").
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |

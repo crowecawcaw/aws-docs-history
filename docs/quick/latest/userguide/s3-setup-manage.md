@@ -5,32 +5,31 @@
 After your administrator has completed the setup tasks, follow these steps to create
 your Amazon S3 knowledge base.
 
-1.  In the Amazon Quick console, choose **Knowledge**.
-2.  Under **Amazon S3**, choose **Add** (the
-    plus **+** button).
-3.  On the **Connect S3 bucket** page, choose your data source:
+1. In the Amazon Quick console, choose **Knowledge**.
+2. Under **Amazon S3**, choose **Add** (the
+   plus **+** button).
+3. On the **Connect S3 bucket** page, choose your data source:
 
-    - To reuse an existing Amazon S3 data source, select it from the dropdown.
-      Then choose **Next** to skip to the knowledge base
-      details step.
-    - To connect a new Amazon S3 bucket, choose **+ Add
-      account** from the dropdown.
+   - To reuse an existing Amazon S3 data source, select it from the dropdown.
+     Then choose **Next** to skip to the knowledge base
+     details step.
+   - To connect a new Amazon S3 bucket, choose **+ Add
+     account** from the dropdown.
 
-4.  If you are connecting a new bucket, fill in the connection details:
+4. If you are connecting a new bucket, fill in the connection details:
 
-        * **Name** – A descriptive name for your Amazon S3
-         integration.
-        * **S3 bucket location** – Choose
-         **Quick Suite instance account** to access Amazon S3 buckets
-         in the same AWS account where Amazon Quick is enabled, or choose
-         **Other AWS account** to access buckets in a different
-         account.
-        * **S3 bucket URL** – The Amazon S3 bucket path containing
-         your documents. Your Amazon S3 bucket must be in the same region as your
-         Amazon Quick region.
-
-    Choose **Next**. The system validates your configuration. If
-    errors occur, review the error message for specific remediation steps.
+   - **Name** – A descriptive name for your Amazon S3
+     integration.
+   - **S3 bucket location** – Choose
+     **Quick Suite instance account** to access Amazon S3 buckets
+     in the same AWS account where Amazon Quick is enabled, or choose
+     **Other AWS account** to access buckets in a different
+     account.
+   - **S3 bucket URL** – The Amazon S3 bucket path containing
+     your documents. Your Amazon S3 bucket must be in the same region as your
+     Amazon Quick region.
+     Choose **Next**. The system validates your configuration. If
+     errors occur, review the error message for specific remediation steps.
 
 ###### Note
 
@@ -49,10 +48,9 @@ following:
      case-sensitive.
 
 6. Choose **Next: Additional settings** to configure ACL and
-   metadata options, or choose **Create** to create the knowledge
-   base with default settings.
-7. On the **Additional settings** page, configure ACL management
-   and metadata:
+metadata options, or choose **Create** to create the knowledge
+base with default settings. 7. On the **Additional settings** page, configure ACL management
+and metadata:
 
 ###### Important
 

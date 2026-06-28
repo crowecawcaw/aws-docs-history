@@ -45,7 +45,7 @@ The following rules apply to time zones.
   at the day level with a `UTC+00:00` time zone aggregate all
   hourly revenues from `12am-11pm` for the `UTC` time
   zone. When you convert `UTC+00:00` to `New_York
-(UTC-04:00)`, all revenue datapoints are aggregated from
+ (UTC-04:00)`, all revenue datapoints are aggregated from
   `8:00pm-7:00pm(+1day)` in `UTC` to correspond with
   the start and end of the day in `New_York (UTC-04:00)`.
 - **The `now()` function, rolling date
@@ -56,7 +56,7 @@ The following rules apply to time zones.
   filter such as `last week` or a rolling date filter such as
   `start of the month`, the chosen timezone is automatically
   applied to the filter to display the values `last week of New_York time
-zone` and `start of the month of New_York time zone`,
+ zone` and `start of the month of New_York time zone`,
   respectively.
 
 ###### To set the custom time zone of an analysis

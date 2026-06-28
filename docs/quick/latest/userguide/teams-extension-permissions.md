@@ -27,9 +27,9 @@ extension.
 The following permission is automatically granted during app installation and
 must be revoked afterward. It is not required for ongoing operation.
 
-| Permission                 | Purpose                                                               | Required admin action                                                                                      |
-| -------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `AppCatalog.ReadWrite.All` | Read and write to all app catalogs (used during installation<br>only) | Revoke after installation via Microsoft Entra<br>> **Enterprise Applications\*<br>• ><br>**Permissions\*\* |
+| Permission                 | Purpose                                                               | Required admin action                                                                                   |
+| -------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `AppCatalog.ReadWrite.All` | Read and write to all app catalogs (used during installation<br>only) | Revoke after installation via Microsoft Entra<br>> *_Enterprise Applications_<br>• ><br>**Permissions** |
 
 ###### Important
 
@@ -47,7 +47,9 @@ Teams extension:
 - **RSC Permissions:**
   Teams Admin Center > **Teams apps** >
   **Manage apps** > **Amazon Quick**
-  > **Permissions**
+
+> **Permissions**
+
 - **Application Permissions:**
   Microsoft Entra > **Enterprise
   Applications** > find the app starting with "qbs" and

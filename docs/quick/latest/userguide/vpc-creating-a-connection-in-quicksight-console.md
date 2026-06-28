@@ -59,15 +59,14 @@ console, use the following procedure.
     VPC connections. At minimum, the IAM policy needs the following Amazon EC2
     permissions:
 
-        - `DescribeSecurityGroups`
-        - `DescribeSubnets`
-        - `CreateNetworkInterface`
-        - `DeleteNetworkInterface`
-        - `ModifyNetworkInterfaceAttribute`
-
-    The following example shows an IAM policy that you can add to an
-    existing IAM role to create, delete, or modify a VPC
-    connection:
+    - `DescribeSecurityGroups`
+    - `DescribeSubnets`
+    - `CreateNetworkInterface`
+    - `DeleteNetworkInterface`
+    - `ModifyNetworkInterfaceAttribute`
+      The following example shows an IAM policy that you can add to an
+      existing IAM role to create, delete, or modify a VPC
+      connection:
 
   JSON
 
@@ -177,18 +176,18 @@ associated with the VPC connection.
 The following table describes the different **Status** values for a
 network interface.
 
-| Status                                | Description                                                                                                                                            |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **CREATING**                          | The network interface creation is in progress.                                                                                                         |
-| **AVAILABLE**                         | The network interface is available for use.                                                                                                            |
-| **CREATION_FAILURE**                  | The network interface couldn't be created.                                                                                                             |
-| **UPDATING**                          | The security group associated with the network inferface is<br>updating.                                                                               |
-| **UPDATE_FAILED**                     | The security group associated with the network interface did not<br>update successfully.                                                               |
-| **DELETING**                          | The network interface is in the process of being deleted.                                                                                              |
-| **DELETED**                           | The network interface is deleted and can no longer be used.                                                                                            |
-| **DELETION_FAILED**                   | The network interface deletion failed and can still be<br>used.                                                                                        |
-| **DELETION_SCHEDULED**                | This network interface is scheduled for deletion.                                                                                                      |
-| **ATTACHMENT_FAILED_ROLLBACK_FAILED** | The elastic interface failed to attach and Amazon Quick was unable<br>to delete the elastic network interface that was created within your<br>account. |
+| Status                                   | Description                                                                                                                                            |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **CREATING**                             | The network interface creation is in progress.                                                                                                         |
+| **AVAILABLE**                            | The network interface is available for use.                                                                                                            |
+| **CREATION\_FAILURE**                    | The network interface couldn't be created.                                                                                                             |
+| **UPDATING**                             | The security group associated with the network inferface is<br>updating.                                                                               |
+| **UPDATE\_FAILED**                       | The security group associated with the network interface did not<br>update successfully.                                                               |
+| **DELETING**                             | The network interface is in the process of being deleted.                                                                                              |
+| **DELETED**                              | The network interface is deleted and can no longer be used.                                                                                            |
+| **DELETION\_FAILED**                     | The network interface deletion failed and can still be<br>used.                                                                                        |
+| **DELETION\_SCHEDULED**                  | This network interface is scheduled for deletion.                                                                                                      |
+| **ATTACHMENT\_FAILED\_ROLLBACK\_FAILED** | The elastic interface failed to attach and Amazon Quick was unable<br>to delete the elastic network interface that was created within your<br>account. |
 
 When you delete a network interface from a VPC connection, the status of the
 connection changes to **PARTIALLY AVAILABLE** to indicate the loss of a

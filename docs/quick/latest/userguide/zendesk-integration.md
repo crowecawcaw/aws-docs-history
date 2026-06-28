@@ -156,13 +156,13 @@ with a status of **Connected**.
 After you set up the connector, you can use the following ticket management
 actions.
 
-| Zendesk Suite available actions | Action              | Description |
-| ------------------------------- | ------------------- | ----------- |
-| Create Ticket                   | Create new ticket   |
-| List Search Results             | Search tickets      |
-| List Tickets                    | View all tickets    |
-| Show Ticket                     | View ticket details |
-| Update Ticket                   | Edit ticket details |
+Zendesk Suite available actions| Action | Description |
+| --- | --- |
+| Create Ticket | Create new ticket |
+| List Search Results | Search tickets |
+| List Tickets | View all tickets |
+| Show Ticket | View ticket details |
+| Update Ticket | Edit ticket details |
 
 ###### Note
 

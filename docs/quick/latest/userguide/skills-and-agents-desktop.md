@@ -22,7 +22,7 @@ following components.
 - **Tools** – One or more callable
   tools that the skill makes available to Quick. For example,
   the Coding Agents (ACP) skill includes a `Send Message To Acp
-Agent` tool, and the Agent Management skill includes 17 tools for
+ Agent` tool, and the Agent Management skill includes 17 tools for
   creating, updating, and managing scheduled tasks.
 - **Reference files** – Supporting
   documents, templates, or configuration files that the skill can access

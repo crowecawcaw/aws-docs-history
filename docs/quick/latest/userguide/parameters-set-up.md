@@ -81,7 +81,7 @@ parameter. 5. For **Data type**, choose **String**,
     		 month, week, or day).
 
 6. (Optional) Choose **Set a dynamic default** to create a
-   default that is user-specific.
+default that is user-specific.
 
 A _dynamic default_ is a per-user default
 value for the first page load of the dashboard. Use a dynamic default to create

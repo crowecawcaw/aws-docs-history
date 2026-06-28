@@ -1,8 +1,8 @@
 # Managing VPC connection in Amazon Quick
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                                                             |
 | --------------------------------------------------------------------------- |

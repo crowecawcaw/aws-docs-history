@@ -97,23 +97,22 @@ subtotal labels of your table and pivot table visuals.
 
 ###### To format totals and subtotals text
 
-1.  In the **Properties** pane, choose
-    **Total** or **Subtotal**.
-2.  For **Text**, do one or more of the following.
+1. In the **Properties** pane, choose
+   **Total** or **Subtotal**.
+2. For **Text**, do one or more of the following.
 
-        * To change the color of the total or subtotal text, choose the
-         color swatch underneath **Text styling**, and
-         then choose the color that you want the table text to be.
-        * To change the font or font size of the total or subtotal text,
-         open the **Font** or **Font
-         size** dropdown and choose the font or font size
-         that you want.
-        * To bold, italicize, or underline the total or subtotal text,
-         choose the appropriate icon from the style bar.
-
-    In pivot tables, you can also add format text for column totals and
-    subtotals. To do so, repeat the above steps in the
-    **Columns** section.
+   - To change the color of the total or subtotal text, choose the
+     color swatch underneath **Text styling**, and
+     then choose the color that you want the table text to be.
+   - To change the font or font size of the total or subtotal text,
+     open the **Font** or **Font
+     size** dropdown and choose the font or font size
+     that you want.
+   - To bold, italicize, or underline the total or subtotal text,
+     choose the appropriate icon from the style bar.
+     In pivot tables, you can also add format text for column totals and
+     subtotals. To do so, repeat the above steps in the
+     **Columns** section.
 
 ## Totals and subtotals background color
 
@@ -135,24 +134,23 @@ section.
 
 ###### To customize the borders for totals and subtotals
 
-1.  In the **Properties** pane, choose
-    **Total** or **Subtotal**.
-2.  For **Borders**, do one or more of the
-    following:
+1. In the **Properties** pane, choose
+   **Total** or **Subtotal**.
+2. For **Borders**, do one or more of the
+   following:
 
-        * To customize the type of border that you want, choose a border
-         type icon. You can choose no borders, horizontal borders only,
-         vertical borders only, or all borders.
-        * To customize the border thickness, choose a border
-         thickness.
-        * To customize the border color, choose the border color icon,
-         and then choose a color. You can choose one of the provided
-         colors, reset the border color to the default color, or create a
-         custom color.
-
-    In pivot tables, you can also add borders for column totals and
-    subtotals. To do so, repeat the above steps in the
-    **Columns** section.
+   - To customize the type of border that you want, choose a border
+     type icon. You can choose no borders, horizontal borders only,
+     vertical borders only, or all borders.
+   - To customize the border thickness, choose a border
+     thickness.
+   - To customize the border color, choose the border color icon,
+     and then choose a color. You can choose one of the provided
+     colors, reset the border color to the default color, or create a
+     custom color.
+     In pivot tables, you can also add borders for column totals and
+     subtotals. To do so, repeat the above steps in the
+     **Columns** section.
 
 ## Applying totals and subtotals styling to cells
 

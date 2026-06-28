@@ -23,23 +23,22 @@ changes to a scenario block.
 
 ###### To collapse, duplicate, or delete a block
 
-1.  Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
-2.  Choose **Scenarios** from the options pane, and then choose
-    the scenario that you want to change.
-3.  Navigate to the block that you want to change and choose the ellipsis
-    (…) in the top right of the block.
-4.  Perform one of the following actions:
+1. Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
+2. Choose **Scenarios** from the options pane, and then choose
+   the scenario that you want to change.
+3. Navigate to the block that you want to change and choose the ellipsis
+   (…) in the top right of the block.
+4. Perform one of the following actions:
 
-        * To collapse the block, choose **Collapse**. To expand
-         a collapsed block, choose the ellipsis in the top right of the block,
-         and then choose **Expand**.
-        * To duplicate the block, choose **Duplicate**. The
-         block is duplicated and placed in a new thread next to the original
-         block.
-        * To delete the block, choose **Delete**.
-
-    You can also modify the prompt of a block to better match your use case. Use the
-    following procedure to modify a block prompt.
+   - To collapse the block, choose **Collapse**. To expand
+     a collapsed block, choose the ellipsis in the top right of the block,
+     and then choose **Expand**.
+   - To duplicate the block, choose **Duplicate**. The
+     block is duplicated and placed in a new thread next to the original
+     block.
+   - To delete the block, choose **Delete**.
+     You can also modify the prompt of a block to better match your use case. Use the
+     following procedure to modify a block prompt.
 
 ###### To modify the prompt of a block
 

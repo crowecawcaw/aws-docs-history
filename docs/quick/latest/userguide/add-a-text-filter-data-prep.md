@@ -142,9 +142,8 @@ Comparison types are case-sensitive. 5. Do one of the following:
      pagination.
 
 6. For **Null options** choose **Exclude
-   nulls**, **Include nulls**, or **Nulls
-   only**.
-7. When finished, choose **Apply**.
+nulls**, **Include nulls**, or **Nulls
+only**. 7. When finished, choose **Apply**.
 
 ## Filtering a text field by a top or bottom value (analyses only)
 
@@ -156,25 +155,25 @@ how many top or bottom ranking values to show.
 
 ###### To create a top and bottom text filter
 
-1.  Create a new filter using a text field. For more information about
-    creating filters, see [Adding filters](add-a-filter-data-prep.md "add-a-filter-data-prep.md").
-2.  In the **Filters** pane, choose the new filter to expand
-    it.
-3.  For **Filter type**, choose **Top and bottom
-    filter**.
-4.  Choose **Top** or **Bottom**.
-5.  For **Show top** integer (or **Show
-    bottom** integer), do one of the following:
+1. Create a new filter using a text field. For more information about
+   creating filters, see [Adding filters](add-a-filter-data-prep.md "add-a-filter-data-prep.md").
+2. In the **Filters** pane, choose the new filter to expand
+   it.
+3. For **Filter type**, choose **Top and bottom
+   filter**.
+4. Choose **Top** or **Bottom**.
+5. For **Show top** integer (or **Show
+   bottom** integer), do one of the following:
 
-    - Enter the number of top or bottom items to show.
-    - To use a parameter for the number of top or bottom items to show,
-      select **Use parameters**. Then choose an existing
-      integer parameter.
+   - Enter the number of top or bottom items to show.
+   - To use a parameter for the number of top or bottom items to show,
+     select **Use parameters**. Then choose an existing
+     integer parameter.
 
-    For example, let's say that you want to show the top three
-    salespersons by default. However, you want the dashboard viewer to
-    be able to choose whether to show 1–10 top salespersons. In
-    this case, take the following actions:
+   For example, let's say that you want to show the top three
+   salespersons by default. However, you want the dashboard viewer to
+   be able to choose whether to show 1–10 top salespersons. In
+   this case, take the following actions:
 
         + Create an integer parameter with a default value.
         + To link the number of displayed items to a parameter
@@ -187,13 +186,13 @@ how many top or bottom ranking values to show.
          parameters**, and choose your integer
          parameter.
 
-6.  For **By**, choose a field to base the ranking on. If you
-    want to show the top five salespeople per revenue, choose the revenue field.
-    You can also set the aggregate that you want to perform on the field.
-7.  (Optional) Choose **Tie breaker** and then choose another
-    field to add one or more aggregations as tie breakers. This is useful, in
-    the case of this example, when there are more than five results returned for
-    the top five salespeople per revenue. This situation can happen if multiple
-    salespeople have the same revenue amount.
+6. For **By**, choose a field to base the ranking on. If you
+   want to show the top five salespeople per revenue, choose the revenue field.
+   You can also set the aggregate that you want to perform on the field.
+7. (Optional) Choose **Tie breaker** and then choose another
+   field to add one or more aggregations as tie breakers. This is useful, in
+   the case of this example, when there are more than five results returned for
+   the top five salespeople per revenue. This situation can happen if multiple
+   salespeople have the same revenue amount.
 
 To remove a tie breaker, use the delete icon. 8. When finished, choose **Apply**.

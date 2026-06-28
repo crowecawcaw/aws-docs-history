@@ -1,4 +1,4 @@
-# distinct_countIf
+# distinct\_countIf
 
 Based on a conditional statement, the `distinct_countIf` function
 calculates the number of distinct values in a dimension or measure, grouped by the

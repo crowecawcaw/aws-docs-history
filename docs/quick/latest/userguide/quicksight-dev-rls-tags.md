@@ -1,8 +1,8 @@
 # Using row-level security with tag-based rules to restrict access to a dataset when embedding dashboards for anonymous users
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                                                               |
 | ----------------------------------------------------------------------------- |
@@ -418,7 +418,7 @@ In this case, the following assignments are defined:
   assigned to the `tag_retailer_id` tag at runtime. A comma is used
   for the delimiter, which was defined in
   `TagMultipleValueDelimiter` in the dataset. To use call
-  values in the column, you can set the value to \*\*\*, which
+  values in the column, you can set the value to _\*_, which
   was defined as the `MatchAllValue` when creating the tag.
 - The value `shift_manager` is assigned to the
   `tag_role` tag.

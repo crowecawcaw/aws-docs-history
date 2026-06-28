@@ -84,9 +84,9 @@ Resolution:
 
 ## Common error messages
 
-| Error codes and resolutions | Error code               | Description                      | Resolution |
-| --------------------------- | ------------------------ | -------------------------------- | ---------- |
-| AUTH_001                    | Authentication failed    | Verify credentials and retry     |
-| CONN_002                    | Connection timeout       | Check network and service status |
-| PERM_003                    | Insufficient permissions | Review required permissions      |
-| TOKEN_004                   | Token expired            | Reinitiate authentication        |
+Error codes and resolutions| Error code | Description | Resolution |
+| --- | --- | --- |
+| AUTH\_001 | Authentication failed | Verify credentials and retry |
+| CONN\_002 | Connection timeout | Check network and service status |
+| PERM\_003 | Insufficient permissions | Review required permissions |
+| TOKEN\_004 | Token expired | Reinitiate authentication |

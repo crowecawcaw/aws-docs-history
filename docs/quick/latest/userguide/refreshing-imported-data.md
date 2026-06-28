@@ -44,9 +44,9 @@ If you are refreshing a database dataset, choose
 
 ## Incrementally refreshing a dataset
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 For SQL-based data sources, such as Amazon Redshift, Amazon Athena, PostgreSQL, or Snowflake,
 you can refresh your data incrementally within a look-back window of time.
@@ -198,9 +198,9 @@ turned off.
 
 ## Incrementally refreshing a dataset on a schedule
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 For SQL-based data sources, such as Amazon Redshift, Athena, PostgreSQL, or Snowflake, you can
 schedule incremental refreshes. Use the following procedure to incrementally refresh

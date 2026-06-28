@@ -24,7 +24,7 @@ are case-sensitive.
   expression.
 
 - `Mod(`number`,
-`divisor`)` – Finds the remainder
+ `divisor`)` – Finds the remainder
   after dividing a number by a divisor.
 - `Log(`expression`)` – Returns the base 10 logarithm of a given expression.
 - `Ln(`expression`)` – Returns the natural logarithm of a given expression.
@@ -139,7 +139,8 @@ The power symbol `^` means _to the power
 of_. You can use the power operator with any numeric field, with any
 valid exponent.
 
-The following example is a simple expression of 2 to the power of 4 or (2 \* 2 \* 2 \* 2). This returns a value of 16.
+The following example is a simple expression of 2 to the power of 4 or (2 \* 2 \* 2
+\* 2). This returns a value of 16.
 
 ```
 2^4

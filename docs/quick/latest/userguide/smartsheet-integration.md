@@ -120,10 +120,10 @@ connector can do on behalf of the authenticated user. If you use API Key
 authentication instead, the connector uses the full permissions of the
 token owner and scopes do not apply. For more information, see [Access scopes](https://developers.smartsheet.com/api/smartsheet/guides/advanced-topics/oauth#access-scopes "https://developers.smartsheet.com/api/smartsheet/guides/advanced-topics/oauth#access-scopes") in the Smartsheet API documentation.
 
-| Smartsheet OAuth access scopes | Scope                                                                               | Description |
-| ------------------------------ | ----------------------------------------------------------------------------------- | ----------- |
-| `READ_SHEETS`                  | Read all sheet data, including attachments,<br>discussions, and cell data.          |
-| `WRITE_SHEETS`                 | Insert and modify sheet data, including attachments,<br>discussions, and cell data. |
+Smartsheet OAuth access scopes| Scope | Description |
+| --- | --- |
+| `READ_SHEETS` | Read all sheet data, including attachments,<br>discussions, and cell data. |
+| `WRITE_SHEETS` | Insert and modify sheet data, including attachments,<br>discussions, and cell data. |
 
 ###### Note
 

@@ -46,9 +46,9 @@ reimport the file. This process overwrites all of your other changes. 4. Prepare
     * [Filtering data in Amazon Quick Sight](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md")
 
 5. Check the [SPICE](spice.md "spice.md") indicator to see
-   if you have enough capacity to import the dataset. File datasets automatically
-   load into SPICE. The import happens when you choose either
-   **Save & visualize** or **Save**.
+if you have enough capacity to import the dataset. File datasets automatically
+load into SPICE. The import happens when you choose either
+**Save & visualize** or **Save**.
 
 If you don't have access to enough SPICE capacity, you can make
 the dataset smaller by using one of the following options:
@@ -109,10 +109,10 @@ upper right. 6. Prepare the data by doing one or more of the following:
      Quick Sight](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md")
 
 7. Check the [SPICE](spice.md "spice.md") indicator to
-   see if you have enough space to import the dataset. Amazon Quick Sight must import
-   Excel datasets into SPICE. This import happens when you
-   choose either **Save & visualize** or
-   **Save**.
+see if you have enough space to import the dataset. Amazon Quick Sight must import
+Excel datasets into SPICE. This import happens when you
+choose either **Save & visualize** or
+**Save**.
 
 If you don't have enough SPICE capacity, you can choose to
 make the dataset smaller using one of the following methods:

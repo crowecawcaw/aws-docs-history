@@ -1,8 +1,8 @@
 # Using row-level security with user-based rules to restrict access to a dataset
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 In the Enterprise edition of Amazon Quick, you can restrict access to a dataset by
 configuring row-level security (RLS) on it. You can do this before or after you have
@@ -40,7 +40,7 @@ dataset. Keep in mind the following points:
   to a username, plus any rules that are assigned to the user through group names.
 - If a field includes a comma (,) Amazon Quick treats each word separated from another
   by a comma as an individual value in the filter. For example, in `('AWS',
-'INC')`, `AWS,INC` is considered as two strings:
+ 'INC')`, `AWS,INC` is considered as two strings:
   `AWS` and `INC`. To filter with `AWS,INC`,
   wrap the string with double quotation marks in the permissions dataset.
 
@@ -214,7 +214,7 @@ To successfully duplicate it as a rules dataset, ensure the original dataset has
 
 To create a new rules dataset on the console, select NEW RULES DATASET under the
 NEW DATASET dropdown. When creating a rules dataset programmatically, add the
-following parameter: [UseAs: RLS_RULES](../../../quicksight/latest/APIReference/API_CreateDataSet.md#API_CreateDataSet_RequestSyntax "../../../quicksight/latest/APIReference/API_CreateDataSet.md#API_CreateDataSet_RequestSyntax"). This is an optional parameter that is only used to
+following parameter: [UseAs: RLS\_RULES](../../../quicksight/latest/APIReference/API_CreateDataSet.md#API_CreateDataSet_RequestSyntax "../../../quicksight/latest/APIReference/API_CreateDataSet.md#API_CreateDataSet_RequestSyntax"). This is an optional parameter that is only used to
 create a rules dataset. Once a dataset has been created, either through the console
 or programmatically, and flagged as either a rules dataset or a regular dataset, it
 cannot be changed.

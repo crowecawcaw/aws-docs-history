@@ -27,14 +27,14 @@ example, All, Completed, Failed).
 
 The following table describes the sync activity columns:
 
-| Sync activity columns | Column                                                                                                                                                            | Description |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Start time            | The date and time the sync began.                                                                                                                                 |
-| Sync status           | The outcome of the sync: Queued (waiting to<br>run), Completed (all items processed), Completed with<br>issues (some items were skipped or failed), or<br>Failed. |
-| Duration              | How long the sync took to complete.                                                                                                                               |
-| Total items scanned   | The number of items processed during the sync.                                                                                                                    |
-| Type                  | Whether the sync was Scheduled (automatic) or Manual<br>(initiated by choosing the \*_Sync now_<br>• button).                                                     |
-| Sync report           | A \*_View report_<br>• link that opens the detailed sync report<br>for that run.                                                                                  |
+Sync activity columns| Column | Description |
+| --- | --- |
+| Start time | The date and time the sync began. |
+| Sync status | The outcome of the sync: Queued (waiting to<br>run), Completed (all items processed), Completed with<br>issues (some items were skipped or failed), or<br>Failed. |
+| Duration | How long the sync took to complete. |
+| Total items scanned | The number of items processed during the sync. |
+| Type | Whether the sync was Scheduled (automatic) or Manual<br>(initiated by choosing the *_Sync now_<br>• button). |
+| Sync report | A *_View report_<br>• link that opens the detailed sync report<br>for that run. |
 
 ###### Tip
 
@@ -54,13 +54,13 @@ you want to inspect.
 The overview section provides a summary of the selected
 sync. The following table describes the overview fields:
 
-| Sync report overview fields | Field                                                                   | Description |
-| --------------------------- | ----------------------------------------------------------------------- | ----------- |
-| Sync status                 | The overall outcome (for example, Completed,<br>Completed with issues). |
-| Sync type                   | Whether the sync was Scheduled or Manual.                               |
-| Sync duration               | Total time elapsed for the sync.                                        |
-| Sync start time             | When the sync began.                                                    |
-| Sync end time               | When the sync finished.                                                 |
+Sync report overview fields| Field | Description |
+| --- | --- |
+| Sync status | The overall outcome (for example, Completed,<br>Completed with issues). |
+| Sync type | Whether the sync was Scheduled or Manual. |
+| Sync duration | Total time elapsed for the sync. |
+| Sync start time | When the sync began. |
+| Sync end time | When the sync finished. |
 
 ### Sync items
 
@@ -102,23 +102,23 @@ The **All items** tab displays the complete list of
 items that were processed during the sync. You can narrow the results by using the
 following filters:
 
-| Sync item filters    | Filter                                                                                                        | Description |
-| -------------------- | ------------------------------------------------------------------------------------------------------------- | ----------- |
-| Filter by status     | Filter items by their sync status (for example,<br>Added, Modified, Unmodified, Skipped, Failed,<br>Deleted). |
-| Filter by error type | Filter failed or skipped items by their specific<br>error type.                                               |
-| Filter by item title | Search for a specific item by name.                                                                           |
+Sync item filters| Filter | Description |
+| --- | --- |
+| Filter by status | Filter items by their sync status (for example,<br>Added, Modified, Unmodified, Skipped, Failed,<br>Deleted). |
+| Filter by error type | Filter failed or skipped items by their specific<br>error type. |
+| Filter by item title | Search for a specific item by name. |
 
 After you set your filters, choose **Apply
 filters** to update the results.
 
 The following table describes the sync item columns:
 
-| Sync item columns | Column                                                           | Description |
-| ----------------- | ---------------------------------------------------------------- | ----------- |
-| Item Title        | The name of the file, page, or item.                             |
-| Item Status       | The sync status for this item.                                   |
-| Error type        | The category of error, if applicable.                            |
-| Error message     | A detailed description of why the item failed or<br>was skipped. |
+Sync item columns| Column | Description |
+| --- | --- |
+| Item Title | The name of the file, page, or item. |
+| Item Status | The sync status for this item. |
+| Error type | The category of error, if applicable. |
+| Error message | A detailed description of why the item failed or<br>was skipped. |
 
 ### Download report
 
@@ -160,11 +160,11 @@ The **Access Details** panel shows:
 
 The following table describes the permission checker results:
 
-| Permission checker results                   | Result                                                                                                                                           | Meaning |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| User has access                              | The user's identity matches the document's ACL. They<br>see this document in Quick responses.                                                    |
-| [user] does not have access to this document | The user is not in the document's ACL.<br>Quick does not surface this document for<br>them.                                                      |
-| No access control list found                 | The ACL was not crawled for this document. Either ACL<br>management is not enabled, or the required permissions are<br>not configured correctly. |
+Permission checker results| Result | Meaning |
+| --- | --- |
+| User has access | The user's identity matches the document's ACL. They<br>see this document in Quick responses. |
+| [user] does not have access to this document | The user is not in the document's ACL.<br>Quick does not surface this document for<br>them. |
+| No access control list found | The ACL was not crawled for this document. Either ACL<br>management is not enabled, or the required permissions are<br>not configured correctly. |
 
 If you see "No access control list found", take the following steps:
 

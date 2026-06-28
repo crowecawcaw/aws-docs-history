@@ -1,4 +1,4 @@
-# distinct_count
+# distinct\_count
 
 The `distinct_count` function calculates the number of distinct values in a
 dimension or measure, grouped by the chosen dimension or dimensions. For example,

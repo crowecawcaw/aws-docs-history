@@ -113,18 +113,18 @@ Add the following as Delegated permissions in your Entra app registration.
 For the full permissions reference, see [Microsoft Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference "https://learn.microsoft.com/en-us/graph/permissions-reference") in the Microsoft
 documentation.
 
-| Outlook action integration – delegated permissions | Permission                                                                                                                                                   | Description |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `Mail.ReadWrite`                                   | Allows the app to create, read, update, and delete email in<br>user mailboxes.                                                                               |
-| `Mail.Send`                                        | Allows the app to send mail as users in the<br>organization.                                                                                                 |
-| `Calendars.ReadWrite`                              | Allows the app to create, read, update, and delete events in<br>user calendars.                                                                              |
-| `Calendars.ReadWrite.Shared`                       | Allows the app to create, read, update and delete events in<br>all calendars the user has permissions to access, including<br>delegate and shared calendars. |
-| `User.Read`                                        | Allows users to sign in to the app and allows the app to read<br>the profile of signed-in users.                                                             |
-| `User.Read.All`                                    | Allows the app to read the full set of profile properties of<br>other users in your organization.                                                            |
-| `Contacts.Read`                                    | Allows the app to read user contacts.                                                                                                                        |
-| `Place.Read.All`                                   | Allows the app to read company places (conference rooms and<br>room lists) for calendar events and other<br>applications.                                    |
-| `MailboxSettings.Read`                             | Allows the app to read the user's mailbox settings.                                                                                                          |
-| `offline_access`                                   | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate.             |
+Outlook action integration – delegated permissions| Permission | Description |
+| --- | --- |
+| `Mail.ReadWrite` | Allows the app to create, read, update, and delete email in<br>user mailboxes. |
+| `Mail.Send` | Allows the app to send mail as users in the<br>organization. |
+| `Calendars.ReadWrite` | Allows the app to create, read, update, and delete events in<br>user calendars. |
+| `Calendars.ReadWrite.Shared` | Allows the app to create, read, update and delete events in<br>all calendars the user has permissions to access, including<br>delegate and shared calendars. |
+| `User.Read` | Allows users to sign in to the app and allows the app to read<br>the profile of signed-in users. |
+| `User.Read.All` | Allows the app to read the full set of profile properties of<br>other users in your organization. |
+| `Contacts.Read` | Allows the app to read user contacts. |
+| `Place.Read.All` | Allows the app to read company places (conference rooms and<br>room lists) for calendar events and other<br>applications. |
+| `MailboxSettings.Read` | Allows the app to read the user's mailbox settings. |
+| `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
 
 ###### Note
 
@@ -138,15 +138,15 @@ permissions):**
 Add the following as Application permissions in your Entra app
 registration.
 
-| Outlook action integration – application permissions | Permission                                                                                                                | Description |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `Mail.ReadWrite`                                     | Allows the app to create, read, update, and delete mail in<br>all mailboxes.                                              |
-| `Mail.Send`                                          | Allows the app to send mail as any user.                                                                                  |
-| `Calendars.ReadWrite`                                | Allows the app to create, read, update, and delete events of<br>all calendars.                                            |
-| `User.Read.All`                                      | Allows the app to read user profiles.                                                                                     |
-| `Contacts.Read`                                      | Allows the app to read all contacts in all<br>mailboxes.                                                                  |
-| `Place.Read.All`                                     | Allows the app to read company places (conference rooms and<br>room lists) for calendar events and other<br>applications. |
-| `MailboxSettings.Read`                               | Allows the app to read user's mailbox settings.                                                                           |
+Outlook action integration – application permissions| Permission | Description |
+| --- | --- |
+| `Mail.ReadWrite` | Allows the app to create, read, update, and delete mail in<br>all mailboxes. |
+| `Mail.Send` | Allows the app to send mail as any user. |
+| `Calendars.ReadWrite` | Allows the app to create, read, update, and delete events of<br>all calendars. |
+| `User.Read.All` | Allows the app to read user profiles. |
+| `Contacts.Read` | Allows the app to read all contacts in all<br>mailboxes. |
+| `Place.Read.All` | Allows the app to read company places (conference rooms and<br>room lists) for calendar events and other<br>applications. |
+| `MailboxSettings.Read` | Allows the app to read user's mailbox settings. |
 
 ###### Important
 
@@ -161,11 +161,11 @@ requirements.
 Before leaving the Microsoft Entra admin center, confirm you have the
 following values. You need them for the Amazon Quick configuration.
 
-| Required credentials from Microsoft Entra | Value                          | Where to find it |
-| ----------------------------------------- | ------------------------------ | ---------------- |
-| Application (client) ID                   | App registration overview page |
-| Directory (tenant) ID                     | App registration overview page |
-| Client secret value                       | Certificates & secrets page    |
+Required credentials from Microsoft Entra| Value | Where to find it |
+| --- | --- |
+| Application (client) ID | App registration overview page |
+| Directory (tenant) ID | App registration overview page |
+| Client secret value | Certificates & secrets page |
 
 ## Setting up the connector in Amazon Quick
 
@@ -266,11 +266,10 @@ fields.
      is set automatically by Amazon Quick. You do not need
      to configure it manually.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Microsoft
-   authorization window opens. Review the requested permissions and
-   choose **Accept**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Microsoft
+authorization window opens. Review the requested permissions and
+choose **Accept**.
 
 If you see an error instead of the consent dialog, your
 organization might restrict third-party app access. See
@@ -284,29 +283,29 @@ organization or search for specific teams or groups. 11. Choose **Publish**.
 
 After you set up the connector, the following actions are available.
 
-| Microsoft Outlook available actions | Category               | Action                                                    | Description |
-| ----------------------------------- | ---------------------- | --------------------------------------------------------- | ----------- |
-| Email                               | List User Mails        | Lists emails in a mailbox.                                |
-| Email                               | List Folder Messages   | Lists messages in a specific mail folder.                 |
-| Email                               | View Email             | Retrieves email details by ID.                            |
-| Email                               | Send User Email        | Sends a new email message.                                |
-| Email                               | Reply To Email         | Replies to an existing email.                             |
-| Email                               | Forward User Email     | Forwards an email to other recipients.                    |
-| Email                               | Update Email           | Edits email properties.                                   |
-| Email                               | Delete Email           | Removes an email from a mailbox.                          |
-| Email                               | Move Email To Folder   | Moves an email to a different folder.                     |
-| Email                               | List Email Attachments | Lists attachments on an email.                            |
-| Email                               | Get Attachment         | Retrieves attachment details and content by ID.           |
-| Calendar                            | List Calendar Events   | Lists events on a calendar.                               |
-| Calendar                            | List Calendar View     | Lists meetings in a specified date range.                 |
-| Calendar                            | Create Calendar Event  | Creates a new meeting or appointment.                     |
-| Calendar                            | Update Calendar Event  | Modifies an existing event.                               |
-| Calendar                            | Delete Calendar Event  | Removes an event from a calendar.                         |
-| Calendar                            | Find Meeting Times     | Suggests meeting times based on attendee<br>availability. |
-| Contacts                            | List Contacts          | Lists contacts.                                           |
-| Users                               | List Users             | Lists users in the organization.                          |
-| Settings                            | Get Mailbox Settings   | Reads mailbox configuration.                              |
-| Places                              | List Places            | Lists meeting rooms and room lists.                       |
+Microsoft Outlook available actions| Category | Action | Description |
+| --- | --- | --- |
+| Email | List User Mails | Lists emails in a mailbox. |
+| Email | List Folder Messages | Lists messages in a specific mail folder. |
+| Email | View Email | Retrieves email details by ID. |
+| Email | Send User Email | Sends a new email message. |
+| Email | Reply To Email | Replies to an existing email. |
+| Email | Forward User Email | Forwards an email to other recipients. |
+| Email | Update Email | Edits email properties. |
+| Email | Delete Email | Removes an email from a mailbox. |
+| Email | Move Email To Folder | Moves an email to a different folder. |
+| Email | List Email Attachments | Lists attachments on an email. |
+| Email | Get Attachment | Retrieves attachment details and content by ID. |
+| Calendar | List Calendar Events | Lists events on a calendar. |
+| Calendar | List Calendar View | Lists meetings in a specified date range. |
+| Calendar | Create Calendar Event | Creates a new meeting or appointment. |
+| Calendar | Update Calendar Event | Modifies an existing event. |
+| Calendar | Delete Calendar Event | Removes an event from a calendar. |
+| Calendar | Find Meeting Times | Suggests meeting times based on attendee<br>availability. |
+| Contacts | List Contacts | Lists contacts. |
+| Users | List Users | Lists users in the organization. |
+| Settings | Get Mailbox Settings | Reads mailbox configuration. |
+| Places | List Places | Lists meeting rooms and room lists. |
 
 ## Manage and troubleshoot
 
@@ -327,11 +326,11 @@ To edit, share, or delete your integration, see [Managing existing integrations]
 ### Common error messages
 
 - **`Access denied. You do not have
-permission to perform this action`** – The
+ permission to perform this action`** – The
   authenticated user does not have the required permissions. Contact your
   administrator to verify and grant appropriate permissions.
 - **`AADSTS50020: User account from identity
-provider does not exist in tenant`** – The user
+ provider does not exist in tenant`** – The user
   account is not configured in the correct Microsoft Entra tenant. Verify
   the user account exists in the tenant that matches the Directory
   (tenant) ID in your app registration.
@@ -369,7 +368,7 @@ An administrator can grant consent in one of the following ways:
   applications**, locate the Amazon Quick application,
   choose **Permissions**, and choose
   **Grant admin consent for `Your
-Organization`**.
+ Organization`**.
 
 After consent is granted, any user in your organization can connect
 without being prompted for individual consent.

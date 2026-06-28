@@ -1,8 +1,8 @@
 # Testing the connection to your VPC data source
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                                               |
 | ------------------------------------------------------------- |
@@ -68,17 +68,17 @@ you choose. For more information, see [Creating a data source](../../../quicksig
     	 tables that you want to use in that database.
 
 5. Choose **Validate connection** to verify your connection
-   information is correct. If your connection doesn't validate, correct the
-   connection information and try again. If the information looks correct but
-   doesn't validate, do one or all of the following:
+information is correct. If your connection doesn't validate, correct the
+connection information and try again. If the information looks correct but
+doesn't validate, do one or all of the following:
 
-   - Contact your data source administrator to verify your connection
+    * Contact your data source administrator to verify your connection
      settings.
-   - Contact your Amazon Quick administrator to verify the settings in the
+    * Contact your Amazon Quick administrator to verify the settings in the
      Amazon Quick VPC connection.
-   - Contact your AWS administrator to verify that the VPC is correctly
+    * Contact your AWS administrator to verify that the VPC is correctly
      configured for use with Amazon Quick.
 
 6. After the connection validates, choose **Create data source**
-   to save the connection profile. Or, choose **Cancel** if you
-   don't need to save it (recommended) after testing is complete.
+to save the connection profile. Or, choose **Cancel** if you
+don't need to save it (recommended) after testing is complete.

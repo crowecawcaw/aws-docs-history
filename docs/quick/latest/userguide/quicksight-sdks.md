@@ -8,9 +8,9 @@ For more information on the API operations, see [Amazon Quick Sight API
 Reference](../../../quicksight/index.md "../../../quicksight/index.md").
 
 Before you can call the Amazon Quick Sight API operations, you need the
-`quicksight:`operation-name``permission in a
- policy attached to your IAM identity. For example, to call`list-users`, you need
- the permission `quicksight:ListUsers`. The same pattern applies to all
+`quicksight:`operation-name`` permission in a
+policy attached to your IAM identity. For example, to call `list-users`, you need
+the permission `quicksight:ListUsers`. The same pattern applies to all
 operations.
 
 If you're not sure what the necessary permission is, you can attempt to make a call. The
@@ -117,11 +117,11 @@ into the same project. The following dependencies are required:
     * `joda-time-2.1.jar` — See  [https://mvnrepository.com/artifact/joda-time/joda-time/2.1](https://mvnrepository.com/artifact/joda-time/joda-time/2.1 "https://mvnrepository.com/artifact/joda-time/joda-time/2.1")
 
 5. Now, you are ready to create an Amazon Quick Sight client. You can use a
-   default public endpoint that the client can communicate with or you can
-   reference the endpoint explicitly. There are multiple ways to provide
-   your AWS credentials. In the following example, we provide a direct,
-   simple approach. The following client method is used to make all the API
-   calls that follow:
+default public endpoint that the client can communicate with or you can
+reference the endpoint explicitly. There are multiple ways to provide
+your AWS credentials. In the following example, we provide a direct,
+simple approach. The following client method is used to make all the API
+calls that follow:
 
 ```
 private static AmazonQuickSight getClient() {

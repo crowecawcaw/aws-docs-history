@@ -34,10 +34,9 @@ To upload the sample data, do the following:
      you to the same screen as the process in Step 2.
 
 2. On the **Datasets** page, choose the **Web and
-   Social Media Analytics** dataset, and then choose **Use
-   in Analysis**.
-3. In the **Data** pane, choose **Date**,
-   and then choose **Mailing list adds**.
+Social Media Analytics** dataset, and then choose **Use
+in Analysis**. 3. In the **Data** pane, choose **Date**,
+and then choose **Mailing list adds**.
 
 Amazon Quick Sight uses AutoGraph to create the visual, selecting the visual type
 that it determines is most compatible with those fields. In this case, it

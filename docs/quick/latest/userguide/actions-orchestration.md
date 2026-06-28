@@ -44,7 +44,7 @@ Bulk creates cases from a data table. Each row becomes a new case, inheriting th
 
 - `Title` (optional) - Action name shown in the process visualization (e.g., "Create cases from invoice batch")
 - `Case type` (required) - Label that groups related cases by business purpose (e.g., "Invoice processing")
-- `Cases data table` (required) - Data table where each row creates a new case. All columns are stored as custom data (e.g., cases_table)
+- `Cases data table` (required) - Data table where each row creates a new case. All columns are stored as custom data (e.g., cases\_table)
 - `Reference column name` (required) - Name of the column containing the reference name identifier for each case (e.g., "Invoice number")
 
 Process cases
@@ -53,16 +53,16 @@ Loops through cases in 'Ready' status. Automatically manages case status by movi
 
 - `Title` (optional) - Action name shown in the process visualization (e.g., "Process pending invoices")
 - `Case type` (required) - Type of cases to process (e.g., "Invoice processing")
-- `Current case` (output) - Variable containing the case being processed in each loop. Access case data using current_case["custom_data"]["key\_name"]
+- `Current case` (output) - Variable containing the case being processed in each loop. Access case data using current\_case["custom\_data"]["key\_name"]
 
 Update case data
 
 Saves changes to case information during processing. Can add new fields or modify existing data. Only available while a case is 'In Progress'. Used to track processing results and manage case lifecycle. Properties:
 
 - `Title` (optional) - Action name shown in the process visualization (e.g., "Update case status")
-- `Case ID` (required) - Unique identifier of the case to update (e.g., current_case["case\_id"])
+- `Case ID` (required) - Unique identifier of the case to update (e.g., current\_case["case\_id"])
 - `Data to update` (required) - New or modified information to store as key-value pairs (e.g., {"Status": "Approved", "ProcessedDate": "2024-01-20"})
-- `Updated case` (output) - Variable containing the modified case. Access updated data using updated_case["custom_data"]["key\_name"]
+- `Updated case` (output) - Variable containing the modified case. Access updated data using updated\_case["custom\_data"]["key\_name"]
 
 Search cases
 
@@ -73,7 +73,7 @@ Retrieves cases for reporting and analysis. Filter by case type, status, or refe
 - `Filter by status` (optional) - Filter for cases based on their current status (e.g., "Pending Resolution")
 - `Filter by reference name` (optional) - Filter for cases with a specific reference name (e.g., "Ticket-12345")
 - `Maximum results` (optional) - Limits the number of cases to return. Leave empty to return all cases up to 10,000 (e.g., 100)
-- `Search results` (output) - Variable name that will store the data table of cases retrieved by the search (e.g., cases_table)
+- `Search results` (output) - Variable name that will store the data table of cases retrieved by the search (e.g., cases\_table)
 
 ## Human-in-the-Loop (HITL)
 
@@ -100,7 +100,7 @@ Creates a task for human input. Tasks appear in a list for users to review, make
   - Number - Quantity of time units (e.g., 24)
   - Unit - Hours or Days
 
-- `Case ID` (required) - Unique identifier of the case this task is for (e.g., current_case["case\_id"])
+- `Case ID` (required) - Unique identifier of the case this task is for (e.g., current\_case["case\_id"])
 
 ###### Important
 
@@ -142,7 +142,7 @@ After a human completes a HITL task, your automation needs to handle the case's 
 
 - The associated case automatically returns to Ready status
 - The case becomes available for processing again through Process cases
-- The latest_task_resolution field contains all form inputs and decisions
+- The latest\_task\_resolution field contains all form inputs and decisions
 
 Example checking for HITL resolution and handling the case accordingly:
 
@@ -161,7 +161,7 @@ else:
 
 Best practices for handling HITL resolution:
 
-- Always check latest_task_resolution when processing cases
+- Always check latest\_task\_resolution when processing cases
 - Structure your logic to handle both new cases and those returning from HITL
 - Consider implementing different processing paths based on human decisions
 - Include error handling for missing or invalid resolution data

@@ -1,8 +1,8 @@
 # Embedding Amazon Quick Sight analytics into your applications
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 To embed analytics, you can run the Amazon Quick Sight embedding API to generate the
 embed code. Alternatively for dashboards, you can copy an embed code when you share the

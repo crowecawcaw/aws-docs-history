@@ -12,9 +12,9 @@ Amazon Quick Sight console, but they do not contain the latest embedding
 capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your
 applications](../../../quicksight/latest/user/embedding-overview.md "../../../quicksight/latest/user/embedding-overview.md").
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |
@@ -298,9 +298,9 @@ If you get an `ExpiredToken` error when calling the
 previous `SESSION TOKEN` is still in the environment
 variables. Clear this by setting the following variables:
 
-- _AWS_ACCESS_KEY_ID_
-- _AWS_SECRET_ACCESS_KEY_
-- _AWS_SESSION_TOKEN_
+- _AWS\_ACCESS\_KEY\_ID_
+- _AWS\_SECRET\_ACCESS\_KEY_
+- _AWS\_SESSION\_TOKEN_
 
 The following example shows how to set these three parameters in the
 CLI. If you are using a Microsoft Windows machine, use `set`

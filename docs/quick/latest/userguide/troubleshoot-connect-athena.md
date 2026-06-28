@@ -185,14 +185,11 @@ these steps to fix it:
     	 lose if you choose to disable it.
 
 4. If you didn't get this by troubleshooting in the previous step, choose
-   **Settings** at upper right and get the S3 location
-   value shown as **Query result location**.
-5. If **Encrypt query results** is enabled, check
-   whether it uses SSE-KMS or CSE-KMS. Note the key.
-6. Open the S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"), open the correct bucket, and
-   then choose the **Permissions** tab.
-7. Check that your IAM user has access by viewing **Bucket
-   Policy**.
+**Settings** at upper right and get the S3 location
+value shown as **Query result location**. 5. If **Encrypt query results** is enabled, check
+whether it uses SSE-KMS or CSE-KMS. Note the key. 6. Open the S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"), open the correct bucket, and
+then choose the **Permissions** tab. 7. Check that your IAM user has access by viewing **Bucket
+Policy**.
 
 If you manage access with ACLs, make sure that the access control
 lists (ACLs) are set up by viewing **Access Control

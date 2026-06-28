@@ -42,9 +42,9 @@ You can assess action connector health using the following connection health too
 
 ## CloudWatch metrics reference
 
-| Available CloudWatch metrics | Metric                 | Description  | Unit |
-| ---------------------------- | ---------------------- | ------------ | ---- |
-| ActionSuccess                | Successful executions  | Count        |
-| ActionLatency                | Execution time         | Milliseconds |
-| AuthFailures                 | Failed authentications | Count        |
-| APIThrottling                | API throttling events  | Count        |
+Available CloudWatch metrics| Metric | Description | Unit |
+| --- | --- | --- |
+| ActionSuccess | Successful executions | Count |
+| ActionLatency | Execution time | Milliseconds |
+| AuthFailures | Failed authentications | Count |
+| APIThrottling | API throttling events | Count |

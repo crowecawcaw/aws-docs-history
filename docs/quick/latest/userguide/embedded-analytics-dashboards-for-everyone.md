@@ -13,9 +13,9 @@ For more information about embedding using the old API operations, see [Embeddin
 GetDashboardEmbedURL and GetSessionEmbedURL
 API operations](../../../quicksight/latest/user/embedded-analytics-deprecated.md "../../../quicksight/latest/user/embedded-analytics-deprecated.md").
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |
@@ -32,9 +32,9 @@ embedded Amazon Quick Sight dashboards for anonymous (unregistered) users.
 
 ## Step 1: Set up permissions
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |
@@ -121,9 +121,9 @@ IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/U
 
 ## Step 2: Generate the URL with the authentication code attached
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |
@@ -431,9 +431,9 @@ If you get an `ExpiredToken` error when calling the
 previous `SESSION TOKEN` is still in the environment
 variables. Clear this by setting the following variables:
 
-- _AWS_ACCESS_KEY_ID_
-- _AWS_SECRET_ACCESS_KEY_
-- _AWS_SESSION_TOKEN_
+- _AWS\_ACCESS\_KEY\_ID_
+- _AWS\_SECRET\_ACCESS\_KEY_
+- _AWS\_SESSION\_TOKEN_
   The following example shows how to set these three parameters in the CLI.
   If you're using a Microsoft Windows machine, use `set` instead of
   `export`.
@@ -477,9 +477,9 @@ use this and other API operations in your own code.
 
 ## Step 3: Embed the dashboard URL
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                               |
 | --------------------------------------------- |

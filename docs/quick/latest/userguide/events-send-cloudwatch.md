@@ -46,7 +46,9 @@ an asset is added to or removed from a folder with id
 ```
 
 10. For **Targets**, choose **AWS service**
-    > **CloudWatch log group.**
+
+> **CloudWatch log group.**
+
 11. Choose from an existing log group or create a new one by entering a new log
     group name.
 12. Optionally, you can add another target for this rule.

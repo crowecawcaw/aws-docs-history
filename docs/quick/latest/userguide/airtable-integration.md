@@ -91,15 +91,15 @@ When you register an OAuth integration or create a personal access
 token, configure the following scopes based on the actions that you want
 to use.
 
-| Airtable recommended scopes | Scope                                                                  | Description |
-| --------------------------- | ---------------------------------------------------------------------- | ----------- |
-| `data.records:read`         | Read data in records.                                                  |
-| `data.records:write`        | Create, edit, and delete records.                                      |
-| `data.recordComments:read`  | Read comments in records.                                              |
-| `data.recordComments:write` | Create, edit, and delete record comments.                              |
-| `schema.bases:read`         | Read the structure of bases, including table names and<br>field types. |
-| `schema.bases:write`        | Edit the structure of bases, including table names and<br>field types. |
-| `user.email:read`           | Read the email address of the authenticated<br>user.                   |
+Airtable recommended scopes| Scope | Description |
+| --- | --- |
+| `data.records:read` | Read data in records. |
+| `data.records:write` | Create, edit, and delete records. |
+| `data.recordComments:read` | Read comments in records. |
+| `data.recordComments:write` | Create, edit, and delete record comments. |
+| `schema.bases:read` | Read the structure of bases, including table names and<br>field types. |
+| `schema.bases:write` | Edit the structure of bases, including table names and<br>field types. |
+| `user.email:read` | Read the email address of the authenticated<br>user. |
 
 ## Setting up the connector in Amazon Quick
 
@@ -185,43 +185,39 @@ fields.
     	 address associated with your Airtable
     	 account.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app** or
-   **Custom OAuth app**, an Airtable
-   authorization window opens. Review the requested permissions, choose
-   the bases and workspaces to grant access to, and choose
-   **Grant access**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app** or
+**Custom OAuth app**, an Airtable
+authorization window opens. Review the requested permissions, choose
+the bases and workspaces to grant access to, and choose
+**Grant access**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are available.
 
-| Airtable available actions | Category            | Action                                                                     | Description |
-| -------------------------- | ------------------- | -------------------------------------------------------------------------- | ----------- |
-| Records                    | List Records        | Lists records in a table with optional filtering and<br>sorting.           |
-| Records                    | Get Record          | Retrieves a specific record by ID.                                         |
-| Records                    | Batch Create Record | Creates one or more new records in a table.                                |
-| Records                    | Update Record       | Updates fields on an existing record.                                      |
-| Records                    | Batch Update Record | Updates multiple records in a single operation using<br>PATCH.             |
-| Records                    | Batch Put Record    | Upserts multiple records in a single operation using<br>PUT.               |
-| Comments                   | List Comments       | Lists comments on a record.                                                |
-| Comments                   | Create Comment      | Adds a comment to a record.                                                |
-| Comments                   | Update Comment      | Edits an existing comment on a record.                                     |
-| Schema                     | List Bases          | Lists all bases accessible to the authenticated<br>user.                   |
-| Schema                     | Get Base Schema     | Retrieves the schema of a base, including tables and field<br>definitions. |
-| Schema                     | Create Table        | Creates a new table in a base.                                             |
-| Schema                     | Update Table        | Updates table properties such as name or<br>description.                   |
-| Schema                     | Create Field        | Adds a new field to a table.                                               |
-| Schema                     | Update Field        | Updates field properties such as name or type.                             |
-| Attachments                | Create Attachment   | Uploads an attachment to a record.                                         |
-| Users                      | Get User Info       | Retrieves information about the authenticated user.                        |
+Airtable available actions| Category | Action | Description |
+| --- | --- | --- |
+| Records | List Records | Lists records in a table with optional filtering and<br>sorting. |
+| Records | Get Record | Retrieves a specific record by ID. |
+| Records | Batch Create Record | Creates one or more new records in a table. |
+| Records | Update Record | Updates fields on an existing record. |
+| Records | Batch Update Record | Updates multiple records in a single operation using<br>PATCH. |
+| Records | Batch Put Record | Upserts multiple records in a single operation using<br>PUT. |
+| Comments | List Comments | Lists comments on a record. |
+| Comments | Create Comment | Adds a comment to a record. |
+| Comments | Update Comment | Edits an existing comment on a record. |
+| Schema | List Bases | Lists all bases accessible to the authenticated<br>user. |
+| Schema | Get Base Schema | Retrieves the schema of a base, including tables and field<br>definitions. |
+| Schema | Create Table | Creates a new table in a base. |
+| Schema | Update Table | Updates table properties such as name or<br>description. |
+| Schema | Create Field | Adds a new field to a table. |
+| Schema | Update Field | Updates field properties such as name or type. |
+| Attachments | Create Attachment | Uploads an attachment to a record. |
+| Users | Get User Info | Retrieves information about the authenticated user. |
 
 ###### Note
 

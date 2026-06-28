@@ -1,8 +1,8 @@
 # Setting up Amazon Quick on desktop for enterprise deployments
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                             |
 | ------------------------------------------- |
@@ -30,7 +30,7 @@ The setup involves the following steps, in order:
 ## How enterprise sign-in works
 
 The Amazon Quick desktop application uses the OIDC protocol to authenticate users.
-When a user chooses **Enterprise login**, the application
+When a user chooses **Continue with SSO**, the application
 opens a browser window and redirects to your IdP's authorization endpoint. The
 application then exchanges the resulting authorization code for tokens using Proof Key
 for Code Exchange (PKCE).
@@ -135,8 +135,33 @@ is enforced automatically by Entra ID for public clients.
    **Mobile and desktop applications**.
 4. Choose **Save**.
 
+###### To configure token claims
+
+1. In the app registration, navigate to **Token configuration**.
+2. Choose **Add optional claim**.
+3. Select token type: **ID**.
+4. Select the `email` claim and choose
+   **Add**.
+
+###### Important
+
+This step is required. Without the `email` optional claim,
+Microsoft Entra ID does not include the user's email address in the ID
+token, and Amazon Quick cannot map the token to a user. Additionally,
+each user who signs in must have their **Mail** attribute populated in their Entra ID profile (under
+**Contact Information**). The User Principal
+Name (UPN) alone is not sufficient — the Mail attribute must contain
+a value.
+
 Your OIDC endpoints use the following format. Replace
 `<TENANT_ID>` with your Directory (tenant) ID.
+
+###### Important
+
+The Issuer URL must include the `/v2.0` path suffix. Do not
+use the "Authority URL" shown in the Entra ID Endpoints panel, which omits
+this suffix. If the `/v2.0` suffix is missing, token validation
+fails with an "Invalid issuer" error at sign-in time.
 
 | Field                  | Value                                                                 |
 | ---------------------- | --------------------------------------------------------------------- |
@@ -144,6 +169,15 @@ Your OIDC endpoints use the following format. Replace
 | Authorization endpoint | `https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/authorize` |
 | Token endpoint         | `https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/token`     |
 | JWKS URI               | `https://login.microsoftonline.com/<TENANT_ID>/discovery/v2.0/keys`   |
+
+###### Tip
+
+The JWKS URI is not displayed in the Microsoft Entra ID
+**Endpoints** panel. You can find it by
+opening the **OpenID Connect metadata
+document** URL from the Endpoints panel and locating the
+`jwks_uri` field in the JSON response. Alternatively,
+construct it using the format shown in the preceding table.
 
 ### Google Workspace
 
@@ -187,12 +221,21 @@ required.
 
 Your OIDC endpoints are as follows:
 
-| Field                  | Value                                          |
-| ---------------------- | ---------------------------------------------- |
-| Issuer URL             | `https://accounts.google.com`                  |
-| Authorization endpoint | `https://accounts.google.com/o/oauth2/v2/auth` |
-| Token endpoint         | `https://oauth2.googleapis.com/token`          |
-| JWKS URI               | `https://www.googleapis.com/oauth2/v3/certs`   |
+| Field                  | Value                                                               |
+| ---------------------- | ------------------------------------------------------------------- |
+| Issuer URL             | `https://accounts.google.com`                                       |
+| Authorization endpoint | `https://accounts.google.com/o/oauth2/v2/auth`                      |
+| Token endpoint         | `https://oauth2.googleapis.com/token?client_secret=<CLIENT_SECRET>` |
+| JWKS URI               | `https://www.googleapis.com/oauth2/v3/certs`                        |
+
+###### Note
+
+Append your client secret to the token endpoint as a
+`client_secret` query parameter so that token exchange
+succeeds—for example,
+`https://oauth2.googleapis.com/token?client_secret=<CLIENT_SECRET>`.
+Replace `<CLIENT_SECRET>` with the client secret
+generated for your OAuth client.
 
 ### Okta
 
@@ -385,23 +428,25 @@ Your OIDC endpoints use the following format. Replace
 
 ###### To add the extension access
 
-1. Sign in to the Amazon Quick management console.
-2. Under **Permissions**, choose
-   **Extension access**.
+1. Sign in to the Amazon Quick management console and choose
+   **Manage account**.
+2. In the left navigation pane, under **Permissions**,
+   choose **Extension access**.
 3. Choose **Add extension access**.
-4. Select the **Desktop application for
-   Quick** extension and choose **Next**.
+4. Under **Select Service**, select
+   **Amazon Quick (Desktop application for
+   Quick)** and choose **Next**.
 5. Enter the Amazon Quick extension details:
 
-| Field                  | Value                                              |
-| ---------------------- | -------------------------------------------------- |
-| Name                   | A name for this extension access                   |
-| Description            | (Optional) A description                           |
-| Issuer URL             | The OIDC issuer URL from Step 1                    |
-| Authorization Endpoint | The OIDC authorization endpoint URL from<br>Step 1 |
-| Token Endpoint         | The OIDC token endpoint URL from Step 1            |
-| JWKS URI               | The JSON Web Key Set URI from Step 1               |
-| Client ID              | The OIDC client identifier from Step 1             |
+| Field                  | Value                                                                    | Notes                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Name                   | A name for this extension access (for example,<br>`QuickDesktop-access`) | Internal reference only. This name is not<br>configured in your IdP. Alphanumeric and hyphens<br>only, no spaces. |
+| Description            | (Optional) A description of this extension<br>access                     | Optional. For your reference only.                                                                                |
+| Issuer URL             | The OIDC issuer URL from Step 1                                          | Must include the `/v2.0` suffix for<br>Entra ID.                                                                  |
+| Authorization Endpoint | The OIDC authorization endpoint URL from<br>Step 1                       |                                                                                                                   |
+| Token Endpoint         | The OIDC token endpoint URL from Step 1                                  |                                                                                                                   |
+| JWKS URI               | The JSON Web Key Set URI from Step 1                                     |                                                                                                                   |
+| Client ID              | The OIDC client identifier from Step 1                                   |                                                                                                                   |
 
 6. Choose **Add**.
 
@@ -415,14 +460,28 @@ one.
 
 ###### To create the extension
 
-1. In the Amazon Quick console, in the left navigation under
-   **Connect apps and data**, choose
-   **Extensions**.
+1. In the Amazon Quick management console, in the left navigation pane, choose
+   **Quick**, then under **Connect apps and data**, choose **Extensions**.
 2. Choose **Add extension**.
 3. Select the **Desktop application for
    Quick** extension access you previously created. Choose
    **Next**.
 4. Choose **Create**.
+
+###### Important
+
+Both steps are required. If you only configure the extension access
+without creating the extension, enterprise sign-in will not be available and
+users will see the error: "Enterprise sign-in for Quick Desktop has not been
+configured for this account."
+
+###### Note
+
+Creating the extension is a one-time, account-level action. Once an
+administrator creates the extension, enterprise sign-in is available
+for all users in the account. Individual users do not need to enable
+the extension themselves — they only need to download the desktop
+application and sign in.
 
 ## Step 3: Download and distribute the desktop application
 
@@ -450,14 +509,50 @@ client or native platform.
 
 User not found after sign-in
 
-The email in the IdP token must exactly match the email of a user in
-Amazon Quick. Verify that the user is provisioned and that
-the email addresses are identical in both systems.
+This error has two common causes:
+
+1. **The email claim is not being returned
+   in the token.** For Microsoft Entra ID, you must add
+   the `email` optional claim to the ID token under
+   Token configuration (see Step 1). Additionally, the user's
+   **Mail** attribute must be
+   populated in their Entra ID profile. The User Principal Name
+   (UPN) alone is not sufficient.
+2. **No matching user exists in
+   Amazon Quick.** The email in the token must exactly
+   match the email of a provisioned user. For IAM Identity
+   Center accounts, verify the user's email in Identity Center
+   matches. Email matching is case-sensitive.
 
 Token validation failure
 
 Verify that the issuer URL in the extension access configuration
 matches the issuer URL in your IdP's OIDC configuration exactly.
+
+Invalid issuer error (Microsoft Entra ID)
+
+If sign-in fails with "Invalid issuer:
+https://login.microsoftonline.com/TENANT\_ID/v2.0", verify that the
+Issuer URL in your extension access configuration includes the
+`/v2.0` path suffix. The Entra ID v2.0 endpoint issues
+tokens with an `iss` claim that includes
+`/v2.0`. If the suffix is missing, delete the extension
+access and recreate it with the correct Issuer URL.
+
+Enterprise sign-in not configured for this account
+
+This error means the extension access was created but the extension
+itself was not. Navigate to **Connect apps and data
+→ Extensions** in the management console and create the
+extension, selecting the extension access you previously
+configured.
+
+User info request failed (HTTP 504)
+
+This is a transient backend timeout. Sign in to your Amazon Quick
+account via the web browser first, then retry the desktop sign-in.
+If the error persists, verify network connectivity to the Amazon Quick
+service endpoint.
 
 Consent or permission errors (Microsoft Entra ID)
 

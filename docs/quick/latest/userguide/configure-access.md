@@ -66,14 +66,13 @@ instance is publicly accessible and that the VPC has the following:
   the cluster or instance and Amazon Quick servers. These ACLs must do the
   following:
 
-      + Allow inbound traffic from the appropriate Amazon Quick IP address
-       range and all ports to the IP address and port that the database is
-       listening on.
-      + Allow outbound traffic from the database’s IP address and port to
-       the appropriate Amazon Quick IP address range and all ports.
-
-  For more information about Amazon Quick IP address ranges, see [IP
-  address ranges for Amazon Quick](../../../quicksuite/latest/userguide/regions.md "../../../quicksuite/latest/userguide/regions.md") following.
+  - Allow inbound traffic from the appropriate Amazon Quick IP address
+    range and all ports to the IP address and port that the database is
+    listening on.
+  - Allow outbound traffic from the database’s IP address and port to
+    the appropriate Amazon Quick IP address range and all ports.
+    For more information about Amazon Quick IP address ranges, see [IP
+    address ranges for Amazon Quick](../../../quicksuite/latest/userguide/regions.md "../../../quicksuite/latest/userguide/regions.md") following.
 
 For more information about configuring VPC ACLs, see [Network ACLs](../../../vpc/latest/userguide/VPC_ACLs.md "../../../vpc/latest/userguide/VPC_ACLs.md").
 

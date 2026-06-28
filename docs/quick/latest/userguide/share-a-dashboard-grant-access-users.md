@@ -4,25 +4,25 @@ Use the following procedure to grant access to a dashboard.
 
 ###### To grant users or groups access to a dashboard
 
-1.  Open the published dashboard and choose **Share** at
-    upper right. Then choose **Share dashboard**.
-2.  In the **Share dashboard** page that opens, do the
-    following:
+1. Open the published dashboard and choose **Share** at
+   upper right. Then choose **Share dashboard**.
+2. In the **Share dashboard** page that opens, do the
+   following:
 
-    1. For **Invite users and groups to dashboard**
-       at left, enter a user email or group name in the search
-       box.
+   1. For **Invite users and groups to dashboard**
+      at left, enter a user email or group name in the search
+      box.
 
-    Any users or groups that match your query appear in a list
-    below the search box. Only active users and groups appear in the
-    list. 2. For the user or group that you want to grant access to the
-    dashboard, choose **Add**. Then choose the
-    level of permissions that you want them to have.
+   Any users or groups that match your query appear in a list
+   below the search box. Only active users and groups appear in the
+   list. 2. For the user or group that you want to grant access to the
+   dashboard, choose **Add**. Then choose the
+   level of permissions that you want them to have.
 
-    You can select **Viewer** or
-    **Co-owner**, depending on the user's
-    Quick role. The available permissions for each role
-    are as follows:
+   You can select **Viewer** or
+   **Co-owner**, depending on the user's
+   Quick role. The available permissions for each role
+   are as follows:
 
         * **Readers** –
          Quick readers can only be granted
@@ -79,13 +79,13 @@ Use the following procedure to grant access to a dashboard.
          They can view, export, and print the dashboard, but they
          can't save the dashboard as an analysis.
 
-    After you add a user or group to the dashboard, you can see
-    information about them in the **Manage
-    permissions** section, under **Users &
-    Groups**. You can see their user name, email,
-    permission level, and "save as" privileges.
+   After you add a user or group to the dashboard, you can see
+   information about them in the **Manage
+   permissions** section, under **Users &
+   Groups**. You can see their user name, email,
+   permission level, and "save as" privileges.
 
-    To allow a user or group to save the dashboard as an analysis,
-    turn on **Allow "save as"** in the
-    **Save as Analysis** column. 3. To add more users to the dashboard, enter another user email
-    or group name in the search box and repeat steps A and B.
+   To allow a user or group to save the dashboard as an analysis,
+   turn on **Allow "save as"** in the
+   **Save as Analysis** column. 3. To add more users to the dashboard, enter another user email
+   or group name in the search box and repeat steps A and B.

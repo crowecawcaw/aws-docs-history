@@ -93,73 +93,71 @@ Using builder view directly
 
 ###### To create a custom chat agent using builder mode
 
-1.  Log in to the Amazon Quick console.
-2.  From the left navigation menu, select **Chat
-    agents**, and then select **Create chat
-    agent**.
-3.  In **Agent Creator**,select
-    **Skip**. This opens up the chat agent
-    configuration page from which you can build and customize your
-    chat agent.
-4.  Add a name for your custom chat agent. This is the name that
-    your chat agent will be identified by.
-5.  (Optional) Add a description for your custom chat agent that
-    helps users understand the purpose of the chat agent.
-6.  (Optional) Select an icon for your chat agent.
-7.  In **Configure chat agent**, customize the
-    following sections:
+1. Log in to the Amazon Quick console.
+2. From the left navigation menu, select **Chat
+   agents**, and then select **Create chat
+   agent**.
+3. In **Agent Creator**,select
+   **Skip**. This opens up the chat agent
+   configuration page from which you can build and customize your
+   chat agent.
+4. Add a name for your custom chat agent. This is the name that
+   your chat agent will be identified by.
+5. (Optional) Add a description for your custom chat agent that
+   helps users understand the purpose of the chat agent.
+6. (Optional) Select an icon for your chat agent.
+7. In **Configure chat agent**, customize the
+   following sections:
 
-    1.  In **AGENT PERSONA**, configure your
-        chat agent's personality, identity, tone, and response
-        style:
+   1. In **AGENT PERSONA**, configure your
+      chat agent's personality, identity, tone, and response
+      style:
 
-        - For **Agent identity**
-          – Define the identity of your chat agent.
-          For example, you can give it instructions on what
-          it's name and personality are. Amazon Quick will
-          use defaults if left blank.
-        - For **Persona instructions**
-          – Add instructions on how your chat agent
-          interacts with users during chat. For example, you
-          can define what your chat agent's primary tasks
-          are. Amazon Quick uses these to customize your
-          chat agent's persona.
+      - For **Agent identity**
+        – Define the identity of your chat agent.
+        For example, you can give it instructions on what
+        it's name and personality are. Amazon Quick will
+        use defaults if left blank.
+      - For **Persona instructions**
+        – Add instructions on how your chat agent
+        interacts with users during chat. For example, you
+        can define what your chat agent's primary tasks
+        are. Amazon Quick uses these to customize your
+        chat agent's persona.
 
-    2.  In **Communication style**, for
-        **Pick a response style preset**
-        – Choose a response style. You can choose between
-        the following response style presets or add custom
-        instructions:
+   2. In **Communication style**, for
+      **Pick a response style preset**
+      – Choose a response style. You can choose between
+      the following response style presets or add custom
+      instructions:
 
-            * **Executive** –
-             Optimized for high-level business communication
-             and strategic insights.
-            * **Technical** –
-             Optimized for detailed technical explanations and
-             technical problem-solving.
-            * **Creative** –
-             Standard configuration for general-purpose
-             interactions.
-
+      - **Executive** –
+        Optimized for high-level business communication
+        and strategic insights.
+      - **Technical** –
+        Optimized for detailed technical explanations and
+        technical problem-solving.
+      - **Creative** –
+        Standard configuration for general-purpose
+        interactions.
         Each preset has the following settings:
 
-            * For **Tone** – Add a
-             natural language prompt to define your agent's
-             tone. Amazon Quick will use it to customize your
-             chat agent's persona.
-            * For **Response format**
-             – Add a natural language prompt to define
-             your chat agent's response style. Amazon Quick
-             will use it to customize your chat agent's
-             response style. Define the format of your chat
-             chat agent's responses, for example: "Use bullet
-             points for lists longer than 3 items".
-            * For **Length** –
-             Specify the length of your chat agent's responses.
-             Define the length of your chat agent's responses,
-             for example: "Keep answers under 100
-             words".
-
+      - For **Tone** – Add a
+        natural language prompt to define your agent's
+        tone. Amazon Quick will use it to customize your
+        chat agent's persona.
+      - For **Response format**
+        – Add a natural language prompt to define
+        your chat agent's response style. Amazon Quick
+        will use it to customize your chat agent's
+        response style. Define the format of your chat
+        chat agent's responses, for example: "Use bullet
+        points for lists longer than 3 items".
+      - For **Length** –
+        Specify the length of your chat agent's responses.
+        Define the length of your chat agent's responses,
+        for example: "Keep answers under 100
+        words".
         When you choose a preset to use, Amazon Quick
         auto-populates the **Tone**,
         **Response format**, and
@@ -168,140 +166,140 @@ Using builder view directly
         can further customize the existing prompts using natural
         language, or create new ones.
 
-    3.  In **Reference documents**, upload
-        files that remain active in your chat agent's memory to
-        guide all interactions. For more information about how
-        reference documents work with other context types, see
-        [Types of agent context](quicksuite/latest/userguide/agent-knowledge-sources-best-practices.md "quicksuite/latest/userguide/agent-knowledge-sources-best-practices.md").
+   3. In **Reference documents**, upload
+      files that remain active in your chat agent's memory to
+      guide all interactions. For more information about how
+      reference documents work with other context types, see
+      [Types of agent context](quicksuite/latest/userguide/agent-knowledge-sources-best-practices.md "quicksuite/latest/userguide/agent-knowledge-sources-best-practices.md").
 
-        - Select **Upload files** or
-          drag and drop your documents to attach files that
-          will guide your chat agent's responses.
-        - You can attach documents of .pdf, .txt, .html,
-          .md, .csv, .doc or .docx format. Upto 100,000
-          characters of text will be extracted and accepted
-          from documents uploaded.
+      - Select **Upload files** or
+        drag and drop your documents to attach files that
+        will guide your chat agent's responses.
+      - You can attach documents of .pdf, .txt, .html,
+        .md, .csv, .doc or .docx format. Upto 100,000
+        characters of text will be extracted and accepted
+        from documents uploaded.
 
-8.  (Optional) In **Knowledge sources**, choose
-    between the following options:
+8. (Optional) In **Knowledge sources**, choose
+   between the following options:
 
-    - Continue without linking knowledge sources
+   - Continue without linking knowledge sources
 
-      - Your chat agent will generate responses from
-        large language model (LLM) knowledge and all
-        Amazon Quick resources the interacting user has
-        access to. You can choose to select a specific
-        knowledge source to focus on during chat. Choose
-        this if you want to create a general purpose chat
-        chat agent.
+     - Your chat agent will generate responses from
+       large language model (LLM) knowledge and all
+       Amazon Quick resources the interacting user has
+       access to. You can choose to select a specific
+       knowledge source to focus on during chat. Choose
+       this if you want to create a general purpose chat
+       chat agent.
 
-    - To link specific existing spaces
+   - To link specific existing spaces
 
-      - Select **Link**.
-      - From the **Link spaces**
-        modal, select the spaces you want to link to your
-        chat agent, and then select
-        **Link**.
+     - Select **Link**.
+     - From the **Link spaces**
+       modal, select the spaces you want to link to your
+       chat agent, and then select
+       **Link**.
 
-      The system displays a success message to
-      denote successful linking.
+     The system displays a success message to
+     denote successful linking.
 
-      If you link a chat agent to a knowledge
-      source, your chat agent will generate responses
-      from large language model (LLM) knowledge and data
-      from linked resources only. You can add up to 1
-      more knowledge source to this chat agent as
-      temporray context during chat.
+     If you link a chat agent to a knowledge
+     source, your chat agent will generate responses
+     from large language model (LLM) knowledge and data
+     from linked resources only. You can add up to 1
+     more knowledge source to this chat agent as
+     temporray context during chat.
 
-    - To create and link a new space
+   - To create and link a new space
 
-      - Select **Create**.
-      - From the **Create space**
-        window that opens, select the assets you want to
-        add to your space and then select
-        **Create**.
+     - Select **Create**.
+     - From the **Create space**
+       window that opens, select the assets you want to
+       add to your space and then select
+       **Create**.
 
-      If you link a chat agent to a knowledge
-      source, your chat agent will generate responses
-      from large language model (LLM) knowledge and data
-      from linked resources only. You can add up to 1
-      more knowledge source to this chat agent as
-      temporray context during chat.
+     If you link a chat agent to a knowledge
+     source, your chat agent will generate responses
+     from large language model (LLM) knowledge and data
+     from linked resources only. You can add up to 1
+     more knowledge source to this chat agent as
+     temporray context during chat.
 
-      ###### Note
+     ###### Note
 
-      For more information on creating and using
-      spaces, see [Working with spaces in
-      Amazon Quick](../../../quicksuite/latest/userguide/working-with-spaces.md "../../../quicksuite/latest/userguide/working-with-spaces.md").
+     For more information on creating and using
+     spaces, see [Working with spaces in
+     Amazon Quick](../../../quicksuite/latest/userguide/working-with-spaces.md "../../../quicksuite/latest/userguide/working-with-spaces.md").
 
-      The system displays a success message to
-      denote successful space creation. Return to the
-      chat agent creation window.
-      - In the chat agent creation window, from
-        **Knowledge sources** select
-        **Link**.
-      - From the **Link spaces**
-        modal, select the space you just created, and then
-        select **Link**.
+     The system displays a success message to
+     denote successful space creation. Return to the
+     chat agent creation window.
+     - In the chat agent creation window, from
+       **Knowledge sources** select
+       **Link**.
+     - From the **Link spaces**
+       modal, select the space you just created, and then
+       select **Link**.
 
-      The system displays a success message to
-      denote successful linking.
+     The system displays a success message to
+     denote successful linking.
 
-9.  (Optional) In **Actions**, for
-    **Actions** – Choose between the
-    following options:
+9. (Optional) In **Actions**, for
+   **Actions** – Choose between the
+   following options:
 
-    - To link specific existing actions
+   - To link specific existing actions
 
-      - Select **Link**.
-      - From the **Link action
-        connectors** modal, select the action
-        connectors you want to link to your chat agent,
-        and then select **Next**.
-      - In **Actions** select the
-        actions you want to add and then select
-        **Link**.
+     - Select **Link**.
+     - From the **Link action
+       connectors** modal, select the action
+       connectors you want to link to your chat agent,
+       and then select **Next**.
+     - In **Actions** select the
+       actions you want to add and then select
+       **Link**.
 
-      The system displays a success message to
-      denote successful linking.
+     The system displays a success message to
+     denote successful linking.
 
-    - To create an action connector and link new
-      actions
+   - To create an action connector and link new
+     actions
 
-      - Select **Create**.
-      - From the **Actions** home
-        page, select **New
-        action**.
-      - From the **New action**
-        window, for **Sources** select
-        the action connector you want to add and then
-        select **Next**.
-      - In **Actions** review the
-        actions available and then select
-        **Next**.
-      - In **Connection details**,
-        enter the connection details needed and select
-        **Add**.
+     - Select **Create**.
+     - From the **Actions** home
+       page, select **New
+       action**.
+     - From the **New action**
+       window, for **Sources** select
+       the action connector you want to add and then
+       select **Next**.
+     - In **Actions** review the
+       actions available and then select
+       **Next**.
+     - In **Connection details**,
+       enter the connection details needed and select
+       **Add**.
 
-      ###### Note
+     ###### Note
 
-      For more information on creating and using
-      action connectors, see [Actions in
-      Amazon Quick](../../../quicksuite/latest/userguide/qbs-actions.md "../../../quicksuite/latest/userguide/qbs-actions.md").
+     For more information on creating and using
+     action connectors, see [Actions in
+     Amazon Quick](../../../quicksuite/latest/userguide/qbs-actions.md "../../../quicksuite/latest/userguide/qbs-actions.md").
 
-      The system displays a success message to
-      denote successful action addition. Return to the
-      chat agent creation window.
-      - In the chat agent creation window, from
-        **Actions** select
-        **Link**.
-      - From the **Link action
-        connectors** modal, select the action
-        connector you just created, and then select
-        **Link**.
+     The system displays a success message to
+     denote successful action addition. Return to the
+     chat agent creation window.
+     - In the chat agent creation window, from
+       **Actions** select
+       **Link**.
+     - From the **Link action
+       connectors** modal, select the action
+       connector you just created, and then select
+       **Link**.
 
-      The system displays a success message to
-      denote successful linking.
+     The system displays a success message to
+     denote successful linking.
 
 10. In **Customization**, do the
     following:

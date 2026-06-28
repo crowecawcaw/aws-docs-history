@@ -32,4 +32,4 @@ report on.
      your dashboard on your desktop.
 
 4. Choose **Update** to confirm your choices, or choose
-   **Cancel** to discard your changes.
+**Cancel** to discard your changes.

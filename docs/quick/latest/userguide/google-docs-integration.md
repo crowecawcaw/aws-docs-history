@@ -87,13 +87,13 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 The following scopes are requested when you connect to Google
 Docs.
 
-| Google Docs recommended scopes                   | Scope                                   | Description |
-| ------------------------------------------------ | --------------------------------------- | ----------- |
-| `https://www.googleapis.com/auth/documents`      | Reads and writes Google Docs documents. |
-| `https://www.googleapis.com/auth/drive`          | Reads and writes files in Google Drive. |
-| `https://www.googleapis.com/auth/drive.readonly` | Reads files in Google Drive.            |
-| `openid`                                         | Authenticates the user's identity.      |
-| `email`                                          | Reads the user's email address.         |
+Google Docs recommended scopes| Scope | Description |
+| --- | --- |
+| `https://www.googleapis.com/auth/documents` | Reads and writes Google Docs documents. |
+| `https://www.googleapis.com/auth/drive` | Reads and writes files in Google Drive. |
+| `https://www.googleapis.com/auth/drive.readonly` | Reads files in Google Drive. |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
 
 ###### Note
 
@@ -173,47 +173,43 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Google
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Google
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are
 available.
 
-| Google Docs available actions | Category                 | Action                                                     | Description |
-| ----------------------------- | ------------------------ | ---------------------------------------------------------- | ----------- |
-| Documents                     | Get Document             | Retrieves a document by ID.                                |
-| Documents                     | Get Document Plaintext   | Retrieves the plain text content of a<br>document.         |
-| Documents                     | Search Documents         | Searches for documents.                                    |
-| Documents                     | Create Document          | Creates a new document.                                    |
-| Documents                     | Create Document Markdown | Creates a new document from Markdown<br>content.           |
-| Documents                     | Copy Document            | Creates a copy of an existing document.                    |
-| Documents                     | Update Document          | Updates an existing document.                              |
-| Documents                     | Update Document Markdown | Updates a document with Markdown content.                  |
-| Documents                     | Update Document Section  | Updates a specific section of a document with<br>Markdown. |
-| Documents                     | Update Document Style    | Updates the style of a document.                           |
-| Documents                     | Export Pdf               | Exports a document as a PDF file.                          |
-| Content                       | Insert Text              | Inserts text at a specified location.                      |
-| Content                       | Update Text              | Replaces all occurrences of specified<br>text.             |
-| Content                       | Delete Content Range     | Deletes content within a specified range.                  |
-| Content                       | Insert Inline Image      | Inserts an inline image into a document.                   |
-| Content                       | Create Table             | Inserts a table into a document.                           |
-| Content                       | Create Paragraph Bullets | Adds bullet formatting to paragraphs.                      |
-| Content                       | Create Named Range       | Creates a named range in a document.                       |
-| Content                       | Create Page Break        | Inserts a page break.                                      |
-| Structure                     | Create Header            | Creates a header in a document.                            |
-| Structure                     | Create Footer            | Creates a footer in a document.                            |
+Google Docs available actions| Category | Action | Description |
+| --- | --- | --- |
+| Documents | Get Document | Retrieves a document by ID. |
+| Documents | Get Document Plaintext | Retrieves the plain text content of a<br>document. |
+| Documents | Search Documents | Searches for documents. |
+| Documents | Create Document | Creates a new document. |
+| Documents | Create Document Markdown | Creates a new document from Markdown<br>content. |
+| Documents | Copy Document | Creates a copy of an existing document. |
+| Documents | Update Document | Updates an existing document. |
+| Documents | Update Document Markdown | Updates a document with Markdown content. |
+| Documents | Update Document Section | Updates a specific section of a document with<br>Markdown. |
+| Documents | Update Document Style | Updates the style of a document. |
+| Documents | Export Pdf | Exports a document as a PDF file. |
+| Content | Insert Text | Inserts text at a specified location. |
+| Content | Update Text | Replaces all occurrences of specified<br>text. |
+| Content | Delete Content Range | Deletes content within a specified range. |
+| Content | Insert Inline Image | Inserts an inline image into a document. |
+| Content | Create Table | Inserts a table into a document. |
+| Content | Create Paragraph Bullets | Adds bullet formatting to paragraphs. |
+| Content | Create Named Range | Creates a named range in a document. |
+| Content | Create Page Break | Inserts a page break. |
+| Structure | Create Header | Creates a header in a document. |
+| Structure | Create Footer | Creates a footer in a document. |
 
 ###### Note
 

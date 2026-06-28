@@ -43,7 +43,7 @@ Atlassian Developer Console before you configure Amazon Quick.
 3. For **Name**, enter a descriptive name for your
    integration, for example
    ``your-app-name`
-   connector`.
+ connector`.
 4. Review and accept the Atlassian developer terms.
 5. Choose **Create**.
 
@@ -82,14 +82,14 @@ integration.
 On the **Classic scopes** tab, choose
 **Edit Scopes** and select the following scopes.
 
-| Jira action integration – classic scopes | Scope                                                                                                                             | Description |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `read:jira-work`                         | Read Jira project and issue data, search for issues, and<br>objects associated with issues like attachments and<br>worklogs.      |
-| `manage:jira-project`                    | Create and edit project settings and create new<br>project-level objects (for example, versions and<br>components).               |
-| `manage:jira-configuration`              | Take Jira administration actions (for example, create<br>projects and custom fields, view workflows, manage issue link<br>types). |
-| `read:jira-user`                         | View user information in Jira that the user has access to,<br>including usernames, email addresses, and avatars.                  |
-| `write:jira-work`                        | Create and edit issues in Jira, post comments as the user,<br>create worklogs, and delete issues.                                 |
-| `manage:jira-webhook`                    | Fetch, register, refresh, and delete dynamically declared<br>Jira webhooks.                                                       |
+Jira action integration – classic scopes| Scope | Description |
+| --- | --- |
+| `read:jira-work` | Read Jira project and issue data, search for issues, and<br>objects associated with issues like attachments and<br>worklogs. |
+| `manage:jira-project` | Create and edit project settings and create new<br>project-level objects (for example, versions and<br>components). |
+| `manage:jira-configuration` | Take Jira administration actions (for example, create<br>projects and custom fields, view workflows, manage issue link<br>types). |
+| `read:jira-user` | View user information in Jira that the user has access to,<br>including usernames, email addresses, and avatars. |
+| `write:jira-work` | Create and edit issues in Jira, post comments as the user,<br>create worklogs, and delete issues. |
+| `manage:jira-webhook` | Fetch, register, refresh, and delete dynamically declared<br>Jira webhooks. |
 
 **Granular scopes**
 
@@ -98,14 +98,14 @@ Choose the **Granular scopes** tab, then choose
 below. For example, search for `sprint:jira-software` to find
 sprint-related scopes.
 
-| Jira action integration – granular scopes | Scope                        | Description |
-| ----------------------------------------- | ---------------------------- | ----------- |
-| `read:board-scope:jira-software`          | Read board configurations.   |
-| `read:sprint:jira-software`               | Read sprint information.     |
-| `write:sprint:jira-software`              | Create and modify sprints.   |
-| `delete:sprint:jira-software`             | Delete sprints.              |
-| `write:board-scope:jira-software`         | Manage board configurations. |
-| `read:project:jira`                       | Read project details.        |
+Jira action integration – granular scopes| Scope | Description |
+| --- | --- |
+| `read:board-scope:jira-software` | Read board configurations. |
+| `read:sprint:jira-software` | Read sprint information. |
+| `write:sprint:jira-software` | Create and modify sprints. |
+| `delete:sprint:jira-software` | Delete sprints. |
+| `write:board-scope:jira-software` | Manage board configurations. |
+| `read:project:jira` | Read project details. |
 
 ### Configure authorization
 
@@ -134,10 +134,10 @@ the following values. You need them for the Amazon Quick configuration.
    **Client ID** and **Secret**
    values.
 
-| Required credentials from Atlassian Developer Console | Value                                       | Where to find it |
-| ----------------------------------------------------- | ------------------------------------------- | ---------------- |
-| Client ID                                             | Settings page, under Authentication details |
-| Secret                                                | Settings page, under Authentication details |
+Required credentials from Atlassian Developer Console| Value | Where to find it |
+| --- | --- |
+| Client ID | Settings page, under Authentication details |
+| Secret | Settings page, under Authentication details |
 
 ## Set up the integration in Amazon Quick
 
@@ -167,8 +167,8 @@ Amazon Quick.
         for API calls. This is not the same URL that users log into.
         It resembles the following:
         `https://api.atlassian.com/ex/jira/`yourInstanceId``.
-To find your instance ID, navigate to
-`https://`your-domain`.atlassian.net/\_edge/tenant_info`.
+        To find your instance ID, navigate to
+        `https://`your-domain`.atlassian.net/_edge/tenant_info`.
       - **Client ID** – Client ID from the Settings page of your Atlassian OAuth app.
       - **Client secret** – Secret from the Settings page of your Atlassian OAuth app.
       - **Token URL** –
@@ -200,37 +200,37 @@ valid and has not been revoked.
 
 After you set up the integration, the following actions are available.
 
-| Jira Cloud available actions   | Action                                 | Description |
-| ------------------------------ | -------------------------------------- | ----------- |
-| Add Attachment                 | Add an attachment to an issue.         |
-| Add Comment                    | Add new comment.                       |
-| Change Issue Status            | Change task status of an issue.        |
-| Create Issue                   | Create new issue or subtask.           |
-| Create Project                 | Create new project.                    |
-| Create Sprint                  | Create a sprint in a project.          |
-| Delete Comment                 | Remove comment.                        |
-| Delete Issue                   | Delete an issue in a project.          |
-| Delete Project                 | Remove project.                        |
-| Delete Sprint                  | Delete a sprint in a project.          |
-| Edit Issue                     | Modify issue.                          |
-| Find Users                     | Search for a Jira user.                |
-| Get All Labels                 | View all labels.                       |
-| Get All Users                  | List all Jira users.                   |
-| Get Attachment Content         | View the contents of an attachment.    |
-| Get Comments                   | View issue comments.                   |
-| Get Issue                      | View details of an issue in a project. |
-| Get Issue Types For Project    | View project issue types.              |
-| Get Priorities                 | View issue priorities.                 |
-| Get Project                    | View project details.                  |
-| Get Sprint                     | View details of a sprint in a project. |
-| Move Issues to Backlog         | Move issues to backlog.                |
-| Move Issues To Sprint And Rank | Assign an issue to a sprint.           |
-| Search Issues                  | Search for issues.                     |
-| Search Projects                | Find visible projects.                 |
-| Search Statuses                | Search issue statuses.                 |
-| Update Comment                 | Edit comment.                          |
-| Update Project                 | Modify project.                        |
-| Update Sprint                  | Update sprint details.                 |
+Jira Cloud available actions| Action | Description |
+| --- | --- |
+| Add Attachment | Add an attachment to an issue. |
+| Add Comment | Add new comment. |
+| Change Issue Status | Change task status of an issue. |
+| Create Issue | Create new issue or subtask. |
+| Create Project | Create new project. |
+| Create Sprint | Create a sprint in a project. |
+| Delete Comment | Remove comment. |
+| Delete Issue | Delete an issue in a project. |
+| Delete Project | Remove project. |
+| Delete Sprint | Delete a sprint in a project. |
+| Edit Issue | Modify issue. |
+| Find Users | Search for a Jira user. |
+| Get All Labels | View all labels. |
+| Get All Users | List all Jira users. |
+| Get Attachment Content | View the contents of an attachment. |
+| Get Comments | View issue comments. |
+| Get Issue | View details of an issue in a project. |
+| Get Issue Types For Project | View project issue types. |
+| Get Priorities | View issue priorities. |
+| Get Project | View project details. |
+| Get Sprint | View details of a sprint in a project. |
+| Move Issues to Backlog | Move issues to backlog. |
+| Move Issues To Sprint And Rank | Assign an issue to a sprint. |
+| Search Issues | Search for issues. |
+| Search Projects | Find visible projects. |
+| Search Statuses | Search issue statuses. |
+| Update Comment | Edit comment. |
+| Update Project | Modify project. |
+| Update Sprint | Update sprint details. |
 
 ###### Note
 
@@ -255,17 +255,17 @@ To edit, share, or delete your integration, see [Managing existing integrations]
   API calls is not the same as the Jira Cloud login URL. Verify you are
   using the API URL format:
   `https://api.atlassian.com/ex/jira/`yourInstanceId``.
-To find your instance ID, navigate to
-`https://`your-domain`.atlassian.net/\_edge/tenant_info`.
+  To find your instance ID, navigate to
+  `https://`your-domain`.atlassian.net/_edge/tenant_info`.
 
 ### Common error messages
 
 - **`Access denied. You do not have permission
-to perform this action`** – The authenticated user
+ to perform this action`** – The authenticated user
   does not have the required permissions in Jira Cloud. Contact your Jira
   Cloud administrator to verify and grant appropriate
   permissions.
 - **`OAuth 2.0 authorization
-failed`** – Verify the client ID, client secret,
+ failed`** – Verify the client ID, client secret,
   and OAuth scopes are configured correctly in both the Atlassian Developer
   Console and Amazon Quick.

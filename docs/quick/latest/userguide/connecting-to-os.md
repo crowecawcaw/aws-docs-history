@@ -71,7 +71,7 @@ active users in Quick Sight before you can add them.
 
 1. Choose **Data** at left, then scroll down to find the
    data source card for your Amazon OpenSearch Service connection. An example might be `US
-Amazon OpenSearch Service Data`.
+ Amazon OpenSearch Service Data`.
 2. Choose the **Amazon OpenSearch** dataset.
 3. On the dataset details page that opens, choose the
    **Permissions** tab.
@@ -85,17 +85,16 @@ then follow these steps:
      them.
 
 5. (Optional) To edit permissions, you can choose **Viewer**
-   or **Owner**.
+or **Owner**.
 
-   - Choose **Viewer** to allow read access.
-   - Choose **Owner** to allow that user to edit,
+    * Choose **Viewer** to allow read access.
+    * Choose **Owner** to allow that user to edit,
      share, or delete this Quick Sight dataset.
 
 6. (Optional) To revoke permissions, choose **Revoke
-   access**. After you revoke someone's access, they can't
-   create new datasets from this data source. However, their existing datasets
-   still have access to this data source.
-7. When you are finished, choose **Close**.
+access**. After you revoke someone's access, they can't
+create new datasets from this data source. However, their existing datasets
+still have access to this data source. 7. When you are finished, choose **Close**.
 
 ## Adding a new Quick Sight dataset for OpenSearch Service
 

@@ -8,8 +8,6 @@ Amazon Quick supports multiple connector types, each with specific actions avail
   Adobe Experience Platform marketing data and AI-powered marketing
   capabilities.
 - **Airtable** - Create and update records, manage bases and tables, filter views, and perform relational data operations.
-- **Amplitude** - Query product
-  analytics, retrieve event data, and analyze user behavior.
 - **Asana** - Manage tasks, workspace operations, and project handling.
 - **Atlassian Confluence Cloud** - Create, update, and manage pages, spaces, and other Confluence objects.
 - **Atlassian Jira Cloud** - Create issues, update tickets, search projects, manage workflows.
@@ -90,74 +88,73 @@ Amazon Quick supports multiple connector types, each with specific actions avail
 
 The following table shows which Amazon Quick features each action connector type supports:
 
-| Action Connector Feature Compatibility | Action Connector | Chat Agents | Flows | Dashboard Visuals | Dashboard Alerts | Automations | Companions |
-| -------------------------------------- | ---------------- | ----------- | ----- | ----------------- | ---------------- | ----------- | ---------- |
-| **AWS Built-in Services**              |
-| AWS Bedrock Agent Runtime              | —                | —           | —     | —                 | ✓                | —           |
-| AWS Bedrock Data Automation Runtime    | —                | —           | —     | —                 | ✓                | —           |
-| AWS Bedrock Runtime                    | —                | —           | —     | —                 | ✓                | —           |
-| Amazon Comprehend                      | —                | —           | —     | —                 | ✓                | —           |
-| Amazon Comprehend Medical              | —                | —           | —     | —                 | —                | —           |
-| Amazon S3                              | —                | —           | —     | —                 | ✓                | —           |
-| Amazon Textract                        | —                | —           | —     | —                 | ✓                | —           |
-| **External Service Connectors**        |
-| Adobe Marketing Agent                  | ✓                | ✓           | —     | —                 | —                | —           |
-| Airtable                               | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Amplitude                              | ✓                | ✓           | —     | —                 | —                | —           |
-| Asana                                  | ✓                | ✓           | —     | —                 | —                | ✓           |
-| Atlassian Confluence Cloud             | ✓                | ✓           | —     | —                 | ✓                | ✓           |
-| Atlassian Jira Cloud                   | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
-| BambooHR                               | ✓                | ✓           | —     | —                 | —                | ✓           |
-| Box                                    | ✓                | ✓           | —     | —                 | —                | —           |
-| Canva                                  | ✓                | ✓           | —     | —                 | —                | —           |
-| Cisco Webex Meetings                   | ✓                | ✓           | —     | —                 | —                | —           |
-| Cisco Webex Video Messaging            | ✓                | ✓           | —     | —                 | —                | —           |
-| Dropbox                                | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Dun & Bradstreet                       | ✓                | ✓           | —     | —                 | —                | —           |
-| Figma                                  | ✓                | ✓           | —     | —                 | —                | —           |
-| GitHub                                 | ✓                | ✓           | —     | —                 | —                | —           |
-| Gmail                                  | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Google Analytics                       | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Google Calendar                        | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Google Chat                            | ✓                | ✓           | —     | —                 | —                | —           |
-| Google Docs                            | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Google Drive                           | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Google Meet                            | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Google Sheets                          | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Google Slides                          | ✓                | ✓           | ✓     | —                 | —                | —           |
-| HG Insights                            | ✓                | ✓           | —     | —                 | —                | —           |
-| HubSpot                                | ✓                | ✓           | —     | —                 | —                | —           |
-| HuggingFace                            | ✓                | ✓           | —     | —                 | —                | —           |
-| Intercom                               | ✓                | ✓           | —     | —                 | —                | —           |
-| Linear                                 | ✓                | ✓           | —     | —                 | —                | —           |
-| Microsoft OneDrive                     | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
-| Microsoft OneNote                      | ✓                | ✓           | —     | —                 | —                | —           |
-| Microsoft Outlook                      | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
-| Microsoft SharePoint                   | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
-| Microsoft Teams                        | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
-| Monday.com                             | ✓                | ✓           | —     | —                 | —                | —           |
-| Moodys GenAI Ready Data                | ✓                | ✓           | —     | —                 | —                | —           |
-| New Relic                              | ✓                | ✓           | —     | —                 | —                | —           |
-| Notion                                 | ✓                | ✓           | —     | —                 | —                | —           |
-| PagerDuty                              | ✓                | ✓           | —     | —                 | ✓                | ✓           |
-| QuickBooks                             | ✓                | ✓           | ✓     | —                 | —                | —           |
-| Salesforce                             | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
-| SAP                                    | ✓                | —           | —     | —                 | ✓                | ✓           |
-| ServiceNow                             | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
-| Shopify                                | ✓                | ✓           | —     | —                 | —                | —           |
-| Slack                                  | ✓                | ✓           | ✓     | —                 | —                | ✓           |
-| Smartsheet                             | ✓                | ✓           | —     | —                 | —                | ✓           |
-| Snowflake Cortex Agent                 | ✓                | ✓           | —     | —                 | —                | —           |
-| Visier Agent                           | ✓                | ✓           | —     | —                 | —                | —           |
-| WhatsApp                               | ✓                | ✓           | —     | —                 | —                | —           |
-| Zapier                                 | ✓                | ✓           | —     | —                 | —                | —           |
-| Zendesk                                | ✓                | ✓           | —     | —                 | —                | ✓           |
-| Zoom                                   | ✓                | ✓           | ✓     | —                 | —                | —           |
-| ZoomInfo                               | ✓                | ✓           | —     | —                 | —                | —           |
-| **Custom Connector Types**             |
-| Model Context Protocol (MCP)           | ✓                | ✓           | —     | —                 | ✓                | —           |
-| OpenAPI                                | ✓                | ✓           | —     | —                 | —                | —           |
-| REST API                               | —                | —           | —     | —                 | ✓                | —           |
+Action Connector Feature Compatibility| Action Connector | Chat Agents | Flows | Dashboard Visuals | Dashboard Alerts | Automations | Companions |
+| --- | --- | --- | --- | --- | --- | --- |
+| **AWS Built-in Services** |
+| AWS Bedrock Agent Runtime | — | — | — | — | ✓ | — |
+| AWS Bedrock Data Automation Runtime | — | — | — | — | ✓ | — |
+| AWS Bedrock Runtime | — | — | — | — | ✓ | — |
+| Amazon Comprehend | — | — | — | — | ✓ | — |
+| Amazon Comprehend Medical | — | — | — | — | — | — |
+| Amazon S3 | — | — | — | — | ✓ | — |
+| Amazon Textract | — | — | — | — | ✓ | — |
+| **External Service Connectors** |
+| Adobe Marketing Agent | ✓ | ✓ | — | — | — | — |
+| Airtable | ✓ | ✓ | ✓ | — | — | — |
+| Asana | ✓ | ✓ | — | — | — | ✓ |
+| Atlassian Confluence Cloud | ✓ | ✓ | — | — | ✓ | ✓ |
+| Atlassian Jira Cloud | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| BambooHR | ✓ | ✓ | — | — | — | ✓ |
+| Box | ✓ | ✓ | — | — | — | — |
+| Canva | ✓ | ✓ | — | — | — | — |
+| Cisco Webex Meetings | ✓ | ✓ | — | — | — | — |
+| Cisco Webex Video Messaging | ✓ | ✓ | — | — | — | — |
+| Dropbox | ✓ | ✓ | ✓ | — | — | — |
+| Dun & Bradstreet | ✓ | ✓ | — | — | — | — |
+| Figma | ✓ | ✓ | — | — | — | — |
+| GitHub | ✓ | ✓ | — | — | — | — |
+| Gmail | ✓ | ✓ | ✓ | — | — | — |
+| Google Analytics | ✓ | ✓ | ✓ | — | — | — |
+| Google Calendar | ✓ | ✓ | ✓ | — | — | — |
+| Google Chat | ✓ | ✓ | — | — | — | — |
+| Google Docs | ✓ | ✓ | ✓ | — | — | — |
+| Google Drive | ✓ | ✓ | ✓ | — | — | — |
+| Google Meet | ✓ | ✓ | ✓ | — | — | — |
+| Google Sheets | ✓ | ✓ | ✓ | — | — | — |
+| Google Slides | ✓ | ✓ | ✓ | — | — | — |
+| HG Insights | ✓ | ✓ | — | — | — | — |
+| HubSpot | ✓ | ✓ | — | — | — | — |
+| HuggingFace | ✓ | ✓ | — | — | — | — |
+| Intercom | ✓ | ✓ | — | — | — | — |
+| Linear | ✓ | ✓ | — | — | — | — |
+| Microsoft OneDrive | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Microsoft OneNote | ✓ | ✓ | — | — | — | — |
+| Microsoft Outlook | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Microsoft SharePoint | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Microsoft Teams | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Monday.com | ✓ | ✓ | — | — | — | — |
+| Moodys GenAI Ready Data | ✓ | ✓ | — | — | — | — |
+| New Relic | ✓ | ✓ | — | — | — | — |
+| Notion | ✓ | ✓ | — | — | — | — |
+| PagerDuty | ✓ | ✓ | — | — | ✓ | ✓ |
+| QuickBooks | ✓ | ✓ | ✓ | — | — | — |
+| Salesforce | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| SAP | ✓ | — | — | — | ✓ | ✓ |
+| ServiceNow | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Shopify | ✓ | ✓ | — | — | — | — |
+| Slack | ✓ | ✓ | ✓ | — | — | ✓ |
+| Smartsheet | ✓ | ✓ | — | — | — | ✓ |
+| Snowflake Cortex Agent | ✓ | ✓ | — | — | — | — |
+| Visier Agent | ✓ | ✓ | — | — | — | — |
+| WhatsApp | ✓ | ✓ | — | — | — | — |
+| Zapier | ✓ | ✓ | — | — | — | — |
+| Zendesk | ✓ | ✓ | — | — | — | ✓ |
+| Zoom | ✓ | ✓ | ✓ | — | — | — |
+| ZoomInfo | ✓ | ✓ | — | — | — | — |
+| **Custom Connector Types** |
+| Model Context Protocol (MCP) | ✓ | ✓ | — | — | ✓ | — |
+| OpenAPI | ✓ | ✓ | — | — | — | — |
+| REST API | — | — | — | — | ✓ | — |
 
 **Authentication Support:**
 

@@ -1,8 +1,8 @@
 # Working with Amazon Quick Sight Topics
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 |                                                               |
 | ------------------------------------------------------------- |

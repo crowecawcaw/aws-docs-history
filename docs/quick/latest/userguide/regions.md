@@ -117,12 +117,12 @@ AWS regions for Amazon Quick](../../../quicksight/latest/user/regions-aqs.md "..
 
 The following table summarizes the supported geographies and their inference regions for Amazon Quick cross-Region inference.
 
-| Supported Amazon Quick cross-Region inference geographies | Supported Amazon Quick geography                                                                 | Inference regions |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------- |
-| United States                                             | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)  |
-| Europe                                                    | Europe (Frankfurt) (eu-central-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (London) (eu-west-2) |
-| Australia                                                 | Asia Pacific (Sydney) (ap-southeast-2)<br>Asia Pacific (Melbourne) (ap-southeast-4)              |
-| Japan                                                     | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3)                   |
+Supported Amazon Quick cross-Region inference geographies| Supported Amazon Quick geography | Inference regions |
+| --- | --- |
+| United States | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2) |
+| Europe | Europe (Frankfurt) (eu-central-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (London) (eu-west-2) |
+| Australia | Asia Pacific (Sydney) (ap-southeast-2)<br>Asia Pacific (Melbourne) (ap-southeast-4) |
+| Japan | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3) |
 
 The following table shows the detailed per-Region inference routing.
 

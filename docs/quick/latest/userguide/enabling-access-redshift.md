@@ -1,8 +1,8 @@
 # Authorizing connections from Amazon Quick Sight to Amazon Redshift clusters
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 |                                             |
 | ------------------------------------------- |
@@ -136,9 +136,9 @@ choose **Create data source**.
 
 ## Manually enabling access to an Amazon Redshift cluster in a VPC
 
-|                                            |
-| ------------------------------------------ |
-| \*_Applies<br>to:_<br>• Enterprise Edition |
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
 
 Use the following procedure to enable Amazon Quick Sight access to an Amazon Redshift cluster in a
 VPC.
@@ -178,9 +178,8 @@ Your new security group should appear on the screen. 9. Create a second security
     * For **VPC**, choose the VPC for your Amazon Redshift
      cluster. This is the VPC with the VPC ID that you noted.
 
-10. Choose **Create security group**.
-11. After you create the new security groups, create inbound rules for the new
-    groups.
+10. Choose **Create security group**. 11. After you create the new security groups, create inbound rules for the new
+groups.
 
 Choose the new `redshift-security-group` security group, and
 input the following values.
@@ -196,59 +195,53 @@ input the following values.
      `quicksight-security-group`.
 
 12. Choose **Save rules** to save your new inbound
-    rule.
-13. Repeat the previous step for `quicksight-security-group` and
-    enter the following values.
+rule. 13. Repeat the previous step for `quicksight-security-group` and
+enter the following values.
 
-    - For **Type**, choose **All
-      traffic**.
-    - For **Protocol**, choose
-      **All**.
-    - For **Port Range**, choose
-      **All**.
-    - For **Source**, enter the security group ID of
-      `redshift-security-group`.
+    * For **Type**, choose **All
+     traffic**.
+    * For **Protocol**, choose
+     **All**.
+    * For **Port Range**, choose
+     **All**.
+    * For **Source**, enter the security group ID of
+     `redshift-security-group`.
 
 14. Choose **Save rules** to save your new inbound
-    rule.
-15. In Amazon Quick, navigate to the **Manage Amazon Quick**
-    menu.
-16. Choose **Manage VPC connections**, and then choose
-    **Add VPC connection**.
-17. Configure the new VPC connection with the following values.
+rule. 15. In Amazon Quick, navigate to the **Manage Amazon Quick**
+menu. 16. Choose **Manage VPC connections**, and then choose
+**Add VPC connection**. 17. Configure the new VPC connection with the following values.
 
-    - For **VPC connection name**, choose a meaningful
-      name for the VPC connection.
-    - For **VPC ID**, choose the VPC in which the Amazon Redshift
-      cluster exists.
-    - For **Subnet ID**, choose the subnet for the
-      Availability Zone (AZ) that is used for Amazon Redshift.
-    - For **Security group id**, copy and paste the
-      security group ID for `quicksight-security-group`.
+    * For **VPC connection name**, choose a meaningful
+     name for the VPC connection.
+    * For **VPC ID**, choose the VPC in which the Amazon Redshift
+     cluster exists.
+    * For **Subnet ID**, choose the subnet for the
+     Availability Zone (AZ) that is used for Amazon Redshift.
+    * For **Security group id**, copy and paste the
+     security group ID for `quicksight-security-group`.
 
 18. Choose **Create**. It might take several minutes for the
-    new VPC to generate.
-19. In the Amazon Redshift console, navigate to the Amazon Redshift cluster that
-    `redshift-security-group` is configured to. Choose
-    **Properties**. under**Network and security
-    settings**, enter the name of the security group.
-20. In Amazon Quick, choose **Datasets**, and then choose
-    **New dataset**. Create a new dataset with the
-    following values.
+new VPC to generate. 19. In the Amazon Redshift console, navigate to the Amazon Redshift cluster that
+`redshift-security-group` is configured to. Choose
+**Properties**. under**Network and security
+settings**, enter the name of the security group. 20. In Amazon Quick, choose **Datasets**, and then choose
+**New dataset**. Create a new dataset with the
+following values.
 
-    - For **Data source**, choose **Amazon Redshift
-      Auto-discovered**.
-    - Give the data source a meaningful name.
-    - The instance ID should auto populate with the VPC connection that
-      you created in Amazon Quick. If the instance ID doesn't auto
-      populate, choose the VPC that you created from the dropdown
-      list.
-    - Enter the database credentials. If your Amazon Quick account uses
-      trusted identity propagation, choose **Single
-      sign-on**.
+    * For **Data source**, choose **Amazon Redshift
+     Auto-discovered**.
+    * Give the data source a meaningful name.
+    * The instance ID should auto populate with the VPC connection that
+     you created in Amazon Quick. If the instance ID doesn't auto
+     populate, choose the VPC that you created from the dropdown
+     list.
+    * Enter the database credentials. If your Amazon Quick account uses
+     trusted identity propagation, choose **Single
+     sign-on**.
 
 21. Validate the connection, and then choose **Create data
-    source**.
+source**.
 
 If you want to restrict the default outbound rules further, update the outbound
 rule of `quicksight-security-group` to allow only Amazon Redshift traffic to

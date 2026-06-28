@@ -58,7 +58,7 @@ when you save a theme. 3. Choose **Edit** from the application bar, and then cho
      Amazon Quick Sight.
 
 5. Each theme has context menu that you can access from the
-   **…** icon.
+**…** icon.
 
 The actions that are available to you on each theme depend on your level of
 access.
@@ -120,11 +120,11 @@ access.
     	 see the **Theme** panel.
 
 6. To explore a theme's settings, choose the icons on the left to see settings
-   for colors.
-   The following procedure walks you through creating a theme. You can start on the
-   analysis, or a copy of the analysis, that you want to use to preview the colors. Or you
-   can start a new analysis. After you save the theme, you can apply it to the current
-   analysis or to other analyses. If you share it, other people can use it too.
+for colors.
+The following procedure walks you through creating a theme. You can start on the
+analysis, or a copy of the analysis, that you want to use to preview the colors. Or you
+can start a new analysis. After you save the theme, you can apply it to the current
+analysis or to other analyses. If you share it, other people can use it too.
 
 ###### To use the theme editor
 

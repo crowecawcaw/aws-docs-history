@@ -16,31 +16,30 @@ a pixel perfect report.
 
 ###### To create a pixel perfect report from a new analysis
 
-1.  On the Quick homepage, choose **Analyses**,
-    and then choose **New analysis**.
-2.  Choose the dataset that you want to include in your new analysis, and then
-    choose **USE IN ANALYSIS** in the top right.
-3.  In the **New sheet** pop-up that appears, choose
-    **Pixel perfect report**.
-4.  (Optional) Choose the paper size that you want for your pixel perfect report.
-    You can choose from the following options:
+1. On the Quick homepage, choose **Analyses**,
+   and then choose **New analysis**.
+2. Choose the dataset that you want to include in your new analysis, and then
+   choose **USE IN ANALYSIS** in the top right.
+3. In the **New sheet** pop-up that appears, choose
+   **Pixel perfect report**.
+4. (Optional) Choose the paper size that you want for your pixel perfect report.
+   You can choose from the following options:
 
-        * US letter (8.5 x 11 in.)
-        * US legal (8.5 x 14 in.)
-        * A0 (841 x 1189 mm)
-        * A1 (594 x 841 mm)
-        * A2 (420 x 594 mm)
-        * A3 (297 x 420 mm)
-        * A4 (210 x 297 mm)
-        * A5 (148 x 210 mm)
-        * Japan B4 (257 x 364 mm)
-        * Japan B5 (182 x 257 mm)
+   - US letter (8.5 x 11 in.)
+   - US legal (8.5 x 14 in.)
+   - A0 (841 x 1189 mm)
+   - A1 (594 x 841 mm)
+   - A2 (420 x 594 mm)
+   - A3 (297 x 420 mm)
+   - A4 (210 x 297 mm)
+   - A5 (148 x 210 mm)
+   - Japan B4 (257 x 364 mm)
+   - Japan B5 (182 x 257 mm)
+     The default paper size is US letter (8.5 x 11 in.)
 
-    The default paper size is US letter (8.5 x 11 in.)
-
-5.  (Optional) Choose between a portrait and landscape arrangement for the
-    sheet. The default option is portrait.
-6.  Choose **ADD**.
+5. (Optional) Choose between a portrait and landscape arrangement for the
+   sheet. The default option is portrait.
+6. Choose **ADD**.
 
 If you want to create a new pixel perfect report in an existing analysis, choose the
 plus sign (+) icon to the right of the sheet tabs in your analysis and follow steps

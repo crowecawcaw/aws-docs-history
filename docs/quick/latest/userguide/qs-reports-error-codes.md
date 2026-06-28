@@ -6,19 +6,19 @@ occur. Quick Sight provides error codes that can help you understand why the err
 occurred and provide guidance to troubleshoot the issue. The following table lists the
 error codes that Quick Sight returns when a PDF export job fails.
 
-| Error code                               | Guidance                                                                                                                                     |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_DATAPREP_SYNTAX                  | Check the syntax for your calculated fields, and try again.                                                                                  |
-| POST_AGGREGATED_METRIC_AS_DIMENSION      | Aggregated metrics/operands can't be used as visual's<br>grouping dimensions. Choose a valid visual's grouping dimensions,<br>and try again. |
-| SPICE_TABLE_NOT_FOUND                    | The dataset has been deleted or is unavailable. Import a valid<br>dataset, and try again.                                                    |
-| FIELD_NOT_FOUND                          | A field is no longer available. Update or replace the missing fields<br>in this dataset, and try again.                                      |
-| FIELD_ACCESS_DENIED                      | You don't have access to some fields in this dataset. Request<br>access, and try again.                                                      |
-| PERMISSIONS_DATASET_INVALID_COLUMN_VALUE | An invalid row level permission column value was found. Check your<br>parent dataset rules, and try again.                                   |
-| COLUMN_NOT_FOUND                         | Replace the missing columns in your filters or parameters, and try<br>again.                                                                 |
-| INVALID_COLUMN_TYPE                      | Some fields' data types have been changed and can not be<br>automatically updated. Adjust these fields in your dataset, and try<br>again.    |
-| PERMISSIONS_DATASET_USER_DENIED          | You don't have access to this dataset. Request access to this<br>dataset, and try again.                                                     |
-| DATA_SOURCE_TIMEOUT                      | Your query has timed out. Reduce the amount of data, or import the<br>data into SPICE, and try again.                                        |
-| MAX_PAGE_EXCEEDED_ERROR                  | Your file is ready but content is not complete. PDFs have a 1,000<br>page limit. Choose a shorter PDF, and try again.                        |
-| INSUFFICIENT_BODY_HEIGHT_ERROR           | Adjust the header and footer to be less than the page height, and try<br>again.                                                              |
-| FIRST_PAGE_HEIGHT_TOO_SMALL_ERROR        | Adjust sections to make room for your tables, and try again.                                                                                 |
-| INTERNAL_ERROR                           | We can't create your PDF right now. Wait a few minutes, and try<br>again.                                                                    |
+| Error code                                   | Guidance                                                                                                                                     |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_DATAPREP\_SYNTAX                    | Check the syntax for your calculated fields, and try again.                                                                                  |
+| POST\_AGGREGATED\_METRIC\_AS\_DIMENSION      | Aggregated metrics/operands can't be used as visual's<br>grouping dimensions. Choose a valid visual's grouping dimensions,<br>and try again. |
+| SPICE\_TABLE\_NOT\_FOUND                     | The dataset has been deleted or is unavailable. Import a valid<br>dataset, and try again.                                                    |
+| FIELD\_NOT\_FOUND                            | A field is no longer available. Update or replace the missing fields<br>in this dataset, and try again.                                      |
+| FIELD\_ACCESS\_DENIED                        | You don't have access to some fields in this dataset. Request<br>access, and try again.                                                      |
+| PERMISSIONS\_DATASET\_INVALID\_COLUMN\_VALUE | An invalid row level permission column value was found. Check your<br>parent dataset rules, and try again.                                   |
+| COLUMN\_NOT\_FOUND                           | Replace the missing columns in your filters or parameters, and try<br>again.                                                                 |
+| INVALID\_COLUMN\_TYPE                        | Some fields' data types have been changed and can not be<br>automatically updated. Adjust these fields in your dataset, and try<br>again.    |
+| PERMISSIONS\_DATASET\_USER\_DENIED           | You don't have access to this dataset. Request access to this<br>dataset, and try again.                                                     |
+| DATA\_SOURCE\_TIMEOUT                        | Your query has timed out. Reduce the amount of data, or import the<br>data into SPICE, and try again.                                        |
+| MAX\_PAGE\_EXCEEDED\_ERROR                   | Your file is ready but content is not complete. PDFs have a 1,000<br>page limit. Choose a shorter PDF, and try again.                        |
+| INSUFFICIENT\_BODY\_HEIGHT\_ERROR            | Adjust the header and footer to be less than the page height, and try<br>again.                                                              |
+| FIRST\_PAGE\_HEIGHT\_TOO\_SMALL\_ERROR       | Adjust sections to make room for your tables, and try again.                                                                                 |
+| INTERNAL\_ERROR                              | We can't create your PDF right now. Wait a few minutes, and try<br>again.                                                                    |

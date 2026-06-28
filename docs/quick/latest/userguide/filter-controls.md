@@ -89,40 +89,38 @@ customize the remaining options.
 
 ###### To customize further options for a date filter
 
-1.  In the **Format control** pane, for
-    **Style**, choose one of the following options:
+1. In the **Format control** pane, for
+   **Style**, choose one of the following options:
 
-        * **Date picker – range** – Displays
-         a set of two fields to define a time range. You can enter a date or
-         time, or you can choose a date from the calendar control. You can
-         also customize how you want the dates to appear in the control by
-         entering a date token for **Date format**. For more
-         information, see [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
-        * **Date picker – relative** –
-         Displays settings like the time period, its relation to the current
-         date and time, and the option to exclude time periods. You can also
-         customize how you want the dates to appear in the control by
-         entering a date token for **Date format**. For more
-         information, see [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
-        * **Text field** – Displays a box where you
-         can enter the top or bottom *N*
-         date.
+   - **Date picker – range** – Displays
+     a set of two fields to define a time range. You can enter a date or
+     time, or you can choose a date from the calendar control. You can
+     also customize how you want the dates to appear in the control by
+     entering a date token for **Date format**. For more
+     information, see [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
+   - **Date picker – relative** –
+     Displays settings like the time period, its relation to the current
+     date and time, and the option to exclude time periods. You can also
+     customize how you want the dates to appear in the control by
+     entering a date token for **Date format**. For more
+     information, see [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
+   - **Text field** – Displays a box where you
+     can enter the top or bottom _N_
+     date.
 
+   Helper text is included in the text field control by default, but
+   you can choose to remove it by clearing the **Show helper
+   text in control** option.
+   By default, Quick visuals are reloaded whenever a change is
+   made to a control. For Calendar and Relative date picker controls, authors
+   can add an **Apply** button to a control that delays visual
+   reload until the user chooses **Apply**. This allows users
+   to make multiple changes at a time without additional queries. This setting
+   can be configured with the **Show an apply button**
+   checkbox in the **Control options** section of the
+   **Format control** pane.
 
-        Helper text is included in the text field control by default, but
-         you can choose to remove it by clearing the **Show helper
-         text in control** option.
-
-    By default, Quick visuals are reloaded whenever a change is
-    made to a control. For Calendar and Relative date picker controls, authors
-    can add an **Apply** button to a control that delays visual
-    reload until the user chooses **Apply**. This allows users
-    to make multiple changes at a time without additional queries. This setting
-    can be configured with the **Show an apply button**
-    checkbox in the **Control options** section of the
-    **Format control** pane.
-
-2.  When finished, choose **Apply**.
+2. When finished, choose **Apply**.
 
 ### Text filters
 
@@ -131,55 +129,55 @@ or labels, use the following procedure to customize the remaining options.
 
 ###### To customize further options for a text filter
 
-1.  In the **Format control** pane, for
-    **Style**, choose one of the following options:
+1. In the **Format control** pane, for
+   **Style**, choose one of the following options:
 
-    - **Dropdown** – Displays a dropdown list
-      with buttons that you can use to select a single value.
+   - **Dropdown** – Displays a dropdown list
+     with buttons that you can use to select a single value.
 
-    When you select this option, you can choose the following options
-    for **Values**:
-
-        + **Filter** – Displays all the
-         values that are available in the filter.
-        + **Specific values** – Enables you
-         to enter the values to display, one entry per line.
-
-    You can also choose to **Hide Select all option from the
-    control values**. This removes the option to select or
-    clear the selection of all values in the filter control.
-    - **Dropdown - multiselect** – Displays a
-      dropdown list with boxes that you can use to select multiple values.
-
-    When you select this option, you can choose the following options
-    for **Values**:
+   When you select this option, you can choose the following options
+   for **Values**:
 
         + **Filter** – Displays all the
          values that are available in the filter.
         + **Specific values** – Enables you
          to enter the values to display, one entry per line.
 
-    By default, Quick visuals are reloaded whenever a
-    change is made to a control. For Multiselect dropdown controls,
-    authors can add an **Apply** button to a control
-    that delays visual reload until the user chooses
-    **Apply**. This allows users to make multiple
-    changes at a time without additional queries. This setting can be
-    configured with the **Show an apply button**
-    checkbox in the **Control options** section of the
-    **Format control** pane.
-    - **List** – Displays a list with buttons
-      that you can use to select a single value.
+   You can also choose to **Hide Select all option from the
+   control values**. This removes the option to select or
+   clear the selection of all values in the filter control.
+   - **Dropdown - multiselect** – Displays a
+     dropdown list with boxes that you can use to select multiple values.
 
-    When you select this option, you can choose the following options
-    for **Values**:
+   When you select this option, you can choose the following options
+   for **Values**:
 
         + **Filter** – Displays all the
          values that are available in the filter.
         + **Specific values** – Enables you
          to enter the values to display, one entry per line.
 
-    You can also choose the following:
+   By default, Quick visuals are reloaded whenever a
+   change is made to a control. For Multiselect dropdown controls,
+   authors can add an **Apply** button to a control
+   that delays visual reload until the user chooses
+   **Apply**. This allows users to make multiple
+   changes at a time without additional queries. This setting can be
+   configured with the **Show an apply button**
+   checkbox in the **Control options** section of the
+   **Format control** pane.
+   - **List** – Displays a list with buttons
+     that you can use to select a single value.
+
+   When you select this option, you can choose the following options
+   for **Values**:
+
+        + **Filter** – Displays all the
+         values that are available in the filter.
+        + **Specific values** – Enables you
+         to enter the values to display, one entry per line.
+
+   You can also choose the following:
 
         + **Hide search bar when control is on
          sheet** – Hides the search bar in the
@@ -189,18 +187,18 @@ or labels, use the following procedure to customize the remaining options.
          values** – Removes the option to select
          or clear the selection of all values in the filter
          control.
-    - **List - multiselect** – Displays a list
-      with boxes that you can use to select multiple values.
+   - **List - multiselect** – Displays a list
+     with boxes that you can use to select multiple values.
 
-    When you select this option, you can choose the following options
-    for **Values**:
+   When you select this option, you can choose the following options
+   for **Values**:
 
         + **Filter** – Displays all the
          values that are available in the filter.
         + **Specific values** – Enables you
          to enter the values to display, one entry per line.
 
-    You can also choose the following:
+   You can also choose the following:
 
         + **Hide search bar when control is on
          sheet** – Hides the search bar in the
@@ -210,19 +208,19 @@ or labels, use the following procedure to customize the remaining options.
          values** – Removes the option to select
          or clear the selection of all values in the filter
          control.
-    - **Text field** – Displays a text box where
-      you can enter a single entry. Text fields support up to 79950
-      characters.
+   - **Text field** – Displays a text box where
+     you can enter a single entry. Text fields support up to 79950
+     characters.
 
-    When you select this option, you can choose the following:
+   When you select this option, you can choose the following:
 
         + **Show helper text in control** –
          Removes the helper text in text fields.
-    - **Text field - multiline** – Displays a
-      text box where you can enter multiple entries. Multiline text fields
-      support up to 79950 characters across all entries.
+   - **Text field - multiline** – Displays a
+     text box where you can enter multiple entries. Multiline text fields
+     support up to 79950 characters across all entries.
 
-    When you select this option, you can choose the following:
+   When you select this option, you can choose the following:
 
         + For **Separate values by**, choose how
          you want to separate values you enter into the filter
@@ -231,7 +229,7 @@ or labels, use the following procedure to customize the remaining options.
         + **Show helper text in control** –
          Removes the helper text in text fields.
 
-2.  When finished, choose **Apply**.
+2. When finished, choose **Apply**.
 
 ### Numeric filters
 
@@ -240,23 +238,23 @@ customize the remaining options.
 
 ###### To customize further options for a numeric filter
 
-1.  In the **Format control** pane, for
-    **Style**, choose one of the following options:
+1. In the **Format control** pane, for
+   **Style**, choose one of the following options:
 
-    - **Dropdown** – Displays a list where you
-      can select a single value.
+   - **Dropdown** – Displays a list where you
+     can select a single value.
 
-    When you select this option, you can choose the following options
-    for **Values**:
+   When you select this option, you can choose the following options
+   for **Values**:
 
         + **Filter** – Displays all the
          values that are available in the filter.
         + **Specific values** – Enables you
          to enter the values to display, one entry per line.
 
-    You can also choose to **Hide Select all option from the
-    control values**. This removes the option to select or
-    clear the selection of all values in the filter control.
+   You can also choose to **Hide Select all option from the
+   control values**. This removes the option to select or
+   clear the selection of all values in the filter control.
 
         + **Filter** – Displays all the
          values that are available in the filter.
@@ -266,18 +264,18 @@ customize the remaining options.
          values** – Removes the option to select
          or clear the selection of all values in the filter
          control.
-    - **List** – Displays a list with buttons
-      that enable selecting a single value.
+   - **List** – Displays a list with buttons
+     that enable selecting a single value.
 
-    When you select this option, you can choose the following options
-    for **Values**:
+   When you select this option, you can choose the following options
+   for **Values**:
 
         + **Filter** – Displays all the
          values that are available in the filter.
         + **Specific values** – Enables you
          to enter the values to display, one entry per line.
 
-    You can also choose the following:
+   You can also choose the following:
 
         + **Hide search bar when control is on
          sheet** – Hides the search bar in the
@@ -287,28 +285,28 @@ customize the remaining options.
          values** – Removes the option to select
          or clear the selection of all values in the filter
          control.
-    - **Slider** – Displays a horizontal bar
-      with a toggle that you can slide to change the value. If you have a
-      ranged filter for values between a minimum and a maximum, the slider
-      provides a toggle for each number. For sliders, you can specify the
-      following options:
+   - **Slider** – Displays a horizontal bar
+     with a toggle that you can slide to change the value. If you have a
+     ranged filter for values between a minimum and a maximum, the slider
+     provides a toggle for each number. For sliders, you can specify the
+     following options:
 
-      - **Minimum value** – Displays the
-        smaller value at the left of the slider.
-      - **Maximum value** – Displays the
-        larger value at the right of the slider.
-      - **Step size** – Enables you to set
-        the number of increments that the bar is divided
-        into.
+     - **Minimum value** – Displays the
+       smaller value at the left of the slider.
+     - **Maximum value** – Displays the
+       larger value at the right of the slider.
+     - **Step size** – Enables you to set
+       the number of increments that the bar is divided
+       into.
 
-    - **Text box** – Displays a box where you
-      can enter the value. When you select this option, you can choose the
-      following:
+   - **Text box** – Displays a box where you
+     can enter the value. When you select this option, you can choose the
+     following:
 
-      - **Show helper text in control** –
-        Removes the helper text in text fields.
+     - **Show helper text in control** –
+       Removes the helper text in text fields.
 
-2.  When finished, choose **Apply**.
+2. When finished, choose **Apply**.
 
 ## Sorting filter control values
 

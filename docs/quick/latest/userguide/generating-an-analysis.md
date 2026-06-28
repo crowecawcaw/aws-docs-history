@@ -62,7 +62,7 @@ growth."
      outline first.
 
 5. Wait while Quick Sight analyzes your dataset structure and column
-   statistics. Real-time progress updates display the current status.
+statistics. Real-time progress updates display the current status.
 
 ![Streaming progress screen showing steps completing](images/visualize-data-figure-4.png)
 

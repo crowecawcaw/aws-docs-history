@@ -44,13 +44,13 @@ to sign up for Quick, use the `quicksight:DirectoryType`
 condition key in your SCP. The values for this key are listed and described in the
 following table.
 
-| Key Name                   | Key Value             | Description                                                                                                                                 |
-| -------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `quicksight:DirectoryType` | `quicksight`          | IAM federated identities and Amazon Quick-managed users                                                                                     |
-|                            | `iam`                 | Only IAM federated identities                                                                                                               |
-|                            | `microsoft_ad`        | Users managed in Microsoft Active Directory on AWS Directory Service for Microsoft Active Directory                                         |
-|                            | `ad_connector`        | Users managed in on-premises Active Directory and connected<br>through AD_Connector to AWS Directory Service for Microsoft Active Directory |
-|                            | `iam_identity_center` | Users managed in a Amazon Quick account that is integrated with<br>IAM Identity Center.                                                     |
+| Key Name                   | Key Value             | Description                                                                                                                                  |
+| -------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `quicksight:DirectoryType` | `quicksight`          | IAM federated identities and Amazon Quick-managed users                                                                                      |
+|                            | `iam`                 | Only IAM federated identities                                                                                                                |
+|                            | `microsoft_ad`        | Users managed in Microsoft Active Directory on AWS Directory Service for Microsoft Active Directory                                          |
+|                            | `ad_connector`        | Users managed in on-premises Active Directory and connected<br>through AD\_Connector to AWS Directory Service for Microsoft Active Directory |
+|                            | `iam_identity_center` | Users managed in a Amazon Quick account that is integrated with<br>IAM Identity Center.                                                      |
 
 ## Example SCP
 

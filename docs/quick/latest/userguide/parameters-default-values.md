@@ -72,106 +72,95 @@ method works best for you.
 
 - List either individual user names or group names:
 
-      + To list individual user names, include a column that identifies the
-       people for your DDP. This column should contain each person's
-       system user name that they use to connect from your identity provider to
-       Quick. This user name is often the same as a person's
-       email alias before the @ sign, but not always.
+  - To list individual user names, include a column that identifies the
+    people for your DDP. This column should contain each person's
+    system user name that they use to connect from your identity provider to
+    Quick. This user name is often the same as a person's
+    email alias before the @ sign, but not always.
 
+  To get a list of users, use the [ListUsers](../../../quicksight/latest/APIReference/API_ListUsers.md "../../../quicksight/latest/APIReference/API_ListUsers.md") Quick API operation or AWS CLI command.
+  The CLI command is shown in the following example. Specify the
+  AWS Region for your identity provider, for example
+  `us-east-1`.
 
-      To get a list of users, use the [ListUsers](../../../quicksight/latest/APIReference/API_ListUsers.md "../../../quicksight/latest/APIReference/API_ListUsers.md") Quick API operation or AWS CLI command.
-       The CLI command is shown in the following example. Specify the
-       AWS Region for your identity provider, for example
-       `us-east-1`.
+  ```
+  awsacct1="`111111111111`"
+  namespace="`default`"
+  region="`us-east-1`"
 
+  aws quicksight list-users --aws-account-id `$awsacct1` --namespace `$namespace` **--region `$region`**
+  ```
 
+  The following example alters the previous command by adding a query
+  that limits the results to active users.
 
-      ```
-      awsacct1="`111111111111`"
-      namespace="`default`"
-      region="`us-east-1`"
+  ```
+  awsacct1="`111111111111`"
+  namespace="`default`"
+  region="`us-east-1`"
 
-      aws quicksight list-users --aws-account-id `$awsacct1` --namespace `$namespace` **--region `$region`**
-      ```
+  aws quicksight list-users --aws-account-id `$awsacct1` --namespace `$namespace` **--region `$region`** --query 'UserList[?Active==`true`]'
+  ```
 
-      The following example alters the previous command by adding a query
-       that limits the results to active users.
+  The result set looks similar to the following sample. This example is
+  an excerpt from JSON output (`--output json`). People who
+  have federated user names have principal IDs that start with the word
+  `federated`.
 
+  ```
+  [
+      {
+          "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/anacasilva",
+          "UserName": "anacarolinasilva",
+          "Email": "anacasilva@example.com",
+          "Role": "ADMIN",
+          "Active": true,
+          "PrincipalId": "**federated**/iam/AIDAJ64EIEIOPX5CEIEIO"
+      },
+      {
+          "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/Reader/liujie-stargate",
+          "UserName": "Reader/liujie-stargate",
+          "Role": "READER",
+          "Active": true,
+          "PrincipalId": "**federated**/iam/AROAIJSEIEIOMXTZEIEIO:liujie-stargate"
+      },
+      {
+          "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/embedding/cxoportal",
+          "UserName": "embedding/cxoportal",
+          "Email": "saanvisarkar@example.com",
+          "Role": "AUTHOR",
+          "Active": true,
+          "PrincipalId": "**federated**/iam/AROAJTGEIEIOWB6BEIEIO:cxoportal"
+      },
+      {
+          "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/zhangwei@example.com",
+          "UserName": "zhangwei@example.com",
+          "Email": "zhangwei@example.com",
+          "Role": "AUTHOR",
+          "Active": true,
+          "PrincipalId": "**user**/d-96123-example-id-1123"
+      }
+  ]
+  ```
+  - To list group names, include a column that identifies the groups
+    containing the user names for your DDP. This column should contain the
+    system group names that are used to connect from your identity provider
+    to Quick. To identify groups that you can add to the
+    dataset, use one or more of the following Quick API
+    operations or CLI commands:
 
-
-      ```
-      awsacct1="`111111111111`"
-      namespace="`default`"
-      region="`us-east-1`"
-
-      aws quicksight list-users --aws-account-id `$awsacct1` --namespace `$namespace` **--region `$region`** --query 'UserList[?Active==`true`]'
-      ```
-
-      The result set looks similar to the following sample. This example is
-       an excerpt from JSON output (`--output json`). People who
-       have federated user names have principal IDs that start with the word
-       `federated`.
-
-
-
-      ```
-      [
-          {
-              "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/anacasilva",
-              "UserName": "anacarolinasilva",
-              "Email": "anacasilva@example.com",
-              "Role": "ADMIN",
-              "Active": true,
-              "PrincipalId": "**federated**/iam/AIDAJ64EIEIOPX5CEIEIO"
-          },
-          {
-              "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/Reader/liujie-stargate",
-              "UserName": "Reader/liujie-stargate",
-              "Role": "READER",
-              "Active": true,
-              "PrincipalId": "**federated**/iam/AROAIJSEIEIOMXTZEIEIO:liujie-stargate"
-          },
-          {
-              "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/embedding/cxoportal",
-              "UserName": "embedding/cxoportal",
-              "Email": "saanvisarkar@example.com",
-              "Role": "AUTHOR",
-              "Active": true,
-              "PrincipalId": "**federated**/iam/AROAJTGEIEIOWB6BEIEIO:cxoportal"
-          },
-          {
-              "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/zhangwei@example.com",
-              "UserName": "zhangwei@example.com",
-              "Email": "zhangwei@example.com",
-              "Role": "AUTHOR",
-              "Active": true,
-              "PrincipalId": "**user**/d-96123-example-id-1123"
-          }
-      ]
-      ```
-      + To list group names, include a column that identifies the groups
-       containing the user names for your DDP. This column should contain the
-       system group names that are used to connect from your identity provider
-       to Quick. To identify groups that you can add to the
-       dataset, use one or more of the following Quick API
-       operations or CLI commands:
-
-
-
-
-      	- [ListGroups](../../../quicksight/latest/APIReference/API_ListGroups.md "../../../quicksight/latest/APIReference/API_ListGroups.md") – Lists Quick groups
-      	 by AWS account ID and namespace for the AWS Region that
-      	 contains your identity provider.
-      	- [ListGroupMemberships](../../../quicksight/latest/APIReference/API_ListGroupMemberships.md "../../../quicksight/latest/APIReference/API_ListGroupMemberships.md") – Lists the users in
-      	 the specified Quick group.
-      	- [ListUserGroups](../../../quicksight/latest/APIReference/API_ListUserGroups.md "../../../quicksight/latest/APIReference/API_ListUserGroups.md") – Lists the Quick
-      	 groups that a Quick user is a member of.
+    - [ListGroups](../../../quicksight/latest/APIReference/API_ListGroups.md "../../../quicksight/latest/APIReference/API_ListGroups.md") – Lists Quick groups
+      by AWS account ID and namespace for the AWS Region that
+      contains your identity provider.
+    - [ListGroupMemberships](../../../quicksight/latest/APIReference/API_ListGroupMemberships.md "../../../quicksight/latest/APIReference/API_ListGroupMemberships.md") – Lists the users in
+      the specified Quick group.
+    - [ListUserGroups](../../../quicksight/latest/APIReference/API_ListUserGroups.md "../../../quicksight/latest/APIReference/API_ListUserGroups.md") – Lists the Quick
+      groups that a Quick user is a member of.
       Or you can ask your network administrator to query your identity
-       provider to get this information.
-
-  The next two procedures provide instructions on how to finish creating a dataset for
-  dynamic default values. The first procedure is for creating a dataset for a single-value
-  DDP. The second one is for creating a dataset for a multivalue DDP.
+      provider to get this information.
+      The next two procedures provide instructions on how to finish creating a dataset for
+      dynamic default values. The first procedure is for creating a dataset for a single-value
+      DDP. The second one is for creating a dataset for a multivalue DDP.
 
 ###### To create a dataset for a single-value DDP
 

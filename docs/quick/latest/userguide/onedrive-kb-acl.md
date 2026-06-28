@@ -74,12 +74,12 @@ token and last approximately 90 days.
 The real-time ACL app requests the following delegated
 permissions:
 
-| Real-time ACL – delegated permissions                  | Permission            | Scope                                                                | Purpose |
-| ------------------------------------------------------ | --------------------- | -------------------------------------------------------------------- | ------- |
-| Read items in all site collections                     | `Sites.Read.All`      | Verify user access to OneDrive content hosted on<br>SharePoint.      |
-| Have full access to your files                         | `Files.ReadWrite.All` | Verify user access to specific files.                                |
-| View your basic profile                                | `User.Read`           | Identify the signed-in user.                                         |
-| Maintain access to data you have given it access<br>to | `offline_access`      | Refresh tokens so users don't need to<br>re-authenticate frequently. |
+Real-time ACL – delegated permissions| Permission | Scope | Purpose |
+| --- | --- | --- |
+| Read items in all site collections | `Sites.Read.All` | Verify user access to OneDrive content hosted on<br>SharePoint. |
+| Have full access to your files | `Files.ReadWrite.All` | Verify user access to specific files. |
+| View your basic profile | `User.Read` | Identify the signed-in user. |
+| Maintain access to data you have given it access<br>to | `offline_access` | Refresh tokens so users don't need to<br>re-authenticate frequently. |
 
 ### Admin consent
 

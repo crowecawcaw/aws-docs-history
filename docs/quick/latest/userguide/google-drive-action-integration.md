@@ -88,13 +88,13 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 The following scopes are requested when you connect to Google
 Drive.
 
-| Google Drive recommended scopes                           | Scope                                   | Description |
-| --------------------------------------------------------- | --------------------------------------- | ----------- |
-| `https://www.googleapis.com/auth/drive`                   | Reads and writes files in Google Drive. |
-| `https://www.googleapis.com/auth/drive.readonly`          | Reads files in Google Drive.            |
-| `https://www.googleapis.com/auth/drive.metadata.readonly` | Reads file metadata in Google Drive.    |
-| `openid`                                                  | Authenticates the user's identity.      |
-| `email`                                                   | Reads the user's email address.         |
+Google Drive recommended scopes| Scope | Description |
+| --- | --- |
+| `https://www.googleapis.com/auth/drive` | Reads and writes files in Google Drive. |
+| `https://www.googleapis.com/auth/drive.readonly` | Reads files in Google Drive. |
+| `https://www.googleapis.com/auth/drive.metadata.readonly` | Reads file metadata in Google Drive. |
+| `openid` | Authenticates the user's identity. |
+| `email` | Reads the user's email address. |
 
 ###### Note
 
@@ -174,46 +174,42 @@ fields.
     	* **Redirect URL** – Pre-filled
     	 with the Amazon Quick callback URL.
 
-7. Choose **Next**.
-8. If you chose **Default OAuth app**
-   or **Custom OAuth app**, a Google
-   authorization window opens. Review the requested permissions and
-   choose **Allow**.
-9. On the **Review** page, review the available
-   actions for the connector. Choose
-   **Next**.
-10. On the **Publish** page, choose who can access
-    the connector. You can enable access for everyone in your
-    organization or search for specific teams or groups.
-11. Choose **Publish**.
+7. Choose **Next**. 8. If you chose **Default OAuth app**
+or **Custom OAuth app**, a Google
+authorization window opens. Review the requested permissions and
+choose **Allow**. 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
 After you set up the connector, the following actions are
 available.
 
-| Google Drive available actions | Category                     | Action                                                    | Description |
-| ------------------------------ | ---------------------------- | --------------------------------------------------------- | ----------- |
-| Files                          | Get File                     | Downloads a file from Google Drive.                       |
-| Files                          | Search Files                 | Searches for files by name or content.                    |
-| Files                          | Get File Metadata            | Retrieves metadata for a file.                            |
-| Files                          | Import File                  | Uploads a file to Google Drive.                           |
-| Files                          | Upload File From Url         | Uploads a file from a URL.                                |
-| Files                          | Create File                  | Creates a new file.                                       |
-| Files                          | Create File From Text        | Creates a file from text content.                         |
-| Files                          | Put File                     | Replaces the content of an existing file.                 |
-| Files                          | Update File Content          | Edits the content of an existing file.                    |
-| Files                          | Update File Location         | Moves a file to a different folder.                       |
-| Files                          | Copy File                    | Creates a copy of a file.                                 |
-| Files                          | Export File                  | Exports a Google Workspace file to a different<br>format. |
-| Files                          | Delete File                  | Moves a file to the trash.                                |
-| Folders                        | Create Folder                | Creates a new folder.                                     |
-| Folders                        | Search Folders               | Searches for folders by name.                             |
-| Permissions                    | List Permissions             | Lists permissions for a file or folder.                   |
-| Comments                       | List Comments                | Lists comments on a file.                                 |
-| Changes                        | List Changes                 | Lists recent changes to files.                            |
-| Changes                        | Get Changes Start Page Token | Retrieves a start page token for tracking<br>changes.     |
-| Drive                          | Get Drive Info               | Retrieves information about the user's<br>Drive.          |
+Google Drive available actions| Category | Action | Description |
+| --- | --- | --- |
+| Files | Get File | Downloads a file from Google Drive. |
+| Files | Search Files | Searches for files by name or content. |
+| Files | Get File Metadata | Retrieves metadata for a file. |
+| Files | Import File | Uploads a file to Google Drive. |
+| Files | Upload File From Url | Uploads a file from a URL. |
+| Files | Create File | Creates a new file. |
+| Files | Create File From Text | Creates a file from text content. |
+| Files | Put File | Replaces the content of an existing file. |
+| Files | Update File Content | Edits the content of an existing file. |
+| Files | Update File Location | Moves a file to a different folder. |
+| Files | Copy File | Creates a copy of a file. |
+| Files | Export File | Exports a Google Workspace file to a different<br>format. |
+| Files | Delete File | Moves a file to the trash. |
+| Folders | Create Folder | Creates a new folder. |
+| Folders | Search Folders | Searches for folders by name. |
+| Permissions | List Permissions | Lists permissions for a file or folder. |
+| Comments | List Comments | Lists comments on a file. |
+| Changes | List Changes | Lists recent changes to files. |
+| Changes | Get Changes Start Page Token | Retrieves a start page token for tracking<br>changes. |
+| Drive | Get Drive Info | Retrieves information about the user's<br>Drive. |
 
 ###### Note
 

@@ -1,8 +1,8 @@
 # Using level-aware calculations in Quick Sight
 
-|                                                                 |
-| --------------------------------------------------------------- |
-| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+|                                                                |
+| -------------------------------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition and Standard Edition |
 
 With _Level-aware calculations_ (LAC) you can specify the level of
 granularity that you want to compute window functions or aggregate functions. There are
@@ -50,14 +50,14 @@ examples show how to dynamically add group keys to the visual dimensions or remo
 group keys from visual dimensions
 
 - LAC-A with dynamic-added group key : `sum({sales},
-[${visualDimensions},{Country},{Products}])`
+ [${visualDimensions},{Country},{Products}])`
 
 It calculates, before the visual level aggregation is calculated, the sum
 of sales, grouping by `country`, `products`, and any
 other fields in the **Group by** field well .
 
 - LAC-A with dynamic-removed group key : `sum({sales},
-[${visualDimensions},!{Country},!{Products}])`
+ [${visualDimensions},!{Country},!{Products}])`
 
 It calculates, before visual level aggregation is calculated, the sum of
 sales, grouping by the fields in the visual's **Group by**
@@ -70,7 +70,7 @@ LAC-A functions are supported for the following aggregate functions:
 
 - [avg](avg-function.md "avg-function.md")
 - [count](count-function.md "count-function.md")
-- [distinct_count](distinct_count-function.md "distinct_count-function.md")
+- [distinct\_count](distinct_count-function.md "distinct_count-function.md")
 - [max](max-function.md "max-function.md")
 - [median](median-function.md "median-function.md")
 - [min](min-function.md "min-function.md")

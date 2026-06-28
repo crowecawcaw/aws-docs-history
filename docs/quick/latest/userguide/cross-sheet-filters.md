@@ -64,19 +64,18 @@ control if the filter is scoped to your entire analysis.
 
 **New filter control**
 
-1.  Create a cross-sheet filter. For more information, see [Filters](#filters "#filters").
-2.  From the three-dot menu, you can see an option that says **Add
-    control**. Hovering over this, you will see three
-    options:
+1. Create a cross-sheet filter. For more information, see [Filters](#filters "#filters").
+2. From the three-dot menu, you can see an option that says **Add
+   control**. Hovering over this, you will see three
+   options:
 
-        * **Top of all sheets in filter scope**
-        * **Top of this sheet**
-        * **Inside this sheet**
-
-    If you want to add to multiple-sheets within the sheets themselves,
-    you can do that sheet-by-sheet. Or you can add to the top and then use
-    the option on each control to **Move to sheet**. For
-    more information, see [Editing a Cross-Sheet Control](#cross-sheet-controls-editing-control "#cross-sheet-controls-editing-control").
+   - **Top of all sheets in filter scope**
+   - **Top of this sheet**
+   - **Inside this sheet**
+     If you want to add to multiple-sheets within the sheets themselves,
+     you can do that sheet-by-sheet. Or you can add to the top and then use
+     the option on each control to **Move to sheet**. For
+     more information, see [Editing a Cross-Sheet Control](#cross-sheet-controls-editing-control "#cross-sheet-controls-editing-control").
 
 **Increasing Scope of Existing Control**
 
@@ -136,21 +135,20 @@ You can remove controls in two places. First, from the control:
 
 Second, you can remove controls from the filter:
 
-1.  Choose the three-dot menu on the cross-sheet filter that the
-    cross-sheet controls are created from. You will see that instead of an
-    option to **Add control** there is now an option to
-    **Manage control**.
-2.  Hover over **Manage control**. You will be presented
-    with the following options:
+1. Choose the three-dot menu on the cross-sheet filter that the
+   cross-sheet controls are created from. You will see that instead of an
+   option to **Add control** there is now an option to
+   **Manage control**.
+2. Hover over **Manage control**. You will be presented
+   with the following options:
 
-        * **Move inside this sheet**
-        * **Top of this sheet**
-
-    These options are applicable to just the control on the sheet,
-    depending on where the current control is. If you don’t have controls on
-    all of the sheets within the filter scope, you will get the option to
-    **Add to top of all sheets in filter scope**. This
-    will not move sheet controls to the top of the sheet if you have already
-    added them to the sheet in the analysis. You will also get the option to
-    **Remove from this sheet** or **Remove from
-    all sheets**.
+   - **Move inside this sheet**
+   - **Top of this sheet**
+     These options are applicable to just the control on the sheet,
+     depending on where the current control is. If you don’t have controls on
+     all of the sheets within the filter scope, you will get the option to
+     **Add to top of all sheets in filter scope**. This
+     will not move sheet controls to the top of the sheet if you have already
+     added them to the sheet in the analysis. You will also get the option to
+     **Remove from this sheet** or **Remove from
+     all sheets**.

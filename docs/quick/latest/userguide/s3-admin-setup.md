@@ -69,12 +69,12 @@ If you're accessing Amazon S3 buckets in a different AWS account, you must confi
      - `Effect` – "Allow"
      - `Principal` – AWS ARN for the Amazon Quick service role in your account. For
        example, the principal should look like this:`"Principal": { "AWS":
-"arn:aws:iam::<quick_account_id>:role/service-role/aws-quicksight-service-role-v0"
-}`
+   "arn:aws:iam::<quick_account_id>:role/service-role/aws-quicksight-service-role-v0"
+   }`
      - `Action` – Array of Amazon S3 permissions: s3:GetObject, s3:ListBucket, s3:GetBucketLocation, s3:GetObjectVersion, s3:ListBucketVersions
      - `Resource` – "\*" (applies to the current key), the Amazon S3 bucket path should look like
        the following: `"Resource": [
-"arn:aws:s3:::bucket_name"]`
+   "arn:aws:s3:::bucket_name"]`
 
 6. Choose **Save changes**.
 
@@ -94,12 +94,12 @@ If your Amazon S3 bucket uses AWS KMS encryption, complete the following steps.
    - `Effect` – "Allow"
    - `Principal` – AWS ARN for the Amazon Quick service role in your account. For
      example, the principal should look like this:`"Principal": { "AWS":
-"arn:aws:iam::<quick_account_id>:role/service-role/aws-quicksight-service-role-v0"
-}`
+  "arn:aws:iam::<quick_account_id>:role/service-role/aws-quicksight-service-role-v0"
+  }`
    - `Action` – Array of KMS permissions: kms:Decrypt, kms:DescribeKey
    - `Resource` – "\*" (applies to the current key), the Amazon S3 bucket path should look like
      the following: `"Resource": [
-"arn:aws:s3:::bucket_name"]`
+  "arn:aws:s3:::bucket_name"]`
 
 5. Choose **Save changes**.
 6. Wait 2-3 minutes for the policy changes to propagate.
@@ -287,27 +287,26 @@ to grant access to.
 
 After creating the IAM policy, assign it to Amazon Quick users or groups.
 
-1.  In the Amazon Quick admin console, under
-    **Permissions**, choose **IAM policy
-    assignments**.
-2.  Choose **Add new assignment**.
-3.  Enter a name for the assignment.
-4.  On the **Select an IAM policy** page, search for and
-    select the IAM policy you created in Step 1. Choose
-    **Next**.
-5.  On the **Assign users and groups** page, choose one
-    of the following:
+1. In the Amazon Quick admin console, under
+   **Permissions**, choose **IAM policy
+   assignments**.
+2. Choose **Add new assignment**.
+3. Enter a name for the assignment.
+4. On the **Select an IAM policy** page, search for and
+   select the IAM policy you created in Step 1. Choose
+   **Next**.
+5. On the **Assign users and groups** page, choose one
+   of the following:
 
-        * Select **Assign to all users and groups** to
-         apply the policy to all current and future users.
-        * Search for and select specific users or groups to assign the
-         policy to.
+   - Select **Assign to all users and groups** to
+     apply the policy to all current and future users.
+   - Search for and select specific users or groups to assign the
+     policy to.
+     Choose **Next**.
 
-    Choose **Next**.
-
-6.  On the **Review and enable changes** page, verify
-    your assignment details and choose **Save and
-    enable**.
+6. On the **Review and enable changes** page, verify
+   your assignment details and choose **Save and
+   enable**.
 
 Users who are not explicitly granted access through an IAM policy assignment
 will not be able to access the restricted Amazon S3 buckets for creating integrations

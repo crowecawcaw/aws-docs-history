@@ -14,47 +14,46 @@ Create, update, and manage employee records, time-off requests, and other HR pro
 
 Follow these steps to connect Amazon Quick to your BambooHR system.
 
-1.  In the Amazon Quick console, choose **Connectors**.
-2.  Choose the **Create for your team** tab.
-3.  Find and choose **BambooHR**.
-4.  Complete the integration details:
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **BambooHR**.
+4. Complete the integration details:
 
-    - **Name** - Enter a descriptive name for your BambooHR integration.
-    - **Description** (Optional) - Describe the purpose of this integration.
+   - **Name** - Enter a descriptive name for your BambooHR integration.
+   - **Description** (Optional) - Describe the purpose of this integration.
 
-5.  Choose connection type (user or service authentication).
-6.  Complete the connection settings based on authentication method:
+5. Choose connection type (user or service authentication).
+6. Complete the connection settings based on authentication method:
 
-    - **For User authentication (OAuth):**
+   - **For User authentication (OAuth):**
 
-          + **Base URL** - Your BambooHR instance URL.
-          + **Client ID** - OAuth client identifier.
-          + **Client Secret** - OAuth client secret.
-          + **Token URL** - OAuth token endpoint.
-          + **Auth URL** - OAuth authorization endpoint.
-          + **Redirect URL** - OAuth callback URL.
+     - **Base URL** - Your BambooHR instance URL.
+     - **Client ID** - OAuth client identifier.
+     - **Client Secret** - OAuth client secret.
+     - **Token URL** - OAuth token endpoint.
+     - **Auth URL** - OAuth authorization endpoint.
+     - **Redirect URL** - OAuth callback URL.
+       **Required OAuth scopes**: When you create your BambooHR OAuth application, configure the scopes you need for your use case. Common scopes include:
 
-      **Required OAuth scopes**: When you create your BambooHR OAuth application, configure the scopes you need for your use case. Common scopes include:
+     - `employee` - Access employee information.
+     - `employee.write` - Write employee information.
+     - `time_off` - Access time off information.
+     - `time_off.write` - Write time off information.
+     - `company:info` - Access company information.
+     - `payroll` - Access payroll data.
 
-          + `employee` - Access employee information.
-          + `employee.write` - Write employee information.
-          + `time_off` - Access time off information.
-          + `time_off.write` - Write time off information.
-          + `company:info` - Access company information.
-          + `payroll` - Access payroll data.
+   ###### Note
 
-    ###### Note
+   Additional scopes may be required depending on the specific BambooHR actions you plan to use. Consult your BambooHR administrator for the complete list of available scopes.
+   - **For Service authentication (API Key):**
 
-    Additional scopes may be required depending on the specific BambooHR actions you plan to use. Consult your BambooHR administrator for the complete list of available scopes.
-    - **For Service authentication (API Key):**
+     - **Base URL** - Your BambooHR instance URL.
+     - **API Key** - Your BambooHR API key.
+     - **Email** - Email address associated with the API key.
 
-      - **Base URL** - Your BambooHR instance URL.
-      - **API Key** - Your BambooHR API key.
-      - **Email** - Email address associated with the API key.
-
-7.  Select **Create and continue**.
-8.  Select users to share the integration with.
-9.  Click **Next**.
+7. Select **Create and continue**.
+8. Select users to share the integration with.
+9. Click **Next**.
 
 ## Manage BambooHR integration
 

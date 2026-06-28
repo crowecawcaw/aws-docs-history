@@ -103,7 +103,7 @@ To edit, share, or delete your integration, see [Managing existing integrations]
   [Admin consent](sharepoint-kb-acl.md#sharepoint-kb-acl-admin-consent "sharepoint-kb-acl.md#sharepoint-kb-acl-admin-consent").
 - **Documents skipped with "File has no ACL"
   error** – If sync reports show items with status
-  SKIPPED and error type VALIDATION_ERROR with the message "File has
+  SKIPPED and error type VALIDATION\_ERROR with the message "File has
   no ACL while crawlACL is true, skipping ingestion," the Entra app
   registration is missing the required ACL permissions. Verify the
   app has the correct permissions for your setup. For the required

@@ -88,19 +88,19 @@ accessible to your account.
 After you set up the connector, you can use the following actions. Visier
 Agent exposes its people analytics capabilities as callable tools.
 
-| Visier Agent available actions          | Action                                                                                                         | Description |
-| --------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
-| `ask_vee_question`                      | Asks Visier's Vee AI a natural language workforce question,<br>such as headcount, turnover, or requisitions.   |
-| `aggregate_metric_values`               | Computes aggregate values for a metric, optionally grouped by<br>a dimension and filtered by specific members. |
-| `sample_vee_questions`                  | Returns a list of sample questions that you can ask Vee to<br>get started.                                     |
-| `search_analytic_objects`               | Finds analytic objects (for example, Employee or Applicant)<br>matching a search string.                       |
-| `search_analytic_object_properties`     | Returns all available properties for a given analytic<br>object.                                               |
-| `list_analytic_object_property_values`  | Lists property values for specific analytic object members,<br>such as employee tenure or pay.                 |
-| `search_metrics`                        | Finds metrics matching a search string.                                                                        |
-| `search_dimensions_for_metric`          | Finds dimensions available for a given metric, usable for<br>grouping or filtering.                            |
-| `search_dimensions_for_analytic_object` | Finds dimensions available for a given analytic<br>object.                                                     |
-| `search_filter_dimension_members`       | Returns filterable members for a given dimension.                                                              |
-| `get_object_reference_graph`            | Returns the reference graph showing how a given analytic<br>object connects to others.                         |
+Visier Agent available actions| Action | Description |
+| --- | --- |
+| `ask_vee_question` | Asks Visier's Vee AI a natural language workforce question,<br>such as headcount, turnover, or requisitions. |
+| `aggregate_metric_values` | Computes aggregate values for a metric, optionally grouped by<br>a dimension and filtered by specific members. |
+| `sample_vee_questions` | Returns a list of sample questions that you can ask Vee to<br>get started. |
+| `search_analytic_objects` | Finds analytic objects (for example, Employee or Applicant)<br>matching a search string. |
+| `search_analytic_object_properties` | Returns all available properties for a given analytic<br>object. |
+| `list_analytic_object_property_values` | Lists property values for specific analytic object members,<br>such as employee tenure or pay. |
+| `search_metrics` | Finds metrics matching a search string. |
+| `search_dimensions_for_metric` | Finds dimensions available for a given metric, usable for<br>grouping or filtering. |
+| `search_dimensions_for_analytic_object` | Finds dimensions available for a given analytic<br>object. |
+| `search_filter_dimension_members` | Returns filterable members for a given dimension. |
+| `get_object_reference_graph` | Returns the reference graph showing how a given analytic<br>object connects to others. |
 
 ## Managing and troubleshooting
 

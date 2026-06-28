@@ -43,7 +43,7 @@ complete the following requirements:
   alphanumeric). One way to find your Slack workspace ID is by
   navigating to your Slack workspace and starting a chat with
   the Slack Developer Tools app running the `/sdt
-whoami` command. For more information, see [Locate your Slack URL or ID](https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID "https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID") in the Slack help
+ whoami` command. For more information, see [Locate your Slack URL or ID](https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID "https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID") in the Slack help
   center.
 
 If you configured the authentication to connect to Amazon Quick with IAM Identity Center, complete the following additional steps:

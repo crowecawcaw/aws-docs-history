@@ -13,22 +13,21 @@ avoided by being aware of examples like the following:
   type. Here are a few examples that can be difficult to detect when scanning the
   contents of a table:
 
-      + `''` – Using an empty string to indicate a missing
-       value
-      + `'NULL'` – Using the word "null" to indicate a
-       missing value
-      + `$1000` – Including a dollar sign in a currency
-       value turns it into a string
-      + `'O'Brien'` – Using punctuation to mark a string
-       that itself contains the same punctuation.
-
-  However, this type of error isn't always this easy to find, especially if you
-  have a lot of data, or if your data is typed in by hand. For example, some
-  customer service or sales applications involve entering information verbally
-  provided by customers. The person who originally typed in the data might have
-  put it in the wrong field. They might add, or forget to add, a character or
-  digit. For example, they might enter a date of "0/10/12020" or enter someone's
-  gender in a field meant for age.
+  - `''` – Using an empty string to indicate a missing
+    value
+  - `'NULL'` – Using the word "null" to indicate a
+    missing value
+  - `$1000` – Including a dollar sign in a currency
+    value turns it into a string
+  - `'O'Brien'` – Using punctuation to mark a string
+    that itself contains the same punctuation.
+    However, this type of error isn't always this easy to find, especially if you
+    have a lot of data, or if your data is typed in by hand. For example, some
+    customer service or sales applications involve entering information verbally
+    provided by customers. The person who originally typed in the data might have
+    put it in the wrong field. They might add, or forget to add, a character or
+    digit. For example, they might enter a date of "0/10/12020" or enter someone's
+    gender in a field meant for age.
 
 - Make sure that your imported file is correctly processed with or without a
   header. If there is a header row, make sure that you choose the
@@ -67,7 +66,7 @@ following sections:
      download a file that contains error information.
 
 5. Under **Troubleshooting**, choose **Download error
-   rows file**.
+rows file**.
 
 The error file has a row for each error. The file is named
 `error-report_123_fe8.csv`, where `123_fe8` is
@@ -85,11 +84,10 @@ columns:
      can appear multiple times in this file.
 
 6. Choose **Edit data set** to make changes to your dataset. You
-   can filter the data, omit fields, change data types, adjust existing calculated
-   fields, and add calculated fields that validate the data.
-7. After you've made changes indicated by the error codes, import the data again.
-   If more SPICE ingestion errors appear in the log, step through
-   this procedure again to fix all remaining errors.
+can filter the data, omit fields, change data types, adjust existing calculated
+fields, and add calculated fields that validate the data. 7. After you've made changes indicated by the error codes, import the data again.
+If more SPICE ingestion errors appear in the log, step through
+this procedure again to fix all remaining errors.
 
 ###### Tip
 
@@ -103,7 +101,7 @@ in different ways, resulting in different reporting results later on.
 ###### To practice troubleshooting skipped rows
 
 1. Download [`CSV files for troubleshooting skipped
-rows.zip`](samples/csv-files-for-troubleshooting-skipped-rows.zip.md "samples/csv-files-for-troubleshooting-skipped-rows.zip.md").
+ rows.zip`](samples/csv-files-for-troubleshooting-skipped-rows.zip.md "samples/csv-files-for-troubleshooting-skipped-rows.zip.md").
 2. Extract the files into a folder that you can use to upload the sample .csv
    file into Quick Sight.
 
@@ -119,15 +117,15 @@ The zip file contains the following two text files:
 
 3. Import the data by following these steps:
 
-   1. Choose **Data**, **Datasets** tab,
-      **New**, **Dataset**.
-   2. Choose **Upload a file**.
-   3. Find and choose the file named `sample dataset - data
-ingestion error.csv`.
-   4. Choose **Upload a file**, **Edit settings and
-      prepare data**.
-   5. Choose **Save** to exit.
+    1. Choose **Data**, **Datasets** tab,
+     **New**, **Dataset**.
+    2. Choose **Upload a file**.
+    3. Find and choose the file named `sample dataset - data
+     ingestion error.csv`.
+    4. Choose **Upload a file**, **Edit settings and
+     prepare data**.
+    5. Choose **Save** to exit.
 
 4. Choose your dataset to view its information, then choose **View error
-   summary**. Examine the errors and the data to help you resolve the
-   issues.
+summary**. Examine the errors and the data to help you resolve the
+issues.

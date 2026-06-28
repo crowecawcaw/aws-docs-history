@@ -23,23 +23,22 @@ topic in an analysis.
 - Select the ellipsis menu ( `…` ) to do one of the
   following actions:
 
-      + Export to CSV – Export the
-       data displayed in the selected visual.
-      + Copy Request ID – Capture
-       the request ID of this process for troubleshooting. Amazon Quick Sight
-       generates an alphanumeric request ID to uniquely identify each
-       process.
-      + Share this visual – Securely
-       share a URL for the topic used in the visual.
-      + Answer breakdown – To view a
-       detailed explanation of your answer.
-
-  At the bottom of the topic screen, you can add or change variations on the
-  question by selecting **Edit question variants**. Also at the
-  bottom, when you are satisfied with the question and answer, mark the topic as
-  reviewed by choosing **Mark as reviewed**. Or, if you see that a
-  previously reviewed topic needs further review, choose **Unmark as
-  reviewed**.
+  - Export to CSV – Export the
+    data displayed in the selected visual.
+  - Copy Request ID – Capture
+    the request ID of this process for troubleshooting. Amazon Quick Sight
+    generates an alphanumeric request ID to uniquely identify each
+    process.
+  - Share this visual – Securely
+    share a URL for the topic used in the visual.
+  - Answer breakdown – To view a
+    detailed explanation of your answer.
+    At the bottom of the topic screen, you can add or change variations on the
+    question by selecting **Edit question variants**. Also at the
+    bottom, when you are satisfied with the question and answer, mark the topic as
+    reviewed by choosing **Mark as reviewed**. Or, if you see that a
+    previously reviewed topic needs further review, choose **Unmark as
+    reviewed**.
 
 At any time, you can open a topic to change it or review how it's performing.
 To work directly with the settings for a topic, such as which fields are included,

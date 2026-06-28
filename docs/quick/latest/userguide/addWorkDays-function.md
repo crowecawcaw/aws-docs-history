@@ -111,8 +111,8 @@ Integer
 
 Expected output values include:
 
-- Positive integer (when start_date < end_date)
-- Negative integer (when start_date > end_date)
+- Positive integer (when start\_date < end\_date)
+- Negative integer (when start\_date > end\_date)
 - NULL when one or both of the arguments get a null value from the
   `dataset field`.
 

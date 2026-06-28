@@ -348,9 +348,9 @@ If you get an `ExpiredToken` error when calling the
 previous `SESSION TOKEN` is still in the environment
 variables. Clear this by setting the following variables:
 
-- _AWS_ACCESS_KEY_ID_
-- _AWS_SECRET_ACCESS_KEY_
-- _AWS_SESSION_TOKEN_
+- _AWS\_ACCESS\_KEY\_ID_
+- _AWS\_SECRET\_ACCESS\_KEY_
+- _AWS\_SESSION\_TOKEN_
 
 The following example shows how to set these three parameters in the
 CLI. If you are using a Microsoft Windows machine, use `set`
