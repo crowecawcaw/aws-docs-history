@@ -2,10 +2,10 @@
 
 Partner Revenue Measurement automatically measures service consumption for Amazon Machine Image (AMI) and Machine Learning (ML) products listed on AWS Marketplace. The following services are supported:
 
-| AWS Marketplace Metering Included Services | Service Name    | Product Service Code                | Notes |
-| ------------------------------------------ | --------------- | ----------------------------------- | ----- |
-| Amazon EC2                                 | AmazonEC2       | Amazon Machine Image (AMI) products |
-| Amazon SageMaker AI                        | AmazonSageMaker | Machine Learning (ML) products      |
+AWS Marketplace Metering Included Services| Service Name | Product Service Code | Notes |
+| --- | --- | --- |
+| Amazon EC2 | AmazonEC2 | Amazon Machine Image (AMI) products |
+| Amazon SageMaker AI | AmazonSageMaker | Machine Learning (ML) products |
 
 ###### Note
 

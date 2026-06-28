@@ -57,12 +57,12 @@ If your User Agent string is not visible in CloudTrail logs:
 
 ### Common format errors
 
-| Common User Agent String Format Issues | Issue                                                 | Cause                                                                                                                                                               | Solution |
-| -------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Missing end delimiter                  | The `$` character was omitted or escaped by the shell | Ensure the string ends with `$`. Use single quotes or escape appropriately for your shell                                                                           |
-| Wrong prefix                           | Using incorrect prefix format                         | Use exactly `APN_1.1/pc_` as the prefix                                                                                                                             |
-| Product code mismatch                  | Using Product ID or UUID instead of product code      | Retrieve the alphanumeric product code from AWS Marketplace Management Portal (see [Product Code Retrieval](product-code-retrieval.md "product-code-retrieval.md")) |
-| No API operations on resources         | Resources not receiving API calls in a given month    | Ensure your product performs at least one API operation on an AWS resource per month for attribution                                                                |
+Common User Agent String Format Issues| Issue | Cause | Solution |
+| --- | --- | --- |
+| Missing end delimiter | The `$` character was omitted or escaped by the shell | Ensure the string ends with `$`. Use single quotes or escape appropriately for your shell |
+| Wrong prefix | Using incorrect prefix format | Use exactly `APN_1.1/pc_` as the prefix |
+| Product code mismatch | Using Product ID or UUID instead of product code | Retrieve the alphanumeric product code from AWS Marketplace Management Portal (see [Product Code Retrieval](product-code-retrieval.md "product-code-retrieval.md")) |
+| No API operations on resources | Resources not receiving API calls in a given month | Ensure your product performs at least one API operation on an AWS resource per month for attribution |
 
 ### CloudTrail Logs Verification
 
@@ -89,11 +89,11 @@ For official validation, contact your AWS partner management team or [APN Suppor
 
 ## Common Implementation Errors
 
-| Common Partner Revenue Measurement Implementation Issues | Method                   | Issue                                 | Cause                                                                                                                                                                                                                                             | Solution |
-| -------------------------------------------------------- | ------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Resource Tagging                                         | Tags not working         | Wrong tag format                      | Use `aws-apn-id` key with `pc:product-code` value                                                                                                                                                                                                 |
-| Resource Tagging                                         | No revenue attribution   | Resources not incurring spend         | Ensure resources are actively consuming AWS services and incurring charges                                                                                                                                                                        |
-| Resource Tagging                                         | Product code mismatch    | Incorrect product code                | Verify code in AWS Marketplace Management Portal (see [Product Code Retrieval](product-code-retrieval.md "product-code-retrieval.md"))                                                                                                            |
-| User Agent String                                        | String not in CloudTrail | SDK not configured correctly          | Verify SDK client configuration includes User Agent string for all service clients                                                                                                                                                                |
-| User Agent String                                        | Missing delimiter        | `$` stripped by shell                 | Use single quotes or escape the `$` character appropriately                                                                                                                                                                                       |
-| Marketplace Metering                                     | No attribution           | Product not purchased via Marketplace | Ensure customers purchase and use the product through AWS Marketplace. Open a support ticket via [APN Support](https://partnercentral.awspartner.com/partnercentral2/s/support "https://partnercentral.awspartner.com/partnercentral2/s/support") |
+Common Partner Revenue Measurement Implementation Issues| Method | Issue | Cause | Solution |
+| --- | --- | --- | --- |
+| Resource Tagging | Tags not working | Wrong tag format | Use `aws-apn-id` key with `pc:product-code` value |
+| Resource Tagging | No revenue attribution | Resources not incurring spend | Ensure resources are actively consuming AWS services and incurring charges |
+| Resource Tagging | Product code mismatch | Incorrect product code | Verify code in AWS Marketplace Management Portal (see [Product Code Retrieval](product-code-retrieval.md "product-code-retrieval.md")) |
+| User Agent String | String not in CloudTrail | SDK not configured correctly | Verify SDK client configuration includes User Agent string for all service clients |
+| User Agent String | Missing delimiter | `$` stripped by shell | Use single quotes or escape the `$` character appropriately |
+| Marketplace Metering | No attribution | Product not purchased via Marketplace | Ensure customers purchase and use the product through AWS Marketplace. Open a support ticket via [APN Support](https://partnercentral.awspartner.com/partnercentral2/s/support "https://partnercentral.awspartner.com/partnercentral2/s/support") |
