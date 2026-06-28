@@ -45,8 +45,8 @@ provision your design.
      template.
 
 3. When multiple sections of your template have been updated, the **Change
-   Inspector** organizes them. Select the **Previous** and
-   **Next** buttons to view all changes.
+Inspector** organizes them. Select the **Previous** and
+**Next** buttons to view all changes.
 
 ![Selecting Next to view mutliple changes.](images/aac_use_ci_04.gif)
 

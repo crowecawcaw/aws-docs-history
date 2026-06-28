@@ -37,7 +37,7 @@ Standard IaC resource cards do not include ports to create connections with othe
 template of your application, Infrastructure Composer will automatically detect these connections and visualize them with a dotted line between your cards. The following is an example of a
 connection between a standard component card and an enhanced component card:
 
-![A standard component card connected to an enhanced component card.](/images/infrastructure-composer/latest/dg/images/aac_use_con_04.png)
+![A standard component card connected to an enhanced component card.](images/aac_use_con_04.png)
 
 The following example shows how a Lambda function can be connected with an Amazon API Gateway rest API:
 

@@ -63,7 +63,7 @@ When you drag a **Step Functions State machine** card onto the canvas, Infrastru
      state machine.
 
 2. Open the card’s **Resource properties** panel and select **Edit in Workflow Studio** to open Workflow Studio within
-   Infrastructure Composer.
+Infrastructure Composer.
 
 Step Functions Workflow Studio opens in **Design** mode. To learn more, see [Design mode](../../../step-functions/latest/dg/workflow-studio-components.md#wfs-interface-design-mode "../../../step-functions/latest/dg/workflow-studio-components.md#wfs-interface-design-mode") in the _AWS Step Functions Developer Guide_.
 
