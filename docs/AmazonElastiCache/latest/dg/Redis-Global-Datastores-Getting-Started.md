@@ -31,6 +31,12 @@ cluster.
 - Global datastores are supported on the following instance families in size
   large and above: M5, M6g, M7g, R5, R6g, R6gd, R7g, and C7gn. Previous generation
   instance types (such as M4 and R4) are not supported.
+
+###### Note
+
+Supported node types may vary between AWS Regions. For more details, see [Amazon ElastiCache
+pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/").
+
 - You can set up replication for a primary cluster from one AWS Region to a
   secondary cluster in up to two other AWS Regions.
 

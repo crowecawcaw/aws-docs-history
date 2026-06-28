@@ -401,13 +401,13 @@ ElastiCache version 4.0.10 for Redis OSS brings support for the following improv
 Redis OSS (cluster mode disabled) users running ElastiCache version 3.2.10 for Redis OSS can use the console to upgrade
 their clusters via online upgrade.
 
-| Comparing ElastiCache cluster resizing and encryption support                                                                                                                                                 |       | Version |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------- | ---------------- |
-| Feature                                                                                                                                                                                                       | 3.2.6 | 3.2.10  | 4.0.10 and later |
-| Online cluster resizing \*                                                                                                                                                                                    | No    | Yes     | Yes              |
-| In-transit encryption \*\*                                                                                                                                                                                    | Yes   | No      | Yes              |
-| At rest encryption \*\*                                                                                                                                                                                       | Yes   | No      | Yes              |
-| \<br>• Adding, removing, and rebalancing<br>shards.                                                                                                                                                           |
+Comparing ElastiCache cluster resizing and encryption support| | Version |
+| --- | --- |
+| Feature | 3.2.6 | 3.2.10 | 4.0.10 and later |
+| Online cluster resizing \* | No | Yes | Yes |
+| In-transit encryption \*\* | Yes | No | Yes |
+| At rest encryption \*\* | Yes | No | Yes |
+| \<br>• Adding, removing, and rebalancing<br>shards. |
 | \*\<br>• Required for FedRAMP, HIPAA, and PCI DSS<br>compliant applications. For more information, see [Compliance validation for Amazon ElastiCache](elasticache-compliance.md "elasticache-compliance.md"). |
 
 ### Past End of Life (EOL) versions (3.x)
@@ -420,13 +420,13 @@ cluster while it continues to serve incoming I/O requests. ElastiCache for Redis
 all the functionality of earlier Redis OSS versions except the ability to encrypt their
 data. This ability is currently available only in version 3.2.6.
 
-| Comparing ElastiCache versions 3.2.6 and 3.2.10 for Redis OSS                                                                                                                                                 |       | Version |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------- |
-| Feature                                                                                                                                                                                                       | 3.2.6 | 3.2.10  |
-| Online cluster resizing \*                                                                                                                                                                                    | No    | Yes     |
-| In-transit encryption \*\*                                                                                                                                                                                    | Yes   | No      |
-| At rest encryption \*\*                                                                                                                                                                                       | Yes   | No      |
-| \<br>• Adding, removing, and rebalancing shards.                                                                                                                                                              |
+Comparing ElastiCache versions 3.2.6 and 3.2.10 for Redis OSS| | Version |
+| --- | --- |
+| Feature | 3.2.6 | 3.2.10 |
+| Online cluster resizing \* | No | Yes |
+| In-transit encryption \*\* | Yes | No |
+| At rest encryption \*\* | Yes | No |
+| \<br>• Adding, removing, and rebalancing shards. |
 | \*\<br>• Required for FedRAMP, HIPAA, and PCI DSS compliant applications. For<br>more information, see [Compliance validation for Amazon ElastiCache](elasticache-compliance.md "elasticache-compliance.md"). |
 
 For more information, see the following:
@@ -451,17 +451,17 @@ ElastiCache 3.2.4 users have all the functionality of earlier Redis OSS versions
 run in _cluster mode_ or _non-cluster mode_.
 The following table summarizes .
 
-| Comparing Redis OSS 3.2.4 non-cluster mode and cluster mode                                     | Feature                 | Non-cluster mode                   | Cluster mode |
-| ----------------------------------------------------------------------------------------------- | ----------------------- | ---------------------------------- | ------------ |
-| Data partitioning                                                                               | No                      | Yes                                |
-| Geospatial indexing                                                                             | Yes                     | Yes                                |
-| Change node type                                                                                | Yes                     | Yes \*                             |
-| Replica scaling                                                                                 | Yes                     | Yes \*                             |
-| Scale out                                                                                       | No                      | Yes \*                             |
-| Database support                                                                                | Multiple                | Single                             |
-| Parameter group                                                                                 | `default.redis3.2` \*\* | `default.redis3.2.cluster.on` \*\* |
+Comparing Redis OSS 3.2.4 non-cluster mode and cluster mode| Feature | Non-cluster mode | Cluster mode |
+| --- | --- | --- |
+| Data partitioning | No | Yes |
+| Geospatial indexing | Yes | Yes |
+| Change node type | Yes | Yes \* |
+| Replica scaling | Yes | Yes \* |
+| Scale out | No | Yes \* |
+| Database support | Multiple | Single |
+| Parameter group | `default.redis3.2` \*\* | `default.redis3.2.cluster.on` \*\* |
 | \*  See [Restoring from a backup into a new cache](backups-restoring.md "backups-restoring.md") |
-| \*\* Or one derived from it.                                                                    |
+| \*\* Or one derived from it. |
 
 ###### Notes:
 

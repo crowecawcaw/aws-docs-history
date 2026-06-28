@@ -94,21 +94,18 @@ in-transit encryption enabled:
 - Use one of the following parameter sets to specify the
   configuration of the replication group's node groups:
 
-      + `--num-node-groups`—Specifies
-       the number of shards (node groups) in this replication
-       group. The maximum value of this parameter is
-       500.
+  - `--num-node-groups`—Specifies
+    the number of shards (node groups) in this replication
+    group. The maximum value of this parameter is
+  500.
 
-
-      `--replicas-per-node-group`—Specifies
-       the number of replica nodes in each node group. The value
-       specified here is applied to all shards in this replication
-       group. The maximum value of this parameter is
-       5.
-      + `--node-group-configuration`—Specifies
-       the configuration of each shard independently.
-
-  For more information, see the following:
+  `--replicas-per-node-group`—Specifies
+  the number of replica nodes in each node group. The value
+  specified here is applied to all shards in this replication
+  group. The maximum value of this parameter is 5.
+  - `--node-group-configuration`—Specifies
+    the configuration of each shard independently.
+    For more information, see the following:
 
 - [Creating a Valkey or Redis OSS (Cluster Mode Enabled) replication group from scratch (AWS CLI)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI "Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI")
 - [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md")

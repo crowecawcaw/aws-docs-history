@@ -37,47 +37,38 @@ Caching engine: ElastiCache for Memcached vs ElastiCache for Valkey and Redis OS
   shard, even for small throughput requirement workloads that require only one
   shard.
 
-      1. For cluster mode enabled, multi-AZ is enabled
-       automatically.
+  1.  For cluster mode enabled, multi-AZ is enabled
+      automatically.
 
+  Multi-AZ minimizes downtime by performing automatic failovers from
+  primary node to replicas, in case of any planned or unplanned
+  maintenance as well as mitigating AZ failure. 2. For sharded workloads, a minimum of three shards provides faster
+  recovery during failover events as the Valkey or Redis OSS Cluster Protocol
+  requires a majority of primary nodes be available to achieve
+  quorum. 3. Set up two or more replicas across Availability.
 
-      Multi-AZ minimizes downtime by performing automatic failovers from
-       primary node to replicas, in case of any planned or unplanned
-       maintenance as well as mitigating AZ failure.
-      2. For sharded workloads, a minimum of three shards provides faster
-       recovery during failover events as the Valkey or Redis OSS Cluster Protocol
-       requires a majority of primary nodes be available to achieve
-       quorum.
-      3. Set up two or more replicas across Availability.
+  Having two replicas provides improved read scalability and also
+  read availability in scenarios where one replica is undergoing
+  maintenance. 4. Use Graviton2-based node types (default nodes in most
+  regions).
 
-
-      Having two replicas provides improved read scalability and also
-       read availability in scenarios where one replica is undergoing
-       maintenance.
-      4. Use Graviton2-based node types (default nodes in most
-       regions).
-
-
-      ElastiCache has added optimized performance on these
-       nodes. As a result, you get better replication and synchronization
-       performance, resulting in overall improved availability.
-      5. Monitor and right-size to deal with anticipated traffic peaks:
-       under heavy load, the engine may become
-       unresponsive, which affects availability.
-       `BytesUsedForCache` and
-       `DatabaseMemoryUsagePercentage` are good indicators
-       of your memory usage, whereas `ReplicationLag` is an
-       indicator of your replication health based on your write rate. You
-       can use these metrics to trigger cluster scaling.
-      6. Ensure client-side resiliency by testing with the [Failover API prior to a production failover
-       event](https://docs.amazonaws.cn/en_us/AmazonElastiCache/latest/APIReference/API_TestFailover.html "https://docs.amazonaws.cn/en_us/AmazonElastiCache/latest/APIReference/API_TestFailover.html").
-
+  ElastiCache has added optimized performance on these
+  nodes. As a result, you get better replication and synchronization
+  performance, resulting in overall improved availability. 5. Monitor and right-size to deal with anticipated traffic peaks:
+  under heavy load, the engine may become
+  unresponsive, which affects availability.
+  `BytesUsedForCache` and
+  `DatabaseMemoryUsagePercentage` are good indicators
+  of your memory usage, whereas `ReplicationLag` is an
+  indicator of your replication health based on your write rate. You
+  can use these metrics to trigger cluster scaling. 6. Ensure client-side resiliency by testing with the [Failover API prior to a production failover
+  event](https://docs.amazonaws.cn/en_us/AmazonElastiCache/latest/APIReference/API_TestFailover.html "https://docs.amazonaws.cn/en_us/AmazonElastiCache/latest/APIReference/API_TestFailover.html").
   **[Resources]:**
 
-      + [Configure ElastiCache for Redis OSS for higher
-       availability](https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/ "https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/")
-      + [High
-       availability using replication groups](Replication.md "Replication.md")
+  - [Configure ElastiCache for Redis OSS for higher
+    availability](https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/ "https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/")
+  - [High
+    availability using replication groups](Replication.md "Replication.md")
 
 ## REL 2: How are you meeting your Recovery Point Objectives (RPOs) with ElastiCache?
 

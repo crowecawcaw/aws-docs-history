@@ -76,7 +76,7 @@ path of the directory that contains a subdirectory named
    ```
 
 2. Confirm the path setting by running `$JAVA_HOME/bin/java
--version` and checking the output.
+ -version` and checking the output.
 
    - On Linux/UNIX, you will see output similar to the
      following:
@@ -110,16 +110,16 @@ it to a directory on your local machine.
 
 ### Setting up the tools
 
-The command line tools depend on an environment variable (AWS_ELASTICACHE_HOME) to locate
+The command line tools depend on an environment variable (AWS\_ELASTICACHE\_HOME) to locate
 supporting libraries. You need to set this environment variable before you can use the
 tools. Set it to the path of the directory you unzipped the command line tools into.
 This directory is named ElastiCacheCli-A.B.nnnn (A, B and n are version/release
 numbers), and contains subdirectories named bin and lib.
 
-**To set the AWS_ELASTICACHE_HOME environment variable**
+**To set the AWS\_ELASTICACHE\_HOME environment variable**
 
 - Open a command line window and enter one of the following commands to set
-  the AWS_ELASTICACHE_HOME environment variable.
+  the AWS\_ELASTICACHE\_HOME environment variable.
 
   - On Linux and UNIX, enter the following command:
 
@@ -172,7 +172,7 @@ your AWS account. You can get them using the command line or from a credential f
 located on your local system.
 
 The deployment includes a template file
-${AWS_ELASTICACHE_HOME}/credential-file-path.template that you need to edit with your
+${AWS\_ELASTICACHE\_HOME}/credential-file-path.template that you need to edit with your
 information. Following are the contents of the template file:
 
 ```
@@ -190,11 +190,11 @@ On UNIX, limit permissions to the owner of the credential file:
 $ chmod 600 <the file created above>
 ```
 
-With the credentials file setup, you'll need to set the AWS_CREDENTIAL_FILE
+With the credentials file setup, you'll need to set the AWS\_CREDENTIAL\_FILE
 environment variable so that the ElastiCache tools can find your
 information.
 
-**To set the AWS_CREDENTIAL_FILE environment variable**
+**To set the AWS\_CREDENTIAL\_FILE environment variable**
 
 1. Set the environment variable:
 
@@ -223,14 +223,14 @@ commands.
 
 Environment variables can be useful for scripting, configuring defaults or temporarily overriding them.
 
-In addition to the AWS_CREDENTIAL_FILE environment variable,
+In addition to the AWS\_CREDENTIAL\_FILE environment variable,
 most API tools included with the ElastiCache Command Line Interface support the following variables:
 
-- **EC2_REGION** — The AWS region to use.
-- **AWS_ELASTICACHE_URL** — The URL to use for the service call.
-  Not required to specify a different regional endpoint if EC2_REGION is specified or the --region parameter is passed.
+- **EC2\_REGION** — The AWS region to use.
+- **AWS\_ELASTICACHE\_URL** — The URL to use for the service call.
+  Not required to specify a different regional endpoint if EC2\_REGION is specified or the --region parameter is passed.
 
-The following examples show how to set the environmental variable EC2_REGION to configure the region used by the API tools:
+The following examples show how to set the environmental variable EC2\_REGION to configure the region used by the API tools:
 
 Linux, OS X, or Unix
 

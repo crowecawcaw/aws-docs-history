@@ -46,32 +46,32 @@ the amount of memory consumed by a JSON document by using the `JSON.DEBUG
   indicates the mapping of JSON commands to the appropriate
   categories.
 
-| ACL            | JSON command | @read | @write | @fast | @slow | @admin |
-| -------------- | ------------ | ----- | ------ | ----- | ----- | ------ |
-| JSON.ARRAPPEND |              | y     | y      |       |       |
-| JSON.ARRINDEX  | y            |       | y      |       |       |
-| JSON.ARRINSERT |              | y     | y      |       |       |
-| JSON.ARRLEN    | y            |       | y      |       |       |
-| JSON.ARRPOP    |              | y     | y      |       |       |
-| JSON.ARRTRIM   |              | y     | y      |       |       |
-| JSON.CLEAR     |              | y     | y      |       |       |
-| JSON.DEBUG     | y            |       |        | y     | y     |
-| JSON.DEL       |              | y     | y      |       |       |
-| JSON.FORGET    |              | y     | y      |       |       |
-| JSON.GET       | y            |       | y      |       |       |
-| JSON.MGET      | y            |       | y      |       |       |
-| JSON.NUMINCRBY |              | y     | y      |       |       |
-| JSON.NUMMULTBY |              | y     | y      |       |       |
-| JSON.OBJKEYS   | y            |       | y      |       |       |
-| JSON.OBJLEN    | y            |       | y      |       |       |
-| JSON.RESP      | y            |       | y      |       |       |
-| JSON.SET       |              | y     |        | y     |       |
-| JSON.STRAPPEND |              | y     | y      |       |       |
-| JSON.STRLEN    | y            |       | y      |       |       |
-| JSON.STRLEN    | y            |       | y      |       |       |
-| JSON.TOGGLE    |              | y     | y      |       |       |
-| JSON.TYPE      | y            |       | y      |       |       |
-| JSON.NUMINCRBY |              | y     | y      |       |       |
+ACL| JSON command | @read | @write | @fast | @slow | @admin |
+| --- | --- | --- | --- | --- | --- |
+| JSON.ARRAPPEND | | y | y | | |
+| JSON.ARRINDEX | y | | y | | |
+| JSON.ARRINSERT | | y | y | | |
+| JSON.ARRLEN | y | | y | | |
+| JSON.ARRPOP | | y | y | | |
+| JSON.ARRTRIM | | y | y | | |
+| JSON.CLEAR | | y | y | | |
+| JSON.DEBUG | y | | | y | y |
+| JSON.DEL | | y | y | | |
+| JSON.FORGET | | y | y | | |
+| JSON.GET | y | | y | | |
+| JSON.MGET | y | | y | | |
+| JSON.NUMINCRBY | | y | y | | |
+| JSON.NUMMULTBY | | y | y | | |
+| JSON.OBJKEYS | y | | y | | |
+| JSON.OBJLEN | y | | y | | |
+| JSON.RESP | y | | y | | |
+| JSON.SET | | y | | y | |
+| JSON.STRAPPEND | | y | y | | |
+| JSON.STRLEN | y | | y | | |
+| JSON.STRLEN | y | | y | | |
+| JSON.TOGGLE | | y | y | | |
+| JSON.TYPE | y | | y | | |
+| JSON.NUMINCRBY | | y | y | | |
 
 ## Nesting depth limit
 
@@ -108,7 +108,7 @@ If a query path starts with '$', it uses the enhanced syntax. Otherwise, the res
 **Enhanced syntax**
 
 | Symbol/Expression | Description                                                                |
-| ----------------- | -------------------------------------------------------------------------- | --- | -------------------------------------------------------- |
+| ----------------- | -------------------------------------------------------------------------- |
 | $                 | The root element.                                                          |
 | . or []           | Child operator.                                                            |
 | ..                | Recursive descent.                                                         |
@@ -179,7 +179,7 @@ data, which we have modified by adding additional fields.
 ```
 
 | Path                                           | Description                                                                                                       |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------------------------------------------------------- |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | $.store.book[\*].author                        | The authors of all books in the store.                                                                            |
 | $..author                                      | All authors.                                                                                                      |
 | $.store.\*                                     | All members of the store.                                                                                         |
@@ -276,10 +276,10 @@ prefixes.
 
 The following JSON info metrics are provided:
 
-| Info                    | Description                                       |
-| ----------------------- | ------------------------------------------------- |
-| json_total_memory_bytes | Total memory allocated to JSON objects.           |
-| json_num_documents      | Total number of documents in Valkey or Redis OSS. |
+| Info                       | Description                                       |
+| -------------------------- | ------------------------------------------------- |
+| json\_total\_memory\_bytes | Total memory allocated to JSON objects.           |
+| json\_num\_documents       | Total number of documents in Valkey or Redis OSS. |
 
 To query core metrics, run the following command:
 

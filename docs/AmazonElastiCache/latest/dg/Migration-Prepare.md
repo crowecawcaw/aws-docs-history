@@ -30,7 +30,7 @@ requirements for migration:
     * It has data tiering disabled.
 
 2. Make sure that the configurations of your open-source Valkey or Redis OSS and the ElastiCache deployment are
-   compatible.
+compatible.
 
 At a minimum, all the following in the target ElastiCache deployment should be
 compatible with your Valkey or Redis OSS configuration for replication:
@@ -55,15 +55,15 @@ compatible with your Valkey or Redis OSS configuration for replication:
      same port.
 
 3. Make sure that your instances can connect with ElastiCache by doing the
-   following:
+following:
 
-   - Ensure that each instance's IP address is private.
-   - Assign or create the ElastiCache deployment in the same virtual private
+    * Ensure that each instance's IP address is private.
+    * Assign or create the ElastiCache deployment in the same virtual private
      cloud (VPC) as your Valkey or Redis OSS on your instance (recommended).
-   - If the VPCs are different, set up VPC peering to allow access between
+    * If the VPCs are different, set up VPC peering to allow access between
      the nodes. For more information on VPC peering, see [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md").
-   - The security group attached to your Valkey or Redis OSS instances should allow
+    * The security group attached to your Valkey or Redis OSS instances should allow
      inbound traffic from ElastiCache nodes.
 
 4. Make sure that your application can direct traffic to ElastiCache nodes after
-   migration of data is complete. For more information, see [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md").
+migration of data is complete. For more information, see [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md").

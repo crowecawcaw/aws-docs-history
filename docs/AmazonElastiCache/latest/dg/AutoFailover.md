@@ -346,20 +346,18 @@ When testing, note the following:
   Amazon ElastiCache console, the AWS CLI, or the ElastiCache API. Look for the following events
   related to automatic failover, listed here in order of likely occurrence:
 
-      1. Replication group message: `Test Failover API called for node group <node-group-id>`
-      2. Cache cluster message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
-      3. Replication group message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
-      4. Cache cluster message: `Recovering cache nodes <node-id>`
-      5. Cache cluster message: `Finished recovery for cache nodes <node-id>`
-
-  For more information, see the following:
-
-      + [Viewing ElastiCache events](ECEvents.Viewing.md "ECEvents.Viewing.md")
-       in the *ElastiCache User Guide*
-      + [DescribeEvents](../APIReference/API_DescribeEvents.md "../APIReference/API_DescribeEvents.md") in the *ElastiCache API
-       Reference*
-      + [describe-events](../../../cli/latest/reference/elasticache/describe-events.md "../../../cli/latest/reference/elasticache/describe-events.md") in the *AWS CLI Command
-       Reference.*
+  1.  Replication group message: `Test Failover API called for node group <node-group-id>`
+  2.  Cache cluster message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
+  3.  Replication group message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
+  4.  Cache cluster message: `Recovering cache nodes <node-id>`
+  5.  Cache cluster message: `Finished recovery for cache nodes <node-id>`
+      For more information, see the following:
+  - [Viewing ElastiCache events](ECEvents.Viewing.md "ECEvents.Viewing.md")
+    in the _ElastiCache User Guide_
+  - [DescribeEvents](../APIReference/API_DescribeEvents.md "../APIReference/API_DescribeEvents.md") in the _ElastiCache API
+    Reference_
+  - [describe-events](../../../cli/latest/reference/elasticache/describe-events.md "../../../cli/latest/reference/elasticache/describe-events.md") in the _AWS CLI Command
+    Reference._
 
 - This API is designed for testing the behavior of your application in case of ElastiCache failover. It is not designed to be an operational tool for initiating a failover to address an issue with the cluster. Moreover, in certain conditions such as large-scale operational events, AWS may block this API.
 
@@ -394,10 +392,9 @@ For Valkey or Redis OSS (cluster mode enabled), do the following:
      node group in the API and CLI) on which you want to test failover,
      choose the shard's name.
 
-6. On the Nodes page, choose **Failover Primary**.
-7. Choose **Continue** to fail over the primary, or
-   **Cancel** to cancel the operation and not fail over
-   the primary node.
+6. On the Nodes page, choose **Failover Primary**. 7. Choose **Continue** to fail over the primary, or
+**Cancel** to cancel the operation and not fail over
+the primary node.
 
 During the failover process, the console continues to show the node's
 status as _available_. To track the progress of your

@@ -35,13 +35,12 @@ When using IAM authentication, the following limitations apply:
 - IAM re-authentication (`AUTH` or `HELLO` commands) is not supported inside `MULTI`/`EXEC` or Lua script blocks. However, you can run regular data commands inside `MULTI`/`EXEC` blocks on an IAM-authenticated connection.
 - Currently, IAM authentication supports the following global condition context keys:
 
-      + When using IAM authentication with serverless caches, `aws:VpcSourceIp`, `aws:SourceVpc`, `aws:SourceVpce`,
-       `aws:CurrentTime`, `aws:EpochTime`, and `aws:ResourceTag/%s` (from associated serverless caches and users) are supported.
-      + When using IAM authentication with replication groups, `aws:SourceIp`
-       and `aws:ResourceTag/%s` (from associated replication groups and users) are supported.
-
-  For more information about global condition context keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
-  in the IAM User Guide.
+  - When using IAM authentication with serverless caches, `aws:VpcSourceIp`, `aws:SourceVpc`, `aws:SourceVpce`,
+    `aws:CurrentTime`, `aws:EpochTime`, and `aws:ResourceTag/%s` (from associated serverless caches and users) are supported.
+  - When using IAM authentication with replication groups, `aws:SourceIp`
+    and `aws:ResourceTag/%s` (from associated replication groups and users) are supported.
+    For more information about global condition context keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
+    in the IAM User Guide.
 
 ###### Note
 

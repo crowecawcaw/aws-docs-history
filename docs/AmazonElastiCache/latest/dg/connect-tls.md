@@ -141,46 +141,42 @@ tcp        0      0 127.0.0.1:6379              0.0.0.0:*                   LIST
 tcp        0      0 127.0.0.1:6380              0.0.0.0:*                   LISTEN      3189/stunnel
 ```
 
-4.  Connect to the encrypted Redis OSS node using the local endpoint of the tunnel.
+4. Connect to the encrypted Redis OSS node using the local endpoint of the tunnel.
 
-        * If no AUTH password was used during ElastiCache for Redis OSS cluster creation, this example uses the valkey-cli to connect to the ElastiCache for Redis OSS server using complete path for valkey-cli, on Amazon Linux:
+   - If no AUTH password was used during ElastiCache for Redis OSS cluster creation, this example uses the valkey-cli to connect to the ElastiCache for Redis OSS server using complete path for valkey-cli, on Amazon Linux:
 
+   ```
+   /home/ec2-user/redis-7.2.5/src/valkey-cli -h localhost -p 6379
+   ```
 
+   If AUTH password was used during Redis OSS cluster creation, this example uses valkey-cli to connect to the Redis OSS server using complete path for valkey-cli, on Amazon Linux:
 
-        ```
-        /home/ec2-user/redis-7.2.5/src/valkey-cli -h localhost -p 6379
-        ```
+   ```
+    /home/ec2-user/redis-7.2.5/src/valkey-cli -h localhost -p 6379 -a `my-secret-password`
+   ```
 
-        If AUTH password was used during Redis OSS cluster creation, this example uses valkey-cli to connect to the Redis OSS server using complete path for valkey-cli, on Amazon Linux:
+OR
 
-
-
-        ```
-         /home/ec2-user/redis-7.2.5/src/valkey-cli -h localhost -p 6379 -a `my-secret-password`
-        ```
-
-    OR
-
-        * Change directory to redis-7.2.5 and do the following:
+    * Change directory to redis-7.2.5 and do the following:
 
 
-        If no AUTH password was used during ElastiCache for Redis OSS cluster creation, this example uses the valkey-cli to connect to the ElastiCache for Redis OSS server using complete path for valkey-cli, on Amazon Linux:
+    If no AUTH password was used during ElastiCache for Redis OSS cluster creation, this example uses the valkey-cli to connect to the ElastiCache for Redis OSS server using complete path for valkey-cli, on Amazon Linux:
 
 
 
-        ```
-        src/valkey-cli -h localhost -p 6379
-        ```
+    ```
+    src/valkey-cli -h localhost -p 6379
+    ```
 
-        If AUTH password was used during Redis OSS cluster creation, this example uses valkey-cli to connect to the Valkey or Redis OSS server using complete path for valkey-cli, on Amazon Linux:
+    If AUTH password was used during Redis OSS cluster creation, this example uses valkey-cli to connect to the Valkey or Redis OSS server using complete path for valkey-cli, on Amazon Linux:
 
 
 
-        ```
-        src/valkey-cli -h localhost -p 6379 -a `my-secret-password`
-        ```
+    ```
+    src/valkey-cli -h localhost -p 6379 -a `my-secret-password`
+    ```
 
-    This example uses Telnet to connect to the Valkey Redis OSS server.
+This example uses Telnet to connect to the Valkey Redis OSS server.
 
 ```
 telnet localhost 6379

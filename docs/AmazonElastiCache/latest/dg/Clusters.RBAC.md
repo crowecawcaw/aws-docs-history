@@ -53,8 +53,7 @@ some limitations:
 | Users per user group  | 100             |
 | Number of users       | 1000            |
 | Number of user groups | 100             |
-
-**RBAC with Valkey**
+| **RBAC with Valkey**  |
 
 When using Role Based Access Control with Valkey, users and user groups are made with the
 "VALKEY" engine type. This is recommended, as by default Valkey with RBAC provides increased

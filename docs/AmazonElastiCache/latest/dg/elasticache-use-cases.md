@@ -246,10 +246,10 @@ PUNSUBSCRIBE news.sports.*
 ###### Important
 
 - The channel string sent to a [P]SUBSCRIBE command and to the [P]UNSUBSCRIBE command must
-  match. You can't `PSUBSCRIBE` to \*news.\**
-  and `PUNSUBSCRIBE` from *news.sports.\** or
+  match. You can't `PSUBSCRIBE` to _news.\*_
+  and `PUNSUBSCRIBE` from _news.sports.\*_ or
   `UNSUBSCRIBE` from
-  *news.sports.golf\*.
+  _news.sports.golf_.
 - `PSUBSCRIBE` and `PUNSUBSCRIBE` are not available for ElastiCache Serverless.
 
 ### Publishing

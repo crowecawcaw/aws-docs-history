@@ -122,8 +122,8 @@ views to get the most updated cluster view. If you run a large cluster, you migh
 want to increase the period.
 
 Enable [enableAllAdaptiveRefreshTriggers](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enableAllAdaptiveRefreshTriggers-- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enableAllAdaptiveRefreshTriggers--"). This enables adaptive topology
-refreshing that uses all [triggers](https://lettuce.io/core/6.1.6.RELEASE/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html "https://lettuce.io/core/6.1.6.RELEASE/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html"): MOVED_REDIRECT, ASK_REDIRECT, PERSISTENT_RECONNECTS,
-UNCOVERED_SLOT, UNKNOWN_NODE. Adaptive refresh triggers initiate topology view
+refreshing that uses all [triggers](https://lettuce.io/core/6.1.6.RELEASE/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html "https://lettuce.io/core/6.1.6.RELEASE/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html"): MOVED\_REDIRECT, ASK\_REDIRECT, PERSISTENT\_RECONNECTS,
+UNCOVERED\_SLOT, UNKNOWN\_NODE. Adaptive refresh triggers initiate topology view
 updates based on events that happen during Valkey or Redis OSS cluster operations. Enabling this
 option leads to an immediate topology refresh when one of the preceding triggers
 occur. Adaptive triggered refreshes are rate-limited using a timeout because events

@@ -41,45 +41,45 @@ Private DNS hostnames can be enabled for only one VPC endpoint in the VPC. If yo
 to create an additional VPC endpoint then private DNS hostname should be disabled for
 that endpoint.
 
-| Available Privatelink Regions | Code                      | Location       | Region |
-| ----------------------------- | ------------------------- | -------------- | ------ |
-| CPT                           | Africa (Cape Town)        | AF-SOUTH-1     |
-| HKG                           | Asia Pacific (Hong Kong)  | AP-EAST-1      |
-| TPE                           | Asia Pacific (Taipei)     | AP-EAST-2      |
-| NRT                           | Asia Pacific (Tokyo)      | AP-NORTHEAST-1 |
-| ICN                           | Asia Pacific (Seoul)      | AP-NORTHEAST-2 |
-| KIX                           | Asia Pacific (Osaka)      | AP-NORTHEAST-3 |
-| BOM                           | Asia Pacific (Mumbai)     | AP-SOUTH-1     |
-| HYD                           | Asia Pacific (Hyderabad)  | AP-SOUTH-2     |
-| SIN                           | Asia Pacific (Singapore)  | AP-SOUTHEAST-1 |
-| SYD                           | Asia Pacific (Sydney)     | AP-SOUTHEAST-2 |
-| CGK                           | Asia Pacific (Jakarta)    | AP-SOUTHEAST-3 |
-| MEL                           | Asia Pacific (Melbourne)  | AP-SOUTHEAST-4 |
-| KUL                           | Asia Pacific (Malaysia)   | AP-SOUTHEAST-5 |
-| BKK                           | Asia Pacific (Thailand)   | AP-SOUTHEAST-7 |
-| YUL                           | Canada (Central)          | CA-CENTRAL-1   |
-| YYC                           | Canada West (Calgary)     | CA-WEST-1      |
-| BJS                           | China (Beijing)           | CN-NORTH-1     |
-| ZHY                           | China (Ningxia)           | CN-NORTHWEST-1 |
-| FRA                           | Europe (Frankfurt)        | EU-CENTRAL-1   |
-| ZRH                           | Europe (Zurich)           | EU-CENTRAL-2   |
-| ARN                           | Europe (Stockholm)        | EU-NORTH-1     |
-| MXP                           | Europe (Milan)            | EU-SOUTH-1     |
-| ZAZ                           | Europe (Spain)            | EU-SOUTH-2     |
-| DUB                           | Europe (Ireland)          | EU-WEST-1      |
-| LHR                           | Europe (London)           | EU-WEST-2      |
-| CDG                           | Europe (Paris)            | EU-WEST-3      |
-| TLV                           | Tel Aviv (Israel)         | IL-CENTRAL-1   |
-| DXB                           | Middle East (UAE)         | ME-CENTRAL-1   |
-| BAH                           | Middle East (Bahrain)     | ME-SOUTH-1     |
-| QRO                           | Mexico (Central)          | MX-CENTRAL-1   |
-| GRU                           | South America (Sao Paulo) | SA-EAST-1      |
-| IAD                           | US East (N. Virginia)     | US-EAST-1      |
-| CMH                           | US East (Ohio)            | US-EAST-2      |
-| OSU                           | AWS GovCloud (US-East)    | US-GOV-EAST-1  |
-| SFO                           | US West (N. California)   | US-WEST-1      |
-| PDX                           | US West (Oregon)          | US-WEST-2      |
-| PDT                           | AWS GovCloud (US-West)    | US-WEST-1      |
+Available Privatelink Regions| Code | Location | Region |
+| --- | --- | --- |
+| CPT | Africa (Cape Town) | AF-SOUTH-1 |
+| HKG | Asia Pacific (Hong Kong) | AP-EAST-1 |
+| TPE | Asia Pacific (Taipei) | AP-EAST-2 |
+| NRT | Asia Pacific (Tokyo) | AP-NORTHEAST-1 |
+| ICN | Asia Pacific (Seoul) | AP-NORTHEAST-2 |
+| KIX | Asia Pacific (Osaka) | AP-NORTHEAST-3 |
+| BOM | Asia Pacific (Mumbai) | AP-SOUTH-1 |
+| HYD | Asia Pacific (Hyderabad) | AP-SOUTH-2 |
+| SIN | Asia Pacific (Singapore) | AP-SOUTHEAST-1 |
+| SYD | Asia Pacific (Sydney) | AP-SOUTHEAST-2 |
+| CGK | Asia Pacific (Jakarta) | AP-SOUTHEAST-3 |
+| MEL | Asia Pacific (Melbourne) | AP-SOUTHEAST-4 |
+| KUL | Asia Pacific (Malaysia) | AP-SOUTHEAST-5 |
+| BKK | Asia Pacific (Thailand) | AP-SOUTHEAST-7 |
+| YUL | Canada (Central) | CA-CENTRAL-1 |
+| YYC | Canada West (Calgary) | CA-WEST-1 |
+| BJS | China (Beijing) | CN-NORTH-1 |
+| ZHY | China (Ningxia) | CN-NORTHWEST-1 |
+| FRA | Europe (Frankfurt) | EU-CENTRAL-1 |
+| ZRH | Europe (Zurich) | EU-CENTRAL-2 |
+| ARN | Europe (Stockholm) | EU-NORTH-1 |
+| MXP | Europe (Milan) | EU-SOUTH-1 |
+| ZAZ | Europe (Spain) | EU-SOUTH-2 |
+| DUB | Europe (Ireland) | EU-WEST-1 |
+| LHR | Europe (London) | EU-WEST-2 |
+| CDG | Europe (Paris) | EU-WEST-3 |
+| TLV | Tel Aviv (Israel) | IL-CENTRAL-1 |
+| DXB | Middle East (UAE) | ME-CENTRAL-1 |
+| BAH | Middle East (Bahrain) | ME-SOUTH-1 |
+| QRO | Mexico (Central) | MX-CENTRAL-1 |
+| GRU | South America (Sao Paulo) | SA-EAST-1 |
+| IAD | US East (N. Virginia) | US-EAST-1 |
+| CMH | US East (Ohio) | US-EAST-2 |
+| OSU | AWS GovCloud (US-East) | US-GOV-EAST-1 |
+| SFO | US West (N. California) | US-WEST-1 |
+| PDX | US West (Oregon) | US-WEST-2 |
+| PDT | AWS GovCloud (US-West) | US-WEST-1 |
 
 ## Considerations for VPC endpoints
 

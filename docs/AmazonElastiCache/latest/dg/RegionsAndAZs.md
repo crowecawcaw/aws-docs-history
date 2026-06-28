@@ -128,40 +128,40 @@ When designing your own ElastiCache cluster, you can choose to launch your nodes
 For more information on Regions and Availability Zones, see
 [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md "RegionsAndAZs.md") at the top of this topic.
 
-| Regions where ElastiCache is supported                                                                                                                                                                                                          | Region Name/Region                            | Endpoint | Protocol |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | -------- | -------- |
-| US East (Ohio) Region<br>`us-east-2`                                                                                                                                                                                                            | `elasticache.us-east-2.amazonaws.com`         | HTTPS    |
-| US East (N. Virginia) Region<br>`us-east-1`                                                                                                                                                                                                     | `elasticache.us-east-1.amazonaws.com`         | HTTPS    |
-| US West (N. California) Region<br>`us-west-1`                                                                                                                                                                                                   | `elasticache.us-west-1.amazonaws.com`         | HTTPS    |
-| US West (Oregon) Region<br>`us-west-2`                                                                                                                                                                                                          | `elasticache.us-west-2.amazonaws.com`         | HTTPS    |
-| Canada (Central) Region<br>`ca-central-1`                                                                                                                                                                                                       | `elasticache.ca-central-1.amazonaws.com`      | HTTPS    |
-| Canada (West) Region<br>`ca-west-1`                                                                                                                                                                                                             | `elasticache.ca-west-1.amazonaws.com`         | HTTPS    |
-| Asia Pacific (Jakarta)<br>`ap-southeast-3`                                                                                                                                                                                                      | `elasticache.ap-southeast-3.amazonaws.com`    | HTTPS    |
-| Asia Pacific (Mumbai) Region<br>`ap-south-1`                                                                                                                                                                                                    | `elasticache.ap-south-1.amazonaws.com`        | HTTPS    |
-| Asia Pacific (Hyderabad) Region<br>`ap-south-2`                                                                                                                                                                                                 | `elasticache.ap-south-2.amazonaws.com`        | HTTPS    |
-| Asia Pacific (Tokyo) Region<br>`ap-northeast-1`                                                                                                                                                                                                 | `elasticache.ap-northeast-1.amazonaws.com`    | HTTPS    |
-| Asia Pacific (Seoul) Region<br>`ap-northeast-2`                                                                                                                                                                                                 | `elasticache.ap-northeast-2.amazonaws.com`    | HTTPS    |
-| Asia Pacific (Osaka) Region<br>`ap-northeast-3`                                                                                                                                                                                                 | `elasticache.ap-northeast-3.amazonaws.com`    | HTTPS    |
-| Asia Pacific (Singapore) Region<br>`ap-southeast-1`                                                                                                                                                                                             | `elasticache.ap-southeast-1.amazonaws.com`    | HTTPS    |
-| Asia Pacific (Sydney) Region<br>`ap-southeast-2`                                                                                                                                                                                                | `elasticache.ap-southeast-2.amazonaws.com`    | HTTPS    |
-| Europe (Frankfurt) Region<br>`eu-central-1`                                                                                                                                                                                                     | `elasticache.eu-central-1.amazonaws.com`      | HTTPS    |
-| Europe (Zurich) Region<br>`eu-central-2`                                                                                                                                                                                                        | `elasticache.eu-central-2.amazonaws.com`      | HTTPS    |
-| Europe (Stockholm) Region<br>`eu-north-1`                                                                                                                                                                                                       | `elasticache.eu-north-1.amazonaws.com`        | HTTPS    |
-| Middle East (Bahrain) Region<br>`me-south-1`                                                                                                                                                                                                    | `elasticache.me-south-1.amazonaws.com`        | HTTPS    |
-| Middle East (UAE) Region<br>`me-central-1`                                                                                                                                                                                                      | `elasticache.me-central-1.amazonaws.com`      | HTTPS    |
-| Europe (Ireland) Region<br>`eu-west-1`                                                                                                                                                                                                          | `elasticache.eu-west-1.amazonaws.com`         | HTTPS    |
-| Europe (London) Region<br>`eu-west-2`                                                                                                                                                                                                           | `elasticache.eu-west-2.amazonaws.com`         | HTTPS    |
-| EU (Paris) Region<br>`eu-west-3`                                                                                                                                                                                                                | `elasticache.eu-west-3.amazonaws.com`         | HTTPS    |
-| Europe (Milan) Region<br>`eu-south-1`                                                                                                                                                                                                           | `elasticache.eu-south-1.amazonaws.com`        | HTTPS    |
-| Europe (Spain) Region<br>`eu-south-2`                                                                                                                                                                                                           | `elasticache.eu-south-2.amazonaws.com`        | HTTPS    |
-| South America (São Paulo) Region<br>`sa-east-1`                                                                                                                                                                                                 | `elasticache.sa-east-1.amazonaws.com`         | HTTPS    |
-| China (Beijing) Region<br>`cn-north-1`                                                                                                                                                                                                          | `elasticache.cn-north-1.amazonaws.com.cn`     | HTTPS    |
-| China (Ningxia) Region<br>`cn-northwest-1`                                                                                                                                                                                                      | `elasticache.cn-northwest-1.amazonaws.com.cn` | HTTPS    |
-| Asia Pacific (Hong Kong) Region<br>`ap-east-1`                                                                                                                                                                                                  | `elasticache.ap-east-1.amazonaws.com`         | HTTPS    |
-| Africa (Cape Town) Region<br>`af-south-1`                                                                                                                                                                                                       | `elasticache.af-south-1.amazonaws.com`        | HTTPS    |
-| Israel (Tel Aviv) Region<br>`il-central-1`                                                                                                                                                                                                      | `elasticache.il-central-1.amazonaws.com`      | HTTPS    |
-| AWS GovCloud (US-West)<br>`us-gov-west-1`                                                                                                                                                                                                       | `elasticache.us-gov-west-1.amazonaws.com`     | HTTPS    |
-| AWS GovCloud (US-East)<br>`us-gov-east-1`                                                                                                                                                                                                       | `elasticache.us-gov-east-1.amazonaws.com`     | HTTPS    |
+Regions where ElastiCache is supported| Region Name/Region | Endpoint | Protocol |
+| --- | --- | --- |
+| US East (Ohio) Region<br>`us-east-2` | `elasticache.us-east-2.amazonaws.com` | HTTPS |
+| US East (N. Virginia) Region<br>`us-east-1` | `elasticache.us-east-1.amazonaws.com` | HTTPS |
+| US West (N. California) Region<br>`us-west-1` | `elasticache.us-west-1.amazonaws.com` | HTTPS |
+| US West (Oregon) Region<br>`us-west-2` | `elasticache.us-west-2.amazonaws.com` | HTTPS |
+| Canada (Central) Region<br>`ca-central-1` | `elasticache.ca-central-1.amazonaws.com` | HTTPS |
+| Canada (West) Region<br>`ca-west-1` | `elasticache.ca-west-1.amazonaws.com` | HTTPS |
+| Asia Pacific (Jakarta)<br>`ap-southeast-3` | `elasticache.ap-southeast-3.amazonaws.com` | HTTPS |
+| Asia Pacific (Mumbai) Region<br>`ap-south-1` | `elasticache.ap-south-1.amazonaws.com` | HTTPS |
+| Asia Pacific (Hyderabad) Region<br>`ap-south-2` | `elasticache.ap-south-2.amazonaws.com` | HTTPS |
+| Asia Pacific (Tokyo) Region<br>`ap-northeast-1` | `elasticache.ap-northeast-1.amazonaws.com` | HTTPS |
+| Asia Pacific (Seoul) Region<br>`ap-northeast-2` | `elasticache.ap-northeast-2.amazonaws.com` | HTTPS |
+| Asia Pacific (Osaka) Region<br>`ap-northeast-3` | `elasticache.ap-northeast-3.amazonaws.com` | HTTPS |
+| Asia Pacific (Singapore) Region<br>`ap-southeast-1` | `elasticache.ap-southeast-1.amazonaws.com` | HTTPS |
+| Asia Pacific (Sydney) Region<br>`ap-southeast-2` | `elasticache.ap-southeast-2.amazonaws.com` | HTTPS |
+| Europe (Frankfurt) Region<br>`eu-central-1` | `elasticache.eu-central-1.amazonaws.com` | HTTPS |
+| Europe (Zurich) Region<br>`eu-central-2` | `elasticache.eu-central-2.amazonaws.com` | HTTPS |
+| Europe (Stockholm) Region<br>`eu-north-1` | `elasticache.eu-north-1.amazonaws.com` | HTTPS |
+| Middle East (Bahrain) Region<br>`me-south-1` | `elasticache.me-south-1.amazonaws.com` | HTTPS |
+| Middle East (UAE) Region<br>`me-central-1` | `elasticache.me-central-1.amazonaws.com` | HTTPS |
+| Europe (Ireland) Region<br>`eu-west-1` | `elasticache.eu-west-1.amazonaws.com` | HTTPS |
+| Europe (London) Region<br>`eu-west-2` | `elasticache.eu-west-2.amazonaws.com` | HTTPS |
+| EU (Paris) Region<br>`eu-west-3` | `elasticache.eu-west-3.amazonaws.com` | HTTPS |
+| Europe (Milan) Region<br>`eu-south-1` | `elasticache.eu-south-1.amazonaws.com` | HTTPS |
+| Europe (Spain) Region<br>`eu-south-2` | `elasticache.eu-south-2.amazonaws.com` | HTTPS |
+| South America (São Paulo) Region<br>`sa-east-1` | `elasticache.sa-east-1.amazonaws.com` | HTTPS |
+| China (Beijing) Region<br>`cn-north-1` | `elasticache.cn-north-1.amazonaws.com.cn` | HTTPS |
+| China (Ningxia) Region<br>`cn-northwest-1` | `elasticache.cn-northwest-1.amazonaws.com.cn` | HTTPS |
+| Asia Pacific (Hong Kong) Region<br>`ap-east-1` | `elasticache.ap-east-1.amazonaws.com` | HTTPS |
+| Africa (Cape Town) Region<br>`af-south-1` | `elasticache.af-south-1.amazonaws.com` | HTTPS |
+| Israel (Tel Aviv) Region<br>`il-central-1` | `elasticache.il-central-1.amazonaws.com` | HTTPS |
+| AWS GovCloud (US-West)<br>`us-gov-west-1` | `elasticache.us-gov-west-1.amazonaws.com` | HTTPS |
+| AWS GovCloud (US-East)<br>`us-gov-east-1` | `elasticache.us-gov-east-1.amazonaws.com` | HTTPS |
 | For information on using the AWS GovCloud (US) with ElastiCache, see<br>[Services in the AWS GovCloud (US) region: ElastiCache](../../../govcloud-us/latest/UserGuide/govcloud-elc.md "../../../govcloud-us/latest/UserGuide/govcloud-elc.md"). |
 
 Some Regions support a subset of node types. For a table of supported node types by AWS Region,

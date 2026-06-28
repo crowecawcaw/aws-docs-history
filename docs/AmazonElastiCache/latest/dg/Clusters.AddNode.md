@@ -39,10 +39,8 @@ The following is true of a Redis OSS cluster that does not have replication enab
     If the cluster has any shards, replication is already enabled on it
      and you can continue at [To add nodes to an ElastiCache cluster (console)](#AddNode.CON "#AddNode.CON").
 
-4. Choose **Add replication**.
-5. In **Add Replication**, enter a description for this replication-enabled
-   cluster.
-6. Choose **Add**.
+4. Choose **Add replication**. 5. In **Add Replication**, enter a description for this replication-enabled
+cluster. 6. Choose **Add**.
 
 As soon as the cluster's status returns to _available_ you can continue at the next procedure
 and add replicas to the cluster.
@@ -64,12 +62,12 @@ If your cluster is a Valkey or Redis OSS (cluster mode enabled) cluster, see [Sc
 If your cluster is a Valkey or Redis OSS (cluster mode disabled) cluster with zero shards, first complete the steps at [To add replication to a Valkey or Redis OSS cluster with no shards](#AddReplication.CON "#AddReplication.CON"). 4. Choose **Add node**. 5. Complete the information requested in the **Add Node** dialog box. 6. Choose the **Apply Immediately - Yes** button to add this node immediately,
 or choose **No** to add this node during the cluster's next maintenance window.
 
-| Impact of New Add and Remove Requests on Pending Requests | Scenarios | Pending Operation | New Request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Results |
-| --------------------------------------------------------- | --------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Scenario 1                                                | Delete    | Delete            | The new delete request, pending or immediate, replaces the pending delete request.<br>For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request<br>to delete nodes 0002 and 0004 is issued, only nodes 0002 and 0004 will be deleted.<br>Nodes 0001, 0003, and 0007 will not be deleted.                                                                                                                                                                                                       |
-| Scenario 2                                                | Delete    | Create            | The new create request, pending or immediate, replaces the pending delete request.<br>For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request<br>to create a node is issued, a new node will be created and nodes 0001, 0003, and 0007<br>will not be deleted.                                                                                                                                                                                                                               |
-| Scenario 3                                                | Create    | Delete            | The new delete request, pending or immediate, replaces the pending create request.<br>For example, if there is a pending request to create two nodes and a new request<br>is issued to delete node 0003, no new nodes will be created and node 0003 will<br>be deleted.                                                                                                                                                                                                                                                |
-| Scenario 4                                                | Create    | Create            | The new create request is added to the pending create request.<br>For example, if there is a pending request to create two nodes and a new request is<br>issued to create three nodes, the new requests is added to the pending request and five<br>nodes will be created.<br>ImportantIf the new create request is set to **Apply Immediately<br>• Yes**,<br>all create requests are performed immediately.<br>If the new create request is set to **Apply Immediately<br>• No**,<br>all create requests are pending. |
+Impact of New Add and Remove Requests on Pending Requests| Scenarios | Pending Operation | New Request | Results |
+| --- | --- | --- | --- |
+| Scenario 1 | Delete | Delete | The new delete request, pending or immediate, replaces the pending delete request.<br>For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request<br>to delete nodes 0002 and 0004 is issued, only nodes 0002 and 0004 will be deleted.<br>Nodes 0001, 0003, and 0007 will not be deleted. |
+| Scenario 2 | Delete | Create | The new create request, pending or immediate, replaces the pending delete request.<br>For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request<br>to create a node is issued, a new node will be created and nodes 0001, 0003, and 0007<br>will not be deleted. |
+| Scenario 3 | Create | Delete | The new delete request, pending or immediate, replaces the pending create request.<br>For example, if there is a pending request to create two nodes and a new request<br>is issued to delete node 0003, no new nodes will be created and node 0003 will<br>be deleted. |
+| Scenario 4 | Create | Create | The new create request is added to the pending create request.<br>For example, if there is a pending request to create two nodes and a new request is<br>issued to create three nodes, the new requests is added to the pending request and five<br>nodes will be created.<br>ImportantIf the new create request is set to **Apply Immediately<br>• Yes**,<br>all create requests are performed immediately.<br>If the new create request is set to **Apply Immediately<br>• No**,<br>all create requests are pending. |
 
 To determine what operations are pending, choose the **Description** tab and
 check to see how many pending creations or deletions are shown.
@@ -279,19 +277,18 @@ the following process.
 - Call the `IncreaseReplicaCount` API operation with the following
   parameters:
 
-      + `ReplicationGroupId` The ID of the cluster that you want to add nodes to.
-      + `NewReplicaCount` The `NewReplicaCount` parameter specifies the number
-       of nodes that you want in this cluster after the modification is
-       applied. To add nodes to this cluster, `NewReplicaCount`
-       must be greater than the current number of nodes in this cluster. If
-       this value is less than the current number of nodes, use the `DecreaseReplicaCount` API with the number of nodes
-       to remove from the cluster.
-      + `ApplyImmediately`
-       Specifies whether to add these nodes immediately or at the next maintenance window.
-      + `Region` Specifies the AWS Region of the cluster that you want to add nodes
-       to.
-
-  The following example shows a call to add nodes to a cluster.
+  - `ReplicationGroupId` The ID of the cluster that you want to add nodes to.
+  - `NewReplicaCount` The `NewReplicaCount` parameter specifies the number
+    of nodes that you want in this cluster after the modification is
+    applied. To add nodes to this cluster, `NewReplicaCount`
+    must be greater than the current number of nodes in this cluster. If
+    this value is less than the current number of nodes, use the `DecreaseReplicaCount` API with the number of nodes
+    to remove from the cluster.
+  - `ApplyImmediately`
+    Specifies whether to add these nodes immediately or at the next maintenance window.
+  - `Region` Specifies the AWS Region of the cluster that you want to add nodes
+    to.
+    The following example shows a call to add nodes to a cluster.
 
 ###### Example
 
@@ -321,20 +318,19 @@ For more information, see ElastiCache API topic [`IncreaseReplicaCount`](../APIR
 - Call the `ModifyCacheCluster` API operation with the following
   parameters:
 
-      + `CacheClusterId` The ID of the cluster that you want to add nodes to.
-      + `NumCacheNodes` The `NumCachNodes` parameter specifies the number
-       of nodes that you want in this cluster after the modification is
-       applied. To add nodes to this cluster, `NumCacheNodes`
-       must be greater than the current number of nodes in this cluster. If
-       this value is less than the current number of nodes, ElastiCache expects
-       the parameter `CacheNodeIdsToRemove` with a list of nodes
-       to remove from the cluster (see [Using the ElastiCache API with Memcached](Clusters.DeleteNode.md#Clusters.DeleteNode.API "Clusters.DeleteNode.md#Clusters.DeleteNode.API")).
-      + `ApplyImmediately`
-       Specifies whether to add these nodes immediately or at the next maintenance window.
-      + `Region` Specifies the AWS Region of the cluster that you want to add nodes
-       to.
-
-  The following example shows a call to add nodes to a cluster.
+  - `CacheClusterId` The ID of the cluster that you want to add nodes to.
+  - `NumCacheNodes` The `NumCachNodes` parameter specifies the number
+    of nodes that you want in this cluster after the modification is
+    applied. To add nodes to this cluster, `NumCacheNodes`
+    must be greater than the current number of nodes in this cluster. If
+    this value is less than the current number of nodes, ElastiCache expects
+    the parameter `CacheNodeIdsToRemove` with a list of nodes
+    to remove from the cluster (see [Using the ElastiCache API with Memcached](Clusters.DeleteNode.md#Clusters.DeleteNode.API "Clusters.DeleteNode.md#Clusters.DeleteNode.API")).
+  - `ApplyImmediately`
+    Specifies whether to add these nodes immediately or at the next maintenance window.
+  - `Region` Specifies the AWS Region of the cluster that you want to add nodes
+    to.
+    The following example shows a call to add nodes to a cluster.
 
 ###### Example
 

@@ -14,21 +14,21 @@ Search is currently available on all ElastiCache instance types other than nodes
 
 The following table shows limits for various search items:
 
-| Search limits                                                                           | Item    | Maximum value (9.0+) | Maximum value (8.2) |
-| --------------------------------------------------------------------------------------- | ------- | -------------------- | ------------------- |
-| Number of dimensions in a vector                                                        | 32768   | 32768                |
-| Number of indexes that can be created                                                   | 1000    | 10                   |
-| Number of fields in an index                                                            | 1000    | 50                   |
-| FT.SEARCH TIMEOUT clause (milliseconds)                                                 | 60000   | 60000                |
-| Maximum number of prefixes allowed per index                                            | 16      | 16                   |
-| Maximum length of a tag field                                                           | 10000   | 10000                |
-| Maximum length of a numeric field                                                       | 256     | 256                  |
-| HNSW M parameter                                                                        | 2000000 | 2000000              |
-| HNSW EF_CONSTRUCTION parameter                                                          | 1000000 | 4096                 |
-| HNSW EF_RUNTIME parameter                                                               | 1000000 | 4096                 |
-| Number of terms allowed to be used in a query string in FT.SEARCH/FT.AGGREGATE commands | 1000    | 16                   |
-| Number of text attributes allowed per index                                             | 64      | NA                   |
-| Maximum text word expansions in Prefix, Suffix, Fuzzy, and Stem Term Searches           | 200     | NA                   |
+Search limits| Item | Maximum value (9.0+) | Maximum value (8.2) |
+| --- | --- | --- |
+| Number of dimensions in a vector | 32768 | 32768 |
+| Number of indexes that can be created | 1000 | 10 |
+| Number of fields in an index | 1000 | 50 |
+| FT.SEARCH TIMEOUT clause (milliseconds) | 60000 | 60000 |
+| Maximum number of prefixes allowed per index | 16 | 16 |
+| Maximum length of a tag field | 10000 | 10000 |
+| Maximum length of a numeric field | 256 | 256 |
+| HNSW M parameter | 2000000 | 2000000 |
+| HNSW EF\_CONSTRUCTION parameter | 1000000 | 4096 |
+| HNSW EF\_RUNTIME parameter | 1000000 | 4096 |
+| Number of terms allowed to be used in a query string in FT.SEARCH/FT.AGGREGATE commands | 1000 | 16 |
+| Number of text attributes allowed per index | 64 | NA |
+| Maximum text word expansions in Prefix, Suffix, Fuzzy, and Stem Term Searches | 200 | NA |
 
 ## Operational restrictions
 

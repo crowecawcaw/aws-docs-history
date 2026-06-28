@@ -34,7 +34,7 @@ of normal cluster operations.
 
 ![Normal Cluster Operations](images/autodiscovery_normal_cache_usage-diagram.png)
 
-Process of Normal Cluster Operations| 1 | The application issues a \*get<br>• request for a<br>particular data item, identified by its key. |
+Process of Normal Cluster Operations| 1 | The application issues a *get<br>• request for a<br>particular data item, identified by its key. |
 | 2 | The client uses a hashing algorithm against the key to<br>determine which cache node contains the data item. |
 | 3 | The data item is requested from the appropriate node. |
 | 4 | The data item is returned to the application. |

@@ -40,75 +40,67 @@ your budget.
   with business outcomes and a clear line of accountability is established,
   from a cost perspective.
 
-      1. CCoE should identify, define, and publish cost metrics that are
-       updated on a regular -monthly- basis around key ElastiCache usage
-       across categorical data such as:
+  1.  CCoE should identify, define, and publish cost metrics that are
+      updated on a regular -monthly- basis around key ElastiCache usage
+      across categorical data such as:
 
+      1. Types of nodes used and their attributes: standard vs.
+         memory optimized, on-demand vs. reserved instances, regions
+         and availability zones
+      2. Types of environments: free, dev, testing, and
+         production
+      3. Backup storage and retention strategies
+      4. Data transfer within and across regions
+      5. Instances running on Amazon Outposts
 
-
-
-      	1. Types of nodes used and their attributes: standard vs.
-      	 memory optimized, on-demand vs. reserved instances, regions
-      	 and availability zones
-      	2. Types of environments: free, dev, testing, and
-      	 production
-      	3. Backup storage and retention strategies
-      	4. Data transfer within and across regions
-      	5. Instances running on Amazon Outposts
-      2. CCoE consists of a cross-functional team with non-exclusive
-       representation from software engineering, data management, product
-       team, finance, and leadership teams in your organization.
-
-  **[Resources]:**
-
-      + [Create a Cloud Center of Excellence](../../../whitepapers/latest/cost-optimization-laying-the-foundation/cloud-center-of-excellence.md "../../../whitepapers/latest/cost-optimization-laying-the-foundation/cloud-center-of-excellence.md")
-      + [Amazon ElastiCache
-       pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")
+  2.  CCoE consists of a cross-functional team with non-exclusive
+      representation from software engineering, data management, product
+      team, finance, and leadership teams in your organization.
+      **[Resources]:**
+  - [Create a Cloud Center of Excellence](../../../whitepapers/latest/cost-optimization-laying-the-foundation/cloud-center-of-excellence.md "../../../whitepapers/latest/cost-optimization-laying-the-foundation/cloud-center-of-excellence.md")
+  - [Amazon ElastiCache
+    pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")
 
 - **[Required]** Use cost allocation tags to
   track costs at a low level of granularity. Use AWS Cost Management to
   visualize, understand, and manage your AWS costs and usage over time.
 
-      1. Use tags to organize your resources, and cost allocation tags to
-       track your AWS costs on a detailed level. After you activate cost
-       allocation tags, AWS uses the cost allocation tags to organize
-       your resource costs on your cost allocation report, to make it
-       easier for you to categorize and track your AWS costs. AWS
-       provides two types of cost allocation tags, an AWS generated tags
-       and user-defined tags. AWS defines, creates, and applies the AWS
-       generated tags for you, and you define, create, and apply
-       user-defined tags. You must activate both types of tags separately
-       before they can appear in Cost Management or on a cost allocation
-       report.
-      2. Use cost allocation tags to organize your AWS bill to reflect
-       your own cost structure. When you add cost allocation tags to your
-       resources in Amazon ElastiCache, you will be able to track costs by grouping
-       expenses on your invoices by resource tag values. You should
-       consider combining tags to track costs at a greater level of
-       detail.
-
-  **[Resources]:**
-
-      + [Using AWS cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md")
-      + [Monitoring
-       costs with cost allocation tags](Tagging.md "Tagging.md")
-      + [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/")
+  1.  Use tags to organize your resources, and cost allocation tags to
+      track your AWS costs on a detailed level. After you activate cost
+      allocation tags, AWS uses the cost allocation tags to organize
+      your resource costs on your cost allocation report, to make it
+      easier for you to categorize and track your AWS costs. AWS
+      provides two types of cost allocation tags, an AWS generated tags
+      and user-defined tags. AWS defines, creates, and applies the AWS
+      generated tags for you, and you define, create, and apply
+      user-defined tags. You must activate both types of tags separately
+      before they can appear in Cost Management or on a cost allocation
+      report.
+  2.  Use cost allocation tags to organize your AWS bill to reflect
+      your own cost structure. When you add cost allocation tags to your
+      resources in Amazon ElastiCache, you will be able to track costs by grouping
+      expenses on your invoices by resource tag values. You should
+      consider combining tags to track costs at a greater level of
+      detail.
+      **[Resources]:**
+  - [Using AWS cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md")
+  - [Monitoring
+    costs with cost allocation tags](Tagging.md "Tagging.md")
+  - [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/")
 
 - **[Best]** Connect ElastiCache cost to metrics that
   reach across the organization.
 
-      1. Consider business metrics as well as operational metrics like
-       latency - what concepts in your business model are understandable
-       across roles? The metrics need to be understandable by as many roles
-       as possible in the organization.
-      2. Examples - simultaneous served users, max and average latency per
-       operation and user, user engagement scores, user return rates/week,
-       session length/user, abandonment rate, cache hit rate, and keys
-       tracked
-
-  **[Resources]:**
-
-      + [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
+  1.  Consider business metrics as well as operational metrics like
+      latency - what concepts in your business model are understandable
+      across roles? The metrics need to be understandable by as many roles
+      as possible in the organization.
+  2.  Examples - simultaneous served users, max and average latency per
+      operation and user, user engagement scores, user return rates/week,
+      session length/user, abandonment rate, cache hit rate, and keys
+      tracked
+      **[Resources]:**
+  - [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
 
 - **[Good]** Maintain up-to-date architectural
   and operational visibility on metrics and costs across the entire workload
@@ -157,39 +149,35 @@ long periods of time.
   ElastiCache clusters and analyze how these metrics relate to your AWS Cost
   Explorer dashboards.
 
-      1. ElastiCache provides both host-level metrics (for example, CPU usage)
-       and metrics that are specific to the cache engine software (for
-       example, cache gets and cache misses). These metrics are measured
-       and published for each cache node in 60-second intervals.
-      2. ElastiCache performance metrics (CPUUtilization, EngineUtilization,
-       SwapUsage, CurrConnections, and Evictions) may indicate that you
-       need to scale up/down (use larger/smaller cache node types) or
-       in/out (add more/less shards). Understand the cost implications of
-       scaling decisions by creating a playbook matrix that estimates the
-       additional cost and the min and max lengths of time required to meet
-       your application performance thresholds.
-
-  **[Resources]:**
-
-      + [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
-      + [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md "CacheMetrics.WhichShouldIMonitor.md")
-      + [Amazon ElastiCache
-       pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")
+  1.  ElastiCache provides both host-level metrics (for example, CPU usage)
+      and metrics that are specific to the cache engine software (for
+      example, cache gets and cache misses). These metrics are measured
+      and published for each cache node in 60-second intervals.
+  2.  ElastiCache performance metrics (CPUUtilization, EngineUtilization,
+      SwapUsage, CurrConnections, and Evictions) may indicate that you
+      need to scale up/down (use larger/smaller cache node types) or
+      in/out (add more/less shards). Understand the cost implications of
+      scaling decisions by creating a playbook matrix that estimates the
+      additional cost and the min and max lengths of time required to meet
+      your application performance thresholds.
+      **[Resources]:**
+  - [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
+  - [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md "CacheMetrics.WhichShouldIMonitor.md")
+  - [Amazon ElastiCache
+    pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")
 
 - **[Required]** Understand and document your
   backup strategy and cost implications.
 
-      1. With ElastiCache, the backups are stored in Amazon S3, which provides
-       durable storage. You need to understand the cost implications in
-       relation to your ability to recover from failures.
-      2. Enable automatic backups that will delete backup files that are
-       past the retention limit.
-
-  **[Resources]:**
-
-      + [Scheduling automatic backups](backups-automatic.md "backups-automatic.md")
-      + [Amazon Simple Storage Service
-       pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/")
+  1.  With ElastiCache, the backups are stored in Amazon S3, which provides
+      durable storage. You need to understand the cost implications in
+      relation to your ability to recover from failures.
+  2.  Enable automatic backups that will delete backup files that are
+      past the retention limit.
+      **[Resources]:**
+  - [Scheduling automatic backups](backups-automatic.md "backups-automatic.md")
+  - [Amazon Simple Storage Service
+    pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/")
 
 - **[Best]** Use Reserved Nodes for your
   instances as a deliberate strategy to manage costs for workloads that are
@@ -229,18 +217,16 @@ instance capability.
 - **[Required]** Understand limitations of data
   tiering instances
 
-      1. Only available for ElastiCache for Valkey or Redis OSS clusters.
-      2. Only limited instance types support data tiering.
-      3. Only ElastiCache version 6.2 for Redis OSS and above is supported
-      4. Large items are not swapped out to SSD. Objects over 128 MiB are
-       kept in memory.
-
-  **[Resources]:**
-
-      + [Data
-       tiering](data-tiering.md "data-tiering.md")
-      + [Amazon ElastiCache
-       pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")
+  1.  Only available for ElastiCache for Valkey or Redis OSS clusters.
+  2.  Only limited instance types support data tiering.
+  3.  Only ElastiCache version 6.2 for Redis OSS and above is supported
+  4.  Large items are not swapped out to SSD. Objects over 128 MiB are
+      kept in memory.
+      **[Resources]:**
+  - [Data
+    tiering](data-tiering.md "data-tiering.md")
+  - [Amazon ElastiCache
+    pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")
 
 - **[Required]** Understand what percentage of
   your database is regularly accessed by your workload.
@@ -256,39 +242,35 @@ instance capability.
 - **[Required]** Understand that data tiering
   instances are not optional for certain workloads.
 
-      1. There is a small performance cost for accessing less frequently
-       used objects as those are swapped out to local SSD. If your
-       application is response time sensitive test the impact on your
-       workload.
-      2. Not suitable for caches that store mostly large objects over 128
-       MiB in size.
-
-  **[Resources]:**
-
-      + [Limitations](data-tiering.md#data-tiering-prerequisites "data-tiering.md#data-tiering-prerequisites")
+  1.  There is a small performance cost for accessing less frequently
+      used objects as those are swapped out to local SSD. If your
+      application is response time sensitive test the impact on your
+      workload.
+  2.  Not suitable for caches that store mostly large objects over 128
+      MiB in size.
+      **[Resources]:**
+  - [Limitations](data-tiering.md#data-tiering-prerequisites "data-tiering.md#data-tiering-prerequisites")
 
 - **[Best]** Reserved instance types support
   data tiering. This assures the lowest cost in terms of amount of data
   storage per instance.
 
-      1. You may need to operate your ElastiCache clusters using non-data tiering
-       instances until you have a better understanding of your
-       requirements.
-      2. Analyze your ElastiCache clusters data usage pattern.
-      3. Create an automated job that periodically collects object idle
-       time.
-      4. If you notice that a large percentage (about 80%) of objects are
-       idle for a period of time deemed appropriate for your workload
-       document the findings and suggest migrating the cluster to instances
-       that support data tiering.
-      5. Regularly evaluate new cache node types available and assess
-       whether it makes sense, from a cost and operational metrics
-       perspective, to migrate your instance fleet to new cache node
-       types.
-
-  **[Resources]:**
-
-      + [OBJECT
-       IDLETIME](https://valkey.io/commands/object-idletime/ "https://valkey.io/commands/object-idletime/")
-      + [Amazon ElastiCache
-       pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")
+  1.  You may need to operate your ElastiCache clusters using non-data tiering
+      instances until you have a better understanding of your
+      requirements.
+  2.  Analyze your ElastiCache clusters data usage pattern.
+  3.  Create an automated job that periodically collects object idle
+      time.
+  4.  If you notice that a large percentage (about 80%) of objects are
+      idle for a period of time deemed appropriate for your workload
+      document the findings and suggest migrating the cluster to instances
+      that support data tiering.
+  5.  Regularly evaluate new cache node types available and assess
+      whether it makes sense, from a cost and operational metrics
+      perspective, to migrate your instance fleet to new cache node
+      types.
+      **[Resources]:**
+  - [OBJECT
+    IDLETIME](https://valkey.io/commands/object-idletime/ "https://valkey.io/commands/object-idletime/")
+  - [Amazon ElastiCache
+    pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")

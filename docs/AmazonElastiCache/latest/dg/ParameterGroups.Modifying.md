@@ -64,8 +64,8 @@ With Memcached, to find the name and permitted values of the parameter you want 
 [Memcached specific parameters](ParameterGroups.Engine.md#ParameterGroups.Memcached "ParameterGroups.Engine.md#ParameterGroups.Memcached")
 
 The following sample code sets the value of two parameters,
-_chunk_size_ and
-_chunk_size_growth_fact_ on the parameter group
+_chunk\_size_ and
+_chunk\_size\_growth\_fact_ on the parameter group
 `myMem14`.
 
 For Linux, macOS, or Unix:
@@ -176,8 +176,8 @@ With Memcached, to find the name and permitted values of the parameter you want 
 [Memcached specific parameters](ParameterGroups.Engine.md#ParameterGroups.Memcached "ParameterGroups.Engine.md#ParameterGroups.Memcached")
 
 The following sample code sets the value of two parameters,
-_chunk_size_ and
-_chunk_size_growth_fact_ on the parameter group
+_chunk\_size_ and
+_chunk\_size\_growth\_fact_ on the parameter group
 `myMem14`.
 
 ```

@@ -31,16 +31,16 @@ export and store your ElastiCache backup.
 
 ###### To create an Amazon S3 bucket
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  Choose **Create Bucket**.
-3.  In **Create a Bucket - Select a Bucket Name and Region**, do the following:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Choose **Create Bucket**.
+3. In **Create a Bucket - Select a Bucket Name and Region**, do the following:
 
-    1. In **Bucket Name**,
-       type a name for your Amazon S3 bucket.
+   1. In **Bucket Name**,
+      type a name for your Amazon S3 bucket.
 
-    The name of your Amazon S3 bucket must be DNS-compliant. Otherwise, ElastiCache can't
-    access your backup file. The rules for DNS compliance are:
+   The name of your Amazon S3 bucket must be DNS-compliant. Otherwise, ElastiCache can't
+   access your backup file. The rules for DNS compliance are:
 
         * Names must be at least 3 and no more than 63 characters long.
         * Names must be a series of one or more labels separated by a period (.) where each label:
@@ -52,9 +52,9 @@ export and store your ElastiCache backup.
         	+ Ends with a lowercase letter or a number.
         	+ Contains only lowercase letters, numbers, and dashes.
         * Names can't be formatted as an IP address (for example, 192.0.2.0).
-    2. From the **Region** list, choose an AWS Region for your Amazon S3 bucket.
-       This AWS Region must be the same AWS Region as the ElastiCache backup you want to export.
-    3. Choose **Create**.
+
+   2. From the **Region** list, choose an AWS Region for your Amazon S3 bucket.
+   This AWS Region must be the same AWS Region as the ElastiCache backup you want to export. 3. Choose **Create**.
 
 For more information about creating an Amazon S3 bucket, see [Creating a bucket](../../../AmazonS3/latest/userguide/CreatingaBucket.md "../../../AmazonS3/latest/userguide/CreatingaBucket.md") in the _Amazon Simple Storage Service User Guide_.
 
@@ -137,31 +137,31 @@ The Amazon S3 bucket must be in the same AWS Region as the ElastiCache backup.
 
 ###### To export an ElastiCache backup to an Amazon S3 bucket
 
-1.  Sign in to the AWS Management Console and open the ElastiCache console at
-    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2.  To see a list of your backups,
-    from the left navigation pane choose **Backups**.
-3.  From the list of backups, choose the box to the left of the name of the backup you want to export.
-4.  Choose **Export**.
-5.  In **Export Backup**, do the following:
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. To see a list of your backups,
+   from the left navigation pane choose **Backups**.
+3. From the list of backups, choose the box to the left of the name of the backup you want to export.
+4. Choose **Export**.
+5. In **Export Backup**, do the following:
 
-    1. In **New backup name** box,
-       type a name for your new backup.
+   1. In **New backup name** box,
+      type a name for your new backup.
 
-    The name must be between 1 and 1,000 characters and able to be UTF-8 encoded.
+   The name must be between 1 and 1,000 characters and able to be UTF-8 encoded.
 
-    ElastiCache adds an instance identifier and `.rdb` to the
-    value that you enter here. For example, if you enter `my-exported-backup`,
-    ElastiCache creates `my-exported-backup-0001.rdb`. 2. From the **Target S3 Location** list,
-    choose the name of the Amazon S3 bucket that you want to copy your backup to (the bucket that you created in [Create an Amazon S3 bucket](#backups-exporting-create-s3-bucket "#backups-exporting-create-s3-bucket")).
+   ElastiCache adds an instance identifier and `.rdb` to the
+   value that you enter here. For example, if you enter `my-exported-backup`,
+   ElastiCache creates `my-exported-backup-0001.rdb`. 2. From the **Target S3 Location** list,
+   choose the name of the Amazon S3 bucket that you want to copy your backup to (the bucket that you created in [Create an Amazon S3 bucket](#backups-exporting-create-s3-bucket "#backups-exporting-create-s3-bucket")).
 
-    The **Target S3 Location** must be an Amazon S3 bucket
-    in the backup's AWS Region with the following permissions for the export process to succeed.
+   The **Target S3 Location** must be an Amazon S3 bucket
+   in the backup's AWS Region with the following permissions for the export process to succeed.
 
         * Object access – **Read** and **Write**.
         * Permissions access – **Read**.
 
-    For more information, see [Grant ElastiCache access to your Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access"). 3. Choose **Copy**.
+   For more information, see [Grant ElastiCache access to your Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access"). 3. Choose **Copy**.
 
 ###### Note
 
@@ -179,7 +179,7 @@ Add Read permissions on the bucket.
 **Solution:**
 Add Write permissions on the bucket.
 
-- ElastiCache has not been granted READ_ACP permissions %s on the S3 Bucket.
+- ElastiCache has not been granted READ\_ACP permissions %s on the S3 Bucket.
 
 **Solution:**
 Add **Read** for Permissions access on the bucket.

@@ -77,18 +77,13 @@ including the cluster's configuration endpoint. 5. To see a listing of the clust
      you need to use to read data from the cluster.
 
 7. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster.
-   For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
-8. To view logs, choose the **Logs** tab, which indicates if the cluster is using Slow logs or Engine logs and provides relevant
-   details. For more information, see [Log delivery](Log_Delivery.md "Log_Delivery.md").
-9. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration, the VPC security group and
-   what, if any, encryption method is enabled on the cluster. For more information, see [Subnets and subnet groups](SubnetGroups.md "SubnetGroups.md") and [Data security in Amazon ElastiCache](encryption.md "encryption.md").
-10. Choose the **Maintenance** tab to view details on the cluster's maintenance settings.
-    For more information, see [Managing ElastiCache cluster maintenance](maintenance-window.md "maintenance-window.md").
-11. Choose the **Service updates** tab to view details on any available service updates along with their recommended apply-by date.
-    For more information, see [Service updates in ElastiCache](Self-Service-Updates.md "Self-Service-Updates.md").
-12. Choose the **Tags** tab to view details on any tags applied to cluster resources.
-    For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md "Tagging-Resources.md").
-    The following code lists the details for `my-cluster`:
+For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md") 8. To view logs, choose the **Logs** tab, which indicates if the cluster is using Slow logs or Engine logs and provides relevant
+details. For more information, see [Log delivery](Log_Delivery.md "Log_Delivery.md"). 9. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration, the VPC security group and
+what, if any, encryption method is enabled on the cluster. For more information, see [Subnets and subnet groups](SubnetGroups.md "SubnetGroups.md") and [Data security in Amazon ElastiCache](encryption.md "encryption.md"). 10. Choose the **Maintenance** tab to view details on the cluster's maintenance settings.
+For more information, see [Managing ElastiCache cluster maintenance](maintenance-window.md "maintenance-window.md"). 11. Choose the **Service updates** tab to view details on any available service updates along with their recommended apply-by date.
+For more information, see [Service updates in ElastiCache](Self-Service-Updates.md "Self-Service-Updates.md"). 12. Choose the **Tags** tab to view details on any tags applied to cluster resources.
+For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md "Tagging-Resources.md").
+The following code lists the details for `my-cluster`:
 
 ```
 aws elasticache describe-cache-clusters --cache-cluster-id my-cluster

@@ -10,11 +10,11 @@ starts out empty unless your application populates it.
 To manually vertically scale your Memcached cluster, you must create a new cluster. Memcached
 clusters always start out empty unless your application populates it.
 
-| Manually scaling Memcached clusters | Action                                                                                                                     | Topic |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----- |
-| Scaling out                         | [Adding nodes to a cluster](Clusters.md#AddNode "Clusters.md#AddNode")                                                     |
-| Scaling in                          | [Deleting nodes from a cluster](Clusters.md#DeleteNode "Clusters.md#DeleteNode")                                           |
-| Changing node types                 | [Manually scaling node-based Memcached clusters vertically](#Scaling.Memcached.Vertically "#Scaling.Memcached.Vertically") |
+Manually scaling Memcached clusters| Action | Topic |
+| --- | --- |
+| Scaling out | [Adding nodes to a cluster](Clusters.md#AddNode "Clusters.md#AddNode") |
+| Scaling in | [Deleting nodes from a cluster](Clusters.md#DeleteNode "Clusters.md#DeleteNode") |
+| Changing node types | [Manually scaling node-based Memcached clusters vertically](#Scaling.Memcached.Vertically "#Scaling.Memcached.Vertically") |
 
 ###### Topics
 

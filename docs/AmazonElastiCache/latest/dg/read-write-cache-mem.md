@@ -91,7 +91,7 @@ $tls_client->set('key', 'value', 60);
 ?>
 ```
 
-See [https://pymemcache.readthedocs.io/en/latest/getting_started.html](https://pymemcache.readthedocs.io/en/latest/getting_started.html "https://pymemcache.readthedocs.io/en/latest/getting_started.html")
+See [https://pymemcache.readthedocs.io/en/latest/getting\_started.html](https://pymemcache.readthedocs.io/en/latest/getting_started.html "https://pymemcache.readthedocs.io/en/latest/getting_started.html")
 
 ```
 import ssl

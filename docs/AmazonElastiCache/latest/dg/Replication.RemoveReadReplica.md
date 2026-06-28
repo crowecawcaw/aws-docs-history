@@ -19,12 +19,11 @@ same as just deleting a cluster, though there are restrictions:
 - If Multi-AZ is enabled on a replication group, you can't remove the last
   read replica from the replication group. In this case, do the following:
 
-      1. Modify the replication group by disabling Multi-AZ.
-       For more information,
-       see [Modifying a replication group](Replication.Modify.md "Replication.Modify.md").
-      2. Delete the read replica.
-
-  You can remove a read replica from a Valkey or Redis OSS (cluster mode disabled) replication group using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
+  1.  Modify the replication group by disabling Multi-AZ.
+      For more information,
+      see [Modifying a replication group](Replication.Modify.md "Replication.Modify.md").
+  2.  Delete the read replica.
+      You can remove a read replica from a Valkey or Redis OSS (cluster mode disabled) replication group using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
 
 For directions on deleting a cluster from a Valkey or Redis OSS replication group, see the following:
 

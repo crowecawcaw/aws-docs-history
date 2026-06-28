@@ -58,41 +58,41 @@ You want to authenticate users with role-based access control.
 
 For more information, see [Redis OSS Version 6.0 (Enhanced)](engine-versions.md#redis-version-6.0 "engine-versions.md#redis-version-6.0").
 
-| Comparison summary of Memcached, Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) |                                                                   | Memcached                                                | Valkey or Redis OSS (cluster mode disabled)              | Valkey or Redis OSS (cluster mode enabled) |
-| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------ |
-| Engine versions+                                                                                                             | 1.4.5 and later                                                   | 4.0.10 and later                                         | 4.0.10 and later                                         |
-| Data types                                                                                                                   | Simple ‡                                                          | 2.8.x<br>• Complex \*                                    | 3.2.x and later<br>• Complex †                           |
-| Complex †                                                                                                                    |
-| Data partitioning                                                                                                            | Yes                                                               | No                                                       | Yes                                                      |
-| Cluster is modifiable                                                                                                        | Yes                                                               | Yes                                                      | 3.2.10 and later<br>• Limited                            |
-| Online resharding                                                                                                            | No                                                                | No                                                       | 3.2.10 and later                                         |
-| Encryption                                                                                                                   | in-transit 1.6.12 and later                                       | 4.0.10 and later                                         | 4.0.10 and later                                         |
-| Data tiering                                                                                                                 | No                                                                | 6.2 and later                                            | 6.2 and later                                            |
-| Memory efficiencies                                                                                                          | No                                                                | Valkey 8.0 and later                                     | Valkey 8.0 and later                                     |
-| Bloom filters                                                                                                                | No                                                                | Valkey 8.1 and later                                     | Valkey 8.1 and later                                     |
-| Vector search                                                                                                                | No                                                                | Valkey 8.2 and later                                     | Valkey 8.2 and later                                     |
-| Full-text search                                                                                                             | No                                                                | Valkey 9.0 and later                                     | Valkey 9.0 and later                                     |
-| Hybrid search (text + vector)                                                                                                | No                                                                | Valkey 9.0 and later                                     | Valkey 9.0 and later                                     |
-| Aggregation pipelines                                                                                                        | No                                                                | Valkey 9.0 and later                                     | Valkey 9.0 and later                                     |
-| Hash field expiration                                                                                                        | No                                                                | Valkey 9.0 and later                                     | Valkey 9.0 and later                                     |
-| Numbered databases in cluster mode                                                                                           | No                                                                | N/A                                                      | Valkey 9.0 and later                                     |
-| Durability                                                                                                                   | No                                                                | No                                                       | Valkey 9.0 and later (sync/async)                        |
-| Compliance certifications                                                                                                    |
-| Compliance Certification<br>FedRAMP<br>HIPAA<br>PCI DSS                                                                      | Yes<br>• 1.6.12 and later<br>Yes<br>• 1.6.12 and later<br>Yes     | 4.0.10 and later<br>4.0.10 and later<br>4.0.10 and later | 4.0.10 and later<br>4.0.10 and later<br>4.0.10 and later |
-| Multi-threaded                                                                                                               | Yes                                                               | No                                                       | No                                                       |
-| Node type upgrade                                                                                                            | Yes (engine version 1.5+)                                         | Yes                                                      | Yes                                                      |
-| Engine upgrading                                                                                                             | Yes                                                               | Yes                                                      | Yes                                                      |
-| High availability (replication)                                                                                              | No                                                                | Yes                                                      | Yes                                                      |
-| Automatic failover                                                                                                           | No                                                                | Optional                                                 | Required                                                 |
-| Pub/Sub capabilities                                                                                                         | No                                                                | Yes                                                      | Yes                                                      |
-| Sorted sets                                                                                                                  | No                                                                | Yes                                                      | Yes                                                      |
-| Backup and restore                                                                                                           | For serverless caches only, not applicable to node-based clusters | Yes                                                      | Yes                                                      |
-| Geospatial indexing                                                                                                          | No                                                                | 4.0.10 and later                                         | Yes                                                      |
-| **Notes:**                                                                                                                   |
-| ‡ string, objects (like databases)                                                                                           |
-| \<br>• string, sets, sorted sets, lists, hashes, bitmaps, hyperloglog                                                        |
-| † string, sets, sorted sets, lists, hashes, bitmaps,<br>hyperloglog, geospatial indexes                                      |
-| + Excludes versions which are deprecated, have reached or soon to reach end of life.                                         |
+Comparison summary of Memcached, Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled)| | Memcached | Valkey or Redis OSS (cluster mode disabled) | Valkey or Redis OSS (cluster mode enabled) |
+| --- | --- | --- | --- |
+| Engine versions+ | 1.4.5 and later | 4.0.10 and later | 4.0.10 and later |
+| Data types | Simple ‡ | 2.8.x<br>• Complex \* | 3.2.x and later<br>• Complex † |
+| Complex † |
+| Data partitioning | Yes | No | Yes |
+| Cluster is modifiable | Yes | Yes | 3.2.10 and later<br>• Limited |
+| Online resharding | No | No | 3.2.10 and later |
+| Encryption | in-transit 1.6.12 and later | 4.0.10 and later | 4.0.10 and later |
+| Data tiering | No | 6.2 and later | 6.2 and later |
+| Memory efficiencies | No | Valkey 8.0 and later | Valkey 8.0 and later |
+| Bloom filters | No | Valkey 8.1 and later | Valkey 8.1 and later |
+| Vector search | No | Valkey 8.2 and later | Valkey 8.2 and later |
+| Full-text search | No | Valkey 9.0 and later | Valkey 9.0 and later |
+| Hybrid search (text + vector) | No | Valkey 9.0 and later | Valkey 9.0 and later |
+| Aggregation pipelines | No | Valkey 9.0 and later | Valkey 9.0 and later |
+| Hash field expiration | No | Valkey 9.0 and later | Valkey 9.0 and later |
+| Numbered databases in cluster mode | No | N/A | Valkey 9.0 and later |
+| Durability | No | No | Valkey 9.0 and later (sync/async) |
+| Compliance certifications |
+| Compliance Certification<br>FedRAMP<br>HIPAA<br>PCI DSS | Yes<br>• 1.6.12 and later<br>Yes<br>• 1.6.12 and later<br>Yes | 4.0.10 and later<br>4.0.10 and later<br>4.0.10 and later | 4.0.10 and later<br>4.0.10 and later<br>4.0.10 and later |
+| Multi-threaded | Yes | No | No |
+| Node type upgrade | Yes (engine version 1.5+) | Yes | Yes |
+| Engine upgrading | Yes | Yes | Yes |
+| High availability (replication) | No | Yes | Yes |
+| Automatic failover | No | Optional | Required |
+| Pub/Sub capabilities | No | Yes | Yes |
+| Sorted sets | No | Yes | Yes |
+| Backup and restore | For serverless caches only, not applicable to node-based clusters | Yes | Yes |
+| Geospatial indexing | No | 4.0.10 and later | Yes |
+| **Notes:** |
+| ‡ string, objects (like databases) |
+| \<br>• string, sets, sorted sets, lists, hashes, bitmaps, hyperloglog |
+| † string, sets, sorted sets, lists, hashes, bitmaps,<br>hyperloglog, geospatial indexes |
+| + Excludes versions which are deprecated, have reached or soon to reach end of life. |
 
 After you choose the engine for your cluster, we recommend that you use the most recent
 version of that engine. For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").

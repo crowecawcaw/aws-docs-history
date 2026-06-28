@@ -136,9 +136,9 @@ You will see a response similar to the following:
    5. Choose **Save**.
    6. Choose **Environment variables** and then set the following:
 
-      1. SECRETS_MANAGER_ENDPOINT – https://secretsmanager.`REGION`.amazonaws.com
-      2. SECRET_ARN – The Amazon Resource Name (ARN) of the secret you created in Step 2.
-      3. USER_NAME – Username of the ElastiCache user,
+      1. SECRETS\_MANAGER\_ENDPOINT – https://secretsmanager.`REGION`.amazonaws.com
+      2. SECRET\_ARN – The Amazon Resource Name (ARN) of the secret you created in Step 2.
+      3. USER\_NAME – Username of the ElastiCache user,
       4. Choose **Save**.
 
    7. Choose **Permissions**

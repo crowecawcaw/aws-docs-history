@@ -47,19 +47,19 @@ If you're using the Amazon ElastiCache API, the AWS CLI, or an AWS SDK, you can 
 - `PurchaseReservedCacheNodesOffering`
   The following table describes the ElastiCache resources that can be tagged, and the resources that can be tagged on creation using the ElastiCache API, the AWS CLI, or an AWS SDK.
 
-| Tagging support for ElastiCache resources | Resource | Supports tags | Supports tagging on creation |
-| ----------------------------------------- | -------- | ------------- | ---------------------------- |
-| serverlesscache                           | Yes      | Yes           |
-| parametergroup                            | Yes      | Yes           |
-| securitygroup                             | Yes      | Yes           |
-| subnetgroup                               | Yes      | Yes           |
-| replicationgroup                          | Yes      | Yes           |
-| cluster                                   | Yes      | Yes           |
-| reserved-instance                         | Yes      | Yes           |
-| serverlesscachesnapshot                   | Yes      | Yes           |
-| snapshot                                  | Yes      | Yes           |
-| user                                      | Yes      | Yes           |
-| usergroup                                 | Yes      | Yes           |
+Tagging support for ElastiCache resources| Resource | Supports tags | Supports tagging on creation |
+| --- | --- | --- |
+| serverlesscache | Yes | Yes |
+| parametergroup | Yes | Yes |
+| securitygroup | Yes | Yes |
+| subnetgroup | Yes | Yes |
+| replicationgroup | Yes | Yes |
+| cluster | Yes | Yes |
+| reserved-instance | Yes | Yes |
+| serverlesscachesnapshot | Yes | Yes |
+| snapshot | Yes | Yes |
+| user | Yes | Yes |
+| usergroup | Yes | Yes |
 
 ###### Note
 
@@ -143,9 +143,8 @@ The following rules apply to tagging as part of request operations:
 
 - **IncreaseReplicaCount** and **ModifyReplicationGroupShardConfiguration**:
 
-      + All new clusters added to the replication group will have the same tags applied as the replication group.
-
-  The following basic restrictions apply to tags:
+  - All new clusters added to the replication group will have the same tags applied as the replication group.
+    The following basic restrictions apply to tags:
 
 - Maximum number of tags per resource – 50
 - For each resource, each tag key must be unique, and each tag key can have only one value.

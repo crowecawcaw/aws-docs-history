@@ -246,33 +246,31 @@ from the ground up.
   is set to at least one second (vs. the typical “none” default in several
   clients).
 
-      + Setting the timeout value too low can lead to possible timeouts
-       when the server load is high. Setting it too high can result in your
-       application taking a long time to detect connection issues.
-      + Control the volume of new connections by implementing connection
-       pooling in your client application. This reduces latency and CPU
-       utilization needed to open and close connections, and perform a TLS
-       handshake if TLS is enabled on the cluster.
-
-  **[Resources]:**
-  [Configure ElastiCache for higher availability](https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/ "https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/")
+  - Setting the timeout value too low can lead to possible timeouts
+    when the server load is high. Setting it too high can result in your
+    application taking a long time to detect connection issues.
+  - Control the volume of new connections by implementing connection
+    pooling in your client application. This reduces latency and CPU
+    utilization needed to open and close connections, and perform a TLS
+    handshake if TLS is enabled on the cluster.
+    **[Resources]:**
+    [Configure ElastiCache for higher availability](https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/ "https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/")
 
 - **[Good]** Using pipelining (when your use cases allow
   it) can significantly boost the performance.
 
-      + With pipelining you reduce the Round-Trip Time (RTT) between your
-       application clients and the cluster and new requests can be
-       processed even if the client has not yet read the previous
-       responses.
-      + With pipelining you can send multiple commands to the server
-       without waiting for replies/ack. The downside of pipelining is that
-       when you eventually fetch all the responses in bulk there may have
-       been an error that you will not catch until the end.
-      + Implement methods to retry requests when an error is returned that
-       omits the bad request.
-
-  **[Resources]:**
-  [Pipelining](https://valkey.io/topics/pipelining/ "https://valkey.io/topics/pipelining/")
+  - With pipelining you reduce the Round-Trip Time (RTT) between your
+    application clients and the cluster and new requests can be
+    processed even if the client has not yet read the previous
+    responses.
+  - With pipelining you can send multiple commands to the server
+    without waiting for replies/ack. The downside of pipelining is that
+    when you eventually fetch all the responses in bulk there may have
+    been an error that you will not catch until the end.
+  - Implement methods to retry requests when an error is returned that
+    omits the bad request.
+    **[Resources]:**
+    [Pipelining](https://valkey.io/topics/pipelining/ "https://valkey.io/topics/pipelining/")
 
 ## OE 5: How do you deploy ElastiCache Components for a Workload?
 
@@ -353,21 +351,20 @@ ElastiCache service perspective and engine perspective.
   logging functionality is enabled, which is available as of ElastiCache version 6.2 for Redis OSS and newer. This can be performed during cluster creation or by modifying
   the cluster after creation.
 
-      + Determine whether Amazon CloudWatch Logs or Amazon Kinesis Data
-       Firehose is the appropriate target for Redis OSS engine logs.
-      + Select an appropriate target log within either CloudWatch or
-       Kinesis Data Firehose to persist the logs. If you have multiple
-       clusters, consider a different target log for each cluster as this
-       will help isolate data when troubleshooting.
+  - Determine whether Amazon CloudWatch Logs or Amazon Kinesis Data
+    Firehose is the appropriate target for Redis OSS engine logs.
+  - Select an appropriate target log within either CloudWatch or
+    Kinesis Data Firehose to persist the logs. If you have multiple
+    clusters, consider a different target log for each cluster as this
+    will help isolate data when troubleshooting.
+    **[Resources]:**
 
-  **[Resources]:**
-
-      + Log delivery: [Log
-       delivery](Log_Delivery.md "Log_Delivery.md")
-      + Logging destinations: [Amazon CloudWatch Logs](Logging-destinations.md#Destination_Specs_CloudWatch_Logs "Logging-destinations.md#Destination_Specs_CloudWatch_Logs")
-      + Amazon CloudWatch Logs introduction: [What is Amazon CloudWatch Logs?](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
-      + Amazon Kinesis Data Firehose introduction: [What Is
-       Amazon Kinesis Data Firehose?](../../../firehose/latest/dev/what-is-this-service.md "../../../firehose/latest/dev/what-is-this-service.md")
+  - Log delivery: [Log
+    delivery](Log_Delivery.md "Log_Delivery.md")
+  - Logging destinations: [Amazon CloudWatch Logs](Logging-destinations.md#Destination_Specs_CloudWatch_Logs "Logging-destinations.md#Destination_Specs_CloudWatch_Logs")
+  - Amazon CloudWatch Logs introduction: [What is Amazon CloudWatch Logs?](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
+  - Amazon Kinesis Data Firehose introduction: [What Is
+    Amazon Kinesis Data Firehose?](../../../firehose/latest/dev/what-is-this-service.md "../../../firehose/latest/dev/what-is-this-service.md")
 
 - **[Best]** If using Amazon CloudWatch Logs,
   consider leveraging Amazon CloudWatch Logs Insights to query Valkey or Redis OSS engine

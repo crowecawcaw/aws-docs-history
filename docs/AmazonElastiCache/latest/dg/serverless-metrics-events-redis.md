@@ -14,6 +14,12 @@ Amazon ElastiCache offers both serverless caches and node-based clusters. This p
 
 ## Serverless cache metrics
 
+###### Dimension names for serverless caches
+
+Serverless caches use `clusterId` as the CloudWatch dimension name, which
+corresponds to your serverless cache name. This differs from node-based clusters,
+which use `CacheClusterId` as the dimension name.
+
 The `AWS/ElastiCache` namespace includes the following CloudWatch metrics for your Valkey or Redis OSS serverless caches.
 
 _Metric codes for Valkey or Redis OSS_

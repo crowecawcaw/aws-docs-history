@@ -147,21 +147,19 @@ A good analysis commonly starts with the following items:
 
   - Network throughput:
 
-        - Determine the bandwidth: ElastiCache nodes have network bandwidth proportional to the node size. Since applications have different
-         characteristics, the results can vary according to the workload. As examples, applications with high rate of small requests tend
-         to affect more the CPU usage than the network throughput while bigger keys will cause higher network utilization.
+    - Determine the bandwidth: ElastiCache nodes have network bandwidth proportional to the node size. Since applications have different
+      characteristics, the results can vary according to the workload. As examples, applications with high rate of small requests tend
+      to affect more the CPU usage than the network throughput while bigger keys will cause higher network utilization.
 
-         For that reason, it is advisable to test the nodes with the actual workload for a better understanding of the limits.
+    For that reason, it is advisable to test the nodes with the actual workload for a better understanding of the limits.
 
-
-        Simulating the load from the application would provide more accurate results. However, benchmark tools can give a good idea of the limits.
-        - For cases where the requests are predominantly reads, using replicas for read operations will alleviate the load on the primary node.
-         If the use-case is predominantly writes, the use of many replicas will amplify the network usage. For every byte written to the primary node, N bytes will be sent to the replicas,being N the number of replicas.
-         The best practice for write intensive workloads are using ElastiCache for Redis OSS with cluster mode-enabled so the writes can be balanced across multiple shards, or scale-up to a node type with more network capabilities.
-        - The CloudWatchmetrics `NetworkBytesIn` and `NetworkBytesOut` provide the amount of data coming into or leaving the node, respectively.
-         `ReplicationBytes` is the traffic dedicated to data replication.
-
-    For more information, see [Network-related limits](#Network-limits "#Network-limits").
+    Simulating the load from the application would provide more accurate results. However, benchmark tools can give a good idea of the limits.
+    - For cases where the requests are predominantly reads, using replicas for read operations will alleviate the load on the primary node.
+      If the use-case is predominantly writes, the use of many replicas will amplify the network usage. For every byte written to the primary node, N bytes will be sent to the replicas,being N the number of replicas.
+      The best practice for write intensive workloads are using ElastiCache for Redis OSS with cluster mode-enabled so the writes can be balanced across multiple shards, or scale-up to a node type with more network capabilities.
+    - The CloudWatchmetrics `NetworkBytesIn` and `NetworkBytesOut` provide the amount of data coming into or leaving the node, respectively.
+      `ReplicationBytes` is the traffic dedicated to data replication.
+      For more information, see [Network-related limits](#Network-limits "#Network-limits").
 
   - Complex commands: Redis OSS commands are served on a single thread, meaning that requests are served sequentially.
     A single slow command can affect other requests and connections, culminating in time-outs.
@@ -197,90 +195,90 @@ A good analysis commonly starts with the following items:
 
   Examples of potential issues:
 
-      - Lua scripts: Valkey and Redis OSS provide an embedded Lua interpreter, allowing the execution of scripts on the server-side. Lua scripts on Valkey and Redis OSS are
-       executed on engine level and are atomic by definition, meaning that no other command or script will be allowed to run while a script is in execution.
+        - Lua scripts: Valkey and Redis OSS provide an embedded Lua interpreter, allowing the execution of scripts on the server-side. Lua scripts on Valkey and Redis OSS are
+         executed on engine level and are atomic by definition, meaning that no other command or script will be allowed to run while a script is in execution.
 
-       Lua scripts provide the possibility of running multiple commands, decision-making algorithms, data parsing, and others directly on the engine.
-       While the atomicity of scripts and the chance of offloading the application are tempting, scripts must be used with care and for small operations.
-       On ElastiCache, the execution time of Lua scripts is limited to 5 seconds. Scripts that haven’t written to the keyspace will be automatically terminated
-       after the 5 seconds period.
-       To avoid data corruption and inconsistencies, the node will failover if the script execution hasn’t completed in 5 seconds and had any write during its execution.
+         Lua scripts provide the possibility of running multiple commands, decision-making algorithms, data parsing, and others directly on the engine.
+         While the atomicity of scripts and the chance of offloading the application are tempting, scripts must be used with care and for small operations.
+         On ElastiCache, the execution time of Lua scripts is limited to 5 seconds. Scripts that haven’t written to the keyspace will be automatically terminated
+         after the 5 seconds period.
+         To avoid data corruption and inconsistencies, the node will failover if the script execution hasn’t completed in 5 seconds and had any write during its execution.
 
-       [Transactions](https://valkey.io/topics/transactions "https://valkey.io/topics/transactions") are the alternative to guarantee consistency of multiple related key modifications in Redis OSS.
-       A transaction allows the execution of a block of commands, watching existing keys for modifications. If any of the watched keys changes before the completion
-       of the transaction, all modifications are discarded.
-      - Mass deletion of items: The `DEL` command accepts multiple parameters, which are the key names to be deleted.
-       Deletion operations are synchronous and will take significant CPU time if the list of parameters is big, or contains a big list, set, sorted set, or hash (data structures holding several sub-items).
-       In other words, even the deletion of a single key can take significant time if it has many elements.
-       The alternative to `DEL` is `UNLINK`, which is an asynchronous command available since Redis OSS 4. `UNLINK` must be preferred over `DEL` whenever possible.
+         [Transactions](https://valkey.io/topics/transactions "https://valkey.io/topics/transactions") are the alternative to guarantee consistency of multiple related key modifications in Redis OSS.
+         A transaction allows the execution of a block of commands, watching existing keys for modifications. If any of the watched keys changes before the completion
+         of the transaction, all modifications are discarded.
+        - Mass deletion of items: The `DEL` command accepts multiple parameters, which are the key names to be deleted.
+         Deletion operations are synchronous and will take significant CPU time if the list of parameters is big, or contains a big list, set, sorted set, or hash (data structures holding several sub-items).
+         In other words, even the deletion of a single key can take significant time if it has many elements.
+         The alternative to `DEL` is `UNLINK`, which is an asynchronous command available since Redis OSS 4. `UNLINK` must be preferred over `DEL` whenever possible.
 
-       Starting on ElastiCache for Redis OSS 6x, the `lazyfree-lazy-user-del` parameter makes the `DEL` command behave like `UNLINK` when enabled. For more information, see
-       [Redis OSS 6.0 Parameter Changes](ParameterGroups.Engine.md#ParameterGroups.Redis.6-x "ParameterGroups.Engine.md#ParameterGroups.Redis.6-x").
-      - Commands acting upon multiple keys: `DEL` was mentioned before as a command that accepts multiple arguments and
-       its execution time will be directly proportional to that. However, Redis OSS provides many more commands that work similarly.
-       As examples, `MSET` and `MGET` allow the insertion or retrieval of multiple String keys at once. Their usage may be
-       beneficial to reduce the network latency inherent to multiple individual `SET` or `GET` commands.
-       However, an extensive list of parameters will affect CPU usage.
-
-
-       While CPU utilization alone is not the cause for connectivity issues, spending too much time to process a single or few commands over multiple keys
-       may cause failure of other requests and increase overall CPU utilization.
+         Starting on ElastiCache for Redis OSS 6x, the `lazyfree-lazy-user-del` parameter makes the `DEL` command behave like `UNLINK` when enabled. For more information, see
+         [Redis OSS 6.0 Parameter Changes](ParameterGroups.Engine.md#ParameterGroups.Redis.6-x "ParameterGroups.Engine.md#ParameterGroups.Redis.6-x").
+        - Commands acting upon multiple keys: `DEL` was mentioned before as a command that accepts multiple arguments and
+         its execution time will be directly proportional to that. However, Redis OSS provides many more commands that work similarly.
+         As examples, `MSET` and `MGET` allow the insertion or retrieval of multiple String keys at once. Their usage may be
+         beneficial to reduce the network latency inherent to multiple individual `SET` or `GET` commands.
+         However, an extensive list of parameters will affect CPU usage.
 
 
-      The number of keys and their size will affect the command complexity and consequently completion time.
+         While CPU utilization alone is not the cause for connectivity issues, spending too much time to process a single or few commands over multiple keys
+         may cause failure of other requests and increase overall CPU utilization.
 
 
-      Other examples of commands that can act upon multiple keys: `HMGET`, `HMSET`, `MSETNX`, `PFCOUNT`, `PFMERGE`,
-       `SDIFF`, `SDIFFSTORE`, `SINTER`, `SINTERSTORE`, `SUNION`,
-       `SUNIONSTORE`, `TOUCH`, `ZDIFF`, `ZDIFFSTORE`, `ZINTER` or `ZINTERSTORE`.
-      - Commands acting upon multiple data types: Redis OSS also provides commands that act upon one or multiple keys, regardless of their data type.
-       ElastiCache for Redis OSS provides the metric `KeyBasedCmds` to monitor such commands. This metric sums the execution of the following commands in the selected period:
+        The number of keys and their size will affect the command complexity and consequently completion time.
 
 
-
-
-      	* O(N) complexity:
+        Other examples of commands that can act upon multiple keys: `HMGET`, `HMSET`, `MSETNX`, `PFCOUNT`, `PFMERGE`,
+         `SDIFF`, `SDIFFSTORE`, `SINTER`, `SINTERSTORE`, `SUNION`,
+         `SUNIONSTORE`, `TOUCH`, `ZDIFF`, `ZDIFFSTORE`, `ZINTER` or `ZINTERSTORE`.
+        - Commands acting upon multiple data types: Redis OSS also provides commands that act upon one or multiple keys, regardless of their data type.
+         ElastiCache for Redis OSS provides the metric `KeyBasedCmds` to monitor such commands. This metric sums the execution of the following commands in the selected period:
 
 
 
 
-      		+ `KEYS`
-      	* O(1)
+        	* O(N) complexity:
 
 
 
 
-      		+ `EXISTS`
-      		+ `OBJECT`
-      		+ `PTTL`
-      		+ `RANDOMKEY`
-      		+ `TTL`
-      		+ `TYPE`
-      		+ `EXPIRE`
-      		+ `EXPIREAT`
-      		+ `MOVE`
-      		+ `PERSIST`
-      		+ `PEXPIRE`
-      		+ `PEXPIREAT`
-      		+ `UNLINK (O(N)` to reclaim memory. However the memory-reclaiming task happens in a separated thread and does not block the engine
-      	* Different complexity times depending on the data type:
+        		+ `KEYS`
+        	* O(1)
 
 
 
 
-      		+ `DEL`
-      		+ `DUMP`
-      		+ `RENAME` is considered a command with O(1) complexity, but executes `DEL` internally. The execution time will vary
-      		 depending on the size of the renamed key.
-      		+ `RENAMENX`
-      		+ `RESTORE`
-      		+ `SORT`
-      	* Big hashes: Hash is a data type that allows a single key with multiple key-value sub-items. Each hash can store 4.294.967.295 items
-      	 and operations on big hashes can become expensive.
-      	 Similarly to `KEYS`, hashes have the `HKEYS` command with O(N) time complexity, N being the number of items in the hash.
-      	 `HSCAN` must be preferred over `HKEYS` to avoid long running commands.
-      	 `HDEL`, `HGETALL`, `HMGET`, `HMSET` and `HVALS` are commands that should be used with caution on big hashes.
-      - Other big data-structures: Besides hashes, other data structures can be CPU intensive. Sets, Lists, Sorted Sets, and Hyperloglogs can also take significant time to be manipulated depending on their size and commands used. For more information on those commands, see [Valkey and Redis OSS commands](https://valkey.io/commands "https://valkey.io/commands").
+        		+ `EXISTS`
+        		+ `OBJECT`
+        		+ `PTTL`
+        		+ `RANDOMKEY`
+        		+ `TTL`
+        		+ `TYPE`
+        		+ `EXPIRE`
+        		+ `EXPIREAT`
+        		+ `MOVE`
+        		+ `PERSIST`
+        		+ `PEXPIRE`
+        		+ `PEXPIREAT`
+        		+ `UNLINK (O(N)` to reclaim memory. However the memory-reclaiming task happens in a separated thread and does not block the engine
+        	* Different complexity times depending on the data type:
+
+
+
+
+        		+ `DEL`
+        		+ `DUMP`
+        		+ `RENAME` is considered a command with O(1) complexity, but executes `DEL` internally. The execution time will vary
+        		 depending on the size of the renamed key.
+        		+ `RENAMENX`
+        		+ `RESTORE`
+        		+ `SORT`
+        	* Big hashes: Hash is a data type that allows a single key with multiple key-value sub-items. Each hash can store 4.294.967.295 items
+        	 and operations on big hashes can become expensive.
+        	 Similarly to `KEYS`, hashes have the `HKEYS` command with O(N) time complexity, N being the number of items in the hash.
+        	 `HSCAN` must be preferred over `HKEYS` to avoid long running commands.
+        	 `HDEL`, `HGETALL`, `HMGET`, `HMSET` and `HVALS` are commands that should be used with caution on big hashes.
+        - Other big data-structures: Besides hashes, other data structures can be CPU intensive. Sets, Lists, Sorted Sets, and Hyperloglogs can also take significant time to be manipulated depending on their size and commands used. For more information on those commands, see [Valkey and Redis OSS commands](https://valkey.io/commands "https://valkey.io/commands").
 
 ## Network connectivity validation
 
@@ -363,16 +361,14 @@ Whenever possible, configure the connection pool to limit the maximum number of 
 - Network traffic limits: Check the following [CloudWatch metrics for Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md") to identify possible network limits
   being hit on the ElastiCache node:
 
-      + `NetworkBandwidthInAllowanceExceeded` / `NetworkBandwidthOutAllowanceExceeded`: Network packets queued or dropped because the
-       throughput exceeded the aggregated bandwidth limit.
+  - `NetworkBandwidthInAllowanceExceeded` / `NetworkBandwidthOutAllowanceExceeded`: Network packets queued or dropped because the
+    throughput exceeded the aggregated bandwidth limit.
 
-
-      It is important to note that every byte written to the primary node will be replicated to N replicas, N being the number of replicas. Clusters with small node types, multiple replicas,
-       and intensive write requests may not be able to cope with the replication backlog. For such cases, it's a best practice to scale-up (change node type), scale-out (add shards in cluster-mode enabled clusters), reduce the number of replicas, or minimize the number of writes.
-      + `NetworkConntrackAllowanceExceeded`: Packets queued or dropped because the maximum number of connections tracked across all security groups assigned to the node has been exceeded. New connections will likely fail during this period.
-      + `NetworkPackets PerSecondAllowanceExceeded`: Maximum number of packets per second exceeded. Workloads based on a high rate of very small requests may hit this limit before the maximum bandwidth.
-
-  The metrics above are the ideal way to confirm nodes hitting their network limits. However, limits are also identifiable by plateaus on network metrics.
+  It is important to note that every byte written to the primary node will be replicated to N replicas, N being the number of replicas. Clusters with small node types, multiple replicas,
+  and intensive write requests may not be able to cope with the replication backlog. For such cases, it's a best practice to scale-up (change node type), scale-out (add shards in cluster-mode enabled clusters), reduce the number of replicas, or minimize the number of writes.
+  - `NetworkConntrackAllowanceExceeded`: Packets queued or dropped because the maximum number of connections tracked across all security groups assigned to the node has been exceeded. New connections will likely fail during this period.
+  - `NetworkPackets PerSecondAllowanceExceeded`: Maximum number of packets per second exceeded. Workloads based on a high rate of very small requests may hit this limit before the maximum bandwidth.
+    The metrics above are the ideal way to confirm nodes hitting their network limits. However, limits are also identifiable by plateaus on network metrics.
 
 If the plateaus are observed for extended periods, they will be likely followed by replication lag, increase on bytes Used for cache, drop on freeable memory, high swap and CPU usage.
 

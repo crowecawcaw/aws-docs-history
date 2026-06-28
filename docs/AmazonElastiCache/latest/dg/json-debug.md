@@ -28,10 +28,9 @@ MEMORY
 
 - If the path is restricted syntax:
 
-      + Returns an integer, memory size, and the JSON value in bytes.
-      + Returns null if the Valkey or Redis OSS key does not exist.
-
-  FIELDS
+  - Returns an integer, memory size, and the JSON value in bytes.
+  - Returns null if the Valkey or Redis OSS key does not exist.
+    FIELDS
 
 - If the path is enhanced syntax:
 
@@ -41,10 +40,9 @@ MEMORY
 
 - If the path is restricted syntax:
 
-      + Returns an integer, number of fields of the JSON value.
-      + Returns null if the Valkey or Redis OSS key does not exist.
-
-  HELP – Returns an array of help messages.
+  - Returns an integer, number of fields of the JSON value.
+  - Returns null if the Valkey or Redis OSS key does not exist.
+    HELP – Returns an array of help messages.
 
 **Examples**
 

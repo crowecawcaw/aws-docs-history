@@ -295,12 +295,12 @@ of cluster behavior when instance memory limits are exceeded.
   control performance impact on your cluster to avoid unexpected performance
   bottlenecks.
 
-  - For ElastiCache for Valkey and Redis OSS workloads, when explicitly removing keys
-    from the cluster, `UNLINK` is like `DEL`: it
-    removes the specified keys. However, the command performs the actual
-    memory reclaiming in a different thread, so it is not blocking,
-    while `DEL` is. The actual removal will happen later
-    asynchronously.
+  - For ElastiCache for Valkey and Redis OSS workloads, the `UNLINK` command
+    behaves like `DEL` in that it removes the specified keys.
+    However, `UNLINK` reclaims memory in a separate thread, so
+    it is non-blocking, although `DEL` is blocking. With
+    `UNLINK`, the actual memory reclamation occurs asynchronously,
+    after the command returns.
   - For ElastiCache version 6.x for Redis OSS workloads, the behavior of the
     `DEL` command can be modified in the parameter group
     using `lazyfree-lazy-user-del` parameter.
@@ -456,17 +456,15 @@ performance levels.
 - **[Required]** When launching a cluster for
   ElastiCache for Valkey or Redis OSS:
 
-      1. Ensure that the Cluster mode is enabled
-      2. Make sure the instance belongs to a family of certain type and
-       size that support auto scaling
-      3. Ensure the cluster is not running in Global datastores, Outposts
-       or Local Zones
-
-  **[Resources]:**
-
-      + [Scaling clusters in Valkey and Redis OSS (Cluster Mode Enabled)](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")
-      + [Using Auto Scaling with shards](AutoScaling-Using-Shards.md "AutoScaling-Using-Shards.md")
-      + [Using Auto Scaling with replicas](AutoScaling-Using-Replicas.md "AutoScaling-Using-Replicas.md")
+  1.  Ensure that the Cluster mode is enabled
+  2.  Make sure the instance belongs to a family of certain type and
+      size that support auto scaling
+  3.  Ensure the cluster is not running in Global datastores, Outposts
+      or Local Zones
+      **[Resources]:**
+  - [Scaling clusters in Valkey and Redis OSS (Cluster Mode Enabled)](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")
+  - [Using Auto Scaling with shards](AutoScaling-Using-Shards.md "AutoScaling-Using-Shards.md")
+  - [Using Auto Scaling with replicas](AutoScaling-Using-Replicas.md "AutoScaling-Using-Replicas.md")
 
 - **[Best]** Identify if your workload is
   read-heavy or write-heavy to define scaling policy. For best performance,

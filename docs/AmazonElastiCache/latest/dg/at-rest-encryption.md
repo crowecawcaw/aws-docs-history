@@ -41,17 +41,16 @@ your implementation of ElastiCache encryption at-rest:
 - At-rest encryption is supported on replication groups running Valkey 7.2 and later, and Redis OSS versions (3.2.6 scheduled for EOL, see
   [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")),
 
-  4.0.10 or later.
+4.0.10 or later.
 
 - At-rest encryption is supported only for replication groups running in an Amazon VPC.
 - At-rest encryption is only supported for replication groups running the following node types.
 
-      + R7g, R6gd, R6g, R5, R4, R3
-      + M7g, M6g, M5, M4, M3
-      + T4g, T3, T2
-      + C7gn
-
-  For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md")
+  - R7g, R6gd, R6g, R5, R4, R3
+  - M7g, M6g, M5, M4, M3
+  - T4g, T3, T2
+  - C7gn
+    For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md")
 
 - At-rest encryption is enabled by setting the parameter `AtRestEncryptionEnabled`
   to `true`. For Valkey, this parameter defaults to `true`
@@ -226,8 +225,7 @@ For additional information, see the following:
 
 - [Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch (AWS CLI)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI "Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI")
 - [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md")
-
- 
+   
 
 The following operation creates the Valkey or Redis OSS (cluster mode enabled) replication group
 `my-clustered-rg` with three node groups or shards

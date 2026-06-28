@@ -77,8 +77,7 @@ AWS does not currently have enough available On-Demand capacity to service your 
 - If you're launching a cluster, submit a new request without specifying an Availability Zone.
 - If you're launching a cluster, submit a new request using a different node type (which you can scale up at
   a later stage). For more information, see [Scaling ElastiCache](Scaling.md "Scaling.md").
-
- 
+   
 
 Error Messages:
 **Failed to create cache _cluster-name_. Quota limit reached for creating VPC endpoint.**

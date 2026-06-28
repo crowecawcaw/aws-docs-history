@@ -10,7 +10,7 @@ JSON.STRAPPEND <key> [path] <json_string>
 
 - key (required) – A Valkey or Redis OSS key of JSON document type.
 - path (optional) – A JSON path. Defaults to the root if not provided.
-- json_string (required) – The JSON representation of a string. Note that a JSON string
+- json\_string (required) – The JSON representation of a string. Note that a JSON string
   must be quoted. For example: '"string example"'.
   **Return**
 

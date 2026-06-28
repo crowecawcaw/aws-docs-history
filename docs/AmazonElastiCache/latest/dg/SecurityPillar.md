@@ -241,16 +241,15 @@ your overall security posture.
   CloudWatch Metrics published that pertain to RBAC authentication and
   authorization failures.
 
-      + AuthenticationFailures = Failed attempts to authenticate to
-       Valkey or Redis OSS
-      + KeyAuthorizationFailures = Failed attempts by users to access keys
-       without permission
-      + CommandAuthorizationFailures = Failed attempts by users to run
-       commands without permission
+  - AuthenticationFailures = Failed attempts to authenticate to
+    Valkey or Redis OSS
+  - KeyAuthorizationFailures = Failed attempts by users to access keys
+    without permission
+  - CommandAuthorizationFailures = Failed attempts by users to run
+    commands without permission
+    **[Resources]:**
 
-  **[Resources]:**
-
-      + [Metrics for Valkey or Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md")
+  - [Metrics for Valkey or Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md")
 
 - **[Best]** It is recommended to setup alerts
   and notifications on these metrics and respond as necessary.

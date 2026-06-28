@@ -60,12 +60,12 @@ As shown in the following table,
 your Valkey or Redis OSS scale-up operation is blocked if you have an engine upgrade scheduled for the
 cluster’s next maintenance window.
 
-| Blocked Valkey or Redis OSS operations | Pending Operations       | Blocked Operations |
-| -------------------------------------- | ------------------------ | ------------------ |
-| Scale up                               | Immediate engine upgrade |
-| Engine upgrade                         | Immediate scale up       |
-| Scale up and engine upgrade            | Immediate scale up       |
-| Immediate engine upgrade               |
+Blocked Valkey or Redis OSS operations| Pending Operations | Blocked Operations |
+| --- | --- |
+| Scale up | Immediate engine upgrade |
+| Engine upgrade | Immediate scale up |
+| Scale up and engine upgrade | Immediate scale up |
+| Immediate engine upgrade |
 
 If you have a pending operation that is blocking you, you can do one of the following.
 
@@ -136,14 +136,13 @@ depending upon your node type and the amount of data in your current cluster.
 
 ###### To scale up a Valkey or Redis OSS Replication Group (AWS CLI)
 
-1.  Determine which node types you can scale up to by running the AWS CLI
-    `list-allowed-node-type-modifications` command with the following parameter.
+1. Determine which node types you can scale up to by running the AWS CLI
+   `list-allowed-node-type-modifications` command with the following parameter.
 
-        * `--replication-group-id` – the name of the replication group.
-         Use this parameter to describe a particular replication group rather than all
-         replication groups.
-
-    For Linux, macOS, or Unix:
+   - `--replication-group-id` – the name of the replication group.
+     Use this parameter to describe a particular replication group rather than all
+     replication groups.
+     For Linux, macOS, or Unix:
 
 ```
 aws elasticache list-allowed-node-type-modifications \
@@ -436,13 +435,11 @@ This cluster must be running the Valkey or Redis OSS engine and not the clustere
      group that reserves the correct amount of memory for your new node type.
 
 7. If you want to perform the scale-down process right away, choose the **Apply immediately** check box.
-   If the **Apply immediately** check box is left not chosen,
-   the scale-down process is performed during this cluster's next maintenance window.
-8. Choose **Modify**.
-9. When the cluster’s status changes from _modifying_ to
-   _available_, your cluster has scaled to the new
-   node type. There is no need to update the
-   endpoints in your application.
+If the **Apply immediately** check box is left not chosen,
+the scale-down process is performed during this cluster's next maintenance window. 8. Choose **Modify**. 9. When the cluster’s status changes from _modifying_ to
+_available_, your cluster has scaled to the new
+node type. There is no need to update the
+endpoints in your application.
 
 The following process scales your replication group from its current node type to a new, smaller node type using the AWS CLI.
 
@@ -455,14 +452,13 @@ depending upon your node type and the amount of data in your current cluster.
 
 ###### To scale down a Valkey or Redis OSS Replication Group (AWS CLI)
 
-1.  Determine which node types you can scale down to by running the AWS CLI
-    `list-allowed-node-type-modifications` command with the following parameter.
+1. Determine which node types you can scale down to by running the AWS CLI
+   `list-allowed-node-type-modifications` command with the following parameter.
 
-        * `--replication-group-id` – the name of the replication group.
-         Use this parameter to describe a particular replication group rather than all
-         replication groups.
-
-    For Linux, macOS, or Unix:
+   - `--replication-group-id` – the name of the replication group.
+     Use this parameter to describe a particular replication group rather than all
+     replication groups.
+     For Linux, macOS, or Unix:
 
 ```
 aws elasticache list-allowed-node-type-modifications \

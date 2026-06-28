@@ -49,10 +49,12 @@ To create a manual backup of a cache using the AWS CLI, use the
   For Linux, macOS, or Unix:
 
 - ```
-  aws elasticache create-serverless-cache-snapshot \
-                          --serverless-cache-name CacheName \
-                          --serverless-cache-snapshot-name bkup-20231127
+
   ```
+
+aws elasticache create-serverless-cache-snapshot \
+--serverless-cache-name CacheName \
+--serverless-cache-snapshot-name bkup-20231127
 
 ````
 For Windows:
@@ -71,14 +73,13 @@ To create a manual backup of a node-based cluster using the AWS CLI, use the
 
 - `--cache-cluster-id`
 
-      + If the cluster you're backing up has no replica nodes,
-       `--cache-cluster-id` is the name of the cluster you
-       are backing up, for example
-       `mycluster`.
-      + If the cluster you're backing up has one or more replica nodes, `--cache-cluster-id` is the name of
-       the node in the cluster that you want to use for the backup. For example, the name might be `mycluster-002`.
-
-  Use this parameter only when backing up a Valkey or Redis OSS (cluster mode disabled) cluster.
+  - If the cluster you're backing up has no replica nodes,
+    `--cache-cluster-id` is the name of the cluster you
+    are backing up, for example
+    `mycluster`.
+  - If the cluster you're backing up has one or more replica nodes, `--cache-cluster-id` is the name of
+    the node in the cluster that you want to use for the backup. For example, the name might be `mycluster-002`.
+    Use this parameter only when backing up a Valkey or Redis OSS (cluster mode disabled) cluster.
 
 - `--replication-group-id` – Name of the Valkey or Redis OSS (cluster mode enabled)
   cluster (CLI/API: a replication group) to use as the source for the backup.

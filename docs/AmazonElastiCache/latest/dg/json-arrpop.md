@@ -16,13 +16,12 @@ JSON.ARRPOP <key> [path [index]]
 - index (optional) – The position in the array to start popping
   from.
 
-      + Defaults to -1 if not provided, which means the last
-       element.
-      + Negative value means position from the last element.
-      + Out of boundary indexes are rounded to their respective array
-       boundaries.
-
-  **Return**
+  - Defaults to -1 if not provided, which means the last
+    element.
+  - Negative value means position from the last element.
+  - Out of boundary indexes are rounded to their respective array
+    boundaries.
+    **Return**
 
 If the path is enhanced syntax:
 

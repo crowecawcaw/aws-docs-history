@@ -52,7 +52,7 @@ get a                  // Get value for key "a"
 
 Now that you have the endpoint you need, you can log in to your EC2 instance and connect to the cache. In the following example,
 you use the _valkey-cli_ utility to connect to a cluster. The following command connects to a cache.
-Open the Command Prompt and change to the Valkey or Redis OSS directory and run the command (note: replace Cache_Endpoint with the endpoint you retrieved in the previous step).
+Open the Command Prompt and change to the Valkey or Redis OSS directory and run the command (note: replace Cache\_Endpoint with the endpoint you retrieved in the previous step).
 
 ```
 c:\Valkey>valkey-cli -h Valkey_Cluster_Endpoint --tls -p 6379

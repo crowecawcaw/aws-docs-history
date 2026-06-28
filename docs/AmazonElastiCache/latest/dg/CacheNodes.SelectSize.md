@@ -13,19 +13,18 @@ need for your Valkey or Redis OSS implementation:
 - Do you expect throughput-bound workloads with multiple client
   connections?
 
-If this is the case and you're running Redis OSS version 5.0.6 or higher, you can
-get better throughput and latency with our enhanced I/O feature, where available
-CPUs are used for offloading the client connections, on behalf of the Redis OSS engine. If you're running Redis OSS version 7.0.4 or higher, on top of enhanced I/O,
-you will get additional acceleration with enhanced I/O multiplexing, where each
-dedicated network IO thread pipelines commands from multiple clients into the
-Redis OSS engine, taking advantage of Redis OSS' ability to efficiently process commands
-in batches. In ElastiCache for Redis OSS v7.1 and above, we extended the enhanced I/O
-threads functionality to also handle the presentation layer logic. By
-presentation layer, what we mean is that Enhanced I/O threads are now not only
-reading client input, but also parsing the input into Redis OSS binary command
-format, which is then forwarded to the main thread for execution, providing
-performance gain. Refer to the [blog post](https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/ "https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/") and the [supported versions](engine-versions.md "engine-versions.md")
-page for additional details.
+If this is the case and you're running Valkey, or Redis OSS version 5.0.6 to 7.1, you can
+get better throughput and latency with the enhanced I/O feature. Available
+CPUs offload the client connections from the engine. If you're running Valkey, or Redis OSS version 7.0.4 to 7.1, on top of enhanced I/O,
+you get additional acceleration with enhanced I/O multiplexing, where each
+dedicated network I/O thread pipelines commands from multiple clients into the
+engine, taking advantage of its ability to efficiently process commands
+in batches. Starting with ElastiCache for Redis OSS v7.1 and Valkey 7.2, the enhanced I/O
+threads functionality also handles the presentation layer logic. This means
+that enhanced I/O threads not only read client input, but also parse the input
+into the engine's binary command format, which is then forwarded to the main
+thread for execution, providing performance gain. For more information, see the [blog post](https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/ "https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/") and the [supported versions](engine-versions.md "engine-versions.md")
+page.
 
 - Do you have workloads that access a small percentage of their data
   regularly?
@@ -184,17 +183,17 @@ following configurations:
 - 3 `cache.m4.xlarge` nodes with 14.28 GB of memory and 4 threads
   each = 42.84 GB and 12 threads.
 
-| Comparing node options                                   | Node type | Memory (in GiB) | Cores   | Hourly cost \* | Nodes needed | Total memory (in GiB) | Total cores | Monthly cost † |
-| -------------------------------------------------------- | --------- | --------------- | ------- | -------------- | ------------ | --------------------- | ----------- | -------------- |
-| cache.t2.medium                                          | 3.22      | 2               | $ 0.068 | 11             | 35.42        | 22                    | $ 538.56    |
-| cache.m4.large                                           | 6.42      | 2               | $ 0.156 | 6              | 38.52        | 12                    | $ 673.92    |
-| cache.m4.xlarge                                          | 14.28     | 4               | $ 0.311 | 3              | 42.84        | 12                    | $ 671.76    |
-| cache.m5.xlarge                                          | 12.93     | 4               | $ 0.311 | 3              | 38.81        | 12                    | $ 671.76    |
-| cache.m6g.large                                          | 6.85      | 2               | $ 0.147 | 6              | 41.1         | 12                    | $ 635       |
-| cache.r4.large                                           | 12.3      | 2               | $ 0.228 | 3              | 36.9         | 6                     | $ 492.48    |
-| cache.r5.large                                           | 13.07     | 2               | $ 0.216 | 3              | 39.22        | 6                     | $ 466.56    |
-| cache.r6g.large                                          | 13.07     | 2               | $ 0.205 | 3              | 42.12        | 6                     | $ 442       |
-| \<br>• Hourly cost per node as of October 8,<br>2020.    |
+Comparing node options| Node type | Memory (in GiB) | Cores | Hourly cost \* | Nodes needed | Total memory (in GiB) | Total cores | Monthly cost † |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| cache.t2.medium | 3.22 | 2 | $ 0.068 | 11 | 35.42 | 22 | $ 538.56 |
+| cache.m4.large | 6.42 | 2 | $ 0.156 | 6 | 38.52 | 12 | $ 673.92 |
+| cache.m4.xlarge | 14.28 | 4 | $ 0.311 | 3 | 42.84 | 12 | $ 671.76 |
+| cache.m5.xlarge | 12.93 | 4 | $ 0.311 | 3 | 38.81 | 12 | $ 671.76 |
+| cache.m6g.large | 6.85 | 2 | $ 0.147 | 6 | 41.1 | 12 | $ 635 |
+| cache.r4.large | 12.3 | 2 | $ 0.228 | 3 | 36.9 | 6 | $ 492.48 |
+| cache.r5.large | 13.07 | 2 | $ 0.216 | 3 | 39.22 | 6 | $ 466.56 |
+| cache.r6g.large | 13.07 | 2 | $ 0.205 | 3 | 42.12 | 6 | $ 442 |
+| \<br>• Hourly cost per node as of October 8,<br>2020. |
 | † Monthly cost at 100% usage for 30 days (720<br>hours). |
 
 These options each provide similar memory capacity but different computational

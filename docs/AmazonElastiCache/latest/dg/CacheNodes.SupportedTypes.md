@@ -12,13 +12,7 @@ Amazon ElastiCache is transitioning T2 instances to previous generation status.
 You will no longer be able to create new ElastiCache clusters using T2 instances or purchase new T2 reserved nodes.
 There is no impact to existing T2 clusters or reservations. We recommend upgrading to newer instance types such as T3 or T4g instances for better performance and cost efficiency.
 
-###### Note
-
-The following instance types are supported in the AWS Asia Pacific (Thailand) and Mexico (Central) Regions:
-
-- **m7g/r7g:** large, xl, 2xl, 4xl, 8xl, 12xl, and 16xl.
-- **t3/t4g:** micro, small, and medium.
-  For information on which node size to use, see [Choosing your node size](CacheNodes.SelectSize.md "CacheNodes.SelectSize.md").
+For information on which node size to use, see [Choosing your node size](CacheNodes.SelectSize.md "CacheNodes.SelectSize.md").
 
 ###### Topics
 
@@ -247,7 +241,7 @@ credits, performance is gradually lowered to the baseline performance level. Thi
 gradual lowering ensures the node doesn't experience a sharp performance drop-off
 when its accrued CPU credit balance is depleted. For more information, see [CPU Credits and Baseline Performance for Burstable Performance
 Instances](../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md "../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md") in the _Amazon EC2 User
-Guide_.\*\*
+Guide_.**
 
 The following table lists the burstable performance node types, the rate at which
 CPU credits are earned per hour. It also shows the maximum number of earned CPU

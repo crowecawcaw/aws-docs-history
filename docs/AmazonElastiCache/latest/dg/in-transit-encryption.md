@@ -133,10 +133,10 @@ For the step-by-step process, see [Creating a cluster for Valkey or Redis OSS](C
 ## Connecting to nodes enabled with in-transit encryption using Openssl (Memcached)
 
 To access data from ElastiCache for Memcached nodes enabled with in-transit encryption, you need to use
-clients that work with Secure Socket Layer (SSL). You can also use Openssl s_client on
+clients that work with Secure Socket Layer (SSL). You can also use Openssl s\_client on
 Amazon Linux and Amazon Linux 2.
 
-To use Openssl s_client to connect to a Memcached cluster enabled with in-transit
+To use Openssl s\_client to connect to a Memcached cluster enabled with in-transit
 encryption on Amazon Linux 2 or Amazon Linux:
 
 ```

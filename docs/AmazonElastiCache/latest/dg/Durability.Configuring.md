@@ -3,12 +3,12 @@
 When creating an ElastiCache cluster, you can set the `--durability` parameter to one of the
 following values:
 
-| Durability parameter values | --durability value                                                               | Behavior | EffectiveDurability (Valkey 9.0) |
-| --------------------------- | -------------------------------------------------------------------------------- | -------- | -------------------------------- |
-| `sync`                      | Writes persisted to Multi-AZ transactional log before responding to client       | sync     |
-| `async`                     | Writes persisted to Multi-AZ transactional log after responding to client        | async    |
-| `disabled`                  | No durability; standard ElastiCache behavior                                     | disabled |
-| `default`                   | ElastiCache determines setting based on engine version and cluster configuration | disabled |
+Durability parameter values| --durability value | Behavior | EffectiveDurability (Valkey 9.0) |
+| --- | --- | --- |
+| `sync` | Writes persisted to Multi-AZ transactional log before responding to client | sync |
+| `async` | Writes persisted to Multi-AZ transactional log after responding to client | async |
+| `disabled` | No durability; standard ElastiCache behavior | disabled |
+| `default` | ElastiCache determines setting based on engine version and cluster configuration | disabled |
 
 The `EffectiveDurability` property in the API response always shows the actual durability
 mode in effect (sync, async, or disabled). Whether durability is enabled or disabled is determined at

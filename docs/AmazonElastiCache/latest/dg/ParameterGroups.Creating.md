@@ -42,8 +42,7 @@ Parameter group naming constraints are as follows:
     * Can't end with a hyphen.
 
 6. In the **Description** box, type in a description for the
-   parameter group.
-7. To create the parameter group, choose **Create**.
+parameter group. 7. To create the parameter group, choose **Create**.
 
 To terminate the process without creating the parameter group, choose
 **Cancel**. 8. When the parameter group is created, it will have the family's

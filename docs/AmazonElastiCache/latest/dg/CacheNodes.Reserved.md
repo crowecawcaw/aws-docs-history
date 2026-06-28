@@ -1,14 +1,5 @@
 # Reserved nodes
 
-Reserving one or more ElastiCache nodes might be a way for you to reduce costs. Reserved nodes are
-charged an up front fee that depends upon the node type and the length of
-reservation— one or three years.
-
-To see if reserved nodes are a cost savings for your use cases, first determine the node
-size and number of nodes you need. Then estimate the usage of the node, and compare the
-total cost to you of using On-Demand nodes versus reserved nodes. You can mix and match
-reserved and On-Demand node usage in your clusters. For pricing information, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/").
-
 ###### Topics
 
 - [Managing costs with reserved nodes](#reserved-nodes "#reserved-nodes")
@@ -22,10 +13,9 @@ reserved and On-Demand node usage in your clusters. For pricing information, see
 
 ## Managing costs with reserved nodes
 
-Reserving one or more nodes may be a way for you to reduce costs. Reserved nodes are
-charged an up front fee that depends upon the node type and the length of
-reservation—one or three years. This charge is much less than the hourly usage
-charge that you incur with On-Demand nodes.
+Reserving one or more nodes may be a way for you to reduce costs. Reserved nodes
+offer discounted hourly rates compared to On-Demand pricing, with options for No Upfront, Partial Upfront, or All Upfront
+payment for one or three-year terms.
 
 To see if reserved nodes are a cost savings for your use cases, first determine the
 node size and number of nodes you need. Then estimate the usage of the node, and compare
@@ -197,12 +187,12 @@ usage fee when your node is running. You can start saving when your node is runn
 more than 17 percent of the reserved node term. You can save up to 56 percent off of
 the On-Demand rates over the entire term of your reserved node.
 
-| Legacy reserved node offerings       | Offering | Up-front cost                                                                                                                                                                                                             | Usage fee                                                                                                                                                                                                       | Advantage |
-| ------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| Heavy Utilization                    | Highest  | Lowest hourly fee. Applied to the whole term whether or not<br>you're using the reserved node.                                                                                                                            | Lowest overall cost if you plan to run your reserved nodes<br>more than 79 percent of a three-year term.                                                                                                        |
-| Medium Utilization                   | Medium   | Hourly usage fee charged for each hour the node is running. No<br>hourly charge when the node is not running.                                                                                                             | Suitable for elastic workloads or when you expect moderate<br>usage, more than 40 percent of a three-year term.                                                                                                 |
-| Light Utilization                    | Lowest   | Hourly usage fee charged for each hour the node is running. No<br>hourly charge when the node is not running. Highest hourly fees<br>of all the offering types, but fees apply only when the reserved<br>node is running. | Highest overall cost if you plan to run all of the time.<br>However, this is the lowest overall cost if you plan to use your<br>reserved node infrequently, more than about 15 percent of a<br>three-year term. |
-| On-Demand Use<br>(No reserved nodes) | None     | Highest hourly fee. Applied whenever the node is<br>running.                                                                                                                                                              | Highest hourly cost.                                                                                                                                                                                            |
+Legacy reserved node offerings| Offering | Up-front cost | Usage fee | Advantage |
+| --- | --- | --- | --- |
+| Heavy Utilization | Highest | Lowest hourly fee. Applied to the whole term whether or not<br>you're using the reserved node. | Lowest overall cost if you plan to run your reserved nodes<br>more than 79 percent of a three-year term. |
+| Medium Utilization | Medium | Hourly usage fee charged for each hour the node is running. No<br>hourly charge when the node is not running. | Suitable for elastic workloads or when you expect moderate<br>usage, more than 40 percent of a three-year term. |
+| Light Utilization | Lowest | Hourly usage fee charged for each hour the node is running. No<br>hourly charge when the node is not running. Highest hourly fees<br>of all the offering types, but fees apply only when the reserved<br>node is running. | Highest overall cost if you plan to run all of the time.<br>However, this is the lowest overall cost if you plan to use your<br>reserved node infrequently, more than about 15 percent of a<br>three-year term. |
+| On-Demand Use<br>(No reserved nodes) | None | Highest hourly fee. Applied whenever the node is<br>running. | Highest hourly cost. |
 
 For more information, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/").
 
@@ -227,26 +217,25 @@ offerings using the AWS Management Console, use the following procedure.
 
 ###### To get information about available reserved node offerings
 
-1.  Sign in to the AWS Management Console and open the ElastiCache console at
-    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2.  In the navigation pane, choose **Reserved
-    Nodes**.
-3.  Choose **Purchase Reserved Node**.
-4.  For **Engine**, choose either
-    Valkey, Memcached, or Redis OSS.
-5.  To determine the available offerings, make selections for the
-    following options:
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. In the navigation pane, choose **Reserved
+   Nodes**.
+3. Choose **Purchase Reserved Node**.
+4. For **Engine**, choose either
+   Valkey, Memcached, or Redis OSS.
+5. To determine the available offerings, make selections for the
+   following options:
 
-        * **Node Type**
-        * **Term**
-        * **Offering Type**
+   - **Node Type**
+   - **Term**
+   - **Offering Type**
+     After you make these selections, the cost per node and total cost of
+     your selections is shown under **Reservation
+     details**.
 
-    After you make these selections, the cost per node and total cost of
-    your selections is shown under **Reservation
-    details**.
-
-6.  Choose **Cancel** to avoid purchasing these nodes and
-    incurring charges.
+6. Choose **Cancel** to avoid purchasing these nodes and
+   incurring charges.
 
 ### Getting info about reserved node offerings (AWS CLI)
 
@@ -412,26 +401,25 @@ offering by offering id.
 
 ###### To purchase reserved nodes
 
-1.  Sign in to the AWS Management Console and open the ElastiCache console at
-    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2.  In the navigation list, choose the **Reserved Nodes**
-    link.
-3.  Choose the **Purchase reserved nodes** button.
-4.  For **Engine**, choose
-    Valkey, Memcached, or Redis OSS.
-5.  To determine the available offerings, make selections for the
-    following options:
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. In the navigation list, choose the **Reserved Nodes**
+   link.
+3. Choose the **Purchase reserved nodes** button.
+4. For **Engine**, choose
+   Valkey, Memcached, or Redis OSS.
+5. To determine the available offerings, make selections for the
+   following options:
 
-        * **Node Type**
-        * **Term**
-        * **Offering Type**
-        * An optional **Reserved node ID**
+   - **Node Type**
+   - **Term**
+   - **Offering Type**
+   - An optional **Reserved node ID**
+     After you make these selections, the cost per node and total cost of
+     your selections is shown under **Reservation
+     details**.
 
-    After you make these selections, the cost per node and total cost of
-    your selections is shown under **Reservation
-    details**.
-
-6.  Choose **Purchase**.
+6. Choose **Purchase**.
 
 ### Purchasing a reserved node (AWS CLI)
 

@@ -8,12 +8,12 @@ the read/write primary node with 0 to 5 read-only replica nodes.
 
 - [Scaling for Valkey or Redis OSS (Cluster Mode Disabled) clusters](#Scaling.RedisStandalone "#Scaling.RedisStandalone")
 
-| Scaling Valkey or Redis OSS clusters | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Valkey or Redis OSS (cluster mode disabled)                                                                                                                                                                       | Valkey or Redis OSS (cluster mode enabled) |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| Scaling in                           | [Removing nodes from an ElastiCache cluster](Clusters.DeleteNode.md "Clusters.DeleteNode.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")                                                                      |
-| Scaling out                          | [Adding nodes to a cluster](Clusters.md#AddNode "Clusters.md#AddNode")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | [Online resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online") |
-| Changing node types                  | To a larger node type:<br>• [Scaling up single-node Valkey or Redis OSS clusters](#Scaling.RedisStandalone.ScaleUp "#Scaling.RedisStandalone.ScaleUp")<br>• [Scaling up Valkey or Redis OSS clusters with replicas](Scaling.RedisReplGrps.md#Scaling.RedisReplGrps.ScaleUp "Scaling.RedisReplGrps.md#Scaling.RedisReplGrps.ScaleUp")<br>To a smaller node type:<br>• [Scaling down single-node Valkey or Redis OSS clusters](#Scaling.RedisStandalone.ScaleDown "#Scaling.RedisStandalone.ScaleDown")<br>• [Scaling down Valkey or Redis OSS clusters with replicas](Scaling.RedisReplGrps.md#Scaling.RedisReplGrps.ScaleDown "Scaling.RedisReplGrps.md#Scaling.RedisReplGrps.ScaleDown") | [Online vertical scaling by modifying node type](redis-cluster-vertical-scaling.md "redis-cluster-vertical-scaling.md")                                                                                           |
-| Changing the number of node groups   | Not supported for Valkey or Redis OSS (cluster mode disabled) clusters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")                                                                      |
+Scaling Valkey or Redis OSS clusters| Action | Valkey or Redis OSS (cluster mode disabled) | Valkey or Redis OSS (cluster mode enabled) |
+| --- | --- | --- |
+| Scaling in | [Removing nodes from an ElastiCache cluster](Clusters.DeleteNode.md "Clusters.DeleteNode.md") | [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md") |
+| Scaling out | [Adding nodes to a cluster](Clusters.md#AddNode "Clusters.md#AddNode") | [Online resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online") |
+| Changing node types | To a larger node type:<br>• [Scaling up single-node Valkey or Redis OSS clusters](#Scaling.RedisStandalone.ScaleUp "#Scaling.RedisStandalone.ScaleUp")<br>• [Scaling up Valkey or Redis OSS clusters with replicas](Scaling.RedisReplGrps.md#Scaling.RedisReplGrps.ScaleUp "Scaling.RedisReplGrps.md#Scaling.RedisReplGrps.ScaleUp")<br>To a smaller node type:<br>• [Scaling down single-node Valkey or Redis OSS clusters](#Scaling.RedisStandalone.ScaleDown "#Scaling.RedisStandalone.ScaleDown")<br>• [Scaling down Valkey or Redis OSS clusters with replicas](Scaling.RedisReplGrps.md#Scaling.RedisReplGrps.ScaleDown "Scaling.RedisReplGrps.md#Scaling.RedisReplGrps.ScaleDown") | [Online vertical scaling by modifying node type](redis-cluster-vertical-scaling.md "redis-cluster-vertical-scaling.md") |
+| Changing the number of node groups | Not supported for Valkey or Redis OSS (cluster mode disabled) clusters | [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md") |
 
 ###### Contents
 
@@ -91,12 +91,12 @@ For clusters running the r6gd node type, you can only scale to node sizes within
 As shown in the following table, your Valkey or Redis OSS scale-up operation is blocked if you have an engine upgrade scheduled for the next
 maintenance window. For more information on Maintenance Windows, see [Managing ElastiCache cluster maintenance](maintenance-window.md "maintenance-window.md").
 
-| Blocked Valkey or Redis OSS operations | Pending Operations       | Blocked Operations |
-| -------------------------------------- | ------------------------ | ------------------ |
-| Scale up                               | Immediate engine upgrade |
-| Engine upgrade                         | Immediate scale up       |
-| Scale up and engine upgrade            | Immediate scale up       |
-| Immediate engine upgrade               |
+Blocked Valkey or Redis OSS operations| Pending Operations | Blocked Operations |
+| --- | --- |
+| Scale up | Immediate engine upgrade |
+| Engine upgrade | Immediate scale up |
+| Scale up and engine upgrade | Immediate scale up |
+| Immediate engine upgrade |
 
 If you have a pending operation that is blocking you, you can do one of the following.
 
@@ -161,12 +161,11 @@ continue to serve requests with minimal downtime.
 
 ###### To scale up a single-node Valkey or Redis OSS cluster (AWS CLI)
 
-1.  Determine the node types you can scale up to by running the AWS CLI
-    `list-allowed-node-type-modifications` command with the following parameter.
+1. Determine the node types you can scale up to by running the AWS CLI
+   `list-allowed-node-type-modifications` command with the following parameter.
 
-        * `--cache-cluster-id`
-
-    For Linux, macOS, or Unix:
+   - `--cache-cluster-id`
+     For Linux, macOS, or Unix:
 
 ```
 aws elasticache list-allowed-node-type-modifications \
@@ -431,13 +430,11 @@ This cluster must be running the Valkey or Redis OSS engine and not the clustere
      group that reserves the correct amount of memory for your new node type.
 
 7. If you want to perform the scale-down process right away, choose the **Apply immediately** check box.
-   If the **Apply immediately** check box is left not chosen,
-   the scale-down process is performed during this cluster's next maintenance window.
-8. Choose **Modify**.
-9. When the cluster’s status changes from _modifying_ to
-   _available_, your cluster has scaled to the new
-   node type. There is no need to update the
-   endpoints in your application.
+If the **Apply immediately** check box is left not chosen,
+the scale-down process is performed during this cluster's next maintenance window. 8. Choose **Modify**. 9. When the cluster’s status changes from _modifying_ to
+_available_, your cluster has scaled to the new
+node type. There is no need to update the
+endpoints in your application.
 
 #### Scaling down single-node Valkey or Redis OSS clusters (AWS CLI)
 
@@ -445,12 +442,11 @@ The following procedure describes how to scale down a single-node Valkey or Redi
 
 ###### To scale down a single-node Valkey or Redis OSS cluster (AWS CLI)
 
-1.  Determine the node types you can scale down to by running the AWS CLI
-    `list-allowed-node-type-modifications` command with the following parameter.
+1. Determine the node types you can scale down to by running the AWS CLI
+   `list-allowed-node-type-modifications` command with the following parameter.
 
-        * `--cache-cluster-id`
-
-    For Linux, macOS, or Unix:
+   - `--cache-cluster-id`
+     For Linux, macOS, or Unix:
 
 ```
 aws elasticache list-allowed-node-type-modifications \

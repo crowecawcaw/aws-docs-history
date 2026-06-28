@@ -23,6 +23,10 @@ The following are requirements for notifications:
 It is possible to attach an encrypted (at-rest) Amazon SNS topic to the cluster. However, the status of the topic from the ElastiCache console will show as inactive, which effectively disassociates the topic from the cluster when ElastiCache pushes messages to the topic.
 
 - The Amazon SNS topic has to be in the same Region as the ElastiCache cluster.
+- The Amazon SNS topic's access policy must use the `aws:SourceOwner` condition key.
+  If the policy uses `aws:SourceAccount` (which is now the default for newly created topics),
+  ElastiCache cannot publish to the topic and automatically sets the topic status to _inactive_.
+  For the required policy configuration, see [Managing ElastiCache Amazon SNS notifications](ECEvents.SNS.md "ECEvents.SNS.md").
 
 ## ElastiCache Events
 

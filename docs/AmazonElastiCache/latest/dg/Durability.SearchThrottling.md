@@ -13,11 +13,11 @@ non-indexed keys and all read commands are **not** affected.
 
 The following commands are subject to throttling when they target indexed keys:
 
-| Commands subject to search write throttling | Category                                                                                                                                                                                            | Commands |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Hash                                        | `HSET`, `HSETNX`, `HMSET`, `HINCRBY`,<br>`HINCRBYFLOAT`, `HDEL`                                                                                                                                     |
-| JSON                                        | `JSON.SET`, `JSON.DEL`, `JSON.NUMINCRBY`,<br>`JSON.NUMMULTBY`, `JSON.STRAPPEND`, `JSON.ARRAPPEND`,<br>`JSON.ARRINSERT`, `JSON.ARRPOP`, `JSON.ARRTRIM`,<br>`JSON.TOGGLE`, `JSON.CLEAR`, `JSON.MERGE` |
-| Generic                                     | `DEL`, `UNLINK`, `RENAME`, `RENAMENX`,<br>`COPY`, `RESTORE`                                                                                                                                         |
+Commands subject to search write throttling| Category | Commands |
+| --- | --- |
+| Hash | `HSET`, `HSETNX`, `HMSET`, `HINCRBY`,<br>`HINCRBYFLOAT`, `HDEL` |
+| JSON | `JSON.SET`, `JSON.DEL`, `JSON.NUMINCRBY`,<br>`JSON.NUMMULTBY`, `JSON.STRAPPEND`, `JSON.ARRAPPEND`,<br>`JSON.ARRINSERT`, `JSON.ARRPOP`, `JSON.ARRTRIM`,<br>`JSON.TOGGLE`, `JSON.CLEAR`, `JSON.MERGE` |
+| Generic | `DEL`, `UNLINK`, `RENAME`, `RENAMENX`,<br>`COPY`, `RESTORE` |
 
 ## What clients experience
 
@@ -56,12 +56,12 @@ rate until full throughput is restored and throttling deactivates.
 
 The following Amazon CloudWatch metrics are available for monitoring search write throttling:
 
-| Search write throttling CloudWatch metrics | Metric                                                                             | Description | Unit |
-| ------------------------------------------ | ---------------------------------------------------------------------------------- | ----------- | ---- |
-| `SearchWriteThrottleActive`                | Indicates whether throttling is currently active. `1` = active,<br>`0` = inactive. | Boolean     |
-| `SearchWriteThrottledClientsCount`         | The number of client connections currently being throttled.                        | Count       |
-| `SearchWriteThrottleEvents`                | The number of throttle events within the reporting interval.                       | Count       |
-| `SearchWriteCPUUtilization`                | Current CPU utilization of the search writer threads.                              | Percent     |
+Search write throttling CloudWatch metrics| Metric | Description | Unit |
+| --- | --- | --- |
+| `SearchWriteThrottleActive` | Indicates whether throttling is currently active. `1` = active,<br>`0` = inactive. | Boolean |
+| `SearchWriteThrottledClientsCount` | The number of client connections currently being throttled. | Count |
+| `SearchWriteThrottleEvents` | The number of throttle events within the reporting interval. | Count |
+| `SearchWriteCPUUtilization` | Current CPU utilization of the search writer threads. | Percent |
 
 ## Best practices
 

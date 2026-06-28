@@ -136,7 +136,7 @@ sudo sysctl --system`
 
   - IP address – _10.0.1.230_
   - Default Memcached port – _11211_
-  - Security group – \*\*10\.0\.0\.55\*\*
+  - Security group – _\*10\.0\.0\.55\*_
 
 - You are accessing a Valkey or Redis OSS cluster with:
 
@@ -223,8 +223,8 @@ The NAT instance security group and the cluster instance should have the followi
 
 3. Validate the rules.
 
-   - Confirm that the trusted client is able to SSH to the NAT instance.
-   - Confirm that the trusted client is able to connect to the cluster from the NAT instance.
+    * Confirm that the trusted client is able to SSH to the NAT instance.
+    * Confirm that the trusted client is able to connect to the cluster from the NAT instance.
 
 4. **Memcached**
 

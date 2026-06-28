@@ -63,7 +63,7 @@ You will need to setup an EC2 instance from which you will connect to your cache
 ## Grant network access from an Amazon VPC security group to your cache
 
 ElastiCache node-based clusters use port 6379 for Valkey and Redis OSS commands, and ElastiCache serverless uses both port 6379 and port 6380.
-In order to successfully connect and execute Valkey or Redis OSS commands from your EC2 instance, your security group must allow access to these ports as needed.
+To successfully connect and execute Valkey or Redis OSS commands from your EC2 instance, your security group must allow access to these ports as needed.
 
 For ElastiCache serverless specifically:
 
@@ -72,7 +72,7 @@ For ElastiCache serverless specifically:
 
 Many clients establish connections to both ports even if not actively using Read From Replica, requiring that you make port 6380 accessible even if you don't intend to use Read From Replica.
 
-ElastiCache for Memcached uses the 11211 and 11212 ports to accept Memcached commands. In order to successfully connect and
+ElastiCache for Memcached uses the 11211 and 11212 ports to accept Memcached commands. To successfully connect and
 execute Memcached commands from your EC2 instance, your security group must allow access to these ports.
 
 1. Sign in to the AWS Command Line Interface and open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

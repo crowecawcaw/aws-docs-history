@@ -9,8 +9,8 @@ Each Query request must include some common parameters to handle authentication
 and selection of an action.
 
 Some operations take lists of parameters. These lists are specified using the
-`param.`n``notation. Values
- of`n` are integers starting from 1.
+`param.`n`` notation. Values
+of `n` are integers starting from 1.
 
 ## Query request authentication
 

@@ -150,32 +150,31 @@ Scaling User Guide.
 
 Before registering to Auto Scaling, we recommend the following:
 
-1.  **Use just one tracking metric** –
-    Identify if your cluster has CPU or data intensive workloads and use a
-    corresponding predefined metric to define Scaling Policy.
+1. **Use just one tracking metric** –
+   Identify if your cluster has CPU or data intensive workloads and use a
+   corresponding predefined metric to define Scaling Policy.
 
-        * Engine CPU: `ElastiCachePrimaryEngineCPUUtilization` (shard
-         dimension) or `ElastiCacheReplicaEngineCPUUtilization`
-         (replica dimension)
-        * Database usage:
-         `ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage`
-         This scaling policy works best with maxmemory-policy set to noeviction
-         on the cluster.
+   - Engine CPU: `ElastiCachePrimaryEngineCPUUtilization` (shard
+     dimension) or `ElastiCacheReplicaEngineCPUUtilization`
+     (replica dimension)
+   - Database usage:
+     `ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage`
+     This scaling policy works best with maxmemory-policy set to noeviction
+     on the cluster.
+     We recommend you avoid multiple policies per dimension on the cluster. ElastiCache for Valkey and Redis OSS
+     Auto scaling will scale out the scalable target if any target tracking policies
+     are ready for scale out, but will scale in only if all target tracking policies
+     (with the scale-in portion enabled) are ready to scale in. If multiple policies
+     instruct the scalable target to scale out or in at the same time, it scales
+     based on the policy that provides the largest capacity for both scale in and
+     scale out.
 
-    We recommend you avoid multiple policies per dimension on the cluster. ElastiCache for Valkey and Redis OSS
-    Auto scaling will scale out the scalable target if any target tracking policies
-    are ready for scale out, but will scale in only if all target tracking policies
-    (with the scale-in portion enabled) are ready to scale in. If multiple policies
-    instruct the scalable target to scale out or in at the same time, it scales
-    based on the policy that provides the largest capacity for both scale in and
-    scale out.
-
-2.  **Customized Metrics for Target Tracking**
-    – Be cautious when using customized metrics for Target Tracking as Auto
-    scaling is best suited to scale-out/in proportional to changes in metrics chosen
-    for the policy. If those metrics don't change proportionally to the scaling
-    actions used for policy creation, it might lead to continuous scale-out or
-    scale-in actions which might affect availability or cost.
+2. **Customized Metrics for Target Tracking**
+   – Be cautious when using customized metrics for Target Tracking as Auto
+   scaling is best suited to scale-out/in proportional to changes in metrics chosen
+   for the policy. If those metrics don't change proportionally to the scaling
+   actions used for policy creation, it might lead to continuous scale-out or
+   scale-in actions which might affect availability or cost.
 
 For data-tiering clusters (r6gd family instance types), avoid using
 memory-based metrics for scaling. 3. **Scheduled Scaling** – If you identify
