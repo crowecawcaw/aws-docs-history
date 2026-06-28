@@ -96,9 +96,9 @@ Customers with message parsers designed before November, 2020, should note the
 following changes that may have been made to the template:
 
 - The email subject line now reads "`Certificate request for
-`domain name``" instead of
-`"Certificate approval for `domain
-name``".
+ `domain name``" instead of
+ `"Certificate approval for `domain
+ name``".
 - The `AWS account ID` is now presented without dashes or
   hyphens.
 - The `Certificate Identifier` now presents the entire

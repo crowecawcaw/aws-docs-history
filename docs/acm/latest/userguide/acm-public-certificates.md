@@ -78,11 +78,10 @@ you provide, as in the next step, can be up to 253 octets in length.
      `*.example.com`).
 
 3. If you want to create an ACM exportable public certificates, select the **Enable
-   export** option. You'll be able to access the certificate's
-   private keys and use it outside AWS Cloud. For more information, see [AWS Certificate Manager exportable public certificates](acm-exportable-certificates.md "acm-exportable-certificates.md").
-4. In the **Validation method** section, choose either
-   **DNS validation – recommended** or
-   **Email validation**, depending on your needs.
+export** option. You'll be able to access the certificate's
+private keys and use it outside AWS Cloud. For more information, see [AWS Certificate Manager exportable public certificates](acm-exportable-certificates.md "acm-exportable-certificates.md"). 4. In the **Validation method** section, choose either
+**DNS validation – recommended** or
+**Email validation**, depending on your needs.
 
 ###### Note
 
@@ -103,11 +102,10 @@ validation or DNS validation.
      validation, see [AWS Certificate Manager DNS validation](dns-validation.md "dns-validation.md").
 
 5. In the **Key algorithm** section, choose an
-   algorithm.
-6. In the **Tags** page, you can optionally tag your
-   certificate. Tags are key-value pairs that serve as metadata for identifying
-   and organizing AWS resources. For a list of ACM tag parameters and for
-   instructions on how to add tags to certificates after creation, see [Tag AWS Certificate Manager resources](tags.md "tags.md").
+algorithm. 6. In the **Tags** page, you can optionally tag your
+certificate. Tags are key-value pairs that serve as metadata for identifying
+and organizing AWS resources. For a list of ACM tag parameters and for
+instructions on how to add tags to certificates after creation, see [Tag AWS Certificate Manager resources](tags.md "tags.md").
 
 When you finish adding tags, choose **Request**. 7. After the request is processed, the console returns you to your
 certificate list, where information about the new certificate is
@@ -134,8 +132,8 @@ upper-right.
 
 Use the [request-certificate](../../../cli/latest/reference/acm/request-certificate.md "../../../cli/latest/reference/acm/request-certificate.md") command to request a new public ACM certificate
 on the command line. Optional values for the validation method are DNS and EMAIL.
-Optional values for the key algorithm are RSA_2048 (the default if the parameter is
-not explicitly provided), EC_prime256v1, and EC_secp384r1.
+Optional values for the key algorithm are RSA\_2048 (the default if the parameter is
+not explicitly provided), EC\_prime256v1, and EC\_secp384r1.
 
 ```
 aws acm request-certificate \

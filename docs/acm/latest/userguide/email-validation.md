@@ -17,11 +17,11 @@ the suffix after `@`. For example, you can receive an email to
 admin@example.com if you specify example.com as the validation domain for
 subdomain.example.com.
 
-- administrator@your_domain_name
-- hostmaster@your_domain_name
-- postmaster@your_domain_name
-- webmaster@your_domain_name
-- admin@your_domain_name
+- administrator@your\_domain\_name
+- hostmaster@your\_domain\_name
+- postmaster@your\_domain\_name
+- webmaster@your\_domain\_name
+- admin@your\_domain\_name
 
 To prove that you own the domain, you must select the validation link included in
 these emails. ACM also sends validation emails to these same addresses to renew

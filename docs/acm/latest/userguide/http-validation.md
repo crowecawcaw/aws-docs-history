@@ -67,13 +67,13 @@ that HTTP validation does not support wildcard domains (such as \*.example.com).
 configuration's **Redirect From**-**Redirect To** pair serves to authenticate domain name
 ownership.
 
-| Example HTTP redirect configurations | Domain name                                                             | Redirect From                                                                              | Redirect To | Comment |
-| ------------------------------------ | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------- | ------- |
-| example.com                          | `http://example.com/.well-known/pki-validation/`x2`.txt`                | `https://validation.`region`.acm-validations.aws/`y2`/.well-known/pki-validation/`x2`.txt` | Unique      |
-| www.example.com                      | `http://www.example.com/.well-known/pki-validation/`x3`.txt`            | `https://validation.`region`.acm-validations.aws/`y3`/.well-known/pki-validation/`x3`.txt` | Unique      |
-| host.example.com                     | `http://host.example.com/.well-known/pki-validation/`x4`.txt`           | `https://validation.`region`.acm-validations.aws/`y4`/.well-known/pki-validation/`x4`.txt` | Unique      |
-| subdomain.example.com                | `http://subdomain.example.com/.well-known/pki-validation/`x5`.txt`      | `https://validation.`region`.acm-validations.aws/`y5`/.well-known/pki-validation/`x5`.txt` | Unique      |
-| host.subdomain.example.com           | `http://host.subdomain.example.com/.well-known/pki-validation/`x6`.txt` | `https://validation.`region`.acm-validations.aws/`y6`/.well-known/pki-validation/`x6`.txt` | Unique      |
+Example HTTP redirect configurations| Domain name | Redirect From | Redirect To | Comment |
+| --- | --- | --- | --- |
+| example.com | `http://example.com/.well-known/pki-validation/`x2`.txt` | `https://validation.`region`.acm-validations.aws/`y2`/.well-known/pki-validation/`x2`.txt` | Unique |
+| www.example.com | `http://www.example.com/.well-known/pki-validation/`x3`.txt` | `https://validation.`region`.acm-validations.aws/`y3`/.well-known/pki-validation/`x3`.txt` | Unique |
+| host.example.com | `http://host.example.com/.well-known/pki-validation/`x4`.txt` | `https://validation.`region`.acm-validations.aws/`y4`/.well-known/pki-validation/`x4`.txt` | Unique |
+| subdomain.example.com | `http://subdomain.example.com/.well-known/pki-validation/`x5`.txt` | `https://validation.`region`.acm-validations.aws/`y5`/.well-known/pki-validation/`x5`.txt` | Unique |
+| host.subdomain.example.com | `http://host.subdomain.example.com/.well-known/pki-validation/`x6`.txt` | `https://validation.`region`.acm-validations.aws/`y6`/.well-known/pki-validation/`x6`.txt` | Unique |
 
 The `xN` values in the file names and the
 `yN` values in the ACM-controlled domains are unique

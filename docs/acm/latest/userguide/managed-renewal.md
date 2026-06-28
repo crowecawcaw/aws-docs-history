@@ -29,14 +29,14 @@ considerations:
 2. Domain names beginning with "xn--" must also be valid Internationalized Domain
    Names.
 
-| Punycode examples | Domain Name | Fulfills #1 | Fulfills #2 | Allowed                                                  | Note |
-| ----------------- | ----------- | ----------- | ----------- | -------------------------------------------------------- | ---- |
-| example.com       | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
-| a--example.com    | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
-| abc--example.com  | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
-| xn--xyz.com       | Yes         | Yes         | ✓           | Valid Internationalized Domain Name (resolves to 简.com) |
-| xn--example.com   | Yes         | No          | ✗           | Not a valid Internationalized Domain Name                |
-| ab--example.com   | No          | No          | ✗           | Must start with "xn--"                                   |
+Punycode examples| Domain Name | Fulfills #1 | Fulfills #2 | Allowed | Note |
+| --- | --- | --- | --- | --- |
+| example.com | n/a | n/a | ✓ | Does not start with "<character><character>--" |
+| a--example.com | n/a | n/a | ✓ | Does not start with "<character><character>--" |
+| abc--example.com | n/a | n/a | ✓ | Does not start with "<character><character>--" |
+| xn--xyz.com | Yes | Yes | ✓ | Valid Internationalized Domain Name (resolves to 简.com) |
+| xn--example.com | Yes | No | ✗ | Not a valid Internationalized Domain Name |
+| ab--example.com | No | No | ✗ | Must start with "xn--" |
 
 When ACM renews a certificate, the certificate's Amazon Resource Name (ARN) remains the
 same. Also, ACM certificates are [regional resources](acm-overview.md#acm-regions "acm-overview.md#acm-regions"). If

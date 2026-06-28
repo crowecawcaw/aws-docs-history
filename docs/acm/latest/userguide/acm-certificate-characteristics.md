@@ -133,11 +133,11 @@ comparable security, but not all network clients support ECDSA. This table,
 adapted from [NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf"), compares RSA and ECDSA key sizes (in bits) for equivalent
 security strengths:
 
-| Comparing security for algorithms and keys | Security strength | RSA key size | ECDSA key size |
-| ------------------------------------------ | ----------------- | ------------ | -------------- |
-| 128                                        | 3072              | 256          |
-| 192                                        | 7680              | 384          |
-| 256                                        | 15360             | 521          |
+Comparing security for algorithms and keys| Security strength | RSA key size | ECDSA key size |
+| --- | --- | --- |
+| 128 | 3072 | 256 |
+| 192 | 7680 | 384 |
+| 256 | 15360 | 521 |
 
 Security strength, as a power of 2, relates to the number of guesses
 needed to break the encryption. For example, both a 3072-bit RSA key and a
@@ -183,14 +183,14 @@ The following [Punycode](https://datatracker.ietf.org/doc/html/rfc3492 "https://
 2. Domain names beginning with "xn--" must also be valid Internationalized Domain
    Names.
 
-| Punycode examples | Domain Name | Fulfills #1 | Fulfills #2 | Allowed                                                  | Note |
-| ----------------- | ----------- | ----------- | ----------- | -------------------------------------------------------- | ---- |
-| example.com       | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
-| a--example.com    | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
-| abc--example.com  | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
-| xn--xyz.com       | Yes         | Yes         | ✓           | Valid Internationalized Domain Name (resolves to 简.com) |
-| xn--example.com   | Yes         | No          | ✗           | Not a valid Internationalized Domain Name                |
-| ab--example.com   | No          | No          | ✗           | Must start with "xn--"                                   |
+Punycode examples| Domain Name | Fulfills #1 | Fulfills #2 | Allowed | Note |
+| --- | --- | --- | --- | --- |
+| example.com | n/a | n/a | ✓ | Does not start with "<character><character>--" |
+| a--example.com | n/a | n/a | ✓ | Does not start with "<character><character>--" |
+| abc--example.com | n/a | n/a | ✓ | Does not start with "<character><character>--" |
+| xn--xyz.com | Yes | Yes | ✓ | Valid Internationalized Domain Name (resolves to 简.com) |
+| xn--example.com | Yes | No | ✗ | Not a valid Internationalized Domain Name |
+| ab--example.com | No | No | ✗ | Must start with "xn--" |
 
 **Validity Period**
 

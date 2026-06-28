@@ -25,17 +25,17 @@ chosen the correct one:
     * **Locality name**
 
 4. In the **Domain names** section, type your domain
-   name. You can use a fully qualified domain name (FQDN), such as
-   `www.example.com`, or a bare or apex domain
-   name such as `example.com`. You can also use an
-   asterisk (`*`) as a wild card in the leftmost
-   position to protect several site names in the same domain. For example,
-   `*.example.com` protects
-   `corp.example.com`, and
-   `images.example.com`. The wildcard name will
-   appear in the **Subject** field and in the
-   **Subject Alternative Name** extension of the ACM
-   certificate.
+name. You can use a fully qualified domain name (FQDN), such as
+`www.example.com`, or a bare or apex domain
+name such as `example.com`. You can also use an
+asterisk (`*`) as a wild card in the leftmost
+position to protect several site names in the same domain. For example,
+`*.example.com` protects
+`corp.example.com`, and
+`images.example.com`. The wildcard name will
+appear in the **Subject** field and in the
+**Subject Alternative Name** extension of the ACM
+certificate.
 
 ###### Note
 

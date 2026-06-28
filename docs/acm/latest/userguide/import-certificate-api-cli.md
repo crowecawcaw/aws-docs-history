@@ -29,8 +29,8 @@ AWS Management Console.
 
    1. For **Certificate body**, paste the PEM-encoded
       certificate to import. It should begin with `-----BEGIN
-CERTIFICATE-----` and end with `-----END
-CERTIFICATE-----`.
+  CERTIFICATE-----` and end with `-----END
+  CERTIFICATE-----`.
    2. For **Certificate private key**, paste the
       certificate's PEM-encoded, unencrypted private key. It should begin
       with `-----BEGIN PRIVATE KEY-----` and end with

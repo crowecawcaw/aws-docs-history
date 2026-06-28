@@ -157,7 +157,7 @@ practices](acm-bestpractices.md#best-practices-cloudformation "acm-bestpractices
 ###### Note
 
 If you create an ACM certificate with CloudFormation, the CloudFormation stack remains in the
-**CREATE_IN_PROGRESS** state. Any further stack
+**CREATE\_IN\_PROGRESS** state. Any further stack
 operations are delayed until you act upon the instructions in the certificate
 validation email. For more information, see [Resource Failed to Stabilize During a Create, Update, or Delete Stack
 Operation](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md#troubleshooting-resource-did-not-stabilize "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md#troubleshooting-resource-did-not-stabilize").
