@@ -159,7 +159,7 @@ react to each of the versions of the same feature, determine if
 there is a consensus of overall like or dislike, and observe if
 there are issues identified with its usability or functionality.
 Such strategic experiments are also called A/B tests, and the
-overall process is called *A/B testing*. On
+overall process is called _A/B testing_. On
 completion of these experiments, necessary test data is collected
 before reverting to the current version of the game backend system
 on the servers used for the tests.
