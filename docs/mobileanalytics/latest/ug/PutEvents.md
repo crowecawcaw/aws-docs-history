@@ -64,7 +64,7 @@ The request header.
 Name-value pairs that describes the client
 application.
 
-**client_id**
+**client\_id**
 
 A unique identifier representing this
 installation instance of your app.
@@ -75,7 +75,7 @@ Default: None
 
 Required: Yes
 
-**app_title**
+**app\_title**
 
 The title of your app. For example,
 `My App`.
@@ -86,7 +86,7 @@ Default: None
 
 Required: Yes
 
-**app_version_name**
+**app\_version\_name**
 
 The version of your app. For example,
 `V2.0`.
@@ -97,7 +97,7 @@ Default: None
 
 Required: No
 
-**app_version_code**
+**app\_version\_code**
 
 The version code for your app. For example,
 `3`.
@@ -108,7 +108,7 @@ Default: None
 
 Required: No
 
-**app_package_name**
+**app\_package\_name**
 
 The name of your package. For example,
 `com.example.my_app`.
@@ -173,7 +173,7 @@ Default: None
 
 Required: No
 
-**platform_version**
+**platform\_version**
 
 The version of the operating system of the
 device. For example, `4.0.4`.
@@ -200,12 +200,12 @@ Required: No
 Name-value pair that contains service specific
 sections.
 
-**mobile_analytics**
+**mobile\_analytics**
 
 Name-value pair that describes service
 specific attributes.
 
-**app_id**
+**app\_id**
 
 The value obtained from the Mobile Analytics console to
 record data to.

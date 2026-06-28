@@ -165,7 +165,7 @@ Mobile Analytics app.
    provisioned in your AWS account. Choose the role.
 
 The IAM console opens, and the **Roles** page is
-shown. 5. Under **Permissions**, expand the policy named as _project-name_\_mobileanalytics_MOBILEHUB\__mobile-hub-project-id_. 6. Choose **Edit policy**. 7. On the **Edit** page, choose the **JSON**
+shown. 5. Under **Permissions**, expand the policy named as _project-name_\_mobileanalytics\_MOBILEHUB\__mobile-hub-project-id_. 6. Choose **Edit policy**. 7. On the **Edit** page, choose the **JSON**
 tab. 8. In the JSON editor, where the policy allows the
 `mobiletargeting:UpdateEndpoint` action, update the value that's
 assigned to the `Resource` key. Change the app ID to the ID that you
