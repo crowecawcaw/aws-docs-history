@@ -59,7 +59,7 @@ takes a long time to run.
 To cancel a running query, use the CANCEL command with the query's session ID.
 With the Amazon Redshift query editor v2 you can cancel a query by choosing the cancel button while the query is running.
 
-To find the session ID, start a new session and query the STV_RECENTS table, as shown
+To find the session ID, start a new session and query the STV\_RECENTS table, as shown
 in the previous step. The following example shows how you can make the results more
 readable. To do this, use the TRIM function to trim trailing spaces and show only the
 first 20 characters of the query string.

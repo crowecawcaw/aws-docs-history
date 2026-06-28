@@ -94,7 +94,7 @@ to use to connect to the workgroup. For this guide, leave **Federated user** sel
 ![You can choose to connect using a temporary password or a database user name and password combination.](images/serverless-connecting-to-default-workgroup.png)
 
 Once you are connected, you can choose to load sample data from Amazon Redshift Serverless or from an Amazon S3 bucket. 5. Under the Amazon Redshift Serverless default workgroup, expand the
-**sample_data_dev** database. There are three sample
+**sample\_data\_dev** database. There are three sample
 schemas corresponding to three sample datasets that you can load into the
 Amazon Redshift Serverless database. Choose the sample dataset that you want to load,
 and choose **Open sample notebooks**.
