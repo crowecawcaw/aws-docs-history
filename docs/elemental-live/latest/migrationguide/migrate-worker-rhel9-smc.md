@@ -28,25 +28,24 @@ kickstart menu.
 
 ## Finishing steps
 
-1.  Installation of the RHEL 9 operating system will remove all network
-    configurations. You must manually configure at least one interface
-    before you can install the Elemental Live software. For information, go to the
-    [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter"), and read the Knowledge article [What to do if kickstart removes on-disk network
-    configuration](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/What-to-do-if-kickstart-removes-on-disk-network-configuration "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/What-to-do-if-kickstart-removes-on-disk-network-configuration") or open a case.
-2.  Sometimes, a kickstart or upgrade generates incorrect mappings for
-    Ethernet ports. For information about how to fix this issue, go to the
-    [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter"), and read the Knowledge article [How to restore default ethernet port order on an Elemental
-    appliance](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/How-to-restore-default-ethernet-port-order-on-an-Elemental-appliance "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/How-to-restore-default-ethernet-port-order-on-an-Elemental-appliance") or open a case.
-3.  You can now install any third-party packages. AWS Elemental maintains an RPM
-    repository for use with RHEL 9. The repository contains the following
-    types of third-party packages:
+1. Installation of the RHEL 9 operating system will remove all network
+   configurations. You must manually configure at least one interface
+   before you can install the Elemental Live software. For information, go to the
+   [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter"), and read the Knowledge article [What to do if kickstart removes on-disk network
+   configuration](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/What-to-do-if-kickstart-removes-on-disk-network-configuration "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/What-to-do-if-kickstart-removes-on-disk-network-configuration") or open a case.
+2. Sometimes, a kickstart or upgrade generates incorrect mappings for
+   Ethernet ports. For information about how to fix this issue, go to the
+   [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter"), and read the Knowledge article [How to restore default ethernet port order on an Elemental
+   appliance](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/How-to-restore-default-ethernet-port-order-on-an-Elemental-appliance "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/How-to-restore-default-ethernet-port-order-on-an-Elemental-appliance") or open a case.
+3. You can now install any third-party packages. AWS Elemental maintains an RPM
+   repository for use with RHEL 9. The repository contains the following
+   types of third-party packages:
 
-        * Packages that are stored in the Red Hat BaseOS repository, and
-         that are required to run AWS Elemental software.
-        * Packages that are stored in the Red Hat AppStream repository,
-         that aren't required but that you want to include.
-
-    For more information about the packages that you must obtain from the
-    AWS Elemental RPM repository and for instructions about configuring the
-    repository, go to the [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter") and read the Knowledge article
-    [about the introduction of RHEL 9](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7 "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7").
+   - Packages that are stored in the Red Hat BaseOS repository, and
+     that are required to run AWS Elemental software.
+   - Packages that are stored in the Red Hat AppStream repository,
+     that aren't required but that you want to include.
+     For more information about the packages that you must obtain from the
+     AWS Elemental RPM repository and for instructions about configuring the
+     repository, go to the [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter") and read the Knowledge article
+     [about the introduction of RHEL 9](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7 "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7").

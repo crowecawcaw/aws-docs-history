@@ -7,26 +7,22 @@ This install procedure is very similar to the upgrade procedure (as described in
 [AWS Elemental Live Upgrade Guide](../upgradeguide.md "../upgradeguide.md")), but there are significant differences in the options you
 include.
 
-1.  From the Linux command line, log in to the worker node. Use the
-    **elemental** user credentials.
-2.  Run the installer. Use the appropriate command:
+1. From the Linux command line, log in to the worker node. Use the
+   **elemental** user credentials.
+2. Run the installer. Use the appropriate command:
 
-        * For GPU and CPU versions of the software (for Elemental Live only):
+   - For GPU and CPU versions of the software (for Elemental Live only):
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_live\_cpu\_\_2.26.0.12345.run --skip-mellanox --skip-all --start -xeula**
+   ```
+   - For CPU-only versions of the software:
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_live\_cpu\_2.26.0.12345.run --skip-mellanox --skip-all --start -xeula**
+   ```
 
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_live\_cpu\_\_2.26.0.12345.run --skip-mellanox --skip-all --start -xeula**
-        ```
-        * For CPU-only versions of the software:
-
-
-
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_live\_cpu\_2.26.0.12345.run --skip-mellanox --skip-all --start -xeula**
-        ```
-
-    Where:
+Where:
 
 `--skip-mellanox`. Optional. Applies only to Elemental Live. Skips
 installation of the Mellanox driver, even if the script detects that a Mellanox
