@@ -221,24 +221,23 @@ Console
 
 ###### To view the EBS volumes for an instance
 
-1.  Open the Amazon EC2 console.
-2.  In the navigation pane, choose **Instances**.
-3.  Select the instance and look at the details displayed in the
-    **Storage** tab. At a minimum, the following information is
-    available for the root volume (where the term **root device** is
-    equivalent to **root volume**):
+1. Open the Amazon EC2 console.
+2. In the navigation pane, choose **Instances**.
+3. Select the instance and look at the details displayed in the
+   **Storage** tab. At a minimum, the following information is
+   available for the root volume (where the term **root device** is
+   equivalent to **root volume**):
 
-        * **Root device type** (for example, **EBS**)
-        * **Root device name** (for example, `/dev/xvda`)
-        * **Block devices** (for example, `/dev/xvda`,
-         `/dev/sdf`, and `/dev/sdj`)
+   - **Root device type** (for example, **EBS**)
+   - **Root device name** (for example, `/dev/xvda`)
+   - **Block devices** (for example, `/dev/xvda`,
+     `/dev/sdf`, and `/dev/sdj`)
+     If the instance was launched with additional EBS volumes using a block device
+     mapping, they appear under **Block devices**. Any instance store volumes
+     do not appear on this tab.
 
-    If the instance was launched with additional EBS volumes using a block device
-    mapping, they appear under **Block devices**. Any instance store volumes
-    do not appear on this tab.
-
-4.  To display additional information about an EBS volume, choose its volume ID to go to
-    the volume page.
+4. To display additional information about an EBS volume, choose its volume ID to go to
+   the volume page.
 
 AWS CLI
 

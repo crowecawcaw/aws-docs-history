@@ -66,40 +66,39 @@ information, see [Reference for Amazon EC2 instance configuration parameters](ec
 
 ###### To launch an instance onto a Dedicated Host using the Launch Instance wizard
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose **Instances**,
-    **Launch instance**.
-3.  In the **Application and OS Images** section,
-    select an AMI from the list.
-4.  In the **Instance type** section, select the
-    instance type to launch.
-5.  In the **Key pair** section, select the key
-    pair to associate with the instance.
-6.  In the **Advanced details** section, do the
-    following:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Instances**,
+   **Launch instance**.
+3. In the **Application and OS Images** section,
+   select an AMI from the list.
+4. In the **Instance type** section, select the
+   instance type to launch.
+5. In the **Key pair** section, select the key
+   pair to associate with the instance.
+6. In the **Advanced details** section, do the
+   following:
 
-    1.  For **Tenancy**, select **Dedicated Host**.
-    2.  For **Target host by**, select **Host ID**.
-    3.  For **Target host ID**, select the
-        host onto which to launch the instance.
-    4.  For **Tenancy affinity**, choose one of the
-        following:
+   1. For **Tenancy**, select **Dedicated Host**.
+   2. For **Target host by**, select **Host ID**.
+   3. For **Target host ID**, select the
+      host onto which to launch the instance.
+   4. For **Tenancy affinity**, choose one of the
+      following:
 
-            * **Off** — Host affinity
-             disabled. The instance launches onto the specified host, but
-             it is not guaranteed to restart on the same Dedicated Host if stopped.
-            * A Dedicated Host ID — Host affinity enabled. If stopped, the
-             instance always restarts on this specified host if it has
-             capacity. If the host does not have capacity, the instance
-             can't be restarted; you must establish affinity with a
-             different host.
-
+      - **Off** — Host affinity
+        disabled. The instance launches onto the specified host, but
+        it is not guaranteed to restart on the same Dedicated Host if stopped.
+      - A Dedicated Host ID — Host affinity enabled. If stopped, the
+        instance always restarts on this specified host if it has
+        capacity. If the host does not have capacity, the instance
+        can't be restarted; you must establish affinity with a
+        different host.
         For more information about Affinity, see [Amazon EC2 Dedicated Host auto-placement and host affinity](dedicated-hosts-understanding.md "dedicated-hosts-understanding.md").
 
-7.  Configure the remaining instance options as needed. For more
-    information, see [Reference for Amazon EC2 instance configuration parameters](ec2-instance-launch-parameters.md "ec2-instance-launch-parameters.md").
-8.  Choose **Launch instance**.
+7. Configure the remaining instance options as needed. For more
+   information, see [Reference for Amazon EC2 instance configuration parameters](ec2-instance-launch-parameters.md "ec2-instance-launch-parameters.md").
+8. Choose **Launch instance**.
 
 AWS CLI
 

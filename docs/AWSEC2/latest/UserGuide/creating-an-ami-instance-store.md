@@ -148,7 +148,7 @@ with your own information.
    image. 2. Copy your X.509 certificate and corresponding private key from
    your computer to the `/tmp/cert` directory on
    your instance using a secure copy tool such as [scp](linux-file-transfer-scp.md "linux-file-transfer-scp.md"). The `-i
- `my-private-key`.pem` option
+  `my-private-key`.pem` option
    in the following **scp** command is the private key
    you use to connect to your instance with SSH, not the X.509 private
    key. For example:
@@ -157,23 +157,22 @@ with your own information.
    `you@your_computer:~ $` scp -i `my-private-key`.pem `/path/to/pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem` `/path/to/cert-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem` ec2-user@`ec2-203-0-113-25.compute-1.amazonaws.com`:/tmp/cert/`pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem 100% 717 0.7KB/s 00:00
    cert-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem 100% 685 0.7KB/s 00:00`
    ```Alternatively, because these are plain text files, you can open the
-   certificate and key in a text editor and copy their contents into new files
-   in `/tmp/cert`.
    ````
 
-2. Prepare the bundle to upload to Amazon S3 by running the [ec2-bundle-vol](ami-tools-commands.md#ami-bundle-vol "ami-tools-commands.md#ami-bundle-vol") command from
-   inside your instance. Be sure to specify the `-e` option to
-   exclude the directory where your credentials are stored. By default, the
-   bundle process excludes files that might contain sensitive information.
-   These files include `*.sw`, `*.swo`,
-   `*.swp`, `*.pem`,
-   `*.priv`, `*id_rsa*`,
-   `*id_dsa*`
-   `*.gpg`, `*.jks`,
-   `*/.ssh/authorized_keys`, and
-   `*/.bash_history`. To include all of these files, use
-   the `--no-filter` option. To include some of these files, use the
-   `--include` option.
+certificate and key in a text editor and copy their contents into new files
+in `/tmp/cert`. 2. Prepare the bundle to upload to Amazon S3 by running the [ec2-bundle-vol](ami-tools-commands.md#ami-bundle-vol "ami-tools-commands.md#ami-bundle-vol") command from
+inside your instance. Be sure to specify the `-e` option to
+exclude the directory where your credentials are stored. By default, the
+bundle process excludes files that might contain sensitive information.
+These files include `*.sw`, `*.swo`,
+`*.swp`, `*.pem`,
+`*.priv`, `*id_rsa*`,
+`*id_dsa*`
+`*.gpg`, `*.jks`,
+`*/.ssh/authorized_keys`, and
+`*/.bash_history`. To include all of these files, use
+the `--no-filter` option. To include some of these files, use the
+`--include` option.
 
 ###### Important
 
@@ -182,8 +181,9 @@ collection of files in the `/tmp` directory that
 represents your root volume. If you do not have enough free disk space
 in `/tmp` to store the bundle, you need to specify a
 different location for the bundle to be stored with the `-d
- `/path/to/bundle/storage``  option. Some instances have ephemeral storage mounted at
- `/mnt`or`/media/ephemeral0`
+ `/path/to/bundle/storage``
+option. Some instances have ephemeral storage mounted at
+`/mnt` or `/media/ephemeral0`
 that you can use, or you can also create, attach, and mount a new Amazon EBS)
 volume to store the bundle. For more information, see [Create an Amazon EBS volume](../../../ebs/latest/userguide/ebs-creating-volume.md "../../../ebs/latest/userguide/ebs-creating-volume.md")
 in the _Amazon EBS User Guide_.
@@ -238,51 +238,58 @@ in the _Amazon EBS User Guide_.
     ```
 
 3. (Optional) To add more instance store volumes, edit the block device
-   mappings in the `image.manifest.xml` file for your AMI.
-   For more information, see [Block device mappings for volumes on Amazon EC2 instances](block-device-mapping-concepts.md "block-device-mapping-concepts.md").
+mappings in the `image.manifest.xml` file for your AMI.
+For more information, see [Block device mappings for volumes on Amazon EC2 instances](block-device-mapping-concepts.md "block-device-mapping-concepts.md").
 
-   1. Create a backup of your `image.manifest.xml`
-      file.
+    1. Create a backup of your `image.manifest.xml`
+     file.
 
-   ```
-   `[ec2-user ~]$` sudo cp /tmp/image.manifest.xml /tmp/image.manifest.xml.bak
-   ```
-   2. Reformat the `image.manifest.xml` file so that
-      it is easier to read and edit.
 
-   ```
-   `[ec2-user ~]$` sudo xmllint --format /tmp/image.manifest.xml.bak > /tmp/image.manifest.xml
-   ```
-   3. Edit the block device mappings in `image.manifest.xml` with a text
-      editor. The example below shows a new entry for the
-      `ephemeral1` instance store volume.
 
-   ###### Note
+    ```
+    `[ec2-user ~]$` sudo cp /tmp/image.manifest.xml /tmp/image.manifest.xml.bak
+    ```
+    2. Reformat the `image.manifest.xml` file so that
+     it is easier to read and edit.
 
-   For a list of excluded files, see [ec2-bundle-vol](ami-tools-commands.md#ami-bundle-vol "ami-tools-commands.md#ami-bundle-vol").
 
-   ```
-       <block_device_mapping>
-         <mapping>
-           <virtual>ami</virtual>
-           <device>sda</device>
-         </mapping>
-         <mapping>
-           <virtual>ephemeral0</virtual>
-           <device>sdb</device>
-         </mapping>
-    `<mapping>
-    <virtual>ephemeral1</virtual>
-    <device>sdc</device>
-    </mapping>`
-         <mapping>
-           <virtual>root</virtual>
-           <device>/dev/sda1</device>
-         </mapping>
-       </block_device_mapping>
-   ```
-   4. Save the `image.manifest.xml` file and exit
-      your text editor.
+
+    ```
+    `[ec2-user ~]$` sudo xmllint --format /tmp/image.manifest.xml.bak > /tmp/image.manifest.xml
+    ```
+    3. Edit the block device mappings in `image.manifest.xml` with a text
+     editor. The example below shows a new entry for the
+     `ephemeral1` instance store volume.
+
+
+    ###### Note
+
+    For a list of excluded files, see [ec2-bundle-vol](ami-tools-commands.md#ami-bundle-vol "ami-tools-commands.md#ami-bundle-vol").
+
+
+
+    ```
+        <block_device_mapping>
+          <mapping>
+            <virtual>ami</virtual>
+            <device>sda</device>
+          </mapping>
+          <mapping>
+            <virtual>ephemeral0</virtual>
+            <device>sdb</device>
+          </mapping>
+     `<mapping>
+     <virtual>ephemeral1</virtual>
+     <device>sdc</device>
+     </mapping>`
+          <mapping>
+            <virtual>root</virtual>
+            <device>/dev/sda1</device>
+          </mapping>
+        </block_device_mapping>
+    ```
+    4. Save the `image.manifest.xml` file and exit
+     your text editor.
 
 4. To upload your bundle to Amazon S3, run the [ec2-upload-bundle](ami-tools-commands.md#ami-upload-bundle "ami-tools-commands.md#ami-upload-bundle") command as follows.
 
@@ -306,9 +313,9 @@ following **rm** command:
 ###### Important
 
 If you specified a path with the `-d
- `/path/to/bundle/storage``option
- in [Step 2](#step_with_bundle_path_amazon_linux "#step_with_bundle_path_amazon_linux"), use that path
- instead of`/tmp`. 6. To register your AMI, run the [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md")
+ `/path/to/bundle/storage`` option
+in [Step 2](#step_with_bundle_path_amazon_linux "#step_with_bundle_path_amazon_linux"), use that path
+instead of `/tmp`. 6. To register your AMI, run the [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md")
 command as follows.
 
 ```

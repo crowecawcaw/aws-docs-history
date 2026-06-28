@@ -234,7 +234,7 @@ information, see [AWS managed policy: AmazonS3ReadOnlyAccess](../../../AmazonS3/
     ```
 
 4. Download the drivers from Amazon S3 to your desktop using the following
-   PowerShell commands.
+PowerShell commands.
 
 ```
 $Bucket = "ec2-amd-windows-drivers"

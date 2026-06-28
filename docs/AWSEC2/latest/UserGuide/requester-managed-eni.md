@@ -11,15 +11,14 @@ VPC endpoint from AWS PrivateLink.
   and you can add or remove tags. However, you can't perform the following
   actions on a requester-managed network interface:
 
-      + Modify network interface attributes
-      + Attach or detach the network interface
-      + Associate or disassociate Elastic IP addresses
-      + Assign or unassign private IP addresses
-      + Specify the network interface when launching an
-       instance
-
-  You can still reset network interface attributes, even though you
-  can't modify them.
+  - Modify network interface attributes
+  - Attach or detach the network interface
+  - Associate or disassociate Elastic IP addresses
+  - Assign or unassign private IP addresses
+  - Specify the network interface when launching an
+    instance
+    You can still reset network interface attributes, even though you
+    can't modify them.
 
 - When you delete the resource associated with a requester-managed network
   interface, the AWS service detaches the network interface and deletes it.

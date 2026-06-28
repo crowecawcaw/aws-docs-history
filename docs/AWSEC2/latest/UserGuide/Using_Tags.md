@@ -115,7 +115,7 @@ The following basic restrictions apply to tags:
     The allowed characters across all AWS services are: letters (`a-z`,
     `A-Z`), numbers (`0-9`), and spaces
     representable in UTF-8, and the following characters: `+ - = . _ :
-/ @`.
+   / @`.
   - If you enable instance tags in instance metadata, instance tag _keys_ can only use letters (`a-z`,
     `A-Z`), numbers (`0-9`), and the following
     characters: `+ - = . , _ : @`. Instance tag _keys_ can't contain spaces or

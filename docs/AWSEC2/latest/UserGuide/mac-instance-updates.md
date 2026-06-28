@@ -234,17 +234,16 @@ Do not exit this SSH session until the following VNC connection and GUI steps ar
     3. In the **Server Address** field, enter `vnc://localhost:5900`.
 
 7. In the macOS window, connect to the remote session of the Apple silicon Mac
-   instance as `ec2-user` with the password you created in
-   [Step 3](#passwd-step "#passwd-step").
-8. Access the internal disk, named **InternalDisk**, using one of the following options.
+instance as `ec2-user` with the password you created in
+[Step 3](#passwd-step "#passwd-step"). 8. Access the internal disk, named **InternalDisk**, using one of the following options.
 
-   1. For macOS Ventura or above: Open **System
-      Settings**, select **General** in the left pane, then **Startup Disk** at the lower right of
-      the pane.
-   2. For macOS Monterey or below: Open **System
-      Preferences**, select **Startup
-      Disk**, then unlock the pane by choosing the lock
-      icon in the lower left of the window.###### Troubleshooting tip
+    1. For macOS Ventura or above: Open **System
+     Settings**, select **General** in the left pane, then **Startup Disk** at the lower right of
+     the pane.
+    2. For macOS Monterey or below: Open **System
+     Preferences**, select **Startup
+     Disk**, then unlock the pane by choosing the lock
+     icon in the lower left of the window.###### Troubleshooting tip
 
 If you need to mount the internal disk, run the following command in the Terminal.
 
@@ -291,8 +290,10 @@ ssh -i `/path/key-pair-name`.pem aws-managed-user@`instance-public-dns-name`
    connection.
 
    1. ```
-      `[aws-managed-user ~]$` sudo /usr/bin/dscl . -passwd /Users/aws-managed-user `password`
+
       ```
+
+   `[aws-managed-user ~]$` sudo /usr/bin/dscl . -passwd /Users/aws-managed-user `password`
 
    ```
    2. When you receive the prompt, `Permission denied. Please enter user's old password:`, press enter.

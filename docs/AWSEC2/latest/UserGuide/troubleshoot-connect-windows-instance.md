@@ -33,7 +33,7 @@ Try the following to resolve issues related to connecting to your instance:
 - Verify that your security group has a rule that allows RDP access
   on port 3389.
 - If you copied the password but get the error `Your credentials did
-not work`, try typing them manually when prompted. It's possible
+ not work`, try typing them manually when prompted. It's possible
   that you missed a character or got an extra white space character when you
   copied the password.
 - Verify that the instance has passed status checks. For more information,
@@ -70,12 +70,12 @@ not work`, try typing them manually when prompted. It's possible
   you can reset it. For more information, see [Reset the Windows administrator password for an Amazon EC2 Windows instance](ResettingAdminPassword.md "ResettingAdminPassword.md").
 - If you attempt to connect using a user that you created on the instance and receive the
   error `The user cannot connect to the server due to insufficient access
-privileges`, verify that you granted the user the right to log on
+ privileges`, verify that you granted the user the right to log on
   locally. For more information, see [Grant a Member the Right to Logon Locally](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/ee957044(v%3dws.10)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/ee957044(v%3dws.10)").
 - If you attempt more than the maximum allowed concurrent RDP sessions,
   your session is terminated with the message `Your Remote Desktop
-Services session has ended. Another user connected to the remote
-computer, so your connection was lost.` By default, you are
+ Services session has ended. Another user connected to the remote
+ computer, so your connection was lost.` By default, you are
   allowed two concurrent RDP sessions to your instance.
 
 ## Error using the macOS RDP client
@@ -325,7 +325,7 @@ you can use remote registry to enable Remote Desktop.
 `regedit`
 ```
 
-6. In Registry Editor, choose **HKEY_LOCAL_MACHINE**, then select
+6. In Registry Editor, choose **HKEY\_LOCAL\_MACHINE**, then select
    **File**, **Load Hive**.
 7. Select the drive of the attached volume, navigate to `\Windows\System32\config\`,
    select `SYSTEM`, and then choose **Open**.
@@ -333,7 +333,7 @@ you can use remote registry to enable Remote Desktop.
    **OK**.
 9. Back up the registry hive before making any changes to the registry.
 
-   1. In the Registry Editor console tree, select the hive that you loaded: **HKEY_LOCAL_MACHINE**\`your-key-name`.
+   1. In the Registry Editor console tree, select the hive that you loaded: **HKEY\_LOCAL\_MACHINE**\`your-key-name`.
    2. Choose **File**, **Export**.
    3. In the Export Registry File dialog box, choose the location to which you want to save the backup copy, and then type a name for the backup file in the **File name** field.
    4. Choose **Save**.
@@ -349,7 +349,7 @@ you can use remote registry to enable Remote Desktop.
 If the value in the **Value data** field is `1`, then the instance
 will deny remote desktop connections. A value of `0` allows remote
 desktop connections. 13. In Registry Editor, choose
-**HKEY_LOCAL_MACHINE**\`your-key-name`,
+**HKEY\_LOCAL\_MACHINE**\`your-key-name`,
 then select **File**, **Unload Hive**. 14. Close Registry Editor and Disk Management. 15. From the EC2 console, detach the volume from the reachable instance and then reattach it to
 the unreachable instance. When attaching the volume to the unreachable instance,
 enter the device name that you saved earlier in the **device**

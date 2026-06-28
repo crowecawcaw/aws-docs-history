@@ -130,7 +130,7 @@ resolve this issue.
   temporary instance. Connect to the temporary instance, open the
   **Disk Management** utility, and bring the
   drive online. 4. From the temporary instance, open **Regedit** and
-  select **HKEY_LOCAL_MACHINE**. From the
+  select **HKEY\_LOCAL\_MACHINE**. From the
   **File** menu, choose **Load
   Hive**. Select the drive, open the file
   `Windows\System32\config\SYSTEM`, and specify
@@ -157,36 +157,37 @@ resolve this issue.
   don't have a route to the metadata service. Updating EC2Config can
   resolve this issue.
 
-      1. [Download](https://s3.amazonaws.com/ec2-downloads-windows/EC2Config/EC2Install.zip "https://s3.amazonaws.com/ec2-downloads-windows/EC2Config/EC2Install.zip") and install the latest version of the
-       EC2Config service. For more information about installing
-       this service, see [Install the latest version of EC2Config](UsingConfig_Install.md "UsingConfig_Install.md").
-      2. Extract the files from the `.zip` file
-       to the `Temp` directory on the drive you
-       attached.
-      3. Open **Regedit** and select
-       **HKEY\_LOCAL\_MACHINE**. From the
-       **File** menu, choose **Load
-       Hive**. Select the drive, open the file
-       `Windows\System32\config\SOFTWARE`,
-       and specify a key name when prompted (you can use any
-       name).
-      4. Select the key that you just loaded and navigate to
-       `Microsoft\Windows\CurrentVersion`.
-       Select the `RunOnce` key. (If this key doesn't
-       exist, right-click `CurrentVersion`, point to
-       **New**, select
-       **Key**, and name the key
-       `RunOnce`.) Right-click, point to
-       **New**, and select **String
-       Value**. Enter `Ec2Install` as the
-       name and `C:\Temp\Ec2Install.exe -q` as the
-       data.
-      5. Select the key again, and from the
-       **File** menu, choose **Unload
-       Hive**.
-  7.  (Optional) If your temporary instance is based on the same AMI that the original instance is based on,
-      you must complete the following steps or you won't be able to boot the original instance after you
-      restore its root volume because of a disk signature collision.
+        1. [Download](https://s3.amazonaws.com/ec2-downloads-windows/EC2Config/EC2Install.zip "https://s3.amazonaws.com/ec2-downloads-windows/EC2Config/EC2Install.zip") and install the latest version of the
+         EC2Config service. For more information about installing
+         this service, see [Install the latest version of EC2Config](UsingConfig_Install.md "UsingConfig_Install.md").
+        2. Extract the files from the `.zip` file
+         to the `Temp` directory on the drive you
+         attached.
+        3. Open **Regedit** and select
+         **HKEY\_LOCAL\_MACHINE**. From the
+         **File** menu, choose **Load
+         Hive**. Select the drive, open the file
+         `Windows\System32\config\SOFTWARE`,
+         and specify a key name when prompted (you can use any
+         name).
+        4. Select the key that you just loaded and navigate to
+         `Microsoft\Windows\CurrentVersion`.
+         Select the `RunOnce` key. (If this key doesn't
+         exist, right-click `CurrentVersion`, point to
+         **New**, select
+         **Key**, and name the key
+         `RunOnce`.) Right-click, point to
+         **New**, and select **String
+         Value**. Enter `Ec2Install` as the
+         name and `C:\Temp\Ec2Install.exe -q` as the
+         data.
+        5. Select the key again, and from the
+         **File** menu, choose **Unload
+         Hive**.
+
+  7. (Optional) If your temporary instance is based on the same AMI that the original instance is based on,
+  you must complete the following steps or you won't be able to boot the original instance after you
+  restore its root volume because of a disk signature collision.
 
   ###### Warning
 
@@ -194,65 +195,66 @@ resolve this issue.
   you are not familiar with the Windows Registry or how to safely make changes using Registry Editor, see
   [Configure the Registry](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725612(v=ws.11)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725612(v=ws.11)").
 
-      1. Open a command prompt, type **regedit.exe**, and press Enter.
-      2. In the **Registry Editor**, choose
-       **HKEY\_LOCAL\_MACHINE** from the context menu
-       (right-click), and then choose **Find**.
-      3. Type **Windows Boot Manager** and then choose
-       **Find Next**.
-      4. Choose the key named `11000001`. This key is a
-       sibling of the key you found in the previous step.
-      5. In the right pane, choose `Element` and then choose **Modify** from the context menu (right-click).
-      6. Locate the four-byte disk signature at offset 0x38 in the data.
-       Reverse the bytes to create the disk signature, and write it down. For
-       example, the disk signature represented by the following data is
-       `E9EB3AA5`:
+        1. Open a command prompt, type **regedit.exe**, and press Enter.
+        2. In the **Registry Editor**, choose
+         **HKEY\_LOCAL\_MACHINE** from the context menu
+         (right-click), and then choose **Find**.
+        3. Type **Windows Boot Manager** and then choose
+         **Find Next**.
+        4. Choose the key named `11000001`. This key is a
+         sibling of the key you found in the previous step.
+        5. In the right pane, choose `Element` and then choose **Modify** from the context menu (right-click).
+        6. Locate the four-byte disk signature at offset 0x38 in the data.
+         Reverse the bytes to create the disk signature, and write it down. For
+         example, the disk signature represented by the following data is
+         `E9EB3AA5`:
 
 
 
-      ```
-      ...
-      0030  00 00 00 00 01 00 00 00
-      0038  `A5 3A EB E9` 00 00 00 00
-      0040  00 00 00 00 00 00 00 00
-      ...
-      ```
-      7. In a Command Prompt window, run the following command to start
-       Microsoft DiskPart.
+        ```
+        ...
+        0030  00 00 00 00 01 00 00 00
+        0038  `A5 3A EB E9` 00 00 00 00
+        0040  00 00 00 00 00 00 00 00
+        ...
+        ```
+        7. In a Command Prompt window, run the following command to start
+         Microsoft DiskPart.
 
 
 
-      ```
-      diskpart
-      ```
-      8. Run the following DiskPart command to select the volume. (You can
-       verify that the disk number is 1 using the **Disk
-       Management** utility.)
+        ```
+        diskpart
+        ```
+        8. Run the following DiskPart command to select the volume. (You can
+         verify that the disk number is 1 using the **Disk
+         Management** utility.)
 
 
 
-      ```
-      `DISKPART>` select disk `1``Disk `1` is now the selected disk.`
-      ```
-      9. Run the following DiskPart command to get the disk signature.
+        ```
+        `DISKPART>` select disk `1``Disk `1` is now the selected disk.`
+        ```
+        9. Run the following DiskPart command to get the disk signature.
 
 
 
-      ```
-      `DISKPART>`  uniqueid disk`Disk ID: `0C764FA8``
-      ```
-      10. If the disk signature shown in the previous step doesn't match
-       the disk signature from BCD that you wrote down earlier, use the
-       following DiskPart command to change the disk signature so that it
-       matches:
+        ```
+        `DISKPART>`  uniqueid disk`Disk ID: `0C764FA8``
+        ```
+        10. If the disk signature shown in the previous step doesn't match
+         the disk signature from BCD that you wrote down earlier, use the
+         following DiskPart command to change the disk signature so that it
+         matches:
 
 
 
-      ```
-      `DISKPART>` uniqueid disk id=`E9EB3AA5`
-      ```
-  8.  Using the **Disk Management** utility, bring the
-      drive offline.
+        ```
+        `DISKPART>` uniqueid disk id=`E9EB3AA5`
+        ```
+
+  8. Using the **Disk Management** utility, bring the
+  drive offline.
 
   ###### Note
 
@@ -280,7 +282,7 @@ issue:
   traffic to the metadata service (`169.254.169.254`) or the AWS KMS
   servers (the addresses are specified in `TargetKMSServer`
   elements in `C:\Program
-Files\Amazon\Ec2ConfigService\Settings\ActivationSettings.xml`).
+ Files\Amazon\Ec2ConfigService\Settings\ActivationSettings.xml`).
 - Verify that you have a route to the metadata service
   (`169.254.169.254`) using the following command.
 
@@ -308,7 +310,7 @@ resolve the issue.
    service. For more information about installing this service, see
    [Install the latest version of EC2Config](UsingConfig_Install.md "UsingConfig_Install.md").
 2. Log onto the instance and open the following file: `C:\Program
-Files\Amazon\Ec2ConfigService\Settings\config.xml`.
+ Files\Amazon\Ec2ConfigService\Settings\config.xml`.
 3. Locate the **Ec2WindowsActivate** plugin in
    the `config.xml` file. Change the state to
    **Enabled** and save your changes.
@@ -353,7 +355,7 @@ For both EC2Config and EC2Launch, if you are still receiving an activation error
 verify the following information.
 
 - Verify that you have routes to the AWS KMS servers. Open `C:\Program
-Files\Amazon\Ec2ConfigService\Settings\ActivationSettings.xml`
+ Files\Amazon\Ec2ConfigService\Settings\ActivationSettings.xml`
   and locate the `TargetKMSServer` elements. Run the following
   command and check whether the addresses for these AWS KMS servers are
   listed.

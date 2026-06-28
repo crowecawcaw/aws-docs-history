@@ -89,17 +89,18 @@ tips. 7. For **Other parameters**:
 
 8. (Optional) For **Rate control**:
 
-   - For **Concurrency**, specify either a number or a
+    * For **Concurrency**, specify either a number or a
      percentage of instances on which to run the command at the same
      time.
 
-   ###### Note
 
-   If you selected targets by choosing Amazon EC2 tags, and you are
-   not certain how many instances use the selected tags, then limit
-   the number of instances that can run the document at the same
-   time by specifying a percentage.
-   - For **Error threshold**, specify when to stop
+    ###### Note
+
+    If you selected targets by choosing Amazon EC2 tags, and you are
+     not certain how many instances use the selected tags, then limit
+     the number of instances that can run the document at the same
+     time by specifying a percentage.
+    * For **Error threshold**, specify when to stop
      running the command on other instances after it fails on either a
      number or a percentage of instances. For example, if you specify
      three errors, then Systems Manager stops sending the command when the fourth
@@ -107,9 +108,9 @@ tips. 7. For **Other parameters**:
      send errors.
 
 9. (Optional) For **Output options** section, if you want to
-   save the command output to a file, select the box next to **Enable
-   writing to an S3 bucket**. Specify the bucket and (optional)
-   prefix (folder) names.
+save the command output to a file, select the box next to **Enable
+writing to an S3 bucket**. Specify the bucket and (optional)
+prefix (folder) names.
 
 ###### Note
 
@@ -263,11 +264,10 @@ see about [AWS Systems Manager Change Calendar](../../../systems-manager/latest/
      percentage of nodes.
 
 13. (Optional) For **Output options**, to save the command
-    output to a file, select **Enable writing output to S3**.
-    Enter the bucket and prefix (folder) names in the boxes.
-14. Choose **Create association**, and then choose
-    **Close**. The system attempts to create the
-    association on the instances and immediately apply the state.
+output to a file, select **Enable writing output to S3**.
+Enter the bucket and prefix (folder) names in the boxes. 14. Choose **Create association**, and then choose
+**Close**. The system attempts to create the
+association on the instances and immediately apply the state.
 
 ###### Note
 

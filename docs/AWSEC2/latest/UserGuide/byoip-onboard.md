@@ -215,9 +215,10 @@ Validate that the certificate has been uploaded and is valid via the whois
 command.
 
 For ARIN, use `whois -h whois.arin.net r +
- `2001:0DB8:6172::/48``to look up the
- RDAP record for your address range. Check the`Public Comments` section for the`NetRange`(network range) in the command output. The
- certificate should be added in the`Public Comments` section for the
+ `2001:0DB8:6172::/48`` to look up the
+RDAP record for your address range. Check the `Public Comments`
+section for the `NetRange` (network range) in the command output. The
+certificate should be added in the `Public Comments` section for the
 address range.
 
 You can inspect the `Public Comments` containing the certificate
@@ -258,10 +259,10 @@ MNk1f38gs1jrCj8lThoar17Uo9y/Q5qJIsoNPyQrJRzqFU9F3FBjiPJF
 ```
 
 For RIPE, use `whois -r -h whois.ripe.net
- `2001:0DB8:7269::/48``to look up the
- RDAP record for your address range. Check the`descr`section for the
-`inetnum`object (network range) in the command output. The
- certificate should be added as a new`descr` field for the address
+ `2001:0DB8:7269::/48`` to look up the
+RDAP record for your address range. Check the `descr` section for the
+`inetnum` object (network range) in the command output. The
+certificate should be added as a new `descr` field for the address
 range.
 
 You can inspect the `descr` containing the certificate using the
@@ -302,10 +303,10 @@ PyQrJRzqFU9F3FBjiPJF
 ```
 
 For APNIC, use `whois -h whois.apnic.net
- `2001:0DB8:6170::/48``to look up the
- RDAP record for your BYOIP address range. Check the`remarks`section
- for the`inetnum`object (network range) in the command output. The
- certificate should be added as a new`remarks` field for the address
+ `2001:0DB8:6170::/48`` to look up the
+RDAP record for your BYOIP address range. Check the `remarks` section
+for the `inetnum` object (network range) in the command output. The
+certificate should be added as a new `remarks` field for the address
 range.
 
 You can inspect the `remarks` containing the certificate using the

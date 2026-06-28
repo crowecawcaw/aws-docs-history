@@ -19,12 +19,11 @@ Your instances can access the local Amazon Time Sync Service as follows:
 - (Linux only) Through a direct PTP connection to connect to a local PTP
   hardware clock:
 
-      + `PHC0`
-
-  Amazon Linux AMIs, Windows AMIs, and most partner AMIs configure your instance to use the NTP
-  IPv4 endpoint by default. This is the recommended setting for most customer workloads.
-  No further configuration is required for instances launched from these AMIs unless you
-  want to use the IPv6 endpoint or connect directly to the PTP hardware clock.
+  - `PHC0`
+    Amazon Linux AMIs, Windows AMIs, and most partner AMIs configure your instance to use the NTP
+    IPv4 endpoint by default. This is the recommended setting for most customer workloads.
+    No further configuration is required for instances launched from these AMIs unless you
+    want to use the IPv6 endpoint or connect directly to the PTP hardware clock.
 
 NTP and PTP connections do not require any VPC configuration changes, and your
 instance does not require access to the internet.
@@ -547,7 +546,7 @@ symlink instead of directly referencing
     ```
 
 5. **Verify chrony
-   configuration**
+configuration**
 
 Verify that chrony is using the PTP hardware clock to synchronize
 the time on this instance.

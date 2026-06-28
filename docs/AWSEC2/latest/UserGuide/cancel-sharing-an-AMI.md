@@ -29,7 +29,7 @@ in any AMI lists in the EC2 console or in the output for [describe-images](../..
 - You can’t permanently remove your account from the launch permissions of an AMI. An AMI owner can share an AMI with your account again.
 - AMIs are a Regional resource. When running `cancel-image-launch-permission`,
   you must specify the Region in which the AMI is located. Either specify the
-  Region in the command, or use the AWS_DEFAULT_REGION [environment
+  Region in the command, or use the AWS\_DEFAULT\_REGION [environment
   variable](../../../cli/latest/userguide/cli-configure-envvars.md "../../../cli/latest/userguide/cli-configure-envvars.md").
 - Only the AWS CLI and SDKs support removing your account from the launch permissions of an AMI. The EC2 console does not currently support this action.
 

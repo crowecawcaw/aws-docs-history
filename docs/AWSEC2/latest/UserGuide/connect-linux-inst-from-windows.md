@@ -103,64 +103,63 @@ Last tested version – PuTTY .78
 
 ###### To connect to your instance using PuTTY
 
-1.  Start PuTTY (from the **Start** menu, search for
-    **PuTTY** and then choose
-    **Open**).
-2.  In the **Category** pane, choose **Session** and
-    complete the following fields:
+1. Start PuTTY (from the **Start** menu, search for
+   **PuTTY** and then choose
+   **Open**).
+2. In the **Category** pane, choose **Session** and
+   complete the following fields:
 
-        1. In the **Host Name** box, do one of the following:
+   1. In the **Host Name** box, do one of the following:
 
+      - (Public DNS) To connect using your instance's public DNS name, enter
+        `instance-user-name`@`instance-public-dns-name`.
+      - (IPv6) Alternatively, if your instance has an IPv6 address, to connect using your
+        instance's IPv6 address, enter
+        `instance-user-name`@`2001:db8::1234:5678:1.2.3.4`.For information about how to get the username for your instance, and the public DNS
+        name or IPv6 address of your instance, see [Get the required instance details](connection-prereqs-general.md#connection-prereqs-get-info-about-instance "connection-prereqs-general.md#connection-prereqs-get-info-about-instance").
 
-        	* (Public DNS) To connect using your instance's public DNS name, enter
-        	 `instance-user-name`@`instance-public-dns-name`.
-        	* (IPv6) Alternatively, if your instance has an IPv6 address, to connect using your
-        	 instance's IPv6 address, enter
-        	 `instance-user-name`@`2001:db8::1234:5678:1.2.3.4`.For information about how to get the username for your instance, and the public DNS
-         name or IPv6 address of your instance, see [Get the required instance details](connection-prereqs-general.md#connection-prereqs-get-info-about-instance "connection-prereqs-general.md#connection-prereqs-get-info-about-instance").
-        2. Ensure that the **Port** value is 22.
-        3. Under **Connection type**, select
-         **SSH**.
+   2. Ensure that the **Port** value is 22.
+   3. Under **Connection type**, select
+      **SSH**.
+      ![PuTTY configuration - Session.](images/putty-session-config.png)
 
-    ![PuTTY configuration - Session.](images/putty-session-config.png)
+3. (Optional) You can configure PuTTY to automatically send 'keepalive' data at regular
+   intervals to keep the session active. This is useful to avoid disconnecting
+   from your instance due to session inactivity. In the
+   **Category** pane, choose
+   **Connection**, and then enter the required interval in
+   **Seconds between keepalives**. For example, if your
+   session disconnects after 10 minutes of inactivity, enter 180 to configure
+   PuTTY to send keepalive data every 3 minutes.
+4. In the **Category** pane, expand **Connection**,
+   **SSH**, and **Auth**. Choose
+   **Credentials**.
+5. Next to **Private key file for authentication**, choose
+   **Browse**. In the **Select private key
+   file** dialog box, select the `.ppk` file
+   that you generated for your key pair. You can either double-click the file
+   or choose **Open** in the **Select private key
+   file** dialog box.
+6. (Optional) If you plan to connect to this instance again after this session,
+   you can save the session information for future use. In the **Category**
+   pane, choose **Session**. Enter a name for the session in
+   **Saved Sessions**, and then choose **Save**.
+7. To connect to the instance, choose **Open**.
+8. If this is the first time you have connected to this instance, PuTTY displays a
+   security alert dialog box that asks whether you trust the host to which you
+   are connecting.
 
-3.  (Optional) You can configure PuTTY to automatically send 'keepalive' data at regular
-    intervals to keep the session active. This is useful to avoid disconnecting
-    from your instance due to session inactivity. In the
-    **Category** pane, choose
-    **Connection**, and then enter the required interval in
-    **Seconds between keepalives**. For example, if your
-    session disconnects after 10 minutes of inactivity, enter 180 to configure
-    PuTTY to send keepalive data every 3 minutes.
-4.  In the **Category** pane, expand **Connection**,
-    **SSH**, and **Auth**. Choose
-    **Credentials**.
-5.  Next to **Private key file for authentication**, choose
-    **Browse**. In the **Select private key
-    file** dialog box, select the `.ppk` file
-    that you generated for your key pair. You can either double-click the file
-    or choose **Open** in the **Select private key
-    file** dialog box.
-6.  (Optional) If you plan to connect to this instance again after this session,
-    you can save the session information for future use. In the **Category**
-    pane, choose **Session**. Enter a name for the session in
-    **Saved Sessions**, and then choose **Save**.
-7.  To connect to the instance, choose **Open**.
-8.  If this is the first time you have connected to this instance, PuTTY displays a
-    security alert dialog box that asks whether you trust the host to which you
-    are connecting.
+   1. (Optional) Verify that the fingerprint in the security alert dialog box matches the
+      fingerprint that you previously obtained in [(Optional) Get the instance fingerprint](connection-prereqs-general.md#connection-prereqs-fingerprint "connection-prereqs-general.md#connection-prereqs-fingerprint"). If these fingerprints
+      don't match, someone might be attempting a "man-in-the-middle" attack. If
+      they match, continue to the next step.
+   2. Choose **Accept**. A window opens and you are connected to your
+      instance.
 
-    1. (Optional) Verify that the fingerprint in the security alert dialog box matches the
-       fingerprint that you previously obtained in [(Optional) Get the instance fingerprint](connection-prereqs-general.md#connection-prereqs-fingerprint "connection-prereqs-general.md#connection-prereqs-fingerprint"). If these fingerprints
-       don't match, someone might be attempting a "man-in-the-middle" attack. If
-       they match, continue to the next step.
-    2. Choose **Accept**. A window opens and you are connected to your
-       instance.
+   ###### Note
 
-    ###### Note
-
-    If you specified a passphrase when you converted your private key to the PuTTY format,
-    you must provide that passphrase when you log in to the
-    instance.
+   If you specified a passphrase when you converted your private key to the PuTTY format,
+   you must provide that passphrase when you log in to the
+   instance.
 
 If you receive an error while attempting to connect to your instance, see [Troubleshoot issues connecting to your Amazon EC2 Linux instance](TroubleshootingInstancesConnecting.md "TroubleshootingInstancesConnecting.md").

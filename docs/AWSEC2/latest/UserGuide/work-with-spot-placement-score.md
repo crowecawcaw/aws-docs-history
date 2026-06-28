@@ -207,34 +207,34 @@ The following is example output.
 
 ```
 
-2.  Create a JSON configuration file using the output from the previous step,
-    and configure it as follows:
+2. Create a JSON configuration file using the output from the previous step,
+   and configure it as follows:
 
-    1. For `TargetCapacity`, enter your desired Spot capacity
-       in terms of the number of instances or vCPUs, or the amount of
-       memory (MiB).
-    2. For `TargetCapacityUnitType`, enter the unit for the
-       target capacity. If you omit this parameter, it defaults to
-       `units`.
+   1. For `TargetCapacity`, enter your desired Spot capacity
+      in terms of the number of instances or vCPUs, or the amount of
+      memory (MiB).
+   2. For `TargetCapacityUnitType`, enter the unit for the
+      target capacity. If you omit this parameter, it defaults to
+      `units`.
 
-    Valid values: `units` (which translates to number of
-    instances) | `vcpu` | `memory-mib` 3. For `SingleAvailabilityZone`, specify `true`
-    for a response that returns a list of scored Availability Zones. A
-    list of scored Availability Zones is useful if you want to launch
-    all of your Spot capacity into a single Availability Zone. If you
-    omit this parameter, it defaults to `false`, and the
-    response returns a list of scored
-    Regions. 4. (Optional) For `RegionNames`, specify the Regions to use as a filter. You must specify the Region
-    code, for example, `us-east-1`.
+   Valid values: `units` (which translates to number of
+   instances) | `vcpu` | `memory-mib` 3. For `SingleAvailabilityZone`, specify `true`
+   for a response that returns a list of scored Availability Zones. A
+   list of scored Availability Zones is useful if you want to launch
+   all of your Spot capacity into a single Availability Zone. If you
+   omit this parameter, it defaults to `false`, and the
+   response returns a list of scored
+   Regions. 4. (Optional) For `RegionNames`, specify the Regions to use as a filter. You must specify the Region
+   code, for example, `us-east-1`.
 
-    With a Region filter, the response returns only the Regions that you specify. If you specified
-    `true` for `SingleAvailabilityZone`, the
-    response returns only the Availability Zones in the specified
-    Regions. 5. You can include either `InstanceTypes` or
-    `InstanceRequirements`, but not both in the same
-    configuration.
+   With a Region filter, the response returns only the Regions that you specify. If you specified
+   `true` for `SingleAvailabilityZone`, the
+   response returns only the Availability Zones in the specified
+   Regions. 5. You can include either `InstanceTypes` or
+   `InstanceRequirements`, but not both in the same
+   configuration.
 
-    Specify one of the following in your JSON configuration:
+   Specify one of the following in your JSON configuration:
 
         * To specify a list of instance types, specify the instance
          types in the `InstanceTypes` parameter. Specify
@@ -255,12 +255,12 @@ The following is example output.
          description of each attribute and their default values, see
          [get-spot-placement-scores](../../../cli/latest/reference/ec2/get-spot-placement-scores.md "../../../cli/latest/reference/ec2/get-spot-placement-scores.md").
 
-    For example configurations, see [Example configurations](#sps-example-configs "#sps-example-configs").
+   For example configurations, see [Example configurations](#sps-example-configs "#sps-example-configs").
 
-3.  To get the Spot placement score for the requirements that you specified in the JSON file,
-    use the [get-spot-placement-scores](../../../cli/latest/reference/ec2/get-spot-placement-scores.md "../../../cli/latest/reference/ec2/get-spot-placement-scores.md") command, and specify the name and
-    path to your JSON file by using the `--cli-input-json`
-    parameter.
+3. To get the Spot placement score for the requirements that you specified in the JSON file,
+   use the [get-spot-placement-scores](../../../cli/latest/reference/ec2/get-spot-placement-scores.md "../../../cli/latest/reference/ec2/get-spot-placement-scores.md") command, and specify the name and
+   path to your JSON file by using the `--cli-input-json`
+   parameter.
 
 ```
 aws ec2 get-spot-placement-scores \

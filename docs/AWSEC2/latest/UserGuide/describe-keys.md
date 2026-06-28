@@ -88,7 +88,7 @@ chmod 400 `key-pair-name`.pem
 On your local Windows computer, start PuTTYgen. Choose **Load**.
 Select the `.ppk` or `.pem` private key file.
 PuTTYgen displays the public key under **Public key for pasting into
-OpenSSH authorized_keys file**. You can also view the public key by
+OpenSSH authorized\_keys file**. You can also view the public key by
 choosing **Save public key**, specifying a name for the file,
 saving the file, and then opening the file.
 

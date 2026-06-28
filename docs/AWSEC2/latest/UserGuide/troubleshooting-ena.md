@@ -313,7 +313,7 @@ The number of received bytes for this queue.
 
 `queue_`N`_rx_rx_copybreak_pkt`: `N`
 
-The number of times the rx queue received a packet that is less than the rx_copybreak
+The number of times the rx queue received a packet that is less than the rx\_copybreak
 packet size for this queue.
 
 `queue_`N`_rx_csum_good`: `N`
@@ -352,7 +352,7 @@ Too many buffers per packet. If this value is not 0, it indicates the use of ver
 
 `queue_`N`_rx_bad_req_id`: `N`
 
-The req_id for this queue is not valid. The valid req_id is from [0, queue\_size - 1 ].
+The req\_id for this queue is not valid. The valid req\_id is from [0, queue\_size - 1 ].
 
 `queue_`N`_rx_empty_rx_ring`: `N`
 
@@ -364,19 +364,19 @@ The number of times the rx queue received a packet whose checksum wasn't checked
 
 `queue_`N`_rx_xdp_aborted`: `N`
 
-The number of times that an XDP packet was classified as XDP_ABORT.
+The number of times that an XDP packet was classified as XDP\_ABORT.
 
 `queue_`N`_rx_xdp_drop`: `N`
 
-The number of times that an XDP packet was classified as XDP_DROP.
+The number of times that an XDP packet was classified as XDP\_DROP.
 
 `queue_`N`_rx_xdp_pass`: `N`
 
-The number of times that an XDP packet was classified as XDP_PASS.
+The number of times that an XDP packet was classified as XDP\_PASS.
 
 `queue_`N`_rx_xdp_tx`: `N`
 
-The number of times that an XDP packet was classified as XDP_TX.
+The number of times that an XDP packet was classified as XDP\_TX.
 
 `queue_`N`_rx_xdp_invalid`: `N`
 
@@ -384,7 +384,7 @@ The number of times that the XDP return code for the packet was not valid.
 
 `queue_`N`_rx_xdp_redirect`: `N`
 
-The number of times that an XDP packet was classified as XDP_REDIRECT.
+The number of times that an XDP packet was classified as XDP\_REDIRECT.
 
 `queue_`N`_xdp_tx_cnt`: `N`
 
@@ -418,7 +418,7 @@ The number of times XDP buffer linearization failed for this queue.
 
 `queue_`N`_xdp_tx_napi_comp`: `N`
 
-The number of times the napi handler called napi_complete for this
+The number of times the napi handler called napi\_complete for this
 queue.
 
 `queue_`N`_xdp_tx_tx_poll`: `N`
@@ -431,12 +431,12 @@ The number of transmission doorbells for this queue.
 
 `queue_`N`_xdp_tx_prepare_ctx_err`: `N`
 
-The number of times ena_com_prepare_tx failed for this queue. This value
+The number of times ena\_com\_prepare\_tx failed for this queue. This value
 should always be zero; if not, see the driver logs.
 
 `queue_`N`_xdp_tx_bad_req_id`: `N`
 
-The req_id for this queue is not valid. The valid req_id is from [0,
+The req\_id for this queue is not valid. The valid req\_id is from [0,
 queue\_size - 1 ].
 
 `queue_`N`_xdp_tx_llq_buffer_copy`: `N`

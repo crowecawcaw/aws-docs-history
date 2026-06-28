@@ -135,7 +135,7 @@ percent, create an Amazon SNS topic, and then create an EventBridge rule for the
 8. Choose **Create subscription**.
 9. The email address entered above will receive email message with the
    following subject line: `AWS Notification - Subscription
-Confirmation`. Follow the directions to confirm your
+ Confirmation`. Follow the directions to confirm your
    subscription.
 
 ###### To create the EventBridge rule

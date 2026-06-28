@@ -52,7 +52,6 @@ retain after the termination to persistent storage.
     4. Choose **Terminate (delete)** when prompted for confirmation.
 
 2. Log in to the [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace"), and choose
-   **Your Marketplace Account**, then **Manage your
-   software subscriptions**.
-3. Choose **Cancel subscription**. You are prompted to confirm your
-   cancellation.
+**Your Marketplace Account**, then **Manage your
+software subscriptions**. 3. Choose **Cancel subscription**. You are prompted to confirm your
+cancellation.

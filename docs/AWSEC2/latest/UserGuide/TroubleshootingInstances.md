@@ -13,10 +13,10 @@ For examples of problems that can cause status checks to fail, see [Status check
 - [Retrieve the system logs](#troubleshooting-retrieve-system-logs "#troubleshooting-retrieve-system-logs")
 - [Troubleshoot system log errors for Linux instances](#system-log-errors-linux "#system-log-errors-linux")
 - [Out of memory: kill process](#MemoryOOM "#MemoryOOM")
-- [ERROR: mmu_update failed (Memory management update failed)](#MemoryMMU "#MemoryMMU")
+- [ERROR: mmu\_update failed (Memory management update failed)](#MemoryMMU "#MemoryMMU")
 - [I/O error (block device failure)](#DeviceBlock "#DeviceBlock")
 - [I/O ERROR: neither local nor remote disk (Broken distributed block device)](#DeviceDistributed "#DeviceDistributed")
-- [request_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)](#KernelLoop "#KernelLoop")
+- [request\_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)](#KernelLoop "#KernelLoop")
 - ["FATAL: kernel too old" and "fsck: No such file or directory while trying to open /dev" (Kernel and AMI mismatch)](#KernelOld "#KernelOld")
 - ["FATAL: Could not load /lib/modules" or "BusyBox" (Missing kernel modules)](#KernelMissing "#KernelMissing")
 - [ERROR Invalid kernel (EC2 incompatible kernel)](#KernelInvalid "#KernelInvalid")
@@ -102,7 +102,7 @@ resolve the issue for each error.
 **Memory Errors**
 
 - [Out of memory: kill process](#MemoryOOM "#MemoryOOM")
-- [ERROR: mmu_update failed (Memory management update failed)](#MemoryMMU "#MemoryMMU")
+- [ERROR: mmu\_update failed (Memory management update failed)](#MemoryMMU "#MemoryMMU")
 
 **Device Errors**
 
@@ -111,7 +111,7 @@ resolve the issue for each error.
 
 **Kernel Errors**
 
-- [request_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)](#KernelLoop "#KernelLoop")
+- [request\_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)](#KernelLoop "#KernelLoop")
 - ["FATAL: kernel too old" and "fsck: No such file or directory while trying to open /dev" (Kernel and AMI mismatch)](#KernelOld "#KernelOld")
 - ["FATAL: Could not load /lib/modules" or "BusyBox" (Missing kernel modules)](#KernelMissing "#KernelMissing")
 - [ERROR Invalid kernel (EC2 incompatible kernel)](#KernelInvalid "#KernelInvalid")
@@ -156,7 +156,7 @@ Exhausted memory
 | Amazon EBS-backed      | Do one of the following:<br>• Stop the instance, and modify the instance to use a different instance type, and<br>start the instance again. For example, a larger or a memory-optimized instance<br>type.<br>• Reboot the instance to return it to a non-impaired status. The problem will<br>probably occur again unless you change the instance type. |
 | Instance store-backed  | Do one of the following:<br>• Terminate the instance and launch a new instance, specifying a different instance<br>type. For example, a larger or a memory-optimized instance type.<br>• Reboot the instance to return it to an unimpaired status. The problem will<br>probably occur again unless you change the instance type.                        |
 
-## ERROR: mmu_update failed (Memory management update failed)
+## ERROR: mmu\_update failed (Memory management update failed)
 
 Memory management update failures are indicated by a system log entry similar to the
 following:
@@ -263,7 +263,7 @@ Terminate the instance and launch a new instance.
 For an Amazon EBS-backed instance you can recover data from a recent snapshot by creating an
 image from it. Any data added after the snapshot cannot be recovered.
 
-## request_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)
+## request\_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)
 
 This condition is indicated by a system log similar to the one shown below. Using an
 unstable or old Linux kernel (for example, 2.6.16-xenU) can cause an interminable loop condition
@@ -469,10 +469,10 @@ Give root password for maintenance
 
 ### Suggested actions
 
-| For this instance type | Do this                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon EBS-backed      | Use the following procedure:<br>1. Stop the instance, detach the root volume, repair/modify /etc/fstab the volume,<br>attach the volume to the instance, and start the instance.<br>2. Fix ramdisk to include modified /etc/fstab (if applicable).<br>3. Modify the AMI to use a newer ramdisk.<br>The sixth field in the fstab defines availability requirements of the mount – a<br>nonzero value implies that an fsck will be done on that volume and<br>\*must<br>• succeed. Using this field can be problematic in Amazon EC2 because a<br>failure typically results in an interactive console prompt that is not currently available<br>in Amazon EC2. Use care with this feature and read the Linux man page for fstab. |
-| Instance store-backed  | Use the following procedure:<br>1. Terminate the instance and launch a new instance.<br>2. Detach any errant Amazon EBS volumes and the reboot instance.<br>3. (Optional) Seek technical assistance for data recovery using [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").                                                                                                                                                                                                                                                                                                                                                                                                        |
+| For this instance type | Do this                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon EBS-backed      | Use the following procedure:<br>1. Stop the instance, detach the root volume, repair/modify /etc/fstab the volume,<br>attach the volume to the instance, and start the instance.<br>2. Fix ramdisk to include modified /etc/fstab (if applicable).<br>3. Modify the AMI to use a newer ramdisk.<br>The sixth field in the fstab defines availability requirements of the mount – a<br>nonzero value implies that an fsck will be done on that volume and<br>*must<br>• succeed. Using this field can be problematic in Amazon EC2 because a<br>failure typically results in an interactive console prompt that is not currently available<br>in Amazon EC2. Use care with this feature and read the Linux man page for fstab. |
+| Instance store-backed  | Use the following procedure:<br>1. Terminate the instance and launch a new instance.<br>2. Detach any errant Amazon EBS volumes and the reboot instance.<br>3. (Optional) Seek technical assistance for data recovery using [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ## General error mounting filesystems (failed mount)
 

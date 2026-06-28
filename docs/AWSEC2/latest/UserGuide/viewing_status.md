@@ -9,29 +9,28 @@ Console
 
 ###### To view status checks
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose
-    **Instances**.
-3.  On the **Instances** page, the
-    **Status check** column lists the
-    operational status of each instance.
-4.  To view the status of a specific instance, select the
-    instance, and then choose the **Status and
-    alarms** tab.
-5.  To review the CloudWatch metrics for status checks, on the
-    **Status and alarms** tab, expand
-    **Metrics** to see the graphs for the
-    following metrics:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose
+   **Instances**.
+3. On the **Instances** page, the
+   **Status check** column lists the
+   operational status of each instance.
+4. To view the status of a specific instance, select the
+   instance, and then choose the **Status and
+   alarms** tab.
+5. To review the CloudWatch metrics for status checks, on the
+   **Status and alarms** tab, expand
+   **Metrics** to see the graphs for the
+   following metrics:
 
-        * **Status check failed for
-         system**
-        * **Status check failed for
-         instance**
-        * **Status check failed for attached
-         EBS**
-
-    For more information, see [Status check metrics](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics").
+   - **Status check failed for
+     system**
+   - **Status check failed for
+     instance**
+   - **Status check failed for attached
+     EBS**
+     For more information, see [Status check metrics](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics").
 
 AWS CLI
 

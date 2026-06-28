@@ -169,14 +169,14 @@ default prefix is `debian.img`.
 Required: No
 
 `--kernel`
-_kernel_id_
+_kernel\_id_
 
 Deprecated. Use [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md") to set the kernel.
 
 Required: No
 
 `--ramdisk`
-_ramdisk_id_
+_ramdisk\_id_
 
 Deprecated. Use [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md") to set the RAM disk if required.
 
@@ -465,13 +465,13 @@ present).
 Required: No
 
 `--kernel`
-_kernel_id_
+_kernel\_id_
 
 Deprecated. Use [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md") to set the kernel.
 
 Required: No
 
-`--ramdisk`_ramdisk_id_
+`--ramdisk`_ramdisk\_id_
 
 Deprecated. Use [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md") to set the RAM disk if required.
 
@@ -548,14 +548,14 @@ an optional '/'-delimited path prefix
 Required: Yes
 
 `-a, --access-key`
-_access_key_id_
+_access\_key\_id_
 
 The AWS access key ID.
 
 Required: Yes
 
 `-s, --secret-key`
-_secret_access_key_
+_secret\_access\_key_
 
 The AWS secret access key.
 
@@ -689,14 +689,14 @@ an optional '/'-delimited path prefix.
 Required: Yes
 
 `-a, --access-key`
-_access_key_id_
+_access\_key\_id_
 
 The AWS access key ID.
 
 Required: Yes
 
 `-s, --secret-key`
-_secret_access_key_
+_secret\_access\_key_
 
 The AWS secret access key.
 
@@ -845,14 +845,14 @@ The path to the manifest file.
 Required: Yes
 
 `-a, --access-key`
-_access_key_id_
+_access\_key\_id_
 
 The AWS access key ID.
 
 Required: Required if using automatic mapping.
 
 `-s, --secret-key`
-_secret_access_key_
+_secret\_access\_key_
 
 The AWS secret access key.
 
@@ -900,7 +900,7 @@ Required: Only for the `us-gov-west-1` and
 `cn-north-1` Regions.
 
 `--kernel`
-_kernel_id_
+_kernel\_id_
 
 The ID of the kernel to select.
 
@@ -913,7 +913,7 @@ _Amazon Linux 2 User Guide_.
 Required: No
 
 `--ramdisk`
-_ramdisk_id_
+_ramdisk\_id_
 
 The ID of the RAM disk to select.
 
@@ -970,7 +970,7 @@ The path to the manifest file.
 Required: Yes
 
 `-s, --source`
-_source_directory_
+_source\_directory_
 
 The directory containing the bundle.
 
@@ -979,7 +979,7 @@ Default: The current directory.
 Required: No
 
 `-d, --destination`
-_destination_directory_
+_destination\_directory_
 
 The directory in which to unbundle the AMI. The destination
 directory must exist.
@@ -1046,14 +1046,14 @@ for the bucket.
 Required: Yes
 
 `-a, --access-key`
-_access_key_id_
+_access\_key\_id_
 
 Your AWS access key ID.
 
 Required: Yes
 
 `-s, --secret-key`
-_secret_access_key_
+_secret\_access\_key_
 
 Your AWS secret access key.
 

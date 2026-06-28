@@ -33,7 +33,7 @@ FeatureType=0 IgnoreSP=TRUE
 
 1. Run **regedit.exe** to open the registry editor.
 2. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA
-Corporation\Global\GridLicensing`.
+ Corporation\Global\GridLicensing`.
 3. Open the context (right-click) menu on the right pane and choose
    **New**, **DWORD**.
 4. For **Name**, enter **FeatureType** and type

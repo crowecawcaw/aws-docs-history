@@ -142,24 +142,23 @@ Console
 
 ###### To view the EBS volumes for an AMI
 
-1.  Open the Amazon EC2 console.
-2.  In the navigation pane, choose **AMIs**.
-3.  Choose **EBS images** from the **Filter** list to
-    get a list of EBS-backed AMIs.
-4.  Select the desired AMI, and look at the **Details** tab. At a
-    minimum, the following information is available for the root volume (where the
-    term **root device** is equivalent to **root
-    volume**):
+1. Open the Amazon EC2 console.
+2. In the navigation pane, choose **AMIs**.
+3. Choose **EBS images** from the **Filter** list to
+   get a list of EBS-backed AMIs.
+4. Select the desired AMI, and look at the **Details** tab. At a
+   minimum, the following information is available for the root volume (where the
+   term **root device** is equivalent to **root
+   volume**):
 
-        * **Root Device Type** (`ebs`)
-        * **Root Device Name** (for example,
-         `/dev/sda1`)
-        * **Block Devices** (for example,
-         `/dev/sda1=snap-1234567890abcdef0:8:true`)
-
-    If the AMI was created with additional EBS volumes using a block device mapping, the
-    **Block Devices** field displays the mapping for those additional
-    volumes as well. (This screen doesn't display instance store volumes.)
+   - **Root Device Type** (`ebs`)
+   - **Root Device Name** (for example,
+     `/dev/sda1`)
+   - **Block Devices** (for example,
+     `/dev/sda1=snap-1234567890abcdef0:8:true`)
+     If the AMI was created with additional EBS volumes using a block device mapping, the
+     **Block Devices** field displays the mapping for those additional
+     volumes as well. (This screen doesn't display instance store volumes.)
 
 AWS CLI
 

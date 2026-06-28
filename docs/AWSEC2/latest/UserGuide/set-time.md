@@ -82,8 +82,7 @@ event.
 - [Set the time reference on your EC2 instance or any internet-connected device to use the public Amazon Time Sync Service](configure-time-sync.md "configure-time-sync.md")
 - [Compare timestamps for your Linux instances](compare-timestamps-with-clockbound.md "compare-timestamps-with-clockbound.md")
 - [Change the time zone of your instance](change-time-zone-of-instance.md "change-time-zone-of-instance.md")
-
- 
+   
 
 ###### Related resources
 

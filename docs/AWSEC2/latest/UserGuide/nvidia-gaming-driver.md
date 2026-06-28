@@ -994,11 +994,12 @@ reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global" /v vGamingMarketplace /t REG_D
    ````
    Invoke-WebRequest -Uri "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert-Windows_2019_09.cert" -OutFile "$Env:PUBLIC\Documents\GridSwCert.txt"
    ```If you receive an error when downloading the file, and you
-   are using Windows Server 2016 or earlier, TLS 1.2 might need
-   to be enabled for your PowerShell terminal. You can enable
-   TLS 1.2 for the current PowerShell session with the
-   following command and then try again:
    ````
+
+are using Windows Server 2016 or earlier, TLS 1.2 might need
+to be enabled for your PowerShell terminal. You can enable
+TLS 1.2 for the current PowerShell session with the
+following command and then try again:
 
 ```
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

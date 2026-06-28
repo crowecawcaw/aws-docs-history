@@ -127,10 +127,10 @@ settings.
      **Shutdown with Sysprep**.
 
 4. On the **DNS Suffix** tab, you can select whether you
-   want to add a DNS suffix list for DNS resolution of servers running in EC2,
-   without providing the fully qualified domain name. DNS suffixes can contain
-   the variables `$REGION` and `$AZ`. Only suffixes that
-   do not already exist will be added to the list.
+want to add a DNS suffix list for DNS resolution of servers running in EC2,
+without providing the fully qualified domain name. DNS suffixes can contain
+the variables `$REGION` and `$AZ`. Only suffixes that
+do not already exist will be added to the list.
 
 ![EC2 Launch settings application.](images/ec2launchv2-dns.png) 5. On the **Wallpaper** tab, you can configure your instance
 wallpaper with a background image, and specify instance details for the
@@ -381,11 +381,10 @@ agent is finished. The process exit code determines the agent state:
 - `5` – the agent is not running and the status of the
   last known run is unknown. This could mean one of the following:
 
-      + both the `state.json` and
-       `previous-state.json` are deleted.
-      + the `previous-state.json` is corrupted.
-
-  This is the agent state after running the [reset](#ec2launch-v2-reset "#ec2launch-v2-reset") command.
+  - both the `state.json` and
+    `previous-state.json` are deleted.
+  - the `previous-state.json` is corrupted.
+    This is the agent state after running the [reset](#ec2launch-v2-reset "#ec2launch-v2-reset") command.
 
 **Example:**
 

@@ -248,7 +248,7 @@ later.
 
 Note that AWS only provides Linux AMIs configured to support UEFI
 for Graviton-based instance types. AWS currently does not provide
-x86_64 Linux AMIs that support UEFI boot mode. You can configure
+x86\_64 Linux AMIs that support UEFI boot mode. You can configure
 your own AMI to support UEFI boot mode for all architectures. To
 configure your own AMI to support UEFI boot mode, you must perform a
 number of configuration steps on your own AMI. For more information,

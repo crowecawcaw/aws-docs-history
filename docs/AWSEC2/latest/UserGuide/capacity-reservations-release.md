@@ -50,11 +50,11 @@ To calculate the charge, Amazon EC2 multiplies your commitment duration by a
 cancellation rate. The earlier you cancel relative to the start date, the lower
 the rate. The following table shows the cancellation rates.
 
-| Cancellation rates                             | When you cancel             | Minimum cancellation rate |
-| ---------------------------------------------- | --------------------------- | ------------------------- |
-| 8 or more weeks before the original start date | No charge                   |
-| 2 to 8 weeks before the original start date    | 25% of total commitment     |
-| Within 2 weeks of the original start date      | 50% of total commitment     |
+Cancellation rates| When you cancel | Minimum cancellation rate |
+| --- | --- |
+| 8 or more weeks before the original start date | No charge |
+| 2 to 8 weeks before the original start date | 25% of total commitment |
+| Within 2 weeks of the original start date | 50% of total commitment |
 | After delivery, during the commitment duration | 50% of remaining commitment |
 
 This table provides general guidance on cancellation charges. The cancellation

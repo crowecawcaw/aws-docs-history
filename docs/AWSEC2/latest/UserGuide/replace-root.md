@@ -205,14 +205,11 @@ instance is not in the `running` state. 4. For **Restore**, choose one of the fo
      the AMI that you specify. For **Image**, select the AMI to use.
 
 5. (Optional) For **Volume initialization rate**, you can specify the Amazon EBS Provisioned Rate for Volume Initialization
-   (volume initialization rate), in MiB/s, at which the snapshot blocks are to be downloaded from Amazon S3 to the volume. For
-   more information, see [Use an Amazon EBS Provisioned Rate for Volume Initialization](../../../ebs/latest/userguide/initalize-volume.md#volume-initialization-rate "../../../ebs/latest/userguide/initalize-volume.md#volume-initialization-rate"). To use the default initialization rate
-   or fast snapshot restore (if it is enabled for the selected snapshot), don't specify a rate.
-6. (Optional) To delete the root volume that you are replacing, select
-   **Delete replaced root volume**.
-7. Choose **Create replacement task**.
-8. To monitor the replacement task, choose the **Storage** tab for
-   the instance and expand **Recent root volume replacement tasks**.
+(volume initialization rate), in MiB/s, at which the snapshot blocks are to be downloaded from Amazon S3 to the volume. For
+more information, see [Use an Amazon EBS Provisioned Rate for Volume Initialization](../../../ebs/latest/userguide/initalize-volume.md#volume-initialization-rate "../../../ebs/latest/userguide/initalize-volume.md#volume-initialization-rate"). To use the default initialization rate
+or fast snapshot restore (if it is enabled for the selected snapshot), don't specify a rate. 6. (Optional) To delete the root volume that you are replacing, select
+**Delete replaced root volume**. 7. Choose **Create replacement task**. 8. To monitor the replacement task, choose the **Storage** tab for
+the instance and expand **Recent root volume replacement tasks**.
 
 AWS CLI
 

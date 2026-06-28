@@ -90,7 +90,8 @@ table](#burstable-performance-instances-credit-table "#burstable-performance-ins
 
 Credits earned continuously by an instance when it is running.
 
-Number of credits earned per hour = % baseline utilization \* number of vCPUs \* 60 minutes
+Number of credits earned per hour = % baseline utilization \* number of vCPUs
+\* 60 minutes
 
 Example:
 

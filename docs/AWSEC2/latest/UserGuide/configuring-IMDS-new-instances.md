@@ -695,16 +695,15 @@ Console
   expand **Advanced details**, and do the
   following:
 
-      + For **Metadata accessible**,
-       choose **Enabled**.
-      + For **Metadata version**,
-       choose **V2 only (token
-       required)**.
-      + (Container environment) For **Metadata
-       response hop limit**, choose
-       **2**.
-
-  For more information, see [Advanced details](ec2-instance-launch-parameters.md#liw-advanced-details "ec2-instance-launch-parameters.md#liw-advanced-details").
+  - For **Metadata accessible**,
+    choose **Enabled**.
+  - For **Metadata version**,
+    choose **V2 only (token
+    required)**.
+  - (Container environment) For **Metadata
+    response hop limit**, choose
+    **2**.
+    For more information, see [Advanced details](ec2-instance-launch-parameters.md#liw-advanced-details "ec2-instance-launch-parameters.md#liw-advanced-details").
 
 AWS CLI
 
@@ -893,8 +892,8 @@ following:
   specifically the `httpTokens` and
   `httpTokensEnforced` properties.
 - Then, set the account default to `httpTokens =
-required` and `httpTokensEnforced =
-enabled`.
+ required` and `httpTokensEnforced =
+ enabled`.
 
 For the example IAM policy, see [Work with instance metadata](ExamplePolicies_EC2.md#iam-example-instance-metadata "ExamplePolicies_EC2.md#iam-example-instance-metadata").
 

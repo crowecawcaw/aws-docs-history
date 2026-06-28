@@ -68,16 +68,16 @@ security and reducing the likelihood of "man-in-the-middle" attacks.
 
 Remove all of the following key files that are present on your system.
 
-- ssh_host_dsa_key
-- ssh_host_dsa_key.pub
-- ssh_host_key
-- ssh_host_key.pub
-- ssh_host_rsa_key
-- ssh_host_rsa_key.pub
-- ssh_host_ecdsa_key
-- ssh_host_ecdsa_key.pub
-- ssh_host_ed25519_key
-- ssh_host_ed25519_key.pub
+- ssh\_host\_dsa\_key
+- ssh\_host\_dsa\_key.pub
+- ssh\_host\_key
+- ssh\_host\_key.pub
+- ssh\_host\_rsa\_key
+- ssh\_host\_rsa\_key.pub
+- ssh\_host\_ecdsa\_key
+- ssh\_host\_ecdsa\_key.pub
+- ssh\_host\_ed25519\_key
+- ssh\_host\_ed25519\_key.pub
 
 You can securely remove all of these files with the following
 command.
@@ -206,12 +206,14 @@ Users who launch a shared AMI might be able to rebundle it and register it as th
 own. Follow these guidelines to help you to avoid some easily overlooked security
 risks:
 
-- We recommend using the `--exclude `directory``option
-on`ec2-bundle-vol`to skip any directories and subdirectories
-that contain secret information that you would not like to include in your
-bundle. In particular, exclude all user-owned SSH public/private key pairs
-and SSH`authorized_keys`files when bundling the
-image. The Amazon public AMIs store these in`/root/.ssh`for the root user, and`/home/`user_name`/.ssh/`
+- We recommend using the `--exclude `directory`` option
+  on `ec2-bundle-vol` to skip any directories and subdirectories
+  that contain secret information that you would not like to include in your
+  bundle. In particular, exclude all user-owned SSH public/private key pairs
+  and SSH `authorized_keys` files when bundling the
+  image. The Amazon public AMIs store these in `/root/.ssh`
+  for the root user, and
+  `/home/`user_name`/.ssh/`
   for regular users. For more information, see [ec2-bundle-vol](ami-tools-commands.md#ami-bundle-vol "ami-tools-commands.md#ami-bundle-vol").
 - Always delete the shell history before bundling. If you attempt more than
   one bundle upload in the same AMI, the shell history contains your access key.

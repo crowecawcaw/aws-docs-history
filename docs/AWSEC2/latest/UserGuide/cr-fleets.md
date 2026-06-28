@@ -68,13 +68,12 @@ Keep the following in mind when working with Capacity Reservation Fleets:
 - Capacity Reservations created by a Capacity Reservation Fleet are automatically tagged with the following
   AWS generated tag:
 
-      + Key —
-       `aws:ec2-capacity-reservation-fleet`
-      + Value —
-       ``fleet_id``
-
-  You can use this tag to identify Capacity Reservations that were created by a
-  Capacity Reservation Fleet.
+  - Key —
+    `aws:ec2-capacity-reservation-fleet`
+  - Value —
+    `fleet_id`
+    You can use this tag to identify Capacity Reservations that were created by a
+    Capacity Reservation Fleet.
 
 ## Pricing
 

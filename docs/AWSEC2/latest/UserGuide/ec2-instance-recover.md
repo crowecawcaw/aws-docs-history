@@ -116,7 +116,7 @@ Lost elements:
 
 **Monitoring system status checks with CloudWatch**
 
-The [StatusCheckFailed_System](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics") metric in
+The [StatusCheckFailed\_System](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics") metric in
 CloudWatch indicates whether a system status check passed or failed.
 
 Metric values:

@@ -67,7 +67,7 @@ example:
 | r3.8xLarge    | $2.8            | 4               | $0.7                |
 
 Example Corp could use a global price per unit hour of $0.7 and be competitive for
-all three instance types. They could also use a global price per unit hour of $0.7
+ all three instance types. They could also use a global price per unit hour of $0.7
 and a specific price per unit hour of $0.9 in the `r3.8xlarge` launch
 specification.
 

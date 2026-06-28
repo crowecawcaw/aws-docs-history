@@ -17,6 +17,9 @@ lifecycle:
 - Filter and find related AMIs across your accounts.
 - Help AMI consumers discover and identify trusted AMIs associated with a project or
   organization.
+- Enforce governance by combining watermarks with [Allowed
+  AMIs](ec2-allowed-amis.md "ec2-allowed-amis.md") to restrict instance launches to only AMIs carrying
+  approved watermarks.
 
 ###### Topics
 

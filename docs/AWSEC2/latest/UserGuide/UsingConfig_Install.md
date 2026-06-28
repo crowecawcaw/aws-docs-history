@@ -20,7 +20,7 @@ For information about the changes in each version, see the
   during installation and restarts the EC2Config service when the installation is
   completed. If you changed EC2Config service settings, copy the
   `config.xml` file from the `%Program
-Files%\Amazon\Ec2ConfigService\Settings` directory. After you
+ Files%\Amazon\Ec2ConfigService\Settings` directory. After you
   update the EC2Config service, you can restore this file to retain your
   configuration changes.
 

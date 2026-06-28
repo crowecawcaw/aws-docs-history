@@ -111,96 +111,96 @@ must reboot it as the final step.
 
 ###### To download and install the latest AWS NVMe driver
 
-1.  We recommend that you create an AMI as a backup as follows, in
-    case you need to roll back your changes.
+1. We recommend that you create an AMI as a backup as follows, in
+   case you need to roll back your changes.
 
-    1. When you stop an instance, the data on any instance
-       store volumes is erased. Before you stop an instance,
-       verify that you've copied any data that you need from
-       your instance store volumes to persistent storage, such
-       as Amazon EBS or Amazon S3.
-    2. In the navigation pane, choose
-       **Instances**.
-    3. Select the instance that requires the driver upgrade,
-       and choose **Instance state**,
-       **Stop instance**.
-    4. After the instance is stopped, select the instance,
-       choose **Actions**, then
-       **Image and templates**, and then
-       choose **Create image**.
-    5. Choose **Instance state**,
-       **Start instance**.
+   1. When you stop an instance, the data on any instance
+      store volumes is erased. Before you stop an instance,
+      verify that you've copied any data that you need from
+      your instance store volumes to persistent storage, such
+      as Amazon EBS or Amazon S3.
+   2. In the navigation pane, choose
+      **Instances**.
+   3. Select the instance that requires the driver upgrade,
+      and choose **Instance state**,
+      **Stop instance**.
+   4. After the instance is stopped, select the instance,
+      choose **Actions**, then
+      **Image and templates**, and then
+      choose **Create image**.
+   5. Choose **Instance state**,
+      **Start instance**.
 
-2.  Connect to your instance and log in as the local
-    administrator.
-3.  Download the drivers to your instance using one of the
-    following options:
+2. Connect to your instance and log in as the local
+   administrator.
+3. Download the drivers to your instance using one of the
+   following options:
 
-    - Browser – [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip")
+   - Browser – [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip")
 
-    the latest driver package to the
-    instance and extract the zip archive.
-    - PowerShell – Run
-      the following commands:
+   the latest driver package to the
+   instance and extract the zip archive.
+   - PowerShell – Run
+     the following commands:
 
-    ```
-    Invoke-WebRequest https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip -outfile $env:USERPROFILE\nvme_driver.zip
-    Expand-Archive $env:userprofile\nvme_driver.zip -DestinationPath $env:userprofile\nvme_driver
-    ```
+   ```
+   Invoke-WebRequest https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip -outfile $env:USERPROFILE\nvme_driver.zip
+   Expand-Archive $env:userprofile\nvme_driver.zip -DestinationPath $env:userprofile\nvme_driver
+   ```
 
-    If you receive an error when downloading the file, and you
-    are using Windows Server 2016 or earlier, TLS 1.2 might need
-    to be enabled for your PowerShell terminal. You can enable
-    TLS 1.2 for the current PowerShell session with the
-    following command and then try again:
+   If you receive an error when downloading the file, and you
+   are using Windows Server 2016 or earlier, TLS 1.2 might need
+   to be enabled for your PowerShell terminal. You can enable
+   TLS 1.2 for the current PowerShell session with the
+   following command and then try again:
 
-    ```
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    ```
+   ```
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+   ```
 
-4.  Install the driver to your instance by running the
-    `install.ps1` PowerShell script from the
-    `nvme_driver` directory
-    (`.\install.ps1`). If you get an error, make sure
-    you are using PowerShell 3.0 or later.
+4. Install the driver to your instance by running the
+   `install.ps1` PowerShell script from the
+   `nvme_driver` directory
+   (`.\install.ps1`). If you get an error, make sure
+   you are using PowerShell 3.0 or later.
 
-    1. (Optional) Starting with AWS NVMe version
-       `1.5.0`, Small Computer System Interface
-       (SCSI) persistent reservations are supported for Windows
-       Server 2016 and later. This feature adds support for
-       Windows Server Failover Clustering with shared Amazon EBS
-       storage. By default, this feature isn't enabled during
-       installation.
+   1. (Optional) Starting with AWS NVMe version
+      `1.5.0`, Small Computer System Interface
+      (SCSI) persistent reservations are supported for Windows
+      Server 2016 and later. This feature adds support for
+      Windows Server Failover Clustering with shared Amazon EBS
+      storage. By default, this feature isn't enabled during
+      installation.
 
-    You can enable the feature when running the
-    `install.ps1` script to install
-    the driver by specifying the
-    `EnableSCSIPersistentReservations`
-    parameter with a value of `$true`.
+   You can enable the feature when running the
+   `install.ps1` script to install
+   the driver by specifying the
+   `EnableSCSIPersistentReservations`
+   parameter with a value of `$true`.
 
-    ```
-    `PS C:\>` ``.\install.ps1` -EnableSCSIPersistentReservations $true`
-    ```
+   ```
+   `PS C:\>` ``.\install.ps1` -EnableSCSIPersistentReservations $true`
+   ```
 
-    You can disable the feature when running the
-    `install.ps1` script to install
-    the driver by specifying the
-    `EnableSCSIPersistentReservations`
-    parameter with a value of `$false`.
+   You can disable the feature when running the
+   `install.ps1` script to install
+   the driver by specifying the
+   `EnableSCSIPersistentReservations`
+   parameter with a value of `$false`.
 
-    ```
-    `PS C:\>` ``.\install.ps1` -EnableSCSIPersistentReservations $false`
-    ```
-    2. Starting with AWS NVMe `1.5.0`, the
-       `install.ps1` script always
-       installs the `ebsnvme-id` tool with the
-       driver.
+   ```
+   `PS C:\>` ``.\install.ps1` -EnableSCSIPersistentReservations $false`
+   ```
+   2. Starting with AWS NVMe `1.5.0`, the
+      `install.ps1` script always
+      installs the `ebsnvme-id` tool with the
+      driver.
 
-    (Optional) For versions `1.4.0`,
-    `1.4.1`, and `1.4.2`, the
-    `install.ps1` script allows you
-    to specify whether the `ebsnvme-id` tool
-    should be installed with the driver.
+   (Optional) For versions `1.4.0`,
+   `1.4.1`, and `1.4.2`, the
+   `install.ps1` script allows you
+   to specify whether the `ebsnvme-id` tool
+   should be installed with the driver.
 
         1. To install the `ebsnvme-id` tool,
          specify `InstallEBSNVMeIdTool
@@ -228,8 +228,8 @@ must reboot it as the final step.
         [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/EBSNVMeID/Latest/ebsnvme-id.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/EBSNVMeID/Latest/ebsnvme-id.zip") the `ebsnvme-id`
          tool.
 
-5.  If the installer does not reboot your instance, reboot the
-    instance.
+5. If the installer does not reboot your instance, reboot the
+   instance.
 
 Distributor
 You can use Distributor, a capability of AWS Systems Manager, to install the
@@ -237,41 +237,41 @@ NVMe driver package one time or with scheduled updates.
 
 ###### To install the latest AWS NVMe driver
 
-1.  For the instructions for how to install the NVMe driver
-    package using Distributor, see the procedures in [Install or update packages](../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md "../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md") in the
-    _Amazon EC2 Systems Manager User Guide_.
-2.  For **Installation Type**, select
-    **Uninstall and reinstall**.
-3.  For **Name**, choose
-    **AWSNVMe**.
-4.  (Optional) For **Additional Arguments**, you
-    can customize the installation by specifying values. The values
-    must be formatted using valid JSON syntax. For examples of how
-    to pass additional arguments for the `aws configure`
-    package, see the [Command document plugin reference](../../../systems-manager/latest/userguide/documents-command-ssm-plugin-reference.md "../../../systems-manager/latest/userguide/documents-command-ssm-plugin-reference.md").
+1. For the instructions for how to install the NVMe driver
+   package using Distributor, see the procedures in [Install or update packages](../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md "../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md") in the
+   _Amazon EC2 Systems Manager User Guide_.
+2. For **Installation Type**, select
+   **Uninstall and reinstall**.
+3. For **Name**, choose
+   **AWSNVMe**.
+4. (Optional) For **Additional Arguments**, you
+   can customize the installation by specifying values. The values
+   must be formatted using valid JSON syntax. For examples of how
+   to pass additional arguments for the `aws configure`
+   package, see the [Command document plugin reference](../../../systems-manager/latest/userguide/documents-command-ssm-plugin-reference.md "../../../systems-manager/latest/userguide/documents-command-ssm-plugin-reference.md").
 
-    1. Starting with AWS NVMe `1.5.0`, the
-       driver supports SCSI persistent reservations for Windows
-       Server 2016 and later. By default, this feature isn't
-       enabled during installation.
+   1. Starting with AWS NVMe `1.5.0`, the
+      driver supports SCSI persistent reservations for Windows
+      Server 2016 and later. By default, this feature isn't
+      enabled during installation.
 
-       - To enable this feature, specify
-         `{"SSM_EnableSCSIPersistentReservations":
-"true"}`.
-       - If you don't want to enable this feature,
-         specify
-         `{"SSM_EnableSCSIPersistentReservations":
-"false"}`.
+      - To enable this feature, specify
+        `{"SSM_EnableSCSIPersistentReservations":
+  "true"}`.
+      - If you don't want to enable this feature,
+        specify
+        `{"SSM_EnableSCSIPersistentReservations":
+  "false"}`.
 
-    2. Starting with AWS NVMe `1.5.0`, the
-       `install.ps1` script will always
-       install the `ebsnvme-id` tool.
+   2. Starting with AWS NVMe `1.5.0`, the
+      `install.ps1` script will always
+      install the `ebsnvme-id` tool.
 
-    (Optional) For versions `1.4.0`,
-    `1.4.1`, and `1.4.2`, the
-    `install.ps1` script allows you
-    to specify whether the ebsnvme-id tool should be
-    installed with the driver.
+   (Optional) For versions `1.4.0`,
+   `1.4.1`, and `1.4.2`, the
+   `install.ps1` script allows you
+   to specify whether the ebsnvme-id tool should be
+   installed with the driver.
 
         * To install the ebsnvme-id tool, specify
          `{"SSM_InstallEBSNVMeIdTool":
@@ -301,8 +301,8 @@ NVMe driver package one time or with scheduled updates.
         [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/EBSNVMeID/Latest/ebsnvme-id.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/EBSNVMeID/Latest/ebsnvme-id.zip") the `ebsnvme-id`
          tool.
 
-5.  If the installer does not reboot your instance, reboot the
-    instance.
+5. If the installer does not reboot your instance, reboot the
+   instance.
 
 ## Configure SCSI persistent reservations for Windows instances
 

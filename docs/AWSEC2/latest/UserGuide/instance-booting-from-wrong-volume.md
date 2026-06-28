@@ -63,7 +63,7 @@ of the primary volume, they share a UUID.
 
 ###### To change the label of an attached xfs volume
 
-- Use the **xfs_admin** command to change the label of the volume to
+- Use the **xfs\_admin** command to change the label of the volume to
   something other than `/`.
 
 ```

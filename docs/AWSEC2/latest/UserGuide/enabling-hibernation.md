@@ -22,48 +22,47 @@ Console
 
 ###### To enable hibernation for an On-Demand Instance
 
-1.  Follow the procedure to [launch an
-    instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md"), but don't launch the instance until you've
-    completed the following steps to enable hibernation.
-2.  To enable hibernation, configure the following fields in the
-    launch instance wizard:
+1. Follow the procedure to [launch an
+   instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md"), but don't launch the instance until you've
+   completed the following steps to enable hibernation.
+2. To enable hibernation, configure the following fields in the
+   launch instance wizard:
 
-    1.  Under **Application and OS Images (Amazon
-        Machine Image)**, select an AMI that
-        supports hibernation. For more information, see [AMIs](hibernating-prerequisites.md#hibernation-prereqs-supported-amis "hibernating-prerequisites.md#hibernation-prereqs-supported-amis").
-    2.  Under **Instance type**, select a
-        supported instance type. For more information, see [Instance families](hibernating-prerequisites.md#hibernation-prereqs-supported-instance-families "hibernating-prerequisites.md#hibernation-prereqs-supported-instance-families").
-    3.  Under **Configure storage**, choose
-        **Advanced** (at the right), and
-        specify the following information for the root
-        volume:
+   1. Under **Application and OS Images (Amazon
+      Machine Image)**, select an AMI that
+      supports hibernation. For more information, see [AMIs](hibernating-prerequisites.md#hibernation-prereqs-supported-amis "hibernating-prerequisites.md#hibernation-prereqs-supported-amis").
+   2. Under **Instance type**, select a
+      supported instance type. For more information, see [Instance families](hibernating-prerequisites.md#hibernation-prereqs-supported-instance-families "hibernating-prerequisites.md#hibernation-prereqs-supported-instance-families").
+   3. Under **Configure storage**, choose
+      **Advanced** (at the right), and
+      specify the following information for the root
+      volume:
 
-            * For **Size (GiB)**, enter the
-             EBS root volume size. The volume must be large
-             enough to store the RAM contents and accommodate
-             your expected usage.
-            * For **Volume type**, select a
-             supported EBS volume type: General Purpose SSD (`gp2` and `gp3`) or
-             Provisioned IOPS SSD (`io1` and `io2`).
-            * For **Encrypted**, choose
-             **Yes**. If you enabled
-             encryption by default in this AWS Region,
-             **Yes** is selected.
-            * For **KMS key**, select the
-             encryption key for the volume. If you enabled
-             encryption by default in this AWS Region, the
-             default encryption key is selected.
-
+      - For **Size (GiB)**, enter the
+        EBS root volume size. The volume must be large
+        enough to store the RAM contents and accommodate
+        your expected usage.
+      - For **Volume type**, select a
+        supported EBS volume type: General Purpose SSD (`gp2` and `gp3`) or
+        Provisioned IOPS SSD (`io1` and `io2`).
+      - For **Encrypted**, choose
+        **Yes**. If you enabled
+        encryption by default in this AWS Region,
+        **Yes** is selected.
+      - For **KMS key**, select the
+        encryption key for the volume. If you enabled
+        encryption by default in this AWS Region, the
+        default encryption key is selected.
         For more information about the prerequisites for the
         root volume, see [Prerequisites for EC2 instance hibernation](hibernating-prerequisites.md "hibernating-prerequisites.md").
 
-    4.  Expand **Advanced details**, and for
-        **Stop - Hibernate behavior**,
-        choose **Enable**.
+   4. Expand **Advanced details**, and for
+      **Stop - Hibernate behavior**,
+      choose **Enable**.
 
-3.  In the **Summary** panel, review your
-    instance configuration, and then choose **Launch
-    instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+3. In the **Summary** panel, review your
+   instance configuration, and then choose **Launch
+   instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 
@@ -162,60 +161,59 @@ Console
 
 ###### To enable hibernation for a Spot Instance
 
-1.  Follow the procedure to [request a Spot Instance using
-    the launch instance wizard](using-spot-instances-request.md "using-spot-instances-request.md"), but don't launch the
-    instance until you've completed the following steps to enable
-    hibernation.
-2.  To enable hibernation, configure the following fields in the
-    launch instance wizard:
+1. Follow the procedure to [request a Spot Instance using
+   the launch instance wizard](using-spot-instances-request.md "using-spot-instances-request.md"), but don't launch the
+   instance until you've completed the following steps to enable
+   hibernation.
+2. To enable hibernation, configure the following fields in the
+   launch instance wizard:
 
-    1.  Under **Application and OS Images (Amazon
-        Machine Image)**, select an AMI that
-        supports hibernation. For more information, see [AMIs](hibernating-prerequisites.md#hibernation-prereqs-supported-amis "hibernating-prerequisites.md#hibernation-prereqs-supported-amis").
-    2.  Under **Instance type**, select a
-        supported instance type. For more information, see [Instance families](hibernating-prerequisites.md#hibernation-prereqs-supported-instance-families "hibernating-prerequisites.md#hibernation-prereqs-supported-instance-families").
-    3.  Under **Configure storage**, choose
-        **Advanced** (at the right), and
-        specify the following information for the root
-        volume:
+   1. Under **Application and OS Images (Amazon
+      Machine Image)**, select an AMI that
+      supports hibernation. For more information, see [AMIs](hibernating-prerequisites.md#hibernation-prereqs-supported-amis "hibernating-prerequisites.md#hibernation-prereqs-supported-amis").
+   2. Under **Instance type**, select a
+      supported instance type. For more information, see [Instance families](hibernating-prerequisites.md#hibernation-prereqs-supported-instance-families "hibernating-prerequisites.md#hibernation-prereqs-supported-instance-families").
+   3. Under **Configure storage**, choose
+      **Advanced** (at the right), and
+      specify the following information for the root
+      volume:
 
-            * For **Size (GiB)**, enter the
-             EBS root volume size. The volume must be large
-             enough to store the RAM contents and accommodate
-             your expected usage.
-            * For **Volume type**, select a
-             supported EBS volume type: General Purpose SSD (`gp2` and `gp3`) or
-             Provisioned IOPS SSD (`io1` and `io2`).
-            * For **Encrypted**, choose
-             **Yes**. If you enabled
-             encryption by default in this AWS Region,
-             **Yes** is selected.
-            * For **KMS key**, select the
-             encryption key for the volume. If you enabled
-             encryption by default in this AWS Region, the
-             default encryption key is selected.
-
+      - For **Size (GiB)**, enter the
+        EBS root volume size. The volume must be large
+        enough to store the RAM contents and accommodate
+        your expected usage.
+      - For **Volume type**, select a
+        supported EBS volume type: General Purpose SSD (`gp2` and `gp3`) or
+        Provisioned IOPS SSD (`io1` and `io2`).
+      - For **Encrypted**, choose
+        **Yes**. If you enabled
+        encryption by default in this AWS Region,
+        **Yes** is selected.
+      - For **KMS key**, select the
+        encryption key for the volume. If you enabled
+        encryption by default in this AWS Region, the
+        default encryption key is selected.
         For more information about the prerequisites for the
         root volume, see [Prerequisites for EC2 instance hibernation](hibernating-prerequisites.md "hibernating-prerequisites.md").
 
-    4.  Expand **Advanced details**, and, in
-        addition to the fields for configuring a Spot Instance, do the
-        following:
+   4. Expand **Advanced details**, and, in
+      addition to the fields for configuring a Spot Instance, do the
+      following:
 
-        1. For **Request
-           type**, choose
-           **Persistent**.
-        2. For **Interruption
-           behavior**, choose
-           **Hibernate**. Alternatively, for
-           **Stop - Hibernate behavior**,
-           choose **Enable**. Both fields
-           enable hibernation on your Spot Instance. You need only
-           configure one of them.
+      1. For **Request
+         type**, choose
+         **Persistent**.
+      2. For **Interruption
+         behavior**, choose
+         **Hibernate**. Alternatively, for
+         **Stop - Hibernate behavior**,
+         choose **Enable**. Both fields
+         enable hibernation on your Spot Instance. You need only
+         configure one of them.
 
-3.  In the **Summary** panel, review your
-    instance configuration, and then choose **Launch
-    instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+3. In the **Summary** panel, review your
+   instance configuration, and then choose **Launch
+   instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 

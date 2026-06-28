@@ -148,10 +148,9 @@ choose your key pair. 7. Under **Network settings**, do the following:
     	 internet**
 
 8. In the **Summary** panel, review your instance configuration and then
-   choose **Launch instance**.
-9. Choose **View all instances** to close the confirmation page and return
-   to the console. Your instance will first be in a `pending`
-   state, and will then go into the `running` state.
+choose **Launch instance**. 9. Choose **View all instances** to close the confirmation page and return
+to the console. Your instance will first be in a `pending`
+state, and will then go into the `running` state.
 
 If the instance fails to launch or the state immediately goes to `terminated`
 instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").
@@ -239,8 +238,8 @@ RDS database.
       `ec2-rds-manual-configuration`.
    4. For **Description**, enter a brief description. For this tutorial,
       enter `EC2 instance security group to allow EC2
-instance to securely connect to RDS
-database`.
+  instance to securely connect to RDS
+  database`.
    5. Choose **Create security group**. You'll come back to this security
       group to add an outbound rule after you've created the RDS
       database security group.
@@ -257,8 +256,8 @@ database`.
       `rds-ec2-manual-configuration`.
    4. For **Description**, enter a brief description. For this tutorial,
       enter `RDS database security group to allow EC2
-instance to securely connect to RDS
-database`.
+  instance to securely connect to RDS
+  database`.
    5. Under **Inbound rules**, choose
       **Add rule**, and do the
       following:

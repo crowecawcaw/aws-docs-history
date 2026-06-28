@@ -66,7 +66,7 @@ or stop error (Windows instances) occurs.
    editor, locate the line that starts with `GRUB_CMDLINE_LINUX_DEFAULT`, and then
    add the `crashkernel` parameter in the following format:
    `crashkernel=`memory_to_reserve``. For example, to
-reserve `256MB`, modify the `grub` file as follows:
+   reserve `256MB`, modify the `grub` file as follows:
 
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="**crashkernel=256M** console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0"

@@ -521,49 +521,50 @@ Console
 
 ###### To specify a Systems Manager parameter in a launch template
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose **Launch
-    Templates**, and then choose **Create
-    launch template**.
-3.  For **Launch template name**, enter a
-    descriptive name for the launch template.
-4.  Under **Application and OS Images (Amazon Machine
-    Image)**, choose **Browse more
-    AMIs**.
-5.  Choose the arrow button to the right of the search bar,
-    and then choose **Specify custom value/Systems
-    Manager parameter**.
-6.  In the **Specify custom value or Systems Manager
-    parameter** dialog box, do the
-    following:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Launch
+   Templates**, and then choose **Create
+   launch template**.
+3. For **Launch template name**, enter a
+   descriptive name for the launch template.
+4. Under **Application and OS Images (Amazon Machine
+   Image)**, choose **Browse more
+   AMIs**.
+5. Choose the arrow button to the right of the search bar,
+   and then choose **Specify custom value/Systems
+   Manager parameter**.
+6. In the **Specify custom value or Systems Manager
+   parameter** dialog box, do the
+   following:
 
-    1. For **AMI ID or Systems Manager parameter
-       string**, enter the Systems Manager parameter name
-       using one of the following formats:
+   1. For **AMI ID or Systems Manager parameter
+      string**, enter the Systems Manager parameter name
+      using one of the following formats:
 
-    To reference a public parameter:
+   To reference a public parameter:
 
         * `resolve:ssm:`public-parameter``
 
-    To reference a parameter stored in the same
-    account:
+   To reference a parameter stored in the same
+   account:
 
         * `resolve:ssm:`parameter-name``
         * `resolve:ssm:`parameter-name`:`version-number``
         * `resolve:ssm:`parameter-name`:`label``
 
-    To reference a parameter shared from another
-    AWS account:
+   To reference a parameter shared from another
+   AWS account:
 
         * `resolve:ssm:`parameter-ARN``
         * `resolve:ssm:`parameter-ARN`:`version-number``
         * `resolve:ssm:`parameter-ARN`:`label``
-    2. Choose **Save**.
 
-7.  Specify any other launch template parameters as needed,
-    and then choose **Create launch
-    template**.
+   2. Choose **Save**.
+
+7. Specify any other launch template parameters as needed,
+   and then choose **Create launch
+   template**.
 
 For more information, see [Create a launch template by specifying parameters](#create-launch-template-define-parameters "#create-launch-template-define-parameters").
 

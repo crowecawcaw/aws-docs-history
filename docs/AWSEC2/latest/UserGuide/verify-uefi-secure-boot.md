@@ -21,7 +21,7 @@ mokutil --sb-state
 The following is example output.
 
 - If UEFI Secure Boot is enabled, the output contains `SecureBoot
-enabled`.
+ enabled`.
 - If UEFI Secure Boot is not enabled, the output contains `SecureBoot disabled`
   or `Failed to read SecureBoot`.
 

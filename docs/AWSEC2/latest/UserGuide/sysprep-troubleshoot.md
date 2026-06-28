@@ -46,7 +46,7 @@ profile registry keys for a deleted user.
 
    - Windows Server 2012 R2 and earlier – Edit the EC2Config answer file
      (`C:\Program
-Files\Amazon\Ec2ConfigService\sysprep2008.xml`).
+  Files\Amazon\Ec2ConfigService\sysprep2008.xml`).
    - Windows Server 2016 and 2019 – Edit the unattend.xml answer
      file
      (`C:\ProgramData\Amazon\EC2-Windows\Launch\Sysprep\Unattend.xml`).

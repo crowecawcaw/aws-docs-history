@@ -12,8 +12,7 @@ Checking AMI references helps you:
 - Check where specific AMIs are being referenced.
 - Maintain compliance by updating your resources to reference the latest
   AMIs.
-
- 
+   
 
 ###### Topics
 

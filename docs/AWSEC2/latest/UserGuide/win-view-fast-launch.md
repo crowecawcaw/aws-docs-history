@@ -20,7 +20,7 @@ results:
   with you.
 - The current state of EC2 Fast Launch for the associated AMI. Supported
   values include: `enabling | enabling-failed | enabled | enabled-failed |
-disabling | disabling-failed`.
+ disabling | disabling-failed`.
 
 ###### Note
 

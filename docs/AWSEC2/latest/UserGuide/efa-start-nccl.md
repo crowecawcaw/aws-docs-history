@@ -54,7 +54,7 @@ For other scenarios, see [Security group rules for different use cases](security
 
    1. For **Security group name**, enter a descriptive
       name for the security group, such as `EFA-enabled security
-group`.
+  group`.
    2. (Optional) For **Description**, enter a brief description
       of the security group.
    3. For **VPC**, select the VPC into which you intend to
@@ -758,48 +758,43 @@ IMDSv1
 `[ec2-user ~]$` `curl http://169.254.169.254/latest/meta-data/local-ipv4 >> my-hosts`
 ```
 
-2.  Run the test and specify the host file (`--hostfile`) and the number of GPUs to use
-    (`-n`). The following command runs the `all_reduce_perf` test on 8
-    GPUs on the instance itself, and specifies the following environment variables.
+2. Run the test and specify the host file (`--hostfile`) and the number of GPUs to use
+   (`-n`). The following command runs the `all_reduce_perf` test on 8
+   GPUs on the instance itself, and specifies the following environment variables.
 
-        * `FI_EFA_USE_DEVICE_RDMA=1`—(`p4d.24xlarge` only) uses the device's RDMA functionality for
-         one-sided and two-sided transfer.
-        * `NCCL_DEBUG=INFO`—enables detailed debugging output. You can also
-         specify `VERSION` to print only the NCCL version at the start of the test, or
-         `WARN` to receive only error messages.
+   - `FI_EFA_USE_DEVICE_RDMA=1`—(`p4d.24xlarge` only) uses the device's RDMA functionality for
+     one-sided and two-sided transfer.
+   - `NCCL_DEBUG=INFO`—enables detailed debugging output. You can also
+     specify `VERSION` to print only the NCCL version at the start of the test, or
+     `WARN` to receive only error messages.
+     For more information about the NCCL test arguments, see the
+     [NCCL Tests README](https://github.com/NVIDIA/nccl-tests/blob/master/README.md "https://github.com/NVIDIA/nccl-tests/blob/master/README.md")
+     in the official nccl-tests repository.
 
-    For more information about the NCCL test arguments, see the
-    [NCCL Tests README](https://github.com/NVIDIA/nccl-tests/blob/master/README.md "https://github.com/NVIDIA/nccl-tests/blob/master/README.md")
-    in the official nccl-tests repository.
+   - `p3dn.24xlarge`
 
-        * `p3dn.24xlarge`
+   ```
+   `$` /opt/amazon/openmpi/bin/mpirun \
+   -x LD_LIBRARY_PATH=/opt/nccl/build/lib:/usr/local/cuda/lib64:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:/opt/amazon/ofi-nccl/lib:$LD_LIBRARY_PATH \
+   -x NCCL_DEBUG=INFO \
+   --hostfile my-hosts -n 8 -N 8 \
+   --mca pml ^cm --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+   $HOME/nccl-tests/build/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
+   ```
+   - `p4d.24xlarge` and `p5.48xlarge`
 
+   ```
+   `$` /opt/amazon/openmpi/bin/mpirun \
+   -x FI_EFA_USE_DEVICE_RDMA=1 \
+   -x LD_LIBRARY_PATH=/opt/nccl/build/lib:/usr/local/cuda/lib64:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:/opt/amazon/ofi-nccl/lib:$LD_LIBRARY_PATH \
+   -x NCCL_DEBUG=INFO \
+   --hostfile my-hosts -n 8 -N 8 \
+   --mca pml ^cm --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+   $HOME/nccl-tests/build/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
+   ```
 
-
-        ```
-        `$` /opt/amazon/openmpi/bin/mpirun \
-        -x LD_LIBRARY_PATH=/opt/nccl/build/lib:/usr/local/cuda/lib64:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:/opt/amazon/ofi-nccl/lib:$LD_LIBRARY_PATH \
-        -x NCCL_DEBUG=INFO \
-        --hostfile my-hosts -n 8 -N 8 \
-        --mca pml ^cm --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
-        $HOME/nccl-tests/build/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
-        ```
-        * `p4d.24xlarge` and `p5.48xlarge`
-
-
-
-        ```
-        `$` /opt/amazon/openmpi/bin/mpirun \
-        -x FI_EFA_USE_DEVICE_RDMA=1 \
-        -x LD_LIBRARY_PATH=/opt/nccl/build/lib:/usr/local/cuda/lib64:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:/opt/amazon/ofi-nccl/lib:$LD_LIBRARY_PATH \
-        -x NCCL_DEBUG=INFO \
-        --hostfile my-hosts -n 8 -N 8 \
-        --mca pml ^cm --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
-        $HOME/nccl-tests/build/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
-        ```
-
-3.  You can confirm that EFA is active as the underlying provider for NCCL when
-    the `NCCL_DEBUG` log is printed.
+3. You can confirm that EFA is active as the underlying provider for NCCL when
+   the `NCCL_DEBUG` log is printed.
 
 ```
 ip-192-168-2-54:14:14 [0] NCCL INFO NET/OFI Selected Provider is efa*

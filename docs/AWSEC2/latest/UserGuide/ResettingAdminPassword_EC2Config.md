@@ -163,7 +163,7 @@ After you have attached the volume to the temporary instance as a secondary volu
    2. Use the following instructions to bring the drive online: [Make an Amazon EBS
       volume available for use](../../../ebs/latest/userguide/ebs-using-volumes.md "../../../ebs/latest/userguide/ebs-using-volumes.md").
    3. Navigate to the secondary volume, and open `\Program
-Files\Amazon\Ec2ConfigService\Settings\config.xml`
+  Files\Amazon\Ec2ConfigService\Settings\config.xml`
       using a text editor, such as Notepad.
    4. At the top of the file, find the plugin with the name
       `Ec2SetPassword`, as shown in the screenshot. Change

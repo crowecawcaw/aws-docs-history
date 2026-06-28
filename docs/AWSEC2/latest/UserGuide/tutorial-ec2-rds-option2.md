@@ -147,10 +147,9 @@ choose your key pair. 7. Under **Network settings**, do the following:
     	 internet**
 
 8. In the **Summary** panel, review your instance configuration and then
-   choose **Launch instance**.
-9. Choose **View all instances** to close the confirmation page and return
-   to the console. Your instance will first be in a `pending`
-   state, and will then go into the `running` state.
+choose **Launch instance**. 9. Choose **View all instances** to close the confirmation page and return
+to the console. Your instance will first be in a `pending`
+state, and will then go into the `running` state.
 
 If the instance fails to launch or the state immediately goes to `terminated`
 instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").

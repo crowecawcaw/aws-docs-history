@@ -71,4 +71,4 @@ in a PowerShell terminal on the instance.
 **PowerShell language mode**
 
 Ensure that your instance has the PowerShell language mode set to `FullLanguage`.
-For more information, see [about_Language_Modes](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes?view=powershell-7.3 "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes?view=powershell-7.3") in the Microsoft documentation.
+For more information, see [about\_Language\_Modes](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes?view=powershell-7.3 "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes?view=powershell-7.3") in the Microsoft documentation.

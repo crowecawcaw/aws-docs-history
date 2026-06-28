@@ -262,27 +262,29 @@ following information:
 
 5. To view the status of your AMI while it is being created:
 
-   1. In the navigation pane, choose
-      **AMIs**.
-   2. Set the filter to **Owned by me**, and
-      find your AMI in the list.
+    1. In the navigation pane, choose
+     **AMIs**.
+    2. Set the filter to **Owned by me**, and
+     find your AMI in the list.
 
-   Initially, the status is `pending` but should
-   change to `available` after a few minutes.
+
+    Initially, the status is `pending` but should
+     change to `available` after a few minutes.
 
 6. (Optional) To view the snapshot that was created for the new
-   AMI:
+AMI:
 
-   1. Note the ID of your AMI that you located in the previous
-      step.
-   2. In the navigation pane, choose
-      **Snapshots**.
-   3. Set the filter to **Owned by me**, and
-      then find the snapshot with the new AMI ID in the
-      **Description** column.
+    1. Note the ID of your AMI that you located in the previous
+     step.
+    2. In the navigation pane, choose
+     **Snapshots**.
+    3. Set the filter to **Owned by me**, and
+     then find the snapshot with the new AMI ID in the
+     **Description** column.
 
-   When you launch an instance from this AMI, Amazon EC2 uses this snapshot to create the
-   instance's root volume.
+
+    When you launch an instance from this AMI, Amazon EC2 uses this snapshot to create the
+     instance's root volume.
 
 AWS CLI
 
@@ -349,9 +351,9 @@ Console
       description for the image.
    3. For **Architecture**, choose the image
       architecture. Choose **i386** for 32-bit,
-      **x86_64** for 64-bit,
+      **x86\_64** for 64-bit,
       **arm64** for 64-bit ARM, or
-      **x86_64** for 64-bit macOS.
+      **x86\_64** for 64-bit macOS.
    4. For **Root device name**, enter the device name to use for the root
       volume. For more information, see [Device names for volumes on Amazon EC2 instances](device_naming.md "device_naming.md").
    5. For **Virtualization type**, choose the

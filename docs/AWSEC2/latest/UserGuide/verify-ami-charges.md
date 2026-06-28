@@ -12,7 +12,7 @@ For example, the AMI `ami-0123456789EXAMPLE` has the following billing
 information:
 
 - **Platform details** = `Red Hat Enterprise
-Linux`
+ Linux`
 - **Usage operation** = `RunInstances:0010`
   If you launched an instance using this AMI, you can find the instance ID in
   your CUR, and check the corresponding value in the `lineitem/Operation` column. In this example, the value should be

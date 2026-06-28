@@ -31,13 +31,12 @@ To create an AMI using **Sysprep**, see
 - The default quota for **Max parallel launches** across all AMIs in an AWS account
   is 40 per Region. You can request a Service Quotas increase for your account, as follows.
 
-      1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
-      2. In the navigation pane, choose AWS services.
-      3. In the search bar, enter `EC2 Fast Launch`, and select the result.
-      4. Select the link for **Parallel instance launches** to open
-       the service quota detail page.
-      5. Choose **Request increase at account level**.
-
-  For more information, see
-  [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md")
-  in the _Service Quotas User Guide_.
+  1.  Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
+  2.  In the navigation pane, choose AWS services.
+  3.  In the search bar, enter `EC2 Fast Launch`, and select the result.
+  4.  Select the link for **Parallel instance launches** to open
+      the service quota detail page.
+  5.  Choose **Request increase at account level**.
+      For more information, see
+      [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md")
+      in the _Service Quotas User Guide_.

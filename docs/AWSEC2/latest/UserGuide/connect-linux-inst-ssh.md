@@ -144,6 +144,8 @@ Use the following procedure to connect to your Linux instance using an SSH clien
    ````
    ssh -i `/path/key-pair-name`.pem `instance-user-name`@`2001:db8::1234:5678:1.2.3.4`
    ```The following is an example response.
+
+
    ````
 
 ```

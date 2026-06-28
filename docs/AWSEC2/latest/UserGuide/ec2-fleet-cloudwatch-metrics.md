@@ -81,4 +81,4 @@ following:
      type
 
 5. To view the data for a metric, select the checkbox next to the
-   metric.
+metric.

@@ -10,9 +10,9 @@ For the instructions, see [Retrieve the instance identity document](retrieve-iid
 The instance identity document uses plaintext JSON format. It includes the following information.
 
 | Data                      | Description                                                                                                                                                                  |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------- |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `accountId`               | The ID of the AWS account that launched the instance.                                                                                                                        |
-| `architecture`            | The architecture of the AMI used to launch the instance (i386                                                                                                                | x86_64 | arm64). |
+| `architecture`            | The architecture of the AMI used to launch the instance (i386                                                                                                                | x86\_64 | arm64). |
 | `availabilityZone`        | The name of the Availability Zone in which the instance is running. For example, `us-east-1`.<br>Keep in mind that Availability Zone names might differ across AWS accounts. |
 | `billingProducts`         | The billing products of the instance.                                                                                                                                        |
 | `devpayProductCodes`      | Deprecated.                                                                                                                                                                  |

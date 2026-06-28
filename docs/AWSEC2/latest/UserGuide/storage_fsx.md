@@ -55,21 +55,21 @@ security group for Amazon FSx file systems.
 
 The security group includes the following output rules, but no inbound rules.
 
-| Outbound rules | Protocol type    | Port number                  | Destination |
-| -------------- | ---------------- | ---------------------------- | ----------- |
-| UDP            | 111              | `file system security group` |
-| UDP            | 20001<br>• 20003 | `file system security group` |
-| UDP            | 4049             | `file system security group` |
-| UDP            | 2049             | `file system security group` |
-| UDP            | 635              | `file system security group` |
-| UDP            | 4045<br>• 4046   | `file system security group` |
-| TCP            | 4049             | `file system security group` |
-| TCP            | 635              | `file system security group` |
-| TCP            | 2049             | `file system security group` |
-| TCP            | 111              | `file system security group` |
-| TCP            | 4045<br>• 4046   | `file system security group` |
-| TCP            | 20001<br>• 20003 | `file system security group` |
-| All            | All              | `file system security group` |
+Outbound rules| Protocol type | Port number | Destination |
+| --- | --- | --- |
+| UDP | 111 | `file system security group` |
+| UDP | 20001<br>• 20003 | `file system security group` |
+| UDP | 4049 | `file system security group` |
+| UDP | 2049 | `file system security group` |
+| UDP | 635 | `file system security group` |
+| UDP | 4045<br>• 4046 | `file system security group` |
+| TCP | 4049 | `file system security group` |
+| TCP | 635 | `file system security group` |
+| TCP | 2049 | `file system security group` |
+| TCP | 111 | `file system security group` |
+| TCP | 4045<br>• 4046 | `file system security group` |
+| TCP | 20001<br>• 20003 | `file system security group` |
+| All | All | `file system security group` |
 
 The security group that is created and attached to the file system is tagged with
 `Name=fsx-sg-`1``. The value in the tag is
@@ -78,24 +78,24 @@ group for Amazon FSx file systems.
 
 The security group includes the following rules.
 
-| Inbound rules | Protocol type    | Port number               | Source |
-| ------------- | ---------------- | ------------------------- | ------ |
-| UDP           | 2049             | `instance security group` |
-| UDP           | 20001<br>• 20003 | `instance security group` |
-| UDP           | 4049             | `instance security group` |
-| UDP           | 111              | `instance security group` |
-| UDP           | 635              | `instance security group` |
-| UDP           | 4045<br>• 4046   | `instance security group` |
-| TCP           | 4045<br>• 4046   | `instance security group` |
-| TCP           | 635              | `instance security group` |
-| TCP           | 2049             | `instance security group` |
-| TCP           | 4049             | `instance security group` |
-| TCP           | 20001<br>• 20003 | `instance security group` |
-| TCP           | 111              | `instance security group` |
+Inbound rules| Protocol type | Port number | Source |
+| --- | --- | --- |
+| UDP | 2049 | `instance security group` |
+| UDP | 20001<br>• 20003 | `instance security group` |
+| UDP | 4049 | `instance security group` |
+| UDP | 111 | `instance security group` |
+| UDP | 635 | `instance security group` |
+| UDP | 4045<br>• 4046 | `instance security group` |
+| TCP | 4045<br>• 4046 | `instance security group` |
+| TCP | 635 | `instance security group` |
+| TCP | 2049 | `instance security group` |
+| TCP | 4049 | `instance security group` |
+| TCP | 20001<br>• 20003 | `instance security group` |
+| TCP | 111 | `instance security group` |
 
-| Outbound rules | Protocol type | Port number | Destination |
-| -------------- | ------------- | ----------- | ----------- |
-| All            | All           | 0.0.0.0/0   |
+Outbound rules| Protocol type | Port number | Destination |
+| --- | --- | --- |
+| All | All | 0.0.0.0/0 |
 
 ### User data script
 

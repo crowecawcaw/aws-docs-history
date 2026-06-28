@@ -108,7 +108,7 @@ then attach the volume to the temporary instance that you created
 earlier. Attach it with the default device name (xvdf). 7. Use Remote Desktop to connect to the temporary instance, and then use
 the Disk Management utility to make the volume available for use. 8. On the temporary instance, open the **Run** dialog
 box, type `regedit`, and press Enter. 9. In the Registry Editor navigation pane, choose
-**HKEY_Local_Machine**, and then from the
+**HKEY\_Local\_Machine**, and then from the
 **File** menu choose **Load
 Hive**. 10. In the **Load Hive** dialog box, navigate to
 _Affected Volume_\Windows\System32\config\System
@@ -116,34 +116,41 @@ and type a temporary name in the **Key Name** dialog
 box. For example, enter OldSys. 11. In the navigation pane of the Registry Editor, locate the following
 keys:
 
-**HKEY_LOCAL_MACHINE\`your_temporary_key_name`\ControlSet001\Control\Class\4d36e97d-e325-11ce-bfc1-08002be10318**
+**HKEY\_LOCAL\_MACHINE\`your_temporary_key_name`\ControlSet001\Control\Class\4d36e97d-e325-11ce-bfc1-08002be10318**
 
-**HKEY_LOCAL_MACHINE\`your_temporary_key_name`\ControlSet001\Control\Class\4d36e96a-e325-11ce-bfc1-08002be10318** 12. For each key, double-click **UpperFilters**, enter a
+**HKEY\_LOCAL\_MACHINE\`your_temporary_key_name`\ControlSet001\Control\Class\4d36e96a-e325-11ce-bfc1-08002be10318** 12. For each key, double-click **UpperFilters**, enter a
 value of XENFILT, and then choose **OK**.
 
 ![Registry key for affected volume.](images/troubleshooting-server2012R2-regedit.png) 13. Locate the following key:
 
-**HKEY_LOCAL_MACHINE\`your_temporary_key_name`\ControlSet001\Services\XENBUS\Parameters** 14. Create a new string (REG_SZ) with the name ActiveDevice and the
+**HKEY\_LOCAL\_MACHINE\`your_temporary_key_name`\ControlSet001\Services\XENBUS\Parameters** 14. Create a new string (REG\_SZ) with the name ActiveDevice and the
 following value:
 
-**PCI\VEN_5853&DEV_0001&SUBSYS_00015853&REV_01** 15. Locate the following key:
+**PCI\VEN\_5853&DEV\_0001&SUBSYS\_00015853&REV\_01** 15. Locate the following key:
 
-**HKEY_LOCAL_MACHINE\`your_temporary_key_name`\ControlSet001\Services\XENBUS** 16. Change the **Count** from 0 to 1. 17. Locate and delete the following keys:
+**HKEY\_LOCAL\_MACHINE\`your_temporary_key_name`\ControlSet001\Services\XENBUS** 16. Change the **Count** from 0 to 1. 17. Locate and delete the following keys:
 
-**HKEY_LOCAL_MACHINE\`your_temporary_key_name`\ControlSet001\Services\xenvbd\StartOverride**
+**HKEY\_LOCAL\_MACHINE\`your_temporary_key_name`\ControlSet001\Services\xenvbd\StartOverride**
 
-**HKEY_LOCAL_MACHINE
-\`your_temporary_key_name`\ControlSet001\Services\xenfilt\StartOverride** 18. In the Registry Editor navigation pane, choose the temporary key that
-you created when you first opened the Registry Editor. 19. From the **File** menu, choose **Unload
-Hive**. 20. In the Disk Management Utility, choose the drive you attached earlier,
-open the context (right-click) menu, and choose
-**Offline**. 21. In the Amazon EC2 console, detach the affected volume from the
-temporary instance and reattach it to your Windows Server 2012 R2
-instance with the device name /dev/sda1. You must specify this device
-name to designate the volume as a root volume. 22. [Start](Stop_Start.md "Stop_Start.md") the instance. 23. Connect to the instance using Remote Desktop and then
-[download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip") the AWS PV Drivers Upgrade package to the
-instance. 24. Extract the contents of the folder and run
-`AWSPVDriverSetup.msi`.
+**HKEY\_LOCAL\_MACHINE
+\`your_temporary_key_name`\ControlSet001\Services\xenfilt\StartOverride**
+18. In the Registry Editor navigation pane, choose the temporary key that
+ you created when you first opened the Registry Editor.
+19. From the **File** menu, choose **Unload
+ Hive**.
+20. In the Disk Management Utility, choose the drive you attached earlier,
+ open the context (right-click) menu, and choose
+ **Offline**.
+21. In the Amazon EC2 console, detach the affected volume from the
+ temporary instance and reattach it to your Windows Server 2012 R2
+ instance with the device name /dev/sda1. You must specify this device
+ name to designate the volume as a root volume.
+22. [Start](Stop_Start.md "Stop_Start.md") the instance.
+23. Connect to the instance using Remote Desktop and then
+ [download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip") the AWS PV Drivers Upgrade package to the
+ instance.
+24. Extract the contents of the folder and run
+ `AWSPVDriverSetup.msi`.
 
 After running the MSI, the instance automatically reboots and then
 upgrades the drivers. The instance will not be available for up to 15

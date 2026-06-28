@@ -82,9 +82,9 @@ r7i.8xlarge instance launched from a license-included Windows and SQL Server Ent
 license fees, the number of CPUs that are active was reduced to 16 vCPUs. Then the instance ran for 100 hours
 with the new configuration.
 
-A one year _No Upfront Compute Savings Plan_ with a $1.60/hour (rounded) commitment provides
-further cost savings that reduce the baseline cost of the Windows and SQL Server instance. The Savings Plan commitment
-covers the full 100 hour usage of the r7i.8xlarge instance for a Savings Plans rate of $1.53362/hour.
+A one year _No Upfront Compute Savings Plan_ with a $1.60/hour (rounded) commitment provides 
+ further cost savings that reduce the baseline cost of the Windows and SQL Server instance. The Savings Plan commitment 
+ covers the full 100 hour usage of the r7i.8xlarge instance for a Savings Plans rate of $1.53362/hour.
 
 The bill shows the following line items.
 
@@ -95,8 +95,8 @@ The first line item shows the Savings Plan commitment for the full 100 hour usag
 Billing description: **Elastic Compute Cloud**
 
 The second line item contains two entries. The first entry shows what the baseline cost of the
-Windows and SQL Server instance that ran for 100 hours would have been without the Savings Plan ($211.68).
-The second entry shows that the full baseline cost was covered by the Compute Savings Plan (-$211.68),
+Windows and SQL Server instance that ran for 100 hours would have been without the Savings Plan ($211.68). 
+ The second entry shows that the full baseline cost was covered by the Compute Savings Plan (-$211.68),
 which yields a net cost of zero for this line item.
 
 Billing description: **Amazon EC2 Optimize CPU License Included Third Party Fees**

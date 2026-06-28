@@ -62,11 +62,10 @@ one of the following commands:
     ```
 
 5. (Optional) Create an AMI from the instance, as described in [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md "creating-an-ami-ebs.md"). The
-   AMI inherits the enhanced networking `enaSupport` attribute from
-   the instance. Therefore, you can use this AMI to launch another instance
-   with enhanced networking enabled by default.
-6. From your local computer, start the instance using the Amazon EC2 console or
-   one of the following commands: [start-instances](../../../cli/latest/reference/ec2/start-instances.md "../../../cli/latest/reference/ec2/start-instances.md") (AWS CLI) or [Start-EC2Instance](../../../powershell/latest/reference/items/Start-EC2Instance.md "../../../powershell/latest/reference/items/Start-EC2Instance.md") (AWS Tools for Windows PowerShell).
+AMI inherits the enhanced networking `enaSupport` attribute from
+the instance. Therefore, you can use this AMI to launch another instance
+with enhanced networking enabled by default. 6. From your local computer, start the instance using the Amazon EC2 console or
+one of the following commands: [start-instances](../../../cli/latest/reference/ec2/start-instances.md "../../../cli/latest/reference/ec2/start-instances.md") (AWS CLI) or [Start-EC2Instance](../../../powershell/latest/reference/items/Start-EC2Instance.md "../../../powershell/latest/reference/items/Start-EC2Instance.md") (AWS Tools for Windows PowerShell).
 
 ###### To enable enhanced networking on Ubuntu (instance store-backed instances)
 
@@ -185,9 +184,9 @@ commands:
     ```
 
 9. (Optional) Create an AMI from the instance, as described in [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md "creating-an-ami-ebs.md"). The AMI
-   inherits the enhanced networking `enaSupport` attribute from the
-   instance. Therefore, you can use this AMI to launch another instance with
-   enhanced networking enabled by default.
+inherits the enhanced networking `enaSupport` attribute from the
+instance. Therefore, you can use this AMI to launch another instance with
+enhanced networking enabled by default.
 
 If your instance operating system contains an
 `/etc/udev/rules.d/70-persistent-net.rules` file,
@@ -358,110 +357,106 @@ parm:		   numa_node_override:Enable/Disable numa node override (0=disable)
 `PS C:\>` C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeInstance.ps1 -Schedule
 ```
 
-3.  From the instance, install the driver as follows:
+3. From the instance, install the driver as follows:
 
-    1. [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/Latest/AwsEnaNetworkDriver.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/Latest/AwsEnaNetworkDriver.zip") the latest driver to the instance.
-    2. Extract the zip archive.
-    3. Install the driver by running the `install.ps1`
-       PowerShell script.
+   1. [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/Latest/AwsEnaNetworkDriver.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/Latest/AwsEnaNetworkDriver.zip") the latest driver to the instance.
+   2. Extract the zip archive.
+   3. Install the driver by running the `install.ps1`
+      PowerShell script.
 
-    ###### Note
+   ###### Note
 
-    If you get an execution policy error, set the policy to
-    `Unrestricted` (by default it is set to
-    `Restricted` or `RemoteSigned`). In a
-    command line, run `Set-ExecutionPolicy -ExecutionPolicy
- Unrestricted`, and then run the
-    `install.ps1` PowerShell script
-    again.
+   If you get an execution policy error, set the policy to
+   `Unrestricted` (by default it is set to
+   `Restricted` or `RemoteSigned`). In a
+   command line, run `Set-ExecutionPolicy -ExecutionPolicy
+  Unrestricted`, and then run the
+   `install.ps1` PowerShell script
+   again.
 
-4.  From your local computer, stop the instance using the Amazon EC2 console or one
-    of the following commands: [stop-instances](../../../cli/latest/reference/ec2/stop-instances.md "../../../cli/latest/reference/ec2/stop-instances.md") (AWS CLI) or [Stop-EC2Instance](../../../powershell/latest/reference/items/Stop-EC2Instance.md "../../../powershell/latest/reference/items/Stop-EC2Instance.md") (AWS Tools for Windows PowerShell).
-5.  Enable ENA support on your instance as follows:
+4. From your local computer, stop the instance using the Amazon EC2 console or one
+   of the following commands: [stop-instances](../../../cli/latest/reference/ec2/stop-instances.md "../../../cli/latest/reference/ec2/stop-instances.md") (AWS CLI) or [Stop-EC2Instance](../../../powershell/latest/reference/items/Stop-EC2Instance.md "../../../powershell/latest/reference/items/Stop-EC2Instance.md") (AWS Tools for Windows PowerShell).
+5. Enable ENA support on your instance as follows:
 
-    1.  From your local computer, check the EC2 instance ENA support
-        attribute on your instance by running one of the following commands.
-        If the attribute is not enabled, the output will be "[]" or blank.
-        `EnaSupport` is set to `false` by
-        default.
+   1. From your local computer, check the EC2 instance ENA support
+      attribute on your instance by running one of the following commands.
+      If the attribute is not enabled, the output will be "[]" or blank.
+      `EnaSupport` is set to `false` by
+      default.
 
-        - [describe-instances](../../../cli/latest/reference/ec2/describe-instances.md "../../../cli/latest/reference/ec2/describe-instances.md")
-          (AWS CLI)
+      - [describe-instances](../../../cli/latest/reference/ec2/describe-instances.md "../../../cli/latest/reference/ec2/describe-instances.md")
+        (AWS CLI)
+
+      ```
+      aws ec2 describe-instances --instance-ids `i-1234567890abcdef0` --query "Reservations[].Instances[].EnaSupport"
+      ```
+      - [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md")
+        (Tools for Windows PowerShell)
+
+      ```
+      (Get-EC2Instance -InstanceId `i-1234567890abcdef0`).Instances.EnaSupport
+      ```
+
+   2. To enable ENA support, run one of the following commands:
+
+      - [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md")
+        (AWS CLI)
+
+      ```
+      aws ec2 modify-instance-attribute --instance-id `i-1234567890abcdef0` --ena-support
+      ```
+      - [Edit-EC2InstanceAttribute](../../../powershell/latest/reference/items/Edit-EC2InstanceAttribute.md "../../../powershell/latest/reference/items/Edit-EC2InstanceAttribute.md")
+        (AWS Tools for Windows PowerShell)
+
+      ```
+      Edit-EC2InstanceAttribute -InstanceId `i-1234567890abcdef0` -EnaSupport $true
+      ```
+
+   If you encounter problems when you restart the instance, you can
+   also disable ENA support using one of the following commands:
+
+        * [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md")
+         (AWS CLI)
+
+
 
         ```
-        aws ec2 describe-instances --instance-ids `i-1234567890abcdef0` --query "Reservations[].Instances[].EnaSupport"
+        aws ec2 modify-instance-attribute --instance-id `i-1234567890abcdef0` --no-ena-support
         ```
-        - [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md")
-          (Tools for Windows PowerShell)
+        * [Edit-EC2InstanceAttribute](../../../powershell/latest/reference/items/Edit-EC2InstanceAttribute.md "../../../powershell/latest/reference/items/Edit-EC2InstanceAttribute.md")
+         (AWS Tools for Windows PowerShell)
+
+
 
         ```
-        (Get-EC2Instance -InstanceId `i-1234567890abcdef0`).Instances.EnaSupport
+        Edit-EC2InstanceAttribute -InstanceId `i-1234567890abcdef0` -EnaSupport $false
         ```
 
-    2.  To enable ENA support, run one of the following commands:
+   3. Verify that the attribute has been set to `true` using
+   **describe-instances** or
+   **Get-EC2Instance** as shown previously. You
+   should now see the following output:
 
-            * [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md")
-             (AWS CLI)
+   ```
+   [
+   	true
+   ]
+   ```
 
+6. From your local computer, start the instance using the Amazon EC2 console or
+   one of the following commands: [start-instances](../../../cli/latest/reference/ec2/start-instances.md "../../../cli/latest/reference/ec2/start-instances.md") (AWS CLI) or [Start-EC2Instance](../../../powershell/latest/reference/items/Start-EC2Instance.md "../../../powershell/latest/reference/items/Start-EC2Instance.md") (AWS Tools for Windows PowerShell).
+7. On the instance, validate that the ENA driver is installed and enabled as
+   follows:
 
+   1. Right-click the network icon and choose **Open Network and
+      Sharing Center**.
+   2. Choose the Ethernet adapter (for example, **Ethernet
+      2**).
+   3. Choose **Details**. For **Network
+      Connection Details**, check that
+      **Description** is **Amazon Elastic
+      Network Adapter**.
 
-            ```
-            aws ec2 modify-instance-attribute --instance-id `i-1234567890abcdef0` --ena-support
-            ```
-            * [Edit-EC2InstanceAttribute](../../../powershell/latest/reference/items/Edit-EC2InstanceAttribute.md "../../../powershell/latest/reference/items/Edit-EC2InstanceAttribute.md")
-             (AWS Tools for Windows PowerShell)
-
-
-
-            ```
-            Edit-EC2InstanceAttribute -InstanceId `i-1234567890abcdef0` -EnaSupport $true
-            ```
-
-        If you encounter problems when you restart the instance, you can
-        also disable ENA support using one of the following commands:
-
-            * [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md")
-             (AWS CLI)
-
-
-
-            ```
-            aws ec2 modify-instance-attribute --instance-id `i-1234567890abcdef0` --no-ena-support
-            ```
-            * [Edit-EC2InstanceAttribute](../../../powershell/latest/reference/items/Edit-EC2InstanceAttribute.md "../../../powershell/latest/reference/items/Edit-EC2InstanceAttribute.md")
-             (AWS Tools for Windows PowerShell)
-
-
-
-            ```
-            Edit-EC2InstanceAttribute -InstanceId `i-1234567890abcdef0` -EnaSupport $false
-            ```
-
-    3.  Verify that the attribute has been set to `true` using
-        **describe-instances** or
-        **Get-EC2Instance** as shown previously. You
-        should now see the following output:
-
-    ```
-    [
-    	true
-    ]
-    ```
-
-6.  From your local computer, start the instance using the Amazon EC2 console or
-    one of the following commands: [start-instances](../../../cli/latest/reference/ec2/start-instances.md "../../../cli/latest/reference/ec2/start-instances.md") (AWS CLI) or [Start-EC2Instance](../../../powershell/latest/reference/items/Start-EC2Instance.md "../../../powershell/latest/reference/items/Start-EC2Instance.md") (AWS Tools for Windows PowerShell).
-7.  On the instance, validate that the ENA driver is installed and enabled as
-    follows:
-
-    1. Right-click the network icon and choose **Open Network and
-       Sharing Center**.
-    2. Choose the Ethernet adapter (for example, **Ethernet
-       2**).
-    3. Choose **Details**. For **Network
-       Connection Details**, check that
-       **Description** is **Amazon Elastic
-       Network Adapter**.
-
-8.  (Optional) Create an AMI from the instance. The AMI inherits the
-    `enaSupport` attribute from the instance. Therefore, you can
-    use this AMI to launch another instance with ENA enabled by default.
+8. (Optional) Create an AMI from the instance. The AMI inherits the
+   `enaSupport` attribute from the instance. Therefore, you can
+   use this AMI to launch another instance with ENA enabled by default.

@@ -39,7 +39,7 @@ resources, use the command line interface or the API actions.
 2. Amazon EC2 resources are specific to an AWS Region. From the navigation bar,
    choose a Region from the **Regions** selector.
 
-![View your Regions.](/images/AWSEC2/latest/UserGuide/images/EC2_select_region.png) 3. In the navigation pane, choose the option that corresponds to the resource type. For
+![View your Regions.](images/EC2_select_region.png) 3. In the navigation pane, choose the option that corresponds to the resource type. For
 example, to list all your instances, choose **Instances**.
 
 ### Filter resources using the console

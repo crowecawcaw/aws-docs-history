@@ -20,15 +20,15 @@ image.
    system runs the `ec2launch sysprep` command.
 2. EC2Launch v2 edits the content of the `unattend.xml`
    file by reading the registry value at `HKEY_USERS\.DEFAULT\Control
-Panel\International\LocaleName`. This file is located in the
+ Panel\International\LocaleName`. This file is located in the
    following directory:
    `C:\ProgramData\Amazon\EC2Launch\sysprep`.
 3. The system run the `BeforeSysprep.cmd`. This
    command creates a registry key as follows:
 
 **reg add
-"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v
-fDenyTSConnections /t REG_DWORD /d 1 /f**
+"HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v
+fDenyTSConnections /t REG\_DWORD /d 1 /f**
 
 The registry key disables RDP connections until they are re-enabled.
 Disabling RDP connections is a necessary security measure because, during

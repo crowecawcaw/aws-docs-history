@@ -7,8 +7,7 @@ the following:
 - [Option 1: Driver-only install](#public-nvidia-driver-only-install "#public-nvidia-driver-only-install")
 - [Option 2: Install with the CUDA toolkit](#public-nvidia-driver-cuda-install "#public-nvidia-driver-cuda-install")
   (recommended for Linux distributions)
-
- 
+   
 
 ###### P6-B200 and P6-B300 instance type considerations
 

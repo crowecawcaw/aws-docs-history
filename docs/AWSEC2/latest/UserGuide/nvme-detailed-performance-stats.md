@@ -93,7 +93,7 @@ option. For example:
 sudo nvme amzn stats **--help**
 ```
 
-nvme_amzn.exe tool
+nvme\_amzn.exe tool
 
 ###### To access the statistics
 

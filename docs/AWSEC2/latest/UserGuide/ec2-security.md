@@ -15,18 +15,17 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 - **Security in the cloud** – Your responsibility
   includes the following areas:
 
-      + Controlling network access to your instances, for example, through configuring
-       your VPC and security groups. For more information, see [Controlling network traffic](infrastructure-security.md#control-network-traffic "infrastructure-security.md#control-network-traffic").
-      + Managing the credentials used to connect to your instances.
-      + Managing the guest operating system and software deployed to the guest operating
-       system, including updates and security patches. For more information, see [Update management for Amazon EC2 instances](update-management.md "update-management.md").
-      + Configuring the IAM roles that are attached to the instance and the permissions
-       associated with those roles. For more information, see [IAM roles for Amazon EC2](iam-roles-for-amazon-ec2.md "iam-roles-for-amazon-ec2.md").
-
-  This documentation helps you understand how to apply the shared responsibility model when
-  using Amazon EC2. It shows you how to configure Amazon EC2 to meet your security and compliance objectives.
-  You also learn how to use other AWS services that help you to monitor and secure your Amazon EC2
-  resources.
+  - Controlling network access to your instances, for example, through configuring
+    your VPC and security groups. For more information, see [Controlling network traffic](infrastructure-security.md#control-network-traffic "infrastructure-security.md#control-network-traffic").
+  - Managing the credentials used to connect to your instances.
+  - Managing the guest operating system and software deployed to the guest operating
+    system, including updates and security patches. For more information, see [Update management for Amazon EC2 instances](update-management.md "update-management.md").
+  - Configuring the IAM roles that are attached to the instance and the permissions
+    associated with those roles. For more information, see [IAM roles for Amazon EC2](iam-roles-for-amazon-ec2.md "iam-roles-for-amazon-ec2.md").
+    This documentation helps you understand how to apply the shared responsibility model when
+    using Amazon EC2. It shows you how to configure Amazon EC2 to meet your security and compliance objectives.
+    You also learn how to use other AWS services that help you to monitor and secure your Amazon EC2
+    resources.
 
 ###### Contents
 

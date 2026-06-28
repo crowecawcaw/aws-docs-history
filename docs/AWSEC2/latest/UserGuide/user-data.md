@@ -789,7 +789,7 @@ The following information is logged when the user data is run:
 - `Running userdata on every boot` –
   If the persist tag is found
 - `<powershell> tag was provided.. running powershell
-content` – If the powershell tag is found
+ content` – If the powershell tag is found
 - `<script> tag was provided.. running script content`
   – If the script tag is found
 - `Message: The output from user scripts` – If user data
@@ -806,7 +806,7 @@ information is logged when the user data is run:
 - `Ec2HandleUserData: Message: Re-enabled userdata execution`
   – If the persist tag is found
 - `Ec2HandleUserData: Message: Could not find <persist> and
-</persist>` – If the persist tag is not found
+ </persist>` – If the persist tag is not found
 - `Ec2HandleUserData: Message: The output from user scripts`
   – If user data scripts are run, their output is logged
 
@@ -873,7 +873,7 @@ EC2Config
 
 1. Connect to your Windows instance.
 2. Open `C:\Program
-Files\Amazon\Ec2ConfigService\Ec2ConfigServiceSetting.exe`.
+ Files\Amazon\Ec2ConfigService\Ec2ConfigServiceSetting.exe`.
 3. For **User Data**, select **Enable UserData
    execution for next service start**.
 4. Disconnect from your Windows instance. To run updated scripts the next

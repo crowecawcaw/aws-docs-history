@@ -82,16 +82,16 @@ appears in your AWS Cost and Usage Report (CUR) 2.0. For more information
 about capacity reservation columns in CUR 2.0, see [Capacity reservation columns](../../../cur/latest/userguide/table-dictionary-cur2-capacity-reservation.md "../../../cur/latest/userguide/table-dictionary-cur2-capacity-reservation.md"). The following tables show
 how Capacity Reservation line items appear before and after cancellation.
 
-| CUR 2.0 values for an active reservation | capacity_reservation_capacity_reservation_status | line_item_usage_type    | What it represents |
-| ---------------------------------------- | ------------------------------------------------ | ----------------------- | ------------------ |
-| `Reserved`                               | Reservation                                      | Total reserved capacity |
-| `Used`                                   | BoxUsage                                         | Launched instances      |
-| `Unused`                                 | UnusedBox                                        | Idle capacity           |
+CUR 2.0 values for an active reservation| capacity\_reservation\_capacity\_reservation\_status | line\_item\_usage\_type | What it represents |
+| --- | --- | --- |
+| `Reserved` | Reservation | Total reserved capacity |
+| `Used` | BoxUsage | Launched instances |
+| `Unused` | UnusedBox | Idle capacity |
 
-| CUR 2.0 values after cancellation | capacity_reservation_capacity_reservation_status | line_item_usage_type | What it represents |
-| --------------------------------- | ------------------------------------------------ | -------------------- | ------------------ |
-| `Cancelling`                      | Reservation                                      | Canceled capacity    |
-| `Cancelling`                      | UnusedBox                                        | Cancellation charges |
+CUR 2.0 values after cancellation| capacity\_reservation\_capacity\_reservation\_status | line\_item\_usage\_type | What it represents |
+| --- | --- | --- |
+| `Cancelling` | Reservation | Canceled capacity |
+| `Cancelling` | UnusedBox | Cancellation charges |
 
 ## Viewing your bill
 

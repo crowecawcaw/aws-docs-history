@@ -732,7 +732,7 @@ pair
 - [Step 3: Stop the original instance](#step-3-stop-original-instance "#step-3-stop-original-instance")
 - [Step 4: Launch a temporary instance](#step-4-launch-temp-instance "#step-4-launch-temp-instance")
 - [Step 5: Detach the root volume from the original instance and attach it to the temporary instance](#step-5-detach-root-volume-and-attach-to-temp-instance "#step-5-detach-root-volume-and-attach-to-temp-instance")
-- [Step 6: Add the new public key to authorized_keys on the original volume mounted to the temporary instance](#step-6-add-new-public-key-to-authorized_keys "#step-6-add-new-public-key-to-authorized_keys")
+- [Step 6: Add the new public key to authorized\_keys on the original volume mounted to the temporary instance](#step-6-add-new-public-key-to-authorized_keys "#step-6-add-new-public-key-to-authorized_keys")
 - [Step 7: Unmount and detach the original volume from the temporary instance, and reattach it to the original instance](#step-7-unmount-detach-volume-and-reattach-to-original-instance "#step-7-unmount-detach-volume-and-reattach-to-original-instance")
 - [Step 8: Connect to the original instance using the new key pair](#step-8-connect-to-original-instance "#step-8-connect-to-original-instance")
 - [Step 9: Clean up](#step-9-clean-up "#step-9-clean-up")

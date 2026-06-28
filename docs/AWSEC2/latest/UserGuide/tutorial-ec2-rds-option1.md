@@ -245,9 +245,8 @@ choose your key pair. 8. Under **Network settings**, do the following:
     	 internet**
 
 9. In the **Summary** panel, review your instance configuration and then
-   choose **Launch instance**.
-10. Keep the confirmation page open. You'll need it for the next task when you automatically
-    connect your instance to your database.
+choose **Launch instance**. 10. Keep the confirmation page open. You'll need it for the next task when you automatically
+connect your instance to your database.
 
 If the instance fails to launch or the state immediately goes to `terminated`
 instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").
@@ -283,9 +282,7 @@ If you closed the confirmation page, follow these steps:
      instance is in the **Running** state.
 
 2. For **Database role**, choose **Instance**. _Instance_ in this case refers to the
-   database instance.
-3. For **RDS database**, choose the RDS database that you created in Task
-4.
+database instance. 3. For **RDS database**, choose the RDS database that you created in Task 1.
 
 ###### Note
 
@@ -383,9 +380,7 @@ configured by using the automatic connection feature.
 You have completed Option 1 of this tutorial. You can now either complete Option 2, which
 teaches you how to use the RDS console to automatically connect an EC2 instance
 to an RDS database, or you can complete Option 3, which teaches you how to
-manually configure the security groups that were automatically created in Option
-
-1.
+manually configure the security groups that were automatically created in Option 1.
 
 ## Task 5 (_Optional_): Clean up
 

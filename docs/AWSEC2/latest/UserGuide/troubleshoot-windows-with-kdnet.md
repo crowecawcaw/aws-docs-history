@@ -280,9 +280,9 @@ Remove-NetFirewallRule -DisplayName "Allow Inbound KDNET Connection"
 
 The KDNET extensibility module for ENA does not currently support:
 
-- 8th generation non-metal x86_64 instance types (for example,
+- 8th generation non-metal x86\_64 instance types (for example,
   `m8a.xlarge`)
-- 7th generation 48xlarge non-metal x86_64 instance types (for example,
+- 7th generation 48xlarge non-metal x86\_64 instance types (for example,
   `m7a.48xlarge`)
 - u7i instance types
 

@@ -345,8 +345,8 @@ website.
     ```
 
 7. [EBS-backed instance] From your local computer, stop the instance using
-   the Amazon EC2 console or one of the following commands: [stop-instances](../../../cli/latest/reference/ec2/stop-instances.md "../../../cli/latest/reference/ec2/stop-instances.md")
-   (AWS CLI) or [Stop-EC2Instance](../../../powershell/latest/reference/items/Stop-EC2Instance.md "../../../powershell/latest/reference/items/Stop-EC2Instance.md") (AWS Tools for Windows PowerShell).
+the Amazon EC2 console or one of the following commands: [stop-instances](../../../cli/latest/reference/ec2/stop-instances.md "../../../cli/latest/reference/ec2/stop-instances.md")
+(AWS CLI) or [Stop-EC2Instance](../../../powershell/latest/reference/items/Stop-EC2Instance.md "../../../powershell/latest/reference/items/Stop-EC2Instance.md") (AWS Tools for Windows PowerShell).
 
 [Instance store-backed instance] You can't stop the instance to modify the
 attribute. Instead, skip to the next procedure. 8. From your local computer, enable the enhanced networking attribute using
@@ -535,7 +535,7 @@ addressed on the Intel Drivers and Software pages. 4. Install the Intel network 
     		```
 
 5. From your local computer, enable the enhanced networking attribute using
-   one of the following commands:
+one of the following commands:
 
 AWS CLI
 Use the [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md") command as follows.

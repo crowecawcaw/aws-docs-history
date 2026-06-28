@@ -51,7 +51,7 @@ instance's public DNS name, or the IPv6 address if your instance has one.
    - (IPv6) To transfer a file to the destination on the instance if the
      instance has an IPv6 address, enter the following command from your
      computer. The IPv6 address must be enclosed in square brackets (`[
-]`), which must be escaped (`\`).
+  ]`), which must be escaped (`\`).
 
    ```
    scp -i `/path/key-pair-name`.pem `/path/my-file.txt` `ec2-user`@\[`2001:db8::1234:5678:1.2.3.4`\]:`path/`
@@ -94,7 +94,7 @@ my-file.txt                                100%   480     24.4KB/s   00:00
    - (IPv6) To transfer a file to a destination on your computer if the
      instance has an IPv6 address, enter the following command from your
      computer. The IPv6 address must be enclosed in square brackets (`[
-]`), which must be escaped (`\`).
+  ]`), which must be escaped (`\`).
 
    ```
    scp -i `/path/key-pair-name`.pem `ec2-user`@\[`2001:db8::1234:5678:1.2.3.4`\]:`path/my-file.txt path/my-file2.txt`

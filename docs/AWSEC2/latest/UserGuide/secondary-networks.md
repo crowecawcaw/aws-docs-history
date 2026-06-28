@@ -238,8 +238,8 @@ Amazon reserves 5 IP addresses per subnet.
 
 To request quota increases, use the AWS Service Quotas or contact AWS Support.
 
-| Secondary Networks quotas and limits    | Resource   | Limit | Adjustable |
-| --------------------------------------- | ---------- | ----- | ---------- |
-| Secondary Networks per region           | 5          | Yes   |
-| Secondary Subnets per Secondary Network | 200        | Yes   |
-| CIDR block size                         | /28 to /12 | No    |
+Secondary Networks quotas and limits| Resource | Limit | Adjustable |
+| --- | --- | --- |
+| Secondary Networks per region | 5 | Yes |
+| Secondary Subnets per Secondary Network | 200 | Yes |
+| CIDR block size | /28 to /12 | No |

@@ -176,4 +176,4 @@ PowerShell console:
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-For more information about language modes, see [about_Language_Modes](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes") in the Microsoft documentation.
+For more information about language modes, see [about\_Language\_Modes](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes") in the Microsoft documentation.

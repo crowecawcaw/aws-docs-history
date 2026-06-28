@@ -219,7 +219,7 @@ pair details, as follows:
     This is the format in which your private key file will be saved.
 
 4. **Save the public key to Amazon EC2 and download the
-   private key:**
+private key:**
 
 Choose the **Create key pair** button (bottom
 right).

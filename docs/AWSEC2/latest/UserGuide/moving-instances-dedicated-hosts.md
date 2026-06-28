@@ -23,53 +23,48 @@ Console
 
 ###### To modify instance tenancy or affinity
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  Choose **Instances**, and select the instance
-    to modify.
-3.  Choose **Instance state**,
-    **Stop**.
-4.  With the instance selected, choose
-    **Actions**, **Instance
-    settings**, **Modify instance
-    placement**.
-5.  On the **Modify instance placement** page,
-    configure the following:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Choose **Instances**, and select the instance
+   to modify.
+3. Choose **Instance state**,
+   **Stop**.
+4. With the instance selected, choose
+   **Actions**, **Instance
+   settings**, **Modify instance
+   placement**.
+5. On the **Modify instance placement** page,
+   configure the following:
 
-        * **Tenancy**—Choose one of the
-         following:
+   - **Tenancy**—Choose one of the
+     following:
 
+     - Run a dedicated hardware
+       instance—Launches the instance as a Dedicated Instance.
+       For more information, see [Amazon EC2 Dedicated Instances](dedicated-instance.md "dedicated-instance.md").
+     - Launch the instance on a Dedicated Host—Launches
+       the instance onto a Dedicated Host with configurable
+       affinity.
 
+   - **Affinity**—Choose one of the
+     following:
 
+     - This instance can run on any one of my
+       hosts—The instance launches onto any
+       available Dedicated Host in your account that supports its
+       instance type.
+     - This instance can only run on the selected
+       host—The instance is only able to run on the
+       Dedicated Host selected for **Target
+       Host**.
 
-        	+ Run a dedicated hardware
-        	 instance—Launches the instance as a Dedicated Instance.
-        	 For more information, see [Amazon EC2 Dedicated Instances](dedicated-instance.md "dedicated-instance.md").
-        	+ Launch the instance on a Dedicated Host—Launches
-        	 the instance onto a Dedicated Host with configurable
-        	 affinity.
-        * **Affinity**—Choose one of the
-         following:
+   - **Target Host**—Select the Dedicated Host
+     that the instance must run on. If no target host is
+     listed, you might not have available, compatible Dedicated Hosts
+     in your account.
+     For more information, see [Amazon EC2 Dedicated Host auto-placement and host affinity](dedicated-hosts-understanding.md "dedicated-hosts-understanding.md").
 
-
-
-
-        	+ This instance can run on any one of my
-        	 hosts—The instance launches onto any
-        	 available Dedicated Host in your account that supports its
-        	 instance type.
-        	+ This instance can only run on the selected
-        	 host—The instance is only able to run on the
-        	 Dedicated Host selected for **Target
-        	 Host**.
-        * **Target Host**—Select the Dedicated Host
-         that the instance must run on. If no target host is
-         listed, you might not have available, compatible Dedicated Hosts
-         in your account.
-
-    For more information, see [Amazon EC2 Dedicated Host auto-placement and host affinity](dedicated-hosts-understanding.md "dedicated-hosts-understanding.md").
-
-6.  Choose **Save**.
+6. Choose **Save**.
 
 AWS CLI
 

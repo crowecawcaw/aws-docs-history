@@ -65,15 +65,14 @@ To upgrade your ENA driver, see [Enhanced networking](enhanced-networking-ena.md
 - Install ENA driver version 2.2.2 or later. To verify the installed version,
   use Device Manager as follows.
 
-      1. Open Device Manager by running
-       `devmgmt.msc`.
-      2. Expand **Network Adapters**.
-      3. Choose **Amazon Elastic Network Adapter**,
-       **Properties**.
-      4. On the **Driver** tab, locate **Driver
-       Version**.
-
-  To upgrade your ENA driver, see [Enhanced networking](enhanced-networking-ena.md "enhanced-networking-ena.md").
+  1.  Open Device Manager by running
+      `devmgmt.msc`.
+  2.  Expand **Network Adapters**.
+  3.  Choose **Amazon Elastic Network Adapter**,
+      **Properties**.
+  4.  On the **Driver** tab, locate **Driver
+      Version**.
+      To upgrade your ENA driver, see [Enhanced networking](enhanced-networking-ena.md "enhanced-networking-ena.md").
 
 - To import these metrics to Amazon CloudWatch, install the CloudWatch agent. For more
   information, see [Collect advanced network metrics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-network-performance.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-network-performance.md") in the
@@ -193,7 +192,7 @@ metric.
 The following metrics are available for all instances that have ENA Express
 enabled.
 
-**ena_srd_mode**
+**ena\_srd\_mode**
 
 Describes which ENA Express features are enabled. Values are as
 follows:
@@ -209,7 +208,7 @@ configured to use it. The prior value is retained for UDP traffic.
 
 - `3` = ENA Express on, UDP on
 
-**ena_srd_eligible_tx_pkts**
+**ena\_srd\_eligible\_tx\_pkts**
 
 The number of network as follows:
 
@@ -230,15 +229,15 @@ For example, if an eligible packet is over the maximum transmission unit
 (MTU) limit, it falls back to standard ENA transmission, though the
 packet is still reflected as eligible in the counter.
 
-**ena_srd_tx_pkts**
+**ena\_srd\_tx\_pkts**
 
 The number of SRD packets transmitted within a given time period.
 
-**ena_srd_rx_pkts**
+**ena\_srd\_rx\_pkts**
 
 The number of SRD packets received within a given time period.
 
-**ena_srd_resource_utilization**
+**ena\_srd\_resource\_utilization**
 
 The percentage of the maximum allowed memory utilization for concurrent
 SRD connections that the instance has consumed.

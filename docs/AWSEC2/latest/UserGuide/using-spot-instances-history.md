@@ -13,25 +13,24 @@ Console
 
 ###### To view the Spot price history
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose **Spot Requests**.
-3.  Choose **Pricing history**.
-4.  For **Graph**, choose to compare the price history by
-    **Availability Zones** or by **Instance
-    Types**.
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Spot Requests**.
+3. Choose **Pricing history**.
+4. For **Graph**, choose to compare the price history by
+   **Availability Zones** or by **Instance
+   Types**.
 
-        * If you choose **Availability Zones**, then choose the **Instance
-         type**, operating system (**Platform**),
-         and **Date range** for which to view the price
-         history.
-        * If you choose **Instance Types**, then choose up to five
-         **Instance type(s)**, the **Availability
-         Zone**, operating system (**Platform**),
-         and **Date range** for which to view the price
-         history.
-
-    The following screenshot shows a price comparison for different instance types.
+   - If you choose **Availability Zones**, then choose the **Instance
+     type**, operating system (**Platform**),
+     and **Date range** for which to view the price
+     history.
+   - If you choose **Instance Types**, then choose up to five
+     **Instance type(s)**, the **Availability
+     Zone**, operating system (**Platform**),
+     and **Date range** for which to view the price
+     history.
+     The following screenshot shows a price comparison for different instance types.
 
 ![The Spot Instance pricing history tool in the Amazon EC2 console.](images/spot-instance-pricing-history.png) 5. Hover (move your pointer) over the graph to display the prices at specific times in the
 selected date range. The prices are displayed in the information blocks above

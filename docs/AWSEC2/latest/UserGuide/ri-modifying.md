@@ -70,7 +70,7 @@ You can modify these attributes as follows.
 | Modifiable attribute                                                           | Supported platforms                                                                                                                                                                                                                                                                                                                                                                   | Limitations and considerations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Change **Availability Zones**<br>within the same Region                        | Linux and Windows                                                                                                                                                                                                                                                                                                                                                                     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Change the \*_scope_<br>• from<br>Availability Zone to Region and vice versa   | Linux and Windows                                                                                                                                                                                                                                                                                                                                                                     | A zonal Reserved Instance is scoped to an Availability Zone and reserves<br>capacity in that Availability Zone. If you change the scope from<br>Availability Zone to Region (in other words, from zonal to<br>regional), you lose the capacity reservation benefit.<br>A regional Reserved Instance is scoped to a Region. Your<br>Reserved Instance discount can apply to instances running in any<br>Availability Zone in that Region. Furthermore, the Reserved<br>Instance discount applies to instance usage across all sizes in<br>the selected instance family. If you change the scope from<br>Region to Availability Zone (in other words, from regional to<br>zonal), you lose Availability Zone flexibility and instance size<br>flexibility (if applicable).<br>For more information, see [How Reserved Instance discounts are applied](apply_ri.md "apply_ri.md"). |
+| Change the *_scope_<br>• from<br>Availability Zone to Region and vice versa    | Linux and Windows                                                                                                                                                                                                                                                                                                                                                                     | A zonal Reserved Instance is scoped to an Availability Zone and reserves<br>capacity in that Availability Zone. If you change the scope from<br>Availability Zone to Region (in other words, from zonal to<br>regional), you lose the capacity reservation benefit.<br>A regional Reserved Instance is scoped to a Region. Your<br>Reserved Instance discount can apply to instances running in any<br>Availability Zone in that Region. Furthermore, the Reserved<br>Instance discount applies to instance usage across all sizes in<br>the selected instance family. If you change the scope from<br>Region to Availability Zone (in other words, from regional to<br>zonal), you lose Availability Zone flexibility and instance size<br>flexibility (if applicable).<br>For more information, see [How Reserved Instance discounts are applied](apply_ri.md "apply_ri.md"). |
 | Change the **instance size**<br>within the same instance family and generation | Linux/UNIX only<br>Instance size flexibility is not available for Reserved Instances on the<br>other platforms, which include Linux with SQL Server Standard,<br>Linux with SQL Server Web, Linux with SQL Server Enterprise, Red<br>Hat Enterprise Linux, SUSE Linux, Windows, Windows with SQL<br>Standard, Windows with SQL Server Enterprise, and Windows with<br>SQL Server Web. | The reservation must use default tenancy. Some instance<br>families are not supported, because there are no other sizes<br>available. For more information, see [Support for modifying instance sizes](#ri-modification-instancemove "#ri-modification-instancemove")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ###### Requirements
@@ -210,7 +210,7 @@ normalization factor for `metal` instances depends on the instance
 family, unlike the other instance sizes.
 
 | Instance size   | Normalization factor          |
-| --------------- | ----------------------------- | ------------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | --------------- | --------------- | ---------------- | --------------- | --- |
+| --------------- | ----------------------------- |
 | `a1.metal`      | 32                            |
 | `m5zn.metal`    | `x2iezn.metal`<br>`z1d.metal` | 96                  |
 | `c6g.metal`     | <br>`c6gd.metal`              | <br>`i3.metal`      | <br>`m6g.metal`  | <br>`m6gd.metal` | <br>`r6g.metal`  | <br>`r6gd.metal` | <br>`x2gd.metal` | 128             |
@@ -282,30 +282,31 @@ needed for each configuration.
      4. This process retires the original Reserved Instance after the new
      Reserved Instances are activated.
 
-4. Choose **Continue**.
-5. To confirm your modification choices when you finish
-   specifying your target configurations, choose **Submit
-   modifications**.
-6. You can determine the status of your modification request by
-   looking at the **State** column in the Reserved Instances
-   screen. The following are the possible states.
+4. Choose **Continue**. 5. To confirm your modification choices when you finish
+specifying your target configurations, choose **Submit
+modifications**. 6. You can determine the status of your modification request by
+looking at the **State** column in the Reserved Instances
+screen. The following are the possible states.
 
-   - **active _(pending
-     modification)_** —
+    * **active *(pending
+     modification)*** —
      Transition state for original Reserved Instances
-   - **retired _(pending
-     modification)_** —
+    * **retired *(pending
+     modification)*** —
      Transition state for original Reserved Instances while new Reserved Instances are
      being created
-   - **retired** — Reserved Instances
+    * **retired** — Reserved Instances
      successfully modified and replaced
-   - **active** — One of
+    * **active** — One of
      the following:
 
-     - New Reserved Instances created from a successful
-       modification request
-     - Original Reserved Instances after a failed modification
-       request
+
+
+
+    	+ New Reserved Instances created from a successful
+    	 modification request
+    	+ Original Reserved Instances after a failed modification
+    	 request
 
 AWS CLI
 

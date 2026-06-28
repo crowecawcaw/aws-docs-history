@@ -54,8 +54,7 @@ hibernation:
   20240701 or later ³
 - Ubuntu 20.04 LTS (64-bit Arm) (Focal Fossa) AMI released with serial number 20240701 or
   later ³
-
- 
+   
 
 ¹ For AL2023 minimal AMI, [additional configuration is required](hibernation-enabled-AMI.md#configure-AL2023-minimal-for-hibernation "hibernation-enabled-AMI.md#configure-AL2023-minimal-for-hibernation").
 

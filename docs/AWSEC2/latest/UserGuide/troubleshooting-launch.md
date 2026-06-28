@@ -174,10 +174,10 @@ _AWS CloudTrail User Guide_.
 Depending on the termination reason, take one of the following actions:
 
 - **`Client.VolumeLimitExceeded: Volume limit
-exceeded`** — Delete unused volumes. You can [submit a request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ebs "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ebs") to increase your volume
+ exceeded`** — Delete unused volumes. You can [submit a request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ebs "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ebs") to increase your volume
   limit.
 - **`Client.InternalError: Client
-error on launch`** — Ensure that you have the
+ error on launch`** — Ensure that you have the
   permissions required to access the AWS KMS keys used to decrypt and encrypt volumes.
   For more information, see [Using
   key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service Developer Guide_.

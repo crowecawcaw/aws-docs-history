@@ -29,7 +29,7 @@ Use the instructions for your instance's operating system.
    - Run the following command to verify the existence of the `/sys/firmware/efi`
      directory. This directory exists only if the instance boots using UEFI.
      If this directory doesn't exist, the command returns `Legacy BIOS
-Boot Detected`.
+  Boot Detected`.
 
    ```
    `[ec2-user ~]$` [ -d /sys/firmware/efi ] && echo "UEFI Boot Detected" || echo "Legacy BIOS Boot Detected"

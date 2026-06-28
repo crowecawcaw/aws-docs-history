@@ -154,12 +154,12 @@ You may want to modify the default timeouts for any of the following cases:
 
 - If you are [monitoring tracked
   connections using Amazon EC2 network performance metrics](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md"), the
-  _conntrack_allowance_exceeded_ and
-  _conntrack_allowance_available_ metrics
+  _conntrack\_allowance\_exceeded_ and
+  _conntrack\_allowance\_available_ metrics
   enable you to monitor dropped packets and tracked connection utilization to
   proactively manage EC2 instance capacity with scale up or out actions to
   help meet network connections demand before dropping packets. If you are
-  observing _conntrack_allowance_exceeded_
+  observing _conntrack\_allowance\_exceeded_
   drops on your EC2 instances, you may benefit from setting a lower TCP
   established timeout to account for stale TCP/UDP sessions resulting from
   improper clients or network middle boxes.
@@ -190,17 +190,17 @@ following:
 In the following example, the security group has inbound rules that allow TCP and ICMP
 traffic, and outbound rules that allow all outbound traffic.
 
-| Inbound | Protocol type | Port number    | Source |
-| ------- | ------------- | -------------- | ------ |
-| TCP     | 22 (SSH)      | 203.0.113.1/32 |
-| TCP     | 80 (HTTP)     | 0.0.0.0/0      |
-| TCP     | 80 (HTTP)     | ::/0           |
-| ICMP    | All           | 0.0.0.0/0      |
+Inbound| Protocol type | Port number | Source |
+| --- | --- | --- |
+| TCP | 22 (SSH) | 203.0.113.1/32 |
+| TCP | 80 (HTTP) | 0.0.0.0/0 |
+| TCP | 80 (HTTP) | ::/0 |
+| ICMP | All | 0.0.0.0/0 |
 
-| Outbound | Protocol type | Port number | Destination |
-| -------- | ------------- | ----------- | ----------- |
-| All      | All           | 0.0.0.0/0   |
-| All      | All           | ::/0        |
+Outbound| Protocol type | Port number | Destination |
+| --- | --- | --- |
+| All | All | 0.0.0.0/0 |
+| All | All | ::/0 |
 
 With a direct network connection to the instance or network interface, the tracking
 behavior is as follows:

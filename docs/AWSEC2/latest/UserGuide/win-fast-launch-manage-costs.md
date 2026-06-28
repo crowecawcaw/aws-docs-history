@@ -28,16 +28,16 @@ for their AMI costs them around $5.00, and the cost breakdown is as follows:
     * Volume costs: five EBS root volumes
 
 2. When the pre-provisioning process completes, Amazon EC2 takes a snapshot of the instance, which
-   it stores in Amazon S3. Snapshots are typically stored for 4–8 hours before they
-   are consumed by a launch. In this case, the cost is roughly $0.02 to $0.05 per
-   snapshot.
+it stores in Amazon S3. Snapshots are typically stored for 4–8 hours before they
+are consumed by a launch. In this case, the cost is roughly $0.02 to $0.05 per
+snapshot.
 
 ###### Costs
 
     * Snapshot storage (Amazon S3): five snapshots
 
 3. After Amazon EC2 takes the snapshot, it stops the instance. At that point, the instance
-   is no longer accruing costs. However EBS volume costs continue to accrue.
+is no longer accruing costs. However EBS volume costs continue to accrue.
 
 ###### Costs
 

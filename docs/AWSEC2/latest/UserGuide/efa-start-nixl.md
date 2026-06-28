@@ -28,46 +28,45 @@ For other scenarios, see [Security group rules for different use cases](security
 
 ###### To create an EFA-enabled security group
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose **Security Groups** and then
-    choose **Create security group**.
-3.  In the **Create security group** window, do the following:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Security Groups** and then
+   choose **Create security group**.
+3. In the **Create security group** window, do the following:
 
-    1. For **Security group name**, enter a descriptive
-       name for the security group, such as `EFA-enabled security
-group`.
-    2. (Optional) For **Description**, enter a brief description
-       of the security group.
-    3. For **VPC**, select the VPC into which you intend to
-       launch your EFA-enabled instances.
-    4. Choose **Create security group**.
+   1. For **Security group name**, enter a descriptive
+      name for the security group, such as `EFA-enabled security
+  group`.
+   2. (Optional) For **Description**, enter a brief description
+      of the security group.
+   3. For **VPC**, select the VPC into which you intend to
+      launch your EFA-enabled instances.
+   4. Choose **Create security group**.
 
-4.  Select the security group that you created, and on the **Details** tab,
-    copy the **Security group ID**.
-5.  With the security group still selected, choose **Actions**, **Edit inbound rules**,
-    and then do the following:
+4. Select the security group that you created, and on the **Details** tab,
+   copy the **Security group ID**.
+5. With the security group still selected, choose **Actions**, **Edit inbound rules**,
+   and then do the following:
 
-    1. Choose **Add rule**.
-    2. For **Type**, choose **All traffic**.
-    3. For **Source type**, choose **Custom** and paste the security group ID that
-       you copied into the field.
-    4. Choose **Add rule**.
-    5. For **Type**, choose **SSH**.
-    6. For **Source type**, choose **Anywhere-IPv4**.
-    7. Choose **Save rules**.
+   1. Choose **Add rule**.
+   2. For **Type**, choose **All traffic**.
+   3. For **Source type**, choose **Custom** and paste the security group ID that
+      you copied into the field.
+   4. Choose **Add rule**.
+   5. For **Type**, choose **SSH**.
+   6. For **Source type**, choose **Anywhere-IPv4**.
+   7. Choose **Save rules**.
 
-6.  With the security group still selected, choose **Actions**, **Edit outbound rules**,
-    and then do the following:
+6. With the security group still selected, choose **Actions**, **Edit outbound rules**,
+   and then do the following:
 
-        1. Choose **Add rule**.
-        2. For **Type**, choose **All traffic**.
-        3. For **Destination type**, choose **Custom** and paste the security group ID that you copied into the field.
-        4. Choose **Save rules**.
-
-    Launch a temporary instance that you can use to install and configure the EFA software
-    components. You use this instance to create an EFA-enabled AMI from which you
-    can launch your EFA-enabled instances.
+   1. Choose **Add rule**.
+   2. For **Type**, choose **All traffic**.
+   3. For **Destination type**, choose **Custom** and paste the security group ID that you copied into the field.
+   4. Choose **Save rules**.
+      Launch a temporary instance that you can use to install and configure the EFA software
+      components. You use this instance to create an EFA-enabled AMI from which you
+      can launch your EFA-enabled instances.
 
 ###### To launch a temporary instance
 
@@ -613,39 +612,38 @@ Expected output:
 {"health":"true"}
 ```
 
-3.  Open two terminals for the instance. On both terminals, complete the following steps to run
-    nixlbench.
+3. Open two terminals for the instance. On both terminals, complete the following steps to run
+   nixlbench.
 
-    1. Navigate to the directory where nixlbench is installed.
+   1. Navigate to the directory where nixlbench is installed.
 
-    ```
-    `$` cd /usr/local/nixlbench/bin/
-    ```
-    2.  Run the test and specify the backend, address of the ETCD server, and initiator segment type.
-        The following command uses the ETCD server on the same instance, uses Libfabric as the backend,
-        and operates using GPU memory. The environment variables configure the following:
+   ```
+   `$` cd /usr/local/nixlbench/bin/
+   ```
+   2. Run the test and specify the backend, address of the ETCD server, and initiator segment type.
+      The following command uses the ETCD server on the same instance, uses Libfabric as the backend,
+      and operates using GPU memory. The environment variables configure the following:
 
-            * `NIXL_LOG_LEVEL=INFO` — Enables detailed debugging output. You can
-             also specify `WARN` to receive only error messages.
-            * `LD_LIBRARY_PATH` — Sets the path for the NIXL library.
-
+      - `NIXL_LOG_LEVEL=INFO` — Enables detailed debugging output. You can
+        also specify `WARN` to receive only error messages.
+      - `LD_LIBRARY_PATH` — Sets the path for the NIXL library.
         For more information about the NIXL Benchmark arguments, see the
         [NIXLbench
         README](https://github.com/ai-dynamo/nixl/blob/main/benchmark/nixlbench/README.md "https://github.com/ai-dynamo/nixl/blob/main/benchmark/nixlbench/README.md") in the official nixlbench repository.
 
-    ```
-    `$` export NIXL_LOG_LEVEL=INFO
-    `$` export LD_LIBRARY_PATH=/usr/local/nixl/lib/$(gcc -dumpmachine):$LD_LIBRARY_PATH
+   ```
+   `$` export NIXL_LOG_LEVEL=INFO
+   `$` export LD_LIBRARY_PATH=/usr/local/nixl/lib/$(gcc -dumpmachine):$LD_LIBRARY_PATH
 
-    `$` nixlbench --etcd-endpoints 'http://localhost:2379' \
-        --backend 'LIBFABRIC' \
-        --initiator_seg_type 'VRAM' \
-        --target_seg_type 'VRAM'
-    ```
+   `$` nixlbench --etcd-endpoints 'http://localhost:2379' \
+       --backend 'LIBFABRIC' \
+       --initiator_seg_type 'VRAM' \
+       --target_seg_type 'VRAM'
+   ```
 
-    ###### Note
+   ###### Note
 
-    Use the value `DRAM` instead of `VRAM` for non-GPU instances.
+   Use the value `DRAM` instead of `VRAM` for non-GPU instances.
 
 Install the machine learning applications on the temporary instance. The installation procedure varies
 depending on the specific machine learning application.

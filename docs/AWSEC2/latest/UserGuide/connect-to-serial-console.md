@@ -79,10 +79,9 @@ issues with connecting to the serial console:
      [Reboot your Amazon EC2 instance](ec2-instance-reboot.md "ec2-instance-reboot.md").
 
 5. (Linux instances only) At the `login` prompt, enter the username of the
-   password-based user that you [set up previously](configure-access-to-serial-console.md#set-user-password "configure-access-to-serial-console.md#set-user-password"),
-   and then press **Enter**.
-6. (Linux instances only) At the `Password` prompt, enter the password, and
-   then press **Enter**.
+password-based user that you [set up previously](configure-access-to-serial-console.md#set-user-password "configure-access-to-serial-console.md#set-user-password"),
+and then press **Enter**. 6. (Linux instances only) At the `Password` prompt, enter the password, and
+then press **Enter**.
 
 ## Connect using your own key and SSH client
 
@@ -189,10 +188,9 @@ issues with connecting to the serial console:
      only) or [Reboot your Amazon EC2 instance](ec2-instance-reboot.md "ec2-instance-reboot.md").
 
 5. (Linux instances only) At the `login` prompt, enter the username of the
-   password-based user that you [set up previously](configure-access-to-serial-console.md#set-user-password "configure-access-to-serial-console.md#set-user-password"),
-   and then press **Enter**.
-6. (Linux instances only) At the `Password` prompt, enter the password, and
-   then press **Enter**.
+password-based user that you [set up previously](configure-access-to-serial-console.md#set-user-password "configure-access-to-serial-console.md#set-user-password"),
+and then press **Enter**. 6. (Linux instances only) At the `Password` prompt, enter the password, and
+then press **Enter**.
 
 ## EC2 Serial Console endpoints and fingerprints
 

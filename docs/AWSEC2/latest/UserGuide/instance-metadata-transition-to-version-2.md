@@ -281,7 +281,7 @@ IMDSv1:**
      updating to use IMDSv2.
 
 3. **Configure new instances to require
-   IMDSv2:**
+IMDSv2:**
 
 Amazon EC2 console
 

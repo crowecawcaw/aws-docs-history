@@ -17,13 +17,12 @@ In addition, we provide the following:
   and restarting or terminating and replacing an instance). Examples of
   problems that cause system status checks to fail include:
 
-      + Loss of network connectivity
-      + Loss of system power
-      + Software issues on the physical host
-      + Hardware issues on the physical host that impact network
-       reachability
-
-  For more information, see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
+  - Loss of network connectivity
+  - Loss of system power
+  - Software issues on the physical host
+  - Hardware issues on the physical host that impact network
+    reachability
+    For more information, see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
 
 - **Instance status checks** – Monitor the software
   and network configuration of your individual instance. These checks detect
@@ -33,13 +32,12 @@ In addition, we provide the following:
   operating system). Examples of problems that may cause instance status
   checks to fail include:
 
-      + Failed system status checks
-      + Misconfigured networking or startup configuration
-      + Exhausted memory
-      + Corrupted file system
-      + Incompatible kernel
-
-  For more information, see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
+  - Failed system status checks
+  - Misconfigured networking or startup configuration
+  - Exhausted memory
+  - Corrupted file system
+  - Incompatible kernel
+    For more information, see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
 
 - **Amazon CloudWatch alarms** – Watch a single metric over a
   time period you specify, and perform one or more actions based on the value

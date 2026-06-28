@@ -79,6 +79,7 @@ The configuration has three levels:
     **OR** account
     `444455556666` (The evaluation logic
     for parameter values is not shown in the diagram.)
+    - `ImageWatermarks`
 
   - Single-value parameters:
 
@@ -153,6 +154,15 @@ The maximum age for allowed AMIs.
 
 The maximum period since deprecation for allowed AMIs.
 
+`ImageWatermarks`
+
+A list of watermark filters. The filter allows an AMI if any watermark on the AMI matches any filter entry (OR logic). Each filter can include the following fields:
+
+- `WatermarkKey` – The watermark key to match (`account-id:watermark-name`)
+- `SourceImageRegion` – The Region of the AMI to which you originally attached the watermark
+- `MaximumDaysSinceSourceImageCreated` – The maximum age of the source AMI when you applied the watermark
+- `MaximumDaysSinceWatermarkCreated` – The maximum number of days since you applied the watermark
+
 For the valid values and constraints for each criterion, see [ImageCriterionRequest](../APIReference/API_ImageCriterionRequest.md "../APIReference/API_ImageCriterionRequest.md") in the _Amazon EC2 API Reference_.
 
 ### Allowed AMIs configuration
@@ -174,7 +184,15 @@ parameters that can be specified:
             },
             "DeprecationTimeCondition" : {
                 "MaximumDaysSinceDeprecated": integer
-            }
+            },
+            "ImageWatermarks": [
+                {
+                    "WatermarkKey": "string",
+                    "SourceImageRegion": "string",
+                    "MaximumDaysSinceSourceImageCreated": integer,
+                    "MaximumDaysSinceWatermarkCreated": integer
+                },...
+            ]
          },
          ...
 }
@@ -182,7 +200,7 @@ parameters that can be specified:
 
 #### ImageCriteria example
 
-The following `ImageCriteria` example configures four
+The following `ImageCriteria` example configures five
 `ImageCriterion`. An AMI is allowed if it matches any one of
 these `ImageCriterion`. For information about how the criteria are
 evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated "#how-allowed-amis-criteria-are-evaluated").
@@ -226,6 +244,16 @@ evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evalu
             "DeprecationTimeCondition": {
                 "MaximumDaysSinceDeprecated": `0`
             }
+        },
+        // ImageCriterion 5: Allow AMIs that carry an approved watermark
+        // from account "111122223333" AND the watermark was applied less than 90 days ago
+        {
+            "ImageWatermarks": [
+                {
+                    "WatermarkKey": "`111122223333:prod-baseline`",
+                    "MaximumDaysSinceWatermarkCreated": `90`
+                }
+            ]
         }
     ]
 }
@@ -237,11 +265,11 @@ The following table explains the evaluation rules that determine if an AMI is al
 showing how the `AND` or `OR` operator is applied at each
 level:
 
-| Evaluation level                                                                      | Operator | Requirement to be an Allowed AMI                         |
-| ------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------- |
-| Parameter values for `ImageProviders`, `ImageNames`, and<br>`MarketplaceProductCodes` | `OR`     | AMI must match at least one value in each parameter list |
-| `ImageCriterion`                                                                      | `AND`    | AMI must match all parameters in each `ImageCriterion`   |
-| `ImageCriteria`                                                                       | `OR`     | AMI must match any one of the `ImageCriterion`           |
+| Evaluation level                                                                                         | Operator | Requirement to be an Allowed AMI                         |
+| -------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------- |
+| Parameter values for `ImageProviders`, `ImageNames`,<br>`MarketplaceProductCodes`, and `ImageWatermarks` | `OR`     | AMI must match at least one value in each parameter list |
+| `ImageCriterion`                                                                                         | `AND`    | AMI must match all parameters in each `ImageCriterion`   |
+| `ImageCriteria`                                                                                          | `OR`     | AMI must match any one of the `ImageCriterion`           |
 
 Using the preceding evaluation rules, let's see how to apply them to the [ImageCriteria example](#allowed-amis-json-configuration-example "#allowed-amis-json-configuration-example"):
 
@@ -252,29 +280,23 @@ Using the preceding evaluation rules, let's see how to apply them to the [ImageC
 
 - `ImageCriterion` 2: Allows AMIs that meet both of these criteria:
 
-      + Owned by either account `123456789012`
-      `OR`
-      `123456789013`
+  - Owned by either account `123456789012`
+    `OR`
+    `123456789013`
 
+    - `AND`
 
-
-
-      	- `AND`
-      + Created within the last 300 days
-
-  `OR`
+  - Created within the last 300 days
+    `OR`
 
 - `ImageCriterion` 3: Allows AMIs that meet both of these criteria:
 
-      + Owned by account `123456789014`
+  - Owned by account `123456789014`
 
+    - `AND`
 
-
-
-      	- `AND`
-      + Named with the pattern `golden-ami-*`
-
-  `OR`
+  - Named with the pattern `golden-ami-*`
+    `OR`
 
 - `ImageCriterion` 4: Allows AMIs that meet both of these criteria:
 
@@ -285,6 +307,15 @@ Using the preceding evaluation rules, let's see how to apply them to the [ImageC
 
   - Not deprecated (maximum days since deprecation is
     `0`)
+    `OR`
+
+- `ImageCriterion` 5: Allows AMIs that carry a watermark matching:
+
+  - Watermark key `111122223333:prod-baseline`
+
+    - `AND`
+
+  - You applied the watermark less than 90 days ago
 
 ### Limits
 
@@ -297,12 +328,13 @@ Each `ImageCriterion` can include up to:
 - 200 values for `ImageProviders`
 - 50 values for `ImageNames`
 - 50 values for `MarketplaceProductCodes`
+- 50 values for `ImageWatermarks`
 
 **Example of limits**
 
 Using the preceding [ImageCriteria example](#allowed-amis-json-configuration-example "#allowed-amis-json-configuration-example"):
 
-- There are 4 `ImageCriterion`. Up to 6 more can be added to the request to
+- There are 5 `ImageCriterion`. Up to 5 more can be added to the request to
   reach the limit of 10.
 - In the first `ImageCriterion`, there is 1 value for
   `MarketplaceProductCodes`. Up to 49 more can be added to this
@@ -396,7 +428,7 @@ your criteria to allow these AMIs.
 
 Console: Use the [ec2-instance-launched-with-allowed-ami](../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md "../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md") AWS Config rule to check if
 running or stopped instances were launched with AMIs that meet your Allowed AMIs
-criteria. The rule is **NON_COMPLIANT** if an AMI doesn't meet
+criteria. The rule is **NON\_COMPLIANT** if an AMI doesn't meet
 the Allowed AMIs criteria, and **COMPLIANT** if it does. The
 rule only operates when the Allowed AMIs setting is set to
 **enabled** or **audit mode**.

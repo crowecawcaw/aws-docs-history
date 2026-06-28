@@ -113,9 +113,9 @@ For:
   connect to. Alternatively, specify `%h`, which extracts the
   instance ID from the user. For instances with an IPv6 address, replace
   `--instance-id
-`i-1234567890abcdef0`` with
-`--private-ip-address
-`2001:db8::1234:5678:1.2.3.4``.
+ `i-1234567890abcdef0`` with
+ `--private-ip-address
+ `2001:db8::1234:5678:1.2.3.4``.
 
 ### Multi-connection
 
@@ -242,7 +242,7 @@ aws ec2-instance-connect open-tunnel \
 5. In the **Edit PC** window, for **PC
    name** (the instance to connect to), enter
    `localhost:`local-port`, where
-`local-port`` uses the same
+ `local-port`` uses the same
    value as you specified in Step 2, and then choose
    **Save**.
 

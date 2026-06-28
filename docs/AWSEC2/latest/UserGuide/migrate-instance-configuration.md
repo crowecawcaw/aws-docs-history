@@ -72,7 +72,7 @@ follows:
     7. Choose **Associate**.
 
 9. (Optional) You can terminate the original instance if it's no longer needed.
-   Select the instance, verify that you are about to terminate the original instance
-   and not the new instance (for example, check the name or launch time), and then
-   choose **Instance state**, **Terminate
-   instance**.
+Select the instance, verify that you are about to terminate the original instance
+and not the new instance (for example, check the name or launch time), and then
+choose **Instance state**, **Terminate
+instance**.

@@ -23,10 +23,10 @@ imported to Amazon EC2.
 The following table lists the hash functions that are used to calculate the fingerprints
 for RSA and ED25519 key pairs that are created by Amazon EC2 and imported to Amazon EC2.
 
-| (Linux instances) Hash functions used to calculate fingerprints | Key pair source | RSA key pairs (Windows and Linux) | ED25519 key pairs (Linux) |
-| --------------------------------------------------------------- | --------------- | --------------------------------- | ------------------------- |
-| Created by Amazon EC2                                           | SHA-1           | SHA-256                           |
-| Imported to Amazon EC2                                          | MD5¹            | SHA-256                           |
+(Linux instances) Hash functions used to calculate fingerprints| Key pair source | RSA key pairs (Windows and Linux) | ED25519 key pairs (Linux) |
+| --- | --- | --- |
+| Created by Amazon EC2 | SHA-1 | SHA-256 |
+| Imported to Amazon EC2 | MD5¹ | SHA-256 |
 
 ¹ If you import a public RSA key to Amazon EC2, the fingerprint is calculated using an
 MD5 hash function. This is true regardless of how you created the key pair, for example, by

@@ -41,14 +41,13 @@ the devolution behavior.
 
 - **`System\CurrentControlSet\Services\Dnscache\Parameters\DomainNameDevolutionLevel`**
 
-      + When not set, use level of `2` (default)
-      + When set to `3` or greater, use value to set level
-
-  When you disable devolution or change your devolution settings to a higher level, the
-  `System\CurrentControlSet\Services\Tcpip\Parameters\SearchList`
-  registry key stil contains the suffixes that were added previously. They are not
-  automatically removed. You can manually update the list, or you can clear the list
-  and let your agent run through the process to set up the new list.
+  - When not set, use level of `2` (default)
+  - When set to `3` or greater, use value to set level
+    When you disable devolution or change your devolution settings to a higher level, the
+    `System\CurrentControlSet\Services\Tcpip\Parameters\SearchList`
+    registry key stil contains the suffixes that were added previously. They are not
+    automatically removed. You can manually update the list, or you can clear the list
+    and let your agent run through the process to set up the new list.
 
 ###### Note
 

@@ -1446,7 +1446,7 @@ capacity.
    use the [get-instance-types-from-instance-requirements](../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md "../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md") command and the
    `--generate-cli-skeleton` parameter. You can optionally direct
    the output to a file to save it by using `input >
-`attributes.json``.
+ `attributes.json``.
 
 ```
 aws ec2 get-instance-types-from-instance-requirements \
@@ -1567,10 +1567,10 @@ For a description of each attribute and their default values, see
      further constrain the list of instance types that are returned.
 
 3. To preview the instance types that have the attributes that you specified in
-   the JSON file, use the [get-instance-types-from-instance-requirements](../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md "../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md") command, and
-   specify the name and path to your JSON file by using the
-   `--cli-input-json` parameter. You can optionally format the
-   output to appear in a table format.
+the JSON file, use the [get-instance-types-from-instance-requirements](../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md "../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md") command, and
+specify the name and path to your JSON file by using the
+`--cli-input-json` parameter. You can optionally format the
+output to appear in a table format.
 
 ```
 aws ec2 get-instance-types-from-instance-requirements \

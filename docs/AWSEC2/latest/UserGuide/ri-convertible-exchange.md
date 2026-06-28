@@ -51,7 +51,7 @@ The following rules apply:
 
 If the total upfront payment required for the exchange (true-up cost)
 is less than $0.00, AWS automatically gives you a quantity of
-instances in the Convertible Reserved Instance that ensures that true-up cost is $0.00 or
+ instances in the Convertible Reserved Instance that ensures that true-up cost is $0.00 or
 more.
 
 ###### Note
@@ -103,7 +103,7 @@ Convertible Reserved Instances that you want in order to determine how many inst
 receive from the exchange.
 
 For example: You have 1 x $35-list value Convertible Reserved Instance that you want to exchange for a new
-instance type with a list value of $10.
+ instance type with a list value of $10.
 
 ```
 $35/$10 = 3.5
@@ -120,7 +120,7 @@ remainder:
 The fourth Convertible Reserved Instance has the same end date as the other three. If you are exchanging
 Partial or All Upfront Convertible Reserved Instances, you pay the true-up cost for the fourth reservation.
 If the remaining upfront cost of your Convertible Reserved Instances is $500, and the new reservation would
-normally cost $600 on a prorated basis, you are charged $100.
+ normally cost $600 on a prorated basis, you are charged $100.
 
 ```
 $600 prorated upfront cost of new reservations - $500 remaining upfront cost of old reservations = $100 difference

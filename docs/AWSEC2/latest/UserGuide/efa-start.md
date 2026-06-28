@@ -47,7 +47,7 @@ For other scenarios, see [Security group rules for different use cases](security
 
    1. For **Security group name**, enter a descriptive
       name for the security group, such as `EFA-enabled security
-group`.
+  group`.
    2. (Optional) For **Description**, enter a brief description
       of the security group.
    3. For **VPC**, select the VPC into which you intend to
@@ -603,7 +603,7 @@ Do one of the following:
      Intel MPI `vars.sh` script.
 
 2. To confirm that the EFA software components and Libfabric were successfully installed,
-   run the following command.
+run the following command.
 
 ```
 `$` fi_info -p efa -t FI_EP_RDM

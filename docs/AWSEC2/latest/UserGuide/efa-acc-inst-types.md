@@ -212,24 +212,20 @@ launch for internet connectivity.
   use an ENA network interface.
 - For the remaining interfaces, do the following:
 
-      + Specify EFA-only network interfaces on network card index 0 device index 1, and for network card indexes 1, 2, and 3,
-       use device index 0.
-      + Specify one ENA network interface and four EFA-only network
-       interfaces **in each** of the following network
-       card index subsets, and use device index 1 for ENA network interface and device index 0 for EFA-only network interfaces:
+  - Specify EFA-only network interfaces on network card index 0 device index 1, and for network card indexes 1, 2, and 3,
+    use device index 0.
+  - Specify one ENA network interface and four EFA-only network
+    interfaces **in each** of the following network
+    card index subsets, and use device index 1 for ENA network interface and device index 0 for EFA-only network interfaces:
 
-
-
-
-      	- [4,5,6,7]
-      	- [8,9,10,11]
-      	- [12,13,14,15]
-      	- [16,17,18,19]
-      	- [20,21,22,23]
-      	- [24,25,26,27]
-      	- [28,29,30,31]
-
-  The following example illustrates this configuration:
+    - [4,5,6,7]
+    - [8,9,10,11]
+    - [12,13,14,15]
+    - [16,17,18,19]
+    - [20,21,22,23]
+    - [24,25,26,27]
+    - [28,29,30,31]
+      The following example illustrates this configuration:
 
 ```
 $ aws --region $REGION ec2 run-instances \
@@ -356,17 +352,16 @@ networking bandwidth using only the primary NCI (index 0).
   interface.
 - Add EFA-only network interfaces to the following:
 
-      + NCI 1, device index 0
-      + NCI 5, device index 0
-      + NCI 9, device index 0
-      + NCI 13, device index 0
-
-  P6-B300 instances have a total network bandwidth capacity of up to 6400 Gbps for EFA
-  traffic, and up to 3870 Gbps for ENA traffic. They have 8 GPUs and 17 network cards,
-  where the primary network card supports only an ENA network interface with up to 350
-  Gbps of bandwidth. The secondary network cards support up to 400 Gbps EFA and up to
-  220 Gbps of ENA bandwidth. Since EFA and ENA traffic share the same underlying resources,
-  bandwidth used by one will reduce the bandwidth that is available to the other.
+  - NCI 1, device index 0
+  - NCI 5, device index 0
+  - NCI 9, device index 0
+  - NCI 13, device index 0
+    P6-B300 instances have a total network bandwidth capacity of up to 6400 Gbps for EFA
+    traffic, and up to 3870 Gbps for ENA traffic. They have 8 GPUs and 17 network cards,
+    where the primary network card supports only an ENA network interface with up to 350
+    Gbps of bandwidth. The secondary network cards support up to 400 Gbps EFA and up to
+    220 Gbps of ENA bandwidth. Since EFA and ENA traffic share the same underlying resources,
+    bandwidth used by one will reduce the bandwidth that is available to the other.
 
 ![Physical network interface card (NIC) and network card index (NCI) mapping for P6-B300 instances.](images/p6-b300.png)
 

@@ -7,7 +7,7 @@ The EC2Rescue for Windows Server tool has two execution modes:
 
 - **/online**—This allows you to take action on the instance that
   EC2Rescue for Windows Server is installed on, such as collect log files.
-- **/offline:<device_id>**—This allows you to take action on
+- **/offline:<device\_id>**—This allows you to take action on
   the offline root volume that is attached to a separate Amazon EC2 Windows instance, on which
   you have installed EC2Rescue for Windows Server.
   Download the [EC2Rescue for Windows Server](https://s3.amazonaws.com/ec2rescue/windows/EC2Rescue_latest.zip?x-download-source=docs "https://s3.amazonaws.com/ec2rescue/windows/EC2Rescue_latest.zip?x-download-source=docs") tool to your Windows instance and extract the files. You
@@ -92,7 +92,7 @@ EC2RescueCmd /accepteula /online /collect:'ec2config.Log Files,driver-setup.Setu
 #### Offline mode examples
 
 Collect all available logs from an EBS volume. The volume is specified by the
-device_id value.
+device\_id value.
 
 ```
 EC2RescueCmd /accepteula /offline:`xvdf` /collect:all /output:<outputFilePath>
@@ -143,7 +143,7 @@ you use the `/check-only` option. You must use the
 ### Rescue examples
 
 The following are examples using the EC2Rescue for Windows Server CLI. The volume is
-specified using the device_id value.
+specified using the device\_id value.
 
 Attempt to fix all identified issues on a volume:
 
@@ -173,10 +173,10 @@ EC2RescueCmd /accepteula /offline:`xvdf` /rescue:'system-time.RealTimeIsUniversa
 
 EC2Rescue for Windows Server can detect and address issues with the following service settings:
 
-| Service Group                               | Available Actions | Description                                                                                                   |
-| ------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| Restore Last Known Good Configuration       | `lkgc`            | \*_Last Known Good Configuration_<br>• ‐ Attempts to boot the<br>instance into the last known bootable state. |
-| Restore Windows registry from latest backup | `regback`         | \*_Restore registry from backup_<br>• ‐ Restores the registry<br>from `\Windows\System32\config\RegBack`.     |
+| Service Group                               | Available Actions | Description                                                                                                  |
+| ------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| Restore Last Known Good Configuration       | `lkgc`            | *_Last Known Good Configuration_<br>• ‐ Attempts to boot the<br>instance into the last known bootable state. |
+| Restore Windows registry from latest backup | `regback`         | *_Restore registry from backup_<br>• ‐ Restores the registry<br>from `\Windows\System32\config\RegBack`.     |
 
 The following are the available options:
 
@@ -188,7 +188,7 @@ The following are the available options:
 ### Restore examples
 
 The following are examples using the EC2Rescue for Windows Server CLI. The volume is
-specified using the device_id value.
+specified using the device\_id value.
 
 Restore last known good configuration on a volume:
 

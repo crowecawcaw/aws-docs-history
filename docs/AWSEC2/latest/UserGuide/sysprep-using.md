@@ -22,7 +22,7 @@ image.
 2. The EC2Config service reads the content of the
    `BundleConfig.xml` file. This file is located in the
    following directory, by default: `C:\Program
-Files\Amazon\Ec2ConfigService\Settings`.
+ Files\Amazon\Ec2ConfigService\Settings`.
 
 The `BundleConfig.xml` file includes the following
 settings. You can change these settings:
@@ -51,7 +51,7 @@ settings. You can change these settings:
      Files\Amazon\Ec2ConfigService\Scripts\BeforeSysprep.cmd`
 
 3. The system runs `BeforeSysprep.cmd`. This command
-   creates a registry key as follows:
+creates a registry key as follows:
 
 ```
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 1 /f
@@ -134,8 +134,8 @@ Files\Amazon\Ec2ConfigService\Scripts\SysprepSpecializePhase.cmd
 This command adds the following registry key, which re-enables
 RDP:
 
-reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
-Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+reg add "HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
+Server" /v fDenyTSConnections /t REG\_DWORD /d 0 /f
 
 ### OOBE phase
 

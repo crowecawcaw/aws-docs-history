@@ -53,11 +53,10 @@ User Guide_.
   Support for multiple instance sizes is available for the following instance
   families.
 
-      + **General purpose:** M5 | M5d | M7i
-      + **Compute optimized:** C5 | C5d | C7i
-      + **Memory optimized:** R5 | R5d | R7i
-
-  For more information, see [Amazon EC2 Dedicated Host instance capacity configurations](dedicated-hosts-limits.md "dedicated-hosts-limits.md").
+  - **General purpose:** M5 | M5d | M7i
+  - **Compute optimized:** C5 | C5d | C7i
+  - **Memory optimized:** R5 | R5d | R7i
+    For more information, see [Amazon EC2 Dedicated Host instance capacity configurations](dedicated-hosts-limits.md "dedicated-hosts-limits.md").
 
 - Dedicated Hosts on Outposts support auto-placement and targeted instance launches.
   For more information, see [Amazon EC2 Dedicated Host auto-placement and host affinity](dedicated-hosts-understanding.md "dedicated-hosts-understanding.md").

@@ -35,7 +35,7 @@ The restrictions are:
 
 - Can only include letters (`a-z`, `A-Z`), numbers
   (`0-9`), and the following characters: `+ - = . , _
-: @`.
+ : @`.
 - Can't contain spaces or `/`.
 - Can't consist only of `.` (one period), `..`
   (two periods), or `_index`.

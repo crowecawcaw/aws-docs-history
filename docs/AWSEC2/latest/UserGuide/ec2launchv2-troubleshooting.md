@@ -34,7 +34,7 @@ resolution.
 ###### Resolution
 
 1. Check that `%AppData%\Roaming\Microsoft\Windows\Start
-Menu\Programs\Startup\setwallpaper.lnk` exists.
+ Menu\Programs\Startup\setwallpaper.lnk` exists.
 2. Check `%ProgramData%\Amazon\EC2Launch\log\agent.log` to see
    if any errors occurred.
 

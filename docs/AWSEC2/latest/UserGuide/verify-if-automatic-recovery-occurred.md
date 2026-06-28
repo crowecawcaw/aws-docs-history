@@ -5,7 +5,7 @@ have undergone [automatic instance
 recovery](ec2-instance-recover.md#ec2-automatic-instance-recovery-key-concepts "ec2-instance-recover.md#ec2-automatic-instance-recovery-key-concepts") in response to an underlying hardware or software issue. You can verify this
 by checking for automatic instance recovery events in your Health Dashboard. You can also check whether
 an underlying hardware or software issue was detected for your instance by checking the
-**StatusCheckFailed_System** Amazon CloudWatch metric.
+**StatusCheckFailed\_System** Amazon CloudWatch metric.
 
 ## Check for events in Health Dashboard
 
@@ -34,7 +34,7 @@ succeeded or failed.
 ## Monitor system status checks with CloudWatch
 
 You can verify if an underlying hardware or software issue was detected for your
-instance by checking the [StatusCheckFailed_System](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics") metric in CloudWatch. The metric value indicates whether a
+instance by checking the [StatusCheckFailed\_System](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics") metric in CloudWatch. The metric value indicates whether a
 system status check passed (no hardware or software issue) or failed (hardware or software
 issue).
 
@@ -55,13 +55,13 @@ StatusCheckFailed_System
 6. Change the query period to the time that you suspect the recovery event
    occurred.
 7. Choose the **Graphed metrics** tab, and for
-   **StatusCheckFailed_System**, do the following:
+   **StatusCheckFailed\_System**, do the following:
 
    1. For **Statistic**, choose either **Average**,
       **Maximum**, or **Minimum**.
    2. For **Period**, choose **1 minute**.
 
-8. Check the value for **StatusCheckFailed_System**.
+8. Check the value for **StatusCheckFailed\_System**.
 
    - Value of **0**: The system status check passed, indicating no
      underlying hardware or software issue.

@@ -107,16 +107,15 @@ Amazon Linux 2
 
 ###### To configure GRUB on an Amazon Linux 2 instance
 
-1.  [Connect to your Linux instance using SSH](connect-to-linux-instance.md "connect-to-linux-instance.md")
-2.  Add or change the following options in
-    `/etc/default/grub`:
+1. [Connect to your Linux instance using SSH](connect-to-linux-instance.md "connect-to-linux-instance.md")
+2. Add or change the following options in
+   `/etc/default/grub`:
 
-        * Set `GRUB_TIMEOUT=1`.
-        * Add `GRUB_TERMINAL="console serial"`.
-        * Add `GRUB_SERIAL_COMMAND="serial --speed=115200"`.
-
-    The following is an example of `/etc/default/grub`. You might
-    need to change the configuration based on your system setup.
+   - Set `GRUB_TIMEOUT=1`.
+   - Add `GRUB_TERMINAL="console serial"`.
+   - Add `GRUB_SERIAL_COMMAND="serial --speed=115200"`.
+     The following is an example of `/etc/default/grub`. You might
+     need to change the configuration based on your system setup.
 
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0"
@@ -136,20 +135,19 @@ Ubuntu
 
 ###### To configure GRUB on an Ubuntu instance
 
-1.  [Connect](connect-to-linux-instance.md "connect-to-linux-instance.md") to your
-    instance.
-2.  Add or change the following options in
-    `/etc/default/grub.d/50-cloudimg-settings.cfg`:
+1. [Connect](connect-to-linux-instance.md "connect-to-linux-instance.md") to your
+   instance.
+2. Add or change the following options in
+   `/etc/default/grub.d/50-cloudimg-settings.cfg`:
 
-        * Set `GRUB_TIMEOUT=1`.
-        * Add `GRUB_TIMEOUT_STYLE=menu`.
-        * Add `GRUB_TERMINAL="console serial"`.
-        * Remove `GRUB_HIDDEN_TIMEOUT`.
-        * Add `GRUB_SERIAL_COMMAND="serial --speed=115200"`.
-
-    The following is an example of
-    `/etc/default/grub.d/50-cloudimg-settings.cfg`. You might need to
-    change the configuration based on your system setup.
+   - Set `GRUB_TIMEOUT=1`.
+   - Add `GRUB_TIMEOUT_STYLE=menu`.
+   - Add `GRUB_TERMINAL="console serial"`.
+   - Remove `GRUB_HIDDEN_TIMEOUT`.
+   - Add `GRUB_SERIAL_COMMAND="serial --speed=115200"`.
+     The following is an example of
+     `/etc/default/grub.d/50-cloudimg-settings.cfg`. You might need to
+     change the configuration based on your system setup.
 
 ```
 # Cloud Image specific Grub settings for Generic Cloud Images
@@ -180,17 +178,16 @@ RHEL
 
 ###### To configure GRUB on a RHEL instance
 
-1.  [Connect](connect-to-linux-instance.md "connect-to-linux-instance.md") to your
-    instance.
-2.  Add or change the following options in
-    `/etc/default/grub`:
+1. [Connect](connect-to-linux-instance.md "connect-to-linux-instance.md") to your
+   instance.
+2. Add or change the following options in
+   `/etc/default/grub`:
 
-        * Remove `GRUB_TERMINAL_OUTPUT`.
-        * Add `GRUB_TERMINAL="console serial"`.
-        * Add `GRUB_SERIAL_COMMAND="serial --speed=115200"`.
-
-    The following is an example of `/etc/default/grub`. You might
-    need to change the configuration based on your system setup.
+   - Remove `GRUB_TERMINAL_OUTPUT`.
+   - Add `GRUB_TERMINAL="console serial"`.
+   - Add `GRUB_SERIAL_COMMAND="serial --speed=115200"`.
+     The following is an example of `/etc/default/grub`. You might
+     need to change the configuration based on your system setup.
 
 ```
 GRUB_TIMEOUT=1

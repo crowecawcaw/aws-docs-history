@@ -32,34 +32,28 @@ nvme0n1       259:1    0    8G  0 disk
 nvme1n1       259:0    0 69.9G  0 disk
 ```
 
-4.  To format and mount an instance store volume that was mapped only, do the
-    following:
+4. To format and mount an instance store volume that was mapped only, do the
+   following:
 
-        1. Create a file system on the device using the `mkfs` command.
+   1. Create a file system on the device using the `mkfs` command.
 
+   ```
+   `$` `sudo mkfs -t xfs` `/dev/nvme1n1`
+   ```
+   2. Create a directory on which to mount the device using the `mkdir`
+      command.
 
+   ```
+   `$` `sudo mkdir` `/data`
+   ```
+   3. Mount the device on the newly created directory using the `mount`
+      command.
 
-        ```
-        `$` `sudo mkfs -t xfs` `/dev/nvme1n1`
-        ```
-        2. Create a directory on which to mount the device using the `mkdir`
-         command.
+   ```
+   `$` `sudo mount` `/dev/nvme1n1 /data`
+   ```
 
-
-
-        ```
-        `$` `sudo mkdir` `/data`
-        ```
-        3. Mount the device on the newly created directory using the `mount`
-         command.
-
-
-
-        ```
-        `$` `sudo mount` `/dev/nvme1n1 /data`
-        ```
-
-    For Windows instances, we reformat the instance store volumes with the NTFS file system.
+For Windows instances, we reformat the instance store volumes with the NTFS file system.
 
 You can view the instance store volumes using Windows Disk Management. For more information,
 see [List non-NVMe disks](windows-list-disks.md#windows-disks "windows-list-disks.md#windows-disks").

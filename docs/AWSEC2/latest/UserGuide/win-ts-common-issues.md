@@ -205,7 +205,7 @@ instance uses UTC after you restart it.
    information, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
 2. Verify that the following registry key exists and is set to
    `1`:
-   **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\RealTimeIsUniversal**
+   **HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\RealTimeIsUniversal**
 
 ## Unable to get console output
 
@@ -245,7 +245,7 @@ you are not familiar with the Windows Registry or how to safely make changes usi
 
 1. Open a command prompt, type **regedit.exe**, and press Enter.
 2. In the **Registry Editor**, choose
-   **HKEY_LOCAL_MACHINE** from the context menu
+   **HKEY\_LOCAL\_MACHINE** from the context menu
    (right-click), and then choose **Find**.
 3. Type **Windows Boot Manager** and then choose
    **Find Next**.

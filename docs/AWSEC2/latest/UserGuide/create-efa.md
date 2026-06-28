@@ -92,8 +92,7 @@ You can't assign IP addresses to an EFA-only network interface.
     	 for idle UDP flows classified as streams that have seen more than one request-response
     	 transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 
-7. For **Security groups**, select one or more security groups.
-8. Choose **Create network interface**.
+7. For **Security groups**, select one or more security groups. 8. Choose **Create network interface**.
 
 AWS CLI
 

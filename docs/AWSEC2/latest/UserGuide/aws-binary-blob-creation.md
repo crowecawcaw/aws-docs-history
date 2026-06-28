@@ -42,7 +42,7 @@ cat MS_Win_db.esl MS_UEFI_db.esl > MS_db.esl
 
 6. The Unified Extensible Firmware Interface Forum no longer provides the DBX files.
    They are now provided by Microsoft on GitHub. Download the latest DBX update from the
-   Microsoft Secure Boot updates repository at [https://github.com/microsoft/secureboot_objects](https://github.com/microsoft/secureboot_objects "https://github.com/microsoft/secureboot_objects").
+   Microsoft Secure Boot updates repository at [https://github.com/microsoft/secureboot\_objects](https://github.com/microsoft/secureboot_objects "https://github.com/microsoft/secureboot_objects").
 7. Unpack the signed update-binary.
 
 Create `SplitDbxContent.ps1` with the script content below.

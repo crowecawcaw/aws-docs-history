@@ -528,8 +528,7 @@ naming options**.
      resolve to the IPv6 address (AAAA record) of this EC2
      instance.
 
-4. Choose **Save**.
-5. If you stopped the instance, start it again.
+4. Choose **Save**. 5. If you stopped the instance, start it again.
 
 AWS CLI
 

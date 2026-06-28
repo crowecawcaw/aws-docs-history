@@ -90,7 +90,7 @@ following:
      in the *Amazon VPC IPAM User Guide*.
 
 6. (Optional) To add a tag, choose **Add new tag**
-   and enter a tag key and a tag value.
+and enter a tag key and a tag value.
 
 AWS CLI
 

@@ -24,27 +24,23 @@ nanoseconds.
 
 ###### To retrieve the PTP hardware clock error bound
 
-1.  First get the correct location of the PTP hardware clock device by using one
-    of the following commands. The path in the command is different depending on the
-    AMI used to launch the instance.
+1. First get the correct location of the PTP hardware clock device by using one
+   of the following commands. The path in the command is different depending on the
+   AMI used to launch the instance.
 
-        * For Amazon Linux 2:
+   - For Amazon Linux 2:
 
+   ```
+   cat /sys/class/net/eth0/device/uevent | grep PCI_SLOT_NAME
+   ```
+   - For Amazon Linux 2023:
 
+   ```
+   cat /sys/class/net/ens5/device/uevent | grep PCI_SLOT_NAME
+   ```
 
-        ```
-        cat /sys/class/net/eth0/device/uevent | grep PCI_SLOT_NAME
-        ```
-        * For Amazon Linux 2023:
-
-
-
-        ```
-        cat /sys/class/net/ens5/device/uevent | grep PCI_SLOT_NAME
-        ```
-
-    The output is the PCI slot name, which is the location of the PTP hardware
-    clock device. In this example, the location is `0000:00:03.0`.
+The output is the PCI slot name, which is the location of the PTP hardware
+clock device. In this example, the location is `0000:00:03.0`.
 
 ```
 PCI_SLOT_NAME=`0000:00:03.0`

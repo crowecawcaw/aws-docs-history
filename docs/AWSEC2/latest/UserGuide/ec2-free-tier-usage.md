@@ -47,10 +47,10 @@ aws ec2 describe-images \
 
 ###### Note
 
-**_This section only applies to Free Tier users who
+_**This section only applies to Free Tier users who
 created AWS accounts before July 15, 2025. If you created your account
 on or after July 15, 2025, see [Tracking your AWS Free Tier usage](../../../awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.md "../../../awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.md") in the
-AWS Billing User Guide._**
+AWS Billing User Guide.**_
 
 If you created your account before July 15, 2025, you can use Amazon EC2 without incurring
 charges if you've been an AWS customer for less than 12 months and you stay within
@@ -100,17 +100,17 @@ follows:
      three times a day.
 
 5. To avoid incurring further charges, delete any resources that are either incurring charges
-   now, or will incur charges if you exceed your Free Tier limit usage.
+now, or will incur charges if you exceed your Free Tier limit usage.
 
-   - For the instructions to delete your instance, see [Terminate Amazon EC2 instances](terminating-instances.md "terminating-instances.md").
-   - To check if you have resources in other Regions that might be incurring charges, in the
+    * For the instructions to delete your instance, see [Terminate Amazon EC2 instances](terminating-instances.md "terminating-instances.md").
+    * To check if you have resources in other Regions that might be incurring charges, in the
      **EC2 Free Tier** box, choose **View Global
      EC2 resources** to open the **EC2 Global
      View**. For more information, see [View resources across Regions using AWS Global View](global-view.md "global-view.md").
 
 6. To view your resource usage for all AWS services under the AWS Free Tier,
-   at the bottom of the **EC2 Free Tier** box, choose
-   **View all AWS Free Tier offers**. For more information,
-   see [Trying
-   services using AWS Free Tier](../../../awsaccountbilling/latest/aboutv2/billing-free-tier.md "../../../awsaccountbilling/latest/aboutv2/billing-free-tier.md") in the _AWS
-   Billing User Guide_.
+at the bottom of the **EC2 Free Tier** box, choose
+**View all AWS Free Tier offers**. For more information,
+see [Trying
+services using AWS Free Tier](../../../awsaccountbilling/latest/aboutv2/billing-free-tier.md "../../../awsaccountbilling/latest/aboutv2/billing-free-tier.md") in the _AWS
+Billing User Guide_.

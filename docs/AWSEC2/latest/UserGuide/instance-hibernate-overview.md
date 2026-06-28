@@ -87,11 +87,10 @@ see [Differences between instance states](ec2-instance-lifecycle.md#lifecycle-di
   equal to your specified maximum price.
 - If _Amazon EC2_ hibernates your Spot Instance:
 
-      + Only Amazon EC2 can resume your instance.
-      + Amazon EC2 resumes the hibernated Spot Instance when capacity becomes available
-       with a Spot price that is less than or equal to your specified
-       maximum price.
-      + Before Amazon EC2 hibernates your Spot Instance, you'll receive an interruption
-       notice two minutes before hibernation starts.
-
-  For more information, see [Spot Instance interruptions](spot-interruptions.md "spot-interruptions.md").
+  - Only Amazon EC2 can resume your instance.
+  - Amazon EC2 resumes the hibernated Spot Instance when capacity becomes available
+    with a Spot price that is less than or equal to your specified
+    maximum price.
+  - Before Amazon EC2 hibernates your Spot Instance, you'll receive an interruption
+    notice two minutes before hibernation starts.
+    For more information, see [Spot Instance interruptions](spot-interruptions.md "spot-interruptions.md").

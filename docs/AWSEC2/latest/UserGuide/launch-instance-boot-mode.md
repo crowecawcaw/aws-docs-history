@@ -27,14 +27,14 @@ import the AMI through [CloudEndure](https://docs.cloudendure.com/ "https://docs
 **Windows** – The following Windows AMIs support
 UEFI:
 
-- Windows_Server-2025-\* (except for AMIs with the
+- Windows\_Server-2025-\* (except for AMIs with the
   `BIOS-` name prefix)
-- TPM-Windows_Server-2022-English-Full-Base
-- TPM-Windows_Server-2022-English-Core-Base
-- TPM-Windows_Server-2019-English-Full-Base
-- TPM-Windows_Server-2019-English-Core-Base
-- TPM-Windows_Server-2016-English-Full-Base
-- TPM-Windows_Server-2016-English-Core-Base
+- TPM-Windows\_Server-2022-English-Full-Base
+- TPM-Windows\_Server-2022-English-Core-Base
+- TPM-Windows\_Server-2019-English-Full-Base
+- TPM-Windows\_Server-2019-English-Core-Base
+- TPM-Windows\_Server-2016-English-Full-Base
+- TPM-Windows\_Server-2016-English-Core-Base
 
 **Instance type**
 

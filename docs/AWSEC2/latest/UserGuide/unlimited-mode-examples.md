@@ -131,8 +131,8 @@ minutes.
 ###### Calculating the bill (Linux instance)
 
 Surplus credits cost $0.05 per vCPU-hour. The instance spent approximately 25 surplus
-credits between 01:55 and 02:20, which is equivalent to 0.42 vCPU-hours. Additional charges
-for this instance are 0.42 vCPU-hours x $0.05/vCPU-hour = $0.021, rounded to $0.02. Here
+ credits between 01:55 and 02:20, which is equivalent to 0.42 vCPU-hours. Additional charges 
+ for this instance are 0.42 vCPU-hours x $0.05/vCPU-hour = $0.021, rounded to $0.02. Here
 is the month-end bill for this T2 Unlimited instance:
 
 ![Example bill for a T2 Unlimited instance.](images/t2_unlimited_bill_linux.png)
@@ -140,8 +140,8 @@ is the month-end bill for this T2 Unlimited instance:
 ###### Calculating the bill (Windows instance)
 
 Surplus credits cost $0.096 per vCPU-hour. The instance spent approximately 25 surplus
-credits between 01:55 and 02:20, which is equivalent to 0.42 vCPU-hours. Additional charges
-for this instance are 0.42 vCPU-hours x $0.096/vCPU-hour = $0.04032, rounded to $0.04.
+ credits between 01:55 and 02:20, which is equivalent to 0.42 vCPU-hours. Additional charges 
+ for this instance are 0.42 vCPU-hours x $0.096/vCPU-hour = $0.04032, rounded to $0.04.
 Here is the month-end bill for this T2 Unlimited instance:
 
 ![Example bill for a T2 Unlimited instance.](images/t2_unlimited_bill_windows.png)

@@ -191,8 +191,8 @@ follows:
     	For more information, see [Behavior of Spot Instance interruptions](interruption-behavior.md "interruption-behavior.md").
 
 11. On the **Summary** panel, for **Number of
-    instances**, enter the number of instances to
-    launch.
+instances**, enter the number of instances to
+launch.
 
 ###### Note
 

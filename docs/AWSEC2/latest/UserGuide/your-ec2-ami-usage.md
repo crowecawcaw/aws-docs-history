@@ -174,7 +174,7 @@ parameters:
   example, the resource types to check are EC2 instances and launch
   templates. In addition, the number of launch template versions to
   check is also specified (`'version-depth' =
-`100``).
+ `100``).
 
 To report on specific accounts, use the `-AccountId` parameter to specify the
 ID of each account to report on.
@@ -265,9 +265,8 @@ The report list shows:
      time** column shows the date the report was
      created.
 
-5. Choose the ID of a report to view its contents.
-6. To go back to the **My usage reports** tab on the AMI details page,
-   choose **View all reports for this AMI**.
+5. Choose the ID of a report to view its contents. 6. To go back to the **My usage reports** tab on the AMI details page,
+choose **View all reports for this AMI**.
 
 AWS CLI
 

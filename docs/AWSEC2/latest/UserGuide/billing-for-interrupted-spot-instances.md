@@ -5,12 +5,12 @@ incur other charges, as follows.
 
 ## Instance usage
 
-| Who interrupts the Spot Instance                        | Operating system                                          | Interrupted in the first hour                                                                | Interrupted in any hour after the first hour |
-| ------------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| If \*_you_<br>• stop or terminate the Spot Instance     | Windows and Linux (excluding SUSE)                        | Charged for the seconds used                                                                 | Charged for the seconds used                 |
-| SUSE                                                    | Charged for the full hour even if you used a partial hour | Charged for the full hours used, and charged a full hour for the<br>interrupted partial hour |
-| If the \*_Amazon EC2_<br>• interrupts the Spot Instance | Windows and Linux (excluding SUSE)                        | No charge                                                                                    | Charged for the seconds used                 |
-| SUSE                                                    | No charge                                                 | Charged for the full hours used, but no charge for the<br>interrupted partial hour           |
+| Who interrupts the Spot Instance                       | Operating system                                          | Interrupted in the first hour                                                                | Interrupted in any hour after the first hour |
+| ------------------------------------------------------ | --------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| If *_you_<br>• stop or terminate the Spot Instance     | Windows and Linux (excluding SUSE)                        | Charged for the seconds used                                                                 | Charged for the seconds used                 |
+| SUSE                                                   | Charged for the full hour even if you used a partial hour | Charged for the full hours used, and charged a full hour for the<br>interrupted partial hour |
+| If the *_Amazon EC2_<br>• interrupts the Spot Instance | Windows and Linux (excluding SUSE)                        | No charge                                                                                    | Charged for the seconds used                 |
+| SUSE                                                   | No charge                                                 | Charged for the full hours used, but no charge for the<br>interrupted partial hour           |
 
 ## EBS volume usage
 

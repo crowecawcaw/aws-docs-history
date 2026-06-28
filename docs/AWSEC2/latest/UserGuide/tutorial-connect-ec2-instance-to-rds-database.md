@@ -66,29 +66,28 @@ created in a private subnet within the same VPC as the EC2 instance.
   and the RDS database, the following security groups are automatically created
   and added:
 
-      + Security group
-       **ec2-rds-`x`** is created
-       and added to the EC2 instance. It has one outbound rule that references
-       the **rds-ec2-`x`** security
-       group as its destination. This allows traffic from the EC2 instance to
-       reach the RDS database with the
-       **rds-ec2-`x`**
-       security group.
-      + Security group **rds-ec2-`x`** is created and
-       added to the RDS database. It has one inbound rule that references the
-       **ec2-rds-`x`**
-       security group as its source. This allows traffic from the EC2 instance
-       with the **ec2-rds-`x`**
-       security group to reach the RDS database.
-
-  By using separate security groups (one for the EC2 instance, and one for the RDS
-  database), you have better control over the security of the instance and the
-  database. If you were to use the same security group on both the instance and
-  the database, and then modified the security group to suit, say, only the
-  database, the modification would affect both the instance and the database. In
-  other words, if you were to use one security group, you could unintentionally
-  modify the security of a resource (either the instance or the database) because
-  you'd forgotten that the security group was attached to it.
+  - Security group
+    **ec2-rds-`x`** is created
+    and added to the EC2 instance. It has one outbound rule that references
+    the **rds-ec2-`x`** security
+    group as its destination. This allows traffic from the EC2 instance to
+    reach the RDS database with the
+    **rds-ec2-`x`**
+    security group.
+  - Security group **rds-ec2-`x`** is created and
+    added to the RDS database. It has one inbound rule that references the
+    **ec2-rds-`x`**
+    security group as its source. This allows traffic from the EC2 instance
+    with the **ec2-rds-`x`**
+    security group to reach the RDS database.
+    By using separate security groups (one for the EC2 instance, and one for the RDS
+    database), you have better control over the security of the instance and the
+    database. If you were to use the same security group on both the instance and
+    the database, and then modified the security group to suit, say, only the
+    database, the modification would affect both the instance and the database. In
+    other words, if you were to use one security group, you could unintentionally
+    modify the security of a resource (either the instance or the database) because
+    you'd forgotten that the security group was attached to it.
 
 The security groups that are automatically created also respect least privilege as they
 only allow the mutual connection for this workload on the database port by

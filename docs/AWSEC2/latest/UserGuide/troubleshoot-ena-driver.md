@@ -84,21 +84,21 @@ list:
 
 The following table shows event messages that the ENA Windows driver generates.
 
-| Input  | Event ID                                                                            | ENA driver event description | Type |
-| ------ | ----------------------------------------------------------------------------------- | ---------------------------- | ---- |
-| `5001` | Hardware is out of resources                                                        | Error                        |
-| `5002` | Adapter has detected a hardware error                                               | Error                        |
-| `5005` | Adapter has timed out on NDIS operation that did not complete in a timely<br>manner | Error                        |
-| `5032` | Adapter has failed to reset the device                                              | Error                        |
-| `5200` | Adapter has been initialized                                                        | Informational                |
-| `5201` | Adapter has been halted                                                             | Informational                |
-| `5202` | Adapter has been paused                                                             | Informational                |
-| `5203` | Adapter has been restarted                                                          | Informational                |
-| `5204` | Adapter has been shut down                                                          | Informational                |
-| `5205` | Adapter has been reset                                                              | Error                        |
-| `5206` | Adapter has been surprise removed                                                   | Error                        |
-| `5208` | Adapter initialization routine has failed                                           | Error                        |
-| `5210` | Adapter has encountered and successfully recovered an internal issue                | Error                        |
+Input| Event ID | ENA driver event description | Type |
+| --- | --- | --- |
+| `5001` | Hardware is out of resources | Error |
+| `5002` | Adapter has detected a hardware error | Error |
+| `5005` | Adapter has timed out on NDIS operation that did not complete in a timely<br>manner | Error |
+| `5032` | Adapter has failed to reset the device | Error |
+| `5200` | Adapter has been initialized | Informational |
+| `5201` | Adapter has been halted | Informational |
+| `5202` | Adapter has been paused | Informational |
+| `5203` | Adapter has been restarted | Informational |
+| `5204` | Adapter has been shut down | Informational |
+| `5205` | Adapter has been reset | Error |
+| `5206` | Adapter has been surprise removed | Error |
+| `5208` | Adapter initialization routine has failed | Error |
+| `5210` | Adapter has encountered and successfully recovered an internal issue | Error |
 
 ### Review performance metrics
 
@@ -458,11 +458,11 @@ The sixth generation EC2 instance types require the following minimum
 version of the ENA Windows driver, based on the instance operating
 system (OS).
 
-| Minimum version               | Windows Server version | ENA driver version |
-| ----------------------------- | ---------------------- | ------------------ |
-| Windows Server 2008 R2        | 2.2.3 or 2.4.0         |
-| Windows Server 2012 and later | 2.2.3 and later        |
-| Windows Workstation           | 2.2.3 and later        |
+Minimum version| Windows Server version | ENA driver version |
+| --- | --- |
+| Windows Server 2008 R2 | 2.2.3 or 2.4.0 |
+| Windows Server 2012 and later | 2.2.3 and later |
+| Windows Workstation | 2.2.3 and later |
 
 #### Solution
 
@@ -527,12 +527,12 @@ The following example shows an ENA adapter property in the Windows Device Manage
 The following table includes properties that can be adjusted
 to improve performance for the ENA interface.
 
-| Input                        | Property                                                                                                            | Description                                          | Default value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Adjustment |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| Receive Buffers              | Controls the number of entries in the software receive queues.                                                      | 1024                                                 | Can be increased up to a maximum of 8192.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Receive Side Scaling (RSS)   | Enables the efficient distribution of network receive processing<br>across multiple CPUs in multiprocessor systems. | Enabled                                              | You can spread the load across multiple processors. To learn more,<br>see [Optimize network performance on EC2 Windows instances](enhanced-networking-os.md "enhanced-networking-os.md").                                                                                                                                                                                                                                                                                                                                                             |
-| Maximum Number of RSS Queues | Sets the maximum number of RSS queues allowed when `RSS`<br>is enabled.                                             | 32                                                   | The number of RSS queues is determined during driver initialization,<br>and includes the following limitations (among others):<br>• RSS queue limit set by this property<br>• Instance limits (vCPU count)<br>• Hardware generation limits (up to 8 RSS queues in ENAv1, and up to 32 RSS queues<br>in ENAv2)<br>You can set the value from 1-32, depending on your instance and<br>hardware generation limits. To learn more,<br>see [Optimize network performance on EC2 Windows instances](enhanced-networking-os.md "enhanced-networking-os.md"). |
-| Jumbo packet                 | Enables the use of jumbo ethernet frames (more than 1500 bytes<br>of payload).                                      | Disabled (this limits payload to 1500 bytes or less) | Value can be set up to `9015`, which translates to 9001 bytes of<br>payload. This is the maximum payload for jumbo<br>ethernet frames. See [Considerations for using jumbo ethernet frames](#ts-ena-drv-jumbo-frames "#ts-ena-drv-jumbo-frames").                                                                                                                                                                                                                                                                                                     |
+Input| Property | Description | Default value | Adjustment |
+| --- | --- | --- | --- |
+| Receive Buffers | Controls the number of entries in the software receive queues. | 1024 | Can be increased up to a maximum of 8192. |
+| Receive Side Scaling (RSS) | Enables the efficient distribution of network receive processing<br>across multiple CPUs in multiprocessor systems. | Enabled | You can spread the load across multiple processors. To learn more,<br>see [Optimize network performance on EC2 Windows instances](enhanced-networking-os.md "enhanced-networking-os.md"). |
+| Maximum Number of RSS Queues | Sets the maximum number of RSS queues allowed when `RSS`<br>is enabled. | 32 | The number of RSS queues is determined during driver initialization,<br>and includes the following limitations (among others):<br>• RSS queue limit set by this property<br>• Instance limits (vCPU count)<br>• Hardware generation limits (up to 8 RSS queues in ENAv1, and up to 32 RSS queues<br>in ENAv2)<br>You can set the value from 1-32, depending on your instance and<br>hardware generation limits. To learn more,<br>see [Optimize network performance on EC2 Windows instances](enhanced-networking-os.md "enhanced-networking-os.md"). |
+| Jumbo packet | Enables the use of jumbo ethernet frames (more than 1500 bytes<br>of payload). | Disabled (this limits payload to 1500 bytes or less) | Value can be set up to `9015`, which translates to 9001 bytes of<br>payload. This is the maximum payload for jumbo<br>ethernet frames. See [Considerations for using jumbo ethernet frames](#ts-ena-drv-jumbo-frames "#ts-ena-drv-jumbo-frames"). |
 
 ##### Considerations for using jumbo ethernet frames
 

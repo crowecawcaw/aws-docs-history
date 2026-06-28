@@ -14,12 +14,11 @@ depending on the event, as follows:
 
 - `system-reboot` event
 
-      + During the reboot, the instance is migrated to a new host. This is
-       known as a *reboot
-       migration*.
-      + Typically completes in minutes.
-
-  To check what type of event is scheduled for your instance, see [Determine the event type](monitoring-instances-status-check_sched.md#scheduled-event-type "monitoring-instances-status-check_sched.md#scheduled-event-type").
+  - During the reboot, the instance is migrated to a new host. This is
+    known as a _reboot
+    migration_.
+  - Typically completes in minutes.
+    To check what type of event is scheduled for your instance, see [Determine the event type](monitoring-instances-status-check_sched.md#scheduled-event-type "monitoring-instances-status-check_sched.md#scheduled-event-type").
 
 ## Actions you can take
 

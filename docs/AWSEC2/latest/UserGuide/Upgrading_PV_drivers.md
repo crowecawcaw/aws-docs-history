@@ -67,21 +67,16 @@ Guide_.
      instance**.
 
 2. Connect to the instance using Remote Desktop. For more information, see
-   [Connect to your Windows instance using an RDP client](connect-rdp.md "connect-rdp.md").
-3. We recommend that you take all non-system disks offline and note any drive
-   letter mappings to the secondary disks in Disk Management before you perform
-   this upgrade. This step is not required if you are performing an in-place
-   update of AWS PV drivers. We also recommend setting non-essential services
-   to **Manual** start-up in the Services console.
-4. For the instructions for how to install or upgrade the AWS PV driver
-   package using Distributor, see the procedures in [Install or update packages](../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md "../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md") in the _AWS Systems Manager User
-   Guide_.
-5. For **Name**, choose
-   **AWSPVDriver**.
-6. For **Installation type**, select **Uninstall and
-   reinstall**.
-7. Configure the other parameters for the package as necessary and run
-   installation or upgrade using the referenced procedure in [Step 4](#distributor-procedure-awspv "#distributor-procedure-awspv").
+[Connect to your Windows instance using an RDP client](connect-rdp.md "connect-rdp.md"). 3. We recommend that you take all non-system disks offline and note any drive
+letter mappings to the secondary disks in Disk Management before you perform
+this upgrade. This step is not required if you are performing an in-place
+update of AWS PV drivers. We also recommend setting non-essential services
+to **Manual** start-up in the Services console. 4. For the instructions for how to install or upgrade the AWS PV driver
+package using Distributor, see the procedures in [Install or update packages](../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md "../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md") in the _AWS Systems Manager User
+Guide_. 5. For **Name**, choose
+**AWSPVDriver**. 6. For **Installation type**, select **Uninstall and
+reinstall**. 7. Configure the other parameters for the package as necessary and run
+installation or upgrade using the referenced procedure in [Step 4](#distributor-procedure-awspv "#distributor-procedure-awspv").
 
 After running the Distributor package, the instance automatically reboots
 and then upgrades the driver. The instance will not be available for up to
@@ -154,36 +149,41 @@ Guide_.
     5. Choose **Instance state**, **Start
      instance**.
 
-2. Connect to the instance using Remote Desktop.
-3. We recommend that you take all non-system disks offline and note any drive
-   letter mappings to the secondary disks in Disk Management before you perform
-   this upgrade. This step is not required if you are performing an in-place
-   update of AWS PV drivers. We also recommend setting non-essential services
-   to **Manual** start-up in the Services console.
-4. Download the drivers to your instance using one of the following
-   options:
+2. Connect to the instance using Remote Desktop. 3. We recommend that you take all non-system disks offline and note any drive
+letter mappings to the secondary disks in Disk Management before you perform
+this upgrade. This step is not required if you are performing an in-place
+update of AWS PV drivers. We also recommend setting non-essential services
+to **Manual** start-up in the Services console. 4. Download the drivers to your instance using one of the following
+options:
 
-   - Browser – [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip")
+    * Browser – [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip")
 
-   the latest driver package to the instance and
-   extract the zip archive.
-   - PowerShell – Run the
+
+
+
+     the latest driver package to the instance and
+     extract the zip archive.
+    * PowerShell – Run the
      following commands:
 
-   ```
-   Invoke-WebRequest https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip -outfile $env:USERPROFILE\pv_driver.zip
-   Expand-Archive $env:userprofile\pv_driver.zip -DestinationPath $env:userprofile\pv_drivers
-   ```
 
-   If you receive an error when downloading the file, and you
-   are using Windows Server 2016 or earlier, TLS 1.2 might need
-   to be enabled for your PowerShell terminal. You can enable
-   TLS 1.2 for the current PowerShell session with the
-   following command and then try again:
 
-   ```
-   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   ```
+    ```
+    Invoke-WebRequest https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip -outfile $env:USERPROFILE\pv_driver.zip
+    Expand-Archive $env:userprofile\pv_driver.zip -DestinationPath $env:userprofile\pv_drivers
+    ```
+
+    If you receive an error when downloading the file, and you
+     are using Windows Server 2016 or earlier, TLS 1.2 might need
+     to be enabled for your PowerShell terminal. You can enable
+     TLS 1.2 for the current PowerShell session with the
+     following command and then try again:
+
+
+
+    ```
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ```
 
 5. Run `AWSPVDriverSetup.msi`.
 
@@ -383,13 +383,11 @@ Paravirtualize** in the Windows taskbar.
 
     ![Windows system log.](images/win2008-sys-log.png)
 
-8. Connect to your instance and log in as the local administrator.
-9. Close the **Red Hat Paravirtualized Xen Drivers for Windows
-   uninstaller** dialog box.
-10. Confirm that the installation is complete. Navigate to the
-    `Citrix-WIN_PV` folder that you extracted earlier,
-    open the `PVUpgrade.log` file, and then check for the
-    text `INSTALLATION IS COMPLETE`.
+8. Connect to your instance and log in as the local administrator. 9. Close the **Red Hat Paravirtualized Xen Drivers for Windows
+uninstaller** dialog box. 10. Confirm that the installation is complete. Navigate to the
+`Citrix-WIN_PV` folder that you extracted earlier,
+open the `PVUpgrade.log` file, and then check for the
+text `INSTALLATION IS COMPLETE`.
 
 ![PVUpgrade log file.](images/win2008-pvupgrade-log.png)
 

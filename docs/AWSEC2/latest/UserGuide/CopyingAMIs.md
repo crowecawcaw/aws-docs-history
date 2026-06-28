@@ -101,98 +101,97 @@ Console
 
 ###### To copy an AMI
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  From the console navigation bar, select the Region that contains
-    the AMI.
-3.  In the navigation pane, choose **AMIs** to
-    display the list of AMIs available to you in the Region.
-4.  If you don't see the AMI you want to copy, choose a different
-    filter. You can filter by AMIs **Owned by me**,
-    **Private images**, **Public
-    images**, and **Disabled
-    images**.
-5.  Select the AMI to copy, and then choose
-    **Actions**, **Copy
-    AMI**.
-6.  On the **Copy Amazon Machine Image (AMI)** page, specify the
-    following information:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. From the console navigation bar, select the Region that contains
+   the AMI.
+3. In the navigation pane, choose **AMIs** to
+   display the list of AMIs available to you in the Region.
+4. If you don't see the AMI you want to copy, choose a different
+   filter. You can filter by AMIs **Owned by me**,
+   **Private images**, **Public
+   images**, and **Disabled
+   images**.
+5. Select the AMI to copy, and then choose
+   **Actions**, **Copy
+   AMI**.
+6. On the **Copy Amazon Machine Image (AMI)** page, specify the
+   following information:
 
-    1.  **AMI copy name**: A name for the new
-        AMI. You can include the operating system information in
-        the name because Amazon EC2 does not provide this information
-        when displaying details about the AMI.
-    2.  **AMI copy description**: By default, the
-        description includes information about the source AMI so
-        that you can distinguish a copy from its original. You can
-        change this description as needed.
-    3.  **Destination Region**: The Region in which to copy the AMI. For
-        more information, see [Cross-Region copying](how-ami-copy-works.md#copy-amis-across-regions "how-ami-copy-works.md#copy-amis-across-regions") and [Cross-account copying](how-ami-copy-works.md#copy-ami-across-accounts "how-ami-copy-works.md#copy-ami-across-accounts").
-    4.  **Copy tags**: Select this checkbox to
-        include your user-defined AMI tags when copying the AMI.
-        System tags (prefixed with `aws:`) and
-        user-defined tags that are attached by other AWS accounts
-        will not be copied.
-    5.  **Time-based copy**: You can specify whether the copy operation
-        completes within a specific timeframe or on a best-effort
-        basis, as follows:
+   1. **AMI copy name**: A name for the new
+      AMI. You can include the operating system information in
+      the name because Amazon EC2 does not provide this information
+      when displaying details about the AMI.
+   2. **AMI copy description**: By default, the
+      description includes information about the source AMI so
+      that you can distinguish a copy from its original. You can
+      change this description as needed.
+   3. **Destination Region**: The Region in which to copy the AMI. For
+      more information, see [Cross-Region copying](how-ami-copy-works.md#copy-amis-across-regions "how-ami-copy-works.md#copy-amis-across-regions") and [Cross-account copying](how-ami-copy-works.md#copy-ami-across-accounts "how-ami-copy-works.md#copy-ami-across-accounts").
+   4. **Copy tags**: Select this checkbox to
+      include your user-defined AMI tags when copying the AMI.
+      System tags (prefixed with `aws:`) and
+      user-defined tags that are attached by other AWS accounts
+      will not be copied.
+   5. **Time-based copy**: You can specify whether the copy operation
+      completes within a specific timeframe or on a best-effort
+      basis, as follows:
 
-        - To complete the copy within a specific
-          timeframe:
+      - To complete the copy within a specific
+        timeframe:
 
-          - Select **Enable time-based
-            copy**.
-          - For **Completion
-            duration**, enter the number of minutes
-            (in 15-minute increments) allowed for the copy
-            operation. The completion duration applies to all
-            snapshots associated with the AMI.
+        - Select **Enable time-based
+          copy**.
+        - For **Completion
+          duration**, enter the number of minutes
+          (in 15-minute increments) allowed for the copy
+          operation. The completion duration applies to all
+          snapshots associated with the AMI.
 
-          For more information, see [Time-based copies](../../../ebs/latest/userguide/time-based-copies.md "../../../ebs/latest/userguide/time-based-copies.md") in the
-          _Amazon EBS User Guide_.
+        For more information, see [Time-based copies](../../../ebs/latest/userguide/time-based-copies.md "../../../ebs/latest/userguide/time-based-copies.md") in the
+        _Amazon EBS User Guide_.
 
-        - To complete the copy on a best-effort basis:
+      - To complete the copy on a best-effort basis:
 
-          - Leave **Enable time-based
-            copy** unselected.
+        - Leave **Enable time-based
+          copy** unselected.
 
-    6.  (EBS-backed AMIs only) **Encrypt EBS snapshots of AMI copy**: Select
-        this checkbox to encrypt the target snapshots, or to
-        re-encrypt them using a different key. If encryption by
-        default is enabled, the **Encrypt EBS snapshots of
-        AMI copy** checkbox is selected and cannot be
-        cleared. For more information, see [Encryption and copying](how-ami-copy-works.md#ami-copy-encryption "how-ami-copy-works.md#ami-copy-encryption").
-    7.  (EBS-backed AMIs only) **KMS key**: The
-        KMS key to used to encrypt the target snapshots.
-    8.  **Tags**: You can tag the new
-        AMI and the new snapshots with the same tags, or you can tag
-        them with different tags.
+   6. (EBS-backed AMIs only) **Encrypt EBS snapshots of AMI copy**: Select
+      this checkbox to encrypt the target snapshots, or to
+      re-encrypt them using a different key. If encryption by
+      default is enabled, the **Encrypt EBS snapshots of
+      AMI copy** checkbox is selected and cannot be
+      cleared. For more information, see [Encryption and copying](how-ami-copy-works.md#ami-copy-encryption "how-ami-copy-works.md#ami-copy-encryption").
+   7. (EBS-backed AMIs only) **KMS key**: The
+      KMS key to used to encrypt the target snapshots.
+   8. **Tags**: You can tag the new
+      AMI and the new snapshots with the same tags, or you can tag
+      them with different tags.
 
-            * To tag the new AMI and the new snapshots with the
-             *same* tags,
-             choose **Tag image and snapshots
-             together**. The same tags are applied to
-             the new AMI and every snapshot that is
-             created.
-            * To tag the new AMI and the new snapshots with
-             *different* tags,
-             choose **Tag image and snapshots
-             separately**. Different tags are applied
-             to the new AMI and the snapshots that are created.
-             Note, however, that all the new snapshots that are
-             created get the same tags; you can't tag each new
-             snapshot with a different tag.
-
+      - To tag the new AMI and the new snapshots with the
+        _same_ tags,
+        choose **Tag image and snapshots
+        together**. The same tags are applied to
+        the new AMI and every snapshot that is
+        created.
+      - To tag the new AMI and the new snapshots with
+        _different_ tags,
+        choose **Tag image and snapshots
+        separately**. Different tags are applied
+        to the new AMI and the snapshots that are created.
+        Note, however, that all the new snapshots that are
+        created get the same tags; you can't tag each new
+        snapshot with a different tag.
         To add a tag, choose **Add tag**, and
         enter the key and value for the tag. Repeat for each
         tag.
 
-    9.  When you're ready to copy the AMI, choose **Copy
-        AMI**.
+   9. When you're ready to copy the AMI, choose **Copy
+      AMI**.
 
-    The initial status of the new AMI is
-    `Pending`. The AMI copy operation is complete
-    when the status is `Available`.
+   The initial status of the new AMI is
+   `Pending`. The AMI copy operation is complete
+   when the status is `Available`.
 
 AWS CLI
 

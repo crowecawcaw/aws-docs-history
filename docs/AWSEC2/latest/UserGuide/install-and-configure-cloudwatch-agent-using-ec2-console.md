@@ -94,13 +94,12 @@ JSON
 - IAM permissions for the instance: The following AWS managed policies must be
   added to an IAM role that is attached to the instance:
 
-      + [AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") – Enables an instance to use Systems
-       Manager to install and configure the CloudWatch agent.
-      + [CloudWatchAgentServerPolicy](../../../aws-managed-policy/latest/reference/CloudWatchAgentServerPolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchAgentServerPolicy.md") – Enables an instance to use the CloudWatch
-       agent to write data to CloudWatch.
-
-  For information about how to add IAM permissions to your instance, see [Use
-  instance profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") in the _IAM User Guide_.
+  - [AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") – Enables an instance to use Systems
+    Manager to install and configure the CloudWatch agent.
+  - [CloudWatchAgentServerPolicy](../../../aws-managed-policy/latest/reference/CloudWatchAgentServerPolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchAgentServerPolicy.md") – Enables an instance to use the CloudWatch
+    agent to write data to CloudWatch.
+    For information about how to add IAM permissions to your instance, see [Use
+    instance profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") in the _IAM User Guide_.
 
 ## How it works
 

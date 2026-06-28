@@ -62,7 +62,7 @@ A low latency busy poll timeout for socket reads. This controls the number
 of microseconds to wait for the socket layer to read packets on the device
 queue. To enable the feature globally with the **sysctl** command,
 the Linux Kernel organization recommends a value of 50 microseconds. For more
-information, see [busy_read](https://www.kernel.org/doc/html/v5.19/admin-guide/sysctl/net.html?highlight=busy_read "https://www.kernel.org/doc/html/v5.19/admin-guide/sysctl/net.html?highlight=busy_read")
+information, see [busy\_read](https://www.kernel.org/doc/html/v5.19/admin-guide/sysctl/net.html?highlight=busy_read "https://www.kernel.org/doc/html/v5.19/admin-guide/sysctl/net.html?highlight=busy_read")
 in the _Linux kernel user's and administrator's guide_.
 
 ```

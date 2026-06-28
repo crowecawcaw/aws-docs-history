@@ -332,7 +332,6 @@ SubnetId
      that is to be upgraded, and it must allow communication
      with the `ssm.*` endpoints.
 
-5. Choose **Execute**.
-6. Allow the upgrade to complete. It could take up to 10 minutes to complete
-   an online upgrade, and up to 25 minutes to complete an offline
-   upgrade.
+5. Choose **Execute**. 6. Allow the upgrade to complete. It could take up to 10 minutes to complete
+an online upgrade, and up to 25 minutes to complete an offline
+upgrade.

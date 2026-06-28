@@ -118,15 +118,12 @@ Otherwise, you can update your network settings as follows:
      allow SSH traffic. For a Windows instance, you must allow RDP traffic.
 
 9. Under **Configure storage**, notice that we configured a root volume
-   but no data volumes. This is sufficient for test purposes.
-10. Review a summary of your instance configuration in the **Summary** panel,
-    and when you're ready, choose **Launch instance**.
-11. If the launch is successful, choose the ID of the instance from the **Success**
-    notification to open the **Instances** page and monitor the status of the launch.
-12. Select the checkbox for the instance. The initial instance state is `pending`.
-    After the instance starts, its state changes to `running`. Choose the
-    **Status and alarms** tab. After your instance passes its status
-    checks, it is ready to receive connection requests.
+but no data volumes. This is sufficient for test purposes. 10. Review a summary of your instance configuration in the **Summary** panel,
+and when you're ready, choose **Launch instance**. 11. If the launch is successful, choose the ID of the instance from the **Success**
+notification to open the **Instances** page and monitor the status of the launch. 12. Select the checkbox for the instance. The initial instance state is `pending`.
+After the instance starts, its state changes to `running`. Choose the
+**Status and alarms** tab. After your instance passes its status
+checks, it is ready to receive connection requests.
 
 ## Step 2: Connect to your instance
 
@@ -198,32 +195,31 @@ For more information, see [Localized Names for Administrator Account in Windows]
 
 ###### To retrieve the initial administrator password
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose **Instances**.
-3.  Select the instance and then choose **Connect**.
-4.  On the **Connect to instance** page, choose the **RDP client** tab.
-5.  For **Username**, choose the default username for the Administrator
-    account. The username you choose must match the language of the operating system
-    (OS) contained in the AMI that you used to launch your instance. If there is no
-    username in the same language as your OS, choose **Administrator
-    (Other)**.
-6.  Choose **Get password**.
-7.  On the **Get Windows password** page, do the following:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Instances**.
+3. Select the instance and then choose **Connect**.
+4. On the **Connect to instance** page, choose the **RDP client** tab.
+5. For **Username**, choose the default username for the Administrator
+   account. The username you choose must match the language of the operating system
+   (OS) contained in the AMI that you used to launch your instance. If there is no
+   username in the same language as your OS, choose **Administrator
+   (Other)**.
+6. Choose **Get password**.
+7. On the **Get Windows password** page, do the following:
 
-        1. Choose **Upload private key file** and navigate to
-         the private key (`.pem`) file that you specified when you launched
-         the instance. Select the file and choose **Open** to
-         copy the entire contents of the file to this window.
-        2. Choose **Decrypt password**. The **Get
-         Windows password** page closes, and the default
-         administrator password for the instance appears under
-         **Password**, replacing the **Get
-         password** link shown previously.
-        3. Copy the password and save it in a safe place. This password is required to connect to the instance.
-
-    The following procedure uses the Remote Desktop Connection client for Windows (MSTSC). If you're using a different RDP client,
-    download the RDP file and then see the documentation for the RDP client for the steps to establish the RDP connection.
+   1. Choose **Upload private key file** and navigate to
+      the private key (`.pem`) file that you specified when you launched
+      the instance. Select the file and choose **Open** to
+      copy the entire contents of the file to this window.
+   2. Choose **Decrypt password**. The **Get
+      Windows password** page closes, and the default
+      administrator password for the instance appears under
+      **Password**, replacing the **Get
+      password** link shown previously.
+   3. Copy the password and save it in a safe place. This password is required to connect to the instance.
+      The following procedure uses the Remote Desktop Connection client for Windows (MSTSC). If you're using a different RDP client,
+      download the RDP file and then see the documentation for the RDP client for the steps to establish the RDP connection.
 
 ###### To connect to a Windows instance using an RDP client
 

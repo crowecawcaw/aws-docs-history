@@ -290,7 +290,7 @@ particular drive letter as follows.
 - `VolumeName`—The volume label. For example,
   `My Volume`. To specify a mapping
   for an instance storage volume, use the label `Temporary
-Storage X`, where `X` is a number from 0 to
+ Storage X`, where `X` is a number from 0 to
 
 25.
 

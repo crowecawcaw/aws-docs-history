@@ -141,7 +141,7 @@ example, an `i3.metal` instance has the same normalization factor
 as an `i3.16xlarge` instance.
 
 | Instance size   | Normalization factor          |
-| --------------- | ----------------------------- | ------------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | --------------- | --------------- | ---------------- | --------------- | --- |
+| --------------- | ----------------------------- |
 | `a1.metal`      | 32                            |
 | `m5zn.metal`    | `x2iezn.metal`<br>`z1d.metal` | 96                  |
 | `c6g.metal`     | <br>`c6gd.metal`              | <br>`i3.metal`      | <br>`m6g.metal`  | <br>`m6gd.metal` | <br>`r6g.metal`  | <br>`r6gd.metal` | <br>`x2gd.metal` | 128             |
