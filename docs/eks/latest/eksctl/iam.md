@@ -29,7 +29,7 @@ This chapter includes information about working with AWS IAM.
 
   - Manage IAM policies for EKS node groups, including support for various add-on policies like image builder, auto scaler, external DNS, cert manager, and more.
   - Attach custom instance roles or inline policies to node groups for additional permissions.
-  - Attach specific AWS managed policies by ARN to node groups, ensuring required policies like AmazonEKSWorkerNodePolicy and AmazonEKS_CNI_Policy are included.
+  - Attach specific AWS managed policies by ARN to node groups, ensuring required policies like AmazonEKSWorkerNodePolicy and AmazonEKS\_CNI\_Policy are included.
 
 - [Minimum IAM policies](minimum-iam-policies.md "minimum-iam-policies.md")
 

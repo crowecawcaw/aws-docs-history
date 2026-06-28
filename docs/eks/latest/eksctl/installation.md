@@ -11,14 +11,14 @@ You will also need [AWS IAM Authenticator for Kubernetes](https://github.com/kub
 
 The IAM account used for EKS cluster creation should have these minimal access levels.
 
-| AWS Service      | Access Level                                                |
-| ---------------- | ----------------------------------------------------------- |
-| CloudFormation   | Full Access                                                 |
-| EC2              | **Full:\*<br>• Tagging **Limited:\*<br>• List, Read, Write  |
-| EC2 Auto Scaling | \*_Limited:_<br>• List, Write                               |
-| EKS              | Full Access                                                 |
-| IAM              | \*_Limited:_<br>• List, Read, Write, Permissions Management |
-| Systems Manager  | \*_Limited:_<br>• List, Read                                |
+| AWS Service      | Access Level                                               |
+| ---------------- | ---------------------------------------------------------- |
+| CloudFormation   | Full Access                                                |
+| EC2              | **Full:_<br>• Tagging \**Limited:_<br>• List, Read, Write  |
+| EC2 Auto Scaling | **Limited:*<br>• List, Write                               |
+| EKS              | Full Access                                                |
+| IAM              | **Limited:*<br>• List, Read, Write, Permissions Management |
+| Systems Manager  | **Limited:*<br>• List, Read                                |
 
 ## For Unix
 
@@ -43,7 +43,7 @@ sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
 
 Direct download (latest release):
 
-- [AMD64/x86_64](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_amd64.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_amd64.zip")
+- [AMD64/x86\_64](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_amd64.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_amd64.zip")
 - [ARMv6](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv6.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv6.zip")
 - [ARMv7](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv7.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv7.zip")
 - [ARM64](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_arm64.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_arm64.zip")

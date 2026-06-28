@@ -18,19 +18,19 @@ vpc:
 
 There are some additional caveats when configuring Kubernetes API endpoint access:
 
-1.  EKS doesn’t allow clusters without either private **or** public access enabled.
-2.  EKS does allow creating a configuration that allows only private access to be enabled, but eksctl doesn’t
-    support it during cluster creation as it prevents eksctl from being able to join the worker nodes to the cluster.
-3.  Updating a cluster to have private only Kubernetes API endpoint access means that Kubernetes commands, by default,
-    (e.g. `kubectl`) as well as `eksctl delete cluster`, `eksctl utils write-kubeconfig`, and possibly the command
-    `eksctl utils update-kube-proxy` must be run within the cluster VPC.
+1. EKS doesn’t allow clusters without either private **or** public access enabled.
+2. EKS does allow creating a configuration that allows only private access to be enabled, but eksctl doesn’t
+   support it during cluster creation as it prevents eksctl from being able to join the worker nodes to the cluster.
+3. Updating a cluster to have private only Kubernetes API endpoint access means that Kubernetes commands, by default,
+   (e.g. `kubectl`) as well as `eksctl delete cluster`, `eksctl utils write-kubeconfig`, and possibly the command
+   `eksctl utils update-kube-proxy` must be run within the cluster VPC.
 
-        * This requires some changes to various AWS
-        resources. For more information, see
-        [Cluster API server endpoint](../userguide/cluster-endpoint.md "../userguide/cluster-endpoint.md").
-        * You can provide `vpc.extraCIDRs` which will append additional CIDR ranges to the ControlPlaneSecurityGroup,
-        allowing subnets outside the VPC to reach the kubernetes API endpoint. Similarly you can provide `vpc.extraIPv6CIDRs`
-        to append IPv6 CIDR ranges as well.
+   - This requires some changes to various AWS
+     resources. For more information, see
+     [Cluster API server endpoint](../userguide/cluster-endpoint.md "../userguide/cluster-endpoint.md").
+   - You can provide `vpc.extraCIDRs` which will append additional CIDR ranges to the ControlPlaneSecurityGroup,
+     allowing subnets outside the VPC to reach the kubernetes API endpoint. Similarly you can provide `vpc.extraIPv6CIDRs`
+     to append IPv6 CIDR ranges as well.
 
 The following is an example of how one could configure the Kubernetes API endpoint access using the `utils` sub-command:
 
