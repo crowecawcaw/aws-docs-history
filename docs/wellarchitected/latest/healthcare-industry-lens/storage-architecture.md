@@ -1,8 +1,8 @@
 # Storage architecture
 
-| HCL_PERF4. How do you define and<br>test storage performance requirements? |
-| -------------------------------------------------------------------------- |
-|                                                                            |
+| HCL\_PERF4. How do you define and<br>test storage performance requirements? |
+| --------------------------------------------------------------------------- |
+|                                                                             |
 
 Healthcare requirements for compute are generally consistent
 with other industries. Guidance from the

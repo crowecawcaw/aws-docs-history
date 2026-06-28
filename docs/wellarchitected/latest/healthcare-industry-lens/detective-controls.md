@@ -1,8 +1,8 @@
 # Detective controls
 
-| HCL_SEC3. How are you logging access<br>to health data? |
-| ------------------------------------------------------- |
-|                                                         |
+| HCL\_SEC3. How are you logging access<br>to health data? |
+| -------------------------------------------------------- |
+|                                                          |
 
 **Log access to systems,
 resources, and data in accordance with your policies and
@@ -80,9 +80,9 @@ upload, download, and modification to stored objects.
 Refer to the AWS documentation for each AWS service to find
 the supported service-specific logging options.
 
-| HCL_SEC4. How often do you review<br>audit logs? |
-| ------------------------------------------------ |
-|                                                  |
+| HCL\_SEC4. How often do you review<br>audit logs? |
+| ------------------------------------------------- |
+|                                                   |
 
 **Create, document, and
 follow a policy and procedure to regularly review audit

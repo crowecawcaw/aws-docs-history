@@ -1,8 +1,8 @@
 # Software and architecture patterns
 
-| HCL_SUS3. Does your organization<br>monitor workload activity and remove or refactor components<br>that are no longer necessary? |
-| -------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                  |
+| HCL\_SUS3. Does your organization<br>monitor workload activity and remove or refactor components<br>that are no longer necessary? |
+| --------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                   |
 
 **Analyze demand on workloads
 to identify components that can be removed or refactored. Then,
@@ -18,9 +18,9 @@ simplify workflows, decrease cost, and improve sustainability.
 Cloud archives can minimize the cost of retaining data from
 retired components.
 
-| HCL_SUS4. How do you optimize the<br>impact of and applications and the equipment that run<br>them? |
-| --------------------------------------------------------------------------------------------------- |
-|                                                                                                     |
+| HCL\_SUS4. How do you optimize the<br>impact of and applications and the equipment that run<br>them? |
+| ---------------------------------------------------------------------------------------------------- |
+|                                                                                                      |
 
 **Evaluate the overall impact
 of applications, devices, and equipment**

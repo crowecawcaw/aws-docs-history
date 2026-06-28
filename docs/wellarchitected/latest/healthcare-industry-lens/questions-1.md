@@ -1,8 +1,8 @@
 # Questions
 
-| HCL_OPS7. How does your organization<br>identify and prioritize which interoperability standards to<br>adopt? |
-| ------------------------------------------------------------------------------------------------------------- |
-|                                                                                                               |
+| HCL\_OPS7. How does your organization<br>identify and prioritize which interoperability standards to<br>adopt? |
+| -------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                |
 
 Leverage thought leadership organizations to understand emerging
 trends, and use the capabilities of your customers’ systems.
@@ -11,9 +11,9 @@ standards, like HL7 v2, are most prevalent. However, more modern
 standards can reduce the complexity of integration and enable
 new use-cases.
 
-| HCL_OPS8. Do you require<br>unidirectional or bidirectional interoperability? |
-| ----------------------------------------------------------------------------- |
-|                                                                               |
+| HCL\_OPS8. Do you require<br>unidirectional or bidirectional interoperability? |
+| ------------------------------------------------------------------------------ |
+|                                                                                |
 
 Older source systems may share data, but not support writes
 through interoperability APIs. Understand what interoperability
@@ -26,9 +26,9 @@ integration work, or support from AWS Partner Network (APN)
 partners or ISVs, may be required to achieve bidirectional
 interoperability.
 
-| HCL_OPS9. How do you standardize<br>terminology to support semantic interoperability? |
-| ------------------------------------------------------------------------------------- |
-|                                                                                       |
+| HCL\_OPS9. How do you standardize<br>terminology to support semantic interoperability? |
+| -------------------------------------------------------------------------------------- |
+|                                                                                        |
 
 Work with your customer to understand what vocabularies they
 employ and how you can link to standards. Where possible,
@@ -38,9 +38,9 @@ Architecture (C-CDA). AI-based services, like
 [Amazon Comprehend Medical](https://aws.amazon.com/comprehend/medical/ "https://aws.amazon.com/comprehend/medical/"), can link concepts to standard
 ontologies in cases that deterministic linking is not possible.
 
-| HCL_SEC11. How do you protect<br>integration endpoints or APIs? |
-| --------------------------------------------------------------- |
-|                                                                 |
+| HCL\_SEC11. How do you protect<br>integration endpoints or APIs? |
+| ---------------------------------------------------------------- |
+|                                                                  |
 
 Use end-to-end encryption of health data exchanged over the
 network. Older standards, like the Minimum Lower Layer Protocol
@@ -60,9 +60,9 @@ Employ
 [AWS security
 services](https://aws.amazon.com/security/ "https://aws.amazon.com/security/") to add additional security measures.
 
-| HCL_PERF4. How do you determine the<br>volume of data you need to exchange, and can it all be<br>exchanged with one approach? |
-| ----------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                               |
+| HCL\_PERF4. How do you determine the<br>volume of data you need to exchange, and can it all be<br>exchanged with one approach? |
+| ------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                |
 
 Some use-cases require large historical datasets, like training
 machine learning models. Exchanging large datasets may place an
@@ -73,9 +73,9 @@ exchange of records in bulk format (for example, by using
 [AWS Transfer Family](https://aws.amazon.com/aws-transfer-family/ "https://aws.amazon.com/aws-transfer-family/")), and then use on-going real-time
 integration methods for updates.
 
-| HCL_PERF5. How do you improve<br>availability of integration endpoints or APIs? |
-| ------------------------------------------------------------------------------- |
-|                                                                                 |
+| HCL\_PERF5. How do you improve<br>availability of integration endpoints or APIs? |
+| -------------------------------------------------------------------------------- |
+|                                                                                  |
 
 Use Network Load Balancer to route HL7 v2 traffic to your
 integration endpoints. Network Load Balancer can also monitor

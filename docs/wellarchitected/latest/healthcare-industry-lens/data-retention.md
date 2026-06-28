@@ -1,8 +1,8 @@
 # Data retention
 
-| HCL_COST1. How do you define and<br>enforce data retention policies? |
-| -------------------------------------------------------------------- |
-|                                                                      |
+| HCL\_COST1. How do you define and<br>enforce data retention policies? |
+| --------------------------------------------------------------------- |
+|                                                                       |
 
 **Determine applicable
 regulatory frameworks and controls as it pertains to data

@@ -1,8 +1,8 @@
 # Infrastructure protection
 
-| HCL_SEC5. How does your organization<br>protect critical systems? |
-| ----------------------------------------------------------------- |
-|                                                                   |
+| HCL\_SEC5. How does your organization<br>protect critical systems? |
+| ------------------------------------------------------------------ |
+|                                                                    |
 
 Follow Well-Architected best practices for
 [infrastructure

@@ -1,8 +1,8 @@
 # Workload architecture
 
-| HCL_REL2. How do you ensure<br>acceptable network availability for your healthcare<br>workloads? |
-| ------------------------------------------------------------------------------------------------ |
-|                                                                                                  |
+| HCL\_REL2. How do you ensure<br>acceptable network availability for your healthcare<br>workloads? |
+| ------------------------------------------------------------------------------------------------- |
+|                                                                                                   |
 
 **Architect redundant and
 reliable network connections to ensure care

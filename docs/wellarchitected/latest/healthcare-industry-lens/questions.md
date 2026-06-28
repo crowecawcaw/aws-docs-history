@@ -1,8 +1,8 @@
 # Questions
 
-| HCL_REL3. How does your organization<br>define and design for availability and reliability<br>requirements? |
-| ----------------------------------------------------------------------------------------------------------- |
-|                                                                                                             |
+| HCL\_REL3. How does your organization<br>define and design for availability and reliability<br>requirements? |
+| ------------------------------------------------------------------------------------------------------------ |
+|                                                                                                              |
 
 Cloud based transactional systems of record should have
 well-defined availability (how often the system can be
@@ -36,9 +36,9 @@ For more information on designing systems that meet the business availability an
 reliability requirements, see the [Reliability Pillar
 whitepaper](../reliability-pillar/welcome.md "../reliability-pillar/welcome.md").
 
-| HCL_PERF3. Does your organization meet IOPS and other<br>performance requirements? |
-| ---------------------------------------------------------------------------------- |
-|                                                                                    |
+| HCL\_PERF3. Does your organization meet IOPS and other<br>performance requirements? |
+| ----------------------------------------------------------------------------------- |
+|                                                                                     |
 
 Cloud based transactional systems of record are considered
 commercial off the shelf (COTS) software. COTS vendors should

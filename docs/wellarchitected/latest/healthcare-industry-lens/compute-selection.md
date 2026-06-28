@@ -1,8 +1,8 @@
 # Compute selection
 
-| HCL_PERF2. How do you select your<br>compute solution? |
-| ------------------------------------------------------ |
-|                                                        |
+| HCL\_PERF2. How do you select your<br>compute solution? |
+| ------------------------------------------------------- |
+|                                                         |
 
 **Select compute services
 that meet regulatory and performance requirements**

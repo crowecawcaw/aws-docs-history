@@ -1,8 +1,8 @@
 # User behavior patterns
 
-| HCL_SUS2. How do you match workload<br>infrastructure to user behavior patterns? |
-| -------------------------------------------------------------------------------- |
-|                                                                                  |
+| HCL\_SUS2. How do you match workload<br>infrastructure to user behavior patterns? |
+| --------------------------------------------------------------------------------- |
+|                                                                                   |
 
 **Scale infrastructure to
 continually match user demand and performance

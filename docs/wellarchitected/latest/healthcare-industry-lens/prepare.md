@@ -1,8 +1,8 @@
 # Prepare
 
-| HCL_OPS1. Have you defined a formal risk management program? |
-| ------------------------------------------------------------ |
-|                                                              |
+| HCL\_OPS1. Have you defined a formal risk management program? |
+| ------------------------------------------------------------- |
+|                                                               |
 
 **Create and document a risk management program**
 
@@ -56,9 +56,9 @@ AWS side of the shared responsibility model. This whitepaper
 also provides tools that customers can use to ensure these
 mechanisms are being implemented effectively.
 
-| HCL_OPS2. What policies and<br>procedures has your organization adopted for cloud<br>governance? |
-| ------------------------------------------------------------------------------------------------ |
-|                                                                                                  |
+| HCL\_OPS2. What policies and<br>procedures has your organization adopted for cloud<br>governance? |
+| ------------------------------------------------------------------------------------------------- |
+|                                                                                                   |
 
 **Create policies and
 procedures to govern cloud workloads**
@@ -118,9 +118,9 @@ Approaching compliance governance this way helps you better
 understanding you control environment. It can also delineate
 the verification activities that must be performed.
 
-| HCL_OPS3. How do you map security<br>controls to compliance requirements? |
-| ------------------------------------------------------------------------- |
-|                                                                           |
+| HCL\_OPS3. How do you map security<br>controls to compliance requirements? |
+| -------------------------------------------------------------------------- |
+|                                                                            |
 
 **Determine regulatory
 frameworks and security controls that are applicable to your
@@ -180,9 +180,9 @@ any actions taken. Using RACI matrices can help organizations
 properly implement plans and procedures when dealing with
 regulatory controls.
 
-| HCL_OPS4. How do you educate<br>employees on access to sensitive data? |
-| ---------------------------------------------------------------------- |
-|                                                                        |
+| HCL\_OPS4. How do you educate<br>employees on access to sensitive data? |
+| ----------------------------------------------------------------------- |
+|                                                                         |
 
 **Ensure employees who may
 have access to sensitive healthcare data are trained on the

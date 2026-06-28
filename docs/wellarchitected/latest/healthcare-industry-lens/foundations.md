@@ -1,8 +1,8 @@
 # Foundations
 
-| HCL_REL1. How does your system adapt<br>to changes in demand? |
-| ------------------------------------------------------------- |
-|                                                               |
+| HCL\_REL1. How does your system adapt<br>to changes in demand? |
+| -------------------------------------------------------------- |
+|                                                                |
 
 **Architect systems for
 elasticity**

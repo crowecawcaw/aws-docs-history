@@ -1,8 +1,8 @@
 # Network architecture
 
-| HCL_PERF3. How do you define and<br>test network performance requirements? |
-| -------------------------------------------------------------------------- |
-|                                                                            |
+| HCL\_PERF3. How do you define and<br>test network performance requirements? |
+| --------------------------------------------------------------------------- |
+|                                                                             |
 
 Healthcare requirements for compute are generally consistent
 with other industries. Guidance from the

@@ -1,8 +1,8 @@
 # Operate
 
-| HCL_OPS5. How do you demonstrate<br>continuous compliance? |
-| ---------------------------------------------------------- |
-|                                                            |
+| HCL\_OPS5. How do you demonstrate<br>continuous compliance? |
+| ----------------------------------------------------------- |
+|                                                             |
 
 **Partition workloads
 involving sensitive data into separate
@@ -124,9 +124,9 @@ as AWS Config, AWS Audit Manager, and AWS Security Hub CSPM to
 automatically collect and report the compliance state of a
 cloud environment.
 
-| HCL_OPS6. How do you automate<br>remediation of compliance violations? |
-| ---------------------------------------------------------------------- |
-|                                                                        |
+| HCL\_OPS6. How do you automate<br>remediation of compliance violations? |
+| ----------------------------------------------------------------------- |
+|                                                                         |
 
 There are several key concepts to consider when creating an
 automated remediation solution. While your organization is

@@ -1,8 +1,8 @@
 # Incident response
 
-| HCL_SEC9. What is your disaster recovery for<br>critical systems? |
-| ----------------------------------------------------------------- |
-|                                                                   |
+| HCL\_SEC9. What is your disaster recovery for<br>critical systems? |
+| ------------------------------------------------------------------ |
+|                                                                    |
 
 **Mitigate and respond to
 potential incidents by creating policies, procedures, and

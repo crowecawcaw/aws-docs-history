@@ -1,8 +1,8 @@
 # Performance architecture
 
-| HCL_PERF1. How do you encrypt data<br>while ensuring performance? |
-| ----------------------------------------------------------------- |
-|                                                                   |
+| HCL\_PERF1. How do you encrypt data<br>while ensuring performance? |
+| ------------------------------------------------------------------ |
+|                                                                    |
 
 **Offload encryption to
 hardware**

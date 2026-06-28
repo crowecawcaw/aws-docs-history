@@ -1,8 +1,8 @@
 # Data patterns
 
-| HCL_SUS6. How does your organization<br>remove unneeded or redundant health data? |
-| --------------------------------------------------------------------------------- |
-|                                                                                   |
+| HCL\_SUS6. How does your organization<br>remove unneeded or redundant health data? |
+| ---------------------------------------------------------------------------------- |
+|                                                                                    |
 
 **Automate data retention
 processes that retain the minimum amount of health data required

@@ -1,8 +1,8 @@
 # Questions
 
-| HCL_PERF6. How does your organization<br>benchmark the performance of a medical imaging<br>solution? |
-| ---------------------------------------------------------------------------------------------------- |
-|                                                                                                      |
+| HCL\_PERF6. How does your organization<br>benchmark the performance of a medical imaging<br>solution? |
+| ----------------------------------------------------------------------------------------------------- |
+|                                                                                                       |
 
 Quantitatively benchmark the performance of systems in
 retrieving, analyzing, and reporting on images to meet customer
@@ -11,9 +11,9 @@ bandwidth, annual volume of data ingested (estimate the types
 and number of imaging modalities generating data), and the
 number of concurrent users that the solution will support.
 
-| HCL_PERF7. Does your organization<br>perform tests to quantify medical imaging system performance<br>and quantify end user experience under realistic<br>conditions? |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                      |
+| HCL\_PERF7. Does your organization<br>perform tests to quantify medical imaging system performance<br>and quantify end user experience under realistic<br>conditions? |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                       |
 
 Collect quantitative performance metrics under simulated loads
 and representative network speeds to provide an acceptable end
@@ -32,18 +32,18 @@ and
 [throughput
 provisioning](../../../fsx/latest/WindowsGuide/performance.md "../../../fsx/latest/WindowsGuide/performance.md")).
 
-| HCL_PERF8. Does your organization<br>leverage high-performance network protocols and compression<br>of data in transit for medical imaging systems? |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                     |
+| HCL\_PERF8. Does your organization<br>leverage high-performance network protocols and compression<br>of data in transit for medical imaging systems? |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                      |
 
 Optimize the throughput of medical image data between backends
 and viewer applications with high-performance, parallelized
 network protocols like HTTP/2. Also, leverage compression
 algorithms to reduce the volume of data transferred.
 
-| HCL_PERF9. How do you optimize end<br>user experience with algorithms that prioritize the sequence<br>of data transmitted from the backends to front<br>ends? |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                               |
+| HCL\_PERF9. How do you optimize end<br>user experience with algorithms that prioritize the sequence<br>of data transmitted from the backends to front<br>ends? |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                |
 
 Medical imaging study data may consist of multiple images or a
 single large image with regions of varying importance. End user
@@ -54,9 +54,9 @@ that will be of highest initial interest. In this way, the end
 user can begin their work while data of less interest is
 transmitted.
 
-| HCL_COST2. How does your organization<br>determine the appropriate storage medium to collect, process,<br>and store medical images? |
-| ----------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                     |
+| HCL\_COST2. How does your organization<br>determine the appropriate storage medium to collect, process,<br>and store medical images? |
+| ------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                      |
 
 Quantify the overall user-experience using metrics (like first
 image display time). Provision cloud services that are

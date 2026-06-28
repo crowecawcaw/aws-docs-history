@@ -1,8 +1,8 @@
 # Measure results
 
-| HCL_SUS5. How does your organization<br>measure the effectiveness of sustainability<br>efforts? |
-| ----------------------------------------------------------------------------------------------- |
-|                                                                                                 |
+| HCL\_SUS5. How does your organization<br>measure the effectiveness of sustainability<br>efforts? |
+| ------------------------------------------------------------------------------------------------ |
+|                                                                                                  |
 
 **Quantify and report results
 to drive continuous improvement processes**

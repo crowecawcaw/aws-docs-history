@@ -1,8 +1,8 @@
 # Identity and access management
 
-| HCL_SEC1. How do you identify where<br>health data is in your environment? |
-| -------------------------------------------------------------------------- |
-|                                                                            |
+| HCL\_SEC1. How do you identify where<br>health data is in your environment? |
+| --------------------------------------------------------------------------- |
+|                                                                             |
 
 **Determine applicable
 regulatory frameworks and controls as it pertains to data
@@ -95,9 +95,9 @@ to measure the confidence that the data contains PHI as
 defined by HIPAA. This score can help you determine the
 sensitivity of the data reviewed.
 
-| HCL_SEC2. How are you implementing<br>least privilege access to health data? |
-| ---------------------------------------------------------------------------- |
-|                                                                              |
+| HCL\_SEC2. How are you implementing<br>least privilege access to health data? |
+| ----------------------------------------------------------------------------- |
+|                                                                               |
 
 The ability to access health data should be limited to the
 people or systems who require the access to perform specific

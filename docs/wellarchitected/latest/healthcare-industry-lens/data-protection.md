@@ -1,8 +1,8 @@
 # Data protection
 
-| HCL_SEC6. How do you determine and<br>enforce data residency requirements? |
-| -------------------------------------------------------------------------- |
-|                                                                            |
+| HCL\_SEC6. How do you determine and<br>enforce data residency requirements? |
+| --------------------------------------------------------------------------- |
+|                                                                             |
 
 **Determine applicable
 regulatory frameworks and controls as it pertains to data
@@ -54,9 +54,9 @@ Additionally, if you are using AWS Control Tower, implement
 the [Region
 deny guardrail](../../../controltower/latest/userguide/region-deny.md "../../../controltower/latest/userguide/region-deny.md") to deny access to specific Regions.
 
-| HCL_SEC7. How are you protecting<br>health data at rest and in transit? |
-| ----------------------------------------------------------------------- |
-|                                                                         |
+| HCL\_SEC7. How are you protecting<br>health data at rest and in transit? |
+| ------------------------------------------------------------------------ |
+|                                                                          |
 
 **Encrypt sensitive health
 data at rest and in transit at all times**
@@ -174,9 +174,9 @@ application's behalf. For more detail, see
 [Transport
 Layer Security (TLS)](../../../app-mesh/latest/userguide/tls.md "../../../app-mesh/latest/userguide/tls.md").
 
-| HCL_SEC8. How do you isolate<br>sensitive data? |
-| ----------------------------------------------- |
-|                                                 |
+| HCL\_SEC8. How do you isolate<br>sensitive data? |
+| ------------------------------------------------ |
+|                                                  |
 
 **Isolate health data from
 non-health data**
