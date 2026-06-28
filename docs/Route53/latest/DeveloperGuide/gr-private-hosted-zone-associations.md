@@ -40,3 +40,6 @@ zone with one or more DNS views.
 The association process typically takes a few minutes to complete. Once complete, Route 53 Global Resolver
 will use the records in the private hosted zone to answer DNS queries from client devices
 associated with the DNS view.
+
+You can also associate a private hosted zone in your account with a DNS view that another
+AWS account has shared with you through AWS Resource Access Manager. For more information, see [Sharing Route 53 Global Resolver DNS views between AWS accounts](gr-sharing-dns-views.md "gr-sharing-dns-views.md").

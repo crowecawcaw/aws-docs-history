@@ -29,56 +29,52 @@ If you want to create records by importing a zone file, note the following:
   process interprets certain backslash sequences as control characters. To include
   literal backslash characters in TXT record values:
 
-      + Use double backslashes (`\\\\`) in the zone file to
-       represent a single literal backslash in the final TXT record.
-      + For example, if your TXT record should contain
-       `\\jYTDWqH...` (with a literal backslash and j), specify
-       `\\\\jYTDWqH...` in the zone file.
-
-  This is particularly important for ACME challenge records and other TXT
-  records that contain literal backslash characters.
+  - Use double backslashes (`\\\\`) in the zone file to
+    represent a single literal backslash in the final TXT record.
+  - For example, if your TXT record should contain
+    `\\jYTDWqH...` (with a literal backslash and j), specify
+    `\\\\jYTDWqH...` in the zone file.
+    This is particularly important for ACME challenge records and other TXT
+    records that contain literal backslash characters.
 
 - For long TXT records (such as DKIM records), the zone file import process
   supports splitting the content into multiple strings. To create TXT records with
   multiple strings:
 
-      + Use separate lines in your zone file with the same record name and
-       type.
+  - Use separate lines in your zone file with the same record name and
+    type.
 
+  ###### Example
 
-      ###### Example
+  ```
+  example.com. 300 IN TXT "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC"
+  example.com. 300 IN TXT "7fCC6C13dM9tXuJmUBH7D4Vw8y1ByJ8z9QX2fvLm3pN4sR5tU6vW7xY8zA9bC0dE1f"
+  example.com. 300 IN TXT "G2hI3jK4lM5nO6pQ7rS8tU9vW0xY1zA2bC3dE4fG5hI6jK7lM8nO9pQ0rS1tU2vW3x"
+  ```
 
-
-      ```
-      example.com. 300 IN TXT "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC"
-      example.com. 300 IN TXT "7fCC6C13dM9tXuJmUBH7D4Vw8y1ByJ8z9QX2fvLm3pN4sR5tU6vW7xY8zA9bC0dE1f"
-      example.com. 300 IN TXT "G2hI3jK4lM5nO6pQ7rS8tU9vW0xY1zA2bC3dE4fG5hI6jK7lM8nO9pQ0rS1tU2vW3x"
-      ```
-
-  The import process automatically combines these into a single TXT record with
-  multiple strings. Each individual string can contain up to 65,535 characters. Do
-  not concatenate long strings into a single quoted value.
+The import process automatically combines these into a single TXT record with
+multiple strings. Each individual string can contain up to 65,535 characters. Do
+not concatenate long strings into a single quoted value.
 
 - We recommend that you review the contents of the zone file to confirm that
   record names include or exclude a trailing dot as appropriate:
 
-      + When the name of a record in the zone file includes a trailing dot
-       (`example.com.`), the import process interprets the name
-       as a fully qualified domain name and creates a Route 53 record with that
-       name.
-      + When the name of a record in the zone file does not include a trailing
-       dot (`www`), the import process concatenates that name with
-       the domain name in the zone file (`example.com`) and creates
-       a Route 53 record with the concatenated name
-       (`www.example.com`).
-
-  If the export process doesn't add a trailing dot to the fully qualified domain
-  names of a record, the Route 53 import process adds the domain name to the name of
-  the record. For example, suppose you're importing records into the hosted zone
-  `example.com` and the name of an MX record in the zone file is
-  `mail.example.com`, with no trailing dot. The Route 53 import
-  process creates an MX record named
-  `mail.example.com.example.com`.
+  - When the name of a record in the zone file includes a trailing dot
+    (`example.com.`), the import process interprets the name
+    as a fully qualified domain name and creates a Route 53 record with that
+    name.
+  - When the name of a record in the zone file does not include a trailing
+    dot (`www`), the import process concatenates that name with
+    the domain name in the zone file (`example.com`) and creates
+    a Route 53 record with the concatenated name
+    (`www.example.com`).
+    If the export process doesn't add a trailing dot to the fully qualified domain
+    names of a record, the Route 53 import process adds the domain name to the name of
+    the record. For example, suppose you're importing records into the hosted zone
+    `example.com` and the name of an MX record in the zone file is
+    `mail.example.com`, with no trailing dot. The Route 53 import
+    process creates an MX record named
+    `mail.example.com.example.com`.
 
 ###### Important
 
@@ -113,10 +109,8 @@ _records list_ or _zone file_ information. 2. Sign in to the AWS Management Cons
     2. Enter the name of your domain and, optionally, a comment.
     3. Choose **Create**.
 
-5. Choose **Import zone file**.
-6. In the **Import zone file** pane, paste the contents of your zone file into
-   the **Zone file** text box.
-7. Choose **Import**.
+5. Choose **Import zone file**. 6. In the **Import zone file** pane, paste the contents of your zone file into
+the **Zone file** text box. 7. Choose **Import**.
 
 ###### Note
 

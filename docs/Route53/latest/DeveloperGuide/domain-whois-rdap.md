@@ -58,12 +58,11 @@ phishing, malware, or spam, send an email to trustandsafety@support.aws.com.
 
 1. In a web browser, go to one of the following websites:
 
-   - **Amazon Registrar WHOIS:**
-     [https://registrar.amazon.com/whois](https://registrar.amazon.com/whois "https://registrar.amazon.com/whois")
-   - **Amazon Registrar RDAP:**
-     [https://registrar.amazon.com/rdap](https://registrar.amazon.com/rdap "https://registrar.amazon.com/rdap")
+   - **Amazon Registrar:**
+     [https://registrar.amazon/lookup](https://registrar.amazon/lookup "https://registrar.amazon/lookup")
    - **Gandi WHOIS:**
-     [https://whois.gandi.net](https://whois.gandi.net "https://whois.gandi.net")
+     [https://whois.gandi.net](https://whois.gandi.net "https://whois.gandi.net") (use this if your domain
+     registrar is Gandi; see [Finding your registrar and other information about your domain](find-your-registrar.md "find-your-registrar.md"))
 
 2. Enter the name of the domain that you want to view information about, and
    choose **Search**.

@@ -14,7 +14,7 @@ Uniregistry is the registry for .LINK domains. Due to Uniregistry
 policy, the registry-level [WHOIS](https://whois.uniregistry.net/whois/ "https://whois.uniregistry.net/whois/") shows
 "REDACTED FOR PRIVACY". Removing our privacy protection feature will
 only affect the information displayed at the registrar-level [Amazon Registrar
-WHOIS](https://registrar.amazon.com/whois "https://registrar.amazon.com/whois").
+lookup](https://registrar.amazon/lookup "https://registrar.amazon/lookup").
 
 **Domain locking to prevent unauthorized transfers**
 

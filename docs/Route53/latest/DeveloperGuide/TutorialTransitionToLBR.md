@@ -35,28 +35,26 @@ When you're finished with the following example, you'll have two weighted alias 
 
 ###### To transition to latency-based routing
 
-1.  Make a copy of the record for `www.example.com`, but use a new domain name, for example,
-    `copy-www.example.com`. Give the new record the same **Type** (A) and
-    **Value** (`W.W.W.W`) as the record for `www.example.com`.
-2.  Update the existing A record for `www.example.com` to make it a weighted alias
-    record:
+1. Make a copy of the record for `www.example.com`, but use a new domain name, for example,
+   `copy-www.example.com`. Give the new record the same **Type** (A) and
+   **Value** (`W.W.W.W`) as the record for `www.example.com`.
+2. Update the existing A record for `www.example.com` to make it a weighted alias
+   record:
 
-        * For **Value/Route traffic to**, choose **Alias to another record in
-         this hosted zone**, and specify
-         `copy-www.example.com`.
-        * For **Weight**, specify 100.
+   - For **Value/Route traffic to**, choose **Alias to another record in
+     this hosted zone**, and specify
+     `copy-www.example.com`.
+   - For **Weight**, specify 100.
+     When you're finished with the update, Route 53 will continue to use this record to
+     route all traffic to the resource that has an IP address of `W.W.W.W`.
 
-    When you're finished with the update, Route 53 will continue to use this record to
-    route all traffic to the resource that has an IP address of `W.W.W.W`.
+3. Create a latency record for each of your Amazon EC2 instances, for example:
 
-3.  Create a latency record for each of your Amazon EC2 instances, for example:
-
-        * US East (Ohio), Elastic IP address `W.W.W.W`
-        * US West (N. California), Elastic IP address `X.X.X.X`
-        * Europe (Ireland), Elastic IP address `Y.Y.Y.Y`
-
-    Give all of the latency records the same domain name, for example, `www-lbr.example.com`
-    and the same type, A.
+   - US East (Ohio), Elastic IP address `W.W.W.W`
+   - US West (N. California), Elastic IP address `X.X.X.X`
+   - Europe (Ireland), Elastic IP address `Y.Y.Y.Y`
+     Give all of the latency records the same domain name, for example, `www-lbr.example.com`
+     and the same type, A.
 
 When you're finished creating the latency records, Route 53 will continue to
 route traffic using the record that you updated in Step 2.

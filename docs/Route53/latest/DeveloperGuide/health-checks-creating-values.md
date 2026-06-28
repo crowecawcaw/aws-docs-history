@@ -865,7 +865,7 @@ endpoint in the `client_hello` message during TLS
 negotiation. This allows the endpoint to respond to the HTTPS
 request with the applicable SSL/TLS certificate.
 
-Some endpoints require that HTTPS requests include the host name in the client_hello
+Some endpoints require that HTTPS requests include the host name in the client\_hello
 message. If you don't enable SNI, the health check
 status might show failure. The error message will depend
 on how the server is configured to respond the request

@@ -16,7 +16,7 @@ typically in the same Availability Zone as the instance. When there are failures
 handling queries by upstream name servers or other components in the path, the Nitro
 Resolver service is frequently able to handle these failures transparently without
 impact to the workloads running on the instance. Furthermore, if the Resolver encounters
-query timeouts, refused connections, or SERVFAILS from the domain’s name servers, it may
+query timeouts, refused connections, or SERVFAILS from the domain's name servers, it may
 respond with a cached answer beyond the Time-To-Live (TTL) value to improve
 availability. Queries between the Nitro Resolver service and Zonal Resolver fleet are
 restricted to a tightly controlled network outside of the customer VPC, which is

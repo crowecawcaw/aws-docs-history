@@ -22,7 +22,7 @@ Route 53 increments the minor version if a change adds new fields to the
 log file. This can occur if new information is available for some or all
 existing DNS queries within a VPC.
 
-**account_id**
+**account\_id**
 
 The ID of the AWS account that created the VPC.
 
@@ -30,11 +30,11 @@ The ID of the AWS account that created the VPC.
 
 The AWS Region that you created the VPC in.
 
-**vpc_id**
+**vpc\_id**
 
 The ID of the VPC that the query originated in.
 
-**query_timestamp**
+**query\_timestamp**
 
 The date and time that the query was submitted, in ISO 8601 format and
 Coordinated Universal Time (UTC), for example,
@@ -45,18 +45,18 @@ For information about ISO 8601 format, see the Wikipedia article
 8601](https://en.wikipedia.org/wiki/ISO_8601 "https://en.wikipedia.org/wiki/ISO_8601"). For information about UTC, see the Wikipedia article
 [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time "https://en.wikipedia.org/wiki/Coordinated_Universal_Time").
 
-**query_name**
+**query\_name**
 
 The domain name (example.com) or subdomain name (www.example.com) that
 was specified in the query.
 
-**query_type**
+**query\_type**
 
 Either the DNS record type that was specified in the request, or
 `ANY`. For information about the types that Route 53
 supports, see [Supported DNS record types](ResourceRecordTypes.md "ResourceRecordTypes.md").
 
-**query_class**
+**query\_class**
 
 The class of the query.
 
@@ -69,7 +69,7 @@ query was valid. If the response is not valid, Resolver returns a
 response code that explains why not. For a list of possible response
 codes, see [DNS RCODEs](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 "https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6") on the IANA website.
 
-**answer_type**
+**answer\_type**
 
 The DNS record type (such as A, MX, or CNAME) of the value that VPC Resolver
 is returning in response to the query. For information about the types
@@ -81,7 +81,7 @@ The value that VPC Resolver returned in response to the query. For example,
 for an A record, this is an IP address in IPv4 format. For a CNAME
 record, this is the domain name in the CNAME record.
 
-**answer_class**
+**answer\_class**
 
 The class of the VPC Resolver response to the query.
 
@@ -114,7 +114,7 @@ visible in your account, it might be because the DNS query
 originated from either AWS CloudShell, AWS Lambda, Amazon EKS, or Fargate
 console, which was used by you.
 
-**resolver_endpoint**
+**resolver\_endpoint**
 
 The ID of the resolver endpoint that passes the DNS query to
 on-premises DNS servers.
@@ -127,7 +127,7 @@ ID of the last resolver endpoint used in the chain. To trace the
 complete resolution path through multiple endpoints, you can
 correlate logs across different query logging configurations.
 
-**firewall_rule_group_id**
+**firewall\_rule\_group\_id**
 
 The ID of the DNS Firewall rule group that matched the domain name in
 the query. This is populated only if DNS Firewall found a match for a rule
@@ -135,19 +135,19 @@ with action set to alert or block.
 
 For more information about the firewall rule groups, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 
-**firewall_rule_action**
+**firewall\_rule\_action**
 
 The action specified by the rule that matched the domain name in the
 query. This is populated only if DNS Firewall found a match for a rule with
 action set to alert or block.
 
-**firewall_domain_list_id**
+**firewall\_domain\_list\_id**
 
 The domain list used by the rule that matched the domain name in the
 query. This is populated only if DNS Firewall found a match for a rule with
 action set to alert or block.
 
-**additional_properties**
+**additional\_properties**
 
-Additional information of the log delivery events. **is_delayed**: If there is a delay in delivering
+Additional information of the log delivery events. **is\_delayed**: If there is a delay in delivering
 the logs.

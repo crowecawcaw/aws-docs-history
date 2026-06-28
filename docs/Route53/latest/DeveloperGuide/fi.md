@@ -31,7 +31,7 @@ Open to the public, with some restrictions:
     Finland.
   - The identification number for a physical person in
     Finland.
-  - If the registrant is Non-Finnish Company, then you must provide Business Number as VAT_Number.
+  - If the registrant is Non-Finnish Company, then you must provide Business Number as VAT\_Number.
 
 - If the registrant address isn't located in Finland, then no Finnish identity or company number
   is required.

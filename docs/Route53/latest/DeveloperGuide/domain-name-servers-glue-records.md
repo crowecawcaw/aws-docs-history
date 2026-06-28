@@ -117,49 +117,48 @@ information, see [How Amazon Route 53 routes traffic for your domain](welcome-d
 
 ###### To add or change name servers or glue records for a domain
 
-1.  Review [Considerations for changing name servers and glue records](#domain-name-servers-glue-records-considerations "#domain-name-servers-glue-records-considerations") and
-    address the applicable issues, if any.
-2.  Sign in to the AWS Management Console and open the Route 53 console at
-    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-3.  In the navigation pane, choose **Registered
-    domains**.
-4.  Choose the name of the domain for which you want to edit settings.
-5.  In the **Details** section, in the
-    **Actions** dropdown choose **Edit name
-    servers**.
-6.  In the **Edit name servers** dialog box, you can do the
-    following:
+1. Review [Considerations for changing name servers and glue records](#domain-name-servers-glue-records-considerations "#domain-name-servers-glue-records-considerations") and
+   address the applicable issues, if any.
+2. Sign in to the AWS Management Console and open the Route 53 console at
+   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
+3. In the navigation pane, choose **Registered
+   domains**.
+4. Choose the name of the domain for which you want to edit settings.
+5. In the **Details** section, in the
+   **Actions** dropdown choose **Edit name
+   servers**.
+6. In the **Edit name servers** dialog box, you can do the
+   following:
 
-    - Change the DNS service for the domain by doing one of the
-      following:
+   - Change the DNS service for the domain by doing one of the
+     following:
 
-          + Replace the name servers for another DNS service with the
-           name servers for a Route 53 hosted zone
-          + Replace the name servers for a Route 53 hosted zone with the
-           name servers for another DNS service
-          + Replace the name servers for one Route 53 hosted zone with
-           the name servers for a different Route 53 hosted zone
+     - Replace the name servers for another DNS service with the
+       name servers for a Route 53 hosted zone
+     - Replace the name servers for a Route 53 hosted zone with the
+       name servers for another DNS service
+     - Replace the name servers for one Route 53 hosted zone with
+       the name servers for a different Route 53 hosted zone
+       For information about changing the DNS service for a domain, see
+       [Making Amazon Route 53 the DNS service for an existing domain](MigratingDNS.md "MigratingDNS.md"). For
+       information about getting the name servers for the Route 53 hosted zone
+       that you want to use for DNS service for the domain, see [Getting the name servers for a public hosted zone](GetInfoAboutHostedZone.md "GetInfoAboutHostedZone.md").
 
-      For information about changing the DNS service for a domain, see
-      [Making Amazon Route 53 the DNS service for an existing domain](MigratingDNS.md "MigratingDNS.md"). For
-      information about getting the name servers for the Route 53 hosted zone
-      that you want to use for DNS service for the domain, see [Getting the name servers for a public hosted zone](GetInfoAboutHostedZone.md "GetInfoAboutHostedZone.md").
+   - Add one or more name servers.
+   - Replace the name of an existing name server.
+   - If you specify white-label name servers, add or change the IP
+     addresses in glue records. You can enter addresses in IPv4 or IPv6
+     format. If a name server has multiple IP addresses, enter each
+     address on a separate line.
 
-    - Add one or more name servers.
-    - Replace the name of an existing name server.
-    - If you specify white-label name servers, add or change the IP
-      addresses in glue records. You can enter addresses in IPv4 or IPv6
-      format. If a name server has multiple IP addresses, enter each
-      address on a separate line.
-
-    A white-label name server includes your domain name, such as
-    example.com, in the name of the name server, such as
-    ns1.example.com. When you specify a white-label name server, Route 53
-    prompts you to specify one or more IP addresses for the name server.
-    The IP address is known as a glue record. For more information, see
-    [Configuring white-label name servers](white-label-name-servers.md "white-label-name-servers.md").
-    - Delete a name server. Choose the x icon on the right side of the
-      field for that name server.
+   A white-label name server includes your domain name, such as
+   example.com, in the name of the name server, such as
+   ns1.example.com. When you specify a white-label name server, Route 53
+   prompts you to specify one or more IP addresses for the name server.
+   The IP address is known as a glue record. For more information, see
+   [Configuring white-label name servers](white-label-name-servers.md "white-label-name-servers.md").
+   - Delete a name server. Choose the x icon on the right side of the
+     field for that name server.
 
 ###### Warning
 

@@ -47,13 +47,13 @@ locally on the AWS Outposts rack.
 The following table describes how Route 53 on Outposts features compare with Amazon Route 53
 features.
 
-| Route 53 on Outposts compared to Route 53 | Feature                                                                                                                                                                            | Availability in Route 53 on Outposts |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| VPC Resolver                              | Yes. VPC Resolver maintains a local cache of records for applications<br>hosted on Outpost rack, the peered VPC in the AWS Region, and any<br>publicly accessible host names.      |
-| Health checks                             | No. Health checks are calculated and reported from the<br>AWS Region. If an Outpost disconnects from the cloud, the<br>endpoints fail open and can't fail over to a backup.        |
-| Resolver endpoints                        | Yes. Resolver endpoints on Outpost rack allow DNS queries to be<br>forwarded and received from DNS servers on-premises.<br>Only the IPv4 endpoint type is available for endpoints. |
-| Resolver DNS Firewall                     | Not available.                                                                                                                                                                     |
-| Traffic flow                              | Not available.                                                                                                                                                                     |
+Route 53 on Outposts compared to Route 53| Feature | Availability in Route 53 on Outposts |
+| --- | --- |
+| VPC Resolver | Yes. VPC Resolver maintains a local cache of records for applications<br>hosted on Outpost rack, the peered VPC in the AWS Region, and any<br>publicly accessible host names. |
+| Health checks | No. Health checks are calculated and reported from the<br>AWS Region. If an Outpost disconnects from the cloud, the<br>endpoints fail open and can't fail over to a backup. |
+| Resolver endpoints | Yes. Resolver endpoints on Outpost rack allow DNS queries to be<br>forwarded and received from DNS servers on-premises.<br>Only the IPv4 endpoint type is available for endpoints. |
+| Resolver DNS Firewall | Not available. |
+| Traffic flow | Not available. |
 
 ## VPC Resolver behavior when AWS Outposts is disconnected from the VPC
 

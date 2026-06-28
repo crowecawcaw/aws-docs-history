@@ -52,12 +52,8 @@ If you created the hosted zone and the interface endpoint using different accoun
      **vpce-0fd00dd593example-dexample.cloudtrail.us-west-2.vpce.amazonaws.com**.
 
 2. Open the Route 53 console at
-   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-3. In the navigation pane, choose **Hosted zones**.
-4. Choose the name of the hosted zone that has the domain name that you want to use to route traffic to your
-   interface endpoint.
-5. Choose **Create record**.
-6. Specify the following values:
+[https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/"). 3. In the navigation pane, choose **Hosted zones**. 4. Choose the name of the hosted zone that has the domain name that you want to use to route traffic to your
+interface endpoint. 5. Choose **Create record**. 6. Specify the following values:
 
 **Routing policy**
 

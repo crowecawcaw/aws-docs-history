@@ -63,31 +63,24 @@ If you have private and public hosted zones that have overlapping namespaces, su
 accounting.example.com, VPC Resolver routes traffic based on the most specific match. When users are logged into an EC2 instance
 in an Amazon VPC that you have associated with the private hosted zone, here's how Route 53 VPC Resolver handles DNS queries:
 
-1.  VPC Resolver evaluates whether the name of the private hosted zone matches the domain name in the request,
-    such as accounting.example.com. A match is defined as either of the following:
+1. VPC Resolver evaluates whether the name of the private hosted zone matches the domain name in the request,
+   such as accounting.example.com. A match is defined as either of the following:
 
-        * An identical match
-        * The name of the private hosted zone is a parent of the domain name in the request. For example,
-         suppose the domain name in the request is the following:
+   - An identical match
+   - The name of the private hosted zone is a parent of the domain name in the request. For example,
+     suppose the domain name in the request is the following:
 
+   **seattle.accounting.example.com**
 
-        **seattle.accounting.example.com**
+   The following hosted zones match because they're parents of seattle.accounting.example.com:
 
+        + **accounting.example.com**
+        + **example.com**
 
-        The following hosted zones match because they're parents of seattle.accounting.example.com:
-
-
-
-
-        	+ **accounting.example.com**
-        	+ **example.com**
-
-    If there's no matching private hosted zone, then VPC Resolver forwards the request to a public DNS resolver,
-    and your request is resolved as a regular DNS query.
-
-2.  If there's a private hosted zone name that matches the domain name in the request, the hosted zone
-    is searched for a record that matches the domain name and DNS type in the request, such as an A record
-    for accounting.example.com.
+If there's no matching private hosted zone, then VPC Resolver forwards the request to a public DNS resolver,
+and your request is resolved as a regular DNS query. 2. If there's a private hosted zone name that matches the domain name in the request, the hosted zone
+is searched for a record that matches the domain name and DNS type in the request, such as an A record
+for accounting.example.com.
 
 ###### Note
 

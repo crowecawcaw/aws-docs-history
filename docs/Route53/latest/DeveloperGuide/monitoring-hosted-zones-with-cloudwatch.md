@@ -38,7 +38,7 @@ Region: Route 53 is a global service. To get hosted zone metrics, you must spec
 
 **DNSSECInternalFailure**
 
-Value is 1 if any object in the hosted zone is in an INTERNAL_FAILURE
+Value is 1 if any object in the hosted zone is in an INTERNAL\_FAILURE
 state. Otherwise, value is 0.
 
 Valid statistics: Sum
@@ -52,7 +52,7 @@ must specify US East (N. Virginia) for the Region.
 
 **DNSSECKeySigningKeysNeedingAction**
 
-Number of key signing keys (KSKs) that have an ACTION_NEEDED state
+Number of key signing keys (KSKs) that have an ACTION\_NEEDED state
 (due to KMS failure).
 
 Valid statistics: Sum, SampleCount
@@ -66,7 +66,7 @@ must specify US East (N. Virginia) for the Region.
 
 **DNSSECKeySigningKeyMaxNeedingActionAge**
 
-Time elapsed since the key signing key (KSK) was set to the ACTION_NEEDED state.
+Time elapsed since the key signing key (KSK) was set to the ACTION\_NEEDED state.
 
 Valid statistics: Maximum
 

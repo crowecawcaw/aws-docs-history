@@ -68,7 +68,7 @@ hosted zone, Route 53 stops billing you the monthly charge for a hosted zone. F
     * [Route 53 Pricing](https://aws.amazon.com/route53/pricing "https://aws.amazon.com/route53/pricing")
 
 7. If you encounter issues while deleting a domain name registration, you can contact AWS Support for free.
-   For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
+For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
 
 ###### To delete .co.uk, .me.uk, .org.uk, and .uk domain name registrations
 

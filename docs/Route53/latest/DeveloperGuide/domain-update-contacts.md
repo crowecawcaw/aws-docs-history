@@ -284,10 +284,9 @@ _and_ for the new owner:
      Director).
 
 5. Scan the Change of Domain Ownership form and the required proof. Save the
-   scanned documents in a common format, such as a .pdf file or a .png
-   file.
-6. Using the AWS account that the domain is currently registered to, sign
-   in to the [AWS Support Center](https://console.aws.amazon.com/support/cases#/create?issueType=customer-service&serviceCode=service-domains&categoryCode=change-of-ownership "https://console.aws.amazon.com/support/cases#/create?issueType=customer-service&serviceCode=service-domains&categoryCode=change-of-ownership").
+scanned documents in a common format, such as a .pdf file or a .png
+file. 6. Using the AWS account that the domain is currently registered to, sign
+in to the [AWS Support Center](https://console.aws.amazon.com/support/cases#/create?issueType=customer-service&serviceCode=service-domains&categoryCode=change-of-ownership "https://console.aws.amazon.com/support/cases#/create?issueType=customer-service&serviceCode=service-domains&categoryCode=change-of-ownership").
 
 ###### Important
 

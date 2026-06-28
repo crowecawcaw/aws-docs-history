@@ -11,7 +11,7 @@ can:
 - Grant permissions to allow users access to a resource record set where its
   name contains a specific string.
 - Grant permissions to allow users to perform only a subset of the `CREATE
-| UPSERT | DELETE` actions on the Route 53 console, or when using the
+ | UPSERT | DELETE` actions on the Route 53 console, or when using the
   [ChangeResourceRecordSets](../APIReference/API_ChangeResourceRecordSets.md "../APIReference/API_ChangeResourceRecordSets.md") API.
 - Grant permissions to allow users to associate or dissociate private hosted zones from a particular VPC.
 - Grant permissions to allow users to list hosted zones associated to a particular VPC.

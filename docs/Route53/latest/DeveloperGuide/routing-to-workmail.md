@@ -40,13 +40,14 @@ For example, if your Amazon WorkMail email domain is **example.com** and the val
     2. For **Record name**, paste the value that you copied in step 5.
     3. For **Record type**, choose **TXT – Text**.
 
-7. In the Amazon WorkMail console, for the TXT record, copy the value of the **Value** column, including the quotation marks.
-8. In the Route 53 console, do the following:
+7. In the Amazon WorkMail console, for the TXT record, copy the value of the **Value** column, including the quotation marks. 8. In the Route 53 console, do the following:
 
-   1. For **Value/Route traffic to**, choose **IP address or another value depending on the record type**, and paste the value
-      that you copied in step 7.
+    1. For **Value/Route traffic to**, choose **IP address or another value depending on the record type**, and paste the value
+     that you copied in step 7.
 
-   Don't change any other settings. 2. Choose **Create**.
+
+    Don't change any other settings.
+    2. Choose **Create**.
 
 ###### To create a Route 53 MX record for Amazon WorkMail
 
@@ -76,12 +77,13 @@ For example, if your Amazon WorkMail email domain is **example.com** and the val
     3. For **Record type**, choose **CNAME – Canonical Name**.
 
 3. In the Amazon WorkMail console, in the first row that has a **Record type** of **CNAME**,
-   copy the value of the **Value** column.
-4. In the Route 53 console, do the following:
+copy the value of the **Value** column. 4. In the Route 53 console, do the following:
 
-   1. For **Value/Route traffic to**, choose **IP address or another value depending on the record type**, and paste the value
-      that you copied in step 3.
+    1. For **Value/Route traffic to**, choose **IP address or another value depending on the record type**, and paste the value
+     that you copied in step 3.
 
-   Don't change any other settings. 2. Choose **Create records**.
+
+    Don't change any other settings.
+    2. Choose **Create records**.
 
 5. Repeat steps 1 through 4 for the remaining CNAME records that are listed in the Amazon WorkMail console.

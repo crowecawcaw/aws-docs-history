@@ -18,7 +18,7 @@ per IP address for an endpoint can be as low as 1500.
 inbound Resolver endpoint**
 
 | **Ingress<br>rules** |
-| -------------------- | --------------- | ------------------ |
+| -------------------- |
 | **Protocol type**    | **Port number** | **Source IP**      |
 | TCP                  | 53              | 0.0.0.0/0          |
 | UDP                  | 53              | 0.0.0.0/0          |
@@ -31,7 +31,7 @@ inbound Resolver endpoint**
 outbound Resolver endpoint**
 
 | **Ingress<br>rules** |
-| -------------------- | --------------- | ------------------ |
+| -------------------- |
 | **Protocol type**    | **Port number** | **Source IP**      |
 | TCP                  | All             | 0.0.0.0/0          |
 | UDP                  | All             | 0.0.0.0/0          |

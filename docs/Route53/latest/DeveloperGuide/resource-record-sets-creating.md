@@ -32,28 +32,26 @@ create a hosted zone:
      [Creating a private hosted zone](hosted-zone-private-creating.md "hosted-zone-private-creating.md").
 
 5. On the **Hosted zones** page, choose the name of the hosted zone that you
-   want to create records in.
-6. Choose **Create record**.
-7. Choose and define the applicable routing policy and values. For more information, see the
-   topic for the kind of record that you want to create:
+want to create records in. 6. Choose **Create record**. 7. Choose and define the applicable routing policy and values. For more information, see the
+topic for the kind of record that you want to create:
 
-   - [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
-   - [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
-   - [Values specific for simple records](resource-record-sets-values-basic.md "resource-record-sets-values-basic.md")
-   - [Values specific for simple alias records](resource-record-sets-values-alias.md "resource-record-sets-values-alias.md")
-   - [Values specific for failover records](resource-record-sets-values-failover.md "resource-record-sets-values-failover.md")
-   - [Values specific for failover alias records](resource-record-sets-values-failover-alias.md "resource-record-sets-values-failover-alias.md")
-   - [Values specific for geolocation records](resource-record-sets-values-geo.md "resource-record-sets-values-geo.md")
-   - [Values specific for geolocation alias records](resource-record-sets-values-geo-alias.md "resource-record-sets-values-geo-alias.md")
-   - [Values specific for geoproximity records](resource-record-sets-values-geoprox.md "resource-record-sets-values-geoprox.md")
-   - [Values specific for geoproximity alias records](resource-record-sets-values-geoprox-alias.md "resource-record-sets-values-geoprox-alias.md")
-   - [Values specific for latency records](resource-record-sets-values-latency.md "resource-record-sets-values-latency.md")
-   - [Values specific for latency alias records](resource-record-sets-values-latency-alias.md "resource-record-sets-values-latency-alias.md")
-   - [Values specific for IP-based records](resource-record-sets-values-ipbased.md "resource-record-sets-values-ipbased.md")
-   - [Values specific for IP-based alias records](resource-record-sets-values-ipbased-alias.md "resource-record-sets-values-ipbased-alias.md")
-   - [Values specific for multivalue answer records](resource-record-sets-values-multivalue.md "resource-record-sets-values-multivalue.md")
-   - [Values specific for weighted records](resource-record-sets-values-weighted.md "resource-record-sets-values-weighted.md")
-   - [Values specific for weighted alias records](resource-record-sets-values-weighted-alias.md "resource-record-sets-values-weighted-alias.md")
+    * [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
+    * [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
+    * [Values specific for simple records](resource-record-sets-values-basic.md "resource-record-sets-values-basic.md")
+    * [Values specific for simple alias records](resource-record-sets-values-alias.md "resource-record-sets-values-alias.md")
+    * [Values specific for failover records](resource-record-sets-values-failover.md "resource-record-sets-values-failover.md")
+    * [Values specific for failover alias records](resource-record-sets-values-failover-alias.md "resource-record-sets-values-failover-alias.md")
+    * [Values specific for geolocation records](resource-record-sets-values-geo.md "resource-record-sets-values-geo.md")
+    * [Values specific for geolocation alias records](resource-record-sets-values-geo-alias.md "resource-record-sets-values-geo-alias.md")
+    * [Values specific for geoproximity records](resource-record-sets-values-geoprox.md "resource-record-sets-values-geoprox.md")
+    * [Values specific for geoproximity alias records](resource-record-sets-values-geoprox-alias.md "resource-record-sets-values-geoprox-alias.md")
+    * [Values specific for latency records](resource-record-sets-values-latency.md "resource-record-sets-values-latency.md")
+    * [Values specific for latency alias records](resource-record-sets-values-latency-alias.md "resource-record-sets-values-latency-alias.md")
+    * [Values specific for IP-based records](resource-record-sets-values-ipbased.md "resource-record-sets-values-ipbased.md")
+    * [Values specific for IP-based alias records](resource-record-sets-values-ipbased-alias.md "resource-record-sets-values-ipbased-alias.md")
+    * [Values specific for multivalue answer records](resource-record-sets-values-multivalue.md "resource-record-sets-values-multivalue.md")
+    * [Values specific for weighted records](resource-record-sets-values-weighted.md "resource-record-sets-values-weighted.md")
+    * [Values specific for weighted alias records](resource-record-sets-values-weighted-alias.md "resource-record-sets-values-weighted-alias.md")
 
 8. Choose **Create records**.
 

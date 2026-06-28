@@ -20,6 +20,7 @@ Route 53 Global Resolver uses anycast IP addresses that automatically route DNS 
 - [Managing access controls](gr-managing-access-controls.md "gr-managing-access-controls.md")
 - [Securing DNS](gr-securing-dns.md "gr-securing-dns.md")
 - [Configuring private hosted associations](gr-configuring-private-hosted-zone-associations.md "gr-configuring-private-hosted-zone-associations.md")
+- [Sharing DNS views between accounts](gr-sharing-dns-views.md "gr-sharing-dns-views.md")
 - [Monitoring DNS activity](gr-monitoring.md "gr-monitoring.md")
 - [Troubleshooting DNS issues](gr-troubleshooting-dns-issues.md "gr-troubleshooting-dns-issues.md")
 - [Quotas](gr-load-balancer-limits.md "gr-load-balancer-limits.md")

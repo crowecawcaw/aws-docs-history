@@ -19,7 +19,7 @@ You can use either the following API or the CLI command:
     * [`create-resolver-endpoint` CLI](../../../cli/latest/reference/route53resolver/create-resolver-endpoint.md "../../../cli/latest/reference/route53resolver/create-resolver-endpoint.md")
 
 2. Create one or more delegation rules, which specify the domain names for which the queries should be
-   delegated to your network through the specified outbound endpoint.
+delegated to your network through the specified outbound endpoint.
 
 Example delegation rule creation with CLI:
 

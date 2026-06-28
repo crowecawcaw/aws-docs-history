@@ -39,7 +39,7 @@ After you have signed in, you can edit the registrant email contact by choosing 
 **Edit** tab on the registry
 page.
 
-- If you forgot your password, browse to [https://www.nic.es/sgnd/peticion/editCorreo.action?request_locale=en](https://www.nic.es/sgnd/peticion/editCorreo.action?request_locale=en "https://www.nic.es/sgnd/peticion/editCorreo.action?request_locale=en").
+- If you forgot your password, browse to [https://www.nic.es/sgnd/peticion/editCorreo.action?request\_locale=en](https://www.nic.es/sgnd/peticion/editCorreo.action?request_locale=en "https://www.nic.es/sgnd/peticion/editCorreo.action?request_locale=en").
 
 Fill out the form with your ESNIC identifier, your new and valid registrant email
 contact. Then, validate the form by choosing

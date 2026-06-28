@@ -73,11 +73,7 @@ custom domain name that you want to use:
      domain name**.
 
 2. Open the Route 53 console at
-   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-3. In the navigation pane, choose **Hosted zones**.
-4. Choose the name of the hosted zone that has the domain name that you want to use to route traffic to your API.
-5. Choose **Create record**.
-6. Specify the following values:
+[https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/"). 3. In the navigation pane, choose **Hosted zones**. 4. Choose the name of the hosted zone that has the domain name that you want to use to route traffic to your API. 5. Choose **Create record**. 6. Specify the following values:
 
 ###### Important
 

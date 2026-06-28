@@ -19,17 +19,16 @@ For information about creating a private hosted zone by using the Route 53 API,
 
 ###### To create a private hosted zone using the Route 53 console
 
-1.  For each VPC that you want to associate with the Route 53 hosted zone, change the following VPC settings to `true`:
+1. For each VPC that you want to associate with the Route 53 hosted zone, change the following VPC settings to `true`:
 
-        * `enableDnsHostnames`
-        * `enableDnsSupport`
+   - `enableDnsHostnames`
+   - `enableDnsSupport`
+     For more information, see [Updating DNS support for your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating") in the
+     _Amazon VPC User Guide_.
 
-    For more information, see [Updating DNS support for your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating") in the
-    _Amazon VPC User Guide_.
-
-2.  Sign in to the AWS Management Console and open the Route 53 console at
-    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-3.  If you're new to Route 53, choose **Get started**
+2. Sign in to the AWS Management Console and open the Route 53 console at
+   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
+3. If you're new to Route 53, choose **Get started**
 
 If you're already using Route 53, choose **Hosted zones** in the navigation pane. 4. Choose **Create hosted zone**. 5. In the **Create private hosted zone** pane, enter a domain name and, optionally, a comment.
 

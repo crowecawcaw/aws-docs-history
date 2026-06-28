@@ -9,7 +9,7 @@ Keep the following in mind when you work with customer managed keys for DNSSEC:
 - The customer managed key that you use with DNSSEC signing must be in the US East (N. Virginia) Region.
 - The customer managed key must be
   an [asymmetric customer managed key](../../../kms/latest/developerguide/symm-asymm-concepts.md#asymmetric-cmks "../../../kms/latest/developerguide/symm-asymm-concepts.md#asymmetric-cmks")
-  with an [ECC_NIST_P256 key spec](../../../kms/latest/developerguide/asymmetric-key-specs.md#key-spec-ecc "../../../kms/latest/developerguide/asymmetric-key-specs.md#key-spec-ecc").
+  with an [ECC\_NIST\_P256 key spec](../../../kms/latest/developerguide/asymmetric-key-specs.md#key-spec-ecc "../../../kms/latest/developerguide/asymmetric-key-specs.md#key-spec-ecc").
   These customer managed keys are used only for signing and verification. For help creating an asymmetric customer managed key, see
   [Creating asymmetric customer managed keys](../../../kms/latest/developerguide/create-keys.md#create-asymmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-asymmetric-cmk")
   in the AWS Key Management Service Developer Guide. For help finding the cryptographic configuration of an existing customer managed key, see

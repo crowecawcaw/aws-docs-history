@@ -60,17 +60,17 @@ at the TLD registry, which returns two values:
     * The IP addresses of the authoritative name servers for your domain.
 
 4. The DNS resolver sends the original request to another DNS resolver. If that resolver doesn't have the IP address,
-   it repeats the process until a resolver sends the request to a name server at your DNS service provider. The name server returns two values:
+it repeats the process until a resolver sends the request to a name server at your DNS service provider. The name server returns two values:
 
-   - The record for the domain, such as example.com. Typically this contains the IP address
+    * The record for the domain, such as example.com. Typically this contains the IP address
      of a host.
-   - The signature for the record, which you created when you configured DNSSEC.
+    * The signature for the record, which you created when you configured DNSSEC.
 
 5. The DNS resolver uses the public key that you provided to the domain registrar and the
-   registrar forwarded to the TLD registry to do two things:
+registrar forwarded to the TLD registry to do two things:
 
-   - Establish a chain of trust.
-   - Verify that the signed response from the DNS service provider is legitimate and hasn't been replaced
+    * Establish a chain of trust.
+    * Verify that the signed response from the DNS service provider is legitimate and hasn't been replaced
      with a bad response from an attacker.
 
 6. If the response is authentic, the resolver returns the value to the client that submitted the request.

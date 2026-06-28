@@ -38,4 +38,4 @@ the following topics:
     * [Editing records](resource-record-sets-editing.md "resource-record-sets-editing.md")
 
 4. Delete the health checks that you're no longer using, if any. For more
-   information, see [Deleting health checks](health-checks-deleting.md "health-checks-deleting.md").
+information, see [Deleting health checks](health-checks-deleting.md "health-checks-deleting.md").

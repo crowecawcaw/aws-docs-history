@@ -30,7 +30,7 @@ For more information, see the following documentation:
     * [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md")
 
 2. Create health checks for the resources that you can't create alias records for, such as Amazon EC2 servers and
-   email servers running in your data center. You'll associate these health checks with your non-alias records.
+email servers running in your data center. You'll associate these health checks with your non-alias records.
 
 For more information, see [Creating, updating, and deleting health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md"). 3. If necessary, configure router and firewall rules so that Route 53 can send regular requests to the endpoints that you specified in your health
 checks. For more information, see [Configuring router and firewall rules for Amazon Route 53 health checks](dns-failover-router-firewall-rules.md "dns-failover-router-firewall-rules.md"). 4. Create all the non-alias records in your diagram, and associate the health checks that you created in step 2 with the

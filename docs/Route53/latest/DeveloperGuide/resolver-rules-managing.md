@@ -177,7 +177,7 @@ current account or that are shared with the current account:
      the current account.
 
 4. Choose the name of the rule that you want to display sharing information for or that you want to share with
-   another account.
+another account.
 
 On the **Rule: `rule name`** page, the value under **Owner**
 displays ID of the account that created the rule. That's the current account unless the value of **Sharing status**

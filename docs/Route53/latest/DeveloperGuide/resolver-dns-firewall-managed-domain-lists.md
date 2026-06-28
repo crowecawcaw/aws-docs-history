@@ -82,42 +82,42 @@ For more information about Managed Domain Lists, contact the
 
 The following table lists the Region availability for AWS Managed Domain Lists.
 
-| Managed Domain List Region availability | Region | Managed Domain Lists available? |
-| --------------------------------------- | ------ | ------------------------------- |
-| Africa (Cape Town)                      | Yes    |
-| Asia Pacific (Hong Kong)                | Yes    |
-| Asia Pacific (Hyderabad)                | Yes    |
-| Asia Pacific (Jakarta)                  | Yes    |
-| Asia Pacific (Malaysia)                 | Yes    |
-| Asia Pacific (Melbourne)                | Yes    |
-| Asia Pacific (Mumbai)                   | Yes    |
-| Asia Pacific (Osaka) Region             | Yes    |
-| Asia Pacific (Seoul)                    | Yes    |
-| Asia Pacific (Singapore)                | Yes    |
-| Asia Pacific (Sydney)                   | Yes    |
-| Asia Pacific (Thailand)                 | Yes    |
-| Asia Pacific (Tokyo)                    | Yes    |
-| Canada (Central) Region                 | Yes    |
-| Canada West (Calgary)                   | Yes    |
-| Europe (Frankfurt) Region               | Yes    |
-| Europe (Ireland) Region                 | Yes    |
-| Europe (London) Region                  | Yes    |
-| Europe (Milan)                          | Yes    |
-| Europe (Paris) Region                   | Yes    |
-| Europe (Spain)                          | Yes    |
-| Europe (Stockholm)                      | Yes    |
-| Europe (Zurich)                         | Yes    |
-| Israel (Tel Aviv)                       | Yes    |
-| Middle East (Bahrain)                   | Yes    |
-| Middle East (UAE)                       | Yes    |
-| South America (São Paulo)               | Yes    |
-| US East (N. Virginia)                   | Yes    |
-| US East (Ohio)                          | Yes    |
-| US West (N. California)                 | Yes    |
-| US West (Oregon)                        | Yes    |
-| China (Beijing)                         | Yes    |
-| China (Ningxia)                         | Yes    |
-| AWS GovCloud (US)                       | Yes    |
+Managed Domain List Region availability| Region | Managed Domain Lists available? |
+| --- | --- |
+| Africa (Cape Town) | Yes |
+| Asia Pacific (Hong Kong) | Yes |
+| Asia Pacific (Hyderabad) | Yes |
+| Asia Pacific (Jakarta) | Yes |
+| Asia Pacific (Malaysia) | Yes |
+| Asia Pacific (Melbourne) | Yes |
+| Asia Pacific (Mumbai) | Yes |
+| Asia Pacific (Osaka) Region | Yes |
+| Asia Pacific (Seoul) | Yes |
+| Asia Pacific (Singapore) | Yes |
+| Asia Pacific (Sydney) | Yes |
+| Asia Pacific (Thailand) | Yes |
+| Asia Pacific (Tokyo) | Yes |
+| Canada (Central) Region | Yes |
+| Canada West (Calgary) | Yes |
+| Europe (Frankfurt) Region | Yes |
+| Europe (Ireland) Region | Yes |
+| Europe (London) Region | Yes |
+| Europe (Milan) | Yes |
+| Europe (Paris) Region | Yes |
+| Europe (Spain) | Yes |
+| Europe (Stockholm) | Yes |
+| Europe (Zurich) | Yes |
+| Israel (Tel Aviv) | Yes |
+| Middle East (Bahrain) | Yes |
+| Middle East (UAE) | Yes |
+| South America (São Paulo) | Yes |
+| US East (N. Virginia) | Yes |
+| US East (Ohio) | Yes |
+| US West (N. California) | Yes |
+| US West (Oregon) | Yes |
+| China (Beijing) | Yes |
+| China (Ningxia) | Yes |
+| AWS GovCloud (US) | Yes |
 
 ###### Additional security considerations
 

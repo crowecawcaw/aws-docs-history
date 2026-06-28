@@ -67,12 +67,11 @@ You can delete rules, endpoints, and branches of a traffic policy in the followi
      **Properties** pane for that
      connection.
 
-9. Choose **Create policy**.
-10. On the **Create policy records** page, use the new traffic policy to create
-    one or more policy records in one hosted zone. For more
-    information, see [Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values "traffic-policy-records.md#traffic-policy-records-creating-values").
-    You can also create policy records later, either in the same
-    hosted zone or in additional hosted zones.
+9. Choose **Create policy**. 10. On the **Create policy records** page, use the new traffic policy to create
+one or more policy records in one hosted zone. For more
+information, see [Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values "traffic-policy-records.md#traffic-policy-records-creating-values").
+You can also create policy records later, either in the same
+hosted zone or in additional hosted zones.
 
 If you don't want to create policy records now, choose **Cancel**, and the console displays
 the list of traffic policies and policy records that you have created by using the current AWS account. 11. If you specified settings for policy records in the preceding step, choose **Create policy records**.
@@ -109,11 +108,10 @@ You can delete rules, endpoints, and branches of a traffic policy in the followi
      connections, pause your cursor on the connection that you want to delete, and click the **x**
      for that connection.
 
-9. Choose **Create traffic policy**.
-10. _Optional_: On the **Create policy records with traffic policy** page,
-    use the new traffic policy to create one or more policy records in one hosted zone. For more information, see
-    [Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values "traffic-policy-records.md#traffic-policy-records-creating-values").
-    You can also create policy records later, either in the same hosted zone or in additional hosted zones.
+9. Choose **Create traffic policy**. 10. _Optional_: On the **Create policy records with traffic policy** page,
+use the new traffic policy to create one or more policy records in one hosted zone. For more information, see
+[Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values "traffic-policy-records.md#traffic-policy-records-creating-values").
+You can also create policy records later, either in the same hosted zone or in additional hosted zones.
 
 If you don't want to create policy records now, choose **Skip this step**, and the console displays
 the list of traffic policies and policy records that you have created by using the current AWS account. 11. If you specified settings for policy records in the preceding step, choose **Create policy record**.
@@ -577,11 +575,10 @@ You can delete rules, endpoints, and branches of a traffic policy in the followi
      delete, and then choose **Delete** in
      the **Properties** pane.
 
-9. When you're finished editing, choose **Save as new version**.
-10. _Optional_: Specify the settings to create one or more policy records in one hosted zone
-    by using the new traffic policy version. For more information, see
-    [Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values "traffic-policy-records.md#traffic-policy-records-creating-values").
-    You can also create policy records later, either in the same hosted zone or in additional hosted zones.
+9. When you're finished editing, choose **Save as new version**. 10. _Optional_: Specify the settings to create one or more policy records in one hosted zone
+by using the new traffic policy version. For more information, see
+[Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values "traffic-policy-records.md#traffic-policy-records-creating-values").
+You can also create policy records later, either in the same hosted zone or in additional hosted zones.
 
 If you don't want to create policy records now, choose **Cancel**, and the console displays
 the list of traffic policies and policy records that you have created by using the current AWS account. 11. If you specified settings for policy records in the preceding step, choose
@@ -619,11 +616,10 @@ You can delete rules, endpoints, and branches of a traffic policy in the followi
      connections, pause your cursor on the connection that you want to delete, and click the **x**
      for that connection.
 
-9. When you're finished editing, choose **Save as new version**.
-10. _Optional_: Specify the settings to create one or more policy records in one hosted zone
-    by using the new traffic policy version. For more information, see
-    [Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values "traffic-policy-records.md#traffic-policy-records-creating-values").
-    You can also create policy records later, either in the same hosted zone or in additional hosted zones.
+9. When you're finished editing, choose **Save as new version**. 10. _Optional_: Specify the settings to create one or more policy records in one hosted zone
+by using the new traffic policy version. For more information, see
+[Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values "traffic-policy-records.md#traffic-policy-records-creating-values").
+You can also create policy records later, either in the same hosted zone or in additional hosted zones.
 
 If you don't want to create policy records now, choose **Skip this step**, and the console displays
 the list of traffic policies and policy records that you have created by using the current AWS account. 11. If you specified settings for policy records in the preceding step, choose

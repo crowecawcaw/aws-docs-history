@@ -6,31 +6,27 @@ For information about how to list records using the Route 53 API, see
 
 ###### To list records
 
-1.  Sign in to the AWS Management Console and open the Route 53 console at
-    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2.  In the navigation pane, choose **Hosted zones**.
-3.  On the **Hosted Zones** page, choose the name of a hosted zone.
-4.  To change the search mode, choose the gear icon on the upper right of the **Records**
-    table. Choose one of:
+1. Sign in to the AWS Management Console and open the Route 53 console at
+   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
+2. In the navigation pane, choose **Hosted zones**.
+3. On the **Hosted Zones** page, choose the name of a hosted zone.
+4. To change the search mode, choose the gear icon on the upper right of the **Records**
+   table. Choose one of:
 
-        * **Automatic**
+   - **Automatic**
 
+   In this mode, the service uses a filter based on a number of records. Full for less than
+   2000 and fast for more than 2000 records.
+   - **Full**
 
-        In this mode, the service uses a filter based on a number of records. Full for less than
-         2000 and fast for more than 2000 records.
-        * **Full**
+   In this mode, all the search filters are available, but the search performance might be
+   slower.
+   - **Fast**
 
-
-        In this mode, all the search filters are available, but the search performance might be
-         slower.
-        * **Fast**
-
-
-        In this mode, some advanced features aren't available, but the search performance will be
-         faster.
-
-    To display only selected records, enter the applicable search criteria above the list of records. In the automatic mode the search behavior depends on whether
-    the hosted zone contains up to 2,000 records or more than 2,000 records:
+   In this mode, some advanced features aren't available, but the search performance will be
+   faster.
+   To display only selected records, enter the applicable search criteria above the list of records. In the automatic mode the search behavior depends on whether
+   the hosted zone contains up to 2,000 records or more than 2,000 records:
 
 **Up to 2,000 records and full mode**
 

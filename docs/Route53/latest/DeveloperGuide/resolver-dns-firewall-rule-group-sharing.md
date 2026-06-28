@@ -66,7 +66,7 @@ shared with the current account:
      created the rule group and shared it with the current account.
 
 4. Choose the name of the rule group that you want to display sharing information
-   for or that you want to share with another account.
+for or that you want to share with another account.
 
 On the **Rule group: `rule group
  name`** page, the value under **Owner**
@@ -89,7 +89,7 @@ depending on the value of **Sharing status**:
      are owned by other accounts and shared with the current account.
 
 6. To share a rule group with another AWS account, OU, or organization, specify
-   the following values.
+the following values.
 
 ###### Note
 

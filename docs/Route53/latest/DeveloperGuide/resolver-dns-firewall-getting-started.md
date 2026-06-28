@@ -75,7 +75,7 @@ behavior. For more information, see [Managing associations between your VPC and 
 
 ## Resolver DNS Firewall block list example
 
-In this tutorial, you’ll create a rule group that blocks domains that you know to
+In this tutorial, you'll create a rule group that blocks domains that you know to
 be
 malicious. You'll also add a DNS query type that is allowed for the domains in the
 blocked list.

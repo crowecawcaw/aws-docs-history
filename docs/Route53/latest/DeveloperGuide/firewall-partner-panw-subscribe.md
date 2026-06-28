@@ -18,7 +18,7 @@ Use the following procedure to subscribe through the console.
 4. Choose **Add rule**.
 5. Under **Rule details**, enter a
    **Name** for the rule (for example, `PAN Threat Protection
-Rule`). Valid characters: A-Z, a-z, 0-9, hyphen (-), and underscore (\_).
+ Rule`). Valid characters: A-Z, a-z, 0-9, hyphen (-), and underscore (\_).
    Maximum 64 characters. Select the **Advanced** pricing
    option.
 6. Under **Rule configurations** >

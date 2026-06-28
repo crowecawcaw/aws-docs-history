@@ -30,20 +30,19 @@ the problem and, if so, to resolve it.
 
 ###### To restore DNS service if your previous registrar canceled it after you transferred domain registration to Route 53
 
-1.  Contact your previous registrar and confirm that they canceled DNS service for your domain. If so, here are the
-    three quickest ways to restore DNS service for the domain, in order of desirability:
+1. Contact your previous registrar and confirm that they canceled DNS service for your domain. If so, here are the
+   three quickest ways to restore DNS service for the domain, in order of desirability:
 
-        * If the previous registrar provides paid DNS service, ask them to restore DNS service using the
-         old DNS records and name servers for your domain.
-        * If the previous registrar doesn't provide paid DNS service without domain registration, ask
-         whether you can transfer domain registration back to them and have them restore DNS service using the old
-         DNS records and name servers for your domain.
-        * If you can transfer domain registration back to the previous registrar but they don't have your
-         DNS records any longer, ask whether you can transfer domain registration back to them and get the same
-         set of name servers that were formerly assigned to the domain. If this is possible, you'll have to recreate your
-         old DNS records yourself. However, as soon as you do that, your domain will become available again.
-
-    If your previous registrar can't help with any of these options, continue with step 2.
+   - If the previous registrar provides paid DNS service, ask them to restore DNS service using the
+     old DNS records and name servers for your domain.
+   - If the previous registrar doesn't provide paid DNS service without domain registration, ask
+     whether you can transfer domain registration back to them and have them restore DNS service using the old
+     DNS records and name servers for your domain.
+   - If you can transfer domain registration back to the previous registrar but they don't have your
+     DNS records any longer, ask whether you can transfer domain registration back to them and get the same
+     set of name servers that were formerly assigned to the domain. If this is possible, you'll have to recreate your
+     old DNS records yourself. However, as soon as you do that, your domain will become available again.
+     If your previous registrar can't help with any of these options, continue with step 2.
 
 ###### Important
 

@@ -116,7 +116,7 @@ share. You can do this using the Route 53 console, AWS RAM console, or the AWS 
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2. In the navigation pane, choose **Profiles**.
 3. Select the linked name of the Profile you want to unshare, and on the **<Profile
-   name>** page, choose **Manage
+    name>** page, choose **Manage
    sharing**.
 4. You're taken to the AWS RAM console where you can follow these steps: [Updating a Resource Share](../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-update "../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-update") in the
    _AWS RAM User Guide_.

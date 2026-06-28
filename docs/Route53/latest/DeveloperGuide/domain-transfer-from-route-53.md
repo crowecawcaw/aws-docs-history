@@ -27,16 +27,15 @@ comparable functionality:
   ago.
 - The domain cannot have any of the following domain name status codes:
 
-      + pendingDelete
-      + pendingTransfer
-      + redemptionPeriod
-      + clientTransferProhibited
-      + serverTransferProhibited
-
-  For a current list of domain name status codes and an explanation of what each code
-  means, go to the [ICANN website](https://www.icann.org/ "https://www.icann.org/") and search
-  for **epp status codes**. (Search on the ICANN website; web searches
-  sometimes return an old version of the document.)
+  - pendingDelete
+  - pendingTransfer
+  - redemptionPeriod
+  - clientTransferProhibited
+  - serverTransferProhibited
+    For a current list of domain name status codes and an explanation of what each code
+    means, go to the [ICANN website](https://www.icann.org/ "https://www.icann.org/") and search
+    for **epp status codes**. (Search on the ICANN website; web searches
+    sometimes return an old version of the document.)
 
 ###### Note
 
@@ -52,25 +51,24 @@ help. For more information, see [Contacting AWS Support about domain registratio
 
 ###### To transfer a domain from Route 53 to another registrar
 
-1.  Sign in to the AWS Management Console and open the Route 53 console at
-    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2.  In the navigation pane, choose **Registered domains**.
-3.  Choose the name of the domain that you want to transfer to another
-    registrar.
-4.  On the _domain name_ page, check the value of
-    **Domain name status code**. If it is one of the following
-    values, you can't currently transfer the domain:
+1. Sign in to the AWS Management Console and open the Route 53 console at
+   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
+2. In the navigation pane, choose **Registered domains**.
+3. Choose the name of the domain that you want to transfer to another
+   registrar.
+4. On the _domain name_ page, check the value of
+   **Domain name status code**. If it is one of the following
+   values, you can't currently transfer the domain:
 
-        * pendingDelete
-        * pendingTransfer
-        * redemptionPeriod
-        * clientTransferProhibited
-        * serverTransferProhibited
-
-    For a current list of domain name status codes and an explanation of what each
-    code means, go to the [ICANN website](https://www.icann.org/ "https://www.icann.org/")
-    and search for **epp status codes**. (Search on the ICANN
-    website; web searches sometimes return an old version of the document.)
+   - pendingDelete
+   - pendingTransfer
+   - redemptionPeriod
+   - clientTransferProhibited
+   - serverTransferProhibited
+     For a current list of domain name status codes and an explanation of what each
+     code means, go to the [ICANN website](https://www.icann.org/ "https://www.icann.org/")
+     and search for **epp status codes**. (Search on the ICANN
+     website; web searches sometimes return an old version of the document.)
 
 If the value of **Domain name status code** is
 **serverTransferProhibited**, you can contact AWS Support
@@ -143,7 +141,7 @@ Change the IPS tag to the value for the new registrar:
      console. For instructions, see [Switch the registrar](https://theukdomain.uk/help-centre/can-i-switch-the-registrar-i-have-my-domain-registered-with/ "https://theukdomain.uk/help-centre/can-i-switch-the-registrar-i-have-my-domain-registered-with/").
 
 7. If you're not currently using Route 53 as the DNS service provider for your
-   domain, skip to step 10.
+domain, skip to step 10.
 
 If you are currently using Route 53 as the DNS service provider for the domain,
 perform the following steps:
@@ -165,16 +163,16 @@ perform the following steps:
      comparable functionality.
 
 8. If you're transferring DNS service to another provider, use the methods that
-   are provided by the new DNS service to perform the following tasks:
+are provided by the new DNS service to perform the following tasks:
 
-   - Create a hosted zone
-   - Create records that reproduce the functionality of your Route 53
+    * Create a hosted zone
+    * Create records that reproduce the functionality of your Route 53
      records
-   - Get the name servers that the new DNS service assigned to your hosted
+    * Get the name servers that the new DNS service assigned to your hosted
      zone
 
 9. Use the process that is provided by the new registrar to request a transfer of
-   the domain.
+the domain.
 
 _All domains except .co.za, .uk, .co.uk, .me.uk, and .org.uk
 domains_ – You'll be prompted to enter the authorization

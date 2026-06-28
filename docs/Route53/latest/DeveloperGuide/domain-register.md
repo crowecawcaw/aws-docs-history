@@ -55,16 +55,16 @@ see, [Replacing the hosted zone for a domain that is registered with Route 53](
 
 ###### To register a new domain using Route 53
 
-1.  Sign in to the AWS Management Console and open the Route 53 console at
-    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2.  In the navigation pane, choose **Domains** and then **Registered domains**.
-3.  On the **Registered domains** page, choose **Register domains**.
+1. Sign in to the AWS Management Console and open the Route 53 console at
+   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
+2. In the navigation pane, choose **Domains** and then **Registered domains**.
+3. On the **Registered domains** page, choose **Register domains**.
 
-    1. In the **Search for domain** section, enter the domain name that you want to register, and choose **Search** to find out whether the domain
-       name is available.
+   1. In the **Search for domain** section, enter the domain name that you want to register, and choose **Search** to find out whether the domain
+      name is available.
 
-    If the domain name that you want to register contains characters other than a-z, A-Z, 0-9, and - (hyphen),
-    note the following:
+   If the domain name that you want to register contains characters other than a-z, A-Z, 0-9, and - (hyphen),
+   note the following:
 
         * You can enter the name using the applicable characters. You don't need to convert the name
          to Punycode.
@@ -81,17 +81,17 @@ see, [Replacing the hosted zone for a domain that is registered with Route 53](
         For information about how to specify characters other than a-z, 0-9, and - (hyphen) and how to specify internationalized domain names,
          see [DNS domain name format](DomainNameFormat.md "DomainNameFormat.md").
 
-    If the domain you entered is available, it will be displayed, if not, similar
-    domains will be displayed as suggestions.
+   If the domain you entered is available, it will be displayed, if not, similar
+   domains will be displayed as suggestions.
 
-    You can choose up to five domains to register. The domains you select appear in the
-    **Selected domains** list. 2. To register more domains, repeat steps 3a through 3b.
+   You can choose up to five domains to register. The domains you select appear in the
+   **Selected domains** list. 2. To register more domains, repeat steps 3a through 3b.
 
-4.  Choose **Proceed to checkout**.
-5.  On the **Pricing** page, choose the number of years that you
-    want to register the domain for and whether you want us to
-    automatically renew your domain registration before the
-    expiration date.
+4. Choose **Proceed to checkout**.
+5. On the **Pricing** page, choose the number of years that you
+   want to register the domain for and whether you want us to
+   automatically renew your domain registration before the
+   expiration date.
 
 ###### Note
 
@@ -202,24 +202,27 @@ For some TLDs, the verification email might not include the domain name in the s
      verified**, refresh the browser.
 
 9. When domain registration is complete, your next step depends on whether you want to use Route 53
-   or another DNS service as the DNS service for the
-   domain:
+or another DNS service as the DNS service for the
+domain:
 
-   - **Route 53** – In the hosted zone that Route 53 created when you registered
+    * **Route 53** – In the hosted zone that Route 53 created when you registered
      the domain, create records to tell Route 53 how you want to route traffic for the domain and subdomains.
 
-   For example, when someone enters your domain name in a browser and that query is forwarded to Route 53,
-   do you want Route 53 to respond to the query with the IP address of a web server in your data center or with the name
-   of an ELB load balancer?
 
-   For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
+    For example, when someone enters your domain name in a browser and that query is forwarded to Route 53,
+     do you want Route 53 to respond to the query with the IP address of a web server in your data center or with the name
+     of an ELB load balancer?
 
-   ###### Important
 
-   If you create records in a hosted zone other than the one that Route 53 creates automatically,
-   you must update the name servers for the domain to
-   use the name servers for the new hosted
-   zone.
-   - **Another DNS service** – Configure your new domain to route DNS queries to
+    For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
+
+
+    ###### Important
+
+    If you create records in a hosted zone other than the one that Route 53 creates automatically,
+     you must update the name servers for the domain to
+     use the name servers for the new hosted
+     zone.
+    * **Another DNS service** – Configure your new domain to route DNS queries to
      the other DNS service. Perform the procedure
      [Updating name servers to use another registrar](domain-register-other-dns-service.md "domain-register-other-dns-service.md").

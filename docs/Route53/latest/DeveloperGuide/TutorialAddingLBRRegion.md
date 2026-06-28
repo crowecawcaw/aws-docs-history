@@ -21,16 +21,15 @@ records for `www-lbr.example.com`:
 
 ###### To add another Region to your latency-based routing in Route 53
 
-1.  Create four new latency-based records that include the three original regions as well as
-    the new region to which you want to start routing traffic.
+1. Create four new latency-based records that include the three original regions as well as
+   the new region to which you want to start routing traffic.
 
-        * US East (Ohio), Elastic IP address `W.W.W.W`
-        * US West (N. California), Elastic IP address `X.X.X.X`
-        * Europe (Ireland), Elastic IP address `Y.Y.Y.Y`
-        * Asia Pacific (Tokyo), Elastic IP address `Z.Z.Z.Z`
-
-    Give all of the latency records the same new domain name, for example,
-    `www-lbr-2012-04-30.example.com`, and the same type, A.
+   - US East (Ohio), Elastic IP address `W.W.W.W`
+   - US West (N. California), Elastic IP address `X.X.X.X`
+   - Europe (Ireland), Elastic IP address `Y.Y.Y.Y`
+   - Asia Pacific (Tokyo), Elastic IP address `Z.Z.Z.Z`
+     Give all of the latency records the same new domain name, for example,
+     `www-lbr-2012-04-30.example.com`, and the same type, A.
 
 When you're finished creating the latency records, Route 53 will continue to
 route traffic using the original weighted alias record (`www.example.com`) and

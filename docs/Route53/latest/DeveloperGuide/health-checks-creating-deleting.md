@@ -8,33 +8,32 @@ proceed.
 
 This section covers the following topics related to managing Route 53 health checks:
 
-1.  **Creating and updating health checks:**
+1. **Creating and updating health checks:**
 
-    - Learn how to create and update health checks using the Route 53 console.
-    - Understand the values you need to specify when creating or updating health checks, such as endpoint monitoring, protocol, IP address, domain name, and advanced configuration options.
+   - Learn how to create and update health checks using the Route 53 console.
+   - Understand the values you need to specify when creating or updating health checks, such as endpoint monitoring, protocol, IP address, domain name, and advanced configuration options.
 
-2.  **Values displayed when creating a health check:**
+2. **Values displayed when creating a health check:**
 
-    - Discover the values that the Route 53 console displays based on your input when creating a health check, such as the full URL or IP address and port.
+   - Discover the values that the Route 53 console displays based on your input when creating a health check, such as the full URL or IP address and port.
 
-3.  **Updating health checks for CloudWatch alarm changes:**
+3. **Updating health checks for CloudWatch alarm changes:**
 
-    - Find out how to update a health check when you change the settings of the associated CloudWatch alarm.
+   - Find out how to update a health check when you change the settings of the associated CloudWatch alarm.
 
-4.  **Deleting health checks:**
+4. **Deleting health checks:**
 
-    - Follow the procedure to delete health checks by using the Route 53 console.
+   - Follow the procedure to delete health checks by using the Route 53 console.
 
-5.  **Updating or deleting health checks when DNS failover is configured:**
+5. **Updating or deleting health checks when DNS failover is configured:**
 
-    - Learn the recommended tasks to perform when updating or deleting health checks associated with DNS records to ensure proper routing and failover configuration.
+   - Learn the recommended tasks to perform when updating or deleting health checks associated with DNS records to ensure proper routing and failover configuration.
 
-6.  **Configuring router and firewall rules:**
+6. **Configuring router and firewall rules:**
 
-        * Understand how to configure your router and firewall rules to allow inbound traffic from Route 53 health checkers, ensuring successful health checks.
-
-    By following the information provided in this section, you can effectively create, update,
-    and delete Route 53 health checks, manage their configuration, and ensure proper integration with DNS failover and routing policies.
+   - Understand how to configure your router and firewall rules to allow inbound traffic from Route 53 health checkers, ensuring successful health checks.
+     By following the information provided in this section, you can effectively create, update,
+     and delete Route 53 health checks, manage their configuration, and ensure proper integration with DNS failover and routing policies.
 
 ###### Topics
 

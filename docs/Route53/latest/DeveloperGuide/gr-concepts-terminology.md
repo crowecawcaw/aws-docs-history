@@ -163,16 +163,15 @@ They can be:
   maintained by AWS that leverage threat intelligence to identify malicious domains.
   Available threat lists include:
 
-      + Malware domains - Domains known to host or distribute malware
-      + Botnet command and control - Domains used by botnets for command and control
-       communications
-      + Spam - Domains associated with spam and unwanted email campaigns
-      + Phishing - Domains used in phishing attacks to steal credentials and personal
-       information
-      + Amazon GuardDuty threat list - Domains identified by GuardDuty threat intelligence
-
-  Available content categories include social media, gambling, and other categories that
-  help organizations control access to specific types of content.
+  - Malware domains - Domains known to host or distribute malware
+  - Botnet command and control - Domains used by botnets for command and control
+    communications
+  - Spam - Domains associated with spam and unwanted email campaigns
+  - Phishing - Domains used in phishing attacks to steal credentials and personal
+    information
+  - Amazon GuardDuty threat list - Domains identified by GuardDuty threat intelligence
+    Available content categories include social media, gambling, and other categories that
+    help organizations control access to specific types of content.
 
 Individual domain specifications in managed lists cannot be viewed or edited to protect
 intellectual property and maintain security effectiveness.

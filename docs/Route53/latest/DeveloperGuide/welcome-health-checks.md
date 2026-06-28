@@ -33,7 +33,7 @@ that the endpoint doesn't respond to:
      Route 53 resets the count to 0, and CloudWatch doesn't contact you.
 
 4. If Route 53 considers the endpoint unhealthy and if you configured notification for the health check,
-   Route 53 notifies CloudWatch.
+Route 53 notifies CloudWatch.
 
 If you didn't configure notification, you can still see the status of your Route 53 health checks in the Route 53
 console. For more information, see [Monitoring health check status and getting notifications](health-checks-monitor-view-status.md "health-checks-monitor-view-status.md"). 5. If you configured notification for the health check, CloudWatch triggers an alarm and uses Amazon SNS to send

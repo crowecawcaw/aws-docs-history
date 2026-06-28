@@ -16,7 +16,7 @@ querying for NS and DS, Route 53 cannot determine whether it is safe to disable
 can contact your parent zone to fix those issues, and retry disabling DNSSEC
 later.
 
-\*KSK status is **Action needed\***
+_KSK status is **Action needed**_
 A KSK can change its status to **Action needed** (or `ACTION_NEEDED` in a [KeySigningKey](../APIReference/API_KeySigningKey.md "../APIReference/API_KeySigningKey.md") status),
 when Route 53 DNSSEC loses access to a corresponding
 AWS KMS key (due to a change in permissions or AWS KMS key deletion).
@@ -36,7 +36,7 @@ described in [Step 2: Enable DNSSEC signing and create a KSK](dns-configuring-dn
 To prevent this issue in the future,
 consider adding an Amazon CloudWatch metric to track the state of the KSK as suggested in [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").
 
-\*KSK status is **Internal failure\***
+_KSK status is **Internal failure**_
 
 When a KSK has a status of **Internal failure** (or
 `INTERNAL_FAILURE` in a [KeySigningKey](../APIReference/API_KeySigningKey.md "../APIReference/API_KeySigningKey.md") status), you can't work with any other DNSSEC

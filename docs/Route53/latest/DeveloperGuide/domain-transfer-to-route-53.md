@@ -476,30 +476,33 @@ the internet.
      status**.
 
 12. When domain transfer is complete, your next step depends on whether you
-    want to use Route 53 or another DNS service as the DNS service for the
-    domain:
+want to use Route 53 or another DNS service as the DNS service for the
+domain:
 
-    - **Route 53** – In the hosted zone
-      that Route 53 created when you registered the domain, create records to
-      tell Route 53 how you want to route traffic for the domain and
-      subdomains.
+    * **Route 53** – In the hosted zone
+     that Route 53 created when you registered the domain, create records to
+     tell Route 53 how you want to route traffic for the domain and
+     subdomains.
+
 
     For example, when someone enters your domain name in a browser and
-    that query is forwarded to Route 53, do you want Route 53 to respond to
-    the query with the IP address of a web server in your data center or
-    with the name of an Elastic Load Balancing load balancer?
+     that query is forwarded to Route 53, do you want Route 53 to respond to
+     the query with the IP address of a web server in your data center or
+     with the name of an Elastic Load Balancing load balancer?
+
 
     For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
+
 
     ###### Important
 
     If you create records in a hosted zone other than the one that
-    Route 53 creates automatically, you must update the name servers
-    for the domain to use the name servers for the new hosted
-    zone.
-    - **Another DNS service** –
-      Configure your new domain to route DNS queries to the other DNS
-      service. Perform the procedure [Updating name servers to use another registrar](domain-register-other-dns-service.md "domain-register-other-dns-service.md").
+     Route 53 creates automatically, you must update the name servers
+     for the domain to use the name servers for the new hosted
+     zone.
+    * **Another DNS service** –
+     Configure your new domain to route DNS queries to the other DNS
+     service. Perform the procedure [Updating name servers to use another registrar](domain-register-other-dns-service.md "domain-register-other-dns-service.md").
 
 Use the following procedure to transfer up to five domains to your account.
 
@@ -612,30 +615,33 @@ the internet.
      status**.
 
 14. When domain transfer is complete, your next step depends on whether you
-    want to use Route 53 or another DNS service as the DNS service for the
-    domain:
+want to use Route 53 or another DNS service as the DNS service for the
+domain:
 
-    - **Route 53** – In the hosted zone
-      that Route 53 created when you registered the domain, create records to
-      tell Route 53 how you want to route traffic for the domain and
-      subdomains.
+    * **Route 53** – In the hosted zone
+     that Route 53 created when you registered the domain, create records to
+     tell Route 53 how you want to route traffic for the domain and
+     subdomains.
+
 
     For example, when someone enters your domain name in a browser and
-    that query is forwarded to Route 53, do you want Route 53 to respond to
-    the query with the IP address of a web server in your data center or
-    with the name of an ELB load balancer?
+     that query is forwarded to Route 53, do you want Route 53 to respond to
+     the query with the IP address of a web server in your data center or
+     with the name of an ELB load balancer?
+
 
     For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
+
 
     ###### Important
 
     If you create records in a hosted zone other than the one that
-    Route 53 creates automatically, you must update the name servers
-    for the domain to use the name servers for the new hosted
-    zone.
-    - **Another DNS service** –
-      Configure your new domain to route DNS queries to the other DNS
-      service. Perform the procedure [Updating name servers to use another registrar](domain-register-other-dns-service.md "domain-register-other-dns-service.md").
+     Route 53 creates automatically, you must update the name servers
+     for the domain to use the name servers for the new hosted
+     zone.
+    * **Another DNS service** –
+     Configure your new domain to route DNS queries to the other DNS
+     service. Perform the procedure [Updating name servers to use another registrar](domain-register-other-dns-service.md "domain-register-other-dns-service.md").
 
 ## Step 6: Click the link in the confirmation and authorization emails
 

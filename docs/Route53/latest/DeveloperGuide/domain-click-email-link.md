@@ -103,7 +103,7 @@ For some TLDs, the verification email might not include the domain name in the s
      address for the registrant contact is valid.
 
 4. If you encounter issues while resending the confirmation email, you can
-   contact AWS Support for free. For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
+contact AWS Support for free. For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
 
 ###### To resend the authorization email for a domain transfer
 
@@ -162,8 +162,8 @@ the authorization email.
      **Resend email**.
 
 5. If you encounter issues while resending the authorization email for a domain
-   transfer, you can contact AWS Support for free. For more information, see
-   [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
+transfer, you can contact AWS Support for free. For more information, see
+[Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
 
 ###### To resend the authorization email to update the registrant contact or delete a domain
 
