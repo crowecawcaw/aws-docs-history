@@ -5,17 +5,17 @@
 - **Languages**: Python and Scala applications
 - **Build Systems**: Maven and SBT for Scala projects; requirements.txt, Pipfile, and Setuptools for Python projects
 - **Target Platforms**: Amazon EMR and EMR Serverless
-- **Supported Versions**: We support Apache Spark upgrades from version 2.4 to 3.5. The corresponding deployment mode mappings are as follows
+- **Supported Versions**: We support Apache Spark upgrades from version 2.4 to 4.0. The corresponding deployment mode mappings are as follows
 
   - **For EMR-EC2**
 
     - **Source Version:** EMR 5.20.0 and later
-    - **Target Version:** EMR 7.12.0 and earlier, should be newer than EMR 5.20.0
+    - **Target Version:** EMR 8.0.0 and earlier, should be newer than EMR 5.20.0
 
   - **For EMR Serverless**
 
     - **Source Version:** EMR Serverless 6.6.0 and later
-    - **Target Version:** EMR Serverless 7.12.0 and earlier
+    - **Target Version:** EMR Serverless 8.0.0 and earlier
 
 ## What We Upgrade
 

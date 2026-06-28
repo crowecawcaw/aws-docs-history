@@ -24,18 +24,18 @@ table. For [options] specific to sub-commands (`describe-metadata`,
 `set-metadata-capacity`, etc.), see each sub-command
 below.
 
-| [Options] for emrfs             | Option                                   | Description                                                                                                                                                                                                                                                                          | Required |
-| ------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `-a `AWS_ACCESS_KEY_ID`         | <br>--access-key<br>`AWS_ACCESS_KEY_ID`` | The AWS access key you use to write objects to Amazon S3 and to<br>create or access a metadata store in DynamoDB. By default,<br>`AWS_ACCESS_KEY_ID` is set to<br>the access key used to create the cluster.                                                                         | No       |
-| `-s `AWS_SECRET_ACCESS_KEY`<br> | --secret-key<br>`AWS_SECRET_ACCESS_KEY`` | The AWS secret key associated with the access key you use<br>to write objects to Amazon S3 and to create or access a metadata<br>store in DynamoDB. By default,<br>`AWS_SECRET_ACCESS_KEY` is set<br>to the secret key associated with the access key used to<br>create the cluster. | No       |
-| `-v                             | --verbose`                               | Makes output verbose.                                                                                                                                                                                                                                                                | No       |
-| `-h                             | --help`                                  | Displays the help message for the `emrfs`<br>command with a usage statement.                                                                                                                                                                                                         | No       |
+[Options] for emrfs| Option | Description | Required |
+| --- | --- | --- |
+| `-a `AWS_ACCESS_KEY_ID` |<br>--access-key<br>`AWS_ACCESS_KEY_ID`` | The AWS access key you use to write objects to Amazon S3 and to<br>create or access a metadata store in DynamoDB. By default,<br>`AWS_ACCESS_KEY_ID` is set to<br>the access key used to create the cluster. | No |
+| `-s `AWS_SECRET_ACCESS_KEY`<br>| --secret-key<br>`AWS_SECRET_ACCESS_KEY`` | The AWS secret key associated with the access key you use<br>to write objects to Amazon S3 and to create or access a metadata<br>store in DynamoDB. By default,<br>`AWS_SECRET_ACCESS_KEY` is set<br>to the secret key associated with the access key used to<br>create the cluster. | No |
+| `-v | --verbose` | Makes output verbose. | No |
+| `-h | --help` | Displays the help message for the `emrfs`<br>command with a usage statement. | No |
 
 ## emrfs describe-metadata sub-command
 
-| [Options] for emrfs describe-metadata | Option                                  | Description                                                                                                                                                    | Required |
-| ------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-m `METADATA_NAME`                   | <br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No       |
+[Options] for emrfs describe-metadata| Option | Description | Required |
+| --- | --- | --- |
+| `-m `METADATA_NAME` |<br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No |
 
 ###### Example emrfs describe-metadata example
 
@@ -52,11 +52,11 @@ EmrFSMetadata
 
 ## emrfs set-metadata-capacity sub-command
 
-| [Options] for emrfs set-metadata-capacity | Option                                    | Description                                                                                                                                                    | Required |
-| ----------------------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-m `METADATA_NAME`                       | <br>--metadata-name<br>`METADATA_NAME``   | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No       |
-| `-r `READ_CAPACITY`                       | <br>--read-capacity<br>`READ_CAPACITY``   | The requested read throughput capacity for the metadata<br>table. If the `READ_CAPACITY`<br>argument is not supplied, the default value is<br>`400`.           | No       |
-| `-w `WRITE_CAPACITY`                      | <br>--write-capacity<br>`WRITE_CAPACITY`` | The requested write throughput capacity for the metadata<br>table. If the `WRITE_CAPACITY`<br>argument is not supplied, the default value is<br>`100`.         | No       |
+[Options] for emrfs set-metadata-capacity| Option | Description | Required |
+| --- | --- | --- |
+| `-m `METADATA_NAME` |<br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No |
+| `-r `READ_CAPACITY` |<br>--read-capacity<br>`READ_CAPACITY`` | The requested read throughput capacity for the metadata<br>table. If the `READ_CAPACITY`<br>argument is not supplied, the default value is<br>`400`. | No |
+| `-w `WRITE_CAPACITY` |<br>--write-capacity<br>`WRITE_CAPACITY`` | The requested write throughput capacity for the metadata<br>table. If the `WRITE_CAPACITY`<br>argument is not supplied, the default value is<br>`100`. | No |
 
 ###### Example emrfs set-metadata-capacity example
 
@@ -74,9 +74,9 @@ $ emrfs set-metadata-capacity --metadata-name EmrMetadataAlt  --read-capacity 60
 
 ## emrfs delete-metadata sub-command
 
-| [Options] for emrfs delete-metadata | Option                                  | Description                                                                                                                                                    | Required |
-| ----------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-m `METADATA_NAME`                 | <br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No       |
+[Options] for emrfs delete-metadata| Option | Description | Required |
+| --- | --- | --- |
+| `-m `METADATA_NAME` |<br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No |
 
 ###### Example emrfs delete-metadata example
 
@@ -88,11 +88,11 @@ $ emrfs delete-metadata
 
 ## emrfs create-metadata sub-command
 
-| [Options] for emrfs create-metadata | Option                                    | Description                                                                                                                                                    | Required |
-| ----------------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-m `METADATA_NAME`                 | <br>--metadata-name<br>`METADATA_NAME``   | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No       |
-| `-r `READ_CAPACITY`                 | <br>--read-capacity<br>`READ_CAPACITY``   | The requested read throughput capacity for the metadata<br>table. If the `READ_CAPACITY`<br>argument is not supplied, the default value is<br>`400`.           | No       |
-| `-w `WRITE_CAPACITY`                | <br>--write-capacity<br>`WRITE_CAPACITY`` | The requested write throughput capacity for the metadata<br>table. If the `WRITE_CAPACITY`<br>argument is not supplied, the default value is<br>`100`.         | No       |
+[Options] for emrfs create-metadata| Option | Description | Required |
+| --- | --- | --- |
+| `-m `METADATA_NAME` |<br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No |
+| `-r `READ_CAPACITY` |<br>--read-capacity<br>`READ_CAPACITY`` | The requested read throughput capacity for the metadata<br>table. If the `READ_CAPACITY`<br>argument is not supplied, the default value is<br>`400`. | No |
+| `-w `WRITE_CAPACITY` |<br>--write-capacity<br>`WRITE_CAPACITY`` | The requested write throughput capacity for the metadata<br>table. If the `WRITE_CAPACITY`<br>argument is not supplied, the default value is<br>`100`. | No |
 
 ###### Example emrfs create-metadata example
 
@@ -125,10 +125,10 @@ $ emrfs list-metadata-stores
 
 ## emrfs diff sub-command
 
-| [Options] for emrfs diff | Option                                                                                            | Description                                                                                                                                                    | Required |
-| ------------------------ | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-m `METADATA_NAME`      | <br>--metadata-name<br>`METADATA_NAME``                                                           | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No       |
-| `s3://s3Path`            | The path to the Amazon S3 bucket to compare with the metadata table. Buckets sync<br>recursively. | Yes                                                                                                                                                            |
+[Options] for emrfs diff| Option | Description | Required |
+| --- | --- | --- |
+| `-m `METADATA_NAME` |<br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No |
+| `s3://s3Path` | The path to the Amazon S3 bucket to compare with the metadata table. Buckets sync<br>recursively. | Yes |
 
 ###### Example emrfs diff example
 
@@ -154,14 +154,14 @@ DIR elasticmapreduce/samples/cloudfront/code/cloudfront-loganalyzer.tgz
 
 ## emrfs delete sub-command
 
-| [Options] for emrfs delete                   | Option                                                                                                                                                                                | Description                                                                                                                                                                                     | Required |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-m `METADATA_NAME`                          | <br>--metadata-name<br>`METADATA_NAME``                                                                                                                                               | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`.                                  | No       |
-| `s3://s3Path`                                | The path to the Amazon S3 bucket you are tracking for<br>consistent view. Buckets sync recursively.                                                                                   | Yes                                                                                                                                                                                             |
-| `-t `TIME`                                   | --time<br>`TIME``                                                                                                                                                                     | The expiration time (interpreted using the time unit<br>argument). All metadata entries older than the<br>`TIME` argument are deleted for<br>the specified bucket.                              |          |
-| `-u `UNIT`                                   | --time-unit<br>`UNIT``                                                                                                                                                                | The measure used to interpret the time argument<br>(nanoseconds, microseconds, milliseconds, seconds, minutes,<br>hours, or days). If no argument is specified, the default<br>value is `days`. |          |
-| `--read-consumption<br>`READ_CONSUMPTION``   | The requested amount of available read throughput used for<br>the \*_delete_<br>• operation. If the<br>`READ_CONSUMPTION` argument is<br>not specified, the default value is `400`.   | No                                                                                                                                                                                              |
-| `--write-consumption<br>`WRITE_CONSUMPTION`` | The requested amount of available write throughput used<br>for the \*_delete_<br>• operation. If the<br>`WRITE_CONSUMPTION` argument is<br>not specified, the default value is `100`. | No                                                                                                                                                                                              |
+[Options] for emrfs delete| Option | Description | Required |
+| --- | --- | --- |
+| `-m `METADATA_NAME` |<br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No |
+| `s3://s3Path` | The path to the Amazon S3 bucket you are tracking for<br>consistent view. Buckets sync recursively. | Yes |
+| `-t `TIME` | --time<br>`TIME`` | The expiration time (interpreted using the time unit<br>argument). All metadata entries older than the<br>`TIME` argument are deleted for<br>the specified bucket. | |
+| `-u `UNIT` | --time-unit<br>`UNIT`` | The measure used to interpret the time argument<br>(nanoseconds, microseconds, milliseconds, seconds, minutes,<br>hours, or days). If no argument is specified, the default<br>value is `days`. |  |
+| `--read-consumption<br>`READ_CONSUMPTION`` | The requested amount of available read throughput used for<br>the *_delete_<br>• operation. If the<br>`READ_CONSUMPTION` argument is<br>not specified, the default value is `400`. | No |
+| `--write-consumption<br>`WRITE_CONSUMPTION`` | The requested amount of available write throughput used<br>for the *_delete_<br>• operation. If the<br>`WRITE_CONSUMPTION` argument is<br>not specified, the default value is `100`. | No |
 
 ###### Example emrfs delete example
 
@@ -176,12 +176,12 @@ entries deleted: 11
 
 ## emrfs import sub-command
 
-| [Options] for emrfs import                   | Option                                                                                                                                                                                | Description                                                                                                                                                    | Required |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-m `METADATA_NAME`                          | <br>--metadata-name<br>`METADATA_NAME``                                                                                                                                               | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No       |
-| `s3://s3Path`                                | The path to the Amazon S3 bucket you are tracking for<br>consistent view. Buckets sync recursively.                                                                                   | Yes                                                                                                                                                            |
-| `--read-consumption<br>`READ_CONSUMPTION``   | The requested amount of available read throughput used for<br>the \*_delete_<br>• operation. If the<br>`READ_CONSUMPTION` argument is<br>not specified, the default value is `400`.   | No                                                                                                                                                             |
-| `--write-consumption<br>`WRITE_CONSUMPTION`` | The requested amount of available write throughput used<br>for the \*_delete_<br>• operation. If the<br>`WRITE_CONSUMPTION` argument is<br>not specified, the default value is `100`. | No                                                                                                                                                             |
+[Options] for emrfs import| Option | Description | Required |
+| --- | --- | --- |
+| `-m `METADATA_NAME` |<br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No |
+| `s3://s3Path` | The path to the Amazon S3 bucket you are tracking for<br>consistent view. Buckets sync recursively. | Yes |
+| `--read-consumption<br>`READ_CONSUMPTION`` | The requested amount of available read throughput used for<br>the *_delete_<br>• operation. If the<br>`READ_CONSUMPTION` argument is<br>not specified, the default value is `400`. | No |
+| `--write-consumption<br>`WRITE_CONSUMPTION`` | The requested amount of available write throughput used<br>for the *_delete_<br>• operation. If the<br>`WRITE_CONSUMPTION` argument is<br>not specified, the default value is `100`. | No |
 
 ###### Example emrfs import example
 
@@ -196,12 +196,12 @@ $ emrfs import s3://elasticmapreduce/samples/cloudfront
 
 ## emrfs sync sub-command
 
-| [Options] for emrfs sync                     | Option                                                                                                                                                                                | Description                                                                                                                                                    | Required |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-m `METADATA_NAME`                          | <br>--metadata-name<br>`METADATA_NAME``                                                                                                                                               | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No       |
-| `s3://s3Path`                                | The path to the Amazon S3 bucket you are tracking for<br>consistent view. Buckets sync recursively.                                                                                   | Yes                                                                                                                                                            |
-| `--read-consumption<br>`READ_CONSUMPTION``   | The requested amount of available read throughput used for<br>the \*_delete_<br>• operation. If the<br>`READ_CONSUMPTION` argument is<br>not specified, the default value is `400`.   | No                                                                                                                                                             |
-| `--write-consumption<br>`WRITE_CONSUMPTION`` | The requested amount of available write throughput used<br>for the \*_delete_<br>• operation. If the<br>`WRITE_CONSUMPTION` argument is<br>not specified, the default value is `100`. | No                                                                                                                                                             |
+[Options] for emrfs sync| Option | Description | Required |
+| --- | --- | --- |
+| `-m `METADATA_NAME` |<br>--metadata-name<br>`METADATA_NAME`` | `METADATA_NAME` is the name of<br>the DynamoDB metadata table. If the<br>`METADATA_NAME` argument is not<br>supplied, the default value is<br>`EmrFSMetadata`. | No |
+| `s3://s3Path` | The path to the Amazon S3 bucket you are tracking for<br>consistent view. Buckets sync recursively. | Yes |
+| `--read-consumption<br>`READ_CONSUMPTION`` | The requested amount of available read throughput used for<br>the *_delete_<br>• operation. If the<br>`READ_CONSUMPTION` argument is<br>not specified, the default value is `400`. | No |
+| `--write-consumption<br>`WRITE_CONSUMPTION`` | The requested amount of available write throughput used<br>for the *_delete_<br>• operation. If the<br>`WRITE_CONSUMPTION` argument is<br>not specified, the default value is `100`. | No |
 
 ###### Example emrfs sync command example
 
@@ -222,16 +222,16 @@ folders written: 3
 
 ## emrfs read-sqs sub-command
 
-| [Options] for emrfs read-sqs | Option                              | Description                                                                                                                                          | Required |
-| ---------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-q `QUEUE_NAME`             | <br>--queue-name<br>`QUEUE_NAME``   | `QUEUE_NAME` is the name of the<br>Amazon SQS queue configured in<br>`emrfs-site.xml`. The default value<br>is<br>`EMRFS-Inconsistency-<jobFlowId>`. | Yes      |
-| `-o `OUTPUT_FILE`            | <br>--output-file<br>`OUTPUT_FILE`` | `OUTPUT_FILE` is the path to the<br>output file on the master node's local file system. Messages<br>read from the queue are written to this file.    | Yes      |
+[Options] for emrfs read-sqs| Option | Description | Required |
+| --- | --- | --- |
+| `-q `QUEUE_NAME` |<br>--queue-name<br>`QUEUE_NAME`` | `QUEUE_NAME` is the name of the<br>Amazon SQS queue configured in<br>`emrfs-site.xml`. The default value<br>is<br>`EMRFS-Inconsistency-<jobFlowId>`. | Yes |
+| `-o `OUTPUT_FILE` |<br>--output-file<br>`OUTPUT_FILE`` | `OUTPUT_FILE` is the path to the<br>output file on the master node's local file system. Messages<br>read from the queue are written to this file. | Yes |
 
 ## emrfs delete-sqs sub-command
 
-| [Options] for emrfs delete-sqs | Option                            | Description                                                                                                                                          | Required |
-| ------------------------------ | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-q `QUEUE_NAME`               | <br>--queue-name<br>`QUEUE_NAME`` | `QUEUE_NAME` is the name of the<br>Amazon SQS queue configured in<br>`emrfs-site.xml`. The default value<br>is<br>`EMRFS-Inconsistency-<jobFlowId>`. | Yes      |
+[Options] for emrfs delete-sqs| Option | Description | Required |
+| --- | --- | --- |
+| `-q `QUEUE_NAME` |<br>--queue-name<br>`QUEUE_NAME`` | `QUEUE_NAME` is the name of the<br>Amazon SQS queue configured in<br>`emrfs-site.xml`. The default value<br>is<br>`EMRFS-Inconsistency-<jobFlowId>`. | Yes |
 
 ## Submitting EMRFS CLI commands as steps
 

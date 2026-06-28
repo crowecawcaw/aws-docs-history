@@ -18,7 +18,7 @@ cluster.
 ###### To create a cluster with Tez using the AWS CLI
 
 - Use the `create-cluster` command along with the `--
-applications` option to specify **Tez**. The
+ applications` option to specify **Tez**. The
   following example creates a cluster with Tez installed.
 
 ###### Note

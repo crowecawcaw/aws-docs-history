@@ -13,6 +13,6 @@
 
 ### Amazon EMR 7.2.0 - New configurations
 
-| Classification | Name                          | Default | Description                                                                                  |
-| -------------- | ----------------------------- | ------- | -------------------------------------------------------------------------------------------- |
-| hive-site      | hive.llap.shuffle.ssl.enabled | false   | Set to true along with \*tez.runtime.shuffle.ssl.enable<br>• to enable SSL shuffle for LLAP. |
+| Classification | Name                          | Default | Description                                                                                 |
+| -------------- | ----------------------------- | ------- | ------------------------------------------------------------------------------------------- |
+| hive-site      | hive.llap.shuffle.ssl.enabled | false   | Set to true along with *tez.runtime.shuffle.ssl.enable<br>• to enable SSL shuffle for LLAP. |

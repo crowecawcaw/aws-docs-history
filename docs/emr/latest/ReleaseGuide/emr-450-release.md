@@ -13,43 +13,43 @@ For a comprehensive history of application versions for each release of Amazon E
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.x.md "emr-release-app-versions-5.x.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.x.md "emr-release-app-versions-4.x.md")
 
-| Application version information |                  | emr-4.5.0        | emr-4.4.0               | emr-4.3.0               | emr-4.2.0 |
-| ------------------------------- | ---------------- | ---------------- | ----------------------- | ----------------------- | --------- |
-| AWS SDK for Java                | 1.10.27          | 1.10.27          | 1.10.27                 | 1.10.27                 |
-| Python                          | Not tracked      | Not tracked      | Not tracked             | Not tracked             |
-| Scala                           | Not tracked      | Not tracked      | Not tracked             | Not tracked             |
-| AmazonCloudWatchAgent           | -                | -                | -                       | -                       |
-| Delta                           | -                | -                | -                       | -                       |
-| Flink                           | -                | -                | -                       | -                       |
-| Ganglia                         | 3.7.2            | 3.7.2            | 3.7.2                   | 3.6.0                   |
-| HBase                           | -                | -                | -                       | -                       |
-| HCatalog                        | 1.0.0-amzn-4     | 1.0.0-amzn-3     | -                       | -                       |
-| Hadoop                          | 2.7.2-amzn-0     | 2.7.1-amzn-1     | 2.7.1-amzn-0            | 2.6.0-amzn-2            |
-| Hive                            | 1.0.0-amzn-4     | 1.0.0-amzn-3     | 1.0.0-amzn-2            | 1.0.0-amzn-1            |
-| Hudi                            | -                | -                | -                       | -                       |
-| Hue                             | 3.7.1-amzn-5     | 3.7.1-amzn-5     | 3.7.1-amzn-5            | 3.7.1-amzn-5            |
-| Iceberg                         | -                | -                | -                       | -                       |
-| JupyterEnterpriseGateway        | -                | -                | -                       | -                       |
-| JupyterHub                      | -                | -                | -                       | -                       |
-| Livy                            | -                | -                | -                       | -                       |
-| MXNet                           | -                | -                | -                       | -                       |
-| Mahout                          | 0.11.1           | 0.11.1           | 0.11.0                  | 0.11.0                  |
-| Oozie                           | -                | -                | -                       | -                       |
-| Oozie-Sandbox                   | 4.2.0            | 4.2.0            | 4.2.0                   | 4.2.0                   |
-| Phoenix                         | -                | -                | -                       | -                       |
-| Pig                             | 0.14.0-amzn-0    | 0.14.0-amzn-0    | 0.14.0-amzn-0           | 0.14.0-amzn-0           |
-| Presto                          | -                | -                | -                       | -                       |
-| Presto-Sandbox                  | 0.140            | 0.136            | 0.130                   | 0.125                   |
-| Spark                           | 1.6.1            | 1.6.0            | 1.6.0                   | 1.5.2                   |
-| Sqoop                           | -                | -                | -                       | -                       |
-| Sqoop-Sandbox                   | 1.4.6            | 1.4.6            | -                       | -                       |
-| TensorFlow                      | -                | -                | -                       | -                       |
-| Tez                             | -                | -                | -                       | -                       |
-| Trino (PrestoSQL)               | -                | -                | -                       | -                       |
-| Zeppelin                        | -                | -                | -                       | -                       |
-| Zeppelin-Sandbox                | 0.5.6-incubating | 0.5.6-incubating | 0.5.5-incubating-amzn-1 | 0.5.5-incubating-amzn-0 |
-| ZooKeeper                       | -                | -                | -                       | -                       |
-| ZooKeeper-Sandbox               | -                | -                | -                       | -                       |
+Application version information| | emr-4.5.0 | emr-4.4.0 | emr-4.3.0 | emr-4.2.0 |
+| --- | --- | --- | --- | --- |
+| AWS SDK for Java | 1.10.27 | 1.10.27 | 1.10.27 | 1.10.27 |
+| Python | Not tracked | Not tracked | Not tracked | Not tracked |
+| Scala | Not tracked | Not tracked | Not tracked | Not tracked |
+| AmazonCloudWatchAgent | - | - | - | - |
+| Delta | - | - | - | - |
+| Flink | - | - | - | - |
+| Ganglia | 3.7.2 | 3.7.2 | 3.7.2 | 3.6.0 |
+| HBase | - | - | - | - |
+| HCatalog | 1.0.0-amzn-4 | 1.0.0-amzn-3 | - | - |
+| Hadoop | 2.7.2-amzn-0 | 2.7.1-amzn-1 | 2.7.1-amzn-0 | 2.6.0-amzn-2 |
+| Hive | 1.0.0-amzn-4 | 1.0.0-amzn-3 | 1.0.0-amzn-2 | 1.0.0-amzn-1 |
+| Hudi | - | - | - | - |
+| Hue | 3.7.1-amzn-5 | 3.7.1-amzn-5 | 3.7.1-amzn-5 | 3.7.1-amzn-5 |
+| Iceberg | - | - | - | - |
+| JupyterEnterpriseGateway | - | - | - | - |
+| JupyterHub | - | - | - | - |
+| Livy | - | - | - | - |
+| MXNet | - | - | - | - |
+| Mahout | 0.11.1 | 0.11.1 | 0.11.0 | 0.11.0 |
+| Oozie | - | - | - | - |
+| Oozie-Sandbox | 4.2.0 | 4.2.0 | 4.2.0 | 4.2.0 |
+| Phoenix | - | - | - | - |
+| Pig | 0.14.0-amzn-0 | 0.14.0-amzn-0 | 0.14.0-amzn-0 | 0.14.0-amzn-0 |
+| Presto | - | - | - | - |
+| Presto-Sandbox | 0.140 | 0.136 | 0.130 | 0.125 |
+| Spark | 1.6.1 | 1.6.0 | 1.6.0 | 1.5.2 |
+| Sqoop | - | - | - | - |
+| Sqoop-Sandbox | 1.4.6 | 1.4.6 | - | - |
+| TensorFlow | - | - | - | - |
+| Tez | - | - | - | - |
+| Trino (PrestoSQL) | - | - | - | - |
+| Zeppelin | - | - | - | - |
+| Zeppelin-Sandbox | 0.5.6-incubating | 0.5.6-incubating | 0.5.5-incubating-amzn-1 | 0.5.5-incubating-amzn-0 |
+| ZooKeeper | - | - | - | - |
+| ZooKeeper-Sandbox | - | - | - | - |
 
 ## 4.5.0 release notes
 
@@ -126,50 +126,50 @@ Some components in Amazon EMR differ from community versions. These components h
 
 Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as `hive-site.xml`. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
-| emr-4.5.0 classifications       | Classifications                                                    | Description |
-| ------------------------------- | ------------------------------------------------------------------ | ----------- |
-| capacity-scheduler              | Change values in Hadoop's capacity-scheduler.xml file.             |
-| core-site                       | Change values in Hadoop's core-site.xml file.                      |
-| emrfs-site                      | Change EMRFS settings.                                             |
-| hadoop-env                      | Change values in the Hadoop environment for all Hadoop components. |
-| hadoop-log4j                    | Change values in Hadoop's log4j.properties file.                   |
-| hdfs-encryption-zones           | Configure HDFS encryption zones.                                   |
-| hdfs-site                       | Change values in HDFS's hdfs-site.xml.                             |
-| hcatalog-env                    | Change values in HCatalog's environment.                           |
-| hcatalog-server-jndi            | Change values in HCatalog's jndi.properties.                       |
-| hcatalog-server-proto-hive-site | Change values in HCatalog's proto-hive-site.xml.                   |
-| hcatalog-webhcat-env            | Change values in HCatalog WebHCat's environment.                   |
-| hcatalog-webhcat-log4j          | Change values in HCatalog WebHCat's log4j.properties.              |
-| hcatalog-webhcat-site           | Change values in HCatalog WebHCat's webhcat-site.xml file.         |
-| hive-env                        | Change values in the Hive environment.                             |
-| hive-exec-log4j                 | Change values in Hive's hive-exec-log4j.properties file.           |
-| hive-log4j                      | Change values in Hive's hive-log4j.properties file.                |
-| hive-site                       | Change values in Hive's hive-site.xml file                         |
-| hue-ini                         | Change values in Hue's ini file                                    |
-| httpfs-env                      | Change values in the HTTPFS environment.                           |
-| httpfs-site                     | Change values in Hadoop's httpfs-site.xml file.                    |
-| hadoop-kms-acls                 | Change values in Hadoop's kms-acls.xml file.                       |
-| hadoop-kms-env                  | Change values in the Hadoop KMS environment.                       |
-| hadoop-kms-log4j                | Change values in Hadoop's kms-log4j.properties file.               |
-| hadoop-kms-site                 | Change values in Hadoop's kms-site.xml file.                       |
-| mapred-env                      | Change values in the MapReduce application's environment.          |
-| mapred-site                     | Change values in the MapReduce application's mapred-site.xml file. |
-| oozie-env                       | Change values in Oozie's environment.                              |
-| oozie-log4j                     | Change values in Oozie's oozie-log4j.properties file.              |
-| oozie-site                      | Change values in Oozie's oozie-site.xml file.                      |
-| pig-properties                  | Change values in Pig's pig.properties file.                        |
-| pig-log4j                       | Change values in Pig's log4j.properties file.                      |
-| presto-log                      | Change values in Presto's log.properties file.                     |
-| presto-config                   | Change values in Presto's config.properties file.                  |
-| presto-connector-hive           | Change values in Presto's hive.properties file.                    |
-| spark                           | Amazon EMR-curated settings for Apache Spark.                      |
-| spark-defaults                  | Change values in Spark's spark-defaults.conf file.                 |
-| spark-env                       | Change values in the Spark environment.                            |
-| spark-log4j                     | Change values in Spark's log4j.properties file.                    |
-| spark-metrics                   | Change values in Spark's metrics.properties file.                  |
-| sqoop-env                       | Change values in Sqoop's environment.                              |
-| sqoop-oraoop-site               | Change values in Sqoop OraOop's oraoop-site.xml file.              |
-| sqoop-site                      | Change values in Sqoop's sqoop-site.xml file.                      |
-| yarn-env                        | Change values in the YARN environment.                             |
-| yarn-site                       | Change values in YARN's yarn-site.xml file.                        |
-| zeppelin-env                    | Change values in the Zeppelin environment.                         |
+emr-4.5.0 classifications| Classifications | Description |
+| --- | --- |
+| capacity-scheduler | Change values in Hadoop's capacity-scheduler.xml file. |
+| core-site | Change values in Hadoop's core-site.xml file. |
+| emrfs-site | Change EMRFS settings. |
+| hadoop-env | Change values in the Hadoop environment for all Hadoop components. |
+| hadoop-log4j | Change values in Hadoop's log4j.properties file. |
+| hdfs-encryption-zones | Configure HDFS encryption zones. |
+| hdfs-site | Change values in HDFS's hdfs-site.xml. |
+| hcatalog-env | Change values in HCatalog's environment. |
+| hcatalog-server-jndi | Change values in HCatalog's jndi.properties. |
+| hcatalog-server-proto-hive-site | Change values in HCatalog's proto-hive-site.xml. |
+| hcatalog-webhcat-env | Change values in HCatalog WebHCat's environment. |
+| hcatalog-webhcat-log4j | Change values in HCatalog WebHCat's log4j.properties. |
+| hcatalog-webhcat-site | Change values in HCatalog WebHCat's webhcat-site.xml file. |
+| hive-env | Change values in the Hive environment. |
+| hive-exec-log4j | Change values in Hive's hive-exec-log4j.properties file. |
+| hive-log4j | Change values in Hive's hive-log4j.properties file. |
+| hive-site | Change values in Hive's hive-site.xml file |
+| hue-ini | Change values in Hue's ini file |
+| httpfs-env | Change values in the HTTPFS environment. |
+| httpfs-site | Change values in Hadoop's httpfs-site.xml file. |
+| hadoop-kms-acls | Change values in Hadoop's kms-acls.xml file. |
+| hadoop-kms-env | Change values in the Hadoop KMS environment. |
+| hadoop-kms-log4j | Change values in Hadoop's kms-log4j.properties file. |
+| hadoop-kms-site | Change values in Hadoop's kms-site.xml file. |
+| mapred-env | Change values in the MapReduce application's environment. |
+| mapred-site | Change values in the MapReduce application's mapred-site.xml file. |
+| oozie-env | Change values in Oozie's environment. |
+| oozie-log4j | Change values in Oozie's oozie-log4j.properties file. |
+| oozie-site | Change values in Oozie's oozie-site.xml file. |
+| pig-properties | Change values in Pig's pig.properties file. |
+| pig-log4j | Change values in Pig's log4j.properties file. |
+| presto-log | Change values in Presto's log.properties file. |
+| presto-config | Change values in Presto's config.properties file. |
+| presto-connector-hive | Change values in Presto's hive.properties file. |
+| spark | Amazon EMR-curated settings for Apache Spark. |
+| spark-defaults | Change values in Spark's spark-defaults.conf file. |
+| spark-env | Change values in the Spark environment. |
+| spark-log4j | Change values in Spark's log4j.properties file. |
+| spark-metrics | Change values in Spark's metrics.properties file. |
+| sqoop-env | Change values in Sqoop's environment. |
+| sqoop-oraoop-site | Change values in Sqoop OraOop's oraoop-site.xml file. |
+| sqoop-site | Change values in Sqoop's sqoop-site.xml file. |
+| yarn-env | Change values in the YARN environment. |
+| yarn-site | Change values in YARN's yarn-site.xml file. |
+| zeppelin-env | Change values in the Zeppelin environment. |

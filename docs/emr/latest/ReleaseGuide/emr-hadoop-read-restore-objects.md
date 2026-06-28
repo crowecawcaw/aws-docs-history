@@ -7,12 +7,12 @@ access an in-progress Glacier file with `S3A`. This read operation ignores archi
 if they still in progress of being restored. To enable this behavior, use the setting
 `fs.s3a.glacier.read.restored.objects`. This setting can be three values:
 
-- **READ_ALL** – this value indicates that Amazon EMR shouldn't
+- **READ\_ALL** – this value indicates that Amazon EMR shouldn't
   account for the storage classes retrieved from Amazon S3. This is the default behavior.
-- **SKIP_ALL_GLACIER** – this value indicates that Amazon EMR
+- **SKIP\_ALL\_GLACIER** – this value indicates that Amazon EMR
   should ignore any S3 objects that are tagged with the Glacier storage class and retrieve all other objects.
   This is the default behavior for Amazon EMR with respect to Glacier objects.
-- **READ_RESTORED_GLACIER_OBJECTS** – this value indicates that Amazon EMR
+- **READ\_RESTORED\_GLACIER\_OBJECTS** – this value indicates that Amazon EMR
   should check the restored status of the Glacier object. If Amazon EMR can restore the object, you can read them
   like a normal S3 object. Otherwise, Amazon EMR ignores the object from Amazon Glacier
 

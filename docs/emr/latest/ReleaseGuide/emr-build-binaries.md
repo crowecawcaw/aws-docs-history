@@ -53,61 +53,49 @@ build environment.
 - Use the following commands to verify the architecture you are using to build your
   binaries.
 
-      1. To view the version of Debian, enter the following
-       command:
+  1.  To view the version of Debian, enter the following
+      command:
 
+  ```
+  master$ cat /etc/issue
+  ```
 
+  The output looks similar to the following.
 
-      ```
-      master$ cat /etc/issue
-      ```
+  ```
+  Debian GNU/Linux 5.0
+  ```
+  2.  To view the public DNS name and processor size, enter the
+      following command:
 
-      The output looks similar to the following.
+  ```
+  master$ uname -a
+  ```
 
+  The output looks similar to the following.
 
+  ```
+  Linux domU-12-31-39-17-29-39.compute-1.internal 2.6.21.7-2.fc8xen #1 SMP Fri Feb 15 12:34:28 EST 2008 x86_64 GNU/Linux
+  ```
+  3.  To view the processor speed, enter the following
+      command:
 
-      ```
-      Debian GNU/Linux 5.0
-      ```
-      2. To view the public DNS name and processor size, enter the
-       following command:
+  ```
+  master$ cat /proc/cpuinfo
+  ```
 
+  The output looks similar to the following.
 
+  ```
+  processor : 0
+  vendor_id : GenuineIntel
+  model name : Intel(R) Xeon(R) CPU E5430 @ 2.66GHz
+  flags : fpu tsc msr pae mce cx8 apic mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm syscall nx lm constant_tsc pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr cda lahf_lm
+  ...
+  ```
 
-      ```
-      master$ uname -a
-      ```
-
-      The output looks similar to the following.
-
-
-
-      ```
-      Linux domU-12-31-39-17-29-39.compute-1.internal 2.6.21.7-2.fc8xen #1 SMP Fri Feb 15 12:34:28 EST 2008 x86_64 GNU/Linux
-      ```
-      3. To view the processor speed, enter the following
-       command:
-
-
-
-      ```
-      master$ cat /proc/cpuinfo
-      ```
-
-      The output looks similar to the following.
-
-
-
-      ```
-      processor : 0
-      vendor_id : GenuineIntel
-      model name : Intel(R) Xeon(R) CPU E5430 @ 2.66GHz
-      flags : fpu tsc msr pae mce cx8 apic mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm syscall nx lm constant_tsc pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr cda lahf_lm
-      ...
-      ```
-
-  Once your binaries are built, you can copy the files to
-  Amazon S3.
+Once your binaries are built, you can copy the files to
+Amazon S3.
 
 ###### To copy binaries from the master node to Amazon S3
 

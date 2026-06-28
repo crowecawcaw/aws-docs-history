@@ -23,18 +23,18 @@ For a comprehensive history of application versions for each release of Amazon E
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.x.md "emr-release-app-versions-5.x.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.x.md "emr-release-app-versions-4.x.md")
 
-| Application version information |                    | emr-spark-8.0.0 |
-| ------------------------------- | ------------------ | --------------- |
-| AWS SDK for Java                | 2.41.32            |
-| Python                          | 3.11, 3.12, 3.13   |
-| Scala                           | 2.13.16            |
-| AmazonCloudWatchAgent           | 1.300032.2-amzn-0  |
-| Delta                           | 4.0.0-amzn-1-spark |
-| Hudi                            | 1.1.0-amzn-0       |
-| Iceberg                         | 1.10.1-amzn-0      |
-| JupyterEnterpriseGateway        | 2.6.0              |
-| Livy                            | 0.8.0-incubating   |
-| Spark                           | 4.0.2-amzn-0       |
+Application version information| | emr-spark-8.0.0 |
+| --- | --- |
+| AWS SDK for Java | 2.41.32 |
+| Python | 3.11, 3.12, 3.13 |
+| Scala | 2.13.16 |
+| AmazonCloudWatchAgent | 1.300032.2-amzn-0 |
+| Delta | 4.0.0-amzn-1-spark |
+| Hudi | 1.1.0-amzn-0 |
+| Iceberg | 1.10.1-amzn-0 |
+| JupyterEnterpriseGateway | 2.6.0 |
+| Livy | 0.8.0-incubating |
+| Spark | 4.0.2-amzn-0 |
 
 ## emr-spark-8.0.0 release notes
 
@@ -146,54 +146,54 @@ Configuration classifications allow you to customize applications. These often c
 
 Reconfiguration actions occur when you specify a configuration for instance groups in a running cluster. Amazon EMR only initiates reconfiguration actions for the classifications that you modify. For more information, see [Reconfigure an instance group in a running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
 
-| emr-spark-8.0.0 classifications | Classifications                                                      | Description                                                                                                                                                                                                                                                                          | Reconfiguration Actions |
-| ------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| capacity-scheduler              | Change values in Hadoop's capacity-scheduler.xml file.               | Restarts the ResourceManager service.                                                                                                                                                                                                                                                |
-| container-executor              | Change values in Hadoop YARN's container-executor.cfg file.          | Not available.                                                                                                                                                                                                                                                                       |
-| container-log4j                 | Change values in Hadoop YARN's container-log4j.properties file.      | Not available.                                                                                                                                                                                                                                                                       |
-| core-site                       | Change values in Hadoop's core-site.xml file.                        | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode.<br>Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts Hadoop KMS, Hadoop Httpfs, and MapReduce-HistoryServer. |
-| docker-conf                     | Change docker related settings.                                      | Not available.                                                                                                                                                                                                                                                                       |
-| hadoop-env                      | Change values in the Hadoop environment for all Hadoop components.   | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode.<br>Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts MapReduce-HistoryServer.                                |
-| hadoop-log4j                    | Change values in Hadoop's log4j.properties file.                     | Restarts the Hadoop HDFS services SecondaryNamenode, Datanode, and Journalnode.<br>Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts Hadoop KMS, Hadoop Httpfs, and MapReduce-HistoryServer.                 |
-| hadoop-ssl-server               | Change hadoop ssl server configuration                               | Not available.                                                                                                                                                                                                                                                                       |
-| hadoop-ssl-client               | Change hadoop ssl client configuration                               | Not available.                                                                                                                                                                                                                                                                       |
-| hdfs-encryption-zones           | Configure HDFS encryption zones.                                     | This classification should not be reconfigured.                                                                                                                                                                                                                                      |
-| hdfs-env                        | Change values in the HDFS environment.                               | Restarts Hadoop HDFS services Namenode, Datanode, and ZKFC.                                                                                                                                                                                                                          |
-| hdfs-site                       | Change values in HDFS's hdfs-site.xml.                               | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode.<br>Additionally restarts Hadoop Httpfs.                                                                                                                                              |
-| httpfs-env                      | Change values in the HTTPFS environment.                             | Restarts Hadoop Httpfs service.                                                                                                                                                                                                                                                      |
-| httpfs-site                     | Change values in Hadoop's httpfs-site.xml file.                      | Restarts Hadoop Httpfs service.                                                                                                                                                                                                                                                      |
-| hadoop-kms-acls                 | Change values in Hadoop's kms-acls.xml file.                         | Not available.                                                                                                                                                                                                                                                                       |
-| hadoop-kms-env                  | Change values in the Hadoop KMS environment.                         | Restarts Hadoop-KMS service.                                                                                                                                                                                                                                                         |
-| hadoop-kms-java-home            | Change Hadoop's KMS java home                                        | Not available.                                                                                                                                                                                                                                                                       |
-| hadoop-kms-log4j                | Change values in Hadoop's kms-log4j.properties file.                 | Not available.                                                                                                                                                                                                                                                                       |
-| hadoop-kms-site                 | Change values in Hadoop's kms-site.xml file.                         | Restarts Hadoop-KMS.                                                                                                                                                                                                                                                                 |
-| hudi-env                        | Change values in the Hudi environment.                               | Not available.                                                                                                                                                                                                                                                                       |
-| hudi-defaults                   | Change values in Hudi's hudi-defaults.conf file.                     | Not available.                                                                                                                                                                                                                                                                       |
-| iceberg-defaults                | Change values in Iceberg's iceberg-defaults.conf file.               | Not available.                                                                                                                                                                                                                                                                       |
-| delta-defaults                  | Change values in Delta's delta-defaults.conf file.                   | Not available.                                                                                                                                                                                                                                                                       |
-| jupyter-notebook-conf           | Change values in Jupyter Notebook's jupyter_notebook_config.py file. | Not available.                                                                                                                                                                                                                                                                       |
-| jupyter-s3-conf                 | Configure Jupyter Notebook S3 persistence.                           | Not available.                                                                                                                                                                                                                                                                       |
-| jupyter-sparkmagic-conf         | Change values in Sparkmagic's config.json file.                      | Not available.                                                                                                                                                                                                                                                                       |
-| livy-conf                       | Change values in Livy's livy.conf file.                              | Restarts Livy Server.                                                                                                                                                                                                                                                                |
-| livy-env                        | Change values in the Livy environment.                               | Restarts Livy Server.                                                                                                                                                                                                                                                                |
-| livy-log4j2                     | Change Livy log4j2.properties settings.                              | Restarts Livy Server.                                                                                                                                                                                                                                                                |
-| mapred-env                      | Change values in the MapReduce application's environment.            | Restarts Hadoop MapReduce-HistoryServer.                                                                                                                                                                                                                                             |
-| mapred-site                     | Change values in the MapReduce application's mapred-site.xml file.   | Restarts Hadoop MapReduce-HistoryServer.                                                                                                                                                                                                                                             |
-| spark                           | Amazon EMR-curated settings for Apache Spark.                        | This property modifies spark-defaults. See actions there.                                                                                                                                                                                                                            |
-| spark-defaults                  | Change values in Spark's spark-defaults.conf file.                   | Restarts Spark history server and Spark thrift server.                                                                                                                                                                                                                               |
-| spark-env                       | Change values in the Spark environment.                              | Restarts Spark history server and Spark thrift server.                                                                                                                                                                                                                               |
-| spark-hive-site                 | Change values in Spark's hive-site.xml file                          | Not available.                                                                                                                                                                                                                                                                       |
-| spark-log4j2                    | Change values in Spark's log4j2.properties file.                     | Restarts Spark history server and Spark thrift server.                                                                                                                                                                                                                               |
-| spark-metrics                   | Change values in Spark's metrics.properties file.                    | Restarts Spark history server and Spark thrift server.                                                                                                                                                                                                                               |
-| yarn-env                        | Change values in the YARN environment.                               | Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts MapReduce-HistoryServer.                                                                                                                                   |
-| yarn-site                       | Change values in YARN's yarn-site.xml file.                          | Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts Livy Server and MapReduce-HistoryServer.                                                                                                                   |
-| zookeeper-config                | Change values in ZooKeeper's zoo.cfg file.                           | Restarts Zookeeper server.                                                                                                                                                                                                                                                           |
-| zookeeper-logback               | Change values in ZooKeeper's logback.xml file.                       | Restarts Zookeeper server.                                                                                                                                                                                                                                                           |
-| cloudwatch-logs                 | Configure CloudWatch Logs integration for EMR cluster nodes.         | Not available.                                                                                                                                                                                                                                                                       |
-| emr-metrics                     | Change emr metric settings for this node.                            | Restarts the CloudWatchAgent service.                                                                                                                                                                                                                                                |
+emr-spark-8.0.0 classifications| Classifications | Description | Reconfiguration Actions |
+| --- | --- | --- |
+| capacity-scheduler | Change values in Hadoop's capacity-scheduler.xml file. | Restarts the ResourceManager service. |
+| container-executor | Change values in Hadoop YARN's container-executor.cfg file. | Not available. |
+| container-log4j | Change values in Hadoop YARN's container-log4j.properties file. | Not available. |
+| core-site | Change values in Hadoop's core-site.xml file. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode.<br>Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts Hadoop KMS, Hadoop Httpfs, and MapReduce-HistoryServer. |
+| docker-conf | Change docker related settings. | Not available. |
+| hadoop-env | Change values in the Hadoop environment for all Hadoop components. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode.<br>Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts MapReduce-HistoryServer. |
+| hadoop-log4j | Change values in Hadoop's log4j.properties file. | Restarts the Hadoop HDFS services SecondaryNamenode, Datanode, and Journalnode.<br>Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts Hadoop KMS, Hadoop Httpfs, and MapReduce-HistoryServer. |
+| hadoop-ssl-server | Change hadoop ssl server configuration | Not available. |
+| hadoop-ssl-client | Change hadoop ssl client configuration | Not available. |
+| hdfs-encryption-zones | Configure HDFS encryption zones. | This classification should not be reconfigured. |
+| hdfs-env | Change values in the HDFS environment. | Restarts Hadoop HDFS services Namenode, Datanode, and ZKFC. |
+| hdfs-site | Change values in HDFS's hdfs-site.xml. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode.<br>Additionally restarts Hadoop Httpfs. |
+| httpfs-env | Change values in the HTTPFS environment. | Restarts Hadoop Httpfs service. |
+| httpfs-site | Change values in Hadoop's httpfs-site.xml file. | Restarts Hadoop Httpfs service. |
+| hadoop-kms-acls | Change values in Hadoop's kms-acls.xml file. | Not available. |
+| hadoop-kms-env | Change values in the Hadoop KMS environment. | Restarts Hadoop-KMS service. |
+| hadoop-kms-java-home | Change Hadoop's KMS java home | Not available. |
+| hadoop-kms-log4j | Change values in Hadoop's kms-log4j.properties file. | Not available. |
+| hadoop-kms-site | Change values in Hadoop's kms-site.xml file. | Restarts Hadoop-KMS. |
+| hudi-env | Change values in the Hudi environment. | Not available. |
+| hudi-defaults | Change values in Hudi's hudi-defaults.conf file. | Not available. |
+| iceberg-defaults | Change values in Iceberg's iceberg-defaults.conf file. | Not available. |
+| delta-defaults | Change values in Delta's delta-defaults.conf file. | Not available. |
+| jupyter-notebook-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config.py file. | Not available. |
+| jupyter-s3-conf | Configure Jupyter Notebook S3 persistence. | Not available. |
+| jupyter-sparkmagic-conf | Change values in Sparkmagic's config.json file. | Not available. |
+| livy-conf | Change values in Livy's livy.conf file. | Restarts Livy Server. |
+| livy-env | Change values in the Livy environment. | Restarts Livy Server. |
+| livy-log4j2 | Change Livy log4j2.properties settings. | Restarts Livy Server. |
+| mapred-env | Change values in the MapReduce application's environment. | Restarts Hadoop MapReduce-HistoryServer. |
+| mapred-site | Change values in the MapReduce application's mapred-site.xml file. | Restarts Hadoop MapReduce-HistoryServer. |
+| spark | Amazon EMR-curated settings for Apache Spark. | This property modifies spark-defaults. See actions there. |
+| spark-defaults | Change values in Spark's spark-defaults.conf file. | Restarts Spark history server and Spark thrift server. |
+| spark-env | Change values in the Spark environment. | Restarts Spark history server and Spark thrift server. |
+| spark-hive-site | Change values in Spark's hive-site.xml file | Not available. |
+| spark-log4j2 | Change values in Spark's log4j2.properties file. | Restarts Spark history server and Spark thrift server. |
+| spark-metrics | Change values in Spark's metrics.properties file. | Restarts Spark history server and Spark thrift server. |
+| yarn-env | Change values in the YARN environment. | Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts MapReduce-HistoryServer. |
+| yarn-site | Change values in YARN's yarn-site.xml file. | Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer.<br>Additionally restarts Livy Server and MapReduce-HistoryServer. |
+| zookeeper-config | Change values in ZooKeeper's zoo.cfg file. | Restarts Zookeeper server. |
+| zookeeper-logback | Change values in ZooKeeper's logback.xml file. | Restarts Zookeeper server. |
+| cloudwatch-logs | Configure CloudWatch Logs integration for EMR cluster nodes. | Not available. |
+| emr-metrics | Change emr metric settings for this node. | Restarts the CloudWatchAgent service. |
 
 ## EMR Spark 8.0.0 change log
 
-| Change log for EMR Spark 8.0.0 | Date             | Event                                                                  | Description |
-| ------------------------------ | ---------------- | ---------------------------------------------------------------------- | ----------- |
-| 2026-05-21                     | Docs publication | Amazon EMR Spark 8.0.0 (emr-spark-8.0.0) release notes first published |
+Change log for EMR Spark 8.0.0| Date | Event | Description |
+| --- | --- | --- |
+| 2026-05-21 | Docs publication | Amazon EMR Spark 8.0.0 (emr-spark-8.0.0) release notes first published |

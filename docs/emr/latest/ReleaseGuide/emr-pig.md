@@ -12,25 +12,25 @@ The following table lists the version of Pig included in the latest release of t
 
 For the version of components installed with Pig in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md "emr-7130-release.md").
 
-| Pig version information for emr-7.13.0 | Amazon EMR Release Label | Pig Version                                                                                                                                                                                                                                                                                                                                   | Components Installed With Pig |
-| -------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| emr-7.13.0                             | Pig 0.17.0               | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, pig-client, tez-on-yarn, tez-on-worker |
+Pig version information for emr-7.13.0| Amazon EMR Release Label | Pig Version | Components Installed With Pig |
+| --- | --- | --- |
+| emr-7.13.0 | Pig 0.17.0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, pig-client, tez-on-yarn, tez-on-worker |
 
 The following table lists the version of Pig included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Pig.
 
 For the version of components installed with Pig in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md").
 
-| Pig version information for emr-6.15.0 | Amazon EMR Release Label | Pig Version                                                                                                                                                                                                                                                                                                                 | Components Installed With Pig |
-| -------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| emr-6.15.0                             | Pig 0.17.0               | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, pig-client, tez-on-yarn, tez-on-worker |
+Pig version information for emr-6.15.0| Amazon EMR Release Label | Pig Version | Components Installed With Pig |
+| --- | --- | --- |
+| emr-6.15.0 | Pig 0.17.0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, pig-client, tez-on-yarn, tez-on-worker |
 
 The following table lists the version of Pig included in the latest release of the Amazon EMR 5.x series, along with the components that Amazon EMR installs with Pig.
 
 For the version of components installed with Pig in this release, see [Release 5.36.2 Component Versions](emr-5362-release.md "emr-5362-release.md").
 
-| Pig version information for emr-5.36.2 | Amazon EMR Release Label | Pig Version                                                                                                                                                                                                                                                                                                  | Components Installed With Pig |
-| -------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- |
-| emr-5.36.2                             | Pig 0.17.0               | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, pig-client, tez-on-yarn |
+Pig version information for emr-5.36.2| Amazon EMR Release Label | Pig Version | Components Installed With Pig |
+| --- | --- | --- |
+| emr-5.36.2 | Pig 0.17.0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, pig-client, tez-on-yarn |
 
 ###### Topics
 

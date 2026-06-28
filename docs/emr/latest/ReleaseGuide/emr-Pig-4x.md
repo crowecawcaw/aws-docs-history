@@ -14,24 +14,24 @@ beginning with Pig 0.16.0. Most of the UDFs have equivalent functions you can us
 
 | Dropped UDF                           | Equivalent function                                                                                                                                 |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| FORMAT_DT(dtformat, date)             | GetHour(date), GetMinute(date), GetMonth(date),<br>GetSecond(date), GetWeek(date), GetYear(date),<br>GetDay(date)                                   |
-| EXTRACT(string, pattern)              | REGEX_EXTRACT_ALL(string, pattern)                                                                                                                  |
+| FORMAT\_DT(dtformat, date)            | GetHour(date), GetMinute(date), GetMonth(date),<br>GetSecond(date), GetWeek(date), GetYear(date),<br>GetDay(date)                                   |
+| EXTRACT(string, pattern)              | REGEX\_EXTRACT\_ALL(string, pattern)                                                                                                                |
 | REPLACE(string, pattern, replacement) | REPLACE(string, pattern, replacement)                                                                                                               |
-| DATE_TIME()                           | ToDate()                                                                                                                                            |
+| DATE\_TIME()                          | ToDate()                                                                                                                                            |
 | DURATION(dt, dt2)                     | WeeksBetween(dt, dt2), YearsBetween(dt, dt2),<br>SecondsBetween(dt, dt2), MonthsBetween(dt, dt2),<br>MinutesBetween(dt, dt2), HoursBetween(dt, dt2) |
-| EXTRACT_DT(format, date)              | GetHour(date), GetMinute(date), GetMonth(date),<br>GetSecond(date), GetWeek(date), GetYear(date),<br>GetDay(date)                                   |
-| OFFSET_DT(date, duration)             | AddDuration(date, duration), SubtractDuration(date,<br>duration)                                                                                    |
+| EXTRACT\_DT(format, date)             | GetHour(date), GetMinute(date), GetMonth(date),<br>GetSecond(date), GetWeek(date), GetYear(date),<br>GetDay(date)                                   |
+| OFFSET\_DT(date, duration)            | AddDuration(date, duration), SubtractDuration(date,<br>duration)                                                                                    |
 | PERIOD(dt, dt2)                       | WeeksBetween(dt, dt2), YearsBetween(dt, dt2),<br>SecondsBetween(dt, dt2), MonthsBetween(dt, dt2),<br>MinutesBetween(dt, dt2), HoursBetween(dt, dt2) |
 | CAPITALIZE(string)                    | UCFIRST(string)                                                                                                                                     |
-| CONCAT_WITH()                         | CONCAT()                                                                                                                                            |
-| INDEX_OF()                            | INDEXOF()                                                                                                                                           |
-| LAST_INDEX_OF()                       | LAST_INDEXOF()                                                                                                                                      |
-| SPLIT_ON_REGEX()                      | STRSPLT()                                                                                                                                           |
+| CONCAT\_WITH()                        | CONCAT()                                                                                                                                            |
+| INDEX\_OF()                           | INDEXOF()                                                                                                                                           |
+| LAST\_INDEX\_OF()                     | LAST\_INDEXOF()                                                                                                                                     |
+| SPLIT\_ON\_REGEX()                    | STRSPLT()                                                                                                                                           |
 | UNCAPITALIZE()                        | LCFIRST()                                                                                                                                           |
 
-The following UDFs were dropped with no equivalent: FORMAT(), LOCAL_DATE(),
-LOCAL_TIME(), CENTER(), LEFT_PAD(), REPEAT(), REPLACE_ONCE(), RIGHT_PAD(), STRIP(),
-STRIP_END(), STRIP_START(), SWAP_CASE().
+The following UDFs were dropped with no equivalent: FORMAT(), LOCAL\_DATE(),
+LOCAL\_TIME(), CENTER(), LEFT\_PAD(), REPEAT(), REPLACE\_ONCE(), RIGHT\_PAD(), STRIP(),
+STRIP\_END(), STRIP\_START(), SWAP\_CASE().
 
 ## Discontinued Grunt commands
 
@@ -39,18 +39,18 @@ Some Grunt commands were discontinued beginning with Pig 0.16.0. The following t
 Grunt commands in Pig 0.14.0 and the equivalent commands in the current version, where
 applicable.
 
-| Pig 0.14.0 and equivalent current Grunt commands | Pig 0.14.0 Grunt command                        | Pig Grunt command in 0.16.0 and later |
-| ------------------------------------------------ | ----------------------------------------------- | ------------------------------------- |
-| cat <non-hdfs-path>)                             | fs -cat <non-hdfs-path>;                        |
-| cd <non-hdfs-path>;                              | No equivalent                                   |
-| ls <non-hdfs-path>;                              | fs -ls <non-hdfs-path>;                         |
-| move <non-hdfs-path> <non-hdfs-path>;            | fs -mv <non-hdfs-path> <non-hdfs-path>;         |
-| copy <non-hdfs-path> <non-hdfs-path>;            | fs -cp <non-hdfs-path> <non-hdfs-path>;         |
-| copyToLocal <non-hdfs-path> <local-path>;        | fs -copyToLocal <non-hdfs-path> <local-path>;   |
-| copyFromLocal <local-path> <non-hdfs-path>;      | fs -copyFromLocal <local-path> <non-hdfs-path>; |
-| mkdir <non-hdfs-path>;                           | fs -mkdir <non-hdfs-path>;                      |
-| rm <non-hdfs-path>;                              | fs -rm -r -skipTrash <non-hdfs-path>;           |
-| rmf <non-hdfs-path>;                             | fs -rm -r -skipTrash <non-hdfs-path>;           |
+Pig 0.14.0 and equivalent current Grunt commands| Pig 0.14.0 Grunt command | Pig Grunt command in 0.16.0 and later |
+| --- | --- |
+| cat <non-hdfs-path>) | fs -cat <non-hdfs-path>; |
+| cd <non-hdfs-path>; | No equivalent |
+| ls <non-hdfs-path>; | fs -ls <non-hdfs-path>; |
+| move <non-hdfs-path> <non-hdfs-path>; | fs -mv <non-hdfs-path> <non-hdfs-path>; |
+| copy <non-hdfs-path> <non-hdfs-path>; | fs -cp <non-hdfs-path> <non-hdfs-path>; |
+| copyToLocal <non-hdfs-path> <local-path>; | fs -copyToLocal <non-hdfs-path> <local-path>; |
+| copyFromLocal <local-path> <non-hdfs-path>; | fs -copyFromLocal <local-path> <non-hdfs-path>; |
+| mkdir <non-hdfs-path>; | fs -mkdir <non-hdfs-path>; |
+| rm <non-hdfs-path>; | fs -rm -r -skipTrash <non-hdfs-path>; |
+| rmf <non-hdfs-path>; | fs -rm -r -skipTrash <non-hdfs-path>; |
 
 ## Capability removed for non-HDFS home directories
 

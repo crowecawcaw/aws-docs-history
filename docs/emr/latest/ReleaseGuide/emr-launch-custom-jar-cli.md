@@ -88,7 +88,7 @@ Sometimes it may be necessary to include in the MapReduce classpath JARs for use
 with your program. You have two options for doing this:
 
 - Include the `--libjars
-s3://`URI_to_JAR`` in the step options
+ s3://`URI_to_JAR`` in the step options
   for the procedure in [Launching a cluster and submitting a custom JAR step with the AWS CLI](#emr-dev-create-jar-cli "#emr-dev-create-jar-cli").
 - Launch the cluster with a modified
   `mapreduce.application.classpath` setting in

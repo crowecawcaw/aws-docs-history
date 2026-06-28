@@ -12,7 +12,7 @@ Modify properties in the following files to configure JupyterHub and individual 
   `jupyterhub` container as the default. For more information, see
   [Config file and command line options](https://jupyter-notebook.readthedocs.io/en/5.7.4/config.html "https://jupyter-notebook.readthedocs.io/en/5.7.4/config.html") in the Jupyter Notebook
   documentation.
-  You can also use the `jupyter-sparkmagic-conf` configuration classification to customize Sparkmagic, which updates values in the `config.json` file for Sparkmagic. For more information about available settings, see the [example_config.json on GitHub](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json "https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json"). For more information about using configuration classifications with applications in Amazon EMR, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
+  You can also use the `jupyter-sparkmagic-conf` configuration classification to customize Sparkmagic, which updates values in the `config.json` file for Sparkmagic. For more information about available settings, see the [example\_config.json on GitHub](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json "https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json"). For more information about using configuration classifications with applications in Amazon EMR, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
 The following example launches a cluster using the AWS CLI, referencing the file
 `MyJupyterConfig.json` for Sparkmagic configuration classification settings.

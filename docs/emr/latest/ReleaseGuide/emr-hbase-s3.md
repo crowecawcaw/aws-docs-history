@@ -269,7 +269,7 @@ With Amazon EMR 5.17.0 and earlier, the cleaner operation can affect query perfo
 - `cleaner_chore_enabled` queries whether the cleaner is enabled.
 - `cleaner_chore_run` manually runs the cleaner to remove files.
 - `cleaner_chore_switch` enables or disables the cleaner and returns the previous state of the cleaner. For example, `cleaner_chore_switch
-true` enables the cleaner.
+ true` enables the cleaner.
 
 ### Properties for HBase on Amazon S3 performance tuning
 

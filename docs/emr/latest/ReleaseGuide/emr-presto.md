@@ -16,25 +16,25 @@ The following table lists the version of Presto included in the latest release o
 
 For the version of components installed with Presto in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md "emr-7130-release.md").
 
-| Presto version information for emr-7.13.0 | Amazon EMR Release Label | Presto Version                                                                                                                                                                                                                                                                                                                 | Components Installed With Presto |
-| ----------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| emr-7.13.0                                | Presto 0.287-amzn-7      | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-presto, hcatalog-server, mariadb-server, presto-coordinator, presto-worker |
+Presto version information for emr-7.13.0| Amazon EMR Release Label | Presto Version | Components Installed With Presto |
+| --- | --- | --- |
+| emr-7.13.0 | Presto 0.287-amzn-7 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-presto, hcatalog-server, mariadb-server, presto-coordinator, presto-worker |
 
 The following table lists the version of Presto included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Presto.
 
 For the version of components installed with Presto in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md").
 
-| Presto version information for emr-6.15.0 | Amazon EMR Release Label | Presto Version                                                                                                                                                                                                                                                                                               | Components Installed With Presto |
-| ----------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| emr-6.15.0                                | Presto 0.283-amzn-0      | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-presto, hcatalog-server, mariadb-server, presto-coordinator, presto-worker |
+Presto version information for emr-6.15.0| Amazon EMR Release Label | Presto Version | Components Installed With Presto |
+| --- | --- | --- |
+| emr-6.15.0 | Presto 0.283-amzn-0 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-presto, hcatalog-server, mariadb-server, presto-coordinator, presto-worker |
 
 The following table lists the version of Presto included in the latest release of the Amazon EMR 5.x series, along with the components that Amazon EMR installs with Presto.
 
 For the version of components installed with Presto in this release, see [Release 5.36.2 Component Versions](emr-5362-release.md "emr-5362-release.md").
 
-| Presto version information for emr-5.36.2 | Amazon EMR Release Label | Presto Version                                                                                                                                                                                                                                                                                               | Components Installed With Presto |
-| ----------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| emr-5.36.2                                | Presto 0.267-amzn-1      | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-presto, hcatalog-server, mariadb-server, presto-coordinator, presto-worker |
+Presto version information for emr-5.36.2| Amazon EMR Release Label | Presto Version | Components Installed With Presto |
+| --- | --- | --- |
+| emr-5.36.2 | Presto 0.267-amzn-1 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-presto, hcatalog-server, mariadb-server, presto-coordinator, presto-worker |
 
 ###### Topics
 

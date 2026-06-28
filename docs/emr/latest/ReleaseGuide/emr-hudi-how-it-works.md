@@ -83,5 +83,5 @@ You register a Hudi table with the Hive metastore when you use Spark to
 create a Hudi dataset by setting the `HIVE_SYNC_ENABLED_OPT_KEY`
 option to `"true"` and providing other required properties. For more
 information, see [Work with a Hudi dataset](emr-hudi-work-with-dataset.md "emr-hudi-work-with-dataset.md"). In addition, you can use the
-hive_sync_tool command line utility to register a Hudi dataset as a table in
+hive\_sync\_tool command line utility to register a Hudi dataset as a table in
 your metastore, separately.

@@ -10,8 +10,8 @@ libraries and packages and then import them for the appropriate shell.
 Kernels are installed within the Docker container. The easiest way to accomplish
 this is to create a bash script with installation commands, save it to the master
 node, and then use the `sudo docker exec jupyterhub
- `script_name``command to run the script
- within the`jupyterhub` container. The following example script installs
+ `script_name`` command to run the script
+within the `jupyterhub` container. The following example script installs
 the kernel, and then installs a few libraries for that kernel on the master node so
 that later you can import the libraries using the kernel in Jupyter.
 

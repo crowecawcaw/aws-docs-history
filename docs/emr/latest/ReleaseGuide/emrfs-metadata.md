@@ -61,24 +61,24 @@ threaded. Performance differs greatly based on particular application
 characteristics and it may take experimentation to optimize file system
 operations.
 
-| Operation                                                     | Average read-per-second | Average write-per-second |
-| ------------------------------------------------------------- | ----------------------- | ------------------------ |
-| \*_create_<br>• (object)                                      | 26.79                   | 6.70                     |
-| \*_delete_<br>• (object)                                      | 10.79                   | 10.79                    |
-| \*_delete_<br>• (directory containing<br>1000 objects)        | 21.79                   | 338.40                   |
-| \*_getFileStatus_<br>• (object)                               | 34.70                   | 0                        |
-| **getFileStatus**<br>(directory)                              | 19.96                   | 0                        |
-| \*_listStatus_<br>• (directory<br>containing 1 object)        | 43.31                   | 0                        |
-| \*_listStatus_<br>• (directory<br>containing 10 objects)      | 44.34                   | 0                        |
-| \*_listStatus_<br>• (directory<br>containing 100 objects)     | 84.44                   | 0                        |
-| \*_listStatus_<br>• (directory<br>containing 1,000 objects)   | 308.81                  | 0                        |
-| \*_listStatus_<br>• (directory<br>containing 10,000 objects)  | 416.05                  | 0                        |
-| \*_listStatus_<br>• (directory<br>containing 100,000 objects) | 823.56                  | 0                        |
-| \*_listStatus_<br>• (directory<br>containing 1M objects)      | 882.36                  | 0                        |
-| \*_mkdir_<br>• (continuous for 120<br>seconds)                | 24.18                   | 4.03                     |
-| **mkdir**                                                     | 12.59                   | 0                        |
-| \*_rename_<br>• (object)                                      | 19.53                   | 4.88                     |
-| \*_rename_<br>• (directory containing<br>1000 objects)        | 23.22                   | 339.34                   |
+| Operation                                                    | Average read-per-second | Average write-per-second |
+| ------------------------------------------------------------ | ----------------------- | ------------------------ |
+| *_create_<br>• (object)                                      | 26.79                   | 6.70                     |
+| *_delete_<br>• (object)                                      | 10.79                   | 10.79                    |
+| *_delete_<br>• (directory containing<br>1000 objects)        | 21.79                   | 338.40                   |
+| *_getFileStatus_<br>• (object)                               | 34.70                   | 0                        |
+| **getFileStatus**<br>(directory)                             | 19.96                   | 0                        |
+| *_listStatus_<br>• (directory<br>containing 1 object)        | 43.31                   | 0                        |
+| *_listStatus_<br>• (directory<br>containing 10 objects)      | 44.34                   | 0                        |
+| *_listStatus_<br>• (directory<br>containing 100 objects)     | 84.44                   | 0                        |
+| *_listStatus_<br>• (directory<br>containing 1,000 objects)   | 308.81                  | 0                        |
+| *_listStatus_<br>• (directory<br>containing 10,000 objects)  | 416.05                  | 0                        |
+| *_listStatus_<br>• (directory<br>containing 100,000 objects) | 823.56                  | 0                        |
+| *_listStatus_<br>• (directory<br>containing 1M objects)      | 882.36                  | 0                        |
+| *_mkdir_<br>• (continuous for 120<br>seconds)                | 24.18                   | 4.03                     |
+| **mkdir**                                                    | 12.59                   | 0                        |
+| *_rename_<br>• (object)                                      | 19.53                   | 4.88                     |
+| *_rename_<br>• (directory containing<br>1000 objects)        | 23.22                   | 339.34                   |
 
 ###### To submit a step that purges old data from your metadata store
 

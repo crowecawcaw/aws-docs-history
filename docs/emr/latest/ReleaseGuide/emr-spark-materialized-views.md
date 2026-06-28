@@ -175,7 +175,7 @@ schedule_clause =
 
 ###### Note
 
-The view_clauses must appear before the select_statement.
+The view\_clauses must appear before the select\_statement.
 
 ### Creating a basic materialized view
 
@@ -254,7 +254,7 @@ GROUP BY customer_name;
 ```
 
 The Spark optimizer automatically rewrites this query to use the
-customer_orders materialized view instead of processing the base orders table,
+customer\_orders materialized view instead of processing the base orders table,
 provided the materialized view is current.
 
 ### Verifying automatic query rewrite
@@ -270,8 +270,8 @@ GROUP BY customer_name;
 ```
 
 In the execution plan, look for the materialized view name in the BatchScan
-operation. If the plan shows BatchScan glue_catalog.analytics.customer_orders
-instead of BatchScan glue_catalog.sales.orders, the query has been automatically
+operation. If the plan shows BatchScan glue\_catalog.analytics.customer\_orders
+instead of BatchScan glue\_catalog.sales.orders, the query has been automatically
 rewritten to use the materialized view.
 
 ###### Note
@@ -408,7 +408,7 @@ The definer role must have the following Lake Formation permissions:
 
 - On source tables – SELECT or ALL permissions without row, column, or
   cell filters
-- On the target database – CREATE_TABLE permission
+- On the target database – CREATE\_TABLE permission
 - On the AWS Glue Data Catalog – GetTable and CreateTable API
   permissions
 
@@ -571,5 +571,5 @@ Consider the following when using materialized views with Amazon EMR:
 - The SORT BY, LIMIT, OFFSET, CLUSTER BY, and ORDER BY clauses are not
   supported in materialized view definitions.
 - Cross-Region and cross-account source tables are not supported.
-- Non-deterministic functions such as rand() or current_timestamp() are not
+- Non-deterministic functions such as rand() or current\_timestamp() are not
   supported in materialized view definitions.

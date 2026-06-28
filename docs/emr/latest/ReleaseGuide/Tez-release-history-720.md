@@ -5,7 +5,7 @@
 | Type        | Description                                                                           |
 | ----------- | ------------------------------------------------------------------------------------- |
 | Improvement | Option provided to disable locality constraints when requesting containers for tasks. |
-| Bug Fix     | Make \*TaskDependencies#addTaskDependency<br>• thread safe                            |
+| Bug Fix     | Make *TaskDependencies#addTaskDependency<br>• thread safe                             |
 | Upgrade     | Upgrade TLS version to 1.3 for Tez.                                                   |
 
 ## Amazon EMR 7.2.0 - New configurations

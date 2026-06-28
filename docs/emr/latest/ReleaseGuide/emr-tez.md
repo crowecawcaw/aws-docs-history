@@ -9,25 +9,25 @@ The following table lists the version of Tez included in the latest release of t
 
 For the version of components installed with Tez in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md "emr-7130-release.md").
 
-| Tez version information for emr-7.13.0 | Amazon EMR Release Label | Tez Version                                                                                                                                                                                                                                                           | Components Installed With Tez |
-| -------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| emr-7.13.0                             | Tez 0.10.2-amzn-20       | emrfs, emr-goodies, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, tez-on-yarn, tez-on-worker |
+Tez version information for emr-7.13.0| Amazon EMR Release Label | Tez Version | Components Installed With Tez |
+| --- | --- | --- |
+| emr-7.13.0 | Tez 0.10.2-amzn-20 | emrfs, emr-goodies, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, tez-on-yarn, tez-on-worker |
 
 The following table lists the version of Tez included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Tez.
 
 For the version of components installed with Tez in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md").
 
-| Tez version information for emr-6.15.0 | Amazon EMR Release Label | Tez Version                                                                                                                                                                                                                                         | Components Installed With Tez |
-| -------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| emr-6.15.0                             | Tez 0.10.2-amzn-6        | emrfs, emr-goodies, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, tez-on-yarn, tez-on-worker |
+Tez version information for emr-6.15.0| Amazon EMR Release Label | Tez Version | Components Installed With Tez |
+| --- | --- | --- |
+| emr-6.15.0 | Tez 0.10.2-amzn-6 | emrfs, emr-goodies, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, tez-on-yarn, tez-on-worker |
 
 The following table lists the version of Tez included in the latest release of the Amazon EMR 5.x series, along with the components that Amazon EMR installs with Tez.
 
 For the version of components installed with Tez in this release, see [Release 5.36.2 Component Versions](emr-5362-release.md "emr-5362-release.md").
 
-| Tez version information for emr-5.36.2 | Amazon EMR Release Label | Tez Version                                                                                                                                                                                                                          | Components Installed With Tez |
-| -------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- |
-| emr-5.36.2                             | Tez 0.9.2                | emrfs, emr-goodies, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, tez-on-yarn |
+Tez version information for emr-5.36.2| Amazon EMR Release Label | Tez Version | Components Installed With Tez |
+| --- | --- | --- |
+| emr-5.36.2 | Tez 0.9.2 | emrfs, emr-goodies, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, tez-on-yarn |
 
 ###### Topics
 

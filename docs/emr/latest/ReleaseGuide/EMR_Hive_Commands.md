@@ -53,9 +53,9 @@ FROM `hiveTableName`;
 ###### To export a DynamoDB table to an Amazon S3 bucket using formatting
 
 - Create an external table that references a location in Amazon S3. This is
-  shown below as s3_export. During the CREATE call, specify row formatting
+  shown below as s3\_export. During the CREATE call, specify row formatting
   for the table. Then, when you use INSERT OVERWRITE to export data from
-  DynamoDB to s3_export, the data is written out in the specified format. In
+  DynamoDB to s3\_export, the data is written out in the specified format. In
   the following example, the data is written out as comma-separated values
   (CSV).
 
@@ -82,7 +82,7 @@ FROM `hiveTableName`;
   column mapping. The table must have exactly one column of type
   `map<string, string>`. If you then create an
   `EXTERNAL` table in Amazon S3 you can call the `INSERT
-OVERWRITE` command to write the data from DynamoDB to Amazon S3. You
+ OVERWRITE` command to write the data from DynamoDB to Amazon S3. You
   can use this to create an archive of your DynamoDB data in Amazon S3. Because
   there is no column mapping, you cannot query tables that are exported
   this way. Exporting data without specifying a column mapping is
@@ -350,8 +350,8 @@ GROUP BY c.customerId, c.customerName HAVING count > 2;
 
 ###### To join two tables from different sources
 
-- In the following example, Customer_S3 is a Hive table that loads a
-  CSV file stored in Amazon S3 and hive_purchases is a table that references
+- In the following example, Customer\_S3 is a Hive table that loads a
+  CSV file stored in Amazon S3 and hive\_purchases is a table that references
   data in DynamoDB. The following example joins together customer data stored
   as a CSV file in Amazon S3 with order data stored in DynamoDB to return a set of
   data that represents orders placed by customers who have "Miller" in

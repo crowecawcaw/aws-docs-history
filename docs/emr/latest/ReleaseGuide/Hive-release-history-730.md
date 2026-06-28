@@ -10,7 +10,7 @@
 | Bug Fix     | [HIVE-26541](https://issues.apache.org/jira/browse/HIVE-26541 "https://issues.apache.org/jira/browse/HIVE-26541") – NPE when starting WebHCat Service.                                           |
 | Bug Fix     | [HIVE-23011](https://issues.apache.org/jira/browse/HIVE-23011 "https://issues.apache.org/jira/browse/HIVE-23011") – Shared work optimizer should check residual predicates when comparing joins. |
 | Bug Fix     | Fix **javax.security.sasl.SaslException**: No common protection layer between client and server between HMS and Namenode when In-Transit Encryption is enabled.                                  |
-| Bug Fix     | Fix \*_IOException_<br>• where end of orc split overlaps with the start of a block location.                                                                                                     |
+| Bug Fix     | Fix *_IOException_<br>• where end of orc split overlaps with the start of a block location.                                                                                                      |
 | Bug Fix     | Use column name delimiter instead of always splitting by comma when column names contain comma character and using CSVSerde.                                                                     |
 
 ### Amazon EMR 7.3.0 - New configurations

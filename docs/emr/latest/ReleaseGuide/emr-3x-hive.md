@@ -74,8 +74,8 @@ definition and must be named according to the Hive convention: for example,
 ###### Note
 
 After Hive 0.13.1 this capability is supported natively using `msck
- repair `table``and therefore`recover
-partitions` is not supported. For more information, see [https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL").
+ repair `table`` and therefore `recover
+ partitions` is not supported. For more information, see [https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL").
 
 ## Pass a Hive variable to a script
 
@@ -169,7 +169,7 @@ _Amazon RDS User Guide_. 3. Set the JDBC configuration values in
      `s3://`amzn-s3-demo-bucket/`hive-site.xml`.
 
 4. Create a cluster, specifying the Amazon S3 location of the customized
-   `hive-site.xml` file.
+`hive-site.xml` file.
 
 The following example command demonstrates an AWS CLI command that does
 this.
@@ -201,7 +201,7 @@ Hive using JDBC.
    you want to access. The Hive version differs depending on the AMI that you
    choose when you create an Amazon EMR cluster.
 
-   - Hive 0.13.1 JDBC drivers: [https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip](https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip "https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip")
+   - Hive 0.13.1 JDBC drivers: [https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC\_1.0.4.1004.zip](https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip "https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip")
    - Hive 0.11.0 JDBC drivers: [https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.11.0](https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.11.0 "https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.11.0")
    - Hive 0.8.1 JDBC drivers: [https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.8.1](https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.8.1 "https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.8.1")
 
@@ -213,58 +213,62 @@ Hive using JDBC.
    in the tables below for Linux `ssh` users and PuTTY commands for
    Windows users
 
-| Linux SSH commands | Hive version                                                                                                               | Command |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------- | ------- |
-| 0.13.1             | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10000:localhost:10000<br>hadoop@`master-public-dns-name`` |
-| 0.11.0             | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10004:localhost:10004<br>hadoop@`master-public-dns-name`` |
-| 0.8.1              | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10003:localhost:10003<br>hadoop@`master-public-dns-name`` |
-| 0.7.1              | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10002:localhost:10002<br>hadoop@`master-public-dns-name`` |
-| 0.7                | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10001:localhost:10001<br>hadoop@`master-public-dns-name`` |
-| 0.5                | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10000:localhost:10000<br>hadoop@`master-public-dns-name`` |
+Linux SSH commands| Hive version | Command |
+| --- | --- |
+| 0.13.1 | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10000:localhost:10000<br>hadoop@`master-public-dns-name`` |
+| 0.11.0 | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10004:localhost:10004<br>hadoop@`master-public-dns-name`` |
+| 0.8.1 | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10003:localhost:10003<br>hadoop@`master-public-dns-name`` |
+| 0.7.1 | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10002:localhost:10002<br>hadoop@`master-public-dns-name`` |
+| 0.7 | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10001:localhost:10001<br>hadoop@`master-public-dns-name`` |
+| 0.5 | `ssh -o ServerAliveInterval=10 -i<br>`path-to-key-file` -N -L<br>10000:localhost:10000<br>hadoop@`master-public-dns-name`` |
 
-| Windows PuTTY tunnel settings | Hive version                                                                 | Tunnel settings |
-| ----------------------------- | ---------------------------------------------------------------------------- | --------------- |
-| 0.13.1                        | **Source port**: 10000<br>**Destination**:<br>`master-public-dns-name`:10000 |
-| 0.11.0                        | **Source port**: 10004<br>**Destination**:<br>`master-public-dns-name`:10004 |
-| 0.8.1                         | **Source port**: 10003<br>**Destination**:<br>`master-public-dns-name`:10003 |
+Windows PuTTY tunnel settings| Hive version | Tunnel settings |
+| --- | --- |
+| 0.13.1 | **Source port**: 10000<br>**Destination**:<br>`master-public-dns-name`:10000 |
+| 0.11.0 | **Source port**: 10004<br>**Destination**:<br>`master-public-dns-name`:10004 |
+| 0.8.1 | **Source port**: 10003<br>**Destination**:<br>`master-public-dns-name`:10003 | 4. Add the JDBC driver to SQL Workbench.
 
-4. Add the JDBC driver to SQL Workbench.
+    1. In the **Select Connection Profile** dialog box,
+     choose **Manage Drivers**.
+    2. Choose the **Create a new entry** (blank page)
+     icon.
+    3. In the **Name** field, type `Hive
+     JDBC`.
+    4. For **Library**, click the **Select the
+     JAR file(s)** icon.
+    5. Select JAR files as shown in the following table.
 
-   1. In the **Select Connection Profile** dialog box,
-      choose **Manage Drivers**.
-   2. Choose the **Create a new entry** (blank page)
-      icon.
-   3. In the **Name** field, type `Hive
-JDBC`.
-   4. For **Library**, click the **Select the
-      JAR file(s)** icon.
-   5. Select JAR files as shown in the following table.
 
-   | Hive driver version | JAR files to add                                                                                                                                                                                                                                          |
-   | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | 0.13.1              | `<br>hive_metastore.jar<br>hive_service.jar<br>HiveJDBC3.jar<br>libfb303-0.9.0.jar<br>libthrift-0.9.0.jar<br>log4j-1.2.14.jar<br>ql.jar<br>slf4j-api-1.5.8.jar<br>slf4j-log4j12-1.5.8.jar<br>TCLIServiceClient.jar<br>`                                   |
-   | 0.11.0              | `<br>hadoop-core-1.0.3.jar<br>hive-exec-0.11.0.jar<br>hive-jdbc-0.11.0.jar<br>hive-metastore-0.11.0.jar<br>hive-service-0.11.0.jar<br>libfb303-0.9.0.jar<br>commons-logging-1.0.4.jar<br>slf4j-api-1.6.1.jar<br>`                                         |
-   | 0.8.1               | `<br>hadoop-core-0.20.205.jar<br>hive-exec-0.8.1.jar<br>hive-jdbc-0.8.1.jar<br>hive-metastore-0.8.1.jar<br>hive-service-0.8.1.jar<br>libfb303-0.7.0.jar<br>libthrift-0.7.0.jar<br>log4j-1.2.15.jar<br>slf4j-api-1.6.1.jar<br>slf4j-log4j12-1.6.1.jar<br>` |
-   | 0.7.1               | `<br>hadoop-0.20-core.jar<br>hive-exec-0.7.1.jar<br>hive-jdbc-0.7.1.jar<br>hive-metastore-0.7.1.jar<br>hive-service-0.7.1.jar<br>libfb303.jar<br>commons-logging-1.0.4.jar<br>slf4j-api-1.6.1.jar<br>slf4j-log4j12-1.6.1.jar<br>`                         |
-   | 0.7                 | `<br>hadoop-0.20-core.jar<br>hive-exec-0.7.0.jar<br>hive-jdbc-0.7.0.jar<br>hive-metastore-0.7.0.jar<br>hive-service-0.7.0.jar<br>libfb303.jar<br>commons-logging-1.0.4.jar<br>slf4j-api-1.5.6.jar<br>slf4j-log4j12-1.5.6.jar<br>`                         |
-   | 0.5                 | `<br>hadoop-0.20-core.jar<br>hive-exec-0.5.0.jar<br>hive-jdbc-0.5.0.jar<br>hive-metastore-0.5.0.jar<br>hive-service-0.5.0.jar<br>libfb303.jar<br>log4j-1.2.15.jar<br>commons-logging-1.0.4.jar<br>`                                                       |
-   6. In the **Please select one driver** dialog box,
-      select a driver according to the following table and click
-      **OK**.
 
-   | Hive version | Driver classname                                     |
-   | ------------ | ---------------------------------------------------- |
-   | 0.13.1       | `<br>com.amazon.hive.jdbc3.HS2Driver<br>`            |
-   | 0.11.0       | `<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>` |
-   | 0.8.1        | `<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>` |
-   | 0.7.1        | `<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>` |
-   | 0.7          | `<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>` |
-   | 0.5          | `<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>` |
+
+    | Hive driver version | JAR files to add |
+    | --- | --- |
+    | 0.13.1 | ```<br>hive_metastore.jar<br>hive_service.jar<br>HiveJDBC3.jar<br>libfb303-0.9.0.jar<br>libthrift-0.9.0.jar<br>log4j-1.2.14.jar<br>ql.jar<br>slf4j-api-1.5.8.jar<br>slf4j-log4j12-1.5.8.jar<br>TCLIServiceClient.jar<br>``` |
+    | 0.11.0 | ```<br>hadoop-core-1.0.3.jar<br>hive-exec-0.11.0.jar<br>hive-jdbc-0.11.0.jar<br>hive-metastore-0.11.0.jar<br>hive-service-0.11.0.jar<br>libfb303-0.9.0.jar<br>commons-logging-1.0.4.jar<br>slf4j-api-1.6.1.jar<br>``` |
+    | 0.8.1 | ```<br>hadoop-core-0.20.205.jar<br>hive-exec-0.8.1.jar<br>hive-jdbc-0.8.1.jar<br>hive-metastore-0.8.1.jar<br>hive-service-0.8.1.jar<br>libfb303-0.7.0.jar<br>libthrift-0.7.0.jar<br>log4j-1.2.15.jar<br>slf4j-api-1.6.1.jar<br>slf4j-log4j12-1.6.1.jar<br>``` |
+    | 0.7.1 | ```<br>hadoop-0.20-core.jar<br>hive-exec-0.7.1.jar<br>hive-jdbc-0.7.1.jar<br>hive-metastore-0.7.1.jar<br>hive-service-0.7.1.jar<br>libfb303.jar<br>commons-logging-1.0.4.jar<br>slf4j-api-1.6.1.jar<br>slf4j-log4j12-1.6.1.jar<br>``` |
+    | 0.7 | ```<br>hadoop-0.20-core.jar<br>hive-exec-0.7.0.jar<br>hive-jdbc-0.7.0.jar<br>hive-metastore-0.7.0.jar<br>hive-service-0.7.0.jar<br>libfb303.jar<br>commons-logging-1.0.4.jar<br>slf4j-api-1.5.6.jar<br>slf4j-log4j12-1.5.6.jar<br>``` |
+    | 0.5 | ```<br>hadoop-0.20-core.jar<br>hive-exec-0.5.0.jar<br>hive-jdbc-0.5.0.jar<br>hive-metastore-0.5.0.jar<br>hive-service-0.5.0.jar<br>libfb303.jar<br>log4j-1.2.15.jar<br>commons-logging-1.0.4.jar<br>``` |
+    6. In the **Please select one driver** dialog box,
+     select a driver according to the following table and click
+     **OK**.
+
+
+
+
+    | Hive version | Driver classname |
+    | --- | --- |
+    | 0.13.1 | ```<br>com.amazon.hive.jdbc3.HS2Driver<br>``` |
+    | 0.11.0 | ```<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>``` |
+    | 0.8.1 | ```<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>``` |
+    | 0.7.1 | ```<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>``` |
+    | 0.7 | ```<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>``` |
+    | 0.5 | ```<br>org.apache.hadoop.hive.jdbc.HiveDriver.jar<br>``` |
 
 5. When you return to the **Select Connection Profile**
-   dialog box, verify that the **Driver** field is set to
-   **Hive JDBC** and provide the JDBC connection string in
-   the **URL** field according to the following table.
+dialog box, verify that the **Driver** field is set to
+**Hive JDBC** and provide the JDBC connection string in
+the **URL** field according to the following table.
 
 | Hive version | JDBC connection string                 |
 | ------------ | -------------------------------------- |

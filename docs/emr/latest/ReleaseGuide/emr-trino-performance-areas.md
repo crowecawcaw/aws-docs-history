@@ -36,8 +36,8 @@ WHERE customers.country = 'France';
 
 Without dynamic filtering, Trino scans the entire orders table in a join, even though only a small subset of customers (those from France) is
 relevant. This approach reads all rows in the **orders** table, resulting in high I/O and processing costs. With dynamic filtering, Trino initially scans the
-smaller **customers** table, retrieves customer_id values for only customers from France, and then applies this subset as a filter on
-orders. This means only relevant rows from **orders** — those with a customer_id matching the filtered subset — are scanned, significantly
+smaller **customers** table, retrieves customer\_id values for only customers from France, and then applies this subset as a filter on
+orders. This means only relevant rows from **orders** — those with a customer\_id matching the filtered subset — are scanned, significantly
 reducing the records processed.
 
 ## Spill to Disk

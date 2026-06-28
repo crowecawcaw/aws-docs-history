@@ -102,9 +102,9 @@ The following is an example of the yarn-env classification.
 The following settings do not belong to a configuration file but are used by Amazon EMR to
 potentially configure multiple settings on your behalf.
 
-| Settings curated by Amazon EMR | Application | Release label classification | Valid properties                                                      | When to use |
-| ------------------------------ | ----------- | ---------------------------- | --------------------------------------------------------------------- | ----------- |
-| Spark                          | `spark`     | `maximizeResourceAllocation` | Configure executors to utilize the maximum resources of each<br>node. |
+Settings curated by Amazon EMR| Application | Release label classification | Valid properties | When to use |
+| --- | --- | --- | --- |
+| Spark | `spark` | `maximizeResourceAllocation` | Configure executors to utilize the maximum resources of each<br>node. |
 
 ###### Topics
 

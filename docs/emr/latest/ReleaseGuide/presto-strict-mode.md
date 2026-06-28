@@ -13,11 +13,11 @@ rejects or warns you about the following types of long-running queries:
   customize strict mode to your query needs, you can configure Presto in the following
   ways.
 
-| Presto configurations for strict mode | Setting                                                                                                                                                                                            | Description                                                        | Default |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
-| `strict-mode-enabled`                 | Turns strict mode on and off. A value of `true` indicates<br>that strict mode is on.                                                                                                               | `false`                                                            |
-| `strict-mode-fail-query`              | Rejects queries if strict mode detects probable long-running queries.<br>If `false`, Amazon EMR only raises a warning.                                                                             | `false`                                                            |
-| `strict-mode-restrictions`            | Specifies the restrictions to apply when strict mode is turned on.<br>Strict mode supports the following restrictions:<br>MANDATORY_PARTITION_PREDICATE, DISALLOW_CROSS_JOIN, and<br>LIMITED_SORT. | MANDATORY_PARTITION_PREDICATE,DISALLOW_CROSS_JOIN,<br>LIMITED_SORT |
+Presto configurations for strict mode| Setting | Description | Default |
+| --- | --- | --- |
+| `strict-mode-enabled` | Turns strict mode on and off. A value of `true` indicates<br>that strict mode is on. | `false` |
+| `strict-mode-fail-query` | Rejects queries if strict mode detects probable long-running queries.<br>If `false`, Amazon EMR only raises a warning. | `false` |
+| `strict-mode-restrictions` | Specifies the restrictions to apply when strict mode is turned on.<br>Strict mode supports the following restrictions:<br>MANDATORY\_PARTITION\_PREDICATE, DISALLOW\_CROSS\_JOIN, and<br>LIMITED\_SORT. | MANDATORY\_PARTITION\_PREDICATE,DISALLOW\_CROSS\_JOIN,<br>LIMITED\_SORT |
 
 To experiment with strict mode, you can override these configurations, or set them as
 session properties when you use the Presto client.

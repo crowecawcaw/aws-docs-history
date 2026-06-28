@@ -147,7 +147,7 @@ aws dynamodb delete-table --table-name `<your-table-name>`
    `fs.s3.consistent.notification.SQS.queueName`, as described
    in [Configure consistent view](emrfs-configure-consistent-view.md "emrfs-configure-consistent-view.md"). The default queue name format is
    `EMRFS-Inconsistency-`<j-cluster
-   ID>``.
+    ID>``.
 
 ```
 aws sqs list-queues | grep ‘EMRFS-Inconsistency’

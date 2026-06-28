@@ -2,9 +2,9 @@
 
 ## Amazon EMR 7.10.0 - Tez changes
 
-| Type    | Description                                                                                                                                                                                                                                                                                                                    |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Bug Fix | [TEZ-4595](https://issues.apache.org/jira/browse/TEZ-4595 "https://issues.apache.org/jira/browse/TEZ-4595"): Fixed a bug where Tez would crash when trying to process a new DAG while it was still recovering from a previous<br>failure, causing both DAGs to interfere with each other and throw an INVALID_EVENT exception. |
+| Type    | Description                                                                                                                                                                                                                                                                                                                     |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Bug Fix | [TEZ-4595](https://issues.apache.org/jira/browse/TEZ-4595 "https://issues.apache.org/jira/browse/TEZ-4595"): Fixed a bug where Tez would crash when trying to process a new DAG while it was still recovering from a previous<br>failure, causing both DAGs to interfere with each other and throw an INVALID\_EVENT exception. |
 
 **Tez release notes**
 

@@ -13,38 +13,38 @@ For a comprehensive history of application versions for each release of Amazon E
 - [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.x.md "emr-release-app-versions-5.x.md")
 - [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.x.md "emr-release-app-versions-4.x.md")
 
-| Application version information |                  | emr-5.14.0       | emr-5.13.1       | emr-5.13.0       | emr-5.12.3 |
-| ------------------------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------- |
-| AWS SDK for Java                | 1.11.297         | 1.11.297         | 1.11.297         | 1.11.267         |
-| Python                          | 2.7, 3.4         | 2.7, 3.4         | 2.7, 3.4         | 2.7, 3.4         |
-| Scala                           | 2.11.8           | 2.11.8           | 2.11.8           | 2.11.8           |
-| AmazonCloudWatchAgent           | -                | -                | -                | -                |
-| Delta                           | -                | -                | -                | -                |
-| Flink                           | 1.4.2            | 1.4.0            | 1.4.0            | 1.4.0            |
-| Ganglia                         | 3.7.2            | 3.7.2            | 3.7.2            | 3.7.2            |
-| HBase                           | 1.4.2            | 1.4.2            | 1.4.2            | 1.4.0            |
-| HCatalog                        | 2.3.2-amzn-2     | 2.3.2-amzn-2     | 2.3.2-amzn-2     | 2.3.2-amzn-1     |
-| Hadoop                          | 2.8.3-amzn-0     | 2.8.3-amzn-0     | 2.8.3-amzn-0     | 2.8.3-amzn-0     |
-| Hive                            | 2.3.2-amzn-2     | 2.3.2-amzn-2     | 2.3.2-amzn-2     | 2.3.2-amzn-1     |
-| Hudi                            | -                | -                | -                | -                |
-| Hue                             | 4.1.0            | 4.1.0            | 4.1.0            | 4.1.0            |
-| Iceberg                         | -                | -                | -                | -                |
-| JupyterEnterpriseGateway        | -                | -                | -                | -                |
-| JupyterHub                      | 0.8.1            | -                | -                | -                |
-| Livy                            | 0.4.0-incubating | 0.4.0-incubating | 0.4.0-incubating | 0.4.0-incubating |
-| MXNet                           | 1.1.0            | 1.0.0            | 1.0.0            | 1.0.0            |
-| Mahout                          | 0.13.0           | 0.13.0           | 0.13.0           | 0.13.0           |
-| Oozie                           | 4.3.0            | 4.3.0            | 4.3.0            | 4.3.0            |
-| Phoenix                         | 4.13.0-HBase-1.4 | 4.13.0-HBase-1.4 | 4.13.0-HBase-1.4 | 4.13.0-HBase-1.4 |
-| Pig                             | 0.17.0           | 0.17.0           | 0.17.0           | 0.17.0           |
-| Presto                          | 0.194            | 0.194            | 0.194            | 0.188            |
-| Spark                           | 2.3.0            | 2.3.0            | 2.3.0            | 2.2.1            |
-| Sqoop                           | 1.4.7            | 1.4.6            | 1.4.6            | 1.4.6            |
-| TensorFlow                      | -                | -                | -                | -                |
-| Tez                             | 0.8.4            | 0.8.4            | 0.8.4            | 0.8.4            |
-| Trino (PrestoSQL)               | -                | -                | -                | -                |
-| Zeppelin                        | 0.7.3            | 0.7.3            | 0.7.3            | 0.7.3            |
-| ZooKeeper                       | 3.4.10           | 3.4.10           | 3.4.10           | 3.4.10           |
+Application version information| | emr-5.14.0 | emr-5.13.1 | emr-5.13.0 | emr-5.12.3 |
+| --- | --- | --- | --- | --- |
+| AWS SDK for Java | 1.11.297 | 1.11.297 | 1.11.297 | 1.11.267 |
+| Python | 2.7, 3.4 | 2.7, 3.4 | 2.7, 3.4 | 2.7, 3.4 |
+| Scala | 2.11.8 | 2.11.8 | 2.11.8 | 2.11.8 |
+| AmazonCloudWatchAgent | - | - | - | - |
+| Delta | - | - | - | - |
+| Flink | 1.4.2 | 1.4.0 | 1.4.0 | 1.4.0 |
+| Ganglia | 3.7.2 | 3.7.2 | 3.7.2 | 3.7.2 |
+| HBase | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.0 |
+| HCatalog | 2.3.2-amzn-2 | 2.3.2-amzn-2 | 2.3.2-amzn-2 | 2.3.2-amzn-1 |
+| Hadoop | 2.8.3-amzn-0 | 2.8.3-amzn-0 | 2.8.3-amzn-0 | 2.8.3-amzn-0 |
+| Hive | 2.3.2-amzn-2 | 2.3.2-amzn-2 | 2.3.2-amzn-2 | 2.3.2-amzn-1 |
+| Hudi | - | - | - | - |
+| Hue | 4.1.0 | 4.1.0 | 4.1.0 | 4.1.0 |
+| Iceberg | - | - | - | - |
+| JupyterEnterpriseGateway | - | - | - | - |
+| JupyterHub | 0.8.1 | - | - | - |
+| Livy | 0.4.0-incubating | 0.4.0-incubating | 0.4.0-incubating | 0.4.0-incubating |
+| MXNet | 1.1.0 | 1.0.0 | 1.0.0 | 1.0.0 |
+| Mahout | 0.13.0 | 0.13.0 | 0.13.0 | 0.13.0 |
+| Oozie | 4.3.0 | 4.3.0 | 4.3.0 | 4.3.0 |
+| Phoenix | 4.13.0-HBase-1.4 | 4.13.0-HBase-1.4 | 4.13.0-HBase-1.4 | 4.13.0-HBase-1.4 |
+| Pig | 0.17.0 | 0.17.0 | 0.17.0 | 0.17.0 |
+| Presto | 0.194 | 0.194 | 0.194 | 0.188 |
+| Spark | 2.3.0 | 2.3.0 | 2.3.0 | 2.2.1 |
+| Sqoop | 1.4.7 | 1.4.6 | 1.4.6 | 1.4.6 |
+| TensorFlow | - | - | - | - |
+| Tez | 0.8.4 | 0.8.4 | 0.8.4 | 0.8.4 |
+| Trino (PrestoSQL) | - | - | - | - |
+| Zeppelin | 0.7.3 | 0.7.3 | 0.7.3 | 0.7.3 |
+| ZooKeeper | 3.4.10 | 3.4.10 | 3.4.10 | 3.4.10 |
 
 ## 5.14.0 release notes
 
@@ -104,41 +104,33 @@ June 4, 2018
 
   - Using configuration classifications to set up JupyterHub and
     individual Jupyter notebooks when you create a cluster is not
-    supported. Edit the jupyterhub_config.py file and
-    jupyter_notebook_config.py files for each user manually. For more
+    supported. Edit the jupyterhub\_config.py file and
+    jupyter\_notebook\_config.py files for each user manually. For more
     information, see [Configuring JupyterHub](emr-jupyterhub-configure.md "emr-jupyterhub-configure.md").
   - JupyterHub fails to start on clusters within a private subnet, failing with the message `Error: ENOENT: no such file or directory, open '/etc/jupyter/conf/server.crt'` . This is caused by an error in the script that generates self-signed certificates. Use the following workaround to generate self-signed certificates. All commands are executed while connected to the primary node.
 
-        1. Copy the certificate generation script from the container to the primary node:
+    1. Copy the certificate generation script from the container to the primary node:
 
+    ```
+    sudo docker cp jupyterhub:/tmp/gen_self_signed_cert.sh ./
+    ```
+    2. Use a text editor to change line 23 to change public hostname to local hostname as shown below:
 
+    ```
+    `local` hostname=$(curl -s $EC2_METADATA_SERVICE_URI/`local`-hostname)
+    ```
+    3. Run the script to generate self-signed certificates:
 
-        ```
-        sudo docker cp jupyterhub:/tmp/gen_self_signed_cert.sh ./
-        ```
-        2. Use a text editor to change line 23 to change public hostname to local hostname as shown below:
+    ```
+    sudo bash ./gen_self_signed_cert.sh
+    ```
+    4. Move the certificate files that the script generates to the `/etc/jupyter/conf/` directory:
 
+    ```
+    sudo mv /tmp/server.crt /tmp/server.key /etc/jupyter/conf/
+    ```
 
-
-        ```
-        `local` hostname=$(curl -s $EC2_METADATA_SERVICE_URI/`local`-hostname)
-        ```
-        3. Run the script to generate self-signed certificates:
-
-
-
-        ```
-        sudo bash ./gen_self_signed_cert.sh
-        ```
-        4. Move the certificate files that the script generates to the `/etc/jupyter/conf/` directory:
-
-
-
-        ```
-        sudo mv /tmp/server.crt /tmp/server.key /etc/jupyter/conf/
-        ```
-
-    You can `tail` the `jupyter.log` file to verify that JupyterHub restarted and is returning a 200 response code. For example:
+  You can `tail` the `jupyter.log` file to verify that JupyterHub restarted and is returning a 200 response code. For example:
 
   ```
   tail -f /var/log/jupyter/jupyter.log
@@ -225,96 +217,96 @@ Some components in Amazon EMR differ from community versions. These components h
 
 Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as `hive-site.xml`. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
-| emr-5.14.0 classifications      | Classifications                                                      | Description |
-| ------------------------------- | -------------------------------------------------------------------- | ----------- |
-| capacity-scheduler              | Change values in Hadoop's capacity-scheduler.xml file.               |
-| container-log4j                 | Change values in Hadoop YARN's container-log4j.properties file.      |
-| core-site                       | Change values in Hadoop's core-site.xml file.                        |
-| emrfs-site                      | Change EMRFS settings.                                               |
-| flink-conf                      | Change flink-conf.yaml settings.                                     |
-| flink-log4j                     | Change Flink log4j.properties settings.                              |
-| flink-log4j-yarn-session        | Change Flink log4j-yarn-session.properties settings.                 |
-| flink-log4j-cli                 | Change Flink log4j-cli.properties settings.                          |
-| hadoop-env                      | Change values in the Hadoop environment for all Hadoop components.   |
-| hadoop-log4j                    | Change values in Hadoop's log4j.properties file.                     |
-| hadoop-ssl-server               | Change hadoop ssl server configuration                               |
-| hadoop-ssl-client               | Change hadoop ssl client configuration                               |
-| hbase                           | Amazon EMR-curated settings for Apache HBase.                        |
-| hbase-env                       | Change values in HBase's environment.                                |
-| hbase-log4j                     | Change values in HBase's hbase-log4j.properties file.                |
-| hbase-metrics                   | Change values in HBase's hadoop-metrics2-hbase.properties file.      |
-| hbase-policy                    | Change values in HBase's hbase-policy.xml file.                      |
-| hbase-site                      | Change values in HBase's hbase-site.xml file.                        |
-| hdfs-encryption-zones           | Configure HDFS encryption zones.                                     |
-| hdfs-site                       | Change values in HDFS's hdfs-site.xml.                               |
-| hcatalog-env                    | Change values in HCatalog's environment.                             |
-| hcatalog-server-jndi            | Change values in HCatalog's jndi.properties.                         |
-| hcatalog-server-proto-hive-site | Change values in HCatalog's proto-hive-site.xml.                     |
-| hcatalog-webhcat-env            | Change values in HCatalog WebHCat's environment.                     |
-| hcatalog-webhcat-log4j2         | Change values in HCatalog WebHCat's log4j2.properties.               |
-| hcatalog-webhcat-site           | Change values in HCatalog WebHCat's webhcat-site.xml file.           |
-| hive-beeline-log4j2             | Change values in Hive's beeline-log4j2.properties file.              |
-| hive-parquet-logging            | Change values in Hive's parquet-logging.properties file.             |
-| hive-env                        | Change values in the Hive environment.                               |
-| hive-exec-log4j2                | Change values in Hive's hive-exec-log4j2.properties file.            |
-| hive-llap-daemon-log4j2         | Change values in Hive's llap-daemon-log4j2.properties file.          |
-| hive-log4j2                     | Change values in Hive's hive-log4j2.properties file.                 |
-| hive-site                       | Change values in Hive's hive-site.xml file                           |
-| hiveserver2-site                | Change values in Hive Server2's hiveserver2-site.xml file            |
-| hue-ini                         | Change values in Hue's ini file                                      |
-| httpfs-env                      | Change values in the HTTPFS environment.                             |
-| httpfs-site                     | Change values in Hadoop's httpfs-site.xml file.                      |
-| hadoop-kms-acls                 | Change values in Hadoop's kms-acls.xml file.                         |
-| hadoop-kms-env                  | Change values in the Hadoop KMS environment.                         |
-| hadoop-kms-log4j                | Change values in Hadoop's kms-log4j.properties file.                 |
-| hadoop-kms-site                 | Change values in Hadoop's kms-site.xml file.                         |
-| jupyter-notebook-conf           | Change values in Jupyter Notebook's jupyter_notebook_config.py file. |
-| jupyter-hub-conf                | Change values in JupyterHubs's jupyterhub_config.py file.            |
-| jupyter-sparkmagic-conf         | Change values in Sparkmagic's config.json file.                      |
-| livy-conf                       | Change values in Livy's livy.conf file.                              |
-| livy-env                        | Change values in the Livy environment.                               |
-| livy-log4j                      | Change Livy log4j.properties settings.                               |
-| mapred-env                      | Change values in the MapReduce application's environment.            |
-| mapred-site                     | Change values in the MapReduce application's mapred-site.xml file.   |
-| oozie-env                       | Change values in Oozie's environment.                                |
-| oozie-log4j                     | Change values in Oozie's oozie-log4j.properties file.                |
-| oozie-site                      | Change values in Oozie's oozie-site.xml file.                        |
-| phoenix-hbase-metrics           | Change values in Phoenix's hadoop-metrics2-hbase.properties file.    |
-| phoenix-hbase-site              | Change values in Phoenix's hbase-site.xml file.                      |
-| phoenix-log4j                   | Change values in Phoenix's log4j.properties file.                    |
-| phoenix-metrics                 | Change values in Phoenix's hadoop-metrics2-phoenix.properties file.  |
-| pig-env                         | Change values in the Pig environment.                                |
-| pig-properties                  | Change values in Pig's pig.properties file.                          |
-| pig-log4j                       | Change values in Pig's log4j.properties file.                        |
-| presto-log                      | Change values in Presto's log.properties file.                       |
-| presto-config                   | Change values in Presto's config.properties file.                    |
-| presto-env                      | Change values in Presto's presto-env.sh file.                        |
-| presto-node                     | Change values in Presto's node.properties file.                      |
-| presto-connector-blackhole      | Change values in Presto's blackhole.properties file.                 |
-| presto-connector-cassandra      | Change values in Presto's cassandra.properties file.                 |
-| presto-connector-hive           | Change values in Presto's hive.properties file.                      |
-| presto-connector-jmx            | Change values in Presto's jmx.properties file.                       |
-| presto-connector-kafka          | Change values in Presto's kafka.properties file.                     |
-| presto-connector-localfile      | Change values in Presto's localfile.properties file.                 |
-| presto-connector-mongodb        | Change values in Presto's mongodb.properties file.                   |
-| presto-connector-mysql          | Change values in Presto's mysql.properties file.                     |
-| presto-connector-postgresql     | Change values in Presto's postgresql.properties file.                |
-| presto-connector-raptor         | Change values in Presto's raptor.properties file.                    |
-| presto-connector-redis          | Change values in Presto's redis.properties file.                     |
-| presto-connector-redshift       | Change values in Presto's redshift.properties file.                  |
-| presto-connector-tpch           | Change values in Presto's tpch.properties file.                      |
-| spark                           | Amazon EMR-curated settings for Apache Spark.                        |
-| spark-defaults                  | Change values in Spark's spark-defaults.conf file.                   |
-| spark-env                       | Change values in the Spark environment.                              |
-| spark-hive-site                 | Change values in Spark's hive-site.xml file                          |
-| spark-log4j                     | Change values in Spark's log4j.properties file.                      |
-| spark-metrics                   | Change values in Spark's metrics.properties file.                    |
-| sqoop-env                       | Change values in Sqoop's environment.                                |
-| sqoop-oraoop-site               | Change values in Sqoop OraOop's oraoop-site.xml file.                |
-| sqoop-site                      | Change values in Sqoop's sqoop-site.xml file.                        |
-| tez-site                        | Change values in Tez's tez-site.xml file.                            |
-| yarn-env                        | Change values in the YARN environment.                               |
-| yarn-site                       | Change values in YARN's yarn-site.xml file.                          |
-| zeppelin-env                    | Change values in the Zeppelin environment.                           |
-| zookeeper-config                | Change values in ZooKeeper's zoo.cfg file.                           |
-| zookeeper-log4j                 | Change values in ZooKeeper's log4j.properties file.                  |
+emr-5.14.0 classifications| Classifications | Description |
+| --- | --- |
+| capacity-scheduler | Change values in Hadoop's capacity-scheduler.xml file. |
+| container-log4j | Change values in Hadoop YARN's container-log4j.properties file. |
+| core-site | Change values in Hadoop's core-site.xml file. |
+| emrfs-site | Change EMRFS settings. |
+| flink-conf | Change flink-conf.yaml settings. |
+| flink-log4j | Change Flink log4j.properties settings. |
+| flink-log4j-yarn-session | Change Flink log4j-yarn-session.properties settings. |
+| flink-log4j-cli | Change Flink log4j-cli.properties settings. |
+| hadoop-env | Change values in the Hadoop environment for all Hadoop components. |
+| hadoop-log4j | Change values in Hadoop's log4j.properties file. |
+| hadoop-ssl-server | Change hadoop ssl server configuration |
+| hadoop-ssl-client | Change hadoop ssl client configuration |
+| hbase | Amazon EMR-curated settings for Apache HBase. |
+| hbase-env | Change values in HBase's environment. |
+| hbase-log4j | Change values in HBase's hbase-log4j.properties file. |
+| hbase-metrics | Change values in HBase's hadoop-metrics2-hbase.properties file. |
+| hbase-policy | Change values in HBase's hbase-policy.xml file. |
+| hbase-site | Change values in HBase's hbase-site.xml file. |
+| hdfs-encryption-zones | Configure HDFS encryption zones. |
+| hdfs-site | Change values in HDFS's hdfs-site.xml. |
+| hcatalog-env | Change values in HCatalog's environment. |
+| hcatalog-server-jndi | Change values in HCatalog's jndi.properties. |
+| hcatalog-server-proto-hive-site | Change values in HCatalog's proto-hive-site.xml. |
+| hcatalog-webhcat-env | Change values in HCatalog WebHCat's environment. |
+| hcatalog-webhcat-log4j2 | Change values in HCatalog WebHCat's log4j2.properties. |
+| hcatalog-webhcat-site | Change values in HCatalog WebHCat's webhcat-site.xml file. |
+| hive-beeline-log4j2 | Change values in Hive's beeline-log4j2.properties file. |
+| hive-parquet-logging | Change values in Hive's parquet-logging.properties file. |
+| hive-env | Change values in the Hive environment. |
+| hive-exec-log4j2 | Change values in Hive's hive-exec-log4j2.properties file. |
+| hive-llap-daemon-log4j2 | Change values in Hive's llap-daemon-log4j2.properties file. |
+| hive-log4j2 | Change values in Hive's hive-log4j2.properties file. |
+| hive-site | Change values in Hive's hive-site.xml file |
+| hiveserver2-site | Change values in Hive Server2's hiveserver2-site.xml file |
+| hue-ini | Change values in Hue's ini file |
+| httpfs-env | Change values in the HTTPFS environment. |
+| httpfs-site | Change values in Hadoop's httpfs-site.xml file. |
+| hadoop-kms-acls | Change values in Hadoop's kms-acls.xml file. |
+| hadoop-kms-env | Change values in the Hadoop KMS environment. |
+| hadoop-kms-log4j | Change values in Hadoop's kms-log4j.properties file. |
+| hadoop-kms-site | Change values in Hadoop's kms-site.xml file. |
+| jupyter-notebook-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config.py file. |
+| jupyter-hub-conf | Change values in JupyterHubs's jupyterhub\_config.py file. |
+| jupyter-sparkmagic-conf | Change values in Sparkmagic's config.json file. |
+| livy-conf | Change values in Livy's livy.conf file. |
+| livy-env | Change values in the Livy environment. |
+| livy-log4j | Change Livy log4j.properties settings. |
+| mapred-env | Change values in the MapReduce application's environment. |
+| mapred-site | Change values in the MapReduce application's mapred-site.xml file. |
+| oozie-env | Change values in Oozie's environment. |
+| oozie-log4j | Change values in Oozie's oozie-log4j.properties file. |
+| oozie-site | Change values in Oozie's oozie-site.xml file. |
+| phoenix-hbase-metrics | Change values in Phoenix's hadoop-metrics2-hbase.properties file. |
+| phoenix-hbase-site | Change values in Phoenix's hbase-site.xml file. |
+| phoenix-log4j | Change values in Phoenix's log4j.properties file. |
+| phoenix-metrics | Change values in Phoenix's hadoop-metrics2-phoenix.properties file. |
+| pig-env | Change values in the Pig environment. |
+| pig-properties | Change values in Pig's pig.properties file. |
+| pig-log4j | Change values in Pig's log4j.properties file. |
+| presto-log | Change values in Presto's log.properties file. |
+| presto-config | Change values in Presto's config.properties file. |
+| presto-env | Change values in Presto's presto-env.sh file. |
+| presto-node | Change values in Presto's node.properties file. |
+| presto-connector-blackhole | Change values in Presto's blackhole.properties file. |
+| presto-connector-cassandra | Change values in Presto's cassandra.properties file. |
+| presto-connector-hive | Change values in Presto's hive.properties file. |
+| presto-connector-jmx | Change values in Presto's jmx.properties file. |
+| presto-connector-kafka | Change values in Presto's kafka.properties file. |
+| presto-connector-localfile | Change values in Presto's localfile.properties file. |
+| presto-connector-mongodb | Change values in Presto's mongodb.properties file. |
+| presto-connector-mysql | Change values in Presto's mysql.properties file. |
+| presto-connector-postgresql | Change values in Presto's postgresql.properties file. |
+| presto-connector-raptor | Change values in Presto's raptor.properties file. |
+| presto-connector-redis | Change values in Presto's redis.properties file. |
+| presto-connector-redshift | Change values in Presto's redshift.properties file. |
+| presto-connector-tpch | Change values in Presto's tpch.properties file. |
+| spark | Amazon EMR-curated settings for Apache Spark. |
+| spark-defaults | Change values in Spark's spark-defaults.conf file. |
+| spark-env | Change values in the Spark environment. |
+| spark-hive-site | Change values in Spark's hive-site.xml file |
+| spark-log4j | Change values in Spark's log4j.properties file. |
+| spark-metrics | Change values in Spark's metrics.properties file. |
+| sqoop-env | Change values in Sqoop's environment. |
+| sqoop-oraoop-site | Change values in Sqoop OraOop's oraoop-site.xml file. |
+| sqoop-site | Change values in Sqoop's sqoop-site.xml file. |
+| tez-site | Change values in Tez's tez-site.xml file. |
+| yarn-env | Change values in the YARN environment. |
+| yarn-site | Change values in YARN's yarn-site.xml file. |
+| zeppelin-env | Change values in the Zeppelin environment. |
+| zookeeper-config | Change values in ZooKeeper's zoo.cfg file. |
+| zookeeper-log4j | Change values in ZooKeeper's log4j.properties file. |

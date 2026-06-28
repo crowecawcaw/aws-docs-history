@@ -394,7 +394,7 @@ object KinesisWordCountASLSDKV2 {
   `Kinesis-producer-library` with JDK version lower
   than 11, you may run into exceptions like
   `java.lang.NoClassDefFoundError:
-javax/xml/bind/DatatypeConverter`. This happens because
+ javax/xml/bind/DatatypeConverter`. This happens because
   EMR 7.0 comes with JDK 17 by default and J2EE modules have been
   removed from the standard libraries since Java 11+. This could be
   fixed by adding the following dependency in the pom file. Replace

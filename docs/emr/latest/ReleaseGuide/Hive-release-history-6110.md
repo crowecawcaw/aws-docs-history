@@ -55,7 +55,7 @@
 | hive.groupby.enable.deterministic.distribution             | hive-site      | Enable deterministic distribution of keys to reducers. It<br>will pass a constant seed value while calling the rand<br>function used for random partitioning. |
 | hive.privilege.synchronizer                                | hive-site      | Whether to synchronize privileges from external<br>authorizer periodically in HiveServer2.                                                                    |
 | hive.cli.query.file.encoding                               | hive-site      | File encoding for the all type of query files (query<br>file, init query file, rc file etc) provided in the cli<br>arguments.                                 |
-| hive.emr.tez.shuffle.enabled                               | hive-site      | Hive on Tez jobs now use tez_shuffle by default instead<br>of mapreduce_shuffle as the default Shuffle Handler.                                               |
+| hive.emr.tez.shuffle.enabled                               | hive-site      | Hive on Tez jobs now use tez\_shuffle by default instead<br>of mapreduce\_shuffle as the default Shuffle Handler.                                             |
 
 ## Deprecated configurations
 

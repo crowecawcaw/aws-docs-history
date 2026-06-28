@@ -16,5 +16,5 @@ Ganglia metrics for Spark generally have prefixes for YARN application ID and Sp
 DAGScheduler. So prefixes follow this form:
 
 - DAGScheduler.\*
-- application_xxxxxxxxxx_xxxx.driver.\*
-- application_xxxxxxxxxx_xxxx.executor.\*
+- application\_xxxxxxxxxx\_xxxx.driver.\*
+- application\_xxxxxxxxxx\_xxxx.executor.\*

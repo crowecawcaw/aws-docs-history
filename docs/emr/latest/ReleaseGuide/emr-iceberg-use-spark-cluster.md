@@ -322,7 +322,7 @@ spark-shell \
 Considerations for this approach:
 
 - You can access Iceberg tables but no other tables.
-- The catalog name cannot be **spark_catalog**. This is the name of the initial catalog in Spark. It always connects to a
+- The catalog name cannot be **spark\_catalog**. This is the name of the initial catalog in Spark. It always connects to a
   Hive metastore. It is the default catalog in Spark, unless the user overwrites it using `spark.sql.defaultCatalog`.
 - You can set the `spark.sql.defaultCatalog` to your catalog name to make that the default catalog.
 
@@ -341,7 +341,7 @@ Considerations for this approach:
 
 - If a table is not found as an Iceberg table, Spark will try to see if it is a table in the Hive metastore.
   See [Using the AWS Glue Data Catalog as the catalog for Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md") for more information.
-- The catalog name must be **spark_catalog**.
+- The catalog name must be **spark\_catalog**.
 
 ## Using Iceberg Spark extensions
 
@@ -357,7 +357,7 @@ statements and procedures, such as compaction, snapshot expiration, branching an
 
 - Amazon EMR 6.5.0 does not support Iceberg running on Amazon EMR on EKS by default. An
   Amazon EMR 6.5.0 custom image is available so that you can pass `--jars
-local:///usr/share/aws/iceberg/lib/iceberg-spark3-runtime.jar` as
+ local:///usr/share/aws/iceberg/lib/iceberg-spark3-runtime.jar` as
   a `spark-submit` parameter to create Iceberg tables on
   Amazon EMR on EKS. For more information, see [Submit a Spark workload in Amazon EMR using a custom image](../EMR-on-EKS-DevelopmentGuide/docker-custom-images-steps.md#docker-custom-images-submit "../EMR-on-EKS-DevelopmentGuide/docker-custom-images-steps.md#docker-custom-images-submit") in the
   _Amazon EMR on EKS Development Guide_. You can also contact

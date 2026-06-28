@@ -42,9 +42,9 @@ The following table lists the version of AmazonCloudWatchAgent included in the l
 
 For the version of components installed with AmazonCloudWatchAgent in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md "emr-7130-release.md").
 
-| AmazonCloudWatchAgent version information for emr-7.13.0 | Amazon EMR Release Label                | AmazonCloudWatchAgent Version                                                                                                                                                                                                                                                                                                                       | Components Installed With AmazonCloudWatchAgent |
-| -------------------------------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| emr-7.13.0                                               | AmazonCloudWatchAgent 1.300032.2-amzn-0 | adot-java-agent, emrfs, emr-amazon-cloudwatch-agent, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-mapred, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server |
+AmazonCloudWatchAgent version information for emr-7.13.0| Amazon EMR Release Label | AmazonCloudWatchAgent Version | Components Installed With AmazonCloudWatchAgent |
+| --- | --- | --- |
+| emr-7.13.0 | AmazonCloudWatchAgent 1.300032.2-amzn-0 | adot-java-agent, emrfs, emr-amazon-cloudwatch-agent, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-mapred, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server |
 
 ###### Topics
 

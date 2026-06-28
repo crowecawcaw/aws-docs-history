@@ -105,7 +105,7 @@ public class AwsKmsClient implements KmsClient {
 2. Create your AWS KMS encryption keys for the footer as well the columns
    with your IAM roles having access as described in [Creating
    keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_. The
-   default IAM role is EMR_ECS_default.
+   default IAM role is EMR\_ECS\_default.
 3. On the Hive application on an Amazon EMR cluster, add the client above
    using the `ADD JAR` statement, as described in the [Apache Hive Resources documentation](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli#LanguageManualCli-HiveResources "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli#LanguageManualCli-HiveResources"). The following is an
    example statement:

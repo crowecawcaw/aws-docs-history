@@ -12,7 +12,7 @@ clusters](../ManagementGuide/emr-web-interfaces.md "../ManagementGuide/emr-web-i
 2. Type the following address in your browser to open the
    **Hue** web interface: `http://`master
    public DNS`:8888` where `master public
-dns` is the public DNS name of your cluster master node, for
+ dns` is the public DNS name of your cluster master node, for
    example `ec2-11-22-333-44.compute-1.amazonaws.com`.
 3. At the Hue login screen, if you are the administrator logging in for the
    first time, enter a user name and password to create your Hue superaccount

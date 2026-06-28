@@ -35,4 +35,4 @@ The AI assistant will orchestrate the troubleshooting using specialized tools pr
 - [Configuring Interface VPC Endpoints for Amazon SageMaker Unified Studio MCP](spark-troubleshooting-agent-vpc-endpoints.md "spark-troubleshooting-agent-vpc-endpoints.md")
 - [Cross-Region Processing for the Apache Spark Troubleshooting Agent](spark-troubleshooting-cross-region-processing.md "spark-troubleshooting-cross-region-processing.md")
 - [Logging Amazon SageMaker Unified Studio MCP calls using AWS CloudTrail](spark-troubleshooting-cloudtrail-integration.md "spark-troubleshooting-cloudtrail-integration.md")
-- [Service Improvements for Apache Spark Agents](spark-agents-service-improvements.md "spark-agents-service-improvements.md")
+- [Data handling for Troubleshooting Agent](spark-agents-service-improvements.md "spark-agents-service-improvements.md")

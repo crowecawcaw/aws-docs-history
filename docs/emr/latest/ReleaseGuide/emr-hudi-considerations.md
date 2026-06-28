@@ -19,7 +19,7 @@
   but the full schema is required.
 - **MoR table limitations** – MoR tables do
   not support savepointing. You can query MoR tables using the read-optimized view
-  or the real-time view (``tableName`\_rt`)
+  or the real-time view (``tableName`_rt`)
   from Spark SQL, Presto, or Hive. Using the read-optimized view only exposes base
   file data, and does not expose a merged view of base and log data.
 - **Hive**

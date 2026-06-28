@@ -32,7 +32,7 @@ are met:
   – use the commit protocol. The protocol is not used if a job
   operation writes to a custom partition location – for example, if
   a custom partition location is set using the `ALTER TABLE
-SQL` command.
+ SQL` command.
 - The following values for Spark must be used:
 
   - `spark.sql.sources.commitProtocolClass` must be set

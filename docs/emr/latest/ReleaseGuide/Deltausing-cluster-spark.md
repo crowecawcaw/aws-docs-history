@@ -21,7 +21,7 @@ cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-
 
 2. Create a cluster with the following configuration, replacing the example
    Amazon S3 `bucket path` and the `subnet
-ID` with your own.
+ ID` with your own.
 
 ```
 aws emr create-cluster

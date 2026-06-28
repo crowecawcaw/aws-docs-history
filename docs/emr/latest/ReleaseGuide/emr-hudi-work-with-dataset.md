@@ -296,28 +296,28 @@ inputDF.write \
 You might see "hoodie" instead of Hudi in code examples and notifications. The
 Hudi codebase widely uses the old "hoodie" spelling.
 
-| DataSourceWriteOptions reference for Hudi | Option                                                                                                                                                                                                                                                             | Description |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| TABLE_NAME                                | The table name under which to register the dataset.                                                                                                                                                                                                                |
-| TABLE_TYPE_OPT_KEY                        | Optional. Specifies whether the dataset is created as<br>`"COPY_ON_WRITE"` or<br>`"MERGE_ON_READ"`. The default is<br>`"COPY_ON_WRITE"`.                                                                                                                           |
-| RECORDKEY_FIELD_OPT_KEY                   | The record key field whose value will be used as<br>the `recordKey` component<br>of `HoodieKey`. Actual value will be obtained by<br>invoking `.toString()` on the field value. Nested<br>fields can be specified using the dot notation, for<br>example, `a.b.c`. |
-| PARTITIONPATH_FIELD_OPT_KEY               | The partition path field whose value will be used as the<br>`partitionPath` component<br>of `HoodieKey`. The actual value will be obtained<br>by invoking `.toString()` on the field value.                                                                        |
-| PRECOMBINE_FIELD_OPT_KEY                  | The field used in pre-combining before actual write. When two<br>records have the same key value, Hudi picks the one with<br>the largest value for the precombine field as determined by<br>`Object.compareTo(..)`.                                                |
+DataSourceWriteOptions reference for Hudi| Option | Description |
+| --- | --- |
+| TABLE\_NAME | The table name under which to register the dataset. |
+| TABLE\_TYPE\_OPT\_KEY | Optional. Specifies whether the dataset is created as<br>`"COPY_ON_WRITE"` or<br>`"MERGE_ON_READ"`. The default is<br>`"COPY_ON_WRITE"`. |
+| RECORDKEY\_FIELD\_OPT\_KEY | The record key field whose value will be used as<br>the `recordKey` component<br>of `HoodieKey`. Actual value will be obtained by<br>invoking `.toString()` on the field value. Nested<br>fields can be specified using the dot notation, for<br>example, `a.b.c`. |
+| PARTITIONPATH\_FIELD\_OPT\_KEY | The partition path field whose value will be used as the<br>`partitionPath` component<br>of `HoodieKey`. The actual value will be obtained<br>by invoking `.toString()` on the field value. |
+| PRECOMBINE\_FIELD\_OPT\_KEY | The field used in pre-combining before actual write. When two<br>records have the same key value, Hudi picks the one with<br>the largest value for the precombine field as determined by<br>`Object.compareTo(..)`. |
 
 The following options are required only to register the Hudi dataset table in
 your metastore. If you do not register your Hudi dataset as a table in the Hive
 metastore, these options are not required.
 
-| DataSourceWriteOptions reference for Hive | Option                                                                                                      | Description |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------- |
-| HIVE_DATABASE_OPT_KEY                     | The Hive database to sync to. The default is<br>`"default"`.                                                |
-| HIVE_PARTITION_EXTRACTOR_CLASS_OPT_KEY    | The class used to extract partition field values into Hive<br>partition columns.                            |
-| HIVE_PARTITION_FIELDS_OPT_KEY             | The field in the dataset to use for determining Hive partition<br>columns.                                  |
-| HIVE_SYNC_ENABLED_OPT_KEY                 | When set to `"true"`, registers the dataset with<br>the Apache Hive metastore. The default is<br>`"false"`. |
-| HIVE_TABLE_OPT_KEY                        | Required. The name of the table in Hive to sync to. For<br>example, `"my_hudi_table_cow"`.                  |
-| HIVE_USER_OPT_KEY                         | Optional. The Hive user name to use when syncing. For example,<br>`"hadoop"`.                               |
-| HIVE_PASS_OPT_KEY                         | Optional. The Hive password for the user specified by<br>`HIVE_USER_OPT_KEY`.                               |
-| HIVE_URL_OPT_KEY                          | The Hive metastore URL.                                                                                     |
+DataSourceWriteOptions reference for Hive| Option | Description |
+| --- | --- |
+| HIVE\_DATABASE\_OPT\_KEY | The Hive database to sync to. The default is<br>`"default"`. |
+| HIVE\_PARTITION\_EXTRACTOR\_CLASS\_OPT\_KEY | The class used to extract partition field values into Hive<br>partition columns. |
+| HIVE\_PARTITION\_FIELDS\_OPT\_KEY | The field in the dataset to use for determining Hive partition<br>columns. |
+| HIVE\_SYNC\_ENABLED\_OPT\_KEY | When set to `"true"`, registers the dataset with<br>the Apache Hive metastore. The default is<br>`"false"`. |
+| HIVE\_TABLE\_OPT\_KEY | Required. The name of the table in Hive to sync to. For<br>example, `"my_hudi_table_cow"`. |
+| HIVE\_USER\_OPT\_KEY | Optional. The Hive user name to use when syncing. For example,<br>`"hadoop"`. |
+| HIVE\_PASS\_OPT\_KEY | Optional. The Hive password for the user specified by<br>`HIVE_USER_OPT_KEY`. |
+| HIVE\_URL\_OPT\_KEY | The Hive metastore URL. |
 
 ## Upsert data
 

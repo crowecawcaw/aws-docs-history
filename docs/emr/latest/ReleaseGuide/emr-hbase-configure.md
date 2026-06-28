@@ -51,16 +51,16 @@ memory needed for HBase.
 Some port numbers chosen for HBase are different from the default. The following are
 interfaces and ports for HBase on Amazon EMR.
 
-| HBase ports       | Interface | Port | Protocol |
-| ----------------- | --------- | ---- | -------- |
-| HMaster           | 16000     | TCP  |
-| HMaster UI        | 16010     | HTTP |
-| RegionServer      | 16020     | TCP  |
-| RegionServer Info | 16030     | HTTP |
-| REST server       | 8070      | HTTP |
-| REST UI           | 8085      | HTTP |
-| Thrift server     | 9090      | TCP  |
-| Thrift server UI  | 9095      | HTTP |
+HBase ports| Interface | Port | Protocol |
+| --- | --- | --- |
+| HMaster | 16000 | TCP |
+| HMaster UI | 16010 | HTTP |
+| RegionServer | 16020 | TCP |
+| RegionServer Info | 16030 | HTTP |
+| REST server | 8070 | HTTP |
+| REST UI | 8085 | HTTP |
+| Thrift server | 9090 | TCP |
+| Thrift server UI | 9095 | HTTP |
 
 ###### Important
 
@@ -178,8 +178,8 @@ Here’s a configuration to enable ZGC for HBase RegionServer(s):
 
 ###### Note
 
-The **JAVA_HOME** environment variable must be set when using Generational ZGC (recommended) because it was introduced
-in JDK 21, if you wish to use non-generational mode (without `-XX:+ZGenerational`) of ZGC there is no need to set the **JAVA_HOME**. In JDK 24,
+The **JAVA\_HOME** environment variable must be set when using Generational ZGC (recommended) because it was introduced
+in JDK 21, if you wish to use non-generational mode (without `-XX:+ZGenerational`) of ZGC there is no need to set the **JAVA\_HOME**. In JDK 24,
 non-generational mode of ZGC has been removed.
 
 #### ZGC Tuning

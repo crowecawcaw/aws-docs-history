@@ -6,6 +6,6 @@
 
 ## Amazon EMR 7.6.0 - Trino changes
 
-| Amazon EMR 7.6.0 - Trino changes | Type                 | Description |
-| -------------------------------- | -------------------- | ----------- |
-| Upgrade                          | Trino upgrade to 457 |
+Amazon EMR 7.6.0 - Trino changes| Type | Description |
+| --- | --- |
+| Upgrade | Trino upgrade to 457 |

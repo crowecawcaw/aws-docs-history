@@ -30,17 +30,17 @@ These features make Hudi suitable for the following use cases:
 
 For the version of components installed with Hudi in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md "emr-7130-release.md").
 
-| Hudi version information for emr-7.13.0 | Amazon EMR Release Label | Hudi Version   | Components Installed With Hudi |
-| --------------------------------------- | ------------------------ | -------------- | ------------------------------ |
-| emr-7.13.0                              | Hudi 1.0.2-amzn-2        | Not available. |
+Hudi version information for emr-7.13.0| Amazon EMR Release Label | Hudi Version | Components Installed With Hudi |
+| --- | --- | --- |
+| emr-7.13.0 | Hudi 1.0.2-amzn-2 | Not available. |
 
 The following table lists the version of Hudi included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Hudi.
 
 For the version of components installed with Hudi in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md").
 
-| Hudi version information for emr-6.15.0 | Amazon EMR Release Label | Hudi Version   | Components Installed With Hudi |
-| --------------------------------------- | ------------------------ | -------------- | ------------------------------ |
-| emr-6.15.0                              | Hudi 0.14.0-amzn-0       | Not available. |
+Hudi version information for emr-6.15.0| Amazon EMR Release Label | Hudi Version | Components Installed With Hudi |
+| --- | --- | --- |
+| emr-6.15.0 | Hudi 0.14.0-amzn-0 | Not available. |
 
 ###### Note
 
@@ -50,9 +50,9 @@ The following table lists the version of Hudi included in the latest release of 
 
 For the version of components installed with Hudi in this release, see [Release 5.36.2 Component Versions](emr-5362-release.md "emr-5362-release.md").
 
-| Hudi version information for emr-5.36.2 | Amazon EMR Release Label | Hudi Version   | Components Installed With Hudi |
-| --------------------------------------- | ------------------------ | -------------- | ------------------------------ |
-| emr-5.36.2                              | Hudi 0.10.1-amzn-1       | Not available. |
+Hudi version information for emr-5.36.2| Amazon EMR Release Label | Hudi Version | Components Installed With Hudi |
+| --- | --- | --- |
+| emr-5.36.2 | Hudi 0.10.1-amzn-1 | Not available. |
 
 ###### Topics
 

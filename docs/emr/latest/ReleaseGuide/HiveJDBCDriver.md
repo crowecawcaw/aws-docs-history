@@ -66,11 +66,9 @@ name of the master node. 4. Add the JDBC driver to SQL Workbench.
      `com.amazon.hive.jdbc41.HS2Driver`, **OK**.
 
 5. When you return to the **Manage Drivers** dialog box, verify that the
-   **Classname** field is populated and select
-   **OK**.
-6. When you return to the **Select Connection Profile** dialog box, verify that
-   the **Driver** field is set to **Hive JDBC** and
-   provide the following JDBC connection string in the **URL** field: `jdbc:hive2://localhost:10000/default`.
-7. Select **OK** to connect. After the connection is complete, connection details
-   appear at the top of the SQL Workbench/J window.
-   For more information about using Hive and the JDBC interface, see [HiveClient](https://cwiki.apache.org/confluence/display/Hive/HiveClient "https://cwiki.apache.org/confluence/display/Hive/HiveClient") and [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface "https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface") in Apache Hive documentation.
+**Classname** field is populated and select
+**OK**. 6. When you return to the **Select Connection Profile** dialog box, verify that
+the **Driver** field is set to **Hive JDBC** and
+provide the following JDBC connection string in the **URL** field: `jdbc:hive2://localhost:10000/default`. 7. Select **OK** to connect. After the connection is complete, connection details
+appear at the top of the SQL Workbench/J window.
+For more information about using Hive and the JDBC interface, see [HiveClient](https://cwiki.apache.org/confluence/display/Hive/HiveClient "https://cwiki.apache.org/confluence/display/Hive/HiveClient") and [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface "https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface") in Apache Hive documentation.

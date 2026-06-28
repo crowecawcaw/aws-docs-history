@@ -2,11 +2,11 @@
 
 ## Amazon EMR 6.12.0 - Tez changes
 
-| Type        | Description                                                                                                                                                                                                            |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Improvement | Added Support For JDK 11 and JDK 17 Runtime                                                                                                                                                                            |
-| Bug Fix     | [TEZ-4492](https://issues.apache.org/jira/browse/TEZ-4492 "https://issues.apache.org/jira/browse/TEZ-4492"): Update Bowerrc to use bower.herokuapp<br>mirror to avoid Bower Registry CERT_EXPIRE issue<br>(BOWER-2608) |
-| Upgrade     | Upgraded Surefire to 3.0.0-M7                                                                                                                                                                                          |
+| Type        | Description                                                                                                                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Improvement | Added Support For JDK 11 and JDK 17 Runtime                                                                                                                                                                             |
+| Bug Fix     | [TEZ-4492](https://issues.apache.org/jira/browse/TEZ-4492 "https://issues.apache.org/jira/browse/TEZ-4492"): Update Bowerrc to use bower.herokuapp<br>mirror to avoid Bower Registry CERT\_EXPIRE issue<br>(BOWER-2608) |
+| Upgrade     | Upgraded Surefire to 3.0.0-M7                                                                                                                                                                                           |
 
 **Amazon EMR 6.12.0 -
 Tez known issues**

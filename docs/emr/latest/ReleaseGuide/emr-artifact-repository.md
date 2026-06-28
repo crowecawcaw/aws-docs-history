@@ -14,8 +14,8 @@ https://`s3-endpoint`/`region-ID`-emr-artifacts/`emr-release-label`/repos/maven/
 - `emr-release-label` is the release label for the Amazon EMR cluster that
   will run your code. Release labels are in the form
   `emr-`x.x.x``, such as,
-`emr-5.36.2`. An EMR release series may include multiple releases. For example, if you're using EMR release version 5.24.1, use the
-first EMR release label within the 5.24 series, `emr-5.24.0`, in the artifact
+  `emr-5.36.2`. An EMR release series may include multiple releases. For example, if you're using EMR release version 5.24.1, use the
+  first EMR release label within the 5.24 series, `emr-5.24.0`, in the artifact
   repository URL:
 
 ```

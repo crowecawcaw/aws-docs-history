@@ -522,7 +522,7 @@ with Amazon EMR releases 6.11.0 and higher.
 ###### Note
 
 This release no longer gets automatic AMI updates since it has been succeeded by 1 more more patch releases. The patch release is denoted by the number after the
-second decimal point (`6.8.`1``). To see if you're using the latest patch release, check the available releases in the [*Release Guide*](../ReleaseGuide.md "../ReleaseGuide.md"), or check the **Amazon EMR release** dropdown when you create a cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates about new releases, subscribe to the RSS feed on the [What's new?](emr-whatsnew.md "emr-whatsnew.md") page.
+second decimal point (`6.8.`1``). To see if you're using the latest patch release, check the available releases in the [_Release Guide_](../ReleaseGuide.md "../ReleaseGuide.md"), or check the **Amazon EMR release** dropdown when you create a cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates about new releases, subscribe to the RSS feed on the [What's new?](emr-whatsnew.md "emr-whatsnew.md") page.
 
 | OsReleaseLabel (Amazon Linux version) | Amazon Linux kernel version | Available date     | Supported Regions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------- | --------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -628,7 +628,7 @@ and 6.10.1, the config is set to `false` by default to resolve this issue.
 ###### Note
 
 This release no longer gets automatic AMI updates since it has been succeeded by 1 more more patch releases. The patch release is denoted by the number after the
-second decimal point (`6.8.`1``). To see if you're using the latest patch release, check the available releases in the [*Release Guide*](../ReleaseGuide.md "../ReleaseGuide.md"), or check the **Amazon EMR release** dropdown when you create a cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates about new releases, subscribe to the RSS feed on the [What's new?](emr-whatsnew.md "emr-whatsnew.md") page.
+second decimal point (`6.8.`1``). To see if you're using the latest patch release, check the available releases in the [_Release Guide_](../ReleaseGuide.md "../ReleaseGuide.md"), or check the **Amazon EMR release** dropdown when you create a cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates about new releases, subscribe to the RSS feed on the [What's new?](emr-whatsnew.md "emr-whatsnew.md") page.
 
 | OsReleaseLabel (Amazon Linux version) | Amazon Linux kernel version | Available date     | Supported Regions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------- | --------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -693,20 +693,19 @@ The following release notes include information for Amazon EMR release 6.9.0. Ch
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 - Connections to Amazon EMR clusters from Amazon SageMaker AI Studio may intermittently fail
   with a **403 Forbidden** response code. This error happens when
@@ -800,6 +799,35 @@ As a workaround, you can install an Amazon EMR patch, which fixes the above issu
     In Amazon EMR releases 6.11.0 and higher as well as 6.8.1, 6.9.1,
     and 6.10.1, the config is set to `false` by default to resolve this issue.
 
+- **Cross-account default database behavior (fixed in Amazon EMR 6.9.0)** —
+  In Amazon EMR releases earlier than 6.9.0, even if the `hive.metastore.glue.catalogid` setting
+  is configured in Spark or Hive sites for cross-account AWS Glue Data Catalog access, Amazon EMR checks for the
+  default database in the current account and attempts to create it in the current account if not
+  found, rather than using the configured cross-account catalog. This could cause permissions issues
+  if the Amazon EMR EC2 instance profile role does not have AWS Glue permissions on the current account's
+  catalog.
+
+This issue is fixed in Amazon EMR 6.9.0 and later. For earlier releases, add the following
+permissions to the Amazon EMR EC2 instance profile role for the current account:
+
+```
+{
+   "Effect": "Allow",
+   "Action": [
+      "glue:GetDatabase",
+      "glue:GetDatabases",
+      "glue:CreateDatabase"
+   ],
+   "Resource": [
+     "arn:aws:glue:*:`123456789012`:catalog",
+     "arn:aws:glue:*:`123456789012`:database/default"
+   ]
+}
+```
+
+Replace `123456789012` with your current account ID
+(not the cross-account ID).
+
 ###### Changes, Enhancements, and Resolved Issues
 
 - For Amazon EMR release 6.9.0 and later, all components installed by Amazon EMR that use Log4j libraries use Log4j version 2.17.1 or later.
@@ -817,7 +845,7 @@ As a workaround, you can install an Amazon EMR patch, which fixes the above issu
 ###### Note
 
 This release no longer gets automatic AMI updates since it has been succeeded by 1 more more patch releases. The patch release is denoted by the number after the
-second decimal point (`6.8.`1``). To see if you're using the latest patch release, check the available releases in the [*Release Guide*](../ReleaseGuide.md "../ReleaseGuide.md"), or check the **Amazon EMR release** dropdown when you create a cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates about new releases, subscribe to the RSS feed on the [What's new?](emr-whatsnew.md "emr-whatsnew.md") page.
+second decimal point (`6.8.`1``). To see if you're using the latest patch release, check the available releases in the [_Release Guide_](../ReleaseGuide.md "../ReleaseGuide.md"), or check the **Amazon EMR release** dropdown when you create a cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates about new releases, subscribe to the RSS feed on the [What's new?](emr-whatsnew.md "emr-whatsnew.md") page.
 
 | OsReleaseLabel (Amazon Linux version) | Amazon Linux kernel version | Available date     | Supported Regions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------- | --------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -905,7 +933,7 @@ and 6.10.1, the config is set to `false` by default to resolve this issue.
 ###### Note
 
 This release no longer gets automatic AMI updates since it has been succeeded by 1 more more patch releases. The patch release is denoted by the number after the
-second decimal point (`6.8.`1``). To see if you're using the latest patch release, check the available releases in the [*Release Guide*](../ReleaseGuide.md "../ReleaseGuide.md"), or check the **Amazon EMR release** dropdown when you create a cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates about new releases, subscribe to the RSS feed on the [What's new?](emr-whatsnew.md "emr-whatsnew.md") page.
+second decimal point (`6.8.`1``). To see if you're using the latest patch release, check the available releases in the [_Release Guide_](../ReleaseGuide.md "../ReleaseGuide.md"), or check the **Amazon EMR release** dropdown when you create a cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates about new releases, subscribe to the RSS feed on the [What's new?](emr-whatsnew.md "emr-whatsnew.md") page.
 
 | OsReleaseLabel (Amazon Linux Version) | Amazon Linux Kernel Version | Available Date     | Supported Regions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------- | --------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -968,20 +996,19 @@ second decimal point (`6.8.`1``). To see if you're using the latest patch releas
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 - With Amazon EMR releases 5.36.0 and 6.6.0 through 6.9.0, `SecretAgent`
   and `RecordServer` service components may experience log
@@ -1100,20 +1127,19 @@ Initial release date: July 15, 2022
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 - With Amazon EMR releases 5.36.0 and 6.6.0 through 6.9.0, `SecretAgent`
   and `RecordServer` service components may experience log
@@ -1268,20 +1294,19 @@ The workaround for this issue is to run the script below as a Bootstrap Action t
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 - With Amazon EMR releases 5.36.0 and 6.6.0 through 6.9.0, `SecretAgent`
   and `RecordServer` service components may experience log
@@ -1323,29 +1348,29 @@ Initial release date: March 30, 2022
 
 **Changes, Enhancements, and Resolved Issues**
 
-| Flink changes | Change type                                                      | Description |
-| ------------- | ---------------------------------------------------------------- | ----------- |
-| Upgrades      | • Update flink version to 1.14.2.<br>• log4j upgraded to 2.17.1. |
+Flink changes| Change type | Description |
+| --- | --- |
+| Upgrades | • Update flink version to 1.14.2.<br>• log4j upgraded to 2.17.1. |
 
-| Hadoop changes                                | Change type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Description |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+Hadoop changes| Change type | Description |
+| --- | --- |
 | Hadoop open source backports since EMR 5.34.0 | • [YARN-10438](https://issues.apache.org/jira/browse/YARN-10438 "https://issues.apache.org/jira/browse/YARN-10438"): Handle null containerId in ClientRMService#getContainerReport()<br>• [YARN-7266](https://issues.apache.org/jira/browse/YARN-7266 "https://issues.apache.org/jira/browse/YARN-7266"): Timeline Server event handler threads locked<br>• [YARN-10438](https://issues.apache.org/jira/browse/YARN-9063 "https://issues.apache.org/jira/browse/YARN-9063"): ATS 1.5 fails to start if RollingLevelDb files are corrupt or missing<br>• [HADOOP-13500](https://issues.apache.org/jira/browse/HADOOP-13500 "https://issues.apache.org/jira/browse/HADOOP-13500"): Synchronizing iteration of Configuration properties object<br>• [YARN-10651](https://issues.apache.org/jira/browse/YARN-10651 "https://issues.apache.org/jira/browse/YARN-10651"): CapacityScheduler crashed with NPE in AbstractYarnScheduler.updateNodeResource()<br>• [HDFS-12221](https://issues.apache.org/jira/browse/HDFS-12221 "https://issues.apache.org/jira/browse/HDFS-12221"): Replace xerces in XmlEditsVisitor<br>• [HDFS-16410](https://issues.apache.org/jira/browse/HDFS-16410 "https://issues.apache.org/jira/browse/HDFS-16410"): Insecure Xml parsing in OfflineEditsXmlLoader |
-| Hadoop changes and fixes                      | • Tomcat used in KMS and HttpFS is upgraded to 8.5.75<br>• In FileSystemOptimizedCommitterV2, the success marker was written in the commitJob output path defined while creating the committer.<br>Since commitJob and task level output paths can differ, the path has been corrected to use the one defined in manifest files.<br>For Hive jobs, this results in the success marker being written correctly in when performing operations such as dynamic partition or UNION ALL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Hadoop changes and fixes | • Tomcat used in KMS and HttpFS is upgraded to 8.5.75<br>• In FileSystemOptimizedCommitterV2, the success marker was written in the commitJob output path defined while creating the committer.<br>Since commitJob and task level output paths can differ, the path has been corrected to use the one defined in manifest files.<br>For Hive jobs, this results in the success marker being written correctly in when performing operations such as dynamic partition or UNION ALL. |
 
-| Hive changes                                                                                                                                                                                                | Change type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Description |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Hive upgraded to open source [release 2.3.9](https://www.mail-archive.com/user@hive.apache.org/msg22311.html "https://www.mail-archive.com/user@hive.apache.org/msg22311.html"), including these JIRA fixes | • [HIVE-17155](https://issues.apache.org/jira/browse/HIVE-17155 "https://issues.apache.org/jira/browse/HIVE-17155"): findConfFile() in HiveConf.java has some issues with the conf path<br>• [HIVE-24797](https://issues.apache.org/jira/browse/HIVE-24797 "https://issues.apache.org/jira/browse/HIVE-24797"): Disable validate default values when parsing Avro schemas<br>• [HIVE-21563](https://issues.apache.org/jira/browse/HIVE-21563 "https://issues.apache.org/jira/browse/HIVE-21563"): Improve Table#getEmptyTable performance by disable registerAllFunctionsOnce<br>• [HIVE-18147](https://issues.apache.org/jira/browse/HIVE-18147 "https://issues.apache.org/jira/browse/HIVE-18147"): Tests can fail with java.net.BindException: Address already in use<br>• [HIVE-24608](https://issues.apache.org/jira/browse/HIVE-24608 "https://issues.apache.org/jira/browse/HIVE-24608"): Switch back to get_table in HMS client for Hive 2.3.x<br>• [HIVE-21200](https://issues.apache.org/jira/browse/HIVE-21200 "https://issues.apache.org/jira/browse/HIVE-21200"): Vectorization - date column throwing java.lang.UnsupportedOperationException for parquet<br>• [HIVE-19228](https://issues.apache.org/jira/browse/HIVE-19228 "https://issues.apache.org/jira/browse/HIVE-19228"): Remove commons-httpclient 3.x usage |
-| Hive open source backports since EMR 5.34.0                                                                                                                                                                 | • [HIVE-19990](https://issues.apache.org/jira/browse/HIVE-19990 "https://issues.apache.org/jira/browse/HIVE-19990"): Query with interval literal in join condition fails<br>• [HIVE-25824](https://issues.apache.org/jira/browse/HIVE-25824 "https://issues.apache.org/jira/browse/HIVE-25824"): Upgrade branch-2.3 to log4j 2.17.0<br>• [TEZ-4062](https://issues.apache.org/jira/browse/TEZ-4062 "https://issues.apache.org/jira/browse/TEZ-4062"): Speculative attempt scheduling should be aborted when Task has completed<br>• [TEZ-4108](https://issues.apache.org/jira/browse/TEZ-4108 "https://issues.apache.org/jira/browse/TEZ-4108"): NullPointerException during speculative execution race condition<br>• [TEZ-3918](https://issues.apache.org/jira/browse/TEZ-3918 "https://issues.apache.org/jira/browse/TEZ-3918"): Setting tez.task.log.level does not work                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Hive upgrades and fixes                                                                                                                                                                                     | • Upgrade Log4j version to 2.17.1<br>• Upgrade ORC version to 1.4.3<br>• FixED deadlock due to penalty thread in ShuffleScheduler                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| New features                                                                                                                                                                                                | • Added feature to print Hive Query in AM logs. This is disabled by default. Flag/Conf: `tez.am.emr.print.hive.query.in.log`. Status (default): FALSE.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+Hive changes| Change type | Description |
+| --- | --- |
+| Hive upgraded to open source [release 2.3.9](https://www.mail-archive.com/user@hive.apache.org/msg22311.html "https://www.mail-archive.com/user@hive.apache.org/msg22311.html"), including these JIRA fixes | • [HIVE-17155](https://issues.apache.org/jira/browse/HIVE-17155 "https://issues.apache.org/jira/browse/HIVE-17155"): findConfFile() in HiveConf.java has some issues with the conf path<br>• [HIVE-24797](https://issues.apache.org/jira/browse/HIVE-24797 "https://issues.apache.org/jira/browse/HIVE-24797"): Disable validate default values when parsing Avro schemas<br>• [HIVE-21563](https://issues.apache.org/jira/browse/HIVE-21563 "https://issues.apache.org/jira/browse/HIVE-21563"): Improve Table#getEmptyTable performance by disable registerAllFunctionsOnce<br>• [HIVE-18147](https://issues.apache.org/jira/browse/HIVE-18147 "https://issues.apache.org/jira/browse/HIVE-18147"): Tests can fail with java.net.BindException: Address already in use<br>• [HIVE-24608](https://issues.apache.org/jira/browse/HIVE-24608 "https://issues.apache.org/jira/browse/HIVE-24608"): Switch back to get\_table in HMS client for Hive 2.3.x<br>• [HIVE-21200](https://issues.apache.org/jira/browse/HIVE-21200 "https://issues.apache.org/jira/browse/HIVE-21200"): Vectorization - date column throwing java.lang.UnsupportedOperationException for parquet<br>• [HIVE-19228](https://issues.apache.org/jira/browse/HIVE-19228 "https://issues.apache.org/jira/browse/HIVE-19228"): Remove commons-httpclient 3.x usage |
+| Hive open source backports since EMR 5.34.0 | • [HIVE-19990](https://issues.apache.org/jira/browse/HIVE-19990 "https://issues.apache.org/jira/browse/HIVE-19990"): Query with interval literal in join condition fails<br>• [HIVE-25824](https://issues.apache.org/jira/browse/HIVE-25824 "https://issues.apache.org/jira/browse/HIVE-25824"): Upgrade branch-2.3 to log4j 2.17.0<br>• [TEZ-4062](https://issues.apache.org/jira/browse/TEZ-4062 "https://issues.apache.org/jira/browse/TEZ-4062"): Speculative attempt scheduling should be aborted when Task has completed<br>• [TEZ-4108](https://issues.apache.org/jira/browse/TEZ-4108 "https://issues.apache.org/jira/browse/TEZ-4108"): NullPointerException during speculative execution race condition<br>• [TEZ-3918](https://issues.apache.org/jira/browse/TEZ-3918 "https://issues.apache.org/jira/browse/TEZ-3918"): Setting tez.task.log.level does not work |
+| Hive upgrades and fixes | • Upgrade Log4j version to 2.17.1<br>• Upgrade ORC version to 1.4.3<br>• FixED deadlock due to penalty thread in ShuffleScheduler |
+| New features | • Added feature to print Hive Query in AM logs. This is disabled by default. Flag/Conf: `tez.am.emr.print.hive.query.in.log`. Status (default): FALSE. |
 
-| Oozie changes                                | Change type                                                                                                                                                                                        | Description |
-| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+Oozie changes| Change type | Description |
+| --- | --- |
 | Oozie open source backports since EMR 5.34.0 | • [OOZIE-3652](https://issues.apache.org/jira/browse/OOZIE-3652 "https://issues.apache.org/jira/browse/OOZIE-3652"): Oozie launcher should retry directory listing when NoSuchFileException occurs |
 
-| Pig changes | Change type                 | Description |
-| ----------- | --------------------------- | ----------- |
-| Upgrades    | • log4j upgraded to 1.2.17. |
+Pig changes| Change type | Description |
+| --- | --- |
+| Upgrades | • log4j upgraded to 1.2.17. |
 
 ###### Known issues
 
@@ -1354,20 +1379,19 @@ Initial release date: March 30, 2022
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 5.34.0
 
@@ -1411,20 +1435,19 @@ Updated release date: March 21, 2022
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 6.5.0
 
@@ -1468,20 +1491,19 @@ Updated release date: March 21, 2022
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 6.4.0
 
@@ -1512,7 +1534,7 @@ Updated release date: March 21, 2022
 - Hive version 3.1.2-amzn-5
 - Hudi version 0.8.0-amzn-0
 - Hue version 4.9.0
-- Java JDK version Corretto-8.302.08.1 (build 1.8.0_302-b08)
+- Java JDK version Corretto-8.302.08.1 (build 1.8.0\_302-b08)
 - JupyterHub version 1.4.1
 - Livy version 0.7.1-incubating
 - MXNet version 1.8.0
@@ -1525,7 +1547,7 @@ Updated release date: March 21, 2022
 - ranger-plugins 2.0.1-amzn-0
 - ranger-s3-plugin 1.2.0
 - SageMaker Spark SDK version 1.4.1
-- Scala version 2.12.10 (OpenJDK 64-Bit Server VM, Java 1.8.0_282)
+- Scala version 2.12.10 (OpenJDK 64-Bit Server VM, Java 1.8.0\_282)
 - Spark version 3.1.2-amzn-0
 - spark-rapids 0.4.1
 - Sqoop version 1.4.7
@@ -1695,20 +1717,19 @@ Example of the configurations.json file contents:
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 5.32.0
 
@@ -1835,20 +1856,19 @@ TaskAttempt 3 failed, info=[Error: Error while running task ( failure ) : attemp
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 6.2.0
 
@@ -2073,20 +2093,19 @@ expires.
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 5.31.0
 
@@ -2134,11 +2153,10 @@ Last updated date: Oct 15, 2020
 - EMRFS S3EC V2 Support in Amazon EMR 5.31.0. In S3 Java SDK releases 1.11.837 and later, encryption client Version 2 (S3EC V2) has been introduced with various security enhancements.
   For more information, see the following:
 
-      + S3 blog post: [Updates to the Amazon S3 encryption client](https://aws.amazon.com/blogs/developer/updates-to-the-amazon-s3-encryption-client/ "https://aws.amazon.com/blogs/developer/updates-to-the-amazon-s3-encryption-client/").
-      + AWS SDK for Java Developer Guide: [Migrate encryption and decryption clients to V2](../../../sdk-for-java/v1/developer-guide/s3-encryption-migration.md#s3-cse-update-code "../../../sdk-for-java/v1/developer-guide/s3-encryption-migration.md#s3-cse-update-code").
-      + EMR Management Guide: [Amazon S3 client-side encryption](emr-emrfs-encryption-cse.md "emr-emrfs-encryption-cse.md").
-
-  Encryption Client V1 is still available in the SDK for backward compatibility.
+  - S3 blog post: [Updates to the Amazon S3 encryption client](https://aws.amazon.com/blogs/developer/updates-to-the-amazon-s3-encryption-client/ "https://aws.amazon.com/blogs/developer/updates-to-the-amazon-s3-encryption-client/").
+  - AWS SDK for Java Developer Guide: [Migrate encryption and decryption clients to V2](../../../sdk-for-java/v1/developer-guide/s3-encryption-migration.md#s3-cse-update-code "../../../sdk-for-java/v1/developer-guide/s3-encryption-migration.md#s3-cse-update-code").
+  - EMR Management Guide: [Amazon S3 client-side encryption](emr-emrfs-encryption-cse.md "emr-emrfs-encryption-cse.md").
+    Encryption Client V1 is still available in the SDK for backward compatibility.
 
 ###### New features
 
@@ -2240,20 +2258,19 @@ TaskAttempt 3 failed, info=[Error: Error while running task ( failure ) : attemp
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 6.1.0
 
@@ -2719,20 +2736,19 @@ expires.
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 5.30.0
 
@@ -2880,20 +2896,19 @@ expires.
   issue that prevents your cluster from reading data correctly. This can happen if your
   partitions have all of the following characteristics:
 
-      + Two or more partitions are scanned from the same table.
-      + At least one partition directory path is a prefix of at least one other partition directory
-       path, for example, `s3://bucket/table/p=a` is a prefix of
-       `s3://bucket/table/p=a b`.
-      + The first character that follows the prefix in the other partition directory has a UTF-8
-       value that’s less than than the `/` character (U+002F). For example, the
-       space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
-       b` falls into this category. Note that there are 14 other non-control
-       characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
-       characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
-
-  As a workaround to this issue, set the
-  `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
-  `false` in the `spark-defaults` classification.
+  - Two or more partitions are scanned from the same table.
+  - At least one partition directory path is a prefix of at least one other partition directory
+    path, for example, `s3://bucket/table/p=a` is a prefix of
+    `s3://bucket/table/p=a b`.
+  - The first character that follows the prefix in the other partition directory has a UTF-8
+    value that’s less than than the `/` character (U+002F). For example, the
+    space character (U+0020) that occurs between a and b in `s3://bucket/table/p=a
+   b` falls into this category. Note that there are 14 other non-control
+    characters: `!"#$%&‘()*+,-`. For more information, see [UTF-8 encoding table and Unicode
+    characters](https://www.utf8-chartable.de/ "https://www.utf8-chartable.de/").
+    As a workaround to this issue, set the
+    `spark.sql.sources.fastS3PartitionDiscovery.enabled` configuration to
+    `false` in the `spark-defaults` classification.
 
 ## Release 5.29.0
 
@@ -3296,25 +3311,24 @@ Last updated date: Oct 30, 2019
 
 - Spark
 
-      + Improved the performance of some joins by using Bloom filters to pre-filter inputs. The optimization is disabled by default and can be enabled by setting the Spark configuration parameter `spark.sql.bloomFilterJoin.enabled` to `true`.
-      + Improved the performance of grouping by string type columns.
-      + Improved the default Spark executor memory and cores configuration of
-       R4 instance types for clusters without HBase installed.
-      + Resolved a previous issue with the dynamic partition pruning feature where the pruned table
-       has to be on the left side of the join.
-      + Improved DISTINCT before INTERSECT optimization to apply to additional cases involving aliases.
-      + Improved SQL plan statistics inference for JOIN followed by DISTINCT queries. This
-       improvement is disabled by default and can be enabled by setting the
-       Spark configuration parameter `spark.sql.statsImprovements.enabled` to
-       `true`. This optimization is required by the Distinct before Intersect
-       feature and will be enabled automatically when
-       `spark.sql.optimizer.distinctBeforeIntersect.enabled` is set to
-       `true`.
-      + Optimized join order based on table size and filters. This optimization is disabled by default
-       and can be enabled by setting the Spark configuration parameter
-       `spark.sql.optimizer.sizeBasedJoinReorder.enabled` to `true`.
-
-  For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
+  - Improved the performance of some joins by using Bloom filters to pre-filter inputs. The optimization is disabled by default and can be enabled by setting the Spark configuration parameter `spark.sql.bloomFilterJoin.enabled` to `true`.
+  - Improved the performance of grouping by string type columns.
+  - Improved the default Spark executor memory and cores configuration of
+    R4 instance types for clusters without HBase installed.
+  - Resolved a previous issue with the dynamic partition pruning feature where the pruned table
+    has to be on the left side of the join.
+  - Improved DISTINCT before INTERSECT optimization to apply to additional cases involving aliases.
+  - Improved SQL plan statistics inference for JOIN followed by DISTINCT queries. This
+    improvement is disabled by default and can be enabled by setting the
+    Spark configuration parameter `spark.sql.statsImprovements.enabled` to
+    `true`. This optimization is required by the Distinct before Intersect
+    feature and will be enabled automatically when
+    `spark.sql.optimizer.distinctBeforeIntersect.enabled` is set to
+    `true`.
+  - Optimized join order based on table size and filters. This optimization is disabled by default
+    and can be enabled by setting the Spark configuration parameter
+    `spark.sql.optimizer.sizeBasedJoinReorder.enabled` to `true`.
+    For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
 
 - EMRFS
 
@@ -3439,12 +3453,11 @@ Last updated date: August 5, 2019
 
 - Spark
 
-      + Added optimization to dynamically prune partitions. The optimization is disabled by default. To enable it, set the Spark configuration parameter `spark.sql.dynamicPartitionPruning.enabled` to `true`.
-      + Improved performance of `INTERSECT` queries. This optimization is disabled by default. To enable it, set the Spark configuration parameter `spark.sql.optimizer.distinctBeforeIntersect.enabled` to `true`.
-      + Added optimization to flatten scalar subqueries with aggregates that use the same relation. The optimization is disabled by default. To enable it, set the Spark configuration parameter `spark.sql.optimizer.flattenScalarSubqueriesWithAggregates.enabled` to `true`.
-      + Improved whole stage code generation.
-
-  For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
+  - Added optimization to dynamically prune partitions. The optimization is disabled by default. To enable it, set the Spark configuration parameter `spark.sql.dynamicPartitionPruning.enabled` to `true`.
+  - Improved performance of `INTERSECT` queries. This optimization is disabled by default. To enable it, set the Spark configuration parameter `spark.sql.optimizer.distinctBeforeIntersect.enabled` to `true`.
+  - Added optimization to flatten scalar subqueries with aggregates that use the same relation. The optimization is disabled by default. To enable it, set the Spark configuration parameter `spark.sql.optimizer.flattenScalarSubqueriesWithAggregates.enabled` to `true`.
+  - Improved whole stage code generation.
+    For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
 
 - Local Disk Encryption and S3 Encryption Improvements in Security Configurations (August 5, 2019)
 
@@ -3516,25 +3529,25 @@ Tez UI does not work on an EMR cluster with multiple primary nodes.
 
   **To prevent the Solr error message from appearing:**
 
-      1. Connect to the primary node command line using SSH.
-      2. Use a text editor to open the `hue.ini` file. For example:
+        1. Connect to the primary node command line using SSH.
+        2. Use a text editor to open the `hue.ini` file. For example:
 
 
-      `sudo vim /etc/hue/conf/hue.ini`
-      3. Search for the term `appblacklist` and modify the line to the following:
-
-
-
-      ```
-      appblacklist = search
-      ```
-      4. Save your changes and restart Hue as shown in the following example:
+        `sudo vim /etc/hue/conf/hue.ini`
+        3. Search for the term `appblacklist` and modify the line to the following:
 
 
 
-      ```
-      sudo stop hue; sudo start hue
-      ```
+        ```
+        appblacklist = search
+        ```
+        4. Save your changes and restart Hue as shown in the following example:
+
+
+
+        ```
+        sudo stop hue; sudo start hue
+        ```
 
 - Known issue in clusters with multiple primary nodes and Kerberos authentication
 
@@ -3618,25 +3631,25 @@ Initial release date: March 20, 2019
 
   **To prevent the Solr error message from appearing:**
 
-      1. Connect to the primary node command line using SSH.
-      2. Use a text editor to open the `hue.ini` file. For example:
+        1. Connect to the primary node command line using SSH.
+        2. Use a text editor to open the `hue.ini` file. For example:
 
 
-      `sudo vim /etc/hue/conf/hue.ini`
-      3. Search for the term `appblacklist` and modify the line to the following:
-
-
-
-      ```
-      appblacklist = search
-      ```
-      4. Save your changes and restart Hue as shown in the following example:
+        `sudo vim /etc/hue/conf/hue.ini`
+        3. Search for the term `appblacklist` and modify the line to the following:
 
 
 
-      ```
-      sudo stop hue; sudo start hue
-      ```
+        ```
+        appblacklist = search
+        ```
+        4. Save your changes and restart Hue as shown in the following example:
+
+
+
+        ```
+        sudo stop hue; sudo start hue
+        ```
 
 - Known issue in clusters with multiple primary nodes and Kerberos authentication
 
@@ -3748,25 +3761,25 @@ Last updated date: April 3, 2019
 
   **To prevent the Solr error message from appearing:**
 
-      1. Connect to the primary node command line using SSH.
-      2. Use a text editor to open the `hue.ini` file. For example:
+        1. Connect to the primary node command line using SSH.
+        2. Use a text editor to open the `hue.ini` file. For example:
 
 
-      `sudo vim /etc/hue/conf/hue.ini`
-      3. Search for the term `appblacklist` and modify the line to the following:
-
-
-
-      ```
-      appblacklist = search
-      ```
-      4. Save your changes and restart Hue as shown in the following example:
+        `sudo vim /etc/hue/conf/hue.ini`
+        3. Search for the term `appblacklist` and modify the line to the following:
 
 
 
-      ```
-      sudo stop hue; sudo start hue
-      ```
+        ```
+        appblacklist = search
+        ```
+        4. Save your changes and restart Hue as shown in the following example:
+
+
+
+        ```
+        sudo stop hue; sudo start hue
+        ```
 
 - Tez
 
@@ -3866,25 +3879,25 @@ Last updated date: January 22, 2019
 
   **To prevent the Solr error message from appearing:**
 
-      1. Connect to the primary node command line using SSH.
-      2. Use a text editor to open the `hue.ini` file. For example:
+        1. Connect to the primary node command line using SSH.
+        2. Use a text editor to open the `hue.ini` file. For example:
 
 
-      `sudo vim /etc/hue/conf/hue.ini`
-      3. Search for the term `appblacklist` and modify the line to the following:
-
-
-
-      ```
-      appblacklist = search
-      ```
-      4. Save your changes and restart Hue as shown in the following example:
+        `sudo vim /etc/hue/conf/hue.ini`
+        3. Search for the term `appblacklist` and modify the line to the following:
 
 
 
-      ```
-      sudo stop hue; sudo start hue
-      ```
+        ```
+        appblacklist = search
+        ```
+        4. Save your changes and restart Hue as shown in the following example:
+
+
+
+        ```
+        sudo stop hue; sudo start hue
+        ```
 
 - Tez
 
@@ -4202,41 +4215,33 @@ June 4, 2018
 
   - Using configuration classifications to set up JupyterHub and
     individual Jupyter notebooks when you create a cluster is not
-    supported. Edit the jupyterhub_config.py file and
-    jupyter_notebook_config.py files for each user manually. For more
+    supported. Edit the jupyterhub\_config.py file and
+    jupyter\_notebook\_config.py files for each user manually. For more
     information, see [Configuring JupyterHub](emr-jupyterhub-configure.md "emr-jupyterhub-configure.md").
   - JupyterHub fails to start on clusters within a private subnet, failing with the message `Error: ENOENT: no such file or directory, open '/etc/jupyter/conf/server.crt'` . This is caused by an error in the script that generates self-signed certificates. Use the following workaround to generate self-signed certificates. All commands are executed while connected to the primary node.
 
-        1. Copy the certificate generation script from the container to the primary node:
+    1. Copy the certificate generation script from the container to the primary node:
 
+    ```
+    sudo docker cp jupyterhub:/tmp/gen_self_signed_cert.sh ./
+    ```
+    2. Use a text editor to change line 23 to change public hostname to local hostname as shown below:
 
+    ```
+    `local` hostname=$(curl -s $EC2_METADATA_SERVICE_URI/`local`-hostname)
+    ```
+    3. Run the script to generate self-signed certificates:
 
-        ```
-        sudo docker cp jupyterhub:/tmp/gen_self_signed_cert.sh ./
-        ```
-        2. Use a text editor to change line 23 to change public hostname to local hostname as shown below:
+    ```
+    sudo bash ./gen_self_signed_cert.sh
+    ```
+    4. Move the certificate files that the script generates to the `/etc/jupyter/conf/` directory:
 
+    ```
+    sudo mv /tmp/server.crt /tmp/server.key /etc/jupyter/conf/
+    ```
 
-
-        ```
-        `local` hostname=$(curl -s $EC2_METADATA_SERVICE_URI/`local`-hostname)
-        ```
-        3. Run the script to generate self-signed certificates:
-
-
-
-        ```
-        sudo bash ./gen_self_signed_cert.sh
-        ```
-        4. Move the certificate files that the script generates to the `/etc/jupyter/conf/` directory:
-
-
-
-        ```
-        sudo mv /tmp/server.crt /tmp/server.key /etc/jupyter/conf/
-        ```
-
-    You can `tail` the `jupyter.log` file to verify that JupyterHub restarted and is returning a 200 response code. For example:
+  You can `tail` the `jupyter.log` file to verify that JupyterHub restarted and is returning a 200 response code. For example:
 
   ```
   tail -f /var/log/jupyter/jupyter.log
@@ -4499,7 +4504,7 @@ to include the following versions.
   base Amazon EMR AMI. If these libraries are required for your application,
   they are available in the application repository, so you can use a
   bootstrap action to install them on all nodes using `yum
-install`.
+ install`.
 - The Amazon EMR base AMI no longer has application RPM packages included, so
   the RPM packages are no longer present on cluster nodes. Custom AMIs and
   the Amazon EMR base AMI now reference the RPM package repository in
@@ -4707,7 +4712,7 @@ see [Statistics in Hive](https://cwiki.apache.org/confluence/display/Hive/StatsD
   is a file handler leak issue with the apppusher daemon, which can appear
   for a long-running Spark job after several hours or days. To fix the
   issue, connect to the master node and type `sudo
-/etc/init.d/apppusher stop`. This stops that apppusher daemon,
+ /etc/init.d/apppusher stop`. This stops that apppusher daemon,
   which Amazon EMR will restart automatically.
 - **Application history**
 
@@ -4857,7 +4862,7 @@ Release date: April 26, 2017
     `yarn-session.sh`. We recommend using this
     command instead of `yarn-session`. The new command
     simplifies execution. For example, `flink-yarn-session -d
--n 2` starts a long-running Flink session in a
+   -n 2` starts a long-running Flink session in a
     detached state with two task managers.
   - Addressed [(FLINK-6125) commons httpclient is not shaded anymore in
     Flink 1.2](https://issues.apache.org/jira/browse/FLINK-6125 "https://issues.apache.org/jira/browse/FLINK-6125").
@@ -5128,13 +5133,13 @@ or greater:
   scripts to launch clusters with these applications. The following table
   shows application names in Amazon EMR 4.7.2 versus Amazon EMR 5.0.0.
 
-| Application name changes | Amazon EMR 4.7.2 | Amazon EMR 5.0.0 |
-| ------------------------ | ---------------- | ---------------- |
-| Oozie-Sandbox            | Oozie            |
-| Presto-Sandbox           | Presto           |
-| Sqoop-Sandbox            | Sqoop            |
-| Zeppelin-Sandbox         | Zeppelin         |
-| ZooKeeper-Sandbox        | ZooKeeper        |
+Application name changes| Amazon EMR 4.7.2 | Amazon EMR 5.0.0 |
+| --- | --- |
+| Oozie-Sandbox | Oozie |
+| Presto-Sandbox | Presto |
+| Sqoop-Sandbox | Sqoop |
+| Zeppelin-Sandbox | Zeppelin |
+| ZooKeeper-Sandbox | ZooKeeper |
 
 - Spark is now compiled for Scala 2.11.
 - Java 8 is now the default JVM. All applications run using the Java 8
@@ -5204,7 +5209,7 @@ Release date: April 10, 2017
 - Fixed an issue in YARN where a large number of nodes (greater than
   2,000) and containers (greater than 5,000) would cause an out of memory
   error, for example: `"Exception in thread 'main'
-java.lang.OutOfMemoryError"`.
+ java.lang.OutOfMemoryError"`.
 
 ### Changes and enhancements
 
@@ -5335,7 +5340,7 @@ The following features are available in this release:
   `/usr/lib/spark/spark/bin/run-example` so you can
   run examples directly. For instance, to run the SparkPi example that
   comes with the Spark distribution, you can run `spark-example
-SparkPi 100` from the command line or using
+ SparkPi 100` from the command line or using
   `command-runner.jar` as a step in the API.
 
 ### Known issues resolved from previous releases
@@ -5454,7 +5459,7 @@ provide the fix with future releases.
 
 Python 3.4 is now installed by default, but Python 2.7 remains the system
 default. You may configure Python 3.4 as the system default using either a
-bootstrap action; you can use the configuration API to set PYSPARK_PYTHON export
+bootstrap action; you can use the configuration API to set PYSPARK\_PYTHON export
 to `/usr/bin/python3.4` in the `spark-env`
 classification to affect the Python version used by PySpark.
 
@@ -5692,6 +5697,6 @@ The following features are available in this release:
   in hanged applications or the inability to schedule new
   applications.
 - Fixed an issue encountered when clusters terminated with status
-  TIMED_OUT_STARTING.
+  TIMED\_OUT\_STARTING.
 - Fixed an issue encountered when including the EMRFS Scala dependency
   in other builds. The Scala dependency has been removed.

@@ -30,27 +30,27 @@ application pages in the [Amazon EMR Release Guide](emr-release-components.md "e
 Keep in mind the following application-specific considerations when you choose
 your runtime version:
 
-| Application-specific Java configuration notes | Application                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Java configuration notes |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| Spark                                         | To run Spark with a non-default Java version, you must<br>configure both Spark and Hadoop. For examples, see [Override the JVM](#configuring-java8-override "#configuring-java8-override").<br>• Configure `JAVA_HOME` in<br>`spark-env` to update the Java runtime of<br>primary instance processes. For example, spark-submit,<br>spark-shell, and Spark History Server.<br>• Modify the Hadoop configuration to update the Java<br>runtime of the Spark executors and the YARN<br>`ApplicationMaster` |
-| Spark RAPIDS                                  | You can run RAPIDS with the configured Java version for<br>Spark.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Iceberg                                       | You can run Iceberg with the configured Java version of the<br>application that is using it.                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Delta                                         | You can run Delta with the configured Java version of the<br>application that is using it.                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Hudi                                          | You can run Hudi with the configured Java version of the<br>application that is using it.                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Hadoop                                        | To update the JVM for Hadoop, modify<br>`hadoop-env`. For examples, see [Override the JVM](#configuring-java8-override "#configuring-java8-override").                                                                                                                                                                                                                                                                                                                                                   |
-| Hive                                          | To set the Java version to 11 or 17 for Hive, configure the<br>Hadoop JVM setting to the Java version that you want to use.                                                                                                                                                                                                                                                                                                                                                                              |
-| HBase                                         | To update the JVM for HBase, modify `hbase-env`.<br>By default, Amazon EMR sets the HBase JVM based on the JVM<br>configuration for Hadoop unless you override the settings in<br>`hbase-env`. For examples, see [Override the JVM](#configuring-java8-override "#configuring-java8-override").                                                                                                                                                                                                          |
-| Flink                                         | To update the JVM for Flink, modify<br>`flink-conf`. By default, Amazon EMR sets the Flink JVM<br>based on the JVM configuration for Hadoop unless you override<br>the settings in `flink-conf`. For more information,<br>see [Configure Flink to run with Java 11](flink-configure.md#flink-configure-java11 "flink-configure.md#flink-configure-java11").                                                                                                                                              |
-| Oozie                                         | To configure Oozie to run on Java 11 or 17, configure Oozie<br>Server, the Oozie LauncherAM Launcher AM, and change your<br>client-side executable and job configurations. You can also<br>configure `EmbeddedOozieServer` to run on Java 17.<br>For more information, see [Configure Java version for Oozie](oozie-java.md "oozie-java.md").                                                                                                                                                            |
-| Pig                                           | Pig only supports Java 8. You can't use Java 11 or 17 with<br>Hadoop and run Pig on the same cluster.                                                                                                                                                                                                                                                                                                                                                                                                    |
+Application-specific Java configuration notes| Application | Java configuration notes |
+| --- | --- |
+| Spark | To run Spark with a non-default Java version, you must<br>configure both Spark and Hadoop. For examples, see [Override the JVM](#configuring-java8-override "#configuring-java8-override").<br>• Configure `JAVA_HOME` in<br>`spark-env` to update the Java runtime of<br>primary instance processes. For example, spark-submit,<br>spark-shell, and Spark History Server.<br>• Modify the Hadoop configuration to update the Java<br>runtime of the Spark executors and the YARN<br>`ApplicationMaster` |
+| Spark RAPIDS | You can run RAPIDS with the configured Java version for<br>Spark. |
+| Iceberg | You can run Iceberg with the configured Java version of the<br>application that is using it. |
+| Delta | You can run Delta with the configured Java version of the<br>application that is using it. |
+| Hudi | You can run Hudi with the configured Java version of the<br>application that is using it. |
+| Hadoop | To update the JVM for Hadoop, modify<br>`hadoop-env`. For examples, see [Override the JVM](#configuring-java8-override "#configuring-java8-override"). |
+| Hive | To set the Java version to 11 or 17 for Hive, configure the<br>Hadoop JVM setting to the Java version that you want to use. |
+| HBase | To update the JVM for HBase, modify `hbase-env`.<br>By default, Amazon EMR sets the HBase JVM based on the JVM<br>configuration for Hadoop unless you override the settings in<br>`hbase-env`. For examples, see [Override the JVM](#configuring-java8-override "#configuring-java8-override"). |
+| Flink | To update the JVM for Flink, modify<br>`flink-conf`. By default, Amazon EMR sets the Flink JVM<br>based on the JVM configuration for Hadoop unless you override<br>the settings in `flink-conf`. For more information,<br>see [Configure Flink to run with Java 11](flink-configure.md#flink-configure-java11 "flink-configure.md#flink-configure-java11"). |
+| Oozie | To configure Oozie to run on Java 11 or 17, configure Oozie<br>Server, the Oozie LauncherAM Launcher AM, and change your<br>client-side executable and job configurations. You can also<br>configure `EmbeddedOozieServer` to run on Java 17.<br>For more information, see [Configure Java version for Oozie](oozie-java.md "oozie-java.md"). |
+| Pig | Pig only supports Java 8. You can't use Java 11 or 17 with<br>Hadoop and run Pig on the same cluster. |
 
 ## Override the JVM
 
 To override the JVM setting for an Amazon EMR release - for example, to use Java 17
 with a cluster that uses Amazon EMR release 6.12.0 - supply the `JAVA_HOME`
 setting to its environment classification, which is
-``application`-env`for all applications
- except Flink. For Flink, the environment classification is`flink-conf`.
+``application`-env` for all applications
+except Flink. For Flink, the environment classification is `flink-conf`.
 For steps to configure the Java runtime with Flink, see [Configure Flink to run with Java 11](flink-configure.md#flink-configure-java11 "flink-configure.md#flink-configure-java11").
 
 ###### Topics
@@ -198,26 +198,26 @@ defaults. Other application services are hosted at default ports unless otherwis
 documented. For more information, see the application's project
 documentation.
 
-| Port settings for YARN and HDFS                 | Setting                                           | Hostname/Port |
-| ----------------------------------------------- | ------------------------------------------------- | ------------- |
-| `fs.default.name`                               | default (`hdfs://`emrDeterminedIP`:8020`)         |
-| `dfs.datanode.address`                          | default (`0.0.0.0:50010`)                         |
-| `dfs.datanode.http.address`                     | default (`0.0.0.0:50075`)                         |
-| `dfs.datanode.https.address`                    | default (`0.0.0.0:50475`)                         |
-| `dfs.datanode.ipc.address`                      | default (`0.0.0.0:50020`)                         |
-| `dfs.http.address`                              | default (`0.0.0.0:50070`)                         |
-| `dfs.https.address`                             | default (`0.0.0.0:50470`)                         |
-| `dfs.secondary.http.address`                    | default (`0.0.0.0:50090`)                         |
-| `yarn.nodemanager.address`                      | default (`${yarn.nodemanager.hostname}:0`)        |
-| `yarn.nodemanager.localizer.address`            | default (`${yarn.nodemanager.hostname}:8040`)     |
-| `yarn.nodemanager.webapp.address`               | default (`${yarn.nodemanager.hostname}:8042`)     |
-| `yarn.resourcemanager.address`                  | default (`${yarn.resourcemanager.hostname}:8032`) |
-| `yarn.resourcemanager.admin.address`            | default (`${yarn.resourcemanager.hostname}:8033`) |
+Port settings for YARN and HDFS| Setting | Hostname/Port |
+| --- | --- |
+| `fs.default.name` | default (`hdfs://`emrDeterminedIP`:8020`) |
+| `dfs.datanode.address` | default (`0.0.0.0:50010`) |
+| `dfs.datanode.http.address` | default (`0.0.0.0:50075`) |
+| `dfs.datanode.https.address` | default (`0.0.0.0:50475`) |
+| `dfs.datanode.ipc.address` | default (`0.0.0.0:50020`) |
+| `dfs.http.address` | default (`0.0.0.0:50070`) |
+| `dfs.https.address` | default (`0.0.0.0:50470`) |
+| `dfs.secondary.http.address` | default (`0.0.0.0:50090`) |
+| `yarn.nodemanager.address` | default (`${yarn.nodemanager.hostname}:0`) |
+| `yarn.nodemanager.localizer.address` | default (`${yarn.nodemanager.hostname}:8040`) |
+| `yarn.nodemanager.webapp.address` | default (`${yarn.nodemanager.hostname}:8042`) |
+| `yarn.resourcemanager.address` | default (`${yarn.resourcemanager.hostname}:8032`) |
+| `yarn.resourcemanager.admin.address` | default (`${yarn.resourcemanager.hostname}:8033`) |
 | `yarn.resourcemanager.resource-tracker.address` | default (`${yarn.resourcemanager.hostname}:8031`) |
-| `yarn.resourcemanager.scheduler.address`        | default (`${yarn.resourcemanager.hostname}:8030`) |
-| `yarn.resourcemanager.webapp.address`           | default (`${yarn.resourcemanager.hostname}:8088`) |
-| `yarn.web-proxy.address`                        | default (`no-value`)                              |
-| `yarn.resourcemanager.hostname`                 | `emrDeterminedIP`                                 |
+| `yarn.resourcemanager.scheduler.address` | default (`${yarn.resourcemanager.hostname}:8030`) |
+| `yarn.resourcemanager.webapp.address` | default (`${yarn.resourcemanager.hostname}:8088`) |
+| `yarn.web-proxy.address` | default (`no-value`) |
+| `yarn.resourcemanager.hostname` | `emrDeterminedIP` |
 
 ###### Note
 

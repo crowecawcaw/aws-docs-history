@@ -28,6 +28,6 @@ Hive metastore connector, which is described in the previous procedure, so that 
 4. To see the schemas available, run `show schemas in hive;`. From here, you can run `use `schema-name`;` and include the name
    of your schema. Then you can run `show tables;` to list
    tables.
-5. Query a table by running a command like `SELECT * FROM `table-name``, using the name of a table in your schema. If you already ran the `USE`statement to 
-connect to a specific schema, you 
-don't have to use two-part notation such as`schema`.`table`.
+5. Query a table by running a command like `SELECT * FROM `table-name``, using the name of a table in your schema. If you already ran the `USE` statement to
+   connect to a specific schema, you
+   don't have to use two-part notation such as `schema`.`table`.

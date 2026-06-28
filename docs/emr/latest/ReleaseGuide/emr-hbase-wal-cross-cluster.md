@@ -23,7 +23,7 @@ echo "create 'test_replication_table',{NAME => 'CF'}" | $HBASE_CMD shell
 ```
 
 3. Add peer setup on the primary cluster and enable table replication. During the peer addition, it needs the peer cluster master node
-   hostname, which is **PEER_DNS**.
+   hostname, which is **PEER\_DNS**.
 
 ```
 HBASE_CMD="sudo -u hbase hbase"

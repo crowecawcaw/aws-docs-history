@@ -6,12 +6,12 @@
 
 ## Amazon EMR 6.9.0 - Trino changes
 
-| Amazon EMR 6.9.0 - Trino changes | Type                                                                                                              | Description |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------- |
-| Upgrade                          | Trino Upgrade to 398                                                                                              |
-| Upgrade                          | Support for Hadoop 3.3.3                                                                                          |
-| Feature                          | Tardigrade support: Add support for exchange spooling<br>on HDFS and Amazon S3.                                   |
-| Bug fix                          | When Trino Iceberg is used and Glue catalog is<br>enabled, avoid adding metastore uri in<br>`iceberg.properties.` |
+Amazon EMR 6.9.0 - Trino changes| Type | Description |
+| --- | --- |
+| Upgrade | Trino Upgrade to 398 |
+| Upgrade | Support for Hadoop 3.3.3 |
+| Feature | Tardigrade support: Add support for exchange spooling<br>on HDFS and Amazon S3. |
+| Bug fix | When Trino Iceberg is used and Glue catalog is<br>enabled, avoid adding metastore uri in<br>`iceberg.properties.` |
 
 ## Amazon EMR 6.9.0 - Trino known issues
 

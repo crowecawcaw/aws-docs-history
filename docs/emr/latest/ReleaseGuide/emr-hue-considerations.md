@@ -7,14 +7,14 @@ Consider the following limitations when you use [Hue](https://gethue.com "https:
 If the Hue metadata database gets too big, performance might degrade. To check the size of the tables,
 first connect to the primary node of the Amazon EMR on Amazon EC2 cluster with SSH and run the command `sudo mysql -u root`
 to start the MySQL CLI. To get the size of your table, run the query `SELECT COUNT(*) FROM hue.`<table_name>``.
- See the following for what `<table_name>` can be:
+See the following for what `<table_name>` can be:
 
-- desktop_document
-- desktop_document2
-- oozie_job
-- beeswax_savedquery
-- beeswax_session
-- beeswax_queryhistory
+- desktop\_document
+- desktop\_document2
+- oozie\_job
+- beeswax\_savedquery
+- beeswax\_session
+- beeswax\_queryhistory
 
 If running that query returns a count of more than 100000, you should run the following clean up command to delete
 the old records.

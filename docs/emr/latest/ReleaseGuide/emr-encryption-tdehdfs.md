@@ -182,12 +182,12 @@ You can configure Hadoop KMS at cluster creation time using the configuration
 API for Amazon EMR releases. The following are the configuration object
 classifications available for Hadoop KMS:
 
-| Hadoop KMS configuration classifications | Classification         | Filename |
-| ---------------------------------------- | ---------------------- | -------- |
-| hadoop-kms-site                          | `kms-site.xml`         |
-| hadoop-kms-acls                          | `kms-acls.xml`         |
-| hadoop-kms-env                           | `kms-env.sh`           |
-| hadoop-kms-log4j                         | `kms-log4j.properties` |
+Hadoop KMS configuration classifications| Classification | Filename |
+| --- | --- |
+| hadoop-kms-site | `kms-site.xml` |
+| hadoop-kms-acls | `kms-acls.xml` |
+| hadoop-kms-env | `kms-env.sh` |
+| hadoop-kms-log4j | `kms-log4j.properties` |
 
 ###### To set Hadoop KMS ACLs using the CLI
 
@@ -332,13 +332,13 @@ example demonstrates.
 The following are configuration object classifications for Apache Ranger
 KMS.
 
-| Hadoop KMS configuration classifications | Classification                                                               | Description |
-| ---------------------------------------- | ---------------------------------------------------------------------------- | ----------- |
-| ranger-kms-dbks-site                     | Change values in dbks-site.xml file of Ranger KMS.                           |
-| ranger-kms-site                          | Change values in ranger-kms-site.xml file of Ranger KMS.                     |
-| ranger-kms-env                           | Change values in the Ranger KMS environment.                                 |
-| ranger-kms-log4j                         | Change values in kms-log4j.properties file of Ranger KMS.                    |
-| ranger-kms-db-ca                         | Change values for CA file on S3 for MySQL SSL connection with<br>Ranger KMS. |
+Hadoop KMS configuration classifications| Classification | Description |
+| --- | --- |
+| ranger-kms-dbks-site | Change values in dbks-site.xml file of Ranger KMS. |
+| ranger-kms-site | Change values in ranger-kms-site.xml file of Ranger KMS. |
+| ranger-kms-env | Change values in the Ranger KMS environment. |
+| ranger-kms-log4j | Change values in kms-log4j.properties file of Ranger KMS. |
+| ranger-kms-db-ca | Change values for CA file on S3 for MySQL SSL connection with<br>Ranger KMS. |
 
 **Considerations**
 

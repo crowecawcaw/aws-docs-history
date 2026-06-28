@@ -29,25 +29,25 @@ The following table lists the version of Flink included in the latest release of
 
 For the version of components installed with Flink in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md "emr-7130-release.md").
 
-| Flink version information for emr-7.13.0 | Amazon EMR Release Label | Flink Version                                                                                                                                                                                                                                                                                          | Components Installed With Flink |
-| ---------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
-| emr-7.13.0                               | Flink 1.20.0-amzn-7      | emrfs, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, flink-client, flink-jobmanager-config, hudi, delta |
+Flink version information for emr-7.13.0| Amazon EMR Release Label | Flink Version | Components Installed With Flink |
+| --- | --- | --- |
+| emr-7.13.0 | Flink 1.20.0-amzn-7 | emrfs, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, flink-client, flink-jobmanager-config, hudi, delta |
 
 The following table lists the version of Flink included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Flink.
 
 For the version of components installed with Flink in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md").
 
-| Flink version information for emr-6.15.0 | Amazon EMR Release Label | Flink Version                                                                                                                                                                                                                                                                                              | Components Installed With Flink |
-| ---------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| emr-6.15.0                               | Flink 1.17.1-amzn-1      | emrfs, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, flink-client, flink-jobmanager-config, hudi, delta-standalone-connectors |
+Flink version information for emr-6.15.0| Amazon EMR Release Label | Flink Version | Components Installed With Flink |
+| --- | --- | --- |
+| emr-6.15.0 | Flink 1.17.1-amzn-1 | emrfs, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, flink-client, flink-jobmanager-config, hudi, delta-standalone-connectors |
 
 The following table lists the version of Flink included in the latest release of the Amazon EMR 5.x series, along with the components that Amazon EMR installs with Flink.
 
 For the version of components installed with Flink in this release, see [Release 5.36.2 Component Versions](emr-5362-release.md "emr-5362-release.md").
 
-| Flink version information for emr-5.36.2 | Amazon EMR Release Label | Flink Version                                                                                                                                                                                                                                                           | Components Installed With Flink |
-| ---------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| emr-5.36.2                               | Flink 1.14.2             | emrfs, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, flink-client, flink-jobmanager-config |
+Flink version information for emr-5.36.2| Amazon EMR Release Label | Flink Version | Components Installed With Flink |
+| --- | --- | --- |
+| emr-5.36.2 | Flink 1.14.2 | emrfs, hadoop-client, hadoop-mapred, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, flink-client, flink-jobmanager-config |
 
 ###### Topics
 

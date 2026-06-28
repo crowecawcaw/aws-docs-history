@@ -31,7 +31,7 @@ In this setup:
     * We set the interval to collect these metrics every 30 seconds (30000 milliseconds).
 
 2. **Setting Up HBase Region Server Metrics** – To monitor HBase Region Servers, configure the CloudWatch Agent
-   as follows:
+as follows:
 
 ```
 [
@@ -58,7 +58,7 @@ This configuration:
     * Uses a 30-second interval for metric collection.
 
 3. **Setting Up HBase REST Server Metrics** – For monitoring the HBase REST interface, you can use the
-   following configuration:
+following configuration:
 
 ```
 [

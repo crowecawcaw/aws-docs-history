@@ -57,7 +57,7 @@ for using S3 Select:
     `CAST(stringColumn as INT) = 1`.
   - Filters with an attribute that is an object or is complex. For
     example, `intArray[1] = 1, objectColumn.objectNumber =
-1`.
+   1`.
   - Filters for which the value is not a literal value. For
     example, `intColumn1 = intColumn2`
   - Only [S3 Select supported data types](../../../AmazonS3/latest/userguide/s3-glacier-select-sql-reference-data-types.md "../../../AmazonS3/latest/userguide/s3-glacier-select-sql-reference-data-types.md") are supported with

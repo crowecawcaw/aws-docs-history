@@ -103,9 +103,9 @@ After July 25, 2024, you can refer to the current status and support timelines i
 
 The following table shows the support status for all existing Amazon EMR releases at time of announcement of the policy, July 25, 2024:
 
-| Releases and supported periods                                                                                                                                         | Amazon EMR release version       | Initial release date               | Standard support end date | End of support start date | End of life start date |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ---------------------------------- | ------------------------- | ------------------------- | ---------------------- |
-| • 7.0 – 7.2<br>• 6.x series (all versions)<br>• 5.x series (all versions)<br>• 4.x series (all versions)<br>• 3.x series (all versions)<br>• 2.x series (all versions) | January 1, 2013 to July 25, 2024 | Bridge support until July 31, 2026 | August 1, 2026            | August 1, 2027            |
+Releases and supported periods| Amazon EMR release version | Initial release date | Standard support end date | End of support start date | End of life start date |
+| --- | --- | --- | --- | --- |
+| • 7.0 – 7.2<br>• 6.x series (all versions)<br>• 5.x series (all versions)<br>• 4.x series (all versions)<br>• 3.x series (all versions)<br>• 2.x series (all versions) | January 1, 2013 to July 25, 2024 | Bridge support until July 31, 2026 | August 1, 2026 | August 1, 2027 |
 
 ###### Note
 

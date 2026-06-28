@@ -27,9 +27,11 @@ met:
   primary node by using following commands.
 
   - ```
-    sudo yum install -y docker
-    sudo systemctl start docker
+
     ```
+
+  sudo yum install -y docker
+  sudo systemctl start docker
 
   ```
 
@@ -55,7 +57,7 @@ met:
   to authenticate itself. To do so, you must use the following configuration
   option:
 
-  - YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG={DOCKER_CLIENT_CONFIG_PATH_ON_HDFS}
+  - YARN\_CONTAINER\_RUNTIME\_DOCKER\_CLIENT\_CONFIG={DOCKER\_CLIENT\_CONFIG\_PATH\_ON\_HDFS}
 
 - In Amazon EMR 6.1.0 and later, you are not required to use the listed command
   `YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG={DOCKER_CLIENT_CONFIG_PATH_ON_HDFS}`

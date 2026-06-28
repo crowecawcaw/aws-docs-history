@@ -13,29 +13,29 @@ see the [emr-bootstrap-actions repository on Github](https://github.com/awslabs/
 The following tables map bootstrap actions to configuration classifications in more
 recent Amazon EMR release versions.
 
-| Hadoop                   | Affected application file name             | AMI version bootstrap action | Configuration classification |
-| ------------------------ | ------------------------------------------ | ---------------------------- | ---------------------------- |
-| `core-site.xml`          | `configure-hadoop -c`                      | `core-site`                  |
-| `log4j.properties`       | `configure-hadoop -l`                      | `hadoop-log4j`               |
-| `hdfs-site.xml`          | `configure-hadoop -s`                      | `hdfs-site`                  |
-| n/a                      | n/a                                        | `hdfs-encryption-zones`      |
-| `mapred-site.xml`        | `configure-hadoop -m`                      | `mapred-site`                |
-| `yarn-site.xml`          | `configure-hadoop -y`                      | `yarn-site`                  |
-| `httpfs-site.xml`        | `configure-hadoop -t`                      | `httpfs-site`                |
-| `capacity-scheduler.xml` | `configure-hadoop -z`                      | `capacity-scheduler`         |
-| `yarn-env.sh`            | `configure-daemons --resourcemanager-opts` | `yarn-env`                   |
+Hadoop| Affected application file name | AMI version bootstrap action | Configuration classification |
+| --- | --- | --- |
+| `core-site.xml` | `configure-hadoop -c` | `core-site` |
+| `log4j.properties` | `configure-hadoop -l` | `hadoop-log4j` |
+| `hdfs-site.xml` | `configure-hadoop -s` | `hdfs-site` |
+| n/a | n/a | `hdfs-encryption-zones` |
+| `mapred-site.xml` | `configure-hadoop -m` | `mapred-site` |
+| `yarn-site.xml` | `configure-hadoop -y` | `yarn-site` |
+| `httpfs-site.xml` | `configure-hadoop -t` | `httpfs-site` |
+| `capacity-scheduler.xml` | `configure-hadoop -z` | `capacity-scheduler` |
+| `yarn-env.sh` | `configure-daemons --resourcemanager-opts` | `yarn-env` |
 
-| Hive                         | Affected application file name                            | AMI version bootstrap action | Configuration classification |
-| ---------------------------- | --------------------------------------------------------- | ---------------------------- | ---------------------------- |
-| `hive-env.sh`                | n/a                                                       | `hive-env`                   |
-| `hive-site.xml`              | `hive-script --install-hive-site<br>${MY_HIVE_SITE_FILE}` | `hive-site`                  |
-| `hive-exec-log4j.properties` | n/a                                                       | `hive-exec-log4j`            |
-| `hive-log4j.properties`      | n/a                                                       | `hive-log4j`                 |
+Hive| Affected application file name | AMI version bootstrap action | Configuration classification |
+| --- | --- | --- |
+| `hive-env.sh` | n/a | `hive-env` |
+| `hive-site.xml` | `hive-script --install-hive-site<br>${MY_HIVE_SITE_FILE}` | `hive-site` |
+| `hive-exec-log4j.properties` | n/a | `hive-exec-log4j` |
+| `hive-log4j.properties` | n/a | `hive-log4j` |
 
-| EMRFS            | Affected application file name                                       | AMI version bootstrap action                                                   | Configuration classification |
-| ---------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------- |
-| `emrfs-site.xml` | `configure-hadoop -e`                                                | `emrfs-site`                                                                   |
-| n/a              | `s3get -s s3://custom-provider.jar -d<br>/usr/share/aws/emr/auxlib/` | `emrfs-site` (with new setting<br>`fs.s3.cse.encryptionMaterialsProvider.uri`) |
+EMRFS| Affected application file name | AMI version bootstrap action | Configuration classification |
+| --- | --- | --- |
+| `emrfs-site.xml` | `configure-hadoop -e` | `emrfs-site` |
+| n/a | `s3get -s s3://custom-provider.jar -d<br>/usr/share/aws/emr/auxlib/` | `emrfs-site` (with new setting<br>`fs.s3.cse.encryptionMaterialsProvider.uri`) |
 
 For a list of all classifications, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
@@ -110,26 +110,26 @@ additional environment variables before involving the actual bin script.
 
 When using an AMI version, some services use custom ports.
 
-| Changes in port settings                      | Setting                     | AMI version 3.x                                 | Open-source default |
-| --------------------------------------------- | --------------------------- | ----------------------------------------------- | ------------------- |
-| fs.default.name                               | hdfs://emrDeterminedIP:9000 | default (hdfs://`emrDeterminedIP`:8020)         |
-| dfs.datanode.address                          | 0.0.0.0:9200                | default (0.0.0.0:50010)                         |
-| dfs.datanode.http.address                     | 0.0.0.0:9102                | default (0.0.0.0:50075)                         |
-| dfs.datanode.https.address                    | 0.0.0.0:9402                | default (0.0.0.0:50475)                         |
-| dfs.datanode.ipc.address                      | 0.0.0.0:9201                | default (0.0.0.0:50020)                         |
-| dfs.http.address                              | 0.0.0.0:9101                | default (0.0.0.0:50070)                         |
-| dfs.https.address                             | 0.0.0.0:9202                | default (0.0.0.0:50470)                         |
-| dfs.secondary.http.address                    | 0.0.0.0:9104                | default (0.0.0.0:50090)                         |
-| yarn.nodemanager.address                      | 0.0.0.0:9103                | default (${yarn.nodemanager.hostname}:0)        |
-| yarn.nodemanager.localizer.address            | 0.0.0.0:9033                | default (${yarn.nodemanager.hostname}:8040)     |
-| yarn.nodemanager.webapp.address               | 0.0.0.0:9035                | default (${yarn.nodemanager.hostname}:8042)     |
-| yarn.resourcemanager.address                  | `emrDeterminedIP`:9022      | default (${yarn.resourcemanager.hostname}:8032) |
-| yarn.resourcemanager.admin.address            | `emrDeterminedIP`:9025      | default (${yarn.resourcemanager.hostname}:8033) |
-| yarn.resourcemanager.resource-tracker.address | `emrDeterminedIP`:9023      | default (${yarn.resourcemanager.hostname}:8031) |
-| yarn.resourcemanager.scheduler.address        | `emrDeterminedIP`:9024      | default (${yarn.resourcemanager.hostname}:8030) |
-| yarn.resourcemanager.webapp.address           | 0.0.0.0:9026                | default (${yarn.resourcemanager.hostname}:8088) |
-| yarn.web-proxy.address                        | `emrDeterminedIP`:9046      | default (no-value)                              |
-| yarn.resourcemanager.hostname                 | 0.0.0.0 (default)           | `emrDeterminedIP`                               |
+Changes in port settings| Setting | AMI version 3.x | Open-source default |
+| --- | --- | --- |
+| fs.default.name | hdfs://emrDeterminedIP:9000 | default (hdfs://`emrDeterminedIP`:8020) |
+| dfs.datanode.address | 0.0.0.0:9200 | default (0.0.0.0:50010) |
+| dfs.datanode.http.address | 0.0.0.0:9102 | default (0.0.0.0:50075) |
+| dfs.datanode.https.address | 0.0.0.0:9402 | default (0.0.0.0:50475) |
+| dfs.datanode.ipc.address | 0.0.0.0:9201 | default (0.0.0.0:50020) |
+| dfs.http.address | 0.0.0.0:9101 | default (0.0.0.0:50070) |
+| dfs.https.address | 0.0.0.0:9202 | default (0.0.0.0:50470) |
+| dfs.secondary.http.address | 0.0.0.0:9104 | default (0.0.0.0:50090) |
+| yarn.nodemanager.address | 0.0.0.0:9103 | default (${yarn.nodemanager.hostname}:0) |
+| yarn.nodemanager.localizer.address | 0.0.0.0:9033 | default (${yarn.nodemanager.hostname}:8040) |
+| yarn.nodemanager.webapp.address | 0.0.0.0:9035 | default (${yarn.nodemanager.hostname}:8042) |
+| yarn.resourcemanager.address | `emrDeterminedIP`:9022 | default (${yarn.resourcemanager.hostname}:8032) |
+| yarn.resourcemanager.admin.address | `emrDeterminedIP`:9025 | default (${yarn.resourcemanager.hostname}:8033) |
+| yarn.resourcemanager.resource-tracker.address | `emrDeterminedIP`:9023 | default (${yarn.resourcemanager.hostname}:8031) |
+| yarn.resourcemanager.scheduler.address | `emrDeterminedIP`:9024 | default (${yarn.resourcemanager.hostname}:8030) |
+| yarn.resourcemanager.webapp.address | 0.0.0.0:9026 | default (${yarn.resourcemanager.hostname}:8088) |
+| yarn.web-proxy.address | `emrDeterminedIP`:9046 | default (no-value) |
+| yarn.resourcemanager.hostname | 0.0.0.0 (default) | `emrDeterminedIP` |
 
 ###### Note
 
@@ -154,23 +154,23 @@ directories are installed in the
 directory. When using an AMI version, log files are found in various places. The
 table below lists locations.
 
-| Changes in log locations on Amazon S3          | Daemon or application                             | Directory location |
-| ---------------------------------------------- | ------------------------------------------------- | ------------------ |
-| instance-state                                 | node/`instance-id`/instance-state/                |
-| hadoop-hdfs-namenode                           | daemons/`instance-id`/hadoop-hadoop-namenode.log  |
-| hadoop-hdfs-datanode                           | daemons/`instance-id`/hadoop-hadoop-datanode.log  |
-| hadoop-yarn (ResourceManager)                  | daemons/`instance-id`/yarn-hadoop-resourcemanager |
-| hadoop-yarn (Proxy Server)                     | daemons/`instance-id`/yarn-hadoop-proxyserver     |
-| mapred-historyserver                           | daemons/`instance-id`/                            |
-| httpfs                                         | daemons/`instance-id`/httpfs.log                  |
-| hive-server                                    | node/`instance-id`/hive-server/hive-server.log    |
-| hive-metastore                                 | node/`instance-id`/apps/hive.log                  |
-| Hive CLI                                       | node/`instance-id`/apps/hive.log                  |
-| YARN applications user logs and container logs | task-attempts/                                    |
-| Mahout                                         | N/A                                               |
-| Pig                                            | N/A                                               |
-| spark-historyserver                            | N/A                                               |
-| mapreduce job history files                    | jobs/                                             |
+Changes in log locations on Amazon S3| Daemon or application | Directory location |
+| --- | --- |
+| instance-state | node/`instance-id`/instance-state/ |
+| hadoop-hdfs-namenode | daemons/`instance-id`/hadoop-hadoop-namenode.log |
+| hadoop-hdfs-datanode | daemons/`instance-id`/hadoop-hadoop-datanode.log |
+| hadoop-yarn (ResourceManager) | daemons/`instance-id`/yarn-hadoop-resourcemanager |
+| hadoop-yarn (Proxy Server) | daemons/`instance-id`/yarn-hadoop-proxyserver |
+| mapred-historyserver | daemons/`instance-id`/ |
+| httpfs | daemons/`instance-id`/httpfs.log |
+| hive-server | node/`instance-id`/hive-server/hive-server.log |
+| hive-metastore | node/`instance-id`/apps/hive.log |
+| Hive CLI | node/`instance-id`/apps/hive.log |
+| YARN applications user logs and container logs | task-attempts/ |
+| Mahout | N/A |
+| Pig | N/A |
+| spark-historyserver | N/A |
+| mapreduce job history files | jobs/ |
 
 ## Command runner
 

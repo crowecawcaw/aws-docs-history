@@ -79,7 +79,8 @@ to set the number of tasks:
 
 - `mapred.map.tasks` = `mapred.map.tasksperslot` \* map
   slots in cluster
-- `mapred.reduce.tasks` = `mapred.reduce.tasksperslot` \* reduce slots in cluster
+- `mapred.reduce.tasks` = `mapred.reduce.tasksperslot`
+  \* reduce slots in cluster
 
 The job client only reads the `tasksperslot` parameter if the number of
 tasks is not configured. You can override the number of tasks at any time, either

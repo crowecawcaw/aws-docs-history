@@ -20,27 +20,23 @@
 
 - Consider the following recommendations for Amazon S3:
 
-      + We recommend that you [block public access to Amazon S3 buckets](../../../AmazonS3/latest/userguide/access-control-block-public-access.md "../../../AmazonS3/latest/userguide/access-control-block-public-access.md").
-      + We recommend that you use [Amazon S3
-       server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") to encrypt the Amazon S3 buckets
-       used.
-      + We recommend that you use [Amazon S3
-       lifecycle policies](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") to define the retention rules for the
-       Amazon S3 bucket.
-      + Amazon EMR always verifies code imported from open-source into the
-       image. For security, we don't support the following
-       authentication methods from Spark to Amazon S3:
+  - We recommend that you [block public access to Amazon S3 buckets](../../../AmazonS3/latest/userguide/access-control-block-public-access.md "../../../AmazonS3/latest/userguide/access-control-block-public-access.md").
+  - We recommend that you use [Amazon S3
+    server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") to encrypt the Amazon S3 buckets
+    used.
+  - We recommend that you use [Amazon S3
+    lifecycle policies](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") to define the retention rules for the
+    Amazon S3 bucket.
+  - Amazon EMR always verifies code imported from open-source into the
+    image. For security, we don't support the following
+    authentication methods from Spark to Amazon S3:
 
-
-
-
-      	- Setting AWS access keys in the `hadoop-env`
-      	 configuration classification
-      	- Encoding AWS access keys in the `tempdir`
-      	 URI
-
-  For more information on using the connector and its supported parameters, see the
-  following resources:
+    - Setting AWS access keys in the `hadoop-env`
+      configuration classification
+    - Encoding AWS access keys in the `tempdir`
+      URI
+      For more information on using the connector and its supported parameters, see the
+      following resources:
 
 - [Amazon Redshift integration for Apache Spark](../../../redshift/latest/mgmt/spark-redshift-connector.md "../../../redshift/latest/mgmt/spark-redshift-connector.md") in the
   _Amazon Redshift Management Guide_

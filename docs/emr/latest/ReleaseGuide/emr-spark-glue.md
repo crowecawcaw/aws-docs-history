@@ -153,7 +153,7 @@ with Spark:
   create a table. As a workaround, use the `LOCATION` clause to
   specify a bucket location, such as
   `s3://`amzn-s3-demo-bucket1``,
-when you use `CREATE TABLE`. Alternatively create tables within a
+  when you use `CREATE TABLE`. Alternatively create tables within a
   database other than the default database.
 - Renaming tables from within AWS Glue is not supported.
 - When you create a Hive table without specifying a `LOCATION`, the table data is stored in the location specified by the `hive.metastore.warehouse.dir` property. By default, this is a location in HDFS. If another cluster needs to access the table, it fails unless it has adequate permissions to the cluster that created the table. Furthermore, because HDFS storage is transient, if the cluster terminates, the table data is lost, and the table must be recreated. We recommend that you specify a `LOCATION` in Amazon S3 when you create a Hive table using AWS Glue. Alternatively, you can use the `hive-site` configuration classification to specify a location in Amazon S3 for `hive.metastore.warehouse.dir`, which applies to all Hive tables. If a table is created in an HDFS location and the cluster that created it is still running, you can update the table location to Amazon S3 from within AWS Glue. For more information, see [Working with Tables on the AWS Glue Console](../../../glue/latest/dg/console-tables.md "../../../glue/latest/dg/console-tables.md") in the _AWS Glue Developer Guide_.

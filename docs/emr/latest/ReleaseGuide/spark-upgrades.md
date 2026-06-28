@@ -42,4 +42,4 @@ Please refer to [Using Spark Upgrade Tools](emr-spark-upgrade-agent-tools.md "em
 - [Using Spark Upgrade Tools](emr-spark-upgrade-agent-tools.md "emr-spark-upgrade-agent-tools.md")
 - [Cross-region processing for the Apache Spark Upgrade Agent](emr-spark-upgrade-agent-cross-region.md "emr-spark-upgrade-agent-cross-region.md")
 - [Logging Amazon SageMaker Unified Studio MCP calls using AWS CloudTrail](spark-upgrade-cloudtrail-integration.md "spark-upgrade-cloudtrail-integration.md")
-- [Service improvements for Apache Spark Agents](emr-spark-agent-service-improvements.md "emr-spark-agent-service-improvements.md")
+- [Data handling for Upgrade Agent](emr-spark-agent-service-improvements.md "emr-spark-agent-service-improvements.md")
