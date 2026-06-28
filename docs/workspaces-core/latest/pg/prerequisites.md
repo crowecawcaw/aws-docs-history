@@ -19,33 +19,26 @@ or Managed Instances, customers must meet the following requirements:
 - If customers are deploying desktops using the Windows Server operating system, they will
   need to provide Remote desktop licensing.
 
-      + Amazon WorkSpaces Core includes a license that permits two Remote Desktop connections
-       for administrative use only. To support additional concurrent user sessions, customers must acquire
-       Microsoft Remote Desktop Services (RDS) Client Access Licenses (CALs) with active Software Assurance.
-       These licenses can be brought to AWS through Microsoft’s License Mobility program.
+  - Amazon WorkSpaces Core includes a license that permits two Remote Desktop connections
+    for administrative use only. To support additional concurrent user sessions, customers must acquire
+    Microsoft Remote Desktop Services (RDS) Client Access Licenses (CALs) with active Software Assurance.
+    These licenses can be brought to AWS through Microsoft’s License Mobility program.
 
+  - If customers have Microsoft Software Assurance with License Mobility, they might be able
+    to bring their Microsoft RDS CALs and then use them with Amazon WorkSpaces Core. For more information
+    about how to sign up for and complete a license verification process, and to view eligibility requirements,
+    see License Mobility.
+  - To verify license eligibility through License Mobility, complete the following steps:
 
-      + If customers have Microsoft Software Assurance with License Mobility, they might be able
-       to bring their Microsoft RDS CALs and then use them with Amazon WorkSpaces Core. For more information
-       about how to sign up for and complete a license verification process, and to view eligibility requirements,
-       see License Mobility.
-      + To verify license eligibility through License Mobility, complete the following steps:
+    1. Confirm that your Microsoft licenses include Software Assurance and are eligible for License Mobility.
+    2. Go to the Microsoft License Mobility Verification form.
+    3. Fill out the form using the following AWS partner details:
 
+       - Email Address: `microsoft@amazon.com`
+       - Partner Name: `Amazon Web Services`
+       - Partner Website: `aws.amazon.com`
 
-
-
-      	1. Confirm that your Microsoft licenses include Software Assurance and are eligible for License Mobility.
-      	2. Go to the Microsoft License Mobility Verification form.
-      	3. Fill out the form using the following AWS partner details:
-
-
-
-
-      		- Email Address: `microsoft@amazon.com`
-      		- Partner Name: `Amazon Web Services`
-      		- Partner Website: `aws.amazon.com`
-      	4. Submit the form to Microsoft.
-      	5. Wait for confirmation from Microsoft, which will be sent to both you and AWS upon successful
-      	 verification. For more information, see Microsoft licensing on AWS.
-
-  For more information, see [Microsoft licensing on AWS](../../../prescriptive-guidance/latest/migration-microsoft-workloads-aws/licensing-microsoft-workloads.md "../../../prescriptive-guidance/latest/migration-microsoft-workloads-aws/licensing-microsoft-workloads.md").
+    4. Submit the form to Microsoft.
+    5. Wait for confirmation from Microsoft, which will be sent to both you and AWS upon successful
+       verification. For more information, see Microsoft licensing on AWS.
+       For more information, see [Microsoft licensing on AWS](../../../prescriptive-guidance/latest/migration-microsoft-workloads-aws/licensing-microsoft-workloads.md "../../../prescriptive-guidance/latest/migration-microsoft-workloads-aws/licensing-microsoft-workloads.md").
