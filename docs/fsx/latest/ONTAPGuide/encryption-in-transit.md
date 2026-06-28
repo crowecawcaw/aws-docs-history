@@ -110,10 +110,10 @@ For more information about Nitro-based encryption, see the Encryption in transit
 
 The following table details the AWS Regions that Nitro-based encryption is available in.
 
-| Support for Nitro-based encryption | Generation                | Deployment types                                                                                                                              | AWS Region |
-| ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| First-generation file systems1     | Single-AZ 1<br>Multi-AZ 1 | US East (N. Virginia), US East (Ohio), US West (Oregon), Europe (Ireland)                                                                     |
-| Second-generation file systems     | Single-AZ 2<br>Multi-AZ 2 | US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Europe (Frankfurt), Europe (Ireland), Asia Pacific (Sydney) |
+Support for Nitro-based encryption| Generation | Deployment types | AWS Region |
+| --- | --- | --- |
+| First-generation file systems1 | Single-AZ 1<br>Multi-AZ 1 | US East (N. Virginia), US East (Ohio), US West (Oregon), Europe (Ireland) |
+| Second-generation file systems | Single-AZ 2<br>Multi-AZ 2 | US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Europe (Frankfurt), Europe (Ireland), Asia Pacific (Sydney) |
 
 1 First-generation file systems created on or after November 28, 2022 support Nitro-based in-transit encryption in the listed AWS Regions.
 

@@ -250,7 +250,7 @@ for a volume, see [Monitoring a volume's file capacity](view-volume-file-capacit
 
 The default number of inodes on a volume is 1 inode for every 32 KiB of volume storage capacity, up to a volume size of 648 GiB. For a 1 GiB volume:
 
-Volume_size_in_bytes × (1 file ÷ inode_size_in_bytes) = maximum_number_of_files
+Volume\_size\_in\_bytes × (1 file ÷ inode\_size\_in\_bytes) = maximum\_number\_of\_files
 
 1,073,741,824 bytes × (1 file ÷ 32,768 bytes) = 32,768 files
 

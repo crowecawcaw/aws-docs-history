@@ -33,7 +33,7 @@ that you can increase.
    - For **Category** choose **Other Account
      Issues**.
    - For **Subject** enter `Amazon FSx for NetApp ONTAP service limit
-increase request`.
+  increase request`.
    - Provide a detailed **Description** of your request,
      including:
 

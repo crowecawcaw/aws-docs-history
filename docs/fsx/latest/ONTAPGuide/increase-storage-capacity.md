@@ -56,11 +56,13 @@ Set the following parameters with your values:
 - To increase your SSD storage capacity, set `--storage-capacity` to the
   target storage capacity value, which must be at least 10 percent greater than the current value.
 - To modify your provisioned SSD IOPS, use the `--ontap-configuration
-DiskIopsConfiguration` property. This property has two
+ DiskIopsConfiguration` property. This property has two
   parameters, `Iops` and `Mode`:
 
   - If you want to specify the number of provisioned IOPS, use
-    `Iops=`number_of_IOPS``(up to a maximum of 160,000) and`Mode=USER_PROVISIONED`. The IOPS value
+    `Iops=`number_of_IOPS``
+    (up to a maximum of 160,000) and
+    `Mode=USER_PROVISIONED`. The IOPS value
     must be greater than or equal to three times the
     requested SSD storage capacity. If you're not increasing
     the storage capacity, the IOPs value must be greater

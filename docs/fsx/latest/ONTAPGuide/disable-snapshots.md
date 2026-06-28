@@ -50,15 +50,14 @@ none 0 false Policy for no automatic snapshots.
  - - - -`
 ```
 
-2.  Use the
-    [`volume modify`](https://docs.netapp.com/us-en/ontap-cli-9131/volume-modify.html "https://docs.netapp.com/us-en/ontap-cli-9131/volume-modify.html")
-    ONTAP ClI command to set the volume's snapshot policy to `none` to disable automatic snapshots.
-    Replace the following placeholder values with your data:
+2. Use the
+   [`volume modify`](https://docs.netapp.com/us-en/ontap-cli-9131/volume-modify.html "https://docs.netapp.com/us-en/ontap-cli-9131/volume-modify.html")
+   ONTAP ClI command to set the volume's snapshot policy to `none` to disable automatic snapshots.
+   Replace the following placeholder values with your data:
 
-        * ``svm_name`` — use your SVM's name.
-        * ``vol_name`` — use your volume's name.
-
-    When prompted to continue, enter `y`.
+   - `svm_name` — use your SVM's name.
+   - `vol_name` — use your volume's name.
+     When prompted to continue, enter `y`.
 
 ```
 `::>` `volume modify -vserver `svm_name` -volume `vol_name` -snapshot-policy none`

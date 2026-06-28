@@ -17,7 +17,7 @@ Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://con
    - **PENDING** indicates that the file metadata is being
      downloaded onto the volume. The volume's **Lifecycle state** is
      **CREATING**.
-   - **IN_PROGRESS** indicates that the volume is available
+   - **IN\_PROGRESS** indicates that the volume is available
      and clients can mount the volume with read-only access to data.
      The **Progress %** shows the percentage of data
      that has been downloaded to the volume.

@@ -153,28 +153,27 @@ In this example, the IP address of `iscsi_1` is `172.31.0.143` and
 
 ## Mount an iSCSI LUN on the Windows client
 
-1.  On your Windows instance, open a PowerShell terminal as an Administrator.
-2.  You will create a `.ps1` script that does the following:
+1. On your Windows instance, open a PowerShell terminal as an Administrator.
+2. You will create a `.ps1` script that does the following:
 
-        * Connects to each of your file system’s iSCSI interfaces.
-        * Adds and configures MPIO for iSCSI.
-        * Establishes 8 sessions for each iSCSI connection, which enables
-         the client to drive up to 40 Gbps (5,000 MBps) of aggregate
-         throughput to the iSCSI LUN. Having 8 sessions ensures a single
-         client can drive the full 4,000 MBps throughput capacity for the
-         highest-level FSx for ONTAP throughput capacity. You can optionally
-         change the number of sessions to a higher or lower number of
-         sessions (each session provides up to 625 MBps of throughput) by
-         modifying the `RecommendedConnectionCount` variable.
-         For more information, see  [Amazon EC2 instance network bandwidth](../../../AWSEC2/latest/WindowsGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/WindowsGuide/ec2-instance-network-bandwidth.md") in the
-         *Amazon Elastic Compute Cloud User Guide for Windows
-         Instances*.
+   - Connects to each of your file system’s iSCSI interfaces.
+   - Adds and configures MPIO for iSCSI.
+   - Establishes 8 sessions for each iSCSI connection, which enables
+     the client to drive up to 40 Gbps (5,000 MBps) of aggregate
+     throughput to the iSCSI LUN. Having 8 sessions ensures a single
+     client can drive the full 4,000 MBps throughput capacity for the
+     highest-level FSx for ONTAP throughput capacity. You can optionally
+     change the number of sessions to a higher or lower number of
+     sessions (each session provides up to 625 MBps of throughput) by
+     modifying the `RecommendedConnectionCount` variable.
+     For more information, see [Amazon EC2 instance network bandwidth](../../../AWSEC2/latest/WindowsGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/WindowsGuide/ec2-instance-network-bandwidth.md") in the
+     _Amazon Elastic Compute Cloud User Guide for Windows
+     Instances_.
+     Copy the following set of commands into a file to create the `.psl` script.
 
-    Copy the following set of commands into a file to create the `.psl` script.
-
-        * Replace `iscsi_1` and `iscsi_2` with the IP addresses
-         you retrieved in the previous step.
-        * Replace `ec2_ip` with the IP address of your Windows instance.
+   - Replace `iscsi_1` and `iscsi_2` with the IP addresses
+     you retrieved in the previous step.
+   - Replace `ec2_ip` with the IP address of your Windows instance.
 
 ```
 Write-Host "Starting iSCSI connection setup..."

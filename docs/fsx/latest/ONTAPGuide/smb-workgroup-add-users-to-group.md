@@ -24,32 +24,25 @@ When adding members to a local group, keep the following in mind:
   [vserver cifs users-and-groups local-group remove-members](https://docs.netapp.com/us-en/ontap-cli/vserver-cifs-users-and-groups-local-group-remove-members.html "https://docs.netapp.com/us-en/ontap-cli/vserver-cifs-users-and-groups-local-group-remove-members.html")
   ONTAP CLI commands.
 
-      + To add members to a workgroup:
+  - To add members to a workgroup:
 
+  ```
+  vserver cifs users-and-groups local-group add-members ‑vserver `svm_name` -group-name `group_name` ‑member-names name[,...]
+  ```
 
+  You can specify a comma-delimited list of local users, domain users, or domain groups to add to the specified local group.
+  - To view members of a workgroup:
 
-      ```
-      vserver cifs users-and-groups local-group add-members ‑vserver `svm_name` -group-name `group_name` ‑member-names name[,...]
-      ```
+  ```
+  vserver cifs users-and-groups local-group show-members -vserver `svm_name` -group-name `group_name`
+  ```
+  - To remove members from a workgroup:
 
-      You can specify a comma-delimited list of local users, domain users, or domain groups to add to the specified local group.
-      + To view members of a workgroup:
+  ```
+  vserver cifs users-and-groups local-group remove-members ‑vserver `svm_name` -group-name `group_name` ‑member-names name[,...]
+  ```
 
-
-
-      ```
-      vserver cifs users-and-groups local-group show-members -vserver `svm_name` -group-name `group_name`
-      ```
-      + To remove members from a workgroup:
-
-
-
-      ```
-      vserver cifs users-and-groups local-group remove-members ‑vserver `svm_name` -group-name `group_name` ‑member-names name[,...]
-      ```
-
-      You can specify a comma-delimited list of local users, domain users, or domain groups to remove from the specified local group.
-
+  You can specify a comma-delimited list of local users, domain users, or domain groups to remove from the specified local group.
   The following example adds a local user `SMB_SERVER01\sue` to the local group `SMB_SERVER01\engineering` on SVM `svm1`:
 
 ```

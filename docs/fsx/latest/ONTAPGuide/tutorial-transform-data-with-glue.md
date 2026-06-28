@@ -43,107 +43,101 @@ Before you begin, make sure you have the following:
   used by this tutorial. The following steps create a role with the minimum
   permissions needed for this tutorial.
 
-      1. Save the following trust policy as
-       `glue-trust-policy.json`. It allows AWS Glue to assume the
-       role.
+  1.  Save the following trust policy as
+      `glue-trust-policy.json`. It allows AWS Glue to assume the
+      role.
 
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Principal": {"Service": "glue.amazonaws.com"},
+              "Action": "sts:AssumeRole"
+          }
+      ]
+  }
+  ```
+  2.  Save the following permissions policy as
+      `glue-permissions.json`. Replace
+      `region`,
+      `account-id`, and
+      `access-point-name` with your
+      values.
 
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "Logs",
+              "Effect": "Allow",
+              "Action": [
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents"
+              ],
+              "Resource": "arn:aws:logs:`region`:`account-id`:log-group:/aws-glue/*"
+          },
+          {
+              "Sid": "AccessPoint",
+              "Effect": "Allow",
+              "Action": [
+                  "s3:GetObject",
+                  "s3:PutObject",
+                  "s3:ListBucket",
+                  "s3:DeleteObject"
+              ],
+              "Resource": [
+                  "arn:aws:s3:`region`:`account-id`:accesspoint/`access-point-name`",
+                  "arn:aws:s3:`region`:`account-id`:accesspoint/`access-point-name`/object/*"
+              ]
+          },
+          {
+              "Sid": "DataCatalog",
+              "Effect": "Allow",
+              "Action": [
+                  "glue:GetDatabase",
+                  "glue:GetTable",
+                  "glue:GetTables",
+                  "glue:CreateTable",
+                  "glue:UpdateTable",
+                  "glue:DeleteTable",
+                  "glue:BatchCreatePartition",
+                  "glue:BatchDeletePartition",
+                  "glue:CreatePartition",
+                  "glue:UpdatePartition",
+                  "glue:GetPartition",
+                  "glue:GetPartitions"
+              ],
+              "Resource": [
+                  "arn:aws:glue:`region`:`account-id`:catalog",
+                  "arn:aws:glue:`region`:`account-id`:database/fsxn_taxi_demo",
+                  "arn:aws:glue:`region`:`account-id`:table/fsxn_taxi_demo/*"
+              ]
+          }
+      ]
+  }
+  ```
+  3.  Create the role and attach the inline policy.
 
-      ```
-      {
-          "Version": "2012-10-17",
-          "Statement": [
-              {
-                  "Effect": "Allow",
-                  "Principal": {"Service": "glue.amazonaws.com"},
-                  "Action": "sts:AssumeRole"
-              }
-          ]
-      }
-      ```
-      2. Save the following permissions policy as
-       `glue-permissions.json`. Replace
-       ``region``,
-       ``account-id``, and
-       ``access-point-name`` with your
-       values.
+  ```
+  `$` `aws iam create-role \
+   --role-name `fsxn-tutorial-glue-etl-role` \
+   --assume-role-policy-document file://glue-trust-policy.json
 
+  aws iam put-role-policy \
+   --role-name `fsxn-tutorial-glue-etl-role` \
+   --policy-name glue-fsxn-access \
+   --policy-document file://glue-permissions.json`
+  ```
 
-
-      ```
-      {
-          "Version": "2012-10-17",
-          "Statement": [
-              {
-                  "Sid": "Logs",
-                  "Effect": "Allow",
-                  "Action": [
-                      "logs:CreateLogGroup",
-                      "logs:CreateLogStream",
-                      "logs:PutLogEvents"
-                  ],
-                  "Resource": "arn:aws:logs:`region`:`account-id`:log-group:/aws-glue/*"
-              },
-              {
-                  "Sid": "AccessPoint",
-                  "Effect": "Allow",
-                  "Action": [
-                      "s3:GetObject",
-                      "s3:PutObject",
-                      "s3:ListBucket",
-                      "s3:DeleteObject"
-                  ],
-                  "Resource": [
-                      "arn:aws:s3:`region`:`account-id`:accesspoint/`access-point-name`",
-                      "arn:aws:s3:`region`:`account-id`:accesspoint/`access-point-name`/object/*"
-                  ]
-              },
-              {
-                  "Sid": "DataCatalog",
-                  "Effect": "Allow",
-                  "Action": [
-                      "glue:GetDatabase",
-                      "glue:GetTable",
-                      "glue:GetTables",
-                      "glue:CreateTable",
-                      "glue:UpdateTable",
-                      "glue:DeleteTable",
-                      "glue:BatchCreatePartition",
-                      "glue:BatchDeletePartition",
-                      "glue:CreatePartition",
-                      "glue:UpdatePartition",
-                      "glue:GetPartition",
-                      "glue:GetPartitions"
-                  ],
-                  "Resource": [
-                      "arn:aws:glue:`region`:`account-id`:catalog",
-                      "arn:aws:glue:`region`:`account-id`:database/fsxn_taxi_demo",
-                      "arn:aws:glue:`region`:`account-id`:table/fsxn_taxi_demo/*"
-                  ]
-              }
-          ]
-      }
-      ```
-      3. Create the role and attach the inline policy.
-
-
-
-      ```
-      `$` `aws iam create-role \
-       --role-name `fsxn-tutorial-glue-etl-role` \
-       --assume-role-policy-document file://glue-trust-policy.json
-
-      aws iam put-role-policy \
-       --role-name `fsxn-tutorial-glue-etl-role` \
-       --policy-name glue-fsxn-access \
-       --policy-document file://glue-permissions.json`
-      ```
-
-  This tutorial stores the ETL script on the access point itself, so no separate Amazon S3
-  bucket is required. The `AccessPoint` statement covers both the
-  script and the taxi data; the `DataCatalog` statement scopes AWS Glue
-  catalog access to the `fsxn_taxi_demo` database that the crawler in
-  Step 4 updates.
+This tutorial stores the ETL script on the access point itself, so no separate Amazon S3
+bucket is required. The `AccessPoint` statement covers both the
+script and the taxi data; the `DataCatalog` statement scopes AWS Glue
+catalog access to the `fsxn_taxi_demo` database that the crawler in
+Step 4 updates.
 
 ###### Important
 

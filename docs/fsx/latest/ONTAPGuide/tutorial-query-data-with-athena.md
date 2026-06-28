@@ -267,9 +267,9 @@ FROM fsxn_taxi_demo.taxi_data
 
 Example output:
 
-| total_trips | avg_distance_miles | avg_total_usd | avg_passengers |
-| ----------- | ------------------ | ------------- | -------------- |
-| 2964624     | 3.65               | 26.80         | 1.3            |
+| total\_trips | avg\_distance\_miles | avg\_total\_usd | avg\_passengers |
+| ------------ | -------------------- | --------------- | --------------- |
+| 2964624      | 3.65                 | 26.80           | 1.3             |
 
 **Find the busiest pickup hours**
 

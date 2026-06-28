@@ -10,16 +10,16 @@ window, you can view the 10 most recent update actions for each update action ty
 
 For throughput capacity update actions, you can view the following information.
 
-\***\*Update type\*\***
+****Update type****
 
 Supported types are **Throughput capacity**, **Storage
 capacity**, and **Storage optimization**.
 
-\***\*Target value\*\***
+****Target value****
 
 The desired value to change the file system's throughput capacity to.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. For throughput capacity updates, the possible
 values are as follows:
@@ -34,7 +34,7 @@ values are as follows:
   Choose the question mark (**?**) to see details on why the
   throughput update failed.
 
-\***\*Request time\*\***
+****Request time****
 
 The time when Amazon FSx received the update request.
 

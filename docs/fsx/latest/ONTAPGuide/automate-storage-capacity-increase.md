@@ -141,7 +141,7 @@ check box acknowledging that the template creates IAM resources. 9. Choose **Cre
 
 You can view the status of the stack in the CloudFormation console in the
 **Status** column. You should see a status of
-**CREATE_COMPLETE** in a few minutes.
+**CREATE\_COMPLETE** in a few minutes.
 
 ### Updating the stack
 

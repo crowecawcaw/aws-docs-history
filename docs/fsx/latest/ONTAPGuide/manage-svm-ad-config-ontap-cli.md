@@ -114,18 +114,17 @@ svmciad dns_ip_2 up Response time (msec): 1
 2 entries were displayed.`
 ```
 
-4.  If you need to modify the Active Directory configuration itself, you can change existing fields by
-    using the following command, replacing:
+4. If you need to modify the Active Directory configuration itself, you can change existing fields by
+   using the following command, replacing:
 
-        * `computer_name`, if you want to modify the NetBIOS (machine account) name of the SVM.
-        * `domain_name`, if you want to modify the name of the domain.
-         This should correspond with the DNS domain entry noted in Step 3 of this section
-         (`corp.example.com`).
-        * `organizational_unit`, if you want to modify the OU
-         (`OU=Computers,OU=example,DC=corp,DC=example,DC=com`).
-
-    You will need to reenter the Active Directory credentials that you used to join this device to the
-    Active Directory.
+   - `computer_name`, if you want to modify the NetBIOS (machine account) name of the SVM.
+   - `domain_name`, if you want to modify the name of the domain.
+     This should correspond with the DNS domain entry noted in Step 3 of this section
+     (`corp.example.com`).
+   - `organizational_unit`, if you want to modify the OU
+     (`OU=Computers,OU=example,DC=corp,DC=example,DC=com`).
+     You will need to reenter the Active Directory credentials that you used to join this device to the
+     Active Directory.
 
 ```
 `::>``vserver cifs modify -vserver `svm_name` -cifs-server computer_name -domain `domain_name` -OU `organizational_unit``

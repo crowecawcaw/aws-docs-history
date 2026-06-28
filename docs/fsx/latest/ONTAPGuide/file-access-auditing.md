@@ -228,11 +228,11 @@ permissions, SACLs for file and folder auditing, or both SACLs and DACLs.
 7. Choose the **Auditing** tab.
 8. Perform the desired actions:
 
-| If you want to...                       | Do the following                                                                                                                                                                                    |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Set up auditing for a new user or group | 1. Choose **Add**.<br>2. In the **Enter the object name to select\*<br>• box,<br>type the name of the user or group that you want to add.<br>3. Choose **OK\*\*.                                    |
-| Remove auditing from a user or group    | 1. In the **Enter the object name to select\*<br>• box,<br>select the user or group that you want to remove.<br>2. Choose **Remove**.<br>3. Choose **OK\*\*.<br>4. Skip the rest of this procedure. |
-| Change auditing for a user or group     | 1. In the **Enter the object name to select\*<br>• box,<br>choose the user or group that you want to change.<br>2. Choose **Edit**.<br>3. Choose **OK\*\*.                                          |
+| If you want to...                       | Do the following                                                                                                                                                                                 |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Set up auditing for a new user or group | 1. Choose **Add**.<br>2. In the *_Enter the object name to select_<br>• box,<br>type the name of the user or group that you want to add.<br>3. Choose **OK**.                                    |
+| Remove auditing from a user or group    | 1. In the *_Enter the object name to select_<br>• box,<br>select the user or group that you want to remove.<br>2. Choose **Remove**.<br>3. Choose **OK**.<br>4. Skip the rest of this procedure. |
+| Change auditing for a user or group     | 1. In the *_Enter the object name to select_<br>• box,<br>choose the user or group that you want to change.<br>2. Choose **Edit**.<br>3. Choose **OK**.                                          |
 
 If you are setting up auditing on a user or group or changing auditing on an
 existing user or group, the **Auditing Entry for `object`**
@@ -265,10 +265,8 @@ following events:
     * Take ownership
 
 11. If you do not want the auditing setting to propagate to subsequent files and folders
-    of the original container, choose the **Apply these auditing entries to objects and/or
-    containers within this container only** box.
-12. Choose **Apply**.
-13. After you finish adding, removing, or editing auditing entries, choose **OK**.
+of the original container, choose the **Apply these auditing entries to objects and/or
+containers within this container only** box. 12. Choose **Apply**. 13. After you finish adding, removing, or editing auditing entries, choose **OK**.
 
 The **Auditing Entry for `object`** box closes. 14. In the **Auditing** box, choose the inheritance settings for this folder.
 Choose only the minimal level that provides the auditing events that meet your security requirements.

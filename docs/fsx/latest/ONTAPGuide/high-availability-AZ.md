@@ -69,13 +69,13 @@ architecture for an FSx for ONTAP Multi-AZ first-generation file system.
 
 The following table illustrates the differences between first and second-generation Single-AZ and Multi-AZ FSx for ONTAP file systems.
 
-| FSx for ONTAP file system generations | Dimension                                                       | First-generation                                       | Second-generation (single HA pair)                                           | Second-generation (multi-pair) |
-| ------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------- | ------------------------------ |
-| Deployment type                       | SINGLE_AZ_1<br>MULTI_AZ_1                                       | SINGLE_AZ_2<br>MULTI_AZ_2                              | SINGLE_AZ_2                                                                  |
-| HA pairs                              | 1 HA pair                                                       | 1–12 HA pairs                                          |
-| SSD storage                           | Minimum: 1 TiB<br>Maximum: 192 TiB                              | Minimum: 1 TiB<br>Maximum: 512 TiB                     | Minimum: 1 TiB (per HA pair)<br>Maximum: 1 PiB (total)                       |
-| SSD IOPS                              | Minimum: 3 IOPS/GIB of SSD<br>Maximum: 160,000                  | Minimum: 3 IOPS/GIB of SSD<br>Maximum: 200,000         | Minimum: 3 IOPS/GIB of SSD<br>Maximum: 2,400,000 (200,000 per HA pair)       |
-| Throughput capacity                   | 128 MBps; 256 MBps; 512 MBps; 1,024 MBps;2,048 MBps; 4,096 MBps | 384 MBps; 768 MBps; 1,536 MBps; 3,072 MBps; 6,144 MBps | 1,536 MBps (per HA pair); 3,072 MBps (per HA pair); 6,144 MBps (per HA pair) |
+FSx for ONTAP file system generations| Dimension | First-generation | Second-generation (single HA pair) | Second-generation (multi-pair) |
+| --- | --- | --- | --- |
+| Deployment type | SINGLE\_AZ\_1<br>MULTI\_AZ\_1 | SINGLE\_AZ\_2<br>MULTI\_AZ\_2 | SINGLE\_AZ\_2 |
+| HA pairs | 1 HA pair | 1–12 HA pairs |
+| SSD storage | Minimum: 1 TiB<br>Maximum: 192 TiB | Minimum: 1 TiB<br>Maximum: 512 TiB | Minimum: 1 TiB (per HA pair)<br>Maximum: 1 PiB (total) |
+| SSD IOPS | Minimum: 3 IOPS/GIB of SSD<br>Maximum: 160,000 | Minimum: 3 IOPS/GIB of SSD<br>Maximum: 200,000 | Minimum: 3 IOPS/GIB of SSD<br>Maximum: 2,400,000 (200,000 per HA pair) |
+| Throughput capacity | 128 MBps; 256 MBps; 512 MBps; 1,024 MBps;2,048 MBps; 4,096 MBps | 384 MBps; 768 MBps; 1,536 MBps; 3,072 MBps; 6,144 MBps | 1,536 MBps (per HA pair); 3,072 MBps (per HA pair); 6,144 MBps (per HA pair) |
 
 ###### Note
 

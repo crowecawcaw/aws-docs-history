@@ -25,8 +25,8 @@ the access point's network origin is `Internet`.
 
 ###### Example
 
-**_Example: Create an access point that's restricted to
-Amazon VPC access_**
+_**Example: Create an access point that's restricted to
+Amazon VPC access**_
 
 The following example creates an access point named `example-vpc-ap` for bucket
 `amzn-s3-demo-bucket` in account `123456789012` that allows access

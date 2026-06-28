@@ -59,12 +59,12 @@ EOF`
 Ensure that these settings are applied consistently across all NFS clients that connect to your FSx for ONTAP file system
 within the same Availability Zone. When using these network optimizations, keep the following in mind:
 
-- **base_reachable_time_ms=5000** – Reduces ARP cache entry validity from 30 seconds to 5 seconds,
+- **base\_reachable\_time\_ms=5000** – Reduces ARP cache entry validity from 30 seconds to 5 seconds,
   allowing clients to detect IP ownership changes more quickly during a failover event.
-- **delay_first_probe_time=1** – Reduces the delay before probing a stale network entry from 5 seconds to 1 second.
-- **ucast_solicit=0** – Skips unicast neighbor probes and immediately issues broadcast ARP requests,
+- **delay\_first\_probe\_time=1** – Reduces the delay before probing a stale network entry from 5 seconds to 1 second.
+- **ucast\_solicit=0** – Skips unicast neighbor probes and immediately issues broadcast ARP requests,
   accelerating rediscovery of the active file server.
-- **tcp_syn_retries=3** – Reduces TCP connection retry duration from 127 seconds to 15 seconds.
+- **tcp\_syn\_retries=3** – Reduces TCP connection retry duration from 127 seconds to 15 seconds.
 
 After the network settings are in place, you should monitor your environment to validate the changes. You can test a failover event
 by modifying throughput capacity of your file system. For more information, see [Testing failover on a file system](high-availability-AZ.md#testing-failover "high-availability-AZ.md#testing-failover").

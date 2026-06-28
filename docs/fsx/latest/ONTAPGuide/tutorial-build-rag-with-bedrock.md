@@ -395,7 +395,7 @@ alias.
    generation model (for example, **Nova
    Lite**).
 4. Enter a question such as `What are the pillars of the AWS
-Well-Architected Framework?` and choose
+ Well-Architected Framework?` and choose
    **Run**. The answer displays with citation
    references that link to the source documents in the Amazon S3 access point.
 

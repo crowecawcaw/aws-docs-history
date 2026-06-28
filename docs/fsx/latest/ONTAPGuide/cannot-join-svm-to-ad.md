@@ -196,22 +196,22 @@ Joining an SVM to your self-managed Active Directory fails with the following er
 
 To resolve this issue, use the following procedure:
 
-1.  If only some of the domain controllers in your Active Directory are reachable, for example due
-    to geographical limitations or firewalls, you can add preferred domain controllers. Using this
-    option, Amazon FSx attempts to contact the preferred domain controllers. Add preferred domain
-    controllers using the [`vserver cifs domain preferred-dc add`](https://docs.netapp.com/us-en/ontap/smb-admin/add-preferred-domain-controllers-task.html "https://docs.netapp.com/us-en/ontap/smb-admin/add-preferred-domain-controllers-task.html") NetApp ONTAP CLI command, as
-    follows:
+1. If only some of the domain controllers in your Active Directory are reachable, for example due
+   to geographical limitations or firewalls, you can add preferred domain controllers. Using this
+   option, Amazon FSx attempts to contact the preferred domain controllers. Add preferred domain
+   controllers using the [`vserver cifs domain preferred-dc add`](https://docs.netapp.com/us-en/ontap/smb-admin/add-preferred-domain-controllers-task.html "https://docs.netapp.com/us-en/ontap/smb-admin/add-preferred-domain-controllers-task.html") NetApp ONTAP CLI command, as
+   follows:
 
-    1. To access the ONTAP CLI, establish an SSH session on the management port of the
-       Amazon FSx for NetApp ONTAP file system or SVM by running the following command. Replace
-       `management_endpoint_ip` with the IP address of the file system's
-       management port.
+   1. To access the ONTAP CLI, establish an SSH session on the management port of the
+      Amazon FSx for NetApp ONTAP file system or SVM by running the following command. Replace
+      `management_endpoint_ip` with the IP address of the file system's
+      management port.
 
-    ```
-    `[~]$` `ssh fsxadmin@`management_endpoint_ip``
-    ```
+   ```
+   `[~]$` `ssh fsxadmin@`management_endpoint_ip``
+   ```
 
-    For more information, see [Managing file systems with the ONTAP CLI](managing-resources-ontap-apps.md#fsxadmin-ontap-cli "managing-resources-ontap-apps.md#fsxadmin-ontap-cli"). 2. Enter the following command, where:
+   For more information, see [Managing file systems with the ONTAP CLI](managing-resources-ontap-apps.md#fsxadmin-ontap-cli "managing-resources-ontap-apps.md#fsxadmin-ontap-cli"). 2. Enter the following command, where:
 
         * `-vserver vserver_name` specifies the storage virtual machine (SVM) name.
         * `-domain domain_name` specifies the fully qualified Active Directory name (FQDN) of
@@ -219,53 +219,53 @@ To resolve this issue, use the following procedure:
         * `-preferred-dc IP_address,…​` specifies one or more IP addresses of the preferred domain controllers,
          as a comma-delimited list, in order of preference.
 
-    ```
-    `FsxId123456789::>` vserver cifs domain preferred-dc add -vserver vserver_name -domain domain_name -preferred-dc IP_address, …​+
-    ```
+   ```
+   `FsxId123456789::>` vserver cifs domain preferred-dc add -vserver vserver_name -domain domain_name -preferred-dc IP_address, …​+
+   ```
 
-    The following command adds domain controllers 172.17.102.25 and 172.17.102.24 to the list of preferred domain controllers
-    that the SMB server on SVM vs1 uses to manage external access to the cifs.lab.example.com domain.
+   The following command adds domain controllers 172.17.102.25 and 172.17.102.24 to the list of preferred domain controllers
+   that the SMB server on SVM vs1 uses to manage external access to the cifs.lab.example.com domain.
 
-    ```
-    `FsxId123456789::>` vserver cifs domain preferred-dc add -vserver vs1 -domain cifs.lab.example.com -preferred-dc 172.17.102.25,172.17.102.24
-    ```
+   ```
+   `FsxId123456789::>` vserver cifs domain preferred-dc add -vserver vs1 -domain cifs.lab.example.com -preferred-dc 172.17.102.25,172.17.102.24
+   ```
 
-2.  Check to see if your Domain Controller can be resolved with DNS. Use the [`vserver services access-check dns forward-lookup`](https://docs.netapp.com/us-en/ontap-cli-9121/vserver-services-access-check-dns-forward-lookup.html "https://docs.netapp.com/us-en/ontap-cli-9121/vserver-services-access-check-dns-forward-lookup.html") NetApp ONTAP CLI
-    command to return the IP address of a hostname based on the look up on the DNS server specified
-    or the vserver’s DNS configuration.
+2. Check to see if your Domain Controller can be resolved with DNS. Use the [`vserver services access-check dns forward-lookup`](https://docs.netapp.com/us-en/ontap-cli-9121/vserver-services-access-check-dns-forward-lookup.html "https://docs.netapp.com/us-en/ontap-cli-9121/vserver-services-access-check-dns-forward-lookup.html") NetApp ONTAP CLI
+   command to return the IP address of a hostname based on the look up on the DNS server specified
+   or the vserver’s DNS configuration.
 
-    1. To access the ONTAP CLI, establish an SSH session on the management port of the
-       Amazon FSx for NetApp ONTAP file system or SVM by running the following command. Replace
-       `management_endpoint_ip` with the IP address of the file system's
-       management port.
+   1. To access the ONTAP CLI, establish an SSH session on the management port of the
+      Amazon FSx for NetApp ONTAP file system or SVM by running the following command. Replace
+      `management_endpoint_ip` with the IP address of the file system's
+      management port.
 
-    ```
-    `[~]$` `ssh fsxadmin@`management_endpoint_ip``
-    ```
+   ```
+   `[~]$` `ssh fsxadmin@`management_endpoint_ip``
+   ```
 
-    For more information, see [Managing file systems with the ONTAP CLI](managing-resources-ontap-apps.md#fsxadmin-ontap-cli "managing-resources-ontap-apps.md#fsxadmin-ontap-cli"). 2. Enter the ONTAP CLI advanced mode using the following command.
+   For more information, see [Managing file systems with the ONTAP CLI](managing-resources-ontap-apps.md#fsxadmin-ontap-cli "managing-resources-ontap-apps.md#fsxadmin-ontap-cli"). 2. Enter the ONTAP CLI advanced mode using the following command.
 
-    ```
-    `FsxId123456789::>` set adv
-    ```
-    3. Enter the following command, where:
+   ```
+   `FsxId123456789::>` set adv
+   ```
+   3. Enter the following command, where:
 
-       - `-vserver vserver_name` specifies the storage virtual machine (SVM) name.
-       - `-hostname host_name` specifies the hostname to look up on the DNS server.
-       - `-node node_name​` specifies the name of the node on which the command is executed.
-       - `-lookup-type` specifies the type of IP address to be looked up on the DNS server, default is `all`.
+      - `-vserver vserver_name` specifies the storage virtual machine (SVM) name.
+      - `-hostname host_name` specifies the hostname to look up on the DNS server.
+      - `-node node_name​` specifies the name of the node on which the command is executed.
+      - `-lookup-type` specifies the type of IP address to be looked up on the DNS server, default is `all`.
 
-    ```
-    `FsxId123456789::>` vserver services access-check dns forward-lookup \
-    -vserver `vserver_name` -node `node_name` \
-    -domains `domain_name` -name-servers `dns_server_ip_address` \
-    -hostname `host_name`
-    ```
+   ```
+   `FsxId123456789::>` vserver services access-check dns forward-lookup \
+   -vserver `vserver_name` -node `node_name` \
+   -domains `domain_name` -name-servers `dns_server_ip_address` \
+   -hostname `host_name`
+   ```
 
-3.  Review the [information you need to have](self-managed-AD-join.md#ad-info-for-svm-join "self-managed-AD-join.md#ad-info-for-svm-join") when joining an SVM to an AD.
-4.  Review the [networking requirements](self-manage-prereqs.md#ontap-ad-network-configs "self-manage-prereqs.md#ontap-ad-network-configs") when joining an SVM to an AD.
-5.  Use the procedure described in [Network configuration requirements](self-manage-prereqs.md#ontap-ad-network-configs "self-manage-prereqs.md#ontap-ad-network-configs")
-    to update your SVM's Active Directory configuration using the correct IP addresses for your Active Directory DNS servers.
+3. Review the [information you need to have](self-managed-AD-join.md#ad-info-for-svm-join "self-managed-AD-join.md#ad-info-for-svm-join") when joining an SVM to an AD.
+4. Review the [networking requirements](self-manage-prereqs.md#ontap-ad-network-configs "self-manage-prereqs.md#ontap-ad-network-configs") when joining an SVM to an AD.
+5. Use the procedure described in [Network configuration requirements](self-manage-prereqs.md#ontap-ad-network-configs "self-manage-prereqs.md#ontap-ad-network-configs")
+   to update your SVM's Active Directory configuration using the correct IP addresses for your Active Directory DNS servers.
 
 ## Amazon FSx can't communicate with your Active Directory because of a invalid Active Directory domain name.
 

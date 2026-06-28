@@ -99,19 +99,18 @@ options:
     	 `Domain Admins`.
 
 8. For **SVM root volume security style**, choose
-   the security style for the SVM depending on the type of clients that
-   access your data. Choose **Unix (Linux)** if you
-   primarily access your data using Linux clients; choose
-   **NTFS** if you primarily access your data
-   using Windows clients. For more information, see
-   [Volume security style](managing-volumes.md#volume-security-style "managing-volumes.md#volume-security-style").
-9. Choose **Confirm** to create the storage virtual
-   machine.
-   You can monitor the update progress on the **File
-   systems** detail page, in the **Status**
-   column of the **Storage virtual machines** pane. The
-   storage virtual machine is ready for use when its status is
-   **Created**.
+the security style for the SVM depending on the type of clients that
+access your data. Choose **Unix (Linux)** if you
+primarily access your data using Linux clients; choose
+**NTFS** if you primarily access your data
+using Windows clients. For more information, see
+[Volume security style](managing-volumes.md#volume-security-style "managing-volumes.md#volume-security-style"). 9. Choose **Confirm** to create the storage virtual
+machine.
+You can monitor the update progress on the **File
+systems** detail page, in the **Status**
+column of the **Storage virtual machines** pane. The
+storage virtual machine is ready for use when its status is
+**Created**.
 
 ## To create a storage virtual machine (CLI)
 

@@ -65,10 +65,12 @@ Use the [create-volume-from-backup](../../../cli/latest/reference/fsx/create-vol
 [CreateVolumeFromBackup](../APIReference/API_CreateVolumeFromBackup.md "../APIReference/API_CreateVolumeFromBackup.md") API command to restore a volume backup to a new volume.
 
 - ```
-  `$` `aws fsx create-volume-from-backup --backup-id `backup-08e6fc1133fff3532` \
-   --name demo --ontap-configuration JunctionPath=/demo,SizeInMegabytes=100000,\
-   StorageVirtualMachineId=svm-0f04a9c7c27e1908b,TieringPolicy={Name=ALL}`
+
   ```
+
+`$` `aws fsx create-volume-from-backup --backup-id `backup-08e6fc1133fff3532` \
+ --name demo --ontap-configuration JunctionPath=/demo,SizeInMegabytes=100000,\
+ StorageVirtualMachineId=svm-0f04a9c7c27e1908b,TieringPolicy={Name=ALL}`
 
 ```
 

@@ -96,35 +96,35 @@ For more information about using the Cost Explorer, see
 
 First generation FSx for ONTAP file systems
 
-| Usage Type                         | Units    | Description                                                                                                                       |
-| ---------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `region`-Storage.SAZ_2N:SSD        | GB-Month | The amount of SSD storage provisioned on a first-generation Single-AZ FSx for ONTAP file system.                                  |
-| `region`-Storage.MAZ:SSD           | GB-Month | The amount of SSD storage provisioned on a first-generation Multi-AZ FSx for ONTAP file system.                                   |
-| `region`-ThroughputCapacity.SAZ_2N | MiBps-Mo | The amount of throughput capacity provisioned on a first-generation Single-AZ FSx for ONTAP file system.                          |
-| `region`-ThroughputCapacity.MAZ    | MiBps-Mo | The amount of throughput capacity provisioned on a first-generation Multi-AZ FSx for ONTAP file system.                           |
-| `region`-ProvisionedSSDIOPS.SAZ_2N | IOPS-Mo  | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a first-generation Single-AZ FSx for ONTAP file system. |
-| `region`-ProvisionedSSDIOPS.MAZ    | IOPS-Mo  | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a first-generation Multi-AZ FSx for ONTAP file system.  |
+| Usage Type                          | Units    | Description                                                                                                                       |
+| ----------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `region`-Storage.SAZ\_2N:SSD        | GB-Month | The amount of SSD storage provisioned on a first-generation Single-AZ FSx for ONTAP file system.                                  |
+| `region`-Storage.MAZ:SSD            | GB-Month | The amount of SSD storage provisioned on a first-generation Multi-AZ FSx for ONTAP file system.                                   |
+| `region`-ThroughputCapacity.SAZ\_2N | MiBps-Mo | The amount of throughput capacity provisioned on a first-generation Single-AZ FSx for ONTAP file system.                          |
+| `region`-ThroughputCapacity.MAZ     | MiBps-Mo | The amount of throughput capacity provisioned on a first-generation Multi-AZ FSx for ONTAP file system.                           |
+| `region`-ProvisionedSSDIOPS.SAZ\_2N | IOPS-Mo  | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a first-generation Single-AZ FSx for ONTAP file system. |
+| `region`-ProvisionedSSDIOPS.MAZ     | IOPS-Mo  | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a first-generation Multi-AZ FSx for ONTAP file system.  |
 
 Second generation FSx for ONTAP file systems
 
-| Usage Type                          | Units    | Description                                                                                                                        |
-| ----------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `region`-Storage.SAZ_2N2:SSD        | GB-Month | The amount of SSD storage provisioned on a second-generation Single-AZ FSx for ONTAP file system.                                  |
-| `region`-Storage.MAZ2:SSD           | GB-Month | The amount of SSD storage provisioned on a second-generation Multi-AZ FSx for ONTAP file system.                                   |
-| `region`-ThroughputCapacity.SAZ_2N2 | MiBps-Mo | The amount of throughput capacity provisioned on a second-generation Single-AZ FSx for ONTAP file system.                          |
-| `region`-ThroughputCapacity.MAZ2    | MiBps-Mo | The amount of throughput capacity provisioned on a second-generation Multi-AZ FSx for ONTAP file system.                           |
-| `region`-ProvisionedSSDIOPS.SAZ_2N2 | IOPS-Mo  | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a second-generation Single-AZ FSx for ONTAP file system. |
-| `region`-ProvisionedSSDIOPS.MAZ2    | IOPS-Mo  | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a second-generation Multi-AZ FSx for ONTAP file system.  |
+| Usage Type                           | Units    | Description                                                                                                                        |
+| ------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `region`-Storage.SAZ\_2N2:SSD        | GB-Month | The amount of SSD storage provisioned on a second-generation Single-AZ FSx for ONTAP file system.                                  |
+| `region`-Storage.MAZ2:SSD            | GB-Month | The amount of SSD storage provisioned on a second-generation Multi-AZ FSx for ONTAP file system.                                   |
+| `region`-ThroughputCapacity.SAZ\_2N2 | MiBps-Mo | The amount of throughput capacity provisioned on a second-generation Single-AZ FSx for ONTAP file system.                          |
+| `region`-ThroughputCapacity.MAZ2     | MiBps-Mo | The amount of throughput capacity provisioned on a second-generation Multi-AZ FSx for ONTAP file system.                           |
+| `region`-ProvisionedSSDIOPS.SAZ\_2N2 | IOPS-Mo  | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a second-generation Single-AZ FSx for ONTAP file system. |
+| `region`-ProvisionedSSDIOPS.MAZ2     | IOPS-Mo  | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a second-generation Multi-AZ FSx for ONTAP file system.  |
 
 All FSx for ONTAP file systems
 
-| Usage Type                          | Units      | Description                                                                                                            |
-| ----------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `region`-Storage.SAZ_2N:CPoolStd    | GB-Mo      | The amount of standard capacity pool storage used on a first or second generation Single-AZ FSx for ONTAP file system. |
-| `region`-Storage.MAZ:CPoolStd       | GB-Mo      | The amount of standard capacity pool storage used on a first or second generation Multi-AZ FSx for ONTAP file system.  |
-| `region`-BackupUsage                | GB-Month   | The amount of storage capacity used for backups.                                                                       |
-| `region`-SnaplockUsage              | GB-Month   | The amount of storage capacity used by SnapLock volumes.                                                               |
-| `region`-Requests.SAZ_2N:CPoolStdRd | Operations | The number of read requests made to standard capacity pool storage on a Single-AZ FSx for ONTAP file system.           |
-| `region`-Requests.SAZ_2N:CPoolStdWr | Operations | The number of write requests made to standard capacity pool storage on a Single-AZ FSx for ONTAP file system.          |
-| `region`-Requests.MAZ:CPoolStdRd    | Operations | The number of read requests made to standard capacity pool storage on a Multi-AZ FSx for ONTAP file system.            |
-| `region`-Requests.MAZ:CPoolStdWr    | Operations | The number of write requests made to standard capacity pool storage on a Multi-AZ FSx for ONTAP file system.           |
+| Usage Type                           | Units      | Description                                                                                                            |
+| ------------------------------------ | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `region`-Storage.SAZ\_2N:CPoolStd    | GB-Mo      | The amount of standard capacity pool storage used on a first or second generation Single-AZ FSx for ONTAP file system. |
+| `region`-Storage.MAZ:CPoolStd        | GB-Mo      | The amount of standard capacity pool storage used on a first or second generation Multi-AZ FSx for ONTAP file system.  |
+| `region`-BackupUsage                 | GB-Month   | The amount of storage capacity used for backups.                                                                       |
+| `region`-SnaplockUsage               | GB-Month   | The amount of storage capacity used by SnapLock volumes.                                                               |
+| `region`-Requests.SAZ\_2N:CPoolStdRd | Operations | The number of read requests made to standard capacity pool storage on a Single-AZ FSx for ONTAP file system.           |
+| `region`-Requests.SAZ\_2N:CPoolStdWr | Operations | The number of write requests made to standard capacity pool storage on a Single-AZ FSx for ONTAP file system.          |
+| `region`-Requests.MAZ:CPoolStdRd     | Operations | The number of read requests made to standard capacity pool storage on a Multi-AZ FSx for ONTAP file system.            |
+| `region`-Requests.MAZ:CPoolStdWr     | Operations | The number of write requests made to standard capacity pool storage on a Multi-AZ FSx for ONTAP file system.           |

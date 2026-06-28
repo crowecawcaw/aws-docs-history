@@ -11,18 +11,18 @@ update type.
 
 For SSD storage capacity and IOPS updates, you can view the following information:
 
-\***\*Update type\*\***
+****Update type****
 
 Supported types are **Storage capacity**, **Mode**,
 and **IOPS**. The **Mode** and **IOPS**
 values are listed for all storage capacity and IOPS scaling requests.
 
-\***\*Target value\*\***
+****Target value****
 
 The value that you specified to update the file system's SSD storage capacity or
 IOPS to.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. The possible values are as follows:
 
@@ -36,12 +36,12 @@ The current status of the update. The possible values are as follows:
 - **Failed** – The update request failed. Choose the question mark
   (**?**) to see details.
 
-\***\*Progress %\*\***
+****Progress %****
 
 Displays the progress of the storage-optimization process as the percentage
 complete.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update action request.
 

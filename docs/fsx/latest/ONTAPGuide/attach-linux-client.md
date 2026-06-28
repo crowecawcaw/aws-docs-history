@@ -74,25 +74,24 @@ For more information, see [Creating file systems](creating-file-systems.md "crea
 
 ###### To update the /etc/fstab file on your EC2 instance
 
-1.  Connect to your EC2 instance:
+1. Connect to your EC2 instance:
 
-        * To connect to your instance from a computer running macOS or
-         Linux, specify the .pem file for your SSH command. To do this,
-         use the `-i` option and the path to your private
-         key.
-        * To connect to your instance from a computer running Windows,
-         you can either use MindTerm or PuTTY. To use PuTTY, install it
-         and convert the .pem file to a .ppk file.
+   - To connect to your instance from a computer running macOS or
+     Linux, specify the .pem file for your SSH command. To do this,
+     use the `-i` option and the path to your private
+     key.
+   - To connect to your instance from a computer running Windows,
+     you can either use MindTerm or PuTTY. To use PuTTY, install it
+     and convert the .pem file to a .ppk file.
+     For more information, see the following topics in the
+     _Amazon EC2 User Guide_:
 
-    For more information, see the following topics in the
-    _Amazon EC2 User Guide_:
+   - [Connecting to your Linux instance using SSH](../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md "../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md")
+   - [Connecting to your Linux
+     instance from Windows using PuTTY](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/UserGuide/putty.md")
 
-        * [Connecting to your Linux instance using SSH](../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md "../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md")
-        * [Connecting to your Linux
-         instance from Windows using PuTTY](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/UserGuide/putty.md")
-
-2.  Create a local directory that will be used to mount the SVM
-    volume.
+2. Create a local directory that will be used to mount the SVM
+   volume.
 
 ```
 sudo mkdir /fsx

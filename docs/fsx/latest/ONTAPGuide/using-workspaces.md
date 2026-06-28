@@ -95,20 +95,19 @@ you greater flexibility in assigning shares to teams.
 
 ###### To mount a shared folder for cross-platform access from both Linux and Windows WorkSpaces
 
-1.  From the **Taskbar**, choose **Places > Connect to Server**.
+1. From the **Taskbar**, choose **Places > Connect to Server**.
 
-        1. For **Server**, enter `file-system-dns-name`.
-        2. Set **Type** to `Windows share`.
-        3. Set **Share** to the name of the SMB share, such as `workspace`.
-        4. You can leave **Folder** as `/` or set it to a folder,
-         such as a folder named `team-shared`.
-        5. For a Linux WorkSpace, you don't need to enter your user details if your Linux
-         WorkSpace is in the same domain as the Amazon FSx share.
-        6. Choose **Connect**.
+   1. For **Server**, enter `file-system-dns-name`.
+   2. Set **Type** to `Windows share`.
+   3. Set **Share** to the name of the SMB share, such as `workspace`.
+   4. You can leave **Folder** as `/` or set it to a folder,
+      such as a folder named `team-shared`.
+   5. For a Linux WorkSpace, you don't need to enter your user details if your Linux
+      WorkSpace is in the same domain as the Amazon FSx share.
+   6. Choose **Connect**.
+      ![The Connect to Server dialog showing a connection to an SMB share.](images/workspace-connect.png)
 
-    ![The Connect to Server dialog showing a connection to an SMB share.](images/workspace-connect.png)
-
-2.  After the connection is made, you can see the shared folder (named `team-shared` in this example)
-    in the SMB share named `workspace`.
+2. After the connection is made, you can see the shared folder (named `team-shared` in this example)
+   in the SMB share named `workspace`.
 
 ![A Windows dialog showing a shared folder.](images/workspace-mounted.png)

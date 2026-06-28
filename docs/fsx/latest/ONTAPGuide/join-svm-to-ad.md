@@ -5,58 +5,56 @@ In this procedure, the SVM is _not_ already joined to an Active Directory.
 
 ###### To join an SVM to an Active Directory (AWS Management Console)
 
-1.  Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
-2.  Choose the SVM that you want to join to an Active Directory:
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+2. Choose the SVM that you want to join to an Active Directory:
 
-        * In the left navigation pane, choose **File systems**, and then choose the
-         ONTAP file system with the SVM that you want to update.
-        * Choose the **Storage virtual machines**
-         tab.
+   - In the left navigation pane, choose **File systems**, and then choose the
+     ONTAP file system with the SVM that you want to update.
+   - Choose the **Storage virtual machines**
+     tab.
 
+   –Or–
+   - To display a list of all of the available SVMs, in the left navigation pane, expand
+     **ONTAP** and choose **Storage virtual
+     machines**. A list of all SVMs in
+     your account in the AWS Region is displayed.
+     Select the SVM that you want to join to an Active Directory from the list.
 
-        –Or–
-        * To display a list of all of the available SVMs, in the left navigation pane, expand
-         **ONTAP** and choose **Storage virtual
-         machines**. A list of all SVMs in
-         your account in the AWS Region is displayed.
+3. On the upper right of the SVM **Summary** panel, choose
+   **Actions** > **Join/Update Active Directory**.
+   The **Join SVM to an Active Directory** window appears.
+4. Enter the following information for the Active Directory that you are joining the SVM to:
 
-    Select the SVM that you want to join to an Active Directory from the list.
+   - The **NetBIOS name** of the Active Directory computer object to create for your SVM.
+     This is the name of the SVM in Active Directory, which must be unique within your Active Directory. Don't use
+     the NetBIOS name of the home domain. The NetBIOS name can't exceed 15
+     characters.
+   - The **fully qualified domain name (FQDN)** of your Active Directory. The domain name can't exceed 255 characters.
+   - **DNS server IP addresses** – The IPv4 or IPv6 addresses of the DNS servers for your domain.
+   - **Service account credentials** – Choose how to provide your service account credentials:
 
-3.  On the upper right of the SVM **Summary** panel, choose
-    **Actions** > **Join/Update Active Directory**.
-    The **Join SVM to an Active Directory** window appears.
-4.  Enter the following information for the Active Directory that you are joining the SVM to:
+     - **Option 1**: AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
+     - **Option 2**: Plaintext credentials
 
-    - The **NetBIOS name** of the Active Directory computer object to create for your SVM.
-      This is the name of the SVM in Active Directory, which must be unique within your Active Directory. Don't use
-      the NetBIOS name of the home domain. The NetBIOS name can't exceed 15
-      characters.
-    - The **fully qualified domain name (FQDN)** of your Active Directory. The domain name can't exceed 255 characters.
-    - **DNS server IP addresses** – The IPv4 or IPv6 addresses of the DNS servers for your domain.
-    - **Service account credentials** – Choose how to provide your service account credentials:
+       - **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
+       - **Service account password** – The password for the service account.
+       - **Confirm password** – The password for the service account.
 
-      - **Option 1**: AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
-      - **Option 2**: Plaintext credentials
+     - **Managed in Secrets Manager** (default) – Provide the ARN of an Secrets Manager secret that contains your service account credentials. The secret must contain the key-value pairs `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` and `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD`.
+     - (Optional) **Organizational Unit (OU)** – The distinguished
+       path name of the organizational unit you want to join your SVM to.
+     - **Delegated file system administrators group** – The name of the group
+       in your Active Directory that can administer your file system.
 
-        - **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
-        - **Service account password** – The password for the service account.
-        - **Confirm password** – The password for the service account.
+     If you are using AWS Managed Microsoft AD, you must specify a group such as AWS Delegated FSx
+     Administrators, AWS Delegated Administrators, or a custom group with delegated
+     permissions to the OU.
 
-      - **Managed in Secrets Manager** (default) – Provide the ARN of an Secrets Manager secret that contains your service account credentials. The secret must contain the key-value pairs `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` and `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD`.
-      - (Optional) **Organizational Unit (OU)** – The distinguished
-        path name of the organizational unit you want to join your SVM to.
-      - **Delegated file system administrators group** – The name of the group
-        in your Active Directory that can administer your file system.
+     If you are joining to a self-managed Active Directory, use the name of the group in your Active Directory. The default group is
+     `Domain Admins`.
 
-      If you are using AWS Managed Microsoft AD, you must specify a group such as AWS Delegated FSx
-      Administrators, AWS Delegated Administrators, or a custom group with delegated
-      permissions to the OU.
-
-      If you are joining to a self-managed Active Directory, use the name of the group in your Active Directory. The default group is
-      `Domain Admins`.
-
-5.  Choose **Join Active Directory** to join the SVM to the Active Directory using
-    the configuration you provided.
+5. Choose **Join Active Directory** to join the SVM to the Active Directory using
+   the configuration you provided.
 
 ###### To join an SVM to an Active Directory (AWS CLI)
 

@@ -19,126 +19,125 @@ customize for your needs. For information about using the **Quick
 create** creation option to rapidly create a file system with a
 default set of configuration parameters, see [Create an Amazon FSx for NetApp ONTAP file system](getting-started.md#getting-started-step1 "getting-started.md#getting-started-step1").
 
-1.  Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
-2.  On the dashboard, choose **Create file system**.
-3.  On the **Select file system type** page, for
-    **File system options**, choose
-    **Amazon FSx for NetApp ONTAP**, and then choose
-    **Next**.
-4.  In the **Creation method** section, choose
-    **Standard create**.
-5.  In the **File system details** section, provide the
-    following information:
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+2. On the dashboard, choose **Create file system**.
+3. On the **Select file system type** page, for
+   **File system options**, choose
+   **Amazon FSx for NetApp ONTAP**, and then choose
+   **Next**.
+4. In the **Creation method** section, choose
+   **Standard create**.
+5. In the **File system details** section, provide the
+   following information:
 
-    - For **File system name - optional**, enter a name
-      for your file system. It's easier to find and manage your file
-      systems when you name them. You can use a maximum of 256 Unicode
-      letters, white space, and numbers, plus these special characters: +
-    * = . \_ : /
-    - For **Deployment type** choose
-      **Multi-AZ 2**, **Single-AZ 2**,
-      **Multi-AZ 1**, or **Single-AZ 1**.
+   - For **File system name - optional**, enter a name
+     for your file system. It's easier to find and manage your file
+     systems when you name them. You can use a maximum of 256 Unicode
+     letters, white space, and numbers, plus these special characters: +
+   * = . \_ : /
+   - For **Deployment type** choose
+     **Multi-AZ 2**, **Single-AZ 2**,
+     **Multi-AZ 1**, or **Single-AZ 1**.
 
-      - **Multi-AZ** file systems replicate your
-        data and support failover across multiple Availability Zones
-        in the same AWS Region. Multi-AZ 1 is a first-generation FSx for ONTAP file system.
-        Multi-AZ 2 is a second-generation file system. They both support one high-availability (HA) pair.
-      - **Single-AZ** file systems replicate your
-        data and offer automatic failover within a single
-        Availability Zone. Single-AZ 1 is a first-generation FSx for ONTAP file system that supports one
-        HA pair. Single-AZ 2 is a second-generation file system that supports up to 12 HA pairs.
-        For more information, see
-        [Managing high-availability (HA) pairs](HA-pairs.md "HA-pairs.md").
+     - **Multi-AZ** file systems replicate your
+       data and support failover across multiple Availability Zones
+       in the same AWS Region. Multi-AZ 1 is a first-generation FSx for ONTAP file system.
+       Multi-AZ 2 is a second-generation file system. They both support one high-availability (HA) pair.
+     - **Single-AZ** file systems replicate your
+       data and offer automatic failover within a single
+       Availability Zone. Single-AZ 1 is a first-generation FSx for ONTAP file system that supports one
+       HA pair. Single-AZ 2 is a second-generation file system that supports up to 12 HA pairs.
+       For more information, see
+       [Managing high-availability (HA) pairs](HA-pairs.md "HA-pairs.md").
 
-      For more information about deployment types, see [Availability, durability, and deployment options](high-availability-AZ.md "high-availability-AZ.md").
+     For more information about deployment types, see [Availability, durability, and deployment options](high-availability-AZ.md "high-availability-AZ.md").
 
-      ###### Note
+     ###### Note
 
-      You can't change your file system's deployment type after creation. If you want to change
-      the deployment type (for example, to move from Single-AZ 1 to Single-AZ 2), you can back up your data and restore
-      it on a new file system. You can also migrate your data with NetApp SnapMirror, with
-      AWS DataSync, or with a third-party data copying tool.
-      For more information, see [Migrating to FSx for ONTAP using NetApp SnapMirror](migrating-fsx-ontap-snapmirror.md "migrating-fsx-ontap-snapmirror.md") and
-      [Migrating to FSx for ONTAP using AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
+     You can't change your file system's deployment type after creation. If you want to change
+     the deployment type (for example, to move from Single-AZ 1 to Single-AZ 2), you can back up your data and restore
+     it on a new file system. You can also migrate your data with NetApp SnapMirror, with
+     AWS DataSync, or with a third-party data copying tool.
+     For more information, see [Migrating to FSx for ONTAP using NetApp SnapMirror](migrating-fsx-ontap-snapmirror.md "migrating-fsx-ontap-snapmirror.md") and
+     [Migrating to FSx for ONTAP using AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
 
-    - For **SSD storage capacity**, enter the storage
-      capacity of your file system, in gibibytes (GiB). Enter any whole
-      number in the range of 1,024–1,048,576 GiB (up to 1 pebibyte [PiB]).
+   - For **SSD storage capacity**, enter the storage
+     capacity of your file system, in gibibytes (GiB). Enter any whole
+     number in the range of 1,024–1,048,576 GiB (up to 1 pebibyte [PiB]).
 
-    You can increase the amount of storage capacity as needed at any
-    time after you create the file system. For more information, see
-    [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md").
-    - For **Provisioned SSD IOPS**, you have two
-      options to provision the number of IOPS for your file system:
+   You can increase the amount of storage capacity as needed at any
+   time after you create the file system. For more information, see
+   [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md").
+   - For **Provisioned SSD IOPS**, you have two
+     options to provision the number of IOPS for your file system:
 
-      - Choose **Automatic** (the default) if you
-        want Amazon FSx to automatically provision 3 IOPS per GiB of SSD
-        storage.
-      - Choose **User-provisioned** if you want
-        to specify the number of IOPS. You can provision a maximum
-        of 200,000 SSD IOPS per file system.
+     - Choose **Automatic** (the default) if you
+       want Amazon FSx to automatically provision 3 IOPS per GiB of SSD
+       storage.
+     - Choose **User-provisioned** if you want
+       to specify the number of IOPS. You can provision a maximum
+       of 200,000 SSD IOPS per file system.
 
-    ###### Note
+   ###### Note
 
-    You can increase your provisioned SSD IOPS after you create the file system.
-    Keep in mind that the maximum level of SSD IOPS your file system can achieve is also
-    dictated by your file system's throughput capacity even when provisioning additional
-    SSD IOPS. For more information, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance") and [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md").
-    - For **Throughput capacity**, you have two
-      options for determining your throughput capacity in
-      megabytes per second (MBps):
+   You can increase your provisioned SSD IOPS after you create the file system.
+   Keep in mind that the maximum level of SSD IOPS your file system can achieve is also
+   dictated by your file system's throughput capacity even when provisioning additional
+   SSD IOPS. For more information, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance "performance.md#impact-throughput-cap-performance") and [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md").
+   - For **Throughput capacity**, you have two
+     options for determining your throughput capacity in
+     megabytes per second (MBps):
 
-          + Choose **Recommended throughput capacity** if you want Amazon FSx
-           to automatically choose the throughput capacity based on the amount of storage capacity
-           that you chose.
-          + Choose **Specify throughput capacity** if you want to specify the amount of
-           throughput capacity. If you choose this option, a **Throughput capacity** dropdown
-           appears and is populated based on the deployment type that you chose. You can also choose the number of HA
-           pairs (up to 12). For more information, see
-           [Managing high-availability (HA) pairs](HA-pairs.md "HA-pairs.md").
+     - Choose **Recommended throughput capacity** if you want Amazon FSx
+       to automatically choose the throughput capacity based on the amount of storage capacity
+       that you chose.
+     - Choose **Specify throughput capacity** if you want to specify the amount of
+       throughput capacity. If you choose this option, a **Throughput capacity** dropdown
+       appears and is populated based on the deployment type that you chose. You can also choose the number of HA
+       pairs (up to 12). For more information, see
+       [Managing high-availability (HA) pairs](HA-pairs.md "HA-pairs.md").
+       Throughput capacity is the sustained speed at which the file server that hosts your file system can serve data. For more information, see [Amazon FSx for NetApp ONTAP performance](performance.md "performance.md").
 
-      Throughput capacity is the sustained speed at which the file server that hosts your file system can serve data. For more information, see [Amazon FSx for NetApp ONTAP performance](performance.md "performance.md").
+6. In the **Networking** section, provide the following information:
 
-6.  In the **Networking** section, provide the following information:
+   - For **Virtual Private Cloud (VPC)**, choose the VPC
+     that you want to associate with your file system.
+   - For **VPC Security Groups**, you can choose a security group to
+     associate with your file system's network interface. If you don't specify one, Amazon FSx
+     will associate the VPC's default security group with your file system.
+   - (Multi-AZ only) For **Preferred subnet**, choose any value from the
+     list of available subnets. Also choose a **Standby subnet** for the standby
+     file server.
+   - (Single-AZ only) For **Subnet**, choose any value from the
+     list of available subnets.
+   - (Multi-AZ only) For **VPC route tables**,
+     specify the VPC route tables to create your file system's
+     endpoints. Select all VPC route tables associated with the subnets
+     in which your clients are located. By default, Amazon FSx selects your
+     VPC's default route table. For more information, see
+     [Accessing data from outside the deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
 
-    - For **Virtual Private Cloud (VPC)**, choose the VPC
-      that you want to associate with your file system.
-    - For **VPC Security Groups**, you can choose a security group to
-      associate with your file system's network interface. If you don't specify one, Amazon FSx
-      will associate the VPC's default security group with your file system.
-    - (Multi-AZ only) For **Preferred subnet**, choose any value from the
-      list of available subnets. Also choose a **Standby subnet** for the standby
-      file server.
-    - (Single-AZ only) For **Subnet**, choose any value from the
-      list of available subnets.
-    - (Multi-AZ only) For **VPC route tables**,
-      specify the VPC route tables to create your file system's
-      endpoints. Select all VPC route tables associated with the subnets
-      in which your clients are located. By default, Amazon FSx selects your
-      VPC's default route table. For more information, see
-      [Accessing data from outside the deployment VPC](supported-fsx-clients.md#access-from-outside-deployment-vpc "supported-fsx-clients.md#access-from-outside-deployment-vpc").
+   ###### Note
 
-    ###### Note
+   Amazon FSx manages these route tables for Multi-AZ file systems using tag-based authentication.
+   These route tables are tagged with `Key: AmazonFSx; Value: ManagedByAmazonFSx`.
+   When creating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend that you add the
+   `Key: AmazonFSx; Value: ManagedByAmazonFSx` tag manually.
+   - For **Network type**, select either **IPv4**
+     (for only IPv4 support) or **Dual-stack** (for both IPv4
+     and IPv6 support). You can change the network type of an existing file system
+     at any time. For more information, see [Changing network type](manage-network-type.md#change-network-type "manage-network-type.md#change-network-type").
 
-    Amazon FSx manages these route tables for Multi-AZ file systems using tag-based authentication.
-    These route tables are tagged with `Key: AmazonFSx; Value: ManagedByAmazonFSx`.
-    When creating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend that you add the
-    `Key: AmazonFSx; Value: ManagedByAmazonFSx` tag manually.
-    - For **Network type**, select either **IPv4**
-      (for only IPv4 support) or **Dual-stack** (for both IPv4
-      and IPv6 support). You can change the network type of an existing file system
-      at any time. For more information, see [Changing network type](manage-network-type.md#change-network-type "manage-network-type.md#change-network-type").
+   ###### Note
 
-    ###### Note
+   If you intend to create an FSx for ONTAP file system that uses dual-stack mode, you must first assign an
+   Amazon-provided IPv6 CIDR block to your VPC and subnets. For more information, see [Add IPv6 support for your VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md") in the
+   _Amazon Virtual Private Cloud User Guide_.
+   - (Multi-AZ only) **Endpoint IPv4 address range**
+     specifies the IPv4 address range in which the endpoints to access your
+     file system are created.
 
-    If you intend to create an FSx for ONTAP file system that uses dual-stack mode, you must first assign an
-    Amazon-provided IPv6 CIDR block to your VPC and subnets. For more information, see [Add IPv6 support for your VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md") in the
-    _Amazon Virtual Private Cloud User Guide_.
-    - (Multi-AZ only) **Endpoint IPv4 address range**
-      specifies the IPv4 address range in which the endpoints to access your
-      file system are created.
-
-    You have three options for the endpoint IPv4 address range:
+   You have three options for the endpoint IPv4 address range:
 
         + **Unallocated IPv4 address range from your
          VPC** – Amazon FSx chooses the last 64 IP
@@ -179,27 +178,27 @@ default set of configuration parameters, see [Create an Amazon FSx for NetApp ON
         	- 224.0.0.0/4
         	- 240.0.0.0/4
         	- 255.255.255.255/32
-    - (Multi-AZ and dual-stack only) **Endpoint IPv6 address range**
-      specifies the IPv6 address range in which the endpoints to access your
-      file system are created. You have two options for the endpoint
-      IPv6 address range:
+   - (Multi-AZ and dual-stack only) **Endpoint IPv6 address range**
+     specifies the IPv6 address range in which the endpoints to access your
+     file system are created. You have two options for the endpoint
+     IPv6 address range:
 
-      - **Unallocated IPv6 address range from your
-        VPC** – Amazon FSx chooses a block of 1024 available IPv6 addresses
-        from one of the VPC’s IPv6 CIDR ranges to use as the endpoint IPv6 address range
-        for the file system.
-      - **Enter an IPv6 address range** – You can provide
-        an IPv6 CIDR range of your own choosing. The IPv6 address range that you choose can
-        either be inside or outside the VPC’s IPv6 address range, as long as it doesn't
-        overlap with any subnet.
+     - **Unallocated IPv6 address range from your
+       VPC** – Amazon FSx chooses a block of 1024 available IPv6 addresses
+       from one of the VPC’s IPv6 CIDR ranges to use as the endpoint IPv6 address range
+       for the file system.
+     - **Enter an IPv6 address range** – You can provide
+       an IPv6 CIDR range of your own choosing. The IPv6 address range that you choose can
+       either be inside or outside the VPC’s IPv6 address range, as long as it doesn't
+       overlap with any subnet.
 
-7.  In the **Encryption** section, for
-    **Encryption key**, choose the AWS Key Management Service
-    (AWS KMS) encryption key that protects your file system's data at
-    rest.
-8.  For **File system administrative password**,
-    enter a secure password for the `fsxadmin` user. Confirm
-    the password.
+7. In the **Encryption** section, for
+   **Encryption key**, choose the AWS Key Management Service
+   (AWS KMS) encryption key that protects your file system's data at
+   rest.
+8. For **File system administrative password**,
+   enter a secure password for the `fsxadmin` user. Confirm
+   the password.
 
 You can use the `fsxadmin` user to administer your file
 system using the ONTAP CLI and REST API. For more information about
@@ -288,48 +287,49 @@ information:
     	 `Domain Admins`.
 
 10. In the **Default volume configuration** section, provide the following information
-    for the default volume that is created with your file system:
+for the default volume that is created with your file system:
 
-    - In the **Volume name** field, provide a name for
-      the volume. You can use up to 203 alphanumeric or underscore (\_)
-      characters.
-    - (File systems with one HA pair only) For **Volume style**,
-      choose either **FlexVol** or **FlexGroup**.
-      FlexVol volumes are general-purpose volumes that can be up to 300 tebibytes (TiB) in size. FlexGroup
-      volumes are intended for high-performance workloads and can be up to 20 PiB in size.
-    - For **Volume size**, enter any whole number
-      in the range of 20–314,572,800 mebibytes (MiB) for FlexVol volumes or
-      800 gibibytes (GiB)–2,400 TiB per HA pair for FlexGroup volumes. For example, a file system with 12 HA pairs
-      would have a minimum volume size of 9,600 GiB
-      and a maximum size of 20,480 TiB.
-    - For **Volume type**, choose **Read-Write (RW)**
-      to create a volume that is readable and writable
-      or **Data Protection (DP)** to create a volume that
-      is read-only and can be used as the destination of a NetApp SnapMirror
-      or SnapVault relationship. For more information,
-      see [Volume types](managing-volumes.md#volume-types "managing-volumes.md#volume-types").
-    - For **Junction path**, enter a location within
-      the file system to mount the volume. The name must have a leading
-      forward slash, for example `/vol3`.
-    - For **Storage efficiency**, choose
-      **Enabled** to enable the ONTAP
-      storage-efficiency features (deduplication, compression, and
-      compaction). For more information,
-      see [Storage efficiency](managing-storage-capacity.md#storage-efficiency "managing-storage-capacity.md#storage-efficiency").
-    - For **Snapshot policy**, choose a snapshot policy for the volume.
-      For more information about snapshot policies, see [Snapshot policies](snapshots-ontap.md#snapshot-policies "snapshots-ontap.md#snapshot-policies").
+    * In the **Volume name** field, provide a name for
+     the volume. You can use up to 203 alphanumeric or underscore (\_)
+     characters.
+    * (File systems with one HA pair only) For **Volume style**,
+     choose either **FlexVol** or **FlexGroup**.
+     FlexVol volumes are general-purpose volumes that can be up to 300 tebibytes (TiB) in size. FlexGroup
+     volumes are intended for high-performance workloads and can be up to 20 PiB in size.
+    * For **Volume size**, enter any whole number
+     in the range of 20–314,572,800 mebibytes (MiB) for FlexVol volumes or
+     800 gibibytes (GiB)–2,400 TiB per HA pair for FlexGroup volumes. For example, a file system with 12 HA pairs
+     would have a minimum volume size of 9,600 GiB
+     and a maximum size of 20,480 TiB.
+    * For **Volume type**, choose **Read-Write (RW)**
+     to create a volume that is readable and writable
+     or **Data Protection (DP)** to create a volume that
+     is read-only and can be used as the destination of a NetApp SnapMirror
+     or SnapVault relationship. For more information,
+     see [Volume types](managing-volumes.md#volume-types "managing-volumes.md#volume-types").
+    * For **Junction path**, enter a location within
+     the file system to mount the volume. The name must have a leading
+     forward slash, for example `/vol3`.
+    * For **Storage efficiency**, choose
+     **Enabled** to enable the ONTAP
+     storage-efficiency features (deduplication, compression, and
+     compaction). For more information,
+     see [Storage efficiency](managing-storage-capacity.md#storage-efficiency "managing-storage-capacity.md#storage-efficiency").
+    * For **Snapshot policy**, choose a snapshot policy for the volume.
+     For more information about snapshot policies, see [Snapshot policies](snapshots-ontap.md#snapshot-policies "snapshots-ontap.md#snapshot-policies").
+
 
     If you choose **Custom policy**, you must specify the policy's name in the
-    **custom-policy** field. The custom policy must already exist on the SVM or in the file system. You can create
-    a custom snapshot policy with the ONTAP CLI or REST API. For more information, see
-    [Create a Snapshot Policy](https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html "https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html")
-    in the NetApp ONTAP Product Documentation.
+     **custom-policy** field. The custom policy must already exist on the SVM or in the file system. You can create
+     a custom snapshot policy with the ONTAP CLI or REST API. For more information, see
+     [Create a Snapshot Policy](https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html "https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html")
+     in the NetApp ONTAP Product Documentation.
 
 11. In the **Default volume storage tiering** section, for **Capacity pool tiering policy**,
-    choose the storage pool tiering policy for the volume, which can be **Auto** (the default),
-    **Snapshot Only**, **All**, or **None**.
-    For more information about capacity pool tiering policies, see
-    [Volume tiering policies](volume-storage-capacity.md#data-tiering-policy "volume-storage-capacity.md#data-tiering-policy").
+choose the storage pool tiering policy for the volume, which can be **Auto** (the default),
+**Snapshot Only**, **All**, or **None**.
+For more information about capacity pool tiering policies, see
+[Volume tiering policies](volume-storage-capacity.md#data-tiering-policy "volume-storage-capacity.md#data-tiering-policy").
 
 For **Tiering policy cooling period**, if you have set storage tiering to
 either `Auto` and `Snapshot-only` policies.valid values are 2-183 days. A volume's tiering policy cooling period
@@ -363,9 +363,9 @@ following options:
      window.
 
 14. For **Tags - _optional_**, you can enter a key and value
-    to add tags to your file system. A tag is a case-sensitive key-value
-    pair that helps you manage, filter, and search for your file
-    system.
+to add tags to your file system. A tag is a case-sensitive key-value
+pair that helps you manage, filter, and search for your file
+system.
 
 Choose **Next**. 15. Review the file system configuration shown on the **Create
 file system** page. For your reference, note which file

@@ -13,7 +13,7 @@ volume snapshot show -volume `volume-name`
 ```
 
 In the output, the name of the common snapshot has the format of `backup-`id``,
- where `id` is a 17 digit alphanumeric string, as shown in the following example:
+where `id` is a 17 digit alphanumeric string, as shown in the following example:
 
 ```
 `FsxIdabc12345::>` `volume snapshot show -volume test_vol`

@@ -251,7 +251,7 @@ following table.
 | `aws:SourceVpc`   | Included in the request context only if the requester uses a VPC<br>endpoint to make the request. | Checks whether the request travels through the VPC that the VPC<br>endpoint is attached to. Use this key to allow access to only a<br>specific VPC.                                                                      |
 | `aws:SourceVpce`  | Included in the request context only if the requester uses a VPC<br>endpoint to make the request. | The ID of the VPC endpoint through which the request was<br>made.                                                                                                                                                        |
 | `aws:VpcSourceIp` | Included in the request context only if the request is made using<br>a VPC endpoint.              | Compares the IP address from which a request was made with the IP<br>address that you specify in the policy. Matches only if the request<br>originates from the specified IP address and goes through a VPC<br>endpoint. |
-| `aws:SourceIp`    | Included in the request context only if the request does<br>\*_not_<br>• traverse a VPC endpoint. | The public IP address of the caller. Not available for requests<br>made through a VPC endpoint.                                                                                                                          |
+| `aws:SourceIp`    | Included in the request context only if the request does<br>*_not_<br>• traverse a VPC endpoint.  | The public IP address of the caller. Not available for requests<br>made through a VPC endpoint.                                                                                                                          |
 
 ###### Important
 

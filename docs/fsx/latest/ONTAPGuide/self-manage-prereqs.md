@@ -34,7 +34,7 @@ Make sure that you have the following network configurations in place and associ
 ###### Important
 
 For an SVM to join Active Directory, you need to ensure that the ports documented in this topic allow traffic
-between all Active Directory Domain Controllers and both iSCSI IP addresses (iscsi_1 and iscsi_2 logical
+between all Active Directory Domain Controllers and both iSCSI IP addresses (iscsi\_1 and iscsi\_2 logical
 interfaces (LIFs)) on the SVM.
 
 - The DNS server and Active Directory domain controller IP addresses.

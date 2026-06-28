@@ -205,7 +205,7 @@ Vserver Interface Admin/Oper Address/Mask Node Port Home
 
 The `iscsi_1` LIF is used for both iSCSI and NVMe/TCP.
 
-In this example, the IP address of iscsi_1 is 172.31.16.19 and iscsi_2 is 172.31.26.134.
+In this example, the IP address of iscsi\_1 is 172.31.16.19 and iscsi\_2 is 172.31.26.134.
 
 ## Mount an NVMe device on your Linux client
 
@@ -323,7 +323,7 @@ In this example, the NVMe stack has automatically discovered your file system’
 
 ###### To partition the device
 
-1. Use the following command to verify that the path to your device_name `nvme2n1` is present.
+1. Use the following command to verify that the path to your device\_name `nvme2n1` is present.
 
 ```
 `~$` `ls /dev/mapper/nvme2n1`

@@ -136,11 +136,11 @@ The following tables show the amount of throughput capacity that file systems ca
 First-generation file systems
 These performance specifications apply to first-generation Single-AZ and Multi-AZ file systems.
 
-| Maximum throughput from SSD storage per HA pair for first-generation file systems |                            | US East (Ohio) Region, US East (N. Virginia) Region, US West (Oregon) Region, and Europe (Ireland) | [All other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") |
-| --------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-|                                                                                   | **Read throughput (MBps)** | **Write throughput (MBps)**                                                                        | **Read throughput (MBps)**                                                                                                                                                                                                      | **Write throughput (MBps)** |
-| **Single-AZ**                                                                     | 4,0961                     | 1,000                                                                                              | 2,048                                                                                                                                                                                                                           | 750                         |
-| **Multi-AZ**                                                                      | 4,0961                     | 1,800                                                                                              | 2,048                                                                                                                                                                                                                           | 1,300                       |
+Maximum throughput from SSD storage per HA pair for first-generation file systems| | US East (Ohio) Region, US East (N. Virginia) Region, US West (Oregon) Region, and Europe (Ireland) | [All other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") |
+| --- | --- | --- |
+| | **Read throughput (MBps)** | **Write throughput (MBps)** | **Read throughput (MBps)** | **Write throughput (MBps)** |
+| **Single-AZ** | 4,0961 | 1,000 | 2,048 | 750 |
+| **Multi-AZ** | 4,0961 | 1,800 | 2,048 | 1,300 |
 
 ###### Note
 
@@ -153,11 +153,11 @@ Generally, second-generation file systems can deliver the full provisioned throu
 a third of the provisioned throughput capacity for writes. The exception is the 6,144 MB/s option, which is listed in
 this table.
 
-| Maximum throughput from SSD storage per HA pair for second-generation file systems |                            |
-| ---------------------------------------------------------------------------------- | -------------------------- | --------------------------- |
-|                                                                                    | **Read throughput (MBps)** | **Write throughput (MBps)** |
-| **Single-AZ**                                                                      | 6,1441                     | 1,0241                      |
-| **Multi-AZ**                                                                       | 6,144                      | 2,048                       |
+Maximum throughput from SSD storage per HA pair for second-generation file systems| |
+| --- |
+| | **Read throughput (MBps)** | **Write throughput (MBps)** |
+| **Single-AZ** | 6,1441 | 1,0241 |
+| **Multi-AZ** | 6,144 | 2,048 |
 
 ###### Note
 
@@ -233,14 +233,14 @@ server's in-memory cache or NVMe cache.
 These performance specifications apply to first-generation Single-AZ file systems in all
 other AWS Regions where FSx for ONTAP is available.
 
-| Performance specifications for file systems in [all other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") | FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS                   | In-memory caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ | ---------------------------------- | ------------------------------ | ---------------------- | ---------------------- | ----------------- | ------------ | --------- |
-|                                                                                                                                                                                                                                                                                | **Baseline**                   | **Burst**                          |                                |                        | **Baseline**           | **Burst**         | **Baseline** | **Burst** |
-| 128                                                                                                                                                                                                                                                                            | 150                            | 1,250                              | Tens of thousands baseline     | 16                     | 128                    | 600               | 6,000        | 18,750    |
-| 256                                                                                                                                                                                                                                                                            | 300                            | 1,250                              | 32                             | 256                    | 600                    | 12,000            | 18,750       |
-| 512                                                                                                                                                                                                                                                                            | 625                            | 1,250                              | Hundreds of thousands baseline | 64                     | 512                    | –                 | 18,750       | –         |
-| 1,024                                                                                                                                                                                                                                                                          | 1,500                          | –                                  | 128                            | 1,024                  | –                      | 40,000            | –            |
-| 2,048                                                                                                                                                                                                                                                                          | 3,125                          | –                                  | 256                            | 2,048                  | –                      | 80,000            | –            |
+Performance specifications for file systems in [all other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/")| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* |
+| --- | --- | --- | --- | --- | --- |
+| | **Baseline** | **Burst** | | | **Baseline** | **Burst** | **Baseline** | **Burst** |
+| 128 | 150 | 1,250 | Tens of thousands baseline | 16 | 128 | 600 | 6,000 | 18,750 |
+| 256 | 300 | 1,250 | 32 | 256 | 600 | 12,000 | 18,750 |
+| 512 | 625 | 1,250 | Hundreds of thousands baseline | 64 | 512 | – | 18,750 | – |
+| 1,024 | 1,500 | – | 128 | 1,024 | – | 40,000 | – |
+| 2,048 | 3,125 | – | 256 | 2,048 | – | 80,000 | – |
 
 ###### Note
 
@@ -250,14 +250,14 @@ server's in-memory cache or NVMe cache.
 Second-generation Single-AZ file system
 These performance specifications apply to second-generation Single-AZ file systems.
 
-| Performance specifications for second-generation Single-AZ file systems | FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS                   | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* |
-| ----------------------------------------------------------------------- | ------------------------------ | ---------------------------------- | ------------------------------ | ---------------------- | ----------------- | ---------------------- | ----------------- | ------------ | --------- |
-|                                                                         | **Baseline**                   | **Burst**                          |                                |                        |                   | **Baseline**           | **Burst**         | **Baseline** | **Burst** |
-| 384\*\*                                                                 | 781                            | 6,250                              | Hundreds of thousands baseline | 16                     | –                 | 384                    | 3,125             | 12,500       | 65,000    |
-| 768\*\*                                                                 | 1,563                          | 6,250                              | 32                             | –                      | 768               | 3,125                  | 25,000            | 65,000       |
-| 1,536                                                                   | 3,125                          | 6,250                              | 64                             | –                      | 1,536             | 3,125                  | 50,000            | 65,000       |
-| 3,072                                                                   | 6,250                          | –                                  | 128                            | –                      | 3,072             | –                      | 100,000           | –            |
-| 6,144                                                                   | 12,500                         | –                                  | 256                            | 1,900                  | 6,144             | –                      | 200,000           | –            |
+Performance specifications for second-generation Single-AZ file systems| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* |
+| --- | --- | --- | --- | --- | --- | --- |
+| | **Baseline** | **Burst** | | | | **Baseline** | **Burst** | **Baseline** | **Burst** |
+| 384\*\* | 781 | 6,250 | Hundreds of thousands baseline | 16 | – | 384 | 3,125 | 12,500 | 65,000 |
+| 768\*\* | 1,563 | 6,250 | 32 | – | 768 | 3,125 | 25,000 | 65,000 |
+| 1,536 | 3,125 | 6,250 | 64 | – | 1,536 | 3,125 | 50,000 | 65,000 |
+| 3,072 | 6,250 | – | 128 | – | 3,072 | – | 100,000 | – |
+| 6,144 | 12,500 | – | 256 | 1,900 | 6,144 | – | 200,000 | – |
 
 ###### Note
 
@@ -291,14 +291,14 @@ server's in-memory cache or NVMe cache.
 These performance specifications apply to first-generation Multi-AZ file systems in all
 other AWS Regions where FSx for ONTAP is available.
 
-| Performance specifications for file systems in [all other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") | FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS                   | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ | ---------------------------------- | ------------------------------ | ---------------------- | ----------------- | ---------------------- | ----------------- | ------------ | --------- |
-|                                                                                                                                                                                                                                                                                | **Baseline**                   | **Burst**                          |                                |                        |                   | **Baseline**           | **Burst**         | **Baseline** | **Burst** |
-| 128                                                                                                                                                                                                                                                                            | 150                            | 1,250                              | Tens of thousands baseline     | 16                     | 150               | 128                    | 600               | 6,000        | 18,750    |
-| 256                                                                                                                                                                                                                                                                            | 300                            | 1,250                              | 32                             | 300                    | 256               | 600                    | 12,000            | 18,750       |
-| 512                                                                                                                                                                                                                                                                            | 625                            | 1,250                              | Hundreds of thousands baseline | 64                     | 600               | 512                    | –                 | 18,750       | –         |
-| 1,024                                                                                                                                                                                                                                                                          | 1,500                          | –                                  | 128                            | 1,200                  | 1,024             | –                      | 40,000            | –            |
-| 2,048                                                                                                                                                                                                                                                                          | 3,125                          | –                                  | 256                            | 2,400                  | 2,048             | –                      | 80,000            | –            |
+Performance specifications for file systems in [all other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/")| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* |
+| --- | --- | --- | --- | --- | --- | --- |
+| | **Baseline** | **Burst** | | | | **Baseline** | **Burst** | **Baseline** | **Burst** |
+| 128 | 150 | 1,250 | Tens of thousands baseline | 16 | 150 | 128 | 600 | 6,000 | 18,750 |
+| 256 | 300 | 1,250 | 32 | 300 | 256 | 600 | 12,000 | 18,750 |
+| 512 | 625 | 1,250 | Hundreds of thousands baseline | 64 | 600 | 512 | – | 18,750 | – |
+| 1,024 | 1,500 | – | 128 | 1,200 | 1,024 | – | 40,000 | – |
+| 2,048 | 3,125 | – | 256 | 2,400 | 2,048 | – | 80,000 | – |
 
 ###### Note
 
@@ -308,14 +308,14 @@ server's in-memory cache or NVMe cache.
 Second-generation Multi-AZ file systems
 These performance specifications apply to second-generation Multi-AZ file systems.
 
-| Performance specifications for second-generation Multi-AZ file systems | FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS                   | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* |
-| ---------------------------------------------------------------------- | ------------------------------ | ---------------------------------- | ------------------------------ | ---------------------- | ----------------- | ---------------------- | ----------------- | ------------ | --------- |
-|                                                                        | **Baseline**                   | **Burst**                          |                                |                        |                   | **Baseline**           | **Burst**         | **Baseline** | **Burst** |
-| 384                                                                    | 781                            | 6,250                              | Hundreds of thousands baseline | 16                     | 237               | 384                    | 3,125             | 12,500       | 65,000    |
-| 768                                                                    | 1,563                          | 6,250                              | 32                             | 474                    | 768               | 3,125                  | 25,000            | 65,000       |
-| 1,536                                                                  | 3,125                          | 6,250                              | 64                             | 950                    | 1,536             | 3,125                  | 50,000            | 65,000       |
-| 3,072                                                                  | 6,250                          | –                                  | 128                            | 1,900                  | 3,072             | –                      | 100,000           | –            |
-| 6,144                                                                  | 12,500                         | –                                  | 256                            | 3,800                  | 6,144             | –                      | 200,000           | –            |
+Performance specifications for second-generation Multi-AZ file systems| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* |
+| --- | --- | --- | --- | --- | --- | --- |
+| | **Baseline** | **Burst** | | | | **Baseline** | **Burst** | **Baseline** | **Burst** |
+| 384 | 781 | 6,250 | Hundreds of thousands baseline | 16 | 237 | 384 | 3,125 | 12,500 | 65,000 |
+| 768 | 1,563 | 6,250 | 32 | 474 | 768 | 3,125 | 25,000 | 65,000 |
+| 1,536 | 3,125 | 6,250 | 64 | 950 | 1,536 | 3,125 | 50,000 | 65,000 |
+| 3,072 | 6,250 | – | 128 | 1,900 | 3,072 | – | 100,000 | – |
+| 6,144 | 12,500 | – | 256 | 3,800 | 6,144 | – | 200,000 | – |
 
 ###### Note
 

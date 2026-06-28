@@ -39,7 +39,7 @@ following table lists the specific ranges that are supported.
 | Months       | 0 -12         |                                                                                                                            |
 | Years        | 0<br>• 100    |                                                                                                                            |
 | Infinite     | -             | Retains the files forever.<br>Available for **Default retention**,<br>**Maximum retention**, and<br>**Minimum retention**. |
-| Unspecified1 | -             | Retains the files until you set a retention period.<br>Available for \*_Default retention_<br>• only.                      |
+| Unspecified1 | -             | Retains the files until you set a retention period.<br>Available for *_Default retention_<br>• only.                       |
 
 ###### Note
 
