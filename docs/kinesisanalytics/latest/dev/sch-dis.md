@@ -65,9 +65,9 @@ remove columns, or change column names, data types, or data size.
 
 | Source Stream Column Name | Discovery-Suggested Column Name |
 | ------------------------- | ------------------------------- |
-| USER                      | COL_USER                        |
-| USER@DOMAIN               | COL_USERDOMAIN                  |
-| @@                        | COL_0                           |
+| USER                      | COL\_USER                       |
+| USER@DOMAIN               | COL\_USERDOMAIN                 |
+| @@                        | COL\_0                          |
 
 ## Schema Discovery Issues
 

@@ -37,7 +37,7 @@ In the source configuration, do the following:
      is set to `VARCHAR`.
 
 2. Use the following application code (you can paste this code into the SQL
-   editor):
+editor):
 
 ```
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (

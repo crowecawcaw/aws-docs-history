@@ -11,11 +11,11 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Parsing Web Logs (W3C_LOG_PARSE Function)
+# Example: Parsing Web Logs (W3C\_LOG\_PARSE Function)
 
 This example uses the `W3C_LOG_PARSE` function to transform a string in
 Amazon Kinesis Data Analytics. You can use `W3C_LOG_PARSE` to format Apache logs quickly. For
-more information, see [W3C_LOG_PARSE](../sqlref/sql-reference-w3c-log-parse.md "../sqlref/sql-reference-w3c-log-parse.md") in the _Amazon Managed Service for Apache Flink SQL Reference_.
+more information, see [W3C\_LOG\_PARSE](../sqlref/sql-reference-w3c-log-parse.md "../sqlref/sql-reference-w3c-log-parse.md") in the _Amazon Managed Service for Apache Flink SQL Reference_.
 
 In this example, you write log records to an Amazon Kinesis data stream. Example logs are
 shown following:

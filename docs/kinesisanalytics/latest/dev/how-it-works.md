@@ -94,19 +94,18 @@ streams. For more information, see [Application Code](how-it-works-app-code.md "
   external destinations. External destinations can be a Firehose delivery stream or a
   Kinesis data stream. Note the following about these destinations:
 
-      + You can configure a Firehose delivery stream to write results to
-       Amazon S3, Amazon Redshift, or Amazon OpenSearch Service (OpenSearch Service).
-      + You can also write application output to a custom destination
-       instead of Amazon S3 or Amazon Redshift. To do that, you specify a Kinesis data stream as the
-       destination in your output configuration. Then, you configure AWS Lambda to
-       poll the stream and invoke your Lambda function. Your Lambda function code
-       receives stream data as input. In your Lambda function code, you can write
-       the incoming data to your custom destination. For more information, see
-       [Using AWS Lambda with
-       Amazon Kinesis Data Analytics](../../../lambda/latest/dg/with-kinesis.md "../../../lambda/latest/dg/with-kinesis.md").
-
-  For more information, see [Configuring Application Output](how-it-works-output.md "how-it-works-output.md").
-  In addition, note the following:
+  - You can configure a Firehose delivery stream to write results to
+    Amazon S3, Amazon Redshift, or Amazon OpenSearch Service (OpenSearch Service).
+  - You can also write application output to a custom destination
+    instead of Amazon S3 or Amazon Redshift. To do that, you specify a Kinesis data stream as the
+    destination in your output configuration. Then, you configure AWS Lambda to
+    poll the stream and invoke your Lambda function. Your Lambda function code
+    receives stream data as input. In your Lambda function code, you can write
+    the incoming data to your custom destination. For more information, see
+    [Using AWS Lambda with
+    Amazon Kinesis Data Analytics](../../../lambda/latest/dg/with-kinesis.md "../../../lambda/latest/dg/with-kinesis.md").
+    For more information, see [Configuring Application Output](how-it-works-output.md "how-it-works-output.md").
+    In addition, note the following:
 
 - Amazon Kinesis Data Analytics needs permissions to read records from a streaming
   source and write application output to the external destinations. You use IAM

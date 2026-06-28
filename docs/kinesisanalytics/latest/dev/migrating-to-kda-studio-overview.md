@@ -1505,11 +1505,11 @@ stream is being created. When the stream is ready to use, the
 displays a summary of your stream configuration, along with monitoring
 information. 6. In the Amazon Kinesis Data Generator, change the Stream/delivery stream to
 the new Amazon Kinesis Data Streams:
-**TRADE_SOURCE_STREAM**.
+**TRADE\_SOURCE\_STREAM**.
 
 JSON and Payload will be the same as you used for Amazon Kinesis Data Analytics-SQL. Use
 the Amazon Kinesis Data Generator to produce some sample trading payload data
-and target the **TRADE_SOURCE_STREAM** Data Stream for this
+and target the **TRADE\_SOURCE\_STREAM** Data Stream for this
 exercise:
 
 ```

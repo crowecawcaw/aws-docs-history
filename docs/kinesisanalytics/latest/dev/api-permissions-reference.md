@@ -34,22 +34,22 @@ operation name (for example, `kinesisanalytics:AddApplicationInput`).
 
 Use the scroll bars to see the rest of the table.
 
-| API and Required Permissions for Actions                                                                                          | API Operations                                          | Required Permissions (API Actions)                                              | Resources |
-| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------- | --------- |
-| [AddApplicationInput](API_AddApplicationInput.md "API_AddApplicationInput.md")                                                    | `kinesisanalytics:AddApplicationInput`                  | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [AddApplicationOutput](API_AddApplicationOutput.md "API_AddApplicationOutput.md")                                                 | `kinesisanalytics:AddApplicationOutput`                 | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md "API_AddApplicationReferenceDataSource.md")          | `kinesisanalytics:AddApplicationReferenceDataSource`    | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [CreateApplication](API_CreateApplication.md "API_CreateApplication.md")                                                          | `kinesisanalytics:CreateApplication`                    | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [DeleteApplication](API_DeleteApplication.md "API_DeleteApplication.md")                                                          | `kinesisanalytics:DeleteApplication`                    | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [DeleteApplicationOutput](API_DeleteApplicationOutput.md "API_DeleteApplicationOutput.md")                                        | `kinesisanalytics:DeleteApplicationOutput`              | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+API and Required Permissions for Actions| API Operations | Required Permissions (API Actions) | Resources |
+| --- | --- | --- |
+| [AddApplicationInput](API_AddApplicationInput.md "API_AddApplicationInput.md") | `kinesisanalytics:AddApplicationInput` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [AddApplicationOutput](API_AddApplicationOutput.md "API_AddApplicationOutput.md") | `kinesisanalytics:AddApplicationOutput` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md "API_AddApplicationReferenceDataSource.md") | `kinesisanalytics:AddApplicationReferenceDataSource` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [CreateApplication](API_CreateApplication.md "API_CreateApplication.md") | `kinesisanalytics:CreateApplication` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [DeleteApplication](API_DeleteApplication.md "API_DeleteApplication.md") | `kinesisanalytics:DeleteApplication` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [DeleteApplicationOutput](API_DeleteApplicationOutput.md "API_DeleteApplicationOutput.md") | `kinesisanalytics:DeleteApplicationOutput` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
 | [DeleteApplicationReferenceDataSource](API_DeleteApplicationReferenceDataSource.md "API_DeleteApplicationReferenceDataSource.md") | `kinesisanalytics:DeleteApplicationReferenceDataSource` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [DescribeApplication](API_DescribeApplication.md "API_DescribeApplication.md")                                                    | `kinesisanalytics:DescribeApplication`                  | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [DiscoverInputSchema](API_DiscoverInputSchema.md "API_DiscoverInputSchema.md")                                                    | `kinesisanalytics:DiscoverInputSchema`                  | \*                                                                              |
-| [ListApplications](API_ListApplications.md "API_ListApplications.md")                                                             | `kinesisanalytics:ListApplications`                     | \*                                                                              |
-| [StartApplication](API_StartApplication.md "API_StartApplication.md")                                                             | `kinesisanalytics:StartApplication`                     | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [StopApplication](API_StopApplication.md "API_StopApplication.md")                                                                | `kinesisanalytics:StopApplication`                      | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| [UpdateApplication](API_UpdateApplication.md "API_UpdateApplication.md")                                                          | `kinesisanalytics:UpdateApplication`                    | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
-| Access or sample data in the console                                                                                              | `kinesisanalytics:GetApplicationState`                  | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [DescribeApplication](API_DescribeApplication.md "API_DescribeApplication.md") | `kinesisanalytics:DescribeApplication` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [DiscoverInputSchema](API_DiscoverInputSchema.md "API_DiscoverInputSchema.md") | `kinesisanalytics:DiscoverInputSchema` | \* |
+| [ListApplications](API_ListApplications.md "API_ListApplications.md") | `kinesisanalytics:ListApplications` | \* |
+| [StartApplication](API_StartApplication.md "API_StartApplication.md") | `kinesisanalytics:StartApplication` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [StopApplication](API_StopApplication.md "API_StopApplication.md") | `kinesisanalytics:StopApplication` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| [UpdateApplication](API_UpdateApplication.md "API_UpdateApplication.md") | `kinesisanalytics:UpdateApplication` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
+| Access or sample data in the console | `kinesisanalytics:GetApplicationState` | `arn:aws:kinesisanalytics: `region`:`accountId`:application/`application-name`` |
 
 ## GetApplicationState
 

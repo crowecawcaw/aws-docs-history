@@ -66,20 +66,20 @@ within the same one-minute tumbling window.
 
 The preceding diagram has the following events.
 
-| ROWTIME  | EVENT_TIME | TICKER_SYMBOL |
-| -------- | ---------- | ------------- |
-| 11:00:20 | 11:00:10   | AMZN          |
-| 11:00:30 | 11:00:20   | AMZN          |
-| 11:01:05 | 11:00:55   | AMZN          |
-| 11:01:15 | 11:01:05   | AMZN          |
+| ROWTIME  | EVENT\_TIME | TICKER\_SYMBOL |
+| -------- | ----------- | -------------- |
+| 11:00:20 | 11:00:10    | AMZN           |
+| 11:00:30 | 11:00:20    | AMZN           |
+| 11:01:05 | 11:00:55    | AMZN           |
+| 11:01:15 | 11:01:05    | AMZN           |
 
 The result set from the tumbling window application looks similar to the following.
 
-| ROWTIME  | EVENT_TIME | TICKER_SYMBOL | COUNT |
-| -------- | ---------- | ------------- | ----- |
-| 11:01:00 | 11:00:00   | AMZN          | 2     |
-| 11:02:00 | 11:00:00   | AMZN          | 1     |
-| 11:02:00 | 11:01:00   | AMZN          | 1     |
+| ROWTIME  | EVENT\_TIME | TICKER\_SYMBOL | COUNT |
+| -------- | ----------- | -------------- | ----- |
+| 11:01:00 | 11:00:00    | AMZN           | 2     |
+| 11:02:00 | 11:00:00    | AMZN           | 1     |
+| 11:02:00 | 11:01:00    | AMZN           | 1     |
 
 In the result set preceding, three results are returned:
 
@@ -130,19 +130,19 @@ In the following diagram, events are aggregated by event time and ticker symbol 
 
 The preceding diagram has the following events, which are the same events as the tumbling window application analyzed:
 
-| ROWTIME  | EVENT_TIME | TICKER_SYMBOL |
-| -------- | ---------- | ------------- |
-| 11:00:20 | 11:00:10   | AMZN          |
-| 11:00:30 | 11:00:20   | AMZN          |
-| 11:01:05 | 11:00:55   | AMZN          |
-| 11:01:15 | 11:01:05   | AMZN          |
+| ROWTIME  | EVENT\_TIME | TICKER\_SYMBOL |
+| -------- | ----------- | -------------- |
+| 11:00:20 | 11:00:10    | AMZN           |
+| 11:00:30 | 11:00:20    | AMZN           |
+| 11:01:05 | 11:00:55    | AMZN           |
+| 11:01:15 | 11:01:05    | AMZN           |
 
 The result set from the stagger window application looks similar to the following.
 
-| ROWTIME  | EVENT_TIME | TICKER_SYMBOL | Count |
-| -------- | ---------- | ------------- | ----- |
-| 11:01:20 | 11:00:00   | AMZN          | 3     |
-| 11:02:15 | 11:01:00   | AMZN          | 1     |
+| ROWTIME  | EVENT\_TIME | TICKER\_SYMBOL | Count |
+| -------- | ----------- | -------------- | ----- |
+| 11:01:20 | 11:00:00    | AMZN           | 3     |
+| 11:02:15 | 11:01:00    | AMZN           | 1     |
 
 The returned record aggregates the first three input records. The records are grouped by
 one-minute stagger windows. The stagger window starts when the application receives the

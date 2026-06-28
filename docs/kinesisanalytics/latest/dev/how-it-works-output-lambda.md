@@ -89,7 +89,7 @@ output requirements (such as data transformation before sending to a final
 destination).
 
 | Field            | Description                                                        |
-| ---------------- | ------------------------------------------------------------------ | ----------- | ---- | ------- | ------- | ---- | ---------- | ----------------------- | ---- | ------------------------------ | --- | ----- | ----------- | ---- | ------- | ------- | ---- | ----------- | -------------------------- | --- | ---- | ---- | --------------------------------------- | --- |
+| ---------------- | ------------------------------------------------------------------ |
 | `invocationId`   | The Lambda invocation ID (random GUID).                            |
 | `applicationArn` | The Kinesis Data Analytics application Amazon Resource Name (ARN). |
 | records<br>      | Field                                                              | Description | <br> | --<br>• | --<br>• | <br> | `recordId` | record ID (random GUID) | <br> | `lambdaDeliveryRecordMetadata` |     | Field | Description | <br> | --<br>• | --<br>• | <br> | `retryHint` | Number of delivery retries |     | <br> | data | Base64-encoded output record<br>payload |     |
@@ -108,7 +108,7 @@ must contain the following parameters. Otherwise, Kinesis Data Analytics treats 
 delivery failure.
 
 |             |       |             |      |         |         |      |
-| ----------- | ----- | ----------- | ---- | ------- | ------- | ---- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| ----------- | ----- | ----------- | ---- | ------- | ------- | ---- |
 | records<br> | Field | Description | <br> | --<br>• | --<br>• | <br> | `recordId` | The record ID is passed from Kinesis Data Analytics to Lambda<br>during the invocation. Any mismatch between the ID<br>of the original record and the ID of the<br>acknowledged record is treated as a delivery<br>failure. | <br> | `result` | The status of the delivery of the record.<br>The following are possible values:<br>• `Ok`: The record was transformed<br>successfully and sent to the final destination.<br>Kinesis Data Analytics ingests the record for SQL processing.<br>• `DeliveryFailed`: The record was<br>not delivered successfully to the final<br>destination by the Lambda as output function. Kinesis Data Analytics<br>continuously retries sending the delivery failed<br>records to the Lambda as output function. |     |
 
 ## Lambda Output Invocation Frequency

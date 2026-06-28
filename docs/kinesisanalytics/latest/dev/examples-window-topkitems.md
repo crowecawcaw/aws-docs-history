@@ -11,7 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Retrieving the Most Frequently Occurring Values (TOP_K_ITEMS_TUMBLING)
+# Example: Retrieving the Most Frequently Occurring Values (TOP\_K\_ITEMS\_TUMBLING)
 
 This Amazon Kinesis Data Analytics example demonstrates how to use the `TOP_K_ITEMS_TUMBLING`
 function to retrieve the most frequently occurring values in a tumbling window. For more

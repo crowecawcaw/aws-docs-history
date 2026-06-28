@@ -98,24 +98,25 @@ are specific to :
   a user to create and manage applications. However, note the
   following:
 
-   
+ 
 
-  - These permissions are not sufficient if the user wants to
-    create a new IAM role in the console (these permissions allow
-    the user to select an existing role). If you want the user to be
-    able to create an IAM role in the console, add the
-    `IAMFullAccess` Amazon-managed policy.
-  - A user must have permission for the `iam:PassRole`
-    action to specify an IAM role when configuring
-    application. This Amazon-managed policy grants permission for the
-    `iam:PassRole` action to the user only on the IAM
-    roles that start with the prefix
-    `service-role/kinesis-analytics`.
+    + These permissions are not sufficient if the user wants to
+     create a new IAM role in the console (these permissions allow
+     the user to select an existing role). If you want the user to be
+     able to create an IAM role in the console, add the
+     `IAMFullAccess` Amazon-managed policy.
+    + A user must have permission for the `iam:PassRole`
+     action to specify an IAM role when configuring
+     application. This Amazon-managed policy grants permission for the
+     `iam:PassRole` action to the user only on the IAM
+     roles that start with the prefix
+     `service-role/kinesis-analytics`.
 
-  If the user wants to configure the application with
-  a role that does not have this prefix, you first must explicitly
-  grant the user permission for the `iam:PassRole` action
-  on the specific role.
+
+    If the user wants to configure the application with
+     a role that does not have this prefix, you first must explicitly
+     grant the user permission for the `iam:PassRole` action
+     on the specific role.
 
 You can also create your own custom IAM policies to allow permissions for
 actions and resources. You can attach these custom policies to

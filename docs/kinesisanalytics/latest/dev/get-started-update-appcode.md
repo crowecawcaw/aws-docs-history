@@ -17,16 +17,15 @@ In this step, you explore how to update the application code.
 
 ###### To update application code
 
-1.  Create another in-application stream as follows:
+1. Create another in-application stream as follows:
 
-        * Create another in-application stream called
-         `DESTINATION_SQL_STREAM_2`.
-        * Create a pump, and then use it to insert rows in the newly created
-         stream by selecting rows from the
-         `DESTINATION_SQL_STREAM`.
-
-    In the SQL editor, append the following code to the existing application
-    code:
+   - Create another in-application stream called
+     `DESTINATION_SQL_STREAM_2`.
+   - Create a pump, and then use it to insert rows in the newly created
+     stream by selecting rows from the
+     `DESTINATION_SQL_STREAM`.
+     In the SQL editor, append the following code to the existing application
+     code:
 
 ```
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM_2"

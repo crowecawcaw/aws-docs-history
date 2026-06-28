@@ -37,7 +37,7 @@ to provide explicit mapping in your input configuration:
   an in-application stream has a special column called
   `ROWTIME`. This column is the timestamp for the point
   when Kinesis Data Analytics inserted the row in the first in-application stream.
-- **Approximate_Arrival_Time**
+- **Approximate\_Arrival\_Time**
   – Records on your streaming source include the
   `Approximate_Arrival_Timestamp` column. It is the
   approximate arrival timestamp that is set when the streaming source

@@ -16,8 +16,8 @@ Data Analytics for SQL applications:
 When a windowed query processes separate windows for each unique partition key,
 starting when data with the matching key arrives, the window is referred to as a
 _stagger window_. For details, see [Stagger Windows](stagger-window-concepts.md "stagger-window-concepts.md"). This
-Amazon Kinesis Data Analytics example uses the EVENT_TIME and TICKER columns to create stagger windows. The
-source stream contains groups of six records with identical EVENT_TIME and TICKER values
+Amazon Kinesis Data Analytics example uses the EVENT\_TIME and TICKER columns to create stagger windows. The
+source stream contains groups of six records with identical EVENT\_TIME and TICKER values
 that arrive within in a one-minute period, but not necessarily with the same minute
 value (for example, `18:41:xx`).
 
@@ -54,7 +54,7 @@ another in-application stream, as shown in the following screenshot:
 
 ![Console screenshot showing the resulting data in an in-application stream.](images/ex_stagger.png)
 In the following procedure, you create a Kinesis Data Analytics application that aggregates values in
-the input stream in a stagger window based on EVENT_TIME and TICKER.
+the input stream in a stagger window based on EVENT\_TIME and TICKER.
 
 ###### Topics
 
@@ -136,7 +136,7 @@ Create a Kinesis Data Analytics application as follows:
       stream created. The inferred schema has two columns.
    3. Choose **Edit Schema**. Change the
       **Column type** of the
-      **EVENT_TIME** column to
+      **EVENT\_TIME** column to
       `TIMESTAMP`.
    4. Choose **Save schema and update stream samples**.
       After the console saves the schema, choose

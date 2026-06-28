@@ -46,24 +46,23 @@ SQL functions for working with date and time fields.
   Functions](../sqlref/sql-reference-date-time-functions.md "../sqlref/sql-reference-date-time-functions.md") and [Datetime Conversion Functions](../sqlref/sql-reference-datetime-conversion-functions.md "../sqlref/sql-reference-datetime-conversion-functions.md") in the
   _Amazon Managed Service for Apache Flink SQL Reference_.
 
-      + `CURRENT_ROW_TIMESTAMP` – Returns a new time stamp
-       for each row in the stream.
-      + `TSDIFF` – Returns the difference of two time stamps
-       in milliseconds.
-      + `CHAR_TO_DATE` – Converts a string to a date.
-      + `CHAR_TO_TIME` – Converts a string to time.
-      + `CHAR_TO_TIMESTAMP` – Converts a string to a time
-       stamp.
-      + `DATE_TO_CHAR` – Converts a date to a string.
-      + `TIME_TO_CHAR` – Converts a time to a string.
-      + `TIMESTAMP_TO_CHAR` – Converts a time stamp to a
-       string.
-
-  Most of the preceding SQL functions use a format to convert the columns. The format is
-  flexible. For example, you can specify the format `yyyy-MM-dd hh:mm:ss` to
-  convert an input string `2009-09-16 03:15:24` into a time stamp. For more
-  information, [Char To
-  Timestamp(Sys)](../sqlref/sql-reference-char-to-timestamp.md "../sqlref/sql-reference-char-to-timestamp.md") in the _Amazon Managed Service for Apache Flink SQL Reference_.
+  - `CURRENT_ROW_TIMESTAMP` – Returns a new time stamp
+    for each row in the stream.
+  - `TSDIFF` – Returns the difference of two time stamps
+    in milliseconds.
+  - `CHAR_TO_DATE` – Converts a string to a date.
+  - `CHAR_TO_TIME` – Converts a string to time.
+  - `CHAR_TO_TIMESTAMP` – Converts a string to a time
+    stamp.
+  - `DATE_TO_CHAR` – Converts a date to a string.
+  - `TIME_TO_CHAR` – Converts a time to a string.
+  - `TIMESTAMP_TO_CHAR` – Converts a time stamp to a
+    string.
+    Most of the preceding SQL functions use a format to convert the columns. The format is
+    flexible. For example, you can specify the format `yyyy-MM-dd hh:mm:ss` to
+    convert an input string `2009-09-16 03:15:24` into a time stamp. For more
+    information, [Char To
+    Timestamp(Sys)](../sqlref/sql-reference-char-to-timestamp.md "../sqlref/sql-reference-char-to-timestamp.md") in the _Amazon Managed Service for Apache Flink SQL Reference_.
 
 ## Example: Transforming Dates
 
@@ -160,7 +159,7 @@ Create an application as follows:
       created. The inferred schema has two columns.
    4. Choose **Edit Schema**. Change the
       **Column type** of the
-      **EVENT_TIME** column to
+      **EVENT\_TIME** column to
       `TIMESTAMP`.
    5. Choose **Save schema and update stream
       samples**. After the console saves the schema,

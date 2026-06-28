@@ -37,8 +37,7 @@ follows:
      rows from `SOURCE_SQL_STREAM_001` and insert them in
      the `DESTINATION_SQL_STREAM`.
 
-6. Choose **Add this SQL to editor**.
-7. Test the application code as follows:
+6. Choose **Add this SQL to editor**. 7. Test the application code as follows:
 
 Remember, you already started the application (status is RUNNING).
 Therefore, Amazon Kinesis Data Analytics is already continuously reading from the

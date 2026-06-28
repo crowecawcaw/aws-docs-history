@@ -34,8 +34,8 @@ following is a typical pattern for writing application code:
 - The INSERT statement is always used in the context of a pump. That is, you use
   pumps to write to an in-application stream.
   The following example application code reads records from one in-application
-  (SOURCE_SQL_STREAM_001) stream and write it to another in-application stream
-  (DESTINATION_SQL_STREAM). You can insert records to in-application streams using pumps, as shown following:
+  (SOURCE\_SQL\_STREAM\_001) stream and write it to another in-application stream
+  (DESTINATION\_SQL\_STREAM). You can insert records to in-application streams using pumps, as shown following:
 
 ```
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (ticker_symbol VARCHAR(4),

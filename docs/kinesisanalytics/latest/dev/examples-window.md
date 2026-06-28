@@ -22,5 +22,5 @@ example code for setting up the Kinesis Data Analytics application.
 - [Example: Stagger Window](examples-window-stagger.md "examples-window-stagger.md")
 - [Example: Tumbling Window Using ROWTIME](examples-window-tumbling-rowtime.md "examples-window-tumbling-rowtime.md")
 - [Example: Tumbling Window Using an Event Timestamp](examples-window-tumbling-event.md "examples-window-tumbling-event.md")
-- [Example: Retrieving the Most Frequently Occurring Values (TOP_K_ITEMS_TUMBLING)](examples-window-topkitems.md "examples-window-topkitems.md")
+- [Example: Retrieving the Most Frequently Occurring Values (TOP\_K\_ITEMS\_TUMBLING)](examples-window-topkitems.md "examples-window-topkitems.md")
 - [Example: Aggregating Partial Results from a Query](examples-window-partialresults.md "examples-window-partialresults.md")

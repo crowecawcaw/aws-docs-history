@@ -103,51 +103,63 @@ On the IAM console, specify the following:
 
 2. Update the IAM role policies:
 
-   1. On the IAM console, choose the role that you created.
-   2. On the **Trust Relationships** tab, update
-      the trust policy to grant Kinesis Data Analytics permissions to assume the role.
-      The trust policy is shown following:
+    1. On the IAM console, choose the role that you created.
+    2. On the **Trust Relationships** tab, update
+     the trust policy to grant Kinesis Data Analytics permissions to assume the role.
+     The trust policy is shown following:
 
-   JSON
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Principal": {
-    "Service": "kinesisanalytics.amazonaws.com"
-    },
-    "Action": "sts:AssumeRole"
-    }
-    ]
-   }`
 
-   ```
-   3. On the **Permissions** tab, attach an Amazon-managed policy called
-      **AmazonS3ReadOnlyAccess**. This grants the
-      role permissions to read an Amazon S3 object. This policy is shown
-      following:
+    JSON
 
-   JSON
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Action": [
-    "s3:Get*",
-    "s3:List*"
-    ],
-    "Resource": "*"
-    }
-    ]
-   }`
 
-   ```
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Principal": {
+     "Service": "kinesisanalytics.amazonaws.com"
+     },
+     "Action": "sts:AssumeRole"
+     }
+     ]
+    }`
+
+    ```
+    3. On the **Permissions** tab, attach an Amazon-managed policy called
+     **AmazonS3ReadOnlyAccess**. This grants the
+     role permissions to read an Amazon S3 object. This policy is shown
+     following:
+
+
+
+    JSON
+
+
+
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Action": [
+     "s3:Get*",
+     "s3:List*"
+     ],
+     "Resource": "*"
+     }
+     ]
+    }`
+
+    ```
 
 ## Step 2: Add the Reference Data Source to the Application Configuration
 

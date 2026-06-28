@@ -11,12 +11,12 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Split Strings into Multiple Fields (VARIABLE_COLUMN_LOG_PARSE Function)
+# Example: Split Strings into Multiple Fields (VARIABLE\_COLUMN\_LOG\_PARSE Function)
 
 This example uses the `VARIABLE_COLUMN_LOG_PARSE` function to manipulate
 strings in Kinesis Data Analytics. `VARIABLE_COLUMN_LOG_PARSE` splits an input string into
 fields separated by a delimiter character or a delimiter string. For more information,
-see [VARIABLE_COLUMN_LOG_PARSE](../sqlref/sql-reference-variable-column-log-parse.md "../sqlref/sql-reference-variable-column-log-parse.md") in the
+see [VARIABLE\_COLUMN\_LOG\_PARSE](../sqlref/sql-reference-variable-column-log-parse.md "../sqlref/sql-reference-variable-column-log-parse.md") in the
 _Amazon Managed Service for Apache Flink SQL Reference_.
 
 In this example, you write semi-structured records to an Amazon Kinesis data stream. The

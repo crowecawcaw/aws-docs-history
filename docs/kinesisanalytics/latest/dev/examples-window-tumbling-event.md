@@ -124,7 +124,7 @@ Create a Kinesis Data Analytics application as follows:
       stream created. The inferred schema has three columns.
    3. Choose **Edit Schema**. Change the
       **Column type** of the
-      **EVENT_TIME** column to
+      **EVENT\_TIME** column to
       `TIMESTAMP`.
    4. Choose **Save schema and update stream samples**.
       After the console saves the schema, choose

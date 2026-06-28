@@ -124,21 +124,20 @@ You can attach policies to IAM identities. For example, you can do the following
   role to grant cross-account permissions to another AWS account (for
   example, account B) or an Amazon service as follows:
 
-      1. Account A administrator creates an IAM role and attaches a
-       permissions policy to the role that grants permissions on
-       resources in account A.
-      2. Account A administrator attaches a trust policy to the role
-       identifying account B as the principal who can assume the role.
-      3. Account B administrator can then delegate permissions to
-       assume the role to any users in account B. Doing this allows
-       users in account B to create or access resources in account A.
-       The principal in the trust policy can also be an Amazon service
-       principal if you want to grant an Amazon service permissions to
-       assume the role.
-
-  For more information about using IAM to delegate permissions, see
-  [Access
-  Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the _IAM User Guide_.
+  1.  Account A administrator creates an IAM role and attaches a
+      permissions policy to the role that grants permissions on
+      resources in account A.
+  2.  Account A administrator attaches a trust policy to the role
+      identifying account B as the principal who can assume the role.
+  3.  Account B administrator can then delegate permissions to
+      assume the role to any users in account B. Doing this allows
+      users in account B to create or access resources in account A.
+      The principal in the trust policy can also be an Amazon service
+      principal if you want to grant an Amazon service permissions to
+      assume the role.
+      For more information about using IAM to delegate permissions, see
+      [Access
+      Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the _IAM User Guide_.
 
 The following is an example policy that grants permission for the
 `kinesisanalytics:CreateApplication` action, which is required to

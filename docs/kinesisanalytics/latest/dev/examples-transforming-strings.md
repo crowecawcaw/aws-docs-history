@@ -109,27 +109,26 @@ streams that contain normalized data:
   [Log
   Parsing Functions](../sqlref/sql-reference-pattern-matching-functions.md "../sqlref/sql-reference-pattern-matching-functions.md") in the _Amazon Managed Service for Apache Flink SQL Reference_.
 
-      + `FAST_REGEX_LOG_PARSER` – Works similar to the regex
-       parser, but it takes several shortcuts to ensure faster results. For
-       example, the fast regex parser stops at the first match it finds (known as
-       *lazy semantics*).
-      + `FIXED_COLUMN_LOG_PARSE` – Parses fixed-width fields and
-       automatically converts them to the given SQL types.
-      + `REGEX_LOG_PARSE` – Parses a string based on default Java
-       regular expression patterns.
-      + `SYS_LOG_PARSE` – Parses entries commonly found in
-       UNIX/Linux system logs.
-      + `VARIABLE_COLUMN_LOG_PARSE` – Splits an input string into
-       fields separated by a delimiter character or a delimiter string.
-      + `W3C_LOG_PARSE` – Can be used for quickly formatting
-       Apache logs.
-
-  For examples using these functions, see the following topics:
+  - `FAST_REGEX_LOG_PARSER` – Works similar to the regex
+    parser, but it takes several shortcuts to ensure faster results. For
+    example, the fast regex parser stops at the first match it finds (known as
+    _lazy semantics_).
+  - `FIXED_COLUMN_LOG_PARSE` – Parses fixed-width fields and
+    automatically converts them to the given SQL types.
+  - `REGEX_LOG_PARSE` – Parses a string based on default Java
+    regular expression patterns.
+  - `SYS_LOG_PARSE` – Parses entries commonly found in
+    UNIX/Linux system logs.
+  - `VARIABLE_COLUMN_LOG_PARSE` – Splits an input string into
+    fields separated by a delimiter character or a delimiter string.
+  - `W3C_LOG_PARSE` – Can be used for quickly formatting
+    Apache logs.
+    For examples using these functions, see the following topics:
 
 ###### Topics
 
 - [Example: Extracting a Portion of a String (SUBSTRING Function)](examples-transforming-strings-substring.md "examples-transforming-strings-substring.md")
-- [Example: Replacing a Substring using Regex (REGEX_REPLACE Function)](examples-transforming-strings-regexreplace.md "examples-transforming-strings-regexreplace.md")
-- [Example: Parsing Log Strings Based on Regular Expressions (REGEX_LOG_PARSE Function)](examples-transforming-strings-regexlogparse.md "examples-transforming-strings-regexlogparse.md")
-- [Example: Parsing Web Logs (W3C_LOG_PARSE Function)](examples-transforming-strings-w3clogparse.md "examples-transforming-strings-w3clogparse.md")
-- [Example: Split Strings into Multiple Fields (VARIABLE_COLUMN_LOG_PARSE Function)](examples-transforming-strings-variablecolumnlogparse.md "examples-transforming-strings-variablecolumnlogparse.md")
+- [Example: Replacing a Substring using Regex (REGEX\_REPLACE Function)](examples-transforming-strings-regexreplace.md "examples-transforming-strings-regexreplace.md")
+- [Example: Parsing Log Strings Based on Regular Expressions (REGEX\_LOG\_PARSE Function)](examples-transforming-strings-regexlogparse.md "examples-transforming-strings-regexlogparse.md")
+- [Example: Parsing Web Logs (W3C\_LOG\_PARSE Function)](examples-transforming-strings-w3clogparse.md "examples-transforming-strings-w3clogparse.md")
+- [Example: Split Strings into Multiple Fields (VARIABLE\_COLUMN\_LOG\_PARSE Function)](examples-transforming-strings-variablecolumnlogparse.md "examples-transforming-strings-variablecolumnlogparse.md")

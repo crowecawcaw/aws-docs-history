@@ -11,11 +11,11 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Parsing Log Strings Based on Regular Expressions (REGEX_LOG_PARSE Function)
+# Example: Parsing Log Strings Based on Regular Expressions (REGEX\_LOG\_PARSE Function)
 
 This example uses the `REGEX_LOG_PARSE` function to transform a string in
 Amazon Kinesis Data Analytics. `REGEX_LOG_PARSE` parses a string based on default Java regular
-expression patterns. For more information, see [REGEX_LOG_PARSE](../sqlref/sql-reference-regex-log-parse.md "../sqlref/sql-reference-regex-log-parse.md") in
+expression patterns. For more information, see [REGEX\_LOG\_PARSE](../sqlref/sql-reference-regex-log-parse.md "../sqlref/sql-reference-regex-log-parse.md") in
 the _Amazon Managed Service for Apache Flink SQL Reference_.
 
 In this example, you write the following records to an Amazon Kinesis stream:

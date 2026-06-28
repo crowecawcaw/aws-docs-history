@@ -11,11 +11,11 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Replacing a Substring using Regex (REGEX_REPLACE Function)
+# Example: Replacing a Substring using Regex (REGEX\_REPLACE Function)
 
 This example uses the `REGEX_REPLACE` function to transform a string in
 Amazon Kinesis Data Analytics. `REGEX_REPLACE` replaces a substring with an alternative
-substring. For more information, see [REGEX_REPLACE](../sqlref/sql-reference-regex-replace.md "../sqlref/sql-reference-regex-replace.md") in the
+substring. For more information, see [REGEX\_REPLACE](../sqlref/sql-reference-regex-replace.md "../sqlref/sql-reference-regex-replace.md") in the
 _Amazon Managed Service for Apache Flink SQL Reference_.
 
 In this example, you write the following records to an Amazon Kinesis data stream:

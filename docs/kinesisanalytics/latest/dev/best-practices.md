@@ -33,21 +33,20 @@ When managing Amazon Kinesis Data Analytics applications, follow these best prac
 - Set up Amazon CloudWatch alarms – You can use the CloudWatch metrics that Kinesis Data Analytics
   provides to monitor the following:
 
-      + Input bytes and input records (number of bytes and records entering
-       the application)
-      + Output bytes and output records
-      + `MillisBehindLatest` (how far behind the application is in
-       reading from the streaming source)
+  - Input bytes and input records (number of bytes and records entering
+    the application)
+  - Output bytes and output records
+  - `MillisBehindLatest` (how far behind the application is in
+    reading from the streaming source)
+    We recommend that you set up at least two CloudWatch alarms on the following metrics
+    for your in-production applications:
 
-  We recommend that you set up at least two CloudWatch alarms on the following metrics
-  for your in-production applications:
-
-      + `MillisBehindLatest` – For most cases, we recommend
-       that you set this alarm to trigger when your application is 1 hour
-       behind the latest data, for an average of 1 minute. For applications
-       with lower end-to-end processing needs, you can tune this to a lower
-       tolerance. This alarm can help ensure that your application is reading
-       the latest data.
+  - `MillisBehindLatest` – For most cases, we recommend
+    that you set this alarm to trigger when your application is 1 hour
+    behind the latest data, for an average of 1 minute. For applications
+    with lower end-to-end processing needs, you can tune this to a lower
+    tolerance. This alarm can help ensure that your application is reading
+    the latest data.
 
 - To avoid getting the `ReadProvisionedThroughputException`
   exception, limit the number of production applications reading from the same
@@ -160,7 +159,7 @@ error stream.
   `VARCHAR(N)`, where `N` is the largest possible row
   that you would expect to see in your stream. In your application code, you can
   then read the incoming records and use the `String` and `Date
-Time` functions to parse and schematize the raw data.
+ Time` functions to parse and schematize the raw data.
 - Make sure that you completely handle streaming source data that contains
   nesting more than two levels deep. When source data is JSON, you can have
   nesting. The discovery API infers a schema that flattens one level of nesting.
@@ -169,15 +168,15 @@ Time` functions to parse and schematize the raw data.
   nesting completely, you have to manually modify the inferred schema to suit your
   needs. Use either of the following strategies to do this:
 
-   
+ 
 
-  - Use the JSON row path to selectively pull out only the required key
-    value pairs for your application. A JSON row path provides a pointer to
-    the specific key value pair that you want to bring in your application.
-    You can do this for any level of nesting.
-  - Use the JSON row path to selectively pull out complex JSON objects and
-    then use string manipulation functions in your application code to pull
-    the specific data that you need.
+    + Use the JSON row path to selectively pull out only the required key
+     value pairs for your application. A JSON row path provides a pointer to
+     the specific key value pair that you want to bring in your application.
+     You can do this for any level of nesting.
+    + Use the JSON row path to selectively pull out complex JSON objects and
+     then use string manipulation functions in your application code to pull
+     the specific data that you need.
 
 ## Connecting to Outputs
 

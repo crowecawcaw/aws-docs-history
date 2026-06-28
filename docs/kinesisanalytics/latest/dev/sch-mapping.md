@@ -185,11 +185,10 @@ A Boolean literal in the JSON input stream (that is,
   `false` converts to 0.
 - Binary (BINARY or VARBINARY):
 
-      + `true`: Result has lowest bit set and remaining
-       bits cleared.
-      + `false`: Result has all bits cleared.
-
-  Conversion to VARBINARY results in a value 1 byte in length.
+  - `true`: Result has lowest bit set and remaining
+    bits cleared.
+  - `false`: Result has all bits cleared.
+    Conversion to VARBINARY results in a value 1 byte in length.
 
 - BOOLEAN: Converts to the corresponding SQL BOOLEAN value.
 - Character (CHAR or VARCHAR): Converts to the corresponding string

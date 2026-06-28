@@ -36,7 +36,7 @@ Required: Yes
 Name prefix to use when creating an in-application stream. Suppose that you specify a
 prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more (as
 per the `InputParallelism` count you specified) in-application streams with
-names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on.
+names "MyInApplicationStream\_001," "MyInApplicationStream\_002," and so on.
 
 Type: String
 

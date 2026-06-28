@@ -20,6 +20,6 @@ instructions to set up and test your Kinesis Data Analytics application.
 
 ###### Topics
 
-- [Example: Detecting Data Anomalies on a Stream (RANDOM_CUT_FOREST Function)](app-anomaly-detection.md "app-anomaly-detection.md")
-- [Example: Detecting Data Anomalies and Getting an Explanation (RANDOM_CUT_FOREST_WITH_EXPLANATION Function)](app-anomaly-detection-with-explanation.md "app-anomaly-detection-with-explanation.md")
+- [Example: Detecting Data Anomalies on a Stream (RANDOM\_CUT\_FOREST Function)](app-anomaly-detection.md "app-anomaly-detection.md")
+- [Example: Detecting Data Anomalies and Getting an Explanation (RANDOM\_CUT\_FOREST\_WITH\_EXPLANATION Function)](app-anomaly-detection-with-explanation.md "app-anomaly-detection-with-explanation.md")
 - [Example: Detecting Hotspots on a Stream (HOTSPOTS Function)](app-hotspots-detection.md "app-hotspots-detection.md")
