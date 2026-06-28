@@ -20,13 +20,12 @@ Each AWS managed template contains:
   template, the operation name is _Download
   file_ and the parameters can be:
 
-      + The URL of the file that you want to download to your device. This
-       can be an internet resource or a public or pre-signed
-       Amazon Simple Storage Service((Amazon S3) URL.
-      + A local file path on the device to store the downloaded
-       file.
-
-  For more information about the job documents and its parameters, see [Managed template remote actions and job documents](#job-template-manage-actions "#job-template-manage-actions").
+  - The URL of the file that you want to download to your device. This
+    can be an internet resource or a public or pre-signed
+    Amazon Simple Storage Service((Amazon S3) URL.
+  - A local file path on the device to store the downloaded
+    file.
+    For more information about the job documents and its parameters, see [Managed template remote actions and job documents](#job-template-manage-actions "#job-template-manage-actions").
 
 ## Prerequisites
 

@@ -153,7 +153,7 @@ target_link_libraries(${PROJECT_NAME}
 
 ```
 
-Code for the hello_iot.cpp source file.
+Code for the hello\_iot.cpp source file.
 
 ```
 #include <aws/core/Aws.h>

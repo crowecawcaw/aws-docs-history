@@ -39,17 +39,16 @@ certificates directly to your Raspberry Pi for connecting to AWS IoT.
   your AWS account and AWS IoT console to complete this tutorial.
 - The Raspberry Pi and its necessary accessories. You'll need:
 
-      + A [Raspberry Pi 3 Model
-       B](https://www.raspberrypi.com/products/ "https://www.raspberrypi.com/products/") or more recent model. This tutorial might work on earlier versions of
-       the Raspberry Pi, but we haven't tested it.
-      + [Raspberry
-       Pi OS (32-bit)](https://www.raspberrypi.com/software/operating-systems/ "https://www.raspberrypi.com/software/operating-systems/") or later. We recommend using the latest version of the
-       Raspberry Pi OS. Earlier versions of the OS might work, but we haven't tested
-       it.
-      + An Ethernet or Wi-Fi connection.
-      + Keyboard, mouse, monitor, cables, and power supplies.
-
-  This tutorial takes about 30 minutes to complete.
+  - A [Raspberry Pi 3 Model
+    B](https://www.raspberrypi.com/products/ "https://www.raspberrypi.com/products/") or more recent model. This tutorial might work on earlier versions of
+    the Raspberry Pi, but we haven't tested it.
+  - [Raspberry
+    Pi OS (32-bit)](https://www.raspberrypi.com/software/operating-systems/ "https://www.raspberrypi.com/software/operating-systems/") or later. We recommend using the latest version of the
+    Raspberry Pi OS. Earlier versions of the OS might work, but we haven't tested
+    it.
+  - An Ethernet or Wi-Fi connection.
+  - Keyboard, mouse, monitor, cables, and power supplies.
+    This tutorial takes about 30 minutes to complete.
 
 ## Step 1: Set up and configure Raspberry Pi device
 

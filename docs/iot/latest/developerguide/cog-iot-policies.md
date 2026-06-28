@@ -25,7 +25,7 @@ identities, you need to specify permissions in two places:
 
 The following example shows permissions in both the IAM policy and the IoT
 policy of an Amazon Cognito identity. The authenticated user wants to publish to a device
-specific topic (e.g. device/DEVICE_ID/status).
+specific topic (e.g. device/DEVICE\_ID/status).
 
 ```
 `{

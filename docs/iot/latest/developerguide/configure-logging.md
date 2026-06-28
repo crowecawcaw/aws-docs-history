@@ -203,18 +203,18 @@ Account-Level Logging.
     4. Click on **Update Logging** to apply your changes or choose **Cancel** to discard.
 
 5. Configure Resource-specific overrides: Resource-specific overrides apply a logging setting to selected resources.
-   A resource can be a thing group, source IP, client ID, or principal ID. Resource-specific logging configuration
-   overrides both account-level and event-level settings. When enabled, it generates logs for all event types at the
-   configured logging level for the specified resources. For example, you can set debug-level logging for a specific
-   Thing while keeping info-level logging for all other Things.
+A resource can be a thing group, source IP, client ID, or principal ID. Resource-specific logging configuration
+overrides both account-level and event-level settings. When enabled, it generates logs for all event types at the
+configured logging level for the specified resources. For example, you can set debug-level logging for a specific
+Thing while keeping info-level logging for all other Things.
 
-   1. Select **Add resource-specific overrides** in the Resource-specific overrides section.
-   2. Choose a log target: Thing group, Source IP, Client ID or Principal ID.
-   3. Enter the corresponding log target value for your selected target type.
-   4. Select the desired log level from the dropdown menu in the Resource-specific log level section.
-   5. Click **Submit** to add the override or **Cancel** to discard changes.
-   6. To modify an existing resource-specific override, select the checkbox next to the resource and click “Remove”
-      to delete the override or “Edit” to modify.
+    1. Select **Add resource-specific overrides** in the Resource-specific overrides section.
+    2. Choose a log target: Thing group, Source IP, Client ID or Principal ID.
+    3. Enter the corresponding log target value for your selected target type.
+    4. Select the desired log level from the dropdown menu in the Resource-specific log level section.
+    5. Click **Submit** to add the override or **Cancel** to discard changes.
+    6. To modify an existing resource-specific override, select the checkbox next to the resource and click “Remove”
+     to delete the override or “Edit” to modify.
 
 After you've enabled logging, visit [Viewing AWS IoT logs in the CloudWatch console](cloud-watch-logs.md#viewing-logs "cloud-watch-logs.md#viewing-logs") to learn more about viewing the log entries.
 

@@ -44,8 +44,8 @@ AWS IoT Core adds the following requirements.
   ACM, this extension is automatically added.
 - The maximum certificate chain depth is 5 certificates.
 - The maximum certificate chain size is 16KB.
-- The cryptographic algorithms and key sizes that are supported include RSA 2048 bit (RSA_2048)
-  and ECDSA 256 bit (EC_prime256v1).
+- The cryptographic algorithms and key sizes that are supported include RSA 2048 bit (RSA\_2048)
+  and ECDSA 256 bit (EC\_prime256v1).
 
 ### Using one certificate for multiple domains
 

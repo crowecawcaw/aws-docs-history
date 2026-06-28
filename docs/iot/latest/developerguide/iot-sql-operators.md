@@ -13,11 +13,11 @@ _Syntax:_
 ``expression` AND
  `expression``.
 
-| AND operator       | Left operand       | Right operand                                                                                                                                          | Output |
-| ------------------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
-| `Boolean`          | `Boolean`          | `Boolean`. True if both operands are true. Otherwise,<br>false.                                                                                        |
+AND operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Boolean` | `Boolean` | `Boolean`. True if both operands are true. Otherwise,<br>false. |
 | `String`/`Boolean` | `String`/`Boolean` | If all strings are "true" or "false" (case insensitive), they are<br>converted to `Boolean` and processed normally as<br>``boolean` AND<br>`boolean``. |
-| Other value        | Other value        | `Undefined`.                                                                                                                                           |
+| Other value | Other value | `Undefined`. |
 
 ## OR operator
 
@@ -30,11 +30,11 @@ _Syntax:_
 ``expression` OR
  `expression``.
 
-| OR operator        | Left operand       | Right operand                                                                                                                                        | Output |
-| ------------------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `Boolean`          | `Boolean`          | `Boolean`. True if either operand is true. Otherwise,<br>false.                                                                                      |
+OR operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Boolean` | `Boolean` | `Boolean`. True if either operand is true. Otherwise,<br>false. |
 | `String`/`Boolean` | `String`/`Boolean` | If all strings are "true" or "false" (case insensitive), they are<br>converted to Booleans and processed normally as<br>``boolean` OR<br>`boolean``. |
-| Other value        | Other value        | `Undefined`.                                                                                                                                         |
+| Other value | Other value | `Undefined`. |
 
 ## NOT operator
 
@@ -45,11 +45,11 @@ operand or case insensitive "true" or "false" string operand is required.
 _Syntax:_
 `NOT `expression``.
 
-| NOT operator | Operand                                                                                                                                          | Output |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
-| `Boolean`    | `Boolean`. True if operand is false. Otherwise,<br>true.                                                                                         |
-| `String`     | If string is "true" or "false" (case insensitive), it is<br>converted to the corresponding Boolean value, and the opposite value<br>is returned. |
-| Other value  | `Undefined`.                                                                                                                                     |
+NOT operator| Operand | Output |
+| --- | --- |
+| `Boolean` | `Boolean`. True if operand is false. Otherwise,<br>true. |
+| `String` | If string is "true" or "false" (case insensitive), it is<br>converted to the corresponding Boolean value, and the opposite value<br>is returned. |
+| Other value | `Undefined`. |
 
 ## IN operator
 
@@ -61,9 +61,9 @@ _Syntax:_
 ``expression` IN
  `expression``.
 
-| IN operator                               | Left operand | Right operand                                                                                                 | Output |
-| ----------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------- | ------ |
-| `Int`/`Decimal`/`String`/`Array`/`Object` | `Array`      | True if the `Integer`/`Decimal`/`String`/`Array`/`Object` element is found<br>in the array. Otherwise, false. |
+IN operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Int`/`Decimal`/`String`/`Array`/`Object` | `Array` | True if the `Integer`/`Decimal`/`String`/`Array`/`Object` element is found<br>in the array. Otherwise, false. |
 
 _Example:_
 
@@ -124,11 +124,11 @@ _Syntax:_
 ``expression` >
  `expression``.
 
-> | operator                 | Left operand             | Right operand                                                                                                                                             | Output |
-> | ------------------------ | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-> | `Int`/`Decimal`          | `Int`/`Decimal`          | `Boolean`. True if the left operand is greater than<br>the right operand. Otherwise, false.                                                               |
+> operator| Left operand | Right operand | Output |
+> | --- | --- | --- |
+> | `Int`/`Decimal` | `Int`/`Decimal` | `Boolean`. True if the left operand is greater than<br>the right operand. Otherwise, false. |
 > | `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings can be converted to `Decimal`, then<br>`Boolean`. Returns true if the left operand is<br>greater than the right operand. Otherwise, false. |
-> | Other value              | `Undefined`.             | `Undefined`.                                                                                                                                              |
+> | Other value | `Undefined`. | `Undefined`. |
 
 ## >= operator
 
@@ -140,11 +140,11 @@ _Syntax:_
 ``expression` >=
  `expression``.
 
-> | = operator               | Left operand             | Right operand                                                                                                                                                            | Output |
-> | ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
-> | `Int`/`Decimal`          | `Int`/`Decimal`          | `Boolean`. True if the left operand is greater than or<br>equal to the right operand. Otherwise, false.                                                                  |
+> = operator| Left operand | Right operand | Output |
+> | --- | --- | --- |
+> | `Int`/`Decimal` | `Int`/`Decimal` | `Boolean`. True if the left operand is greater than or<br>equal to the right operand. Otherwise, false. |
 > | `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings can be converted to `Decimal`, then<br>`Boolean`. Returns true if the left operand is<br>greater than or equal to the right operand. Otherwise,<br>false. |
-> | Other value              | `Undefined`.             | `Undefined`.                                                                                                                                                             |
+> | Other value | `Undefined`. | `Undefined`. |
 
 ## < operator
 
@@ -156,11 +156,11 @@ _Syntax:_
 ``expression` <
  `expression``.
 
-| < operator               | Left operand             | Right operand                                                                                                                                          | Output |
-| ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Boolean`. True if the left operand is less than the<br>right operand. Otherwise, false.                                                               |
+< operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Int`/`Decimal` | `Int`/`Decimal` | `Boolean`. True if the left operand is less than the<br>right operand. Otherwise, false. |
 | `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings can be converted to `Decimal`, then<br>`Boolean`. Returns true if the left operand is less<br>than the right operand. Otherwise, false. |
-| Other value              | `Undefined`              | `Undefined`                                                                                                                                            |
+| Other value | `Undefined` | `Undefined` |
 
 ## <= operator
 
@@ -172,11 +172,11 @@ _Syntax:_
 ``expression` <=
  `expression``.
 
-| <= operator              | Left operand             | Right operand                                                                                                                                                      | Output |
-| ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Boolean`. True if the left operand is less than or<br>equal to the right operand. Otherwise, false.                                                               |
+<= operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Int`/`Decimal` | `Int`/`Decimal` | `Boolean`. True if the left operand is less than or<br>equal to the right operand. Otherwise, false. |
 | `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings can be converted to `Decimal`, then<br>`Boolean`. Returns true if the left operand is less<br>than or equal to the right operand. Otherwise, false. |
-| Other value              | `Undefined`              | `Undefined`                                                                                                                                                        |
+| Other value | `Undefined` | `Undefined` |
 
 ## <> operator
 
@@ -187,17 +187,17 @@ _Syntax:_
 ``expression` <>
  `expression``.
 
-| <> operator     | Left operand    | Right operand                                                                                                                     | Output |
-| --------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `Int`           | `Int`           | True if left operand is not equal to right operand. Otherwise,<br>false.                                                          |
-| `Decimal`       | `Decimal`       | True if left operand is not equal to right operand. Otherwise,<br>false.`Int` is converted to `Decimal`<br>before being compared. |
-| `String`        | `String`        | True if left operand is not equal to right operand. Otherwise,<br>false.                                                          |
-| Array           | Array           | True if the items in each operand are not equal and not in the<br>same order. Otherwise, false                                    |
-| Object          | Object          | True if the keys and values of each operand are not equal.<br>Otherwise, false. The order of keys/values is unimportant.          |
-| Null            | Null            | False.                                                                                                                            |
-| Any value       | `Undefined`     | Undefined.                                                                                                                        |
-| `Undefined`     | Any value       | Undefined.                                                                                                                        |
-| Mismatched type | Mismatched type | True.                                                                                                                             |
+<> operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Int` | `Int` | True if left operand is not equal to right operand. Otherwise,<br>false. |
+| `Decimal` | `Decimal` | True if left operand is not equal to right operand. Otherwise,<br>false.`Int` is converted to `Decimal`<br>before being compared. |
+| `String` | `String` | True if left operand is not equal to right operand. Otherwise,<br>false. |
+| Array | Array | True if the items in each operand are not equal and not in the<br>same order. Otherwise, false |
+| Object | Object | True if the keys and values of each operand are not equal.<br>Otherwise, false. The order of keys/values is unimportant. |
+| Null | Null | False. |
+| Any value | `Undefined` | Undefined. |
+| `Undefined` | Any value | Undefined. |
+| Mismatched type | Mismatched type | True. |
 
 ## = operator
 
@@ -208,16 +208,16 @@ _Syntax:_
 ``expression` =
  `expression``.
 
-| = operator      | Left operand    | Right operand                                                                                                                 | Output |
-| --------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `Int`           | `Int`           | True if left operand is equal to right operand. Otherwise,<br>false.                                                          |
-| `Decimal`       | `Decimal`       | True if left operand is equal to right operand. Otherwise,<br>false.`Int` is converted to `Decimal`<br>before being compared. |
-| `String`        | `String`        | True if left operand is equal to right operand. Otherwise,<br>false.                                                          |
-| Array           | Array           | True if the items in each operand are equal and in the same<br>order. Otherwise, false.                                       |
-| Object          | Object          | True if the keys and values of each operand are equal. Otherwise,<br>false. The order of keys/values is unimportant.          |
-| Any value       | `Undefined`     | `Undefined`.                                                                                                                  |
-| `Undefined`     | Any value       | `Undefined`.                                                                                                                  |
-| Mismatched type | Mismatched type | False.                                                                                                                        |
+= operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Int` | `Int` | True if left operand is equal to right operand. Otherwise,<br>false. |
+| `Decimal` | `Decimal` | True if left operand is equal to right operand. Otherwise,<br>false.`Int` is converted to `Decimal`<br>before being compared. |
+| `String` | `String` | True if left operand is equal to right operand. Otherwise,<br>false. |
+| Array | Array | True if the items in each operand are equal and in the same<br>order. Otherwise, false. |
+| Object | Object | True if the keys and values of each operand are equal. Otherwise,<br>false. The order of keys/values is unimportant. |
+| Any value | `Undefined` | `Undefined`. |
+| `Undefined` | Any value | `Undefined`. |
+| Mismatched type | Mismatched type | False. |
 
 ## + operator
 
@@ -228,13 +228,13 @@ _Syntax:_
 ``expression` +
  `expression``.
 
-- | operator        | Left operand    | Right operand                                                                                                         | Output |
-  | --------------- | --------------- | --------------------------------------------------------------------------------------------------------------------- | ------ |
-  | `String`        | Any value       | Converts the right operand to a string and concatenates it to the<br>end of the left operand.                         |
-  | Any value       | `String`        | Converts the left operand to a string and concatenates the right<br>operand to the end of the converted left operand. |
-  | `Int`           | `Int`           | `Int` value. Adds operands together.                                                                                  |
-  | `Int`/`Decimal` | `Int`/`Decimal` | `Decimal` value. Adds operands together.                                                                              |
-  | Other value     | Other value     | `Undefined`.                                                                                                          |
+- operator| Left operand | Right operand | Output |
+  | --- | --- | --- |
+  | `String` | Any value | Converts the right operand to a string and concatenates it to the<br>end of the left operand. |
+  | Any value | `String` | Converts the left operand to a string and concatenates the right<br>operand to the end of the converted left operand. |
+  | `Int` | `Int` | `Int` value. Adds operands together. |
+  | `Int`/`Decimal` | `Int`/`Decimal` | `Decimal` value. Adds operands together. |
+  | Other value | Other value | `Undefined`. |
 
 ## - operator
 
@@ -244,13 +244,13 @@ _Syntax:_
 ``expression` -
  `expression``.
 
-- | operator                 | Left operand             | Right operand                                                                                                                                                    | Output |
-  | ------------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-  | `Int`                    | `Int`                    | `Int` value. Subtracts right operand from left<br>operand.                                                                                                       |
-  | `Int`/`Decimal`          | `Int`/`Decimal`          | `Decimal` value. Subtracts right operand from left<br>operand.                                                                                                   |
+- operator| Left operand | Right operand | Output |
+  | --- | --- | --- |
+  | `Int` | `Int` | `Int` value. Subtracts right operand from left<br>operand. |
+  | `Int`/`Decimal` | `Int`/`Decimal` | `Decimal` value. Subtracts right operand from left<br>operand. |
   | `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings convert to decimals correctly, a<br>`Decimal` value is returned. Subtracts right operand<br>from left operand. Otherwise, returns<br>`Undefined`. |
-  | Other value              | Other value              | `Undefined`.                                                                                                                                                     |
-  | Other value              | Other value              | `Undefined`.                                                                                                                                                     |
+  | Other value | Other value | `Undefined`. |
+  | Other value | Other value | `Undefined`. |
 
 ## \* operator
 
@@ -260,12 +260,12 @@ _Syntax:_
 ``expression` *
  `expression``.
 
-| \* operator              | Left operand             | Right operand                                                                                                                                                           | Output |
-| ------------------------ | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `Int`                    | `Int`                    | `Int` value. Multiplies the left operand by the right<br>operand.                                                                                                       |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Decimal` value. Multiplies the left operand by the<br>right operand.                                                                                                   |
+\* operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Int` | `Int` | `Int` value. Multiplies the left operand by the right<br>operand. |
+| `Int`/`Decimal` | `Int`/`Decimal` | `Decimal` value. Multiplies the left operand by the<br>right operand. |
 | `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings convert to decimals correctly, a<br>`Decimal` value is returned. Multiplies the left<br>operand by the right operand. Otherwise, returns<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                                                                            |
+| Other value | Other value | `Undefined`. |
 
 ## / operator
 
@@ -275,12 +275,12 @@ _Syntax:_
 ``expression` /
  `expression``.
 
-| / operator               | Left operand             | Right operand                                                                                                                                                        | Output |
-| ------------------------ | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `Int`                    | `Int`                    | `Int` value. Divides the left operand by the right<br>operand.                                                                                                       |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Decimal` value. Divides the left operand by the right<br>operand.                                                                                                   |
+/ operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Int` | `Int` | `Int` value. Divides the left operand by the right<br>operand. |
+| `Int`/`Decimal` | `Int`/`Decimal` | `Decimal` value. Divides the left operand by the right<br>operand. |
 | `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings convert to decimals correctly, a<br>`Decimal` value is returned. Divides the left operand<br>by the right operand. Otherwise, returns<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                                                                         |
+| Other value | Other value | `Undefined`. |
 
 ## % operator
 
@@ -290,8 +290,8 @@ _Syntax:_
 ``expression` %
  `expression``.
 
-| % operator               | Left operand             | Right operand                                                                                                                                                                            | Output |
-| ------------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `Int`                    | `Int`                    | `Int` value. Returns the remainder from dividing the<br>left operand by the right operand.                                                                                               |
+% operator| Left operand | Right operand | Output |
+| --- | --- | --- |
+| `Int` | `Int` | `Int` value. Returns the remainder from dividing the<br>left operand by the right operand. |
 | `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings convert to decimals correctly, a<br>`Decimal` value is returned. Returns the remainder<br>from dividing the left operand by the right operand. Otherwise,<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                                                                                             |
+| Other value | Other value | `Undefined`. |

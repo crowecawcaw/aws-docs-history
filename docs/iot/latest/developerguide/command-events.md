@@ -64,7 +64,7 @@ Contains `reasonCode` and `reasonDescription` fields.
 
 **eventType**
 
-Set to "COMMAND_EXECUTION".
+Set to "COMMAND\_EXECUTION".
 
 **commandArn**
 

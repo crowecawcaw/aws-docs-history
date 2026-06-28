@@ -182,14 +182,14 @@ commands quotas](../../../general/latest/gr/iot_device_management.md#commands-li
 
 The following table shows execution statuses and their transitions based on execution progress.
 
-| Command execution status and source | Command execution status | Initiated by device/cloud? | Terminal execution?                                                   | Allowed status transitions |
-| ----------------------------------- | ------------------------ | -------------------------- | --------------------------------------------------------------------- | -------------------------- |
-| `CREATED`                           | Cloud                    | No                         | • IN_PROGRESS<br>• SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT |
-| `IN_PROGRESS`                       | Device                   | No                         | • IN_PROGRESS<br>• SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT |
-| `TIMED_OUT`                         | Device and cloud         | No                         | • SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT                  |
-| `SUCCEEDED`                         | Device                   | Yes                        | Not applicable                                                        |
-| `FAILED`                            | Device                   | Yes                        | Not applicable                                                        |
-| `REJECTED`                          | Device                   | Yes                        | Not applicable                                                        |
+Command execution status and source| Command execution status | Initiated by device/cloud? | Terminal execution? | Allowed status transitions |
+| --- | --- | --- | --- |
+| `CREATED` | Cloud | No | • IN\_PROGRESS<br>• SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED\_OUT |
+| `IN_PROGRESS` | Device | No | • IN\_PROGRESS<br>• SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED\_OUT |
+| `TIMED_OUT` | Device and cloud | No | • SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED\_OUT |
+| `SUCCEEDED` | Device | Yes | Not applicable |
+| `FAILED` | Device | Yes | Not applicable |
+| `REJECTED` | Device | Yes | Not applicable |
 
 Devices can publish status and result updates anytime using commands reserved MQTT topics. To provide additional context, devices can use `reasonCode` and `reasonDescription` fields in the `statusReason` object.
 
@@ -216,7 +216,7 @@ An execution is non-terminal if it can accept updates from devices. Non-terminal
 
 When you start an execution from the AWS IoT console or use the `StartCommandExecution` API, successful requests change the status to `CREATED`. From this status, executions can transition to any other non-terminal or terminal status.
 
-- ###### IN_PROGRESS
+- ###### IN\_PROGRESS
 
 After receiving the payload, devices can start executing instructions and performing specified actions. While executing, devices can publish responses to the commands response topic and update status to `IN_PROGRESS`. From `IN_PROGRESS`, executions can transition to any terminal or non-terminal status except `CREATED`.
 
@@ -224,14 +224,14 @@ After receiving the payload, devices can start executing instructions and perfor
 
 The `UpdateCommandExecution` API can be invoked multiple times with `IN_PROGRESS` status. Specify additional execution details using the `statusReason` object.
 
-- ###### TIMED_OUT
+- ###### TIMED\_OUT
 
 Both cloud and device can trigger this status. Executions in `CREATED` or `IN_PROGRESS` status can change to `TIMED_OUT` for the following reasons:
 
     + After sending the command, a timer starts. If the device doesn't respond within the specified duration, the cloud changes status to `TIMED_OUT`. In this case, the execution is non-terminal.
     + The device can override status to any terminal status or report a timeout and set status to `TIMED_OUT`. In this case, status remains `TIMED_OUT`, but `StatusReason` object fields change based on device information. The execution becomes terminal.
 
-For more information, see [Time out value and TIMED_OUT execution status](iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status "iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status").
+For more information, see [Time out value and TIMED\_OUT execution status](iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status "iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status").
 
 ### Terminal command executions
 

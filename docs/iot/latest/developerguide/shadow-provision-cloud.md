@@ -121,16 +121,14 @@ We recommend that you download the files into a `certs` subdirectory in
 your `home` directory on the Raspberry Pi and name each of them with a
 simpler name as suggested in the following table.
 
-| Certificate file names | File                           | File path |
-| ---------------------- | ------------------------------ | --------- |
-| Root CA certificate    | `~/certs/Amazon-root-CA-1.pem` |
-| Device certificate     | `~/certs/device.pem.crt`       |
-| Private key            | `~/certs/private.pem.key`      |
-
-3. After you activate the certificate to enable connections to AWS IoT, choose
-   **Attach a policy** and make sure you attach the policy that you
-   created earlier (for example, `My_Device_Shadow_policy`) to the
-   thing.
+Certificate file names| File | File path |
+| --- | --- |
+| Root CA certificate | `~/certs/Amazon-root-CA-1.pem` |
+| Device certificate | `~/certs/device.pem.crt` |
+| Private key | `~/certs/private.pem.key` | 3. After you activate the certificate to enable connections to AWS IoT, choose
+**Attach a policy** and make sure you attach the policy that you
+created earlier (for example, `My_Device_Shadow_policy`) to the
+thing.
 
 After you've created a thing, you can see your thing resource displayed in the list of
 things in the AWS IoT console.

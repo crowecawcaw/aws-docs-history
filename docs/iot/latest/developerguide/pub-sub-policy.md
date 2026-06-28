@@ -62,7 +62,7 @@ AWS IoT Core policies for MQTT clients.
 
 The following shows examples for registered and unregistered devices to
 publish, subscribe and receive messages to/from the topic named
-"some_specific_topic". The examples also highlight that `Publish`
+"some\_specific\_topic". The examples also highlight that `Publish`
 and `Receive` use "topic" as the resource, and
 `Subscribe` uses "topicfilter" as the resource.
 
@@ -72,7 +72,7 @@ policy allows devices to connect with clientId that matches the
 name of a thing in the registry. It also provides
 `Publish`, `Subscribe` and
 `Receive` permissions for the topic named
-"some_specific_topic".
+"some\_specific\_topic".
 
 ```
 `{
@@ -130,7 +130,7 @@ following policy allows devices to connect using either
 clientId1, clientId2 or clientId3. It also provides
 `Publish`, `Subscribe` and
 `Receive` permissions for the topic named
-"some_specific_topic".
+"some\_specific\_topic".
 
 ```
 `{
@@ -183,7 +183,7 @@ clientId1, clientId2 or clientId3. It also provides
 
 The following shows examples for registered and unregistered devices to
 publish, subscribe and receive messages to/from topics prefixed with
-"topic_prefix".
+"topic\_prefix".
 
 ###### Note
 
@@ -200,7 +200,7 @@ policy allows devices to connect with clientId that matches the
 name of a thing in the registry. It also provides
 `Publish`, `Subscribe` and
 `Receive` permissions for topics prefixed with
-"topic_prefix".
+"topic\_prefix".
 
 ```
 `{
@@ -250,7 +250,7 @@ following policy allows devices to connect using either
 clientId1, clientId2 or clientId3. It also provides
 `Publish`, `Subscribe` and
 `Receive` permissions for topics prefixed with
-"topic_prefix".
+"topic\_prefix".
 
 ```
 `{
@@ -609,16 +609,16 @@ Registered devices
 For devices registered in AWS IoT Core registry, the following
 policy allows devices to connect with clientId that matches the
 name of a thing in the registry. The policy allows devices to
-subscribe to any topic prefixed with "topic_prefix". By using
+subscribe to any topic prefixed with "topic\_prefix". By using
 `NotResource` in the statement for
 `iot:Receive`, we allow the device to receive
 messages from all topics that the device has subscribed to,
-except the topics prefixed with "topic_prefix/restricted". For
+except the topics prefixed with "topic\_prefix/restricted". For
 example, with this policy, devices can subscribe to
-"topic_prefix/topic1" and even "topic_prefix/restricted",
+"topic\_prefix/topic1" and even "topic\_prefix/restricted",
 however, they will only receive messages from the topic
-"topic_prefix/topic1" and no messages from the topic
-"topic_prefix/restricted".
+"topic\_prefix/topic1" and no messages from the topic
+"topic\_prefix/restricted".
 
 ```
 `{
@@ -657,16 +657,16 @@ Unregistered devices
 For devices not registered in AWS IoT Core registry, the
 following policy allows devices to connect using either
 clientId1, clientId2 or clientId3. The policy allows devices to
-subscribe to any topic prefixed with "topic_prefix". By using
+subscribe to any topic prefixed with "topic\_prefix". By using
 `NotResource` in the statement for
 `iot:Receive`, we allow the device to receive
 messages from all topics that the device has subscribed to,
-except topics prefixed with "topic_prefix/restricted". For
+except topics prefixed with "topic\_prefix/restricted". For
 example, with this policy, devices can subscribe to
-"topic_prefix/topic1" and even "topic_prefix/restricted".
+"topic\_prefix/topic1" and even "topic\_prefix/restricted".
 However, they will only receive messages from the topic
-"topic_prefix/topic1" and no messages from the topic
-"topic_prefix/restricted".
+"topic\_prefix/topic1" and no messages from the topic
+"topic\_prefix/restricted".
 
 ```
 `{

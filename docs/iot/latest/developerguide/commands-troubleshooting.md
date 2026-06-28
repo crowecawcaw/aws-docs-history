@@ -33,7 +33,7 @@ To resolve this issue:
 - Implement retry logic with exponential backoff when receiving
   `DataConflict` errors.
 
-**Command executions move to a TIMED_OUT terminal status unexpectedly**
+**Command executions move to a TIMED\_OUT terminal status unexpectedly**
 
 When a command execution transitions to `TIMED_OUT` before the device
 can process it:

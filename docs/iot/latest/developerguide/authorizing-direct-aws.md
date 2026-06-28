@@ -180,41 +180,38 @@ in the following example.
 
 ```
 
-5.  Make an HTTPS request to the credentials provider to get a security token.
-    Supply the following information:
+5. Make an HTTPS request to the credentials provider to get a security token.
+   Supply the following information:
 
-        * *Certificate*: Because this is an HTTP request
-         over TLS mutual authentication, you must provide the certificate and
-         the private key to your client while making the request. Use the
-         same certificate and private key you used when you registered your
-         certificate with AWS IoT Core.
+   - _Certificate_: Because this is an HTTP request
+     over TLS mutual authentication, you must provide the certificate and
+     the private key to your client while making the request. Use the
+     same certificate and private key you used when you registered your
+     certificate with AWS IoT Core.
 
+   To make sure your device is communicating with AWS IoT Core (and not
+   a service impersonating it), see [Server
+   Authentication](x509-client-certs.md#server-authentication "x509-client-certs.md#server-authentication"), follow the links to download the
+   appropriate CA certificates, and then copy them to your
+   device.
+   - _RoleAlias_: The name of the role alias that
+     you created for the credentials provider. Role alias names are case sensitive and must match the role alias created in AWS IoT Core.
+   - _ThingName_: The thing name that you created
+     when you registered your AWS IoT Core thing. This is passed as the
+     value of the `x-amzn-iot-thingname` HTTP header. This
+     value is required only if you are using thing attributes as policy
+     variables in AWS IoT Core or IAM policies.
 
-        To make sure your device is communicating with AWS IoT Core (and not
-         a service impersonating it), see [Server
-         Authentication](x509-client-certs.md#server-authentication "x509-client-certs.md#server-authentication"), follow the links to download the
-         appropriate CA certificates, and then copy them to your
-         device.
-        * *RoleAlias*: The name of the role alias that
-         you created for the credentials provider. Role alias names are case sensitive and must match the role alias created in AWS IoT Core.
-        * *ThingName*: The thing name that you created
-         when you registered your AWS IoT Core thing. This is passed as the
-         value of the `x-amzn-iot-thingname` HTTP header. This
-         value is required only if you are using thing attributes as policy
-         variables in AWS IoT Core or IAM policies.
+   ###### Note
 
-
-        ###### Note
-
-        The *ThingName* that you provide in
-         `x-amzn-iot-thingname` must match the name of the
-         AWS IoT Thing resource assigned to a cert. If it doesn't match, a
-         403 error is returned.
-
-    Run the following command in the AWS CLI to obtain the credentials provider
-    endpoint for your AWS account. For more information about this API, see
-    [DescribeEndpoint](../apireference/API_DescribeEndpoint.md "../apireference/API_DescribeEndpoint.md"). For FIPS-enabled endpoints, see
-    [AWS IoT Core - credential provider endpoints](iot-connect-fips.md#iot-connect-fips-credential "iot-connect-fips.md#iot-connect-fips-credential").
+   The _ThingName_ that you provide in
+   `x-amzn-iot-thingname` must match the name of the
+   AWS IoT Thing resource assigned to a cert. If it doesn't match, a
+   403 error is returned.
+   Run the following command in the AWS CLI to obtain the credentials provider
+   endpoint for your AWS account. For more information about this API, see
+   [DescribeEndpoint](../apireference/API_DescribeEndpoint.md "../apireference/API_DescribeEndpoint.md"). For FIPS-enabled endpoints, see
+   [AWS IoT Core - credential provider endpoints](iot-connect-fips.md#iot-connect-fips-credential "iot-connect-fips.md#iot-connect-fips-credential").
 
 ```
 aws iot describe-endpoint --endpoint-type iot:CredentialProvider

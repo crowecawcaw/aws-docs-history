@@ -75,7 +75,7 @@ microSD card. 4. After writing the Raspberry Pi OS image to the microSD card:
      communications the first time it starts.
 
 5. Eject the microSD card and safely remove it from the local host
-   computer.
+computer.
 
 Your microSD card is ready to [Start your IoT device with the new operating system](#iot-dc-prepare-device-sys-step2 "#iot-dc-prepare-device-sys-step2").
 
@@ -102,7 +102,7 @@ If you also want to interact with the device directly, you can:
      the Raspberry Pi.
 
 4. Connect the power to the Raspberry Pi and wait about a minute for it to
-   initialize.
+initialize.
 
 If you have a monitor connected to your Raspberry Pi, you can watch the
 start-up process on it. 5. Find out your device’s IP address:

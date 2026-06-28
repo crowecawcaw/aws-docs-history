@@ -95,34 +95,34 @@ following options:
      template. These templates have already been preconfigured for use. For
      more information, see [Create a custom job template](job-templates-console.md#job-templates-console-create "job-templates-console.md#job-templates-console-create") and [Create custom job templates from managed templates](job-template-manage-console-create.md#job-template-manage-create-template "job-template-manage-console-create.md#job-template-manage-create-template").
 
-5.  On the **Job configuration** page in the **Job
-    configuration** dialog box, select one of the following job
-    types:
+5. On the **Job configuration** page in the **Job
+configuration** dialog box, select one of the following job
+types:
 
-    - **Snapshot job**: A snapshot job is complete when
-      it's finished its run on the target devices and groups.
-    - **Continuous job**: A continuous job applies to thing
-      groups and runs on any device that you later add to a specified target
-      group.
+    * **Snapshot job**: A snapshot job is complete when
+     it's finished its run on the target devices and groups.
+    * **Continuous job**: A continuous job applies to thing
+     groups and runs on any device that you later add to a specified target
+     group.
 
-6.  In the **Additional configurations - optional** dialog
-    box, review the following optional Job configurations and make your selections
-    accordingly:
+6. In the **Additional configurations - optional** dialog
+box, review the following optional Job configurations and make your selections
+accordingly:
 
-        * **Rollout configuration**
-        * **Scheduling configuration**
-        * **Job executions timeout configuration**
-        * **Job executions retry configuration - new**
-        * **Abort configuration**
+    * **Rollout configuration**
+    * **Scheduling configuration**
+    * **Job executions timeout configuration**
+    * **Job executions retry configuration - new**
+    * **Abort configuration**
 
-    Refer to the following sections for additional information on Job
-    configurations:
+Refer to the following sections for additional information on Job
+configurations:
 
-        * [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
-        * [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
+    * [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
+    * [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
 
-    Review all of your job selections and then choose **Submit**
-    to create your job.
+Review all of your job selections and then choose **Submit**
+to create your job.
 
 ## View and manage jobs by using the AWS Management Console
 

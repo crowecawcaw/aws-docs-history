@@ -169,7 +169,7 @@ your specific solution.
 
 ###### Note
 
-The AWS IoT Device Client works with microprocessor-based IoT devices with x86_64 or
+The AWS IoT Device Client works with microprocessor-based IoT devices with x86\_64 or
 ARM processors and common Linux operating systems.
 
 C++
@@ -198,6 +198,3 @@ and should not be used on new projects.
 - [AWS IoT Device SDK for
   JavaScript on GitHub](https://github.com/aws/aws-iot-device-sdk-js "https://github.com/aws/aws-iot-device-sdk-js")
 - [AWS IoT Device SDK for JavaScript Readme](https://github.com/aws/aws-iot-device-sdk-js#new-version-available "https://github.com/aws/aws-iot-device-sdk-js#new-version-available")
-- [Arduino Yún
-  SDK on GitHub](https://github.com/aws/aws-iot-device-sdk-arduino-yun "https://github.com/aws/aws-iot-device-sdk-arduino-yun")
-- [Arduino Yún SDK Readme](https://github.com/aws/aws-iot-device-sdk-arduino-yun#aws-iot-arduino-y%C3%BAn-sdk "https://github.com/aws/aws-iot-device-sdk-arduino-yun#aws-iot-arduino-y%C3%BAn-sdk")

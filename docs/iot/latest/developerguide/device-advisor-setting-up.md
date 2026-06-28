@@ -14,93 +14,92 @@ on how to create things, see [Create a thing object](create-iot-resources.md#cre
 You can quickly create the device role with the Device Advisor console. To learn how
 to set up your device role with the Device Advisor console, see [Getting started with the Device Advisor in the console](da-console-guide.md "da-console-guide.md").
 
-1.  Go to the [AWS Identity and Access Management console](https://console.aws.amazon.com/iam/home?region=us-west-2#/home "https://console.aws.amazon.com/iam/home?region=us-west-2#/home") and log in to the AWS account you use for
-    Device Advisor testing.
-2.  In the left navigation pane, chose **Policies**.
-3.  Choose **Create policy**.
-4.  Under **Create policy**, do the following:
+1. Go to the [AWS Identity and Access Management console](https://console.aws.amazon.com/iam/home?region=us-west-2#/home "https://console.aws.amazon.com/iam/home?region=us-west-2#/home") and log in to the AWS account you use for
+   Device Advisor testing.
+2. In the left navigation pane, chose **Policies**.
+3. Choose **Create policy**.
+4. Under **Create policy**, do the following:
 
-    1.  For **Service**, choose
-        **IoT**.
-    2.  Under **Actions**, do one of the
-        following:
+   1. For **Service**, choose
+      **IoT**.
+   2. Under **Actions**, do one of the
+      following:
 
-        - (Recommended) Select actions based on the policy attached
-          to the IoT thing or certificate you created in the previous
-          section.
-        - Search for the following actions in the **Filter
-          action** box and select them:
+      - (Recommended) Select actions based on the policy attached
+        to the IoT thing or certificate you created in the previous
+        section.
+      - Search for the following actions in the **Filter
+        action** box and select them:
 
-          - `Connect`
-          - `Publish`
-          - `Subscribe`
-          - `Receive`
-          - `RetainPublish`
+        - `Connect`
+        - `Publish`
+        - `Subscribe`
+        - `Receive`
+        - `RetainPublish`
 
-    3.  Under **Resources**, restrict the client, topic,
-        and topic resources. Restricting these resources is a security best
-        practice. To restrict resources, do the following:
+   3. Under **Resources**, restrict the client, topic,
+      and topic resources. Restricting these resources is a security best
+      practice. To restrict resources, do the following:
 
-        1. Choose **Specify client resource ARN for the
-           Connect action**.
-        2. Choose **Add ARN**, then do either of the
-           following:
+      1. Choose **Specify client resource ARN for the
+         Connect action**.
+      2. Choose **Add ARN**, then do either of the
+         following:
 
-        ###### Note
+      ###### Note
 
-        The _clientId_ is the MQTT client
-        ID that your device uses to interact with
-        Device Advisor.
+      The _clientId_ is the MQTT client
+      ID that your device uses to interact with
+      Device Advisor.
 
-            * Specify the **Region**,
-             **accountID**, and
-             **clientID** in the visual ARN
-             editor.
-            * Manually enter the Amazon Resource Names (ARNs) of
-             the IoT topics you want to run your test cases
-             with.
-        3. Choose **Add**.
-        4. Choose **Specify topic resource ARN for the
-           Receive and one more action**.
-        5. Choose **Add ARN**, then do either of the
-           following:
+           * Specify the **Region**,
+            **accountID**, and
+            **clientID** in the visual ARN
+            editor.
+           * Manually enter the Amazon Resource Names (ARNs) of
+            the IoT topics you want to run your test cases
+            with.
 
-        ###### Note
+      3. Choose **Add**. 4. Choose **Specify topic resource ARN for the
+      Receive and one more action**. 5. Choose **Add ARN**, then do either of the
+      following:
 
-        The _topic name_ is the MQTT topic
-        that your device publishes messages to.
+      ###### Note
 
-            * Specify the **Region**,
-             **accountID**, and
-             **Topic name** in the visual ARN
-             editor.
-            * Manually enter the ARNs of the IoT topics you want
-             to run your test cases with.
-        6. Choose **Add**.
-        7. Choose **Specify topicFilter resource ARN for the
-           Subscribe action**.
-        8. Choose **Add ARN**, then do either of the
-           following:
+      The _topic name_ is the MQTT topic
+      that your device publishes messages to.
 
-        ###### Note
+           * Specify the **Region**,
+            **accountID**, and
+            **Topic name** in the visual ARN
+            editor.
+           * Manually enter the ARNs of the IoT topics you want
+            to run your test cases with.
 
-        The _topic name_ is the MQTT topic
-        that your device subscribes to.
+      6. Choose **Add**. 7. Choose **Specify topicFilter resource ARN for the
+      Subscribe action**. 8. Choose **Add ARN**, then do either of the
+      following:
 
-            * Specify the **Region**,
-             **accountID**, and
-             **Topic name** in the visual ARN
-             editor.
-            * Manually enter the ARNs of the IoT topics you want
-             to run your test cases with.
-        9. Choose **Add**.
+      ###### Note
 
-5.  Choose **Next: Tags**.
-6.  Choose **Next: Review**.
-7.  Under **Review policy**, enter a
-    **Name** for your policy.
-8.  Choose **Create policy**.
-9.  On the left navigation pane, Choose **Roles**.
+      The _topic name_ is the MQTT topic
+      that your device subscribes to.
+
+           * Specify the **Region**,
+            **accountID**, and
+            **Topic name** in the visual ARN
+            editor.
+           * Manually enter the ARNs of the IoT topics you want
+            to run your test cases with.
+
+      9. Choose **Add**.
+
+5. Choose **Next: Tags**.
+6. Choose **Next: Review**.
+7. Under **Review policy**, enter a
+   **Name** for your policy.
+8. Choose **Create policy**.
+9. On the left navigation pane, Choose **Roles**.
 10. Choose **Create Role**.
 11. Under **Select trusted entity**, choose **Custom
     trust policy**.

@@ -32,17 +32,17 @@ method is based on application protocol, port, and Application Layer Protocol
 Negotiation (ALPN) TLS extension that devices use. The following table lists the
 authentication expected based on port, port, and ALPN.
 
-| Protocols, authentication, and port mappings | Protocol           | Operations supported     | Authentication | Port             | ALPN protocol name |
-| -------------------------------------------- | ------------------ | ------------------------ | -------------- | ---------------- | ------------------ |
-| MQTT over WebSocket                          | Publish, Subscribe | Signature Version 4      | 443            | N/A              |
-| MQTT over WebSocket                          | Publish, Subscribe | Custom authentication    | 443            | N/A              |
-| MQTT                                         | Publish, Subscribe | X.509 client certificate | 443†           | `x-amzn-mqtt-ca` |
-| MQTT                                         | Publish, Subscribe | X.509 client certificate | 8883           | N/A              |
-| MQTT                                         | Publish, Subscribe | Custom authentication    | 443†           | `mqtt`           |
-| HTTPS                                        | Publish only       | Signature Version 4      | 443            | N/A              |
-| HTTPS                                        | Publish only       | X.509 client certificate | 443†           | `x-amzn-http-ca` |
-| HTTPS                                        | Publish only       | X.509 client certificate | 8443           | N/A              |
-| HTTPS                                        | Publish only       | Custom authentication    | 443            | N/A              |
+Protocols, authentication, and port mappings| Protocol | Operations supported | Authentication | Port | ALPN protocol name |
+| --- | --- | --- | --- | --- |
+| MQTT over WebSocket | Publish, Subscribe | Signature Version 4 | 443 | N/A |
+| MQTT over WebSocket | Publish, Subscribe | Custom authentication | 443 | N/A |
+| MQTT | Publish, Subscribe | X.509 client certificate | 443† | `x-amzn-mqtt-ca` |
+| MQTT | Publish, Subscribe | X.509 client certificate | 8883 | N/A |
+| MQTT | Publish, Subscribe | Custom authentication | 443† | `mqtt` |
+| HTTPS | Publish only | Signature Version 4 | 443 | N/A |
+| HTTPS | Publish only | X.509 client certificate | 443† | `x-amzn-http-ca` |
+| HTTPS | Publish only | X.509 client certificate | 8443 | N/A |
+| HTTPS | Publish only | Custom authentication | 443 | N/A |
 
 ###### Application Layer Protocol Negotiation (ALPN)
 
@@ -70,11 +70,11 @@ hostname such as the [`pubsub.py` sample for AWS IoT Device SDK for Python on
 GitHub](https://github.com/aws/aws-iot-device-sdk-python-v2/blob/master/samples/pubsub.py#L100 "https://github.com/aws/aws-iot-device-sdk-python-v2/blob/master/samples/pubsub.py#L100"). Passing the entire URL as provided in the following table
 can generate an error such as invalid hostname.
 
-| Connecting to AWS IoT Core | Protocol                        | Endpoint or URL |
-| -------------------------- | ------------------------------- | --------------- |
-| MQTT                       | `iot-endpoint`                  |
-| MQTT over WSS              | `wss://`iot-endpoint`/mqtt`     |
-| HTTPS                      | `https://`iot-endpoint`/topics` |
+Connecting to AWS IoT Core| Protocol | Endpoint or URL |
+| --- | --- |
+| MQTT | `iot-endpoint` |
+| MQTT over WSS | `wss://`iot-endpoint`/mqtt` |
+| HTTPS | `https://`iot-endpoint`/topics` |
 
 ## Choosing an application protocol for your device communication
 
@@ -85,19 +85,19 @@ device endpoints also support HTTPS.
 The following table compares how AWS IoT Core uses the two high-level protocols
 (MQTT and HTTPS) for device communication.
 
-| AWS IoT device protocols (MQTT and HTTPS) side-by-side     | Feature                                                                                                                                              | [MQTT](mqtt.md "mqtt.md")                                                                                                                                                               | [HTTPS](http.md "http.md") |
-| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| Publish/Subscribe support                                  | Publish and subscribe                                                                                                                                | Publish only                                                                                                                                                                            |
-| SDK support                                                | [AWS Device<br>SDKs](iot-connect-devices.md#iot-connect-device-sdks "iot-connect-devices.md#iot-connect-device-sdks") support MQTT and WSS protocols | No SDK support, but you can use language-specific methods<br>to make HTTPS requests                                                                                                     |
-| Quality of Service support                                 | [MQTT QoS levels 0 and<br>1](mqtt.md#mqtt-qos "mqtt.md#mqtt-qos")                                                                                    | QoS is supported by passing a query string parameter<br>`?qos=qos` where the value can be 0 or 1. You can<br>add this query string to publish a message with the QoS value<br>you want. |
-| Can receive messages be missed while device was<br>offline | Yes                                                                                                                                                  | No                                                                                                                                                                                      |
-| `clientId` field support                                   | Yes                                                                                                                                                  | No                                                                                                                                                                                      |
-| Device disconnection detection                             | Yes                                                                                                                                                  | No                                                                                                                                                                                      |
-| Secure communications                                      | Yes. See [Protocols, port mappings, and authentication](#protocol-mapping "#protocol-mapping")                                                       | Yes. See [Protocols, port mappings, and authentication](#protocol-mapping "#protocol-mapping")                                                                                          |
-| Topic definitions                                          | Application defined                                                                                                                                  | Application defined                                                                                                                                                                     |
-| Message data format                                        | Application defined                                                                                                                                  | Application defined                                                                                                                                                                     |
-| Protocol overhead                                          | Lower                                                                                                                                                | Higher                                                                                                                                                                                  |
-| Power consumption                                          | Lower                                                                                                                                                | Higher                                                                                                                                                                                  |
+AWS IoT device protocols (MQTT and HTTPS) side-by-side| Feature | [MQTT](mqtt.md "mqtt.md") | [HTTPS](http.md "http.md") |
+| --- | --- | --- |
+| Publish/Subscribe support | Publish and subscribe | Publish only |
+| SDK support | [AWS Device<br>SDKs](iot-connect-devices.md#iot-connect-device-sdks "iot-connect-devices.md#iot-connect-device-sdks") support MQTT and WSS protocols | No SDK support, but you can use language-specific methods<br>to make HTTPS requests |
+| Quality of Service support | [MQTT QoS levels 0 and<br>1](mqtt.md#mqtt-qos "mqtt.md#mqtt-qos") | QoS is supported by passing a query string parameter<br>`?qos=qos` where the value can be 0 or 1. You can<br>add this query string to publish a message with the QoS value<br>you want. |
+| Can receive messages be missed while device was<br>offline | Yes | No |
+| `clientId` field support | Yes | No |
+| Device disconnection detection | Yes | No |
+| Secure communications | Yes. See [Protocols, port mappings, and authentication](#protocol-mapping "#protocol-mapping") | Yes. See [Protocols, port mappings, and authentication](#protocol-mapping "#protocol-mapping") |
+| Topic definitions | Application defined | Application defined |
+| Message data format | Application defined | Application defined |
+| Protocol overhead | Lower | Higher |
+| Power consumption | Lower | Higher |
 
 ## Choosing an authentication type for your device communication
 
@@ -149,13 +149,13 @@ options are not supported. For more information, see [Protocols, port mappings, 
 The table below shows all the supported combinations of authentication types
 and application protocols.
 
-| Supported combinations of authentication types and application protocols | Authentication type | Secure MQTT (MQTT over TLS) | MQTT over WebSocket Secure (WSS) | HTTPS | Default |
-| ------------------------------------------------------------------------ | ------------------- | --------------------------- | -------------------------------- | ----- | ------- |
-| **X.509 certificate**                                                    | ✓                   |                             | ✓                                |       |
-| **X.509 certificate with custom<br>authorizer**                          | ✓                   |                             | ✓                                |       |
-| **AWS Signature Version 4<br>(SigV4)**                                   |                     | ✓                           | ✓                                |       |
-| **Custom authorizer**                                                    | ✓                   | ✓                           | ✓                                |       |
-| **Default**                                                              |                     |                             |                                  | ✓     |
+Supported combinations of authentication types and application protocols| Authentication type | Secure MQTT (MQTT over TLS) | MQTT over WebSocket Secure (WSS) | HTTPS | Default |
+| --- | --- | --- | --- | --- |
+| **X.509 certificate** | ✓ | | ✓ | |
+| **X.509 certificate with custom<br>authorizer** | ✓ | | ✓ | |
+| **AWS Signature Version 4<br>(SigV4)** | | ✓ | ✓ | |
+| **Custom authorizer** | ✓ | ✓ | ✓ | |
+| **Default** | | | | ✓ |
 
 ## Connection duration limits
 
@@ -166,11 +166,11 @@ MQTT connection duration depends on the authentication feature that you use.
 The following table lists the maximum connection duration under ideal conditions
 for each feature.
 
-| MQTT connection duration by authentication feature | Feature        | Maximum duration \* |
-| -------------------------------------------------- | -------------- | ------------------- |
-| X.509 client certificate                           | 1–2 weeks      |
-| Custom authentication                              | 1–2 weeks      |
-| Signature Version 4                                | Up to 24 hours |
+MQTT connection duration by authentication feature| Feature | Maximum duration \* |
+| --- | --- |
+| X.509 client certificate | 1–2 weeks |
+| Custom authentication | 1–2 weeks |
+| Signature Version 4 | Up to 24 hours |
 
 \* Not guaranteed
 

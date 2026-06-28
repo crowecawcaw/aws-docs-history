@@ -73,16 +73,16 @@ choose **Manage**, and then choose **Things**. Choose the IoT thing
 for your device, and then choose **Interact**. Your endpoint is
 displayed in the **HTTPS** section of the thing details page. 3. Open the `demo_config.h` file and update the values for the following:
 
-AWS_IOT_ENDPOINT
+AWS\_IOT\_ENDPOINT
 
 Your personal endpoint.
 
-CLIENT_CERT_PATH
+CLIENT\_CERT\_PATH
 
 Your certificate file path, for example
 `certificates/device.pem.crt"`.
 
-CLIENT_PRIVATE_KEY_PATH
+CLIENT\_PRIVATE\_KEY\_PATH
 
 Your private key file name, for example
 `certificates/private.pem.key`.

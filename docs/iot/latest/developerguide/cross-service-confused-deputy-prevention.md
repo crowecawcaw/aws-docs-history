@@ -128,7 +128,7 @@ If you define your provisioning template within a CA certificate resource,
 the value of `aws:SourceArn` can be
 `"arn:aws:iot:`region`:`account-id`:cacert/`cert_id`"`
 or
-`"arn:aws:iot:`region`:`account-id`:cacert/`\*`"`.
+`"arn:aws:iot:`region`:`account-id`:cacert/`*`"`.
 You can use a wildcard when the resource identifier, such as the ID of a CA
 certificate, is unknown at the time of creation.
 

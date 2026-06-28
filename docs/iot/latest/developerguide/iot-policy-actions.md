@@ -139,7 +139,7 @@ a request is made to update the state of a job execution.
 
 Represents the permission to get and start the next pending job
 execution for a thing. (That is, to update a job execution with status
-QUEUED to IN_PROGRESS.) The
+QUEUED to IN\_PROGRESS.) The
 `iotjobsdata:StartNextPendingJobExecution` permission is checked
 every time a request is made to start the next pending job
 execution.

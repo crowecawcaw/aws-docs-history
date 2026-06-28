@@ -52,11 +52,11 @@ to the message broker by using a device endpoint. The following table lists the
 protocols that the Device Advisor endpoints support and the authentication methods
 and ports used.
 
-| Protocols, authentication, and port mappings | Protocol           | Operations supported     | Authentication | Port             | ALPN protocol name |
-| -------------------------------------------- | ------------------ | ------------------------ | -------------- | ---------------- | ------------------ |
-| MQTT over WebSocket                          | Publish, Subscribe | Signature Version 4      | 443            | N/A              |
-| MQTT                                         | Publish, Subscribe | X.509 client certificate | 8883           | `x-amzn-mqtt-ca` |
-| MQTT                                         | Publish, Subscribe | X.509 client certificate | 443            | N/A              |
+Protocols, authentication, and port mappings| Protocol | Operations supported | Authentication | Port | ALPN protocol name |
+| --- | --- | --- | --- | --- |
+| MQTT over WebSocket | Publish, Subscribe | Signature Version 4 | 443 | N/A |
+| MQTT | Publish, Subscribe | X.509 client certificate | 8883 | `x-amzn-mqtt-ca` |
+| MQTT | Publish, Subscribe | X.509 client certificate | 443 | N/A |
 
 ###### This chapter contains the following sections:
 

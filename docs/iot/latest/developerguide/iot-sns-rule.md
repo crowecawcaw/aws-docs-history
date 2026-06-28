@@ -86,21 +86,22 @@ charges from the messages you will send in this tutorial.
 
 3. **Test the Amazon SNS notification.**
 
-   1. In the [Amazon SNS console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home"), in the left
-      navigation pane, choose **Topics**.
-   2. To open the topic's details page, in **Topics**, in the list of
-      topics, choose **high_temp_notice**.
-   3. To open the **Publish message to topic** page, in the
-      **high_temp_notice** details page, choose **Publish
-      message**.
-   4. In **Publish message to topic**, in the **Message
-      body** section, in **Message body to send to the
-      endpoint**, enter a short message.
-   5. Scroll down to the bottom of the page and choose **Publish
-      message**.
-   6. On the phone with the number you used earlier when creating the subscription,
-      confirm that the message was received.If you did not receive the test message, double check the phone number and your
-      phone's settings.
+    1. In the [Amazon SNS console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home"), in the left
+     navigation pane, choose **Topics**.
+    2. To open the topic's details page, in **Topics**, in the list of
+     topics, choose **high\_temp\_notice**.
+    3. To open the **Publish message to topic** page, in the
+     **high\_temp\_notice** details page, choose **Publish
+     message**.
+    4. In **Publish message to topic**, in the **Message
+     body** section, in **Message body to send to the
+     endpoint**, enter a short message.
+    5. Scroll down to the bottom of the page and choose **Publish
+     message**.
+    6. On the phone with the number you used earlier when creating the subscription,
+     confirm that the message was received.If you did not receive the test message, double check the phone number and your
+
+phone's settings.
 
 Make sure you can publish test messages from the [Amazon SNS console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home") before you continue the tutorial.
 
@@ -150,39 +151,39 @@ looks like this to the Amazon SNS topic:
 
 ###### To create an AWS IoT rule to detect an over-limit temperature value and create the data to send to the Amazon SNS topic
 
-1.  Open [the **Rules**
-    hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
-2.  If this is your first rule, choose **Create**, or
-    **Create a rule**.
-3.  In **Create a rule**:
+1. Open [the **Rules**
+   hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
+2. If this is your first rule, choose **Create**, or
+   **Create a rule**.
+3. In **Create a rule**:
 
-    1. In **Name**, enter
-       `temp_limit_notify`.
+   1. In **Name**, enter
+      `temp_limit_notify`.
 
-    Remember that a rule name must be unique within your AWS account and Region, and
-    it can't have any spaces. We've used an underscore character in this name to
-    separate the words in the rule's name. 2. In **Description**, describe the rule.
+   Remember that a rule name must be unique within your AWS account and Region, and
+   it can't have any spaces. We've used an underscore character in this name to
+   separate the words in the rule's name. 2. In **Description**, describe the rule.
 
-    A meaningful description makes it easier to remember what this rule does and why
-    you created it. The description can be as long as needed, so be as detailed as
-    possible.
+   A meaningful description makes it easier to remember what this rule does and why
+   you created it. The description can be as long as needed, so be as detailed as
+   possible.
 
-4.  In **Rule query statement** of **Create a
-    rule**:
+4. In **Rule query statement** of **Create a
+   rule**:
 
-    1. In **Using SQL version**, select
-       **2016-03-23**.
-    2. In the **Rule query statement** edit box, enter the statement:
+   1. In **Using SQL version**, select
+      **2016-03-23**.
+   2. In the **Rule query statement** edit box, enter the statement:
 
-    ```
-    SELECT topic(2) as device_id,
-        temperature as reported_temperature,
-        30 as max_temperature
-      FROM 'device/+/data'
-      WHERE temperature > 30
-    ```
+   ```
+   SELECT topic(2) as device_id,
+       temperature as reported_temperature,
+       30 as max_temperature
+     FROM 'device/+/data'
+     WHERE temperature > 30
+   ```
 
-    This statement:
+   This statement:
 
         * Listens for MQTT messages with a topic that matches the
          `device/+/data` topic filter and that have a
@@ -194,30 +195,30 @@ looks like this to the Amazon SNS topic:
         * Creates a constant value `30` to represent the limit value and
          assigns it to the `max_temperature` field.
 
-5.  To open up the list of rule actions for this rule, in **Set one or more
-    actions**, choose **Add action**.
-6.  In **Select an action**, choose **Send a message as an SNS
-    push notification**.
-7.  To open the selected action's configuration page, at the bottom of the action list,
-    choose **Configure action**.
-8.  In **Configure action**:
+5. To open up the list of rule actions for this rule, in **Set one or more
+   actions**, choose **Add action**.
+6. In **Select an action**, choose **Send a message as an SNS
+   push notification**.
+7. To open the selected action's configuration page, at the bottom of the action list,
+   choose **Configure action**.
+8. In **Configure action**:
 
-    1. In **SNS target**, choose **Select**, find
-       your SNS topic named **high_temp_notice**, and choose
-       **Select**.
-    2. In **Message format**, choose
-       **RAW**.
-    3. In **Choose or create a role to grant AWS IoT access to perform this
-       action**, choose **Create Role**.
-    4. In **Create a new role**, in **Name**, enter a
-       unique name for the new role. For this tutorial, use
-       `sns_rule_role`.
-    5. Choose **Create role**.If you're repeating this tutorial or reusing an existing role, choose
-       **Update role** before continuing. This updates the role's policy
-       document to work with the SNS target.
+   1. In **SNS target**, choose **Select**, find
+      your SNS topic named **high\_temp\_notice**, and choose
+      **Select**.
+   2. In **Message format**, choose
+      **RAW**.
+   3. In **Choose or create a role to grant AWS IoT access to perform this
+      action**, choose **Create Role**.
+   4. In **Create a new role**, in **Name**, enter a
+      unique name for the new role. For this tutorial, use
+      `sns_rule_role`.
+   5. Choose **Create role**.If you're repeating this tutorial or reusing an existing role, choose
+      **Update role** before continuing. This updates the role's policy
+      document to work with the SNS target.
 
-9.  Choose **Add action** and return to the **Create a
-    rule** page.
+9. Choose **Add action** and return to the **Create a
+   rule** page.
 
 In the new action's tile, below **Send a message as an SNS push
 notification**, you can see the SNS topic that your rule will call.

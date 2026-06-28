@@ -114,7 +114,7 @@ identify the endpoint address for the `host_name` field, see [Transport security
 1. You can register the device certificates with a CA. You can register
    the signing CA in multiple accounts in `SNI_ONLY` mode and
    use that CA to register the same client certificate to multiple
-   accounts. For more information, see [Register a CA certificate in SNI_ONLY mode (CLI) - Recommended](manage-your-CA-certs.md#register-CA-cert-SNI-cli "manage-your-CA-certs.md#register-CA-cert-SNI-cli").
+   accounts. For more information, see [Register a CA certificate in SNI\_ONLY mode (CLI) - Recommended](manage-your-CA-certs.md#register-CA-cert-SNI-cli "manage-your-CA-certs.md#register-CA-cert-SNI-cli").
 2. You can register the device certificates without a CA. See [Register a client certificate signed by an unregistered CA (CLI)](manual-cert-registration.md#manual-cert-registration-noca-cli "manual-cert-registration.md#manual-cert-registration-noca-cli"). Registering a
    CA is optional. You're not required to register the CA that signed the
    device certificates with AWS IoT.
@@ -129,7 +129,7 @@ AWS IoT supports the following certificate-signing algorithms:
 - SHA256WITHRSAANDMGF1 (RSASSA-PSS)
 - SHA384WITHRSAANDMGF1 (RSASSA-PSS)
 - SHA512WITHRSAANDMGF1 (RSASSA-PSS)
-- DSA_WITH_SHA256
+- DSA\_WITH\_SHA256
 - ECDSA-WITH-SHA256
 - ECDSA-WITH-SHA384
 - ECDSA-WITH-SHA512

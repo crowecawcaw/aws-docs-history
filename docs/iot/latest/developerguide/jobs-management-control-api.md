@@ -515,8 +515,8 @@ Deletes a job and its related job executions.
 Deleting a job can take time, depending on the number of job
 executions created for the job and various other factors. While
 the job is being deleted, the status of the job is shown as
-"DELETION_IN_PROGRESS". Attempting to delete or cancel a job
-whose status is already "DELETION_IN_PROGRESS" results in an
+"DELETION\_IN\_PROGRESS". Attempting to delete or cancel a job
+whose status is already "DELETION\_IN\_PROGRESS" results in an
 error.
 
 HTTPS request

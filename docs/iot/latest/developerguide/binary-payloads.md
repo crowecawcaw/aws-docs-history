@@ -19,8 +19,10 @@ have data added using the rule. The following shows examples of supported
   binary payloads.
 
   - ```
-    SELECT * FROM 'topic/subtopic'
+
     ```
+
+  SELECT * FROM 'topic/subtopic'
 
   ````
   + ```
@@ -31,8 +33,10 @@ have data added using the rule. The following shows examples of supported
   clauses.
 
   - ```
-    SELECT *, principal() as principal, timestamp() as time FROM 'topic/subtopic'
+
     ```
+
+  SELECT *, principal() as principal, timestamp() as time FROM 'topic/subtopic'
 
   ````
   + ```

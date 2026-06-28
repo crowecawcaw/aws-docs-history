@@ -13,16 +13,15 @@ The endpoint is specific to your AWS account. To find your endpoint, you can:
   is listed under **Custom endpoint**
 - Use the AWS IoT console thing details page. In the console:
 
-      1. Open **Manage** and under **Manage**,
-       choose **Things**.
-      2. In the list of things, choose the thing for which you want to get the
-       endpoint URI.
-      3. Choose the **Device Shadows** tab and choose your
-       shadow. You can view the endpoint URI in the **Device Shadow
-       URL** section of the **Device Shadow
-       details** page.
-
-  The format of the endpoint is as follows:
+  1.  Open **Manage** and under **Manage**,
+      choose **Things**.
+  2.  In the list of things, choose the thing for which you want to get the
+      endpoint URI.
+  3.  Choose the **Device Shadows** tab and choose your
+      shadow. You can view the endpoint URI in the **Device Shadow
+      URL** section of the **Device Shadow
+      details** page.
+      The format of the endpoint is as follows:
 
 ```
 `identifier`.iot.`region`.amazonaws.com

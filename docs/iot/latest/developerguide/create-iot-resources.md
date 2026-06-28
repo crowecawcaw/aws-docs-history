@@ -109,7 +109,7 @@ policy**. 3. On the **Create policy** page:
      to a policy. For more information, see [AWS IoT Core action resources](iot-action-resources.md "iot-action-resources.md").
 
 4. After you've entered the information for your policy, choose
-   **Create**.
+**Create**.
 
 For more information, see [How AWS IoT works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 

@@ -322,8 +322,8 @@ authorizer resources created by either method.
       5. In **Public key**, enter the contents of
          the `public-key.pem` file. Be sure to include the
          lines from the file with `-----BEGIN PUBLIC
-KEY-----` and `-----END PUBLIC
-KEY-----` and don't add or remove any line feeds,
+  KEY-----` and `-----END PUBLIC
+  KEY-----` and don't add or remove any line feeds,
          carriage returns, or other characters from the file
          contents. The string that you enter should look something
          like this example.
@@ -400,7 +400,7 @@ JWBUCG0bqcLQPeQyjbXSOfUCAwEAAQ==
      public key value makes it unusable.
 
 2. If the custom authorizer is created, the command returns the name and ARN of
-   the new resource, such as the following.
+the new resource, such as the following.
 
 ```
 {
@@ -546,64 +546,72 @@ step. 2. Open a new Postman window and create a new HTTP POST request.
     	3. Choose **Save to
     	 `collection_name`**.
 
-3.  Create the POST request to test your custom authorizer.
+3. Create the POST request to test your custom authorizer.
 
     1. In the request method selector next to the URL field, choose
-       **POST**.
+     **POST**.
     2. In the URL field, create the URL for your request by using the
-       following URL with the
-       `device_data_endpoint_address` from the
-       [describe-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html") command in a previous step.
+     following URL with the
+     `device_data_endpoint_address` from the
+     [describe-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html") command in a previous step.
+
+
 
     ```
     https://`device_data_endpoint_address`:443/topics/test/cust-auth/topic?qos=0&actionToken=allow
     ```
 
     Note that this URL includes the `actionToken=allow` query
-    parameter that will tell your Lambda function to return a policy document
-    that allows access to AWS IoT. After you enter the URL, the query
-    parameters also appear in the **Params** tab of
-    Postman. 3. In the **Auth** tab, in the **Type**
-    field, choose **No Auth**. 4. In the Headers tab:
-
-        1. If there's a **Host** key that's checked,
-         uncheck this one.
-        2. At the bottom of the list of headers add these new headers and
-         confirm they are checked. Replace the
-         `Host` value with your
-         `device_data_endpoint_address` and
-         the `x-amz-customauthorizer-signature`
-         value with the signature string that you used with the
-         **test-invoke-authorize** command in the
-         previous section.
+     parameter that will tell your Lambda function to return a policy document
+     that allows access to AWS IoT. After you enter the URL, the query
+     parameters also appear in the **Params** tab of
+     Postman.
+    3. In the **Auth** tab, in the **Type**
+     field, choose **No Auth**.
+    4. In the Headers tab:
 
 
+    	1. If there's a **Host** key that's checked,
+    	 uncheck this one.
+    	2. At the bottom of the list of headers add these new headers and
+    	 confirm they are checked. Replace the
+    	 `Host` value with your
+    	 `device_data_endpoint_address` and
+    	 the `x-amz-customauthorizer-signature`
+    	 value with the signature string that you used with the
+    	 **test-invoke-authorize** command in the
+    	 previous section.
 
 
-        | Key | Value |
-        | --- | --- |
-        | `x-amz-customauthorizer-name` | `my-new-authorizer` |
-        | `Host` | `device_data_endpoint_address` |
-        | `tokenKeyName` | `tokenKeyValue` |
-        | `x-amz-customauthorizer-signature` | `dBwykzlb+fo+JmSGdwoGr8dyC2qB/IyLefJJr+rbCvmu9Jl4KHAA9DG+V+MMWu09YSA86+64Y3Gt4tOykpZqn9mnVB1wyxp+0bDZh8hmqUAUH3fwi3fPjBvCa4cwNuLQNqBZzbCvsluv7i2IMjEg+CPY0zrWt1jr9BikgGPDxWkjaeehbQHHTo357TegKs9pP30Uf4TrxypNmFswA5k7QIc01n4bIyRTm90OyZ94R4bdJsHNig1JePgnuOBvMGCEFE09jGjjszEHfgAUAQIWXiVGQj16BU1xKpTGSiTAwheLKUjITOEXAMPLECK3aHKYKY+d1vTvdthKtYHBq8MjhzJ0kggbt29VQJCb8RilN/P5+vcVniSXWPplyB5jkYs9UvG08REoy64AtizfUhvSul/r/F3VV8ITtQp3aXiUtcspACi6ca+tsDuXf3LzCwQQF/YSUy02u5XkWn+sto6KCkpNlkD0wU8gl3+kOzxrthnQ8gEajd5Iylx230iqcXo3osjPha7JDyWM5o+KEWckTe91I1mokDr5sJ4JXixvnJTVSx1li49IalW4en1DAkc1a0s2U2UNm236EXAMPLELotyh7h+flFeloZlAWQFHxRlXsPqiVKS1ZIUClaZWprh/orDJplpiWfBgBIOgokJIDGP9gwhXIIk7zWrGmWpMK9o=` |
+
+
+    	| Key | Value |
+    	| --- | --- |
+    	| `x-amz-customauthorizer-name` | `my-new-authorizer` |
+    	| `Host` | `device_data_endpoint_address` |
+    	| `tokenKeyName` | `tokenKeyValue` |
+    	| `x-amz-customauthorizer-signature` | `dBwykzlb+fo+JmSGdwoGr8dyC2qB/IyLefJJr+rbCvmu9Jl4KHAA9DG+V+MMWu09YSA86+64Y3Gt4tOykpZqn9mnVB1wyxp+0bDZh8hmqUAUH3fwi3fPjBvCa4cwNuLQNqBZzbCvsluv7i2IMjEg+CPY0zrWt1jr9BikgGPDxWkjaeehbQHHTo357TegKs9pP30Uf4TrxypNmFswA5k7QIc01n4bIyRTm90OyZ94R4bdJsHNig1JePgnuOBvMGCEFE09jGjjszEHfgAUAQIWXiVGQj16BU1xKpTGSiTAwheLKUjITOEXAMPLECK3aHKYKY+d1vTvdthKtYHBq8MjhzJ0kggbt29VQJCb8RilN/P5+vcVniSXWPplyB5jkYs9UvG08REoy64AtizfUhvSul/r/F3VV8ITtQp3aXiUtcspACi6ca+tsDuXf3LzCwQQF/YSUy02u5XkWn+sto6KCkpNlkD0wU8gl3+kOzxrthnQ8gEajd5Iylx230iqcXo3osjPha7JDyWM5o+KEWckTe91I1mokDr5sJ4JXixvnJTVSx1li49IalW4en1DAkc1a0s2U2UNm236EXAMPLELotyh7h+flFeloZlAWQFHxRlXsPqiVKS1ZIUClaZWprh/orDJplpiWfBgBIOgokJIDGP9gwhXIIk7zWrGmWpMK9o=` |
     5. In the Body tab:
 
-       1. In the data format option box, choose
-          **Raw**.
-       2. In the data type list, choose
-          **JavaScript**.
-       3. In the text field, enter this JSON message payload for your
-          test message:
 
-       ```
-       {
-           "data_mode": "test",
-           "vibration": 200,
-           "temperature": 40
-       }
-       ```
+    	1. In the data format option box, choose
+    	 **Raw**.
+    	2. In the data type list, choose
+    	 **JavaScript**.
+    	3. In the text field, enter this JSON message payload for your
+    	 test message:
 
-4.  Choose **Send** to send the request.
+
+
+    	```
+    	{
+    	    "data_mode": "test",
+    	    "vibration": 200,
+    	    "temperature": 40
+    	}
+    	```
+
+4. Choose **Send** to send the request.
 
 If the request was successful, it returns:
 

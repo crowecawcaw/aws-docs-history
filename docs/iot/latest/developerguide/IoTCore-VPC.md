@@ -259,8 +259,8 @@ console**
      `iot:CredentialProvider` endpoint. The following
      AWS CLI command shows how to get the endpoint through a public
      network: `aws iot describe-endpoint --endpoint-type
-iot:Data-ATS`, or `aws iot describe-endpoint
---endpoint-type iot:CredentialProvider`.
+  iot:Data-ATS`, or `aws iot describe-endpoint
+  --endpoint-type iot:CredentialProvider`.
 
    ###### Note
 
@@ -302,9 +302,9 @@ the DNS how you want traffic to be routed to that domain.
      be the same as the private hosted zone name.
    - For **Record type**, if you want only IPv4
      support, keep the value as `A - Routes traffic to an IPv4
-address and some AWS resources`. If you want only IPv6
+  address and some AWS resources`. If you want only IPv6
      support, keep the value as `AAAA - Routes traffic to an IPv6
-address and some AWS resources`. If you want dual-stack
+  address and some AWS resources`. If you want dual-stack
      support (both IPv4 and IPv6), create two records (`A` and
      `AAAA` in the hosted zone with the same
      **Record name** and **Value/Route

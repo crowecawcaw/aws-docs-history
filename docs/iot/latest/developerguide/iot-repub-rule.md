@@ -116,34 +116,34 @@ information.
 
 ###### To create a rule that republishes an MQTT message
 
-1.  Open [the **Rules**
-    hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
-2.  In **Rules**, choose **Create** and start
-    creating your new rule.
-3.  In the top part of **Create a rule**:
+1. Open [the **Rules**
+   hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
+2. In **Rules**, choose **Create** and start
+   creating your new rule.
+3. In the top part of **Create a rule**:
 
-    1. In **Name**, enter the rule's name. For this tutorial, name it
-       `republish_temp`.
+   1. In **Name**, enter the rule's name. For this tutorial, name it
+      `republish_temp`.
 
-    Remember that a rule name must be unique within your Account and Region, and it
-    can't have any spaces. We've used an underscore character in this name to separate
-    the two words in the rule's name. 2. In **Description**, describe the rule.
+   Remember that a rule name must be unique within your Account and Region, and it
+   can't have any spaces. We've used an underscore character in this name to separate
+   the two words in the rule's name. 2. In **Description**, describe the rule.
 
-    A meaningful description helps you remember what this rule does and why you
-    created it. The description can be as long as needed, so be as detailed as possible.
+   A meaningful description helps you remember what this rule does and why you
+   created it. The description can be as long as needed, so be as detailed as possible.
 
-4.  In **Rule query statement** of **Create a
-    rule**:
+4. In **Rule query statement** of **Create a
+   rule**:
 
-    1. In **Using SQL version**, select
-       `2016-03-23`.
-    2. In the **Rule query statement** edit box, enter the statement:
+   1. In **Using SQL version**, select
+      `2016-03-23`.
+   2. In the **Rule query statement** edit box, enter the statement:
 
-    ```
-    SELECT topic(2) as device_id, temperature FROM 'device/+/data'
-    ```
+   ```
+   SELECT topic(2) as device_id, temperature FROM 'device/+/data'
+   ```
 
-    This statement:
+   This statement:
 
         * Listens for MQTT messages with a topic that matches the
          `device/+/data` topic filter.
@@ -152,41 +152,41 @@ information.
         * Selects the value `temperature` field from the message payload
          and assigns it to the `temperature` field.
 
-5.  In **Set one or more actions**:
+5. In **Set one or more actions**:
 
-    1. To open up the list of rule actions for this rule, choose **Add
-       action**.
-    2. In **Select an action**, choose **Republish a message
-       to an AWS IoT topic**.
-    3. At the bottom of the action list, choose **Configure action**
-       to open the selected action's configuration page.
+   1. To open up the list of rule actions for this rule, choose **Add
+      action**.
+   2. In **Select an action**, choose **Republish a message
+      to an AWS IoT topic**.
+   3. At the bottom of the action list, choose **Configure action**
+      to open the selected action's configuration page.
 
-6.  In **Configure action**:
+6. In **Configure action**:
 
-    1. In **Topic**, enter `device/data/temp`.
-       This is the MQTT topic of the message that this rule will publish.
-    2. In **Quality of Service**, choose **0 - The message is
-       delivered zero or more times**.
-    3. In **Choose or create a role to grant AWS IoT access to perform this
-       action**:
+   1. In **Topic**, enter `device/data/temp`.
+      This is the MQTT topic of the message that this rule will publish.
+   2. In **Quality of Service**, choose **0 - The message is
+      delivered zero or more times**.
+   3. In **Choose or create a role to grant AWS IoT access to perform this
+      action**:
 
-       1. Choose **Create Role**. The **Create a new
-          role** dialog box opens.
-       2. Enter a name that describes the new role. In this tutorial, use
-          `republish_role`.
+      1. Choose **Create Role**. The **Create a new
+         role** dialog box opens.
+      2. Enter a name that describes the new role. In this tutorial, use
+         `republish_role`.
 
-       When you create a new role, the correct policies to perform the rule action
-       are created and attached to the new role. If you change the topic of this rule
-       action or use this role in another rule action, you must update the policy for
-       that role to authorize the new topic or action. To update an existing role,
-       choose **Update role** in this section. 3. Choose **Create Role** to create the role and close the
-       dialog box.
+      When you create a new role, the correct policies to perform the rule action
+      are created and attached to the new role. If you change the topic of this rule
+      action or use this role in another rule action, you must update the policy for
+      that role to authorize the new topic or action. To update an existing role,
+      choose **Update role** in this section. 3. Choose **Create Role** to create the role and close the
+      dialog box.
 
-    4. Choose **Add action** to add the action to the rule and
-       return to the **Create a rule** page.
+   4. Choose **Add action** to add the action to the rule and
+      return to the **Create a rule** page.
 
-7.  The **Republish a message to an AWS IoT topic** action is now
-    listed in **Set one or more actions**.
+7. The **Republish a message to an AWS IoT topic** action is now
+   listed in **Set one or more actions**.
 
 In the new action's tile, below **Republish a message to an AWS IoT
 topic**, you can see the topic to which your republish action will

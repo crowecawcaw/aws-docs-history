@@ -205,7 +205,7 @@ This page displays:
     * All the test suite runs that have been created
 
 2. Choose the test suite for which you'd like to view the run details and
-   logs.
+logs.
 
 ![A Test runs and results section that displays details of a test suite named "Device Advisor demo suite" that is currently in progress.](images/da-test-suite-run.png)
 

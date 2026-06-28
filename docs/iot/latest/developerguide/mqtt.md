@@ -115,9 +115,7 @@ developers.
 AWS IoT and the AWS IoT Device SDKs support the [MQTT Quality of Service (QoS) levels `0` and `1`](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc385349263 "http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc385349263"). The
 MQTT protocol defines a third level of QoS, level `2`, but AWS IoT does not
 support it. Only the MQTT protocol supports the QoS feature. HTTPS supports QoS by
-passing a query string parameter `?qos=qos` where the value can be 0 or
-
-1.
+passing a query string parameter `?qos=qos` where the value can be 0 or 1.
 
 This table describes how each QoS level affects messages published to and by the
 message broker.
@@ -161,12 +159,12 @@ disconnect. Setting `Session Expiry interval`=`0` causes the
 session to terminate immediately upon disconnect. If the Session Expiry Interval is
 not specified in the CONNECT message, the default is 0.
 
-| MQTT 5 Clean Start and Session Expiry | Property value                                                            | Description |
-| ------------------------------------- | ------------------------------------------------------------------------- | ----------- |
-| `Clean Start`= `1`                    | Creates a new session and terminates a previous session if one<br>exists. |
-| `Clean Start`= `0`                    | Resumes a session if a previous session exists.                           |
-| `Session Expiry Interval`> `0`        | Persists a session.                                                       |
-| `Session Expiry interval`= `0`        | Does not persist a session.                                               |
+MQTT 5 Clean Start and Session Expiry| Property value | Description |
+| --- | --- |
+| `Clean Start`= `1` | Creates a new session and terminates a previous session if one<br>exists. |
+| `Clean Start`= `0` | Resumes a session if a previous session exists. |
+| `Session Expiry Interval`> `0` | Persists a session. |
+| `Session Expiry interval`= `0` | Does not persist a session. |
 
 In MQTT 5, if you set `Clean Start` = `1` and `Session
  Expiry Interval` = `0`, this is the equivalent of an MQTT 3
@@ -852,59 +850,59 @@ MQTT 5 introduces improved error reporting with reason code responses. AWS IoT C
 return reason codes including but not limited to the following grouped by packets. For a
 complete list of reason codes supported by MQTT 5, see [MQTT 5 specifications](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901031 "https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901031").
 
-| CONNACK Reason Codes | Value | Hex                         | Reason Code name                                                                                           | Description |
-| -------------------- | ----- | --------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------- |
-| 0                    | 0x00  | Success                     | The connection is accepted.                                                                                |
-| 128                  | 0x80  | Unspecified error           | The server does not wish to reveal the reason for the failure, or<br>none of the other reason codes apply. |
-| 133                  | 0x85  | Client Identifier not valid | The client identifier is a valid string but is not allowed by the<br>server.                               |
-| 134                  | 0x86  | Bad User Name or Password   | The server does not accept the user name or password specified by the<br>client.                           |
-| 135                  | 0x87  | Not authorized              | The client is not authorized to connect.                                                                   |
-| 144                  | 0x90  | Topic Name invalid          | The Will Topic Name is correctly formed but is not accepted by the<br>server.                              |
-| 151                  | 0x97  | Quota exceeded              | An implementation or administrative imposed limit has been<br>exceeded.                                    |
-| 155                  | 0x9B  | QoS not supported           | The server does not support the QoS set in Will QoS.                                                       |
+CONNACK Reason Codes| Value | Hex | Reason Code name | Description |
+| --- | --- | --- | --- |
+| 0 | 0x00 | Success | The connection is accepted. |
+| 128 | 0x80 | Unspecified error | The server does not wish to reveal the reason for the failure, or<br>none of the other reason codes apply. |
+| 133 | 0x85 | Client Identifier not valid | The client identifier is a valid string but is not allowed by the<br>server. |
+| 134 | 0x86 | Bad User Name or Password | The server does not accept the user name or password specified by the<br>client. |
+| 135 | 0x87 | Not authorized | The client is not authorized to connect. |
+| 144 | 0x90 | Topic Name invalid | The Will Topic Name is correctly formed but is not accepted by the<br>server. |
+| 151 | 0x97 | Quota exceeded | An implementation or administrative imposed limit has been<br>exceeded. |
+| 155 | 0x9B | QoS not supported | The server does not support the QoS set in Will QoS. |
 
-| PUBACK Reason Codes | Value | Hex                      | Reason Code name                                                                                                                          | Description |
-| ------------------- | ----- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0                   | 0x00  | Success                  | The message is accepted. Publication of the QoS 1 message<br>proceeds.                                                                    |
-| 128                 | 0x80  | Unspecified error        | The receiver does not accept the publish, but either does not want to<br>reveal the reason, or it does not match one of the other values. |
-| 135                 | 0x87  | Not authorized           | The PUBLISH is not authorized.                                                                                                            |
-| 144                 | 0x90  | Topic Name invalid       | The topic name is not malformed, but is not accepted by the client or<br>server.                                                          |
-| 145                 | 0x91  | Packet identifier in use | The packet identifier is already in use. This might indicate a<br>mismatch in the session state between the client and server.            |
-| 151                 | 0x97  | Quota exceeded           | An implementation or administrative imposed limit has been<br>exceeded.                                                                   |
+PUBACK Reason Codes| Value | Hex | Reason Code name | Description |
+| --- | --- | --- | --- |
+| 0 | 0x00 | Success | The message is accepted. Publication of the QoS 1 message<br>proceeds. |
+| 128 | 0x80 | Unspecified error | The receiver does not accept the publish, but either does not want to<br>reveal the reason, or it does not match one of the other values. |
+| 135 | 0x87 | Not authorized | The PUBLISH is not authorized. |
+| 144 | 0x90 | Topic Name invalid | The topic name is not malformed, but is not accepted by the client or<br>server. |
+| 145 | 0x91 | Packet identifier in use | The packet identifier is already in use. This might indicate a<br>mismatch in the session state between the client and server. |
+| 151 | 0x97 | Quota exceeded | An implementation or administrative imposed limit has been<br>exceeded. |
 
-| DISCONNECT Reason Codes | Value | Hex                                    | Reason Code name                                                                                                                                                 | Description |
-| ----------------------- | ----- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 129                     | 0x81  | Malformed Packet                       | The received packet does not conform to this specification.                                                                                                      |
-| 130                     | 0x82  | Protocol Error                         | An unexpected or out of order packet was received.                                                                                                               |
-| 135                     | 0x87  | Not authorized                         | The request is not authorized.                                                                                                                                   |
-| 139                     | 0x8B  | Server shutting down                   | The server is shutting down.                                                                                                                                     |
-| 141                     | 0x8D  | Keep Alive timeout                     | The connection is closed because no packet has been received for 1.5<br>times the Keep Alive time.                                                               |
-| 142                     | 0x8E  | Session taken over                     | Another connection using the same ClientID has connected, causing<br>this connection to be closed.                                                               |
-| 143                     | 0x8F  | Topic Filter invalid                   | The topic filter is correctly formed but is not accepted by the<br>server.                                                                                       |
-| 144                     | 0x90  | Topic Name invalid                     | The topic name is correctly formed but is not accepted by this client<br>or server.                                                                              |
-| 147                     | 0x93  | Receive Maximum exceeded               | The client or server has received more than the Receive Maximum<br>publication for which it has not sent PUBACK or PUBCOMP.                                      |
-| 148                     | 0x94  | Topic Alias invalid                    | The client or server has received a PUBLISH packet containing a topic<br>alias greater than the Maximum Topic Alias it sent in the CONNECT or<br>CONNACK packet. |
-| 151                     | 0x97  | Quota exceeded                         | An implementation or administrative imposed limit has been<br>exceeded.                                                                                          |
-| 152                     | 0x98  | Administrative action                  | The connection is closed due to an administrative action.                                                                                                        |
-| 155                     | 0x9B  | QoS not supported                      | The client specified a QoS greater than the QoS specified in a<br>Maximum QoS in the CONNACK.                                                                    |
-| 161                     | 0xA1  | Subscription Identifiers not supported | The server does not support subscription identifiers; the<br>subscription is not accepted.                                                                       |
+DISCONNECT Reason Codes| Value | Hex | Reason Code name | Description |
+| --- | --- | --- | --- |
+| 129 | 0x81 | Malformed Packet | The received packet does not conform to this specification. |
+| 130 | 0x82 | Protocol Error | An unexpected or out of order packet was received. |
+| 135 | 0x87 | Not authorized | The request is not authorized. |
+| 139 | 0x8B | Server shutting down | The server is shutting down. |
+| 141 | 0x8D | Keep Alive timeout | The connection is closed because no packet has been received for 1.5<br>times the Keep Alive time. |
+| 142 | 0x8E | Session taken over | Another connection using the same ClientID has connected, causing<br>this connection to be closed. |
+| 143 | 0x8F | Topic Filter invalid | The topic filter is correctly formed but is not accepted by the<br>server. |
+| 144 | 0x90 | Topic Name invalid | The topic name is correctly formed but is not accepted by this client<br>or server. |
+| 147 | 0x93 | Receive Maximum exceeded | The client or server has received more than the Receive Maximum<br>publication for which it has not sent PUBACK or PUBCOMP. |
+| 148 | 0x94 | Topic Alias invalid | The client or server has received a PUBLISH packet containing a topic<br>alias greater than the Maximum Topic Alias it sent in the CONNECT or<br>CONNACK packet. |
+| 151 | 0x97 | Quota exceeded | An implementation or administrative imposed limit has been<br>exceeded. |
+| 152 | 0x98 | Administrative action | The connection is closed due to an administrative action. |
+| 155 | 0x9B | QoS not supported | The client specified a QoS greater than the QoS specified in a<br>Maximum QoS in the CONNACK. |
+| 161 | 0xA1 | Subscription Identifiers not supported | The server does not support subscription identifiers; the<br>subscription is not accepted. |
 
-| SUBACK Reason Codes | Value | Hex                      | Reason Code name                                                                                                                      | Description |
-| ------------------- | ----- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0                   | 0x00  | Granted QoS 0            | The subscription is accepted and the maximum QoS sent will be QoS 0.<br>This might be a lower QoS than was requested.                 |
-| 1                   | 0x01  | Granted QoS 1            | The subscription is accepted and the maximum QoS sent will be QoS 1.<br>This might be a lower QoS than was requested.                 |
-| 128                 | 0x80  | Unspecified error        | The subscription is not accepted and the Server either does not wish<br>to reveal the reason or none of the other Reason Codes apply. |
-| 135                 | 0x87  | Not authorized           | The Client is not authorized to make this subscription.                                                                               |
-| 143                 | 0x8F  | Topic Filter invalid     | The Topic Filter is correctly formed but is not allowed for this<br>Client.                                                           |
-| 145                 | 0x91  | Packet Identifier in use | The specified Packet Identifier is already in use.                                                                                    |
-| 151                 | 0x97  | Quota exceeded           | An implementation or administrative imposed limit has been<br>exceeded.                                                               |
+SUBACK Reason Codes| Value | Hex | Reason Code name | Description |
+| --- | --- | --- | --- |
+| 0 | 0x00 | Granted QoS 0 | The subscription is accepted and the maximum QoS sent will be QoS 0.<br>This might be a lower QoS than was requested. |
+| 1 | 0x01 | Granted QoS 1 | The subscription is accepted and the maximum QoS sent will be QoS 1.<br>This might be a lower QoS than was requested. |
+| 128 | 0x80 | Unspecified error | The subscription is not accepted and the Server either does not wish<br>to reveal the reason or none of the other Reason Codes apply. |
+| 135 | 0x87 | Not authorized | The Client is not authorized to make this subscription. |
+| 143 | 0x8F | Topic Filter invalid | The Topic Filter is correctly formed but is not allowed for this<br>Client. |
+| 145 | 0x91 | Packet Identifier in use | The specified Packet Identifier is already in use. |
+| 151 | 0x97 | Quota exceeded | An implementation or administrative imposed limit has been<br>exceeded. |
 
-| UNSUBACK Reason Codes | Value | Hex                      | Reason Code name                                                                                                                               | Description |
-| --------------------- | ----- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0                     | 0x00  | Success                  | The subscription is deleted.                                                                                                                   |
-| 128                   | 0x80  | Unspecified error        | The unsubscribe could not be completed and the Server either does not<br>wish to reveal the reason or none of the other Reason Codes<br>apply. |
-| 143                   | 0x8F  | Topic Filter invalid     | The Topic Filter is correctly formed but is not allowed for this<br>Client.                                                                    |
-| 145                   | 0x91  | Packet Identifier in use | The specified Packet Identifier is already in use.                                                                                             |
+UNSUBACK Reason Codes| Value | Hex | Reason Code name | Description |
+| --- | --- | --- | --- |
+| 0 | 0x00 | Success | The subscription is deleted. |
+| 128 | 0x80 | Unspecified error | The unsubscribe could not be completed and the Server either does not<br>wish to reveal the reason or none of the other Reason Codes<br>apply. |
+| 143 | 0x8F | Topic Filter invalid | The Topic Filter is correctly formed but is not allowed for this<br>Client. |
+| 145 | 0x91 | Packet Identifier in use | The specified Packet Identifier is already in use. |
 
 ## AWS IoT differences from MQTT specifications
 

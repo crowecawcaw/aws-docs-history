@@ -110,11 +110,11 @@ not created for one of the target devices, refer to the following guidance:
   target group and that specific `thing` has not received its job
   execution yet.
 
-      + Review the devices in your target group for the job and the job status
-       state in the AWS Management Console or use the [`describe-job`](../apireference/API_DescribeJob.md "../apireference/API_DescribeJob.md") API command.
-      + Use the [`describe-job`](../apireference/API_DescribeJob.md "../apireference/API_DescribeJob.md") API command to review if the job has
-       the `IsConcurrent` property set to true or false. For more
-       information, see [Job limits](job-limits.md "job-limits.md").
+  - Review the devices in your target group for the job and the job status
+    state in the AWS Management Console or use the [`describe-job`](../apireference/API_DescribeJob.md "../apireference/API_DescribeJob.md") API command.
+  - Use the [`describe-job`](../apireference/API_DescribeJob.md "../apireference/API_DescribeJob.md") API command to review if the job has
+    the `IsConcurrent` property set to true or false. For more
+    information, see [Job limits](job-limits.md "job-limits.md").
 
 - The `thing` is _not directly_ targeted by the
   job.

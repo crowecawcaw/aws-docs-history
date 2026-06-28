@@ -98,7 +98,7 @@ device:
     ```
 
 3. Run this command to test your device's access to
-   your AWS account and AWS IoT Core endpoint.
+your AWS account and AWS IoT Core endpoint.
 
 ```
 `aws iot describe-endpoint --endpoint-type iot:Data-ATS`

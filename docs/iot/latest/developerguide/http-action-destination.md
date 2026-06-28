@@ -36,7 +36,7 @@ traffic to your endpoint without having to go through the
 confirmation process again. You can only disable a destination
 that's in ENABLED status.
 
-IN_PROGRESS
+IN\_PROGRESS
 
 Confirmation of the destination is in progress.
 
@@ -153,4 +153,4 @@ Self-signed certificates are not supported.
 
 HTTPS Endpoints in an HTTP action destination support certificates issued by both
 [AWS Private Certificate Authority](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/")  
- and [Lets Encrypt](https://letsencrypt.org/certificates/ "https://letsencrypt.org/certificates/").
+and [Lets Encrypt](https://letsencrypt.org/certificates/ "https://letsencrypt.org/certificates/").

@@ -85,7 +85,7 @@ These instructions describe how to:
      service
 
 2. Create and run a sample app. For sample apps that use the
-   AWS SDK for C++, see [AWS SDK for C++ Code Examples](../../../sdk-for-cpp/v1/developer-guide/programming-services.md "../../../sdk-for-cpp/v1/developer-guide/programming-services.md").
+AWS SDK for C++, see [AWS SDK for C++ Code Examples](../../../sdk-for-cpp/v1/developer-guide/programming-services.md "../../../sdk-for-cpp/v1/developer-guide/programming-services.md").
 
 ###### Documentation for the AWS IoT Core services that the AWS SDK for C++ supports
 
@@ -112,7 +112,7 @@ These instructions describe how to:
      services
 
 2. Create and run a sample app. For sample apps that use the
-   AWS SDK for Go, see [AWS SDK for Go Code Examples](../../../sdk-for-go/v1/developer-guide/common-examples.md "../../../sdk-for-go/v1/developer-guide/common-examples.md").
+AWS SDK for Go, see [AWS SDK for Go Code Examples](../../../sdk-for-go/v1/developer-guide/common-examples.md "../../../sdk-for-go/v1/developer-guide/common-examples.md").
 
 ###### Documentation for the AWS IoT Core services that the AWS SDK for Go supports
 
@@ -136,9 +136,8 @@ These instructions describe how to:
     * Use the SDK with Apache Maven
     * Use the SDK with Gradle
 
-2. Create and run a sample app using one of the [AWS SDK for Java 2.x Code Examples](../../../sdk-for-java/v2/developer-guide/advanced-topics.md "../../../sdk-for-java/v2/developer-guide/advanced-topics.md").
-3. Review the [SDK API
-   reference documentation](https://sdk.amazonaws.com/java/api/latest/ "https://sdk.amazonaws.com/java/api/latest/")
+2. Create and run a sample app using one of the [AWS SDK for Java 2.x Code Examples](../../../sdk-for-java/v2/developer-guide/advanced-topics.md "../../../sdk-for-java/v2/developer-guide/advanced-topics.md"). 3. Review the [SDK API
+reference documentation](https://sdk.amazonaws.com/java/api/latest/ "https://sdk.amazonaws.com/java/api/latest/")
 
 ###### Documentation for the AWS IoT Core services that the AWS SDK for Java supports
 
@@ -164,22 +163,22 @@ These instructions describe how to:
     * Load the SDK for JavaScript
 
 2. Create and run a sample app to get started with the SDK as the
-   getting started option for your environment describes.
+getting started option for your environment describes.
 
-   - Get started with the [AWS SDK for JavaScript in the Browser](../../../sdk-for-javascript/v2/developer-guide/getting-started-browser.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-browser.md"),
+    * Get started with the [AWS SDK for JavaScript in the Browser](../../../sdk-for-javascript/v2/developer-guide/getting-started-browser.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-browser.md"),
      or
-   - Get started with the [AWS SDK for JavaScript in Node.js](../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md")
+    * Get started with the [AWS SDK for JavaScript in Node.js](../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md")
 
 ###### Documentation for the AWS IoT Core services that the AWS SDK for JavaScript supports
 
 - [`AWS.Iot reference
-documentation`](../../../AWSJavaScriptSDK/latest/AWS/Iot.md "../../../AWSJavaScriptSDK/latest/AWS/Iot.md")
+ documentation`](../../../AWSJavaScriptSDK/latest/AWS/Iot.md "../../../AWSJavaScriptSDK/latest/AWS/Iot.md")
 - [`AWS.IotData reference
-documentation`](../../../AWSJavaScriptSDK/latest/AWS/IotData.md "../../../AWSJavaScriptSDK/latest/AWS/IotData.md")
+ documentation`](../../../AWSJavaScriptSDK/latest/AWS/IotData.md "../../../AWSJavaScriptSDK/latest/AWS/IotData.md")
 - [`AWS.IotJobsDataPlane reference
-documentation`](../../../AWSJavaScriptSDK/latest/AWS/IoTJobsDataPlane.md "../../../AWSJavaScriptSDK/latest/AWS/IoTJobsDataPlane.md")
+ documentation`](../../../AWSJavaScriptSDK/latest/AWS/IoTJobsDataPlane.md "../../../AWSJavaScriptSDK/latest/AWS/IoTJobsDataPlane.md")
 - [`AWS.IotSecureTunneling reference
-documentation`](../../../AWSJavaScriptSDK/latest/AWS/IoTSecureTunneling.md "../../../AWSJavaScriptSDK/latest/AWS/IoTSecureTunneling.md")
+ documentation`](../../../AWSJavaScriptSDK/latest/AWS/IoTSecureTunneling.md "../../../AWSJavaScriptSDK/latest/AWS/IoTSecureTunneling.md")
 
 .NET
 
@@ -195,9 +194,8 @@ These instructions describe how to:
     * Install AWS SDK packages
 
 3. Create and run one of the sample programs in [Working with AWS services in the AWS SDK for
-   .NET](../../../sdk-for-net/latest/developer-guide/tutorials-examples.md "../../../sdk-for-net/latest/developer-guide/tutorials-examples.md")
-4. Review the [SDK
-   API reference documentation](../../../sdkfornet/v3/apidocs/index.md "../../../sdkfornet/v3/apidocs/index.md")
+.NET](../../../sdk-for-net/latest/developer-guide/tutorials-examples.md "../../../sdk-for-net/latest/developer-guide/tutorials-examples.md") 4. Review the [SDK
+API reference documentation](../../../sdkfornet/v3/apidocs/index.md "../../../sdkfornet/v3/apidocs/index.md")
 
 ###### Documentation for the AWS IoT Core services that the AWS SDK for .NET supports
 
@@ -244,7 +242,7 @@ These instructions describe how to:
     * Use the SDK in your code
 
 2. Create and run a sample program that uses the
-   AWS SDK for Python (Boto3)
+AWS SDK for Python (Boto3)
 
 This program displays the account's currently configured
 logging options. After you install the SDK and configure it for

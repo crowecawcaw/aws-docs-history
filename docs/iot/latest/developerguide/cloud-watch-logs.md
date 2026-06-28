@@ -42,7 +42,7 @@ Find all logs that have a log level of `INFO`.
 Find all logs that have a status of `Success`.
 
 - `{ $.status = "Success" && $.eventType = "GetThingShadow"
-}`
+ }`
 
 Find all logs that have a status of `Success` and an event type of
 `GetThingShadow`.

@@ -94,7 +94,7 @@ and Region.
      actions that you want it to.
 
 3. An **internet connection** that can access your
-   AWS account’s device endpoints.
+AWS account’s device endpoints.
 
 The device endpoints are described in [AWS IoT device data and service endpoints](iot-connect-devices.md#iot-connect-device-endpoints "iot-connect-devices.md#iot-connect-device-endpoints") and can be seen in the
 [settings page
@@ -349,10 +349,10 @@ subscribe operations. For more information about QoS levels in AWS IoT, see [MQT
 The AWS CRT runtime for Python defines these constants for the QoS levels that it
 supports:
 
-| Python Quality of Service levels | MQTT QoS level           | Python symbolic value used by SDK                                                                                                                                                                     | Description |
-| -------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| QoS level 0                      | `mqtt.QoS.AT_MOST_ONCE`  | Only one attempt to send the message will be made, whether it is<br>received or not. The message might not be sent at all, for example,<br>if the device is not connected or there's a network error. |
-| QoS level 1                      | `mqtt.QoS.AT_LEAST_ONCE` | The message is sent repeatedly until a `PUBACK`<br>acknowledgement is received.                                                                                                                       |
+Python Quality of Service levels| MQTT QoS level | Python symbolic value used by SDK | Description |
+| --- | --- | --- |
+| QoS level 0 | `mqtt.QoS.AT_MOST_ONCE` | Only one attempt to send the message will be made, whether it is<br>received or not. The message might not be sent at all, for example,<br>if the device is not connected or there's a network error. |
+| QoS level 1 | `mqtt.QoS.AT_LEAST_ONCE` | The message is sent repeatedly until a `PUBACK`<br>acknowledgement is received. |
 
 In the sample app, the publish and subscribe requests are
 made with a QoS level of 1 (`mqtt.QoS.AT_LEAST_ONCE`).
@@ -585,32 +585,31 @@ that. 3. Here are a couple of messages that your device might receive.
 | `device/temp/details`  | `{ "desiredTemp": 20, "currentTemp": 15<br>}`    |
 | `device/light/details` | `{ "desiredLight": 100, "currentLight": 50<br>}` |
 
-4.  Using the MQTT test client in the AWS IoT console, send the messages
-    described in the previous step to your device.
+4. Using the MQTT test client in the AWS IoT console, send the messages
+   described in the previous step to your device.
 
-    1.  Open the [MQTT test
-        client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") in the AWS IoT console.
-    2.  In **Subscribe to a topic**, in the
-        **Subscription topic field**, enter the topic
-        filter: `device/+/details`, and then choose
-        **Subscribe to topic**.
-    3.  In the **Subscriptions** column of the MQTT test
-        client, choose **device/+/details**.
-    4.  For each of the topics in the preceding table, do the following in
-        the MQTT test client:
+   1. Open the [MQTT test
+      client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") in the AWS IoT console.
+   2. In **Subscribe to a topic**, in the
+      **Subscription topic field**, enter the topic
+      filter: `device/+/details`, and then choose
+      **Subscribe to topic**.
+   3. In the **Subscriptions** column of the MQTT test
+      client, choose **device/+/details**.
+   4. For each of the topics in the preceding table, do the following in
+      the MQTT test client:
 
-            1. In **Publish**, enter the value from the
-             **Topic name** column in the
-             table.
-            2. In the message payload field below the topic name,
-             enter the value from the **Message
-             payload** column in the table.
-            3. Watch the terminal window where `pubsub.py` is
-             running and, in the MQTT test client, choose
-             **Publish to topic**.
-
-        You should see that the message was received by
-        `pubsub.py` in the terminal window.
+      1. In **Publish**, enter the value from the
+         **Topic name** column in the
+         table.
+      2. In the message payload field below the topic name,
+         enter the value from the **Message
+         payload** column in the table.
+      3. Watch the terminal window where `pubsub.py` is
+         running and, in the MQTT test client, choose
+         **Publish to topic**.
+         You should see that the message was received by
+         `pubsub.py` in the terminal window.
 
 #### Exercise result
 
@@ -637,7 +636,7 @@ topic.
 4. In `on_message_received`, insert the following code after
    the line that starts with `print("Received message` and
    before the line that starts with `global
-received_count`.
+ received_count`.
 
 ```
     topic_parsed = False
@@ -770,7 +769,7 @@ In this exercise, the following message will be sent with the
    2. Locate this line of code:
 
    `message = "{} [{}]".format(message_string,
- publish_count)` 3. Change it to:
+  publish_count)` 3. Change it to:
 
    `message = "{}".format(message_string)` 4. Locate this line of code:
 

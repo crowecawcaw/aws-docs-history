@@ -19,8 +19,8 @@ You can also use AWS IoT's [lifecycle events](life-cycle-events.md "life-cycle-e
 to identify the disconnect reason. If you’ve subscribed to [lifecycle's
 disconnect event](life-cycle-events.md#connect-disconnect "life-cycle-events.md#connect-disconnect")
 (`$aws/events/presence/disconnected/`clientId``),
- you’ll get a notification from AWS IoT when the disconnect happens. You can identify the
- disconnect reason in the `disconnectReason` field of the notification.
+you’ll get a notification from AWS IoT when the disconnect happens. You can identify the
+disconnect reason in the `disconnectReason` field of the notification.
 
 For more information, see [CloudWatch AWS IoT log entries](cwl-format.md "cwl-format.md") and
 [Lifecycle events](life-cycle-events.md "life-cycle-events.md").

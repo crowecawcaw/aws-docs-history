@@ -36,7 +36,7 @@ value.
    name** such as `MoistureSensorRule`, and
    provide a short **Rule description** such as
    `Sends an alert when soil moisture level readings are too
-low`.
+ low`.
 3. Choose **Next** and configure your SQL statement.
    Choose **SQL version** as **2016-03-23**,
    and enter the following AWS IoT SQL query statement:

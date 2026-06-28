@@ -67,7 +67,7 @@ request payload.
 - If the Lambda function fails, the provisioning request fails with
   `ACCESS_DENIED` and an error is logged to CloudWatch Logs.
 - If the Lambda function doesn't return `"allowProvisioning":
-"true"` in the response, the provisioning request fails with
+ "true"` in the response, the provisioning request fails with
   `ACCESS_DENIED`.
 - The Lambda function must finish running and return within 5 seconds,
   otherwise the provisioning request fails.

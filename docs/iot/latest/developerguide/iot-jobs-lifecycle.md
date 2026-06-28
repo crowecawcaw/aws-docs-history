@@ -30,7 +30,7 @@ update from `SCHEDULED` to `IN_PROGRESS` and
 begin rollout of the job document to all devices in the target
 group.
 
-- ###### IN_PROGRESS
+- ###### IN\_PROGRESS
 
 When you create a job using the AWS IoT console or the [CreateJob](../apireference/API_CreateJob.md "../apireference/API_CreateJob.md") API, the
 job status updates to `IN_PROGRESS`. During job creation,
@@ -89,7 +89,7 @@ executions.
 For information about concurrency and limits that apply to jobs that
 are being canceled, see [AWS IoT Jobs limits](job-limits.md "job-limits.md").
 
-- ###### DELETION_IN_PROGRESS
+- ###### DELETION\_IN\_PROGRESS
 
 When you delete a job using the AWS IoT console or the [DeleteJob](../apireference/API_DeleteJob.md "../apireference/API_DeleteJob.md") API, the
 job status changes to `DELETION_IN_PROGRESS`. During job
@@ -103,16 +103,16 @@ The following table shows the different states of an AWS IoT job
 execution and whether the state change is initiated by the device or by
 AWS IoT Jobs.
 
-| Job execution states and source | Job execution state | Initiated by device? | Initiated by AWS IoT Jobs? | Terminal status? | Can be retried? |
-| ------------------------------- | ------------------- | -------------------- | -------------------------- | ---------------- | --------------- |
-| `QUEUED`                        | No                  | Yes                  | No                         | Not applicable   |
-| `IN_PROGRESS`                   | Yes                 | No                   | No                         | Not applicable   |
-| `SUCCEEDED`                     | Yes                 | No                   | Yes                        | Not applicable   |
-| `FAILED`                        | Yes                 | No                   | Yes                        | Yes              |
-| `TIMED_OUT`                     | No                  | Yes                  | Yes                        | Yes              |
-| `REJECTED`                      | Yes                 | No                   | Yes                        | No               |
-| `REMOVED`                       | No                  | Yes                  | Yes                        | No               |
-| `CANCELED`                      | No                  | Yes                  | Yes                        | No               |
+Job execution states and source| Job execution state | Initiated by device? | Initiated by AWS IoT Jobs? | Terminal status? | Can be retried? |
+| --- | --- | --- | --- | --- |
+| `QUEUED` | No | Yes | No | Not applicable |
+| `IN_PROGRESS` | Yes | No | No | Not applicable |
+| `SUCCEEDED` | Yes | No | Yes | Not applicable |
+| `FAILED` | Yes | No | Yes | Yes |
+| `TIMED_OUT` | No | Yes | Yes | Yes |
+| `REJECTED` | Yes | No | Yes | No |
+| `REMOVED` | No | Yes | Yes | No |
+| `CANCELED` | No | Yes | Yes | No |
 
 The following section describes more about the states of a job execution
 that's rolled out when you create a job with AWS IoT Jobs.
@@ -135,7 +135,7 @@ execution remains in the `QUEUED` state until:
 
 ![Image showing how a queued job execution changes state to IN_PROGRESS and how a job can get REJECTED if the device doesn't accept the job creation request.](images/JE-queued-inprogress.png)
 
-- ###### IN_PROGRESS
+- ###### IN\_PROGRESS
 
 If your IoT device subscribes to the reserved [Job topics](reserved-topics.md#reserved-topics-job "reserved-topics.md#reserved-topics-job")
 `$notify` and `$notify-next`, and your device
@@ -175,7 +175,7 @@ device using the [Job execution retry configuration](jobs-configurations-details
 
 ![Image showing how an in-progress job execution can fail and how to retry the execution.](images/JE-inprogress-failed.png)
 
-- ###### TIMED_OUT
+- ###### TIMED\_OUT
 
 When your device fails to complete a job step when the status is
 `IN_PROGRESS`, or when it fails to complete the

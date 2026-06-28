@@ -122,13 +122,12 @@ minutes. We recommend a timeout value of 2 minutes.
   — The device cipher suites contain at least one
   AWS IoT cipher suite but:
 
-      1. It doesn't contain any of the recommended
-       cipher suites
-      2. It contains cipher suites that aren't
-       supported by AWS IoT.
-
-  We suggest that you verify that any unsupported cipher
-  suites are safe.
+  1.  It doesn't contain any of the recommended
+      cipher suites
+  2.  It contains cipher suites that aren't
+      supported by AWS IoT.
+      We suggest that you verify that any unsupported cipher
+      suites are safe.
 
 - Fail — The device under test cipher suites doesn't
   contain any of the AWS IoT supported cipher suites.

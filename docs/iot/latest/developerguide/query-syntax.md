@@ -15,7 +15,7 @@ The query syntax supports the following features:
   example, `thingName:(tv* AND -plasma)`).
 - Grouping
 - Field grouping
-- Escaping special characters (such as with \*\*)
+- Escaping special characters (such as with *\*)
 - Leading wildcard use is limited to 1 query term per query. For example, you cannot
   search for `thingName:*my` and `thingGroupNames:*echo` in the same
   query. Queries that include a leading wildcard have a max
@@ -39,7 +39,7 @@ The query syntax doesn't support the following features:
 - Sorting
 - Aggregation
 - Special characters: ```, `@`, `#`, `%`,
-`\`, `/`, `'`, `;`, and `,`.
+  `\`, `/`, `'`, `;`, and `,`.
   Note that `,` is only supported in geoqueries.
 
 ## Notes

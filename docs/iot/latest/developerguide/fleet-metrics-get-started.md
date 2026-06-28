@@ -115,7 +115,7 @@ For more information, see [Create a thing](thing-registry.md#create-thing "thing
 --metric-name
 
 Data type: string. The `--metric-name` parameter specifies a fleet metric
-name. In this example, you're creating a fleet metric named _high_temp_FM_.
+name. In this example, you're creating a fleet metric named _high\_temp\_FM_.
 
 --query-string
 
@@ -164,7 +164,7 @@ It can take a moment for the data points to display in CloudWatch.
 
 To learn more about how to create a fleet metric, read [Managing fleet metrics](managing-fleet-metrics.md "managing-fleet-metrics.md").
 
-If you can't create a fleet metric, read [Troubleshooting fleet metrics](fleet-indexing-troubleshooting.md#fleet-metrics-troubleshooting "fleet-indexing-troubleshooting.md#fleet-metrics-troubleshooting"). 2. (Optional) Run the following command to describe your fleet metric named _high_temp_FM_:
+If you can't create a fleet metric, read [Troubleshooting fleet metrics](fleet-indexing-troubleshooting.md#fleet-metrics-troubleshooting "fleet-indexing-troubleshooting.md#fleet-metrics-troubleshooting"). 2. (Optional) Run the following command to describe your fleet metric named _high\_temp\_FM_:
 
 ```
 `aws iot describe-fleet-metric --metric-name "`high_temp_FM`"`
@@ -249,7 +249,7 @@ If you can't see data points in CloudWatch, read [Troubleshooting fleet metrics]
 You use the **delete-fleet-metric** CLI command to delete fleet
 metrics.
 
-To delete the fleet metric named _high_temp_FM_, run
+To delete the fleet metric named _high\_temp\_FM_, run
 the following command.
 
 ```

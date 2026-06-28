@@ -99,11 +99,11 @@ while completing the tutorials in this learning path.
 This procedure helps you identify and remove the AWS IoT resources that you created
 while completing the tutorials in this learning path.
 
-| AWS IoT resources created in this learning path                                                                            | Tutorial                                              | Thing resource                                        | Policy resource |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | --------------- |
-| [Tutorial: Installing and configuring the AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md")              | **DevCliTestThing**                                   | **DevCliTestThingPolicy**                             |
-| [Tutorial: Demonstrate MQTT message communication with the AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md") | **PubSubTestThing**                                   | **PubSubTestThingPolicy**                             |
-| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")        | \*user defined<br>• (there could be<br>more than one) | \*user defined<br>• (there could<br>be more than one) |
+AWS IoT resources created in this learning path| Tutorial | Thing resource | Policy resource |
+| --- | --- | --- |
+| [Tutorial: Installing and configuring the AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md") | **DevCliTestThing** | **DevCliTestThingPolicy** |
+| [Tutorial: Demonstrate MQTT message communication with the AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md") | **PubSubTestThing** | **PubSubTestThingPolicy** |
+| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | *user defined<br>• (there could be<br>more than one) | *user defined<br>• (there could<br>be more than one) |
 
 ###### To delete the AWS IoT resources, follow this procedure for each thing resource that you created
 
@@ -314,10 +314,10 @@ If successful, this command doesn't return anything.
 This procedure helps you identify and remove other AWS resources that you
 created while completing the tutorials in this learning path.
 
-| Other AWS resources created in this learning path                                                                   | Tutorial              | Resource type        | Resource name or ID |
-| ------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------------- | ------------------- |
-| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | Amazon S3 object      | hello-world-job.json |
-| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | AWS IoT job resources | _user defined_       |
+Other AWS resources created in this learning path| Tutorial | Resource type | Resource name or ID |
+| --- | --- | --- |
+| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | Amazon S3 object | hello-world-job.json |
+| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | AWS IoT job resources | _user defined_ |
 
 ###### To delete the AWS resources created in this learning path
 

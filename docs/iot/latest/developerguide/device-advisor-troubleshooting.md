@@ -80,7 +80,7 @@ Server Name Indication (SNI) extension to the Transport Layer Security (TLS) pro
 For more information, see [Transport
 security in AWS IoT](transport-security.md "transport-security.md").
 
-Q: My MQTT connection fails with an "libaws-c-mqtt: AWS_ERROR_MQTT_UNEXPECTED_HANGUP"
+Q: My MQTT connection fails with an "libaws-c-mqtt: AWS\_ERROR\_MQTT\_UNEXPECTED\_HANGUP"
 error (or) my device’s MQTT connection is being automatically disconnected from the
 Device Advisor endpoint. How can this error be resolved?
 

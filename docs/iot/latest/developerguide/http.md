@@ -143,8 +143,8 @@ client before you continue.
      this example).
 
 3. Create the **curl** command line,
-   replacing the replaceable values for those of your
-   account and system.
+replacing the replaceable values for those of your
+account and system.
 
 ```
 curl --tlsv1.2 \

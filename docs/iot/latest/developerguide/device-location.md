@@ -45,13 +45,13 @@ obtaining the resolved location information using the GNSS solver. For informati
 about obtaining location information for LoRaWAN devices, see [Configuring position for LoRaWAN resources](../../../iot-wireless/latest/developerguide/lorawan-configure-location.md "../../../iot-wireless/latest/developerguide/lorawan-configure-location.md") in the
 _AWS IoT Wireless documentation_.
 
-| Measurement types and solvers                                             | Measurement type         | Third-party solvers                                       | Supported devices |
-| ------------------------------------------------------------------------- | ------------------------ | --------------------------------------------------------- | ----------------- |
-| Wi-Fi access points                                                       | Wi-Fi based solver       | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
-| Cellular radio towers: GSM, LTE, CDMA, SCDMA, WCMDA, and TD-SCDMA<br>data | Cellular based solver    | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
-| IP address                                                                | IP reverse lookup solver | Any IoT device that connects over TCP/IP                  |
-| GNSS scan data (NAV messages)                                             | GNSS solver              | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
-| Bluetooth Low Energy (BLE)                                                | BLE based solver         | Amazon Sidewalk devices                                   |
+Measurement types and solvers| Measurement type | Third-party solvers | Supported devices |
+| --- | --- | --- |
+| Wi-Fi access points | Wi-Fi based solver | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
+| Cellular radio towers: GSM, LTE, CDMA, SCDMA, WCMDA, and TD-SCDMA<br>data | Cellular based solver | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
+| IP address | IP reverse lookup solver | Any IoT device that connects over TCP/IP |
+| GNSS scan data (NAV messages) | GNSS solver | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
+| Bluetooth Low Energy (BLE) | BLE based solver | Amazon Sidewalk devices |
 
 For more information about the location solvers and examples that show the device
 payload for the various measurement types, see [Location solvers and device payload](device-location-solvers-payload.md "device-location-solvers-payload.md").

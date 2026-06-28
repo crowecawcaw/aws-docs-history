@@ -46,7 +46,7 @@ The payloads contain the following attributes:
 
 eventType
 
-Set to "THING_EVENT".
+Set to "THING\_EVENT".
 
 eventId
 
@@ -139,7 +139,7 @@ The payloads contain the following attributes:
 
 eventType
 
-Set to "THING_TYPE_EVENT".
+Set to "THING\_TYPE\_EVENT".
 
 eventId
 
@@ -227,7 +227,7 @@ A unique event ID (string).
 
 eventType
 
-Set to "THING_TYPE_ASSOCIATION_EVENT".
+Set to "THING\_TYPE\_ASSOCIATION\_EVENT".
 
 operation
 
@@ -322,7 +322,7 @@ The payloads contain the following attributes:
 
 eventType
 
-Set to "THING_GROUP_EVENT".
+Set to "THING\_GROUP\_EVENT".
 
 eventId
 
@@ -412,7 +412,7 @@ The payloads contain the following attributes:
 
 eventType
 
-Set to "THING_GROUP_MEMBERSHIP_EVENT".
+Set to "THING\_GROUP\_MEMBERSHIP\_EVENT".
 
 eventId
 
@@ -484,7 +484,7 @@ The payloads contain the following attributes:
 
 eventType
 
-Set to "THING_GROUP_HIERARCHY_EVENT".
+Set to "THING\_GROUP\_HIERARCHY\_EVENT".
 
 eventId
 

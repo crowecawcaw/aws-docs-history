@@ -224,7 +224,7 @@ to your Kafka broker, you can use the
 value for this field. For more information about
 substitution templates, see [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"). For more
 information about the `get_secret` SQL
-function, see [get_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). If the
+function, see [get\_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). If the
 truststore is in the form of a file, use the
 `SecretBinary` parameter. If the
 truststore is in the form of a string, use the
@@ -250,7 +250,7 @@ to your Kafka broker. To retrieve the value for this
 field, use the `get_secret` SQL function. For
 more information about substitution templates, see [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"). For more
 information about the `get_secret` SQL
-function, see [get_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). Use the
+function, see [get\_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). Use the
 `SecretBinary` parameter.
 
 ssl.keystore.password
@@ -266,7 +266,7 @@ broker. To retrieve the value for this field, use the
 `get_secret` SQL function. For more
 information about substitution templates, see [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"). For more
 information about the `get_secret` SQL
-function, see [get_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). Use the
+function, see [get\_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). Use the
 `SecretString` parameter.
 
 ssl.key.password
@@ -280,7 +280,7 @@ to your Kafka broker. To retrieve the value for this
 field, use the `get_secret` SQL function. For
 more information about substitution templates, see [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"). For more
 information about the `get_secret` SQL
-function, see [get_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). Use the
+function, see [get\_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). Use the
 `SecretString` parameter.
 
 sasl.mechanism
@@ -352,7 +352,7 @@ to your Kafka broker. To retrieve the value for this
 field, use the `get_secret` SQL function. For
 more information about substitution templates, see [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"). For more
 information about the `get_secret` SQL
-function, see [get_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). Use the
+function, see [get\_secret(secretId, secretType, key, roleArn)](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"). Use the
 `SecretBinary` parameter.
 
 sasl.kerberos.service.name

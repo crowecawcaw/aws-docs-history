@@ -272,26 +272,26 @@ behavior. There are two types of scenarios:
 
 ```
 
-**BASIC_TESTS_EXECUTION_TIME_OUT:**
+**BASIC\_TESTS\_EXECUTION\_TIME\_OUT:**
 The maximum time the test case will wait for all the basic tests to complete.
 The default value is 60 minutes. This value is configurable from 30 to 120 minutes.
 
-**LONG_SERVER_DISCONNECT_TIME:**
+**LONG\_SERVER\_DISCONNECT\_TIME:**
 The time taken for the test case to disconnect and reconnect the device
 during the Long Server Disconnect test. The default value is 60 minutes.
 This value is configurable from 30 to 120 minutes.
 
-**ADDITIONAL_EXECUTION_TIME:**
+**ADDITIONAL\_EXECUTION\_TIME:**
 Configuring this option provides a time window after
 all the tests are completed, to monitor events between the device and broker.
 The default value is 0 minutes. This value is configurable from 0 to 120 minutes.
 
-**BACKOFF_CONNECTION_ATTEMPTS:**
+**BACKOFF\_CONNECTION\_ATTEMPTS:**
 This option configures the number of times the device is disconnected by the test case.
 This is used by the Reconnect Backoff test. The default value is 5 attempts.
 This value is configurable from 5 to 10.
 
-**LONG_PAYLOAD_FORMAT:**
+**LONG\_PAYLOAD\_FORMAT:**
 The format of the message payload that the device expects
 when the test case publishes to a QoS 1 topic subscribed by the device.
 

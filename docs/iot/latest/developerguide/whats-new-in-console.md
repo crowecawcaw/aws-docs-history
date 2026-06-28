@@ -8,48 +8,48 @@ might have only the original experience.
 This table displays the state of individual areas of the AWS IoT console user interface as
 of January 27, 2022.
 
-| AWS IoT console user interface status            | Console page  | Original experience | New experience                   | Comments |
-| ------------------------------------------------ | ------------- | ------------------- | -------------------------------- | -------- |
-| **Monitor**                                      | Not available | Available           |                                  |
-| **Activity**                                     | Not available | Available           |                                  |
-| \*_Onboard_<br>• Get started                     | Not available | Available           | Not available in CN Regions      |
-| \*_Onboard_<br>• Fleet provisioning<br>templates | Available     | Available           |                                  |
-| \*_Manage_<br>• Things                           | Available     | Available           |                                  |
-| \*_Manage_<br>• Types                            | Available     | Available           |                                  |
-| \*_Manage_<br>• Thing groups                     | Available     | Available           |                                  |
-| \*_Manage_<br>• Billing groups                   | Available     | Available           |                                  |
-| \*_Manage_<br>• Jobs                             | Available     | Available           |                                  |
-| \*_Manage_<br>• Job templates                    | Not available | Available           |                                  |
-| \*_Manage_<br>• Tunnels                          | Not available | Available           |                                  |
-| \*_Fleet Hub_<br>• Get started                   | Not available | Available           | Not available in all AWS Regions |
-| \*_Fleet Hub_<br>• Applications                  | Not available | Available           | Not available in all AWS Regions |
-| \*_Greengrass_<br>• Getting started              | Not available | Available           | Not available in all AWS Regions |
-| \*_Greengrass_<br>• Core devices                 | Not available | Available           | Not available in all AWS Regions |
-| \*_Greengrass_<br>• Components                   | Not available | Available           | Not available in all AWS Regions |
-| \*_Greengrass_<br>• Deployments                  | Not available | Available           | Not available in all AWS Regions |
-| \*_Greengrass_<br>• Classic (V1)                 | Available     | Available           |                                  |
-| \*_Wireless connectivity_<br>• Intro             | Not available | Available           | Not available in all AWS Regions |
-| \*_Wireless connectivity_<br>• -<br>Gateways     | Not available | Available           | Not available in all AWS Regions |
-| \*_Wireless connectivity_<br>• -<br>Devices      | Not available | Available           | Not available in all AWS Regions |
-| \*_Wireless connectivity_<br>• -<br>Profiles     | Not available | Available           | Not available in all AWS Regions |
-| \*_Wireless connectivity_<br>• -<br>Destinations | Not available | Available           | Not available in all AWS Regions |
-| \*_Secure_<br>• Certificates                     | Available     | Available           |                                  |
-| \*_Secure_<br>• Policies                         | Available     | Available           |                                  |
-| \*_Secure_<br>• CAs                              | Available     | Available           |                                  |
-| \*_Secure_<br>• Role Aliases                     | Available     | Available           |                                  |
-| \*_Secure_<br>• Authorizers                      | Available     | Available           |                                  |
-| \*_Defend_<br>• Intro                            | Not available | Available           |                                  |
-| \*_Defend_<br>• Audit                            | Not available | Available           |                                  |
-| \*_Defend_<br>• Detect                           | Not available | Available           |                                  |
-| \*_Defend_<br>• Mitigation actions               | Not available | Available           |                                  |
-| \*_Defend_<br>• Settings                         | Not available | Available           |                                  |
-| \*_Act_<br>• Rules                               | Available     | Available           |                                  |
-| \*_Act_<br>• Destinations                        | Available     | Available           |                                  |
-| \*_Test_<br>• Device Advisor                     | Available     | Available           | Not available in all AWS Regions |
-| \*_Test_<br>• MQTT test client                   | Available     | Available           |                                  |
-| **Software**                                     | Available     | Available           |                                  |
-| **Settings**                                     | Not available | Available           |                                  |
-| **Learn**                                        | Available     | Not available yet   |                                  |
+AWS IoT console user interface status| Console page | Original experience | New experience | Comments |
+| --- | --- | --- | --- |
+| **Monitor** | Not available | Available | |
+| **Activity** | Not available | Available | |
+| *_Onboard_<br>• Get started | Not available | Available | Not available in CN Regions |
+| *_Onboard_<br>• Fleet provisioning<br>templates | Available | Available | |
+| *_Manage_<br>• Things | Available | Available | |
+| *_Manage_<br>• Types | Available | Available | |
+| *_Manage_<br>• Thing groups | Available | Available | |
+| *_Manage_<br>• Billing groups | Available | Available | |
+| *_Manage_<br>• Jobs | Available | Available | |
+| *_Manage_<br>• Job templates | Not available | Available | |
+| *_Manage_<br>• Tunnels | Not available | Available | |
+| *_Fleet Hub_<br>• Get started | Not available | Available | Not available in all AWS Regions |
+| *_Fleet Hub_<br>• Applications | Not available | Available | Not available in all AWS Regions |
+| *_Greengrass_<br>• Getting started | Not available | Available | Not available in all AWS Regions |
+| *_Greengrass_<br>• Core devices | Not available | Available | Not available in all AWS Regions |
+| *_Greengrass_<br>• Components | Not available | Available | Not available in all AWS Regions |
+| *_Greengrass_<br>• Deployments | Not available | Available | Not available in all AWS Regions |
+| *_Greengrass_<br>• Classic (V1) | Available | Available | |
+| *_Wireless connectivity_<br>• Intro | Not available | Available | Not available in all AWS Regions |
+| *_Wireless connectivity_<br>• -<br>Gateways | Not available | Available | Not available in all AWS Regions |
+| *_Wireless connectivity_<br>• -<br>Devices | Not available | Available | Not available in all AWS Regions |
+| *_Wireless connectivity_<br>• -<br>Profiles | Not available | Available | Not available in all AWS Regions |
+| *_Wireless connectivity_<br>• -<br>Destinations | Not available | Available | Not available in all AWS Regions |
+| *_Secure_<br>• Certificates | Available | Available | |
+| *_Secure_<br>• Policies | Available | Available | |
+| *_Secure_<br>• CAs | Available | Available | |
+| *_Secure_<br>• Role Aliases | Available | Available | |
+| *_Secure_<br>• Authorizers | Available | Available | |
+| *_Defend_<br>• Intro | Not available | Available | |
+| *_Defend_<br>• Audit | Not available | Available | |
+| *_Defend_<br>• Detect | Not available | Available | |
+| *_Defend_<br>• Mitigation actions | Not available | Available | |
+| *_Defend_<br>• Settings | Not available | Available | |
+| *_Act_<br>• Rules | Available | Available | |
+| *_Act_<br>• Destinations | Available | Available | |
+| *_Test_<br>• Device Advisor | Available | Available | Not available in all AWS Regions |
+| *_Test_<br>• MQTT test client | Available | Available | |
+| **Software** | Available | Available | |
+| **Settings** | Not available | Available | |
+| **Learn** | Available | Not available yet | |
 
 ## Legend
 

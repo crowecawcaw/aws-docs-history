@@ -157,11 +157,11 @@ Into the new subdirectory, copy the files to the
 destination file paths shown in the following
 table.
 
-| Certificate file names | File                           | File path |
-| ---------------------- | ------------------------------ | --------- |
-| Private key            | `~/certs/private.pem.key`      |
-| Device certificate     | `~/certs/device.pem.crt`       |
-| Root CA certificate    | `~/certs/Amazon-root-CA-1.pem` |
+Certificate file names| File | File path |
+| --- | --- |
+| Private key | `~/certs/private.pem.key` |
+| Device certificate | `~/certs/device.pem.crt` |
+| Root CA certificate | `~/certs/Amazon-root-CA-1.pem` |
 
 Run this command to list the files in the
 `certs` directory and compare them to
@@ -184,11 +184,11 @@ Into the new subdirectory, copy the files to the
 destination file paths shown in the following
 table.
 
-| Certificate file names | File                                       | File path |
-| ---------------------- | ------------------------------------------ | --------- |
-| Private key            | `%USERPROFILE%\certs\private.pem.key`      |
-| Device certificate     | `%USERPROFILE%\certs\device.pem.crt`       |
-| Root CA certificate    | `%USERPROFILE%\certs\Amazon-root-CA-1.pem` |
+Certificate file names| File | File path |
+| --- | --- |
+| Private key | `%USERPROFILE%\certs\private.pem.key` |
+| Device certificate | `%USERPROFILE%\certs\device.pem.crt` |
+| Root CA certificate | `%USERPROFILE%\certs\Amazon-root-CA-1.pem` |
 
 Run this command to list the files in the
 `certs` directory and compare them to
@@ -213,14 +213,14 @@ displays the messages as they're received from the message broker.
 To run the `pubsub.py` sample script, you need the following
 information:
 
-| Application parameter values | Parameter                                                                                                                                                                                                                                                                        | Where to find the value |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `your-iot-endpoint`          | 1. In the [AWS IoT<br>console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), in the left menu, choose<br>**Settings**.<br>2. On the **Settings\*<br>• page,<br>your endpoint is displayed in the **Device<br>data endpoint\*<br>• section. |
+Application parameter values| Parameter | Where to find the value |
+| --- | --- |
+| `your-iot-endpoint` | 1. In the [AWS IoT<br>console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), in the left menu, choose<br>**Settings**.<br>2. On the *_Settings_<br>• page,<br>your endpoint is displayed in the *_Device<br>data endpoint_<br>• section. |
 
 The `your-iot-endpoint` value has a format of:
 ``endpoint_id`-ats.iot.`region`.amazonaws.com`,
- for example,
- `a3qj468EXAMPLE-ats.iot.us-west-2.amazonaws.com`.
+for example,
+`a3qj468EXAMPLE-ats.iot.us-west-2.amazonaws.com`.
 
 Before running the script, make sure your thing's policy provides
 permissions for the sample script to connect, subscribe, publish, and

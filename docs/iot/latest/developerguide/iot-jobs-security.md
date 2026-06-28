@@ -9,10 +9,10 @@ connect securely to AWS IoT, receive job executions, and update the execution st
 The following table shows the different types of policies that you must use for
 authorization. For more information about the required policy to use, see [Authorization](iot-authorization.md "iot-authorization.md").
 
-| Required policy type                                                                 | Use case   | Protocol                                            | Authentication                    | Control plane/data plane                        | Identity type       | Required policy type |
-| ------------------------------------------------------------------------------------ | ---------- | --------------------------------------------------- | --------------------------------- | ----------------------------------------------- | ------------------- | -------------------- |
-| Authorize an administrator, operator, or Cloud Service to work securely<br>with Jobs | HTTPS      | AWS Signature Version 4 authentication (port 443)   | Both control plane and data plane | Amazon Cognito Identity, IAM, or federated user | IAM policy          |
-| Authorize your IoT device to work securely with Jobs                                 | MQTT/HTTPS | TCP or TLS mutual authentication (port 8883 or 443) | Data plane                        | X.509 certificates                              | AWS IoT Core policy |
+Required policy type| Use case | Protocol | Authentication | Control plane/data plane | Identity type | Required policy type |
+| --- | --- | --- | --- | --- | --- |
+| Authorize an administrator, operator, or Cloud Service to work securely<br>with Jobs | HTTPS | AWS Signature Version 4 authentication (port 443) | Both control plane and data plane | Amazon Cognito Identity, IAM, or federated user | IAM policy |
+| Authorize your IoT device to work securely with Jobs | MQTT/HTTPS | TCP or TLS mutual authentication (port 8883 or 443) | Data plane | X.509 certificates | AWS IoT Core policy |
 
 To authorize AWS IoT Jobs operations that can be performed both on the control plane and
 data plane, you must use IAM policies. The identities must have been authenticated with

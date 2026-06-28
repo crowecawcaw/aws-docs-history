@@ -9,7 +9,7 @@ Create an Amazon SNS topic and subscription.
 2. Choose type as **Standard** and enter a name for the
    topic (for example, `MoistureSensorTopic`).
 3. Enter a display name for the topic (for example, `Moisture
-Sensor Topic`). This is the name displayed for your topic in
+ Sensor Topic`). This is the name displayed for your topic in
    the Amazon SNS console.
 4. Choose **Create topic**.
 5. In the Amazon SNS topic detail page, choose **Create

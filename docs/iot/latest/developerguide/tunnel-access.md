@@ -26,8 +26,9 @@ In the `Resource` element of the IAM policy statement:
 - Specify a thing ARN to manage the `OpenTunnel`
   permission for specific IoT things:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``For example, the following policy statement allows you to open a tunnel to
- the IoT thing named`TestDevice`.
+`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``
+For example, the following policy statement allows you to open a tunnel to
+the IoT thing named `TestDevice`.
 
 ```
 {
@@ -117,9 +118,10 @@ You can also use the wildcard tunnel ARN:
   `RotateTunnelAccessToken` permission for specific IoT
   things:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``For example, the following policy statement allows you to rotate either a
- tunnel's source access token or a client's destination access token for the
- IoT thing named`TestDevice`.
+`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``
+For example, the following policy statement allows you to rotate either a
+tunnel's source access token or a client's destination access token for the
+IoT thing named `TestDevice`.
 
 ```
 {
@@ -217,7 +219,8 @@ In the `Resource` element of the IAM policy statement:
 - Specify a thing ARN to manage the `ListTunnels`
   permission on selected IoT things:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``The`iot:ListTunnels`policy action supports the condition key
+`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``
+The `iot:ListTunnels` policy action supports the condition key
 `aws:SecureTransport`.
 
 The following policy statement allows you to list tunnels for the thing

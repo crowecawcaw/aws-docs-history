@@ -442,9 +442,9 @@ message here that says: `This thing already appears to be connected.`
 If you don't see the messages appear in the MQTT test client, check whether the
 topics you subscribed to are formatted correctly. MQTT Device Shadow topics have a
 format **$aws/things/`thingname`/shadow/** and might
-have `update`, `get`, or `delete` following it
-depending on actions you want to perform on the shadow. This tutorial uses the topic
-**$aws/things/`thingname`/shadow/#** so make sure
+ have `update`, `get`, or `delete` following it
+ depending on actions you want to perform on the shadow. This tutorial uses the topic
+ **$aws/things/`thingname`/shadow/#** so make sure
 you entered it correctly when subscribing to the topic in the **Topic
 filter** section of the test client.
 

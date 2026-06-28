@@ -19,7 +19,7 @@ How do I find the correct endpoint?
 or
 
 - The `domainName` returned by `aws iot describe-domain-configuration –-domain-configuration-name
-"`domain_configuration_name`"`
+ "`domain_configuration_name`"`
 
 How do I find the correct Server Name Indication (SNI) value?
 
@@ -76,7 +76,7 @@ openssl s_client -connect `custom_endpoint`.iot.`aws-region`.amazonaws.com:8443 
 ```
 
 For more information about using `openssl s_client`, see [OpenSSL
-s_client documentation](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html "https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html").
+s\_client documentation](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html "https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html").
 
 How do I check the status of a certificate?
 
@@ -127,7 +127,7 @@ Make sure the attached policy authorizes the [actions](iot-policy-actions.md "io
 Make sure the attached policy authorizes the [resources](iot-action-resources.md "iot-action-resources.md") that are trying to perform the
 authorized actions.
 
-I have an _AUTHORIZATION_FAILURE_ entry in my logs.
+I have an _AUTHORIZATION\_FAILURE_ entry in my logs.
 
 Make sure that there is a policy attached to the certificate you are using to
 call AWS IoT. All publish/subscribe operations are denied by default.

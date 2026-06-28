@@ -1103,22 +1103,22 @@ The port where the request originated.
 
 The following reason codes and details will appear in the failure log entries:
 
-| SendDirectMessage reason codes            | Reason                                                                                                                                          | Details |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `MALFORMED_CLIENTID`                      | This client ID isn't valid. Client IDs must not exceed 128 characters and can't start with a dollar sign ($). Enter a different client ID       |
-| `INVALID_TOPIC`                           | This topic isn't valid. Topics size needs to be within 256 bytes, should contain less than 9 parts, and should not start with a dollar sign ($) |
-| `INVALID_TIMEOUT_PARAMETER`               | Invalid timeout value. Must be an integer between 1 and 15                                                                                      |
-| `INVALID_CONFIRMATION_PARAMETER`          | Invalid confirmation value. Must be 'true' or 'false'                                                                                           |
-| `RECEIVE_AUTHORIZATION_FAILURE`           | Authorization failed for the target client. Verify that your policy grants the necessary permissions                                            |
-| `TARGET_CLIENT_ID_NOT_FOUND`              | The client ID is not found. Verify that the client is connected and try again                                                                   |
-| `TARGET_CLIENT_NOT_CONNECTED`             | The target client ID is not connected, but it has an active persistent session                                                                  |
-| `SEND_DIRECT_MESSAGE_THROTTLED`           | The request was denied due to send direct message request rate exceeded                                                                         |
-| `RECEIVE_SESSION_THROTTLED`               | The request was denied because request rate exceeded the outbound publish requests per second per connection                                    |
-| `RECEIVER_MAX_UNACKED_QOS1_EXCEEDED`      | The receiver client has reached the maximum number of unacknowledged QoS 1 messages                                                             |
-| `DELIVERY_CONFIRMATION_TIMEOUT`           | The delivery confirmation was not received within the specified timeout period                                                                  |
-| `DELIVERY_CONFIRMATION_SENDER_DISCONNECT` | The sender disconnected before the delivery confirmation was received                                                                           |
-| `CLIENT_ENDPOINT_NOT_WRITABLE`            | The receiver client endpoint is not writable                                                                                                    |
-| `INTERNAL_SERVER_ERROR`                   | Internal server error                                                                                                                           |
+SendDirectMessage reason codes| Reason | Details |
+| --- | --- |
+| `MALFORMED_CLIENTID` | This client ID isn't valid. Client IDs must not exceed 128 characters and can't start with a dollar sign ($). Enter a different client ID |
+| `INVALID_TOPIC` | This topic isn't valid. Topics size needs to be within 256 bytes, should contain less than 9 parts, and should not start with a dollar sign ($) |
+| `INVALID_TIMEOUT_PARAMETER` | Invalid timeout value. Must be an integer between 1 and 15 |
+| `INVALID_CONFIRMATION_PARAMETER` | Invalid confirmation value. Must be 'true' or 'false' |
+| `RECEIVE_AUTHORIZATION_FAILURE` | Authorization failed for the target client. Verify that your policy grants the necessary permissions |
+| `TARGET_CLIENT_ID_NOT_FOUND` | The client ID is not found. Verify that the client is connected and try again |
+| `TARGET_CLIENT_NOT_CONNECTED` | The target client ID is not connected, but it has an active persistent session |
+| `SEND_DIRECT_MESSAGE_THROTTLED` | The request was denied due to send direct message request rate exceeded |
+| `RECEIVE_SESSION_THROTTLED` | The request was denied because request rate exceeded the outbound publish requests per second per connection |
+| `RECEIVER_MAX_UNACKED_QOS1_EXCEEDED` | The receiver client has reached the maximum number of unacknowledged QoS 1 messages |
+| `DELIVERY_CONFIRMATION_TIMEOUT` | The delivery confirmation was not received within the specified timeout period |
+| `DELIVERY_CONFIRMATION_SENDER_DISCONNECT` | The sender disconnected before the delivery confirmation was received |
+| `CLIENT_ENDPOINT_NOT_WRITABLE` | The receiver client endpoint is not writable |
+| `INTERNAL_SERVER_ERROR` | Internal server error |
 
 ## Server certificate OCSP log entries
 

@@ -91,7 +91,7 @@ verification certificate or access to the private key, and
 you can register the CA by multiple AWS accounts in the
 same AWS Region.
 
-#### Register a CA certificate in SNI_ONLY mode (CLI) - Recommended
+#### Register a CA certificate in SNI\_ONLY mode (CLI) - Recommended
 
 **Prerequisites**
 

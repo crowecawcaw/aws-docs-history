@@ -25,8 +25,8 @@ first, to determine if SELECT is evaluated.
 
 Incoming non-JSON payload published on `topic/subtopic`: `80`
 
-SQL: ``SELECT decode(encode(*, 'base64'), 'base64') AS value FROM 'topic/subtopic' 
- WHERE decode(encode(*, 'base64'), 'base64') > 50`
+SQL: ``SELECT decode(encode(_, 'base64'), 'base64') AS value FROM 'topic/subtopic'
+WHERE decode(encode(_, 'base64'), 'base64') > 50`
 
 In this case, the rule will be triggered, and the actions specified by the rule will
 be performed. The outgoing payload will be transformed by the SELECT clause as a JSON

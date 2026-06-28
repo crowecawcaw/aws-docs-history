@@ -68,7 +68,7 @@ CLI
 
 **To enable thing indexing**
 
-The following `update-indexing-configuration` example enables thing indexing to support searching registry data, shadow data, and thing connectivity status using the AWS_Things index.
+The following `update-indexing-configuration` example enables thing indexing to support searching registry data, shadow data, and thing connectivity status using the AWS\_Things index.
 
 ```
 `aws iot update-indexing-configuration

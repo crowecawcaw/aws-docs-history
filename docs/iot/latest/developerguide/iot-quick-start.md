@@ -109,7 +109,7 @@ file to a directory from which you can run command line commands.
 If you're not running this procedure on your device, save the connection
 kit file to a local directory and then transfer the file to your
 device. 3. In the **Unzip connection kit on your device** section,
-enter **unzip connect_device_package.zip** in the directory
+enter **unzip connect\_device\_package.zip** in the directory
 where the connection kit files are located.
 
 If you're using a Windows PowerShell command window and the

@@ -384,22 +384,22 @@ The commands in the next section assume that your key and
 certificate files are stored on the device as shown in this
 table.
 
-| Certificate file names | File                           | File path |
-| ---------------------- | ------------------------------ | --------- |
-| Root CA certificate    | `~/certs/Amazon-root-CA-1.pem` |
-| Device certificate     | `~/certs/device.pem.crt`       |
-| Private key            | `~/certs/private.pem.key`      |
+Certificate file names| File | File path |
+| --- | --- |
+| Root CA certificate | `~/certs/Amazon-root-CA-1.pem` |
+| Device certificate | `~/certs/device.pem.crt` |
+| Private key | `~/certs/private.pem.key` |
 
 To run the sample app, you need the following information:
 
-| Application parameter values | Parameter                                                                                                                                                                                                                                                                                                   | Where to find the value |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `your-iot-endpoint`          | In the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), choose **All<br>devices**, and then choose<br>**Things**.<br>On the **Settings\*<br>• page in the AWS IoT<br>menu. Your endpoint is displayed in the **Device<br>data endpoint\*<br>• section. |
+Application parameter values| Parameter | Where to find the value |
+| --- | --- |
+| `your-iot-endpoint` | In the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), choose **All<br>devices**, and then choose<br>**Things**.<br>On the *_Settings_<br>• page in the AWS IoT<br>menu. Your endpoint is displayed in the *_Device<br>data endpoint_<br>• section. |
 
 The `your-iot-endpoint` value has a format of:
 ``endpoint_id`-ats.iot.`region`.amazonaws.com`,
- for example,
- `a3qj468EXAMPLE-ats.iot.us-west-2.amazonaws.com`.
+for example,
+`a3qj468EXAMPLE-ats.iot.us-west-2.amazonaws.com`.
 
 Python
 
@@ -423,9 +423,9 @@ python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert 
 
    1. Connects to the AWS IoT service for your
       account.
-   2. Subscribes to the message topic, **topic_1**, and displays the
+   2. Subscribes to the message topic, **topic\_1**, and displays the
       messages it receives on that topic.
-   3. Publishes 10 messages to the topic, **topic_1**.
+   3. Publishes 10 messages to the topic, **topic\_1**.
    4. Displays output similar to the
       following:
 
@@ -477,7 +477,7 @@ JavaScript
    `~/aws-iot-device-sdk-js-v2/samples/node/pub_sub`
    directory that the SDK created and install the sample
    app by using these commands. The command `npm
-install` will invoke the `aws-crt`
+ install` will invoke the `aws-crt`
    library build that can take a few minutes to
    complete.
 
@@ -498,9 +498,9 @@ node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert
 
    1. Connects to the AWS IoT service for your
       account.
-   2. Subscribes to the message topic, **topic_1**, and displays the
+   2. Subscribes to the message topic, **topic\_1**, and displays the
       messages it receives on that topic.
-   3. Publishes 10 messages to the topic, **topic_1**.
+   3. Publishes 10 messages to the topic, **topic\_1**.
    4. Displays output similar to the
       following:
 
@@ -550,7 +550,7 @@ broker by using the **MQTT test client** in the
    pass through the message broker.
 2. Open the **MQTT test client** in the
    **AWS IoT console**.
-3. Subscribe to the topic, **topic_1**.
+3. Subscribe to the topic, **topic\_1**.
 4. In your command line window, run the sample app again and watch
    the messages in the **MQTT client** in the
    **AWS IoT console**.

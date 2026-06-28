@@ -10,7 +10,7 @@ certificates in your AWS account.
 
 For devices registered in AWS IoT Core registry, the following policy grants permission
 to devices connect to AWS IoT Core using a client ID that matches the device's thing name
-and to publish to the `my/topic/`thing-name``where`thing-name` is the device's thing name:
+and to publish to the `my/topic/`thing-name`` where `thing-name` is the device's thing name:
 
 ```
 `{

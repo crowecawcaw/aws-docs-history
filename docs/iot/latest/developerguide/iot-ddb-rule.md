@@ -107,38 +107,38 @@ let you insert dynamic values from functions and message data.
 
 ###### To create the AWS IoT rule to send data to the DynamoDB table
 
-1.  Open [the Rules hub of the AWS IoT
-    console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub"). Or, you can open the AWS IoT homepage within the AWS Management Console
-    and navigate to **Message routing>Rules**.
-2.  To start creating your new rule in **Rules**, choose
-    **Create rule**.
-3.  In **Rule properties**:
+1. Open [the Rules hub of the AWS IoT
+   console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub"). Or, you can open the AWS IoT homepage within the AWS Management Console
+   and navigate to **Message routing>Rules**.
+2. To start creating your new rule in **Rules**, choose
+   **Create rule**.
+3. In **Rule properties**:
 
-    1. In **Rule name**, enter `wx_data_ddb`.
+   1. In **Rule name**, enter `wx_data_ddb`.
 
-    Remember that a rule name must be unique within your AWS account and Region, and
-    it can't have any spaces. We've used an underscore character in this name to
-    separate the two words in the rule's name. 2. In **Rule description**, describe the rule.
+   Remember that a rule name must be unique within your AWS account and Region, and
+   it can't have any spaces. We've used an underscore character in this name to
+   separate the two words in the rule's name. 2. In **Rule description**, describe the rule.
 
-    A meaningful description makes it easier to remember what this rule does and why
-    you created it. The description can be as long as needed, so be as detailed as
-    possible.
+   A meaningful description makes it easier to remember what this rule does and why
+   you created it. The description can be as long as needed, so be as detailed as
+   possible.
 
-4.  Choose **Next** to continue.
-5.  In **SQL statement**:
+4. Choose **Next** to continue.
+5. In **SQL statement**:
 
-    1. In **SQL version**, select
-       `2016-03-23`.
-    2. In the **SQL statement** edit box, enter the statement:
+   1. In **SQL version**, select
+      `2016-03-23`.
+   2. In the **SQL statement** edit box, enter the statement:
 
-    ```
-    SELECT temperature, humidity, barometer,
-      wind.velocity as wind_velocity,
-      wind.bearing as wind_bearing,
-    FROM 'device/+/data'
-    ```
+   ```
+   SELECT temperature, humidity, barometer,
+     wind.velocity as wind_velocity,
+     wind.bearing as wind_bearing,
+   FROM 'device/+/data'
+   ```
 
-    This statement:
+   This statement:
 
         * Listens for MQTT messages with a topic that matches the
          `device/+/data` topic filter.
@@ -147,46 +147,46 @@ let you insert dynamic values from functions and message data.
         * Passes the `temperature`, `humidity`, and
          `barometer` attributes unchanged.
 
-6.  Choose **Next** to continue.
-7.  In **Rule actions**:
+6. Choose **Next** to continue.
+7. In **Rule actions**:
 
-    1. To open the list of rule actions for this rule, in **Action
-       1**, choose `DynamoDB`.
+   1. To open the list of rule actions for this rule, in **Action
+      1**, choose `DynamoDB`.
 
-    ###### Note
+   ###### Note
 
-    Make sure that you choose DynamoDB and not DynamoDBv2 as the rule action. 2. In **Table name**, choose the name of the DynamoDB table you
-    created in a previous step: `wx_data`.
+   Make sure that you choose DynamoDB and not DynamoDBv2 as the rule action. 2. In **Table name**, choose the name of the DynamoDB table you
+   created in a previous step: `wx_data`.
 
-    The **Partition key type** and **Sort key
-    type** fields are filled with the values from your DynamoDB table. 3. In **Partition key**, enter
-    `sample_time`. 4. In **Partition key value**, enter
-    `${timestamp()}`.
+   The **Partition key type** and **Sort key
+   type** fields are filled with the values from your DynamoDB table. 3. In **Partition key**, enter
+   `sample_time`. 4. In **Partition key value**, enter
+   `${timestamp()}`.
 
-    This is the first of the [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md") you'll use in this rule. Instead of
-    using a value from the message payload, it will use the value returned from the
-    timestamp function. To learn more, see [timestamp](iot-sql-functions.md#iot-function-timestamp "iot-sql-functions.md#iot-function-timestamp") in the _AWS IoT Core Developer Guide_. 5. In **Sort key**, enter `device_id`. 6. In **Sort key value**, enter `${cast(topic(2) AS
- DECIMAL)}`.
+   This is the first of the [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md") you'll use in this rule. Instead of
+   using a value from the message payload, it will use the value returned from the
+   timestamp function. To learn more, see [timestamp](iot-sql-functions.md#iot-function-timestamp "iot-sql-functions.md#iot-function-timestamp") in the _AWS IoT Core Developer Guide_. 5. In **Sort key**, enter `device_id`. 6. In **Sort key value**, enter `${cast(topic(2) AS
+  DECIMAL)}`.
 
-    This is the second one of the [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md") you'll use in this rule. It inserts
-    the value of the second element in topic name, which is the device's ID, after it
-    casts it to a DECIMAL value to match the numeric format of the key. To learn more
-    about topics, see [topic](iot-sql-functions.md#iot-function-topic "iot-sql-functions.md#iot-function-topic") in the
-    _AWS IoT Core Developer Guide_. Or to learn more about casting,
-    see [cast](iot-sql-functions.md#iot-sql-function-cast "iot-sql-functions.md#iot-sql-function-cast") in the _AWS IoT Core
-    Developer Guide_. 7. In **Write message data to this column**, enter
-    `device_data`.
+   This is the second one of the [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md") you'll use in this rule. It inserts
+   the value of the second element in topic name, which is the device's ID, after it
+   casts it to a DECIMAL value to match the numeric format of the key. To learn more
+   about topics, see [topic](iot-sql-functions.md#iot-function-topic "iot-sql-functions.md#iot-function-topic") in the
+   _AWS IoT Core Developer Guide_. Or to learn more about casting,
+   see [cast](iot-sql-functions.md#iot-sql-function-cast "iot-sql-functions.md#iot-sql-function-cast") in the _AWS IoT Core
+   Developer Guide_. 7. In **Write message data to this column**, enter
+   `device_data`.
 
-    This will create the `device_data` column in the DynamoDB table. 8. Leave **Operation** blank. 9. In **IAM role**, choose **Create new
-    role**. 10. In the **Create role** dialog box, for **Role
-    name**, enter **wx_ddb_role**. This new role will
-    automatically contain a policy with a prefix of "aws-iot-rule" that will allow the
-    `wx_data_ddb` rule to send data to the
-    `wx_data` DynamoDB table you created. 11. In **IAM role**, choose
-    `wx_ddb_role`. 12. At the bottom of the page, choose **Next**.
+   This will create the `device_data` column in the DynamoDB table. 8. Leave **Operation** blank. 9. In **IAM role**, choose **Create new
+   role**. 10. In the **Create role** dialog box, for **Role
+   name**, enter **wx\_ddb\_role**. This new role will
+   automatically contain a policy with a prefix of "aws-iot-rule" that will allow the
+   `wx_data_ddb` rule to send data to the
+   `wx_data` DynamoDB table you created. 11. In **IAM role**, choose
+   `wx_ddb_role`. 12. At the bottom of the page, choose **Next**.
 
-8.  At the bottom of the **Review and create** page, choose
-    **Create** to create the rule.
+8. At the bottom of the **Review and create** page, choose
+   **Create** to create the rule.
 
 ## Step 3: Test the AWS IoT rule and DynamoDB table
 
@@ -240,16 +240,16 @@ sends.
 3. Check to see the row in the DynamoDB table that your rule created.
 
    1. In the [DynamoDB Tables hub in
-      the AWS IoT console](https://console.aws.amazon.com//dynamodb/home#tables: "https://console.aws.amazon.com//dynamodb/home#tables:"), choose **wx_data**, and then choose
+      the AWS IoT console](https://console.aws.amazon.com//dynamodb/home#tables: "https://console.aws.amazon.com//dynamodb/home#tables:"), choose **wx\_data**, and then choose
       the **Items** tab.
 
    If you're already on the **Items** tab, you might need to
    refresh the display by choosing the refresh icon in the upper-right corner of the
-   table's header. 2. Notice that the **sample_time** values in the table are links
+   table's header. 2. Notice that the **sample\_time** values in the table are links
    and open one. If you just sent your first message, it will be the only one in the
    list.
 
-   This link displays all the data in that row of the table. 3. Expand the **device_data** entry to see the data that resulted
+   This link displays all the data in that row of the table. 3. Expand the **device\_data** entry to see the data that resulted
    from the rule query statement. 4. Explore the different representations of the data that are available in this
    display. You can also edit the data in this display. 5. After you have finished reviewing this row of data, to save any changes you
    made, choose **Save**, or to exit without saving any changes,

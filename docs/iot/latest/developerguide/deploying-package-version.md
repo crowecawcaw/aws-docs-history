@@ -35,11 +35,11 @@ deploying](preparing-jobs-for-service-package-catalog.md#naming-package-versions
 
 15. In the **Additional configurations - optional** dialog box, review the following optional job configurations and make your selections accordingly. For more information, see [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling") and [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry").
 
-    - Rollout configuration
-    - Scheduling configuration
-    - Job executions timeout configuration
-    - Job executions retry configuration
-    - Abort configuration
+    * Rollout configuration
+    * Scheduling configuration
+    * Job executions timeout configuration
+    * Job executions retry configuration
+    * Abort configuration
 
 16. Review the job selections and then choose **Submit**.
-    After you create the job, the console generates a JSON signature and places it in your job document. You can use the AWS IoT console to view the status of a job, or cancel or delete a job. To manage jobs, go to the [Job hub of the console](https://console.aws.amazon.com/iot/home#/jobhub "https://console.aws.amazon.com/iot/home#/jobhub").
+After you create the job, the console generates a JSON signature and places it in your job document. You can use the AWS IoT console to view the status of a job, or cancel or delete a job. To manage jobs, go to the [Job hub of the console](https://console.aws.amazon.com/iot/home#/jobhub "https://console.aws.amazon.com/iot/home#/jobhub").

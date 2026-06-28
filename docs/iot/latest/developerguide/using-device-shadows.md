@@ -82,25 +82,24 @@ responses after it publishes an action.
 
 ###### To subscribe to an MQTT topic in the **MQTT client**
 
-1.  In the **MQTT client**, choose **Subscribe to a
-    topic**.
-2.  Enter the `get`, `update`, and `delete`
-    topics to subscribe to. Copy one topic at a time from the following list,
-    paste it in the **Topic filter** field, and then click
-    **Subscribe**. You should see the topics appear under
-    **Subscriptions**.
+1. In the **MQTT client**, choose **Subscribe to a
+   topic**.
+2. Enter the `get`, `update`, and `delete`
+   topics to subscribe to. Copy one topic at a time from the following list,
+   paste it in the **Topic filter** field, and then click
+   **Subscribe**. You should see the topics appear under
+   **Subscriptions**.
 
-        * `$aws/things/mySimulatedThing/shadow/name/simShadow1/delete/accepted`
-        * `$aws/things/mySimulatedThing/shadow/name/simShadow1/delete/rejected`
-        * `$aws/things/mySimulatedThing/shadow/name/simShadow1/get/accepted`
-        * `$aws/things/mySimulatedThing/shadow/name/simShadow1/get/rejected`
-        * `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/accepted`
-        * `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/rejected`
-        * `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/delta`
-        * `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/documents`
-
-    At this point, your simulated device is ready to receive the topics as
-    they are published by AWS IoT.
+   - `$aws/things/mySimulatedThing/shadow/name/simShadow1/delete/accepted`
+   - `$aws/things/mySimulatedThing/shadow/name/simShadow1/delete/rejected`
+   - `$aws/things/mySimulatedThing/shadow/name/simShadow1/get/accepted`
+   - `$aws/things/mySimulatedThing/shadow/name/simShadow1/get/rejected`
+   - `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/accepted`
+   - `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/rejected`
+   - `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/delta`
+   - `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/documents`
+     At this point, your simulated device is ready to receive the topics as
+     they are published by AWS IoT.
 
 ###### To publish to an MQTT topic in the **MQTT client**
 

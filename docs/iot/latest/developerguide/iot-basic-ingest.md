@@ -11,11 +11,12 @@ AWS IoT rule that you want to invoke.
 
 You can use an existing rule with Basic Ingest by adding the Basic Ingest prefix
 (`$aws/rules/`rule_name``) to the message topic that
- you'd use to invoke the rule. For example, if you have a rule named `BuildingManager`  that's invoked by messages with topics like
- `Buildings/Building5/Floor2/Room201/Lights` (`"sql": "SELECT \* FROM
-'Buildings/#'"`), you can invoke the same rule with Basic Ingest by sending a message
- with topic
- `$aws/rules/BuildingManager/Buildings/Building5/Floor2/Room201/Lights`.
+you'd use to invoke the rule. For example, if you have a rule named `BuildingManager`
+that's invoked by messages with topics like
+`Buildings/Building5/Floor2/Room201/Lights` (`"sql": "SELECT * FROM
+ 'Buildings/#'"`), you can invoke the same rule with Basic Ingest by sending a message
+with topic
+`$aws/rules/BuildingManager/Buildings/Building5/Floor2/Room201/Lights`.
 
 ###### Note
 

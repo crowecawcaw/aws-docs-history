@@ -75,15 +75,15 @@ this tutorial, however, is the same one that you used in the tutorial about how 
 
 ###### To create an AWS Lambda function that sends a text message
 
-1.  Create a new AWS Lambda function.
+1. Create a new AWS Lambda function.
 
-    1. In the [AWS Lambda console](https://console.aws.amazon.com//lambda/home "https://console.aws.amazon.com//lambda/home"),
-       choose **Create function**.
-    2. In **Create function**, select **Use a
-       blueprint**.
+   1. In the [AWS Lambda console](https://console.aws.amazon.com//lambda/home "https://console.aws.amazon.com//lambda/home"),
+      choose **Create function**.
+   2. In **Create function**, select **Use a
+      blueprint**.
 
-    Search for and select the `hello-world-python` blueprint,
-    and then choose **Configure**. 3. In **Basic information**:
+   Search for and select the `hello-world-python` blueprint,
+   and then choose **Configure**. 3. In **Basic information**:
 
         1. In **Function name**, enter the name of this function,
          `format-high-temp-notification`.
@@ -95,114 +95,114 @@ this tutorial, however, is the same one that you used in the tutorial about how 
          publish policy**.
         5. Choose **Create function**.
 
-2.  Modify the blueprint code to format and send an Amazon SNS notification.
+2. Modify the blueprint code to format and send an Amazon SNS notification.
 
-    1. After you created your function, you should see the
-       **format-high-temp-notification** details page. If you don't,
-       open it from the [Lambda
-       **Functions**](https://console.aws.amazon.com//lambda/home#/functions "https://console.aws.amazon.com//lambda/home#/functions") page.
-    2. In the **format-high-temp-notification** details page, choose
-       the **Configuration** tab and scroll to the **Function
-       code** panel.
-    3. In the **Function code** window, in the
-       **Environment** pane, choose the Python file,
-       `lambda_function.py`.
-    4. In the **Function code** window, delete all of the original
-       program code from the blueprint and replace it with this code.
+   1. After you created your function, you should see the
+      **format-high-temp-notification** details page. If you don't,
+      open it from the [Lambda
+      **Functions**](https://console.aws.amazon.com//lambda/home#/functions "https://console.aws.amazon.com//lambda/home#/functions") page.
+   2. In the **format-high-temp-notification** details page, choose
+      the **Configuration** tab and scroll to the **Function
+      code** panel.
+   3. In the **Function code** window, in the
+      **Environment** pane, choose the Python file,
+      `lambda_function.py`.
+   4. In the **Function code** window, delete all of the original
+      program code from the blueprint and replace it with this code.
 
-    ```
-    import boto3
-    #
-    #   expects event parameter to contain:
-    #   {
-    #       "device_id": "32",
-    #       "reported_temperature": 38,
-    #       "max_temperature": 30,
-    #       "notify_topic_arn": "`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`"
-    #   }
-    #
-    #   sends a plain text string to be used in a text message
-    #
-    #      "Device {0} reports a temperature of {1}, which exceeds the limit of {2}."
-    #
-    #   where:
-    #       {0} is the device_id value
-    #       {1} is the reported_temperature value
-    #       {2} is the max_temperature value
-    #
-    def lambda_handler(event, context):
+   ```
+   import boto3
+   #
+   #   expects event parameter to contain:
+   #   {
+   #       "device_id": "32",
+   #       "reported_temperature": 38,
+   #       "max_temperature": 30,
+   #       "notify_topic_arn": "`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`"
+   #   }
+   #
+   #   sends a plain text string to be used in a text message
+   #
+   #      "Device {0} reports a temperature of {1}, which exceeds the limit of {2}."
+   #
+   #   where:
+   #       {0} is the device_id value
+   #       {1} is the reported_temperature value
+   #       {2} is the max_temperature value
+   #
+   def lambda_handler(event, context):
 
-        # Create an SNS client to send notification
-        sns = boto3.client('sns')
+       # Create an SNS client to send notification
+       sns = boto3.client('sns')
 
-        # Format text message from data
-        message_text = "Device {0} reports a temperature of {1}, which exceeds the limit of {2}.".format(
-                str(event['device_id']),
-                str(event['reported_temperature']),
-                str(event['max_temperature'])
-            )
+       # Format text message from data
+       message_text = "Device {0} reports a temperature of {1}, which exceeds the limit of {2}.".format(
+               str(event['device_id']),
+               str(event['reported_temperature']),
+               str(event['max_temperature'])
+           )
 
-        # Publish the formatted message
-        response = sns.publish(
-                TopicArn = event['notify_topic_arn'],
-                Message = message_text
-            )
+       # Publish the formatted message
+       response = sns.publish(
+               TopicArn = event['notify_topic_arn'],
+               Message = message_text
+           )
 
-        return response
-    ```
-    5. Choose **Deploy**.
+       return response
+   ```
+   5. Choose **Deploy**.
 
-3.  In a new window, look up the Amazon Resource Name (ARN) of your Amazon SNS topic from the
-    tutorial about how to [Tutorial: Sending an Amazon SNS notification](iot-sns-rule.md "iot-sns-rule.md").
+3. In a new window, look up the Amazon Resource Name (ARN) of your Amazon SNS topic from the
+   tutorial about how to [Tutorial: Sending an Amazon SNS notification](iot-sns-rule.md "iot-sns-rule.md").
 
-    1. In a new window, open the [Topics page of the Amazon SNS console](https://console.aws.amazon.com//sns/v3/home#/topics "https://console.aws.amazon.com//sns/v3/home#/topics").
-    2. In the **Topics** page, find the
-       **high_temp_notice** notification topic in the list of Amazon SNS
-       topics.
-    3. Find the **ARN** of the **high_temp_notice**
-       notification topic to use in the next step.
+   1. In a new window, open the [Topics page of the Amazon SNS console](https://console.aws.amazon.com//sns/v3/home#/topics "https://console.aws.amazon.com//sns/v3/home#/topics").
+   2. In the **Topics** page, find the
+      **high\_temp\_notice** notification topic in the list of Amazon SNS
+      topics.
+   3. Find the **ARN** of the **high\_temp\_notice**
+      notification topic to use in the next step.
 
-4.  Create a test case for your Lambda function.
+4. Create a test case for your Lambda function.
 
-    1. In the [Lambda
-       **Functions**](https://console.aws.amazon.com//lambda/home#/functions "https://console.aws.amazon.com//lambda/home#/functions") page of the console, on the
-       **format-high-temp-notification** details page, choose
-       **Select a test event** in the upper right corner of the page
-       (even though it looks disabled), and then choose **Configure test
-       events**.
-    2. In **Configure test event**, choose **Create new test
-       event**.
-    3. In **Event name**, enter
-       `SampleRuleOutput`.
-    4. In the JSON editor below **Event name**, paste this sample JSON
-       document. This is an example of what your AWS IoT rule will send to the Lambda
-       function.
+   1. In the [Lambda
+      **Functions**](https://console.aws.amazon.com//lambda/home#/functions "https://console.aws.amazon.com//lambda/home#/functions") page of the console, on the
+      **format-high-temp-notification** details page, choose
+      **Select a test event** in the upper right corner of the page
+      (even though it looks disabled), and then choose **Configure test
+      events**.
+   2. In **Configure test event**, choose **Create new test
+      event**.
+   3. In **Event name**, enter
+      `SampleRuleOutput`.
+   4. In the JSON editor below **Event name**, paste this sample JSON
+      document. This is an example of what your AWS IoT rule will send to the Lambda
+      function.
 
-    ```
-    {
-      "device_id": "32",
-      "reported_temperature": 38,
-      "max_temperature": 30,
-      "notify_topic_arn": "`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`"
-    }
-    ```
-    5. Refer to the window that has the **ARN** of the
-       **high_temp_notice** notification topic and copy the ARN
-       value.
-    6. Replace the `notify_topic_arn` value in the JSON editor with the ARN
-       from your notification topic.
+   ```
+   {
+     "device_id": "32",
+     "reported_temperature": 38,
+     "max_temperature": 30,
+     "notify_topic_arn": "`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`"
+   }
+   ```
+   5. Refer to the window that has the **ARN** of the
+      **high\_temp\_notice** notification topic and copy the ARN
+      value.
+   6. Replace the `notify_topic_arn` value in the JSON editor with the ARN
+      from your notification topic.
 
-    Keep this window open so you can use this ARN value again when you create the
-    AWS IoT rule. 7. Choose **Create**.
+   Keep this window open so you can use this ARN value again when you create the
+   AWS IoT rule. 7. Choose **Create**.
 
-5.  Test the function with sample data.
+5. Test the function with sample data.
 
-    1. In the **format-high-temp-notification** details page, in the
-       upper-right corner of the page, confirm that **SampleRuleOutput**
-       appears next to the **Test** button. If it doesn't, choose it
-       from the list of available test events.
-    2. To send the sample rule output message to your function, choose
-       **Test**.
+   1. In the **format-high-temp-notification** details page, in the
+      upper-right corner of the page, confirm that **SampleRuleOutput**
+      appears next to the **Test** button. If it doesn't, choose it
+      from the list of available test events.
+   2. To send the sample rule output message to your function, choose
+      **Test**.
 
 If the function and the notification both worked, you will get a text message on the
 phone that subscribed to the notification.
@@ -249,39 +249,39 @@ correct text message.
 
 ###### To create the AWS IoT rule to call a Lambda function
 
-1.  Open the [**Rules** hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
-2.  To start creating your new rule in **Rules**, choose
-    **Create**.
-3.  In the top part of **Create a rule**:
+1. Open the [**Rules** hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
+2. To start creating your new rule in **Rules**, choose
+   **Create**.
+3. In the top part of **Create a rule**:
 
-    1. In **Name**, enter the rule's name,
-       `wx_friendly_text`.
+   1. In **Name**, enter the rule's name,
+      `wx_friendly_text`.
 
-    Remember that a rule name must be unique within your AWS account and Region, and
-    it can't have any spaces. We've used an underscore character in this name to
-    separate the two words in the rule's name. 2. In **Description**, describe the rule.
+   Remember that a rule name must be unique within your AWS account and Region, and
+   it can't have any spaces. We've used an underscore character in this name to
+   separate the two words in the rule's name. 2. In **Description**, describe the rule.
 
-    A meaningful description makes it easier to remember what this rule does and why
-    you created it. The description can be as long as needed, so be as detailed as
-    possible.
+   A meaningful description makes it easier to remember what this rule does and why
+   you created it. The description can be as long as needed, so be as detailed as
+   possible.
 
-4.  In **Rule query statement** of **Create a
-    rule**:
+4. In **Rule query statement** of **Create a
+   rule**:
 
-    1. In **Using SQL version**, select
-       `2016-03-23`.
-    2. In the **Rule query statement** edit box, enter the statement:
+   1. In **Using SQL version**, select
+      `2016-03-23`.
+   2. In the **Rule query statement** edit box, enter the statement:
 
-    ```
-    SELECT
-      cast(topic(2) AS DECIMAL) as device_id,
-      temperature as reported_temperature,
-      30 as max_temperature,
-      '`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`' as notify_topic_arn
-    FROM 'device/+/data' WHERE temperature > 30
-    ```
+   ```
+   SELECT
+     cast(topic(2) AS DECIMAL) as device_id,
+     temperature as reported_temperature,
+     30 as max_temperature,
+     '`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`' as notify_topic_arn
+   FROM 'device/+/data' WHERE temperature > 30
+   ```
 
-    This statement:
+   This statement:
 
         * Listens for MQTT messages with a topic that matches the
          `device/+/data` topic filter and that have a
@@ -293,31 +293,31 @@ correct text message.
         * Creates a constant value, `30`, to represent the limit value and
          assigns it to the `max_temperature` field.
         * Creates a constant value for the `notify_topic_arn` field.
-    3. Refer to the window that has the **ARN** of the
-       **high_temp_notice** notification topic and copy the ARN
-       value.
-    4. Replace the ARN value
-       (`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`)
-       in the rule query statement editor with the ARN of your notification topic.
 
-5.  In **Set one or more actions**:
+   3. Refer to the window that has the **ARN** of the
+   **high\_temp\_notice** notification topic and copy the ARN
+   value. 4. Replace the ARN value
+   (`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`)
+   in the rule query statement editor with the ARN of your notification topic.
 
-    1. To open up the list of rule actions for this rule, choose **Add
-       action**.
-    2. In **Select an action**, choose **Send a message to a
-       Lambda function**.
-    3. To open the selected action's configuration page, at the bottom of the action
-       list, choose **Configure action**.
+5. In **Set one or more actions**:
 
-6.  In **Configure action**:
+   1. To open up the list of rule actions for this rule, choose **Add
+      action**.
+   2. In **Select an action**, choose **Send a message to a
+      Lambda function**.
+   3. To open the selected action's configuration page, at the bottom of the action
+      list, choose **Configure action**.
 
-    1. In **Function name**, choose
-       **Select**.
-    2. Choose **format-high-temp-notification**.
-    3. At the bottom of **Configure action**, choose **Add
-       action**.
-    4. To create the rule, at the bottom of **Create a rule**, choose
-       **Create rule**.
+6. In **Configure action**:
+
+   1. In **Function name**, choose
+      **Select**.
+   2. Choose **format-high-temp-notification**.
+   3. At the bottom of **Configure action**, choose **Add
+      action**.
+   4. To create the rule, at the bottom of **Create a rule**, choose
+      **Create rule**.
 
 ## Step 3: Test the AWS IoT rule and AWS Lambda rule action
 

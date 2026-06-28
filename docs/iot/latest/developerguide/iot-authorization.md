@@ -26,20 +26,20 @@ AWS IoT Core operations are divided into two groups:
 The following table shows the identity types, the protocols they use, and the policy types
 that can be used for authorization.
 
-| AWS IoT Core data plane API and policy types                                                                                    | Protocol and authentication mechanism | SDK                                        | Identity type                 | Policy type |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ------------------------------------------ | ----------------------------- | ----------- |
-| MQTT over TLS/TCP, TLS mutual authentication (port 8883<br>or 443)[†](protocols.md#protocol-port "protocols.md#protocol-port")) | AWS IoT Device SDK                    | X.509 certificates                         | AWS IoT Core policy           |
-| MQTT over HTTPS/WebSocket, AWS SigV4<br>authentication (port 443)                                                               | AWS Mobile SDK                        | Authenticated Amazon Cognito identity      | IAM and AWS IoT Core policies |
-| Unauthenticated Amazon Cognito identity                                                                                         | IAM policy                            |
-| IAM, or federated identity                                                                                                      | IAM policy                            |
-| HTTPS, AWS Signature Version 4 authentication (port<br>443)                                                                     | AWS CLI                               | Amazon Cognito, IAM, or federated identity | IAM policy                    |
-| HTTPS, TLS mutual authentication (port 8443)                                                                                    | No SDK support                        | X.509 certificates                         | AWS IoT Core policy           |
-| HTTPS over custom authentication (Port 443)                                                                                     | AWS IoT Device SDK                    | Custom authorizer                          | Custom authorizer policy      |
+AWS IoT Core data plane API and policy types| Protocol and authentication mechanism | SDK | Identity type | Policy type |
+| --- | --- | --- | --- |
+| MQTT over TLS/TCP, TLS mutual authentication (port 8883<br>or 443)[†](protocols.md#protocol-port "protocols.md#protocol-port")) | AWS IoT Device SDK | X.509 certificates | AWS IoT Core policy |
+| MQTT over HTTPS/WebSocket, AWS SigV4<br>authentication (port 443) | AWS Mobile SDK | Authenticated Amazon Cognito identity | IAM and AWS IoT Core policies |
+| Unauthenticated Amazon Cognito identity | IAM policy |
+| IAM, or federated identity | IAM policy |
+| HTTPS, AWS Signature Version 4 authentication (port<br>443) | AWS CLI | Amazon Cognito, IAM, or federated identity | IAM policy |
+| HTTPS, TLS mutual authentication (port 8443) | No SDK support | X.509 certificates | AWS IoT Core policy |
+| HTTPS over custom authentication (Port 443) | AWS IoT Device SDK | Custom authorizer | Custom authorizer policy |
 
-| AWS IoT Core control plane API and policy types            | Protocol and authentication mechanism | SDK                     | Identity type | Policy type |
-| ---------------------------------------------------------- | ------------------------------------- | ----------------------- | ------------- | ----------- |
-| HTTPS AWS Signature Version 4<br>authentication (port 443) | AWS CLI                               | Amazon Cognito identity | IAM policy    |
-| IAM, or federated identity                                 | IAM policy                            |
+AWS IoT Core control plane API and policy types| Protocol and authentication mechanism | SDK | Identity type | Policy type |
+| --- | --- | --- | --- |
+| HTTPS AWS Signature Version 4<br>authentication (port 443) | AWS CLI | Amazon Cognito identity | IAM policy |
+| IAM, or federated identity | IAM policy |
 
 AWS IoT Core policies are attached to X.509 certificates, Amazon Cognito identities, or thing groups.
 IAM policies are attached to an IAM user, group, or role. If you use the AWS IoT console

@@ -36,11 +36,10 @@ You can also create a fleet provisioning template in the AWS IoT console.
     4. Complete the template workflow.
 
 2. Create certificates and associated private keys to be used as provisioning
-   claim certificates.
-3. Register these certificates with AWS IoT and associate an IoT policy that
-   restricts the use of the certificates. The following example IoT policy
-   restricts the use of the certificate associated with this policy to
-   provisioning devices.
+claim certificates. 3. Register these certificates with AWS IoT and associate an IoT policy that
+restricts the use of the certificates. The following example IoT policy
+restricts the use of the certificate associated with this policy to
+provisioning devices.
 
 ```
 `{
@@ -127,7 +126,7 @@ authentication with AWS IoT.
      private key secure.
 
 3. From the device, call [RegisterThing](fleet-provision-api.md#register-thing "fleet-provision-api.md#register-thing") to register the device with AWS IoT
-   and create cloud resources.
+and create cloud resources.
 
 The Fleet Provisioning service uses a provisioning template to define and
 create cloud resources such as IoT things. The template can specify

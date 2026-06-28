@@ -8,8 +8,8 @@ providing a thing is required when starting the suite run.
 
 ## Publish
 
-**_"Device publishes state after it connects (Happy
-case)"_**
+_**"Device publishes state after it connects (Happy
+case)"**_
 
 Validates if a device can publish its state after it connects to AWS IoT Core
 
@@ -50,7 +50,7 @@ if your device uses the named shadow type. See [Using shadows in devices](device
 
 ## Update
 
-**_"Device updates reported state to desired state (Happy case)"_**
+_**"Device updates reported state to desired state (Happy case)"**_
 
 Validates if your device reads all update messages received and
 synchronizes the device's state to match the desired state properties.

@@ -91,57 +91,58 @@ AWS Management Console
 
 ###### To create a topic rule by using the AWS Management Console
 
-1.  Open the Rule hub.
+1. Open the Rule hub.
 
-    1. Open the AWS Management Console
-       and navigate to [AWS IoT](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot") .
-    2. On the navigation bar, choose **Message routing**
-       and then **Rules**.
-    3. Choose **Create rule**.
+   1. Open the AWS Management Console
+      and navigate to [AWS IoT](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot") .
+   2. On the navigation bar, choose **Message routing**
+      and then **Rules**.
+   3. Choose **Create rule**.
 
-2.  Enter the rule properties.
+2. Enter the rule properties.
 
-    1. Enter an alphanumeric **Rule name**.
-    2. (Optional) Enter a **Rule description** and
-       **Tags**.
-    3. Choose **Next**.
+   1. Enter an alphanumeric **Rule name**.
+   2. (Optional) Enter a **Rule description** and
+      **Tags**.
+   3. Choose **Next**.
 
-3.  Enter a SQL statement.
+3. Enter a SQL statement.
 
-    1. Enter a SQL statement using the MQTT topic that you defined for
-       ingestion.
+   1. Enter a SQL statement using the MQTT topic that you defined for
+      ingestion.
 
-    For example, `SELECT * FROM
- '`$aws/rules/things/thing_name/logs`'` 2. Choose **Next**.
+   For example, `SELECT * FROM
+  '`$aws/rules/things/thing_name/logs`'` 2. Choose **Next**.
 
-4.  Enter rule actions.
+4. Enter rule actions.
 
-    1. On the **Action 1** menu, choose **CloudWatch
-       logs**.
-    2. Choose the **Log group name** and then choose the log
-       group that you created.
-    3. Select **Use batch mode**.
-    4. Specify the IAM role for the rule.
+   1. On the **Action 1** menu, choose **CloudWatch
+      logs**.
+   2. Choose the **Log group name** and then choose the log
+      group that you created.
+   3. Select **Use batch mode**.
+   4. Specify the IAM role for the rule.
 
-    If you have an IAM role for the rule, do the following.
+   If you have an IAM role for the rule, do the following.
 
         1. On the **IAM role** menu, choose your IAM
          role.
 
-    If you don't have an IAM role for the rule, do the following.
+   If you don't have an IAM role for the rule, do the following.
 
         1. Choose **Create new role**.
         2. For **Role name**, enter a unique name and choose
         **Create**.
         3. Confirm that the IAM role name is correct in the **IAM
          role** field.
-    5. Choose **Next**.
 
-5.  Review the template configuration.
+   5. Choose **Next**.
 
-    1. Review the settings for the Job template to verify they're
-       correct.
-    2. When you're done, choose **Create**.
+5. Review the template configuration.
+
+   1. Review the settings for the Job template to verify they're
+      correct.
+   2. When you're done, choose **Create**.
 
 AWS CLI
 

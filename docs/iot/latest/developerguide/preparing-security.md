@@ -252,19 +252,21 @@ The following policies are required to perform this update:
   Amazon S3 and update the package version in AWS IoT Core.
 
   - ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Principal": {
-     "Service": "s3.amazonaws.com"
-     },
-     "Action": "sts:AssumeRole"
-     }
-     ]
-    }`
+
     ```
+
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Effect": "Allow",
+   "Principal": {
+   "Service": "s3.amazonaws.com"
+   },
+   "Action": "sts:AssumeRole"
+   }
+   ]
+  }`
 
   ````
   + ```
@@ -288,21 +290,23 @@ The following policies are required to perform this update:
   package version and update the package version in AWS IoT Core.
 
   - ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Action": [
-     "s3:GetObject"
-     ],
-     "Resource": [
-     "arn:aws:s3:::`awsexamplebucket1`"
-     ]
-     }
-     ]
-    }`
+
     ```
+
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Effect": "Allow",
+   "Action": [
+   "s3:GetObject"
+   ],
+   "Resource": [
+   "arn:aws:s3:::`awsexamplebucket1`"
+   ]
+   }
+   ]
+  }`
 
   ````
   + ```
@@ -329,22 +333,24 @@ The following policies are required to perform this update:
   operation.
 
   - ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Action": [
-     "iam:PassRole",
-     "s3:GetObject"
-     ],
-     "Resource": [
-     "arn:aws:s3:::`awsexamplebucket1`"
-     ]
-     }
-     ]
-    }`
+
     ```
+
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Effect": "Allow",
+   "Action": [
+   "iam:PassRole",
+   "s3:GetObject"
+   ],
+   "Resource": [
+   "arn:aws:s3:::`awsexamplebucket1`"
+   ]
+   }
+   ]
+  }`
 
   ````
   + ```

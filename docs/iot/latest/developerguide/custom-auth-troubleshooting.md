@@ -44,55 +44,63 @@ following steps to do this.
      problem.
 
 3. If you see no invocations, verify that AWS IoT Core has permission to
-   invoke your Lambda function. If you see invocations, skip to the next
-   step. Perform the following steps to verify that your Lambda function has
-   the required permissions.
+invoke your Lambda function. If you see invocations, skip to the next
+step. Perform the following steps to verify that your Lambda function has
+the required permissions.
 
-   1. Choose the **Permissions** tab
-      for your function in the AWS Lambda console.
-   2. Find the **Resource-based
-      Policy** section at the bottom of the page. If your
-      Lambda function has the required permissions, the policy looks
-      like the following example.
+    1. Choose the **Permissions** tab
+     for your function in the AWS Lambda console.
+    2. Find the **Resource-based
+     Policy** section at the bottom of the page. If your
+     Lambda function has the required permissions, the policy looks
+     like the following example.
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Id": "default",
-    "Statement": [
-    {
-    "Sid": "Id123",
-    "Effect": "Allow",
-    "Principal": {
-    "Service": "iot.amazonaws.com"
-    },
-    "Action": "lambda:InvokeFunction",
-    "Resource": "arn:aws:lambda:us-east-1:111111111111:function:FunctionName",
-    "Condition": {
-    "ArnLike": {
-    "AWS:SourceArn": "arn:aws:iot:us-east-1:111111111111:authorizer/AuthorizerName"
-    },
-    "StringEquals": {
-    "AWS:SourceAccount": "111111111111"
-    }
-    }
-    }
-    ]
-   }`
 
-   ```
-   3. This policy grants the `InvokeFunction` permission
-      on your function to the AWS IoT Core principal. If you don't see
-      it, you'll have to add it by using the [AddPermission](../../../lambda/latest/dg/API_AddPermission.md "../../../lambda/latest/dg/API_AddPermission.md") API. The following example shows you
-      how to do this by using the AWS CLI.
 
-   ```
-   `aws lambda add-permission --function-name `FunctionName` --principal iot.amazonaws.com --source-arn `AuthorizerARn` --statement-id Id-123 --action "lambda:InvokeFunction"`
-   ```
+
+
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Id": "default",
+     "Statement": [
+     {
+     "Sid": "Id123",
+     "Effect": "Allow",
+     "Principal": {
+     "Service": "iot.amazonaws.com"
+     },
+     "Action": "lambda:InvokeFunction",
+     "Resource": "arn:aws:lambda:us-east-1:111111111111:function:FunctionName",
+     "Condition": {
+     "ArnLike": {
+     "AWS:SourceArn": "arn:aws:iot:us-east-1:111111111111:authorizer/AuthorizerName"
+     },
+     "StringEquals": {
+     "AWS:SourceAccount": "111111111111"
+     }
+     }
+     }
+     ]
+    }`
+
+    ```
+    3. This policy grants the `InvokeFunction` permission
+     on your function to the AWS IoT Core principal. If you don't see
+     it, you'll have to add it by using the [AddPermission](../../../lambda/latest/dg/API_AddPermission.md "../../../lambda/latest/dg/API_AddPermission.md") API. The following example shows you
+     how to do this by using the AWS CLI.
+
+
+
+    ```
+    `aws lambda add-permission --function-name `FunctionName` --principal iot.amazonaws.com --source-arn `AuthorizerARn` --statement-id Id-123 --action "lambda:InvokeFunction"`
+    ```
 
 4. If you see invocations, verify that there are no errors. An error
-   might indicate that the Lambda function isn't properly handling the
-   connection event that AWS IoT Core sends to it.
+might indicate that the Lambda function isn't properly handling the
+connection event that AWS IoT Core sends to it.
 
 For information about handling the event in your Lambda function, see
 [Defining your Lambda function](custom-auth-lambda.md "custom-auth-lambda.md"). You can use the test feature
@@ -122,10 +130,10 @@ the policy that the function returns.
      creates.
 
 6. If you see invocations with no errors, but your devices are not able
-   to connect (or publish, subscribe, and receive messages), another reason
-   can be that your Lambda function exceeds the timeout limit. The Lambda
-   function timeout limit for custom authorizer is 5 seconds. You can check
-   the function duration in CloudWatch logs or metrics.
+to connect (or publish, subscribe, and receive messages), another reason
+can be that your Lambda function exceeds the timeout limit. The Lambda
+function timeout limit for custom authorizer is 5 seconds. You can check
+the function duration in CloudWatch logs or metrics.
 
 ## Investigating device issues
 
@@ -145,9 +153,9 @@ layers.
   the following CLI commands.
 
   - `aws iot describe-endpoint --endpoint-type
-iot:Data-ATS`
+   iot:Data-ATS`
   - `aws iot describe-endpoint --endpoint-type
-iot:Data` (for legacy VeriSign endpoints)
+   iot:Data` (for legacy VeriSign endpoints)
 
 - Devices that use custom authentication for MQTT connections must also
   pass the Application Layer Protocol Negotiation (ALPN) TLS extension

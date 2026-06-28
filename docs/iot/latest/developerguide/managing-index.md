@@ -91,7 +91,7 @@ that's indexed for each value.
 | ------------------------------- | ---------------- | -------- | ------ | ------------ | ------------- | ------------ |
 | `thingIndexingMode`             | OFF              |          |        |              |               |              |
 | REGISTRY                        | ✓                |          |        |              |               |
-| REGISTRY_AND_SHADOW             | ✓                | ✓        |        |              |               |
+| REGISTRY\_AND\_SHADOW           | ✓                | ✓        |        |              |               |
 | `thingConnectivityIndexingMode` | _Not specified._ |          |        |              |               |              |
 | OFF                             |                  |          |        |              |               |
 | STATUS                          |                  |          | ✓      |              |               |
@@ -148,7 +148,7 @@ shadow names in `namedShadowNames` filter.
 To add geolocation data to your fleet indexing configuration:
 
 - If your geolocation data is stored in a classic (unnamed) shadow, set
-  `thingIndexingMode` to be REGISTRY_AND_SHADOW, and specify your
+  `thingIndexingMode` to be REGISTRY\_AND\_SHADOW, and specify your
   geolocation data in `geoLocations` filter.
 
 The example filter below specifies a geoLocation object in a classic (unnamed)
@@ -506,14 +506,14 @@ You can see different values in the schema field depending on the data sources t
 you've configured. The following table shows the different schema values and the
 corresponding descriptions:
 
-| Schema                                      | Description                                                                                                                            |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| OFF                                         | No data sources are configured or indexed.                                                                                             |
-| REGISTRY                                    | Registry data is indexed.                                                                                                              |
-| REGISTRY_AND_SHADOW                         | Registry data and unnamed (classic) shadow data are indexed.                                                                           |
-| REGISTRY_AND_CONNECTIVITY                   | Registry data and connectivity data are indexed.                                                                                       |
-| REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS | Registry data, unnamed (classic) shadow data, and connectivity data are<br>indexed.                                                    |
-| MULTI_INDEXING_MODE                         | Named shadow or Device Defender violations data is indexed, in addition<br>to registry, unnamed (classic) shadow or connectivity data. |
+| Schema                                           | Description                                                                                                                            |
+| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| OFF                                              | No data sources are configured or indexed.                                                                                             |
+| REGISTRY                                         | Registry data is indexed.                                                                                                              |
+| REGISTRY\_AND\_SHADOW                            | Registry data and unnamed (classic) shadow data are indexed.                                                                           |
+| REGISTRY\_AND\_CONNECTIVITY                      | Registry data and connectivity data are indexed.                                                                                       |
+| REGISTRY\_AND\_SHADOW\_AND\_CONNECTIVITY\_STATUS | Registry data, unnamed (classic) shadow data, and connectivity data are<br>indexed.                                                    |
+| MULTI\_INDEXING\_MODE                            | Named shadow or Device Defender violations data is indexed, in addition<br>to registry, unnamed (classic) shadow or connectivity data. |
 
 ## Querying a thing index
 

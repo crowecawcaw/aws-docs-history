@@ -69,7 +69,7 @@ InvalidStateTransition
 An update attempted to change the job execution to a
 state that is not valid because of the job execution's
 current state. For example, an attempt to change a request
-in state SUCCEEDED to state IN_PROGRESS. In this case, the
+in state SUCCEEDED to state IN\_PROGRESS. In this case, the
 body of the error message also contains the
 `executionState` field.
 

@@ -129,7 +129,7 @@ section. The JITP workflow then uses this template to perform the following
 actions:
 
 - Register a certificate and set its status to
-  PENDING_ACTIVE.
+  PENDING\_ACTIVE.
 - Create one thing resource.
 - Create one policy resource.
 - Attach the policy to the certificate.

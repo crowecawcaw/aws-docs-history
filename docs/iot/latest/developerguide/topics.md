@@ -77,10 +77,10 @@ Publishing clients can't use wildcard characters in the topic names they publish
 
 The following table lists the wildcard characters that can be used in a topic filter.
 
-| Topic wildcards | Wildcard character                                         | Matches                                                                                                                                                                                                | Notes |
-| --------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| #               | All strings at and below its level in the topic hierarchy. | Must be the last character in the topic filter.<br>Must be the only character in its level of the topic<br>hierarchy.<br>Can be used in a topic filter that also contains the + wildcard<br>character. |
-| +               | Any string in the level that contains the character.       | Must be the only character in its level of the topic<br>hierarchy.<br>Can be used in multiple levels of a topic filter.                                                                                |
+Topic wildcards| Wildcard character | Matches | Notes |
+| --- | --- | --- |
+| # | All strings at and below its level in the topic hierarchy. | Must be the last character in the topic filter.<br>Must be the only character in its level of the topic<br>hierarchy.<br>Can be used in a topic filter that also contains the + wildcard<br>character. |
+| + | Any string in the level that contains the character. | Must be the only character in its level of the topic<br>hierarchy.<br>Can be used in multiple levels of a topic filter. |
 
 Using wildcards with the previous sensor topic name examples:
 

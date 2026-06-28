@@ -1,6 +1,6 @@
 # Preparing fleet indexing
 
-With AWS IoT fleet indexing, you can search and aggregate data by using the reserved named shadow (`$package`). You can also group AWS IoT things by querying the [Reserved named shadow](preparing-to-use-software-package-catalog.md#reserved-named-shadow "preparing-to-use-software-package-catalog.md#reserved-named-shadow") and [dynamic thing groups](dynamic-thing-groups.md "dynamic-thing-groups.md"). For example, you can find information about which AWS IoT things use a specific package version, don't have a specific package version installed, or don’t have any package version installed. You can gain further insight by combining attributes. For example, identifying things that have a specific version and are of a specific thing type (such as version 1.0.0 and thing type of pump_sensor). For more information, see [Fleet indexing](iot-indexing.md "iot-indexing.md").
+With AWS IoT fleet indexing, you can search and aggregate data by using the reserved named shadow (`$package`). You can also group AWS IoT things by querying the [Reserved named shadow](preparing-to-use-software-package-catalog.md#reserved-named-shadow "preparing-to-use-software-package-catalog.md#reserved-named-shadow") and [dynamic thing groups](dynamic-thing-groups.md "dynamic-thing-groups.md"). For example, you can find information about which AWS IoT things use a specific package version, don't have a specific package version installed, or don’t have any package version installed. You can gain further insight by combining attributes. For example, identifying things that have a specific version and are of a specific thing type (such as version 1.0.0 and thing type of pump\_sensor). For more information, see [Fleet indexing](iot-indexing.md "iot-indexing.md").
 
 ## Setting the `$package` shadow as a data source
 
@@ -114,12 +114,12 @@ The shadow looks as follows:
 The following table lists sample queries based on the example device shadows for `AnyThing` and `AnotherThing`.
 For more information, see [Example thing queries](example-queries.md "example-queries.md").
 
-| Latest version of AWS IoT Device Tester for FreeRTOS                                   | **Requested information**                                                                                  | **Query**                | **Result** |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------ | ---------- |
-| Things that have a specific package version installed                                  | `shadow.name.$package.reported.SamplePackage.version:1.0.0`                                                | `AnyThing`, `OtherThing` |
-| Things that don't have a specific package version installed                            | `NOT shadow.name.$package.reported.OtherPackage.version:1.2.5`                                             | `AnyThing`               |
-| Any device using a package version whose package ID is greater than 1500               | `shadow.name.$package.reported.*.attributes.packageID>1500"`                                               | `OtherThing`             |
-| Things that have a specific package installed and have more than one package installed | `shadow.name.$package.reported.SamplePackage.version:1.0.0 AND shadow.name.$package.reported.totalCount:2` | `OtherThing`             |
+Latest version of AWS IoT Device Tester for FreeRTOS| **Requested information** | **Query** | **Result** |
+| --- | --- | --- |
+| Things that have a specific package version installed | `shadow.name.$package.reported.SamplePackage.version:1.0.0` | `AnyThing`, `OtherThing` |
+| Things that don't have a specific package version installed | `NOT shadow.name.$package.reported.OtherPackage.version:1.2.5` | `AnyThing` |
+| Any device using a package version whose package ID is greater than 1500 | `shadow.name.$package.reported.*.attributes.packageID>1500"` | `OtherThing` |
+| Things that have a specific package installed and have more than one package installed | `shadow.name.$package.reported.SamplePackage.version:1.0.0 AND shadow.name.$package.reported.totalCount:2` | `OtherThing` |
 
 ## Collecting package version distribution through `getBucketsAggregation`
 

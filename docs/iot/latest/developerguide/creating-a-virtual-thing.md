@@ -452,11 +452,11 @@ npm install
 The commands in the next sections assume that your key and certificate
 files are stored on your virtual device as shown in this table.
 
-| Certificate file names | File                           | File path |
-| ---------------------- | ------------------------------ | --------- |
-| Private key            | `~/certs/private.pem.key`      |
-| Device certificate     | `~/certs/device.pem.crt`       |
-| Root CA certificate    | `~/certs/Amazon-root-CA-1.pem` |
+Certificate file names| File | File path |
+| --- | --- |
+| Private key | `~/certs/private.pem.key` |
+| Device certificate | `~/certs/device.pem.crt` |
+| Root CA certificate | `~/certs/Amazon-root-CA-1.pem` |
 
 In this section, you'll install and run the `pub-sub.js` sample
 app found in the `aws-iot-device-sdk-js-v2/samples/node`
@@ -498,9 +498,9 @@ node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert
 The sample app:
 
 1. Connects to AWS IoT Core for your account.
-2. Subscribes to the message topic, **topic_1**, and displays the messages it receives on
+2. Subscribes to the message topic, **topic\_1**, and displays the messages it receives on
    that topic.
-3. Publishes 10 messages to the topic, **topic_1**.
+3. Publishes 10 messages to the topic, **topic\_1**.
 4. Displays output similar to the following:
 
 ```
@@ -548,7 +548,7 @@ broker by using the **MQTT test client** in the
 2. Open the **MQTT test client** in the
    **AWS IoT console**.
 3. In **Subscribe to a topic**, Subscribe to the
-   topic, **topic_1**.
+   topic, **topic\_1**.
 4. In your **Amazon EC2 Instance Connect** window, run
    the sample app again and watch the messages in the **MQTT
    test client** in the **AWS IoT

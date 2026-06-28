@@ -33,11 +33,11 @@ any device ID if it was successfully resolved.
 
 The following are the reserved topics used to interact with AWS IoT Core Device Location.
 
-| Device location MQTT topics                                              | Topic     | Allowed operations                                                                                                                  | Description |
-| ------------------------------------------------------------------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| $aws/device_location/`customer_device_id`/get_position_estimate          | Publish   | A device publishes to this topic to get the scanned raw<br>measurement data to be resolved by AWS IoT Core Device Location.         |
-| $aws/device_location/`customer_device_id`/get_position_estimate/accepted | Subscribe | AWS IoT Core Device Location publishes the location information to this topic when<br>it successfully resolves the device location. |
-| $aws/device_location/`customer_device_id`/get_position_estimate/rejected | Subscribe | AWS IoT Core Device Location publishes the error information to this topic when it<br>fails to resolve the device location.         |
+Device location MQTT topics| Topic | Allowed operations | Description |
+| --- | --- | --- |
+| $aws/device\_location/`customer_device_id`/get\_position\_estimate | Publish | A device publishes to this topic to get the scanned raw<br>measurement data to be resolved by AWS IoT Core Device Location. |
+| $aws/device\_location/`customer_device_id`/get\_position\_estimate/accepted | Subscribe | AWS IoT Core Device Location publishes the location information to this topic when<br>it successfully resolves the device location. |
+| $aws/device\_location/`customer_device_id`/get\_position\_estimate/rejected | Subscribe | AWS IoT Core Device Location publishes the error information to this topic when it<br>fails to resolve the device location. |
 
 ## Policy for device location MQTT topics
 
@@ -93,11 +93,11 @@ an example policy for each topic.
 
 ###### Topics
 
-- [/get_position_estimate](#get-position-estimate "#get-position-estimate")
-- [/get_position_estimate/accepted](#get-position-estimate-accepted "#get-position-estimate-accepted")
-- [/get_position_estimate/rejected](#get-position-estimate-rejected "#get-position-estimate-rejected")
+- [/get\_position\_estimate](#get-position-estimate "#get-position-estimate")
+- [/get\_position\_estimate/accepted](#get-position-estimate-accepted "#get-position-estimate-accepted")
+- [/get\_position\_estimate/rejected](#get-position-estimate-rejected "#get-position-estimate-rejected")
 
-### /get_position_estimate
+### /get\_position\_estimate
 
 Publish a message to this topic to get the raw measurement data from the
 device to be resolved by AWS IoT Core Device Location.
@@ -106,7 +106,7 @@ device to be resolved by AWS IoT Core Device Location.
 $aws/device_location/`customer_device_id`/get_position_estimate
 ```
 
-AWS IoT Core Device Location responds by publishing to either [/get_position_estimate/accepted](#get-position-estimate-accepted "#get-position-estimate-accepted") or [/get_position_estimate/rejected](#get-position-estimate-rejected "#get-position-estimate-rejected").
+AWS IoT Core Device Location responds by publishing to either [/get\_position\_estimate/accepted](#get-position-estimate-accepted "#get-position-estimate-accepted") or [/get\_position\_estimate/rejected](#get-position-estimate-rejected "#get-position-estimate-rejected").
 
 ###### Note
 
@@ -135,12 +135,11 @@ AWS IoT Wireless API operation request body, [`GetPositionEstimate`](../../../io
 - The measurement data from the device that contains one or more
   of the following measurement types:
 
-      + [`WiFiAccessPoint`](../../../iot-wireless/latest/apireference/API_WiFiAccessPoint.md "../../../iot-wireless/latest/apireference/API_WiFiAccessPoint.md")
-      + [`CellTowers`](../../../iot-wireless/latest/apireference/API_CellTowers.md "../../../iot-wireless/latest/apireference/API_CellTowers.md")
-      + [`IpAddress`](../../../iot-wireless/latest/apireference/API_Ip.md "../../../iot-wireless/latest/apireference/API_Ip.md")
-      + [`Gnss`](../../../iot-wireless/latest/apireference/API_Gnss.md "../../../iot-wireless/latest/apireference/API_Gnss.md")
-
-  The following shows a sample message payload.
+  - [`WiFiAccessPoint`](../../../iot-wireless/latest/apireference/API_WiFiAccessPoint.md "../../../iot-wireless/latest/apireference/API_WiFiAccessPoint.md")
+  - [`CellTowers`](../../../iot-wireless/latest/apireference/API_CellTowers.md "../../../iot-wireless/latest/apireference/API_CellTowers.md")
+  - [`IpAddress`](../../../iot-wireless/latest/apireference/API_Ip.md "../../../iot-wireless/latest/apireference/API_Ip.md")
+  - [`Gnss`](../../../iot-wireless/latest/apireference/API_Gnss.md "../../../iot-wireless/latest/apireference/API_Gnss.md")
+    The following shows a sample message payload.
 
 ```
 {
@@ -182,7 +181,7 @@ The following is an example of the required policy:
 
 ```
 
-### /get_position_estimate/accepted
+### /get\_position\_estimate/accepted
 
 AWS IoT Core Device Location publishes a response to this topic when returning the resolved
 location information for your device. The location information is returned in
@@ -251,7 +250,7 @@ The following is an example of the required policy:
 
 ```
 
-### /get_position_estimate/rejected
+### /get\_position\_estimate/rejected
 
 AWS IoT Core Device Location publishes an error response to this topic when it fails to resolve the
 device location.

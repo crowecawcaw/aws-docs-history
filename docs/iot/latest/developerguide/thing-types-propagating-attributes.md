@@ -14,7 +14,7 @@ note while publishing devices can use any MQTT version, subscribers (application
 services consuming messages) must support [MQTT 5](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html") to
 receive the enriched messages with propagating attributes. The enriched messages will be
 added as MQTT 5 user properties to every message published from devices. If you
-use[rules](iot-rules.md "iot-rules.md"), you can leverage the [get_user_properties](iot-sql-functions.md#iot-sql-function-get-user-properties "iot-sql-functions.md#iot-sql-function-get-user-properties") function to retrieve the enriched data for message
+use[rules](iot-rules.md "iot-rules.md"), you can leverage the [get\_user\_properties](iot-sql-functions.md#iot-sql-function-get-user-properties "iot-sql-functions.md#iot-sql-function-get-user-properties") function to retrieve the enriched data for message
 routing or processing based on the data.
 
 In AWS IoT Core, you can add propagating attributes when you create or update a thing

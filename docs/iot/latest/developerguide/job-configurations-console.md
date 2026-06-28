@@ -85,7 +85,7 @@ parameters for each configuration:
 
 Specifies the failure types that initiate a job abort. These
 include **FAILED**, **REJECTED**,
-**TIMED_OUT**, or
+**TIMED\_OUT**, or
 **ALL**.
 
 - ###### Increment factor

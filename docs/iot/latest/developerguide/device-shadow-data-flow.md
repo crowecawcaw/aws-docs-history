@@ -92,21 +92,20 @@ specified in the request.
 }
 ```
 
-4.  If the update request is valid, AWS IoT updates the desired state in the
-    shadow and publishes messages on these topics:
+4. If the update request is valid, AWS IoT updates the desired state in the
+   shadow and publishes messages on these topics:
 
-        * `$aws/things/`thingName`/shadow/name/`shadowName`/update/accepted`
-        * `$aws/things/`thingName`/shadow/name/`shadowName`/update/delta`
+   - `$aws/things/`thingName`/shadow/name/`shadowName`/update/accepted`
+   - `$aws/things/`thingName`/shadow/name/`shadowName`/update/delta`
+     The `/update/accepted` message contains an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+     shadow document, and the `/update/delta` message contains a
+     [/delta response state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta") shadow
+     document.
 
-    The `/update/accepted` message contains an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
-    shadow document, and the `/update/delta` message contains a
-    [/delta response state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta") shadow
-    document.
-
-5.  If the update request is not valid, AWS IoT publishes a message with the
-    `$aws/things/`thingName`/shadow/name/`shadowName`/update/rejected`
-    topic with an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
-    that describes the error.
+5. If the update request is not valid, AWS IoT publishes a message with the
+   `$aws/things/`thingName`/shadow/name/`shadowName`/update/rejected`
+   topic with an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
+   that describes the error.
 
 ###### When a client requests a state change in a shadow by using the API
 

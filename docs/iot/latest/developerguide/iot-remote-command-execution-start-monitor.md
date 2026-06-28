@@ -280,12 +280,14 @@ In this example, replace:
   timer expires, then the status automatically changes to
   `TIMED_OUT`.
 - ```
-  aws iot-jobs-data start-command-execution \
-      --command-arn `<command-arn>`  \
-      --target-arn `<target-arn>` \
-      --endpoint `<endpoint-url>` \
-      --execution-timeout-seconds `900`
+
   ```
+
+aws iot-jobs-data start-command-execution \
+--command-arn `<command-arn>` \
+--target-arn `<target-arn>` \  
+--endpoint `<endpoint-url>` \
+--execution-timeout-seconds `900`
 
 ````
 * (Optional) For dynamic commands, specify the parameters and their values to be used for substitution. You must
@@ -508,7 +510,7 @@ about these statuses, see [Command execution status](iot-remote-command-concepts
   - The device reports that a time out occurred when attempting to
     execute the command.
 
-For more information about the `TIMED_OUT` status, see [Time out value and TIMED_OUT execution status](#iot-command-execution-timeout-status "#iot-command-execution-timeout-status").
+For more information about the `TIMED_OUT` status, see [Time out value and TIMED\_OUT execution status](#iot-command-execution-timeout-status "#iot-command-execution-timeout-status").
 
 #### Considerations when using the `UpdateCommandExecution` API
 
