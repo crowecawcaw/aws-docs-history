@@ -99,7 +99,7 @@ Threads can be in one of a few states:
 - RUNNABLE – The thread is execution on the CPU
 - BLOCKED – The thread is waiting for another thread to release it’s lock
 - WAITING – The thread is waiting by using a `wait()`, `join()`, or `park()` method
-- TIMED_WAITING – The thread is waiting by using a sleep, wait, join or park method, but with a maximum wait time.
+- TIMED\_WAITING – The thread is waiting by using a sleep, wait, join or park method, but with a maximum wait time.
 
 ###### Note
 

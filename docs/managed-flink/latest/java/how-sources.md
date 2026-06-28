@@ -44,9 +44,9 @@ For more information about using EFO with the Kinesis consumer, see [FLIP-128: E
 
 You enable the EFO consumer by setting the following parameters on the Kinesis consumer:
 
-- **READER_TYPE:** Set this parameter to **EFO** for your application to use an EFO consumer to
+- **READER\_TYPE:** Set this parameter to **EFO** for your application to use an EFO consumer to
   access the Kinesis Data Stream data.
-- **EFO_CONSUMER_NAME:** Set this parameter to a string value that
+- **EFO\_CONSUMER\_NAME:** Set this parameter to a string value that
   is unique among the consumers of this stream. Re-using a consumer name
   in the same Kinesis Data Stream will cause the previous consumer using that
   name to be terminated.

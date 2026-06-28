@@ -24,13 +24,12 @@ You can call the `UpdateApplication` API in multiple ways:
 
 - Use the AWS SDK.
 
-      + Consult the SDK documentation for the programming language of your
-       choice. See [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md").
-
-  You can perform the upgrade while the application is in `RUNNING` state or
-  while the application is stopped in `READY` state. Amazon Managed Service for Apache Flink validates to
-  verify the compatibility between the original runtime version and the target runtime
-  version. This compatibility check runs when you perform [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") while in `RUNNING` state or at the next [StartApplication](../apiv2/API_StartApplication.md "../apiv2/API_StartApplication.md") if you upgrade while in `READY` state.
+  - Consult the SDK documentation for the programming language of your
+    choice. See [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md").
+    You can perform the upgrade while the application is in `RUNNING` state or
+    while the application is stopped in `READY` state. Amazon Managed Service for Apache Flink validates to
+    verify the compatibility between the original runtime version and the target runtime
+    version. This compatibility check runs when you perform [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") while in `RUNNING` state or at the next [StartApplication](../apiv2/API_StartApplication.md "../apiv2/API_StartApplication.md") if you upgrade while in `READY` state.
 
 The following example shows upgrading an app in `RUNNING` state
 named `UpgradeTest` to Flink 1.18 in US East (N. Virginia) using

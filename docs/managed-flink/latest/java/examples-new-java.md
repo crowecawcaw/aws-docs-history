@@ -82,7 +82,7 @@ Amazon S3 to set up SASL/SCRAM authentication on a Kafka connector. This
 technique lets you load the required custom certificates from Amazon S3
 and the secrets from AWS Secrets Manager when the application starts.
 
-Code example: [Kafka-SASL_SSL-ConfigProviders](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KafkaConfigProviders/Kafka-SASL_SSL-ConfigProviders "https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KafkaConfigProviders/Kafka-SASL_SSL-ConfigProviders")
+Code example: [Kafka-SASL\_SSL-ConfigProviders](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KafkaConfigProviders/Kafka-SASL_SSL-ConfigProviders "https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KafkaConfigProviders/Kafka-SASL_SSL-ConfigProviders")
 
 This example illustrates how you can use Kafka Configuration Providers in
 Table API /SQL to set up a custom keystore and truststore with certificates for

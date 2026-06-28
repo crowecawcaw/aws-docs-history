@@ -218,7 +218,7 @@ the run configuration of your IDE.
     ```
 
 - The application defines a source table with a `CREATE
-TABLE` statement, using the [Kinesis Connector](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/table/kinesis/ "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/table/kinesis/"). This table reads data from the input
+ TABLE` statement, using the [Kinesis Connector](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/table/kinesis/ "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/table/kinesis/"). This table reads data from the input
   Kinesis stream. The application takes the name of the stream, the Region,
   and initial position from the runtime configuration.
 
@@ -263,7 +263,7 @@ table_env.execute_sql(f"""
 ```
 
 - Finally, the application executes a SQL that `INSERT
-INTO...` the sink table from the source table. In a more
+ INTO...` the sink table from the source table. In a more
   complex application, you likely have additional steps transforming data
   before writing to the sink.
 
@@ -550,7 +550,7 @@ $ python -c "import pyflink;import os;print(os.path.dirname(os.path.abspath(pyfl
 1. List the files in the logging directory. You usually find a single
    `.log` file.
 2. Tail the file while the application is running: `tail -f
-<log-path>/<log-file>.log`.
+ <log-path>/<log-file>.log`.
 
 ## Observe input and output data in Kinesis streams
 
@@ -653,9 +653,10 @@ as follows:
 - Policy:
   `kinesis-analytics-service-`MyApplication`-`us-west-2``
 - Role:
-  `kinesisanalytics-`MyApplication`-`us-west-2``Amazon Managed Service for Apache Flink was formerly known as *Kinesis Data Analytics*. The name
- of the resources that are generated automatically is prefixed with
-`kinesis-analytics` for backward compatibility.
+  `kinesisanalytics-`MyApplication`-`us-west-2``
+  Amazon Managed Service for Apache Flink was formerly known as _Kinesis Data Analytics_. The name
+  of the resources that are generated automatically is prefixed with
+  `kinesis-analytics` for backward compatibility.
 
 ### Edit the IAM policy
 

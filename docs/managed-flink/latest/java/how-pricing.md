@@ -93,7 +93,7 @@ as follows:
 **Monthly charges**
 
 The price in the US East (N. Virginia) Region is $0.11 per KPU-hour. Managed Service for Apache Flink allocates 50 GB
-of running application storage per KPU and charges $0.10 per GB/month.
+ of running application storage per KPU and charges $0.10 per GB/month.
 
 - Monthly KPU charges: 24 hours \* 30 days \* (20 KPUs + 1 additional KPU
   for streaming application) \* $0.11/hour = $1,584.00
@@ -137,7 +137,7 @@ Managed Service for Apache Flink charges will be computed as follows:
 **Monthly charges**
 
 The price in the US East (N. Virginia) Region is $0.11 per KPU-hour. Managed Service for Apache Flink allocates 50 GB
-of running application storage per KPU and charges $0.10 per GB/month.
+ of running application storage per KPU and charges $0.10 per GB/month.
 
 - Batch Workload: During the 15 minutes per day, the Managed Service for Apache Flink application
   is processing 2,000 records/second, which takes 2KPUs. 30 days/month \*
@@ -200,7 +200,7 @@ does not use any durable application backups:
 **Monthly charges**
 
 The price in the US East (N. Virginia) Region is $0.11 per KPU-hour. Managed Service for Apache Flink allocates 50 GB
-of running application storage per KPU and charges $0.10 per GB/month.
+ of running application storage per KPU and charges $0.10 per GB/month.
 
 - Monthly KPU charges: 50 minutes \* (4KPUs + 1 additional KPU for
   streaming application) \* $0.11/hour = $0.46 (rounded to the nearest

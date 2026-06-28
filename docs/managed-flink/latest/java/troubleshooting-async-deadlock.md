@@ -12,12 +12,11 @@ AsyncSink interface. This affects applications using Flink 1.15 with the followi
 
 - Flink SQL/TableAPI/Python applications:
 
-      + kinesis – `org.apache.flink:flink-sql-connector-kinesis`
-      + kinesis – `org.apache.flink:flink-sql-connector-aws-kinesis-streams`
-      + firehose – `org.apache.flink:flink-sql-connector-aws-kinesis-firehose`
-      + dynamodb – `org.apache.flink:flink-sql-connector-dynamodb`
-
-  Affected applications will experience the following symptoms:
+  - kinesis – `org.apache.flink:flink-sql-connector-kinesis`
+  - kinesis – `org.apache.flink:flink-sql-connector-aws-kinesis-streams`
+  - firehose – `org.apache.flink:flink-sql-connector-aws-kinesis-firehose`
+  - dynamodb – `org.apache.flink:flink-sql-connector-dynamodb`
+    Affected applications will experience the following symptoms:
 
 - Flink job is in `RUNNING` state, but not processing data;
 - There are no job restarts;

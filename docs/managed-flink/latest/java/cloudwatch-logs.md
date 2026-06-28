@@ -328,12 +328,11 @@ If application logs are not being written to the log stream, verify the followin
 - Verify that your application's IAM role and policies are correct. Your application's policy needs
   the following permissions to access your log stream:
 
-      + `logs:PutLogEvents`
-      + `logs:DescribeLogGroups`
-      + `logs:DescribeLogStreams`
-
-  For more
-  information, see [Add permissions to write to the CloudWatch log stream](#enable_putlogevents "#enable_putlogevents").
+  - `logs:PutLogEvents`
+  - `logs:DescribeLogGroups`
+  - `logs:DescribeLogStreams`
+    For more
+    information, see [Add permissions to write to the CloudWatch log stream](#enable_putlogevents "#enable_putlogevents").
 
 - Verify that your application is running. To check your application's status,
   view your application's page in the console, or use the [DescribeApplication](../apiv2/API_DescribeApplication.md "../apiv2/API_DescribeApplication.md") or [ListApplications](../apiv2/API_ListApplications.md "../apiv2/API_ListApplications.md") actions.

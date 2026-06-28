@@ -26,14 +26,13 @@ Count, Gauge, and Meter types.
 - **Scope:** A metric's scope consists of its identifier and a set of key-value pairs
   that indicate how the metric will be reported to CloudWatch. A metric's identifier consists of the following:
 
-      + A system scope, which indicates the level at which the metric is reported (e.g. Operator).
-      + A user scope, that defines attributes such as user variables or the metric group names. These
-       attributes are defined using
-       [`MetricGroup.addGroup(key, value)`](https://ci.apache.org/projects/flink/flink-docs-master/api/java/org/apache/flink/metrics/MetricGroup.html#addGroup-java.lang.String-java.lang.String- "https://ci.apache.org/projects/flink/flink-docs-master/api/java/org/apache/flink/metrics/MetricGroup.html#addGroup-java.lang.String-java.lang.String-") or
-       [`MetricGroup.addGroup(name)`](https://ci.apache.org/projects/flink/flink-docs-master/api/java/org/apache/flink/metrics/MetricGroup.html#addGroup-java.lang.String- "https://ci.apache.org/projects/flink/flink-docs-master/api/java/org/apache/flink/metrics/MetricGroup.html#addGroup-java.lang.String-").
-
-  For more information about metric scope, see
-  [Scope](https://nightlies.apache.org/flink/flink-docs-release-1.15/monitoring/metrics.html#scope "https://nightlies.apache.org/flink/flink-docs-release-1.15/monitoring/metrics.html#scope").
+  - A system scope, which indicates the level at which the metric is reported (e.g. Operator).
+  - A user scope, that defines attributes such as user variables or the metric group names. These
+    attributes are defined using
+    [`MetricGroup.addGroup(key, value)`](https://ci.apache.org/projects/flink/flink-docs-master/api/java/org/apache/flink/metrics/MetricGroup.html#addGroup-java.lang.String-java.lang.String- "https://ci.apache.org/projects/flink/flink-docs-master/api/java/org/apache/flink/metrics/MetricGroup.html#addGroup-java.lang.String-java.lang.String-") or
+    [`MetricGroup.addGroup(name)`](https://ci.apache.org/projects/flink/flink-docs-master/api/java/org/apache/flink/metrics/MetricGroup.html#addGroup-java.lang.String- "https://ci.apache.org/projects/flink/flink-docs-master/api/java/org/apache/flink/metrics/MetricGroup.html#addGroup-java.lang.String-").
+    For more information about metric scope, see
+    [Scope](https://nightlies.apache.org/flink/flink-docs-release-1.15/monitoring/metrics.html#scope "https://nightlies.apache.org/flink/flink-docs-release-1.15/monitoring/metrics.html#scope").
 
 For more information about Apache Flink metrics, see
 [Metrics](https://nightlies.apache.org/flink/flink-docs-release-1.15/monitoring/metrics.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/monitoring/metrics.html")

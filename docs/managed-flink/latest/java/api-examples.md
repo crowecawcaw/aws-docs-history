@@ -488,7 +488,7 @@ snapshot (if any):
 ## StopApplication
 
 The following example request code for the
-[API_StopApplication](../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md")
+[API\_StopApplication](../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md")
 action stops a Managed Service for Apache Flink application:
 
 ```

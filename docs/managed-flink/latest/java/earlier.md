@@ -463,32 +463,28 @@ Kit (JDK), see [Fulfill the prerequisites for completing the exercises](getting-
 
 ###### To compile the application code
 
-1.  To use your application code, you compile and package it into a JAR file.
-    You can compile and package your code in one of two ways:
+1. To use your application code, you compile and package it into a JAR file.
+   You can compile and package your code in one of two ways:
 
-        * Use the command-line Maven tool. Create your JAR file by running
-         the following command in the directory that contains the
-         `pom.xml` file:
+   - Use the command-line Maven tool. Create your JAR file by running
+     the following command in the directory that contains the
+     `pom.xml` file:
 
+   ```
+   mvn package -Dflink.version=1.13.2
+   ```
+   - Use your development environment. See your development environment
+     documentation for details.
 
+   ###### Note
 
-        ```
-        mvn package -Dflink.version=1.13.2
-        ```
-        * Use your development environment. See your development environment
-         documentation for details.
+   The provided source code relies on libraries from Java 11.
+   You can either upload your package as a JAR file, or you can compress your
+   package and upload it as a ZIP file. If you create your application using
+   the AWS CLI, you specify your code content type (JAR or ZIP).
 
-
-        ###### Note
-
-        The provided source code relies on libraries from Java 11.
-
-    You can either upload your package as a JAR file, or you can compress your
-    package and upload it as a ZIP file. If you create your application using
-    the AWS CLI, you specify your code content type (JAR or ZIP).
-
-2.  If there are errors while compiling, verify that your
-    `JAVA_HOME` environment variable is correctly set.
+2. If there are errors while compiling, verify that your
+   `JAVA_HOME` environment variable is correctly set.
 
 If the application compiles successfully, the following file is created:
 
@@ -558,7 +554,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-java test app`.
+  java test app`.
    - For **Runtime**, choose **Apache
      Flink**.
    - Leave the version pulldown as **Apache Flink version 1.13**.
@@ -1501,33 +1497,29 @@ Kit (JDK), see [Fulfill the prerequisites for completing the exercises](getting-
 
 ###### To compile the application code
 
-1.  To use your application code, you compile and package it into a JAR file.
-    You can compile and package your code in one of two ways:
+1. To use your application code, you compile and package it into a JAR file.
+   You can compile and package your code in one of two ways:
 
-        * Use the command-line Maven tool. Create your JAR file by running
-         the following command in the directory that contains the
-         `pom.xml` file:
+   - Use the command-line Maven tool. Create your JAR file by running
+     the following command in the directory that contains the
+     `pom.xml` file:
 
+   ```
+   mvn package -Dflink.version=1.11.3
+   ```
+   - Use your development environment. See your development environment
+     documentation for details.
 
+   ###### Note
 
-        ```
-        mvn package -Dflink.version=1.11.3
-        ```
-        * Use your development environment. See your development environment
-         documentation for details.
+   The provided source code relies on libraries from Java 11.
+   Ensure that your project's Java version is 11.
+   You can either upload your package as a JAR file, or you can compress your
+   package and upload it as a ZIP file. If you create your application using
+   the AWS CLI, you specify your code content type (JAR or ZIP).
 
-
-        ###### Note
-
-        The provided source code relies on libraries from Java 11.
-         Ensure that your project's Java version is 11.
-
-    You can either upload your package as a JAR file, or you can compress your
-    package and upload it as a ZIP file. If you create your application using
-    the AWS CLI, you specify your code content type (JAR or ZIP).
-
-2.  If there are errors while compiling, verify that your
-    `JAVA_HOME` environment variable is correctly set.
+2. If there are errors while compiling, verify that your
+   `JAVA_HOME` environment variable is correctly set.
 
 If the application compiles successfully, the following file is created:
 
@@ -1597,7 +1589,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-java test app`.
+  java test app`.
    - For **Runtime**, choose **Apache
      Flink**.
    - Leave the version pulldown as **Apache Flink version 1.11 (Recommended version)**.
@@ -2546,33 +2538,29 @@ information, see [Using the Apache Flink Kinesis Streams connector with previous
 
 ###### To compile the application code
 
-1.  To use your application code, you compile and package it into a JAR file.
-    You can compile and package your code in one of two ways:
+1. To use your application code, you compile and package it into a JAR file.
+   You can compile and package your code in one of two ways:
 
-        * Use the command-line Maven tool. Create your JAR file by running
-         the following command in the directory that contains the
-         `pom.xml` file:
+   - Use the command-line Maven tool. Create your JAR file by running
+     the following command in the directory that contains the
+     `pom.xml` file:
 
+   ```
+   mvn package -Dflink.version=1.8.2
+   ```
+   - Use your development environment. See your development environment
+     documentation for details.
 
+   ###### Note
 
-        ```
-        mvn package -Dflink.version=1.8.2
-        ```
-        * Use your development environment. See your development environment
-         documentation for details.
+   The provided source code relies on libraries from Java 1.8.
+   Ensure that your project's Java version is 1.8.
+   You can either upload your package as a JAR file, or you can compress your
+   package and upload it as a ZIP file. If you create your application using
+   the AWS CLI, you specify your code content type (JAR or ZIP).
 
-
-        ###### Note
-
-        The provided source code relies on libraries from Java 1.8.
-         Ensure that your project's Java version is 1.8.
-
-    You can either upload your package as a JAR file, or you can compress your
-    package and upload it as a ZIP file. If you create your application using
-    the AWS CLI, you specify your code content type (JAR or ZIP).
-
-2.  If there are errors while compiling, verify that your
-    `JAVA_HOME` environment variable is correctly set.
+2. If there are errors while compiling, verify that your
+   `JAVA_HOME` environment variable is correctly set.
 
 If the application compiles successfully, the following file is created:
 
@@ -2642,7 +2630,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-java test app`.
+  java test app`.
    - For **Runtime**, choose **Apache
      Flink**.
    - Leave the version pulldown as **Apache Flink 1.8
@@ -3554,29 +3542,26 @@ source code for the connector and build it as described in the [Apache Flink doc
 
 ###### To compile the application code
 
-1.  To use your application code, you compile and package it into a JAR file. You can compile and package your code in one of two ways:
+1. To use your application code, you compile and package it into a JAR file. You can compile and package your code in one of two ways:
 
-        * Use the command-line Maven tool. Create your JAR file by running the following command in the
-         directory that contains the `pom.xml` file:
+   - Use the command-line Maven tool. Create your JAR file by running the following command in the
+     directory that contains the `pom.xml` file:
 
+   ```
+   mvn package
+   ```
 
+   ###### Note
 
-        ```
-        mvn package
-        ```
+   The -Dflink.version parameter is not required for Managed Service for Apache Flink Runtime version 1.0.1; it is only required for version 1.1.0 and later. For
+   more information, see [Specify your application's Apache Flink version](how-creating-apps.md#how-creating-apps-building-flink "how-creating-apps.md#how-creating-apps-building-flink").
+   - Use your development environment. See your development environment documentation for details.
+     You can either upload your package as a JAR file, or you can compress your
+     package and upload it as a ZIP file. If you create your application using
+     the AWS CLI, you specify your code content type (JAR or ZIP).
 
-        ###### Note
-
-        The -Dflink.version parameter is not required for Managed Service for Apache Flink Runtime version 1.0.1; it is only required for version 1.1.0 and later. For
-         more information, see [Specify your application's Apache Flink version](how-creating-apps.md#how-creating-apps-building-flink "how-creating-apps.md#how-creating-apps-building-flink").
-        * Use your development environment. See your development environment documentation for details.
-
-    You can either upload your package as a JAR file, or you can compress your
-    package and upload it as a ZIP file. If you create your application using
-    the AWS CLI, you specify your code content type (JAR or ZIP).
-
-2.  If there are errors while compiling, verify that your
-    `JAVA_HOME` environment variable is correctly set.
+2. If there are errors while compiling, verify that your
+   `JAVA_HOME` environment variable is correctly set.
 
 If the application compiles successfully, the following file is created:
 
@@ -3648,7 +3633,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-java test app`.
+  java test app`.
    - For **Runtime**, choose **Apache Flink**.
 
    ###### Note
@@ -5094,7 +5079,7 @@ creating these resources, see the following topics:
   Bucket?](../../../AmazonS3/latest/userguide/create-bucket.md "../../../AmazonS3/latest/userguide/create-bucket.md") in the _Amazon Simple Storage Service User Guide_. Give the Amazon S3
   bucket a globally unique name by appending your login name, such as
   `ka-app-code-`<username>``.
-Create two folders (`code`and`data`)
+  Create two folders (`code` and `data`)
   in the Amazon S3 bucket.
 
 The application creates the following CloudWatch resources if they don't already
@@ -5303,9 +5288,8 @@ and Region as follows:
     * Leave the version as **Apache Flink version 1.15.2 (Recommended version)**.
 
 6. For **Access permissions**, choose **Create /
-   update IAM role
-   `kinesis-analytics-MyApplication-us-west-2`**.
-7. Choose **Create application**.
+update IAM role
+`kinesis-analytics-MyApplication-us-west-2`**. 7. Choose **Create application**.
 
 ###### Note
 
@@ -6002,10 +5986,10 @@ about the application code:
 
 - You enable the EFO consumer by setting the following parameters on the Kinesis consumer:
 
-  - **RECORD_PUBLISHER_TYPE:** Set this parameter to
+  - **RECORD\_PUBLISHER\_TYPE:** Set this parameter to
     **EFO** for your application to use an EFO consumer to access the
     Kinesis Data Stream data.
-  - **EFO_CONSUMER_NAME:** Set this parameter to a string
+  - **EFO\_CONSUMER\_NAME:** Set this parameter to a string
     value that is unique among the consumers of this stream. Re-using a consumer name in the
     same Kinesis Data Stream will cause the previous consumer using that name to be
     terminated.
@@ -6531,7 +6515,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-java test app`.
+  java test app`.
    - For **Runtime**, choose **Apache Flink**.
 
    ###### Note
@@ -6831,7 +6815,7 @@ _IAM User Guide_.
    role ARN with the ARN for the role that you created previously.
    Replace the bucket ARN suffix with the suffix that you chose in the
    [Create dependent resources](#get-started-exercise-fh-1 "#get-started-exercise-fh-1") section (`ka-app-code-`<username>``.) Replace the sample account ID
-(`012345678901`) in the service
+   (`012345678901`) in the service
    execution role with your account ID.
 
 ```
@@ -9219,7 +9203,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-Scala test app`.
+  Scala test app`.
    - For **Runtime**, choose **Apache
      Flink**.
    - Leave the version as **Apache Flink version 1.15.2 (Recommended version)**.
@@ -9900,7 +9884,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-Scala test app`.
+  Scala test app`.
    - For **Runtime**, choose **Apache
      Flink**.
    - Leave the version as **Apache Flink version 1.15.2 (Recommended version)**.
@@ -10565,7 +10549,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-java test app`.
+  java test app`.
    - For **Runtime**, choose **Apache
      Flink**.
    - Leave the version as **Apache Flink version 1.15.2 (Recommended version)**.

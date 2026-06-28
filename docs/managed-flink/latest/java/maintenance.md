@@ -14,41 +14,41 @@ recency. For information on how to minimize the impact of this downtime, see [Fa
 action on your application using the `ListApplicationOperations` API. For more
 information, see [Identify when maintenance has ocurred on your application](maintenance.md#maintenance-identify-ids "maintenance.md#maintenance-identify-ids").
 
-| Maintenance time windows in AWS Regions | AWS Region      | Maintenance time window |
-| --------------------------------------- | --------------- | ----------------------- |
-| AWS GovCloud (US-West)                  | 06:00–14:00 UTC |
-| AWS GovCloud (US-East)                  | 03:00–11:00 UTC |
-| US East (N. Virginia)                   | 03:00–11:00 UTC |
-| US East (Ohio)                          | 03:00–11:00 UTC |
-| US West (N. California)                 | 06:00–14:00 UTC |
-| US West (Oregon)                        | 06:00–14:00 UTC |
-| Asia Pacific (Hong Kong)                | 13:00–21:00 UTC |
-| Asia Pacific (Mumbai)                   | 16:30–00:30 UTC |
-| Asia Pacific (Hyderabad)                | 16:30–00:30 UTC |
-| Asia Pacific (Seoul)                    | 13:00–21:00 UTC |
-| Asia Pacific (Singapore)                | 14:00–22:00 UTC |
-| Asia Pacific (Sydney)                   | 12:00–20:00 UTC |
-| Asia Pacific (Jakarta)                  | 15:00–23:00 UTC |
-| Asia Pacific (Tokyo)                    | 13:00–21:00 UTC |
-| Canada (Central)                        | 03:00–11:00 UTC |
-| China (Beijing)                         | 13:00–21:00 UTC |
-| China (Ningxia)                         | 13:00–21:00 UTC |
-| Europe (Frankfurt)                      | 06:00–14:00 UTC |
-| Europe (Zurich)                         | 20:00–04:00 UTC |
-| Europe (Ireland)                        | 22:00–06:00 UTC |
-| Europe (London)                         | 22:00–06:00 UTC |
-| Europe (Stockholm)                      | 23:00–07:00 UTC |
-| Europe (Milan)                          | 21:00–05:00 UTC |
-| Europe (Spain)                          | 21:00–05:00 UTC |
-| Africa (Cape Town)                      | 20:00–04:00 UTC |
-| Europe (Ireland)                        | 22:00–06:00 UTC |
-| Europe (London)                         | 23:00–07:00 UTC |
-| Europe (Paris)                          | 23:00–07:00 UTC |
-| Europe (Stockholm)                      | 23:00–07:00 UTC |
-| Middle East (Bahrain)                   | 13:00–21:00 UTC |
-| Middle East (UAE)                       | 18:00–02:00 UTC |
-| South America (São Paulo)               | 19:00–03:00 UTC |
-| Israel (Tel Aviv)                       | 20:00–04:00 UTC |
+Maintenance time windows in AWS Regions| AWS Region | Maintenance time window |
+| --- | --- |
+| AWS GovCloud (US-West) | 06:00–14:00 UTC |
+| AWS GovCloud (US-East) | 03:00–11:00 UTC |
+| US East (N. Virginia) | 03:00–11:00 UTC |
+| US East (Ohio) | 03:00–11:00 UTC |
+| US West (N. California) | 06:00–14:00 UTC |
+| US West (Oregon) | 06:00–14:00 UTC |
+| Asia Pacific (Hong Kong) | 13:00–21:00 UTC |
+| Asia Pacific (Mumbai) | 16:30–00:30 UTC |
+| Asia Pacific (Hyderabad) | 16:30–00:30 UTC |
+| Asia Pacific (Seoul) | 13:00–21:00 UTC |
+| Asia Pacific (Singapore) | 14:00–22:00 UTC |
+| Asia Pacific (Sydney) | 12:00–20:00 UTC |
+| Asia Pacific (Jakarta) | 15:00–23:00 UTC |
+| Asia Pacific (Tokyo) | 13:00–21:00 UTC |
+| Canada (Central) | 03:00–11:00 UTC |
+| China (Beijing) | 13:00–21:00 UTC |
+| China (Ningxia) | 13:00–21:00 UTC |
+| Europe (Frankfurt) | 06:00–14:00 UTC |
+| Europe (Zurich) | 20:00–04:00 UTC |
+| Europe (Ireland) | 22:00–06:00 UTC |
+| Europe (London) | 22:00–06:00 UTC |
+| Europe (Stockholm) | 23:00–07:00 UTC |
+| Europe (Milan) | 21:00–05:00 UTC |
+| Europe (Spain) | 21:00–05:00 UTC |
+| Africa (Cape Town) | 20:00–04:00 UTC |
+| Europe (Ireland) | 22:00–06:00 UTC |
+| Europe (London) | 23:00–07:00 UTC |
+| Europe (Paris) | 23:00–07:00 UTC |
+| Europe (Stockholm) | 23:00–07:00 UTC |
+| Middle East (Bahrain) | 13:00–21:00 UTC |
+| Middle East (UAE) | 18:00–02:00 UTC |
+| South America (São Paulo) | 19:00–03:00 UTC |
+| Israel (Tel Aviv) | 20:00–04:00 UTC |
 
 ## Choose a maintenance window
 

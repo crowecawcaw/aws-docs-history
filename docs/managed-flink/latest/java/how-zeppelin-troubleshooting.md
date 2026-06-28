@@ -23,7 +23,7 @@ The following steps outline this approach:
    1. python: source/note.py
    2. jarfile: lib/PythonApplicationDependencies.jar
 
-4. managed.deploy_as_app.options
+4. managed.deploy\_as\_app.options
 
    1. DatabaseARN: `<glue database ARN (Amazon Resource Name)>`
 

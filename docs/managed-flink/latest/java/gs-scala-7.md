@@ -14,7 +14,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-scala test app`.
+  scala test app`.
    - For **Runtime**, choose **Apache
      Flink**.
    - Keep the version as **Apache Flink version

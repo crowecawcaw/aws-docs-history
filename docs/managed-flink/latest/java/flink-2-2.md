@@ -113,7 +113,7 @@ that introduces these breaking changes.
 | Delta Join                 | Reduces state requirements for streaming joins by maintaining only the latest version of each key; requires customer-managed infrastructure (for example, Apache Fluss).                                                                     | [Joins](https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/sql/queries/joins/ "https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/sql/queries/joins/")                                               |
 | StreamingMultiJoinOperator | Executes multi-way joins as a single operator, eliminating intermediate materialization.                                                                                                                                                     | [FLIP-516](https://cwiki.apache.org/confluence/display/FLINK/FLIP-516 "https://cwiki.apache.org/confluence/display/FLINK/FLIP-516")                                                                                                              |
 | ProcessTableFunction (PTF) | Enables stateful, event-driven logic directly in SQL with per-key state and timers.                                                                                                                                                          | [User-Defined Functions](https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/functions/udfs/ "https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/functions/udfs/")                                    |
-| ML_PREDICT Function        | Call registered ML models on streaming/batch tables directly from SQL. Requires customer to bundle a ModelProvider implementation (e.g., `flink-model-openai`). ModelProvider libraries are not shipped by Managed Service for Apache Flink. | [ML Predict](https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/sql/queries/model-inference/ "https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/sql/queries/model-inference/")                      |
+| ML\_PREDICT Function       | Call registered ML models on streaming/batch tables directly from SQL. Requires customer to bundle a ModelProvider implementation (e.g., `flink-model-openai`). ModelProvider libraries are not shipped by Managed Service for Apache Flink. | [ML Predict](https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/sql/queries/model-inference/ "https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/sql/queries/model-inference/")                      |
 | Model DDL                  | Define ML models as first-class catalog objects using CREATE MODEL statements.                                                                                                                                                               | [CREATE Statements](https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/sql/create/#create-model "https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/dev/table/sql/create/#create-model")                       |
 | Vector Search              | Flink SQL API supports searching vector databases. No open source `VectorSearchTableSource` implementation is currently available; customers must provide their own implementation.                                                          | [Flink SQL](https://nightlies.apache.org/flink/flink-docs-stable/release-notes/flink-2.2/#support-vector_search-in-flink-sql "https://nightlies.apache.org/flink/flink-docs-stable/release-notes/flink-2.2/#support-vector_search-in-flink-sql") |
 
@@ -133,19 +133,19 @@ independently from the Flink runtime, and not all connectors have a Flink
 2.2-compatible release yet. The following table summarizes the availability of commonly
 used connectors in Amazon Managed Service for Apache Flink:
 
-| Connector availability for Flink 2.2  | Connector                                       | Flink 1.20 Version                             | Flink 2.0+ Version                                   | Notes |
-| ------------------------------------- | ----------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------- | ----- |
-| Apache Kafka                          | flink-connector-kafka 3.4.0-1.20                | flink-connector-kafka 4.0.0-2.0                | Recommended for Flink 2.2                            |
-| Kinesis Data Streams (source)         | flink-connector-kinesis 5.0.0-1.20              | flink-connector-aws-kinesis-streams 6.0.0-2.0  | Recommended for Flink 2.2                            |
-| Kinesis Data Streams (sink)           | flink-connector-aws-kinesis-streams 5.1.0-1.20  | flink-connector-aws-kinesis-streams 6.0.0-2.0  | Recommended for Flink 2.2                            |
-| Amazon Data Firehose                  | flink-connector-aws-kinesis-firehose 5.1.0-1.20 | flink-connector-aws-kinesis-firehose 6.0.0-2.0 | Compatible with Flink 2.0                            |
-| Amazon DynamoDB                       | flink-connector-dynamodb 5.1.0-1.20             | flink-connector-dynamodb 6.0.0-2.0             | Compatible with Flink 2.0                            |
-| Amazon SQS                            | flink-connector-sqs 5.1.0-1.20                  | flink-connector-sqs 6.0.0-2.0                  | Compatible with Flink 2.0                            |
-| FileSystem (S3, HDFS)                 | Bundled with Flink                              | Bundled with Flink                             | Built into the Flink distribution — always available |
-| JDBC                                  | flink-connector-jdbc 3.3.0-1.20                 | Not yet released for 2.x                       | No Flink 2.x-compatible release available            |
-| OpenSearch                            | flink-connector-opensearch 1.2.0-1.19           | Not yet released for 2.x                       | No Flink 2.x-compatible release available            |
-| Elasticsearch                         | Legacy connector only                           | Not yet released for 2.x                       | Consider migrating to the OpenSearch connector       |
-| Amazon Managed Service for Prometheus | flink-connector-prometheus 1.0.0-1.20           | Not yet released for 2.x                       | No Flink 2.x-compatible release available            |
+Connector availability for Flink 2.2| Connector | Flink 1.20 Version | Flink 2.0+ Version | Notes |
+| --- | --- | --- | --- |
+| Apache Kafka | flink-connector-kafka 3.4.0-1.20 | flink-connector-kafka 4.0.0-2.0 | Recommended for Flink 2.2 |
+| Kinesis Data Streams (source) | flink-connector-kinesis 5.0.0-1.20 | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2 |
+| Kinesis Data Streams (sink) | flink-connector-aws-kinesis-streams 5.1.0-1.20 | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2 |
+| Amazon Data Firehose | flink-connector-aws-kinesis-firehose 5.1.0-1.20 | flink-connector-aws-kinesis-firehose 6.0.0-2.0 | Compatible with Flink 2.0 |
+| Amazon DynamoDB | flink-connector-dynamodb 5.1.0-1.20 | flink-connector-dynamodb 6.0.0-2.0 | Compatible with Flink 2.0 |
+| Amazon SQS | flink-connector-sqs 5.1.0-1.20 | flink-connector-sqs 6.0.0-2.0 | Compatible with Flink 2.0 |
+| FileSystem (S3, HDFS) | Bundled with Flink | Bundled with Flink | Built into the Flink distribution — always available |
+| JDBC | flink-connector-jdbc 3.3.0-1.20 | Not yet released for 2.x | No Flink 2.x-compatible release available |
+| OpenSearch | flink-connector-opensearch 1.2.0-1.19 | Not yet released for 2.x | No Flink 2.x-compatible release available |
+| Elasticsearch | Legacy connector only | Not yet released for 2.x | Consider migrating to the OpenSearch connector |
+| Amazon Managed Service for Prometheus | flink-connector-prometheus 1.0.0-1.20 | Not yet released for 2.x | No Flink 2.x-compatible release available |
 
 - If your application depends on a connector that does not yet have a Flink 2.x release,
   you have two options: wait for the connector to release a compatible version, or evaluate

@@ -362,7 +362,7 @@ parameters.json
 
 Replace `YOUR_BUCKET_ARN` and `YOUR_JAR` with your specific requirements. You can follow this [guide](get-started-exercise.md "get-started-exercise.md") to create an Amazon S3 bucket and an application jar.
 
-Now create the stack (replace YOUR_REGION with a region of your choice, e.g. us-east-1):
+Now create the stack (replace YOUR\_REGION with a region of your choice, e.g. us-east-1):
 
 ```
 aws cloudformation create-stack --region YOUR_REGION --template-body "file://stack.yaml" --parameters "file://parameters.json" --stack-name "TestManaged Service for Apache FlinkStack" --capabilities CAPABILITY_NAMED_IAM

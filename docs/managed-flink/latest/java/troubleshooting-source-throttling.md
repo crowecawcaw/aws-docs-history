@@ -26,4 +26,4 @@ scenario:
 - Lower the default limit for the number of records fetched per `GetRecords`
   call
 - Enable Adaptive Reads in your Amazon Managed Service for Apache Flink application. For more information on the Adaptive
-  Reads feature, see [SHARD_USE_ADAPTIVE_READS](https://nightlies.apache.org/flink/flink-docs-release-1.10/api/java/org/apache/flink/streaming/connectors/kinesis/config/ConsumerConfigConstants.html#SHARD_USE_ADAPTIVE_READS "https://nightlies.apache.org/flink/flink-docs-release-1.10/api/java/org/apache/flink/streaming/connectors/kinesis/config/ConsumerConfigConstants.html#SHARD_USE_ADAPTIVE_READS")
+  Reads feature, see [SHARD\_USE\_ADAPTIVE\_READS](https://nightlies.apache.org/flink/flink-docs-release-1.10/api/java/org/apache/flink/streaming/connectors/kinesis/config/ConsumerConfigConstants.html#SHARD_USE_ADAPTIVE_READS "https://nightlies.apache.org/flink/flink-docs-release-1.10/api/java/org/apache/flink/streaming/connectors/kinesis/config/ConsumerConfigConstants.html#SHARD_USE_ADAPTIVE_READS")

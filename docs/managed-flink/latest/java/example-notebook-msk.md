@@ -69,38 +69,34 @@ data in your data source to clients such as your Studio notebook.
 
 ###### Create a Connection
 
-1.  Sign in to the AWS Management Console and open the AWS Glue console at
-    [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
-2.  If you don't already have a AWS Glue database, choose **Databases** from the left navigation bar. Choose
-    **Add Database**. In the **Add database** window, enter `default` for
-    **Database name**. Choose **Create**.
-3.  Choose **Connections** from the left navigation bar. Choose **Add Connection**.
-4.  In the **Add Connection** window, provide the following values:
+1. Sign in to the AWS Management Console and open the AWS Glue console at
+   [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
+2. If you don't already have a AWS Glue database, choose **Databases** from the left navigation bar. Choose
+   **Add Database**. In the **Add database** window, enter `default` for
+   **Database name**. Choose **Create**.
+3. Choose **Connections** from the left navigation bar. Choose **Add Connection**.
+4. In the **Add Connection** window, provide the following values:
 
-        * For **Connection name**, enter `ZeppelinConnection`.
-        * For **Connection type**, choose **Kafka**.
-        * For **Kafka bootstrap server URLs**, provide the bootstrap broker string for your cluster. You can
-         get the bootstrap brokers from either the MSK console, or by entering the following CLI command:
+   - For **Connection name**, enter `ZeppelinConnection`.
+   - For **Connection type**, choose **Kafka**.
+   - For **Kafka bootstrap server URLs**, provide the bootstrap broker string for your cluster. You can
+     get the bootstrap brokers from either the MSK console, or by entering the following CLI command:
 
+   ```
+   aws kafka get-bootstrap-brokers --region us-east-1 --cluster-arn `ClusterArn`
+   ```
+   - Uncheck the **Require SSL connection** checkbox.
+     Choose **Next**.
 
+5. In the **VPC** page, provide the following values:
 
-        ```
-        aws kafka get-bootstrap-brokers --region us-east-1 --cluster-arn `ClusterArn`
-        ```
-        * Uncheck the **Require SSL connection** checkbox.
+   - For **VPC**, choose the name of your VPC (e.g.
+     **AWSKafkaTutorialVPC**.)
+   - For **Subnet**, choose **AWSKafkaTutorialSubnet2**.
+   - For **Security groups**, choose all available groups.
+     Choose **Next**.
 
-    Choose **Next**.
-
-5.  In the **VPC** page, provide the following values:
-
-        * For **VPC**, choose the name of your VPC (e.g.
-          **AWSKafkaTutorialVPC**.)
-        * For **Subnet**, choose **AWSKafkaTutorialSubnet2**.
-        * For **Security groups**, choose all available groups.
-
-    Choose **Next**.
-
-6.  In the **Connection properties** / **Connection access** page, choose **Finish**.
+6. In the **Connection properties** / **Connection access** page, choose **Finish**.
 
 ###### Create a Table
 

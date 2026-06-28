@@ -22,10 +22,9 @@ for packets that have a public destination.
 - In the VPC console, from the navigation pane, choose **Subnets**.
 - Select a subnet, and then choose the **Route Table** tab. Verify the default route:
 
-      + **Public subnet:** Destination: 0.0.0.0/0, Target: igw-…
-      + **Private subnet:** Destination: 0.0.0.0/0, Target: nat-… or eni-…
-
-  To associate the Managed Service for Apache Flink application with private subnets:
+  - **Public subnet:** Destination: 0.0.0.0/0, Target: igw-…
+  - **Private subnet:** Destination: 0.0.0.0/0, Target: nat-… or eni-…
+    To associate the Managed Service for Apache Flink application with private subnets:
 
 - Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
 - On the **Managed Service for Apache Flink applications** page, choose your application, and choose **Application details**.

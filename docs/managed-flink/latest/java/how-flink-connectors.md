@@ -32,16 +32,16 @@ independently from the Flink runtime, and not all connectors have a Flink
 2.x-compatible release yet. The following table summarizes the availability of commonly
 used connectors in Amazon Managed Service for Apache Flink as of this writing:
 
-| Connectors for Flink 2.2              | Connector                                     | Flink 2.0+ Version                                   | Notes |
-| ------------------------------------- | --------------------------------------------- | ---------------------------------------------------- | ----- |
-| Apache Kafka                          | flink-connector-kafka 4.0.0-2.0               | Recommended for Flink 2.2                            |
-| Kinesis Data Streams (source)         | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2                            |
-| Kinesis Data Streams (sink)           | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2                            |
-| FileSystem (S3, HDFS)                 | Bundled with Flink                            | Built into the Flink distribution — always available |
-| JDBC                                  | Not yet released for 2.x                      | No Flink 2.x-compatible release available            |
-| OpenSearch                            | Not yet released for 2.x                      | No Flink 2.x-compatible release available            |
-| Elasticsearch                         | Not yet released for 2.x                      | Consider migrating to the OpenSearch connector       |
-| Amazon Managed Service for Prometheus | Not yet released for 2.x                      | No Flink 2.x-compatible release at time of writing   |
+Connectors for Flink 2.2| Connector | Flink 2.0+ Version | Notes |
+| --- | --- | --- |
+| Apache Kafka | flink-connector-kafka 4.0.0-2.0 | Recommended for Flink 2.2 |
+| Kinesis Data Streams (source) | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2 |
+| Kinesis Data Streams (sink) | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2 |
+| FileSystem (S3, HDFS) | Bundled with Flink | Built into the Flink distribution — always available |
+| JDBC | Not yet released for 2.x | No Flink 2.x-compatible release available |
+| OpenSearch | Not yet released for 2.x | No Flink 2.x-compatible release available |
+| Elasticsearch | Not yet released for 2.x | Consider migrating to the OpenSearch connector |
+| Amazon Managed Service for Prometheus | Not yet released for 2.x | No Flink 2.x-compatible release at time of writing |
 
 If your application depends on a connector that does not yet have a Flink 2.2
 release, you have two options: wait for the connector to release a compatible version,
@@ -64,21 +64,21 @@ catalog or a custom sink).
 
 ## Connectors for older Flink versions
 
-| Connectors for older Flink versions                           | Connector                                        | Flink version 1.15                              | Flink version 1.18                              | Flink versions 1.19                             | Flink versions 1.20 |
-| ------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ------------------- |
-| Kinesis Data Stream<br>• Source<br>• DataStream and Table API | flink-connector-kinesis, 1.15.4                  | flink-connector-kinesis, 4.3.0-1.18             | flink-connector-kinesis, 5.0.0-1.19             | flink-connector-kinesis, 5.0.0-1.20             |
-| Kinesis Data Stream<br>• Sink<br>• DataStream and Table API   | flink-connector-aws-kinesis-streams, 1.15.4      | flink-connector-aws-kinesis-streams, 4.3.0-1.18 | flink-connector-aws-kinesis-streams, 5.0.0-1.19 | flink-connector-aws-kinesis-streams, 5.0.0-1.20 |
-| Kinesis Data Streams<br>• Source/Sink<br>• SQL                | flink-sql-connector-kinesis, 1.15.4              | flink-sql-connector-kinesis, 4.3.0-1.18         | flink-sql-connector-kinesis, 5.0.0-1.19         | flink-sql-connector-kinesis-streams, 5.0.0-1.20 |
-| Kafka<br>• DataStream and Table API                           | flink-connector-kafka, 1.15.4                    | flink-connector-kafka, 3.2.0-1.18               | flink-connector-kafka, 3.3.0-1.19               | flink-connector-kafka, 3.3.0-1.20               |
-| Kafka<br>• SQL                                                | flink-sql-connector-kafka, 1.15.4                | flink-sql-connector-kafka, 3.2.0-1.18           | flink-sql-connector-kafka, 3.3.0-1.19           | flink-sql-connector-kafka, 3.3.0-1.20           |
-| Firehose<br>• DataStream and Table API                        | flink-connector-aws-kinesis-firehose, 1.15.4     | flink-connector-aws-firehose, 4.3.0-1.18        | flink-connector-aws-firehose, 5.0.0-1.19        | flink-connector-aws-firehose, 5.0.0-1.20        |
-| Firehose<br>• SQL                                             | flink-sql-connector-aws-kinesis-firehose, 1.15.4 | flink-sql-connector-aws-firehose, 4.3.0-1.18    | flink-sql-connector-aws-firehose, 5.0.0-1.19    | flink-sql-connector-aws-firehose, 5.0.0-1.20    |
-| DynamoDB<br>• DataStream and Table API                        | flink-connector-dynamodb, 3.0.0-1.15             | flink-connector-dynamodb, 4.3.0-1.18            | flink-connector-dynamodb, 5.0.0-1.19            | flink-connector-dynamodb, 5.0.0-1.20            |
-| DynamoDB<br>• SQL                                             | flink-sql-connector-dynamodb, 3.0.0-1.15         | flink-sql-connector-dynamodb, 4.3.0-1.18        | flink-sql-connector-dynamodb, 5.0.0-1.19        | flink-sql-connector-dynamodb, 5.0.0-1.20        |
-| OpenSearch<br>• DataStream and Table API                      | -                                                | flink-connector-opensearch, 1.2.0-1.18          | flink-connector-opensearch, 1.2.0-1.19          | flink-connector-opensearch, 1.2.0-1.19          |
-| OpenSearch<br>• SQL                                           | -                                                | flink-sql-connector-opensearch, 1.2.0-1.18      | flink-sql-connector-opensearch, 1.2.0-1.19      | flink-sql-connector-opensearch, 1.2.0-1.19      |
-| Amazon Managed Service for Prometheus DataStream              | -                                                | flink-sql-connector-opensearch, 1.2.0-1.18      | flink-connector-prometheus, 1.0.0-1.19          | flink-connector-prometheus, 1.0.0-1.20          |
-| Amazon SQS DataStream and Table API                           | -                                                | flink-sql-connector-opensearch, 1.2.0-1.18      | flink-connector-sqs, 5.0.0-1.19                 | flink-connector-sqs, 5.0.0-1.20                 |
+Connectors for older Flink versions| Connector | Flink version 1.15 | Flink version 1.18 | Flink versions 1.19 | Flink versions 1.20 |
+| --- | --- | --- | --- | --- |
+| Kinesis Data Stream<br>• Source<br>• DataStream and Table API | flink-connector-kinesis, 1.15.4 | flink-connector-kinesis, 4.3.0-1.18 | flink-connector-kinesis, 5.0.0-1.19 | flink-connector-kinesis, 5.0.0-1.20 |
+| Kinesis Data Stream<br>• Sink<br>• DataStream and Table API | flink-connector-aws-kinesis-streams, 1.15.4 | flink-connector-aws-kinesis-streams, 4.3.0-1.18 | flink-connector-aws-kinesis-streams, 5.0.0-1.19 | flink-connector-aws-kinesis-streams, 5.0.0-1.20 |
+| Kinesis Data Streams<br>• Source/Sink<br>• SQL | flink-sql-connector-kinesis, 1.15.4 | flink-sql-connector-kinesis, 4.3.0-1.18 | flink-sql-connector-kinesis, 5.0.0-1.19 | flink-sql-connector-kinesis-streams, 5.0.0-1.20 |
+| Kafka<br>• DataStream and Table API | flink-connector-kafka, 1.15.4 | flink-connector-kafka, 3.2.0-1.18 | flink-connector-kafka, 3.3.0-1.19 | flink-connector-kafka, 3.3.0-1.20 |
+| Kafka<br>• SQL | flink-sql-connector-kafka, 1.15.4 | flink-sql-connector-kafka, 3.2.0-1.18 | flink-sql-connector-kafka, 3.3.0-1.19 | flink-sql-connector-kafka, 3.3.0-1.20 |
+| Firehose<br>• DataStream and Table API | flink-connector-aws-kinesis-firehose, 1.15.4 | flink-connector-aws-firehose, 4.3.0-1.18 | flink-connector-aws-firehose, 5.0.0-1.19 | flink-connector-aws-firehose, 5.0.0-1.20 |
+| Firehose<br>• SQL | flink-sql-connector-aws-kinesis-firehose, 1.15.4 | flink-sql-connector-aws-firehose, 4.3.0-1.18 | flink-sql-connector-aws-firehose, 5.0.0-1.19 | flink-sql-connector-aws-firehose, 5.0.0-1.20 |
+| DynamoDB<br>• DataStream and Table API | flink-connector-dynamodb, 3.0.0-1.15 | flink-connector-dynamodb, 4.3.0-1.18 | flink-connector-dynamodb, 5.0.0-1.19 | flink-connector-dynamodb, 5.0.0-1.20 |
+| DynamoDB<br>• SQL | flink-sql-connector-dynamodb, 3.0.0-1.15 | flink-sql-connector-dynamodb, 4.3.0-1.18 | flink-sql-connector-dynamodb, 5.0.0-1.19 | flink-sql-connector-dynamodb, 5.0.0-1.20 |
+| OpenSearch<br>• DataStream and Table API | - | flink-connector-opensearch, 1.2.0-1.18 | flink-connector-opensearch, 1.2.0-1.19 | flink-connector-opensearch, 1.2.0-1.19 |
+| OpenSearch<br>• SQL | - | flink-sql-connector-opensearch, 1.2.0-1.18 | flink-sql-connector-opensearch, 1.2.0-1.19 | flink-sql-connector-opensearch, 1.2.0-1.19 |
+| Amazon Managed Service for Prometheus DataStream | - | flink-sql-connector-opensearch, 1.2.0-1.18 | flink-connector-prometheus, 1.0.0-1.19 | flink-connector-prometheus, 1.0.0-1.20 |
+| Amazon SQS DataStream and Table API | - | flink-sql-connector-opensearch, 1.2.0-1.18 | flink-connector-sqs, 5.0.0-1.19 | flink-connector-sqs, 5.0.0-1.20 |
 
 To learn more about connectors in Amazon Managed Service for Apache Flink, see:
 

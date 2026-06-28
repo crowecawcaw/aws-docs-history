@@ -103,7 +103,7 @@ def property_map(properties, property_group_id):
            return prop["PropertyMap"]
 ```
 
-The following code example demonstrates reading a property called INPUT_STREAM_KEY from a property group that the previous example returns:
+The following code example demonstrates reading a property called INPUT\_STREAM\_KEY from a property group that the previous example returns:
 
 ```
 input_stream = input_property_map[INPUT_STREAM_KEY]

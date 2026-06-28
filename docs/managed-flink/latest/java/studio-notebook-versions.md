@@ -14,8 +14,8 @@ recommend that you upgrade to the latest runtime (Apache Flink 1.15 and Apache
 Zeppelin 0.10) before that time. For guidance on how to upgrade your notebook, see
 [Upgrade Studio Runtime](upgrading-studio-runtime.md "upgrading-studio-runtime.md").
 
-| Studio Runtime | Apache Flink version | Apache Zeppelin version | Python version                   |     |
-| -------------- | -------------------- | ----------------------- | -------------------------------- | --- |
-| 1.15           | 0.1                  | 3.8                     | Recommended                      |
-| 1.13           | 0.9                  | 3.8                     | Supported until October 16, 2024 |
-| 1.11           | 0.9                  | 3.7                     | Deprecating on February 24, 2025 |
+Studio Runtime| Apache Flink version | Apache Zeppelin version | Python version | |
+| --- | --- | --- | --- |
+| 1.15 | 0.1 | 3.8 | Recommended |
+| 1.13 | 0.9 | 3.8 | Supported until October 16, 2024 |
+| 1.11 | 0.9 | 3.7 | Deprecating on February 24, 2025 |

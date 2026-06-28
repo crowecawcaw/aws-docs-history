@@ -15,27 +15,24 @@ Your application has the following components:
   settings and runtime properties, see the following topics in the
   [Developer Guide for Apache Flink Applications](what-is.md "what-is.md"):
 
-      + **Application Parallelism and Scaling:**  You use your application's Parallelism
-       setting to control the number of queries that
-       your application can execute simultaneously. Your queries can also take advantage of increased parallelism
-       if they have multiple paths of execution, such as in the following circumstances:
+  - **Application Parallelism and Scaling:** You use your application's Parallelism
+    setting to control the number of queries that
+    your application can execute simultaneously. Your queries can also take advantage of increased parallelism
+    if they have multiple paths of execution, such as in the following circumstances:
 
-
-
-
-      	- When processing multiple shards of a Kinesis data stream
-      	- When partitioning data using the `KeyBy` operator.
-      	- When using multiple window operators
+    - When processing multiple shards of a Kinesis data stream
+    - When partitioning data using the `KeyBy` operator.
+    - When using multiple window operators
       For more information about application scaling, see
-       [Application Scaling in Managed Service for Apache Flink for Apache Flink](how-scaling.md "how-scaling.md").
-      + **Logging and Monitoring:**  For information about application
-       logging and monitoring, see  [Logging and Monitoring in Amazon Managed Service for Apache Flink for Apache
-       Flink](monitoring-overview.md "monitoring-overview.md").
-      + Your application uses checkpoints and savepoints for fault tolerance.
-       Checkpoints and savepoints are not enabled by default for
-       Studio notebooks.
+      [Application Scaling in Managed Service for Apache Flink for Apache Flink](how-scaling.md "how-scaling.md").
 
-  You can create your Studio notebook using either the AWS Management Console or the AWS CLI.
+  - **Logging and Monitoring:** For information about application
+    logging and monitoring, see [Logging and Monitoring in Amazon Managed Service for Apache Flink for Apache
+    Flink](monitoring-overview.md "monitoring-overview.md").
+  - Your application uses checkpoints and savepoints for fault tolerance.
+    Checkpoints and savepoints are not enabled by default for
+    Studio notebooks.
+    You can create your Studio notebook using either the AWS Management Console or the AWS CLI.
 
 When creating the application
 from the console, you have the following options:

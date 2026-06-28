@@ -11,7 +11,7 @@ When running streaming applications in production, you set out to execute the ap
   More specific metrics should then be considered for the Flink application. This [CloudWatch dashboard](https://github.com/aws-samples/kda-metrics-dashboard "https://github.com/aws-samples/kda-metrics-dashboard") provides a good starting point.
   For more information on what metrics to monitor for production applications, see [Use CloudWatch Alarms with Amazon Managed Service for Apache Flink](monitoring-metrics-alarms.md "monitoring-metrics-alarms.md"). These metrics include:
 
-- **records_lag_max** and **millisbehindLatest** – If the application is
+- **records\_lag\_max** and **millisbehindLatest** – If the application is
   consuming from Kinesis or Kafka, these metrics indicate if the application is falling behind and needs to be scaled in order to keep up with the current load.
   This is a good generic metric that is easy to track for all kinds of applications. But it can only be used for reactive scaling, i.e.,
   when the application has already fallen behind.
