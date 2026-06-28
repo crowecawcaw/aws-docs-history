@@ -94,42 +94,42 @@ the improvements in PostgreSQL 18.3, see [PostgreSQL release
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Added the following new extensions:
 
-  - pg_roaringbitmap version 1.1.0
+  - pg\_roaringbitmap version 1.1.0
 
 - Updated the following extensions:
 
-  - aws_s3 to version 2.0.
-  - aws_lambda to version 2.1.
-  - pg_bigm to version 1.2_20250903.
-  - pg_hint_plan to version 1.8.0.
-  - tds_fdw to version 2.0.5.
-  - mysql_fdw to version REL-2_9_3.
-  - pg_cron to version 1.6.7.
+  - aws\_s3 to version 2.0.
+  - aws\_lambda to version 2.1.
+  - pg\_bigm to version 1.2\_20250903.
+  - pg\_hint\_plan to version 1.8.0.
+  - tds\_fdw to version 2.0.5.
+  - mysql\_fdw to version REL-2\_9\_3.
+  - pg\_cron to version 1.6.7.
   - orafce to version 4.16.3.
   - hypopg to version 1.4.2.
   - pglogical to version 2.4.6.
   - pgvector to version 0.8.1.
   - pgrouting to version 3.8.0.
-  - pg_repack to version 1.5.3.
-  - oracle_fdw to version 2.8.0.
+  - pg\_repack to version 1.5.3.
+  - oracle\_fdw to version 2.8.0.
   - h3-pg to version 4.2.3.
   - PLv8 to version 3.2.4.
-  - pg_tle to version 1.5.2.
+  - pg\_tle to version 1.5.2.
   - PgAudit to version 18.
   - PostGIS to version 3.6.1.
-  - postgis_raster to version 3.6.1.
-  - postgis_tiger_geocoder to version 3.6.1.
-  - postgis_topology to version 3.6.1.
-  - address_standardizer to version 3.6.1.
-  - address_standardizer_data_us to version 3.6.1.
+  - postgis\_raster to version 3.6.1.
+  - postgis\_tiger\_geocoder to version 3.6.1.
+  - postgis\_topology to version 3.6.1.
+  - address\_standardizer to version 3.6.1.
+  - address\_standardizer\_data\_us to version 3.6.1.
 
 - Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 
 **General enhancements**
 
-- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Fixed max\_wal\_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue where the pg\_hint\_plan SET hint cannot set GUCs marked as PGC\_RDSSUSET.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
 - Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
@@ -190,7 +190,7 @@ the improvements in PostgreSQL 17.9, see [PostgreSQL release
 
 - Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
 - Fixed a race condition that could prevents failovers from completing to intended failover target.
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability.
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability.
 - Fixed an issue that may cause non-failover target reader instances to restart when they attempt to connect to the new writer instance following a failover.
 
 **High priority enhancements**
@@ -210,24 +210,24 @@ the improvements in PostgreSQL 17.9, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - aws_s3 to version 2.0.
-  - pg_bigm to version 1.2_20250903.
-  - pg_hint_plan to version 1.7.1.
-  - tds_fdw to version 2.0.5.
-  - mysql_fdw to version REL-2_9_3.
-  - pg_cron to version 1.6.7.
+  - aws\_s3 to version 2.0.
+  - pg\_bigm to version 1.2\_20250903.
+  - pg\_hint\_plan to version 1.7.1.
+  - tds\_fdw to version 2.0.5.
+  - mysql\_fdw to version REL-2\_9\_3.
+  - pg\_cron to version 1.6.7.
   - orafce to version 4.16.3.
   - hypopg to version 1.4.2.
   - pglogical to version 2.4.6.
   - pgvector to version 0.8.1.
-  - pg_repack to version 1.5.3.
-  - oracle_fdw to version 2.8.0.
+  - pg\_repack to version 1.5.3.
+  - oracle\_fdw to version 2.8.0.
 
 - Fixed small memory leaks during database startup and replication.
 - Fixed an issue that could cause file handles to not be properly released after upgrade.
-- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Fixed max\_wal\_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue with pg_hint_plan where session configuration parameters requiring rds_superuser permissions could not be set in hints.
+- Fixed an issue with pg\_hint\_plan where session configuration parameters requiring rds\_superuser permissions could not be set in hints.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed ANALYZE operations to work correctly on tables containing large LOB data.
 - Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
@@ -276,7 +276,7 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -308,7 +308,7 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability
 
 #### Aurora PostgreSQL 17.7, December, 18, 2025
 
@@ -332,18 +332,18 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 
 - Fixed a database shutdown issue that could cause major version upgrades to fail.
 - Fixed a rare major version upgrade failure with large memory allocations.
-- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+- Fixed an issue preventing rds\_superuser from managing prepared transactions owned by other users.
 
 **General enhancements**
 
 - Updated the following extensions:
 
-  - h3_pg to version 4.2.3.
+  - h3\_pg to version 4.2.3.
 
 - Fixed NOTIFY channel file cleanup issue that could cause excessive storage usage
 - Fixed a race condition in Postgres lock release with optimized read enabled
 - Improved PgAudit memory usage during parameter-heavy operations.
-- Fixed a database initialization failure when max_connections is set to low values.
+- Fixed a database initialization failure when max\_connections is set to low values.
 - Improved Serverless v2 scaling performance under high CPU load.
 - Improved Serverless v2 write performance.
 - Fixed delays in Serverless v2 scale-down operations.
@@ -351,11 +351,11 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 - Improved database shutdown during maintenance to enhance availability.
 - Improved database startup performance through optimized storage initialization.
 - Fixed storage metadata initialization issue that could delay engine startup.
-- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
-- Provided configuration in pg_columnmask extension's masking policies to allow predicates on masked columns in queries.
-- Fixed role argument quoting in pg_columnmask policy management procedures.
-- Fixed policy visibility in the pg_columnmask.ddm_policies view for administrators.
-- Fixed a crash condition when using pg_buffercache extension during Serverless v2 scaling.
+- Fixed region determination failures in aws\_s3, aws\_ml, and aws\_lambda extensions.
+- Provided configuration in pg\_columnmask extension's masking policies to allow predicates on masked columns in queries.
+- Fixed role argument quoting in pg\_columnmask policy management procedures.
+- Fixed policy visibility in the pg\_columnmask.ddm\_policies view for administrators.
+- Fixed a crash condition when using pg\_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 17.6
 
@@ -365,15 +365,35 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.6.4, June 12, 2026](#aurorapostgresql-versions-version176x-1764 "#aurorapostgresql-versions-version176x-1764")
 - [Aurora PostgreSQL 17.6.2, April 22, 2026](#aurorapostgresql-versions-version176x-1762 "#aurorapostgresql-versions-version176x-1762")
 - [Aurora PostgreSQL 17.6.1, November 25, 2025](#aurorapostgresql-versions-version1761x-1761 "#aurorapostgresql-versions-version1761x-1761")
 - [Aurora PostgreSQL 17.6, November 25, 2025](#aurorapostgresql-versions-version176x-176 "#aurorapostgresql-versions-version176x-176")
+
+#### Aurora PostgreSQL 17.6.4, June 12, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
 #### Aurora PostgreSQL 17.6.2, April 22, 2026
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -434,12 +454,13 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
   see [Shared Plan Cache](../AuroraUserGuide/apg-shared-plan-cache.md "../AuroraUserGuide/apg-shared-plan-cache.md").
 - Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries, see [here](../AuroraUserGuide/apg-correlated-subquery.md "../AuroraUserGuide/apg-correlated-subquery.md").
 - Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
-- Added new pg_columnmask extension
+- Added new pg\_columnmask extension
 
 **Critical stability enhancements**
 
 - Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
-- Fixed an issue where clusters with enhanced logical replication (aurora.enhanced_logical_replication) enabled could experience instance restarts when decoding DDL-heavy workloads.
+- Fixed an issue where clusters with enhanced logical replication (aurora.enhanced\_logical\_replication) enabled could experience instance restarts when decoding DDL-heavy workloads.
+- Fixed an issue where clusters with enhanced logical replication (aurora.enhanced\_logical\_replication) enabled could experience instance restarts due to improper handling of aborted transaction metadata during database startup.
 
 **High priority enhancements**
 
@@ -460,9 +481,9 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - oracle_fdw to version to 2.8.0
-  - pg_repack extension to version 1.5.2
-  - aws_lamba extension to version 2.0
+  - oracle\_fdw to version to 2.8.0
+  - pg\_repack extension to version 1.5.2
+  - aws\_lamba extension to version 2.0
 
 - Improvements to the replay performance of the Aurora WAL replay process on read replica instances.
 - Improved file metadata initialization times.
@@ -471,14 +492,14 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 - Fixed an issue that could cause database restart during Serverless v2 scaling.
 - Fixed a performance issue on 48xlarge graviton instances.
 - Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
-- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Updated the aws\_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
 - Added support to include Geodetic TIFF grid files for PROJ.
-- Fixed an issue that could cause database restart during aws_s3 export.
+- Fixed an issue that could cause database restart during aws\_s3 export.
 - Addressed an issue with logging when replication slots are invalidated.
 - Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 17.5
@@ -549,7 +570,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 
 - Fixed an issue that can cause reboots of the primary db instance when reading from a
   logical replication slot in the presence of frequent DDL if
-  aurora.enhanced_logical_replication is enabled.
+  aurora.enhanced\_logical\_replication is enabled.
 - Fixed a race condition where old writer instance may not step down after a new writer
   instance is promoted and continues to write.
 
@@ -560,7 +581,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on
-  tables larger than 16TiB when synchronize_seqscans is enabled.
+  tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately
   after installing the extension or resetting shared memory.
 - Fixed an issue with Babelfish ZDP that could lead to instance reboot after
@@ -570,9 +591,9 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 - Fixed an issue during numeric calculations involving aggregate functions with
   all-column selections.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release
   containing The `PostGIS` extension 3.5.1 without running
-  postgis_extensions_upgrade.
+  postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart
   of an Aurora replica in a Global Database.
@@ -620,7 +641,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 
 **High priority enhancements**
 
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads.
 - Fixed an issue where server will fail to start if a previous startup was prematurely
   terminated.
@@ -629,14 +650,14 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - apg_plan_mgmt to 2.9.
+  - apg\_plan\_mgmt to 2.9.
   - The `pgaudit` extension to 17.1.
-  - The `rdkit` extension to 4.6.1 (2024_09_6).
+  - The `rdkit` extension to 4.6.1 (2024\_09\_6).
 
 - Improvements to make Serverless v2 scaling more efficient on reader nodes.
 - Fixed an issue related to the interactions between out-of-row storage and aborted
   sub-transactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
+  aurora.enhanced\_logical\_replication is enabled.
 - Fixed an issue that prevents Zero Downtime Patching from completing successfully on
   Serverless v2 auto-pause enabled instances.
 - Fixed an issue in pgdam that causes the engine (with pgdam enabled) to crash when
@@ -647,7 +668,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
   classified as restricted DDL.
 - Added validation to ensure only predefined GUCs with `aurora_stat_plans`
   the `prefix` extension are accepted on SET or SHOW commands.
-- Added function aurora_stat_resource_usage() to report current CPU usage, allocated and
+- Added function aurora\_stat\_resource\_usage() to report current CPU usage, allocated and
   used memory for all the backends.
 - Fixed an issue which prevented ZDP when cache recovery is disabled.
 - Fixed a synchronization issue where ZDP could fail due to premature engine ready state
@@ -689,7 +710,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -774,15 +795,15 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables
-  larger than 16TiB when synchronize_seqscans is enabled.
+  larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after
   installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving the `plans` extension in Query Plan Management.
 - Fixed an issue during numeric calculations involving aggregate functions with all-column
   selections.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing
-  The `PostGIS` extension 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing
+  The `PostGIS` extension 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an
   Aurora replica in a Global Database.
@@ -876,11 +897,12 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 - In Blue/Green deployments, creating or modifying temporary objects is no longer
   classified as restricted DDL.
 
-  - Creating temporary objects with syntax such as CREATE TEMPORARY TABLE x AS SELECT \* FROM isn't supported.
+  - Creating temporary objects with syntax such as CREATE TEMPORARY TABLE x AS SELECT
+    \* FROM isn't supported.
   - Creating indexes on temporary tables isn't supported.
 
 - The Blue/Green deployment switchover won’t be blocked by the `REFRESH
-MATERIALIZED VIEW` statement.
+ MATERIALIZED VIEW` statement.
 - Updated the following parameter names to align with the PostgreSQL 17 version:
 
   - `multixact_offsets_cache_size` is now
@@ -891,7 +913,7 @@ MATERIALIZED VIEW` statement.
 - Improved allocation of Write-Ahead Log (WAL) stream numbers, resulting in increased
   throughput for write-heavy workloads on the new Graviton 4 high-end instances.
 - Fixed an issue where the query identifier (queryid) wasn't being correctly updated in
-  pg_stat_activity when using extended protocol in pipeline mode.
+  pg\_stat\_activity when using extended protocol in pipeline mode.
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes
   to become stuck indefinitely.
 - Updated the following extensions:
@@ -903,8 +925,8 @@ MATERIALIZED VIEW` statement.
   - `pg_partman` extension to v5.2.4.
   - `orafce` extension to 4.14.0.
   - `rds_tools` extension to 1.9.
-  - `rdkit` extension to Release_2024_09_3.
-  - pg_repack extension to 1.5.1.
+  - `rdkit` extension to Release\_2024\_09\_3.
+  - pg\_repack extension to 1.5.1.
   - pglogical extension to 2.4.5.
 
 ### PostgreSQL 17.0
@@ -921,9 +943,9 @@ To learn more on how to work with Database preview environment, see [Working wit
 
 #### Aurora PostgreSQL 17.0 in the Amazon RDS Preview environment, November 20, 2024
 
-**_This is
+_**This is
 preview documentation for Amazon Aurora PostgreSQL version 17.0. It is
-subject to change._**
+subject to change.**_
 
 ###### General enhancements
 
@@ -1048,7 +1070,7 @@ the improvements in PostgreSQL 16.13, see [PostgreSQL release
 
 - Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
 - Fixed a race condition that could prevents failovers from completing to intended failover target.
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability.
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability.
 - Fixed an issue that may cause non-failover target reader instances to restart when they attempt to connect to the new writer instance following a failover.
 
 **High priority enhancements**
@@ -1068,24 +1090,24 @@ the improvements in PostgreSQL 16.13, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - aws_s3 to version 2.0.
-  - pg_bigm to version 1.2_20250903.
-  - pg_hint_plan to version 1.6.2.
-  - tds_fdw to version 2.0.5.
-  - mysql_fdw to version REL-2_9_3.
-  - pg_cron to version 1.6.7.
+  - aws\_s3 to version 2.0.
+  - pg\_bigm to version 1.2\_20250903.
+  - pg\_hint\_plan to version 1.6.2.
+  - tds\_fdw to version 2.0.5.
+  - mysql\_fdw to version REL-2\_9\_3.
+  - pg\_cron to version 1.6.7.
   - orafce to version 4.16.3.
   - hypopg to version 1.4.2.
   - pglogical to version 2.4.6.
   - pgvector to version 0.8.1.
-  - pg_repack to version 1.5.3.
-  - oracle_fdw to version 2.8.0.
+  - pg\_repack to version 1.5.3.
+  - oracle\_fdw to version 2.8.0.
 
 - Fixed small memory leaks during database startup and replication.
 - Fixed an issue that could cause file handles to not be properly released after upgrade.
-- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Fixed max\_wal\_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue with pg_hint_plan where session configuration parameters requiring rds_superuser permissions could not be set in hints.
+- Fixed an issue with pg\_hint\_plan where session configuration parameters requiring rds\_superuser permissions could not be set in hints.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed ANALYZE operations to work correctly on tables containing large LOB data.
 - Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
@@ -1134,7 +1156,7 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -1166,7 +1188,7 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability
 
 #### Aurora PostgreSQL 16.11, December, 18, 2025
 
@@ -1190,18 +1212,18 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 
 - Fixed a database shutdown issue that could cause major version upgrades to fail.
 - Fixed a rare major version upgrade failure with large memory allocations.
-- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+- Fixed an issue preventing rds\_superuser from managing prepared transactions owned by other users.
 
 **General enhancements**
 
 - Updated the following extensions:
 
-  - h3_pg to version 4.2.3.
+  - h3\_pg to version 4.2.3.
 
 - Fixed NOTIFY channel file cleanup issue that could cause excessive storage usage
 - Fixed a race condition in Postgres lock release with optimized read enabled
 - Improved PgAudit memory usage during parameter-heavy operations.
-- Fixed a database initialization failure when max_connections is set to low values.
+- Fixed a database initialization failure when max\_connections is set to low values.
 - Improved Serverless v2 scaling performance under high CPU load.
 - Improved Serverless v2 write performance.
 - Fixed delays in Serverless v2 scale-down operations.
@@ -1209,11 +1231,11 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 - Improved database shutdown during maintenance to enhance availability.
 - Improved database startup performance through optimized storage initialization.
 - Fixed storage metadata initialization issue that could delay engine startup.
-- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
-- Provided configuration in pg_columnmask extension's masking policies to allow predicates on masked columns in queries.
-- Fixed role argument quoting in pg_columnmask policy management procedures.
-- Fixed policy visibility in the pg_columnmask.ddm_policies view for administrators.
-- Fixed a crash condition when using pg_buffercache extension during Serverless v2 scaling.
+- Fixed region determination failures in aws\_s3, aws\_ml, and aws\_lambda extensions.
+- Provided configuration in pg\_columnmask extension's masking policies to allow predicates on masked columns in queries.
+- Fixed role argument quoting in pg\_columnmask policy management procedures.
+- Fixed policy visibility in the pg\_columnmask.ddm\_policies view for administrators.
+- Fixed a crash condition when using pg\_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 16.10
 
@@ -1223,15 +1245,35 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.10.4, June 12, 2026](#aurorapostgresql-versions-version1610x-16104 "#aurorapostgresql-versions-version1610x-16104")
 - [Aurora PostgreSQL 16.10.2, April 22, 2026](#aurorapostgresql-versions-version1610x-16102 "#aurorapostgresql-versions-version1610x-16102")
 - [Aurora PostgreSQL 16.10.1, November 25, 2025](#aurorapostgresql-versions-version16101x-16101 "#aurorapostgresql-versions-version16101x-16101")
 - [Aurora PostgreSQL 16.10, November 25, 2025](#aurorapostgresql-versions-version1610x-1610 "#aurorapostgresql-versions-version1610x-1610")
+
+#### Aurora PostgreSQL 16.10.4, June 12, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
 #### Aurora PostgreSQL 16.10.2, April 22, 2026
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -1291,12 +1333,13 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 - Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes.
 - Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries.
 - Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
-- Added new pg_columnmask extension
+- Added new pg\_columnmask extension
 
 **Critical stability enhancements**
 
 - Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
-- Fixed an issue where clusters with enhanced logical replication (aurora.enhanced_logical_replication) enabled could experience instance restarts when decoding DDL-heavy workloads.
+- Fixed an issue where clusters with enhanced logical replication (aurora.enhanced\_logical\_replication) enabled could experience instance restarts when decoding DDL-heavy workloads.
+- Fixed an issue where clusters with enhanced logical replication (aurora.enhanced\_logical\_replication) enabled could experience instance restarts due to improper handling of aborted transaction metadata during database startup.
 
 **High priority enhancements**
 
@@ -1317,9 +1360,9 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - oracle_fdw to version to 2.8.0
-  - pg_repack extension to version 1.5.2
-  - aws_lamba extension to version 2.0
+  - oracle\_fdw to version to 2.8.0
+  - pg\_repack extension to version 1.5.2
+  - aws\_lamba extension to version 2.0
 
 - Improvements to the replay performance of the Aurora WAL replay process on read replica instances.
 - Improved file metadata initialization times.
@@ -1328,14 +1371,14 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 - Fixed an issue that could cause database restart during Serverless v2 scaling.
 - Fixed a performance issue on 48xlarge graviton instances.
 - Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
-- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Updated the aws\_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
 - Added support to include Geodetic TIFF grid files for PROJ.
-- Fixed an issue that could cause database restart during aws_s3 export.
+- Fixed an issue that could cause database restart during aws\_s3 export.
 - Addressed an issue with logging when replication slots are invalidated.
 - Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 16.9
@@ -1406,7 +1449,7 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 
 - Fixed an issue that can cause reboots of the primary db instance when reading from a
   logical replication slot in the presence of frequent DDL if
-  aurora.enhanced_logical_replication is enabled.
+  aurora.enhanced\_logical\_replication is enabled.
 - Fixed a race where old writer may not step down after a new writer is promoted and
   continues to write.
 
@@ -1417,7 +1460,7 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on
-  tables larger than 16TiB when synchronize_seqscans is enabled.
+  tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately
   after installing the extension or resetting shared memory.
 - Fixed an issue with Babelfish ZDP that could lead to instance reboot after
@@ -1427,9 +1470,9 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 - Fixed an issue during numeric calculations involving aggregate functions with
   all-column selections.
 - Fixed an issue with prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release
   containing The `PostGIS` extension 3.5.1 without running
-  postgis_extensions_upgrade.
+  postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart
   of an Aurora replica in a Global Database.
@@ -1480,16 +1523,16 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - apg_plan_mgmt to 2.9.
+  - apg\_plan\_mgmt to 2.9.
   - The `pgaudit` extension to 16.1.
-  - The `rdkit` extension to 4.6.1 (2024_09_6).
+  - The `rdkit` extension to 4.6.1 (2024\_09\_6).
   - The `pg_repack` extension to 1.5.1.
   - The `pglogical` extension to 2.4.5.
 
 - Improvements to make Serverless v2 scaling more efficient on reader nodes.
 - Fixed an issue related to the interactions between out-of-row storage and aborted
   sub-transactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
+  aurora.enhanced\_logical\_replication is enabled.
 - Fixed an issue that prevents Zero Downtime Patching from completing successfully on
   Serverless v2 auto-pause enabled instances.
 - Fixed an issue in pgdam that causes the engine (with pgdam enabled) to crash when
@@ -1500,7 +1543,7 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
   classified as restricted DDL.
 - Added validation to ensure only predefined GUCs with `aurora_stat_plans`
   the `prefix` extension are accepted on SET or SHOW commands.
-- Added function aurora_stat_resource_usage() to report current CPU usage, allocated and
+- Added function aurora\_stat\_resource\_usage() to report current CPU usage, allocated and
   used memory for all the backends.
 - Fixed an issue which prevented Zero Downtime Patching when cache recovery is
   disabled.
@@ -1516,7 +1559,7 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
   after being disconnected from the writer.
 - Fixed an issue where RO node could crash when frequently falling behind RW
   node.
-- Fixed an issue in the aws_s3 extension that could cause an import operation to restart
+- Fixed an issue in the aws\_s3 extension that could cause an import operation to restart
   and reinsert previously inserted rows.
 - Improved performance of EXPLAIN operations for queries involving tables with many
   columns and complex relations.
@@ -1543,7 +1586,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -1628,15 +1671,15 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables
-  larger than 16TiB when synchronize_seqscans is enabled.
+  larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after
   installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving the `plans` extension in Query Plan Management.
 - Fixed an issue during numeric calculations involving aggregate functions with all-column
   selections.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing
-  The `PostGIS` extension 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing
+  The `PostGIS` extension 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an
   Aurora replica in a Global Database.
@@ -1665,10 +1708,10 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
   become stuck indefinitely.
 - Fixed an issue related to the interactions between out-of-row storage and aborted
   subtransactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
+  aurora.enhanced\_logical\_replication is enabled.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
@@ -1687,7 +1730,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 
 - Aurora Optimized Reads now enables users to resize the allocated space for Optimized
   Reads-enabled temporary objects on Aurora I/O-Optimized clusters using a dynamic parameter
-  “aurora_temp_space_size”. For more information, see [Aurora
+  “aurora\_temp\_space\_size”. For more information, see [Aurora
   Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md").
 - Added support for transforming correlated subquery into derived table to improve
   execution efficiency. For more information, see [Improving Aurora PostgreSQL query performance using subquery transformation](../AuroraUserGuide/apg-correlated-subquery.md#apg-corsubquery-transformation "../AuroraUserGuide/apg-correlated-subquery.md#apg-corsubquery-transformation") .
@@ -1727,11 +1770,11 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
   - Creating indexes on temporary tables isn't supported.
 
 - The Blue/Green deployment switchover won’t be blocked by the `REFRESH
-MATERIALIZED VIEW` statement.
+ MATERIALIZED VIEW` statement.
 - Improved allocation of Write-Ahead Log (WAL) stream numbers, resulting in increased
   throughput for write-heavy workloads on the new Graviton 4 high-end instances.
 - Fixed an issue where the query identifier (queryid) wasn't being correctly updated in
-  pg_stat_activity when using extended protocol in pipeline mode.
+  pg\_stat\_activity when using extended protocol in pipeline mode.
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes
   to become stuck indefinitely.
 - Updated the following extensions:
@@ -1743,7 +1786,7 @@ MATERIALIZED VIEW` statement.
   - Update the `pg_partman` extension to v5.2.4.
   - Update the `orafce` extension to 4.14.0.
   - Update the `rds_tools` extension to 1.9.
-  - Update the `rdkit` extension to Release_2024_09_3.
+  - Update the `rdkit` extension to Release\_2024\_09\_3.
 
 ### PostgreSQL 16.6
 
@@ -1811,12 +1854,12 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
@@ -1829,7 +1872,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**.
@@ -1841,7 +1884,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
   subtransactions that could cause issues in logical streaming when
   `aurora.enhanced_logical_replication` is enabled.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -1927,7 +1970,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
   further by improving storage metadata and faster buffer cache initialization.
 - Made multiple improvements to upgrades with Zero-Downtime Patching (ZDP) which reduces
   connection restore time and enhances ZDP resilience from failures.
-- Fixed an issue where the server_id value wasn’t updated after an Amazon RDS Blue/Green
+- Fixed an issue where the server\_id value wasn’t updated after an Amazon RDS Blue/Green
   Deployment switchover.
 - Fixed an issue that could cause database restart during hash index extension.
 - Fixed an issue that would cause migration from RDS PostgreSQL to fail in the presence
@@ -1961,7 +2004,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
   - `GEOS` library extension to verison 3.13.0.
   - `orafce` extension to 4.12.0.
   - `pgvector` extension to 0.7.4.
-  - `RDKit` extension to 2024_03_6 release (4.6).
+  - `RDKit` extension to 2024\_03\_6 release (4.6).
   - `pg_hint_plan` extension to version 1.6.1.
 
 ### PostgreSQL 16.4
@@ -2020,12 +2063,12 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
 - Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
@@ -2075,7 +2118,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 
 **General enhancements**.
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 16.4.1, January 02, 2025
@@ -2091,7 +2134,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 - Fixed an issue that prevented the scaling of Aurora Serverless v2 Read Replicas when
-  aurora.enhanced_logical_replication is enabled.
+  aurora.enhanced\_logical\_replication is enabled.
 - Fixed an issue in Global DB switchover and failover that could result in customers needing
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
@@ -2112,7 +2155,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
   used as a column name or alias in DML and DDL statements.
 - Fixed an issue that could cause an error in the wal sender process when resuming logical
   replication.
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension 2 installation.
 
 #### Aurora PostgreSQL 16.4, September 30, 2024
@@ -2152,7 +2195,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 - Fixed an in-memory two-phase commit (2PC) metadata caching issue that caused
   out-of-memory error on Aurora read replicas replicating from RDS PostgreSQL source
   instances.
-- Introduced a new function pgadmap_get_set_mapping_cmd() in the
+- Introduced a new function pgadmap\_get\_set\_mapping\_cmd() in the
   `pg_ad_mapping` extension to display commands required to recreate existing
   Active directory security group to Aurora PostgreSQL database role mappings.
 - Fixed an issue in storage metadata initialization that can cause prolonged database
@@ -2167,13 +2210,13 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 - Updated the following extensions:
 
   - `pgvector` extension to version 0.7.3.
-  - `mysql_fdw` extension to version REL-2_9_2.
+  - `mysql_fdw` extension to version REL-2\_9\_2.
   - `orafce` extension to version 4.10.3.
   - `pgTAP` extension to version 1.3.3.
   - `pg_cron` extension to version 1.6.3.
-  - `RDKit` extension to version 4.5 (Release 2024_03_5).
+  - `RDKit` extension to version 4.5 (Release 2024\_03\_5).
   - `wal2json` extension to version 2.6.
-  - pg_ad_mapping extension to version 1.0.
+  - pg\_ad\_mapping extension to version 1.0.
   - `HypoPG` extension to version 1.4.1.
 
 ### PostgreSQL 16.3
@@ -2284,11 +2327,11 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
   connections.
 - Added per-query memory usage information to
   `aurora_stat_statements` and `aurora_stat_plans`. For
-  more information, see [aurora_stat_statements](../AuroraUserGuide/aurora_stat_statements.md "../AuroraUserGuide/aurora_stat_statements.md").
+  more information, see [aurora\_stat\_statements](../AuroraUserGuide/aurora_stat_statements.md "../AuroraUserGuide/aurora_stat_statements.md").
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue that would incorrectly allow two vacuum processes to
+- Fixed a pg\_repack issue that would incorrectly allow two vacuum processes to
   operate concurrently on the same table.
 
 ###### High priority enhancements
@@ -2322,7 +2365,7 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
   parallel workers.
 - Fixed an issue where the instance may restart when logically applying changes
   from a remote server when under resource constraints.
-- Fixed an issue with database-wide and statement-level blk_read_time metric.
+- Fixed an issue with database-wide and statement-level blk\_read\_time metric.
 
 ###### Additional improvements and enhancements
 
@@ -2337,7 +2380,7 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
   - `pgrouting` extension to version 3.6.2.
   - `pgTap` extension to version 1.3.2.
   - `PostGIS` extension to version 3.4.2.
-  - `RDKit` extension to version 2024_03_1.
+  - `RDKit` extension to version 2024\_03\_1.
 
 ### PostgreSQL 16.2
 
@@ -2407,7 +2450,7 @@ about the improvements in PostgreSQL 16.2, see [PostgreSQL release
 
 - **General enhancements**
 
-Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
 from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 16.2.3, October 7, 2024
@@ -2444,7 +2487,7 @@ from a previous the `PostGIS` extension v2 installation.
   upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed an issue with background worker where it may crash when executed in
   parallel worker context.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same
   table.
 - Fixed issues in how two-phase commit files are handled.
 
@@ -2454,7 +2497,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Added resource usage summary to `pg_dump`.
 - Added function overloading for `aurora_stat_statements(bool
-showtext)` and `aurora_stat_plans(bool showtext)`.
+ showtext)` and `aurora_stat_plans(bool showtext)`.
 
 ###### General enhancements
 
@@ -2480,8 +2523,8 @@ showtext)` and `aurora_stat_plans(bool showtext)`.
 - Improved log record validation before it is written to storage.
 - Fixed an issue that would result in sessions incorrectly reporting ClientRead
   wait events after a zero-downtime patching event.
-- Fixed an ambiguous function definition of aws_s3.query_export_to_s3 when
-  upgrading the aws_s3 extension from version 1.1 to 1.2.
+- Fixed an ambiguous function definition of aws\_s3.query\_export\_to\_s3 when
+  upgrading the aws\_s3 extension from version 1.1 to 1.2.
 
 ###### High priority enhancements
 
@@ -2511,7 +2554,7 @@ showtext)` and `aurora_stat_plans(bool showtext)`.
 
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
-  - RDKit Cartridge to version Release_2023_09_4.
+  - RDKit Cartridge to version Release\_2023\_09\_4.
 
 - New GUC Parameters has been added
 
@@ -2546,7 +2589,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -2556,7 +2599,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 - Fixed an issue in the read replica deletion which could result in a vaccum being held back
   and causing eventual unavailability of database.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -2630,7 +2673,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 
 - Fixed an issue where a change in memory requirements during a minor version
   upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same
   table.
 
 #### Aurora PostgreSQL 16.1.3, March 13, 2024
@@ -2777,7 +2820,7 @@ the improvements in PostgreSQL 15.17, see [PostgreSQL release
 
 - Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
 - Fixed a race condition that could prevents failovers from completing to intended failover target.
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability.
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability.
 - Fixed an issue that may cause non-failover target reader instances to restart when they attempt to connect to the new writer instance following a failover.
 
 **High priority enhancements**
@@ -2797,24 +2840,24 @@ the improvements in PostgreSQL 15.17, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - aws_s3 to version 2.0.
-  - pg_bigm to version 1.2_20250903.
-  - pg_hint_plan to version 1.5.3.
-  - tds_fdw to version 2.0.5.
-  - mysql_fdw to version REL-2_9_3.
-  - pg_cron to version 1.6.7.
+  - aws\_s3 to version 2.0.
+  - pg\_bigm to version 1.2\_20250903.
+  - pg\_hint\_plan to version 1.5.3.
+  - tds\_fdw to version 2.0.5.
+  - mysql\_fdw to version REL-2\_9\_3.
+  - pg\_cron to version 1.6.7.
   - orafce to version 4.16.3.
   - hypopg to version 1.4.2.
   - pglogical to version 2.4.6.
   - pgvector to version 0.8.1.
-  - pg_repack to version 1.5.3.
-  - oracle_fdw to version 2.8.0.
+  - pg\_repack to version 1.5.3.
+  - oracle\_fdw to version 2.8.0.
 
 - Fixed small memory leaks during database startup and replication.
 - Fixed an issue that could cause file handles to not be properly released after upgrade.
-- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Fixed max\_wal\_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue with pg_hint_plan where session configuration parameters requiring rds_superuser permissions could not be set in hints.
+- Fixed an issue with pg\_hint\_plan where session configuration parameters requiring rds\_superuser permissions could not be set in hints.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed ANALYZE operations to work correctly on tables containing large LOB data.
 - Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
@@ -2863,7 +2906,7 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -2895,7 +2938,7 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability
 
 #### Aurora PostgreSQL 15.15, Decemeber, 18, 2025
 
@@ -2919,17 +2962,17 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 
 - Fixed a database shutdown issue that could cause major version upgrades to fail.
 - Fixed a rare major version upgrade failure with large memory allocations.
-- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+- Fixed an issue preventing rds\_superuser from managing prepared transactions owned by other users.
 
 **General enhancements**
 
 - Updated the following extensions:
 
-  - h3_pg to version 4.2.3.
+  - h3\_pg to version 4.2.3.
 
 - Fixed a race condition in Postgres lock release with optimized read enabled.
 - Improved PgAudit memory usage during parameter-heavy operations.
-- Fixed database initialization failure when max_connections is set to low values.
+- Fixed database initialization failure when max\_connections is set to low values.
 - Improved Serverless v2 scaling performance under high CPU load.
 - Improved Serverless v2 write performance.
 - Fixed delays in Serverless v2 scale-down operations.
@@ -2937,8 +2980,8 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 - Improved database shutdown during maintenance to enhance availability.
 - Improved database startup performance through optimized storage initialization.
 - Fixed storage metadata initialization issue that could delay engine startup.
-- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
-- Fixed crash scenario when using pg_buffercache extension during Serverless v2 scaling.
+- Fixed region determination failures in aws\_s3, aws\_ml, and aws\_lambda extensions.
+- Fixed crash scenario when using pg\_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 15.14
 
@@ -2948,15 +2991,35 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.14.4, June 12, 2026](#aurorapostgresql-versions-version1514x-15144 "#aurorapostgresql-versions-version1514x-15144")
 - [Aurora PostgreSQL 15.14.2, April 22, 2026](#aurorapostgresql-versions-version1514x-15142 "#aurorapostgresql-versions-version1514x-15142")
 - [Aurora PostgreSQL 15.14.1, November 25, 2025](#aurorapostgresql-versions-version15141x-15141 "#aurorapostgresql-versions-version15141x-15141")
 - [Aurora PostgreSQL 15.14, November 25, 2025](#aurorapostgresql-versions-version1514x-1514 "#aurorapostgresql-versions-version1514x-1514")
+
+#### Aurora PostgreSQL 15.14.4, June 12, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
 #### Aurora PostgreSQL 15.14.2, April 22, 2026
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -3034,23 +3097,23 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - oracle_fdw to version to 2.8.0
-  - pg_repack extension to version 1.5.2
-  - aws_lamba extension to version 2.0
+  - oracle\_fdw to version to 2.8.0
+  - pg\_repack extension to version 1.5.2
+  - aws\_lamba extension to version 2.0
 
 - Improved file metadata initialization times.
 - Fixed an issue that caused reader instance to restart when attempting to create PostgreSQL SLRU files.
 - Fixed an issue which caused prolonged Serverless v2 scaling time.
 - Fixed an issue that could cause database restart during Serverless v2 scaling.
 - Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
-- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Updated the aws\_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
 - Added support to include Geodetic TIFF grid files for PROJ.
-- Fixed an issue that could cause database restart during aws_s3 export.
+- Fixed an issue that could cause database restart during aws\_s3 export.
 - Addressed an issue with logging when replication slots are invalidated.
 - Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 15.13
@@ -3119,9 +3182,6 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
-- Fixed an issue that can cause reboots of the primary db instance when reading from a
-  logical replication slot in the presence of frequent DDL if
-  aurora.enhanced_logical_replication is enabled.
 - Fixed a race where old writer may not step down after a new writer is promoted and
   continues to write.
 
@@ -3132,7 +3192,7 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on
-  tables larger than 16TiB when synchronize_seqscans is enabled.
+  tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately
   after installing the extension or resetting shared memory.
 - Fixed an issue with Babelfish ZDP that could lead to instance reboot after
@@ -3142,9 +3202,9 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 - Fixed an issue during numeric calculations involving aggregate functions with
   all-column selections.
 - Fixed an issue with prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release
   containing The `PostGIS` extension 3.5.1 without running
-  postgis_extensions_upgrade.
+  postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart
   of an Aurora replica in a Global Database.
@@ -3186,7 +3246,7 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 
 **High priority enhancements**
 
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads.
 - Fixed an issue where server will fail to start if a previous startup was prematurely
   terminated.
@@ -3195,16 +3255,13 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - apg_plan_mgmt to 2.9.
+  - apg\_plan\_mgmt to 2.9.
   - The `pgaudit` extension to 1.7.1.
-  - The `rdkit` extension to 4.6.1 (2024_09_6).
+  - The `rdkit` extension to 4.6.1 (2024\_09\_6).
   - The `pg_repack` extension to 1.5.1.
   - The `pglogical` extension to 2.4.5.
 
 - Improvements to make Serverless v2 scaling more efficient on reader nodes.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  sub-transactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue that prevents Zero Downtime Patching from completing successfully on
   Serverless v2 auto-pause enabled instances.
 - Fixed an issue in pgdam that causes the engine (with pgdam enabled) to crash when
@@ -3215,7 +3272,7 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
   classified as restricted DDL.
 - Added validation to ensure only predefined GUCs with `aurora_stat_plans`
   the `prefix` extension are accepted on SET or SHOW commands.
-- Added function aurora_stat_resource_usage() to report current CPU usage, allocated and
+- Added function aurora\_stat\_resource\_usage() to report current CPU usage, allocated and
   used memory for all the backends.
 - Fixed an issue which prevented Zero Downtime Patching when cache recovery is
   disabled.
@@ -3229,7 +3286,7 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
   after being disconnected from the writer.
 - Fixed an issue where RO node could crash when frequently falling behind RW
   node.
-- Fixed an issue in the aws_s3 extension that could cause an import operation to restart
+- Fixed an issue in the aws\_s3 extension that could cause an import operation to restart
   and reinsert previously inserted rows.
 - Improved performance of EXPLAIN operations for queries involving tables with many
   columns and complex relations.
@@ -3253,7 +3310,7 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -3338,15 +3395,15 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables
-  larger than 16TiB when synchronize_seqscans is enabled.
+  larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after
   installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving the `plans` extension in Query Plan Management.
 - Fixed an issue during numeric calculations involving aggregate functions with all-column
   selections.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing
-  The `PostGIS` extension 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing
+  The `PostGIS` extension 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an
   Aurora replica in a Global Database.
@@ -3360,7 +3417,6 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed stuck scaling for serverless db instances with zero-ETL enabled.
 - Fixed an issue which can cause the database to become unresponsive when performing actions
   with Aurora Storage.
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
@@ -3373,12 +3429,9 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
@@ -3396,7 +3449,7 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 - Aurora Optimized Reads now enables users to resize the allocated space for Optimized
   Reads-enabled temporary objects on Aurora I/O-Optimized clusters using a dynamic parameter
-  “aurora_temp_space_size”. For more information. see [Aurora Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md").
+  “aurora\_temp\_space\_size”. For more information. see [Aurora Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md").
 
 **Critical stability enhancements**
 
@@ -3431,11 +3484,11 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
   - Creating indexes on temporary tables isn't supported.
 
 - The Blue/Green deployment switchover won’t be blocked by the `REFRESH
-MATERIALIZED VIEW` statement.
+ MATERIALIZED VIEW` statement.
 - Improved allocation of Write-Ahead Log (WAL) stream numbers, resulting in increased
   throughput for write-heavy workloads on the new Graviton 4 high-end instances.
 - Fixed an issue where the query identifier (queryid) wasn't being correctly updated in
-  pg_stat_activity when using extended protocol in pipeline mode.
+  pg\_stat\_activity when using extended protocol in pipeline mode.
 - Fixed an issue where reader upgrade was taking longer than expected.
 - Updated the following extensions:
 
@@ -3446,7 +3499,7 @@ MATERIALIZED VIEW` statement.
   - Update the `pg_partman` extension to v5.2.4.
   - Update the `orafce` extension to 4.14.0.
   - Update the `rds_tools` extension to 1.9.
-  - Update the `rdkit` extension to Release_2024_09_3.
+  - Update the `rdkit` extension to Release\_2024\_09\_3.
 
 ### PostgreSQL 15.10
 
@@ -3514,12 +3567,12 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
@@ -3532,7 +3585,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -3540,11 +3593,8 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  `aurora.enhanced_logical_replication` is enabled.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -3571,7 +3621,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 
 **Critical Priority enhancements**
 
-- Fixed a security issue in the rds_activity_stream extension.
+- Fixed a security issue in the rds\_activity\_stream extension.
 
 **High priority enhancements**
 
@@ -3622,7 +3672,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
   further by improving storage metadata and faster buffer cache initialization.
 - Made multiple improvements to upgrades with Zero-Downtime Patching (ZDP) which reduces
   connection restore time and enhances ZDP resilience from failures.
-- Fixed an issue where the server_id value wasn’t updated after an Amazon RDS Blue/Green
+- Fixed an issue where the server\_id value wasn’t updated after an Amazon RDS Blue/Green
   Deployment switchover.
 - Fixed an issue that could cause database restart during hash index extension.
 - Fixed an issue that would cause migration from RDS PostgreSQL to fail in the presence
@@ -3654,7 +3704,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
   - `GEOS` library extension to verison 3.13.0.
   - `orafce` extension to 4.12.0.
   - `pgvector` extension to 0.7.4.
-  - `RDKit` extension to 2024_03_6 release (4.6).
+  - `RDKit` extension to 2024\_03\_6 release (4.6).
   - `pg_hint_plan` extension to version 1.5.2.
 
 ### PostgreSQL 15.8
@@ -3712,12 +3762,12 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
 - Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
@@ -3737,11 +3787,8 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  `aurora.enhanced_logical_replication` is enabled.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -3767,7 +3814,7 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 
 **General enhancements**.
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 15.8.1, January 02, 2025
@@ -3782,8 +3829,6 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 - Fixed issue where Aurora in-Region failovers would result in failures in database startup.
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
-- Fixed an issue that prevented the scaling of Aurora Serverless v2 Read Replicas when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue in Global DB switchover and failover that could result in customers needing
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
@@ -3804,7 +3849,7 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
   used as a column name or alias in DML and DDL statements.
 - Fixed an issue that could cause an error in the wal sender process when resuming logical
   replication.
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension 2 installation.
 
 #### Aurora PostgreSQL 15.8, September 30, 2024
@@ -3834,14 +3879,14 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 - Improvements to database startup time during initialization and engine
   upgrades.
 - Fixed an issue that prevented the inclusion of the `pg_bigm` extension in
-  shared_preload_libraries.
+  shared\_preload\_libraries.
 - Fixed an issue during ZDP which causes some connections to be terminated
   due to long transfer time. A new ZDP metric in postgresql.log called
   `ZD_SOCKET_TRANSFER_CONN_DROPPED` represents these dropped connections.
 - Improved reader availability for Aurora Replicas when using system administration functions.
 - Fixed an in-memory two-phase commit (2PC) metadata caching issue that caused out-of-memory
   errors on Aurora read replicas replicating from RDS PostgreSQL source instances.
-- Introduced a new function pgadmap_get_set_mapping_cmd() in the `pg_ad_mapping` extension to
+- Introduced a new function pgadmap\_get\_set\_mapping\_cmd() in the `pg_ad_mapping` extension to
   display commands required to recreate existing Active directory security group to Aurora
   PostgreSQL database role mappings.
 - Fixed an issue in storage metadata initialization that can cause prolonged database startup
@@ -3856,13 +3901,13 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 - Updated the following extensions:
 
   - `pgvector` extension to version 0.7.3.
-  - `mysql_fdw` extension to version REL-2_9_2.
+  - `mysql_fdw` extension to version REL-2\_9\_2.
   - `orafce` extension to version 4.10.3.
   - `pgTAP` extension to version 1.3.3.
   - `pg_cron` extension to version 1.6.3.
-  - `RDKit` extension to version 4.5 (Release 2024_03_5).
+  - `RDKit` extension to version 4.5 (Release 2024\_03\_5).
   - `wal2json` extension to version 2.6.
-  - pg_ad_mapping extension to version 1.0.
+  - pg\_ad\_mapping extension to version 1.0.
   - `HypoPG` extension to version 1.4.1.
 
 ### PostgreSQL 15.7
@@ -3887,7 +3932,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -3896,7 +3941,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -3973,11 +4018,11 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
   connections.
 - Added per-query memory usage information to
   `aurora_stat_statements` and `aurora_stat_plans`. For
-  more information, see [aurora_stat_statements](../AuroraUserGuide/aurora_stat_statements.md "../AuroraUserGuide/aurora_stat_statements.md").
+  more information, see [aurora\_stat\_statements](../AuroraUserGuide/aurora_stat_statements.md "../AuroraUserGuide/aurora_stat_statements.md").
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue that would incorrectly allow two vacuum processes to
+- Fixed a pg\_repack issue that would incorrectly allow two vacuum processes to
   operate concurrently on the same table.
 
 ###### High priority enhancements
@@ -4022,7 +4067,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
   - `pgrouting` extension to version 3.6.2.
   - `pgTap` extension to version 1.3.2.
   - `PostGIS` extension to version 3.4.2.
-  - `RDKit` extension to version 2024_03_1.
+  - `RDKit` extension to version 2024\_03\_1.
 
 ### PostgreSQL 15.6
 
@@ -4055,7 +4100,7 @@ information about the improvements in PostgreSQL 15.6, see [PostgreSQL release 1
 - Fixed an issue in the read replica deletion which could result in a vacuum being held back
   and causing eventual unavailability of database.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -4091,7 +4136,7 @@ information about the improvements in PostgreSQL 15.6, see [PostgreSQL release 1
 
 - **General enhancements**
 
-Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
 from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 15.6.3, October 7, 2024
@@ -4122,7 +4167,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed an issue with background worker where it may crash when executed in parallel worker context.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed issues in how two-phase commit files are handled.
 
 #### Aurora PostgreSQL 15.6.1, April 29, 2024
@@ -4147,7 +4192,7 @@ from a previous the `PostGIS` extension v2 installation.
   if there was a concurrent aborted sub-transaction.
 - Improved log record validation before it is written to storage.
 - Fixed an issue that would result in sessions incorrectly reporting ClientRead wait events after a zero-downtime patching event.
-- Fixed an ambiguous function definition of aws_s3.query_export_to_s3 when upgrading the aws_s3 extension from version 1.1 to 1.2.
+- Fixed an ambiguous function definition of aws\_s3.query\_export\_to\_s3 when upgrading the aws\_s3 extension from version 1.1 to 1.2.
 
 ###### High priority enhancements
 
@@ -4169,7 +4214,7 @@ from a previous the `PostGIS` extension v2 installation.
 
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
-  - RDKit Cartridge to version Release_2023_09_4.
+  - RDKit Cartridge to version Release\_2023\_09\_4.
 
 - New GUC Parameters has been added
 
@@ -4203,7 +4248,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 - Fixed an issue related to the interaction between Auorora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -4213,7 +4258,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 - Fixed an issue in the read replica deletion which could result in a vaccum being held back
   and causing eventual unavailability of database.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -4255,7 +4300,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 15.5.5, September 17, 2024
@@ -4282,7 +4327,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 #### Aurora PostgreSQL 15.5.3, March 13, 2024
 
@@ -4324,7 +4369,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Amazon Bedrock integration – By using the Amazon Aurora machine learning extension with your Aurora PostgreSQLDB cluster, you can now use Amazon Bedrock
   foundational AI models.
 - Using Active Directory security groups for Aurora PostgreSQL access control – Add group role authentication support using AWS Directory Service for Microsoft Active Directory with the new `pg_ad_mapping` extension.
-- Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds_extension role.
+- Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds\_extension role.
 - Added support for `aurora_compute_plan_id` parameter which is turned on by default in an Aurora PostgreSQL DB Cluster and DB Parameter Group.
   For more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md").
 - Query Plan Management (QPM) enhancements:
@@ -4380,7 +4425,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `plv8` to version 3.1.8
   - `PostGIS` to version 3.4.0
   - `prefix` to version 1.2.10
-  - `RDKit` to version 4.4.0 (Release_2023_09_1)
+  - `RDKit` to version 4.4.0 (Release\_2023\_09\_1)
 
 For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.15").
 
@@ -4411,14 +4456,14 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
 
 - Fixed an issue in the read replica deletion which could result in a vacuum being held back
   and causing eventual unavailability of database.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -4460,7 +4505,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be
+- Fixed an ownership issue where the postgis\_raster extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 15.4.8, November 14, 2024
@@ -4468,7 +4513,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 ###### High priority enhancements
 
 - Fixed an issue that would cause a longer restart time when
-  `rds.enable_plan_management` is turned on, but apg_plan_mgmt
+  `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt
   extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -4490,7 +4535,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 
 - Fixed an issue where a change in memory requirements during a minor version
   upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same
   table.
 
 #### Aurora PostgreSQL 15.4.6, March 13, 2024
@@ -4666,12 +4711,12 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
 
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -4713,14 +4758,14 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 15.3.7, November 12, 2024
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
@@ -4729,7 +4774,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -4851,7 +4896,7 @@ you must upgrade to a newer major version by February 29, 2024.
 - Further reduced the database downtime during ZDP
 - Fixed a bug which can cause unavailability during ZDP
 - Fixed an issue which caused `pg_ls_waldir()` to return "ERROR: could not stat file"
-- Added support for TLS 1.3 with ciphers TLS_AES_128_GCM_SHA256 and TLS_AES_256_GCM_SHA384
+- Added support for TLS 1.3 with ciphers TLS\_AES\_128\_GCM\_SHA256 and TLS\_AES\_256\_GCM\_SHA384
 - Addressed an issue that blocked a major version upgrade on the Aurora replica of an RDS for PostgreSQL DB instance
 - Fixed an issue that could prevent scaling in Aurora Serverless v2 instances
 - Fixed an issue in logical replication which, in rare cases, can cause a period of unavailability due to the incorrect subtransaction metadata
@@ -4884,7 +4929,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -4894,7 +4939,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -5127,7 +5172,7 @@ the improvements in PostgreSQL 14.22, see [PostgreSQL release
 
 - Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
 - Fixed a race condition that could prevents failovers from completing to intended failover target.
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability.
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability.
 - Fixed an issue that may cause non-failover target reader instances to restart when they attempt to connect to the new writer instance following a failover.
 
 **High priority enhancements**
@@ -5147,24 +5192,24 @@ the improvements in PostgreSQL 14.22, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - aws_s3 to version 2.0.
-  - pg_bigm to version 1.2_20250903.
-  - pg_hint_plan to version 1.4.4.
-  - tds_fdw to version 2.0.5.
-  - mysql_fdw to version REL-2_9_3.
-  - pg_cron to version 1.6.7.
+  - aws\_s3 to version 2.0.
+  - pg\_bigm to version 1.2\_20250903.
+  - pg\_hint\_plan to version 1.4.4.
+  - tds\_fdw to version 2.0.5.
+  - mysql\_fdw to version REL-2\_9\_3.
+  - pg\_cron to version 1.6.7.
   - orafce to version 4.16.3.
   - hypopg to version 1.4.2.
   - pglogical to version 2.4.6.
   - pgvector to version 0.8.1.
-  - pg_repack to version 1.5.3.
-  - oracle_fdw to version 2.8.0.
+  - pg\_repack to version 1.5.3.
+  - oracle\_fdw to version 2.8.0.
 
 - Fixed small memory leaks during database startup and replication.
 - Fixed an issue that could cause file handles to not be properly released after upgrade.
-- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Fixed max\_wal\_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue with pg_hint_plan where session configuration parameters requiring rds_superuser permissions could not be set in hints.
+- Fixed an issue with pg\_hint\_plan where session configuration parameters requiring rds\_superuser permissions could not be set in hints.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed ANALYZE operations to work correctly on tables containing large LOB data.
 - Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
@@ -5214,7 +5259,7 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -5246,7 +5291,7 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability
 
 #### Aurora PostgreSQL 14.20, December, 18, 2025
 
@@ -5270,17 +5315,17 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 
 - Fixed a database shutdown issue that could cause major version upgrades to fail.
 - Fixed a rare major version upgrade failure with large memory allocations.
-- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+- Fixed an issue preventing rds\_superuser from managing prepared transactions owned by other users.
 
 **General enhancements**
 
 - Updated the following extensions:
 
-  - h3_pg to version 4.2.3.
+  - h3\_pg to version 4.2.3.
 
 - Fixed a race condition in Postgres lock release with optimized read enabled.
 - Improved PgAudit memory usage during parameter-heavy operations.
-- Fixed database initialization failure when max_connections is set to low values.
+- Fixed database initialization failure when max\_connections is set to low values.
 - Improved Serverless v2 scaling performance under high CPU load.
 - Improved Serverless v2 write performance.
 - Fixed delays in Serverless v2 scale-down operations.
@@ -5288,8 +5333,8 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 - Improved database shutdown during maintenance to enhance availability.
 - Improved database startup performance through optimized storage initialization.
 - Fixed storage metadata initialization issue that could delay engine startup.
-- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
-- Fixed crash scenario when using pg_buffercache extension during Serverless v2 scaling.
+- Fixed region determination failures in aws\_s3, aws\_ml, and aws\_lambda extensions.
+- Fixed crash scenario when using pg\_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 14.19
 
@@ -5299,15 +5344,35 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.19.4, June 12, 2026](#aurorapostgresql-versions-version1419x-14194 "#aurorapostgresql-versions-version1419x-14194")
 - [Aurora PostgreSQL 14.19.2, April 22, 2026](#aurorapostgresql-versions-version1419x-14192 "#aurorapostgresql-versions-version1419x-14192")
 - [Aurora PostgreSQL 14.19.1, November 25, 2025](#aurorapostgresql-versions-version14191x-14191 "#aurorapostgresql-versions-version14191x-14191")
 - [Aurora PostgreSQL 14.19, November 25, 2025](#aurorapostgresql-versions-version1419x-1419 "#aurorapostgresql-versions-version1419x-1419")
+
+#### Aurora PostgreSQL 14.19.4, June 12, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
 #### Aurora PostgreSQL 14.19.2, April 22, 2026
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -5385,23 +5450,23 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - oracle_fdw to version to 2.8.0
-  - pg_repack extension to version 1.5.2
-  - aws_lamba extension to version 2.0
+  - oracle\_fdw to version to 2.8.0
+  - pg\_repack extension to version 1.5.2
+  - aws\_lamba extension to version 2.0
 
 - Improved file metadata initialization times.
 - Fixed an issue that caused reader instance to restart when attempting to create PostgreSQL SLRU files.
 - Fixed an issue which caused prolonged Serverless v2 scaling time.
 - Fixed an issue that could cause database restart during Serverless v2 scaling.
 - Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
-- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Updated the aws\_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
 - Added support to include Geodetic TIFF grid files for PROJ.
-- Fixed an issue that could cause database restart during aws_s3 export.
+- Fixed an issue that could cause database restart during aws\_s3 export.
 - Addressed an issue with logging when replication slots are invalidated.
 - Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 14.18
@@ -5470,9 +5535,6 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
-- Fixed an issue that can cause reboots of the primary db instance when reading from a
-  logical replication slot in the presence of frequent DDL if
-  aurora.enhanced_logical_replication is enabled.
 - Fixed a race where old writer may not step down after a new writer is promoted and
   continues to write.
 
@@ -5483,7 +5545,7 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on
-  tables larger than 16TiB when synchronize_seqscans is enabled.
+  tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately
   after installing the extension or resetting shared memory.
 - Fixed an issue with Babelfish ZDP that could lead to instance reboot after
@@ -5493,9 +5555,9 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 - Fixed an issue during numeric calculations involving aggregate functions with
   all-column selections.
 - Fixed an issue with prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release
   containing The `PostGIS` extension 3.5.1 without running
-  postgis_extensions_upgrade.
+  postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart
   of an Aurora replica in a Global Database.
@@ -5532,7 +5594,7 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 
 **High priority enhancements**
 
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads.
 - Fixed an issue where server will fail to start if a previous startup was prematurely
   terminated.
@@ -5541,16 +5603,13 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - apg_plan_mgmt to 2.9.
+  - apg\_plan\_mgmt to 2.9.
   - The `pgaudit` extension to 1.6.3.
-  - The `rdkit` extension to 4.6.1 (2024_09_6).
+  - The `rdkit` extension to 4.6.1 (2024\_09\_6).
   - The `pg_repack` extension to 1.5.1.
   - The `pglogical` extension to 2.4.5.
 
 - Improvements to make Serverless v2 scaling more efficient on reader nodes.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  sub-transactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue that prevents Zero Downtime Patching from completing successfully on
   Serverless v2 auto-pause enabled instances.
 - Fixed an issue in pgdam that causes the engine (with pgdam enabled) to crash when
@@ -5559,7 +5618,7 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
   when the extension interacts with the GIN index.
 - In Blue/Green deployments, creating or modifying temporary objects is no longer
   classified as restricted DDL.
-- Added function aurora_stat_resource_usage() to report current CPU usage, allocated and
+- Added function aurora\_stat\_resource\_usage() to report current CPU usage, allocated and
   used memory for all the backends.
 - Fixed an issue which prevented Zero Downtime Patching when cache recovery is
   disabled.
@@ -5573,7 +5632,7 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
   after being disconnected from the writer.
 - Fixed an issue where RO node could crash when frequently falling behind RW
   node.
-- Fixed an issue in the aws_s3 extension that could cause an import operation to restart
+- Fixed an issue in the aws\_s3 extension that could cause an import operation to restart
   and reinsert previously inserted rows.
 - Improved performance of EXPLAIN operations for queries involving tables with many
   columns and complex relations.
@@ -5597,7 +5656,7 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -5682,15 +5741,15 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables
-  larger than 16TiB when synchronize_seqscans is enabled.
+  larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after
   installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving the `plans` extension in Query Plan Management.
 - Fixed an issue during numeric calculations involving aggregate functions with all-column
   selections.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing
-  The `PostGIS` extension 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing
+  The `PostGIS` extension 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an
   Aurora replica in a Global Database.
@@ -5704,7 +5763,6 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed stuck scaling for serverless db instances with zero-ETL enabled.
 - Fixed an issue which can cause the database to become unresponsive when performing actions
   with Aurora Storage.
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
@@ -5717,12 +5775,9 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
@@ -5772,11 +5827,11 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
   - Creating indexes on temporary tables isn't supported.
 
 - The Blue/Green deployment switchover won’t be blocked by the `REFRESH
-MATERIALIZED VIEW` statement.
+ MATERIALIZED VIEW` statement.
 - Improved allocation of Write-Ahead Log (WAL) stream numbers, resulting in increased
   throughput for write-heavy workloads on the new Graviton 4 high-end instances.
 - Fixed an issue where the query identifier (queryid) wasn't being correctly updated in
-  pg_stat_activity when using extended protocol in pipeline mode.
+  pg\_stat\_activity when using extended protocol in pipeline mode.
 - Fixed an issue where reader upgrade was taking longer than expected.
 - Updated the following extensions:
 
@@ -5787,7 +5842,7 @@ MATERIALIZED VIEW` statement.
   - Update the `pg_partman` extension to v5.2.4.
   - Update the `orafce` extension to 4.14.0.
   - Update the `rds_tools` extension to 1.9.
-  - Update the `rdkit` extension to Release_2024_09_3.
+  - Update the `rdkit` extension to Release\_2024\_09\_3.
 
 ### PostgreSQL 14.15
 
@@ -5855,12 +5910,12 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
@@ -5873,7 +5928,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -5881,11 +5936,8 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  `aurora.enhanced_logical_replication` is enabled.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -5912,7 +5964,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 
 **Critical Priority enhancements**
 
-- Fixed a security issue in the rds_activity_stream extension.
+- Fixed a security issue in the rds\_activity\_stream extension.
 
 **High priority enhancements**
 
@@ -5963,7 +6015,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
   further by improving storage metadata and faster buffer cache initialization.
 - Made multiple improvements to upgrades with Zero-Downtime Patching (ZDP) which reduces
   connection restore time and enhances ZDP resilience from failures.
-- Fixed an issue where the server_id value wasn’t updated after an Amazon RDS Blue/Green
+- Fixed an issue where the server\_id value wasn’t updated after an Amazon RDS Blue/Green
   Deployment switchover.
 - Fixed an issue that could cause database restart during hash index extension.
 - Fixed an issue that would cause migration from RDS PostgreSQL to fail in the presence
@@ -5995,7 +6047,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
   - `GEOS` library extension to verison 3.13.0.
   - `orafce` extension to 4.12.0.
   - `pgvector` extension to 0.7.4.
-  - `RDKit` extension to 2024_03_6 release (4.6).
+  - `RDKit` extension to 2024\_03\_6 release (4.6).
   - The `pg_hint_plan` extension to version extension 1.4.3.
 
 ### PostgreSQL 14.13
@@ -6053,12 +6105,12 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
 - Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
@@ -6078,11 +6130,8 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  `aurora.enhanced_logical_replication` is enabled.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -6108,7 +6157,7 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 
 **General enhancements**.
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 14.13.1, January 02, 2025
@@ -6123,8 +6172,6 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 - Fixed issue where Aurora in-Region failovers would result in failures in database startup.
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
-- Fixed an issue that prevented the scaling of Aurora Serverless v2 Read Replicas when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue in Global DB switchover and failover that could result in customers needing
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
@@ -6145,7 +6192,7 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
   used as a column name or alias in DML and DDL statements.
 - Fixed an issue that could cause an error in the wal sender process when resuming logical
   replication.
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension 2 installation.
 
 #### Aurora PostgreSQL 14.13, September 30, 2024
@@ -6171,14 +6218,14 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 - Improvements to database startup time during initialization and engine
   upgrades.
 - Fixed an issue that prevented the inclusion of the `pg_bigm` extension in
-  shared_preload_libraries.
+  shared\_preload\_libraries.
 - Fixed an issue during Zero Downtime Patching which causes some connections to be terminated
   due to long transferring time. A new ZDP metric in postgresql.log called
   `ZD_SOCKET_TRANSFER_CONN_DROPPED` represents these dropped connections.
 - Improved reader availability for Aurora Replicas when using system administration functions.
 - Fixed an in-memory two-phase commit (2PC) metadata caching issue that caused out-of-memory
   error on Aurora read replicas replicating from RDS PostgreSQL source instances.
-- Introduced a new function pgadmap_get_set_mapping_cmd() in the `pg_ad_mapping` extension to
+- Introduced a new function pgadmap\_get\_set\_mapping\_cmd() in the `pg_ad_mapping` extension to
   display commands required to recreate existing Active directory security group to Aurora
   PostgreSQL database role mappings.
 - Fixed an issue in storage metadata initialization that can cause prolonged database startup
@@ -6193,13 +6240,13 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 - Updated the following extensions:
 
   - `pgvector` extension to version 0.7.3.
-  - `mysql_fdw` extension to version REL-2_9_2.
+  - `mysql_fdw` extension to version REL-2\_9\_2.
   - `orafce` extension to version 4.10.3.
   - `pgTAP` extension to version 1.3.3.
   - `pg_cron` extension to version 1.6.3.
-  - `RDKit` extension to version 4.5 (Release 2024_03_5).
+  - `RDKit` extension to version 4.5 (Release 2024\_03\_5).
   - `wal2json` extension to version 2.6.
-  - pg_ad_mapping extension to version 1.0.
+  - pg\_ad\_mapping extension to version 1.0.
   - `HypoPG` extension to version 1.4.1.
 
 ### PostgreSQL 14.12
@@ -6224,7 +6271,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -6233,7 +6280,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -6312,11 +6359,11 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
   connections.
 - Added per-query memory usage information to
   `aurora_stat_statements` and `aurora_stat_plans`. For
-  more information, see [aurora_stat_statements](../AuroraUserGuide/aurora_stat_statements.md "../AuroraUserGuide/aurora_stat_statements.md").
+  more information, see [aurora\_stat\_statements](../AuroraUserGuide/aurora_stat_statements.md "../AuroraUserGuide/aurora_stat_statements.md").
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue that would incorrectly allow two vacuum processes to
+- Fixed a pg\_repack issue that would incorrectly allow two vacuum processes to
   operate concurrently on the same table.
 
 ###### High priority enhancements
@@ -6360,7 +6407,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
   - `pgrouting` extension to version 3.6.2.
   - `pgTap` extension to version 1.3.2.
   - `PostGIS` extension to version 3.4.2.
-  - `RDKit` extension to version 2024_03_1.
+  - `RDKit` extension to version 2024\_03\_1.
 
 ### PostgreSQL 14.11
 
@@ -6429,7 +6476,7 @@ information about the improvements in PostgreSQL 14.11, see [PostgreSQL release 
 
 - **General enhancements**
 
-Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
 from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 14.11.3, October 7, 2024
@@ -6460,7 +6507,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed an issue with background worker where it may crash when executed in parallel worker context.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed issues in how two-phase commit files are handled.
 
 #### Aurora PostgreSQL 14.11.1, April 29, 2024
@@ -6485,7 +6532,7 @@ from a previous the `PostGIS` extension v2 installation.
   if there was a concurrent aborted sub-transaction.
 - Improved log record validation before it is written to storage.
 - Fixed an issue that would result in sessions incorrectly reporting ClientRead wait events after a zero-downtime patching event.
-- Fixed an ambiguous function definition of aws_s3.query_export_to_s3 when upgrading the aws_s3 extension from version 1.1 to 1.2.
+- Fixed an ambiguous function definition of aws\_s3.query\_export\_to\_s3 when upgrading the aws\_s3 extension from version 1.1 to 1.2.
 
 ###### High priority enhancements
 
@@ -6507,7 +6554,7 @@ from a previous the `PostGIS` extension v2 installation.
 
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
-  - RDKit Cartridge to version Release_2023_09_4.
+  - RDKit Cartridge to version Release\_2023\_09\_4.
 
 - New GUC Parameters has been added
 
@@ -6541,7 +6588,7 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -6551,7 +6598,7 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 - Fixed an issue in the read replica deletion which could result in a vaccum being held back
   and causing eventual unavailability of database.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -6593,14 +6640,14 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 14.10.5, September 17, 2024
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
@@ -6620,7 +6667,7 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 #### Aurora PostgreSQL 14.10.3, March 13, 2024
 
@@ -6662,7 +6709,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Amazon Bedrock integration – By using the Amazon Aurora machine learning extension with your Aurora PostgreSQLDB cluster, you can now use Amazon Bedrock
   foundational AI models.
 - Using Active Directory security groups for Aurora PostgreSQL access control – Add group role authentication support using AWS Directory Service for Microsoft Active Directory with the new `pg_ad_mapping` extension.
-- Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds_extension role.
+- Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds\_extension role.
 - Added support for `aurora_compute_plan_id` parameter which is turned on by default in an Aurora PostgreSQL DB Cluster and DB Parameter Group.
   For more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md").
 - Query Plan Management (QPM) enhancements:
@@ -6717,7 +6764,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `plv8` to version 3.1.8
   - `PostGIS` to version 3.4.0
   - `prefix` to version 1.2.10
-  - `RDKit` to version 4.4.0 (Release_2023_09_1)
+  - `RDKit` to version 4.4.0 (Release\_2023\_09\_1)
 
 For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.14").
 
@@ -6748,14 +6795,14 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
 
 - Fixed an issue in the read replica deletion which could result in a vacuum being held back
   and causing eventual unavailability of database.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -6797,7 +6844,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be
+- Fixed an ownership issue where the postgis\_raster extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 14.9.8, November 14, 2024
@@ -6805,7 +6852,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 ###### High priority enhancements
 
 - Fixed an issue that would cause a longer restart time when
-  `rds.enable_plan_management` is turned on, but apg_plan_mgmt
+  `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt
   extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -6827,7 +6874,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 
 - Fixed an issue where a change in memory requirements during a minor version
   upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same
   table.
 
 #### Aurora PostgreSQL 14.9.6, March 13, 2024
@@ -6999,12 +7046,12 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
 
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -7025,7 +7072,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 
 **Critical Priority enhancements**
 
-- Fixed a security issue in the rds_activity_stream extension.
+- Fixed a security issue in the rds\_activity\_stream extension.
 
 ###### High priority enhancements
 
@@ -7046,14 +7093,14 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 14.8.7, November 12, 2024
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
@@ -7062,7 +7109,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -7181,7 +7228,7 @@ you must upgrade to a newer major version by February 29, 2024.
 - Further reduced the database downtime during ZDP
 - Fixed a bug which can cause unavailability during ZDP
 - Fixed an issue which caused `pg_ls_waldir()` to return "ERROR: could not stat file"
-- Added support for TLS 1.3 with ciphers TLS_AES_128_GCM_SHA256 and TLS_AES_256_GCM_SHA384
+- Added support for TLS 1.3 with ciphers TLS\_AES\_128\_GCM\_SHA256 and TLS\_AES\_256\_GCM\_SHA384
 - Addressed an issue that blocked a major version upgrade on the Aurora replica of an RDS for PostgreSQL DB instance
 - Fixed an issue that could prevent scaling in Aurora Serverless v2 instances
 - Fixed an issue in logical replication which, in rare cases, can cause a period of unavailability due to the incorrect subtransaction metadata
@@ -7214,7 +7261,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -7224,7 +7271,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -7411,7 +7458,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 
 **General enhancements**
 
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause increased latency on data processing.
 
 #### Aurora PostgreSQL 14.6.12, April 29, 2025
@@ -7426,7 +7473,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -7436,7 +7483,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -7581,14 +7628,14 @@ information about the improvements in PostgreSQL 14.5, see [PostgreSQL release 1
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 
 #### Aurora PostgreSQL 14.5.7, August 7, 2024
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -7745,7 +7792,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -7755,7 +7802,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -7888,7 +7935,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -7898,7 +7945,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 ###### General enhancements
@@ -8126,7 +8173,7 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
 - Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
 
 **High priority enhancements**
@@ -8158,7 +8205,7 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed a timing condition in the aws\_s3 extension which, in rare cases, can cause database unavailability
 
 #### Aurora PostgreSQL 13.23, December, 18, 2025
 
@@ -8182,17 +8229,17 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 
 - Fixed a database shutdown issue that could cause major version upgrades to fail.
 - Fixed a rare major version upgrade failure with large memory allocations.
-- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+- Fixed an issue preventing rds\_superuser from managing prepared transactions owned by other users.
 
 **General enhancements**
 
 - Updated the following extensions:
 
-  - h3_pg to version 4.2.3.
+  - h3\_pg to version 4.2.3.
 
 - Fixed a race condition in Postgres lock release with optimized read enabled.
 - Improved PgAudit memory usage during parameter-heavy operations.
-- Fixed database initialization failure when max_connections is set to low values.
+- Fixed database initialization failure when max\_connections is set to low values.
 - Improved Serverless v2 scaling performance under high CPU load.
 - Improved Serverless v2 write performance.
 - Fixed delays in Serverless v2 scale-down operations.
@@ -8200,8 +8247,8 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 - Improved database shutdown during maintenance to enhance availability.
 - Improved database startup performance through optimized storage initialization.
 - Fixed storage metadata initialization issue that could delay engine startup.
-- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
-- Fixed crash scenario when using pg_buffercache extension during Serverless v2 scaling.
+- Fixed region determination failures in aws\_s3, aws\_ml, and aws\_lambda extensions.
+- Fixed crash scenario when using pg\_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 13.22 (Deprecated)
 
@@ -8261,23 +8308,23 @@ the improvements in PostgreSQL 13.22, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - oracle_fdw to version to 2.8.0
-  - pg_repack extension to version 1.5.2
-  - aws_lamba extension to version 2.0
+  - oracle\_fdw to version to 2.8.0
+  - pg\_repack extension to version 1.5.2
+  - aws\_lamba extension to version 2.0
 
 - Improved file metadata initialization times.
 - Fixed an issue that caused reader instance to restart when attempting to create PostgreSQL SLRU files.
 - Fixed an issue which caused prolonged Serverless v2 scaling time.
 - Fixed an issue that could cause database restart during Serverless v2 scaling.
 - Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
-- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Updated the aws\_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
 - Added support to include Geodetic TIFF grid files for PROJ.
-- Fixed an issue that could cause database restart during aws_s3 export.
+- Fixed an issue that could cause database restart during aws\_s3 export.
 - Addressed an issue with logging when replication slots are invalidated.
 - Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 13.21 (Deprecated)
@@ -8346,9 +8393,6 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
-- Fixed an issue that can cause reboots of the primary db instance when reading from a
-  logical replication slot in the presence of frequent DDL if
-  aurora.enhanced_logical_replication is enabled.
 - Fixed a race where old writer may not step down after a new writer is promoted and
   continues to write.
 
@@ -8359,7 +8403,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on
-  tables larger than 16TiB when synchronize_seqscans is enabled.
+  tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately
   after installing the extension or resetting shared memory.
 - Fixed an issue with Babelfish ZDP that could lead to instance reboot after
@@ -8369,9 +8413,9 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 - Fixed an issue during numeric calculations involving aggregate functions with
   all-column selections.
 - Fixed an issue with prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release
   containing The `PostGIS` extension 3.5.1 without running
-  postgis_extensions_upgrade.
+  postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart
   of an Aurora replica in a Global Database.
@@ -8408,7 +8452,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 
 **High priority enhancements**
 
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads.
 - Fixed an issue where server will fail to start if a previous startup was prematurely
   terminated.
@@ -8417,16 +8461,13 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 
 - Updated the following extensions:
 
-  - apg_plan_mgmt to 2.9.
+  - apg\_plan\_mgmt to 2.9.
   - The `pgaudit` extension to 1.5.3.
-  - The `rdkit` extension to 4.6.1 (2024_09_6).
+  - The `rdkit` extension to 4.6.1 (2024\_09\_6).
   - The `pg_repack` extension to 1.5.1.
   - The `pglogical` extension to 2.4.5.
 
 - Improvements to make Serverless v2 scaling more efficient on reader nodes.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  sub-transactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue that prevents Zero Downtime Patching from completing successfully on
   Serverless v2 auto-pause enabled instances.
 - Fixed an issue in pgdam that causes the engine (with pgdam enabled) to crash when
@@ -8435,7 +8476,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
   when the extension interacts with the GIN index.
 - In Blue/Green deployments, creating or modifying temporary objects is no longer
   classified as restricted DDL.
-- Added function aurora_stat_resource_usage() to report current CPU usage, allocated and
+- Added function aurora\_stat\_resource\_usage() to report current CPU usage, allocated and
   used memory for all the backends.
 - Fixed an issue which prevented Zero Downtime Patching when cache recovery is
   disabled.
@@ -8449,7 +8490,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
   after being disconnected from the writer.
 - Fixed an issue where RO node could crash when frequently falling behind RW
   node.
-- Fixed an issue in the aws_s3 extension that could cause an import operation to restart
+- Fixed an issue in the aws\_s3 extension that could cause an import operation to restart
   and reinsert previously inserted rows.
 
 ### PostgreSQL 13.20 (Deprecated)
@@ -8525,15 +8566,15 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables
-  larger than 16TiB when synchronize_seqscans is enabled.
+  larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after
   installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving the `plans` extension in Query Plan Management.
 - Fixed an issue during numeric calculations involving aggregate functions with all-column
   selections.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing
-  The `PostGIS` extension 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing
+  The `PostGIS` extension 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an
   Aurora replica in a Global Database.
@@ -8547,7 +8588,6 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 
 **Critical stability enhancements**
 
-- Fixed stuck scaling for serverless db instances with zero-ETL enabled.
 - Fixed an issue which can cause the database to become unresponsive when performing actions
   with Aurora Storage.
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
@@ -8560,12 +8600,9 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
@@ -8603,7 +8640,7 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
   - Creating indexes on temporary tables isn't supported.
 
 - The Blue/Green deployment switchover won’t be blocked by the `REFRESH
-MATERIALIZED VIEW` statement.
+ MATERIALIZED VIEW` statement.
 - Improved allocation of Write-Ahead Log (WAL) stream numbers, resulting in increased
   throughput for write-heavy workloads on the new Graviton 4 high-end instances.
 - Fixed an issue where reader upgrade was taking longer than expected.
@@ -8616,7 +8653,7 @@ MATERIALIZED VIEW` statement.
   - Update the `pg_partman` extension to v5.2.4.
   - Update the `orafce` extension to 4.14.0.
   - Update the `rds_tools` extension to 1.9.
-  - Update the `rdkit` extension to Release_2024_09_3.
+  - Update the `rdkit` extension to Release\_2024\_09\_3.
 
 ### PostgreSQL 13.18 (Deprecated)
 
@@ -8684,12 +8721,12 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
@@ -8702,7 +8739,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**.
@@ -8710,11 +8747,8 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  `aurora.enhanced_logical_replication` is enabled.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -8795,7 +8829,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 - Made multiple improvements to upgrades with Zero-Downtime Patching (ZDP) which
   reduces connection restore time and enhances ZDP resilience from
   failures.
-- Fixed an issue where the server_id value wasn’t updated after an Amazon RDS
+- Fixed an issue where the server\_id value wasn’t updated after an Amazon RDS
   Blue/Green Deployment switchover.
 - Fixed an issue that could cause database restart during hash index
   extension.
@@ -8825,7 +8859,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
   - `GEOS` library extension to verison 3.13.0.
   - `orafce` extension to 4.12.0.
   - `pgvector` extension to 0.7.4.
-  - `RDKit` extension to 2024_03_6 release (4.6).
+  - `RDKit` extension to 2024\_03\_6 release (4.6).
   - `pg_hint_plan` extension to version 1.3.10.
 
 ### PostgreSQL 13.16 (Deprecated)
@@ -8883,12 +8917,12 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
 - Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
@@ -8900,7 +8934,7 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -8908,11 +8942,8 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  `aurora.enhanced_logical_replication` is enabled.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -8938,7 +8969,7 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 
 **General enhancements**.
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 13.16.1, January 02, 2025
@@ -8953,8 +8984,6 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 - Fixed issue where Aurora in-Region failovers would result in failures in database startup.
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
-- Fixed an issue that prevented the scaling of Aurora Serverless v2 Read Replicas when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue in Global DB switchover and failover that could result in customers needing
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
@@ -8999,7 +9028,7 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 - Improvements to database startup time during initialization and engine
   upgrades.
 - Fixed an issue that prevented the inclusion of the `pg_bigm` extension in
-  shared_preload_libraries.
+  shared\_preload\_libraries.
 - Fixed an issue during Zero Downtime Patching which causes some connections to be terminated
   due to long transferring time. A new ZDP metric in postgresql.log called
   `ZD_SOCKET_TRANSFER_CONN_DROPPED` represents these dropped connections.
@@ -9016,11 +9045,11 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 - Updated the following extensions:
 
   - `pgvector` extension to version 0.7.3.
-  - `mysql_fdw` extension to version REL-2_9_2.
+  - `mysql_fdw` extension to version REL-2\_9\_2.
   - `orafce` extension to version 4.10.3.
   - `pgTAP` extension to version 1.3.3.
   - `pg_cron` extension to version 1.6.3.
-  - `RDKit` extension to version 4.5 (Release 2024_03_5).
+  - `RDKit` extension to version 4.5 (Release 2024\_03\_5).
   - `wal2json` extension to version 2.6.
   - `HypoPG` extension to version 1.4.1.
 
@@ -9046,7 +9075,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -9055,7 +9084,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -9133,7 +9162,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue that would incorrectly allow two vacuum processes to
+- Fixed a pg\_repack issue that would incorrectly allow two vacuum processes to
   operate concurrently on the same table.
 
 ###### High priority enhancements
@@ -9172,7 +9201,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
   - `pgrouting` extension to version 3.6.2.
   - `pgTap` extension to version 1.3.2.
   - `PostGIS` extension to version 3.4.2.
-  - `RDKit` extension to version 2024_03_1.
+  - `RDKit` extension to version 2024\_03\_1.
 
 ### PostgreSQL 13.14 (Deprecated)
 
@@ -9241,7 +9270,7 @@ information about the improvements in PostgreSQL 13.14, see [PostgreSQL release 
 
 - **General enhancements**
 
-Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
 from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 13.14.3, October 7, 2024
@@ -9272,7 +9301,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed an issue with background worker where it may crash when executed in parallel worker context.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed issues in how two-phase commit files are handled.
 
 #### Aurora PostgreSQL 13.14.1, April 29, 2024
@@ -9295,7 +9324,7 @@ from a previous the `PostGIS` extension v2 installation.
   if there was a concurrent aborted sub-transaction.
 - Improved log record validation before it is written to storage.
 - Fixed an issue that would result in sessions incorrectly reporting ClientRead wait events after a zero-downtime patching event.
-- Fixed an ambiguous function definition of aws_s3.query_export_to_s3 when upgrading the aws_s3 extension from version 1.1 to 1.2.
+- Fixed an ambiguous function definition of aws\_s3.query\_export\_to\_s3 when upgrading the aws\_s3 extension from version 1.1 to 1.2.
 
 ###### High priority enhancements
 
@@ -9316,7 +9345,7 @@ from a previous the `PostGIS` extension v2 installation.
 
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
-  - RDKit Cartridge to version Release_2023_09_4.
+  - RDKit Cartridge to version Release\_2023\_09\_4.
 
 - New GUC Parameters has been added
 
@@ -9350,7 +9379,7 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
@@ -9360,7 +9389,7 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 - Fixed an issue in the read replica deletion which could result in a vaccum being held back
   and causing eventual unavailability of database.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -9402,14 +9431,14 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 13.13.5, September 17, 2024
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
@@ -9429,7 +9458,7 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 #### Aurora PostgreSQL 13.13.3, March 13, 2024
 
@@ -9470,7 +9499,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 
 - Amazon Bedrock integration – By using the Amazon Aurora machine learning extension with your Aurora PostgreSQLDB cluster, you can now use Amazon Bedrock
   foundational AI models.
-- Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds_extension role.
+- Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds\_extension role.
 - Query Plan Management (QPM) enhancements:
 
   - Plan outlines will be updated to the latest format version as part of the `update_plan_hash`
@@ -9505,7 +9534,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - `rds_superuser` can now execute `ALTER COLLATION` to refresh the collation version of a locale in the catalog.
 - Fixed a crash in `dblink` and `postgres_fdw` extensions due to invalid connections
 - Fixed an issue where the `aws_s3` extension can import `HTTP` error responses into the table
-- Record the version of the AWS independent default collation library version in pg_collation catalog.
+- Record the version of the AWS independent default collation library version in pg\_collation catalog.
 
 ###### Additional improvements and enhancements
 
@@ -9520,7 +9549,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `plv8` to version 3.1.8
   - `PostGIS` to version 3.4.0
   - `prefix` to version 1.2.10
-  - `RDKit` to version 4.4.0 (Release_2023_09_1)
+  - `RDKit` to version 4.4.0 (Release\_2023\_09\_1)
 
 For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13").
 
@@ -9550,14 +9579,14 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
 
 - Fixed an issue in the read replica deletion which could result in a vacuum being held back
   and causing eventual unavailability of database.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -9599,7 +9628,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be
+- Fixed an ownership issue where the postgis\_raster extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 13.12.8, November 14, 2024
@@ -9607,7 +9636,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 ###### High priority enhancements
 
 - Fixed an issue that would cause a longer restart time when
-  `rds.enable_plan_management` is turned on, but apg_plan_mgmt
+  `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt
   extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -9629,7 +9658,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 
 - Fixed an issue where a change in memory requirements during a minor version
   upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same
   table.
 
 #### Aurora PostgreSQL 13.12.6, March 13, 2024
@@ -9780,12 +9809,12 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
 
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -9827,14 +9856,14 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 13.11.7, November 12, 2024
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
@@ -9843,7 +9872,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -9955,7 +9984,7 @@ you must upgrade to a newer major version by February 29, 2024.
 - Further reduced the database downtime during ZDP.
 - Fixed a bug which can cause unavailability during ZDP.
 - Fixed an issue which caused `pg_ls_waldir()` to return "ERROR: could not stat file".
-- Added support for TLS 1.3 with ciphers TLS_AES_128_GCM_SHA256 and TLS_AES_256_GCM_SHA384.
+- Added support for TLS 1.3 with ciphers TLS\_AES\_128\_GCM\_SHA256 and TLS\_AES\_256\_GCM\_SHA384.
 - Addressed an issue that blocked a major version upgrade on the Aurora replica of an RDS for PostgreSQL DB instance.
 - Fixed an issue that could prevent scaling in Aurora Serverless v2 instances.
 - Fixed an issue in the `pg_vector` extension where, in rare cases, infinite or NAN values caused a crash during the index creation.
@@ -9987,7 +10016,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -9997,7 +10026,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -10162,7 +10191,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 
 **General enhancements**
 
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause increased latency on data processing.
 
 #### Aurora PostgreSQL 13.9.12, April 29, 2025
@@ -10177,7 +10206,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -10187,7 +10216,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 ###### General enhancements
@@ -10304,7 +10333,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 - Upgraded the `GDAL` library to version 3.4.3.
 - Fixed an issue where the cluster cache management process doesn't shutdown gracefully.
 - Fixed an issue that can cause certain processes to linger in an inconsistent state during a clean shutdown.
-- Fixed an issue with the pg_repack extension.
+- Fixed an issue with the pg\_repack extension.
 - Improved the collation library (glibc) handling with a new independent default collation library.
 
 ### PostgreSQL 13.8 (Deprecated)
@@ -10328,14 +10357,14 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 
 #### Aurora PostgreSQL 13.8.7, August 7, 2024
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 ###### General enhancements
 
@@ -10446,7 +10475,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 - Fixed an issue that caused DB instance restarts.
 - Fixed an issue where a DB instance restarts recursively while generating monitoring metrics during a crash.
 - Fixed an issue where a DB instance restarted during performance metric collection.
-- Fixed an issue where an attempt to connect to the database would fail with SSLV3_ALERT_CERTIFICATE_UNKNOWN.
+- Fixed an issue where an attempt to connect to the database would fail with SSLV3\_ALERT\_CERTIFICATE\_UNKNOWN.
 - Improved the error reporting in case of an inconsistent B-tree index.
 - Improved the diagnostic logging around setting invalid hint bits.
 - Fixed an issue where autovacuum would incorrectly skip tables.
@@ -10455,8 +10484,8 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 - Provided options to configure MultiXact SLRU cache. By setting the following parameters (GUCs),
   customers will now be able to change the MultiXact SLRU cache sizes:
 
-  - multixact_members_cache_size
-  - multixact_offsets_cache_size
+  - multixact\_members\_cache\_size
+  - multixact\_offsets\_cache\_size
 
 - Fixed an issue to detect and cancel stuck major version upgrades.
 - Fixed an issue in hash join that could lead to increased memory consumption.
@@ -10466,7 +10495,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 - Updated the `PLV8` version to 3.0.0.
 - Updated the `PostGIS` extension to version 3.2.3.
 - Fixed an issue with `st_orientedenvelope` that caused it to loop with a 1-D input to return 0.
-- Fixed an issue where the connection to SQL Server using tds_fdw fails.
+- Fixed an issue where the connection to SQL Server using tds\_fdw fails.
 
 ### PostgreSQL 13.7 (Deprecated)
 
@@ -10491,7 +10520,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -10501,7 +10530,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 ###### General enhancements
@@ -10650,7 +10679,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 - Fixed an issue where logical replication becomes stuck after a restart.
 - Fixed multiple issues that could lead to brief periods of unavailability.
 - Fixed a crash in `pg_cron` due to a task still running but being unscheduled.
-- Fixed, during redo, an invalid page hit on the Generic Redo for GENERIC_XLOG_FULL_PAGE_DATA.
+- Fixed, during redo, an invalid page hit on the Generic Redo for GENERIC\_XLOG\_FULL\_PAGE\_DATA.
   This happens due to a timing hole between generating the log record and then writing the metadata
   for the record on the RW node and the RO node replays between those operations.
 - Improved the query performance by supporting parallel workers.
@@ -10870,7 +10899,7 @@ information about the improvements in PostgreSQL 13.5, see [PostgreSQL release
 
 This version also includes the following change:
 
-- The [pg_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension is updated to 1.4.1
+- The [pg\_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension is updated to 1.4.1
 
 For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13").
 
@@ -10966,7 +10995,7 @@ information about the improvements in PostgreSQL 13.4, see [PostgreSQL release
 - Fixed an issue where read nodes restart due to a replication origin cache lookup failure.
 - Fixed an issue where read queries may time out on read nodes during the replay of lazy truncation triggered by vacuum on the write node.
 - Fixed an issue that causes Performance Insights to incorrectly set the backend type of a database connection.
-- Fixed an issue where the aurora_postgres_replica_status() function returned stale or lagging CPU stats.
+- Fixed an issue where the aurora\_postgres\_replica\_status() function returned stale or lagging CPU stats.
 - Fixed an issue where the role `rds_superuser` did not have permission to execute the `pg_stat_statements_reset()` function.
 - Fixed an issue with the `apg_plan_mgmt` extension where the planning and execution times were reported as 0.
 - Removed support for the DES, 3DES, and RC4 cipher suites.
@@ -11192,12 +11221,12 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 **General enhancements**
 
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
-- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue that could cause unavailability when apg\_plan\_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
 - Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
 - Fixed an issue that could cause prolonged Serverless v2 scaling time.
-- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed a crash that occurred when using ST\_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis\_extensions\_upgrade.
 - Fixed an issue causing a replica restart during the replica join case.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
 - Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
@@ -11218,11 +11247,8 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes to
   become stuck indefinitely.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
-- Fixed an issue related to the interactions between out-of-row storage and aborted
-  subtransactions that could cause issues in logical streaming when
-  `aurora.enhanced_logical_replication` is enabled.
 - Fixed an issue that can cause process stuck indefinitely at LWLock:BufferIO wait event.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -11296,7 +11322,7 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
   further by improving storage metadata and faster buffer cache initialization.
 - Made multiple improvements to upgrades with Zero-Downtime Patching (ZDP) which reduces
   connection restore time and enhances ZDP resilience from failures.
-- Fixed an issue where the server_id value wasn’t updated after an Amazon RDS Blue/Green
+- Fixed an issue where the server\_id value wasn’t updated after an Amazon RDS Blue/Green
   Deployment switchover.
 - Fixed an issue that could cause database restart during hash index extension.
 - Fixed an issue that would cause migration from RDS PostgreSQL to fail in the presence
@@ -11323,7 +11349,7 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
   - `GEOS` library extension to verison 3.13.0.
   - `orafce` extension to 4.12.0.
   - `pgvector` extension to 0.7.4.
-  - `RDKit` extension to 2024_03_6 release (4.6).
+  - `RDKit` extension to 2024\_03\_6 release (4.6).
   - `pg_hint_plan` extension to version 1.3.10.
 
 ### PostgreSQL 12.20 (Deprecated)
@@ -11351,7 +11377,7 @@ information about the improvements in PostgreSQL 12.20, see [PostgreSQL release 
 
 **General enhancements**.
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 12.20.1, January 02, 2025
@@ -11366,8 +11392,6 @@ information about the improvements in PostgreSQL 12.20, see [PostgreSQL release 
 - Fixed issue where Aurora in-Region failovers would result in failures in database startup.
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
-- Fixed an issue that prevented the scaling of Aurora Serverless v2 Read Replicas when
-  aurora.enhanced_logical_replication is enabled.
 - Fixed an issue in Global DB switchover and failover that could result in customers needing
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
@@ -11388,7 +11412,7 @@ information about the improvements in PostgreSQL 12.20, see [PostgreSQL release 
   used as a column name or alias in DML and DDL statements.
 - Fixed an issue that could cause an error in the wal sender process when resuming logical
   replication.
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the `PostGIS` extension 2 installation.
 
 #### Aurora PostgreSQL 12.20, September 30, 2024
@@ -11414,7 +11438,7 @@ information about the improvements in PostgreSQL 12.20, see [PostgreSQL release 
 - Improvements to database startup time during initialization and engine
   upgrades.
 - Fixed an issue that prevented the inclusion of the `pg_bigm` extension in
-  shared_preload_libraries.
+  shared\_preload\_libraries.
 - Fixed an issue during ZDP which causes some connections to be terminated
   due to long transferring time. A new ZDP metric in postgresql.log called
   `ZD_SOCKET_TRANSFER_CONN_DROPPED` represents these dropped connections.
@@ -11431,13 +11455,13 @@ information about the improvements in PostgreSQL 12.20, see [PostgreSQL release 
 - Updated the following extensions:
 
   - `pgvector` extension to version 0.7.3.
-  - `mysql_fdw` extension to version REL-2_9_2.
+  - `mysql_fdw` extension to version REL-2\_9\_2.
   - `orafce` extension to version 4.10.3.
   - `pgTAP` extension to version 1.3.3.
   - `pg_cron` extension to version 1.6.3.
-  - `RDKit` extension to version 4.5 (Release 2024_03_5).
+  - `RDKit` extension to version 4.5 (Release 2024\_03\_5).
   - `wal2json` extension to version 2.6.
-  - pg_ad_mapping extension to version 1.0.
+  - pg\_ad\_mapping extension to version 1.0.
   - `HypoPG` extension to version 1.4.1.
 
 ### PostgreSQL 12.19 (Deprecated)
@@ -11537,7 +11561,7 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue that would incorrectly allow two vacuum processes to
+- Fixed a pg\_repack issue that would incorrectly allow two vacuum processes to
   operate concurrently on the same table.
 
 ###### Additional improvements and enhancements
@@ -11553,7 +11577,7 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
   - `pgrouting` extension to version 3.6.2.
   - `pgTap` extension to version 1.3.2.
   - `PostGIS` extension to version 3.4.2.
-  - `RDKit` extension to version 2024_03_1.
+  - `RDKit` extension to version 2024\_03\_1.
 
 ### PostgreSQL 12.18 (Deprecated)
 
@@ -11591,7 +11615,7 @@ information about the improvements in PostgreSQL 12.18, see [PostgreSQL release 
 
 - **General enhancements**
 
-Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
 from a previous the `PostGIS` extension v2 installation.
 
 #### Aurora PostgreSQL 12.18.3, October 7, 2024
@@ -11622,7 +11646,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed an issue with background worker where it may crash when executed in parallel worker context.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed issues in how two-phase commit files are handled.
 
 #### Aurora PostgreSQL 12.18.1, April 29, 2024
@@ -11645,7 +11669,7 @@ from a previous the `PostGIS` extension v2 installation.
   if there was a concurrent aborted sub-transaction.
 - Improved log record validation before it is written to storage.
 - Fixed an issue that would result in sessions incorrectly reporting ClientRead wait events after a zero-downtime patching event.
-- Fixed an ambiguous function definition of aws_s3.query_export_to_s3 when upgrading the aws_s3 extension from version 1.1 to 1.2.
+- Fixed an ambiguous function definition of aws\_s3.query\_export\_to\_s3 when upgrading the aws\_s3 extension from version 1.1 to 1.2.
 
 ###### High priority enhancements
 
@@ -11666,7 +11690,7 @@ from a previous the `PostGIS` extension v2 installation.
 
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
-  - RDKit Cartridge to version Release_2023_09_4.
+  - RDKit Cartridge to version Release\_2023\_09\_4.
 
 - New GUC Parameters has been added
 
@@ -11716,14 +11740,14 @@ information about the improvements in PostgreSQL 12.17, see [PostgreSQL release 
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 12.17.5, September 17, 2024
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
@@ -11743,7 +11767,7 @@ information about the improvements in PostgreSQL 12.17, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 #### Aurora PostgreSQL 12.17.3, March 13, 2024
 
@@ -11784,7 +11808,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 
 - Amazon Bedrock integration – By using the Amazon Aurora machine learning extension with your Aurora PostgreSQLDB cluster, you can now use Amazon Bedrock
   foundational AI models.
-- Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds_extension role.
+- Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds\_extension role.
 - Query Plan Management (QPM) enhancements – Plan outlines will be updated to the latest format version as part of the `update_plan_hash`
   action for `apg_plan_mgmt.validate_plans()`.
 - Added support for the `HypoPG` extension at version 1.4.0.
@@ -11826,7 +11850,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `plv8` to version 3.1.8
   - `PostGIS` to version 3.4.0
   - `prefix` to version 1.2.10
-  - `RDKit` to version 4.4.0 (Release_2023_09_1)
+  - `RDKit` to version 4.4.0 (Release\_2023\_09\_1)
 
 For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.12").
 
@@ -11869,14 +11893,14 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 12.16.8, November 14, 2024
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
@@ -11894,7 +11918,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 
 #### Aurora PostgreSQL 12.16.6, March 13, 2024
 
@@ -12031,14 +12055,14 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not be updated correctly
+- Fixed an ownership issue where the postgis\_raster extension could not be updated correctly
   from a previous the PostGIS extension v2 installation.
 
 #### Aurora PostgreSQL 12.15.7, November 12, 2024
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
 
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
@@ -12047,7 +12071,7 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 ###### General enhancements
@@ -12161,7 +12185,7 @@ you must upgrade to a newer major version by February 29, 2024.
 - Further reduced the database downtime during ZDP.
 - Fixed a bug which can cause unavailability during ZDP.
 - Fixed an issue which caused `pg_ls_waldir()` to return "ERROR: could not stat file".
-- Added support for TLS 1.3 with ciphers TLS_AES_128_GCM_SHA256 and TLS_AES_256_GCM_SHA384.
+- Added support for TLS 1.3 with ciphers TLS\_AES\_128\_GCM\_SHA256 and TLS\_AES\_256\_GCM\_SHA384.
 - Addressed an issue that blocked a major version upgrade on the Aurora replica of an RDS for PostgreSQL DB instance.
 - Fixed an issue in the `pg_vector` extension where, in rare cases, infinite or NAN values caused a crash during the index creation
 - Upgraded `GEOS` to version 3.11.2.
@@ -12190,7 +12214,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -12200,7 +12224,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 ###### General enhancements
@@ -12360,7 +12384,7 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -12370,7 +12394,7 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 ###### General enhancements
@@ -12473,9 +12497,9 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 - Improved the error handling and diagnosability.
 - Upgraded the RDKit extension to version 4.2.
 - Upgraded the `GDAL` library to version 3.4.3.
-- The apg_plan_mgmt.copy_outline function now copies environment_variables.
+- The apg\_plan\_mgmt.copy\_outline function now copies environment\_variables.
 - Fixed an issue that can cause certain processes to linger in an inconsistent state during a clean shutdown.
-- Fixed an issue with the pg_repack extension.
+- Fixed an issue with the pg\_repack extension.
 - Improved the collation library (glibc) handling with a new independent default collation library.
 
 ### PostgreSQL 12.12 (Deprecated)
@@ -12499,14 +12523,14 @@ information about the improvements in PostgreSQL 12.12, see [PostgreSQL release 
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 
 #### Aurora PostgreSQL 12.12.7, August 7, 2024
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 ###### General enhancements
@@ -12627,7 +12651,7 @@ information about the improvements in PostgreSQL 12.12, see [PostgreSQL release 
 - Upgraded the `GEOS` version to 3.10.3.
 - Updated the `PostGIS` extension to version 3.2.3.
 - Fixed an issue with `st_orientedenvelope` that caused it to loop with a 1-D input to return 0.
-- Fixed an issue where the connection to SQL Server using tds_fdw fails.
+- Fixed an issue where the connection to SQL Server using tds\_fdw fails.
 
 ### PostgreSQL 12.11 (Deprecated)
 
@@ -12653,7 +12677,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
 
@@ -12663,7 +12687,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 ###### General enhancements
@@ -12810,7 +12834,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 - Fixed an issue where logical replication becomes stuck after a restart.
 - Fixed multiple issues that could lead to brief periods of unavailability.
 - Fixed a crash in `pg_cron` due to a task still running but being unscheduled.
-- Fixed, during redo, an invalid page hit on the Generic Redo for GENERIC_XLOG_FULL_PAGE_DATA.
+- Fixed, during redo, an invalid page hit on the Generic Redo for GENERIC\_XLOG\_FULL\_PAGE\_DATA.
   This happens due to a timing hole between generating the log record and then writing the metadata
   for the record on the RW node and the RO node replays between those operations.
 - Improved the query performance by supporting parallel workers.
@@ -12934,7 +12958,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 
 ###### General stability enhancements
 
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 
 #### Aurora PostgreSQL 12.9.16, June 18, 2025
 
@@ -12955,14 +12979,14 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 
 ###### High priority enhancements
 
-- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
+- Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 
 #### Aurora PostgreSQL 12.9.12, August 7, 2024
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
+- Fixed a pg\_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
 #### Aurora PostgreSQL 12.9.11, March 13, 2024
@@ -13176,7 +13200,7 @@ information about the improvements in PostgreSQL 12.8, see [PostgreSQL release
 - Fixed an issue where read nodes restart due to a replication origin cache lookup failure.
 - Fixed an issue where read queries may time out on read nodes during the replay of lazy truncation triggered by vacuum on the write node.
 - Fixed an issue that causes Performance Insights to incorrectly set the backend type of a database connection.
-- Fixed an issue where the aurora_postgres_replica_status() function returned stale or lagging CPU stats.
+- Fixed an issue where the aurora\_postgres\_replica\_status() function returned stale or lagging CPU stats.
 - Fixed an issue where the role `rds_superuser` did not have permission to execute the `pg_stat_statements_reset()` function.
 - Fixed an issue with the `apg_plan_mgmt` extension where the planning and execution times were reported as 0.
 - Removed support for the DES, 3DES, and RC4 cipher suites.
@@ -13287,7 +13311,7 @@ information about the improvements in PostgreSQL 12.7, see [PostgreSQL release
 - Fixed an issue where a duplicate file entry can prevent the Aurora PostgreSQL engine from starting up.
 - Fixed an issue that could cause temporary unavailability under heavy workloads.
 - Added back ability to use a leading forward slash in the Amazon S3 path during S3 import.
-- Added Graviton support for oracle_fdw extension version 2.3.0.
+- Added Graviton support for oracle\_fdw extension version 2.3.0.
 - Changed the following extensions:
 
   - Updated the `orafce` extension to version 3.16.
@@ -13326,7 +13350,7 @@ information about the improvements in PostgreSQL 12.6, see [PostgreSQL release
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 - Backpatched the PostgreSQL community fix for CVE-2021-3677: “Memory disclosure in certain queries”. For more information,
   see [CVE-2021-3677](https://www.postgresql.org/support/security/CVE-2021-3677 "https://www.postgresql.org/support/security/CVE-2021-3677")
-- Backpatched [pg_partman](https://github.com/pgpartman/pg_partman/commit/0b6565ad378c358f8a6cd1d48ddc482eb7f854d3 "https://github.com/pgpartman/pg_partman/commit/0b6565ad378c358f8a6cd1d48ddc482eb7f854d3") to 4.4.0. This is a `pg_partman` fix for
+- Backpatched [pg\_partman](https://github.com/pgpartman/pg_partman/commit/0b6565ad378c358f8a6cd1d48ddc482eb7f854d3 "https://github.com/pgpartman/pg_partman/commit/0b6565ad378c358f8a6cd1d48ddc482eb7f854d3") to 4.4.0. This is a `pg_partman` fix for
   the vulnerability addressed in core PostgreSQL by CVE-2020-14350. For more
   information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 - Backpatched [postgis](https://git.osgeo.org/gitea/postgis/postgis/pulls/79 "https://git.osgeo.org/gitea/postgis/postgis/pulls/79") to `PostGIS` 3.0.2.
@@ -13342,10 +13366,10 @@ information about the improvements in PostgreSQL 12.6, see [PostgreSQL release
 
   - The `pg_proctab` extension version 0.0.9
   - The `pg_partman` extension version 4.4.0. For more information, see
-    [Managing PostgreSQL partitions with the pg_partman extension](../AuroraUserGuide/PostgreSQL_Partitions.md "../AuroraUserGuide/PostgreSQL_Partitions.md")
+    [Managing PostgreSQL partitions with the pg\_partman extension](../AuroraUserGuide/PostgreSQL_Partitions.md "../AuroraUserGuide/PostgreSQL_Partitions.md")
     in the _Amazon Aurora User Guide_.
   - The `pg_cron` extension version 1.3.0. For more information, see
-    [Scheduling maintenance with the PostgreSQL pg_cron extension](../AuroraUserGuide/PostgreSQL_pg_cron.md "../AuroraUserGuide/PostgreSQL_pg_cron.md")
+    [Scheduling maintenance with the PostgreSQL pg\_cron extension](../AuroraUserGuide/PostgreSQL_pg_cron.md "../AuroraUserGuide/PostgreSQL_pg_cron.md")
     in the _Amazon Aurora User Guide_.
   - The `pg_bigm` extension version 1.2
 
@@ -13389,18 +13413,18 @@ information about the improvements in PostgreSQL 12.6, see [PostgreSQL release
   outbound replication synchronization errors after a major version
   upgrade.
 - Fixed a bug that reported
-  \*\*`ERROR: rds_activity_stream stack item 2 not found on top
+  **`ERROR: rds_activity_stream stack item 2 not found on top
 
 * cannot pop`** when attempting to create the
-`rds_activity_stream` extension.
+ `rds_activity_stream` extension.
 
 - Fixed a bug that could cause the error
   **`failed to build any 3-way joins`** in a
   correlated `IN` subquery under an `EXISTS`
   subquery.
 - Backported the following performance
-  improvement from the PostgreSQL community: [pg_stat_statements: add missing check for
-  pgss_enabled()](https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d "https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d").
+  improvement from the PostgreSQL community: [pg\_stat\_statements: add missing check for
+  pgss\_enabled()](https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d "https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d").
 - Fixed a bug that could cause upgrades
   to Aurora PostgreSQL 12.x to fail due to the inability to open the
   `pg_control` file.
@@ -13414,7 +13438,7 @@ information about the improvements in PostgreSQL 12.6, see [PostgreSQL release
 - Fixed a bug when using outbound
   logical replication to synchronize changes to another database that
   could fail with an error message like **`ERROR: could not map
-filenode "base/16395/228486645" to relation OID`**.
+ filenode "base/16395/228486645" to relation OID`**.
 - Fixed a bug that could cause a brief
   period of unavailability when canceling a transaction.
 - Fixed a bug that caused no ICU
@@ -13472,7 +13496,7 @@ information about the improvements in PostgreSQL 12.4, see [PostgreSQL release
 - Fixed a bug where after upgrade to PostgreSQL 12, vacuum can fail on
   the system table `pg_catalog.pg_shdescription` with the
   following error. **`ERROR: found xmin 484 from before
-relfrozenxid`**
+ relfrozenxid`**
 
 ###### Additional improvements and enhancements
 
@@ -13634,7 +13658,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 **General enhancements**
 
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is enabled.
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 - Fixed an issue with prolonged Serverless v2 scaling.
 
 #### Aurora PostgreSQL 11.21.11, August 5, 2025
@@ -13644,14 +13668,14 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the
   improved reader availability functionality that might result in longer recover times and
   impact availability.
-- Fixed an issue in the rds_activity_stream extension that could cause brief periods of
+- Fixed an issue in the rds\_activity\_stream extension that could cause brief periods of
   unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
 
 - Fixed an issue in the read replica deletion which could result in a vacuum being held back
   and causing eventual unavailability of database.
-- Added support of newly released Regions for the aws_s3 extension.
+- Added support of newly released Regions for the aws\_s3 extension.
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
@@ -13693,7 +13717,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 
 **General enhancements**
 
-- Fixed an ownership issue where the postgis_raster extension could not
+- Fixed an ownership issue where the postgis\_raster extension could not
   be updated correctly from a previous the PostGIS extension v2
   installation.
 
@@ -13703,7 +13727,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 
 - Fixed an issue that would cause a longer restart time when
   `rds.enable_plan_management` is turned on, but
-  apg_plan_mgmt extension is not installed.
+  apg\_plan\_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security
   issue:
 
@@ -13723,7 +13747,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 - Fixed an issue where a change in memory requirements during a minor
   version upgrade can cause zero-downtime patching and engine startup to
   fail.
-- Fixed a pg_repack issue causing two vacuums to concurrently process
+- Fixed a pg\_repack issue causing two vacuums to concurrently process
   the same table.
 
 #### Aurora PostgreSQL 11.21.6, March 13, 2024
@@ -13855,7 +13879,7 @@ information about the improvements in PostgreSQL 11.20, see [PostgreSQL release
 - Fixed an issue which can cause vacuum operations to become blocked
   after the restart of an Aurora replica.
 - Fixed an issue that would cause a crash when executing the `COPY
-FROM` command.
+ FROM` command.
 - Fixed an issue that would cause high CPU usage and prevent new
   connections.
 - Fixed an issue where `UPDATE` and `DELETE` from
@@ -13921,8 +13945,8 @@ Amazon Aurora PostgreSQL 11, you must upgrade to a newer major version by Februa
 - Fixed a bug which can cause unavailability during ZDP.
 - Fixed an issue which caused `pg_ls_waldir()` to return
   "ERROR: could not stat file".
-- Added support for TLS 1.3 with ciphers TLS_AES_128_GCM_SHA256 and
-  TLS_AES_256_GCM_SHA384.
+- Added support for TLS 1.3 with ciphers TLS\_AES\_128\_GCM\_SHA256 and
+  TLS\_AES\_256\_GCM\_SHA384.
 - Addressed an issue that blocked a major version upgrade on the Aurora
   replica of an RDS for PostgreSQL DB instance.
 - Upgraded `GEOS` to version 3.11.2.
@@ -14117,7 +14141,7 @@ information about the improvements in PostgreSQL 11.18, see [PostgreSQL release
 - Improved the error handling and diagnosability.
 - Upgraded the RDKit extension to version 4.2.
 - Upgraded the `GDAL` library to version 3.4.3.
-- Fixed an issue with the pg_repack extension.
+- Fixed an issue with the pg\_repack extension.
 - Improved the collation library (glibc) handling with a new
   independent default collation library.
 
@@ -14211,7 +14235,7 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
 - Fixed an issue where a DB instance restarted during performance
   metric collection.
 - Fixed an issue where an attempt to connect to the database would fail
-  with SSLV3_ALERT_CERTIFICATE_UNKNOWN.
+  with SSLV3\_ALERT\_CERTIFICATE\_UNKNOWN.
 - Improved the diagnostic logging around setting invalid hint bits.
 - Fixed an issue where autovacuum would incorrectly skip tables.
 - Improved the logical replication prefetching.
@@ -14226,7 +14250,7 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
 - Updated the `PostGIS` extension to version 3.2.3.
 - Fixed an issue with `st_orientedenvelope` that caused it
   to loop with a 1-D input to return 0.
-- Fixed an issue where the connection to SQL Server using tds_fdw
+- Fixed an issue where the connection to SQL Server using tds\_fdw
   fails.
 
 ### PostgreSQL 11.16 (Deprecated)
@@ -14367,7 +14391,7 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
 - Fixed multiple issues that could lead to brief periods of
   unavailability.
 - Fixed, during redo, an invalid page hit on the Generic Redo for
-  GENERIC_XLOG_FULL_PAGE_DATA. This happens due to a timing hole between
+  GENERIC\_XLOG\_FULL\_PAGE\_DATA. This happens due to a timing hole between
   generating the log record and then writing the metadata for the record
   on the RW node and the RO node replays between those operations.
 - Improved the query performance by supporting parallel workers.
@@ -14788,7 +14812,7 @@ information about the improvements in PostgreSQL 11.12, see [PostgreSQL release
 - Fixed an issue where creating a database from an existing template
   database with tablespace resulted in an error with the message
   `ERROR: could not open file pg_tblspc/...: No such file or
-directory`.
+ directory`.
 - Fixed an issue where, in rare cases, an Aurora replica may be unable to
   start when a large number of PostgreSQL subtransactions (i.e. SQL
   savepoints) have been used.
@@ -14887,21 +14911,21 @@ information about the improvements in PostgreSQL 11.11, see [PostgreSQL release
 - Added logic to clean up unnecessary `pg_wal` temporary
   files on a database startup.
 - Fixed a bug that reported **`ERROR: rds_activity_stream stack
-item 2 not found on top - cannot pop`** when attempting to
+ item 2 not found on top - cannot pop`** when attempting to
   create the `rds_activity_stream` extension.
 - Fixed a bug that could cause the error **`failed to build any
-3-way joins`** in a correlated `IN` subquery
+ 3-way joins`** in a correlated `IN` subquery
   under an `EXISTS` subquery.
 - Backported the following performance improvement from the PostgreSQL
-  community: [pg_stat_statements: add missing check for
-  pgss_enabled()](https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d "https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d").
+  community: [pg\_stat\_statements: add missing check for
+  pgss\_enabled()](https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d "https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d").
 - Fixed a bug that could cause brief periods of unavailability due to
   running out of memory when creating the `postgis` extension
   with `pgAudit` enabled.
 - Fixed a bug when using outbound logical replication to synchronize
   changes to another database that could fail with an error message like
   **`ERROR: could not map filenode "base/16395/228486645" to
-relation OID`**.
+ relation OID`**.
 - Fixed a bug that could cause a brief period of unavailability when
   canceling a transaction.
 - Fixed a bug where the `rds_ad` role wasn't created
@@ -14963,7 +14987,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 ###### General stability enhancements
 
-- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize\_seqscans is enabled.
 
 #### Aurora PostgreSQL 11.9.16, June 18, 2025
 
@@ -14987,13 +15011,13 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 - Fixed an issue that would cause a longer restart time when
   `rds.enable_plan_management` is turned on, but
-  apg_plan_mgmt extension is not installed.
+  apg\_plan\_mgmt extension is not installed.
 
 #### Aurora PostgreSQL 11.9.12, August 7, 2024
 
 ###### Critical stability enhancements
 
-- Fixed a pg_repack issue causing two vacuums to concurrently process
+- Fixed a pg\_repack issue causing two vacuums to concurrently process
   the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
@@ -15173,7 +15197,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 - Fixed a bug in Aurora PostgreSQL replication that could result in the
   error message **`ERROR: `MultiXactId` nnnn has not
-been created yet -- apparent wraparound`**.
+ been created yet -- apparent wraparound`**.
 - Fixed a bug where in some cases, DB clusters that have logical
   replication enabled did not remove truncated WAL segment files from
   storage. This resulted in volume size growth.
@@ -15203,7 +15227,7 @@ been created yet -- apparent wraparound`**.
   on a read replica when the storage volume grew.
 - Fixed a bug when creating a database that could return the following:
   **`ERROR: could not create directory on local
-disk`**
+ disk`**
 - Updated data grid files to fix errors or incorrect transformation
   results from the `ST_Transform` method of the
   `PostGIS` extension.
@@ -15215,11 +15239,11 @@ disk`**
 - Fixed a bug in the `GiST` index that could result in an out
   of memory condition after promoting an Aurora read replica.
 - Fixed an S3 import bug that reported **`ERROR: HTTP 403.
-Permission denied`** when importing data from a file inside
+ Permission denied`** when importing data from a file inside
   an S3 subfolder.
 - Fixed a bug in the `aws_s3` extension for pre-signed URL
   handling that could result in the error message **`S3 bucket
-names with a period (.) are not supported`**.
+ names with a period (.) are not supported`**.
 - Fixed a bug in the `aws_s3` extension where an import might
   be blocked indefinitely if an exclusive lock was taken on the relation
   prior to beginning the operation.
@@ -15253,7 +15277,7 @@ information about the improvements in PostgreSQL 11.8, see [PostgreSQL release
 
 - Fixed a bug in Aurora PostgreSQL replication that could result in the
   error message **`ERROR: `MultiXactId` nnnn has not
-been created yet -- apparent wraparound`**.
+ been created yet -- apparent wraparound`**.
 - Fixed a bug where in some cases, DB clusters that have logical
   replication enabled did not remove truncated WAL segment files from
   storage. This resulted in volume size growth.
@@ -15288,7 +15312,7 @@ been created yet -- apparent wraparound`**.
 - Fixed a bug where a log record was incorrectly processed causing the
   Aurora replica to crash.
 - Fixed an S3 import bug that reported **`ERROR: HTTP 403.
-Permission denied`** when importing data from a file inside
+ Permission denied`** when importing data from a file inside
   an S3 subfolder.
 - You can now use `pg_replication_slot_advance` to advance a
   logical replication slot for the roles `rds_replication` and
@@ -15297,7 +15321,7 @@ Permission denied`** when importing data from a file inside
   streams.
 - Fixed a bug in the `aws_s3` extension that could result in
   the error message **`S3 bucket names with a period (.) are not
-supported`**.
+ supported`**.
 - Fixed a race condition that caused valid imports to intermittently
   fail.
 - Fixed a bug related to replication when Aurora PostgreSQL is acting as a
@@ -15348,7 +15372,7 @@ cartridge](https://rdkit.org/docs/Cartridge.html "https://rdkit.org/docs/Cartrid
 Support for a minimum Transport Layer Security (TLS) version is back
 ported from PostgreSQL 12. It allows the Aurora PostgreSQL server to
 constrain the TLS protocols with which a client is allowed to connect
-via two new PostgreSQL parameters. These parameters include [ssl_min_protocol_version](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-MIN-PROTOCOL-VERSION "https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-MIN-PROTOCOL-VERSION")and [ssl_max_protocol_version](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-MAX-PROTOCOL-VERSION "https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-MAX-PROTOCOL-VERSION"). For example, to limit client
+via two new PostgreSQL parameters. These parameters include [ssl\_min\_protocol\_version](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-MIN-PROTOCOL-VERSION "https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-MIN-PROTOCOL-VERSION")and [ssl\_max\_protocol\_version](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-MAX-PROTOCOL-VERSION "https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-MAX-PROTOCOL-VERSION"). For example, to limit client
 connections to the Aurora PostgreSQL server to at least TLS 1.2 protocol
 version, set the `ssl_min_protocol_version` to
 `TLSv1.2`.
@@ -15403,13 +15427,13 @@ more information, see [the What's New announcement](https://aws.amazon.com/about
   startup.
 - Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return
   the following error after a scaling event: **`ERROR: prepared
-statement "S_6" already exists`**.
+ statement "S_6" already exists`**.
 - Fixed an out-of-memory problem when issuing the `CREATE
-EXTENSION` command with PostGIS when Database Activity Streams
+ EXTENSION` command with PostGIS when Database Activity Streams
   is enabled.
 - Fixed a bug where a `SELECT` query might incorrectly return
   the error **`Attempting to read past EOF of relation rrrr.
-blockno=bbb nblocks=nnn`**.
+ blockno=bbb nblocks=nnn`**.
 - Fixed a bug where the database might be unavailable briefly due to
   error handling in database storage growth.
 - Fixed a bug in Aurora PostgreSQL Serverless where queries that executed on
@@ -15421,7 +15445,7 @@ blockno=bbb nblocks=nnn`**.
   connectivity.
 - Fixed a bug with the `aws_s3.table_import_from_s3` function
   where a `COPY` from S3 failed with the error **`HTTP
-error code: 248`**. For more information, see [aws_s3.table_import_from_s3](../AuroraUserGuide/USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3 "../AuroraUserGuide/USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3") in the _Amazon Aurora
+ error code: 248`**. For more information, see [aws\_s3.table\_import\_from\_s3](../AuroraUserGuide/USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3 "../AuroraUserGuide/USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3") in the _Amazon Aurora
   User Guide_.
 
 ### PostgreSQL 11.7, Aurora PostgreSQL 3.2 (Deprecated)
@@ -15472,7 +15496,7 @@ You can find the following improvements in this release.
 
 - Fixed a bug in Aurora PostgreSQL replication that might result in the
   error message, **`ERROR: `MultiXactId` nnnn has not
-been created yet -- apparent wraparound`**.
+ been created yet -- apparent wraparound`**.
 
 ###### Additional improvements and enhancements
 
@@ -15487,7 +15511,7 @@ been created yet -- apparent wraparound`**.
 - Fixed a bug in Aurora PostgreSQL Serverless where connections being
   migrated during a scale event disconnected with the message:
   "**`ERROR: could not open relation with OID
-...`**.
+ ...`**.
 - Fixed a small memory leak in a b-tree index that could lead to an out
   of memory condition.
 - Fixed a bug in a GiST index that might result in an out-of-memory
@@ -15497,7 +15521,7 @@ been created yet -- apparent wraparound`**.
   notified when an outage ended.
 - Fixed a bug in the `aws_s3` extension for pre-signed URL
   handling that could have resulted in the error message **`S3
-bucket names with a period (.) are not supported`**.
+ bucket names with a period (.) are not supported`**.
 - Fixed a bug in the `aws_s3` extension where incorrect error
   handling could lead to failures during the import process.
 - Fixed a bug in the `aws_s3` extension where an import may
@@ -15567,10 +15591,10 @@ You can find the following improvements in this release.
   error handling in database storage growth.
 - Fixed a bug where a SELECT query might incorrectly return the error,
   **`Attempting to read past EOF of relation rrrr. blockno=bbb
-nblocks=nnn`**.
+ nblocks=nnn`**.
 - Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might
   return the following error after a scaling event: **`ERROR:
-prepared statement "S_6" already exists`**.
+ prepared statement "S_6" already exists`**.
 
 #### Aurora PostgreSQL 3.2.1
 
@@ -15603,7 +15627,7 @@ None.
   error handling in the storage engine.
 - Fixed a bug that fails for some queries and results in the message
   **`ERROR: found xmin xxxxxx from before relfrozenxid
-yyyyyyy`**. This could occur following the promotion of a
+ yyyyyyy`**. This could occur following the promotion of a
   read instance to a write instance.
 - Fixed a bug where an Aurora serverless DB cluster might crash while
   rolling back a scale attempt.
@@ -15623,15 +15647,15 @@ yyyyyyy`**. This could occur following the promotion of a
   extension.
 - Fixed a bug where an Aurora serverless DB cluster might report the
   message **`ERROR: incorrect binary data format in bind parameter
-...`** following a scale event.
+ ...`** following a scale event.
 - Fixed a bug where a serverless DB cluster might report the message
   **`ERROR: insufficient data left in message`**
   following a scale event.
 - Fixed a bug where an Aurora serverless DB cluster can experience
   prolonged or failed scale attempts.
 - Fixed a bug that resulted in the message **`ERROR: could not
-create file "base/xxxxxx/yyyyyyy" as a previous version still exists
-on disk: Success. Please contact AWS customer support`**.
+ create file "base/xxxxxx/yyyyyyy" as a previous version still exists
+ on disk: Success. Please contact AWS customer support`**.
   This can occur during object creation after PostgreSQL's 32-bit
   object identifier has wrapped around.
 - Fixed a bug where the write-ahead-log (WAL) segment files for
@@ -15641,14 +15665,14 @@ on disk: Success. Please contact AWS customer support`**.
 - Fixed a bug in the `pg_hint_plan` extension where a
   multi-statement query could lead to a crash when
   `enable_hint_table` is enabled. This is tracked in the
-  PostgreSQL community as [https://github.com/ossc-db/pg_hint_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25 "https://github.com/ossc-db/pg_hint_plan/issues/25").
+  PostgreSQL community as [https://github.com/ossc-db/pg\_hint\_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25 "https://github.com/ossc-db/pg_hint_plan/issues/25").
 - Fixed a bug where JDBC clients might report the message
   **`java.io.IOException: Unexpected packet type:
-75`** following a scale event in an Aurora serverless DB
+ 75`** following a scale event in an Aurora serverless DB
   cluster.
 - Fixed a bug in PostgreSQL logical replication that resulted in the
   message **`ERROR: snapshot reference is not owned by resource
-owner TopTransaction`**.
+ owner TopTransaction`**.
 - Changed the following extensions:
 
   - Updated `orafce` to version 3.8
@@ -15699,7 +15723,7 @@ You can find the following improvements in this release.
 
 ###### New features
 
-- Aurora PostgreSQL now supports the PostgreSQL [vacuum_truncate](https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE "https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE") storage parameter to manage vacuum
+- Aurora PostgreSQL now supports the PostgreSQL [vacuum\_truncate](https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE "https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE") storage parameter to manage vacuum
   truncation for specific tables. Set this [storage parameter](https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS "https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS") to false for a table to prevent the
   [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html") SQL command from truncating the table's
   trailing empty pages.
@@ -15773,10 +15797,10 @@ You can find the following improvements in this release.
 
 - Provided a fix for the `pg_hint_plan` extension that could
   lead the database engine to crash causing unavailability. The open
-  source issue can be tracked at [https://github.com/ossc-db/pg_hint_plan/pull/45](https://github.com/ossc-db/pg_hint_plan/pull/45 "https://github.com/ossc-db/pg_hint_plan/pull/45").
+  source issue can be tracked at [https://github.com/ossc-db/pg\_hint\_plan/pull/45](https://github.com/ossc-db/pg_hint_plan/pull/45 "https://github.com/ossc-db/pg_hint_plan/pull/45").
 - Fixed a bug where SQL of the form `ALTER FUNCTION ... OWNER TO
-...` incorrectly reported `ERROR: improper qualified name
-(too many dotted names)`.
+ ...` incorrectly reported `ERROR: improper qualified name
+ (too many dotted names)`.
 - Improved the performance of `GIN` index vacuum via
   prefetching.
 - Fixed a bug in open source PostgreSQL that could lead to a database
@@ -15792,42 +15816,41 @@ version.
 
 ###### New features
 
-1.  Support for exporting data to Amazon S3. For more information, see [Exporting data from an Aurora PostgreSQL DB cluster to Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in
-    the _Amazon Aurora User Guide_.
-2.  Support for Amazon Aurora Machine Learning. For more information, see
-    [Using
-    machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in the
-    _Amazon Aurora User Guide_.
-3.  SQL processing enhancements include:
+1. Support for exporting data to Amazon S3. For more information, see [Exporting data from an Aurora PostgreSQL DB cluster to Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in
+   the _Amazon Aurora User Guide_.
+2. Support for Amazon Aurora Machine Learning. For more information, see
+   [Using
+   machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in the
+   _Amazon Aurora User Guide_.
+3. SQL processing enhancements include:
 
-        * Optimizations for `NOT IN` with the
-         `apg_enable_not_in_transform` parameter.
-        * Semi-join filter pushdown enhancements for hash joins with the
-         `apg_enable_semijoin_push_down` parameter.
-        * Optimizations for redundant inner join removal with the
-         `apg_enable_remove_redundant_inner_joins`
-         parameter.
-        * Improved ANSI compatibility options with the
-         `ansi_constraint_trigger_ordering`,
-         `ansi_force_foreign_key_checks` and
-         `ansi_qualified_update_set_target`
-         parameters.
+   - Optimizations for `NOT IN` with the
+     `apg_enable_not_in_transform` parameter.
+   - Semi-join filter pushdown enhancements for hash joins with the
+     `apg_enable_semijoin_push_down` parameter.
+   - Optimizations for redundant inner join removal with the
+     `apg_enable_remove_redundant_inner_joins`
+     parameter.
+   - Improved ANSI compatibility options with the
+     `ansi_constraint_trigger_ordering`,
+     `ansi_force_foreign_key_checks` and
+     `ansi_qualified_update_set_target`
+     parameters.
+     For more information, see [Amazon Aurora PostgreSQL parameters](../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md "../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md") in the _Amazon Aurora
+     User Guide_.
 
-    For more information, see [Amazon Aurora PostgreSQL parameters](../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md "../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md") in the _Amazon Aurora
-    User Guide_.
+4. New and updated PostgreSQL extensions include:
 
-4.  New and updated PostgreSQL extensions include:
-
-    - The new `aws_ml` extension. For more information,
-      see [Using machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in
-      the _Amazon Aurora User Guide_.
-    - The new `aws_s3` extension. For more information,
-      see [Exporting data from an Aurora PostgreSQL DB cluster to
-      Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in the _Amazon Aurora User
-      Guide_.
-    - Updates to the `apg_plan_mgmt` extension. For more
-      information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md")
-      in the _Amazon Aurora User Guide_.
+   - The new `aws_ml` extension. For more information,
+     see [Using machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in
+     the _Amazon Aurora User Guide_.
+   - The new `aws_s3` extension. For more information,
+     see [Exporting data from an Aurora PostgreSQL DB cluster to
+     Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in the _Amazon Aurora User
+     Guide_.
+   - Updates to the `apg_plan_mgmt` extension. For more
+     information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md")
+     in the _Amazon Aurora User Guide_.
 
 ###### Critical stability enhancements
 
@@ -15890,22 +15913,23 @@ version.
     `hot_standby_feedback` and invalidate snapshots on the
     read node.
 12. Fixed a bug in which storage errors that occur during `CREATE
-DATABASE` statements are not properly handled. The bug left
+ DATABASE` statements are not properly handled. The bug left
     the resulting database inaccessible. The correct behavior is to fail the
     database creation and return the appropriate error to the user.
 13. Improved handling of PostgreSQL snapshot overflow when a read node
     attempts to connect to a write node. Prior to this change, if the write
     node was in a snapshot overflow state, the read node was unable to join.
     A message appeared in the PostgreSQL log file in the form `DEBUG:
-recovery snapshot waiting for non-overflowed snapshot or until
-oldest active xid on standby is at least
-`xxxxxxx`(now`yyyyyyy`)`. A snapshot overflow
+ recovery snapshot waiting for non-overflowed snapshot or until
+ oldest active xid on standby is at least
+ `xxxxxxx`(now
+`yyyyyyy`)`. A snapshot overflow
     occurs when an individual transaction has created over 64
     subtransactions.
 14. Fixed a bug related to common table expressions in which an error is
     incorrectly raised when a NOT IN class exists in a CTE. The error is
     `CTE with NOT IN fails with ERROR: could not find CTE
-`CTE-Name``.
+ `CTE-Name``.
 15. Fixed a bug related to an incorrect `last_error_timestamp`
     value in the `aurora_replica_status` table.
 16. Fixed a bug to avoid populating shared buffers with blocks belonging
@@ -16096,7 +16120,7 @@ information about the improvements in PostgreSQL 10.21, see [PostgreSQL release
 - Fixed multiple issues that could lead to brief periods of
   unavailability.
 - Fixed, during redo, an invalid page hit on the Generic Redo for
-  GENERIC_XLOG_FULL_PAGE_DATA. This happens due to a timing hole between
+  GENERIC\_XLOG\_FULL\_PAGE\_DATA. This happens due to a timing hole between
   generating the log record and then writing the metadata for the record
   on the RW node and the RO node replays between those operations.
 - Improved the query performance by supporting parallel workers.
@@ -16383,7 +16407,7 @@ information about the improvements in PostgreSQL 10.18, see [PostgreSQL release
   the replay of lazy truncation triggered by vacuum on the write node.
 - Fixed an issue that causes Performance Insights to incorrectly set
   the backend type of a database connection.
-- Fixed an issue where the aurora_postgres_replica_status() function
+- Fixed an issue where the aurora\_postgres\_replica\_status() function
   returned stale or lagging CPU stats.
 - Fixed an issue where, in rare cases, an Aurora Global Database
   secondary mirror cluster may restart due to a stall in the log apply
@@ -16485,7 +16509,7 @@ information about the improvements in PostgreSQL 10.17, see [PostgreSQL release
 1. Fixed an issue where creating a database from an existing template
    database with tablespace resulted in an error with the message
    `ERROR: could not open file pg_tblspc/...: No such file or
-directory`.
+ directory`.
 2. Fixed an issue where, in rare cases, an Aurora replica may be unable to
    start when a large number of PostgreSQL subtransactions (i.e. SQL
    savepoints) have been used.
@@ -16574,10 +16598,10 @@ information about the improvements in PostgreSQL 10.16, see [PostgreSQL release
 8. Added logic to clean up unnecessary `pg_wal` temporary
    files on a database startup.
 9. Fixed a bug that reported **`ERROR: rds_activity_stream stack
-item 2 not found on top - cannot pop`** when attempting to
+ item 2 not found on top - cannot pop`** when attempting to
    create the `rds_activity_stream` extension.
 10. Fixed a bug that could cause the error **`failed to build any
-3-way joins`** in a correlated `IN` subquery
+ 3-way joins`** in a correlated `IN` subquery
     under an `EXISTS` subquery.
 11. Fixed a bug that could cause brief periods of unavailability due to
     running out of memory when creating the `postgis` extension
@@ -16585,7 +16609,7 @@ item 2 not found on top - cannot pop`** when attempting to
 12. Fixed a bug when using outbound logical replication to synchronize
     changes to another database that could fail with an error message like
     **`ERROR: could not map filenode "base/16395/228486645" to
-relation OID`**.
+ relation OID`**.
 13. Fixed a bug where the `rds_ad` role wasn't created
     after upgrading from a version of Aurora PostgreSQL that doesn't
     support Microsoft Active Directory authentication.
@@ -16698,7 +16722,7 @@ information about the improvements in PostgreSQL 10.14, see [PostgreSQL release
 
 2. Fixed a bug in Aurora PostgreSQL replication that could result in the
    error message **`ERROR: `MultiXactId` nnnn has not
-been created yet -- apparent wraparound`**.
+ been created yet -- apparent wraparound`**.
 3. Fixed a bug where in some cases, DB clusters that have logical
    replication enabled did not remove truncated WAL segment files from
    storage. This resulted in volume size growth.
@@ -16722,14 +16746,14 @@ been created yet -- apparent wraparound`**.
 6. Fixed a bug in Aurora Serverless v1 for PostgreSQL where connections being
    migrated during a scale event was disconnected with the following
    message: **`ERROR: could not open relation with OID
-...`**
+ ...`**
 7. Aurora PostgreSQL no longer falls behind on a read node when the backend
    is blocked writing to the database client.
 8. Fixed a bug that in rare cases caused a brief period of unavailability
    on a read replica when the storage volume grew.
 9. Fixed a bug when creating a database that could return the following
    error: **`ERROR: could not create directory on local
-disk`**
+ disk`**
 10. Fixed a bug where in some cases replaying
     `XLOG_BTREE_REUSE_PAGE` records on Aurora reader instances
     caused unnecessary replay lag.
@@ -16738,11 +16762,11 @@ disk`**
 12. Fixed a bug where the `aurora_replica_status` function
     showed truncated server identifiers.
 13. Fixed an S3 import bug that reported **`ERROR: HTTP 403.
-Permission denied`** when importing data from a file inside
+ Permission denied`** when importing data from a file inside
     an S3 subfolder.
 14. Fixed a bug in the `aws_s3` extension for pre-signed URL
     handling that could result in the error message **`S3 bucket
-names with a period (.) are not supported`**.
+ names with a period (.) are not supported`**.
 15. Fixed a bug in the `aws_s3` extension where an import might
     be blocked indefinitely if an exclusive lock was taken on the relation
     prior to beginning the operation.
@@ -16775,7 +16799,7 @@ information about the improvements in PostgreSQL 10.13, see [PostgreSQL release
 
 1. Fixed a bug in Aurora PostgreSQL replication that could result in the
    error message **`ERROR: `MultiXactId` nnnn has not
-been created yet -- apparent wraparound`**.
+ been created yet -- apparent wraparound`**.
 2. Fixed a bug where in some cases, DB clusters that have logical
    replication enabled did not remove truncated WAL segment files from
    storage. This resulted in volume size growth.
@@ -16810,13 +16834,13 @@ been created yet -- apparent wraparound`**.
 7. Fixed a bug where a log record was incorrectly processed causing the
    Aurora replica to crash.
 8. Fixed an S3 import bug that reported **`ERROR: HTTP 403.
-Permission denied`** when importing data from a file inside
+ Permission denied`** when importing data from a file inside
    an S3 subfolder.
 9. Improved performance of the asynchronous mode for database activity
    streams.
 10. Fixed a bug in the `aws_s3` extension that could result in
     the error message **`S3 bucket names with a period (.) are not
-supported`**.
+ supported`**.
 11. Fixed a race condition that caused valid imports to intermittently
     fail.
 12. Fixed a bug related to replication when Aurora PostgreSQL is acting as a
@@ -16912,13 +16936,13 @@ more information, see [the What's New announcement](https://aws.amazon.com/about
    startup.
 4. Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return
    the following error after a scaling event: **`ERROR: prepared
-statement "S_6" already exists`**.
+ statement "S_6" already exists`**.
 5. Fixed an out-of-memory problem when issuing the `CREATE
-EXTENSION` command with `PostGIS` when Database
+ EXTENSION` command with `PostGIS` when Database
    Activity Streams is enabled.
 6. Fixed a bug where a `SELECT` query might incorrectly return
    the error **`Attempting to read past EOF of relation rrrr.
-blockno=bbb nblocks=nnn`**.
+ blockno=bbb nblocks=nnn`**.
 7. Fixed a bug where the database might be unavailable briefly due to
    error handling in database storage growth.
 8. Fixed a bug in Aurora PostgreSQL Serverless where queries that executed on
@@ -16977,7 +17001,7 @@ You can find the following improvements in this release.
 
 1. Fixed a bug in Aurora PostgreSQL replication that might result in the
    error message, **`ERROR: `MultiXactId` nnnn has not
-been created yet -- apparent wraparound`**.
+ been created yet -- apparent wraparound`**.
 
 ###### Additional improvements and enhancements
 
@@ -16992,7 +17016,7 @@ been created yet -- apparent wraparound`**.
 5. Fixed a bug in Aurora PostgreSQL Serverless where connections being
    migrated during a scale event disconnected with the message:
    "**`ERROR: could not open relation with OID
-...`**.
+ ...`**.
 6. Fixed a bug in a GiST index that might result in an out-of-memory
    condition after promoting an Aurora Read Replica.
 7. Improved performance for Database Activity Streams.
@@ -17000,7 +17024,7 @@ been created yet -- apparent wraparound`**.
    notified when an outage ended.
 9. Fixed a bug in the `aws_s3` extension for pre-signed URL
    handling that could have resulted in the error message **`S3
-bucket names with a period (.) are not supported`**.
+ bucket names with a period (.) are not supported`**.
 10. Fixed a bug in the `aws_s3` extension where incorrect error
     handling could lead to failures during the import process.
 11. Fixed a bug in the `aws_s3` extension where an import may
@@ -17074,10 +17098,10 @@ You can find the following improvements in this release.
    error handling in database storage growth.
 2. Fixed a bug where a SELECT query might incorrectly return the error,
    **`Attempting to read past EOF of relation rrrr. blockno=bbb
-nblocks=nnn`**.
+ nblocks=nnn`**.
 3. Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return
    the following error after a scaling event: **`ERROR: prepared
-statement "S_6" already exists`**.
+ statement "S_6" already exists`**.
 
 #### Aurora PostgreSQL 2.5.1
 
@@ -17110,7 +17134,7 @@ None.
    error handling in the storage engine.
 5. Fixed a bug that fails for some queries and results in the message
    **`ERROR: found xmin xxxxxx from before relfrozenxid
-yyyyyyy`**. This could occur following the promotion of a
+ yyyyyyy`**. This could occur following the promotion of a
    read instance to a write instance.
 6. Fixed a bug where an Aurora serverless DB cluster might crash while
    rolling back a scale attempt.
@@ -17127,15 +17151,15 @@ yyyyyyy`**. This could occur following the promotion of a
    extension.
 5. Fixed a bug where an Aurora serverless DB cluster might report the
    message **`ERROR: incorrect binary data format in bind parameter
-...`** following a scale event.
+ ...`** following a scale event.
 6. Fixed a bug where a serverless DB cluster might report the message
    **`ERROR: insufficient data left in message`**
    following a scale event.
 7. Fixed a bug where an Aurora serverless DB cluster may experience
    prolonged or failed scale attempts.
 8. Fixed a bug that resulted in the message **`ERROR: could not
-create file "base/xxxxxx/yyyyyyy" as a previous version still exists
-on disk: Success. Please contact AWS customer support`**.
+ create file "base/xxxxxx/yyyyyyy" as a previous version still exists
+ on disk: Success. Please contact AWS customer support`**.
    This can occur during object creation after PostgreSQL's 32-bit
    object identifier has wrapped around.
 9. Fixed a bug where the write-ahead-log (WAL) segment files for
@@ -17145,14 +17169,14 @@ on disk: Success. Please contact AWS customer support`**.
 10. Fixed a bug in the `pg_hint_plan` extension where a
     multi-statement query could lead to a crash when
     `enable_hint_table` is enabled. This is tracked in the
-    PostgreSQL community as [https://github.com/ossc-db/pg_hint_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25 "https://github.com/ossc-db/pg_hint_plan/issues/25").
+    PostgreSQL community as [https://github.com/ossc-db/pg\_hint\_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25 "https://github.com/ossc-db/pg_hint_plan/issues/25").
 11. Fixed a bug where JDBC clients might report the message
     **`java.io.IOException: Unexpected packet type:
-75`** following a scale event in an Aurora serverless DB
+ 75`** following a scale event in an Aurora serverless DB
     cluster.
 12. Fixed a bug in PostgreSQL logical replication that resulted in the
     message **`ERROR: snapshot reference is not owned by resource
-owner TopTransaction`**.
+ owner TopTransaction`**.
 13. Changed the following extensions:
 
     - Updated `orafce` to version 3.8
@@ -17200,7 +17224,7 @@ You can find the following improvements in this release.
 
 ###### New features
 
-1. Aurora PostgreSQL now supports the PostgreSQL [vacuum_truncate](https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE "https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE") storage parameter to manage vacuum
+1. Aurora PostgreSQL now supports the PostgreSQL [vacuum\_truncate](https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE "https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE") storage parameter to manage vacuum
    truncation for specific tables. Set this [storage parameter](https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS "https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS") to false for a table to prevent the
    [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html") SQL command from truncating the table's
    trailing empty pages.
@@ -17268,10 +17292,10 @@ You can find the following improvements in this release.
 
 1. Provided a fix for the `pg_hint_plan` extension that could
    lead the database engine to crash causing unavailability. The open
-   source issue can be tracked at [https://github.com/ossc-db/pg_hint_plan/pull/45](https://github.com/ossc-db/pg_hint_plan/pull/45 "https://github.com/ossc-db/pg_hint_plan/pull/45").
+   source issue can be tracked at [https://github.com/ossc-db/pg\_hint\_plan/pull/45](https://github.com/ossc-db/pg_hint_plan/pull/45 "https://github.com/ossc-db/pg_hint_plan/pull/45").
 2. Fixed a bug where SQL of the form `ALTER FUNCTION ... OWNER TO
-...` incorrectly reported `ERROR: improper qualified name
-(too many dotted names)`.
+ ...` incorrectly reported `ERROR: improper qualified name
+ (too many dotted names)`.
 3. Improved the performance of `GIN` index vacuum via
    prefetching.
 4. Fixed a bug in open source PostgreSQL that could lead to a database
@@ -17289,42 +17313,41 @@ version.
 
 ###### New features
 
-1.  Support for exporting data to Amazon S3. For more information, see [Exporting data from an Aurora PostgreSQL DB cluster to Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in
-    the _Amazon Aurora User Guide_.
-2.  Support for Amazon Aurora Machine Learning. For more information, see
-    [Using
-    machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in the
-    _Amazon Aurora User Guide_.
-3.  SQL processing enhancements include:
+1. Support for exporting data to Amazon S3. For more information, see [Exporting data from an Aurora PostgreSQL DB cluster to Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in
+   the _Amazon Aurora User Guide_.
+2. Support for Amazon Aurora Machine Learning. For more information, see
+   [Using
+   machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in the
+   _Amazon Aurora User Guide_.
+3. SQL processing enhancements include:
 
-        * Optimizations for `NOT IN` with the
-         `apg_enable_not_in_transform` parameter.
-        * Semi-join filter pushdown enhancements for hash joins with the
-         `apg_enable_semijoin_push_down` parameter.
-        * Optimizations for redundant inner join removal with the
-         `apg_enable_remove_redundant_inner_joins`
-         parameter.
-        * Improved ANSI compatibility options with the
-         `ansi_constraint_trigger_ordering`,
-         `ansi_force_foreign_key_checks` and
-         `ansi_qualified_update_set_target`
-         parameters.
+   - Optimizations for `NOT IN` with the
+     `apg_enable_not_in_transform` parameter.
+   - Semi-join filter pushdown enhancements for hash joins with the
+     `apg_enable_semijoin_push_down` parameter.
+   - Optimizations for redundant inner join removal with the
+     `apg_enable_remove_redundant_inner_joins`
+     parameter.
+   - Improved ANSI compatibility options with the
+     `ansi_constraint_trigger_ordering`,
+     `ansi_force_foreign_key_checks` and
+     `ansi_qualified_update_set_target`
+     parameters.
+     For more information, see [Amazon Aurora PostgreSQL parameters](../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md "../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md") in the _Amazon Aurora
+     User Guide_.
 
-    For more information, see [Amazon Aurora PostgreSQL parameters](../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md "../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md") in the _Amazon Aurora
-    User Guide_.
+4. New and updated PostgreSQL extensions include:
 
-4.  New and updated PostgreSQL extensions include:
-
-    - The new `aws_ml` extension. For more information,
-      see [Using machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in
-      the _Amazon Aurora User Guide_.
-    - The new `aws_s3` extension. For more information,
-      see [Exporting data from an Aurora PostgreSQL DB cluster to
-      Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in the _Amazon Aurora User
-      Guide_.
-    - Updates to the `apg_plan_mgmt` extension. For more
-      information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md")
-      in the _Amazon Aurora User Guide_.
+   - The new `aws_ml` extension. For more information,
+     see [Using machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in
+     the _Amazon Aurora User Guide_.
+   - The new `aws_s3` extension. For more information,
+     see [Exporting data from an Aurora PostgreSQL DB cluster to
+     Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in the _Amazon Aurora User
+     Guide_.
+   - Updates to the `apg_plan_mgmt` extension. For more
+     information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md")
+     in the _Amazon Aurora User Guide_.
 
 ###### Critical stability updates
 
@@ -17387,22 +17410,23 @@ version.
     `hot_standby_feedback` and invalidate snapshots on the
     read node.
 12. Fixed a bug in which storage errors that occur during `CREATE
-DATABASE` statements are not properly handled. The bug left
+ DATABASE` statements are not properly handled. The bug left
     the resulting database inaccessible. The correct behavior is to fail the
     database creation and return the appropriate error to the user.
 13. Improved handling of PostgreSQL snapshot overflow when a read node
     attempts to connect to a write node. Prior to this change, if the write
     node was in a snapshot overflow state, the read node was unable to join.
     A message appeared in the PostgreSQL log file in the form `DEBUG:
-recovery snapshot waiting for non-overflowed snapshot or until
-oldest active xid on standby is at least
-`xxxxxxx`(now`yyyyyyy`)`. A snapshot overflow
+ recovery snapshot waiting for non-overflowed snapshot or until
+ oldest active xid on standby is at least
+ `xxxxxxx`(now
+`yyyyyyy`)`. A snapshot overflow
     occurs when an individual transaction has created over 64
     subtransactions.
 14. Fixed a bug related to common table expressions in which an error is
     incorrectly raised when a NOT IN class exists in a CTE. The error is
     `CTE with NOT IN fails with ERROR: could not find CTE
-`CTE-Name``.
+ `CTE-Name``.
 15. Fixed a bug related to an incorrect `last_error_timestamp`
     value in the `aurora_replica_status` table.
 16. Fixed a bug to avoid populating shared buffers with blocks belonging
@@ -17744,7 +17768,7 @@ You can find the following improvements in this release.
 1. This release contains all fixes, features, and improvements present in
    [PostgreSQL 9.6.9, Aurora PostgreSQL 1.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.13 "#AuroraPostgreSQL.Updates.20180305.13").
 2. The temporary file size limitation is user-configurable. You require
-   the **rds_superuser** role to modify the
+   the **rds\_superuser** role to modify the
    `temp_file_limit` parameter.
 3. Upgraded the `GDAL` library, which is used by the
    `PostGIS` extension.
@@ -17814,7 +17838,7 @@ information about the improvements in PostgreSQL 9.6.22, see [PostgreSQL release
 1. Fixed an issue where creating a database from an existing template
    database with tablespace resulted in an error with the message
    `ERROR: could not open file pg_tblspc/...: No such file or
-directory`.
+ directory`.
 2. Fixed an issue where, in rare cases, an Aurora replica may be unable
    to start when a large number of PostgreSQL subtransactions (i.e. SQL
    savepoints) have been used.
@@ -17942,7 +17966,7 @@ release 9.6.19](https://www.postgresql.org/docs/9.6/release-9-6-19.html "https:/
    CVE-2020-25694, CVE-2020-25695, and CVE-2020-25696.
 2. Fixed a bug in Aurora PostgreSQL replication that might result in the
    following error message: **`ERROR: `MultiXactId` nnnn
-has not been created yet -- apparent wraparound`**
+ has not been created yet -- apparent wraparound`**
 
 ###### Additional improvements and enhancements
 
@@ -17952,7 +17976,7 @@ has not been created yet -- apparent wraparound`**
    on a read replica when the storage volume grew.
 3. Fixed a bug when creating a database that could return the following
    error: **`ERROR: could not create directory on local
-disk`**
+ disk`**
 4. Fixed a bug in the `GiST` index that could result in an out
    of memory condition after promoting an Aurora read replica.
 5. Fixed a bug related to replication when Aurora PostgreSQL is acting as a
@@ -17989,7 +18013,7 @@ There is no version 1.8.1.
 
 1. Fixed a bug in Aurora PostgreSQL replication that could result in the
    error message **`ERROR: `MultiXactId` nnnn has not
-been created yet -- apparent wraparound`**.
+ been created yet -- apparent wraparound`**.
 2. Backported fixes for the following PostgreSQL community security
    issues:
 
@@ -18035,7 +18059,7 @@ You can find the following improvements in this release.
    index.
 5. Fixed a bug where a `SELECT` query might incorrectly return
    the error **`Attempting to read past EOF of relation rrrr.
-blockno=bbb nblocks=nnn`**.
+ blockno=bbb nblocks=nnn`**.
 6. Fixed a bug where the database might be unavailable briefly due to
    error handling in database storage growth.
 
@@ -18086,7 +18110,7 @@ You can find the following improvements in this release.
 
 1. Fixed a bug in Aurora PostgreSQL replication that might result in the
    error message, **`ERROR: `MultiXactId` nnnn has not
-been created yet -- apparent wraparound`**.
+ been created yet -- apparent wraparound`**.
 
 ###### Additional improvements and enhancements
 
@@ -18134,7 +18158,7 @@ None
    error handling in database storage growth.
 2. Fixed a bug where a SELECT query might incorrectly return the error,
    **`Attempting to read past EOF of relation rrrr. blockno=bbb
-nblocks=nnn`**.
+ nblocks=nnn`**.
 3. Fixed an issue with the internal metrics collector that could result
    in erratic CPU spikes on database instances.
 
@@ -18160,7 +18184,7 @@ None.
    error handling in the storage engine.
 5. Fixed a bug that fails for some queries and results in the message
    **`ERROR: found xmin xxxxxx from before relfrozenxid
-yyyyyyy`**. This could occur following the promotion of a
+ yyyyyyy`**. This could occur following the promotion of a
    read instance to a write instance.
 
 ###### Additional improvements and enhancements
@@ -18170,14 +18194,14 @@ yyyyyyy`**. This could occur following the promotion of a
 2. Improved performance and availability of reader DB instances during
    heavy read workload.
 3. Fixed a bug that resulted in the message **`ERROR: could not
-create file "base/xxxxxx/yyyyyyy" as a previous version still exists
-on disk: Success. Please contact AWS customer support`**.
+ create file "base/xxxxxx/yyyyyyy" as a previous version still exists
+ on disk: Success. Please contact AWS customer support`**.
    This can occur during object creation after PostgreSQL's 32-bit
    object identifier has wrapped around.
 4. Fixed a bug in the `pg_hint_plan` extension where a
    multi-statement query could lead to a crash when
    `enable_hint_table` is enabled. This is tracked in the
-   PostgreSQL community as [https://github.com/ossc-db/pg_hint_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25 "https://github.com/ossc-db/pg_hint_plan/issues/25").
+   PostgreSQL community as [https://github.com/ossc-db/pg\_hint\_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25 "https://github.com/ossc-db/pg_hint_plan/issues/25").
 5. Changed the following extensions:
 
    - Updated `orafce` to version 3.8
@@ -18225,7 +18249,7 @@ You can find the following improvements in this release.
 
 ###### New features
 
-1. Aurora PostgreSQL now supports the PostgreSQL [vacuum_truncate](https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE "https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE") storage parameter to manage vacuum
+1. Aurora PostgreSQL now supports the PostgreSQL [vacuum\_truncate](https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE "https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE") storage parameter to manage vacuum
    truncation for specific tables. Set this [storage parameter](https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS "https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS") to false when creating or altering a
    table to prevent the [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html") SQL command from truncating the table's
    trailing empty pages.
@@ -18351,22 +18375,23 @@ version.
    `hot_standby_feedback` and invalidate snapshots on the
    read node.
 9. Fixed a bug in which storage errors that occur during `CREATE
-DATABASE` statements are not properly handled. The bug left
+ DATABASE` statements are not properly handled. The bug left
    the resulting database inaccessible. The correct behavior is to fail the
    database creation and return the appropriate error to the user.
 10. Improved handling of PostgreSQL snapshot overflow when a read node
     attempts to connect to a write node. Prior to this change, if the write
     node was in a snapshot overflow state, the read node was unable to join.
     A message appear in the PostgreSQL log file in the form `DEBUG:
-recovery snapshot waiting for non-overflowed snapshot or until
-oldest active xid on standby is at least
-`xxxxxxx`(now`yyyyyyy`)`. A snapshot overflow
+ recovery snapshot waiting for non-overflowed snapshot or until
+ oldest active xid on standby is at least
+ `xxxxxxx`(now
+`yyyyyyy`)`. A snapshot overflow
     occurs when an individual transaction has created over 64
     subtransactions.
 11. Fixed a bug related to common table expressions in which an error is
     incorrectly raised when a NOT IN class exists in a CTE. The error is
     `CTE with NOT IN fails with ERROR: could not find CTE
-`CTE-Name``.
+ `CTE-Name``.
 12. Fixed a bug related to an incorrect `last_error_timestamp`
     value in the `aurora_replica_status` table.
 13. Fixed a bug to avoid populating shared buffers with blocks belonging
@@ -18493,7 +18518,7 @@ You can find the following improvements in this release.
 
 1. Support is added for the `pg_similarity` extension version
    1.0.
-2. Aurora PostgreSQL now supports the PostgreSQL [vacuum_truncate](https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE "https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE") storage parameter to manage vacuum truncation
+2. Aurora PostgreSQL now supports the PostgreSQL [vacuum\_truncate](https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE "https://www.postgresql.org/docs/current/sql-createtable.html#RELOPTION-VACUUM-TRUNCATE") storage parameter to manage vacuum truncation
    for specific tables. Set this [storage parameter](https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS "https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS") to false when creating or altering a table to
    prevent the [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html") SQL command from truncating the table's trailing
    empty pages.
@@ -18516,7 +18541,7 @@ You can find the following improvements in this release.
    `VALUES` could fail with the message "Attempting to read past
    EOF of relation".
 7. An upgrade of the `apg_plan_mgmt` extension to version 1.0.1.
-   For details, see [Version 1.0.1 of the Aurora PostgreSQL apg_plan_mgmt extension](auroraqpm.updates.md#auroraqpm-version.101 "auroraqpm.updates.md#auroraqpm-version.101").
+   For details, see [Version 1.0.1 of the Aurora PostgreSQL apg\_plan\_mgmt extension](auroraqpm.updates.md#auroraqpm-version.101 "auroraqpm.updates.md#auroraqpm-version.101").
 
 The `apg_plan_mgmt` extension is used with query plan
 management. For more about how to install, upgrade, and use the
@@ -18723,7 +18748,7 @@ You can find the following improvements in this release.
 16. Fixes a bug in which, in a rare scenario, an Aurora PostgreSQL read node
     can report:
 
-"FATAL: lock buffer_io is not held" 17. Fixes a bug in which stale relcache entries can halt vacuuming of
+"FATAL: lock buffer\_io is not held" 17. Fixes a bug in which stale relcache entries can halt vacuuming of
 relations and push the system close to transaction ID wraparound. The
 fix is a port of a PostgreSQL community patch scheduled to be released
 in a future minor version. 18. Fixes a bug in which a failure while extending a relation can cause
@@ -18747,8 +18772,8 @@ You can find the following improvements in this engine update:
 1. Introduced the `aurora_stat_utils` extension. This extension
    includes two functions:
 
-   - aurora_wait_report() function for wait event monitoring
-   - aurora_log_report() for log record write monitoring
+   - aurora\_wait\_report() function for wait event monitoring
+   - aurora\_log\_report() for log record write monitoring
 
 2. Added support for the following extensions:
 
@@ -18768,9 +18793,9 @@ You can find the following improvements in this engine update:
    - `pg_repack` updated to version 1.4.2
 
 3. Access to the `pg_statistic` relation enabled.
-4. Disabled the 'effective_io_concurrency' guc parameter, as it does not
+4. Disabled the 'effective\_io\_concurrency' guc parameter, as it does not
    apply to Aurora storage.
-5. Changed the 'hot_standby_feedback' guc parameter to not-modifiable and set
+5. Changed the 'hot\_standby\_feedback' guc parameter to not-modifiable and set
    the value to '1'.
 6. Improved heap page read performance during a vacuum operation.
 7. Improved performance of snapshot conflict resolution on read nodes.
@@ -18786,11 +18811,11 @@ You can find the following improvements in this engine update:
 
 ERROR: could not access status of transaction 6080077
 
-DETAIL:\* \*Could not open file "pg_subtrans/005C": No such file or
+DETAIL:\* \*Could not open file "pg\_subtrans/005C": No such file or
 directory. 14. Fixes a bug that could cause the error below when replicating from RDS
 PostgreSQL to Aurora PostgreSQL:
 
-FATAL: lock buffer_content is not held
+FATAL: lock buffer\_content is not held
 
 CONTEXT: xlog redo at 46E/F1330870 for Storage/TRUNCATE:
 base/13322/8058750 to 0 blocks flags 7 15. Fixes a bug that could cause Aurora PostgreSQL to stop responding while
@@ -18877,7 +18902,7 @@ You can find the following improvements in this engine update:
 3. Improves the effectiveness of prefetching on reads for a
    vacuum.
 4. Fixes issues with snapshot import from RDS for PostgreSQL, which can fail
-   if there are incompatible pg_internal.init files in the source
+   if there are incompatible pg\_internal.init files in the source
    snapshot.
 5. Fixes an issue that can cause a read node to crash with the message
    "aurora wal replay process (PID XXX) was terminated by signal 11:

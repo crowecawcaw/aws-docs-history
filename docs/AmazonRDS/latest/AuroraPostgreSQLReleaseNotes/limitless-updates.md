@@ -207,7 +207,7 @@ For more information about the improvements in PostgreSQL 16.9, see
 - Added support for `CREATE INDEX IF NOT EXISTS`.
 - Added support for SEQUENCES in the `pgstattuple` extension.
 - Added support for the hstore extension. Note that hstore columns cannot be used as shard keys in sharded tables.
-- Added support for the auto_explain extension.
+- Added support for the auto\_explain extension.
 
 **Enhancements**
 
@@ -226,10 +226,10 @@ For more information about the improvements in PostgreSQL 16.9, see
 - Fixed an issue where `INSERT INTO` failed after the
   `ROLLBACK` of a `READ ONLY` transaction with the error
   **`ERROR: failed to execute remote query with message: transaction
-read-write mode must be set before any query`**.
+ read-write mode must be set before any query`**.
 - Fixed an issue where `SELECT` queries failed with
   **`ERROR: failed to execute remote query with message: collations
-are not supported by type integer`**.
+ are not supported by type integer`**.
 - Fixed an issue where `DELETE FROM` failed with
   **`ERROR: failed to execute remote query`**.
 - Fixed an issue where expressions in `DEFAULT/CHECK` constraints
@@ -237,7 +237,7 @@ are not supported by type integer`**.
   specifically when the expression in the constraint relies on parenthesis.
 - Fixed an issue with `PREPARE` and `EXECUTE`
   statements which failed with **`bind message supplies 2 parameters, but 
-prepared statement requires 1`** when the `PREPARE` statement used fewer parameters than it
+ prepared statement requires 1`** when the `PREPARE` statement used fewer parameters than it
   declared.
 - Fixed an issue where `RESET` of
   `rds_aurora.limitless_explain_options` setting was not correctly
@@ -414,7 +414,7 @@ This release includes Aurora PostgreSQL patches till
 **Bug fixes**
 
 - Fixed an issue where certain `ALTER TABLE` and `CREATE TABLE` commands fail with the error: **`Unable to deparse the
-given statement`**.
+ given statement`**.
 - Fixed an issue where an `ALTER TABLE` command with a `NOT NULL` or `DEFAULT` constraint fails when it contains
   functions unsafe to push down to shards (such as volatile functions), requiring backfilling data in existing rows.
 

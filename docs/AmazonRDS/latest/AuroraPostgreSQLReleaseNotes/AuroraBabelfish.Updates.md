@@ -44,7 +44,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Added support for Eager aggregation, which pushes aggregation before joins to improve query performance. Controlled by GUCs `babelfishpg_tsql.enable_eager_aggregate` (default: ON) and `min_eager_agg_group_size` to set the minimum average group size required to consider applying Eager aggregation (default: 8).
 - Added support for Polygon instances for geography/geometry datatype.
 - Added support for implicit cast from (n)varchar/(n)char to datetimeoffset datatype.
-- Added support for sys.fn_varbintohexstr system object.
+- Added support for sys.fn\_varbintohexstr system object.
 
 **Critical enhancements**
 
@@ -108,7 +108,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Added support for Polygon instances for geography/geometry datatype.
 - Added support for implicit cast from (n)varchar/(n)char to datetimeoffset datatype.
-- Added support for sys.fn_varbintohexstr system object.
+- Added support for sys.fn\_varbintohexstr system object.
 
 **Critical enhancements**
 
@@ -177,10 +177,10 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Enabled support of SELECT TOP N PERCENT clause with few [limitations](../AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.md "../AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.md").
 - Enabled support for Linestring instances for [geography/geometry datatypes](../AuroraUserGuide/babelfish-geospatial.md "../AuroraUserGuide/babelfish-geospatial.md").
-- Enabled support for system procedures sp_xml_preparedocument, sp_xml_removedocument and [OPENXML](../AuroraUserGuide/babelfish-xml-datatype-methods.md "../AuroraUserGuide/babelfish-xml-datatype-methods.md").
+- Enabled support for system procedures sp\_xml\_preparedocument, sp\_xml\_removedocument and [OPENXML](../AuroraUserGuide/babelfish-xml-datatype-methods.md "../AuroraUserGuide/babelfish-xml-datatype-methods.md").
 - Enabled support for XML method .VALUE() for XML Data Types.
 - Enabled support for ownership chaining for object references inside views and stored procedures/functions. Permission checking on underlying objects is determined by either the user's direct permissions or through ownership chaining.
-- Enabled support of sys.time_zone_info view
+- Enabled support of sys.time\_zone\_info view
 - Enabled support for Values clause and subquery columns in SELECT list in FOR JSON AUTO functionality
 
 **Critical enhancements**
@@ -199,7 +199,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Added support for the planner to choose index scan for queries having predicates comparing numeric and money/smallmoney data types.
 - Fixed precision/scale for Round() function.
 - Fixed an issue where rollback to savepoint in some cases failed to send the correct transaction state token to the client, causing subsequent operations in the transaction to fail.
-- Fixed an issue where errors in pg_cron job was leading to server reboot.
+- Fixed an issue where errors in pg\_cron job was leading to server reboot.
 
 **Additional improvements and enhancements**
 
@@ -254,7 +254,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Added support for boolean operators and prefix term grammer in T-SQL CONTAINS clause for [Full-Text Search](../AuroraUserGuide/babelfish-postgres-fulltextsearch.md "../AuroraUserGuide/babelfish-postgres-fulltextsearch.md") .
 - Added support for Z-M flags for Point Instances and Z, M, HasZ and HasM functions for [GEOMETRY and GEOGRAPHY datatypes](../AuroraUserGuide/babelfish-geospatial.md "../AuroraUserGuide/babelfish-geospatial.md") .
-- Added support for sp_helplogins stored procedure.
+- Added support for sp\_helplogins stored procedure.
 - Enabled Support for weak binding views with few limitations.
 
 **Critical enhancements**
@@ -277,10 +277,10 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Fixed PATINDEX() function to correctly finds patterns at the end of text and handles wildcard searches accurately.
 - Enabled index usage for Accent Sensitive / Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match with following conditions:
 
-  - For Accent Sensitive collation, user needs to create index from TSQL endpoint : CREATE INDEX <index_name> ON <table_name>(<column_name>)
-  - For Accent Insensitive collation, user needs to create index from PSQL endpoint: CREATE INDEX <index_name> ON <schema_name>.<table_name>(sys.remove_accents_internal_using_cache(<column_name>))
+  - For Accent Sensitive collation, user needs to create index from TSQL endpoint : CREATE INDEX <index\_name> ON <table\_name>(<column\_name>)
+  - For Accent Insensitive collation, user needs to create index from PSQL endpoint: CREATE INDEX <index\_name> ON <schema\_name>.<table\_name>(sys.remove\_accents\_internal\_using\_cache(<column\_name>))
 
-- Fixed an issue where TRY_CAST and TRY_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
+- Fixed an issue where TRY\_CAST and TRY\_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
 - Fixed precision and scale for arithmetic operations between money/smallmoney and numeric and for money/smallmoney in union operators.
 - Fixed precision and scale handling for case expressions and nested case expressions when with numeric and smallmoney/money branches.
 - Fixed precision and scale handling for numeric expressions with sub-expressions as money/smallmoney or fixed length datatypes.
@@ -302,15 +302,15 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Fixed the precision and scale for aggregate function that have \*(all columns) as input.
 - Fixed an issue for CaseExpr with numeric computation.
 - Fixed a crash in queries using 'FOR JSON AUTO' and 'JSON PATH'.
-- Fixed rounding off issue during storing datetime datatype. Existing users should run the following query from TSQL endpoint to update their existing data: UPDATE <table_name> SET <datetime_col> = CAST(CAST(<datetime_col> as VARCHAR) AS DATETIME).
+- Fixed rounding off issue during storing datetime datatype. Existing users should run the following query from TSQL endpoint to update their existing data: UPDATE <table\_name> SET <datetime\_col> = CAST(CAST(<datetime\_col> as VARCHAR) AS DATETIME).
 - Fixed datetime comparison in Babelfish to match TSQL behavior of treating datetime values within 0.00333 second precision as equal.
 
 **Additional improvements and enhancements**
 
-- Fixed an issue with OBJECT_DEFINITION function where it was trucating the output after 4000 characters.
-- Fixed the database_principals view to display the correct SID.
+- Fixed an issue with OBJECT\_DEFINITION function where it was trucating the output after 4000 characters.
+- Fixed the database\_principals view to display the correct SID.
 - Handle PostgreSQL reserved keywords in Cursor operations.
-- Added support for sys.server_permissions, sys.sql_logins views and sys.fn_varbintohexsubstring system function.
+- Added support for sys.server\_permissions, sys.sql\_logins views and sys.fn\_varbintohexsubstring system function.
 - Fixed an issue while adding a column with default value which resulted in an error.
 - Fixed an issue with INSERT ... EXECUTE statements in stored procedures related to nested levels.
 
@@ -350,7 +350,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
   `STIsEmpty`, `STIsValid` Geospatial functions.
 - Added support for collation in partition functions and partitioning columns.
 - Enabled support for scripting logins in SSMS for Babelfish.
-- Added support for column_list in T-SQL CONTAINS clause for Full-Text Search.
+- Added support for column\_list in T-SQL CONTAINS clause for Full-Text Search.
 
 **Critical enhancements**
 
@@ -387,7 +387,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Fixed bug which prevented enable/disable all triggers on tables.
 - Fixed incorrect conversion from integers to varbinary datatype.
 - Fixed Casting and Conversion from Float to Varchar datatype.
-- Fixed suser_sname() function to handle the null inputs.
+- Fixed suser\_sname() function to handle the null inputs.
 - Fixed issue with result having incorrect scale in numeric/decimal addition and subtraction.
 - Fixed issue which causes incorrect result in arithmetic operations which results in
   numeric/decimal type.
@@ -403,14 +403,14 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 enhancements**
 
 - Fixed JSON string formatting to prevent improper backslash escaping in “FOR
-  JSON” output with json_query function.
+  JSON” output with json\_query function.
 - Fixed an issue where guest user could create objects in guest schema.
 - Fixed PUBLIC role attributes in system views.
 - Fixed sys.objects catalog to correctly populate unique constraints metadata.
 - Fixed issue when max length of a RPC character based parameter is 0.
-- Restricted members of fixed database role db_ddladmin from creating schema for database
+- Restricted members of fixed database role db\_ddladmin from creating schema for database
   principals that it isn't a member of.
-- Restricted members of fixed database role db_ddladmin from creating schema for database
+- Restricted members of fixed database role db\_ddladmin from creating schema for database
   principals that it isn't a member of.
 - Added an escape hatch for the INLINE option in CREATE FUNCTION statements, defaulting to
   “strict” mode for proper error handling.
@@ -423,7 +423,7 @@ enhancements**
 - Fixed case expression when one of the branch is NUMERIC and other is of EXACT NUMERIC.
 - Improved index name handling in Babelfish by preserving the original index name in the
   catalog, making it visible in catalog views like sys.indexes. It also adds support for
-  renaming existing indexes using sp_rename to preserve and display their original names.
+  renaming existing indexes using sp\_rename to preserve and display their original names.
 - Fixed a crash in `resolve_numeric_typmod_from_exp` for aggregate functions using \*(all
   columns).
 
@@ -499,7 +499,7 @@ For more information about relevant permission management and access control set
   certain orphaned catalog entries.
 - Fixed an issue where trigger gets dropped when dropping a column in a table.
 - Improved performance of queries having join between `TABLE_CONSTRAINTS` and
-  `KEY_COLUMN_USAGE` view in the INFORMATION_SCHEMA schema.
+  `KEY_COLUMN_USAGE` view in the INFORMATION\_SCHEMA schema.
 - Fixed inconsistent formatting issue with `Convert` function when converting
   MONEY datatype with value 0 to string datatypes.
 - Fixed formatting issues in `CAST` from `MONEY` to
@@ -519,7 +519,7 @@ For more information about relevant permission management and access control set
 
 - Fixed an issue where @@function in `UPDATE SET` clause causes syntax
   error.
-- Fixed dynamic evaluation of @local_var for `UPDATE ... SET` @local_var and
+- Fixed dynamic evaluation of @local\_var for `UPDATE ... SET` @local\_var and
   `SELECT` command.
 - Fixed an issue with `sp_columns_100` where partial data could be returned
   if @fUsePattern = 0 is used.
@@ -601,7 +601,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 **New Features**
 
 - Added support for implicit cast from (n)varchar/(n)char to datetimeoffset datatype.
-- Added support for sys.fn_varbintohexstr system object.
+- Added support for sys.fn\_varbintohexstr system object.
 
 **Critical enhancements**
 
@@ -667,7 +667,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 **New Features**
 
 - Enabled support of SELECT TOP N PERCENT clause with few [limitations](../AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.md "../AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.md").
-- Enabled support of sys.time_zone_info view.
+- Enabled support of sys.time\_zone\_info view.
 - Enabled support for Values clause and subquery columns in SELECT list in FOR JSON AUTO functionality.
 
 **Critical enhancements**
@@ -687,7 +687,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Added support for the planner to choose index scan for queries having predicates comparing numeric and money/smallmoney data types.
 - Fixed precision/scale for Round() function.
 - Fixed an issue where rollback to savepoint in some cases failed to send the correct transaction state token to the client, causing subsequent operations in the transaction to fail.
-- Fixed an issue where errors in pg_cron job was leading to server reboot.
+- Fixed an issue where errors in pg\_cron job was leading to server reboot.
 
 **Additional improvements and enhancements**
 
@@ -747,7 +747,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 **New Features**
 
 - Added support for Z-M flags for Point Instances and Z, M, HasZ and HasM functions for [GEOMETRY and GEOGRAPHY datatypes.](../AuroraUserGuide/babelfish-geospatial.md "../AuroraUserGuide/babelfish-geospatial.md")
-- Added support for sp_helplogins stored procedure.
+- Added support for sp\_helplogins stored procedure.
 - Enabled Support for weak binding views with few limitations.
 
 **Critical enhancements**
@@ -768,8 +768,8 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Handling for CHAR()/NCHAR() function to return NULL instead of errors when values are out of range.
 - Handling for NCHAR() function to accept inputs that can be converted to integers.
 - Fixed PATINDEX() function to correctly finds patterns at the end of text and handles wildcard searches accurately.
-- To use Index for Accent Sensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from TSQL endpoint : CREATE INDEX <index_name> ON <table_name>(<column_name>). To use Index for Accent Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from PSQL endpoint: CREATE INDEX <index_name> ON <schema_name>.<table_name>(sys.remove_accents_internal_using_cache(<column_name>)).
-- Fixed an issue where TRY_CAST and TRY_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
+- To use Index for Accent Sensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from TSQL endpoint : CREATE INDEX <index\_name> ON <table\_name>(<column\_name>). To use Index for Accent Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from PSQL endpoint: CREATE INDEX <index\_name> ON <schema\_name>.<table\_name>(sys.remove\_accents\_internal\_using\_cache(<column\_name>)).
+- Fixed an issue where TRY\_CAST and TRY\_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
 - Fixed precision and scale for arithmetic operations between money/smallmoney and numeric and for money/smallmoney in union operators.
 - Fixed precision and scale handling for case expressions and nested case expressions when with numeric and smallmoney/money branches.
 - Fixed precision and scale handling for numeric expressions with sub-expressions as money/smallmoney or fixed length datatypes.
@@ -792,15 +792,15 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Fixed the precision and scale for aggregate function that have \*(all columns) as input.
 - Fixed an issue for CaseExpr with numeric computation.
 - Fixed a crash in queries using 'FOR JSON AUTO' and 'JSON PATH'.
-- Fixed rounding off issue during storing datetime datatype. Existing users should run the following query from TSQL endpoint to update their existing data: UPDATE <table_name> SET <datetime_col> = CAST(CAST(<datetime_col> as VARCHAR) AS DATETIME).
+- Fixed rounding off issue during storing datetime datatype. Existing users should run the following query from TSQL endpoint to update their existing data: UPDATE <table\_name> SET <datetime\_col> = CAST(CAST(<datetime\_col> as VARCHAR) AS DATETIME).
 - Fixed datetime comparison in Babelfish to match TSQL behavior of treating datetime values within 0.00333 second precision as equal.
 
 **Additional improvements and enhancements**
 
-- Fixed an issue with OBJECT_DEFINITION function where it was trucating the output after 4000 characters.
-- Fixed the database_principals view to display the correct SID.
+- Fixed an issue with OBJECT\_DEFINITION function where it was trucating the output after 4000 characters.
+- Fixed the database\_principals view to display the correct SID.
 - Handle PostgreSQL reserved keywords in Cursor operations.
-- Add full support for sys.server_permissions, sys.sql_logins views and sys.fn_varbintohexsubstring system function.
+- Add full support for sys.server\_permissions, sys.sql\_logins views and sys.fn\_varbintohexsubstring system function.
 - Fixed an issue while adding a column with default value which resulted in an error.
 - Fixed an issue with INSERT ... EXECUTE statements in stored procedures related to nested levels.
 
@@ -882,7 +882,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Fixed bug which prevented enable/disable all triggers on tables.
 - Fixed incorrect conversion from integers to varbinary datatype.
 - Fixed Casting and Conversion from Float to Varchar datatype.
-- Fixed suser_sname() function to handle the null inputs.
+- Fixed suser\_sname() function to handle the null inputs.
 - Fixed issue with result having incorrect scale in numeric/decimal addition and subtraction.
 - Fixed issue which causes incorrect result in arithmetic operations which results in
   numeric/decimal type.
@@ -898,15 +898,15 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 enhancements**
 
 - Fixed JSON string formatting to prevent improper backslash escaping in “FOR
-  JSON” output with json_query function.
+  JSON” output with json\_query function.
 - Fixed CONVERT function to allow empty string values to be converted to `datetime` format.
 - Fixed an issue where guest user could create objects in guest schema.
 - Fixed PUBLIC role attributes in system views.
 - Fixed sys.objects catalog to correctly populate unique constraints metadata.
 - Fixed issue when max length of a RPC character based parameter is 0.
-- Restricted members of fixed database role db_ddladmin from creating schema for database
+- Restricted members of fixed database role db\_ddladmin from creating schema for database
   principals that it isn't a member of.
-- Restricted members of fixed database role db_ddladmin from creating schema for database
+- Restricted members of fixed database role db\_ddladmin from creating schema for database
   principals that it isn't a member of.
 - Added an escape hatch for the INLINE option in CREATE FUNCTION statements, defaulting to
   “strict” mode for proper error handling.
@@ -919,8 +919,8 @@ enhancements**
 - Fixed case expression when one of the branch is NUMERIC and other is of EXACT NUMERIC.
 - Improved index name handling in Babelfish by preserving the original index name in the
   catalog, making it visible in catalog views like sys.indexes. It also adds support for
-  renaming existing indexes using sp_rename to preserve and display their original names.
-- Fixed a crash in resolve_numeric_typmod_from_exp for aggragate functions using \*(all
+  renaming existing indexes using sp\_rename to preserve and display their original names.
+- Fixed a crash in resolve\_numeric\_typmod\_from\_exp for aggragate functions using \*(all
   columns).
 
 ### Babelfish for Aurora PostgreSQL 4.5
@@ -998,7 +998,7 @@ For more information about relevant permission management and access control set
   certain orphaned catalog entries.
 - Fixed an issue where trigger gets dropped when dropping a column in a table.
 - Improved performance of queries having join between `TABLE_CONSTRAINTS` and
-  `KEY_COLUMN_USAGE` view in the INFORMATION_SCHEMA schema.
+  `KEY_COLUMN_USAGE` view in the INFORMATION\_SCHEMA schema.
 - Fixed inconsistent formatting issue with `Convert` function when converting
   MONEY datatype with value 0 to string datatypes.
 - Fixed formatting issues in `CAST` from `MONEY` to
@@ -1018,7 +1018,7 @@ For more information about relevant permission management and access control set
 
 - Fixed an issue where @@function in `UPDATE SET` clause causes syntax
   error.
-- Fixed dynamic evaluation of @local_var for `UPDATE ... SET` @local_var and
+- Fixed dynamic evaluation of @local\_var for `UPDATE ... SET` @local\_var and
   `SELECT` command.
 - Fixed an issue with `sp_columns_100` where partial data could be returned
   if @fUsePattern = 0 is used.
@@ -1138,10 +1138,10 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed `sp_tables` stored procedure to correctly handle three-part object names across
   databases to retrieve correct database name during linked servers usage.
 - Fixed an issue to enable database owner login to explore database objects in SSMS.
-- Fixed `sp_tables` stored procedure to return correct result when @table_name parameter has
+- Fixed `sp_tables` stored procedure to return correct result when @table\_name parameter has
   square brackets around underscore (\_).
 - Fixed an issue where individual login active directory authentication used to throw error
-  of pg_ad_mapping the `plugin` extension pointer not initialized.
+  of pg\_ad\_mapping the `plugin` extension pointer not initialized.
 - Fixed an issue where index creation could fail if the table is created using SELECT INTO
   syntax.
 - Fixed an permission issue with cross-database function calls.
@@ -1166,15 +1166,15 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
   parameters.
 - Fixed the issue of CASE statement not working correctly when branch expression is of
   NVARCHAR type.
-- Fixed behavior of CONCAT() and CONCAT_WS() functions for multibyte characters and to work
+- Fixed behavior of CONCAT() and CONCAT\_WS() functions for multibyte characters and to work
   with atleast 2 and 3 arguments respectively.
 - Fixed an issue to allow ALTER COLUMN with type char for Temp Table.
 - Fixed an issue in CONVERT function to make it work consistently with BINARY and VARBINARY
   types in Babelfish.
 - Fixed the issue of inconsistent output from select query with FOR XML PATH clause.
 - Fixed an issue to rethrow correct TSQL error code.
-- Fixed behaviour of STRING_AGG() function for input containing multibyte characters.
-- Fixed an issue where wrong overloaded variant of regexp_replace is called during restore.
+- Fixed behaviour of STRING\_AGG() function for input containing multibyte characters.
+- Fixed an issue where wrong overloaded variant of regexp\_replace is called during restore.
 - Fixed cast from sys.varchar to TIME type.
 - Enabled use of nvarchar(max) as output parameter in procedure.
 - Fixed an issue of missing brackets while declaring the variables in the definition of
@@ -1239,7 +1239,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### High Priority stability enhancements
 
-- Fixed an issue with information_schema.tables returning incorrect table_name.
+- Fixed an issue with information\_schema.tables returning incorrect table\_name.
 - Fixed an issue where less than operator gives incorrect results for binary data types.
 - Fixed inconsistency with OIDs of triggers in `OBJECT_ID()` function and `sys.objects` view.
 - Fixed an issue for the `plpgsql` extension function. The function’s local settings for run-time configuration variables may not be reset at the end of function execution when Babelfish is
@@ -1304,7 +1304,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 **High priority stability enhancements**
 
 - Fixed an issue where individual login active directory authentication used to throw error
-  of pg_ad_mapping the `plugin` extension pointer not initialized.
+  of pg\_ad\_mapping the `plugin` extension pointer not initialized.
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 
@@ -1376,7 +1376,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed behavioral differences in COALESCE function while being called with the combination of variables and constants.
 - Fixed an issue where some queries with ORDER BY clause did not use primary key indexes.
 - Fixed an issue with CREATE/ALTER PROCEDURE command that could cause server restart if procedure name contains special white characters.
-- Fixed an issue where query may return incorrect result when predicate involves SCOPE_IDENTITY().
+- Fixed an issue where query may return incorrect result when predicate involves SCOPE\_IDENTITY().
 
 ###### Additional improvements and enhancements
 
@@ -1387,7 +1387,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Prevent partial upgrades of Babelfish extensions.
 - sys procedure columnproperty now support additional properties `iscomputed`, `columnid`, `ordinal`, `isidentity`.
 - DDL scripting of indexes or constraints will now include correct ordering with columns.
-- Fixed an error to allow referencing a `#tmp table` in a nested procedure through OBJECT_ID() clause.
+- Fixed an error to allow referencing a `#tmp table` in a nested procedure through OBJECT\_ID() clause.
 - Fixed an issue to avoid error when dropping trigger created on temp table.
 - Made an enhancement to allow table variables having a name longer than 63 characters.
 - Fixed issue with --schema-only and --data-only options of BabelfishDump utilities.
@@ -1523,7 +1523,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Support floating-point notation without exponent.
 - Support comparison operators `!<` and `!>`.
 - Support for `DROP INDEX schema.table.index` and `DROP INDEX
-index ON schema.table` syntax.
+ index ON schema.table` syntax.
 
 ### Babelfish for Aurora PostgreSQL 4.0
 
@@ -1786,7 +1786,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Fixed an issue where trigger gets dropped when dropping a column in a table.
 - Improved performance of queries having join between `TABLE_CONSTRAINTS` and
-  `KEY_COLUMN_USAGE` view in the INFORMATION_SCHEMA schema.
+  `KEY_COLUMN_USAGE` view in the INFORMATION\_SCHEMA schema.
 - Fixed inconsistent formatting issue with `Convert` function when converting
   MONEY datatype with value 0 to string datatypes.
 - Fixed formatting issues in `CAST` from `MONEY` to
@@ -1892,17 +1892,17 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Fixed date functions to take into account the timezone setting.
 - Improved error handling behavior for `relation does not exist` and `column does not
-exist` errors.
+ exist` errors.
 - Fixed `sp_tables` stored procedure to correctly handle three-part object names across
   databases to retrieve correct database name during linked servers usage.
 - Fixed an issue to enable database owner login to explore database objects in
   SSMS.
-- Fixed `sp_tables` stored procedure to return correct result when @table_name parameter
+- Fixed `sp_tables` stored procedure to return correct result when @table\_name parameter
   has square brackets around underscore (\_).
 - Fixed an issue where individual login active directory authentication used to throw
   error of `pg_ad_mapping` the `plugin` extension pointer not initialized.
 - Fixed an issue where index creation could fail if the table is created using `SELECT
-INTO` syntax.
+ INTO` syntax.
 - Fixed an permission issue with cross-database function calls.
 - Enabled Grant on schema to takes effect correctly on future objects created in that
   schema by any of the schema’s authorized users.
@@ -1922,7 +1922,7 @@ INTO` syntax.
   parameters.
 - Fixed the issue of CASE statement not working correctly when branch expression is of
   NVARCHAR type.
-- Fixed behavior of CONCAT() and CONCAT_WS() functions for multibyte characters and to
+- Fixed behavior of CONCAT() and CONCAT\_WS() functions for multibyte characters and to
   work with atleast 2 and 3 arguments respectively.
 - Fixed an issue to allow ALTER COLUMN with type char for Temp Table.
 - Fixed an issue in CONVERT function to make it work consistently with BINARY and
@@ -1967,7 +1967,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 **High priority stability enhancements**
 
 - Fixed an issue where individual login active directory authentication used to throw error
-  of pg_ad_mapping the `plugin` extension pointer not initialized.
+  of pg\_ad\_mapping the `plugin` extension pointer not initialized.
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 
@@ -1986,7 +1986,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### High Priority stability enhancements
 
-- Fixed an issue with `information_schema.tables` returning incorrect table_name.
+- Fixed an issue with `information_schema.tables` returning incorrect table\_name.
 - Fixed an issue where less than operator gives incorrect results for binary data types.
 - Fixed inconsistency with OIDs of triggers in `OBJECT_ID()` function and `sys.objects` view.
 - Fixed an issue for the `plpgsql` extension function. The function’s local settings for run-time configuration variables may not be reset at the end of function execution when Babelfish is
@@ -2046,7 +2046,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 **High priority stability enhancements**
 
 - Fixed an issue where individual login active directory authentication used to throw error
-  of pg_ad_mapping the `plugin` extension pointer not initialized.
+  of pg\_ad\_mapping the `plugin` extension pointer not initialized.
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 
@@ -2115,7 +2115,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed behavioral differences in COALESCE function while being called with the combination of variables and constants.
 - Fixed an issue where some queries with ORDER BY clause did not use primary key indexes.
 - Fixed an issue with CREATE/ALTER PROCEDURE command that could cause server restart if procedure name contains special white characters.
-- Fixed an issue where query may return incorrect result when predicate involves SCOPE_IDENTITY().
+- Fixed an issue where query may return incorrect result when predicate involves SCOPE\_IDENTITY().
 
 ###### Additional improvements and enhancements
 
@@ -2126,7 +2126,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Prevent partial upgrades of Babelfish extensions.
 - sys procedure columnproperty now support additional properties `iscomputed`, `columnid`, `ordinal`, `isidentity`.
 - DDL scripting of indexes or constraints will now include correct ordering with columns.
-- Fixed an error to allow referencing a `#tmp table` in a nested procedure through OBJECT_ID() clause.
+- Fixed an error to allow referencing a `#tmp table` in a nested procedure through OBJECT\_ID() clause.
 - Fixed an issue to avoid error when dropping trigger created on temp table.
 - Made an enhancement to allow table variables having a name longer than 63 characters.
 - Fixed issue with --schema-only and --data-only options of BabelfishDump utilities.
@@ -2279,8 +2279,8 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Added support for TSQL Isolation Level SERIALIZABLE and REPEATABLE READ with PostgreSQL semantics. For more information, see
   [Transaction Isolation Levels in Babelfish](../AuroraUserGuide/babelfish-transaction.md "../AuroraUserGuide/babelfish-transaction.md").
 - Added support for enable or disable triggers.
-- Added support for TSQL functions DATETRUNC(), DATE_BUCKET(), SWITCHOFFSET(), TODATETIMEOFFSET(), and AT TIME ZONE clause.
-- Added support for TSQL functions TYPE_ID(), TYPE_NAME(), COL_LENGTH(), COL_NAME().
+- Added support for TSQL functions DATETRUNC(), DATE\_BUCKET(), SWITCHOFFSET(), TODATETIMEOFFSET(), and AT TIME ZONE clause.
+- Added support for TSQL functions TYPE\_ID(), TYPE\_NAME(), COL\_LENGTH(), COL\_NAME().
 - Added support for DEFAULT keyword in calls to stored procedures and functions.
 - Added support for casting DATETIME to numeric types.
 - Added support for DBCC CHECKIDENT for ability to reset IDENTITY columns.
@@ -2288,20 +2288,20 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Added support for double-quoted strings containing single-quote, embedded double quotes in a double-quoted string, and unquoted string parameters.
 - Added support for ALTER AUTHORIZATION syntax to change database owner.
 - Added support for TSQL KILL command.
-- Added support for TSQL Information_schema.key_column_usage view.
+- Added support for TSQL Information\_schema.key\_column\_usage view.
 - Added support of variable as input for SET ROWCOUNT and SET DATEFIRST.
-- Added support for sys.server_role members and sys.database_permissions catalog views.
+- Added support for sys.server\_role members and sys.database\_permissions catalog views.
 - Added support for IDENTITY() function in a SELECT-INTO statement. In Babelfish, a column specified as IDENTITY will always be the last column in the
-  new table. Due to this slight difference compared with SQL server, this feature needs to be used with an escape hatch babelfishpg_tsql.escape_hatch_identity_function. User-defined datatypes for IDENTITY() function are not currently supported.
+  new table. Due to this slight difference compared with SQL server, this feature needs to be used with an escape hatch babelfishpg\_tsql.escape\_hatch\_identity\_function. User-defined datatypes for IDENTITY() function are not currently supported.
 - Added support for ALTER USER...WITH LOGIN syntax.
 - Added support for change in transaction isolation from inside transaction block with well defined behavior.
 - Added support for casting datetime and smalldatetime to numeric types.
 - Added support for PIVOT in limited scope (not supported when used in a view definition, a common table expression, or a join).
-- Stored procedure sp_changedbowner is supported.
+- Stored procedure sp\_changedbowner is supported.
 
 ###### Security enhancements
 
-- Fixed permission issue for view sys.server_principals.
+- Fixed permission issue for view sys.server\_principals.
 
 ###### Critical stability enhancements
 
@@ -2312,13 +2312,13 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed unexpected error "lost connection to parallel worker" occurring when parallel worker is enforced.
 - Fixed an issue with multiple parentheses in SELECT columns.
 - Fixed an issue with handling of column name alias which may cause client to hang if column name alias contains string of length more than 64 bytes, for example, select col as '您对“数据一览“中的车型，颜色，内饰，选装, '.
-- Fixed datatype of information_schema_tsql.tables.TABLE_TYPE column.
-- Fixed the error - “column ... does not exist” when using table.column with alias defined for table or schema_name.table.column in set clause of update queries.
+- Fixed datatype of information\_schema\_tsql.tables.TABLE\_TYPE column.
+- Fixed the error - “column ... does not exist” when using table.column with alias defined for table or schema\_name.table.column in set clause of update queries.
 - Fixed issue of incorrect schema resolution for multiple functions in query statement.
 - Fixed an issue for a few variants of DELETE with OUTPUT clause combined with table alias returns an error.
 - Fixed performance issue while expanding stored procedures in SSMS Object Explorer.
 - Fixed a crash when UNION with NULL values not cast to fixed-length types.
-- Fixed SESSION_USER/SYSTEM_USER in SET/PRINT/DECLARE variable assignment returning wrong result/error.
+- Fixed SESSION\_USER/SYSTEM\_USER in SET/PRINT/DECLARE variable assignment returning wrong result/error.
 - Fixed issue of blocking of UNIQUE constraint/index on nullable column not implemented consistently.
 - Fix a crash with T-SQL OPENQUERY() and four-part object name when T-SQL keywords are used as server name.
 - Fixed the issue of update with TOP, OUTPUT and join failing with error ‘unrecognized node type’.
@@ -2332,23 +2332,23 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed an issue where upper/lower case may not be preserved for column name aliases.
 - Fixed crash in queries involving money data-type in parallel query mode.
 - Fixed failure in MVU with non-default server collation name.
-- Fixed the issue of information_schema vs. sys.objects WHERE type IN ('U', 'V') giving different result in Babelfish.
-- Fixed issue of sp_columns and sp_columns_100 incorrectly show NULL radix for decimal columns.
+- Fixed the issue of information\_schema vs. sys.objects WHERE type IN ('U', 'V') giving different result in Babelfish.
+- Fixed issue of sp\_columns and sp\_columns\_100 incorrectly show NULL radix for decimal columns.
 - Fixed issue in queries involving sys.format() function in parallel query mode returning error “cannot start subtransactions during a parallel operation”.
-- Fixed unexpected error “could not access file "pg_hint_plan": No such file or directory" while using pg_hint_plan in parallel query mode.
+- Fixed unexpected error “could not access file "pg\_hint\_plan": No such file or directory" while using pg\_hint\_plan in parallel query mode.
 - Fixed the issue of getting error ‘duplicate key value violates unique constraint ...' when re-creating the previously dropped view with the same name.
 
 ###### Additional improvements and enhancements
 
-- Improved performance for stored procedure sp_describe_undeclared_parameters.
+- Improved performance for stored procedure sp\_describe\_undeclared\_parameters.
 - Fixed performance issue for DATEADD(), DATEDIFF().
 - SSMS - Fixed issue of stored procedure takes long time to load in Object Explorer.
 - SSMS - Fixed performance issue of enumerating tables and views in SSMS Object Explorer.
 - Fixed performance issue after create/upgrade of Babelfish extension by running ANALYZE after Babelfish extension creation and upgrade.
 - Fixed the issue of index not used when query has an unnecessary cast to bigint.
 - Fixed an issue when stored procedures starting with (sp\_\*) are invoked with a dbo. or sys. prefix.
-- Fixed the issue with default_schema_name column of the catalog sys.babelfish_authid_user_ext in case of "guest" user.
-- Fixed issue of orphan entries in sys.babelfish_view_def catalog table.
+- Fixed the issue with default\_schema\_name column of the catalog sys.babelfish\_authid\_user\_ext in case of "guest" user.
+- Fixed issue of orphan entries in sys.babelfish\_view\_def catalog table.
 - Fixed an issue with UNION and fixed-length types.
 - Fixed performance issue with '+' operator in concatenation operation.
 - Fixed performance issue by optimizing use of internal function during index creation and usage in queries.
@@ -2385,9 +2385,9 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Stored procedures `sp_enum_oledb_providers`, `sp_testlinkedserver`, and `sp_who` are supported.
 - Added support for the T-SQL square bracket syntax with the LIKE predicate.
 - Added support for `pg_stat_statements` extension with Babelfish. For more information, see
-  [pg_stat_statements](../AuroraUserGuide/babelfish-postgres-aws-extensions.md "../AuroraUserGuide/babelfish-postgres-aws-extensions.md").
+  [pg\_stat\_statements](../AuroraUserGuide/babelfish-postgres-aws-extensions.md "../AuroraUserGuide/babelfish-postgres-aws-extensions.md").
 - Added support for CREATE or ALTER or DROP EXTENSION statements in `sp_execute_postgresql` procedure. For more information, see
-  [sp_execute_postgresql](../AuroraUserGuide/Appendix.Babelfish.Functions.md "../AuroraUserGuide/Appendix.Babelfish.Functions.md").
+  [sp\_execute\_postgresql](../AuroraUserGuide/Appendix.Babelfish.Functions.md "../AuroraUserGuide/Appendix.Babelfish.Functions.md").
 - Added support for extended properties for object types database, schema, table, view, column, sequence, function, procedure:
   `sys.extended_properties` system catalog view, stored procedures `sp_addextendedproperty`, `sp_updateextendedproperty`, `sp_dropextendedproperty`, and system function `fn_listextendedproperty()`.
 
@@ -2472,11 +2472,11 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### New features
 
-- Supports TIMEFROMPARTS(), DATETIME2FROMPARTS(), ROWCOUNT_BIG(), DATABASE_PRINCIPAL_ID() and CONTEXT_INFO()
+- Supports TIMEFROMPARTS(), DATETIME2FROMPARTS(), ROWCOUNT\_BIG(), DATABASE\_PRINCIPAL\_ID() and CONTEXT\_INFO()
   T-SQL functions.
 - Supports STDEV(), STDEVP(), VAR(), VARP() statistical T-SQL
   aggregates.
-- Supports sp_rename for COLUMN , TRIGGER, TABLE TYPE and USER DEFINED
+- Supports sp\_rename for COLUMN , TRIGGER, TABLE TYPE and USER DEFINED
   DATATYPE objects.
 - Supports Babelfish instance as a linked server from SQL server
   instance. For more information,
@@ -2485,7 +2485,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
   queries. For more information,
   see [Babelfish supports linked servers](../AuroraUserGuide/babelfish-postgres-linkedservers.md "../AuroraUserGuide/babelfish-postgres-linkedservers.md").
 - Supports TOP clause for INSERT SELECT statement.
-- Supports SET rowcount and SET CONTEXT_INFO T-SQL syntax.
+- Supports SET rowcount and SET CONTEXT\_INFO T-SQL syntax.
 
 ###### Security enhancements
 
@@ -2508,26 +2508,26 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Additional improvements and enhancements
 
-- Fixed an issue with sp_helpdb where NULL is shown for compatbility_level.
-- Fixed a memory management issue with update_DropRoleStmt.
+- Fixed an issue with sp\_helpdb where NULL is shown for compatbility\_level.
+- Fixed a memory management issue with update\_DropRoleStmt.
 - Fixed table variables to make it immune to transaction rollback.
 - The fix corrects the behavior of ‘select convert(nvarchar(10),Getdate(),105)’ for nvarchar datatype.
 - Fixed an issue to allow UPDATE and DELETE for Table Variables inside functions.
 - Made enhancement to improve the performance and avoid catalog bloat while using table variables.
 - Fixed an issue in @@NEXTLEVEL which returned 1 unit larger than expected.
-- Fixed an issue in sp_helpdb where input parameter’s case sensitivity is not handled properly.
+- Fixed an issue in sp\_helpdb where input parameter’s case sensitivity is not handled properly.
 - Fixed an issue that COMMIT, ROLLBACK,EXECUTE, PRINT, SAVE and RAISERROR could be used in CREATE FUNCTION statement.
-- Supports query timeout in sp_serveroption for OPENQUERY. For more information,
+- Supports query timeout in sp\_serveroption for OPENQUERY. For more information,
   see [Babelfish supports linked servers](../AuroraUserGuide/babelfish-postgres-linkedservers.md "../AuroraUserGuide/babelfish-postgres-linkedservers.md").
 - Fixed the case sensitivity issue in the CREATE USER for windows login.
 - Fixed an issue with detecting invalid login name in CREATE LOGIN WITH WINDOWS statement.
-- Fixed an issue to support INT values in JSON_MODIFY() function.
-- Fixed an issue in JSON_MODIFY() function to support new value parameters as JSON_QUERY, SELECT FOR JSON, or JSON MODIFY.
-- Fixed an issue in babelfishpg_tds.product_version.
+- Fixed an issue to support INT values in JSON\_MODIFY() function.
+- Fixed an issue in JSON\_MODIFY() function to support new value parameters as JSON\_QUERY, SELECT FOR JSON, or JSON MODIFY.
+- Fixed an issue in babelfishpg\_tds.product\_version.
 - Fixed an issue in datetimeoffset operations.
 - Fixed an issue for datetimeoffset default values.
 - Supports numeric expressions representing datetime values.
-- Fixed an issue in sys.database_principals view where the users sys and information_schema, as well as the database role public are not shown.
+- Fixed an issue in sys.database\_principals view where the users sys and information\_schema, as well as the database role public are not shown.
 - Old-style T-SQL catalogs, with names starting with 'sys' (like sysprocesses) were available only in the 'sys' schema, but are now also available in the 'dbo' schema.
 - Fixed an issue where a T-SQL view could be created on top of a temporary table.
 - Fixed an issue that DATETIME2 doesn’t accept 7 as scale argument.
@@ -2557,7 +2557,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ###### Additional improvements and enhancements
 
 - Fixed a memory management issue with `update_DropRoleStmt`.
-- Fixed a crash in `SqlBulkCopy` with heap_compute_data_size function in stacktrace when the order of columns is different compared to table defining.
+- Fixed a crash in `SqlBulkCopy` with heap\_compute\_data\_size function in stacktrace when the order of columns is different compared to table defining.
 - Fixed an issue that `bcp in` results in server crash when the table has large number of columns.
 - Fixed issue when user mapping that is created as part of `sp_addlinkedsrvlogin` works only when OPENQUERY() and
   remote object referenced with a four-part object names are invoked within the master database.
@@ -2585,18 +2585,18 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Supports major version upgrade from Babelfish for Aurora PostgreSQL DB cluster 14.6 and 14.7 to Aurora PostgreSQL 15.2.
   For more information on the major version upgrade, see
   [Upgrading your Babelfish cluster to a new version](../AuroraUserGuide/babelfish-information-upgrading.md#babelfish-information-upgrading-major "../AuroraUserGuide/babelfish-information-upgrading.md#babelfish-information-upgrading-major").
-- Support for the following functions: STR, APP_NAME, OBJECT_DEFINITION, OBJECT_SCHEMA_NAME, ATN2, DATEDIFF_BIG functions.
-- Support for the following INFORMATION_SCHEMA views: sequences, routines and schemata.
-- Support sp_rename for TABLE, VIEW, PROCEDURE, FUNCTION, SEQUENCE.
+- Support for the following functions: STR, APP\_NAME, OBJECT\_DEFINITION, OBJECT\_SCHEMA\_NAME, ATN2, DATEDIFF\_BIG functions.
+- Support for the following INFORMATION\_SCHEMA views: sequences, routines and schemata.
+- Support sp\_rename for TABLE, VIEW, PROCEDURE, FUNCTION, SEQUENCE.
 - Support sys.systypes system compatibility view.
-- Support for a new GUC parameter called babelfishpg_tds.product_version that allows you to set SQL Server product version number that is returned as an output by Babelfish. For more information,
+- Support for a new GUC parameter called babelfishpg\_tds.product\_version that allows you to set SQL Server product version number that is returned as an output by Babelfish. For more information,
   see [Using Babelfish product version GUC](../AuroraUserGuide/babelfish-guc-version.md "../AuroraUserGuide/babelfish-guc-version.md").
 - Added support to generate data definition scripts for various objects present in a Babelfish for Aurora PostgreSQL database. For more information,
   see [DDL exports supported by Babelfish](../AuroraUserGuide/babelfish-query-database.md#babelfish-ddl-exports "../AuroraUserGuide/babelfish-query-database.md#babelfish-ddl-exports").
 - Babelfish now supports Aurora PostgreSQL database authentication with Kerberos using AWS Directory Service for Microsoft Managed Active Directory. With this feature, for authentication you can use Microsoft Windows
   Authentication when you connect to your Babelfish database. For more information,
   see [Database authentication with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish-db-authentication.md "../AuroraUserGuide/babelfish-db-authentication.md").
-- Babelfish now supports linked servers from your Aurora PostgreSQL database by using the tds_fdw (TDS Foreign Data Wrapper) APG extension. Only the OPENQUERY function that executes the specified pass-through query
+- Babelfish now supports linked servers from your Aurora PostgreSQL database by using the tds\_fdw (TDS Foreign Data Wrapper) APG extension. Only the OPENQUERY function that executes the specified pass-through query
   on the specified linked server is currently supported. For more information,
   see [Babelfish supports linked servers](../AuroraUserGuide/babelfish-postgres-linkedservers.md "../AuroraUserGuide/babelfish-postgres-linkedservers.md").
 
@@ -2609,15 +2609,15 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Improved the performance through benefiting interactive queries, ODBC-based applications and tools such as SQL Server Management Studio.
   Following enhancements has been made for the same:
 
-  - Fixed performance issues in several system functions including OBJECT_ID(), OBJECT_NAME(), SCHEMA_ID().
-  - Fixed performance issues in system stored procedures sp_sproc_columns and sp_fkeys.
-  - Fixed performance issues in system catalog views sys.all_views, sys.objects and sys.types.
+  - Fixed performance issues in several system functions including OBJECT\_ID(), OBJECT\_NAME(), SCHEMA\_ID().
+  - Fixed performance issues in system stored procedures sp\_sproc\_columns and sp\_fkeys.
+  - Fixed performance issues in system catalog views sys.all\_views, sys.objects and sys.types.
   - Improved the performance of bulk load, parsing of T-SQL and prepared statements.
 
-- Added a new system stored procedure sp_babelfish_volatility that you can use to set the volatility of user-defined
+- Added a new system stored procedure sp\_babelfish\_volatility that you can use to set the volatility of user-defined
   functions to improve index use when the functions are used as part of query predicates.
 - Fixed an issue where the UPDATE FROM or DELETE FROM statement that references the correlation name of the updated table raised an error.
-- Fixed an issue where scope_identity function returns wrong result after exiting one scope.
+- Fixed an issue where scope\_identity function returns wrong result after exiting one scope.
 - Fixed an issue where name resolution doesn't work as expected when commands are invoked from the .NET client framework.
 - Fixed an issue where any index defined on column having binary/varbinary data types are not considered by the query optimizer for equality predicates.
 
@@ -2626,33 +2626,33 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed an issue where the statement timeout parameter for a session was not working as expected.
 - Supports sequence creations using user-defined data types.
 - Fixed an issue where unicode in column names, aliases or comments causes parsing errors.
-- Fixed an issue where scope_identity function requires higher permission than actually needed.
-- Support for the following stored procedures for working with linked servers: sp_addlinkedserver, sp_dropserver, sp_linkedservers,
-  sp_addlinkedsrvlogin, sp_droplinkedsrvlogin, sp_helplinkedsrvlogin.
+- Fixed an issue where scope\_identity function requires higher permission than actually needed.
+- Support for the following stored procedures for working with linked servers: sp\_addlinkedserver, sp\_dropserver, sp\_linkedservers,
+  sp\_addlinkedsrvlogin, sp\_droplinkedsrvlogin, sp\_helplinkedsrvlogin.
 - Support for NEXT VALUE FOR function that gets the next value of a sequence. Note that this function cannot be used in some
   control-of-flow statements. OVER clause is also not supported.
-- Fixed a crash when handling certain errors with sp_describe_undeclared_parameters.
+- Fixed a crash when handling certain errors with sp\_describe\_undeclared\_parameters.
 - Fixed a rare error during Babelfish extension creation.
-- Fixed an issue which was throwing an error "typename is NULL" while using TVP in sp_executesql.
+- Fixed an issue which was throwing an error "typename is NULL" while using TVP in sp\_executesql.
 - Fixed SELECT FOR XML/JSON behavior to not raise error when using SELECT with correlation name in subquery using FOR XML PATH clause.
 - Fixed an issue with the SELECT FOR JSON or a SELECT FOR XML query which didn't return correct results for an empty table.
 - Fixed an issue where the guest user can create objects in the wrong schema.
 - Fixed schema name resolution for user defined types for param types in system stored procedures.
 - Fixed an issue where applications issuing queries with more than 100 bind parameters for prepared statements were failing.
   This limit is now increased to 2100 to match the limits used by SQL Server.
-- Fixed an issue with case handling of variable names in the sp_executesql call.
-- sp_fkeys stored procedure now also returns 'deferrability' column in the result set.
+- Fixed an issue with case handling of variable names in the sp\_executesql call.
+- sp\_fkeys stored procedure now also returns 'deferrability' column in the result set.
 - Fixed an issue in AVG aggregates which led to the termination of the connection for some integer datatypes.
-- The index_id and indid column for respective views now returns the same value for indexes belonging to same object and the index_id is unique only within the object.
+- The index\_id and indid column for respective views now returns the same value for indexes belonging to same object and the index\_id is unique only within the object.
 - Fixed an issue to not throw an error when OpenJson is called in stored procedures using nvarchar or join.
-- Fixed an issue to not throw an error while using try_convert and try_cast for prohibited conversions involving some integer literals.
+- Fixed an issue to not throw an error while using try\_convert and try\_cast for prohibited conversions involving some integer literals.
 - Fixed an issue to allow OPENJSON WITH clause to accept a table alias.
 - Support Degrees, Radians and Power functions returning the proper type.
 - Fixed an issue where membership handling for sysadmin is not handled correctly.
 - Fixed the default output style when converting DATE/TIME types to VARCHAR type using CONVERT function.
 - Support EXECUTE AS CALLER clause in CREATE PROC/FUNCTION/TRIGGER.
-- Fixed an issue where configurations are not reverted after existing sp_executesql scope.
-- Fixed issues with handling cross-database access for the sys.has_perms_by_name function.
+- Fixed an issue where configurations are not reverted after existing sp\_executesql scope.
+- Fixed issues with handling cross-database access for the sys.has\_perms\_by\_name function.
 - Support the ProductLevel and ProductUpdateLevel properties for the SERVERPROPERTY function.
   ProductUpdateLevel always returns NULL and ProductLevel tracks the Babelfish version number closely with the T-SQL definition.
 - Fixed an issue where the table variable when used as a bind parameter from client application resulted in an error.
@@ -2845,7 +2845,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### High Priority stability enhancements
 
-- Fixed an issue with `information_schema.tables` returning incorrect table_name.
+- Fixed an issue with `information_schema.tables` returning incorrect table\_name.
 - Fixed an issue for the `plpgsql` extension function. The function’s local settings for run-time configuration variables may not be reset at the end of function execution when Babelfish is
   installed.
 
@@ -2995,7 +2995,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Security enhancements
 
-- Fixed permission issue for view sys.server_principals.
+- Fixed permission issue for view sys.server\_principals.
 
 ###### Critical stability enhancements
 
@@ -3006,8 +3006,8 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed unexpected error "lost connection to parallel worker" occurring when parallel worker is enforced.
 - Fixed an issue with multiple parentheses in SELECT columns.
 - Fixed an issue with handling of column name alias which may cause client to hang if column name alias contains string of length more than 64 bytes, for example, select col as '您对“数据一览“中的车型，颜色，内饰，选装, '.
-- Fixed datatype of information_schema_tsql.tables.TABLE_TYPE column.
-- Fixed the error - “column ... does not exist” when using table.column with alias defined for table or schema_name.table.column in set clause of update queries.
+- Fixed datatype of information\_schema\_tsql.tables.TABLE\_TYPE column.
+- Fixed the error - “column ... does not exist” when using table.column with alias defined for table or schema\_name.table.column in set clause of update queries.
 - Fixed issue of incorrect schema resolution for multiple functions in query statement.
 
 ###### High priority stability enhancements
@@ -3016,23 +3016,23 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed an issue where upper/lower case may not be preserved for column name aliases.
 - Fixed crash in queries involving money data-type in parallel query mode.
 - Fixed failure in MVU with non-default server collation name.
-- Fixed the issue of information_schema vs. sys.objects WHERE type IN ('U', 'V') giving different result in Babelfish.
-- Fixed issue of sp_columns and sp_columns_100 incorrectly show NULL radix for decimal columns.
+- Fixed the issue of information\_schema vs. sys.objects WHERE type IN ('U', 'V') giving different result in Babelfish.
+- Fixed issue of sp\_columns and sp\_columns\_100 incorrectly show NULL radix for decimal columns.
 - Fixed issue in queries involving sys.format() function in parallel query mode returning error “cannot start subtransactions during a parallel operation”.
-- Fixed unexpected error “could not access file "pg_hint_plan": No such file or directory" while using pg_hint_plan in parallel query mode.
+- Fixed unexpected error “could not access file "pg\_hint\_plan": No such file or directory" while using pg\_hint\_plan in parallel query mode.
 - Fixed the issue of getting error ‘duplicate key value violates unique constraint ...' when re-creating a previously dropped view with the same name.
 
 ###### Additional improvements and enhancements
 
-- Improved performance for stored procedure sp_describe_undeclared_parameters.
+- Improved performance for stored procedure sp\_describe\_undeclared\_parameters.
 - Fixed performance issue for DATEADD(), DATEDIFF().
 - SSMS - Fixed issue of stored procedure takes long time to load in Object Explorer.
 - SSMS - Fixed performance issue of enumerating tables and views in SSMS Object Explorer.
 - Fixed performance issue after create/upgrade of Babelfish extension by running ANALYZE after Babelfish extension creation and upgrade.
 - Fixed the issue of index not used when query has an unnecessary cast to bigint.
 - Fixed an issue when stored procedures starting with (sp\_\*) are invoked with a dbo. or sys. prefix.
-- Fixed the issue with default_schema_name column of the catalog sys.babelfish_authid_user_ext in case of "guest" user.
-- Fixed issue of orphan entries in sys.babelfish_view_def catalog table.
+- Fixed the issue with default\_schema\_name column of the catalog sys.babelfish\_authid\_user\_ext in case of "guest" user.
+- Fixed issue of orphan entries in sys.babelfish\_view\_def catalog table.
 
 ### Babelfish for Aurora PostgreSQL 2.6
 
@@ -3141,14 +3141,14 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Additional improvements and enhancements
 
-- Fixed an issue with sp_helpdb where NULL is shown for compatbility_level.
-- Fixed a memory management issue with update_DropRoleStmt.
+- Fixed an issue with sp\_helpdb where NULL is shown for compatbility\_level.
+- Fixed a memory management issue with update\_DropRoleStmt.
 - Fixed table variables to make it immune to transaction rollback.
 - The fix corrects the behavior of ‘select convert(nvarchar(10),Getdate(),105)’ for nvarchar datatype.
 - Fixed an issue to allow UPDATE and DELETE for Table Variables inside functions.
 - Made enhancement to improve the performance and avoid catalog bloat while using table variables.
 - Fixed an issue in @@NEXTLEVEL which returned 1 unit larger than expected.
-- Fixed an issue in sp_helpdb where input parameter’s case sensitivity is not handled properly.
+- Fixed an issue in sp\_helpdb where input parameter’s case sensitivity is not handled properly.
 
 ### Babelfish for Aurora PostgreSQL 2.4 (Deprecated)
 
@@ -3175,7 +3175,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ######
 
 - Fixed a memory management issue with `update_DropRoleStmt`.
-- Fixed a crash in `SqlBulkCopy` with heap_compute_data_size function in stacktrace when the order of columns is different compared to table defining.
+- Fixed a crash in `SqlBulkCopy` with heap\_compute\_data\_size function in stacktrace when the order of columns is different compared to table defining.
 - Fixed an issue that `bcp in` results in server crash when the table has large number of columns.
 - Fixed a crash in parallel query execution when `enable_pg_hint` is set to `on`.
 
@@ -3202,11 +3202,11 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Supports major version upgrade from Babelfish for Aurora PostgreSQL DB cluster 13.x onwards to Aurora PostgreSQL 14.7.
   For more information on the major version upgrade, see
   [Upgrading Babelfish to a new major version](../AuroraUserGuide/babelfish-information-upgrading.md#babelfish-information-upgrading-major "../AuroraUserGuide/babelfish-information-upgrading.md#babelfish-information-upgrading-major").
-- Support for the following functions: STR, APP_NAME, OBJECT_DEFINITION, OBJECT_SCHEMA_NAME, ATN2, DATEDIFF_BIG functions.
-- Support for the following INFORMATION_SCHEMA views: sequences, routines and schemata.
-- Support sp_rename for TABLE, VIEW, PROCEDURE, FUNCTION, SEQUENCE.
+- Support for the following functions: STR, APP\_NAME, OBJECT\_DEFINITION, OBJECT\_SCHEMA\_NAME, ATN2, DATEDIFF\_BIG functions.
+- Support for the following INFORMATION\_SCHEMA views: sequences, routines and schemata.
+- Support sp\_rename for TABLE, VIEW, PROCEDURE, FUNCTION, SEQUENCE.
 - Support sys.systypes system compatibility view.
-- Support for a new GUC parameter called babelfishpg_tds.product_version that allows you to set SQL Server product version number that is returned as an output by Babelfish. For more information,
+- Support for a new GUC parameter called babelfishpg\_tds.product\_version that allows you to set SQL Server product version number that is returned as an output by Babelfish. For more information,
   see [Using Babelfish product version GUC](../AuroraUserGuide/babelfish-guc-version.md "../AuroraUserGuide/babelfish-guc-version.md").
 - Added support to generate data definition scripts for various objects present in a Babelfish for Aurora PostgreSQL database. For more information,
   see [DDL exports supported by Babelfish](../AuroraUserGuide/babelfish-query-database.md#babelfish-ddl-exports "../AuroraUserGuide/babelfish-query-database.md#babelfish-ddl-exports").
@@ -3220,15 +3220,15 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Improved the performance through interactive queries, ODBC-based applications and tools such as SQL Server Management Studio.
   Following enhancements has been made for the same:
 
-  - Fixed performance issues in several system functions including OBJECT_ID(), OBJECT_NAME(), SCHEMA_ID().
-  - Fixed performance issues in system stored procedures sp_sproc_columns and sp_fkeys.
-  - Fixed performance issues in system catalog views sys.all_views, sys.objects and sys.types.
+  - Fixed performance issues in several system functions including OBJECT\_ID(), OBJECT\_NAME(), SCHEMA\_ID().
+  - Fixed performance issues in system stored procedures sp\_sproc\_columns and sp\_fkeys.
+  - Fixed performance issues in system catalog views sys.all\_views, sys.objects and sys.types.
   - Improved the performance of bulk load, parsing of T-SQL and prepared statements.
 
-- Added a new system stored procedure sp_babelfish_volatility that you can use to set the volatility of user-defined
+- Added a new system stored procedure sp\_babelfish\_volatility that you can use to set the volatility of user-defined
   functions to improve index use when the functions are used as part of query predicates.
 - Fixed an issue where the UPDATE FROM or DELETE FROM statement that references the correlation name of the updated table raised an error.
-- Fixed an issue where scope_identity function returns wrong result after exiting one scope.
+- Fixed an issue where scope\_identity function returns wrong result after exiting one scope.
 - Fixed an issue where name resolution doesn't work as expected when commands are invoked from the .NET client framework.
 
 ###### Additional improvements and enhancements
@@ -3236,31 +3236,31 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed an issue where the statement timeout parameter for a session was not working as expected.
 - Support for sequence creations using user-defined data types.
 - Fixed an issue where unicode in column names, aliases or comments causes parsing errors.
-- Fixed an issue where scope_identity function requires higher permission than actually needed.
+- Fixed an issue where scope\_identity function requires higher permission than actually needed.
 - Support for NEXT VALUE FOR function that gets the next value of a sequence. Note that this function cannot be used in some
   control-of-flow statements. OVER clause is also not supported.
-- Fixed a crash when handling certain errors with sp_describe_undeclared_parameters.
+- Fixed a crash when handling certain errors with sp\_describe\_undeclared\_parameters.
 - Fixed a rare error during Babelfish extension creation.
-- Fixed an issue which was throwing an error "typename is NULL" while using TVP in sp_executesql.
+- Fixed an issue which was throwing an error "typename is NULL" while using TVP in sp\_executesql.
 - Fixed SELECT FOR XML/JSON behavior to not raise error when using SELECT with correlation name in subquery using FOR XML PATH clause.
 - Fixed an issue with the SELECT FOR JSON or a SELECT FOR XML query which didn't return correct results for an empty table.
 - Fixed an issue where the guest user can create objects in the wrong schema.
 - Fixed schema name resolution for user defined types for param types in system stored procedures.
 - Fixed the issue where applications issuing queries with more than 100 bind parameters for prepared statements were failing.
   This limit is now increased to 2100 to match the limits used by SQL Server.
-- Fixed an issue with case handling of variable names in the sp_executesql call.
-- sp_fkeys stored procedure now also returns 'deferrability' column in the result set.
+- Fixed an issue with case handling of variable names in the sp\_executesql call.
+- sp\_fkeys stored procedure now also returns 'deferrability' column in the result set.
 - Fixed an issue in AVG aggregates which led to the termination of the connection for various integer datatypes.
-- The index_id and indid column for respective views now returns the same value for indexes belonging to same object and the index_id is unique only within the object.
+- The index\_id and indid column for respective views now returns the same value for indexes belonging to same object and the index\_id is unique only within the object.
 - Fixed an issue to not throw an error when OpenJson is called in stored procedures using nvarchar or join.
-- Fixed an issue to not throw an error while using try_convert and try_cast for prohibited conversions involving int literals.
+- Fixed an issue to not throw an error while using try\_convert and try\_cast for prohibited conversions involving int literals.
 - Fixed an issue to allow OPENJSON WITH clause to accept a table alias.
 - Support Degrees, Radians and Power functions returning the proper type.
 - Fixed an issue where membership handling for sysadmin is not handled correctly.
 - Fixed the default output style when converting DATE/TIME types to VARCHAR type using CONVERT function.
 - Support EXECUTE AS CALLER clause in CREATE PROC/FUNCTION/TRIGGER.
-- Fixed an issue where configurations are not reverted after existing sp_executesql scope.
-- Fixed issues with handling cross-database access for the sys.has_perms_by_name function.
+- Fixed an issue where configurations are not reverted after existing sp\_executesql scope.
+- Fixed issues with handling cross-database access for the sys.has\_perms\_by\_name function.
 - Support the ProductLevel and ProductUpdateLevel properties for the SERVERPROPERTY function.
   ProductUpdateLevel always returns NULL and ProductLevel tracks the Babelfish version number closely with the T-SQL definition.
 - Fixed an issue where the table variable when used as a bind parameter from client application resulted in an error.
@@ -3312,43 +3312,43 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
   in the _Amazon Aurora User Guide_.
 - Support for FORMAT() T-SQL function with minor limitations.
 - Support the estimated execution plans for THROW, PRINT, USE, and RAISEERROR statements.
-- Support for JSON_MODIFY function in Babelfish which updates the value of a property in a JSON string and returns the updated JSON string.
+- Support for JSON\_MODIFY function in Babelfish which updates the value of a property in a JSON string and returns the updated JSON string.
 - Support the VALUES() constructor in FROM clause in a SELECT statement.
-- Support sp_addrole, sp_droprole, sp_addrolemember, sp_droprolemember procedures to create or alter a role.
-- Support for sys.all_parameters catalog view.
+- Support sp\_addrole, sp\_droprole, sp\_addrolemember, sp\_droprolemember procedures to create or alter a role.
+- Support for sys.all\_parameters catalog view.
 - Support guest user in all the user created databases and support GRANT/CONNECT TO/FROM user (including guest).
-- Support sp_helpdbfixedrole and DATETIMEOFFSETFROMPARTS functions.
+- Support sp\_helpdbfixedrole and DATETIMEOFFSETFROMPARTS functions.
 
 ###### High priority stability enhancements
 
-- Improved performance for INSERT statement with IDENTITY_INSERT=ON.
+- Improved performance for INSERT statement with IDENTITY\_INSERT=ON.
 - Fixed an issue where "DROP DATABASE" statement fails due to incorrect comparison operator used.
 - Fixed an issue where numeric overflow error was not handled properly for numeric types.
 - Fixed an issue where DB owner is not considered as dbo in its own DB.
 - Fixed issues with SSL handshake failure and added a few other improvements.
-- Fixed the sys.all_objects view to correctly identify inline table-valued functions (IF) and table-valued functions (TF)
+- Fixed the sys.all\_objects view to correctly identify inline table-valued functions (IF) and table-valued functions (TF)
   which were previously reported as scalar functions (FN). Similar issue is fixed for the IsInlineFunction property of the OBJECTPROPERTY function.
 - Fixed an issue where DBO is assumed member of a DB role incorrectly.
 - Fixed an issue where member of sysadmin could not connect through SSMS.
 - Corrected the schema name resolution for triggers and views so that it selects/modifies the correct object(tables).
 - Fixed the mapping consistency in catalog when creating roles with names in upper/lower case.
 - Fixed an issue where drop database is blocked after access denial to other logins due to in sufficient permission.
-- Fixed the default collation of Babelfish data types except TEXT and NTEXT to be the same as that mentioned in the babelfishpg_tsql.server_collation_name parameter.
+- Fixed the default collation of Babelfish data types except TEXT and NTEXT to be the same as that mentioned in the babelfishpg\_tsql.server\_collation\_name parameter.
   For more information, see [Default Collation in Babelfish](../AuroraUserGuide/babelfish-collations.md#babelfish-collations-default "../AuroraUserGuide/babelfish-collations.md#babelfish-collations-default").
 - Fixed the cross-DB references to tempdb.sys.objects for correct results.
 
 ###### Additional improvements and enhancements
 
 - Fixed an issue to make trigger names unique for each database.
-- Fixed an issue in sp_tables when it is invoked from JDBC metadata functions.
+- Fixed an issue in sp\_tables when it is invoked from JDBC metadata functions.
 - Fixed an issue when CHECK constraints are used with LIKE condition.
-- Performance improvements with sp_sproc_columns when dealing with stored procedures.
-- sp_sproc_columns now includes table-valued parameter row for stored procedures that use TVP as a parameter.
-- Fixed the cross-DB references to INFORMATION_SCHEMA.ROUTINES and tempdb.sys.objects to give the correct results.
+- Performance improvements with sp\_sproc\_columns when dealing with stored procedures.
+- sp\_sproc\_columns now includes table-valued parameter row for stored procedures that use TVP as a parameter.
+- Fixed the cross-DB references to INFORMATION\_SCHEMA.ROUTINES and tempdb.sys.objects to give the correct results.
 - Fixed issues to support datetime/smalldatetime operation with various numeric and non numeric datatypes.
 - Fixed the return values of SUM aggregates for integer datatypes to return the correct datatypes.
 - Fixed an issue when UPDATE/DELETE is used with table aliases.
-- Support added for sysobjects.crdate (create_date) for all user defined tables, views, procedures, functions, triggers and table types.
+- Support added for sysobjects.crdate (create\_date) for all user defined tables, views, procedures, functions, triggers and table types.
 - Procedure/function call is not allowed when required parameter is missing and an explicit error is raised.
 - Fixed issue to calculate the day difference and the hour difference, without considering timestamp (i.e., hh:mm:ss.msec).
 - Fixed an issue with DATEDIFF() function to return correct results between two input dates regardless of the input parameters.
@@ -3356,34 +3356,34 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed an issue with DATEPART(), DATENAME(), DATEDIFF() and DATEADD() functions when used with 'w' units
 - Fixed an issue with DATEPART() and DATENAME() to allow units 'y'.
 - Fixed issues with DATEPART(), DATENAME(), DATEDIFF() and DATEADD() functions to convert string to datetime and to recognize mi units.
-- Support for TRY_CONVERT() function.
+- Support for TRY\_CONVERT() function.
 - Fixed issue with using strict/lax jsonpath with arrays to avoid OPENJSON error: "syntax error at or near " " of jsonpath input".
 - Support UDF (User Defined Function) as column default in ALTER TABLE statement.
 - Fixed an issue when SUBSTRING() takes NULL arguments.
 - Support for cast operations to SMALLDATETIME from various numeric types.
-- Fixed an issue where dbname parameter is not handled properly for sp_helpdb.
+- Fixed an issue where dbname parameter is not handled properly for sp\_helpdb.
 - Fixed an issue where DB owner is allowed to create another user for itself.
-- Fixed an issue where trailing spaces are not ignored in sp_helpsrvrolemember and IS_ROLEMEMBER/IS_MEMBER functions.
+- Fixed an issue where trailing spaces are not ignored in sp\_helpsrvrolemember and IS\_ROLEMEMBER/IS\_MEMBER functions.
 - Improved error message for unsupported data types: HIERARCHYID, GEOGRAPHY, GEOMETRY.
 - Fixed issues where cross database procedure calls and sp\_ procedures access from other databases should succeed even without EXECUTE keyword.
 - Fixed an issue where user 'guest' is not dropped in any database, but only disabled.
-- Fixed the column value for SID in the procedure sp_helpuser when the user is guest.
+- Fixed the column value for SID in the procedure sp\_helpuser when the user is guest.
 - Fixed an issue where overflow/underflow is not getting handled with money datatype.
 - Fixed an issue where error is not getting handled while error processing in tds.
 - Fixed a better error message for CREATE USER WITHOUT LOGIN.
-- Fixed an issue where sp_helpsrvrolemember is throwing unsupported errors for unsupported server level roles.
-- Fixed an issue where SET BABELFISH_STATISTICS PROFILE shows planning and execution times.
+- Fixed an issue where sp\_helpsrvrolemember is throwing unsupported errors for unsupported server level roles.
+- Fixed an issue where SET BABELFISH\_STATISTICS PROFILE shows planning and execution times.
 - Corrected the schema name resolution for Babelfish objects like views and triggers, so that correct object is selected or modified.
 - Support rowversion/timestamp Datatype for Insert Bulk.
-- In Babelfish, sp_babelfish_configure supports enable_pg_hint and explain-related configurations by turning them "on/off". Accepting "ignore/strict" option is allowed when there are multiple matches while using sp_babelfish_configure.
+- In Babelfish, sp\_babelfish\_configure supports enable\_pg\_hint and explain-related configurations by turning them "on/off". Accepting "ignore/strict" option is allowed when there are multiple matches while using sp\_babelfish\_configure.
 - Support to Keep Nulls (-k) bcp option for optimized implementation to insert Bulk.
 - Support multi-byte currency symbols to use with money data type.
 - Fixed issue for dotnet clients (including SSMS) that received invalid precision/scale error for certain arithmetic expressions.
-- Fixed the sys.all_objects view to correctly identify inline table-valued functions (IF) and table-valued functions (TF) which were previously reported as scalar functions (FN).
+- Fixed the sys.all\_objects view to correctly identify inline table-valued functions (IF) and table-valued functions (TF) which were previously reported as scalar functions (FN).
   Fixed similar issue for the IsInlineFunction property of the OBJECTPROPERTY function.
-- Fixed an issue where the is_member function returns an incorrect result for certain roles.
-- Improvements in FOR JSON PATH clause of SELECT statement which supports ROOT, INCLUDE_NULL_VALUES, WITHOUT_ARRAY_WRAPPER.
-- Supports a new escape hatch, 'escape_hatch_checkpoint' with a default pf 'ignore'. This escape hatch allows the use of CHECKPOINT statement in the procedural code, but the CHECKPOINT statement is currently not implemented.
+- Fixed an issue where the is\_member function returns an incorrect result for certain roles.
+- Improvements in FOR JSON PATH clause of SELECT statement which supports ROOT, INCLUDE\_NULL\_VALUES, WITHOUT\_ARRAY\_WRAPPER.
+- Supports a new escape hatch, 'escape\_hatch\_checkpoint' with a default pf 'ignore'. This escape hatch allows the use of CHECKPOINT statement in the procedural code, but the CHECKPOINT statement is currently not implemented.
 
 ### Babelfish for Aurora PostgreSQL 2.2
 
@@ -3416,18 +3416,18 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 #### Aurora Babelfish release 2.2.1, December 13, 2022
 
-- Fixed an issue that prevented the use of collations like Chinese_PRC_CI_AS, Japanese_CI_AS and so on for babelfishpg_tsql.server_collation_name.
+- Fixed an issue that prevented the use of collations like Chinese\_PRC\_CI\_AS, Japanese\_CI\_AS and so on for babelfishpg\_tsql.server\_collation\_name.
 
 #### Aurora Babelfish release 2.2.0, November 9, 2022
 
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
-  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
+  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish\_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
 ###### High priority stability enhancements
 
-- Fixed error handling in sp_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
+- Fixed error handling in sp\_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
 - Fixed error handling in SSL/TLS handshake for some client drivers.
 - Fixed an issue where a login can access the database without creating DB user after the DROP/CREATE of login.
 - Fixed an issue where a login isn't dropped if it is logged in on any session.
@@ -3437,32 +3437,32 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Support for data migration using the BCP client and the bcp utility now supports -E flag (for identity columns) and -b flag (for batching inserts).
 - Support for cross-database stored procedure execution.
 - Support for CROSS APPLY and OUTER APPLY (lateral join).
-- Support for built-in functions SYSTEM_USER, HOST_NAME; the Hostname is visible in the sys.sysprocesses T-SQL view; the SID_BINARY
+- Support for built-in functions SYSTEM\_USER, HOST\_NAME; the Hostname is visible in the sys.sysprocesses T-SQL view; the SID\_BINARY
   function is supported but always returns NULL in Babelfish.
 - Support for CAST function of numeric expressions to DATETIME.
-- Support for @@LANGUAGE variable with constant value as 'us_english’.
+- Support for @@LANGUAGE variable with constant value as 'us\_english’.
 - Support for the old-style function calls with '::' preceding the function name.
-- Support for the sp_helpsrvrolemember stored procedure.
-- Support for the msdb.dbo.fn_syspolicy_is_automation_enabled system
+- Support for the sp\_helpsrvrolemember stored procedure.
+- Support for the msdb.dbo.fn\_syspolicy\_is\_automation\_enabled system
   function.
-- Support for more catalogs: assembly_types, numbered_procedures, triggers,
-  spatial_index_tessellations, plan_guides, synonyms, events, trigger_events,
-  fulltext_indexes, dm_hadr_cluster, xml_indexes, change_tracking_tables,
-  key_constraints, database_filestream_options,
-  filetable_system_defined_objects, hash_indexes, filegroups, master_files,
-  assembly_modules, change_tracking_databases, database_recovery_status,
-  fulltext_catalogs, fulltext_stoplists, fulltext_indexes,
-  fulltext_index_columns, fulltext_languages, selective_xml_index_paths,
-  spatial_indexes, filetables, registered_search_property_lists,
-  syspolicy_configuration, syspolicy_system_health_state.
-- Support for new INFORMATION_SCHEMA catalogs: COLUMN_DOMAIN_USAGE,
-  CONSTRAINT_COLUMN_USAGE, CHECK_CONSTRAINTS, ROUTINES, VIEWS.
-- Support for new PG-style query plan: escape hatch 'babelfish_pgtsql.escape_hatch_showplan_all'.
+- Support for more catalogs: assembly\_types, numbered\_procedures, triggers,
+  spatial\_index\_tessellations, plan\_guides, synonyms, events, trigger\_events,
+  fulltext\_indexes, dm\_hadr\_cluster, xml\_indexes, change\_tracking\_tables,
+  key\_constraints, database\_filestream\_options,
+  filetable\_system\_defined\_objects, hash\_indexes, filegroups, master\_files,
+  assembly\_modules, change\_tracking\_databases, database\_recovery\_status,
+  fulltext\_catalogs, fulltext\_stoplists, fulltext\_indexes,
+  fulltext\_index\_columns, fulltext\_languages, selective\_xml\_index\_paths,
+  spatial\_indexes, filetables, registered\_search\_property\_lists,
+  syspolicy\_configuration, syspolicy\_system\_health\_state.
+- Support for new INFORMATION\_SCHEMA catalogs: COLUMN\_DOMAIN\_USAGE,
+  CONSTRAINT\_COLUMN\_USAGE, CHECK\_CONSTRAINTS, ROUTINES, VIEWS.
+- Support for new PG-style query plan: escape hatch 'babelfish\_pgtsql.escape\_hatch\_showplan\_all'.
 
-  - when set to 'ignore', SET SHOWPLAN_ALL and SET STATISTICS
-    PROFILE behaves as SET BABELFISH_SHOWPLAN_ALL and SET
-    BABELFISH_STATISTICS PROFILE.
-  - when set to 'strict', SET SHOWPLAN_ALL and SET
+  - when set to 'ignore', SET SHOWPLAN\_ALL and SET STATISTICS
+    PROFILE behaves as SET BABELFISH\_SHOWPLAN\_ALL and SET
+    BABELFISH\_STATISTICS PROFILE.
+  - when set to 'strict', SET SHOWPLAN\_ALL and SET
     STATISTICS PROFILE are silently ignored.
 
 - Support for executing stored procedures with the sp\_ prefix in the master database without using a three-part name.
@@ -3471,8 +3471,8 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 - Fixed an issue where a value of 1900-01-01 00:00:00 was stored when a NULL was inserted or updated into a datetime column. A NULL value is inserted now. Column values in tables created in a previous Babelfish release are not affected.
 - TIME datatypes that return 7 digits in SQL Server now returns 7 digits in Babelfish as well, with the 7th digit always being zero. In addition, a rounding issue that sometimes affected the 6th digit has been resolved.
-- Increased parameter lengths for @tsql and @params for sp_describe_first_result_set from nvarchar(384) to nvarchar(8000). This increases the number of columns the DMS Babelfish target endpoint can support from 25 to 1000.
-- Improved performance for system stored procedures: sys.sp_tablecollations_100, sp_columns_managed, and sp_describe_undeclared_parameters. This fix improves the performance of the DMS Babelfish
+- Increased parameter lengths for @tsql and @params for sp\_describe\_first\_result\_set from nvarchar(384) to nvarchar(8000). This increases the number of columns the DMS Babelfish target endpoint can support from 25 to 1000.
+- Improved performance for system stored procedures: sys.sp\_tablecollations\_100, sp\_columns\_managed, and sp\_describe\_undeclared\_parameters. This fix improves the performance of the DMS Babelfish
   target endpoint, SQL Server Management Studio import and export wizard, and prevents timeouts.
 - Fixed an issue with Bitwise NOT ~ operator and it returns the correct result with BIT data types now.
 - Fixed an issue with BCP when it is used for tables that have triggers.
@@ -3485,34 +3485,34 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed an issue where a role can be dropped even if it has members.
 - Fixed an issue so that the db user can't add to a role or drop from a role.
 - Fixed an issue to allow BCP to work correctly with collations other than English collations.
-- Fixed an issue to make sp_helpuser procedure show login name for dbo user.
-- Fixed an issue to handle NULL and mix-cased inputs correctly for the functions SUSER_SNAME and SUSER_SID.
+- Fixed an issue to make sp\_helpuser procedure show login name for dbo user.
+- Fixed an issue to handle NULL and mix-cased inputs correctly for the functions SUSER\_SNAME and SUSER\_SID.
 - Fixed an issue with Babelfish returning an invalid TDS protocol stream when there is a numeric overflow error.
-- Fixed an issue where is_fixed_role column returns incorrect value in the sys.server_principals view for the 'sysadmin' role.
+- Fixed an issue where is\_fixed\_role column returns incorrect value in the sys.server\_principals view for the 'sysadmin' role.
 - Fixed the transaction error handling in a batch if the string passed to execute contains a USE `dbname` and fails because the database `dbname` was not found.
 - Fixed the issue with procedures created in master database context with prefix sp\_ that are not accessible from other database context.
 - Fixed the failure to resolve object name inside a procedure when used with schema name.
-- Fixed case-sensitivity issue with arguments to the functions USER_ID and SUSER_ID.
+- Fixed case-sensitivity issue with arguments to the functions USER\_ID and SUSER\_ID.
 - Fixed an issue where triggers were allowed to be created on Babelfish temporary tables.
 - Fixed several performance issues with Import-Export wizard.
 - Support for multi-byte client encodings other than UTF-16 for VARCHAR(n).
 - Fixed the system compatibility view sys.sysprocesses to show the correct value for hostname provided by the client connection.
-- Fixed case sensitivity issue with Polish_CI_AS collation.
+- Fixed case sensitivity issue with Polish\_CI\_AS collation.
 - Fixed the @@DBTS function so that value of @@DBTS correctly returns the current transaction id after each DML statement even when used within a transaction.
-- Improved performance for queries that refer to the functions SCOPE_IDENTITY and @@IDENTITY.
-- Support added for collations Japanese_CS_AS, Japanese_CI_AI and Japanese_CI_AS for fn_helpcollations.
+- Improved performance for queries that refer to the functions SCOPE\_IDENTITY and @@IDENTITY.
+- Support added for collations Japanese\_CS\_AS, Japanese\_CI\_AI and Japanese\_CI\_AS for fn\_helpcollations.
 - @@SERVERNAME and SERVERPROPERTY('ServerName') now return the name of the
   Babelfish instance as specified by the user when the instance is created.
   This value is also returned by the newly supported properties
   SERVERPROPERTY('MachineName') and SERVERPROPERTY('InstanceName').
-- Function fn_mapped_system_error_list lists the PG error code mapped to
+- Function fn\_mapped\_system\_error\_list lists the PG error code mapped to
   @@ERROR codes, as well as the corresponding error message text. This
   function also exists in previous Babelfish releases but did not include mapping
   details.
 - Fixed DATEADD function to now support milliseconds(ms) time units.
-- SET NO_BROWSETABLE {ON|OFF} is now subject to escape hatch escape_hatch_session_settings, so no error is raised when set to ignored.
-- SET PARSEONLY {ON|OFF} is now supported. Previously this would raise an error unless escape hatch escape_hatch_session_settings is set to ignored.
-- The DATABASE_DEFAULT AND CATALOG_DEFAULT collation is now supported; this refers to the server/instance-level collation that was specified when the Babelfish
+- SET NO\_BROWSETABLE {ON|OFF} is now subject to escape hatch escape\_hatch\_session\_settings, so no error is raised when set to ignored.
+- SET PARSEONLY {ON|OFF} is now supported. Previously this would raise an error unless escape hatch escape\_hatch\_session\_settings is set to ignored.
+- The DATABASE\_DEFAULT AND CATALOG\_DEFAULT collation is now supported; this refers to the server/instance-level collation that was specified when the Babelfish
   instance was created, as Babelfish doesn't currently support collations on database level.
 - For the functions OBJECTPROPERTY and OBJECTPROPERTYEX, the following properties are
   now supported: ExecIsAnsiNullsOn, ExecIsQuotedIdentOn, IsDefault,
@@ -3542,16 +3542,16 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
-  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
+  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish\_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
 ###### High priority stability enhancements
 
-- Fixed error handling in sp_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
+- Fixed error handling in sp\_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
 - Fixed error handling in SSL/TLS handshake for some client drivers.
 
 #### Babelfish for Aurora PostgreSQL release 2.1.1, July 6, 2022
 
-- Fixed the babelfishpg_tds extension to correctly allocate the shared memory size used by the extension.
+- Fixed the babelfishpg\_tds extension to correctly allocate the shared memory size used by the extension.
 
 #### Babelfish for Aurora PostgreSQL release 2.1.0, June 21, 2022
 
@@ -3562,13 +3562,13 @@ Babelfish DB clusters running on Aurora PostgreSQL 13.7 or older versions can't 
 - Support for data migration using the bcp client utility, as an experimental feature. Some bcp options (-b, -C, -E, -G, -h, -K, -k, -q, -R, -T, -V) are not currently supported.
 - Support for connecting with the SSMS object explorer connection dialog (rather than only the Query Editor connection dialog), as well as partial support for the SSMS object explorer itself.
 - Improved support for data migration with the SSMS Import/Export Wizard.
-- Support for IS_MEMBER, IS_ROLEMEMBER, and HAS_PERMS_BY_NAME functions.
-- Support for syslanguages, sys.indexes, sys.all_views, sys.database_files, sys.sql_modules, sys.system_sql_modules, sys.all_sql_modules, sys.xml_schema_collections, sys.dm_hadr_database_replica_states, sys.data_spaces, sys.database_mirroring, sys.database_role_members catalogs.
-- Support for sp_sproc_columns, sp_sproc_columns_100, sp_helprole, sp_helprolemember system stored procedures.
-- Support for Japanese_CS_AS, Japanese_CI_AI, Japanese_CI_AS collations.
+- Support for IS\_MEMBER, IS\_ROLEMEMBER, and HAS\_PERMS\_BY\_NAME functions.
+- Support for syslanguages, sys.indexes, sys.all\_views, sys.database\_files, sys.sql\_modules, sys.system\_sql\_modules, sys.all\_sql\_modules, sys.xml\_schema\_collections, sys.dm\_hadr\_database\_replica\_states, sys.data\_spaces, sys.database\_mirroring, sys.database\_role\_members catalogs.
+- Support for sp\_sproc\_columns, sp\_sproc\_columns\_100, sp\_helprole, sp\_helprolemember system stored procedures.
+- Support for Japanese\_CS\_AS, Japanese\_CI\_AI, Japanese\_CI\_AS collations.
 - Babelfish now supports CHARINDEX substring searches on systems using nondeterministic collations.
-- Babelfish now supports PATINDEX, and supports arguments to STRING_SPLIT that are collated using a case-insensitive collation.
-- Query plan output is generated following SET BABELFISH_SHOWPLAN_ALL ON (and OFF) and SET BABELFISH_STATISTICS PROFILE ON (OFF). This will generate PostgreSQL-style query plan information for T-SQL queries in Babelfish. Make sure these SET statements are identical to existing T-SQL statements, but with the added BABELFISH\_ prefix.
+- Babelfish now supports PATINDEX, and supports arguments to STRING\_SPLIT that are collated using a case-insensitive collation.
+- Query plan output is generated following SET BABELFISH\_SHOWPLAN\_ALL ON (and OFF) and SET BABELFISH\_STATISTICS PROFILE ON (OFF). This will generate PostgreSQL-style query plan information for T-SQL queries in Babelfish. Make sure these SET statements are identical to existing T-SQL statements, but with the added BABELFISH\_ prefix.
 
 ###### Additional improvements and enhancements
 
@@ -3579,8 +3579,8 @@ Babelfish DB clusters running on Aurora PostgreSQL 13.7 or older versions can't 
 - Fixed an issue with INSERT INTO...with OUTPUT clause that resulted in a `Number of given values doesn't match target table definition` error.
 - Fixed an issue that caused DELETE with OUTPUT INTO temporary table statements to return a `WITH query 'nnnnnnnnnnn' doesn't have a RETURNING clause` error.
 - Fixed an issue that caused LEFT OUTER JOIN to fail with a `Sqlcmd:
-Error: Internal error at ReadAndHandleColumnData (Reason: Error reading
-column data)` error. This issue was a regression introduced in
+ Error: Internal error at ReadAndHandleColumnData (Reason: Error reading
+ column data)` error. This issue was a regression introduced in
   Babelfish 1.1.0. If your Babelfish for Aurora PostgreSQL DB cluster runs
   Babelfish version 1.1.0 and you get this error, we recommend that you
   upgrade to Aurora PostgreSQL 13.7 to obtain this fix.
@@ -3642,16 +3642,16 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
-  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
+  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish\_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
 ###### High priority stability enhancements
 
-- Fixed error handling in sp_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
+- Fixed error handling in sp\_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
 - Fixed error handling in SSL/TLS handshake for some client drivers.
 
 ###### Additional improvements
 
-- Fixed the babelfishpg_tds extension to correctly allocate the shared memory size used by the extension.
+- Fixed the babelfishpg\_tds extension to correctly allocate the shared memory size used by the extension.
 
 ### Babelfish for Aurora PostgreSQL 1.3 (Deprecated)
 
@@ -3675,16 +3675,16 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
-  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
+  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish\_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
 ###### High priority stability enhancements
 
-- Fixed error handling in sp_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
+- Fixed error handling in sp\_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
 - Fixed error handling in SSL/TLS handshake for some client drivers.
 
 #### Babelfish for Aurora PostgreSQL release 1.3.1, July 6, 2022
 
-- Fixed the babelfishpg_tds extension to correctly allocate the shared memory size used by the extension.
+- Fixed the babelfishpg\_tds extension to correctly allocate the shared memory size used by the extension.
 
 #### Babelfish for Aurora PostgreSQL release 1.3.0, June 9, 2022
 
@@ -3692,8 +3692,8 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Fixed an issue with INSERT INTO...with OUTPUT clause that resulted in a `Number of given values doesn't match target table definition` error.
 - Fixed an issue that caused DELETE with OUTPUT INTO temporary table statements to return a `WITH query 'nnnnnnnnnnn' doesn't have a RETURNING clause` error.
 - Fixed an issue that caused LEFT OUTER JOIN to fail with a `Sqlcmd:
-Error: Internal error at ReadAndHandleColumnData (Reason: Error reading
-column data)` error. This issue was a regression introduced in
+ Error: Internal error at ReadAndHandleColumnData (Reason: Error reading
+ column data)` error. This issue was a regression introduced in
   Babelfish 1.1.0. If your Babelfish for Aurora PostgreSQL DB cluster runs
   Babelfish version 1.1.0 and you get this error, we recommend that you
   upgrade to Aurora PostgreSQL 13.7 to obtain this fix.
@@ -3721,12 +3721,12 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
-  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
+  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish\_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
 #### Babelfish for Aurora PostgreSQL release 1.2.2, July 18, 2022
 
 - Fixed an issue causing outer join queries to sometimes fail with an internal error message.
-- Fixed the babelfishpg_tds extension to correctly allocate the shared memory size used by the extension.
+- Fixed the babelfishpg\_tds extension to correctly allocate the shared memory size used by the extension.
 
 #### Babelfish for Aurora PostgreSQL release 1.2.1, April 27, 2022
 
@@ -3747,42 +3747,42 @@ with limited implementation](../AuroraUserGuide/babelfish-compatibility.md#babel
   column names using the same casing as used when the table was created at the TDS
   endpoint.
 - INSTEAD-OF triggers are now supported on tables (tables only, not views).
-- Support for system-defined global variables @@DBTS, @@LOCK_TIMEOUT, @@SERVICENAME.
-- Support for syntax SET LOCK_TIMEOUT.
+- Support for system-defined global variables @@DBTS, @@LOCK\_TIMEOUT, @@SERVICENAME.
+- Support for syntax SET LOCK\_TIMEOUT.
 - Support for datatypes TIMESTAMP and ROWVERSION.
-- Support for built-in functions COLUMNS_UPDATED, UPDATE, FULLTEXTSERVICEPROPERTY,
-  ISJSON, JSON_QUERY, JSON_VALUE, HAS_DBACCESS, SUSER_SID, SUSER_SNAME, IS_SRVROLEMEMBER.
+- Support for built-in functions COLUMNS\_UPDATED, UPDATE, FULLTEXTSERVICEPROPERTY,
+  ISJSON, JSON\_QUERY, JSON\_VALUE, HAS\_DBACCESS, SUSER\_SID, SUSER\_SNAME, IS\_SRVROLEMEMBER.
 - Full support for the CHECKSUM function. This function now
   supports \* and multiple columns (`CHECKSUM ( * | expression [ ,...n ] )`).
-- Full support for the SCHEMA_ID function. This function
+- Full support for the SCHEMA\_ID function. This function
   can now be used without any arguments (`SCHEMA_ID ( [ schema_name ] )`).
 - Support for DROP IF EXISTS with SCHEMA,
   DATABASE, and USER objects.
 - Support for these additional values for CONNECTIONPROPERTY:
-  physical_net_transport and client_net_address.
+  physical\_net\_transport and client\_net\_address.
 - Support for the these SERVERPROPERTY values:
   EditionID, EngineEdition, LicenseType, ProductVersion, ProductMajorVersion,
   ProductMinorVersion, IsIntegratedSecurityOnly, IsLocalDB,
   IsAdvancedAnalyticsInstalled, IsBigDataCluster, IsPolyBaseInstalled,
   IsFullTextInstalled, and IsXTPSupported.
 - Support for these catalogs:
-  sys.dm_os_host_info, sys.dm_exec_sessions, sys.dm_exec_connections,
-  sys.endpoints, sys.table_types, sys.database_principals,
+  sys.dm\_os\_host\_info, sys.dm\_exec\_sessions, sys.dm\_exec\_connections,
+  sys.endpoints, sys.table\_types, sys.database\_principals,
   sys.sysprocesses, sys.sysconfigures, sys.syscurconfigs, and
   sys.configurations.
-- Support for these INFORMATION_SCHEMA catalogs: TABLES,
-  COLUMNS, DOMAINS, and TABLE_CONSTRAINTS.
+- Support for these INFORMATION\_SCHEMA catalogs: TABLES,
+  COLUMNS, DOMAINS, and TABLE\_CONSTRAINTS.
 - Support for these system stored procedures:
-  sp_table_privileges, sp_column_privileges, sp_special_columns,
-  sp_fkeys, sp_pkeys, sp_stored_procedures, xp_qv,
-  sp_describe_undeclared_parameters, and sp_helpuser.
+  sp\_table\_privileges, sp\_column\_privileges, sp\_special\_columns,
+  sp\_fkeys, sp\_pkeys, sp\_stored\_procedures, xp\_qv,
+  sp\_describe\_undeclared\_parameters, and sp\_helpuser.
 - Limited support for creating, altering, and
   dropping database principals (USER objects). Limitations for
   CREATE/ALTER/DROP syntax with USER objects are as follows:
 
   - For CREATE USER, you can specify the
-    FOR/FROM LOGIN and DEFAULT_SCHEMA options only.
-  - For ALTER USER, you can specify DEFAULT_SCHEMA
+    FOR/FROM LOGIN and DEFAULT\_SCHEMA options only.
+  - For ALTER USER, you can specify DEFAULT\_SCHEMA
     option only.
 
 - Limited support for the SET FMTONLY ON command. Setting this command ON suppresses the execution of SELECT statements only. It doesn't suppress the execution of other statements.
@@ -3793,27 +3793,23 @@ with limited implementation](../AuroraUserGuide/babelfish-compatibility.md#babel
 - Support for WITH AUTHORIZATION on CREATE SCHEMA.
 - Support for the following new escape hatches and escape hatch functionality:
 
-      + Restore all default settings for escape hatches for your
-       Babelfish DB instance by passing
-       `default` as the second argument to the `sp_babelfish_configure`
-       stored procedure.
-      + A new escape hatch, `escape_hatch_ignore_dup_key` (default=strict)
-       controls the IGNORE\_DUP\_KEY option in CREATE/ALTER TABLE and CREATE INDEX statements.
-       When IGNORE\_DUP\_KEY=ON, an error is raised unless escape\_hatch\_ignore\_dup\_key is set to `'ignore'`.
-      + Added support for the `ignore` option on the `escape_hatch_storage_options`
-       escape hatch. When set to `ignore`, Babelfish ignores
-       errors raised in the following cases:
+  - Restore all default settings for escape hatches for your
+    Babelfish DB instance by passing
+    `default` as the second argument to the `sp_babelfish_configure`
+    stored procedure.
+  - A new escape hatch, `escape_hatch_ignore_dup_key` (default=strict)
+    controls the IGNORE\_DUP\_KEY option in CREATE/ALTER TABLE and CREATE INDEX statements.
+    When IGNORE\_DUP\_KEY=ON, an error is raised unless escape\_hatch\_ignore\_dup\_key is set to `'ignore'`.
+  - Added support for the `ignore` option on the `escape_hatch_storage_options`
+    escape hatch. When set to `ignore`, Babelfish ignores
+    errors raised in the following cases:
 
-
-
-
-      	- Ignores errors raised in the ON clause in a
-      	 CREATE DATABASE statement.
-      	- Ignores errors raised by CREATE INDEX when used
-      	 with SORT\_IN\_TEMPDB, DROP\_EXISTING, or ONLINE options.
-
-  For details, see
-  [Managing Babelfish error handling](../AuroraUserGuide/babelfish-strict.md#babelfish-escape_hatches "../AuroraUserGuide/babelfish-strict.md#babelfish-escape_hatches").
+    - Ignores errors raised in the ON clause in a
+      CREATE DATABASE statement.
+    - Ignores errors raised by CREATE INDEX when used
+      with SORT\_IN\_TEMPDB, DROP\_EXISTING, or ONLINE options.
+      For details, see
+      [Managing Babelfish error handling](../AuroraUserGuide/babelfish-strict.md#babelfish-escape_hatches "../AuroraUserGuide/babelfish-strict.md#babelfish-escape_hatches").
 
 - The msdb system database is always present, and has dbid=4. For more information,
   see [Babelfish architecture](../AuroraUserGuide/babelfish.md#babelfish-architecture "../AuroraUserGuide/babelfish.md#babelfish-architecture").
@@ -3842,7 +3838,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
-  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
+  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish\_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
 #### Babelfish for Aurora PostgreSQL release 1.1.0, February 25, 2022
 
@@ -3856,19 +3852,19 @@ For more information, see [Working with Babelfish for Aurora PostgreSQL](../Auro
 - Reference transition tables from triggers with multiple DML actions.
 - Identifiers that have leading dot characters.
 - The COLUMNPROPERTY function (limited to CharMaxLen and AllowsNull properties).
-- System-defined @@ variables: @@CURSOR_ROWS, @@LOCK_TIMEOUT, @@MAX_CONNECTIONS, @@MICROSOFTVERSION, @@NESTLEVEL, and @@PROCID.
-- Built-in functions: CHOOSE, CONCAT_WS, CURSOR_STATUS, DATEFROMPARTS, DATETIMEFROMPARTS,
-  ORIGINAL_LOGIN, SCHEMA_NAME (now fully supported), SESSION_USER, SQUARE, and
-  TRIGGER_NESTLEVEL supported (but only without arguments).
-- System stored procedures: sp_columns, sp_columns_100, sp_columns_managed, sp_cursor,
-  sp_cursor_list, sp_cursorclose, sp_cursorexecute, sp_cursorfetch,
-  sp_cursoropen, sp_cursoroption, sp_cursorprepare, sp_cursorprepexec,
-  sp_cursorunprepare, sp_databases, sp_datatype_info, sp_datatype_info_100,
-  sp_describe_cursor, sp_describe_first_result_set,
-  sp_describe_undeclared_parameters, sp_oledb_ro_usrname,
-  sp_pkeys, sp_prepare, sp_statistics, sp_statistics_100,
-  sp_tablecollations_100, sp_tables, and
-  sp_unprepare.
+- System-defined @@ variables: @@CURSOR\_ROWS, @@LOCK\_TIMEOUT, @@MAX\_CONNECTIONS, @@MICROSOFTVERSION, @@NESTLEVEL, and @@PROCID.
+- Built-in functions: CHOOSE, CONCAT\_WS, CURSOR\_STATUS, DATEFROMPARTS, DATETIMEFROMPARTS,
+  ORIGINAL\_LOGIN, SCHEMA\_NAME (now fully supported), SESSION\_USER, SQUARE, and
+  TRIGGER\_NESTLEVEL supported (but only without arguments).
+- System stored procedures: sp\_columns, sp\_columns\_100, sp\_columns\_managed, sp\_cursor,
+  sp\_cursor\_list, sp\_cursorclose, sp\_cursorexecute, sp\_cursorfetch,
+  sp\_cursoropen, sp\_cursoroption, sp\_cursorprepare, sp\_cursorprepexec,
+  sp\_cursorunprepare, sp\_databases, sp\_datatype\_info, sp\_datatype\_info\_100,
+  sp\_describe\_cursor, sp\_describe\_first\_result\_set,
+  sp\_describe\_undeclared\_parameters, sp\_oledb\_ro\_usrname,
+  sp\_pkeys, sp\_prepare, sp\_statistics, sp\_statistics\_100,
+  sp\_tablecollations\_100, sp\_tables, and
+  sp\_unprepare.
 - For a list of features supported in each Babelfish release, see
   [Supported
   functionality in Babelfish by version](../AuroraUserGuide/babelfish-compatibility.supported-functionality-table.md "../AuroraUserGuide/babelfish-compatibility.supported-functionality-table.md").
@@ -3889,7 +3885,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
-  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
+  This is tracked in [https://github.com/babelfish-for-postgresql/babelfish\_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
 #### Babelfish for Aurora PostgreSQL release 1.0.0, October 28, 2021
 
