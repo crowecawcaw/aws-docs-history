@@ -84,7 +84,7 @@ volume to 20 GiB.
     ```
 
 4. Fetch the latest information on all of the software you can
-   install or update through the Advanced Packaging Tool (APT).
+install or update through the Advanced Packaging Tool (APT).
 
 This command doesn't update the software itself, but makes
 sure your system knows what the latest available versions
@@ -157,11 +157,11 @@ Confirm that the following files are present:
     * kvs\_gstreamer\_sample
     * libgstkvssink.so
 
-11. (Optional) You can add setting the GST_PLUGIN_PATH environment
-    variable to your shell's start-up script. This ensures
-    GST_PLUGIN_PATH is set properly during a new terminal session.
-    In AWS Cloud9, the shell's start-up script is:
-    `~/.bashrc`.
+11. (Optional) You can add setting the GST\_PLUGIN\_PATH environment
+variable to your shell's start-up script. This ensures
+GST\_PLUGIN\_PATH is set properly during a new terminal session.
+In AWS Cloud9, the shell's start-up script is:
+`~/.bashrc`.
 
 Run the following command to append the command to the end of
 the shell's start-up script.
@@ -176,7 +176,7 @@ Type the following to run the shell's start-up script:
 source ~/.bashrc
 ```
 
-Confirm GST_PLUGIN_PATH is set.
+Confirm GST\_PLUGIN\_PATH is set.
 
 ```
 echo $GST_PLUGIN_PATH

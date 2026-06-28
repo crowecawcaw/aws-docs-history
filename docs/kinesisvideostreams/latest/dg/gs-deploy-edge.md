@@ -61,17 +61,17 @@ mode:
 
 | Environment Variable Name           | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AWS_REGION`                        | Yes      | The Region that is used.<br>\*_Example:_<br>• us-west-2<br>AWS IoT Greengrass Core software automatically sets this value for you.<br>For more information, see the [Component environment variable reference](../../../greengrass/v2/developerguide/component-environment-variables.md "../../../greengrass/v2/developerguide/component-environment-variables.md") topic<br>in the AWS IoT Greengrass Version 2 Developer Guide.                                                                                                       |
+| `AWS_REGION`                        | Yes      | The Region that is used.<br>**Example:*<br>• us-west-2<br>AWS IoT Greengrass Core software automatically sets this value for you.<br>For more information, see the [Component environment variable reference](../../../greengrass/v2/developerguide/component-environment-variables.md "../../../greengrass/v2/developerguide/component-environment-variables.md") topic<br>in the AWS IoT Greengrass Version 2 Developer Guide.                                                                                                        |
 | `GST_PLUGIN_PATH`                   | Yes      | File path pointing to the folder containing the<br>`gstkvssink` and<br>`IngestorPipelineJNI` platform-dependent<br>libraries. This lets GStreamer load these plugins. For more<br>information, see [Download, build, and configure the GStreamer element](examples-gstreamer-plugin.md#examples-gstreamer-plugin-download "examples-gstreamer-plugin.md#examples-gstreamer-plugin-download").<br>**Example:**<br>`/`download-location`/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/` |
 | `LD_LIBRARY_PATH`                   | Yes      | File path pointing to the directory containing the<br>`cproducer` and<br>`KinesisVideoProducer` platform-dependent<br>libraries.<br>**Example:**<br>`/`download-location`/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/lib/`                                                                                                                                                                                                                                                          |
-| `AWS_KVS_EDGE_CLOUDWATCH_ENABLED`   | No       | Determines if the Amazon Kinesis Video Streams Edge Agent will post job health<br>metrics onto Amazon CloudWatch.<br>Accepted values: `TRUE`/`FALSE`<br>(case insensitive). Defaults to `FALSE` if not<br>provided.<br>\*_Example:_<br>• FALSE                                                                                                                                                                                                                                                                                          |
+| `AWS_KVS_EDGE_CLOUDWATCH_ENABLED`   | No       | Determines if the Amazon Kinesis Video Streams Edge Agent will post job health<br>metrics onto Amazon CloudWatch.<br>Accepted values: `TRUE`/`FALSE`<br>(case insensitive). Defaults to `FALSE` if not<br>provided.<br>**Example:*<br>• FALSE                                                                                                                                                                                                                                                                                           |
 | `AWS_KVS_EDGE_LOG_LEVEL`            | No       | The level of logging the Amazon Kinesis Video Streams Edge Agent outputs.<br>**Accepted values:**<br>• OFF<br>• ALL<br>• FATAL<br>• ERROR<br>• WARN<br>• INFO, default, if not provided<br>• DEBUG<br>• TRACE<br>**Example:**<br>`INFO`                                                                                                                                                                                                                                                                                                 |
-| `AWS_KVS_EDGE_LOG_MAX_FILE_SIZE`    | No       | Once the log file reaches this size, a rollover will<br>occur.<br>• **Min:** 1<br>• **Max:** 100<br>• **Default:** 20, if<br>not provided<br>• **Units:** Megabytes<br>(MB)<br>\*_Example:_<br>• 5                                                                                                                                                                                                                                                                                                                                      |
+| `AWS_KVS_EDGE_LOG_MAX_FILE_SIZE`    | No       | Once the log file reaches this size, a rollover will<br>occur.<br>• **Min:** 1<br>• **Max:** 100<br>• **Default:** 20, if<br>not provided<br>• **Units:** Megabytes<br>(MB)<br>**Example:*<br>• 5                                                                                                                                                                                                                                                                                                                                       |
 | `AWS_KVS_EDGE_LOG_OUTPUT_DIRECTORY` | No       | The file path pointing to the directory where the<br>Amazon Kinesis Video Streams Edge Agent logs are output. Defaults to<br>`./log` if not provided.<br>**Example:**<br>`/`file`/`path`/`                                                                                                                                                                                                                                                                                                                                              |
-| `AWS_KVS_EDGE_LOG_ROLLOVER_COUNT`   | No       | The number of rolled-over logs to keep before<br>deleting.<br>• **Min:** 1<br>• **Max:** 100<br>• **Default:** 10, if<br>not provided<br>\*_Example:_<br>• 20                                                                                                                                                                                                                                                                                                                                                                           |
+| `AWS_KVS_EDGE_LOG_ROLLOVER_COUNT`   | No       | The number of rolled-over logs to keep before<br>deleting.<br>• **Min:** 1<br>• **Max:** 100<br>• **Default:** 10, if<br>not provided<br>**Example:*<br>• 20                                                                                                                                                                                                                                                                                                                                                                            |
 | `AWS_KVS_EDGE_RECORDING_DIRECTORY`  | No       | File path pointing to the directory recorded media will be<br>written to. Defaults to the current directory if not<br>provided.<br>**Example:**<br>`/`file`/`path`/`                                                                                                                                                                                                                                                                                                                                                                    |
 | `GREENGRASS_ROOT_DIRECTORY`         | No       | The file path to the AWS IoT Greengrass root directory.<br>This defaults to `/greengrass/v2/` if not<br>provided.<br>**Example:**<br>`/`file`/`path`/`                                                                                                                                                                                                                                                                                                                                                                                  |
-| `GST_DEBUG`                         | No       | Specifies the level of GStreamer logs to output. For more<br>information, see the [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c "https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c").<br>\*_Example:_<br>• 0                                                                                                                                                                                                                        |
+| `GST_DEBUG`                         | No       | Specifies the level of GStreamer logs to output. For more<br>information, see the [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c "https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c").<br>**Example:*<br>• 0                                                                                                                                                                                                                         |
 | `GST_DEBUG_FILE`                    | No       | Specifies the output file of the GStreamer debug logs. If<br>unset, debug logs get output to standard error. For more<br>information, see the [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c "https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c").<br>**Example:**<br>`/`tmp`/`gstreamer-logging`.log`                                                                                                                               |
 
 Open `kvs-edge-agent/KvsEdgeComponent/recipes/recipe.yaml` and
@@ -100,53 +100,59 @@ For additional information, see the following sections in the _AWS IoT Greengras
 
 8. Send configurations to the application using the AWS CLI.
 
-   1. Create a new file,
-      ``example-edge-configuration`.json`.
+    1. Create a new file,
+     ``example-edge-configuration`.json`.
 
-   Paste the following code into the file. This is a sample
-   configuration that records daily from 9:00:00 AM to 4:59:59 PM
-   (according to the system time on your AWS IoT device). It also uploads
-   the recorded media daily from 7:00:00 PM to 9:59:59 PM.
 
-   For more information, see [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md").
+    Paste the following code into the file. This is a sample
+     configuration that records daily from 9:00:00 AM to 4:59:59 PM
+     (according to the system time on your AWS IoT device). It also uploads
+     the recorded media daily from 7:00:00 PM to 9:59:59 PM.
 
-   ```
-   {
-       "StreamARN": "arn:aws:kinesisvideo:`your-region`:`your-account-id`:stream/`your-stream`/`0123456789012`",
-       "EdgeConfig": {
-           "HubDeviceArn": "arn:aws:iot:`your-region`:`your-account-id`:thing/`kvs-edge-agent-demo`",
-           "RecorderConfig": {
-               "MediaSourceConfig": {
-                   "MediaUriSecretArn": "arn:aws:secretsmanager:`your-region`:`your-account-id`:secret:`your-secret`-`dRbHJQ`",
-                   "MediaUriType": "RTSP_URI"
-               },
-               "ScheduleConfig": {
-                   "ScheduleExpression": "0 0 9,10,11,12,13,14,15,16 ? * * *",
-                   "DurationInSeconds": 3599
-               }
-           },
-           "UploaderConfig": {
-               "ScheduleConfig": {
-                   "ScheduleExpression": "0 0 19,20,21 ? * * *",
-                   "DurationInSeconds": 3599
-               }
-           },
-           "DeletionConfig": {
-               "EdgeRetentionInHours": 15,
-               "LocalSizeConfig": {
-                 "MaxLocalMediaSizeInMB": 2800,
-                 "StrategyOnFullSize": "DELETE_OLDEST_MEDIA"
-               },
-               "DeleteAfterUpload": true
-           }
-       }
-   }
-   ```
-   2. Type the following in the AWS CLI to send the file to the
-      Amazon Kinesis Video Streams Edge Agent:
 
-   ```
-   aws kinesisvideo start-edge-configuration-update --cli-input-json "file://`example-edge-configuration`.json"
-   ```
+    For more information, see [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md").
+
+
+
+    ```
+    {
+        "StreamARN": "arn:aws:kinesisvideo:`your-region`:`your-account-id`:stream/`your-stream`/`0123456789012`",
+        "EdgeConfig": {
+            "HubDeviceArn": "arn:aws:iot:`your-region`:`your-account-id`:thing/`kvs-edge-agent-demo`",
+            "RecorderConfig": {
+                "MediaSourceConfig": {
+                    "MediaUriSecretArn": "arn:aws:secretsmanager:`your-region`:`your-account-id`:secret:`your-secret`-`dRbHJQ`",
+                    "MediaUriType": "RTSP_URI"
+                },
+                "ScheduleConfig": {
+                    "ScheduleExpression": "0 0 9,10,11,12,13,14,15,16 ? * * *",
+                    "DurationInSeconds": 3599
+                }
+            },
+            "UploaderConfig": {
+                "ScheduleConfig": {
+                    "ScheduleExpression": "0 0 19,20,21 ? * * *",
+                    "DurationInSeconds": 3599
+                }
+            },
+            "DeletionConfig": {
+                "EdgeRetentionInHours": 15,
+                "LocalSizeConfig": {
+                  "MaxLocalMediaSizeInMB": 2800,
+                  "StrategyOnFullSize": "DELETE_OLDEST_MEDIA"
+                },
+                "DeleteAfterUpload": true
+            }
+        }
+    }
+    ```
+    2. Type the following in the AWS CLI to send the file to the
+     Amazon Kinesis Video Streams Edge Agent:
+
+
+
+    ```
+    aws kinesisvideo start-edge-configuration-update --cli-input-json "file://`example-edge-configuration`.json"
+    ```
 
 9. Repeat the previous step for each stream for the Amazon Kinesis Video Streams Edge Agent.

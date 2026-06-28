@@ -31,7 +31,7 @@ You can pass the following options to `cmake ..`
      only devices. Default is `OFF`.
 
 2. Navigate to the `build` directory that you just created with the previous step, and run
-   `make` to build the WebRTC C SDK and its provided samples.
+`make` to build the WebRTC C SDK and its provided samples.
 
 ```
 make

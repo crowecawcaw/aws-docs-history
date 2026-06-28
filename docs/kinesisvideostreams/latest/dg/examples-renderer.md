@@ -39,24 +39,24 @@ following:
 git clone https://github.com/aws/amazon-kinesis-video-streams-parser-library
 ```
 
-2.  Open the Java IDE that you are using (for example, [Eclipse](https://www.eclipse.org/ "https://www.eclipse.org/") or [IntelliJ IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")), and import
-    the Apache Maven project that you downloaded:
+2. Open the Java IDE that you are using (for example, [Eclipse](https://www.eclipse.org/ "https://www.eclipse.org/") or [IntelliJ IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")), and import
+   the Apache Maven project that you downloaded:
 
-    - **In Eclipse:** Choose
-      **File**, **Import**,
-      **Maven**, **Existing Maven
-      Projects**. Navigate to the
-      `kinesis-video-streams-parser-lib`
-      directory.
-    - **In IntelliJ Idea:** Choose
-      **Import**. Navigate to the
-      `pom.xml` file in the root of the downloaded
-      package.
+   - **In Eclipse:** Choose
+     **File**, **Import**,
+     **Maven**, **Existing Maven
+     Projects**. Navigate to the
+     `kinesis-video-streams-parser-lib`
+     directory.
+   - **In IntelliJ Idea:** Choose
+     **Import**. Navigate to the
+     `pom.xml` file in the root of the downloaded
+     package.
 
-    ###### Note
+   ###### Note
 
-    If IntelliJ can't find your dependencies, you might have to do
-    the following:
+   If IntelliJ can't find your dependencies, you might have to do
+   the following:
 
         + **Build clean:** Choose
          **File**,
@@ -72,14 +72,9 @@ git clone https://github.com/aws/amazon-kinesis-video-streams-parser-library
          choose **Maven**,
          **Reimport**.
 
-    For more information, see the related IDE documentation.
-
-3.  From your Java IDE, open
-    `src/test/java/com.amazonaws.kinesisvideo.parser/examples/KinesisVideoRendererExampleTest`.
-4.  Remove the `@Ignore` directive from the file.
-5.  Update the `.stream` parameter with the name of your
-    Kinesis video stream.
-6.  Run the `KinesisVideoRendererExample` test.
+For more information, see the related IDE documentation. 3. From your Java IDE, open
+`src/test/java/com.amazonaws.kinesisvideo.parser/examples/KinesisVideoRendererExampleTest`. 4. Remove the `@Ignore` directive from the file. 5. Update the `.stream` parameter with the name of your
+Kinesis video stream. 6. Run the `KinesisVideoRendererExample` test.
 
 ## How It Works
 

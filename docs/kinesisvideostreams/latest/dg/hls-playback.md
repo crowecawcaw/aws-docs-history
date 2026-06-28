@@ -191,10 +191,10 @@ provides input fields for the following parameters:
 
 - AWS Region: The Region where your Kinesis video stream is located
 - Stream name: The name of your Kinesis video stream
-- Playback mode: The HLS playback mode (LIVE, LIVE_REPLAY, or ON_DEMAND)
-- Fragment selector type: The method used to select fragments (SERVER_TIMESTAMP or PRODUCER_TIMESTAMP)
+- Playback mode: The HLS playback mode (LIVE, LIVE\_REPLAY, or ON\_DEMAND)
+- Fragment selector type: The method used to select fragments (SERVER\_TIMESTAMP or PRODUCER\_TIMESTAMP)
 - Fragment number: The starting fragment number (when applicable)
-- Container format: The format of the media container (FRAGMENTED_MP4 or MPEG_TS)
+- Container format: The format of the media container (FRAGMENTED\_MP4 or MPEG\_TS)
 
 The application retrieves these values from the input boxes on the HTML page and uses them to construct the request for an HLS streaming session that displays on the page.
 
@@ -395,16 +395,15 @@ To troubleshoot this situation, try the following:
 - Verify that your player supports all of the options that you're specifying for the HLS
   streaming session. Try different combinations of values for the following parameters:
 
-      + `ContainerFormat`
-      + `PlaybackMode`
-      + `FragmentSelectorType`
-      + `DiscontinuityMode`
-      + `MaxMediaPlaylistFragmentResults`
-
-  Some media players (like HTML5 and mobile players) typically only support HLS with the fMP4
-  container format. Other media players (like Flash and custom players) might only support HLS with the MPEG
-  TS container format. We recommend experimenting with the `ContainerFormat` parameter to start
-  troubleshooting.
+  - `ContainerFormat`
+  - `PlaybackMode`
+  - `FragmentSelectorType`
+  - `DiscontinuityMode`
+  - `MaxMediaPlaylistFragmentResults`
+    Some media players (like HTML5 and mobile players) typically only support HLS with the fMP4
+    container format. Other media players (like Flash and custom players) might only support HLS with the MPEG
+    TS container format. We recommend experimenting with the `ContainerFormat` parameter to start
+    troubleshooting.
 
 - Verify that each fragment has a consistent number of tracks. Verify that fragments in the
   stream are not changing between having both an audio and video track and only a video track. Also verify

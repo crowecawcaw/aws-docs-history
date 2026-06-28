@@ -60,7 +60,7 @@ following:
 
 7. Update the
    `AmazonKinesisVideoDemoApp/src/main/java/com/amazonaws/kinesisvideo/demoapp/KinesisVideoDemoApp.java`
-   with your Region (in the following sample, it’s set to **US_WEST_2**):
+   with your Region (in the following sample, it’s set to **US\_WEST\_2**):
 
 ```
 

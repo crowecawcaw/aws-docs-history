@@ -51,7 +51,7 @@ Kinesis Video Streams.
 - [Error: "Unable to determine service/operation name to be authorized"](#troubleshooting-api-name-auth "#troubleshooting-api-name-auth")
 - [Error: "Failed to put a frame in the stream"](#troubleshooting-api-putframe "#troubleshooting-api-putframe")
 - [Error: "Service closed connection before final AckEvent was received"](#troubleshooting-api-closeconnection "#troubleshooting-api-closeconnection")
-- [Error: "STATUS_STORE_OUT_OF_MEMORY"](#troubleshooting-api-storeoutofmemory "#troubleshooting-api-storeoutofmemory")
+- [Error: "STATUS\_STORE\_OUT\_OF\_MEMORY"](#troubleshooting-api-storeoutofmemory "#troubleshooting-api-storeoutofmemory")
 - [Error: "Credential should be scoped to a valid region."](#troubleshoot-api-credential "#troubleshoot-api-credential")
 
 ### Error: "Unknown options"
@@ -116,7 +116,7 @@ com.amazonaws.SdkClientException: Service closed connection before final AckEven
 This error might occur if `PushbackInputStream` is improperly implemented. Verify that the
 `unread()` methods are correctly implemented.
 
-### Error: "STATUS_STORE_OUT_OF_MEMORY"
+### Error: "STATUS\_STORE\_OUT\_OF\_MEMORY"
 
 `PutMedia` can fail with the following error:
 
@@ -206,8 +206,8 @@ This section describes issues that you might encounter when using the [Upload to
 - [jni.h file not found when compiling on macOS High Sierra](#troubleshooting-producer-sierra-compile "#troubleshooting-producer-sierra-compile")
 - [Curl errors when running the GStreamer demo application](#troubleshooting-producer-curl "#troubleshooting-producer-curl")
 - [Timestamp/range assertion at runtime on Raspberry Pi](#troubleshooting-producer-raspberrypi-timestamp-assert "#troubleshooting-producer-raspberrypi-timestamp-assert")
-- [Assertion on gst_value_set_fraction_range_full on Raspberry Pi](#troubleshooting-producer-raspberrypi-gst-assert "#troubleshooting-producer-raspberrypi-gst-assert")
-- [STATUS_MKV_INVALID_ANNEXB_NALU_IN_FRAME_DATA (0x3200000d) error on Android](#troubleshooting-producer-android-invalid-annexb "#troubleshooting-producer-android-invalid-annexb")
+- [Assertion on gst\_value\_set\_fraction\_range\_full on Raspberry Pi](#troubleshooting-producer-raspberrypi-gst-assert "#troubleshooting-producer-raspberrypi-gst-assert")
+- [STATUS\_MKV\_INVALID\_ANNEXB\_NALU\_IN\_FRAME\_DATA (0x3200000d) error on Android](#troubleshooting-producer-android-invalid-annexb "#troubleshooting-producer-android-invalid-annexb")
 - [Maximum fragment duration was reached error](#troubleshooting-producer-maxfragmentduration "#troubleshooting-producer-maxfragmentduration")
 - ["Invalid thing name passed" error when using IoT authorization](#troubleshooting-producer-thingname "#troubleshooting-producer-thingname")
 
@@ -381,7 +381,7 @@ sudo rpi-update
 $ sudo reboot
 ```
 
-### Assertion on gst_value_set_fraction_range_full on Raspberry Pi
+### Assertion on gst\_value\_set\_fraction\_range\_full on Raspberry Pi
 
 The following assertion appears if the `uv4l` service is running:
 
@@ -392,7 +392,7 @@ gst_util_fraction_compare (numerator_start, denominator_start, numerator_end, de
 If this occurs, stop the `uv4l` service and restart the
 application.
 
-### STATUS_MKV_INVALID_ANNEXB_NALU_IN_FRAME_DATA (0x3200000d) error on Android
+### STATUS\_MKV\_INVALID\_ANNEXB\_NALU\_IN\_FRAME\_DATA (0x3200000d) error on Android
 
 The following error appears if the [NAL adaptation flags](producer-reference-nal.md "producer-reference-nal.md") are incorrect for the media
 stream:

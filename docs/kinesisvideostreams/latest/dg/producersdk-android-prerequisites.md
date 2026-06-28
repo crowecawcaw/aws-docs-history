@@ -63,39 +63,36 @@ In the `awsconfiguration.json` file, this is
 
 ###### To set up an identity pool
 
-1.  Sign in to the [Amazon Cognito
-    console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home") and verify the region is correct.
-2.  In the navigation on the left choose **Identity
-    pools**.
-3.  Choose **Create identity pool**.
-4.  Configure the identity pool.
+1. Sign in to the [Amazon Cognito
+   console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home") and verify the region is correct.
+2. In the navigation on the left choose **Identity
+   pools**.
+3. Choose **Create identity pool**.
+4. Configure the identity pool.
 
-    1.  **Step 1: Configure identity pool trust** - Complete the following sections:
+   1. **Step 1: Configure identity pool trust** - Complete the following sections:
 
-            * **User access** - Select **Authenticated access**
-            * **Authenticated identity sources** - Select **Amazon Cognito user pool**
-
+      - **User access** - Select **Authenticated access**
+      - **Authenticated identity sources** - Select **Amazon Cognito user pool**
         Select **Next**.
 
-    2.  **Step 2: Configure permissions** - In the **Authenticated role** section, complete the following fields:
+   2. **Step 2: Configure permissions** - In the **Authenticated role** section, complete the following fields:
 
-            * **IAM role** - Select **Create a new IAM role**
-            * **IAM role name** - Enter a name and make note of it for a later step.
-
+      - **IAM role** - Select **Create a new IAM role**
+      - **IAM role name** - Enter a name and make note of it for a later step.
         Select **Next**.
 
-    3.  **Step 3: Connect identity providers** - In the **User pool details** section complete the following fields:
+   3. **Step 3: Connect identity providers** - In the **User pool details** section complete the following fields:
 
-            * **User pool ID** - Select the user pool you created earlier.
-            * **App client ID** - Select the app client ID you created earlier.
-
+      - **User pool ID** - Select the user pool you created earlier.
+      - **App client ID** - Select the app client ID you created earlier.
         Select **Next**.
 
-    4.  **Step 4: Configure properties** - Type a name in the **Identity pool name** field.
+   4. **Step 4: Configure properties** - Type a name in the **Identity pool name** field.
 
-    Select **Next**. 5. **Step 5: Review and create** - Review your selections in each of the sections, then select **Create identity pool**.
+   Select **Next**. 5. **Step 5: Review and create** - Review your selections in each of the sections, then select **Create identity pool**.
 
-5.  On the **Identity pools** page, select your new identity pool.
+5. On the **Identity pools** page, select your new identity pool.
 
 Copy the **Identity pool ID** and make note of this for
 later. In the `awsconfiguration.json` file, this is

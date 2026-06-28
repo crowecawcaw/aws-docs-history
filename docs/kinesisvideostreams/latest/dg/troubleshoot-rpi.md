@@ -59,7 +59,7 @@ OpenSSL builds correctly for the 32-bit ARM architecture:
 
 Confirm `GST_PLUGIN_PATH`
 
-Ensure the `GST_PLUGIN_PATH` environment variable in your current shell session points to the directory containing `kvssink`. Environment variables are session-specific, so you'll need to set them for each new session. To make this change permanent, see “Update your shell's start-up script to include setting the GST_PLUGIN_PATH environment variable”.
+Ensure the `GST_PLUGIN_PATH` environment variable in your current shell session points to the directory containing `kvssink`. Environment variables are session-specific, so you'll need to set them for each new session. To make this change permanent, see “Update your shell's start-up script to include setting the GST\_PLUGIN\_PATH environment variable”.
 
 **Error: Cannot open shared object file: No such file or
 directory**

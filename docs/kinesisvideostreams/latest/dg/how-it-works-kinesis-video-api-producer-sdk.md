@@ -69,18 +69,18 @@ stores producer-side and server-side timestamps for each fragment, as Kinesis Vi
   worth of video fragments. The consumer would do the
   following:
 
-      1. Get a list of fragments by calling the
-       `ListFragments` API and specifying a time
-       range to select the desired collection of fragments.
+        1. Get a list of fragments by calling the
+         `ListFragments` API and specifying a time
+         range to select the desired collection of fragments.
 
 
-      The API returns metadata from all the fragments in the specified time range.
-       The metadata provides information such as fragment number, producer-side and server-side timestamps,
-       and so on.
-      2. Take the fragment metadata list and retrieve fragments, in any order. For
-       example, to process all the fragments for the day, the consumer might choose to split the list into
-       sublists and have workers (for example, multiple Amazon EC2 instances) fetch the fragments in parallel
-       using the `GetMediaFromFragmentList`, and process them in parallel.
+        The API returns metadata from all the fragments in the specified time range.
+         The metadata provides information such as fragment number, producer-side and server-side timestamps,
+         and so on.
+        2. Take the fragment metadata list and retrieve fragments, in any order. For
+         example, to process all the fragments for the day, the consumer might choose to split the list into
+         sublists and have workers (for example, multiple Amazon EC2 instances) fetch the fragments in parallel
+         using the `GetMediaFromFragmentList`, and process them in parallel.
 
 The following diagram shows the data flow for fragments and chunks during these
 API calls.

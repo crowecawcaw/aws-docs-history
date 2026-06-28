@@ -80,7 +80,7 @@ to verify that it is available on your device:
 gst-inspect-1.0 kvssink
 ```
 
-If building `kvssink` failed or GST_PLUGIN_PATH is not properly set, your output will look
+If building `kvssink` failed or GST\_PLUGIN\_PATH is not properly set, your output will look
 similar to this:
 
 ```

@@ -43,7 +43,7 @@ Do the following:
      **yes**.
 
 4. Install system libraries to build the Amazon Kinesis Video Streams Edge Agent onto the
-   instance.
+instance.
 
 ```
 wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add -

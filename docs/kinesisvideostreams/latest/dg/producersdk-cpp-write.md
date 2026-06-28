@@ -52,7 +52,7 @@ has the following configuration:
     + Each frame is 10,000 KB in sizeThe content store requirement for this application is **3 (streams) \*
 
 3 (minutes) \* 60 (seconds in a minute) \* 10000 (kb) \* 1.2 (defragmentation allowance) = 194.4 Mb ~ 200
-Mb\*\*.
+Mb**.
 
 - A `ClientCallbackProvider` object, which returns function
   pointers that report client-specific events.
@@ -117,8 +117,8 @@ The `addTrack` method requires the following parameters:
 
 - Track id (as one for audio). This should be unique and non-zero value.
 - User-defined track name (for example, "audio" for the audio track).
-- Codec id for this track (for example, for audio track "A_AAC").
-- Track type (for example, use the enum value of MKV_TRACK_INFO_TYPE_AUDIO for audio).
+- Codec id for this track (for example, for audio track "A\_AAC").
+- Track type (for example, use the enum value of MKV\_TRACK\_INFO\_TYPE\_AUDIO for audio).
 
 If you have codec private data for the audio track, then you can pass it when
 calling the addTrack function. You can also send the codec private data after

@@ -150,12 +150,10 @@ deployment**. 5. Complete the following sections:
      **Deploy**.
 
 6. Confirm that the AWS log manager component and permissions were
-   installed correctly.
-7. On the Ubuntu Amazon EC2 instance, type `sudo
-/greengrass/v2/bin/greengrass-cli component details --name
-aws.greengrass.LogManager` to verify the component received the
-   updated configuration.
-8. Inspect the AWS IoT Greengrass core logs.
+installed correctly. 7. On the Ubuntu Amazon EC2 instance, type `sudo
+ /greengrass/v2/bin/greengrass-cli component details --name
+ aws.greengrass.LogManager` to verify the component received the
+updated configuration. 8. Inspect the AWS IoT Greengrass core logs.
 
 Type `sudo less /greengrass/v2/logs/greengrass.log`.
 

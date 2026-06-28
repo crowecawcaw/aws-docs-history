@@ -10,13 +10,13 @@ following.
 
    - **For non-temporary AWS credentials:**
      `"-Daws.accessKeyId={YourAwsAccessKey}
- -Daws.secretKey={YourAwsSecretKey}
- -Djava.library.path={NativeLibraryPath}"`
+  -Daws.secretKey={YourAwsSecretKey}
+  -Djava.library.path={NativeLibraryPath}"`
    - **For temporary AWS credentials:**
      `"-Daws.accessKeyId={YourAwsAccessKey}
- -Daws.secretKey={YourAwsSecretKey}
- -Daws.sessionToken={YourAwsSessionToken}
- -Djava.library.path={NativeLibraryPath}"`
+  -Daws.secretKey={YourAwsSecretKey}
+  -Daws.sessionToken={YourAwsSessionToken}
+  -Djava.library.path={NativeLibraryPath}"`
 
 4. Sign in to the AWS Management Console and open the [Kinesis Video Streams console](https://console.aws.amazon.com//kinesisvideo/home/ "https://console.aws.amazon.com//kinesisvideo/home/").
 

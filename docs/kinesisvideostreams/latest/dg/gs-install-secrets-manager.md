@@ -81,7 +81,7 @@ deployment**. 4. Complete the following sections:
      **Deploy**.
 
 5. Confirm that the AWS Secrets Manager component and permissions
-   were installed correctly.
+were installed correctly.
 
 On the Ubuntu Amazon EC2 instance, type `sudo
  /greengrass/v2/bin/greengrass-cli component details --name

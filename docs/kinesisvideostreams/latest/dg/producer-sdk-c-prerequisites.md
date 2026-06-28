@@ -34,9 +34,9 @@ store:
 
   - Git: `sudo apt install git`
   - [CMake](http://kitware.com/cmake "http://kitware.com/cmake"): `sudo
-apt install cmake`
+   apt install cmake`
   - G++: `sudo apt install g++`
   - pkg-config: `sudo apt install pkg-config`
   - OpenJDK: `sudo apt install openjdk-8-jdk`
   - Set the `JAVA_HOME` environment variable: `export
-JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/`
+   JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/`

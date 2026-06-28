@@ -26,10 +26,9 @@ This sample application has three sections:
 
 - Teardown:
 
-      + Stopping (sync) KinesisVideoStream, freeing KinesisVideoStream,
-       freeing KinesisVideoClient.
-
-  This sample application completes the following tasks:
+  - Stopping (sync) KinesisVideoStream, freeing KinesisVideoStream,
+    freeing KinesisVideoClient.
+    This sample application completes the following tasks:
 
 - Call the `createDefaultDeviceInfo` API to create the
   `deviceInfo` object that contains information about the device or

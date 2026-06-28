@@ -15,13 +15,13 @@ limitations.
 
 For more information about this API, see [`GetClip`](API_reader_GetClip.md "API_reader_GetClip.md").
 
-| Track 1 description | Track 1 codec ID | Track 2 description      | Track 2 codec ID |
-| ------------------- | ---------------- | ------------------------ | ---------------- |
-| H.264 video         | V_MPEG4/ISO/AVC  | N/A                      | N/A              |
-| H.264 video         | V_MPEG4/ISO/AVC  | AAC audio                | A_AAC            |
-| H.264 video         | V_MPEG4/ISO/AVC  | G.711 audio (A-Law only) | A_MS/ACM         |
-| H.265 video         | V_MPEGH/ISO/HEVC | N/A                      | N/A              |
-| H.265 video         | V_MPEGH/ISO/HEVC | AAC audio                | A_AAC            |
+| Track 1 description | Track 1 codec ID  | Track 2 description      | Track 2 codec ID |
+| ------------------- | ----------------- | ------------------------ | ---------------- |
+| H.264 video         | V\_MPEG4/ISO/AVC  | N/A                      | N/A              |
+| H.264 video         | V\_MPEG4/ISO/AVC  | AAC audio                | A\_AAC           |
+| H.264 video         | V\_MPEG4/ISO/AVC  | G.711 audio (A-Law only) | A\_MS/ACM        |
+| H.265 video         | V\_MPEGH/ISO/HEVC | N/A                      | N/A              |
+| H.265 video         | V\_MPEGH/ISO/HEVC | AAC audio                | A\_AAC           |
 
 ###### Important
 
@@ -42,15 +42,15 @@ changed to an A-Law audio track.
 
 For more information about this API, see [`GetDASHStreamingSessionURL`](API_reader_GetDASHStreamingSessionURL.md "API_reader_GetDASHStreamingSessionURL.md").
 
-| Track 1 description | Track 1 codec ID | Track 2 description      | Track 2 codec ID |
-| ------------------- | ---------------- | ------------------------ | ---------------- |
-| H.264 video         | V_MPEG4/ISO/AVC  | N/A                      | N/A              |
-| H.264 video         | V_MPEG4/ISO/AVC  | AAC audio                | A_AAC            |
-| H.264 video         | V_MPEG4/ISO/AVC  | G.711 audio (A-Law only) | A_MS/ACM         |
-| H.264 video         | V_MPEG4/ISO/AVC  | G.711 audio (U-Law only) | A_MS/ACM         |
-| AAC audio           | A_AAC            | N/A                      | N/A              |
-| H.265 video         | V_MPEGH/ISO/HEVC | N/A                      | N/A              |
-| H.265 video         | V_MPEGH/ISO/HEVC | AAC audio                | A_AAC            |
+| Track 1 description | Track 1 codec ID  | Track 2 description      | Track 2 codec ID |
+| ------------------- | ----------------- | ------------------------ | ---------------- |
+| H.264 video         | V\_MPEG4/ISO/AVC  | N/A                      | N/A              |
+| H.264 video         | V\_MPEG4/ISO/AVC  | AAC audio                | A\_AAC           |
+| H.264 video         | V\_MPEG4/ISO/AVC  | G.711 audio (A-Law only) | A\_MS/ACM        |
+| H.264 video         | V\_MPEG4/ISO/AVC  | G.711 audio (U-Law only) | A\_MS/ACM        |
+| AAC audio           | A\_AAC            | N/A                      | N/A              |
+| H.265 video         | V\_MPEGH/ISO/HEVC | N/A                      | N/A              |
+| H.265 video         | V\_MPEGH/ISO/HEVC | AAC audio                | A\_AAC           |
 
 ###### Important
 
@@ -71,19 +71,19 @@ changed to an A-Law audio track.
 
 For more information about this API, see [`GetHLSStreamingSessionURL`](API_reader_GetHLSStreamingSessionURL.md "API_reader_GetHLSStreamingSessionURL.md").
 
-| HLS Mp4     | Track 1 description | Track 1 codec ID | Track 2 description | Track 2 codec ID |
-| ----------- | ------------------- | ---------------- | ------------------- | ---------------- |
-| H.264 video | V_MPEG4/ISO/AVC     | N/A              | N/A                 |
-| H.264 video | V_MPEG4/ISO/AVC     | AAC audio        | A_AAC               |
-| AAC audio   | A_AAC               | N/A              | N/A                 |
-| H.265 video | V_MPEGH/ISO/HEVC    | N/A              | N/A                 |
-| H.265 video | V_MPEGH/ISO/HEVC    | AAC audio        | A_AAC               |
+HLS Mp4| Track 1 description | Track 1 codec ID | Track 2 description | Track 2 codec ID |
+| --- | --- | --- | --- |
+| H.264 video | V\_MPEG4/ISO/AVC | N/A | N/A |
+| H.264 video | V\_MPEG4/ISO/AVC | AAC audio | A\_AAC |
+| AAC audio | A\_AAC | N/A | N/A |
+| H.265 video | V\_MPEGH/ISO/HEVC | N/A | N/A |
+| H.265 video | V\_MPEGH/ISO/HEVC | AAC audio | A\_AAC |
 
-| HLS TS      | Track 1 description | Track 1 codec ID | Track 2 description | Track 2 codec ID |
-| ----------- | ------------------- | ---------------- | ------------------- | ---------------- |
-| H.264 video | V_MPEG4/ISO/AVC     | N/A              | N/A                 |
-| H.264 video | V_MPEG4/ISO/AVC     | AAC audio        | A_AAC               |
-| AAC audio   | A_AAC               | N/A              | N/A                 |
+HLS TS| Track 1 description | Track 1 codec ID | Track 2 description | Track 2 codec ID |
+| --- | --- | --- | --- |
+| H.264 video | V\_MPEG4/ISO/AVC | N/A | N/A |
+| H.264 video | V\_MPEG4/ISO/AVC | AAC audio | A\_AAC |
+| AAC audio | A\_AAC | N/A | N/A |
 
 ###### Note
 
