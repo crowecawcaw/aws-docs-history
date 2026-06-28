@@ -118,7 +118,7 @@ on**Create file
 system.**
 
 Choose Amazon FSx for Lustre and
-click **Next\*\***.\*\* 2. Configure the file system
+click **Next****.** 2. Configure the file system
 
 Complete the form with the following parameters:
 
@@ -160,29 +160,28 @@ an instance.
 
 - Launch an instance
 
-      1. Select the AMI with A100 support as well as have the FSx
-       client driver installed.
-      2. For **Instance Type**
-       choose **p4d.24xlarge**
-      3. For the instance details choose the number of instances you
-       want in the count
-      4. Choose the VPC and private subnet created earlier.
-      5. Select a placement group created as a cluster.
-      6. For **network interfaces** add
-       3 more network interfaces with **Elastic
-       Fabric Adapter** selected
-      7. Set the **NetworkCardIndex**
-       for each EFA adapter to
-       **0,1,2,3** .
-      8. Add any relevant tags in the next screen for the Security
-       Group section choose the security groups created earlier for
-       SSH and EFA access.
-      9. Launch the instance and confirm they have 4 private IP
-       addresses per node.
-
-  ![The Amazon EC2 console interface for configuring multiple network interfaces with Elastic Fabric Adapter (EFA) attachment options.](images/network-interfaces-efa-attachment-console.png)
-  Since the cluster is a private subnet. We need to launch a jumphost in the public
-  subnet to be able to access the P4d instance in the EC2 UltraCluster. 
+  1.  Select the AMI with A100 support as well as have the FSx
+      client driver installed.
+  2.  For **Instance Type**
+      choose **p4d.24xlarge**
+  3.  For the instance details choose the number of instances you
+      want in the count
+  4.  Choose the VPC and private subnet created earlier.
+  5.  Select a placement group created as a cluster.
+  6.  For **network interfaces** add
+      3 more network interfaces with **Elastic
+      Fabric Adapter** selected
+  7.  Set the **NetworkCardIndex**
+      for each EFA adapter to
+      **0,1,2,3** .
+  8.  Add any relevant tags in the next screen for the Security
+      Group section choose the security groups created earlier for
+      SSH and EFA access.
+  9.  Launch the instance and confirm they have 4 private IP
+      addresses per node.
+      ![The Amazon EC2 console interface for configuring multiple network interfaces with Elastic Fabric Adapter (EFA) attachment options.](images/network-interfaces-efa-attachment-console.png)
+      Since the cluster is a private subnet. We need to launch a jumphost in the public
+      subnet to be able to access the P4d instance in the EC2 UltraCluster. 
 
 1. In the EC2 Console launch an EC2 instance, for example t3a.xlarge, in a public
    subnet of the VPC.
