@@ -40,12 +40,12 @@ The resources in your input Bundle serve as a search template. HealthLake uses t
 
 ### Required resources
 
-| Resource                         | Cardinality | Profile                     | Description                                    |
-| -------------------------------- | ----------- | --------------------------- | ---------------------------------------------- |
-| **Claim**                        | 1           | PAS Claim Inquiry           | The prior authorization you're inquiring about |
-| **Patient**                      | 1           | PAS Beneficiary Patient     | Patient demographic information                |
-| \*_Organization_<br>• (Insurer)  | 1           | PAS Insurer Organization    | Insurance company                              |
-| \*_Organization_<br>• (Provider) | 1           | PAS Requesting Organization | Healthcare provider who submitted the request  |
+| Resource                        | Cardinality | Profile                     | Description                                    |
+| ------------------------------- | ----------- | --------------------------- | ---------------------------------------------- |
+| **Claim**                       | 1           | PAS Claim Inquiry           | The prior authorization you're inquiring about |
+| **Patient**                     | 1           | PAS Beneficiary Patient     | Patient demographic information                |
+| *_Organization_<br>• (Insurer)  | 1           | PAS Insurer Organization    | Insurance company                              |
+| *_Organization_<br>• (Provider) | 1           | PAS Requesting Organization | Healthcare provider who submitted the request  |
 
 ### Important search criteria
 

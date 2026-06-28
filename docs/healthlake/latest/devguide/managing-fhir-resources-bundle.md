@@ -16,13 +16,13 @@ or AWS HealthLake commits none of them. Use transaction bundles when you need gu
 referential integrity across related resources, such as creating a patient with related
 observations and conditions where all data must be recorded together.
 
-| Differences between batch and transaction bundles | Feature                                                  | Batch                                                        | Transaction |
-| ------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ | ----------- |
-| Processing model                                  | Each operation succeeds or fails independently.          | All operations succeed or fail as a single atomic unit.      |
-| Failure handling                                  | Processing continues even if individual operations fail. | The entire bundle fails if any single operation fails.       |
-| Execution order                                   | Execution order is not guaranteed.                       | Operations are processed in the order specified.             |
-| Referential integrity                             | Not enforced across operations.                          | Enforced for locally referenced resources within the bundle. |
-| Best used for                                     | Bulk operations where partial success is acceptable.     | Related resources that must be created or updated together.  |
+Differences between batch and transaction bundles| Feature | Batch | Transaction |
+| --- | --- | --- |
+| Processing model | Each operation succeeds or fails independently. | All operations succeed or fail as a single atomic unit. |
+| Failure handling | Processing continues even if individual operations fail. | The entire bundle fails if any single operation fails. |
+| Execution order | Execution order is not guaranteed. | Operations are processed in the order specified. |
+| Referential integrity | Not enforced across operations. | Enforced for locally referenced resources within the bundle. |
+| Best used for | Bulk operations where partial success is acceptable. | Related resources that must be created or updated together. |
 
 You can bundle FHIR resources of the same or different types, and they can include a mix
 of FHIR operations, such as `create`,
@@ -364,14 +364,14 @@ Conditional PUTs are supported only in `batch` bundles. `Transaction` bundles do
 
 When you use conditional PUTs in bundles, AWS HealthLake evaluates the query parameters against existing resources and takes action based on the match results.
 
-| Conditional update behavior                   | Scenario                | HTTP status                                   | Action taken |
-| --------------------------------------------- | ----------------------- | --------------------------------------------- | ------------ |
-| Resource without ID provided                  | 201 Created             | Always creates a new resource.                |
-| Resource with new ID (no match)               | 201 Created             | Creates a new resource with the specified ID. |
-| Resource with existing ID (single match)      | 200 OK                  | Updates the matching resource.                |
-| Resource with existing ID (conflict detected) | 409 Conflict            | Returns an error. No changes are made.        |
-| Resource with existing ID (ID mismatch)       | 400 Bad Request         | Returns an error. No changes are made.        |
-| Multiple resources match conditions           | 412 Precondition Failed | Returns an error. No changes are made.        |
+Conditional update behavior| Scenario | HTTP status | Action taken |
+| --- | --- | --- |
+| Resource without ID provided | 201 Created | Always creates a new resource. |
+| Resource with new ID (no match) | 201 Created | Creates a new resource with the specified ID. |
+| Resource with existing ID (single match) | 200 OK | Updates the matching resource. |
+| Resource with existing ID (conflict detected) | 409 Conflict | Returns an error. No changes are made. |
+| Resource with existing ID (ID mismatch) | 400 Bad Request | Returns an error. No changes are made. |
+| Multiple resources match conditions | 412 Precondition Failed | Returns an error. No changes are made. |
 
 In the following example bundle with a conditional update, the `Patient` resource with FHIR ID `476` updates only if the condition `_lastUpdated=lt2025-04-20` is met.
 
@@ -915,12 +915,12 @@ curl --request GET \
 
 The following table describes the possible responses.
 
-| Polling response codes | HTTP status                        | Meaning                                              | Response body |
-| ---------------------- | ---------------------------------- | ---------------------------------------------------- | ------------- |
-| 202 Accepted           | Transaction is queued              | `OperationOutcome` with diagnostics<br>"SUBMITTED"   |
-| 202 Accepted           | Transaction is being processed     | `OperationOutcome` with diagnostics<br>"IN_PROGRESS" |
-| 200 OK                 | Transaction completed successfully | `Bundle` with type<br>`transaction-response`         |
-| 4xx/5xx                | Transaction failed                 | `OperationOutcome` with error details                |
+Polling response codes| HTTP status | Meaning | Response body |
+| --- | --- | --- |
+| 202 Accepted | Transaction is queued | `OperationOutcome` with diagnostics<br>"SUBMITTED" |
+| 202 Accepted | Transaction is being processed | `OperationOutcome` with diagnostics<br>"IN\_PROGRESS" |
+| 200 OK | Transaction completed successfully | `Bundle` with type<br>`transaction-response` |
+| 4xx/5xx | Transaction failed | `OperationOutcome` with error details |
 
 The following examples show each response type.
 
@@ -1014,10 +1014,10 @@ Do not depend on transactions being processed in the order they were submitted. 
 
 The following quotas and rate limits apply to asynchronous transactions.
 
-| Asynchronous transaction quotas                 | Quota | Value | Adjustable |
-| ----------------------------------------------- | ----- | ----- | ---------- |
-| Maximum operations per asynchronous transaction | 500   | No    |
-| Maximum pending transactions per data store     | 500   | Yes   |
+Asynchronous transaction quotas| Quota | Value | Adjustable |
+| --- | --- | --- |
+| Maximum operations per asynchronous transaction | 500 | No |
+| Maximum pending transactions per data store | 500 | Yes |
 
 - Asynchronous transactions share the same API rate limits defined under
   [Service quotas](reference-healthlake-endpoints-quotas.md#reference-healthlake-quotas "reference-healthlake-endpoints-quotas.md#reference-healthlake-quotas").

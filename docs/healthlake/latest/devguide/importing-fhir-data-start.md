@@ -183,16 +183,16 @@ information:
     * **Input data location in Amazon S3**
 
 5. Under the **Import output files** section, enter the following
-   information:
+information:
 
-   - **Import output files location in Amazon S3**
+    * **Import output files location in Amazon S3**
 
-   - **Import output files encryption**
+
+    * **Import output files encryption**
 
 6. Under the **Access permissions** section, choose **Use an
-   existing IAM service role** and select the role from the **Service
-   role name** menu or choose **Create an IAM role**.
-7. Choose **Import data**.
+existing IAM service role** and select the role from the **Service
+role name** menu or choose **Create an IAM role**. 7. Choose **Import data**.
 
 ###### Note
 

@@ -36,9 +36,9 @@ returned. After successful authentication, the authorization server issues a acc
 token containing the requested launch patient scope. The needed patient context is
 provided alongside the access token in the authorization server's response.
 
-| Supported launch mode scopes | Scope                                                                                                                          | Description |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `launch/patient`             | A parameter in a OAuth 2.0 authorization request requesting<br>that patient data be returned in the authorization<br>response. |
+Supported launch mode scopes| Scope | Description |
+| --- | --- |
+| `launch/patient` | A parameter in a OAuth 2.0 authorization request requesting<br>that patient data be returned in the authorization<br>response. |
 
 ## SMART on FHIR resource scopes for HealthLake
 
@@ -70,11 +70,11 @@ scroll over the **Copy** button.
 ('patient' | 'user' | 'system') '/' (fhir-resource | '*') '.' ('read' | 'write' | '*')
 ```
 
-| SMART on FHIR v1 supported authorization scopes | Scope syntax  | Example scope | Result       |
-| ----------------------------------------------- | ------------- | ------------- | ------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `patient/(fhir-resource                         | '\*').('read' | 'write'       | <br>'\*')`   | `patient/AllergyIntolerance.*`                                                    | The patient client application has instance-level read/write<br>access to all recorded allergies. |
-| `user/(fhir-resource                            | '\*').('read' | 'write'       | <br>'\*')`   | `user/Observation.read`                                                           | The user client application has instance-level read/write access<br>to all recorded observations. |
-| `system/('read'                                 | 'write'       | \*)`          | `system/*.*` | The system client application has read/write access to all FHIR<br>resource data. |
+SMART on FHIR v1 supported authorization scopes| Scope syntax | Example scope | Result |
+| --- | --- | --- |
+| `patient/(fhir-resource | '*').('read' | 'write' |<br>'*')` | `patient/AllergyIntolerance.*` | The patient client application has instance-level read/write<br>access to all recorded allergies. |
+| `user/(fhir-resource | '*').('read' | 'write' |<br>'*')` | `user/Observation.read` | The user client application has instance-level read/write access<br>to all recorded observations. |
+| `system/('read' | 'write' | *)` | `system/*.*` | The system client application has read/write access to all FHIR<br>resource data. |
 
 ### SMART on FHIR V2 scopes supported by HealthLake
 
@@ -94,10 +94,10 @@ To use SMART on FHIR V2, you must pass in the value [`permission-v2`](https://hl
 HealthLake supports granular scopes. For more information, see [supported granular scopes](https://hl7.org/fhir/us/core/scopes.html#the-following-granular-scopes-shall-be-supported "https://hl7.org/fhir/us/core/scopes.html#the-following-granular-scopes-shall-be-supported") in the _FHIR US Core
 Implementation Guide_.
 
-| SMART on FHIR V2 supported authorization scopes | Scope syntax            | Example V1 scope                                                                                             | Result |
-| ----------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------ | ------ |
-| `patient/Observation.rs`                        | `user/Observation.read` | Permission to read and search `Observation` resource<br>for the current patient.                             |
-| `system/*.cruds`                                | `system/*.*`            | The system client application has full<br>create/read/update/delete/search access to all FHIR resource data. |
+SMART on FHIR V2 supported authorization scopes| Scope syntax | Example V1 scope | Result |
+| --- | --- | --- |
+| `patient/Observation.rs` | `user/Observation.read` | Permission to read and search `Observation` resource<br>for the current patient. |
+| `system/*.cruds` | `system/*.*` | The system client application has full<br>create/read/update/delete/search access to all FHIR resource data. |
 
 ### SMART on FHIR V2.2 scopes supported by HealthLake
 
@@ -190,10 +190,10 @@ V2:   (patient|user|system) / resource . cruds
 V2.2: (patient|user|system) / resource . cruds [? param=value [& param=value ...]]
 ```
 
-| V2.2 scope query string components | Component                                                                          | Description |
-| ---------------------------------- | ---------------------------------------------------------------------------------- | ----------- |
-| `?param=value`                     | Search-parameter filter. Only resources matching this<br>criterion are accessible. |
-| `&param=value`                     | Additional filter. Multiple filters are ANDed –<br>all must match.                 |
+V2.2 scope query string components| Component | Description |
+| --- | --- |
+| `?param=value` | Search-parameter filter. Only resources matching this<br>criterion are accessible. |
+| `&param=value` | Additional filter. Multiple filters are ANDed –<br>all must match. |
 
 Rules:
 
@@ -215,25 +215,25 @@ Rules:
 
 #### Scope examples
 
-| V2.2 scope examples                                                                         | Scope                                                              | Access granted                                                    |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| `patient/DiagnosticReport.rs?category=LAB`                                                  | Only `DiagnosticReport` resources where<br>`category` is<br>`LAB`. |
-| `patient/Observation.rs?\_security=http://terminology.hl7.org/CodeSystem/v3-Confidentiality | R`                                                                 | Only `Observation` resources with security<br>label `Restricted`. |
-| `patient/Observation.rs?date=ge2023-01-01`                                                  | Only `Observation` resources dated on or<br>after January 1, 2023. |
-| `patient/Observation.rs?category=laboratory&status=final`                                   | Only `Observation` resources that are lab<br>AND final.            |
-| `user/Condition.rs?clinical-status=active`                                                  | Only active `Condition`<br>resources.                              |
+V2.2 scope examples| Scope | Access granted |
+| --- | --- |
+| `patient/DiagnosticReport.rs?category=LAB` | Only `DiagnosticReport` resources where<br>`category` is<br>`LAB`. |
+| `patient/Observation.rs?_security=http://terminology.hl7.org/CodeSystem/v3-Confidentiality|R` | Only `Observation` resources with security<br>label `Restricted`. |
+| `patient/Observation.rs?date=ge2023-01-01` | Only `Observation` resources dated on or<br>after January 1, 2023. |
+| `patient/Observation.rs?category=laboratory&status=final` | Only `Observation` resources that are lab<br>AND final. |
+| `user/Condition.rs?clinical-status=active` | Only active `Condition`<br>resources. |
 
 #### Enforcement behavior
 
 When a token includes V2.2 scopes, HealthLake applies filters per
 operation:
 
-| V2.2 enforcement per operation | Operation                                                                              | Behavior |
-| ------------------------------ | -------------------------------------------------------------------------------------- | -------- |
-| Read (`r`)                     | Succeeds only if the resource matches all scope<br>filters. Otherwise returns 403.     |
-| Search (`s`)                   | Scope filters are intersected with the query. Only<br>matching resources are returned. |
-| Create/Update (`c`/`u`)        | Resource must satisfy scope filters to be written.<br>Otherwise returns 403.           |
-| Delete (`d`)                   | Target resource must match scope filters. Otherwise<br>returns 403.                    |
+V2.2 enforcement per operation| Operation | Behavior |
+| --- | --- |
+| Read (`r`) | Succeeds only if the resource matches all scope<br>filters. Otherwise returns 403. |
+| Search (`s`) | Scope filters are intersected with the query. Only<br>matching resources are returned. |
+| Create/Update (`c`/`u`) | Resource must satisfy scope filters to be written.<br>Otherwise returns 403. |
+| Delete (`d`) | Target resource must match scope filters. Otherwise<br>returns 403. |
 
 ##### Scope precedence
 
@@ -266,12 +266,12 @@ The following are not supported in V2.2 scope filters:
   (for example,
   `patient/Observation.rs?category=LAB`).
 
-| Troubleshooting               | Symptom                              | Cause                                                                                       | Fix |
-| ----------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------- | --- |
-| Token scope not recognized    | V2.2 not enabled on data store       | Check `/.well-known/smart-configuration`<br>and request enablement via a support<br>ticket. |
-| 403 on a resource that exists | Resource does not match scope filter | Verify resource values against scope<br>parameters.                                         |
-| Empty search results          | Scope filter narrower than query     | Results are the intersection of query and scope<br>filters.                                 |
-| `InvalidScope` error          | Invalid search parameter in scope    | Confirm parameter via<br>`/metadata`<br>CapabilityStatement.                                |
+Troubleshooting| Symptom | Cause | Fix |
+| --- | --- | --- |
+| Token scope not recognized | V2.2 not enabled on data store | Check `/.well-known/smart-configuration`<br>and request enablement via a support<br>ticket. |
+| 403 on a resource that exists | Resource does not match scope filter | Verify resource values against scope<br>parameters. |
+| Empty search results | Scope filter narrower than query | Results are the intersection of query and scope<br>filters. |
+| `InvalidScope` error | Invalid search parameter in scope | Confirm parameter via<br>`/metadata`<br>CapabilityStatement. |
 
 #### End-to-end example
 
@@ -294,5 +294,5 @@ GET {endpoint}/r4/Observation?patient=Patient/123
    `Observation` resources where
    `category=laboratory` AND
    `status=final` AND `date ≥
-2023-01-01` – even though the client requested all
+ 2023-01-01` – even though the client requested all
    Observations.

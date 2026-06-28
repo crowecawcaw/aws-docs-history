@@ -67,8 +67,8 @@ Policies](../../../IAM/latest/UserGuide/PoliciesOverview.md "../../../IAM/latest
      Guide*.
 
 3. Add the following inline policy to the user or role. For more information, see
-   [Inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#inline-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#inline-policies") in the
-   _IAM User Guide_.
+[Inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#inline-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#inline-policies") in the
+_IAM User Guide_.
 
 JSON
 
@@ -156,9 +156,9 @@ administrator.
     	6. Choose **Save**.
 
 3. Change the default security settings to be managed by Lake Formation. The HealthLake data
-   store resources need to be managed by Lake Formation _not_ IAM. To
-   update, see [Change the default permission model](../../../lake-formation/latest/dg/getting-started-setup.md#setup-change-cat-settings "../../../lake-formation/latest/dg/getting-started-setup.md#setup-change-cat-settings") in the _AWS Lake Formation
-   Developer Guide_.
+store resources need to be managed by Lake Formation _not_ IAM. To
+update, see [Change the default permission model](../../../lake-formation/latest/dg/getting-started-setup.md#setup-change-cat-settings "../../../lake-formation/latest/dg/getting-started-setup.md#setup-change-cat-settings") in the _AWS Lake Formation
+Developer Guide_.
 
 ## Create S3 buckets
 

@@ -93,8 +93,9 @@ JSON response (that has been truncated for clarity).
 
 Here is the `http://healthlake.amazonaws.com/system-generated-resources/`
 portion. You can see that a new
-`Linkage/`e366d29f-2c22-4c19-866e-09603937935a`` has been added. You can also see where HealthLake has added inference-based findings to
- specific`Observation`and`Condition` resource types.
+`Linkage/`e366d29f-2c22-4c19-866e-09603937935a``
+has been added. You can also see where HealthLake has added inference-based findings to
+specific `Observation` and `Condition` resource types.
 
 To see how these resource types have been amended, choose the related tabs.
 
@@ -207,7 +208,7 @@ HealthLake appends the following three key-value pairs.
   that identifies the concept found in the knowledge base from the Centers for Disease
   Control.
 - `"display": "Other syphilitic heart involvement"`: Where `"Other
-syphilitic heart involvement"` is the long description of the ICD-10-CM code
+ syphilitic heart involvement"` is the long description of the ICD-10-CM code
   in the ontology.
 
 The following truncated JSON response contains only the `code`
@@ -363,7 +364,7 @@ HealthLake appends the following three key-value pairs.
   that identifies the concept found in the knowledge base from the Centers for Disease
   Control.
 - `"display": "Atherosclerosis of aorta"`: Where `"Other
-syphilitic heart involvement"` is the long description of the ICD-10-CM code
+ syphilitic heart involvement"` is the long description of the ICD-10-CM code
   in the ontology.
 
 The following truncated JSON response contains only the `code`

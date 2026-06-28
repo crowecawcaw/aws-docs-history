@@ -1,9 +1,9 @@
 # FHIR R4 `$operations` for HealthLake
 
-FHIR $ operations (also called "dollar operations") are special server-side functions that extend beyond
-standard CRUD (`Create`, `Read`, `Update`, `Delete`) operations in the FHIR specification. These operations are identified by
-the "$" prefix and enable complex processing, data transformation, and bulk operations that would be difficult or 
- inefficient to perform using standard REST API calls. $ Operations can be invoked at the system level, resource type 
+FHIR $ operations (also called "dollar operations") are special server-side functions that extend beyond 
+ standard CRUD (`Create`, `Read`, `Update`, `Delete`) operations in the FHIR specification. These operations are identified by 
+ the "$" prefix and enable complex processing, data transformation, and bulk operations that would be difficult or
+inefficient to perform using standard REST API calls. $ Operations can be invoked at the system level, resource type 
  level, or on specific resource instances, providing flexible ways to interact with FHIR data.
  AWS HealthLake supports multiple FHIR `$operations`. Please refer to each individual pages below for additional details.
 

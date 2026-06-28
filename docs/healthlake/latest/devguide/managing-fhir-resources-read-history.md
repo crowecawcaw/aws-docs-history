@@ -31,18 +31,16 @@ GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`Resour
 
 ```
 
-| HealthLake supported search parameters for FHIR `history` interaction | Parameter                                                                                                                                                                                                                                                                                                     | Description |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `_count : integer`                                                    | The maximum number of search results on a page. The server will<br>return the number requested or the maximum number of search results<br>allowed by default for the data store, whichever is lower.                                                                                                          |
-| `_since : instant`                                                    | Only include resource versions that were created at or after the<br>given instant in time.                                                                                                                                                                                                                    |
-| `_at : date(Time)`                                                    | Only include resource versions that were current at some point<br>during the time period specified in the date time value. For more<br>information, see [`date`](https://www.hl7.org/fhir/R4/search.html#date "https://www.hl7.org/fhir/R4/search.html#date") in the _HL7 FHIR RESTful<br>API documentation_. |
-
-4. Send the request. The FHIR `history` interaction uses a
-   `GET` request with either [AWS Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md")
-   or SMART on FHIR authorization. The following `curl` example uses the
-   `_count` search parameter to return 100 historical search results per
-   page for a FHIR `Patient` resource in HealthLake. To view the entire
-   example, scroll over the **Copy** button.
+HealthLake supported search parameters for FHIR `history` interaction| Parameter | Description |
+| --- | --- |
+| `_count : integer` | The maximum number of search results on a page. The server will<br>return the number requested or the maximum number of search results<br>allowed by default for the data store, whichever is lower. |
+| `_since : instant` | Only include resource versions that were created at or after the<br>given instant in time. |
+| `_at : date(Time)` | Only include resource versions that were current at some point<br>during the time period specified in the date time value. For more<br>information, see [`date`](https://www.hl7.org/fhir/R4/search.html#date "https://www.hl7.org/fhir/R4/search.html#date") in the _HL7 FHIR RESTful<br>API documentation_. | 4. Send the request. The FHIR `history` interaction uses a
+`GET` request with either [AWS Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md")
+or SMART on FHIR authorization. The following `curl` example uses the
+`_count` search parameter to return 100 historical search results per
+page for a FHIR `Patient` resource in HealthLake. To view the entire
+example, scroll over the **Copy** button.
 
 SigV4
 SigV4 authorization

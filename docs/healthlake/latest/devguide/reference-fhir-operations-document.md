@@ -144,8 +144,10 @@ The `$document` operation:
 The `$document` operation currently supports retrieving resource references in the following format:
 
 1. ```
-   GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`Resource`/`id`
+
    ```
+
+GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`Resource`/`id`
 
 ```
 2. Resource/id

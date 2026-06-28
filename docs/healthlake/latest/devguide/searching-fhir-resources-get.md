@@ -81,7 +81,7 @@ authorization is supported through AWS CLI and AWS SDKs.
    - **Data Store ID** — choose a data
      store ID to generate a query string.
    - **Query type** — choose `Search
-with GET`.
+  with GET`.
    - **Resource type** — choose the FHIR
      [resource
      type](reference-fhir-resource-types.md "reference-fhir-resource-types.md") to search on.

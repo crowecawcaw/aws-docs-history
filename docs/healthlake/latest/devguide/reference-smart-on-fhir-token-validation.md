@@ -21,17 +21,16 @@ action. For more information, see [Updating a HealthLake data store](managing-da
 - The following claims are required to complete a FHIR REST API request. To learn
   more, see [Required claims](reference-smart-on-fhir-authentication.md#server-response "reference-smart-on-fhir-authentication.md#server-response").
 
-      + `nbf`
-      + `exp`
-      + `isAuthorized`
-      + `aud`
-      + `scope`
-
-  When working with Lambda, you need to create an execution role and a resource-based policy
-  in addition to your Lambda function. A Lambda's function's execution role is an IAM role
-  that grants the function permission to access AWS services and resources needed at run time.
-  The resource-based policy you provide must allow HealthLake to invoke your function on your
-  behalf.
+  - `nbf`
+  - `exp`
+  - `isAuthorized`
+  - `aud`
+  - `scope`
+    When working with Lambda, you need to create an execution role and a resource-based policy
+    in addition to your Lambda function. A Lambda's function's execution role is an IAM role
+    that grants the function permission to access AWS services and resources needed at run time.
+    The resource-based policy you provide must allow HealthLake to invoke your function on your
+    behalf.
 
 The sections in this topic describe an example request from a client application and
 decoded response, the steps needed to create an AWS Lambda function, and how to create a
@@ -298,15 +297,15 @@ permission policy statement.
 Individual FHIR resources are not a resource that you can define as an element in
 a IAM permission policy.
 
-| Actions defined by HealthLake | Actions                                                  | Description | Access level                                                                                      | Resource type (Required) |
-| ----------------------------- | -------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------- | ------------------------ |
-| CreateResource                | Grants permission to a create resource                   | Write       | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
-| DeleteResource                | Grants permission to delete resource                     | Write       | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
-| ReadResource                  | Grants permission to read resource                       | Read        | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
-| SearchWithGet                 | Grants permission to search resources with GET<br>method | Read        | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
-| SearchWithPost                | Grants permission to search resources with POST method   | Read        | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
-| StartFHIRExportJobWithPost    | Grants permission to begin a FHIR Export job with<br>GET | Write       | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
-| UpdateResource                | Grants permission to update resource                     | Write       | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
+Actions defined by HealthLake| Actions | Description | Access level | Resource type (Required) |
+| --- | --- | --- | --- |
+| CreateResource | Grants permission to a create resource | Write | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
+| DeleteResource | Grants permission to delete resource | Write | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
+| ReadResource | Grants permission to read resource | Read | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
+| SearchWithGet | Grants permission to search resources with GET<br>method | Read | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
+| SearchWithPost | Grants permission to search resources with POST method | Read | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
+| StartFHIRExportJobWithPost | Grants permission to begin a FHIR Export job with<br>GET | Write | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
+| UpdateResource | Grants permission to update resource | Write | Datastore ARN: arn:aws:healthlake:`your-region`:`111122223333`:datastore/fhir/`your-datastore-id` |
 
 To get started, you can use `AmazonHealthLakeFullAccess`. This policy would grant
 read, write, search, and export on all FHIR resources found in a data store. To

@@ -163,31 +163,31 @@ The operation returns a Parameters resource containing the matching results:
 
 The response includes the following parameters when a match is found:
 
-| Parameter        | Type       | Description                                                                    |
-| ---------------- | ---------- | ------------------------------------------------------------------------------ |
-| MemberIdentifier | Identifier | The unique identifier for the matched member                                   |
-| MemberId         | Reference  | Reference to the Patient resource                                              |
-| matchAlgorithm   | String     | Type of match algorithm used (EXACT_MATCH, STRONG_MATCH, or DEMOGRAPHIC_MATCH) |
-| matchDetails     | String     | Detailed information about the matching process                                |
-| matchedFields    | String     | List of specific fields that were successfully matched                         |
+| Parameter        | Type       | Description                                                                       |
+| ---------------- | ---------- | --------------------------------------------------------------------------------- |
+| MemberIdentifier | Identifier | The unique identifier for the matched member                                      |
+| MemberId         | Reference  | Reference to the Patient resource                                                 |
+| matchAlgorithm   | String     | Type of match algorithm used (EXACT\_MATCH, STRONG\_MATCH, or DEMOGRAPHIC\_MATCH) |
+| matchDetails     | String     | Detailed information about the matching process                                   |
+| matchedFields    | String     | List of specific fields that were successfully matched                            |
 
 ## Matching Algorithms
 
 The `$member-match` API employs a multi-tiered matching approach to ensure accurate member identification:
 
-EXACT_MATCH
+EXACT\_MATCH
 
 Uses Patient Identifier combined with Coverage SubscriberId
 
 Provides the highest confidence level for member matching
 
-STRONG_MATCH
+STRONG\_MATCH
 
 Uses Patient Identifier with minimum coverage information
 
 Offers high confidence when exact match criteria are not met
 
-DEMOGRAPHIC_MATCH
+DEMOGRAPHIC\_MATCH
 
 Relies on basic demographic information
 

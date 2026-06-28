@@ -29,13 +29,13 @@ Your request must be a FHIR Bundle resource with:
 
 ### Required resources
 
-| Resource                         | Cardinality | Profile       | Description                                |
-| -------------------------------- | ----------- | ------------- | ------------------------------------------ |
-| **Claim**                        | 1           | PAS Claim     | The prior authorization request            |
-| **Patient**                      | 1           | PAS Patient   | Patient demographic information            |
-| \*_Organization_<br>• (Insurer)  | 1           | PAS Insurer   | Insurance company                          |
-| \*_Organization_<br>• (Provider) | 1           | PAS Requestor | Healthcare provider submitting the request |
-| **Coverage**                     | 1 or more   | PAS Coverage  | Insurance coverage details                 |
+| Resource                        | Cardinality | Profile       | Description                                |
+| ------------------------------- | ----------- | ------------- | ------------------------------------------ |
+| **Claim**                       | 1           | PAS Claim     | The prior authorization request            |
+| **Patient**                     | 1           | PAS Patient   | Patient demographic information            |
+| *_Organization_<br>• (Insurer)  | 1           | PAS Insurer   | Insurance company                          |
+| *_Organization_<br>• (Provider) | 1           | PAS Requestor | Healthcare provider submitting the request |
+| **Coverage**                    | 1 or more   | PAS Coverage  | Insurance coverage details                 |
 
 ### Optional resources
 

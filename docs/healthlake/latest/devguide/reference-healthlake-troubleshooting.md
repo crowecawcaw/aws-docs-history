@@ -188,7 +188,7 @@ indicating a validation error instead of providing it in the integrated medical 
 output. To find `DocumentReference` resources that led to a validation error
 during NLP processing, you can use HealthLake’s FHIR `search` function with
 search key **cm-decoration-status** and search value
-**VALIDATION_ERROR**. This search will list all
+**VALIDATION\_ERROR**. This search will list all
 `DocumentReference` resources that led to validation errors, along with
 an error message describing the nature of the error. The structure of the extension
 field in those `DocumentReference` resources with validation errors will

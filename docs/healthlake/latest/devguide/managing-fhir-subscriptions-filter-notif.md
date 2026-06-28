@@ -21,7 +21,7 @@ The following table shows a list of supported filter criteria that HealthLake su
 The following table shows samples of supported filter criteria that HealthLake supports for Subscriptions:
 
 | Purpose                       | Filter criteria                                 | Description                                                               |
-| ----------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| ----------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------- |
 | Patient-specific observations | `Observation?patient=Patient/[id]&status=final` | Get notifications when observations for a specific patient are finalized  |
 | Patient-specific observations | `Patient?birthdate=gt2021`                      | Get notifications when patients born after 2021 are registered or updated |
 | Patient-specific observations | `Condition?code=http://snomed.info/sct          | 39065001`                                                                 | Get notifications for conditions with specific SNOMED codes |

@@ -165,21 +165,21 @@ Data Store Deleted
 
 ```
 
-| Data store events - metadata descriptions | Name           | Type                                                       | Description |
-| ----------------------------------------- | -------------- | ---------------------------------------------------------- | ----------- |
-| `version`                                 | string         | The EventBridge event schema version.                      |
-| `id`                                      | string         | The Version 4 UUID generated for every event.              |
-| `detail-type`                             | string         | The type of event that is being sent.                      |
-| `source`                                  | string         | Identifies the service that generated the event.           |
-| `account`                                 | string         | The 12-digit AWS account ID of the data store owner.       |
-| `time`                                    | string         | The time the event occurred.                               |
-| `region`                                  | string         | Identifies the AWS Region of the data store.               |
-| `resources`                               | array (string) | A JSON array that contains the ARN of the data store.      |
-| `detail`                                  | object         | A JSON object that contains information about the event.   |
-| `detail.datastoreId`                      | string         | The data store ID associated with the status change event. |
-| `detail.datastoreName`                    | string         | The data store name.                                       |
-| `detail.datastoreTypeVersion`             | string         | The data store FHIR version.                               |
-| `detail.datastoreEndpoint`                | string         | The data store endpoint.                                   |
+Data store events - metadata descriptions| Name | Type | Description |
+| --- | --- | --- |
+| `version` | string | The EventBridge event schema version. |
+| `id` | string | The Version 4 UUID generated for every event. |
+| `detail-type` | string | The type of event that is being sent. |
+| `source` | string | Identifies the service that generated the event. |
+| `account` | string | The 12-digit AWS account ID of the data store owner. |
+| `time` | string | The time the event occurred. |
+| `region` | string | Identifies the AWS Region of the data store. |
+| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
+| `detail` | object | A JSON object that contains information about the event. |
+| `detail.datastoreId` | string | The data store ID associated with the status change event. |
+| `detail.datastoreName` | string | The data store name. |
+| `detail.datastoreTypeVersion` | string | The data store FHIR version. |
+| `detail.datastoreEndpoint` | string | The data store endpoint. |
 
 Import Job Submitted
 **State - `SUBMITTED`**
@@ -332,21 +332,21 @@ Import Job Failed
 
 ```
 
-| Import job events - metadata descriptions | Name           | Type                                                                                           | Description |
-| ----------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------- | ----------- |
-| `version`                                 | string         | The EventBridge event schema version.                                                          |
-| `id`                                      | string         | The Version 4 UUID generated for every event.                                                  |
-| `detail-type`                             | string         | The type of event that is being sent.                                                          |
-| `source`                                  | string         | Identifies the service that generated the event.                                               |
-| `account`                                 | string         | The 12-digit AWS account ID of the data store owner.                                           |
-| `time`                                    | string         | The time the event occurred.                                                                   |
-| `region`                                  | string         | Identifies the AWS Region of the data store.                                                   |
-| `resources`                               | array (string) | A JSON array that contains the ARN of the data store.                                          |
-| `detail`                                  | object         | A JSON object that contains information about the event.                                       |
-| `detail.jobId`                            | string         | The import job ID associated with the status change event.                                     |
-| `detail.submitTime`                       | string         | The time the import job was submitted.                                                         |
-| `detail.datastoreId`                      | string         | The data store that generated the status change event.                                         |
-| `detail.inputDataConfig`                  | string         | The input prefix path for the Amazon S3 bucket that contains the FHIR files to<br>be imported. |
+Import job events - metadata descriptions| Name | Type | Description |
+| --- | --- | --- |
+| `version` | string | The EventBridge event schema version. |
+| `id` | string | The Version 4 UUID generated for every event. |
+| `detail-type` | string | The type of event that is being sent. |
+| `source` | string | Identifies the service that generated the event. |
+| `account` | string | The 12-digit AWS account ID of the data store owner. |
+| `time` | string | The time the event occurred. |
+| `region` | string | Identifies the AWS Region of the data store. |
+| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
+| `detail` | object | A JSON object that contains information about the event. |
+| `detail.jobId` | string | The import job ID associated with the status change event. |
+| `detail.submitTime` | string | The time the import job was submitted. |
+| `detail.datastoreId` | string | The data store that generated the status change event. |
+| `detail.inputDataConfig` | string | The input prefix path for the Amazon S3 bucket that contains the FHIR files to<br>be imported. |
 
 Export Job Submitted
 **State - `SUBMITTED`**
@@ -499,18 +499,18 @@ Export Job Failed
 
 ```
 
-| Export job events - metadata descriptions | Name           | Type                                                                                            | Description |
-| ----------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------- | ----------- |
-| `version`                                 | string         | The EventBridge event schema version.                                                           |
-| `id`                                      | string         | The Version 4 UUID generated for every event.                                                   |
-| `detail-type`                             | string         | The type of event that is being sent.                                                           |
-| `source`                                  | string         | Identifies the service that generated the event.                                                |
-| `account`                                 | string         | The 12-digit AWS account ID of the data store owner.                                            |
-| `time`                                    | string         | The time the event occurred.                                                                    |
-| `region`                                  | string         | Identifies the AWS Region of the data store.                                                    |
-| `resources`                               | array (string) | A JSON array that contains the ARN of the data store.                                           |
-| `detail`                                  | object         | A JSON object that contains information about the event.                                        |
-| `detail.jobId`                            | string         | The export job ID associated with the status change event.                                      |
-| `detail.submitTime`                       | string         | The time the export job was submitted.                                                          |
-| `detail.datastoreId`                      | string         | The data store that generated the status change event.                                          |
-| `detail.outputDataConfig`                 | string         | The output prefix path for the Amazon S3 bucket that contains the FHIR files to<br>be exported. |
+Export job events - metadata descriptions| Name | Type | Description |
+| --- | --- | --- |
+| `version` | string | The EventBridge event schema version. |
+| `id` | string | The Version 4 UUID generated for every event. |
+| `detail-type` | string | The type of event that is being sent. |
+| `source` | string | Identifies the service that generated the event. |
+| `account` | string | The 12-digit AWS account ID of the data store owner. |
+| `time` | string | The time the event occurred. |
+| `region` | string | Identifies the AWS Region of the data store. |
+| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
+| `detail` | object | A JSON object that contains information about the event. |
+| `detail.jobId` | string | The export job ID associated with the status change event. |
+| `detail.submitTime` | string | The time the export job was submitted. |
+| `detail.datastoreId` | string | The data store that generated the status change event. |
+| `detail.outputDataConfig` | string | The output prefix path for the Amazon S3 bucket that contains the FHIR files to<br>be exported. |

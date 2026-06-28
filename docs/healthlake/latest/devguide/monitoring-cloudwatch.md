@@ -16,22 +16,22 @@ as a frequency count for a user-specified data range.
 
 The following HealthLake metrics are reported to CloudWatch.
 
-| HealthLake metrics reported to CloudWatch | Metric                                                                                                                                                                                                                      | Description |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Call Count                                | The number of calls to APIs. This can be reported for the account or a<br>specified data store.<br>Units: Count<br>Valid Statistics: Sum, Count<br>Dimensions: Operation, datastore ID, data store type                     |
-| Successful Requests                       | The number of successful API requests.<br>Units: Count<br>Valid Statistics: Sum, Average<br>Dimensions: Operation, data store ID, data store type                                                                           |
-| User Errors                               | The number of requests that failed due to user error.<br>Units: Count<br>Valid Statistics: Sum, Average<br>Dimensions: Operation, data store ID, data store type                                                            |
-| Server Errors                             | The number of requests that failed due to server error.<br>Units: Count<br>Valid Statistics: Sum, Average<br>Dimensions: Operation, data store ID, data store type                                                          |
-| Throttled Requests                        | The number of requests that have been throttled. This metric is not included<br>in user or server errors counts.<br>Units: Count<br>Valid Statistics: Sum, Average<br>Dimensions: Operation, data store ID, data store type |
-| Latency                                   | The time it took in milliseconds to process the user request.<br>Unit: Milliseconds<br>Valid statistics: Minimum, Maximum, Average<br>Dimensions: Operation, data store ID, data store type                                 |
+HealthLake metrics reported to CloudWatch| Metric | Description |
+| --- | --- |
+| Call Count | The number of calls to APIs. This can be reported for the account or a<br>specified data store.<br>Units: Count<br>Valid Statistics: Sum, Count<br>Dimensions: Operation, datastore ID, data store type |
+| Successful Requests | The number of successful API requests.<br>Units: Count<br>Valid Statistics: Sum, Average<br>Dimensions: Operation, data store ID, data store type |
+| User Errors | The number of requests that failed due to user error.<br>Units: Count<br>Valid Statistics: Sum, Average<br>Dimensions: Operation, data store ID, data store type |
+| Server Errors | The number of requests that failed due to server error.<br>Units: Count<br>Valid Statistics: Sum, Average<br>Dimensions: Operation, data store ID, data store type |
+| Throttled Requests | The number of requests that have been throttled. This metric is not included<br>in user or server errors counts.<br>Units: Count<br>Valid Statistics: Sum, Average<br>Dimensions: Operation, data store ID, data store type |
+| Latency | The time it took in milliseconds to process the user request.<br>Unit: Milliseconds<br>Valid statistics: Minimum, Maximum, Average<br>Dimensions: Operation, data store ID, data store type |
 
 The following HealthLake dimensions are reported to CloudWatch.
 
-| HealthLake Dimensions reported to CloudWatch | Dimension                                  | Description |
-| -------------------------------------------- | ------------------------------------------ | ----------- |
-| Operation                                    | The API operation used in the request      |
-| DataStoreID                                  | The data store ID used in the request      |
-| DataStoreType                                | The type of data store used in the request |
+HealthLake Dimensions reported to CloudWatch| Dimension | Description |
+| --- | --- |
+| Operation | The API operation used in the request |
+| DataStoreID | The data store ID used in the request |
+| DataStoreType | The type of data store used in the request |
 
 You can get metrics for HealthLake with the AWS Management Console, the AWS CLI, or the CloudWatch
 API. You can use the CloudWatch API through one of the Amazon AWS Software Development Kits

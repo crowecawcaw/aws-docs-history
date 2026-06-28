@@ -32,12 +32,12 @@ GET [base]/$bulk-member-match-status/{jobId}
 
 HealthLake supports the following FHIR `$bulk-member-match` parameters:
 
-| Parameter         | Type     | Required | Description                                                                                                                                                       |
-| ----------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MemberPatient`   | Patient  | Yes      | Patient resource containing demographic information for the member to be matched.                                                                                 |
-| `CoverageToMatch` | Coverage | Yes      | Coverage resource that will be used for matching against existing records.                                                                                        |
-| `CoverageToLink`  | Coverage | No       | Coverage resource to be linked during the matching process.                                                                                                       |
-| `Consent`         | Consent  | Yes      | Consent resource for authorization purposes is also stored. This is different than the individual `$member-match` operation where Consent is \*not<br>• required. |
+| Parameter         | Type     | Required | Description                                                                                                                                                      |
+| ----------------- | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MemberPatient`   | Patient  | Yes      | Patient resource containing demographic information for the member to be matched.                                                                                |
+| `CoverageToMatch` | Coverage | Yes      | Coverage resource that will be used for matching against existing records.                                                                                       |
+| `CoverageToLink`  | Coverage | No       | Coverage resource to be linked during the matching process.                                                                                                      |
+| `Consent`         | Consent  | Yes      | Consent resource for authorization purposes is also stored. This is different than the individual `$member-match` operation where Consent is *not<br>• required. |
 
 ## POST request to submit bulk member match job
 

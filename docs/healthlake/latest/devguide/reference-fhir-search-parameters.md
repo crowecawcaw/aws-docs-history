@@ -24,16 +24,16 @@ see FHIR R4 search parameters for HealthLake.
 
 The following table shows the supported search parameter types in HealthLake.
 
-| Supported search parameters types | Search parameter                                                    | Description |
-| --------------------------------- | ------------------------------------------------------------------- | ----------- |
-| \_id                              | Resource id (not a full URL)                                        |
-| \_lastUpdated                     | Date last updated. Server has discretion on the boundary precision. |
-| \_tag                             | Search by a resource tag.                                           |
-| \_profile                         | Search for all resources tagged with a profile.                     |
-| \_security                        | Search on security labels applied to this resource.                 |
-| \_source                          | Search on where the resource comes from.                            |
-| \_text                            | Search on the narrative of the resource.                            |
-| createdAt                         | Search on custom extension createdAt.                               |
+Supported search parameters types| Search parameter | Description |
+| --- | --- |
+| \_id | Resource id (not a full URL) |
+| \_lastUpdated | Date last updated. Server has discretion on the boundary precision. |
+| \_tag | Search by a resource tag. |
+| \_profile | Search for all resources tagged with a profile. |
+| \_security | Search on security labels applied to this resource. |
+| \_source | Search on where the resource comes from. |
+| \_text | Search on the narrative of the resource. |
+| createdAt | Search on custom extension createdAt. |
 
 ###### Note
 
@@ -44,17 +44,17 @@ types for a given resource type. For clarity, special characters in the examples
 not been encoded. To make a successful query, ensure that the query string has been properly
 encoded.
 
-| Search parameter examples | Search Parameter Types                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Details                                                                                              | Examples                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------------- | --------------------------------------------- | ------------------------- | ----------------------------------------------- | ------------------------- | --- |
-| Number                    | Searches for a numerical value in a specified resource. Significant figures<br>are observed. The number of significant digits are specific in by search parameter<br>value, excluding leading zeros. Comparison prefixes are allowed.                                                                                                                                                                                                                                                                                      | `[parameter]=100`<br>`[parameter]=1e2`<br>`[parameter]=lt100`                                        |
-| Date/DateTime             | Searches for a specific date or time. The expected format is<br>`yyyy-mm-ddThh:mm:ss[Z                                                                                                                                                                                                                                                                                                                                                                                                                                     | (+                                                                                                   | -)hh:mm]`but can vary.<br>Accepts the following data types:`date`, `dateTime`,<br>`instant`, `Period`, and `Timing`. For more<br>details using these data types in searches, see [date](https://www.hl7.org/fhir/search.html#date "https://www.hl7.org/fhir/search.html#date") in the<br>**FHIR R4 RESTful API documentation**.<br>Comparison prefixes are allowed. | `[parameter]=eq2013-01-14`<br>`[parameter]=gt2013-01-14T10:00`<br>`[parameter]=ne2013-01-14`                                                                                                                                 |
-| String                    | Searches for a sequence of characters in a case-sensitive manner.<br>Supports both `HumanName` and `Address` types. For more<br>details, see the [HumanName data type](https://www.hl7.org/fhir/datatypes.html#HumanName "https://www.hl7.org/fhir/datatypes.html#HumanName") entry and the [`Address` data<br>type](https://www.hl7.org/fhir/datatypes.html#Address "https://www.hl7.org/fhir/datatypes.html#Address") entries in the **FHIR R4 documentation**.<br>Advanced search is supported using `:text` modifiers. | `[base]/Patient?given=eve`<br>`[base]/Patient?given:contains=eve`                                    |
-| Token                     | Searches for a close-to-exact match against a string of characters, often<br>compared to a pair of medical code values.<br>Case sensitivity is linked to the code system used when creating a<br>query.Subsumption-based queries can help reduce issues linked to case sensitivity.<br>For clarity the `                                                                                                                                                                                                                   | ` has not been encoded.                                                                              | `[parameter]=[system]                                                                                                                                                                                                                                                                                                                                               | [code]`: Here `[system]`refers a<br>coding system, and`[code]` refers to code value found within that<br>specific system.<br>`[parameter]=[code]`: Here your input will match either a code or a<br>system.<br>`[parameter]= | [code]`: Here your input will match a code, and the<br>system property has no identifier. |
-| Composite                 | Searches for multiple parameters within a single resource type, using the<br>modifiers`$` and `,` operation.<br>Comparison prefixes are allowed.                                                                                                                                                                                                                                                                                                                                                                           | `/Patient?language=FR,NL&language=EN`<br>`Observation?component-code-value-quantity=http://loinc.org | 8480-6$lt60`<br>`[base]/Group?characteristic-value=gender$mixed`                                                                                                                                                                                                                                                                                                    |
-| Quantity                  | Searches for a number, system, and code as values. A number is required, but<br>system and code are optional. Based on the Quantity data type. For more details, see<br>[Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity "https://www.hl7.org/fhir/datatypes.html#Quantity") in<br>the **FHIR R4 documentation**.<br>Uses the following assumed syntax<br>`[parameter]=[prefix][number]                                                                                                                         | [system]                                                                                             | [code]`                                                                                                                                                                                                                                                                                                                                                             | `[base]/Observation?value-quantity=5.4                                                                                                                                                                                       | http://unitsofmeasure.org                                                                 | mg`<br>`[base]/Observation?value-quantity=5.4 | http://unitsofmeasure.org | mg`<br>`[base]/Observation?value-quantity=5.4 | http://unitsofmeasure.org | mg`<br>`[base]/Observation?value-quantity=le5.4 | http://unitsofmeasure.org | mg` |
-| Reference                 | Searches for references to other resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `[base]/Observation?subject=Patient/23`<br>`test`                                                    |
-| URI                       | Searches for a string of characters that unambiguously identifies a particular<br>resource.                                                                                                                                                                                                                                                                                                                                                                                                                                | `[base]/ValueSet?url=http://acme.org/fhir/ValueSet/123`                                              |
-| Special                   | Searches based on integrated medical NLP extensions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+Search parameter examples| Search Parameter Types | Details | Examples |
+| --- | --- | --- |
+| Number | Searches for a numerical value in a specified resource. Significant figures<br>are observed. The number of significant digits are specific in by search parameter<br>value, excluding leading zeros. Comparison prefixes are allowed. | `[parameter]=100`<br>`[parameter]=1e2`<br>`[parameter]=lt100` |
+| Date/DateTime | Searches for a specific date or time. The expected format is<br>`yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]` but can vary.<br>Accepts the following data types: `date`, `dateTime`,<br>`instant`, `Period`, and `Timing`. For more<br>details using these data types in searches, see [date](https://www.hl7.org/fhir/search.html#date "https://www.hl7.org/fhir/search.html#date") in the<br>**FHIR R4 RESTful API documentation**.<br>Comparison prefixes are allowed. | `[parameter]=eq2013-01-14`<br>`[parameter]=gt2013-01-14T10:00`<br>`[parameter]=ne2013-01-14` |
+| String | Searches for a sequence of characters in a case-sensitive manner.<br>Supports both `HumanName` and `Address` types. For more<br>details, see the [HumanName data type](https://www.hl7.org/fhir/datatypes.html#HumanName "https://www.hl7.org/fhir/datatypes.html#HumanName") entry and the [`Address` data<br>type](https://www.hl7.org/fhir/datatypes.html#Address "https://www.hl7.org/fhir/datatypes.html#Address") entries in the **FHIR R4 documentation**.<br>Advanced search is supported using `:text` modifiers. | `[base]/Patient?given=eve`<br>`[base]/Patient?given:contains=eve` |
+| Token | Searches for a close-to-exact match against a string of characters, often<br>compared to a pair of medical code values.<br>Case sensitivity is linked to the code system used when creating a<br>query.Subsumption-based queries can help reduce issues linked to case sensitivity.<br>For clarity the `|` has not been encoded. | `[parameter]=[system]|[code]`: Here `[system]` refers a<br>coding system, and `[code]` refers to code value found within that<br>specific system.<br>`[parameter]=[code]`: Here your input will match either a code or a<br>system.<br>`[parameter]=|[code]`: Here your input will match a code, and the<br>system property has no identifier. |
+| Composite | Searches for multiple parameters within a single resource type, using the<br>modifiers`$` and `,` operation.<br>Comparison prefixes are allowed. | `/Patient?language=FR,NL&language=EN`<br>`Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60`<br>`[base]/Group?characteristic-value=gender$mixed` |
+| Quantity | Searches for a number, system, and code as values. A number is required, but<br>system and code are optional. Based on the Quantity data type. For more details, see<br>[Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity "https://www.hl7.org/fhir/datatypes.html#Quantity") in<br>the **FHIR R4 documentation**.<br>Uses the following assumed syntax<br>`[parameter]=[prefix][number]|[system]|[code]` | `[base]/Observation?value-quantity=5.4|http://unitsofmeasure.org|mg`<br>`[base]/Observation?value-quantity=5.4|http://unitsofmeasure.org|mg`<br>`[base]/Observation?value-quantity=5.4|http://unitsofmeasure.org|mg`<br>`[base]/Observation?value-quantity=le5.4|http://unitsofmeasure.org|mg` |
+| Reference | Searches for references to other resources. | `[base]/Observation?subject=Patient/23`<br>`test` |
+| URI | Searches for a string of characters that unambiguously identifies a particular<br>resource. | `[base]/ValueSet?url=http://acme.org/fhir/ValueSet/123` |
+| Special | Searches based on integrated medical NLP extensions. |
 
 ## Advanced search parameters supported by HealthLake
 
@@ -263,15 +263,15 @@ Boolean-based logic. For example, you could specify `:contains` to specify that
 larger string field should include a small string in order for it to be included in your
 search results.
 
-| Supported search modifiers | Search modifier                   | Type |
-| -------------------------- | --------------------------------- | ---- |
-| :missing                   | All parameters except `Composite` |
-| :exact                     | String                            |
-| :contains                  | String                            |
-| :not                       | Token                             |
-| :text                      | Token                             |
-| :identifier                | Reference                         |
-| :below                     | URI                               |
+Supported search modifiers| Search modifier | Type |
+| --- | --- |
+| :missing | All parameters except `Composite` |
+| :exact | String |
+| :contains | String |
+| :not | Token |
+| :text | Token |
+| :identifier | Reference |
+| :below | URI |
 
 ## Supported search comparators
 
@@ -279,16 +279,16 @@ You can use search comparators to control the nature of the matching in a search
 use comparators when searching on number, date, and quantity fields. The following table lists
 search comparators and their definitions that are supported by HealthLake.
 
-| Supported search comparators | Search comparator                                                                         | Description |
-| ---------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| eq                           | The value for the parameter in the resource is equal to the provided<br>value.            |
-| ne                           | The value for the parameter in the resource is not equal to the provided<br>value.        |
-| gt                           | The value for the parameter in the resource is greater than the provided<br>value.        |
-| lt                           | The value for the parameter in the resource is less than the provided<br>value.           |
-| ge                           | The value for the parameter in the resource is greater or equal to the provided<br>value. |
-| le                           | The value for the parameter in the resource is less or equal to the provided<br>value.    |
-| sa                           | The value for the parameter in the resource starts after the provided<br>value.           |
-| eb                           | The value for the parameter in the resource ends before the provided<br>value.            |
+Supported search comparators| Search comparator | Description |
+| --- | --- |
+| eq | The value for the parameter in the resource is equal to the provided<br>value. |
+| ne | The value for the parameter in the resource is not equal to the provided<br>value. |
+| gt | The value for the parameter in the resource is greater than the provided<br>value. |
+| lt | The value for the parameter in the resource is less than the provided<br>value. |
+| ge | The value for the parameter in the resource is greater or equal to the provided<br>value. |
+| le | The value for the parameter in the resource is less or equal to the provided<br>value. |
+| sa | The value for the parameter in the resource starts after the provided<br>value. |
+| eb | The value for the parameter in the resource ends before the provided<br>value. |
 
 ## FHIR search parameters not supported by HealthLake
 

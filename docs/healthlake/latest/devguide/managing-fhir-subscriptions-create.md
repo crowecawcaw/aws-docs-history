@@ -39,7 +39,7 @@ Example Subscription Topic resource:
      a REST hook subscription, you must pass in a client-id, client-secret, and oAuth-endpoint-url
      in the channel.\_type.extension[\*].
 
-Example KMS key policy if using CM_CMK datastore:
+Example KMS key policy if using CM\_CMK datastore:
 
 ```
 {

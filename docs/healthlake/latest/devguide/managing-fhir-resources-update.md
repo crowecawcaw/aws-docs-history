@@ -101,7 +101,7 @@ AWS Console
    - **Data Store ID** — choose a data store ID to generate
      a query string.
    - **Query type** — choose `Update
-(PUT)`.
+  (PUT)`.
    - **Resource type** — choose the FHIR [resource type](reference-fhir-resource-types.md "reference-fhir-resource-types.md") to update or
      create.
    - **Request body** — construct a JSON body for the
@@ -135,7 +135,7 @@ The action the server takes depends on how many matches it finds:
   indicating the client id specification was a problem preferably with an
   `OperationOutcome`
 - **Multiple matches**: The server returns a `412
-Precondition Failed` error indicating the client's criteria were not selective
+ Precondition Failed` error indicating the client's criteria were not selective
   enough preferably with an OperationOutcome
 
 The following example updates a `Patient` resource whose name is peter,

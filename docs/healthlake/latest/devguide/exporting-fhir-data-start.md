@@ -176,9 +176,8 @@ information:
     * **Output encyryption**
 
 5. Under the **Access permissions** section, choose **Use an
-   existing IAM service role** and select the role from the **Role
-   name** menu or choose **Create an IAM role**.
-6. Choose **Export data**.
+existing IAM service role** and select the role from the **Role
+name** menu or choose **Create an IAM role**. 6. Choose **Export data**.
 
 ###### Note
 

@@ -6,7 +6,7 @@ supported and are required for both importing and exporting files from a data st
 about Customer-managed KMS Key, see [Amazon Key
 Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md"). Customers can choose an AWS owned KMS key or a Customer-managed
 KMS key when creating a data store. The encryption configuration cannot be changed after a data store has
-been created. If a data store is using an AWS owned KMS Key, it will be denoted as AWS_OWNED_KMS_KEY
+been created. If a data store is using an AWS owned KMS Key, it will be denoted as AWS\_OWNED\_KMS\_KEY
 and you will not see the specific key used for encryption at rest.
 
 ## AWS owned KMS key

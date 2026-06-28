@@ -93,7 +93,7 @@ HealthLake supports the following resource attributes for the `Patient/
 | AppointmentResponse         | AppointmentResponse.start                                                                                          |
 | AuditEvent                  | AuditEvent.period.start                                                                                            |
 | Basic                       | Basic.created                                                                                                      |
-| BodyStructure               | NO_DATE                                                                                                            |
+| BodyStructure               | NO\_DATE                                                                                                           |
 | CarePlan                    | CarePlan.period.start                                                                                              |
 | CareTeam                    | CareTeam.period.start                                                                                              |
 | ChargeItem                  | ChargeItem.occurrenceDateTime, ChargeItem.occurrencePeriod.start,<br>ChargeItem.occurrenceTiming.event             |
@@ -118,10 +118,10 @@ HealthLake supports the following resource attributes for the `Patient/
 | EnrollmentRequest           | EnrollmentRequest.created                                                                                          |
 | EpisodeOfCare               | EpisodeOfCare.period.start                                                                                         |
 | ExplanationOfBenefit        | ExplanationOfBenefit.billablePeriod.start                                                                          |
-| FamilyMemberHistory         | NO_DATE                                                                                                            |
+| FamilyMemberHistory         | NO\_DATE                                                                                                           |
 | Flag                        | Flag.period.start                                                                                                  |
 | Goal                        | Goal.statusDate                                                                                                    |
-| Group                       | NO_DATE                                                                                                            |
+| Group                       | NO\_DATE                                                                                                           |
 | ImagingStudy                | ImagingStudy.started                                                                                               |
 | Immunization                | Immunization.recorded                                                                                              |
 | ImmunizationEvaluation      | ImmunizationEvaluation.date                                                                                        |
@@ -134,15 +134,15 @@ HealthLake supports the following resource attributes for the `Patient/
 | MedicationDispense          | MedicationDispense.whenPrepared                                                                                    |
 | MedicationRequest           | MedicationRequest.authoredOn                                                                                       |
 | MedicationStatement         | MedicationStatement.dateAsserted                                                                                   |
-| MolecularSequence           | NO_DATE                                                                                                            |
+| MolecularSequence           | NO\_DATE                                                                                                           |
 | NutritionOrder              | NutritionOrder.dateTime                                                                                            |
 | Observation                 | Observation.effective                                                                                              |
-| Patient                     | NO_DATE                                                                                                            |
-| Person                      | NO_DATE                                                                                                            |
+| Patient                     | NO\_DATE                                                                                                           |
+| Person                      | NO\_DATE                                                                                                           |
 | Procedure                   | Procedure.performed                                                                                                |
 | Provenance                  | Provenance.occurredPeriod.start, Provenance.occurredDateTime                                                       |
 | QuestionnaireResponse       | QuestionnaireResponse.authored                                                                                     |
-| RelatedPerson               | NO_DATE                                                                                                            |
+| RelatedPerson               | NO\_DATE                                                                                                           |
 | RequestGroup                | RequestGroup.authoredOn                                                                                            |
 | ResearchSubject             | ResearchSubject.period                                                                                             |
 | RiskAssessment              | RiskAssessment.occurrenceDateTime,<br>RiskAssessment.occurrencePeriod.start                                        |
