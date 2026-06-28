@@ -45,7 +45,7 @@ For the full policy document, see
 The following table describes updates to the AWS managed policy for Bill
 to AWS.
 
-| Policy updates for Bill to AWS              | Change                                                                                                                                              | Description   | Date |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---- |
+Policy updates for Bill to AWS| Change | Description | Date |
+| --- | --- | --- |
 | `ReInventTicketApprovalAccess` – New policy | Bill to AWS added a new managed policy that grants permission to view re:Invent pass charge details and approve or decline billing to AWS accounts. | June 10, 2026 |
-| Bill to AWS started tracking policy changes | Bill to AWS started tracking changes for its AWS managed policies.                                                                                  | June 10, 2026 |
+| Bill to AWS started tracking policy changes | Bill to AWS started tracking changes for its AWS managed policies. | June 10, 2026 |
