@@ -22,6 +22,6 @@ To be notified of new releases, please subscribe to this RSS feed.
 | Amazon Corretto 8 is now in GA.                                   | No changes have been made from the RC.                     | January 31, 2019  |
 | 8u202: Add links for 8.202.08.2 RC and Amazon Linux 2 8.202.08.1. | Updates artifacts and instructions to point to current RC. | January 25, 2019  |
 | 8u202 PSU releases: Corretto 8 version 8.202.08.1                 | Updates Amazon Corretto 8 to 8u202.                        | January 23, 2019  |
-| New Platform Release (1.8.0_192)                                  | Bug fix release of Amazon Corretto 8 Developer Preview.    | January 14, 2019  |
-| Bug fix Release (1.8.0_192)                                       | Bug fix release of Amazon Corretto 8 Developer Preview.    | December 17, 2018 |
-| Initial Release (1.8.0_192)                                       | Initial release of Amazon Corretto 8 Developer Preview.    | November 14, 2018 |
+| New Platform Release (1.8.0\_192)                                 | Bug fix release of Amazon Corretto 8 Developer Preview.    | January 14, 2019  |
+| Bug fix Release (1.8.0\_192)                                      | Bug fix release of Amazon Corretto 8 Developer Preview.    | December 17, 2018 |
+| Initial Release (1.8.0\_192)                                      | Initial release of Amazon Corretto 8 Developer Preview.    | November 14, 2018 |

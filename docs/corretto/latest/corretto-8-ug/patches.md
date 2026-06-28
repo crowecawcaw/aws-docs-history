@@ -99,7 +99,7 @@ incorrectly in both the C1 and Interpreter. The most common mistake for a label
 is being "branched to" but never defined as a location in code via bind(). An
 assert was added to catch these and thus triggered 106 jtreg/hotspot and 17
 jtreg/jdk test failures. We then determined that the label
-backedge_counter_overflow was not bound when UseLoopCounter was True, but
+backedge\_counter\_overflow was not bound when UseLoopCounter was True, but
 UseOnStackReplacement was False. This is now fixed and guarded by the above
 tests.
 
@@ -133,7 +133,6 @@ See [http://serviceability-dev.openjdk.java.narkive.com/cDFwZce9](http://service
 for more details.
 
 **[C8-19] Re-enables a legacy/disabled cipher suite to pass two TCK tests that would otherwise fail.**
-
  
 
 **Three backports from OpenJDK9 to support using preinstalled libraries.**
@@ -144,7 +143,6 @@ Backported items:
 [JDK-8042159 for lcms2](https://bugs.openjdk.java.net/browse/JDK-8042159 "https://bugs.openjdk.java.net/browse/JDK-8042159").
 
 **Integration of aarch64 support from IcedTea 3.8.**
-
  
 
 **Back port from OpenJDK 9, fixing [JDK-8048782](https://bugs.openjdk.java.net/browse/JDK-8048782 "https://bugs.openjdk.java.net/browse/JDK-8048782"): "OpenJDK: PiscesCache :

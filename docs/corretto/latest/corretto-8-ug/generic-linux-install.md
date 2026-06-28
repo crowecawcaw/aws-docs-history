@@ -60,7 +60,7 @@ sudo apt-get update && sudo apt-get install java-common
 ```
 
 2. Download the Linux `.deb` file from the [Downloads](downloads-list.md "downloads-list.md") page.
-3. Install the `.deb` file by using `sudo dpkg --install`. For example install x86_64 deb using the following command:
+3. Install the `.deb` file by using `sudo dpkg --install`. For example install x86\_64 deb using the following command:
 
 ###### Example
 
@@ -159,7 +159,7 @@ sudo zypper install java-1.8.0-amazon-corretto-devel
 ### Download and install RPM package manually
 
 1. Download the Linux `.rpm` file from the [Downloads](downloads-list.md "downloads-list.md") page.
-2. Install the downloaded `.rpm` file using `yum localinstall`. For example install x86_64 rpm using the following command:
+2. Install the downloaded `.rpm` file using `yum localinstall`. For example install x86\_64 rpm using the following command:
 
 ###### Example
 
