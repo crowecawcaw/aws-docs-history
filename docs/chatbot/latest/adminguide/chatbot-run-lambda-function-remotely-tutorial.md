@@ -130,7 +130,7 @@ occurs.
    4. **Alarm name** –
       `myHelloWorld-alarm`
    5. **Alarm description** – `Lambda
-myHelloWorld alarm`
+  myHelloWorld alarm`
 
 9. Choose **Create alarm**.
 
@@ -173,23 +173,21 @@ Amazon Q Developer in chat applications, but you must set up each workspace one 
      ID.
 
 8. Define the **Permissions** that the chatbot uses for
-   messaging your Slack chat room as shown following:
+messaging your Slack chat room as shown following:
 
-   1. For **Role settings**, choose **Channel role**.
-   2. For **Channel role**, choose **Create an IAM role using a template**.
-   3. For **Role name**, enter
-      `myHelloWorldRole`.
-   4. For **Policy Templates**, select **Read-only
-      command permissions** and **Lambda-invoke command
-      permissions.**
-   5. For **Channel guardrail policies**, select
-      **AWS-Chatbot-LambdaInvoke-Policy-e4aef1dc-0da7-4ac5-b506-d282beac41ae**.
+    1. For **Role settings**, choose **Channel role**.
+    2. For **Channel role**, choose **Create an IAM role using a template**.
+    3. For **Role name**, enter
+     `myHelloWorldRole`.
+    4. For **Policy Templates**, select **Read-only
+     command permissions** and **Lambda-invoke command
+     permissions.**
+    5. For **Channel guardrail policies**, select
+     **AWS-Chatbot-LambdaInvoke-Policy-e4aef1dc-0da7-4ac5-b506-d282beac41ae**.
 
 9. In the SNS topics section, choose the appropriate AWS Region under
-   **Region**.
-10. Under **Topics**, select the
-    **myHelloWorldNotifcations** topic.
-11. Choose **Configure**.
+**Region**. 10. Under **Topics**, select the
+**myHelloWorldNotifcations** topic. 11. Choose **Configure**.
 
 ## Step 5: Invoke a Lambda function from Slack
 

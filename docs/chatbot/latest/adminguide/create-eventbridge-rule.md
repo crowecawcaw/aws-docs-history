@@ -86,14 +86,10 @@ This topic should be the same topic used in your Amazon Q Developer in chat appl
 
     For more information on input transformers, see [Amazon EventBridge input transformation](../../../eventbridge/latest/userguide/eb-transform-target-input.md "../../../eventbridge/latest/userguide/eb-transform-target-input.md") in the *Amazon EventBridge User Guide*.
 
-16. (Optional) To add additional targets, choose **Add target**.
-17. Choose **Next**.
-18. (Optional) Add tags.
-19. Choose **Next**.
-20. Choose **Create rule**.
-    After the rule is created, you can view, edit, or delete it in the console
-    under **Rules**. When an event occurs that matches the rule, you receive a
-    notification in your chat channel or Amazon Chime chat room from Amazon Q Developer in chat applications.
+16. (Optional) To add additional targets, choose **Add target**. 17. Choose **Next**. 18. (Optional) Add tags. 19. Choose **Next**. 20. Choose **Create rule**.
+After the rule is created, you can view, edit, or delete it in the console
+under **Rules**. When an event occurs that matches the rule, you receive a
+notification in your chat channel or Amazon Chime chat room from Amazon Q Developer in chat applications.
 
 For
 information about testing your rule, see [Test notifications

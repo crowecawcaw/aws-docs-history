@@ -74,28 +74,28 @@ For more information, see [Private channel limitations](https://learn.microsoft.
 
 ###### To configure a Microsoft Teams channel
 
-1.  Associate a channel with your configuration:
+1. Associate a channel with your configuration:
 
-    1. On the **Team details** page in the Amazon Q Developer in chat applications console, choose **Configure new channel**.
-    2. Under **Configuration details**, enter a name for your configuration. The name must be unique across your account and can't be edited later.
-    3. If you want to enable logging for this configuration, choose **Publish logs to Amazon CloudWatch Logs**. For more information, see [Amazon CloudWatch Logs for Amazon Q Developer in chat applications](cloudwatch-logs.md "cloudwatch-logs.md").
+   1. On the **Team details** page in the Amazon Q Developer in chat applications console, choose **Configure new channel**.
+   2. Under **Configuration details**, enter a name for your configuration. The name must be unique across your account and can't be edited later.
+   3. If you want to enable logging for this configuration, choose **Publish logs to Amazon CloudWatch Logs**. For more information, see [Amazon CloudWatch Logs for Amazon Q Developer in chat applications](cloudwatch-logs.md "cloudwatch-logs.md").
 
-    ###### Note
+   ###### Note
 
-    There is an extra charge for using CloudWatch Logs. 4. For **Team channel**, paste your Microsoft Teams channel URL.
+   There is an extra charge for using CloudWatch Logs. 4. For **Team channel**, paste your Microsoft Teams channel URL.
 
-2.  Define user permissions:
+2. Define user permissions:
 
-    1. Choose your **Role Setting**.
+   1. Choose your **Role Setting**.
 
-    ###### Tip
+   ###### Tip
 
-    Your role setting dictates what permissions your channel members have. A channel role gives all members the same permissions.
-    This is useful if your channel members typically perform the same actions in Microsoft Teams.
-    A user role requires your channel members to choose their own roles. As such, different users in your channels can have different permissions.
-    This is useful if your channel members are diverse or you don’t want new channel members to perform actions as soon as they join the channel. For more information, see [Role setting](understanding-permissions.md#role-settings "understanding-permissions.md#role-settings").
+   Your role setting dictates what permissions your channel members have. A channel role gives all members the same permissions.
+   This is useful if your channel members typically perform the same actions in Microsoft Teams.
+   A user role requires your channel members to choose their own roles. As such, different users in your channels can have different permissions.
+   This is useful if your channel members are diverse or you don’t want new channel members to perform actions as soon as they join the channel. For more information, see [Role setting](understanding-permissions.md#role-settings "understanding-permissions.md#role-settings").
 
-    Channel role
+   Channel role
 
         1. For **Role setting**, choose **Channel role**.
         2. For **Channel role**, choose **Create an IAM role using a template**. If you want to use an existing role instead, choose **Use an existing IAM role**.
@@ -113,13 +113,13 @@ For more information, see [Private channel limitations](https://learn.microsoft.
 
         You can also use AWS software development kits (SDKs) to configure channels with Amazon Q permissions.
 
-    User roles
+   User roles
 
         1. For **Role setting**, choose **User roles**.
-    2. Select the policies that will make up your [channel guardrails](understanding-permissions.md#channel-guardrails "understanding-permissions.md#channel-guardrails"). Your channel guardrails control what actions are available to your channel members.
-    3. (Optional) Add [AmazonQDeveloperAccess](../../../amazonq/latest/qdeveloper-ug/managed-policy.md#amazonq-policy-developeraccess "../../../amazonq/latest/qdeveloper-ug/managed-policy.md#amazonq-policy-developeraccess") as a channel guardrail to allow your users to chat with Amazon Q Developer in natural language from your Microsoft Teams channel.
 
-3.  (Optional) Add Amazon SNS topics:
+   2. Select the policies that will make up your [channel guardrails](understanding-permissions.md#channel-guardrails "understanding-permissions.md#channel-guardrails"). Your channel guardrails control what actions are available to your channel members. 3. (Optional) Add [AmazonQDeveloperAccess](../../../amazonq/latest/qdeveloper-ug/managed-policy.md#amazonq-policy-developeraccess "../../../amazonq/latest/qdeveloper-ug/managed-policy.md#amazonq-policy-developeraccess") as a channel guardrail to allow your users to chat with Amazon Q Developer in natural language from your Microsoft Teams channel.
+
+3. (Optional) Add Amazon SNS topics:
 
 ###### Note
 

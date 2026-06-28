@@ -61,30 +61,31 @@ There is an extra charge for using CloudWatch Logs. 10. For **Configure Amazon C
      webhooks with their Amazon Q Developer in chat applications configurations.
 
 11. For **IAM permissions**, set the IAM permissions for
-    Amazon Q Developer in chat applications.
+Amazon Q Developer in chat applications.
 
-    1.  For **Role**, choose **Create a new role from
-        template**. If you want to use an existing role instead, choose it from
-        the **IAM Role** list. To use an existing IAM role, you might
-        need to modify it for use with Amazon Q Developer in chat applications. For more information, see [Configuring an IAM Role
-        for Amazon Q Developer in chat applications](editing-iam-roles-for-chatbot.md "editing-iam-roles-for-chatbot.md").
-    2.  For **Policy templates**, choose **Notification
-        permissions**. This is the IAM policy provided by Amazon Q Developer in chat applications. It
-        provides the necessary Read and List permissions for CloudWatch alarms, events and logs,
-        and for Amazon SNS topics.
-    3.  For **Role name**, enter a name. Valid characters: a-z, A-Z,
-        0-9.
+    1. For **Role**, choose **Create a new role from
+     template**. If you want to use an existing role instead, choose it from
+     the **IAM Role** list. To use an existing IAM role, you might
+     need to modify it for use with Amazon Q Developer in chat applications. For more information, see [Configuring an IAM Role
+     for Amazon Q Developer in chat applications](editing-iam-roles-for-chatbot.md "editing-iam-roles-for-chatbot.md").
+    2. For **Policy templates**, choose **Notification
+     permissions**. This is the IAM policy provided by Amazon Q Developer in chat applications. It
+     provides the necessary Read and List permissions for CloudWatch alarms, events and logs,
+     and for Amazon SNS topics.
+    3. For **Role name**, enter a name. Valid characters: a-z, A-Z,
+     0-9.
 
 12. Set up the SNS topics that will send notifications to the Amazon Chime webhook.
 
-    1.  For **SNS Region**, choose the AWS Region that hosts the SNS
-        topics for this Amazon Q Developer in chat applications subscription.
-    2.  For **SNS topic**, choose the SNS topic for the client
-        subscription. This topic determines the content that's sent to the Amazon Chime webhook. If
-        the region has additional SNS topics, you can choose them from the same dropdown
-        list.
-    3.  If you want to add an SNS topic from another Region to the notification
-        subscription, choose **Add another Region**.
+    1. For **SNS Region**, choose the AWS Region that hosts the SNS
+     topics for this Amazon Q Developer in chat applications subscription.
+    2. For **SNS topic**, choose the SNS topic for the client
+     subscription. This topic determines the content that's sent to the Amazon Chime webhook. If
+     the region has additional SNS topics, you can choose them from the same dropdown
+     list.
+    3. If you want to add an SNS topic from another Region to the notification
+     subscription, choose **Add another Region**.
+
 
     ###### Note
 

@@ -75,10 +75,10 @@ in your Microsoft Teams configuration.
 
 2. Edit your Microsoft Teams configuration:
 
-   1. Open the Amazon Q Developer in chat applications console at [https://console.aws.amazon.com/chatbot/](https://console.aws.amazon.com/chatbot/ "https://console.aws.amazon.com/chatbot/").
-   2. Select your configured Microsoft Teams chat client.
-   3. Select the channel in which you want to receive notifications.
-   4. Choose **Edit**.
-   5. (Optional) If you have no Regions or you don't currently have the Region you used for Developer Tools added, choose **Add another Region** in **Notifications** and select the appropriate Region.
-   6. In **Topics**, search for and select the Amazon SNS topic you created while editing your notification rule.
-   7. Choose **Configure**.
+    1. Open the Amazon Q Developer in chat applications console at [https://console.aws.amazon.com/chatbot/](https://console.aws.amazon.com/chatbot/ "https://console.aws.amazon.com/chatbot/").
+    2. Select your configured Microsoft Teams chat client.
+    3. Select the channel in which you want to receive notifications.
+    4. Choose **Edit**.
+    5. (Optional) If you have no Regions or you don't currently have the Region you used for Developer Tools added, choose **Add another Region** in **Notifications** and select the appropriate Region.
+    6. In **Topics**, search for and select the Amazon SNS topic you created while editing your notification rule.
+    7. Choose **Configure**.

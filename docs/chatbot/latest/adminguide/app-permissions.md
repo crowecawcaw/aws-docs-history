@@ -16,7 +16,7 @@ For more information, see [Microsoft Graph permissions reference](https://learn.
 
 ## Slack permissions
 
-- app_mentions:read
+- app\_mentions:read
 - channels:read
 - chat:write
 - chat:write.public

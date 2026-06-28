@@ -86,9 +86,8 @@ For **Notification**, choose the following options.
     4. Choose **Next**.
 
 7. Enter a name and description for the alarm. The name must contain only ASCII
-   characters. Then, choose **Next**.
-8. For **Preview and create**, confirm that the information and
-   conditions are correct, then choose **Create alarm**.
-   When the alarm triggers for the first time, you should receive the first test notification
-   in your chat room, confirming that Amazon Q Developer in chat applications is working correctly and receiving alarm
-   notifications from Amazon CloudWatch.
+characters. Then, choose **Next**. 8. For **Preview and create**, confirm that the information and
+conditions are correct, then choose **Create alarm**.
+When the alarm triggers for the first time, you should receive the first test notification
+in your chat room, confirming that Amazon Q Developer in chat applications is working correctly and receiving alarm
+notifications from Amazon CloudWatch.

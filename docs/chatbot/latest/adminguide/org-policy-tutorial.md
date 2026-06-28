@@ -25,28 +25,28 @@ in the _AWS Organizations User Guide_.
 
 ###### To create a new chat applications policy
 
-1.  Open the Amazon Q Developer in chat applications console at [https://console.aws.amazon.com/chatbot/](https://console.aws.amazon.com/chatbot/ "https://console.aws.amazon.com/chatbot/").
-2.  In the left sidebar menu, choose **Organization settings**.
-3.  Choose **Chat applications policies**.
-4.  Choose **Create chat applications policies**.
-5.  1. ###### Enable Amazon Q Developer in chat applications Orgs policies:
+1. Open the Amazon Q Developer in chat applications console at [https://console.aws.amazon.com/chatbot/](https://console.aws.amazon.com/chatbot/ "https://console.aws.amazon.com/chatbot/").
+2. In the left sidebar menu, choose **Organization settings**.
+3. Choose **Chat applications policies**.
+4. Choose **Create chat applications policies**.
+5. 1. ###### Enable Amazon Q Developer in chat applications Orgs policies:
 
-    ###### Note
+   ###### Note
 
-    Before you can create and attach a policy to your organization, you must enable that policy type for use.
-    This is a one-time task on the organization root. You can enable a policy type from only the organization’s management account.
-    For more information, see [Enabling and disabling policy types](../../../organizations/latest/userguide/orgs_manage_policies_enable-disable.md "../../../organizations/latest/userguide/orgs_manage_policies_enable-disable.md") in the _AWS Organizations User Guide_.
+   Before you can create and attach a policy to your organization, you must enable that policy type for use.
+   This is a one-time task on the organization root. You can enable a policy type from only the organization’s management account.
+   For more information, see [Enabling and disabling policy types](../../../organizations/latest/userguide/orgs_manage_policies_enable-disable.md "../../../organizations/latest/userguide/orgs_manage_policies_enable-disable.md") in the _AWS Organizations User Guide_.
 
-    On the Chat applications policies page, choose **Enable**.
+   On the Chat applications policies page, choose **Enable**.
 
-6.  1. ###### Enter your policy **Details**:
+6. 1. ###### Enter your policy **Details**:
 
-    Enter a policy name. 2. (Optional) Enter a policy description.
+   Enter a policy name. 2. (Optional) Enter a policy description.
 
-7.  (Optional) Add tags.
-8.  1. ###### Configure chat client access:
+7. (Optional) Add tags.
+8. 1. ###### Configure chat client access:
 
-    In **Set Amazon Chime chat client access**, choose **Deny Chime access**. 2. In **Set Microsoft Teams client access**, choose **Deny access to all Teams**. 3. In **Set Slack chat client access**, choose **Restrict access to named Slack workspaces**:
+   In **Set Amazon Chime chat client access**, choose **Deny Chime access**. 2. In **Set Microsoft Teams client access**, choose **Deny access to all Teams**. 3. In **Set Slack chat client access**, choose **Restrict access to named Slack workspaces**:
 
         1. Enter a Slack workspace ID.
 
@@ -57,11 +57,12 @@ in the _AWS Organizations User Guide_.
         You can find your workspace ID in the Amazon Q Developer in chat applications console by choosing the configured client in the left sidebar and looking under **Workspace details**.
         2. (Optional) Choose **Add new workspace ID** to add another Slack workspace.
         3. Choose **Add**.
-    4. Select **Enable usage to only private Slack channels**.
 
-9.  1. ###### Set IAM permission types:
+   4. Select **Enable usage to only private Slack channels**.
 
-    Select **Enable User level IAM role**.
+9. 1. ###### Set IAM permission types:
+
+   Select **Enable User level IAM role**.
 
 10. Choose **Create policy**.
 

@@ -47,21 +47,20 @@ User roles
     4. Choose **Selected role information**. The IAM console opens automatically showing role configuration page.
     5. Choose **Add permissions** and then select **Attach Policies**.
 
-4.  Choose the name of the policy that you want. You can use the **Search** box to search for the policy by name or by a
-    partial string of characters. For example, all IAM policies associated with
-    Amazon Q Developer in chat applications include the character string **Chatbot** as
-    part of the policy name.
-5.  You can attach any of the following AWS managed policies to any role. You can also use
-    these policies as templates to create your own policies.
+4. Choose the name of the policy that you want. You can use the **Search** box to search for the policy by name or by a
+partial string of characters. For example, all IAM policies associated with
+Amazon Q Developer in chat applications include the character string **Chatbot** as
+part of the policy name. 5. You can attach any of the following AWS managed policies to any role. You can also use
+these policies as templates to create your own policies.
 
-        * **ReadOnlyAccess**
-        * **CloudWatchReadOnlyAccess**
-        * **AWSSupportAccess**
-        * **AmazonQFullAccess**
-        * **AIOpsOperator**
+    * **ReadOnlyAccess**
+    * **CloudWatchReadOnlyAccess**
+    * **AWSSupportAccess**
+    * **AmazonQFullAccess**
+    * **AIOpsOperator**
 
-    The **ReadOnlyAccess** policy is automatically
-    attached to any role that you create in the Amazon Q Developer in chat applications console. In the console, it appears as **Read-only command permissions** policy template.
+The **ReadOnlyAccess** policy is automatically
+attached to any role that you create in the Amazon Q Developer in chat applications console. In the console, it appears as **Read-only command permissions** policy template.
 
 If you want your users to be able to chat with Amazon Q Developer in natural language, attach the **AmazonQDeveloperAccess** policy. If administrator access is required, use the
 **AmazonQFullAccess** policy. In the Amazon Q Developer in chat applications console, the **AmazonQFullAccess** policy appears as the **Amazon Q Permissions** policy template.
