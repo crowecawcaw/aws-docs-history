@@ -163,11 +163,11 @@ https://my.ads.com/ad?output=vast&content_id=12345678&playerSession=[session.id]
 
 Where:
 
-- **output** and **content_id** are static values
+- **output** and **content\_id** are static values
 - **playerSession=[session.id]** is a
   dynamic value provided by AWS Elemental MediaTailor. The value of **[session.id]** changes for each player session
   and results in a different URL for the VAST request for each session.
-- **cust_params** are player-supplied
+- **cust\_params** are player-supplied
   dynamic values
 
 The multivariant playlist request from the player must provide key-value pairs
@@ -234,7 +234,7 @@ reporting or your players support sticky HTTP redirects.
 For more information about the **Location** feature, see
 [DASH location feature](dash-location-feature.md "dash-location-feature.md"). 7. (Optional) If your origin server produces single-period DASH manifests,
 choose **DASH mpd manifest origin type**, and then choose
-**SINGLE_PERIOD**. By default, MediaTailor handles
+**SINGLE\_PERIOD**. By default, MediaTailor handles
 DASH manifests as multi-period manifests. For more information, see [Integrating an MPEG-DASH source](manifest-dash.md "manifest-dash.md"). 8. Choose **Create configuration**.
 
 AWS Elemental MediaTailor displays the new configuration on the **Configurations** page.

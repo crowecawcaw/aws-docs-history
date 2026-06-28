@@ -16,9 +16,9 @@ baseline.
 1. Test manifest requests directly to MediaTailor endpoints:
 
    - Test HLS multivariant playlist requests: `curl -v
-"https://your-emt-endpoint.mediatailor.region.amazonaws.com/v1/master/hls/config-name/master.m3u8"`
+  "https://your-emt-endpoint.mediatailor.region.amazonaws.com/v1/master/hls/config-name/master.m3u8"`
    - Test DASH MPD requests: `curl -v
-"https://your-emt-endpoint.mediatailor.region.amazonaws.com/v1/dash/config-name/manifest.mpd"`
+  "https://your-emt-endpoint.mediatailor.region.amazonaws.com/v1/dash/config-name/manifest.mpd"`
    - Verify manifest responses contain expected ad break markers
    - Check that segment URLs point to correct origins
 

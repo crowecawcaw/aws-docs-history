@@ -127,12 +127,12 @@ For optimal performance when combining channel assembly and SSAI with a CDN:
 - Monitor the performance metrics for both channel assembly and ad insertion
   components
 
-| Recommended caching settings for combined implementation | Content type | TTL                             | Cache key elements |
-| -------------------------------------------------------- | ------------ | ------------------------------- | ------------------ |
-| Channel assembly manifests                               | 0 seconds    | URL path + query parameters     |
-| SSAI personalized manifests                              | 0 seconds    | URL path + all query parameters |
-| Content segments                                         | 24+ hours    | URL path only                   |
-| Ad segments                                              | 24+ hours    | URL path only                   |
+Recommended caching settings for combined implementation| Content type | TTL | Cache key elements |
+| --- | --- | --- |
+| Channel assembly manifests | 0 seconds | URL path + query parameters |
+| SSAI personalized manifests | 0 seconds | URL path + all query parameters |
+| Content segments | 24+ hours | URL path only |
+| Ad segments | 24+ hours | URL path only |
 
 ## Monitoring the integrated solution
 

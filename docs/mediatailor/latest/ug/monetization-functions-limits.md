@@ -17,8 +17,8 @@ calls. If the hook exceeds its timeout, MediaTailor discards all output and proc
 attached.
 
 Individual function timeouts (such as `RequestTimeoutMilliseconds` for
-HTTP_REQUEST functions) must fit within the hook's total timeout. For example, if
-the hook timeout is 2,000 ms and an HTTP_REQUEST function sets
+HTTP\_REQUEST functions) must fit within the hook's total timeout. For example, if
+the hook timeout is 2,000 ms and an HTTP\_REQUEST function sets
 `RequestTimeoutMilliseconds` to 2,000 ms, the function may time out
 before completing if any processing occurs before or after the HTTP call.
 

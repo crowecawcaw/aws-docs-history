@@ -6,38 +6,34 @@ maintaining targeted advertising.
 
 Implement these specific CDN optimizations that follow:
 
-1.  Configure origin shield capabilities in your CDN to reduce load on MediaTailor and
-    improve caching efficiency. Origin shield acts as an intermediary caching layer
-    that:
+1. Configure origin shield capabilities in your CDN to reduce load on MediaTailor and
+   improve caching efficiency. Origin shield acts as an intermediary caching layer
+   that:
 
-        * Consolidate multiple viewer requests into a single origin
-         request
-        * Reduce the number of redundant requests to MediaTailor
-        * Improve the response times for the cached content
+   - Consolidate multiple viewer requests into a single origin
+     request
+   - Reduce the number of redundant requests to MediaTailor
+   - Improve the response times for the cached content
+     For implementation details on setting up origin shield with CloudFront, see
+     [Using Origin Shield](../../../AmazonCloudFront/latest/DeveloperGuide/origin-shield.md "../../../AmazonCloudFront/latest/DeveloperGuide/origin-shield.md") in the CloudFront Developer Guide.
 
-    For implementation details on setting up origin shield with CloudFront, see
-    [Using Origin Shield](../../../AmazonCloudFront/latest/DeveloperGuide/origin-shield.md "../../../AmazonCloudFront/latest/DeveloperGuide/origin-shield.md") in the CloudFront Developer Guide.
+2. Set appropriate Time To Live (TTL) values for different content types. TTL
+   determines how long the CDN caches content. After this time, the CDN requests a
+   fresh copy from the origin:
 
-2.  Set appropriate Time To Live (TTL) values for different content types. TTL
-    determines how long the CDN caches content. After this time, the CDN requests a
-    fresh copy from the origin:
+   - Manifests:
 
-        * Manifests:
+     - 0 seconds for ad insertion
+     - 5-10 seconds for channel assembly
+       In ad insertion, MediaTailor provides manifests with ads personalized to the
+       viewer. If a playlist or MPD is cached and served to the wrong playback
+       device, the device could encounter playback or tracking issues.
 
-
-
-
-        	+ 0 seconds for ad insertion
-        	+ 5-10 seconds for channel assembly
-        In ad insertion, MediaTailor provides manifests with ads personalized to the
-         viewer. If a playlist or MPD is cached and served to the wrong playback
-         device, the device could encounter playback or tracking issues.
-        * Content segments: 24 or more hours (these rarely change and you can
-         cache them aggressively to reduce origin load)
-        * Ad segments: 24 or more hours (ad content is typically reused across
-         viewers and you can cache it for extended periods)
-
-    For comprehensive TTL recommendations and caching optimization strategies across all MediaTailor workflows, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+   - Content segments: 24 or more hours (these rarely change and you can
+     cache them aggressively to reduce origin load)
+   - Ad segments: 24 or more hours (ad content is typically reused across
+     viewers and you can cache it for extended periods)
+     For comprehensive TTL recommendations and caching optimization strategies across all MediaTailor workflows, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 For detailed instructions on configuring cache behaviors in CloudFront, see
 [Cache Behavior Settings](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md#DownloadDistValuesCacheBehavior "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md#DownloadDistValuesCacheBehavior") in the CloudFront Developer Guide. 3. Deploy CDN edge nodes close to your viewer populations. Work with your CDN

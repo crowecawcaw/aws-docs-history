@@ -2,14 +2,14 @@
 
 ## Scenario
 
-A streaming service wants to use a CUSTOM_OUTPUT function to randomly split ad
+A streaming service wants to use a CUSTOM\_OUTPUT function to randomly split ad
 request traffic between two ad decision server (ADS) URLs for A/B testing. Half of
 the ad requests go to the v1 endpoint and half go to the v2 endpoint.
 
 ## Configuration
 
 **A/B traffic split
-(CUSTOM_OUTPUT):**
+(CUSTOM\_OUTPUT):**
 
 ```
 {
@@ -66,5 +66,5 @@ to the second.
 Writing to `adsRequest.url` overrides the default ADS URL
 configured in the playback configuration for the current ad break.
 
-For more information, see [CUSTOM_OUTPUT](monetization-functions-types-custom-output.md "monetization-functions-types-custom-output.md"), [PRE_ADS_REQUEST](monetization-functions-hooks-pre-ads.md "monetization-functions-hooks-pre-ads.md"), and [JSONata expression
+For more information, see [CUSTOM\_OUTPUT](monetization-functions-types-custom-output.md "monetization-functions-types-custom-output.md"), [PRE\_ADS\_REQUEST](monetization-functions-hooks-pre-ads.md "monetization-functions-hooks-pre-ads.md"), and [JSONata expression
 reference](monetization-functions-jsonata.md "monetization-functions-jsonata.md").

@@ -1,4 +1,4 @@
-# SEQUENTIAL_EXECUTOR
+# SEQUENTIAL\_EXECUTOR
 
 ## When to use
 
@@ -98,8 +98,8 @@ outer boundary that caps the total execution time.
 ## Example: Retry on HTTP failure
 
 This example calls an identity API and automatically retries if the first call
-returns a server error. It uses two HTTP_REQUEST functions orchestrated by a
-SEQUENTIAL_EXECUTOR.
+returns a server error. It uses two HTTP\_REQUEST functions orchestrated by a
+SEQUENTIAL\_EXECUTOR.
 
 **Step 1 — Primary fetch
 (`fetchIdentity`):**

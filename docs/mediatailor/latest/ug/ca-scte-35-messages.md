@@ -20,20 +20,16 @@ You set up the ad breaks in one of two ways:
   about the ad break.
 - HLS:
 
-      + When the Ad markup type is `Daterange`, MediaTailor specifies ad breaks as `EXT-X-DATERANGE` tags in the manifest.
-      + When the Ad markup type is `Scte35 Enhanced`, MediaTailor specifies ad breaks using the following tags:
+  - When the Ad markup type is `Daterange`, MediaTailor specifies ad breaks as `EXT-X-DATERANGE` tags in the manifest.
+  - When the Ad markup type is `Scte35 Enhanced`, MediaTailor specifies ad breaks using the following tags:
 
-
-
-
-      	- MediaTailor places an `EXT-X-CUE-OUT` on the first segment of the ad slate, indicating a cut from content to the ad break. It contains the expected duration of ad break, such as `EXT-X-CUE-OUT:Duration=30`.
-      	- `>EXT-X-ASSET`: This tag appears on the same segment as `EXT-X-CUE-OUT` and contains the ad-break metadata supplied in the AdBreak when the program is created or updated. It always contains `CAID`.
-      	- `EXT-OATCLS-SCTE35`: This tag appears on the same segment as `EXT-X-CUE-OUT` and contains base64-encoded bytes of the SCTE-35 message.
-      	- `EXT-X-CUE-OUT-CONT`: This tag appears on each subsequent segment within the ad slate, and contains duration and elapsed-time information. It also contains the base64-encoded SCTE-35 message, and the `CAID`.
-      	- `EXT-X-CUE-IN`: This tag appears on the first segment of content after the ad break is over, and indicates a cut from an ad break back to content.
-
-  The following illustration shows the two ways of setting up ad breaks in a channel using
-  SCTE-35 messages:
+    - MediaTailor places an `EXT-X-CUE-OUT` on the first segment of the ad slate, indicating a cut from content to the ad break. It contains the expected duration of ad break, such as `EXT-X-CUE-OUT:Duration=30`.
+    - `>EXT-X-ASSET`: This tag appears on the same segment as `EXT-X-CUE-OUT` and contains the ad-break metadata supplied in the AdBreak when the program is created or updated. It always contains `CAID`.
+    - `EXT-OATCLS-SCTE35`: This tag appears on the same segment as `EXT-X-CUE-OUT` and contains base64-encoded bytes of the SCTE-35 message.
+    - `EXT-X-CUE-OUT-CONT`: This tag appears on each subsequent segment within the ad slate, and contains duration and elapsed-time information. It also contains the base64-encoded SCTE-35 message, and the `CAID`.
+    - `EXT-X-CUE-IN`: This tag appears on the first segment of content after the ad break is over, and indicates a cut from an ad break back to content.
+      The following illustration shows the two ways of setting up ad breaks in a channel using
+      SCTE-35 messages:
 
 - Use a `splice_insert()` message to set up ad breaks with basic
   metadata.
@@ -61,25 +57,25 @@ The following table describes the fields that MediaTailor requires for each
 the 2022 SCTE-35 specification, which you can purchased at the [ANSI Webstore
 website](https://webstore.ansi.org/Standards/SCTE/ANSISCTE352022 "https://webstore.ansi.org/Standards/SCTE/ANSISCTE352022").
 
-| Required fields for a `segmentation_descriptor` message | Field   | Type                | Default value                                                                                                                                        | Description |
-| ------------------------------------------------------- | ------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `segmentation_event_id`                                 | integer | 1                   | This is written to<br>`segmentation_descriptor.segmentation_event_id`.                                                                               |
-| `segmentation_upid_type`                                | integer | 14 (0x0E)           | This is written to `segmentation_descriptor.segmentation_upid_type`.<br>The value must be between 0 and 256, inclusive.                              |
-| `segmentation_upid`                                     | string  | `""` (empty string) | This is written to `segmentation_descriptor.segmentation_upid`. The<br>value must be a hexadecimal string, containing characters `0-9` and<br>`A-F`. |
-| `segmentation_type_id`                                  | integer | 48 (0x30)           | This is written to `segmentation_descriptor.segmentation_type_id`. The<br>value must be between 0 and 256, inclusive.                                |
-| `segment_num`                                           | integer | 0                   | This is written to `segmentation_descriptor.segment_num`. The value<br>must be between 0 and 256, inclusive.                                         |
-| `segments_expected`                                     | integer | 0                   | This is written to `segmentation_descriptor.segments_expected`. The<br>value must be between 0 and 256, inclusive.                                   |
-| `sub_segment_num`                                       | integer | `null`              | This is written to `segmentation_descriptor.sub_segment_num`. The<br>value must be between 0 and 256, inclusive.                                     |
-| `sub_segments_expected`                                 | integer | `null`              | This is written to `segmentation_descriptor.sub_segments_expected`.<br>The value must be between 0 and 256, inclusive.                               |
+Required fields for a `segmentation_descriptor` message| Field | Type | Default value | Description |
+| --- | --- | --- | --- |
+| `segmentation_event_id` | integer | 1 | This is written to<br>`segmentation_descriptor.segmentation_event_id`. |
+| `segmentation_upid_type` | integer | 14 (0x0E) | This is written to `segmentation_descriptor.segmentation_upid_type`.<br>The value must be between 0 and 256, inclusive. |
+| `segmentation_upid` | string | `""` (empty string) | This is written to `segmentation_descriptor.segmentation_upid`. The<br>value must be a hexadecimal string, containing characters `0-9` and<br>`A-F`. |
+| `segmentation_type_id` | integer | 48 (0x30) | This is written to `segmentation_descriptor.segmentation_type_id`. The<br>value must be between 0 and 256, inclusive. |
+| `segment_num` | integer | 0 | This is written to `segmentation_descriptor.segment_num`. The value<br>must be between 0 and 256, inclusive. |
+| `segments_expected` | integer | 0 | This is written to `segmentation_descriptor.segments_expected`. The<br>value must be between 0 and 256, inclusive. |
+| `sub_segment_num` | integer | `null` | This is written to `segmentation_descriptor.sub_segment_num`. The<br>value must be between 0 and 256, inclusive. |
+| `sub_segments_expected` | integer | `null` | This is written to `segmentation_descriptor.sub_segments_expected`.<br>The value must be between 0 and 256, inclusive. |
 
 The following table shows the values that MediaTailor automatically sets for some of the
 `segmentation_descriptor` message's fields.
 
-| Values set by MediaTailor for a `segmentation_descriptor` message's fields | Field   | Type | Value |
-| -------------------------------------------------------------------------- | ------- | ---- | ----- |
-| `segmentation_event_cancel_indicator`                                      | Boolean | True |
-| `program_segmentation_flag`                                                | Boolean | True |
-| `delivery_not_restricted_flag`                                             | Boolean | True |
+Values set by MediaTailor for a `segmentation_descriptor` message's fields| Field | Type | Value |
+| --- | --- | --- |
+| `segmentation_event_cancel_indicator` | Boolean | True |
+| `program_segmentation_flag` | Boolean | True |
+| `delivery_not_restricted_flag` | Boolean | True |
 
 MediaTailor always sets the `segmentation_duration_flag` to `True`. MediaTailor
 populates the `segmentation_duration` field with the duration, in ticks, of the

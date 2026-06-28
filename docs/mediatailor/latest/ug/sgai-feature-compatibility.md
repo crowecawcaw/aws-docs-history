@@ -5,14 +5,14 @@ Server-guided ad insertion works differently from server-side ad insertion, whic
 compatibility with some MediaTailor features. Use this table to understand which features work
 with each ad insertion method.
 
-| Feature compatibility by ad insertion method | Feature                                                                            | Server-side ad insertion (SSAI)                                                                                                                                                                   | Server-guided ad insertion (SGAI) |
-| -------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| **Ad prefetching**                           | ✓ Supported                                                                        | Not yet supported                                                                                                                                                                                 |
-| **Ad suppression**                           | ✓ Supported                                                                        | Not applicable                                                                                                                                                                                    |
-| **Pre-roll ad behavior**                     | Controlled by MediaTailor configuration                                            | Controlled by MediaTailor configuration                                                                                                                                                           |
-| **Client-side ad tracking**                  | Uses GetTracking API                                                               | Uses `TRACKING` section in asset list<br>(`GetTracking` API is not used)                                                                                                                          |
-| **Server-side ad tracking**                  | ✓ Supported — beacons fire based on `/v1/segment`<br>requests using the session ID | ✓ Supported (HLS only) — uses sessionless beaconing with encrypted<br>beacon data embedded in ad URIs via<br>`#EXT-X-DEFINE:QUERYPARAM`. Requires HLS v11 or later.<br>DASH is not yet supported. |
-| **Ad-ID decoration**                         | ✓ Supported                                                                        | ✗ Not compatible                                                                                                                                                                                  |
+Feature compatibility by ad insertion method| Feature | Server-side ad insertion (SSAI) | Server-guided ad insertion (SGAI) |
+| --- | --- | --- |
+| **Ad prefetching** | ✓ Supported | Not yet supported |
+| **Ad suppression** | ✓ Supported | Not applicable |
+| **Pre-roll ad behavior** | Controlled by MediaTailor configuration | Controlled by MediaTailor configuration |
+| **Client-side ad tracking** | Uses GetTracking API | Uses `TRACKING` section in asset list<br>(`GetTracking` API is not used) |
+| **Server-side ad tracking** | ✓ Supported — beacons fire based on `/v1/segment`<br>requests using the session ID | ✓ Supported (HLS only) — uses sessionless beaconing with encrypted<br>beacon data embedded in ad URIs via<br>`#EXT-X-DEFINE:QUERYPARAM`. Requires HLS v11 or later.<br>DASH is not yet supported. |
+| **Ad-ID decoration** | ✓ Supported | ✗ Not compatible |
 
 ## Compatibility details
 

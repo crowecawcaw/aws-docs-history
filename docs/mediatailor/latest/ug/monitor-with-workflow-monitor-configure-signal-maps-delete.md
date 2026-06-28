@@ -18,7 +18,7 @@ not have CloudWatch and EventBridge resources that are deployed but not used.
    deletion process.
 3. The **Monitor deployment** column will display
    the current status. When the status has changed to
-   **DELETE_COMPLETE**, select the
+   **DELETE\_COMPLETE**, select the
    **Delete** button again.
 4. You will be asked to confirm deletion of the signal map. Select
    **Delete** to proceed and delete the signal

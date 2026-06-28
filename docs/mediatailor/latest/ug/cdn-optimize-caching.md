@@ -10,13 +10,13 @@ implementations.
 For server-side ad insertion workflows, personalized manifests cannot be cached,
 but content and ad segments should be cached aggressively:
 
-| SSAI CDN caching settings | Content type | TTL                    | Path pattern                    | Cache key elements |
-| ------------------------- | ------------ | ---------------------- | ------------------------------- | ------------------ |
-| Multivariant playlists    | 0 seconds    | /v1/master/\*          | URL path + all query parameters |
-| Media playlists           | 0 seconds    | /v1/manifest/\*        | URL path + all query parameters |
-| DASH MPDs                 | 0 seconds    | /v1/dash/\*            | URL path + all query parameters |
-| Content segments          | 24+ hours    | Content-specific paths | URL path only                   |
-| Ad segments               | 24+ hours    | /v1/segment/\*         | URL path only                   |
+SSAI CDN caching settings| Content type | TTL | Path pattern | Cache key elements |
+| --- | --- | --- | --- |
+| Multivariant playlists | 0 seconds | /v1/master/\* | URL path + all query parameters |
+| Media playlists | 0 seconds | /v1/manifest/\* | URL path + all query parameters |
+| DASH MPDs | 0 seconds | /v1/dash/\* | URL path + all query parameters |
+| Content segments | 24+ hours | Content-specific paths | URL path only |
+| Ad segments | 24+ hours | /v1/segment/\* | URL path only |
 
 - Set TTL of 0 seconds for personalized manifests to ensure viewers receive
   up-to-date ad content
@@ -32,14 +32,14 @@ but content and ad segments should be cached aggressively:
 For optimal SSAI performance, configure your CDN cache policies with these
 specific TTL settings:
 
-| SSAI TTL configuration settings | Content type | TTL setting              | Recommended value |
-| ------------------------------- | ------------ | ------------------------ | ----------------- |
-| Ad segments                     | Min TTL      | 1 second                 |
-| Ad segments                     | Max TTL      | 86400 seconds (24 hours) |
-| Ad segments                     | Default TTL  | 86400 seconds (24 hours) |
-| Content segments                | Min TTL      | 1 second                 |
-| Content segments                | Max TTL      | 86400 seconds (24 hours) |
-| Content segments                | Default TTL  | 86400 seconds (24 hours) |
+SSAI TTL configuration settings| Content type | TTL setting | Recommended value |
+| --- | --- | --- |
+| Ad segments | Min TTL | 1 second |
+| Ad segments | Max TTL | 86400 seconds (24 hours) |
+| Ad segments | Default TTL | 86400 seconds (24 hours) |
+| Content segments | Min TTL | 1 second |
+| Content segments | Max TTL | 86400 seconds (24 hours) |
+| Content segments | Default TTL | 86400 seconds (24 hours) |
 
 These settings ensure:
 
@@ -62,12 +62,12 @@ configuration requirements for optimal SGAI performance.
 
 Configure your CDN with these SGAI-specific caching behaviors:
 
-| SGAI CDN caching settings                  | Content type                      | TTL                  | Path pattern                         | Cache key elements |
-| ------------------------------------------ | --------------------------------- | -------------------- | ------------------------------------ | ------------------ |
-| SGAI multivariant playlists (do not cache) | 0 seconds (do not cache)          | /v1/master/\*        | URL path + selected query parameters |
-| SGAI media playlists                       | 1-4 seconds (half segment length) | /v1/i-media/\*       | URL path + selected query parameters |
-| Asset list responses (do not cache)        | 0 seconds (do not cache)          | /v1/interstitials/\* | URL path + all query parameters      |
-| Ad segments                                | 24+ hours                         | Ad-specific paths    | URL path only                        |
+SGAI CDN caching settings| Content type | TTL | Path pattern | Cache key elements |
+| --- | --- | --- | --- |
+| SGAI multivariant playlists (do not cache) | 0 seconds (do not cache) | /v1/master/\* | URL path + selected query parameters |
+| SGAI media playlists | 1-4 seconds (half segment length) | /v1/i-media/\* | URL path + selected query parameters |
+| Asset list responses (do not cache) | 0 seconds (do not cache) | /v1/interstitials/\* | URL path + all query parameters |
+| Ad segments | 24+ hours | Ad-specific paths | URL path only |
 
 ### Cache behavior configuration
 
@@ -90,13 +90,13 @@ Set up dedicated cache behaviors for SGAI content:
 For channel assembly workflows, manifests can be cached for short periods, while
 segments should be cached aggressively:
 
-| Channel assembly CDN caching settings | Content type | VOD TTL      | Live TTL               | Path pattern                    | Cache key elements |
-| ------------------------------------- | ------------ | ------------ | ---------------------- | ------------------------------- | ------------------ |
-| Multivariant playlists                | 5-30 minutes | 5-10 seconds | Channel-specific paths | URL path + all query parameters |
-| Media playlists                       | 5-30 minutes | 2-5 seconds  | Channel-specific paths | URL path + all query parameters |
-| DASH MPDs                             | 5-30 minutes | 5-10 seconds | Channel-specific paths | URL path + all query parameters |
-| Content segments                      | 24+ hours    | 5-15 minutes | Content-specific paths | URL path only                   |
-| Ad segments                           | 24+ hours    | 24+ hours    | Ad-specific paths      | URL path only                   |
+Channel assembly CDN caching settings| Content type | VOD TTL | Live TTL | Path pattern | Cache key elements |
+| --- | --- | --- | --- | --- |
+| Multivariant playlists | 5-30 minutes | 5-10 seconds | Channel-specific paths | URL path + all query parameters |
+| Media playlists | 5-30 minutes | 2-5 seconds | Channel-specific paths | URL path + all query parameters |
+| DASH MPDs | 5-30 minutes | 5-10 seconds | Channel-specific paths | URL path + all query parameters |
+| Content segments | 24+ hours | 5-15 minutes | Content-specific paths | URL path only |
+| Ad segments | 24+ hours | 24+ hours | Ad-specific paths | URL path only |
 
 - Set short TTL values for manifests to ensure viewers receive up-to-date
   programming
@@ -114,14 +114,14 @@ For detailed TTL configuration settings and best practices, see [Caching optimiz
 When implementing both channel assembly and SSAI, ensure your caching strategy is
 consistent for both services to avoid conflicts and optimize performance:
 
-| Combined workflow caching settings comparison | Content type | Channel assembly | SSAI                               | Combined recommendation |
-| --------------------------------------------- | ------------ | ---------------- | ---------------------------------- | ----------------------- |
-| VOD manifests                                 | 5-30 minutes | 0 seconds        | (use a separate config)            |
-| Live manifests                                | 2-10 seconds | 0 seconds        | (use a separate config)            |
-| SGAI VOD manifests                            | 5-30 minutes | 5-30 minutes     | 5-30 minutes (cacheable manifests) |
-| SGAI Live manifests                           | 2-4 seconds  | 2-4 seconds      | 2-4 seconds (cacheable manifests)  |
-| Content segments                              | 24+ hours    | 24+ hours        | 24+ hours (consistent)             |
-| Ad segments                                   | 24+ hours    | 24+ hours        | 24+ hours (consistent)             |
+Combined workflow caching settings comparison| Content type | Channel assembly | SSAI | Combined recommendation |
+| --- | --- | --- | --- |
+| VOD manifests | 5-30 minutes | 0 seconds | (use a separate config) |
+| Live manifests | 2-10 seconds | 0 seconds | (use a separate config) |
+| SGAI VOD manifests | 5-30 minutes | 5-30 minutes | 5-30 minutes (cacheable manifests) |
+| SGAI Live manifests | 2-4 seconds | 2-4 seconds | 2-4 seconds (cacheable manifests) |
+| Content segments | 24+ hours | 24+ hours | 24+ hours (consistent) |
+| Ad segments | 24+ hours | 24+ hours | 24+ hours (consistent) |
 
 This configuration maximizes cache efficiency while ensuring viewers receive
 up-to-date manifests for personalized ad insertion.

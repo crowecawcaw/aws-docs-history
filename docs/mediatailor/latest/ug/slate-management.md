@@ -76,20 +76,20 @@ The behavior varies based on three scenarios:
 
 The following table provides detailed behaviors for specific scenarios across both HLS and DASH protocols:
 
-| Detailed behavior matrix                                           | Scenario                                     | Personalization disabled                                                                                                            | Personalization enabled less than break duration | Personalization enabled greater than break duration |
-| ------------------------------------------------------------------ | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------- |
-| Empty VAST or VMAP                                                 | Slate inserted                               | No slates inserted                                                                                                                  | Slate inserted                                   |
-| ADS timeout                                                        | Slate inserted                               | No slates inserted                                                                                                                  | Slate inserted                                   |
-| Ad isn't available (Vast 404)                                      | Slate inserted                               | No slates inserted                                                                                                                  | Slate inserted                                   |
-| Duration of ads is longer than ad break                            | Ads inserted                                 | No ads inserted                                                                                                                     | Ads inserted                                     |
-| Fill in time that's not fully used by an ad replacement            | Slate inserted                               | If personalization threshold greater than unfilled time: No ads/slates inserted, else: Ads and slates inserted                      | Slate inserted                                   |
-| Preroll with empty VAST                                            | Slate inserted, no preroll inserted          | No slates inserted, no preroll inserted                                                                                             | Slate inserted, no preroll inserted              |
-| Preroll with ADS timeout                                           | Slate inserted, no preroll inserted          | No slates inserted, no preroll inserted                                                                                             | Slate inserted, no preroll inserted              |
-| Preroll when ad isn't available (Vast 404)                         | Slate inserted, no preroll inserted          | No slates inserted, no preroll inserted                                                                                             | Slate inserted, no preroll inserted              |
-| Bumpers with empty VAST                                            | Slate inserted, bumper inserted              | No slates inserted, no bumpers inserted                                                                                             | Slate inserted, bumper inserted                  |
-| Bumpers with ADS timeout                                           | Slate inserted, bumper inserted              | No slates inserted, no bumpers inserted                                                                                             | Slate inserted, bumper inserted                  |
-| Bumpers when ad isn't available (Vast 404)                         | Slate inserted, bumper inserted              | No slates inserted, no bumpers inserted                                                                                             | Slate inserted, bumper inserted                  |
-| Bumpers to fill in time that's not fully used by ad<br>replacement | Slate inserted, bumper inserted, ad inserted | If personalization threshold greater than unfilled time: No<br>bumpers/ads/slates inserted, else: No bumpers/ads/slates<br>inserted | Slate inserted, bumper inserted, ad inserted     |
+Detailed behavior matrix| Scenario | Personalization disabled | Personalization enabled less than break duration | Personalization enabled greater than break duration |
+| --- | --- | --- | --- |
+| Empty VAST or VMAP | Slate inserted | No slates inserted | Slate inserted |
+| ADS timeout | Slate inserted | No slates inserted | Slate inserted |
+| Ad isn't available (Vast 404) | Slate inserted | No slates inserted | Slate inserted |
+| Duration of ads is longer than ad break | Ads inserted | No ads inserted | Ads inserted |
+| Fill in time that's not fully used by an ad replacement | Slate inserted | If personalization threshold greater than unfilled time: No ads/slates inserted, else: Ads and slates inserted | Slate inserted |
+| Preroll with empty VAST | Slate inserted, no preroll inserted | No slates inserted, no preroll inserted | Slate inserted, no preroll inserted |
+| Preroll with ADS timeout | Slate inserted, no preroll inserted | No slates inserted, no preroll inserted | Slate inserted, no preroll inserted |
+| Preroll when ad isn't available (Vast 404) | Slate inserted, no preroll inserted | No slates inserted, no preroll inserted | Slate inserted, no preroll inserted |
+| Bumpers with empty VAST | Slate inserted, bumper inserted | No slates inserted, no bumpers inserted | Slate inserted, bumper inserted |
+| Bumpers with ADS timeout | Slate inserted, bumper inserted | No slates inserted, no bumpers inserted | Slate inserted, bumper inserted |
+| Bumpers when ad isn't available (Vast 404) | Slate inserted, bumper inserted | No slates inserted, no bumpers inserted | Slate inserted, bumper inserted |
+| Bumpers to fill in time that's not fully used by ad<br>replacement | Slate inserted, bumper inserted, ad inserted | If personalization threshold greater than unfilled time: No<br>bumpers/ads/slates inserted, else: No bumpers/ads/slates<br>inserted | Slate inserted, bumper inserted, ad inserted |
 
 ###### Important considerations
 

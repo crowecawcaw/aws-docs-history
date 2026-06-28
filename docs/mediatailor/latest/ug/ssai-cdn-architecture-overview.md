@@ -26,23 +26,22 @@ monetization:
 - Consistent delivery of personalized advertising across devices
   In this recommended architecture:
 
-1.  Viewers request manifests from the CDN
-2.  CDN forwards requests to ad insertion
-3.  Ad insertion requests content manifests from the origin
-4.  Ad insertion requests ads from the ad decision server (ADS)
-5.  Ad insertion personalizes manifests by replacing the ad markers (from the
-    origin manifest) with URLs that point to targeted ad segments for the specific
-    viewer (from the ADS)
-6.  Ad insertion returns the personalized manifests containing ad segment URLs to
-    the CDN, which forwards them to viewers
-7.  Viewers request segments through the CDN
-8.  CDN routes segment requests based on the segment type:
+1. Viewers request manifests from the CDN
+2. CDN forwards requests to ad insertion
+3. Ad insertion requests content manifests from the origin
+4. Ad insertion requests ads from the ad decision server (ADS)
+5. Ad insertion personalizes manifests by replacing the ad markers (from the
+   origin manifest) with URLs that point to targeted ad segments for the specific
+   viewer (from the ADS)
+6. Ad insertion returns the personalized manifests containing ad segment URLs to
+   the CDN, which forwards them to viewers
+7. Viewers request segments through the CDN
+8. CDN routes segment requests based on the segment type:
 
-        * Content segment requests go to the content origin
-        * Ad segment requests go to MediaTailor
-
-    This architecture ensures optimal performance while maintaining the security and
-    flexibility benefits of using a CDN.
+   - Content segment requests go to the content origin
+   - Ad segment requests go to MediaTailor
+     This architecture ensures optimal performance while maintaining the security and
+     flexibility benefits of using a CDN.
 
 ![Diagram showing CDN positioned between client players and AWS Elemental MediaTailor Ad Insertion](images/cdn-recommended-positioning.png)
 

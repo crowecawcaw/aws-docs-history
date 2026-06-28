@@ -14,26 +14,22 @@ third quartile, and ad completion.
 - From the player, initialize a new MediaTailor playback session using a request
   in one of the following formats, according to your protocol:
 
-      + Example: HLS format
+  - Example: HLS format
 
+  ```
+  GET `<mediatailorURL>`/v1/master/`<hashed-account-id>`/`<origin-id>`/`<asset-id>`?ads.`<key-value-pairs-for-ads>`&`<key-value-pairs-for-origin-server>`
+  ```
+  - Example: DASH format
 
+  ```
+  GET `<mediatailorURL>`/v1/dash/`<hashed-account-id>`/`<origin-id>`/`<asset-id>`?ads.`<key-value-pairs-for-ads>`&`<key-value-pairs-for-origin-server>`
+  ```
 
-      ```
-      GET `<mediatailorURL>`/v1/master/`<hashed-account-id>`/`<origin-id>`/`<asset-id>`?ads.`<key-value-pairs-for-ads>`&`<key-value-pairs-for-origin-server>`
-      ```
-      + Example: DASH format
-
-
-
-      ```
-      GET `<mediatailorURL>`/v1/dash/`<hashed-account-id>`/`<origin-id>`/`<asset-id>`?ads.`<key-value-pairs-for-ads>`&`<key-value-pairs-for-origin-server>`
-      ```
-
-  The key-value pairs are the dynamic targeting parameters for ad tracking. For
-  information about adding parameters to the request, see [MediaTailor dynamic ad variables for ADS requests](variables.md "variables.md").
-  AWS Elemental MediaTailor responds to the request with the manifest URL. The manifest contains
-  URLs for the media manifests. The media manifests contain embedded links for ad segment
-  requests.
+The key-value pairs are the dynamic targeting parameters for ad tracking. For
+information about adding parameters to the request, see [MediaTailor dynamic ad variables for ADS requests](variables.md "variables.md").
+AWS Elemental MediaTailor responds to the request with the manifest URL. The manifest contains
+URLs for the media manifests. The media manifests contain embedded links for ad segment
+requests.
 
 ###### Note
 

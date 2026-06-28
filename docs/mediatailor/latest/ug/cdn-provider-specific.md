@@ -50,11 +50,10 @@ To understand CDN configuration requirements, you need to know these manifest ty
 
 - **DASH manifests**:
 
-      + *MPD (Media Presentation Description)*: The standard term for DASH manifests
-
-  This guide refers to all manifest files (multivariant playlists, media playlists, and
-  MPDs) collectively as _manifests_ when discussing common
-  configuration requirements.
+  - _MPD (Media Presentation Description)_: The standard term for DASH manifests
+    This guide refers to all manifest files (multivariant playlists, media playlists, and
+    MPDs) collectively as _manifests_ when discussing common
+    configuration requirements.
 
 For general CDN configuration principles that apply to all providers, see [Set up CDN integration with MediaTailor](cdn-configuration.md "cdn-configuration.md").
 

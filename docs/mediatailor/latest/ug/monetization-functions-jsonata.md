@@ -289,7 +289,7 @@ Build an ad decision server URL from multiple inputs.
 {%'https://ads.example.com/v1/vast?ip=' & $encodeUrlComponent(session.client_ip) & '&ua=' & $encodeUrlComponent(session.user_agent) & '&sid=' & session.id%}
 ```
 
-### Status code checks for HTTP_REQUEST output
+### Status code checks for HTTP\_REQUEST output
 
 Guard output values against HTTP failures.
 

@@ -4,54 +4,53 @@ AWS Elemental MediaTailor content delivery network (CDN) ad break timing must be
 synchronized with content markers. If ads appear at incorrect times or ad break timing
 is inconsistent:
 
-1.  Verify ad break markers in content:
+1. Verify ad break markers in content:
 
-    - Check that SCTE-35 markers are properly placed in your origin
-      content
-    - Verify ad break duration matches actual ad content length
-    - Confirm that ad break timing aligns with content boundaries
-    - Validate SCTE-35 marker format and timing accuracy in your origin
-      manifests
-    - Test ad break markers with different content types (live vs
-      VOD)
+   - Check that SCTE-35 markers are properly placed in your origin
+     content
+   - Verify ad break duration matches actual ad content length
+   - Confirm that ad break timing aligns with content boundaries
+   - Validate SCTE-35 marker format and timing accuracy in your origin
+     manifests
+   - Test ad break markers with different content types (live vs
+     VOD)
 
-2.  Check CDN caching impact on timing:
+2. Check CDN caching impact on timing:
 
-    - Ensure manifest TTL is set to 0 to prevent timing drift
-    - Verify that time-sensitive parameters are not being cached
-    - Check for clock synchronization issues between the content source,
-      MediaTailor, and the CDN
-    - Monitor for timing drift in long-running live streams
-    - Verify CDN edge server time synchronization with NTP
+   - Ensure manifest TTL is set to 0 to prevent timing drift
+   - Verify that time-sensitive parameters are not being cached
+   - Check for clock synchronization issues between the content source,
+     MediaTailor, and the CDN
+   - Monitor for timing drift in long-running live streams
+   - Verify CDN edge server time synchronization with NTP
 
-3.  Validate SCTE-35 marker implementation:
+3. Validate SCTE-35 marker implementation:
 
-    - Verify EXT-X-DATERANGE tags include proper SCTE35-OUT and DURATION
-      specifications
-    - Check for paired SCTE35-OUT and SCTE35-IN markers when using explicit
-      cue-in timing
-    - Validate START-DATE timestamps align with actual content timing
-    - Test different SCTE-35 marker formats (duration-based vs paired
-      markers)
+   - Verify EXT-X-DATERANGE tags include proper SCTE35-OUT and DURATION
+     specifications
+   - Check for paired SCTE35-OUT and SCTE35-IN markers when using explicit
+     cue-in timing
+   - Validate START-DATE timestamps align with actual content timing
+   - Test different SCTE-35 marker formats (duration-based vs paired
+     markers)
 
-4.  Test ad break timing across different scenarios:
+4. Test ad break timing across different scenarios:
 
-    - Compare ad break timing with direct MediaTailor requests vs CDN
-      requests
-    - Test timing consistency across different CDN edge locations
-    - Verify ad break timing with different player types and buffering
-      behaviors
-    - Monitor timing accuracy during peak traffic periods
+   - Compare ad break timing with direct MediaTailor requests vs CDN
+     requests
+   - Test timing consistency across different CDN edge locations
+   - Verify ad break timing with different player types and buffering
+     behaviors
+   - Monitor timing accuracy during peak traffic periods
 
-5.  Debug timing issues using logs and monitoring:
+5. Debug timing issues using logs and monitoring:
 
-        * Enable debug logging to track ad break processing timing
-        * Monitor CloudWatch metrics for ad insertion timing patterns
-        * Check CDN logs for timing-related request patterns
-        * Use player debugging tools to verify ad break timing from client
-         perspective
-
-    **Expected timing tolerances:**
+   - Enable debug logging to track ad break processing timing
+   - Monitor CloudWatch metrics for ad insertion timing patterns
+   - Check CDN logs for timing-related request patterns
+   - Use player debugging tools to verify ad break timing from client
+     perspective
+     **Expected timing tolerances:**
 
 - Ad break timing should align with SCTE-35 markers in your content
 - Ad duration should match the duration specified in your ad decision server

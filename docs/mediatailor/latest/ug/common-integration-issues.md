@@ -13,7 +13,7 @@ errors
    (case-sensitive)
 2. Test the manifest URL directly against MediaTailor without CDN:
    `curl -v
-"https://your-emt-endpoint.mediatailor.region.amazonaws.com/v1/master/hls/config-name/master.m3u8"`
+ "https://your-emt-endpoint.mediatailor.region.amazonaws.com/v1/master/hls/config-name/master.m3u8"`
 3. If direct test works, check CDN routing rules for manifest
    requests
 
@@ -25,11 +25,11 @@ manifest requests return HTTP 404 errors in CDN logs.
 **Example error messages:**
 
 - Browser console: `"Failed to load resource: the server
-responded with a status of 404 (Not Found)"`
+ responded with a status of 404 (Not Found)"`
 - Player error: `"MANIFEST_LOAD_ERROR"` or
   `"NETWORK_ERROR"`
 - CDN logs: `GET /v1/master/hls/example-config/master.m3u8
-404`
+ 404`
 
 **Resolution:**
 

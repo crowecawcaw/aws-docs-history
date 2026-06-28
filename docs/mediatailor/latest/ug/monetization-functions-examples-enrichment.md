@@ -12,7 +12,7 @@ information.
 ## Configuration
 
 **Fetch LiveRamp envelope
-(HTTP_REQUEST):**
+(HTTP\_REQUEST):**
 
 ```
 {
@@ -72,5 +72,5 @@ To handle errors explicitly, check `response.statusCode` before
 accessing response data: `{%response.statusCode = 200 ?
  response.body.envelopes[0].value : ''%}`
 
-For more information, see [HTTP_REQUEST](monetization-functions-types-http-request.md "monetization-functions-types-http-request.md"), [PRE_SESSION_INITIALIZATION](monetization-functions-hooks-pre-session.md "monetization-functions-hooks-pre-session.md"), [Troubleshooting and
+For more information, see [HTTP\_REQUEST](monetization-functions-types-http-request.md "monetization-functions-types-http-request.md"), [PRE\_SESSION\_INITIALIZATION](monetization-functions-hooks-pre-session.md "monetization-functions-hooks-pre-session.md"), [Troubleshooting and
 monitoring](monetization-functions-troubleshooting.md "monetization-functions-troubleshooting.md"), and [Limits](monetization-functions-limits.md "monetization-functions-limits.md").

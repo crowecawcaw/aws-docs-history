@@ -31,7 +31,7 @@ user agent.
    - **Function ID**:
      `myFirstFunction`
    - **Description**: `Classify device
-type from user agent`
+  type from user agent`
 
 7. Under **Custom output configuration**, in the
    **Output** section, add one row:
@@ -39,9 +39,9 @@ type from user agent`
    - **Key**:
      `player_params.deviceType`
    - **Value**: `{%
-$contains(session.user_agent, 'CTV') ? 'ctv' :
-$contains(session.user_agent, 'Mobile') ? 'mobile' : 'desktop'
-%}`
+  $contains(session.user_agent, 'CTV') ? 'ctv' :
+  $contains(session.user_agent, 'Mobile') ? 'mobile' : 'desktop'
+  %}`
 
 8. Choose **Create function**.
 
@@ -78,7 +78,7 @@ MediaTailor when to run the function.
    `myFirstFunction` from the dropdown.
 6. Choose **Save**.
 
-This attaches `myFirstFunction` to the [PRE_SESSION_INITIALIZATION](monetization-functions-hooks-pre-session.md "monetization-functions-hooks-pre-session.md")
+This attaches `myFirstFunction` to the [PRE\_SESSION\_INITIALIZATION](monetization-functions-hooks-pre-session.md "monetization-functions-hooks-pre-session.md")
 lifecycle hook. The resulting function mapping is:
 
 ```

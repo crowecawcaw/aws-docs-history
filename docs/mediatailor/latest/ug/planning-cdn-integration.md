@@ -39,11 +39,10 @@ and routing:
 - _DASH manifests_ - When you work with DASH streams, you
   handle:
 
-      + *MPD (Media Presentation Description)*: Configure your
-       CDN to handle these manifests according to your personalization
-       requirements.
-
-  The CDN planning process involves these key steps, each focused on a specific task:
+  - _MPD (Media Presentation Description)_: Configure your
+    CDN to handle these manifests according to your personalization
+    requirements.
+    The CDN planning process involves these key steps, each focused on a specific task:
 
 - [Estimate traffic requirements for CDN and MediaTailor integrations](estimate-traffic.md "estimate-traffic.md"): Calculate
   your expected viewer concurrency and the bandwidth requirements.

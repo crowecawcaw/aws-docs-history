@@ -27,13 +27,13 @@ each viewer. 2. Create separate cache behaviors for different request types:
 
 3. Configure proper error handling:
 
-   - Set up negative caching (temporarily storing error responses) to
+    * Set up negative caching (temporarily storing error responses) to
      avoid overwhelming your origin with repeated requests during service
      disruptions. Negative caching means the CDN will temporarily store
      error responses (like 404 or 500 errors) to prevent repeated
      requests for content that doesn't exist or is temporarily
      unavailable.
-   - Configure appropriate error response codes and retry
+    * Configure appropriate error response codes and retry
      behavior
 
 4. Implement intermediate caching (origin shield):

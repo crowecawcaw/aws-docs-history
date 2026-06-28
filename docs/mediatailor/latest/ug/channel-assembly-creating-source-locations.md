@@ -56,7 +56,7 @@ console. For information about how to create source locations using the MediaTai
          your Secrets Manager secret. For example, if your
          `SecretString` contains a key and value
          pair such as: `{"MyHeaderName":
-"11111111-2222-3333-4444-111122223333"}`, then
+   "11111111-2222-3333-4444-111122223333"}`, then
          `MyHeaderName` is the
          `SecretString` key you enter in this
          field.

@@ -27,12 +27,11 @@ requirements must be met for MediaTailor to access the manifest:
   not sign the request.
 - Your channel must have an origin access policy that includes the following:
 
-      + Principal access for MediaTailor to access your channel. Grant access to
-       **mediatailor.amazonaws.com**.
-      + IAM permissions **mediatailor:GetManifest** to read all
-       multivariant playlists referenced by the MediaTailor configuration.
-
-  For information about setting a policy on the channel, see [Create a channel using the MediaTailor console](channel-assembly-creating-channels.md "channel-assembly-creating-channels.md").
+  - Principal access for MediaTailor to access your channel. Grant access to
+    **mediatailor.amazonaws.com**.
+  - IAM permissions **mediatailor:GetManifest** to read all
+    multivariant playlists referenced by the MediaTailor configuration.
+    For information about setting a policy on the channel, see [Create a channel using the MediaTailor console](channel-assembly-creating-channels.md "channel-assembly-creating-channels.md").
 
 ###### Example origin access policy for Channel Assembly, scoped to the MediaTailor configuration account
 

@@ -317,7 +317,7 @@ CDN, see [Using a CDN to optimize MediaTailor ad personalization and content del
 
 If your origin server produces single-period DASH manifests,
 open the dropdown list and choose
-**SINGLE_PERIOD**. By default,
+**SINGLE\_PERIOD**. By default,
 MediaTailor handles DASH manifests as multi-period manifests.
 For more information, see [Integrating an MPEG-DASH source](manifest-dash.md "manifest-dash.md").
 

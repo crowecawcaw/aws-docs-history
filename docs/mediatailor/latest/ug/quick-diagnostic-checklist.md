@@ -4,33 +4,32 @@ AWS Elemental MediaTailor content delivery network (CDN) integration problems ca
 ways. Use this checklist to quickly identify the type of issue you're
 experiencing:
 
-1. **Is the issue affecting all viewers or specific
-   viewers?**
+1.   **Is the issue affecting all viewers or specific
+     viewers?**
 
-   - All viewers → Likely CDN or MediaTailor configuration issue
-   - Specific viewers → Likely personalization or targeting issue
+     - All viewers → Likely CDN or MediaTailor configuration issue
+     - Specific viewers → Likely personalization or targeting issue
 
-2. **Are manifests loading correctly?**
+2.   **Are manifests loading correctly?**
 
-   - No → CDN routing or MediaTailor connectivity issue
-   - Yes, but wrong content → Caching or personalization issue
+     - No → CDN routing or MediaTailor connectivity issue
+     - Yes, but wrong content → Caching or personalization issue
 
-3. **Are segments loading correctly?**
+3.   **Are segments loading correctly?**
 
-   - Content segments fail → Origin connectivity issue
-   - Ad segments fail → Ad delivery or transcoding issue
+     - Content segments fail → Origin connectivity issue
+     - Ad segments fail → Ad delivery or transcoding issue
 
-4. **Are ads being inserted correctly?**
-
+4.   **Are ads being inserted correctly?**
 
     * No ads appear → Check ADS connectivity and configuration
+
     * Wrong ads appear → Check ad targeting parameters and
      personalization
     * Ads fail to play → Check ad transcoding and segment
      availability
 
 503. **Is playback smooth and uninterrupted?**
-
 
     * Buffering issues → Check CDN cache performance and origin response
      times
@@ -40,8 +39,7 @@ experiencing:
      alignment
 
 504. **Are there specific error codes or
-     messages?**
-
+messages?**
 
     * HTTP 4xx errors → Check CDN routing and configuration
     * HTTP 5xx errors → Check origin server and MediaTailor service health

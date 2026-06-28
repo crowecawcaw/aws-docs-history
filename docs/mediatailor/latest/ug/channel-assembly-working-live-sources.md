@@ -60,15 +60,15 @@ workflow, we recommend following best practices when setting up your MediaPackag
 configuration. The following table describes how to configure MediaPackage settings based
 on the streaming standard you use.
 
-| MediaPackage setup for live sources | Standard                         | Setting                                                     | Value                                    | Necessity                                                                                                                        | Notes |
-| ----------------------------------- | -------------------------------- | ----------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| HLS                                 | Endpoint type                    | `Apple HLS`                                                 | Required unless using CMAF               | To match HLS `ts` AWS Elemental MediaConvert jobs                                                                                |
-| HLS                                 | Endpoint type                    | `CMAF`                                                      | Required unless using Apple HLS          | To match HLS `mp4` AWS Elemental MediaConvert jobs                                                                               |
-| HLS                                 | `ProgramDateTimeIntervalSeconds` | `1`                                                         | Required                                 | You must specify `#EXT-X-PROGRAM-DATE-TIME` on every segment in order to prevent playback issues when there are discontinuities. |
-| HLS                                 | `PlaylistWindowSeconds`          | 30 seconds longer than the channel assembly manifest window | Required                                 |                                                                                                                                  |
-| HLS                                 | `AdMarkers`                      | `DATERANGE`                                                 | Required when passing through ad markers |                                                                                                                                  |
-| HLS                                 | `IncludeIframeOnlyStream`        | Disabled                                                    | Recommended                              |                                                                                                                                  |
-| DASH                                | `ManifestLayout`                 | `FULL`                                                      | Recommended                              |                                                                                                                                  |
-| DASH                                | `SegmentTemplateFormat`          | `NUMBER_WITH_TIMELINE` or `TIME_WITH_TIMELINE`              | Recommended                              | `NUMBER_WITH_DURATION` is not supported.                                                                                         |
-| DASH                                | `ManifestWindowSeconds`          | 30 seconds longer than the channel assembly manifest window | Required                                 |                                                                                                                                  |
-| DASH                                | `PeriodTriggers`                 | `ADS`                                                       | Required when passing through ad markers |                                                                                                                                  |
+MediaPackage setup for live sources| Standard | Setting | Value | Necessity | Notes |
+| --- | --- | --- | --- | --- |
+| HLS | Endpoint type | `Apple HLS` | Required unless using CMAF | To match HLS `ts` AWS Elemental MediaConvert jobs |
+| HLS | Endpoint type | `CMAF` | Required unless using Apple HLS | To match HLS `mp4` AWS Elemental MediaConvert jobs |
+| HLS | `ProgramDateTimeIntervalSeconds` | `1` | Required | You must specify `#EXT-X-PROGRAM-DATE-TIME` on every segment in order to prevent playback issues when there are discontinuities. |
+| HLS | `PlaylistWindowSeconds` | 30 seconds longer than the channel assembly manifest window | Required | |
+| HLS | `AdMarkers` | `DATERANGE` | Required when passing through ad markers | |
+| HLS | `IncludeIframeOnlyStream` | Disabled | Recommended | |
+| DASH | `ManifestLayout` | `FULL` | Recommended | |
+| DASH | `SegmentTemplateFormat` | `NUMBER_WITH_TIMELINE` or `TIME_WITH_TIMELINE` | Recommended | `NUMBER_WITH_DURATION` is not supported. |
+| DASH | `ManifestWindowSeconds` | 30 seconds longer than the channel assembly manifest window | Required | |
+| DASH | `PeriodTriggers` | `ADS` | Required when passing through ad markers | |

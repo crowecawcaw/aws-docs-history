@@ -82,20 +82,20 @@ the following options.
 
 Use the following table to determine the right approach for your workflow.
 
-| Dynamic transcoding vs. custom transcode profile comparison | Consideration                                                                                                                                                               | Dynamic transcoding                                                 | Custom transcode profile |
-| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------ |
-| Setup effort                                                | None                                                                                                                                                                        | Manually authored AWS Elemental MediaConvert job<br>configuration   |
-| Trickplay support (HLS and<br>DASH)                         | Automatic                                                                                                                                                                   | Must be explicitly configured in CTP                                |
-| Compact DASH manifests                                      | Automatic                                                                                                                                                                   | Must be explicitly configured in CTP                                |
-| CMAF format support                                         | Automatic                                                                                                                                                                   | Must be explicitly configured in CTP                                |
-| Origin change handling                                      | Automatic                                                                                                                                                                   | Manual CTP update required                                          |
-| Multi-region complexity                                     | None                                                                                                                                                                        | Must be registered per region                                       |
-| Audio normalization                                         | -24 LKFS (default)                                                                                                                                                          | Fully configurable                                                  |
-| Bitrate matching                                            | Up to 5% rounding via `enableBitrateRounding` flag<br>(contact AWS Support to enable)                                                                                       | Explicitly configured in CTP to match origin bitrates               |
-| Non-integer segment lengths                                 | 2-second default; non-integer segment lengths not supported (contact<br>AWS Support to enable `calculateSegmentLength` for automatic<br>integer segment length calculation) | You must manually configure segment length to match<br>origin       |
-| Custom PID values                                           | Not supported                                                                                                                                                               | Supported                                                           |
-| Dolby Vision audio                                          | Not supported                                                                                                                                                               | Supported                                                           |
-| Custom audio sample rates                                   | Not supported                                                                                                                                                               | Supported                                                           |
-| Multi-origin support                                        | Automatic                                                                                                                                                                   | Superset CTP required; limited to 36 video variants                 |
-| MediaTailor improvements                                    | Automatic                                                                                                                                                                   | Manual CTP updates required                                         |
-| Best suited for                                             | Standard codec matching, common bitrate profiles, trickplay, compact<br>DASH                                                                                                | Specialized encoding requirements not met by dynamic<br>transcoding |
+Dynamic transcoding vs. custom transcode profile comparison| Consideration | Dynamic transcoding | Custom transcode profile |
+| --- | --- | --- |
+| Setup effort | None | Manually authored AWS Elemental MediaConvert job<br>configuration |
+| Trickplay support (HLS and<br>DASH) | Automatic | Must be explicitly configured in CTP |
+| Compact DASH manifests | Automatic | Must be explicitly configured in CTP |
+| CMAF format support | Automatic | Must be explicitly configured in CTP |
+| Origin change handling | Automatic | Manual CTP update required |
+| Multi-region complexity | None | Must be registered per region |
+| Audio normalization | -24 LKFS (default) | Fully configurable |
+| Bitrate matching | Up to 5% rounding via `enableBitrateRounding` flag<br>(contact AWS Support to enable) | Explicitly configured in CTP to match origin bitrates |
+| Non-integer segment lengths | 2-second default; non-integer segment lengths not supported (contact<br>AWS Support to enable `calculateSegmentLength` for automatic<br>integer segment length calculation) | You must manually configure segment length to match<br>origin |
+| Custom PID values | Not supported | Supported |
+| Dolby Vision audio | Not supported | Supported |
+| Custom audio sample rates | Not supported | Supported |
+| Multi-origin support | Automatic | Superset CTP required; limited to 36 video variants |
+| MediaTailor improvements | Automatic | Manual CTP updates required |
+| Best suited for | Standard codec matching, common bitrate profiles, trickplay, compact<br>DASH | Specialized encoding requirements not met by dynamic<br>transcoding |

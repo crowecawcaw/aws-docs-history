@@ -77,34 +77,33 @@ increased latency, higher bandwidth costs, poor viewer experience
 
 **Solutions**:
 
-1.  Review and optimize TTL settings:
+1. Review and optimize TTL settings:
 
-        * Content segments: Set TTL to match segment duration or
-         longer
-        * Ad segments: Set TTL to 24 hours or longer for
-         reusable ads
-        * Static assets: Set TTL to 24 hours or longer
+   - Content segments: Set TTL to match segment duration or
+     longer
+   - Ad segments: Set TTL to 24 hours or longer for
+     reusable ads
+   - Static assets: Set TTL to 24 hours or longer
+     For comprehensive TTL recommendations and caching optimization
+     strategies, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
-    For comprehensive TTL recommendations and caching optimization
-    strategies, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+2. Optimize cache key configuration:
 
-2.  Optimize cache key configuration:
+   - Remove unnecessary query parameters from cache
+     keys
+   - Ensure only content-affecting parameters are
+     included
+   - Normalize parameter order and case sensitivity
 
-    - Remove unnecessary query parameters from cache
-      keys
-    - Ensure only content-affecting parameters are
-      included
-    - Normalize parameter order and case sensitivity
-
-3.  Verify origin cache-control headers are properly set
-4.  Implement origin shield (or equivalent CDN functionality) for
-    high-traffic implementations. Origin shield functionality is
-    available across major CDNs but might have different names (such
-    as CloudFront Origin Shield, Fastly Shield, Cloudflare Argo Tiered
-    Cache). If your CDN doesn't offer this functionality, it can be
-    enabled in MediaTailor when you contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
-5.  Review cache invalidation strategies and reduce unnecessary
-    purges
+3. Verify origin cache-control headers are properly set
+4. Implement origin shield (or equivalent CDN functionality) for
+   high-traffic implementations. Origin shield functionality is
+   available across major CDNs but might have different names (such
+   as CloudFront Origin Shield, Fastly Shield, Cloudflare Argo Tiered
+   Cache). If your CDN doesn't offer this functionality, it can be
+   enabled in MediaTailor when you contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
+5. Review cache invalidation strategies and reduce unnecessary
+   purges
 
 **Validation steps**:
 
@@ -154,7 +153,7 @@ implementations.
 
 **Symptoms**: Manifest or segment
 requests return HTTP 404, players fail to load content,
-"MANIFEST_LOAD_ERROR" in player logs
+"MANIFEST\_LOAD\_ERROR" in player logs
 
 **Common causes**:
 
@@ -246,25 +245,24 @@ malformed request errors, parameter validation failures
 - Monitor MediaTailor CloudWatch metrics for service health
 - Contact AWS Support if issues persist
 
-1.  Measure baseline performance:
+1. Measure baseline performance:
 
-    - Test manifest request response times directly to MediaTailor (target:
-      <200ms)
-    - Measure CDN response times for manifest requests (target: <100ms
-      for cache hits)
-    - Check segment loading times from both origin and CDN
+   - Test manifest request response times directly to MediaTailor (target:
+     <200ms)
+   - Measure CDN response times for manifest requests (target: <100ms
+     for cache hits)
+   - Check segment loading times from both origin and CDN
 
-2.  Analyze CDN performance:
+2. Analyze CDN performance:
 
-        * Check cache hit ratios for content segments (target: >80% for
-         popular content)
-        * Verify origin shield (or equivalent CDN functionality) is enabled and
-         configured in the same AWS Region as your origin. Different CDNs use
-         different names for this functionality
-        * Monitor CDN edge location performance and geographic
-         distribution
-
-    **Performance benchmarks:**
+   - Check cache hit ratios for content segments (target: >80% for
+     popular content)
+   - Verify origin shield (or equivalent CDN functionality) is enabled and
+     configured in the same AWS Region as your origin. Different CDNs use
+     different names for this functionality
+   - Monitor CDN edge location performance and geographic
+     distribution
+     **Performance benchmarks:**
 
 - Monitor manifest generation response times and compare against your baseline
   performance

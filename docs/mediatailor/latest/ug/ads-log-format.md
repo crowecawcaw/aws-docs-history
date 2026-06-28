@@ -111,147 +111,147 @@ This section describes the properties of the ADS logs.
 
 This section describes the properties of the ADS logs adContent.
 
-| ADS Logs adContent Properties | Property                                                                             | Type  | Required                                                                                                                                                                                       | Description |
-| ----------------------------- | ------------------------------------------------------------------------------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `adPlaylistUris`              | object of type [adPlaylistUris](#ads-logs-adPlaylistUris "#ads-logs-adPlaylistUris") | false | The mapping from the origin manifest for a variant to the ad manifest for the variant. For DASH, this contains a single entry, because all variants are represented in a single DASH manifest. |
+ADS Logs adContent Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `adPlaylistUris` | object of type [adPlaylistUris](#ads-logs-adPlaylistUris "#ads-logs-adPlaylistUris") | false | The mapping from the origin manifest for a variant to the ad manifest for the variant. For DASH, this contains a single entry, because all variants are represented in a single DASH manifest. |
 
 ### adPlaylistUris
 
 This section describes the properties of the ADS logs adPlaylistUris.
 
-| ADS Logs adPlaylistUris Properties | Property | Type  | Required                                             | Description |
-| ---------------------------------- | -------- | ----- | ---------------------------------------------------- | ----------- |
-| `<any string>`                     | string   | false | The URL of the ad manifest for the specific variant. |
+ADS Logs adPlaylistUris Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `<any string>` | string | false | The URL of the ad manifest for the specific variant. |
 
 ### avail
 
 This section describes the properties of the ADS logs avail.
 
-| ADS Logs avail Properties | Property                                                                | Type  | Required                                                                                                                                                                                                                                                              | Description |
-| ------------------------- | ----------------------------------------------------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `availId`                 | string                                                                  | true  | The unique identifier for this avail. For HLS, this is the media sequence number where the avail begins. For DASH, this is the period ID.                                                                                                                             |
-| `creativeAds`             | array of type [creativeAd](#ads-logs-creativeAd "#ads-logs-creativeAd") | true  | The ads that MediaTailor inserted into the avail.                                                                                                                                                                                                                     |
-| `fillRate`                | number                                                                  | true  | The rate at which the ads fill the avail duration, from 0.0 (for 0%) to 1.0 (for 100%).                                                                                                                                                                               |
-| `filledDuration`          | number                                                                  | true  | The sum of the durations of all the ads inserted into the avail.                                                                                                                                                                                                      |
-| `numAds`                  | number                                                                  | true  | The number of ads that MediaTailor inserted into the avail.                                                                                                                                                                                                           |
-| `originAvailDuration`     | number                                                                  | true  | The duration of the avail as specified in the content stream from the origin (`CUE_OUT` or `SCTE`).                                                                                                                                                                   |
-| `skippedAds`              | array of type [skippedAd](#ads-logs-skippedAd "#ads-logs-skippedAd")    | false | The ads that MediaTailor didn't insert, for reasons like `TRANSCODE_IN_PROGRESS` and `TRANSCODE_ERROR`.<br>For a list of skipped ad reasons, see [Ad skipping<br>troubleshooting](troubleshooting-ad-skipping-overview.md "troubleshooting-ad-skipping-overview.md"). |
-| `slateAd`                 | object of type [slateAd](#ads-logs-slateAd "#ads-logs-slateAd")         | true  | Information about the slate ad, which MediaTailor uses to fill any unfilled segments in the avail.                                                                                                                                                                    |
+ADS Logs avail Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `availId` | string | true | The unique identifier for this avail. For HLS, this is the media sequence number where the avail begins. For DASH, this is the period ID. |
+| `creativeAds` | array of type [creativeAd](#ads-logs-creativeAd "#ads-logs-creativeAd") | true | The ads that MediaTailor inserted into the avail. |
+| `fillRate` | number | true | The rate at which the ads fill the avail duration, from 0.0 (for 0%) to 1.0 (for 100%). |
+| `filledDuration` | number | true | The sum of the durations of all the ads inserted into the avail. |
+| `numAds` | number | true | The number of ads that MediaTailor inserted into the avail. |
+| `originAvailDuration` | number | true | The duration of the avail as specified in the content stream from the origin (`CUE_OUT` or `SCTE`). |
+| `skippedAds` | array of type [skippedAd](#ads-logs-skippedAd "#ads-logs-skippedAd") | false | The ads that MediaTailor didn't insert, for reasons like `TRANSCODE_IN_PROGRESS` and `TRANSCODE_ERROR`.<br>For a list of skipped ad reasons, see [Ad skipping<br>troubleshooting](troubleshooting-ad-skipping-overview.md "troubleshooting-ad-skipping-overview.md"). |
+| `slateAd` | object of type [slateAd](#ads-logs-slateAd "#ads-logs-slateAd") | true | Information about the slate ad, which MediaTailor uses to fill any unfilled segments in the avail. |
 
 ### creativeAd
 
 This section describes the properties of the ADS logs creativeAd.
 
-| ADS Logs creativeAd Properties | Property                                                                             | Type | Required                                                                                                                                                                                | Description |
-| ------------------------------ | ------------------------------------------------------------------------------------ | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `adContent`                    | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent")                | true | Information about the content of the inserted ad.                                                                                                                                       |
-| `creativeUniqueId`             | string                                                                               | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
-| `trackingEvents`               | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs.                                            |
-| `transcodedAdDuration`         | number                                                                               | true | The duration of the ad, calculated from the transcoded asset.                                                                                                                           |
-| `uri`                          | string                                                                               | true | The URL of the mezzanine version of the ad, which is the input to the transcoder.                                                                                                       |
-| `vastDuration`                 | number                                                                               | true | The duration of the ad, as parsed from the VAST response.                                                                                                                               |
+ADS Logs creativeAd Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `adContent` | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent") | true | Information about the content of the inserted ad. |
+| `creativeUniqueId` | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
+| `trackingEvents` | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. |
+| `transcodedAdDuration` | number | true | The duration of the ad, calculated from the transcoded asset. |
+| `uri` | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. |
+| `vastDuration` | number | true | The duration of the ad, as parsed from the VAST response. |
 
 ### requestheaders
 
 This section describes the properties of the ADS logs requestheaders.
 
-| ADS Logs requestheaders Properties | Property | Type | Required                 | Description |
-| ---------------------------------- | -------- | ---- | ------------------------ | ----------- |
-| `name`                             | string   | true | The name of the header.  |
-| `value`                            | string   | true | The value of the header. |
+ADS Logs requestheaders Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `name` | string | true | The name of the header. |
+| `value` | string | true | The value of the header. |
 
 ### skippedAd
 
 This section describes the properties of the ADS logs skippedAd.
 
-| ADS Logs skippedAd Properties | Property | Type  | Required                                                                                                                                                                                                                                            | Description |
-| ----------------------------- | -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `adMezzanineUrl`              | string   | true  | The mezzanine URL of the skipped ad.                                                                                                                                                                                                                |
-| `creativeUniqueId`            | string   | true  | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad.                                                             |
-| `skippedReason`               | string   | true  | The code that indicates why the ad wasn't inserted. Example: `TRANSCODE_IN_PROGRESS`.<br>For a list of skipped ad reasons, see [Ad skipping<br>troubleshooting](troubleshooting-ad-skipping-overview.md "troubleshooting-ad-skipping-overview.md"). |
-| `transcodedAdDuration`        | number   | false | The duration of the ad, calculated from the transcoded asset.                                                                                                                                                                                       |
-| `vastDuration`                | number   | true  | The duration of the ad, as parsed from the VAST response.                                                                                                                                                                                           |
+ADS Logs skippedAd Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `adMezzanineUrl` | string | true | The mezzanine URL of the skipped ad. |
+| `creativeUniqueId` | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
+| `skippedReason` | string | true | The code that indicates why the ad wasn't inserted. Example: `TRANSCODE_IN_PROGRESS`.<br>For a list of skipped ad reasons, see [Ad skipping<br>troubleshooting](troubleshooting-ad-skipping-overview.md "troubleshooting-ad-skipping-overview.md"). |
+| `transcodedAdDuration` | number | false | The duration of the ad, calculated from the transcoded asset. |
+| `vastDuration` | number | true | The duration of the ad, as parsed from the VAST response. |
 
 ### slateAd
 
 This section describes the properties of the ADS logs slateAd.
 
-| ADS Logs slateAd Properties | Property                                                              | Type | Required                                                                                                                                                                                | Description |
-| --------------------------- | --------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `adContent`                 | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent") | true | Information about the content of the inserted ad.                                                                                                                                       |
-| `creativeUniqueId`          | string                                                                | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
-| `transcodedAdDuration`      | number                                                                | true | The duration of the ad, calculated from the transcoded asset.                                                                                                                           |
-| `uri`                       | string                                                                | true | The URL of the mezzanine version of the ad, which is the input to the transcoder.                                                                                                       |
+ADS Logs slateAd Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `adContent` | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent") | true | Information about the content of the inserted ad. |
+| `creativeUniqueId` | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
+| `transcodedAdDuration` | number | true | The duration of the ad, calculated from the transcoded asset. |
+| `uri` | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. |
 
 ### trackingEvents
 
 This section describes the properties of the ADS logs trackingEvents.
 
-| ADS Logs trackingEvents Properties | Property             | Type  | Required                                                                                   | Description |
-| ---------------------------------- | -------------------- | ----- | ------------------------------------------------------------------------------------------ | ----------- |
-| `<any string>`                     | array of type string | false | The list of beacon URLs for the specified tracking event (impression, complete, and so on) |
+ADS Logs trackingEvents Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `<any string>` | array of type string | false | The list of beacon URLs for the specified tracking event (impression, complete, and so on) |
 
 ### vastAd
 
 This section describes the properties of the ADS logs vastAd.
 
-| ADS Logs vastAd Properties | Property                                                                             | Type  | Required                                                                                                                                     | Description |
-| -------------------------- | ------------------------------------------------------------------------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `adSystem`                 | string                                                                               | true  | The value of the `AdSystem` tag in the VAST response.                                                                                        |
-| `adTitle`                  | string                                                                               | true  | The media files that are available for the ad in the VAST response.                                                                          |
-| `creativeAdId`             | string                                                                               | true  | The value of the adId attribute of the `Creative` tag in the VAST response.                                                                  |
-| `creativeId`               | string                                                                               | true  | The value of the id attribute of the `Creative` tag in the VAST response.                                                                    |
-| `duration`                 | number                                                                               | true  | The approximate duration of the ad, based on the `duration` tag in the `linear` element of the VAST response.                                |
-| `trackingEvents`           | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true  | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. |
-| `vastAdId`                 | string                                                                               | true  | The value of the id attribute of the `Ad` tag in the VAST response                                                                           |
-| `vastAdTagUri`             | string                                                                               | false | The VMAP-specific redirect URI for an ad.                                                                                                    |
-| `vastMediaFiles`           | array of type [vastMediaFile](#ads-logs-vastMediaFile "#ads-logs-vastMediaFile")     | true  | The list of available media files for the ad in the VAST response.                                                                           |
+ADS Logs vastAd Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `adSystem` | string | true | The value of the `AdSystem` tag in the VAST response. |
+| `adTitle` | string | true | The media files that are available for the ad in the VAST response. |
+| `creativeAdId` | string | true | The value of the adId attribute of the `Creative` tag in the VAST response. |
+| `creativeId` | string | true | The value of the id attribute of the `Creative` tag in the VAST response. |
+| `duration` | number | true | The approximate duration of the ad, based on the `duration` tag in the `linear` element of the VAST response. |
+| `trackingEvents` | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. |
+| `vastAdId` | string | true | The value of the id attribute of the `Ad` tag in the VAST response |
+| `vastAdTagUri` | string | false | The VMAP-specific redirect URI for an ad. |
+| `vastMediaFiles` | array of type [vastMediaFile](#ads-logs-vastMediaFile "#ads-logs-vastMediaFile") | true | The list of available media files for the ad in the VAST response. |
 
 ### vastMediaFile
 
 This section describes the properties of the ADS logs vastMediaFile.
 
-| ADS Logs vastMediaFile Properties | Property | Type | Required                                                                               | Description |
-| --------------------------------- | -------- | ---- | -------------------------------------------------------------------------------------- | ----------- |
-| `apiFramework`                    | string   | true | The API framework needed to manage the media file. Example: `VPAID`.                   |
-| `bitrate`                         | number   | true | The bitrate of the media file.                                                         |
-| `delivery`                        | string   | true | The protocol used for the media file, set to either progressive or streaming.          |
-| `height`                          | number   | true | The pixel height of the media file.                                                    |
-| `id`                              | string   | true | The value of the id attribute of the `MediaFile` tag.                                  |
-| `type`                            | string   | true | The MIME type of the media file, taken from the type attribute of the `MediaFile` tag. |
-| `uri`                             | string   | true | The URL of the mezzanine version of the ad, which is the input to the transcoder.      |
-| `width`                           | number   | true | The pixel width of the media file.                                                     |
+ADS Logs vastMediaFile Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `apiFramework` | string | true | The API framework needed to manage the media file. Example: `VPAID`. |
+| `bitrate` | number | true | The bitrate of the media file. |
+| `delivery` | string | true | The protocol used for the media file, set to either progressive or streaming. |
+| `height` | number | true | The pixel height of the media file. |
+| `id` | string | true | The value of the id attribute of the `MediaFile` tag. |
+| `type` | string | true | The MIME type of the media file, taken from the type attribute of the `MediaFile` tag. |
+| `uri` | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. |
+| `width` | number | true | The pixel width of the media file. |
 
 ### vastResponse
 
 This section describes the properties of the ADS logs vastResponse.
 
-| ADS Logs vastResponse Properties | Property                                                    | Type | Required                                                                                               | Description |
-| -------------------------------- | ----------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------ | ----------- |
-| `errors`                         | array of type string                                        | true | The error URLs parsed from the `Error` tags in the VAST response.                                      |
-| `vastAds`                        | array of type [vastAd](#ads-logs-vastAd "#ads-logs-vastAd") | true | The ads parsed from the VAST response.                                                                 |
-| `version`                        | string                                                      | true | The VAST specification version, parsed from the `version` attribute of the `VAST` tag in the response. |
+ADS Logs vastResponse Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | array of type string | true | The error URLs parsed from the `Error` tags in the VAST response. |
+| `vastAds` | array of type [vastAd](#ads-logs-vastAd "#ads-logs-vastAd") | true | The ads parsed from the VAST response. |
+| `version` | string | true | The VAST specification version, parsed from the `version` attribute of the `VAST` tag in the response. |
 
 ### vodCreativeOffsets
 
 This section describes the properties of the ADS logs vodCreativeOffsets.
 
-| ADS Logs vodCreativeOffsets Properties | Property                                                                                     | Type  | Required                                                                              | Description |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------- | ----------- |
-| `<any string>`                         | array of type [vodCreativeOffset](#ads-logs-vodCreativeOffset "#ads-logs-vodCreativeOffset") | false | A mapping from a time offset in the manifest to a list of ads to insert at this time. |
+ADS Logs vodCreativeOffsets Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `<any string>` | array of type [vodCreativeOffset](#ads-logs-vodCreativeOffset "#ads-logs-vodCreativeOffset") | false | A mapping from a time offset in the manifest to a list of ads to insert at this time. |
 
 ### vodCreativeOffset
 
 This section describes the properties of the ADS logs vodCreativeOffset.
 
-| ADS Logs vodCreativeOffset Properties | Property                                                                             | Type | Required                                                                                                                                                                                | Description |
-| ------------------------------------- | ------------------------------------------------------------------------------------ | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `adContent`                           | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent")                | true | Information about the content of the inserted ad.                                                                                                                                       |
-| `creativeUniqueId`                    | string                                                                               | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
-| `trackingEvents`                      | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs.                                            |
-| `transcodedAdDuration`                | number                                                                               | true | The duration of the ad, calculated from the transcoded asset.                                                                                                                           |
-| `uri`                                 | string                                                                               | true | The URL of the mezzanine version of the ad, which is the input to the transcoder.                                                                                                       |
-| `vastDuration`                        | number                                                                               | true | The duration of the ad, as parsed from the VAST response.                                                                                                                               |
+ADS Logs vodCreativeOffset Properties| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `adContent` | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent") | true | Information about the content of the inserted ad. |
+| `creativeUniqueId` | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
+| `trackingEvents` | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. |
+| `transcodedAdDuration` | number | true | The duration of the ad, calculated from the transcoded asset. |
+| `uri` | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. |
+| `vastDuration` | number | true | The duration of the ad, as parsed from the VAST response. |
 
 ## ADS log JSON schema
 

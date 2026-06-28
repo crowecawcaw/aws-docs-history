@@ -35,7 +35,7 @@ you identify patterns.
 
 ###### Topics
 
-- [NEW_CREATIVE
+- [NEW\_CREATIVE
   skipping](troubleshooting-new-creative-skipping.md "troubleshooting-new-creative-skipping.md")
 - [ADS timeout
   skipping](troubleshooting-ads-timeout-skipping.md "troubleshooting-ads-timeout-skipping.md")

@@ -35,7 +35,7 @@ fields @timestamp, sessionId, eventType, creativeId, skipReason, adBreakIndex
 
 ### Finding Creative IDs
 
-To identify Creative IDs from FILLED_AVAIL events:
+To identify Creative IDs from FILLED\_AVAIL events:
 
 ```
 

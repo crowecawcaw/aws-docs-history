@@ -44,9 +44,9 @@ described in [Optional configuration settings](configurations-create.md#configur
    start time of the pre-roll ad break as follows:
 
    - For DASH, the formula is `(publishTime - availabilityStartTime) -
-max(suggestedPresentationDelay, minBufferTime)`.
+  max(suggestedPresentationDelay, minBufferTime)`.
    - For HLS, the formula is `max(2*EXT-X-TARGETDURATION,
-EXT-X-START:TIMEOFFSET)`.
+  EXT-X-START:TIMEOFFSET)`.
 
 3. MediaTailor determines what action to take on any ad breaks that aren't
    pre-rolls. If the pre-roll overlaps another ad break, MediaTailor doesn't

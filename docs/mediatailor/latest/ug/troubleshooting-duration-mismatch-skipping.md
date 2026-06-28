@@ -20,11 +20,11 @@ Common duration issues include the following:
 The EXT-X-CUE-OUT tag duration parameter must be formatted as an integer value,
 not as an ISO 8601 duration format.
 
-| Duration format requirements | Format   | Example                                      | Status |
-| ---------------------------- | -------- | -------------------------------------------- | ------ |
-| Integer (Correct)            | `32`     | Supported<br>• represents 32 seconds         |
-| Decimal (Correct)            | `30.000` | Supported<br>• represents 30 seconds         |
-| ISO 8601 (Incorrect)         | `PT32S`  | Not supported<br>• causes insertion failures |
+Duration format requirements| Format | Example | Status |
+| --- | --- | --- |
+| Integer (Correct) | `32` | Supported<br>• represents 32 seconds |
+| Decimal (Correct) | `30.000` | Supported<br>• represents 30 seconds |
+| ISO 8601 (Incorrect) | `PT32S` | Not supported<br>• causes insertion failures |
 
 ## Resolution steps
 

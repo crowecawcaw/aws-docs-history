@@ -1,10 +1,10 @@
-# MediaTailor NEW_CREATIVE ad skipping troubleshooting
+# MediaTailor NEW\_CREATIVE ad skipping troubleshooting
 
 When ads are skipped with the `NEW_CREATIVE` reason, AWS Elemental MediaTailor encountered
 an ad that requires transcoding before insertion. This troubleshooting guide explains
 the causes and provides step-by-step resolution procedures.
 
-## What causes NEW_CREATIVE skipping
+## What causes NEW\_CREATIVE skipping
 
 MediaTailor transcodes ads based on three key factors: creative ID, AWS Account ID, and
 transcode variant set (the playback renditions for the underlying content stream).
@@ -13,7 +13,7 @@ the ad as a new variant that requires transcoding.
 
 ### Bitrate changes
 
-Bitrate changes can cause NEW_CREATIVE skipping when the bitrate doesn't match
+Bitrate changes can cause NEW\_CREATIVE skipping when the bitrate doesn't match
 after rounding to the nearest 8,000 bits. This commonly occurs in the following
 situations:
 
@@ -28,7 +28,7 @@ situations:
 For harvest jobs, MediaTailor uses a 15% bandwidth variance threshold when
 matching ads to content streams. If there is a difference of 15% or more
 between the bandwidth of the live stream and the bandwidth of the harvested
-HLS file, the ad will be transcoded again. This can result in NEW_CREATIVE
+HLS file, the ad will be transcoded again. This can result in NEW\_CREATIVE
 skipping during the transcoding process.
 
 This behavior commonly occurs when:
@@ -45,9 +45,9 @@ This behavior commonly occurs when:
 When MediaTailor encounters a different creative ID for a media file that was
 already transcoded, the following sequence occurs:
 
-1. The ad is skipped with reason NEW_CREATIVE
+1. The ad is skipped with reason NEW\_CREATIVE
 2. This leads to an unnecessary transcoding attempt
-3. The creative is marked as DUPLICATE_TRANSCODE or COPY_DEDUP
+3. The creative is marked as DUPLICATE\_TRANSCODE or COPY\_DEDUP
 
 ###### Note
 
@@ -56,7 +56,7 @@ MediaTailor-owned S3 bucket indefinitely.
 
 ## Resolution steps
 
-To resolve NEW_CREATIVE ad skipping issues:
+To resolve NEW\_CREATIVE ad skipping issues:
 
 1. Verify that your ad decision server returns consistent creative IDs for
    the same ad content.
@@ -67,9 +67,9 @@ To resolve NEW_CREATIVE ad skipping issues:
 4. For persistent issues, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") for additional troubleshooting
    assistance.
 
-## Monitoring NEW_CREATIVE patterns
+## Monitoring NEW\_CREATIVE patterns
 
-Use this CloudWatch Logs Insights query to analyze patterns in NEW_CREATIVE ad
+Use this CloudWatch Logs Insights query to analyze patterns in NEW\_CREATIVE ad
 skipping:
 
 ```

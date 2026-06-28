@@ -2,7 +2,7 @@
 
 AWS Elemental MediaTailor includes query parameters in links to MediaTailor resources when your request
 includes query parameters with the key
-`manifest.`\*``. The following example shows this
+`manifest.`*``. The following example shows this
 request format:
 
 ```

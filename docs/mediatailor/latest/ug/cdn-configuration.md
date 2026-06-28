@@ -26,10 +26,9 @@ For additional information, see the following links:
 
 - **DASH manifests**:
 
-      + *MPD (Media Presentation Description)*: The standard
-       term for DASH manifests
-
-  Integrating MediaTailor with a CDN provides the following benefits:
+  - _MPD (Media Presentation Description)_: The standard
+    term for DASH manifests
+    Integrating MediaTailor with a CDN provides the following benefits:
 
 - Reduced latency for viewers
 - Improved scalability for high-traffic events
@@ -66,18 +65,17 @@ deploying to production.
 
 Before configuring your CDN integration, ensure you have the following:
 
-1.  A MediaTailor configuration with the following settings:
+1. A MediaTailor configuration with the following settings:
 
-        * Your content origin as the **Content source**
-        * Your ADS as the **Ad decision server**
+   - Your content origin as the **Content source**
+   - Your ADS as the **Ad decision server**
+     You need the origin and ADS URLs in the CDN integration steps as well.
 
-    You need the origin and ADS URLs in the CDN integration steps as well.
-
-2.  Access to your CDN's configuration interface
-3.  Understanding of your CDN's specific terminology for behaviors, rules, and
-    cache settings
-4.  Knowledge of your content structure, including file extensions used for
-    segments (such as .ts, .mp4, or .m4s)
+2. Access to your CDN's configuration interface
+3. Understanding of your CDN's specific terminology for behaviors, rules, and
+   cache settings
+4. Knowledge of your content structure, including file extensions used for
+   segments (such as .ts, .mp4, or .m4s)
 
 ## CDN integration setup steps
 

@@ -116,8 +116,7 @@ requirements.
      **Base HTTP URL** to the manifest. For example,
      **/my/path/index.m3u8**.
 
-7. Choose **Add source**.
-8. Repeat steps 4-7 in this procedure to add the VOD source for your ad slate.
+7. Choose **Add source**. 8. Repeat steps 4-7 in this procedure to add the VOD source for your ad slate.
 
 ## Step 3: Create a channel
 

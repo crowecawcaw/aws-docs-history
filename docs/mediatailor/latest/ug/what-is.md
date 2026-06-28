@@ -30,10 +30,9 @@ AWS Elemental MediaTailor has specific requirements for origin server communicat
 - **Supported ports** - MediaTailor only accepts origins
   using standard HTTP and HTTPS ports:
 
-      + Port 80 for HTTP connections
-      + Port 443 for HTTPS connections
-
-  MediaTailor does not support custom ports for origin server communication.
+  - Port 80 for HTTP connections
+  - Port 443 for HTTPS connections
+    MediaTailor does not support custom ports for origin server communication.
 
 - **Protocol requirements** - For secure
   communication, MediaTailor requires HTTPS for certain origin types and authentication
