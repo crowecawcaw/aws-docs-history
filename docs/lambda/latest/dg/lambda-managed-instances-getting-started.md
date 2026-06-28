@@ -21,7 +21,7 @@ You can use the Lambda console to create a Managed Instance function that runs o
 11. Select **Author from scratch**.
 12. In the **Basic information** pane, provide a **Function name**.
 13. For **Runtime**, choose any of the supported Runtimes.
-14. Choose the **Architecture** for your function (same as the one you selected for capacity provider). By default, **x86_64**.
+14. Choose the **Architecture** for your function (same as the one you selected for capacity provider). By default, **x86\_64**.
 15. Under **Permissions**, ensure you have permission for the chosen **Execution role**. Otherwise, you can create a new role.
 16. Under **Additional configurations**, pick the **Compute type** as **Lambda Managed Instances**.
 17. Capacity provider ARN of the capacity provider you created in the previous steps should be pre-selected.
@@ -176,7 +176,7 @@ This command creates a capacity provider with the following configuration:
 
 - **VPC configuration** – Specifies the subnet and security group for the EC2 instances
 - **Permissions** – Defines the IAM role that Lambda uses to manage EC2 instances
-- **Instance requirements** – Specifies the x86_64 architecture
+- **Instance requirements** – Specifies the x86\_64 architecture
 - **Scaling configuration** – Sets a maximum of 30 vCPUs for the capacity provider
 
 ### Step 4: Create a Lambda function with inline code

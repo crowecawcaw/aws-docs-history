@@ -37,16 +37,15 @@ now.
 
 ###### To create an execution role
 
-1.  Open the [roles page](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") in the IAM console.
-2.  Choose **Create role**.
-3.  Create a role with the following properties.
+1. Open the [roles page](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") in the IAM console.
+2. Choose **Create role**.
+3. Create a role with the following properties.
 
-        * **Trusted entity** – **Lambda**.
-        * **Permissions** – **AWSLambdaBasicExecutionRole**.
-        * **Role name** – `lambda-role`.
-
-    The **AWSLambdaBasicExecutionRole** policy has the permissions that the function needs to
-    write logs to CloudWatch Logs.
+   - **Trusted entity** – **Lambda**.
+   - **Permissions** – **AWSLambdaBasicExecutionRole**.
+   - **Role name** – `lambda-role`.
+     The **AWSLambdaBasicExecutionRole** policy has the permissions that the function needs to
+     write logs to CloudWatch Logs.
 
 ## Create a function
 

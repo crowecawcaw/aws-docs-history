@@ -129,8 +129,8 @@ Create a Lambda function in the console using the Python 3.14 runtime.
 
 6. In the **Change default execution role** tab, do the following:
 
-   1. Expand the tab, then choose **Use an existing role**.
-   2. Select the `lambda-s3-trigger-role` you created earlier.
+    1. Expand the tab, then choose **Use an existing role**.
+    2. Select the `lambda-s3-trigger-role` you created earlier.
 
 7. Choose **Create function**.
 
@@ -142,7 +142,7 @@ This tutorial uses the Python 3.14 runtime, but we’ve also provided example co
 tab in the following box to see the code for the runtime you’re interested in.
 
 The Lambda function retrieves the key name of the uploaded object and the name of the bucket from the `event` parameter it receives
-from Amazon S3. The function then uses the [get_object](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object.html") method from the AWS SDK for Python (Boto3) to retrieve the object's metadata, including the content type (MIME type) of the uploaded object.
+from Amazon S3. The function then uses the [get\_object](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object.html") method from the AWS SDK for Python (Boto3) to retrieve the object's metadata, including the content type (MIME type) of the uploaded object.
 
 ###### To deploy the function code
 

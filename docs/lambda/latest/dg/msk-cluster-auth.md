@@ -48,7 +48,7 @@ Amazon MSK doesn't support self-signed server certificates. All brokers in Amazo
 signed by [Amazon Trust Services CAs](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/"), which Lambda
 trusts by default.
 
-The CLIENT_CERTIFICATE_TLS_AUTH secret requires a certificate field and a private key field. For an
+The CLIENT\_CERTIFICATE\_TLS\_AUTH secret requires a certificate field and a private key field. For an
 encrypted private key, the secret requires a private key password. Both the certificate and private key must be
 in PEM format.
 

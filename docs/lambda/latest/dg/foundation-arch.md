@@ -4,7 +4,7 @@ The _instruction set architecture_ of a Lambda function determines the type of c
 processor that Lambda uses to run the function. Lambda provides a choice of instruction set architectures:
 
 - arm64 – 64-bit ARM architecture, for the AWS Graviton2 processor.
-- x86_64 – 64-bit x86 architecture, for x86-based processors.
+- x86\_64 – 64-bit x86 architecture, for x86-based processors.
 
 ###### Note
 
@@ -23,7 +23,7 @@ For an example of how to create a function with arm64 architecture, see [AWS Lam
 ## Advantages of using arm64 architecture
 
 Lambda functions that use arm64 architecture (AWS Graviton2 processor) can achieve significantly better price
-and performance than the equivalent function running on x86_64 architecture. Consider using arm64 for
+and performance than the equivalent function running on x86\_64 architecture. Consider using arm64 for
 compute-intensive applications such as high-performance computing, video encoding, and simulation
 workloads.
 
@@ -81,7 +81,7 @@ To migrate a Lambda function to the arm64 architecture, we recommend following t
 3. Build an environment to migrate your application.
 4. Bootstrap the application.
 5. Test and debug the application.
-6. Test the performance of the arm64 function. Compare the performance with the x86_64 version.
+6. Test the performance of the arm64 function. Compare the performance with the x86\_64 version.
 7. Update your infrastructure pipeline to support arm64 Lambda functions.
 8. Stage your deployment to production.
 

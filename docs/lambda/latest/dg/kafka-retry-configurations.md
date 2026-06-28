@@ -106,7 +106,7 @@ To report batch errors, you will use this JSON schema:
 
 ###### Important
 
-If you return an empty valid JSON or null, the event source mapping will consider a batch as successfully processed. Any invalid topic-partition_number or offset returned that was not present in the invoked event will be treated as failure and entire batch will be retried.
+If you return an empty valid JSON or null, the event source mapping will consider a batch as successfully processed. Any invalid topic-partition\_number or offset returned that was not present in the invoked event will be treated as failure and entire batch will be retried.
 
 The following code examples show how to implement partial batch response for Lambda functions that receive events from Kafka sources. The function reports the batch item failures in the response, signaling to Lambda to retry those messages later.
 

@@ -233,7 +233,7 @@ The code receives an Amazon DocumentDB event input and processes the message tha
 
    1. For **Function name**, enter `ProcessDocumentDBRecords`
    2. For **Runtime**, choose **Python 3.14**.
-   3. For **Architecture**, choose **x86_64**.
+   3. For **Architecture**, choose **x86\_64**.
 
 5. In the **Change default execution role** tab, do the following:
 
@@ -791,7 +791,7 @@ After you create this event source mapping, AWS Lambda immediately starts pollin
    - **Collection name**: products
    - **Batch size**: 1
    - **Starting position**: Latest
-   - **Authentication**: BASIC_AUTH
+   - **Authentication**: BASIC\_AUTH
    - **Secrets Manager key**: Choose the secret for your Amazon DocumentDB cluster. It will be called something like `rds!cluster-12345678-a6f0-52c0-b290-db4aga89274f`.
    - **Batch window**: 1
    - **Full document configuration**: UpdateLookup

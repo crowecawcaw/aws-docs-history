@@ -61,18 +61,17 @@ To complete the steps in this section, you must have the following:
 
 Maven
 
-1.  Run the following command to create a Maven project using the [archetype for Lambda](https://github.com/aws/aws-sdk-java-v2/tree/master/archetypes/archetype-lambda "https://github.com/aws/aws-sdk-java-v2/tree/master/archetypes/archetype-lambda"). The following parameters are required:
+1. Run the following command to create a Maven project using the [archetype for Lambda](https://github.com/aws/aws-sdk-java-v2/tree/master/archetypes/archetype-lambda "https://github.com/aws/aws-sdk-java-v2/tree/master/archetypes/archetype-lambda"). The following parameters are required:
 
-        * **service** – The AWS service client to use in the Lambda
-         function. For a list of available sources, see [aws-sdk-java-v2/services](https://github.com/aws/aws-sdk-java-v2/tree/master/services "https://github.com/aws/aws-sdk-java-v2/tree/master/services") on GitHub.
-        * **region** – The AWS Region where you want to create the Lambda
-         function.
-        * **groupId** – The full package namespace of your
-         application.
-        * **artifactId** – Your project name. This becomes the name of the
-         directory for your project.
-
-    In Linux and macOS, run this command:
+   - **service** – The AWS service client to use in the Lambda
+     function. For a list of available sources, see [aws-sdk-java-v2/services](https://github.com/aws/aws-sdk-java-v2/tree/master/services "https://github.com/aws/aws-sdk-java-v2/tree/master/services") on GitHub.
+   - **region** – The AWS Region where you want to create the Lambda
+     function.
+   - **groupId** – The full package namespace of your
+     application.
+   - **artifactId** – Your project name. This becomes the name of the
+     directory for your project.
+     In Linux and macOS, run this command:
 
 ```
 mvn -B archetype:generate \
@@ -148,7 +147,7 @@ cd example
 gradle init --type java-application
 ```
 
-3. Open the `/`example`/app/src/main/java/`example``directory, and find the`App.java` file. This is the code for the Lambda function. You can use the following sample code for testing, or replace it with your own.
+3. Open the `/`example`/app/src/main/java/`example`` directory, and find the `App.java` file. This is the code for the Lambda function. You can use the following sample code for testing, or replace it with your own.
 
 ###### Example App.java
 
@@ -196,13 +195,12 @@ jar {
 gradle build
 ```
 
-7.  In the project's root directory (`/example`), create a Dockerfile with the following configuration:
+7. In the project's root directory (`/example`), create a Dockerfile with the following configuration:
 
-        * Set the `FROM` property to the [URI of the base image](https://gallery.ecr.aws/lambda/java "https://gallery.ecr.aws/lambda/java").
-        * Use the COPY command to copy the function code and runtime dependencies to `{LAMBDA_TASK_ROOT}`, a [Lambda-defined environment variable](configuration-envvars.md#configuration-envvars-runtime "configuration-envvars.md#configuration-envvars-runtime").
-        * Set the `CMD` argument to the Lambda function handler.
-
-    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
+   - Set the `FROM` property to the [URI of the base image](https://gallery.ecr.aws/lambda/java "https://gallery.ecr.aws/lambda/java").
+   - Use the COPY command to copy the function code and runtime dependencies to `{LAMBDA_TASK_ROOT}`, a [Lambda-defined environment variable](configuration-envvars.md#configuration-envvars-runtime "configuration-envvars.md#configuration-envvars-runtime").
+   - Set the `CMD` argument to the Lambda function handler.
+     Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
 
 ###### Example Dockerfile
 
@@ -506,16 +504,15 @@ public class App {
 }
 ```
 
-5.  The `mvn -B archetype:generate` command from step 1 also generated a dummy
-    test case in the `src/test` directory. For the purposes of this tutorial, skip over
-    running tests by deleting this entire generated `/test` directory.
-6.  Navigate back to the project's root directory, and then create a new Dockerfile. The following example Dockerfile uses an [Amazon Corretto image](https://gallery.ecr.aws/amazoncorretto/amazoncorretto "https://gallery.ecr.aws/amazoncorretto/amazoncorretto"). Amazon Corretto is a no-cost, multiplatform, production-ready distribution of the OpenJDK.
+5. The `mvn -B archetype:generate` command from step 1 also generated a dummy
+   test case in the `src/test` directory. For the purposes of this tutorial, skip over
+   running tests by deleting this entire generated `/test` directory.
+6. Navigate back to the project's root directory, and then create a new Dockerfile. The following example Dockerfile uses an [Amazon Corretto image](https://gallery.ecr.aws/amazoncorretto/amazoncorretto "https://gallery.ecr.aws/amazoncorretto/amazoncorretto"). Amazon Corretto is a no-cost, multiplatform, production-ready distribution of the OpenJDK.
 
-        * Set the `FROM` property to the URI of the base image.
-        * Set the `ENTRYPOINT` to the module that you want the Docker container to run when it starts. In this case, the module is the runtime interface client.
-        * Set the `CMD` argument to the Lambda function handler.
-
-    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
+   - Set the `FROM` property to the URI of the base image.
+   - Set the `ENTRYPOINT` to the module that you want the Docker container to run when it starts. In this case, the module is the runtime interface client.
+   - Set the `CMD` argument to the Lambda function handler.
+     Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
 
 ###### Example Dockerfile
 

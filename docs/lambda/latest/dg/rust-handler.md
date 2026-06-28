@@ -321,7 +321,7 @@ async fn handler(event: LambdaEvent<ApiGatewayProxyRequest>) -> Result<String, E
 }
 ```
 
-Refer to the [aws_lambda_events crate](https://crates.io/crates/aws_lambda_events "https://crates.io/crates/aws_lambda_events")
+Refer to the [aws\_lambda\_events crate](https://crates.io/crates/aws_lambda_events "https://crates.io/crates/aws_lambda_events")
 for more information about other pre-defined input event types.
 
 ## Accessing and using the Lambda context object

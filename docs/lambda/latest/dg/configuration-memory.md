@@ -91,7 +91,7 @@ _AWS Compute Optimizer User Guide_.
 
 ###### Note
 
-Compute Optimizer supports only functions that use x86_64 architecture.
+Compute Optimizer supports only functions that use x86\_64 architecture.
 
 When you've opted in and your [Lambda
 function meets Compute Optimizer requirements](../../../compute-optimizer/latest/ug/requirements.md#requirements-lambda-functions "../../../compute-optimizer/latest/ug/requirements.md#requirements-lambda-functions"), you can view and accept function memory

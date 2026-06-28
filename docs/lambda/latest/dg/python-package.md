@@ -102,7 +102,7 @@ Index using pip. If your function code uses Python packages you have created you
 zip -r ../my_deployment_package.zip .`
 ```
 
-This generates a `my_deployment_package.zip` file in your project directory. 5. Add the lambda_function.py file to the root of the .zip file
+This generates a `my_deployment_package.zip` file in your project directory. 5. Add the lambda\_function.py file to the root of the .zip file
 
 ```
 `cd ..
@@ -242,7 +242,7 @@ To see what distributions are available for your required package, do the follow
 
 To download a wheel that’s compatible with Lambda, you use the pip `--platform` option.
 
-If your Lambda function uses the **x86_64** instruction set architecture, run the following
+If your Lambda function uses the **x86\_64** instruction set architecture, run the following
 `pip install` command to install a compatible wheel in your `package` directory. Replace `--python 3.x` with
 the version of the Python runtime you are using.
 
@@ -321,7 +321,7 @@ You cannot change the [deployment package type](../api/API_CreateFunction.md#lam
 
    1. For **Function name**, enter the name for your function.
    2. For **Runtime**, select the runtime you want to use.
-   3. (Optional) For **Architecture**, choose the instruction set architecture for your function. The default architecture is x86_64. Ensure that the .zip deployment package for your function is compatible with the instruction set architecture you select.
+   3. (Optional) For **Architecture**, choose the instruction set architecture for your function. The default architecture is x86\_64. Ensure that the .zip deployment package for your function is compatible with the instruction set architecture you select.
 
 4. (Optional) Under **Permissions**, expand **Change default execution role**. You can create a new **Execution role** or use an existing one.
 5. Choose **Create function**. Lambda creates a basic 'Hello world' function using your chosen runtime.

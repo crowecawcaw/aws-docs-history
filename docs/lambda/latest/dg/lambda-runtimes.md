@@ -38,7 +38,7 @@ subject to change.
 
 Amazon Linux 2 is scheduled for end of life on June 30, 2026. Lambda runtimes and container base images for Java 8 (AL2), Java 11, Java 17, Python 3.10, Python 3.11, and provided.al2 will continue to receive patches for [critical and selected important](https://alas.aws.amazon.com/faqs.html "https://alas.aws.amazon.com/faqs.html") Amazon Linux 2 security issues, in addition to language runtime patches, until the deprecation dates shown in the table below.
 
-We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as possible. For customers upgrading to Java 21 or Java 25, you can use [AWS Transform custom](../../../transform/latest/userguide/custom.md "../../../transform/latest/userguide/custom.md") to assist with these upgrades. For customers unable to upgrade their Java version, we plan to release Amazon Linux 2023-based runtimes for Java 8, Java 11, and Java 17 before the end of Q2 2026.
+We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as possible. For customers upgrading to Java 21 or Java 25, you can use [AWS Transform custom](../../../transform/latest/userguide/custom.md "../../../transform/latest/userguide/custom.md") to assist with these upgrades. For customers unable to upgrade their Java version, we plan to release Amazon Linux 2023-based runtimes for Java 8, Java 11, and Java 17 before the end of July 2026.
 
 | Name                    | Identifier        | Operating system  | Deprecation date | Block function create | Block function update |
 | ----------------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
@@ -89,7 +89,7 @@ Lambda continues to support the Go programming language after deprecation of the
 [Migrating AWS Lambda functions from the Go1.x runtime to the custom runtime on Amazon Linux 2](https://aws.amazon.com/blogs/compute/migrating-aws-lambda-functions-from-the-go1-x-runtime-to-the-custom-runtime-on-amazon-linux-2/ "https://aws.amazon.com/blogs/compute/migrating-aws-lambda-functions-from-the-go1-x-runtime-to-the-custom-runtime-on-amazon-linux-2/")
 on the _AWS Compute Blog_.
 
-All supported Lambda runtimes support both x86_64 and arm64 architectures.
+All supported Lambda runtimes support both x86\_64 and arm64 architectures.
 
 ## New runtime releases
 
@@ -104,8 +104,7 @@ Lambda doesn't provide managed runtimes for language versions which aren't sched
 
 The following list shows the target launch month for upcoming Lambda runtimes. These dates are indicative only and subject to change.
 
-- **Ruby 4.0** - April 2026
-- **Java 8, 11, and 17 on AL2023** - Q2 2026
+- **Java 8, 11, and 17 on AL2023** - July 2026
 - **Node.js 26** - November 2026
 - **Python 3.15** - November 2026
 

@@ -126,7 +126,7 @@ If the function can't reach the public internet, you get an error message like t
 
 Python
 
-1. In the **Code source** pane on the Lambda console, paste the following code into the **lambda_function.py** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.
+1. In the **Code source** pane on the Lambda console, paste the following code into the **lambda\_function.py** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.
 
 ![Lambda console code editor.](images/code-source-python.png)
 
@@ -385,7 +385,7 @@ If the function can't reach the public internet, you get an error message like t
 
 Python
 
-1. In the **Code source** pane on the Lambda console, paste the following code into the **lambda_function.py** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.
+1. In the **Code source** pane on the Lambda console, paste the following code into the **lambda\_function.py** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.
 
 ![Lambda console code editor.](images/code-source-python.png)
 

@@ -20,7 +20,7 @@ To output logs from your function code, you can use `puts` statements, or any lo
 writes to `stdout` or `stderr`. The following example logs the values of environment variables
 and the event object.
 
-###### Example lambda_function.rb
+###### Example lambda\_function.rb
 
 ```
 # lambda_function.rb

@@ -9,7 +9,7 @@ Lambda function that returns an event from an Amazon API Gateway endpoint.
 
 The AWS Construct Library, included with the CDK, provides modules that you can
 use to model the resources that AWS services provide. For popular services, the library
-provides curated constructs with smart defaults and best practices. You can use the [aws_lambda](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md") module to define your function and supporting resources with just a few lines of code.
+provides curated constructs with smart defaults and best practices. You can use the [aws\_lambda](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md") module to define your function and supporting resources with just a few lines of code.
 
 ## Prerequisites
 

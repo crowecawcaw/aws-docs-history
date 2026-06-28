@@ -218,9 +218,7 @@ grant access to account number 123456789012.
   functions that use images from this ECR repository.
 - **LambdaECRImageCrossAccountRetrievalPolicy** – Lambda will eventually set a
   function's state to inactive if it is not invoked for an extended period. This statement is required so that
-  Lambda can retrieve the container image for optimization and caching on behalf of the function owned by
-
-123456789012.
+  Lambda can retrieve the container image for optimization and caching on behalf of the function owned by 123456789012.
 
 ###### Example— Add cross-account permission to your repository
 

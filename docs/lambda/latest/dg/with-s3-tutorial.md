@@ -68,9 +68,8 @@ AWS Management Console
     2. For **Bucket name**, enter a globally unique name that meets the Amazon S3 [Bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md").
      Bucket names can contain only lower case letters, numbers, dots (.), and hyphens (-).
 
-5. Leave all other options set to their default values and choose **Create bucket**.
-6. Repeat steps 1 to 5 to create your destination bucket. For **Bucket name**, enter `amzn-s3-demo-source-bucket-resized`,
-   where `amzn-s3-demo-source-bucket` is the name of the source bucket you just created.
+5. Leave all other options set to their default values and choose **Create bucket**. 6. Repeat steps 1 to 5 to create your destination bucket. For **Bucket name**, enter `amzn-s3-demo-source-bucket-resized`,
+where `amzn-s3-demo-source-bucket` is the name of the source bucket you just created.
 
 AWS CLI
 
@@ -537,8 +536,8 @@ replace this code with your own function code by uploading the.zip or JAR file y
 
 6. In the **Change default execution role** tab, do the following:
 
-   1. Expand the tab, then choose **Use an existing role**.
-   2. Select the `LambdaS3Role` you created earlier.
+    1. Expand the tab, then choose **Use an existing role**.
+    2. Select the `LambdaS3Role` you created earlier.
 
 7. Choose **Create function**.
 

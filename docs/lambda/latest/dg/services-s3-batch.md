@@ -63,7 +63,7 @@ Amazon S3 saves the `resultString` values in the completion report.
 You can invoke the Lambda function with an unqualified or qualified function ARN. If you want to use the same
 function version for the entire batch job, configure a specific function version in the `FunctionARN`
 parameter when you create your job. If you configure an alias or the $LATEST qualifier, the batch job immediately
-starts calling the new version of the function if the alias or $LATEST is updated during the job execution.
+ starts calling the new version of the function if the alias or $LATEST is updated during the job execution.
 
 Note that you can't reuse an existing Amazon S3 event-based function for batch operations. This is because the Amazon S3
 batch operation passes a different event parameter to the Lambda function and expects a return message with a

@@ -1,7 +1,7 @@
 # Processing HTTP events with Rust
 
 Amazon API Gateway APIs, Application Load Balancers, and [Lambda function URLs](urls-configuration.md "urls-configuration.md") can send HTTP events to Lambda. You can use
-the [aws_lambda_events](https://crates.io/crates/aws_lambda_events "https://crates.io/crates/aws_lambda_events") crate
+the [aws\_lambda\_events](https://crates.io/crates/aws_lambda_events "https://crates.io/crates/aws_lambda_events") crate
 from crates.io to process events from these sources.
 
 ###### Example— Handle API Gateway proxy request
@@ -9,7 +9,7 @@ from crates.io to process events from these sources.
 Note the following:
 
 - `use aws_lambda_events::apigw::{ApiGatewayProxyRequest, ApiGatewayProxyResponse}`:
-  The [aws_lambda_events](https://crates.io/crates/aws-lambda-events "https://crates.io/crates/aws-lambda-events") crate
+  The [aws\_lambda\_events](https://crates.io/crates/aws-lambda-events "https://crates.io/crates/aws-lambda-events") crate
   includes many Lambda events. To reduce compilation time, use feature flags to activate the
   events you need. Example:
   `aws_lambda_events = { version = "0.8.3", default-features = false, features = ["apigw"] }`.
@@ -48,7 +48,7 @@ function URLs, Application Load Balancers, and API Gateway.
 
 ###### Note
 
-The [lambda_http](https://crates.io/crates/lambda_http "https://crates.io/crates/lambda_http") crate uses the [lambda_runtime](https://crates.io/crates/lambda_runtime "https://crates.io/crates/lambda_runtime") crate
+The [lambda\_http](https://crates.io/crates/lambda_http "https://crates.io/crates/lambda_http") crate uses the [lambda\_runtime](https://crates.io/crates/lambda_runtime "https://crates.io/crates/lambda_runtime") crate
 underneath. You don't have to import `lambda_runtime` separately.
 
 ###### Example— Handle HTTP requests

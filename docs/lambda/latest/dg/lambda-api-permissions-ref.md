@@ -36,8 +36,9 @@ By resource type, the general design of how to restrict the scope of an action i
 - Layer version –
   `arn:aws:lambda:`us-west-2`:`123456789012`:layer:`my-layer`:`1``
 - Code signing configuration –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:code-signing-config:`my-csc``For example, the following policy allows a user in AWS account`123456789012`to invoke a function
- named`my-function` in the US West (Oregon) AWS Region.
+  `arn:aws:lambda:`us-west-2`:`123456789012`:code-signing-config:`my-csc``
+  For example, the following policy allows a user in AWS account `123456789012` to invoke a function
+  named `my-function` in the US West (Oregon) AWS Region.
 
 ###### Example invoke function policy
 

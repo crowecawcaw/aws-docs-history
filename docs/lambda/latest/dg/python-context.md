@@ -24,18 +24,17 @@ For more information on how the context object is passed to the function handler
 
 - `client_context` – (mobile apps) Client context that's provided to Lambda by the client application.
 
-      + `client.installation_id`
-      + `client.app_title`
-      + `client.app_version_name`
-      + `client.app_version_code`
-      + `client.app_package_name`
-      + `custom` – A `dict` of custom values set by the mobile client
-       application.
-      + `env` – A `dict` of environment information provided by the AWS SDK.
-
-  Powertools for Lambda (Python) provides an interface definition for the Lambda context object. You can use the interface
-  definition for type hints, or to further inspect the structure of the Lambda context object. For the interface
-  definition, see [lambda_context.py](https://github.com/aws-powertools/powertools-lambda-python/blob/develop/aws_lambda_powertools/utilities/typing/lambda_context.py "https://github.com/aws-powertools/powertools-lambda-python/blob/develop/aws_lambda_powertools/utilities/typing/lambda_context.py") in the _powertools-lambda-python_ repository on GitHub.
+  - `client.installation_id`
+  - `client.app_title`
+  - `client.app_version_name`
+  - `client.app_version_code`
+  - `client.app_package_name`
+  - `custom` – A `dict` of custom values set by the mobile client
+    application.
+  - `env` – A `dict` of environment information provided by the AWS SDK.
+    Powertools for Lambda (Python) provides an interface definition for the Lambda context object. You can use the interface
+    definition for type hints, or to further inspect the structure of the Lambda context object. For the interface
+    definition, see [lambda\_context.py](https://github.com/aws-powertools/powertools-lambda-python/blob/develop/aws_lambda_powertools/utilities/typing/lambda_context.py "https://github.com/aws-powertools/powertools-lambda-python/blob/develop/aws_lambda_powertools/utilities/typing/lambda_context.py") in the _powertools-lambda-python_ repository on GitHub.
 
 The following example shows a handler function that logs context information.
 

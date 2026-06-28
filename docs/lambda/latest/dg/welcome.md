@@ -1,77 +1,58 @@
 # What is AWS Lambda?
 
-###### Tip
+AWS Lambda is a serverless compute service that lets you run code without
+provisioning or managing servers. Lambda automatically manages the underlying
+infrastructure – including server maintenance, capacity provisioning,
+scaling, and patching – so you can focus on your application
+logic.
 
-Join Serverless experts for free hands-on workshops to learn how to build Serverless
-applications with best practices. [Click here](https://aws-experience.com/amer/smb/events/series/Get-Hands-On-With-Serverless?trk=188abe3e-9f94-4e84-aefb-398d944ad567%26sc_channel%3Del "https://aws-experience.com/amer/smb/events/series/Get-Hands-On-With-Serverless?trk=188abe3e-9f94-4e84-aefb-398d944ad567%26sc_channel%3Del") to sign up.
+Lambda provides two compute primitives, each designed for different
+workload patterns:
 
-AWS Lambda is a compute service that runs code without the need to manage servers. Your code runs, scaling up and down automatically, with pay-per-use pricing.
-To get started, see [Create your first function](getting-started.md "getting-started.md").
-
-You can use Lambda for:
-
-- **File processing**: Process files automatically when uploaded to Amazon Simple Storage Service. See [file processing examples](example-apps.md#examples-apps-file "example-apps.md#examples-apps-file") for details.
-- **Long-running workflows:** Use [durable Lambda functions](durable-functions.md "durable-functions.md") to build stateful, multi-step workflows that can run for up to one year. Perfect for order processing, approval workflows, human-in-the-loop processes, and complex data pipelines that need to remember their progress.
-- **Database operations and integration examples**: Respond to database changes and automate data workflows. See [database examples](example-apps.md#examples-apps-database "example-apps.md#examples-apps-database") for details.
-- **Scheduled and periodic tasks**: Run automated operations on a regular schedule using EventBridge. See [scheduled task examples](example-apps.md#examples-apps-scheduled "example-apps.md#examples-apps-scheduled") for details.
-- **Stream processing**: Process real-time data streams for analytics and monitoring. See [Kinesis Data Streams](with-kinesis.md "with-kinesis.md") for details.
-- **Web applications**: Build scalable web apps that automatically adjust to demand.
-- **Mobile backends**: Create secure API backends for mobile and web applications.
-- **IoT backends**: Handle web, mobile, IoT, and third-party API requests. See [IoT](services-iot.md "services-iot.md") for details.
+- **[Lambda
+  Functions](lambda-functions-chapter.md "lambda-functions-chapter.md")** – Run code in response to events or
+  API calls without managing servers. You write a handler function, connect
+  it to a trigger (API Gateway, Amazon S3, Amazon SQS, EventBridge, and 200+ other AWS
+  services), and Lambda executes it. Each invocation runs independently with
+  no shared state, scaling horizontally to match demand. Lambda manages
+  execution environments, scaling, routing, and fault tolerance.
+- **[Lambda
+  MicroVMs](lambda-microvms-guide.md "lambda-microvms-guide.md")** – Isolated compute environments with
+  near-instant startup and state retention for up to 8 hours. Designed for
+  workloads needing a dedicated compute environment for each individual
+  user or job. Lambda manages isolation, capacity, and networking. Your
+  application uses Lambda MicroVMs APIs and HTTPS endpoints to connect each
+  user/job to their compute environment.
   For pricing information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
 
-## Functions and durable functions
+## How Lambda Functions and Lambda MicroVMs compare
 
-[Lambda functions](lambda-functions-chapter.md "lambda-functions-chapter.md")
-run for up to 15 minutes and are ideal for event-driven tasks like processing API requests, handling
-file uploads, or responding to database changes. [Durable functions](durable-functions.md "durable-functions.md")
-extend this model for workloads that need to run longer and survive interruptions. They can execute for
-up to one year, automatically checkpointing their progress so they resume reliably after failures. Use
-durable functions when you need multi-step workflows, human-in-the-loop approvals, or coordination
-across services over extended periods.
+Lambda Functions and Lambda MicroVMs share a common serverless
+foundation:
 
-## How Lambda works
+- **No server management** –
+  AWS manages underlying infrastructure, instance patching, and
+  capacity.
+- **Pay-per-use billing** –
+  No upfront commitments. You pay only for the resources
+  used.
+- **Managed networking** – Both
+  provide service-managed inbound and outbound network access.
+- **Firecracker virtualization**
+  – VM-level isolation between workloads.
 
-When using Lambda, you are responsible only for your code. Lambda runs your code on a high-availability compute infrastructure and manages all the computing resources,
-including server and operating system maintenance, capacity provisioning, automatic scaling, and logging.
+While they share this foundation, they serve different use
+cases:
 
-Because Lambda is a serverless,
-event-driven compute service, it uses a different programming paradigm than traditional web applications. The following model illustrates how Lambda works:
-
-1. You write and organize your code in [Lambda functions](concepts-basics.md#gettingstarted-concepts-function "concepts-basics.md#gettingstarted-concepts-function"), which are the basic building blocks you use to create a Lambda application.
-2. You control security and access through [Lambda permissions](lambda-permissions.md "lambda-permissions.md"), using [execution roles](lambda-intro-execution-role.md "lambda-intro-execution-role.md") to manage what AWS services your functions can interact with and what resource policies can interact with your code.
-3. Event sources and AWS services [trigger](concepts-event-driven-architectures.md "concepts-event-driven-architectures.md") your Lambda functions, passing event data in JSON format, which your functions process (this includes event source mappings).
-4. [Lambda runs your code](concepts-how-lambda-runs-code.md "concepts-how-lambda-runs-code.md") with language-specific runtimes (like Node.js and Python) in execution environments that package your runtime, layers, and extensions.
-
-###### Tip
-
-To learn how to build **serverless solutions**, check out the [Serverless Developer Guide](../../../serverless/latest/devguide.md "../../../serverless/latest/devguide.md").
-
-## Key features
-
-**Configure, control, and deploy secure applications:**
-
-- [Environment variables](configuration-envvars.md "configuration-envvars.md") modify application behavior without new code deployments.
-- [Versions](configuration-versions.md "configuration-versions.md") safely test new features while maintaining stable production environments.
-- [Layers](chapter-layers.md "chapter-layers.md") optimize code reuse and maintenance by sharing common components across multiple functions.
-- [Code signing](configuration-codesigning.md "configuration-codesigning.md") enforce security compliance by ensuring only approved code reaches production systems.
-
-**Scale and perform reliably:**
-
-- [Concurrency and scaling controls](lambda-concurrency.md "lambda-concurrency.md") precisely manage application responsiveness and resource utilization during traffic spikes.
-- [SnapStart](snapstart.md "snapstart.md") significantly reduce cold start times. Lambda SnapStart can provide as low as sub-second startup performance, typically with no changes to your function code.
-- [Response streaming](configuration-response-streaming.md "configuration-response-streaming.md") optimize function performance by delivering large payloads incrementally for real-time processing.
-- [Container images](images-create.md "images-create.md") package functions with complex dependencies using container workflows.
-
-**Connect and integrate seamlessly:**
-
-- [VPC networks](configuration-vpc.md "configuration-vpc.md") secure sensitive resources and internal services.
-- [File systems](configuration-filesystem.md "configuration-filesystem.md") integration that shares persistent data and manage stateful operations across function invocations.
-- [Function URLs](urls-configuration.md "urls-configuration.md") create public-facing APIs and endpoints without additional services.
-- [Extensions](lambda-extensions.md "lambda-extensions.md") augment functions with monitoring, security, and operational tools.
-
-## Related information
-
-- For information on how Lambda works, see [How Lambda works](concepts-basics.md "concepts-basics.md").
-- To start using Lambda, see [Create your first Lambda function](getting-started.md "getting-started.md").
-- For a list of example applications, see [Getting started with example applications and patterns](example-apps.md "example-apps.md").
+|                         | **[Lambda<br>Functions](lambda-functions-chapter.md "lambda-functions-chapter.md")**                        | **[Lambda<br>MicroVMs](lambda-microvms-guide.md "lambda-microvms-guide.md")**          |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Best for**            | Request-response or event-driven workloads (APIs, data<br>processing, automation)                           | Persistent environments running user or AI-produced untrusted<br>code                  |
+| **Programming model**   | Function handler invoked in a supported runtime                                                             | Any application – run your own binaries, listen on<br>ports, use Linux OS capabilities |
+| **Duration**            | Up to 15 minutes per invocation; multi-step workflows<br>lasting up to a year with Lambda Durable Functions | Up to 8 hours per session; suspend and resume across<br>sessions                       |
+| **Runtime environment** | Service-provided language runtimes; support for<br>customer-provided runtimes                               | Customer-provided MicroVM images                                                       |
+| **Inbound Networking**  | Direct invocations or event-source integrations with AWS<br>services; support for response streaming        | Inbound access to any port using OSI Layer 7<br>protocols                              |
+| **Concurrency**         | One request per execution environment at a time                                                             | Multiple concurrent connections per MicroVM                                            |
+| **Environment State**   | Execution environments may be reused (warm starts), but state<br>may not persist across invocations         | Memory and disk state preserved on suspend; restored on<br>resume                      |
+| **Scaling**             | Automatic – Lambda creates and destroys execution<br>environments in response to traffic                    | Developer-controlled – you create, suspend, resume, and<br>terminate MicroVMs via API  |
+| **Lifecycle**           | Fully managed by Lambda                                                                                     | Developer-controlled; optional idle policies for automatic<br>suspend-resume           |
+| **Pricing**             | Per-request + GB-seconds of execution time                                                                  | Per-second of compute while running + snapshot storage while<br>suspended              |

@@ -147,9 +147,8 @@ Console
     2. For **Bucket name**, enter a globally unique name that meets the Amazon S3 [bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md").
      Bucket names can contain only lower case letters, numbers, dots (.), and hyphens (-).
 
-5. Leave all other options set to their default values and choose **Create bucket**.
-6. Repeat steps 1 to 4 to create your destination bucket. For **Bucket name**, enter `amzn-s3-demo-bucket-encrypted`,
-   where `amzn-s3-demo-bucket` is the name of the source bucket you just created.
+5. Leave all other options set to their default values and choose **Create bucket**. 6. Repeat steps 1 to 4 to create your destination bucket. For **Bucket name**, enter `amzn-s3-demo-bucket-encrypted`,
+where `amzn-s3-demo-bucket` is the name of the source bucket you just created.
 
 AWS CLI
 Before you begin, make sure that the [AWS CLI is installed](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") on your build machine.
@@ -294,9 +293,9 @@ function's invocation status from CloudWatch Logs to confirm successful invocati
 
 6. Attach the execution role you created in the previous step by doing the following:
 
-   1. Expand the **Change default execution role** section.
-   2. Select **Use an existing role**.
-   3. Under **Existing role**, select your role (`LambdaS3Role`).
+    1. Expand the **Change default execution role** section.
+    2. Select **Use an existing role**.
+    3. Under **Existing role**, select your role (`LambdaS3Role`).
 
 7. Choose **Create function**.
 
@@ -566,7 +565,7 @@ AWS CLI
 ```
 
 If your function runs successfully, you’ll see output similar to the following. Your target bucket should contain a file with the
-name format ``<your_test_file>`\_encrypted.pdf`, where `<your_test_file>`
+name format ``<your_test_file>`_encrypted.pdf`, where `<your_test_file>`
 is the name of the file you uploaded.
 
 ```
@@ -584,8 +583,8 @@ is the name of the file you uploaded.
 ```
 
 3. To download the file that Lambda saved in your destination bucket, run the following CLI command. Replace the `--bucket`
-   parameter with the name of your destination bucket. For the `--key` parameter, use the filename ``<your_test_file>`\_encrypted.pdf`, 
-where `<your_test_file>` is the name of the the test file you uploaded.
+   parameter with the name of your destination bucket. For the `--key` parameter, use the filename ``<your_test_file>`_encrypted.pdf`,
+   where `<your_test_file>` is the name of the the test file you uploaded.
 
 ```
 `aws s3api get-object --bucket `amzn-s3-demo-bucket-encrypted` --key `test_encrypted.pdf` my_encrypted_file.pdf`

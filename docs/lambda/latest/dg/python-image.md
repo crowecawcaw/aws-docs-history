@@ -104,13 +104,12 @@ def handler(event, context):
 boto3
 ```
 
-4.  Create a new Dockerfile with the following configuration:
+4. Create a new Dockerfile with the following configuration:
 
-        * Set the `FROM` property to the [URI of the base image](https://gallery.ecr.aws/lambda/python/ "https://gallery.ecr.aws/lambda/python/").
-        * Use the COPY command to copy the function code and runtime dependencies to `{LAMBDA_TASK_ROOT}`, a [Lambda-defined environment variable](configuration-envvars.md#configuration-envvars-runtime "configuration-envvars.md#configuration-envvars-runtime").
-        * Set the `CMD` argument to the Lambda function handler.
-
-    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
+   - Set the `FROM` property to the [URI of the base image](https://gallery.ecr.aws/lambda/python/ "https://gallery.ecr.aws/lambda/python/").
+   - Use the COPY command to copy the function code and runtime dependencies to `{LAMBDA_TASK_ROOT}`, a [Lambda-defined environment variable](configuration-envvars.md#configuration-envvars-runtime "configuration-envvars.md#configuration-envvars-runtime").
+   - Set the `CMD` argument to the Lambda function handler.
+     Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
 
 ###### Example Dockerfile
 
@@ -350,13 +349,12 @@ def handler(event, context):
 boto3
 ```
 
-4.  Create a new Dockerfile. The following Dockerfile uses an official Python base image instead of an [AWS base image](images-create.md#runtimes-images-lp "images-create.md#runtimes-images-lp"). The Dockerfile includes the [runtime interface client](https://pypi.org/project/awslambdaric "https://pypi.org/project/awslambdaric"), which makes the image compatible with Lambda. The following example Dockerfile uses a [multi-stage build](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds").
+4. Create a new Dockerfile. The following Dockerfile uses an official Python base image instead of an [AWS base image](images-create.md#runtimes-images-lp "images-create.md#runtimes-images-lp"). The Dockerfile includes the [runtime interface client](https://pypi.org/project/awslambdaric "https://pypi.org/project/awslambdaric"), which makes the image compatible with Lambda. The following example Dockerfile uses a [multi-stage build](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds").
 
-        * Set the `FROM` property to the base image.
-        * Set the `ENTRYPOINT` to the module that you want the Docker container to run when it starts. In this case, the module is the runtime interface client.
-        * Set the `CMD` to the Lambda function handler.
-
-    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
+   - Set the `FROM` property to the base image.
+   - Set the `ENTRYPOINT` to the module that you want the Docker container to run when it starts. In this case, the module is the runtime interface client.
+   - Set the `CMD` to the Lambda function handler.
+     Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
 
 ###### Example Dockerfile
 

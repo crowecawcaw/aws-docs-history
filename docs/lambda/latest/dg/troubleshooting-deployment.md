@@ -122,8 +122,7 @@ _index.handler is undefined or not exported_
 _Handler 'handler' missing on module 'function'_
 
 **Error:**
-_undefined method `handler' for
-#<LambdaHandler:0x000055b76ccebf98>_
+_undefined method `handler' for #<LambdaHandler:0x000055b76ccebf98>_
 
 **Error:**
 _No public method named handleRequest with appropriate method signature found on

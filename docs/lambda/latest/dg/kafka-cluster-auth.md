@@ -41,7 +41,7 @@ For more information about mTLS, see [Introducing mutual TLS authentication for 
 
 ## Configuring the client certificate secret
 
-The CLIENT_CERTIFICATE_TLS_AUTH secret requires a certificate field and a private key field. For an
+The CLIENT\_CERTIFICATE\_TLS\_AUTH secret requires a certificate field and a private key field. For an
 encrypted private key, the secret requires a private key password. Both the certificate and private key must be
 in PEM format.
 

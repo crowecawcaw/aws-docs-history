@@ -179,5 +179,5 @@ data.
 
 When you configure triggers for your function, you need access to use the AWS service that invokes your
 function. For example, to configure an Amazon S3 trigger, you need permission to use the Amazon S3 actions that manage bucket
-notifications. Many of these permissions are included in the [AWSLambda_FullAccess](../../../aws-managed-policy/latest/reference/AWSLambda_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSLambda_FullAccess.md")
+notifications. Many of these permissions are included in the [AWSLambda\_FullAccess](../../../aws-managed-policy/latest/reference/AWSLambda_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSLambda_FullAccess.md")
 managed policy.

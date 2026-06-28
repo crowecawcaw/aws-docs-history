@@ -23,10 +23,9 @@ To create a layer, bundle your packages into a .zip file archive that meets the 
 - Create the layer using the same Ruby version that you plan to use for the Lambda function. For example, if you create your layer for Ruby 4.0, use the Ruby 4.0 runtime for your function.
 - Your layer's .zip file must use one of these directory structures:
 
-      + `ruby/gems/`x.x.x`` (where `x.x.x` is your Ruby version, for example `3.4.0`)
-      + `ruby/lib`
-
-  For more information, see [Layer paths for each Lambda runtime](packaging-layers.md#packaging-layers-paths "packaging-layers.md#packaging-layers-paths").
+  - `ruby/gems/`x.x.x`` (where `x.x.x` is your Ruby version, for example `3.4.0`)
+  - `ruby/lib`
+    For more information, see [Layer paths for each Lambda runtime](packaging-layers.md#packaging-layers-paths "packaging-layers.md#packaging-layers-paths").
 
 - The packages in your layer must be compatible with Linux. Lambda functions run on Amazon Linux.
 
@@ -174,7 +173,7 @@ mkdir -p ruby/lib
 
 2. Create your Ruby modules in the `ruby/lib` directory. The following example module validates orders by confirming that they contain the required information.
 
-###### Example ruby/lib/order_validator.rb
+###### Example ruby/lib/order\_validator.rb
 
 ```
 require 'json'

@@ -300,7 +300,7 @@ Lambda supports the following options for Amazon DocumentDB event sources:
 - **Authentication** – Choose the authentication method for accessing the brokers in
   your cluster.
 
-  - **BASIC_AUTH** – With basic authentication, you must provide the Secrets Manager key
+  - **BASIC\_AUTH** – With basic authentication, you must provide the Secrets Manager key
     that contains the credentials to access your cluster.
 
 - **Secrets Manager key** – Choose the Secrets Manager key that contains the authentication details

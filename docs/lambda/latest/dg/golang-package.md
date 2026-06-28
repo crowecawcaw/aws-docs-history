@@ -34,20 +34,19 @@ Go is implemented differently than other managed runtimes. Because Go compiles n
 
 ###### To create a .zip deployment package (macOS/Linux)
 
-1.  In the project directory that contains your application's `main.go` file, compile your executable. Note the following:
+1. In the project directory that contains your application's `main.go` file, compile your executable. Note the following:
 
-        * The executable must be named `bootstrap`. For more information, see [Handler naming conventions](golang-handler.md#golang-handler-naming "golang-handler.md#golang-handler-naming").
-        * Set your target [instruction set architecture](foundation-arch.md "foundation-arch.md"). OS-only runtimes support both arm64 and x86\_64.
-        * You can use the optional `lambda.norpc` tag to exclude the Remote Procedure Call (RPC) component of the [lambda](https://github.com/aws/aws-lambda-go/tree/master/lambda "https://github.com/aws/aws-lambda-go/tree/master/lambda")
-         library. The RPC component is only required if you are using the deprecated Go 1.x runtime. Excluding the RPC reduces the size of the deployment package.
-
-    For the arm64 architecture:
+   - The executable must be named `bootstrap`. For more information, see [Handler naming conventions](golang-handler.md#golang-handler-naming "golang-handler.md#golang-handler-naming").
+   - Set your target [instruction set architecture](foundation-arch.md "foundation-arch.md"). OS-only runtimes support both arm64 and x86\_64.
+   - You can use the optional `lambda.norpc` tag to exclude the Remote Procedure Call (RPC) component of the [lambda](https://github.com/aws/aws-lambda-go/tree/master/lambda "https://github.com/aws/aws-lambda-go/tree/master/lambda")
+     library. The RPC component is only required if you are using the deprecated Go 1.x runtime. Excluding the RPC reduces the size of the deployment package.
+     For the arm64 architecture:
 
 ```
 `GOOS=linux GOARCH=`arm64` go build -tags lambda.norpc -o bootstrap main.go`
 ```
 
-For the x86_64 architecture:
+For the x86\_64 architecture:
 
 ```
 `GOOS=linux GOARCH=`amd64` go build -tags lambda.norpc -o bootstrap main.go`
@@ -116,12 +115,12 @@ Go is implemented differently than other managed runtimes. Because Go compiles n
    following:
 
 cmd.exe
-In cmd.exe, run one of the following, depending on your target [instruction set architecture](foundation-arch.md "foundation-arch.md"). OS-only runtimes support both arm64 and x86_64.
+In cmd.exe, run one of the following, depending on your target [instruction set architecture](foundation-arch.md "foundation-arch.md"). OS-only runtimes support both arm64 and x86\_64.
 
 You can use the optional `lambda.norpc` tag to exclude the Remote Procedure Call (RPC) component of the [lambda](https://github.com/aws/aws-lambda-go/tree/master/lambda "https://github.com/aws/aws-lambda-go/tree/master/lambda")
 library. The RPC component is only required if you are using the deprecated Go 1.x runtime. Excluding the RPC reduces the size of the deployment package.
 
-###### Example— For the x86_64 architecture
+###### Example— For the x86\_64 architecture
 
 ```
 set GOOS=linux
@@ -142,12 +141,12 @@ go build -tags lambda.norpc -o bootstrap main.go
 ```
 
 PowerShell
-In PowerShell, run one of the following, depending on your target [instruction set architecture](foundation-arch.md "foundation-arch.md"). OS-only runtimes support both arm64 and x86_64.
+In PowerShell, run one of the following, depending on your target [instruction set architecture](foundation-arch.md "foundation-arch.md"). OS-only runtimes support both arm64 and x86\_64.
 
 You can use the optional `lambda.norpc` tag to exclude the Remote Procedure Call (RPC) component of the [lambda](https://github.com/aws/aws-lambda-go/tree/master/lambda "https://github.com/aws/aws-lambda-go/tree/master/lambda")
 library. The RPC component is only required if you are using the deprecated Go 1.x runtime. Excluding the RPC reduces the size of the deployment package.
 
-For the x86_64 architecture:
+For the x86\_64 architecture:
 
 ```
 $env:GOOS = "linux"
@@ -170,7 +169,7 @@ go build -tags lambda.norpc -o bootstrap main.go
 3. Create the function. Note the following:
 
    - The binary must be named `bootstrap`, but the handler name can be anything. For more information, see [Handler naming conventions](golang-handler.md#golang-handler-naming "golang-handler.md#golang-handler-naming").
-   - The `--architectures` option is only required if you're using arm64. The default value is x86_64.
+   - The `--architectures` option is only required if you're using arm64. The default value is x86\_64.
    - For `--role`, specify the Amazon Resource Name (ARN) of the [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
 
 ```
@@ -341,7 +340,7 @@ To learn more about deploying functions using .zip file in AWS SAM, see [AWS::Se
    - **BuildMethod**: Specifies the compiler for your application. Use `go1.x`.
    - **Runtime**: Use `provided.al2023`.
    - **CodeUri**: Enter the path to your code.
-   - **Architectures**: Use `[arm64]` for the arm64 architecture. For the x86_64 instruction set architecture, use `[amd64]` or remove the `Architectures` property.
+   - **Architectures**: Use `[arm64]` for the arm64 architecture. For the x86\_64 instruction set architecture, use `[amd64]` or remove the `Architectures` property.
 
 ###### Example template.yaml
 

@@ -10,7 +10,7 @@ invocation. Lambda emits the log line to CloudWatch Logs, but it is not visible 
 
 Runtime version numbers are not always sequential. For example, version 42 might be followed by version 45.
 
-###### Example INIT_START log line
+###### Example INIT\_START log line
 
 ```
 INIT_START Runtime Version: python:3.13.v14    Runtime Version ARN: arn:aws:lambda:eu-south-1::runtime:7b620fc2e66107a1046b140b9d320295811af3ad5d4c6a011fad1fa65127e9e6I

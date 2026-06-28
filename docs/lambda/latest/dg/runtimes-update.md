@@ -19,7 +19,7 @@ Each runtime version is associated with a version number and an ARN (Amazon Reso
 Runtime version numbers use a numbering scheme that Lambda defines, independent of the version
 numbers that the programming language uses. Runtime version numbers are not always sequential. For example, version 42 might be followed by version 45. The runtime version ARN is a unique identifier for
 each runtime version. You can view the ARN of your function's current runtime version in the
-Lambda console, or the [INIT_START
+Lambda console, or the [INIT\_START
 line of your function logs](runtime-management-identify.md "runtime-management-identify.md").
 
 Runtime versions should not be confused with runtime identifiers. Each runtime has a unique

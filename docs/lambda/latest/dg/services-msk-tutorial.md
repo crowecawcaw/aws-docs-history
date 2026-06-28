@@ -8,7 +8,7 @@ In this tutorial, you will perform the following:
   After you are finished with these steps, when events are sent to Amazon MSK, you will be able to set up a Lambda
   function to process those events automatically with your own custom Lambda code.
 
-  **What can you do with this feature?**
+**What can you do with this feature?**
 
 **Example solution: Use an MSK event source mapping to deliver live scores to your
 customers.**
@@ -129,7 +129,7 @@ When adding your inbound rules, create a rule for each security group in
      `clusterSecurityGroups`.
 
 2. Create an endpoint connecting the Lambda service to the Amazon VPC containing your Amazon MSK cluster.
-   Follow the procedure in [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md").
+Follow the procedure in [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md").
 
 **Create an interface endpoint with the following information:**
 
@@ -164,7 +164,7 @@ When adding your inbound rules, create a rule for each security group in
     * Ensure **Enable DNS name** remains set.
 
 3. Create an endpoint connecting the AWS STS service to the Amazon VPC containing your Amazon MSK cluster.
-   Follow the procedure in [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md").
+Follow the procedure in [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md").
 
 **Create an interface endpoint with the following information:**
 
@@ -198,17 +198,17 @@ When adding your inbound rules, create a rule for each security group in
     ```
     * Ensure **Enable DNS name** remains set.
 
-4.  For each security group associated with your Amazon MSK cluster, that is, in
-    `clusterSecurityGroups`, allow the following:
+4. For each security group associated with your Amazon MSK cluster, that is, in
+`clusterSecurityGroups`, allow the following:
 
-        * Allow all inbound and outbound TCP traffic on 9098
-         to all of `clusterSecurityGroups`, including within itself.
-        * Allow all outbound TCP traffic on 443.
+    * Allow all inbound and outbound TCP traffic on 9098
+     to all of `clusterSecurityGroups`, including within itself.
+    * Allow all outbound TCP traffic on 443.
 
-    Some of this traffic is allowed by default security group
-    rules, so if your cluster is attached to a single security group, and that group has default rules, additional rules
-    are not necessary. To adjust security group rules, follow the procedures in [Add
-    rules to a security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#adding-security-group-rule "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#adding-security-group-rule") in the Amazon EC2 documentation.
+Some of this traffic is allowed by default security group
+rules, so if your cluster is attached to a single security group, and that group has default rules, additional rules
+are not necessary. To adjust security group rules, follow the procedures in [Add
+rules to a security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#adding-security-group-rule "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#adding-security-group-rule") in the Amazon EC2 documentation.
 
 **Add rules to your security groups with the following information:**
 

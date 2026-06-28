@@ -86,7 +86,7 @@ with runtime and extension registration and it ends when the runtime is ready to
 (Lambda SnapStart only) The `Restore` subsegment shows the time it takes for Lambda to restore a snapshot, load the
 runtime, and run any after-restore [runtime hooks](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md"). The process of restoring snapshots can include time spent on
 activities outside the MicroVM. This time is reported in the `Restore` subsegment. You aren't charged for the time spent
-outside the microVM to restore a snapshot.
+outside the MicroVM to restore a snapshot.
 
 The `Overhead` subsegment represents the phase that occurs between the time when the runtime sends the response and
 the signal for the next invoke. During this time, the runtime finishes all tasks related to an invoke and prepares to freeze the sandbox.

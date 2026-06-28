@@ -18,34 +18,34 @@ Follow these steps to add your self-managed Apache Kafka cluster and a Kafka top
 
 ###### To add an Apache Kafka trigger to your Lambda function (console)
 
-1.  Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda
-    console.
-2.  Choose the name of your Lambda function.
-3.  Under **Function overview**, choose **Add trigger**.
-4.  Under **Trigger configuration**, do the following:
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda
+   console.
+2. Choose the name of your Lambda function.
+3. Under **Function overview**, choose **Add trigger**.
+4. Under **Trigger configuration**, do the following:
 
-    1. Choose the **Apache Kafka** trigger type.
-    2. For **Bootstrap servers**, enter the host and port pair address of a Kafka broker
-       in your cluster, and then choose **Add**. Repeat for each Kafka broker in the
-       cluster.
-    3. For **Topic name**, enter the name of the Kafka topic used to store records in the
-       cluster.
-    4. If you configure provisioned mode, enter a value for **Minimum event pollers**,
-       a value for **Maximum event pollers**, and an optional value for PollerGroupName to specify grouping of multiple ESMs within the same event source VPC.
-    5. (Optional) For **Batch size**, enter the maximum number of records to receive in a
-       single batch.
-    6. For **Batch window**, enter the maximum amount of seconds that Lambda spends
-       gathering records before invoking the function.
-    7. (Optional) For **Consumer group ID**, enter the ID of a Kafka consumer group to join.
-    8. (Optional) For **Starting position**, choose **Latest** to start
-       reading the stream from the latest record, **Trim horizon** to start at the
-       earliest available record, or **At timestamp** to specify a timestamp to start
-       reading from.
-    9. (Optional) For **VPC**, choose the Amazon VPC for your Kafka cluster. Then, choose the
-       **VPC subnets** and **VPC security groups**.
+   1. Choose the **Apache Kafka** trigger type.
+   2. For **Bootstrap servers**, enter the host and port pair address of a Kafka broker
+      in your cluster, and then choose **Add**. Repeat for each Kafka broker in the
+      cluster.
+   3. For **Topic name**, enter the name of the Kafka topic used to store records in the
+      cluster.
+   4. If you configure provisioned mode, enter a value for **Minimum event pollers**,
+      a value for **Maximum event pollers**, and an optional value for PollerGroupName to specify grouping of multiple ESMs within the same event source VPC.
+   5. (Optional) For **Batch size**, enter the maximum number of records to receive in a
+      single batch.
+   6. For **Batch window**, enter the maximum amount of seconds that Lambda spends
+      gathering records before invoking the function.
+   7. (Optional) For **Consumer group ID**, enter the ID of a Kafka consumer group to join.
+   8. (Optional) For **Starting position**, choose **Latest** to start
+      reading the stream from the latest record, **Trim horizon** to start at the
+      earliest available record, or **At timestamp** to specify a timestamp to start
+      reading from.
+   9. (Optional) For **VPC**, choose the Amazon VPC for your Kafka cluster. Then, choose the
+      **VPC subnets** and **VPC security groups**.
 
-    This setting is required if only users within your VPC access your brokers. 10. (Optional) For **Authentication**, choose **Add**, and then do the
-    following:
+   This setting is required if only users within your VPC access your brokers. 10. (Optional) For **Authentication**, choose **Add**, and then do the
+   following:
 
         1. Choose the access or authentication protocol of the Kafka brokers in your cluster.
 
@@ -58,16 +58,17 @@ Follow these steps to add your self-managed Apache Kafka cluster and a Kafka top
         	 **CLIENT\_CERTIFICATE\_TLS\_AUTH** protocol.
         2. For SASL/SCRAM or mTLS authentication, choose the Secrets Manager secret key that contains the
          credentials for your Kafka cluster.
-    11. (Optional) For **Encryption**, choose the Secrets Manager secret containing the root CA
-        certificate that your Kafka brokers use for TLS encryption, if your Kafka brokers use certificates
-        signed by a private CA.
 
-    This setting applies to TLS encryption for SASL/SCRAM or SASL/PLAIN, and to mTLS
-    authentication. 12. To create the trigger in a disabled state for testing (recommended), clear **Enable
-    trigger**. Or, to enable the trigger immediately, select **Enable
-    trigger**.
+   11. (Optional) For **Encryption**, choose the Secrets Manager secret containing the root CA
+   certificate that your Kafka brokers use for TLS encryption, if your Kafka brokers use certificates
+   signed by a private CA.
 
-5.  To create the trigger, choose **Add**.
+   This setting applies to TLS encryption for SASL/SCRAM or SASL/PLAIN, and to mTLS
+   authentication. 12. To create the trigger in a disabled state for testing (recommended), clear **Enable
+   trigger**. Or, to enable the trigger immediately, select **Enable
+   trigger**.
+
+5. To create the trigger, choose **Add**.
 
 ## Adding a self-managed Kafka cluster (AWS CLI)
 

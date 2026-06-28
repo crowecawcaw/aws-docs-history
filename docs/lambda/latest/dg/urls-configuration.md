@@ -46,7 +46,7 @@ The following section show how to create and manage a function URL using the Lam
 - [Cross-origin resource sharing (CORS)](#urls-cors "#urls-cors")
 - [Throttling function URLs](#urls-throttling "#urls-throttling")
 - [Deactivating function URLs](#urls-deactivating "#urls-deactivating")
-- [Deleting function URLs](#w2aac15c31c75c53 "#w2aac15c31c75c53")
+- [Deleting function URLs](#w2aac15c47c75c53 "#w2aac15c47c75c53")
 - [Control access to Lambda function URLs](urls-auth.md "urls-auth.md")
 - [Invoking Lambda function URLs](urls-invocation.md "urls-invocation.md")
 - [Monitoring Lambda function URLs](urls-monitoring.md "urls-monitoring.md")
@@ -62,7 +62,7 @@ Follow these steps to create a function URL using the console.
 3. Choose the **Configuration** tab, and then choose **Function
    URL**.
 4. Choose **Create function URL**.
-5. For **Auth type**, choose **AWS_IAM** or
+5. For **Auth type**, choose **AWS\_IAM** or
    **NONE**. For more information about function URL authentication, see [Access control](urls-auth.md "urls-auth.md").
 6. (Optional) Select **Configure cross-origin resource sharing (CORS)**, and then configure
    the CORS settings for your function URL. For more information about CORS, see [Cross-origin resource sharing (CORS)](#urls-cors "#urls-cors").
@@ -77,7 +77,7 @@ Follow these steps to create a function URL using the console.
 11. Choose the **Configuration** tab, and then choose **Function
     URL**.
 12. Choose **Create function URL**.
-13. For **Auth type**, choose **AWS_IAM** or **NONE**.
+13. For **Auth type**, choose **AWS\_IAM** or **NONE**.
     For more information about function URL authentication, see [Access control](urls-auth.md "urls-auth.md").
 14. (Optional) Select **Configure cross-origin resource sharing (CORS)**, and then configure
     the CORS settings for your function URL. For more information about CORS, see [Cross-origin resource sharing (CORS)](#urls-cors "#urls-cors").
@@ -95,13 +95,13 @@ Follow these steps to create a function URL using the console.
       `my-function`.
    2. For **Runtime**, choose the language runtime that you prefer, such as
       **Node.js 24**.
-   3. For **Architecture**, choose either **x86_64** or
+   3. For **Architecture**, choose either **x86\_64** or
       **arm64**.
    4. Expand **Permissions**, then choose whether to create a new execution role or use
       an existing one.
 
 4. Expand **Advanced settings**, and then select **Function URL**.
-5. For **Auth type**, choose **AWS_IAM** or **NONE**.
+5. For **Auth type**, choose **AWS\_IAM** or **NONE**.
    For more information about function URL authentication, see [Access control](urls-auth.md "urls-auth.md").
 6. (Optional) Select **Configure cross-origin resource sharing (CORS)**. By selecting this
    option during function creation, your function URL allows requests from all origins by default. You can edit
@@ -235,7 +235,7 @@ type of request:
 - For non-preflight requests such as GET or POST requests, Lambda returns both the configured CORS headers
   on the function URL, as well as the CORS headers returned by the function. This can result in duplicate CORS
   headers in the response. You may see an error similar to the following: `The 'Access-Control-Allow-Origin'
-header contains multiple values '*, *', but only one is allowed`.
+ header contains multiple values '*, *', but only one is allowed`.
 
 In general, we recommend configuring all CORS settings on the function URL, rather than sending CORS
 headers manually in the function response.

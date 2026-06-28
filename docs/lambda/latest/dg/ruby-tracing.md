@@ -88,7 +88,7 @@ gem 'test-unit', '3.3.5'
 To instrument AWS SDK clients, require the `aws-xray-sdk/lambda` module after creating a client in
 initialization code.
 
-###### Example [blank-ruby/function/lambda_function.rb](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-ruby/function/lambda_function.rb "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-ruby/function/lambda_function.rb") – Tracing an AWS SDK client
+###### Example [blank-ruby/function/lambda\_function.rb](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-ruby/function/lambda_function.rb "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-ruby/function/lambda_function.rb") – Tracing an AWS SDK client
 
 ```
 # lambda_function.rb

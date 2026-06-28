@@ -244,3 +244,25 @@ Add the Serverless MCP Server to your agent's MCP client configuration file unde
   }
 }
 ```
+
+## Install additional Lambda skills
+
+The Agent Toolkit for AWS includes specialized serverless skills that give your AI agents knowledge of Lambda capabilities. Install these skills using any agent such as Claude Code, Cursor, Kiro CLI, GitHub Copilot, Codex, Windsurf, OpenCode or any other agents compatible with open-source [agent skills](https://agentskills.io/specification "https://agentskills.io/specification") format to enable your agent to help you build, deploy, and manage workloads using Lambda MicroVMs, Lambda Managed Instances, and Lambda durable functions.
+
+1. **Lambda MicroVMs skill** — Lambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservation for executing user or AI-generated code in isolated, stateful execution environments.
+
+```
+npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-microvms --yes --global
+```
+
+2. **Lambda Managed Instances skill** — Lambda Managed Instances lets you run Lambda functions on your Amazon EC2 instances while maintaining Lambda's operational simplicity, giving you access to specialized compute configurations and cost efficiency through Amazon EC2 pricing advantages without managing infrastructure.
+
+```
+npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-managed-instances --yes --global
+```
+
+3. **Lambda durable functions skill** — Lambda durable functions enable you to build fault-tolerant, long-running applications that can checkpoint progress, automatically recover from failures, and suspend execution for up to one year when waiting on long-running tasks like human-in-the-loop processes.
+
+```
+npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-durable-functions --yes --global
+```

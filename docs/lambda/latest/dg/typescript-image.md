@@ -59,12 +59,11 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
 };
 ```
 
-6.  Create a new Dockerfile with the following configuration:
+6. Create a new Dockerfile with the following configuration:
 
-        * Set the `FROM` property to the URI of the base image.
-        * Set the `CMD` argument to specify the Lambda function handler.
-
-    The following example Dockerfile uses a multi-stage build. The first step transpiles the TypeScript code into JavaScript. The second step produces a container image that contains only JavaScript files and production dependencies.
+   - Set the `FROM` property to the URI of the base image.
+   - Set the `CMD` argument to specify the Lambda function handler.
+     The following example Dockerfile uses a multi-stage build. The first step transpiles the TypeScript code into JavaScript. The second step produces a container image that contains only JavaScript files and production dependencies.
 
 Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
 

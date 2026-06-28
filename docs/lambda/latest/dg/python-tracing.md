@@ -184,7 +184,7 @@ cdk init app --language python
 pip install -r requirements.txt
 ```
 
-4. Create a directory **lambda_function** under the root folder.
+4. Create a directory **lambda\_function** under the root folder.
 
 ```
 mkdir lambda_function
@@ -230,14 +230,14 @@ def lambda_handler(event: dict, context: LambdaContext) -> dict:
     return app.resolve(event, context)
 ```
 
-6. Open the **hello_world** directory. You should see a file called **hello_world_stack.py**.
+6. Open the **hello\_world** directory. You should see a file called **hello\_world\_stack.py**.
 
 ```
 cd ..
 cd hello_world
 ```
 
-7. Open **hello_world_stack.py** and add the following code to the file. This contains the
+7. Open **hello\_world\_stack.py** and add the following code to the file. This contains the
    [Lambda Constructor](../../../cdk/api/v1/python/aws_cdk.aws_lambda.md "../../../cdk/api/v1/python/aws_cdk.aws_lambda.md"), which creates the Lambda function, configures environment
    variables for Powertools and sets log retention to one week, and the [ApiGatewayv1 Constructor](../../../cdk/api/v1/python/aws_cdk.aws_apigateway.md "../../../cdk/api/v1/python/aws_cdk.aws_apigateway.md"), which creates the REST API.
 
@@ -373,7 +373,7 @@ Lambda functions without having to modify any function code. You can also config
 initialization of OTel. For more information, see [Custom configuration for the ADOT Collector on Lambda](https://aws-otel.github.io/docs/getting-started/lambda#custom-configuration-for-the-adot-collector-on-lambda "https://aws-otel.github.io/docs/getting-started/lambda#custom-configuration-for-the-adot-collector-on-lambda") in the ADOT documentation.
 
 For Python runtimes, you can add the **AWS managed Lambda layer for ADOT Python**
-to automatically instrument your functions. This layer works for both arm64 and x86_64 architectures. For detailed
+to automatically instrument your functions. This layer works for both arm64 and x86\_64 architectures. For detailed
 instructions on how to add this layer, see [AWS Distro for
 OpenTelemetry Lambda Support for Python](https://aws-otel.github.io/docs/getting-started/lambda/lambda-python "https://aws-otel.github.io/docs/getting-started/lambda/lambda-python") in the ADOT documentation.
 

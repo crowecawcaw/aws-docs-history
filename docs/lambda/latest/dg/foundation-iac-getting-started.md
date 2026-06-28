@@ -432,6 +432,5 @@ and check that Lambda writes an item into your DynamoDB table using these values
 
 Sending your message to the queue causes Lambda to invoke your function through the event source mapping defined in your AWS SAM
 template. To confirm that Lambda has invoked your function as expected, confirm that an item has been added to your DynamoDB table. 4. Open the [Tables](https://console.aws.amazon.com/dynamodbv2#tables "https://console.aws.amazon.com/dynamodbv2#tables") page of the DynamoDB console and select your table. The name has
-the format `sam-app-LambdaIaCTable-`CN0S66C0VLNV``.
-5. Choose **Explore table items**. In the **Items returned** pane, you should see an item with the 
- **id** `myKey`and the **Value**`myValue`.
+the format `sam-app-LambdaIaCTable-`CN0S66C0VLNV``. 5. Choose **Explore table items**. In the **Items returned** pane, you should see an item with the
+**id** `myKey` and the **Value** `myValue`.

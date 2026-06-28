@@ -67,18 +67,18 @@ For example, let's explore what happens when your function receives 10 requests:
 In the previous diagram, each horizontal plane represents a single execution environment instance (labeled
 from `A` through `F`). Here's how Lambda handles each request:
 
-| Request | Lambda behavior                  | Reasoning                                                                                                     |
-| ------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| 1       | Provisions new environment **A** | This is the first request; no execution environment instances are available.                                  |
-| 2       | Provisions new environment **B** | Existing execution environment instance \*_A_<br>• is busy.                                                   |
-| 3       | Provisions new environment **C** | Existing execution environment instances **A\*<br>• and **B\*<br>• are both busy.                             |
-| 4       | Provisions new environment **D** | Existing execution environment instances **A**, **B**, and \*_C_<br>• are all busy.                           |
-| 5       | Provisions new environment **E** | Existing execution environment instances **A**, **B**, **C**, and \*_D_<br>• are all<br>busy.                 |
-| 6       | Reuses environment **A**         | Execution environment instance **A\*<br>• has finished processing request<br>**1\*<br>• and is now available. |
-| 7       | Reuses environment **B**         | Execution environment instance **B\*<br>• has finished processing request<br>**2\*<br>• and is now available. |
-| 8       | Reuses environment **C**         | Execution environment instance **C\*<br>• has finished processing request<br>**3\*<br>• and is now available. |
-| 9       | Provisions new environment **F** | Existing execution environment instances **A**, **B**, **C**, **D**, and \*_E_<br>• are all busy.             |
-| 10      | Reuses environment **D**         | Execution environment instance **D\*<br>• has finished processing request<br>**4\*<br>• and is now available. |
+| Request | Lambda behavior                  | Reasoning                                                                                                   |
+| ------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| 1       | Provisions new environment **A** | This is the first request; no execution environment instances are available.                                |
+| 2       | Provisions new environment **B** | Existing execution environment instance *_A_<br>• is busy.                                                  |
+| 3       | Provisions new environment **C** | Existing execution environment instances *_A_<br>• and *_B_<br>• are both busy.                             |
+| 4       | Provisions new environment **D** | Existing execution environment instances **A**, **B**, and *_C_<br>• are all busy.                          |
+| 5       | Provisions new environment **E** | Existing execution environment instances **A**, **B**, **C**, and *_D_<br>• are all<br>busy.                |
+| 6       | Reuses environment **A**         | Execution environment instance *_A_<br>• has finished processing request<br>*_1_<br>• and is now available. |
+| 7       | Reuses environment **B**         | Execution environment instance *_B_<br>• has finished processing request<br>*_2_<br>• and is now available. |
+| 8       | Reuses environment **C**         | Execution environment instance *_C_<br>• has finished processing request<br>*_3_<br>• and is now available. |
+| 9       | Provisions new environment **F** | Existing execution environment instances **A**, **B**, **C**, **D**, and *_E_<br>• are all busy.            |
+| 10      | Reuses environment **D**         | Execution environment instance *_D_<br>• has finished processing request<br>*_4_<br>• and is now available. |
 
 As your function receives more concurrent requests, Lambda scales up the number of execution
 environment instances in response. The following animation tracks the number of concurrent

@@ -94,7 +94,7 @@ The project files are stored in the ``MyFunction`/src/`MyFunction`` directory:
     	 `image-command` in `aws-lambda-tools-defaults.json`.
 
 3. Install the Amazon.Lambda.Tools [.NET
-   Global Tool](https://aws.amazon.com/blogs/developer/net-core-global-tools-for-aws/ "https://aws.amazon.com/blogs/developer/net-core-global-tools-for-aws/").
+Global Tool](https://aws.amazon.com/blogs/developer/net-core-global-tools-for-aws/ "https://aws.amazon.com/blogs/developer/net-core-global-tools-for-aws/").
 
 ```
 dotnet tool install -g Amazon.Lambda.Tools
@@ -223,13 +223,12 @@ dotnet new lambda.CustomRuntimeFunction --name `MyFunction` --region `us-east-1`
 }
 ```
 
-5.  Create a Dockerfile in the ``MyFunction`/src/`MyFunction`` directory. The following example Dockerfile uses a Microsoft .NET base image instead of an [AWS base image](#csharp-image-base "#csharp-image-base").
+5. Create a Dockerfile in the ``MyFunction`/src/`MyFunction`` directory. The following example Dockerfile uses a Microsoft .NET base image instead of an [AWS base image](#csharp-image-base "#csharp-image-base").
 
-        * Set the `FROM` property to the base image identifier. The base image and the `TargetFramework` in the `MyFunction.csproj` file must both use the same .NET version.
-        * Use the `COPY` command to copy the function into the `/var/task` directory.
-        * Set the `ENTRYPOINT` to the module that you want the Docker container to run when it starts. In this case, the module is the bootstrap, which initializes the `Amazon.Lambda.RuntimeSupport` library.
-
-    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
+   - Set the `FROM` property to the base image identifier. The base image and the `TargetFramework` in the `MyFunction.csproj` file must both use the same .NET version.
+   - Use the `COPY` command to copy the function into the `/var/task` directory.
+   - Set the `ENTRYPOINT` to the module that you want the Docker container to run when it starts. In this case, the module is the bootstrap, which initializes the `Amazon.Lambda.RuntimeSupport` library.
+     Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
 
 ###### Example Dockerfile
 

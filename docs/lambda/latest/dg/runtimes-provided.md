@@ -6,7 +6,7 @@ Lambda provides [managed runtimes](lambda-runtimes.md "lambda-runtimes.md") for 
 
 You must include a runtime interface client in your binary. The runtime interface client calls the [Using the Lambda runtime API for custom runtimes](runtimes-api.md "runtimes-api.md") to retrieve function invocations and then calls your function handler. Lambda provides runtime interface clients for [Rust](lambda-rust.md "lambda-rust.md"), [Go](golang-package.md#golang-package-mac-linux "golang-package.md#golang-package-mac-linux"), [.NET Native AOT](dotnet-native-aot.md "dotnet-native-aot.md"), [Swift](https://github.com/awslabs/swift-aws-lambda-runtime "https://github.com/awslabs/swift-aws-lambda-runtime") (experimental), and [C++](https://github.com/awslabs/aws-lambda-cpp "https://github.com/awslabs/aws-lambda-cpp") (experimental).
 
-You must compile your binary for a Linux environment and for the same instruction set architecture that you plan to use for the function (x86_64 or arm64).
+You must compile your binary for a Linux environment and for the same instruction set architecture that you plan to use for the function (x86\_64 or arm64).
 
 - **Third-party runtimes**: You can run Lambda functions using off-the-shelf runtimes such as [Bref](https://bref.sh/docs/news/01-bref-1.0.html#amazon-linux-2 "https://bref.sh/docs/news/01-bref-1.0.html#amazon-linux-2") for PHP.
 - **Custom runtimes**: You can build your own runtime for a language or language version that Lambda doesn't provide a managed runtime for, such as Node.js 19. For more information, see [Building a custom runtime for AWS Lambda](runtimes-custom.md "runtimes-custom.md"). This is the least common use case for OS-only runtimes.

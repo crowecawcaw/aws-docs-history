@@ -91,7 +91,7 @@ For terminal states (`SUCCEEDED`, `STOPPED`, `FAILED`, `TIMED_OUT`), the event i
 
 ### Creating EventBridge rules
 
-Create rules to route durable execution status change events to targets like Amazon Simple Notification Service, Amazon Simple Queue Service, or other Lambda functions.
+Create EventBridge rules to route durable execution status change events to targets like Amazon Simple Notification Service, Amazon Simple Queue Service, or other Lambda functions.
 
 The following example creates a rule that matches all durable execution status changes:
 
@@ -134,7 +134,18 @@ The following example creates a rule that matches status changes for a specific 
 
 ```
 
-For more information about creating rules, see [Amazon EventBridge tutorials](../../../eventbridge/latest/userguide/eb-tutorial.md "../../../eventbridge/latest/userguide/eb-tutorial.md") in the EventBridge User Guide.
+For more information about creating EventBridge rules, see [Amazon EventBridge tutorials](../../../eventbridge/latest/userguide/eb-tutorial.md "../../../eventbridge/latest/userguide/eb-tutorial.md") in the EventBridge User Guide.
+
+### Using dead-letter queues with EventBridge events
+
+EventBridge status change events provide real-time notification when a durable execution enters a FAILED, STOPPED, or TIMED\_OUT state, but they don't include the original event payload that triggered the execution. To capture the triggering event for later analysis or reprocessing, configure a dead-letter queue (DLQ) on your durable function.
+
+When a durable execution fails after an asynchronous invocation, Lambda sends the original triggering event to the configured DLQ. Use EventBridge events and DLQs together for a comprehensive failure-handling strategy:
+
+- **EventBridge events** – Trigger immediate alerts, update dashboards, or start remediation workflows when executions fail.
+- **Dead-letter queues** – Preserve the original event payload so you can inspect what caused the failure, debug the issue, and optionally reprocess the event after fixing the underlying problem.
+
+For information about configuring a DLQ on your function, see [Dead-letter queues](invocation-async-retain-records.md#invocation-dlq "invocation-async-retain-records.md#invocation-dlq").
 
 ## AWS X-Ray tracing
 

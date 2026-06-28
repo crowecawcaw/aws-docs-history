@@ -20,7 +20,7 @@ Remote debugging is supported for the following runtimes:
 
 ###### Note
 
-Remote debugging is supported for both x86_64 and arm64 architectures.
+Remote debugging is supported for both x86\_64 and arm64 architectures.
 
 ## Security and remote debugging
 
@@ -40,7 +40,7 @@ feature that requires explicit permissions and actions:
 
 ###### Note
 
-Remote debugging is supported for both x86_64 and arm64 architectures.
+Remote debugging is supported for both x86\_64 and arm64 architectures.
 
 ## Prerequisites
 

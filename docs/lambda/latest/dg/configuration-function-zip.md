@@ -40,7 +40,7 @@ and the execution role for the function. You add your function code after Lambda
    1. For **Function name**, enter the function name. Function names are limited to 64 characters in length.
    2. For **Runtime**, choose the language version to use for your function.
    3. (Optional) For **Architecture**, choose the instruction set architecture to use for
-      your function. The default architecture is x86_64. When you build the deployment package for your
+      your function. The default architecture is x86\_64. When you build the deployment package for your
       function, make sure that it is compatible with this [instruction set
       architecture](foundation-arch.md "foundation-arch.md").
 

@@ -55,16 +55,15 @@ The Amazon MQ event source mapping has the following configuration restrictions:
   [Rabbit MQ Broker Architecture](../../../amazon-mq/latest/developer-guide/rabbitmq-broker-architecture.md "../../../amazon-mq/latest/developer-guide/rabbitmq-broker-architecture.md")in the _Amazon MQ Developer Guide_.
 - Protocols – Supported protocols depend on the type of Amazon MQ integration.
 
-      + For ActiveMQ integrations, Lambda consumes messages using the OpenWire/Java Message Service (JMS) protocol. No other protocols are supported for consuming messages. Within the JMS protocol, only [`TextMessage`](https://activemq.apache.org/components/cms/api_docs/activemqcpp-3.6.0/html/classactivemq_1_1commands_1_1_active_m_q_text_message.html "https://activemq.apache.org/components/cms/api_docs/activemqcpp-3.6.0/html/classactivemq_1_1commands_1_1_active_m_q_text_message.html") and [`BytesMessage`](https://activemq.apache.org/components/cms/api_docs/activemqcpp-3.9.0/html/classactivemq_1_1commands_1_1_active_m_q_bytes_message.html "https://activemq.apache.org/components/cms/api_docs/activemqcpp-3.9.0/html/classactivemq_1_1commands_1_1_active_m_q_bytes_message.html") are supported. Lambda also supports JMS custom properties. For more information about the OpenWire protocol, see
-       [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html") on the Apache ActiveMQ website.
-      + For RabbitMQ integrations, Lambda consumes messages using the AMQP 0-9-1 protocol. No other protocols are supported
-       for consuming messages. For more information about RabbitMQ's implementation of the AMQP 0-9-1 protocol, see
-       [AMQP 0-9-1 Complete Reference
-       Guide](https://www.rabbitmq.com/amqp-0-9-1-reference.html "https://www.rabbitmq.com/amqp-0-9-1-reference.html") on the RabbitMQ website.
-
-  Lambda automatically supports the latest versions of ActiveMQ and RabbitMQ that Amazon MQ supports. For the latest
-  supported versions, see [Amazon MQ release notes](../../../amazon-mq/latest/developer-guide/amazon-mq-release-notes.md "../../../amazon-mq/latest/developer-guide/amazon-mq-release-notes.md") in the
-  _Amazon MQ Developer Guide_.
+  - For ActiveMQ integrations, Lambda consumes messages using the OpenWire/Java Message Service (JMS) protocol. No other protocols are supported for consuming messages. Within the JMS protocol, only [`TextMessage`](https://activemq.apache.org/components/cms/api_docs/activemqcpp-3.6.0/html/classactivemq_1_1commands_1_1_active_m_q_text_message.html "https://activemq.apache.org/components/cms/api_docs/activemqcpp-3.6.0/html/classactivemq_1_1commands_1_1_active_m_q_text_message.html") and [`BytesMessage`](https://activemq.apache.org/components/cms/api_docs/activemqcpp-3.9.0/html/classactivemq_1_1commands_1_1_active_m_q_bytes_message.html "https://activemq.apache.org/components/cms/api_docs/activemqcpp-3.9.0/html/classactivemq_1_1commands_1_1_active_m_q_bytes_message.html") are supported. Lambda also supports JMS custom properties. For more information about the OpenWire protocol, see
+    [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html") on the Apache ActiveMQ website.
+  - For RabbitMQ integrations, Lambda consumes messages using the AMQP 0-9-1 protocol. No other protocols are supported
+    for consuming messages. For more information about RabbitMQ's implementation of the AMQP 0-9-1 protocol, see
+    [AMQP 0-9-1 Complete Reference
+    Guide](https://www.rabbitmq.com/amqp-0-9-1-reference.html "https://www.rabbitmq.com/amqp-0-9-1-reference.html") on the RabbitMQ website.
+    Lambda automatically supports the latest versions of ActiveMQ and RabbitMQ that Amazon MQ supports. For the latest
+    supported versions, see [Amazon MQ release notes](../../../amazon-mq/latest/developer-guide/amazon-mq-release-notes.md "../../../amazon-mq/latest/developer-guide/amazon-mq-release-notes.md") in the
+    _Amazon MQ Developer Guide_.
 
 ###### Note
 

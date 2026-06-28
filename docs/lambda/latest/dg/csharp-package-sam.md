@@ -99,8 +99,8 @@ For **HelloWorldFunction may not have authorization defined, is this okay?**, be
      you can re-run `sam deploy` without parameters to deploy changes to your application.
 
 5. When the deployment of your application is complete, the CLI returns the Amazon Resource Name (ARN) of the Hello World Lambda
-   function and the IAM role created for it. It also displays the endpoint of your API Gateway API. To test your application, open the
-   endpoint in a browser. You should see a response similar to the following.
+function and the IAM role created for it. It also displays the endpoint of your API Gateway API. To test your application, open the
+endpoint in a browser. You should see a response similar to the following.
 
 ```
 {"message":"hello world","location":"34.244.135.203"}

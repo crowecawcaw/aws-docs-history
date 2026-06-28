@@ -32,7 +32,7 @@ information about how to invoke your function URL after you've set up permission
 
 ###### Topics
 
-- [Using the AWS_IAM auth type](#urls-auth-iam "#urls-auth-iam")
+- [Using the AWS\_IAM auth type](#urls-auth-iam "#urls-auth-iam")
 - [Using the NONE auth type](#urls-auth-none "#urls-auth-none")
 - [Governance and access control](#urls-governance "#urls-governance")
 
@@ -113,7 +113,7 @@ steps:
 3. Choose the **Configuration** tab, and then choose **Permissions**.
 4. Under **Resource-based policy**, choose **Add permissions**.
 5. Choose **Function URL**.
-6. For **Auth type**, choose **AWS_IAM**.
+6. For **Auth type**, choose **AWS\_IAM**.
 7. Enter a **Statement ID** for your policy statement.
 8. For **Principal**, enter the account ID or the Amazon Resource Name
    (ARN) of the user or role that you want to grant permissions to. For example:
@@ -279,7 +279,7 @@ JSON
 For fine-grained access control over your function URLs, use condition context keys. Lambda supports the following context keys for function URLs:
 
 - `lambda:FunctionUrlAuthType` – Defines an enum value describing the auth type that your function URL uses. The value can be either `AWS_IAM` or `NONE`.
-- `lambda:InvokedViaFunctionUrl` – Restricts the `lambda:InvokeFunction` action to calls made through the function URL. This ensures that the function can only be invoked using the function URL and not through other invocation methods. For examples of resource-based policies that use the `lambda:InvokedViaFunctionUrl` context key, see the examples in [Using the AWS_IAM auth type](#urls-auth-iam "#urls-auth-iam") and [Using the NONE auth type](#urls-auth-none "#urls-auth-none").
+- `lambda:InvokedViaFunctionUrl` – Restricts the `lambda:InvokeFunction` action to calls made through the function URL. This ensures that the function can only be invoked using the function URL and not through other invocation methods. For examples of resource-based policies that use the `lambda:InvokedViaFunctionUrl` context key, see the examples in [Using the AWS\_IAM auth type](#urls-auth-iam "#urls-auth-iam") and [Using the NONE auth type](#urls-auth-none "#urls-auth-none").
 
 You can use these context keys in policies associated with your function. For example, you might want to
 restrict who can make configuration changes to your function URLs. To deny all `UpdateFunctionUrlConfig`

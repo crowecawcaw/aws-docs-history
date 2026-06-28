@@ -135,10 +135,10 @@ Python
 1. Choose the **Code** tab.
 
 In the console's built-in code editor, you should see the function code that Lambda
-created. If you don't see the **lambda_function.py** tab in the code editor, select **lambda_function.py**
+created. If you don't see the **lambda\_function.py** tab in the code editor, select **lambda\_function.py**
 in the file explorer as shown on the following diagram.
 
-![Diagram showing the console code editor and the lambda_function.py file in the file explorer](images/durable-python.png) 2. Paste the following code into the **lambda_function.py** tab, replacing the code that Lambda created.
+![Diagram showing the console code editor and the lambda_function.py file in the file explorer](images/durable-python.png) 2. Paste the following code into the **lambda\_function.py** tab, replacing the code that Lambda created.
 
 ```
 from aws_durable_execution_sdk_python import (
@@ -280,7 +280,7 @@ You can also view your function's logs in CloudWatch Logs to see the console out
 2. Choose the log group for your function (`/aws/lambda/myDurableFunction`).
 3. Scroll down and choose the **Log stream** for the function invocations you want to look at.
 
-![List of log streams for a Lambda function.](images/log-stream.png)
+![List of log streams for a Lambda function.](/images/lambda/latest/dg/images/log-stream.png)
 
 You should see log entries for each invocation of your function, including the initial execution and the replay after the wait.
 

@@ -22,10 +22,9 @@ To create a layer, bundle your packages into a .zip file archive that meets the 
 - Build the layer using the same Node.js version that you plan to use for the Lambda function. For example, if you build your layer using Node.js 24, use the Node.js 24 runtime for your function.
 - Your layer's .zip file must use one of these directory structures:
 
-      + `nodejs/node_modules`
-      + `nodejs/node`X`/node_modules` (where `X` is your Node.js version, for example `node22`)
-
-  For more information, see [Layer paths for each Lambda runtime](packaging-layers.md#packaging-layers-paths "packaging-layers.md#packaging-layers-paths").
+  - `nodejs/node_modules`
+  - `nodejs/node`X`/node_modules` (where `X` is your Node.js version, for example `node22`)
+    For more information, see [Layer paths for each Lambda runtime](packaging-layers.md#packaging-layers-paths "packaging-layers.md#packaging-layers-paths").
 
 - The packages in your layer must be compatible with Linux. Lambda functions run on Amazon Linux.
 
@@ -92,7 +91,7 @@ cd nodejs/node_modules/validator
 
 2. Create a `package.json` file for your custom module to define how it should be imported:
 
-###### Example nodejs/node_modules/validator/package.json
+###### Example nodejs/node\_modules/validator/package.json
 
 ```
 {
@@ -105,7 +104,7 @@ cd nodejs/node_modules/validator
 
 3. Create your JavaScript module file:
 
-###### Example nodejs/node_modules/validator/index.mjs
+###### Example nodejs/node\_modules/validator/index.mjs
 
 ```
 export function validateOrder(orderData) {

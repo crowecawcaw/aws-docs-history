@@ -6,7 +6,7 @@ and improve overall function performance, without having to modify any code.
 
 ###### Sections
 
-- [Understanding the JAVA_TOOL_OPTIONS environment variable](#java-tool-options "#java-tool-options")
+- [Understanding the JAVA\_TOOL\_OPTIONS environment variable](#java-tool-options "#java-tool-options")
 - [Log4j patch for Log4Shell](#log4shell-patch "#log4shell-patch")
 - [Ahead-of-Time (AOT) and CDS caches](#aot-cds-caches "#aot-cds-caches")
 
@@ -53,7 +53,7 @@ uses cached snapshots of your execution environment to significantly improve
 start-up performance. For more information about SnapStart features, limitations,
 and supported regions, see [Improving startup performance with Lambda SnapStart](snapstart.md "snapstart.md").
 
-### Example: Customizing GC behavior using JAVA_TOOL_OPTIONS
+### Example: Customizing GC behavior using JAVA\_TOOL\_OPTIONS
 
 Java 11 runtimes use the
 [Serial](https://docs.oracle.com/en/java/javase/18/gctuning/available-collectors.html#GUID-45794DA6-AB96-4856-A96D-FDE5F7DEE498 "https://docs.oracle.com/en/java/javase/18/gctuning/available-collectors.html#GUID-45794DA6-AB96-4856-A96D-FDE5F7DEE498") garbage collector (GC) for garbage collection. By default, Java 17 runtimes

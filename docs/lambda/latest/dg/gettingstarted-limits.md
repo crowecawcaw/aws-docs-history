@@ -27,6 +27,7 @@ The following sections list default quotas and limits in Lambda by category.
 - [Compute and storage](#compute-and-storage "#compute-and-storage")
 - [Function configuration, deployment, and execution](#function-configuration-deployment-and-execution "#function-configuration-deployment-and-execution")
 - [Lambda API requests](#api-requests "#api-requests")
+- [Lambda MicroVMs](#microvms-quotas "#microvms-quotas")
 - [Other services](#quotas-other-services "#quotas-other-services")
 
 ## Compute and storage
@@ -58,7 +59,7 @@ The Lambda documentation, log messages, and console use the abbreviation MB (rat
 
 | Resource                                                                                                      | Quota                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Function [memory allocation](configuration-memory.md "configuration-memory.md")                               | 128 MB to 10,240 MB, in 1-MB increments.<br>**Note:\*<br>• Lambda allocates CPU power in proportion to the amount of memory configured. You can increase or decrease the memory and CPU power allocated to your function using the **Memory (MB)\*<br>• setting. At 1,769 MB, a function has the equivalent of one vCPU.                                                               |
+| Function [memory allocation](configuration-memory.md "configuration-memory.md")                               | 128 MB to 10,240 MB, in 1-MB increments.<br>**Note:_<br>• Lambda allocates CPU power in proportion to the amount of memory configured. You can increase or decrease the memory and CPU power allocated to your function using the \**Memory (MB)_<br>• setting. At 1,769 MB, a function has the equivalent of one vCPU.                                                                |
 | Function timeout                                                                                              | 900 seconds (15 minutes)                                                                                                                                                                                                                                                                                                                                                               |
 | Function [environment variables](configuration-envvars.md "configuration-envvars.md")                         | 4 KB, for all environment variables associated with the function, in aggregate                                                                                                                                                                                                                                                                                                         |
 | Function [resource-based policy](access-control-resource-based.md "access-control-resource-based.md")         | 20 KB                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -97,6 +98,56 @@ The following quotas are associated with Lambda API requests.
 | [SendDurableExecutionCallbackSuccess](../api/API_SendDurableExecutionCallbackSuccess.md "../api/API_SendDurableExecutionCallbackSuccess.md") API requests       | 300 requests per second.                                                                                                                                                                                                                                                                     |
 | [StopDurableExecution](../api/API_StopDurableExecution.md "../api/API_StopDurableExecution.md") API requests                                                    | 30 requests per second.                                                                                                                                                                                                                                                                      |
 | Remainder of the control plane API requests (excludes invocation, GetFunction, and GetPolicy<br>requests)                                                       | 15 requests per second across all APIs (not 15 requests per second per API). Cannot be increased.                                                                                                                                                                                            |
+
+## Lambda MicroVMs
+
+Lambda MicroVMs sets quotas for compute, storage, and API requests. Quotas
+marked as adjustable can be increased through the Service Quotas
+console.
+
+###### Note
+
+Lambda MicroVMs support the ARM64 (AWS Graviton) architecture.
+
+### Compute and storage
+
+| Resource                                                          | Default quota                                                                                                                                        | Adjustable |
+| ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Memory allocated across all MicroVMs (per account, per<br>Region) | 400 GB<br>1,024 GB in US East (N. Virginia), US West (Oregon), US East<br>(Ohio), and Asia Pacific (Tokyo)<br>Burstable up to four times this quota. | Yes        |
+| Maximum execution duration per MicroVM                            | 8 hours (28,800 seconds)                                                                                                                             | No         |
+
+### Images and versions
+
+| Resource                                          | Default quota                                                                                   | Adjustable |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------- |
+| MicroVM images per account per Region             | 100                                                                                             | Yes        |
+| Versions per MicroVM image                        | 50                                                                                              | Yes        |
+| Concurrent image builds (per account, per Region) | 5<br>10 in US East (N. Virginia), US West (Oregon), US East<br>(Ohio), and Asia Pacific (Tokyo) | Yes        |
+
+### Per-MicroVM throughput
+
+| Resource                           | Limit                                                               | Adjustable |
+| ---------------------------------- | ------------------------------------------------------------------- | ---------- |
+| Concurrent connections per MicroVM | 8 (1 vCPU), 16 (2 vCPU), 32 (4 vCPU), 64 (8 vCPU), 128 (16<br>vCPU) | No         |
+| Requests per second per MicroVM    | 40 (4 vCPU / 8 GB), 160 (16 vCPU / 32 GB)                           | No         |
+
+### API rate limits
+
+| API operation                 | Rate (TPS) | Burst | Adjustable |
+| ----------------------------- | ---------- | ----- | ---------- |
+| `RunMicrovm`                  | 5          | 5     | Yes        |
+| `ResumeMicrovm`               | 5          | 5     | Yes        |
+| `SuspendMicrovm`              | 2          | 2     | Yes        |
+| `TerminateMicrovm`            | 10         | 10    | Yes        |
+| `GetMicrovm`                  | 100        | 100   | Yes        |
+| `CreateMicrovmAuthToken`      | 50         | 50    | Yes        |
+| `CreateMicrovmShellAuthToken` | 5          | 5     | Yes        |
+
+###### Note
+
+TPS = transactions per second. These rate limits are per account, per
+Region. Retry throttled requests using exponential backoff
+with jitter.
 
 ## Other services
 

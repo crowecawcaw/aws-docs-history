@@ -124,7 +124,7 @@ When you publish a version, Lambda creates an immutable snapshot of your functio
 - Dead Letter Queue (DLQ) configuration
 - IAM role
 - Description
-- Architecture (x86_64 or arm64)
+- Architecture (x86\_64 or arm64)
 - Ephemeral storage size
 - Package type
 - Logging configuration

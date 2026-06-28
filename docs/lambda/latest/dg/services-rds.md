@@ -127,10 +127,9 @@ To make secure SSL/TLS connections to an Amazon RDS database instance, your Lamb
 
 - [.zip file archives](configuration-function-zip.md "configuration-function-zip.md"): Certificate handling varies by runtime:
 
-      + **Node.js 18 and earlier**: Lambda automatically includes CA certificates and RDS certificates.
-      + **Node.js 20 and later**: Lambda no longer loads additional CA certificates by default. Set the `NODE_EXTRA_CA_CERTS` environment variable to `/var/runtime/ca-cert.pem`.
-
-  It might take up to 4 weeks for Amazon RDS certificates for new AWS Regions to be added to the Lambda managed runtimes.
+  - **Node.js 18 and earlier**: Lambda automatically includes CA certificates and RDS certificates.
+  - **Node.js 20 and later**: Lambda no longer loads additional CA certificates by default. Set the `NODE_EXTRA_CA_CERTS` environment variable to `/var/runtime/ca-cert.pem`.
+    It might take up to 4 weeks for Amazon RDS certificates for new AWS Regions to be added to the Lambda managed runtimes.
 
 - [Container images](images-create.md "images-create.md"): AWS base images include only CA certificates. If your function connects to an Amazon RDS database instance, you must include the appropriate certificates in your container image. In your Dockerfile, download the [certificate bundle that corresponds with the AWS Region where you host your database.](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload") Example:
 

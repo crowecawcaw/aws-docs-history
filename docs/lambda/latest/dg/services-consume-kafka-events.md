@@ -258,13 +258,13 @@ The `EventRecordFormat` parameter can be set to either `JSON` or `SOURCE`, which
 
 Based on these format characteristics and language-specific considerations, we recommend the following formats:
 
-| Recommended formats based on programming language | Language | Avro   | Protobuf | JSON |
-| ------------------------------------------------- | -------- | ------ | -------- | ---- |
-| Java                                              | SOURCE   | SOURCE | SOURCE   |
-| Python                                            | JSON     | JSON   | JSON     |
-| NodeJS                                            | JSON     | JSON   | JSON     |
-| .NET                                              | SOURCE   | SOURCE | SOURCE   |
-| Others                                            | JSON     | JSON   | JSON     |
+Recommended formats based on programming language| Language | Avro | Protobuf | JSON |
+| --- | --- | --- | --- |
+| Java | SOURCE | SOURCE | SOURCE |
+| Python | JSON | JSON | JSON |
+| NodeJS | JSON | JSON | JSON |
+| .NET | SOURCE | SOURCE | SOURCE |
+| Others | JSON | JSON | JSON |
 
 The following sections describe these formats in detail and provide example payloads for each format.
 
@@ -880,9 +880,9 @@ For AWS Glue schema registries, if you provide `AccessConfigs` for a AWS Glue re
 
 If you're working with a Confluent schema registry, you can choose one of three supported authentication methods for the `Type` parameter of your [KafkaSchemaRegistryAccessConfig](../api/API_KafkaSchemaRegistryAccessConfig.md "../api/API_KafkaSchemaRegistryAccessConfig.md") object:
 
-- **BASIC_AUTH** — Lambda uses username and password or API Key and API Secret authentication to access your registry. If you choose this option, provide the Secrets Manager ARN containing your credentials in the URI field.
-- **CLIENT_CERTIFICATE_TLS_AUTH** — Lambda uses mutual TLS authentication with client certificates. To use this option, Lambda needs access to both the certificate and the private key. Provide the Secrets Manager ARN containing these credentials in the URI field.
-- **NO_AUTH** — The public CA certificate must be signed by a certificate authority (CA) that's in the Lambda trust store. For a private CA/self-signed certificate, you configure the server root CA certificate. To use this option, omit the `AccessConfigs` parameter.
+- **BASIC\_AUTH** — Lambda uses username and password or API Key and API Secret authentication to access your registry. If you choose this option, provide the Secrets Manager ARN containing your credentials in the URI field.
+- **CLIENT\_CERTIFICATE\_TLS\_AUTH** — Lambda uses mutual TLS authentication with client certificates. To use this option, Lambda needs access to both the certificate and the private key. Provide the Secrets Manager ARN containing these credentials in the URI field.
+- **NO\_AUTH** — The public CA certificate must be signed by a certificate authority (CA) that's in the Lambda trust store. For a private CA/self-signed certificate, you configure the server root CA certificate. To use this option, omit the `AccessConfigs` parameter.
 
 Additionally, if Lambda needs access to a private CA certificate to verify your schema registry's TLS certificate, choose `SERVER_ROOT_CA_CERT` as the `Type` and provide the Secrets Manager ARN to the certificate in the URI field.
 

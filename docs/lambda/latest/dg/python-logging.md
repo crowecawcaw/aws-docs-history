@@ -16,7 +16,7 @@ Note that if your function outputs logs using Python `print` statements, Lambda 
 plain text format. To capture logs in structured JSON, you need to use a supported logging library. See [Using Lambda advanced logging controls with Python](#python-logging-advanced "#python-logging-advanced")
 for more information.
 
-###### Example lambda_function.py
+###### Example lambda\_function.py
 
 ```
 import os
@@ -650,7 +650,7 @@ cdk init app --language python
 pip install -r requirements.txt
 ```
 
-4. Create a directory **lambda_function** under the root folder.
+4. Create a directory **lambda\_function** under the root folder.
 
 ```
 mkdir lambda_function
@@ -696,14 +696,14 @@ def lambda_handler(event: dict, context: LambdaContext) -> dict:
     return app.resolve(event, context)
 ```
 
-6. Open the **hello_world** directory. You should see a file called **hello_world_stack.py**.
+6. Open the **hello\_world** directory. You should see a file called **hello\_world\_stack.py**.
 
 ```
 cd ..
 cd hello_world
 ```
 
-7. Open **hello_world_stack.py** and add the following code to the file. This contains the
+7. Open **hello\_world\_stack.py** and add the following code to the file. This contains the
    [Lambda Constructor](../../../cdk/api/v1/python/aws_cdk.aws_lambda.md "../../../cdk/api/v1/python/aws_cdk.aws_lambda.md"), which creates the Lambda function, configures environment
    variables for Powertools and sets log retention to one week, and the [ApiGatewayv1 Constructor](../../../cdk/api/v1/python/aws_cdk.aws_apigateway.md "../../../cdk/api/v1/python/aws_cdk.aws_apigateway.md"), which creates the REST API.
 

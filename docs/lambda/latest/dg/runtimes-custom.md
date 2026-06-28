@@ -31,14 +31,13 @@ the environment to handle invocations.
 - **Retrieve settings** – Read environment variables to get details
   about the function and environment.
 
-      + `_HANDLER` – The location to the handler, from the function's configuration. The
-       standard format is ``file`.`method``, where
-       `file` is the name of the file without an extension, and `method` is the name of a
-       method or function that's defined in the file.
-      + `LAMBDA_TASK_ROOT` – The directory that contains the function code.
-      + `AWS_LAMBDA_RUNTIME_API` – The host and port of the runtime API.
-
-  For a full list of available variables, see [Defined runtime environment variables](configuration-envvars.md#configuration-envvars-runtime "configuration-envvars.md#configuration-envvars-runtime").
+  - `_HANDLER` – The location to the handler, from the function's configuration. The
+    standard format is ``file`.`method``, where
+    `file` is the name of the file without an extension, and `method` is the name of a
+    method or function that's defined in the file.
+  - `LAMBDA_TASK_ROOT` – The directory that contains the function code.
+  - `AWS_LAMBDA_RUNTIME_API` – The host and port of the runtime API.
+    For a full list of available variables, see [Defined runtime environment variables](configuration-envvars.md#configuration-envvars-runtime "configuration-envvars.md#configuration-envvars-runtime").
 
 - **Initialize the function** – Load the handler file and run any global
   or static code that it contains. Functions should create static resources like SDK clients and database

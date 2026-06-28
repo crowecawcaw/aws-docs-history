@@ -551,7 +551,7 @@ as a `.zip` package. For this task, we recommend copying and pasting the code.
 
    1. For **Function name**, enter `ScheduledDBMaintenance`.
    2. For **Runtime** choose the latest Python version.
-   3. For **Architecture**, choose **x86_64**.
+   3. For **Architecture**, choose **x86\_64**.
 
 5. Choose **Create function**.
 6. After your function is created, you can configure your function with the provided function code.
@@ -617,43 +617,42 @@ To give your function the permissions it needs to read and delete DynamoDB items
 
 ###### To set up EventBridge Scheduler as a trigger (console)
 
-1.  Open the [EventBridge console](https://console.aws.amazon.com/events/home "https://console.aws.amazon.com/events/home").
-2.  In the left navigation pane, choose **Schedulers** under the
-    **Scheduler** section.
-3.  Choose **Create schedule**.
-4.  Configure the schedule by doing the following:
+1. Open the [EventBridge console](https://console.aws.amazon.com/events/home "https://console.aws.amazon.com/events/home").
+2. In the left navigation pane, choose **Schedulers** under the
+   **Scheduler** section.
+3. Choose **Create schedule**.
+4. Configure the schedule by doing the following:
 
-    1.  Under **Schedule name**, enter a name for your schedule (for example, `DynamoDBCleanupSchedule`).
-    2.  Under **Schedule pattern**, choose **Recurring schedule**.
-    3.  For **Schedule type** leave the default as **Cron-based schedule**,
-        then enter the following schedule details:
+   1. Under **Schedule name**, enter a name for your schedule (for example, `DynamoDBCleanupSchedule`).
+   2. Under **Schedule pattern**, choose **Recurring schedule**.
+   3. For **Schedule type** leave the default as **Cron-based schedule**,
+      then enter the following schedule details:
 
-            * **Minutes**: `0`
-            * **Hours**: `3`
-            * **Day of month**: `1`
-            * **Month**: `*`
-            * **Day of the week**: `?`
-            * **Year**: `*`
-
+      - **Minutes**: `0`
+      - **Hours**: `3`
+      - **Day of month**: `1`
+      - **Month**: `*`
+      - **Day of the week**: `?`
+      - **Year**: `*`
         When evaluated, this cron expression runs on the first day of every month at 03:00 AM.
 
-    4.  For **Flexible time window**, select **Off**.
+   4. For **Flexible time window**, select **Off**.
 
-5.  Choose **Next**.
-6.  Configure the trigger for your Lambda function by doing the following:
+5. Choose **Next**.
+6. Configure the trigger for your Lambda function by doing the following:
 
-    1. In the **Target detail** pane, leave **Target API** set to **Templated targets**,
-       then select **AWS Lambda Invoke**.
-    2. Under **Invoke**, select your Lambda function (`ScheduledDBMaintenance`) from the dropdown list.
-    3. Leave the **Payload** empty and choose **Next**.
-    4. Scroll down to **Permissions** and select **Create a new role for this schedule**.
-       When you create a new EventBridge Scheduler schedule using the console, EventBridge Scheduler creates a new policy with the required
-       permissions the schedule needs to invoke your function. For more information about managing your schedule permissions, see
-       [Cron-based schedules](../../../scheduler/latest/UserGuide/schedule-types.md#cron-based "../../../scheduler/latest/UserGuide/schedule-types.md#cron-based").
-       in the _EventBridge Scheduler User Guide_.
-    5. Choose **Next**.
+   1. In the **Target detail** pane, leave **Target API** set to **Templated targets**,
+      then select **AWS Lambda Invoke**.
+   2. Under **Invoke**, select your Lambda function (`ScheduledDBMaintenance`) from the dropdown list.
+   3. Leave the **Payload** empty and choose **Next**.
+   4. Scroll down to **Permissions** and select **Create a new role for this schedule**.
+      When you create a new EventBridge Scheduler schedule using the console, EventBridge Scheduler creates a new policy with the required
+      permissions the schedule needs to invoke your function. For more information about managing your schedule permissions, see
+      [Cron-based schedules](../../../scheduler/latest/UserGuide/schedule-types.md#cron-based "../../../scheduler/latest/UserGuide/schedule-types.md#cron-based").
+      in the _EventBridge Scheduler User Guide_.
+   5. Choose **Next**.
 
-7.  Review your settings and choose **Create schedule** to complete creation of the schedule and Lambda trigger.
+7. Review your settings and choose **Create schedule** to complete creation of the schedule and Lambda trigger.
 
 AWS SAM
 

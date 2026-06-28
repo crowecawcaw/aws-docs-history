@@ -165,7 +165,7 @@ export const handler = async (event, context) => {
 
 Python
 
-###### Example lambda_function.py
+###### Example lambda\_function.py
 
 ```
 import boto3

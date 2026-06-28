@@ -9,9 +9,9 @@ Lambda provides AWS managed policies that grant access to Lambda API actions and
 AWS services used to develop and manage Lambda resources. Lambda updates these managed policies as needed to ensure
 that your users have access to new features when they're released.
 
-- [AWSLambda_FullAccess](../../../aws-managed-policy/latest/reference/AWSLambda_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSLambda_FullAccess.md") – Grants full access to Lambda actions and other
+- [AWSLambda\_FullAccess](../../../aws-managed-policy/latest/reference/AWSLambda_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSLambda_FullAccess.md") – Grants full access to Lambda actions and other
   AWS services used to develop and maintain Lambda resources.
-- [AWSLambda_ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSLambda_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSLambda_ReadOnlyAccess.md") – Grants read-only access to Lambda
+- [AWSLambda\_ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSLambda_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSLambda_ReadOnlyAccess.md") – Grants read-only access to Lambda
   resources.
 - [AWSLambdaRole](../../../aws-managed-policy/latest/reference/AWSLambdaRole.md "../../../aws-managed-policy/latest/reference/AWSLambdaRole.md") – Grants permissions to invoke Lambda functions.
   AWS managed policies grant permission to API actions without restricting the Lambda functions or layers that a

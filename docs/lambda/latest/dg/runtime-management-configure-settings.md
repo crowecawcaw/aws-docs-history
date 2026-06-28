@@ -9,27 +9,26 @@ You can configure runtime management settings separately for each [function vers
 
 ###### To configure how Lambda updates your runtime version (console)
 
-1.  Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2.  Choose the name of a function.
-3.  On the **Code** tab, under **Runtime settings**,
-    choose **Edit runtime management configuration**.
-4.  Under **Runtime management configuration**, choose one of the
-    following:
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
+2. Choose the name of a function.
+3. On the **Code** tab, under **Runtime settings**,
+   choose **Edit runtime management configuration**.
+4. Under **Runtime management configuration**, choose one of the
+   following:
 
-        * To have your function update to the latest runtime version automatically, choose
-         **Auto**.
-        * To have your function update to the latest runtime version when you change the function,
-         choose **Function update**.
-        * To have your function update to the latest runtime version only when you change the runtime
-         version ARN, choose **Manual**. You can find the runtime version ARN under **Runtime management
-         configuration**. You can also find the ARN in the `INIT_START`
-         line of your function logs.
+   - To have your function update to the latest runtime version automatically, choose
+     **Auto**.
+   - To have your function update to the latest runtime version when you change the function,
+     choose **Function update**.
+   - To have your function update to the latest runtime version only when you change the runtime
+     version ARN, choose **Manual**. You can find the runtime version ARN under **Runtime management
+     configuration**. You can also find the ARN in the `INIT_START`
+     line of your function logs.
+     For more information about these options, see [Runtime update modes](runtimes-update.md#runtime-management-controls "runtimes-update.md#runtime-management-controls").
 
-    For more information about these options, see [Runtime update modes](runtimes-update.md#runtime-management-controls "runtimes-update.md#runtime-management-controls").
-
-5.  Choose **Save**.
-    **To configure how Lambda updates your runtime version
-    (AWS CLI)**
+5. Choose **Save**.
+   **To configure how Lambda updates your runtime version
+   (AWS CLI)**
 
 To configure runtime management for a function, run the [put-runtime-management-config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/put-runtime-management-config.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/put-runtime-management-config.html") AWS CLI command. When using `Manual` mode, you must also provide the runtime version ARN.
 

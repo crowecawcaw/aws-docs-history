@@ -38,7 +38,7 @@ to view records of your functions’ invocation.
 4. In the **Basic information** pane, for **Function name**, enter
    `myLambdaFunction`.
 5. For **Runtime**, choose either **Node.js 24** or **Python 3.14**.
-6. Leave **architecture** set to **x86_64**, and then choose **Create function**.
+6. Leave **architecture** set to **x86\_64**, and then choose **Create function**.
 
 In addition to a simple function that returns the message `Hello from Lambda!`, Lambda also creates an [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") for your function. An execution role is an AWS Identity and Access Management (IAM) role that grants a Lambda function
 permission to access AWS services and resources. For your function, the role that Lambda creates grants basic permissions to write to CloudWatch Logs.
@@ -132,10 +132,10 @@ Python
 1. Choose the **Code** tab.
 
 In the console's built-in code editor, you should see the function code that Lambda
-created. If you don't see the **lambda_function.py** tab in the code editor, select **lambda_function.py**
+created. If you don't see the **lambda\_function.py** tab in the code editor, select **lambda\_function.py**
 in the file explorer as shown on the following diagram.
 
-![Diagram showing the console code editor and the lambda_function.py file in the file explorer](images/getting-started-tutorial/python_code_editor.png) 2. Paste the following code into the **lambda_function.py** tab, replacing the code that Lambda created.
+![Diagram showing the console code editor and the lambda_function.py file in the file explorer](images/getting-started-tutorial/python_code_editor.png) 2. Paste the following code into the **lambda\_function.py** tab, replacing the code that Lambda created.
 
 ```
 import json

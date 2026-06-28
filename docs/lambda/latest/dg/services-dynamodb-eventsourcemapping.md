@@ -35,11 +35,10 @@ Lambda supports the following options for DynamoDB event sources:
   invoking the function, in seconds.
 - **Starting position** – Process only new records, or all existing records.
 
-      + **Latest** – Process new records that are added to the stream.
-      + **Trim horizon** – Process all records in the stream.
-
-  After processing any existing records, the function is caught up and continues to process new
-  records.
+  - **Latest** – Process new records that are added to the stream.
+  - **Trim horizon** – Process all records in the stream.
+    After processing any existing records, the function is caught up and continues to process new
+    records.
 
 - **On-failure destination** – A standard SQS queue or standard SNS topic
   for records that can't be processed. When Lambda discards a batch of records that's too old or has exhausted

@@ -11,7 +11,7 @@ When you create a capacity provider, you specify:
 
 ## Understanding capacity providers as security boundary
 
-Capacity providers serve as the security boundary for Lambda functions within your VPC, replacing Firecracker-based isolation. Functions execute in containers within instances, but containers do not provide strong security isolation between functions, unlike Firecracker microVMs.
+Capacity providers serve as the security boundary for Lambda functions within your VPC, replacing Firecracker-based isolation. Functions execute in containers within instances, but containers do not provide strong security isolation between functions, unlike Firecracker MicroVMs.
 
 **Key security concepts:**
 

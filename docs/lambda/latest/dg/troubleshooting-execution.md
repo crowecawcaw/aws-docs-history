@@ -337,7 +337,7 @@ Tune your compiler using the `JAVA_TOOL_OPTIONS` parameter. Lambda runtimes for 
 Java versions change the default compiler options. The change improves cold start times for short-lived functions, but the
 previous behavior is better suited to computationally intensive, longer-running functions. Set
 `JAVA_TOOL_OPTIONS` to `-XX:-TieredCompilation` to revert to the Java 11 behavior. For more
-information about the `JAVA_TOOL_OPTIONS` parameter, see [Understanding the JAVA_TOOL_OPTIONS environment variable](java-customization.md#java-tool-options "java-customization.md#java-tool-options").
+information about the `JAVA_TOOL_OPTIONS` parameter, see [Understanding the JAVA\_TOOL\_OPTIONS environment variable](java-customization.md#java-tool-options "java-customization.md#java-tool-options").
 
 ## Kafka: Error handling and retry configuration issues
 

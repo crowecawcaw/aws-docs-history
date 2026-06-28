@@ -281,8 +281,10 @@ compatible with the _encoding/json_ standard library. For more information, see
 are deserialized.
 
 - ```
-  func ()
+
   ```
+
+func ()
 
 ````
 * ```
@@ -290,8 +292,10 @@ func () error
 ````
 
 - ```
-  func () (TOut, error)
+
   ```
+
+func () (TOut, error)
 
 ````
 * ```
@@ -299,8 +303,10 @@ func (TIn) error
 ````
 
 - ```
-  func (TIn) (TOut, error)
+
   ```
+
+func (TIn) (TOut, error)
 
 ````
 * ```
@@ -308,8 +314,10 @@ func (context.Context) error
 ````
 
 - ```
-  func (context.Context) (TOut, error)
+
   ```
+
+func (context.Context) (TOut, error)
 
 ````
 * ```
@@ -317,8 +325,10 @@ func (context.Context, TIn) error
 ````
 
 - ```
-  func (context.Context, TIn) (TOut, error)
+
   ```
+
+func (context.Context, TIn) (TOut, error)
 
 ```
 
@@ -407,7 +417,7 @@ After you configure and initialize your SDK client, you can then use it to inter
 
 ```
 
-\_, err = s3Client.PutObject(ctx, &s3.PutObjectInput{
+_, err = s3Client.PutObject(ctx, &s3.PutObjectInput{
 Bucket: &bucketName,
 Key: &key,
 Body: strings.NewReader(receiptContent),
