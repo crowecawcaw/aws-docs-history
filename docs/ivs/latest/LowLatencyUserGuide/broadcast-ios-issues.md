@@ -44,9 +44,7 @@ than realtime.
   rate (44100 Hz or greater) and two channels.
 
 **Workaround:** Increase the bitrate to 68 kbps
-or higher, decrease the sample rate to 24000 Hz or lower, or set channels to
-
-1.
+or higher, decrease the sample rate to 24000 Hz or lower, or set channels to 1.
 
 - When echo cancellation is enabled on `IVSMicrophone` devices, only
   a single microphone source is returned by the

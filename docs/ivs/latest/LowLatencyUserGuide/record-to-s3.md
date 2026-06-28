@@ -214,7 +214,7 @@ This metadata is in JSON format. It comprises the following information.
 | `recording_status_message`  | string  | Conditional | Descriptive information on the status. This is available only<br>when `recording_status` is `"RECORDING_ENDED"`<br>or `"RECORDING_ENDED_WITH_FAILURE"`.                                                                                                                                                                                                                                                                          |
 | `version`                   | string  | Yes         | The version of the metadata schema.                                                                                                                                                                                                                                                                                                                                                                                              |
 
-### Example: recording_started.json
+### Example: recording\_started.json
 
 ```
 {
@@ -272,7 +272,7 @@ This metadata is in JSON format. It comprises the following information.
 }
 ```
 
-### Example: recording_ended.json
+### Example: recording\_ended.json
 
 ```
 {
@@ -332,7 +332,7 @@ This metadata is in JSON format. It comprises the following information.
 }
 ```
 
-### Example: recording_failed.json
+### Example: recording\_failed.json
 
 ```
 {

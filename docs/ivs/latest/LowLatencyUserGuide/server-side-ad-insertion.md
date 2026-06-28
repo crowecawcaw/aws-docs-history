@@ -22,11 +22,10 @@ save the following values:
 - **Playback URL prefix** — Extract the URL prefix from the playback URL (everything before /api/).
   For example, if your playback URL is:
 
-      + https://c17b3fb37fc9.us-west-2.playback.live-video.net/api/video/v1/us-west-2.123456789012.channel.ABcdef12ghIJ.m3u8
+  - https://c17b3fb37fc9.us-west-2.playback.live-video.net/api/video/v1/us-west-2.123456789012.channel.ABcdef12ghIJ.m3u8
+    the prefix is:
 
-  the prefix is:
-
-      + https://c17b3fb37fc9.us-west-2.playback.live-video.net/
+  - https://c17b3fb37fc9.us-west-2.playback.live-video.net/
 
 - **Container format** — Must be set to MPEG Transport Stream (TS).
 
@@ -46,7 +45,7 @@ the following settings are required for IVS SSAI:
 | ---------------------- | ----------------------- | -------------------------------------------------------------------------------------------------- |
 | Ad decision server URL | Required Settings       | URL of the ad decision server                                                                      |
 | Content source         | Required Settings       | URL prefix of your IVS playback URL; e.g., https://c17b3fb37fc9.us-west-2.playback.live-video.net/ |
-| Insertion mode         | Personalization Details | PLAYER_SELECT                                                                                      |
+| Insertion mode         | Personalization Details | PLAYER\_SELECT                                                                                     |
 
 ###### Important
 

@@ -55,7 +55,7 @@ broadcast like resolution and framerate). You can specify the ingest endpoint wh
 creating the client or you can set this when you start a stream.
 
 The ingest endpoint can be found in the AWS Console or returned by the
-CreateChannel operation (e.g., UNIQUE_ID.global-contribute.live-video.net).
+CreateChannel operation (e.g., UNIQUE\_ID.global-contribute.live-video.net).
 
 ```
 const client = IVSBroadcastClient.create({

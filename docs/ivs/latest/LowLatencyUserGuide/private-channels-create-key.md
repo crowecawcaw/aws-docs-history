@@ -3,8 +3,8 @@
 Amazon IVS allows a maximum of three key pairs that can be used to sign and verify
 playback tokens. Amazon IVS does not offer any key rotations.
 
-**_Once imported, playback keys cannot be
-updated._** Instead, you must delete the existing playback
+_**Once imported, playback keys cannot be
+updated.**_ Instead, you must delete the existing playback
 key and import a new key.
 
 You need to generate an [ECDSA
@@ -35,8 +35,8 @@ enables you to download only the private key.
    requests that contain a token signed with the private key.
 
 The private key is immediately downloaded to your machine and is not
-saved in the console or available for future download. **_Be sure you save the private
-key; you cannot retrieve it later._**
+saved in the console or available for future download. _**Be sure you save the private
+key; you cannot retrieve it later.**_
 
 ### OpenSSL Instructions
 

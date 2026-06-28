@@ -59,7 +59,7 @@ upload.
 **Workaround:** None.
 
 - When using Next.js, an `Uncaught ReferenceError: self is not
-defined` error may be encountered, depending on how the SDK is
+ defined` error may be encountered, depending on how the SDK is
   imported.
 
 **Workaround:**
@@ -67,7 +67,7 @@ defined` error may be encountered, depending on how the SDK is
 
 - You may be unable to import the module using a script tag of type
   `module`; i.e., `<script type="module"
-src="..."\>`.
+ src="..."\>`.
 
 **Workaround:** The library does not have an ES6
 build. Remove the `type="module"` from the script tag.

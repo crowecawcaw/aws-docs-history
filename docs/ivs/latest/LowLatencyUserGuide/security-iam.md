@@ -446,10 +446,10 @@ As with a username and password, you must use both the access key ID and
 the secret access key together to authenticate your requests. Manage your
 access keys as securely as you do your user name and password.
 
-**_Important: Do not give your
+_**Important: Do not give your
 access keys to a third party, even to help [find your canonical user ID](../../../accounts/latest/reference/manage-acct-identifiers.md#FindingCanonicalId "../../../accounts/latest/reference/manage-acct-identifiers.md#FindingCanonicalId"). Doing so might give
 someone permanent access to your
-account._**
+account.**_
 
 When you create an access key pair, you are prompted to save the access
 key ID and secret access key in a secure location. The secret access key is

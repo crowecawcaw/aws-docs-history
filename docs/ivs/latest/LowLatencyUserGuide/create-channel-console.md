@@ -54,14 +54,14 @@ configuration.
     3. Enter a **Bucket name**.
 
 4. Choose **Create recording
-   configuration**, to create a new recording-configuration
-   resource with a unique ARN. Typically, creation of the recording
-   configuration takes a few seconds, but it can be up to 20 seconds. When
-   the recording configuration is created, you are returned to the
-   **Create channel** window. There, the
-   **Record and store streams** area shows
-   your new **Recording configuration**, with
-   its **State** as **Active** and the S3 bucket (**Storage**) that you created.
+configuration**, to create a new recording-configuration
+resource with a unique ARN. Typically, creation of the recording
+configuration takes a few seconds, but it can be up to 20 seconds. When
+the recording configuration is created, you are returned to the
+**Create channel** window. There, the
+**Record and store streams** area shows
+your new **Recording configuration**, with
+its **State** as **Active** and the S3 bucket (**Storage**) that you created.
 
 ![Create a channel using the IVS Console: New recording configuration created.](images/Create_Recording_Config.png)
 

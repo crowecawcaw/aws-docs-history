@@ -110,11 +110,10 @@ Amazon IVS. After the wizard completes:
      Multitrack Video**.
 
 5. We recommend a 2-second **Keyframe Interval**
-   to improve the stream stability and avoid buffering in the viewer playback.
-   After the wizard completes, go to **Settings > Output >
-   Output Mode**, select **Advanced**, and on the **Streaming**
-   tab, ensure that **Keyframe Interval** is
-6.
+to improve the stream stability and avoid buffering in the viewer playback.
+After the wizard completes, go to **Settings > Output >
+Output Mode**, select **Advanced**, and on the **Streaming**
+tab, ensure that **Keyframe Interval** is 2.
 
 **Note:** Keyframe Interval is configured
 automatically if you previously checked **Enable
@@ -192,24 +191,22 @@ If you created the channel with the AWS CLI:
      will remain empty for the SRT protocol.
 
 4. For **Video Output Resolution** and **Bitrate**, refer to [Channel Types](streaming-config.md#streaming-config-settings-channel-types "streaming-config.md#streaming-config-settings-channel-types")
-   in _Amazon IVS Streaming Configuration_. If
-   either value chosen by the OBS wizard exceeds the values allowed by Amazon
-   IVS, you should manually adjust the values to avoid a failed connection to
-   Amazon IVS. After the wizard completes:
+in _Amazon IVS Streaming Configuration_. If
+either value chosen by the OBS wizard exceeds the values allowed by Amazon
+IVS, you should manually adjust the values to avoid a failed connection to
+Amazon IVS. After the wizard completes:
 
-   1. To adjust video resolution, use **Settings >
-      Video > Output (Scaled) Resolution**.
-   2. To adjust video bitrate, use **Settings >
-      Output > Streaming > Video Bitrate**.
+    1. To adjust video resolution, use **Settings >
+     Video > Output (Scaled) Resolution**.
+    2. To adjust video bitrate, use **Settings >
+     Output > Streaming > Video Bitrate**.
 
 5. We recommend a 2-second **Keyframe Interval**
-   to improve the stream stability and avoid buffering in the viewer playback.
-   After the wizard completes, go to **Settings > Output >
-   Output Mode**, select **Advanced**, and on the **Streaming**
-   tab, ensure that **Keyframe Interval** is
-6.
-7. In the OBS Studio main window, choose **Start
-   Streaming**.
+to improve the stream stability and avoid buffering in the viewer playback.
+After the wizard completes, go to **Settings > Output >
+Output Mode**, select **Advanced**, and on the **Streaming**
+tab, ensure that **Keyframe Interval** is 2. 6. In the OBS Studio main window, choose **Start
+Streaming**.
 
 You can modify your OBS settings manually later:
 

@@ -23,21 +23,20 @@ customizing elements that aren't compatible with server-side composition.
   offers numerous benefits, making it an attractive choice for users seeking
   efficient and reliable live streaming.
 
-      + **Reduced client load** — With
-       server-side composition, the burden of combining audio and video sources
-       is shifted from individual client devices to the server itself.
-       Server-side composition eliminates the need for client devices to use
-       their CPU and network resources for compositing the view and
-       transmitting it to IVS.
-      + **Resilience** — By centralizing the
-       composition process on the server, the broadcast becomes more robust.
-       Even if a publisher device experiences technical limitations or network
-       fluctuations, the server can adapt and provide a smoother stream to all
-       the audience.
-      + **Bandwidth efficiency** — Since the
-       server handles the composition, stage publishers do not have to spend
-       extra bandwidth broadcasting the video to an IVS channel.
-
-  For more information, see [Server-Side
-  Composition](../RealTimeUserGuide/server-side-composition.md "../RealTimeUserGuide/server-side-composition.md") in the _IVS Real-Time User
-  Guide_.
+  - **Reduced client load** — With
+    server-side composition, the burden of combining audio and video sources
+    is shifted from individual client devices to the server itself.
+    Server-side composition eliminates the need for client devices to use
+    their CPU and network resources for compositing the view and
+    transmitting it to IVS.
+  - **Resilience** — By centralizing the
+    composition process on the server, the broadcast becomes more robust.
+    Even if a publisher device experiences technical limitations or network
+    fluctuations, the server can adapt and provide a smoother stream to all
+    the audience.
+  - **Bandwidth efficiency** — Since the
+    server handles the composition, stage publishers do not have to spend
+    extra bandwidth broadcasting the video to an IVS channel.
+    For more information, see [Server-Side
+    Composition](../RealTimeUserGuide/server-side-composition.md "../RealTimeUserGuide/server-side-composition.md") in the _IVS Real-Time User
+    Guide_.

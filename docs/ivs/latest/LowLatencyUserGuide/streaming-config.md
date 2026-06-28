@@ -335,7 +335,7 @@ Amazon IVS accepts captions in line 21 CEA-708/EIA-608 format (also referred to 
 over 708). You can transmit captions using one of the following methods:
 
 - CEA-708/EIA-608 embedded in the video elementary stream, as described in ATSC
-  A/72 (SEI user_data). This format is common among television broadcast
+  A/72 (SEI user\_data). This format is common among television broadcast
   encoders.
 - CEA-708/EIA-608 transmitted via RTMPS onCaptionInfo script/AMF0 tag. This
   format is common among Internet broadcast encoders and media servers like

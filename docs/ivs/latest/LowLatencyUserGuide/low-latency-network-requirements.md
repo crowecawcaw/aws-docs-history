@@ -22,11 +22,11 @@ AWS PrivateLink. For more information, see [Private Ingest](private-ingest-ll.md
 
 The
 data plane for IVS low-latency streaming is global. To broadcast to IVS, it is
-important that all subnets for the service IVS_LOW_LATENCY in [ip-ranges.json](../../../vpc/latest/userguide/aws-ip-ranges.md "../../../vpc/latest/userguide/aws-ip-ranges.md") must be accessible, regardless of their region or your
+important that all subnets for the service IVS\_LOW\_LATENCY in [ip-ranges.json](../../../vpc/latest/userguide/aws-ip-ranges.md "../../../vpc/latest/userguide/aws-ip-ranges.md") must be accessible, regardless of their region or your
 chosen AWS Region. Streamers may be connected to any subnet automatically. See
 [Global Solution, Regional Control](what-is.md#what-is-aws "what-is.md#what-is-aws") for details.
 
-For a list of all IVS_LOW_LATENCY subnets, run the following `jq`
+For a list of all IVS\_LOW\_LATENCY subnets, run the following `jq`
 commands:
 
 **ipv4**

@@ -146,7 +146,7 @@ where:
      to use the IVS player.
 
 5. When creating an instance of the player, add `AmazonIVS` as
-   your first tech in the `techOrder` option:
+your first tech in the `techOrder` option:
 
 ```
 const player = videojs('videojs-player', {

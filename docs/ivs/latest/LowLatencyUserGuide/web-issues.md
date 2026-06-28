@@ -4,7 +4,7 @@ This document lists known issues that you might encounter when using the Amazon 
 Web player SDK and suggests potential workarounds.
 
 - When using the IVS Web Player SDK v1.33.0+ with JW Player on Chrome, playback
-  may fail with error 290000 (MEDIA_ELEMENT_ERROR: Unable to attach MediaSource)
+  may fail with error 290000 (MEDIA\_ELEMENT\_ERROR: Unable to attach MediaSource)
   after user interaction (e.g., click to unmute, pause/resume, or anywhere else on
   the page).
 

@@ -10,8 +10,8 @@ As part of channel creation, the following items are assigned:
   Amazon IVS component that receives the stream, along with an ingestion protocol
   (RTMPS or RTMP).
 - Amazon IVS assigns a _stream key_ when you
-  create a channel and uses it to authorize streaming. **_Treat the stream key like a secret, since it
-  allows anyone to stream to the channel_**.
+  create a channel and uses it to authorize streaming. _**Treat the stream key like a secret, since it
+  allows anyone to stream to the channel**_.
 - A _playback URL_ identifies the endpoint to
   start playback for a specific channel. This endpoint can be used globally. It
   automatically selects the best location from the Amazon IVS global content
