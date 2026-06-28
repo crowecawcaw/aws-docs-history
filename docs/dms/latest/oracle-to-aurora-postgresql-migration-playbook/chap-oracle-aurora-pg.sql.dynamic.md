@@ -1,4 +1,4 @@
-# Oracle DBMS_SQL package and PostgreSQL dynamic execution
+# Oracle DBMS\_SQL package and PostgreSQL dynamic execution
 
 With AWS DMS, you can dynamically construct and execute SQL statements at runtime in your source and target databases. The Oracle `DBMS_SQL` package and PostgreSQL dynamic execution feature provide interfaces for building SQL statements, binding values to placeholders, and processing query results dynamically. These capabilities are essential when writing database applications that must customize queries based on user input or runtime conditions.
 
@@ -56,10 +56,10 @@ END;
 The `DBMS_SQL` package includes three other procedures.
 
 - `RETURN_RESULT` (New in oracle 12c) — Gets a result set and returns it to the client. Because the procedure already returns a result set, the invoker doesn’t have to know the format of the result or the columns it contains (most often used with SQL\*Plus).
-- `TO_REFCURSOR` — When using `DBMS_SQL.OPEN_CURSOR`, the numeric cursor ID is returned. If you know the structure of the result of the cursor, you can call the `TO_REFCURSOR` procedure, stop working with DBMS_SQL, and move to regular commands such as `FETCH`, `WHEN CURSOR%notfound`, and others. Before using `TO_REFCURSOR`, use the procedures `OPEN_CURSOR`, `PARSE` and `EXECUTE`.
-- `TO_CURSOR_NUMBER` — Gets a cursor opened in native dynamic SQL. After the cursor is open, it can be converted to a number (cursor id) and then managed using DBMS_SQL procedures.
+- `TO_REFCURSOR` — When using `DBMS_SQL.OPEN_CURSOR`, the numeric cursor ID is returned. If you know the structure of the result of the cursor, you can call the `TO_REFCURSOR` procedure, stop working with DBMS\_SQL, and move to regular commands such as `FETCH`, `WHEN CURSOR%notfound`, and others. Before using `TO_REFCURSOR`, use the procedures `OPEN_CURSOR`, `PARSE` and `EXECUTE`.
+- `TO_CURSOR_NUMBER` — Gets a cursor opened in native dynamic SQL. After the cursor is open, it can be converted to a number (cursor id) and then managed using DBMS\_SQL procedures.
 
-For more information, see [DBMS_SQL](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html#GUID-C96D5BAA-29A9-4AB5-A69E-E31228ECC9E9 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html#GUID-C96D5BAA-29A9-4AB5-A69E-E31228ECC9E9") in the _Oracle documentation_.
+For more information, see [DBMS\_SQL](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html#GUID-C96D5BAA-29A9-4AB5-A69E-E31228ECC9E9 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html#GUID-C96D5BAA-29A9-4AB5-A69E-E31228ECC9E9") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 

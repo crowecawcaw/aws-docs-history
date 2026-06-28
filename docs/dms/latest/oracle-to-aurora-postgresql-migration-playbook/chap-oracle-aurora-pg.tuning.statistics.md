@@ -8,7 +8,7 @@ With AWS DMS, you can analyze table statistics for your Oracle and PostgreSQL da
 
 ## Oracle usage
 
-Table statistics are one of the important aspects affecting SQL query performance. They enable the query optimizer to make informed assumptions when deciding how to generate the execution plan for each query. Oracle provides the DBMS_STATS package to manage and control the table statistics, which can be collected automatically or manually.
+Table statistics are one of the important aspects affecting SQL query performance. They enable the query optimizer to make informed assumptions when deciding how to generate the execution plan for each query. Oracle provides the DBMS\_STATS package to manage and control the table statistics, which can be collected automatically or manually.
 
 The following statistics are usually collected on database tables and indexes:
 
@@ -29,13 +29,13 @@ Oracle 19 also introduces High-Frequency Automatic Optimizer Statistics Collecti
 
 When the automatic statistics collection is not suitable for a particular use case, the optimizer statistics collection can be performed manually at several levels.
 
-| Statistics level        | Description                               |
-| ----------------------- | ----------------------------------------- |
-| GATHER_INDEX_STATS      | Index statistics.                         |
-| GATHER_TABLE_STATS      | Table, column, and index statistics.      |
-| GATHER_SCHEMA_STATS     | Statistics for all objects in a schema.   |
-| GATHER_DICTIONARY_STATS | Statistics for all dictionary objects.    |
-| GATHER_DATABASE_STATS   | Statistics for all objects in a database. |
+| Statistics level          | Description                               |
+| ------------------------- | ----------------------------------------- |
+| GATHER\_INDEX\_STATS      | Index statistics.                         |
+| GATHER\_TABLE\_STATS      | Table, column, and index statistics.      |
+| GATHER\_SCHEMA\_STATS     | Statistics for all objects in a schema.   |
+| GATHER\_DICTIONARY\_STATS | Statistics for all dictionary objects.    |
+| GATHER\_DATABASE\_STATS   | Statistics for all objects in a database. |
 
 **Examples**
 

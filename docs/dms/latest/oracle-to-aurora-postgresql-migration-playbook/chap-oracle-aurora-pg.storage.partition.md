@@ -332,7 +332,7 @@ constraint_exclusion
 partition
 ```
 
-For more information, see [constraint_exclusion](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION "https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION") in the _PostgreSQL documentation_.
+For more information, see [constraint\_exclusion](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION "https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION") in the _PostgreSQL documentation_.
 
 PostgreSQL 9.6 doesn’t support declarative partitioning as well as several of the table partitioning features available in Oracle. Alternatives for replacing Oracle interval table partitioning include using application-centric methods using PL/pgSQL or other programming languages.
 

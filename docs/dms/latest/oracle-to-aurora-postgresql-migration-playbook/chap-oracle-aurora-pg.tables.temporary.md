@@ -53,7 +53,7 @@ Prior to Oracle 12c, statistics on temporary tables were common to all sessions.
 
 Performing DML operations on a temporary table doesn’t generate Redo data, but does generate undo data that eventually, by itself, generates redo records. Oracle 12c provides an option to store the temporary undo data in the temporary tablespace itself. This feature is configured using the `temp_undo_enabled` parameter with the options `TRUE` or `FALSE`.
 
-For more information, see [TEMP_UNDO_ENABLED](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/TEMP_UNDO_ENABLED.html#GUID-E2A01A84-2D63-401F-B64E-C96B18C5DCA6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/TEMP_UNDO_ENABLED.html#GUID-E2A01A84-2D63-401F-B64E-C96B18C5DCA6") in the _Oracle documentation_.
+For more information, see [TEMP\_UNDO\_ENABLED](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/TEMP_UNDO_ENABLED.html#GUID-E2A01A84-2D63-401F-B64E-C96B18C5DCA6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/TEMP_UNDO_ENABLED.html#GUID-E2A01A84-2D63-401F-B64E-C96B18C5DCA6") in the _Oracle documentation_.
 
 **Examples**
 
@@ -170,19 +170,19 @@ DROP TABLE
 
 ## Summary
 
-| Feature                                                                           | Oracle                        | Aurora PostgreSQL                      |
-| --------------------------------------------------------------------------------- | ----------------------------- | -------------------------------------- |
-| Semantic                                                                          | Global Temporary Table        | Temporary Table / Temp Table           |
-| Create table                                                                      | CREATE GLOBAL TEMPORARY…      | CREATE TEMPORARY… or CREATE TEMP…      |
-| Accessible from multiple sessions                                                 | Yes                           | No                                     |
-| Temp table DDL persist after session end / database restart usermanaged datafiles | Yes                           | No (dropped at the end of the session) |
-| Create index support                                                              | Yes                           | Yes                                    |
-| Foreign key support                                                               | Yes                           | Yes                                    |
-| ON COMMIT default                                                                 | COMMIT DELETE ROWS            | ON COMMIT PRESERVE ROWS                |
-| ON COMMIT PRESERVE ROWS                                                           | Yes                           | Yes                                    |
-| ON COMMIT DELETE ROWS                                                             | Yes                           | Yes                                    |
-| Alter table support                                                               | Yes                           | Yes                                    |
-| Gather statistics                                                                 | dbms_stats.gather_table_stats | ANALYZE                                |
-| Oracle 12c GLOBAL_TEMP_TABLE_STATS                                                | dbms_stats.set_table_prefs    | ANALYZE                                |
+| Feature                                                                           | Oracle                           | Aurora PostgreSQL                      |
+| --------------------------------------------------------------------------------- | -------------------------------- | -------------------------------------- |
+| Semantic                                                                          | Global Temporary Table           | Temporary Table / Temp Table           |
+| Create table                                                                      | CREATE GLOBAL TEMPORARY…         | CREATE TEMPORARY… or CREATE TEMP…      |
+| Accessible from multiple sessions                                                 | Yes                              | No                                     |
+| Temp table DDL persist after session end / database restart usermanaged datafiles | Yes                              | No (dropped at the end of the session) |
+| Create index support                                                              | Yes                              | Yes                                    |
+| Foreign key support                                                               | Yes                              | Yes                                    |
+| ON COMMIT default                                                                 | COMMIT DELETE ROWS               | ON COMMIT PRESERVE ROWS                |
+| ON COMMIT PRESERVE ROWS                                                           | Yes                              | Yes                                    |
+| ON COMMIT DELETE ROWS                                                             | Yes                              | Yes                                    |
+| Alter table support                                                               | Yes                              | Yes                                    |
+| Gather statistics                                                                 | dbms\_stats.gather\_table\_stats | ANALYZE                                |
+| Oracle 12c GLOBAL\_TEMP\_TABLE\_STATS                                             | dbms\_stats.set\_table\_prefs    | ANALYZE                                |
 
 For more information, see [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the _PostgreSQL documentation_.

@@ -1,4 +1,4 @@
-# Oracle SQL\*Loader and PostgreSQL pg_dump and pg_restore
+# Oracle SQL\*Loader and PostgreSQL pg\_dump and pg\_restore
 
 With AWS DMS, you can efficiently migrate data from flat files into AWS databases using Oracle SQL\*Loader and PostgreSQL `pg_dump` and `pg_restore` commands. These utilities facilitate bulk data loading from external files into database tables.
 
@@ -86,4 +86,4 @@ CREATE TABLE tst_copy(v TEXT);
 COPY tst_copy FROM '/home/postgres/file.csv' WITH (FORMAT CSV) WHERE v LIKE '%apple%';
 ```
 
-For more information, see [PostgreSQL pg_dump and pg_restore](chap-oracle-aurora-pg.hadr.datapump.md#chap-oracle-aurora-pg.hadr.datapump.pg "chap-oracle-aurora-pg.hadr.datapump.md#chap-oracle-aurora-pg.hadr.datapump.pg").
+For more information, see [PostgreSQL pg\_dump and pg\_restore](chap-oracle-aurora-pg.hadr.datapump.md#chap-oracle-aurora-pg.hadr.datapump.pg "chap-oracle-aurora-pg.hadr.datapump.md#chap-oracle-aurora-pg.hadr.datapump.pg").

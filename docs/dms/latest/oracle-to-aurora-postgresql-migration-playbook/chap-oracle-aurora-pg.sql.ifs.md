@@ -38,7 +38,7 @@ INSERT INTO
 VALUES (120, 'Kenny', 10000, 90);
 ```
 
-Log errors with the Oracle error_logging_clause.
+Log errors with the Oracle error\_logging\_clause.
 
 ```
 ALTER TABLE EMPS ADD CONSTRAINT PK_EMP_ID PRIMARY KEY(employee_id);
@@ -57,7 +57,7 @@ For more information, see [INSERT](https://docs.oracle.com/en/database/oracle/or
 
 ## PostgreSQL usage
 
-PostgreSQL `INSERT FROM SELECT` syntax is mostly compatible with the Oracle syntax, except for a few Oracle-only features such as the conditional_insert_clause (`ALL|FIRST|ELSE`). Also, PostgreSQL doesn’t support the Oracle error_logging_clause. As an alternative, PostgreSQL provides the ON CONFLICT clause to capture errors, perform corrective measures, or log errors.
+PostgreSQL `INSERT FROM SELECT` syntax is mostly compatible with the Oracle syntax, except for a few Oracle-only features such as the conditional\_insert\_clause (`ALL|FIRST|ELSE`). Also, PostgreSQL doesn’t support the Oracle error\_logging\_clause. As an alternative, PostgreSQL provides the ON CONFLICT clause to capture errors, perform corrective measures, or log errors.
 
 **Syntax**
 

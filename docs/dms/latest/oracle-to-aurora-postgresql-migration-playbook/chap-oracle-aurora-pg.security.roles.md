@@ -15,7 +15,7 @@ Oracle 12c introduces a new multi-tenant database architecture that supports the
 - **Common roles** — Roles created at the container database (CDB) level. A common role is a database role that exists in the root and in every existing and future pluggable database (PDB). Common roles are useful for cross-container operations such as ensuring a common user has a role in every container.
 - **Local roles** — Roles created in a specific pluggable database (PDB). A local role exists only in a single pluggable database and can only contain roles and privileges that apply within the pluggable database in which the role exists.
 
-Common role names must start with a c## prefix. Starting with Oracle 12.1.0.2, these prefixes can be changed using the COMMON_USER_PREFIX parameter.
+Common role names must start with a c## prefix. Starting with Oracle 12.1.0.2, these prefixes can be changed using the COMMON\_USER\_PREFIX parameter.
 
 A `CONTAINER` clause can be added to `CREATE ROLE` statement to choose the container applicable for the role.
 

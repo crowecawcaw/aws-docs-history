@@ -1,4 +1,4 @@
-# Oracle UTL_FILE package
+# Oracle UTL\_FILE package
 
 With AWS DMS, you can access data and read/write files on the server’s file system using the Oracle `UTL_FILE` package. The `UTL_FILE` package provides APIs to operate on server files, allowing applications to read and write operating system files.
 
@@ -39,7 +39,7 @@ END;
 /
 ```
 
-For more information, see [UTL_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
+For more information, see [UTL\_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 

@@ -58,7 +58,7 @@ UPDATE AS SELECT * FROM sh.customers@remote cu WHERE EXISTS
 (SELECT * FROM sh.countries@remote co WHERE co.country_id = cu.country_id);
 ```
 
-Create a materialized view on two source tables: `times` and `products`. This approach enables `FAST` refresh of the materialized view instead of the slower `COMPLETE` refresh. Also, create a new materialized view named sales_mv which is refreshed incrementally `REFRESH FAST` each time changes in data are detected (`ON COMMIT`) on one or more of the tables associated with the materialized view query.
+Create a materialized view on two source tables: `times` and `products`. This approach enables `FAST` refresh of the materialized view instead of the slower `COMPLETE` refresh. Also, create a new materialized view named sales\_mv which is refreshed incrementally `REFRESH FAST` each time changes in data are detected (`ON COMMIT`) on one or more of the tables associated with the materialized view query.
 
 ```
 CREATE MATERIALIZED VIEW LOG ON times
@@ -95,7 +95,7 @@ In PostgreSQL 10, the statistics collector is being updated properly after a `RE
 
 **Examples**
 
-Create a materialized view named sales_summary using the sales table as the source for the materialized view.
+Create a materialized view named sales\_summary using the sales table as the source for the materialized view.
 
 ```
 CREATE MATERIALIZED VIEW sales_summary AS

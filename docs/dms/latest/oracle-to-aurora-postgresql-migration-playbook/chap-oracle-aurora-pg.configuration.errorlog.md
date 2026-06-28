@@ -36,9 +36,9 @@ PostgreSQL provides detailed logging and reporting of errors that occur during t
 
 ### PostgreSQL and Oracle error codes
 
-| Oracle                                                | PostgreSQL                                                                                                   |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| ORA-00001: unique constraint (string.string) violated | SQLSTATE[23505]: Unique violation: 7 ERROR: duplicate key value violates unique constraint "constraint_name" |
+| Oracle                                                | PostgreSQL                                                                                                    |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ORA-00001: unique constraint (string.string) violated | SQLSTATE[23505]: Unique violation: 7 ERROR: duplicate key value violates unique constraint "constraint\_name" |
 
 For more information, see [PostgreSQL Error Codes](https://www.postgresql.org/docs/10/errcodes-appendix.html "https://www.postgresql.org/docs/10/errcodes-appendix.html") in the _PostgreSQL documentation_.
 

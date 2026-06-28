@@ -54,7 +54,7 @@ Return to AWS SCT and choose **Next**. Enter the connection details for the targ
 
 When the connection is complete, AWS SCT displays the main window. In this interface, you can explore the individual issues and recommendations discovered by AWS SCT.
 
-For example, expand **sample database**, **dms sample**, **Procedures**, **generate_tickets**. This issue has a red marker indicating it could not be automatically converted and requires a manual code change (issue 811 above). Select the object to highlight the incompatible code section.
+For example, expand **sample database**, **dms sample**, **Procedures**, **generate\_tickets**. This issue has a red marker indicating it could not be automatically converted and requires a manual code change (issue 811 above). Select the object to highlight the incompatible code section.
 
 ![Conversion issue in the generate tickets procedure](images/pb-oracle-aurora-pg-aws-sct-generate-tickets.png)
 

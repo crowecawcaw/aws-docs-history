@@ -627,9 +627,9 @@ ALTER TABLE EMPLOYEES
 | ENABLE NOVALIDATE              | NOT VALID                                           |
 | DISABLE VALIDATE               | Not supported                                       |
 | DISABLE NOVALIDATE             | Not supported                                       |
-| USING_INDEX_CLAUSE             | table_constraint_using_index                        |
+| USING\_INDEX\_CLAUSE           | table\_constraint\_using\_index                     |
 | View Constraints               | Not supported                                       |
-| Metadata: DBA_CONSTRAINTS      | Metadata: PG_CONSTRAINT                             |
+| Metadata: DBA\_CONSTRAINTS     | Metadata: PG\_CONSTRAINT                            |
 
 For more information, see
 [Constraints](https://www.postgresql.org/docs/13/ddl-constraints.html "https://www.postgresql.org/docs/13/ddl-constraints.html"), [SET CONSTRAINTS](https://www.postgresql.org/docs/13/sql-set-constraints.html "https://www.postgresql.org/docs/13/sql-set-constraints.html"), and [ALTER TABLE](https://www.postgresql.org/docs/13/sql-altertable.html "https://www.postgresql.org/docs/13/sql-altertable.html") in the _PostgreSQL documentation_.

@@ -6,7 +6,7 @@ This section provides reference pages for special Oracle features and PostgreSQL
 
 - [Oracle character sets and PostgreSQL encoding](chap-oracle-aurora-pg.special.charset.md "chap-oracle-aurora-pg.special.charset.md")
 - [Oracle database links and PostgreSQL dblink and fdwrapper](chap-oracle-aurora-pg.special.dblinks.md "chap-oracle-aurora-pg.special.dblinks.md")
-- [Oracle DBMS_SCHEDULER and PostgreSQL scheduled Lambda](chap-oracle-aurora-pg.special.scheduler.md "chap-oracle-aurora-pg.special.scheduler.md")
+- [Oracle DBMS\_SCHEDULER and PostgreSQL scheduled Lambda](chap-oracle-aurora-pg.special.scheduler.md "chap-oracle-aurora-pg.special.scheduler.md")
 - [Oracle external tables and PostgreSQL integration with Amazon S3](chap-oracle-aurora-pg.special.external.md "chap-oracle-aurora-pg.special.external.md")
 - [Inline views](chap-oracle-aurora-pg.special.inlineviews.md "chap-oracle-aurora-pg.special.inlineviews.md")
 - [Oracle JSON document support and PostgreSQL JSON support](chap-oracle-aurora-pg.special.json.md "chap-oracle-aurora-pg.special.json.md")

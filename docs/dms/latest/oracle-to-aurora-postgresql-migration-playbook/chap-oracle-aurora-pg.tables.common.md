@@ -22,7 +22,7 @@ Oracle provides a set of primitive data types for defining table columns and PL/
 | VARCHAR(n)        | Maximum size of 2000 bytes                                  | Yes                                | VARCHAR(n)                         |
 | NCHAR VARYING (n) | Varying-length UTF-8 string, maximum size of 4000 bytes     | No                                 | CHARACTER VARYING(n)               |
 | VARCHAR2(n) 11g   | Maximum size of 4000 bytes. Maximum size of 32KB in PL/SQL. | No                                 | VARCHAR(n)                         |
-| VARCHAR2(n) 12g   | Maximum size of 32767 bytes. MAX_STRING_SIZE=EXTENDED       | No                                 | VARCHAR(n)                         |
+| VARCHAR2(n) 12g   | Maximum size of 32767 bytes. MAX\_STRING\_SIZE=EXTENDED     | No                                 | VARCHAR(n)                         |
 | NVARCHAR2(n)      | Maximum size of 4000 bytes                                  | No                                 | VARCHAR(n)                         |
 | LONG              | Maximum size of 2GB                                         | No                                 | TEXT                               |
 | RAW(n)            | Maximum size of 2000 bytes                                  | No                                 | BYTEA                              |
@@ -85,11 +85,11 @@ Oracle provides a set of primitive data types for defining table columns and PL/
 
 **Spatial types**
 
-| Oracle data type  | Oracle data type characteristic                         | PostgreSQL identical compatibility | PostgreSQL corresponding data type |
-| ----------------- | ------------------------------------------------------- | ---------------------------------- | ---------------------------------- |
-| SDO_GEOMETRY      | The geometric description of a spatial object           | No                                 | N/A                                |
-| SDO_TOPO_GEOMETRY | Describes a topology geometry                           | No                                 | N/A                                |
-| SDO_GEORASTER     | A raster grid or image object is stored in a single row | No                                 | N/A                                |
+| Oracle data type    | Oracle data type characteristic                         | PostgreSQL identical compatibility | PostgreSQL corresponding data type |
+| ------------------- | ------------------------------------------------------- | ---------------------------------- | ---------------------------------- |
+| SDO\_GEOMETRY       | The geometric description of a spatial object           | No                                 | N/A                                |
+| SDO\_TOPO\_GEOMETRY | Describes a topology geometry                           | No                                 | N/A                                |
+| SDO\_GEORASTER      | A raster grid or image object is stored in a single row | No                                 | N/A                                |
 
 **Media types**
 
@@ -205,11 +205,11 @@ PostgreSQL provides multiple data types equivalent to certain Oracle data types.
 | INET                 | Similar to cidr, except the host part can be 0                                                                        |
 | MACADDR              | MAC (Media Access Control) address                                                                                    |
 | MACADDR8             | MAC (Media Access Control) address in EUI-64 format (PostgreSQL 10)                                                   |
-| PG_LSN               | PostgreSQL Log Sequence Number                                                                                        |
+| PG\_LSN              | PostgreSQL Log Sequence Number                                                                                        |
 | BYTEA                | Binary data ("byte array")                                                                                            |
 | TSQUERY              | Text search query                                                                                                     |
 | TSVECTOR             | Text search document                                                                                                  |
-| TXID_SNAPSHOT        | User-level transaction ID snapshot                                                                                    |
+| TXID\_SNAPSHOT       | User-level transaction ID snapshot                                                                                    |
 | UUID                 | Universally unique identifier                                                                                         |
 
 ### PostgreSQL character column semantics

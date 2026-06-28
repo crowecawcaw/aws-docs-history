@@ -80,7 +80,7 @@ For more information, see [Using LogMiner to Analyze Redo Log Files](https://doc
 
 PostgreSQL doesn’t provide a feature that is directly equivalent to Oracle Log Miner. However, several alternatives exist which allow viewing historical database activity in PostgreSQL.
 
-**Using PG_STAT_STATEMENTS**
+**Using PG\_STAT\_STATEMENTS**
 
 Extension module for tracking query run details with statistical information. The `PG_STAT_STATEMENTS` view presents a single row for each database operation that was logged, including information about the user, query, number of rows retrieved by the query, and more.
 
@@ -91,9 +91,9 @@ Extension module for tracking query run details with statistical information. Th
 3. On the **Parameter group actions**, choose **Edit**.
 4. Set the following parameters:
 
-   - shared_preload_libraries = 'pg_stat_statements'
-   - pg_stat_statements.max = 10000
-   - pg_stat_statements.track = all
+   - shared\_preload\_libraries = 'pg\_stat\_statements'
+   - pg\_stat\_statements.max = 10000
+   - pg\_stat\_statements.track = all
 
 5. Choose **Save changes**.
 
@@ -157,8 +157,8 @@ DML and DML operations can be tracked inside the PostgreSQL log file (postgres.l
 3. On the **Parameter group actions**, choose **Edit**.
 4. Set the following parameters:
 
-   - log_statement = 'ALL'
-   - log_min_duration_statement = 1
+   - log\_statement = 'ALL'
+   - log\_min\_duration\_statement = 1
 
 5. Choose **Save changes**.
 
@@ -188,4 +188,4 @@ The Amazon Aurora performance insights dashboard provides information about curr
 7. Choose the instance to monitor.
 8. Specify the timeframe and the monitoring scope (Waits, SQL, Hosts and Users).
 
-For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/13/runtime-config-logging.html "https://www.postgresql.org/docs/13/runtime-config-logging.html") and [pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html "https://www.postgresql.org/docs/13/pgstatstatements.html") in the _PostgreSQL documentation_ and [PostgreSQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md") in the _Amazon RDS user guide_.
+For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/13/runtime-config-logging.html "https://www.postgresql.org/docs/13/runtime-config-logging.html") and [pg\_stat\_statements](https://www.postgresql.org/docs/13/pgstatstatements.html "https://www.postgresql.org/docs/13/pgstatstatements.html") in the _PostgreSQL documentation_ and [PostgreSQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md") in the _Amazon RDS user guide_.

@@ -89,7 +89,7 @@ Alternatives for virtual columns for PostgreSQL before version 12:app-name:
 
 **Examples**
 
-The email address for a user is calculated based on the USER_NAME column that is a physical property of the table.
+The email address for a user is calculated based on the USER\_NAME column that is a physical property of the table.
 
 Create a table that includes a `USER_NAME` column but doesn’t include an email address column.
 

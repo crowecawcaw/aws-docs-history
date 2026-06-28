@@ -119,7 +119,7 @@ For more information, see [Building Indexes Concurrently](https://www.postgresql
 | ALTER INDEX… (General Definitions)                  | Supported                                                                          | N/A                                        |
 | ALTER INDEX… REBUILD                                | Supported                                                                          | REINDEX                                    |
 | ALTER INDEX… REBUILD ONLINE                         | Limited support                                                                    | CONCURRENTLY                               |
-| Index metadata                                      | PG_INDEXES (Oracle USER_INDEXES)                                                   | N/A                                        |
+| Index metadata                                      | PG\_INDEXES (Oracle USER\_INDEXES)                                                 | N/A                                        |
 | Index tablespace allocation                         | Supported                                                                          | SET TABLESPACE                             |
 | Index Parallel Operations                           | Not supported                                                                      | N/A                                        |
 | Index compression                                   | No direct equivalent to Oracle index key compression or advanced index compression | N/A                                        |

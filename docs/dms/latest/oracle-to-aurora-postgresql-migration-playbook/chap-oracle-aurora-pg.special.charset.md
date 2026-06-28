@@ -52,7 +52,7 @@ PostgreSQL supports a variety of different character sets, also known as encodin
 
 Starting with PostgreSQL 13, Windows version now support obtaining version information for collations (ordering rules) from OS. This option is relevant for self-managed PostgreSQL installations running on Windows.
 
-When querying the collversion from pg_collation in PostgreSQL running on Windows, prior to version 13 there wasn’t any value to reflect the OS collation version, for example version 11 running on Windows.
+When querying the collversion from pg\_collation in PostgreSQL running on Windows, prior to version 13 there wasn’t any value to reflect the OS collation version, for example version 11 running on Windows.
 
 ```
 CREATE COLLATION german (provider = libc, locale = 'de_DE');
@@ -99,14 +99,14 @@ All supported character sets can be used by clients. However, some client-side o
 
 Unlike Oracle, PostgreSQL doesn’t support an NVARHCHAR data type and doesn’t offer support for UTF-16.
 
-| Type     | Function                                                                                                                                                                                                                                                                 | Implementation level |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| Encoding | Defines the basic rules on how alphanumeric characters are represented in binary format, for example, Unicode Encoding.                                                                                                                                                  | Database             |
-| Locale   | Superset which include LC_COLLATE and LC_CTYPE, among others. LC_COLLATE defines how strings are sorted and needs to be a subset supported by the database Encoding. LC_CTYPE is used to classify if a character is a digit, letter, whitespace, punctuation, and so on. | Table-Column         |
+| Type     | Function                                                                                                                                                                                                                                                                     | Implementation level |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| Encoding | Defines the basic rules on how alphanumeric characters are represented in binary format, for example, Unicode Encoding.                                                                                                                                                      | Database             |
+| Locale   | Superset which include LC\_COLLATE and LC\_CTYPE, among others. LC\_COLLATE defines how strings are sorted and needs to be a subset supported by the database Encoding. LC\_CTYPE is used to classify if a character is a digit, letter, whitespace, punctuation, and so on. | Table-Column         |
 
 **Examples**
 
-Create a database named test01 which uses the Korean EUC_KR Encoding the and the ko_KR locale.
+Create a database named test01 which uses the Korean EUC\_KR Encoding the and the ko\_KR locale.
 
 ```
 CREATE DATABASE test01 WITH ENCODING 'EUC_KR' LC_COLLATE='ko_KR.euckr' LC_CTYPE='ko_KR.euckr' TEMPLATE=template0;
@@ -122,7 +122,7 @@ select datname, datcollate, datctype from pg_database;
 
 In-place modification of the database encoding is not recommended nor supported. You must export all data, create a new database with the new encoding, and import the data.
 
-Export the data using the pg_dump utility.
+Export the data using the pg\_dump utility.
 
 ```
 pg_dump mydb1 > mydb1_export.sql
@@ -140,7 +140,7 @@ Create a new database using the modified encoding.
 CREATE DATABASE mydb1_new_encoding WITH ENCODING 'UNICODE' TEMPLATE=template0;
 ```
 
-Import the data using the pg_dump file previously created. Verify that you set your client encoding to the encoding of your old database.
+Import the data using the pg\_dump file previously created. Verify that you set your client encoding to the encoding of your old database.
 
 ```
 PGCLIENTENCODING=OLD_DB_ENCODING psql -f mydb1_export.sql mydb1_new_encoding
@@ -148,11 +148,11 @@ PGCLIENTENCODING=OLD_DB_ENCODING psql -f mydb1_export.sql mydb1_new_encoding
 
 ###### Note
 
-Using the client_encoding parameter overrides the use of PGCLIENTENCODING.
+Using the client\_encoding parameter overrides the use of PGCLIENTENCODING.
 
 ### Client/server character set conversions
 
-PostgreSQL supports conversion of character sets between server and client for specific character set combinations as described in the pg_conversion system catalog.
+PostgreSQL supports conversion of character sets between server and client for specific character set combinations as described in the pg\_conversion system catalog.
 
 PostgreSQL includes predefined conversions. For a complete list, see [Built-in Client/Server Character Set Conversions](https://www.postgresql.org/docs/13/static/multibyte.html#MULTIBYTE-TRANSLATION-TABLE "https://www.postgresql.org/docs/13/static/multibyte.html#MULTIBYTE-TRANSLATION-TABLE").
 

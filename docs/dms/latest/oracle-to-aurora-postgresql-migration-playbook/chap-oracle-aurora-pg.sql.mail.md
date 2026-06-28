@@ -1,4 +1,4 @@
-# Oracle UTL_MAIL or UTL_SMTP and PostgreSQL Scheduled Lambda with Amazon SES
+# Oracle UTL\_MAIL or UTL\_SMTP and PostgreSQL Scheduled Lambda with Amazon SES
 
 With AWS DMS, you can configure email notifications for migration tasks using Oracle `UTL_MAIL` or `UTL_SMTP` and PostgreSQL scheduled Lambda with Amazon Simple Email Service (Amazon SES). `UTL_MAIL` and `UTL_SMTP` are Oracle database packages that provide an interface to send emails, while scheduled Lambda with Amazon SES allows sending emails from a PostgreSQL database using AWS Lambda and Amazon SES.
 
@@ -6,7 +6,7 @@ With AWS DMS, you can configure email notifications for migration tasks using Or
 | -------------------------------- | ---------------------------------- | ------------------------- | ----------------------- |
 | Three star feature compatibility | No automation                      | N/A                       | Use Lambda integration. |
 
-## Oracle UTL_MAIL usage
+## Oracle UTL\_MAIL usage
 
 The Oracle `UTL_MAIL` package provides functionality for sending email messages. Unlike `UTL_SMTP`, which is more complex and provided in earlier versions of Oracle, `UTL_MAIL` supports attachments. For most cases, `UTL_MAIL` is a better choice.
 
@@ -19,7 +19,7 @@ Install the required mail packages.
 @{ORACLE_HOME}/rdbms/admin/prvtmail.plb
 ```
 
-Set the smtp_out_server parameter.
+Set the smtp\_out\_server parameter.
 
 ```
 ALTER SYSTEM SET smtp_out_server = 'smtp.domain.com' SCOPE=BOTH;
@@ -31,9 +31,9 @@ Send an email message.
 exec utl_mail.send('Sender@mailserver.com', 'recipient@mailserver.com', NULL, NULL, 'This is the subject', 'This is the message body', NULL, 3, NULL);
 ```
 
-For more information, see [UTL_MAIL](https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384 "https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384") in the _Oracle documentation_.
+For more information, see [UTL\_MAIL](https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384 "https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384") in the _Oracle documentation_.
 
-## Oracle UTL_SMTP usage
+## Oracle UTL\_SMTP usage
 
 The Oracle `UTL_SMTP` package provides functionality for sending email messages and is useful for sending alerts about database events. Unlike `UTL_MAIL`, UTL `SMTP` is more complex and doesn’t support attachments. For most cases, `UTL_MAIL` is a better choice.
 
@@ -115,7 +115,7 @@ Choose **Author from scratch**, enter a name for your project, and select Python
 
 Download this [GitHub project](https://github.com/alexcasalboni/awslambda-psycopg2 "https://github.com/alexcasalboni/awslambda-psycopg2").
 
-In your local environment, create two files: main.py and db_util.py. Cut and paste the following content into `main.py` and `db_util.py` respectively. Replace the placeholders in the code with values for your environment.
+In your local environment, create two files: main.py and db\_util.py. Cut and paste the following content into `main.py` and `db_util.py` respectively. Replace the placeholders in the code with values for your environment.
 
 main.py:
 
@@ -139,7 +139,7 @@ def lambda_handler(event, context):
   return result
 ```
 
-db_util.py:
+db\_util.py:
 
 ```
 #!/usr/bin/python
@@ -265,11 +265,11 @@ def sendEmail(recp, sub, message):
 
 ###### Note
 
-In the body of db_util.py, Lambda deletes the content of the mails table.
+In the body of db\_util.py, Lambda deletes the content of the mails table.
 
 Place the `main.py` and `db_util.py` files inside the Github extracted folder and create a new zipfile that includes your two new files.
 
-Return to your Lambda project and change the **Code entry type** to **Upload a .ZIP file**, change the **Handler** to **mail.lambda_handler**, and upload the file. Then choose **Save**.
+Return to your Lambda project and change the **Code entry type** to **Upload a .ZIP file**, change the **Handler** to **mail.lambda\_handler**, and upload the file. Then choose **Save**.
 
 To test the Lambda function, choose **Test** and enter the **Event name**.
 

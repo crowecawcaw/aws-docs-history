@@ -14,7 +14,7 @@ To use database links, Oracle net services must be installed on both the local a
 
 **Examples**
 
-Create a database link named remote_db. When creating a database link, you have the option to specify the remote database destination using a TNS Entry or to specify the full TNS Connection string.
+Create a database link named remote\_db. When creating a database link, you have the option to specify the remote database destination using a TNS Entry or to specify the full TNS Connection string.
 
 ```
 CREATE DATABASE LINK remote_db CONNECT TO username IDENTIFIED BY password USING 'remote';
@@ -24,7 +24,7 @@ CREATE DATABASE LINK remotenoTNS CONNECT TO username IDENTIFIED BY password
 ```
 
 After the database link is created, you can use the database link directly as part of a SQL query using the database
-link name (@remote_db) as a suffix to the table name.
+link name (@remote\_db) as a suffix to the table name.
 
 ```
 SELECT * FROM employees@remote_db;
@@ -61,7 +61,7 @@ Load the `dblink` extension into PostgreSQL.
 CREATE EXTENSION dblink;
 ```
 
-Create a persistent connection to a remote PostgreSQL database using the dblink_connect function specifying a connection name (myconn), database name (postgresql), port (5432), host (hostname), user (username) and password (password).
+Create a persistent connection to a remote PostgreSQL database using the dblink\_connect function specifying a connection name (myconn), database name (postgresql), port (5432), host (hostname), user (username) and password (password).
 
 ```
 SELECT dblink_connect
@@ -81,7 +81,7 @@ SELECT * from dblink
 AS p(id int,fullname text);
 ```
 
-Close the connection using the dblink_disconnect function.
+Close the connection using the dblink\_disconnect function.
 
 ```
 SELECT dblink_disconnect('myconn');
@@ -148,7 +148,7 @@ FOREIGN DATA WRAPPER postgres_fdw
 OPTIONS (host 'hostname', dbname 'postgresql', port '5432');
 ```
 
-Create the user mapping, specifying the local_user is a user with permissions in the current database, the server connection created in the previous command (remote_db), and the user and password arguments specified in the options clause must have the required permissions in the remote database.
+Create the user mapping, specifying the local\_user is a user with permissions in the current database, the server connection created in the previous command (remote\_db), and the user and password arguments specified in the options clause must have the required permissions in the remote database.
 
 ```
 CREATE USER MAPPING FOR local_user
@@ -158,7 +158,7 @@ OPTIONS (user 'remote_user', password 'remote_password');
 
 After the connection with login credentials for the remote database was created, we can either import individual tables or the entire schema containing all, or some, of the tables and views.
 
-Create a `FOREIGN TABLE` named `foreign_emp_tbl` using the remote_db remote connection created earlier specifying both the schema name and table name in the remote database to be queried. For example, the `hr.employees` table.
+Create a `FOREIGN TABLE` named `foreign_emp_tbl` using the remote\_db remote connection created earlier specifying both the schema name and table name in the remote database to be queried. For example, the `hr.employees` table.
 
 ```
 CREATE FOREIGN TABLE foreign_emp_tbl (
@@ -182,7 +182,7 @@ FROM SERVER remote_db INTO local_hr;
 
 Both dblink and FDW store the remote database username and password as plain-text, in two locations:
 
-- The pg_user_mapping view, accessible only to “super users” in the database.
+- The pg\_user\_mapping view, accessible only to “super users” in the database.
 - When using the dblink function, passwords can be stored in your code or procedures inside the database.
 
 Any changes to PostgreSQL user passwords require changing the FDW/dblink specifications as well.
@@ -205,8 +205,8 @@ When using FDW, if columns in the remote tables have been dropped or renamed, th
 | Create a permanent named database link                                              | `<br>CREATE DATABASE LINK remote<br>CONNECT TO username IDENTIFIED<br>BY password USING 'remote';<br>`                                                                                                                                        | Not Supported. You have to manually open the connection to the remote database in your sessions / queries:<br>`<br>SELECT dblink_connect('myconn',<br>'dbname=postgres port=5432<br>hostt=hostname user=username<br>password=password');<br>` |
 | Query using a database link                                                         | `<br>SELECT<br>• FROM employees@remote;<br>`                                                                                                                                                                                                  | `<br>SELECT<br>• FROM dblink<br>('myconn','SELECT<br>• FROM employees')<br>AS p(id int,fullname text, address text);<br>`                                                                                                                     |
 | DML using database link                                                             | `<br>INSERT INTO employees@remote<br>(employee_id, last_name, email,<br>hire_date, job_id) VALUES (999,<br>'Claus','sclaus@example.com',<br>SYSDATE,'SH_CLERK');<br>`                                                                         | `<br>SELECT<br>• FROM dblink<br>('myconn',$$INSERT into employees<br>VALUES (45,'Dan','South side 7432, NY'<br>)$$) AS t(id int, name text, address text);<br>`                                                                               |
-| Heterogeneous database link connections, such as Oracle to PostgreSQL or vice-versa | Supported.                                                                                                                                                                                                                                    | Create extension oracle_fdw not supported by Amazon RDS.                                                                                                                                                                                      |
+| Heterogeneous database link connections, such as Oracle to PostgreSQL or vice-versa | Supported.                                                                                                                                                                                                                                    | Create extension oracle\_fdw not supported by Amazon RDS.                                                                                                                                                                                     |
 | Run DDL using a database link                                                       | Not supported directly, but you can run a procedure or create a job on the remote database and runs the desired DDL commands.<br>`<br>dbms_job@remote.submit(<br>l_job, 'execute immediate<br>''create table t ( x int)'''<br>); commit;<br>` | `<br>SELECT<br>• FROM dblink (<br>'myconn',$$CREATE table my_remote_tbl<br>(a int, b text)$$) AS t(a text);<br>`                                                                                                                              |
 | Delete a database link                                                              | `<br>drop database link remote;<br>`                                                                                                                                                                                                          | Not supported. Close the DBLink connection instead.<br>`<br>SELECT dblink_disconnect ('myconn');<br>`                                                                                                                                         |
 
-For more information, see [postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html "https://www.postgresql.org/docs/13/postgres-fdw.html") in the _PostgreSQL documentation_.
+For more information, see [postgres\_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html "https://www.postgresql.org/docs/13/postgres-fdw.html") in the _PostgreSQL documentation_.

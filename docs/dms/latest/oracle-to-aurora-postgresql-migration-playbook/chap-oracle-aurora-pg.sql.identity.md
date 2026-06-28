@@ -72,7 +72,7 @@ INSERT INTO emps (emp_id, emp_name) VALUES (DEFAULT, 'Brian');
 ###### Note
 
 It is important to know that in PostgreSQL (both SERIAL and IDENTITY), you can insert any value that you want that won’t violate the primary key constraint. If you do that and after that, you will use the identity column sequence value again, the following error might raise.
-SQL Error [23505]: ERROR: duplicate key value violates unique constraint "emps_iden_pkey"
-Detail: Key (emp_id)=(2) already exists.
+SQL Error [23505]: ERROR: duplicate key value violates unique constraint "emps\_iden\_pkey"
+Detail: Key (emp\_id)=(2) already exists.
 
 For more information, see [CREATE SEQUENCE](https://www.postgresql.org/docs/13/sql-createsequence.html "https://www.postgresql.org/docs/13/sql-createsequence.html"), [Sequence Manipulation Functions](https://www.postgresql.org/docs/13/functions-sequence.html "https://www.postgresql.org/docs/13/functions-sequence.html"), [Numeric Types](https://www.postgresql.org/docs/13/datatype-numeric.html "https://www.postgresql.org/docs/13/datatype-numeric.html"), and [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the _PostgreSQL documentation_.

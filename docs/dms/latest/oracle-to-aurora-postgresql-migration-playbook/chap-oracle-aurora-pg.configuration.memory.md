@@ -50,7 +50,7 @@ PostgreSQL provides us with control over how server RAM is allocated. The follow
 | `work_mem`                                    | Used for parallel queries and SQL sort operations. Approximate Oracle PGA equivalent and/or the Large Pool (for parallel workloads). |
 | `maintenance_work_mem`                        | Memory used for certain backend database operations such as `VACUUM`, `CREATE INDEX`, `ALTER TABLE ADD FOREIGN KEY`.                 |
 | `temp_buffers`                                | Memory buffers used by each database session for reading data from temporary tables.                                                 |
-| Total memory available for PostgreSQL cluster | Controlled by choosing the \*_DB Instance Class_<br>• during instance creation.<br>Instance creation                                 |
+| Total memory available for PostgreSQL cluster | Controlled by choosing the *_DB Instance Class_<br>• during instance creation.<br>Instance creation                                  |
 
 Cluster level parameters, such as `shared_buffers` and `wal_buffers`, are configured using parameter groups in the Amazon RDS Management Console.
 
@@ -102,16 +102,16 @@ UPDATE pg_settings SET setting = '100MB' WHERE name = 'work_mem';
 
 Use the following table as a general reference only. Functionality may not be identical across Oracle and PostgreSQL.
 
-| Description                                                  | Oracle                                       | PostgreSQL                                                                                                                   |
-| ------------------------------------------------------------ | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Memory for caching table data                                | db_cache_size                                | shared_buffers                                                                                                               |
-| Memory for transaction log records                           | log_buffer                                   | wal_buffers                                                                                                                  |
-| Memory for parallel queries                                  | large_pool_size                              | work_mem                                                                                                                     |
-| Java code and JVM                                            | Java_pool_size                               | N/A                                                                                                                          |
-| Maximum amount of physical memory available for the instance | sga_max_size or memory_max_size              | Configured by the Amazon RDS/Aurora instance class<br>For example:<br>`<br>db.r3.large: 15.25GB<br>db.r3.xlarge: 30.5GB<br>` |
-| Total amount of private memory for all sessions              | pga_aggregate_target and pga_aggregate_limit | temp_buffers (for reading data from temp tables), work_mem (for sorts)                                                       |
-| View values for all database parameters                      | `<br>SELECT<br>• FROM v$parameter;<br>`      | `<br>Select<br>• from pg_settings;<br>`                                                                                      |
-| Configure a session-level parameter                          | `<br>ALTER SESSION SET ...<br>`              | `<br>SET SESSION ...<br>`                                                                                                    |
-| Configure instance-level parameter                           | `<br>ALTER SYSTEM SET ...<br>`               | Configured by parameter groups in the Amazon RDS Management Console.                                                         |
+| Description                                                  | Oracle                                           | PostgreSQL                                                                                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| Memory for caching table data                                | db\_cache\_size                                  | shared\_buffers                                                                                                              |
+| Memory for transaction log records                           | log\_buffer                                      | wal\_buffers                                                                                                                 |
+| Memory for parallel queries                                  | large\_pool\_size                                | work\_mem                                                                                                                    |
+| Java code and JVM                                            | Java\_pool\_size                                 | N/A                                                                                                                          |
+| Maximum amount of physical memory available for the instance | sga\_max\_size or memory\_max\_size              | Configured by the Amazon RDS/Aurora instance class<br>For example:<br>`<br>db.r3.large: 15.25GB<br>db.r3.xlarge: 30.5GB<br>` |
+| Total amount of private memory for all sessions              | pga\_aggregate\_target and pga\_aggregate\_limit | temp\_buffers (for reading data from temp tables), work\_mem (for sorts)                                                     |
+| View values for all database parameters                      | `<br>SELECT<br>• FROM v$parameter;<br>`          | `<br>Select<br>• from pg_settings;<br>`                                                                                      |
+| Configure a session-level parameter                          | `<br>ALTER SESSION SET ...<br>`                  | `<br>SET SESSION ...<br>`                                                                                                    |
+| Configure instance-level parameter                           | `<br>ALTER SYSTEM SET ...<br>`                   | Configured by parameter groups in the Amazon RDS Management Console.                                                         |
 
 For more information, see [Write Ahead Log](https://www.postgresql.org/docs/13/runtime-config-wal.html "https://www.postgresql.org/docs/13/runtime-config-wal.html") and [Resource Consumption](https://www.postgresql.org/docs/13/runtime-config-resource.html "https://www.postgresql.org/docs/13/runtime-config-resource.html") in the _PostgreSQL documentation_.

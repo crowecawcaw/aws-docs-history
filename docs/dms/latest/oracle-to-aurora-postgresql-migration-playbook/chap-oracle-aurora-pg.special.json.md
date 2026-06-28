@@ -79,13 +79,13 @@ To comply with the full JSON specification, database encoding must be set to UTF
 
 Because querying JSON data in PostgreSQL uses different query syntax from Oracle, change application queries. The following examples use PostgreSQL-native JSON query syntax.
 
-Return the JSON document stored in the emp_data column associated with `emp_id=1`:
+Return the JSON document stored in the emp\_data column associated with `emp_id=1`:
 
 ```
 SELECT emp_data FROM employees WHERE emp_id = 1;
 ```
 
-Return all JSON documents stored in the emp_data column having a key named address.
+Return all JSON documents stored in the emp\_data column having a key named address.
 
 ```
 SELECT emp_data FROM employees WHERE emp_data ? ' address';
@@ -161,13 +161,13 @@ When using GIN indexes, you can efficiently and quickly query data using only th
 
 Without indexes, PostgreSQL is forced to perform a full table scan when filtering data. This condition applies to JSON data and will most likely have a negative impact on performance since PostgreSQL has to step into each JSON document.
 
-Create an index on the address key of emp_data.
+Create an index on the address key of emp\_data.
 
 ```
 CREATE idx1_employees ON employees ((emp_data->>'address'));
 ```
 
-Create a GIN index on a specific key or the entire emp_data column.
+Create a GIN index on a specific key or the entire emp\_data column.
 
 ```
 CREATE INDEX idx2_employees ON cards USING gin ((emp_data->'tags'));
