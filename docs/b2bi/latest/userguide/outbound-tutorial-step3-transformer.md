@@ -10,88 +10,85 @@ created earlier.
 
 ###### To create sample documents
 
-1.  Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  Create the input sample file:
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Create the input sample file:
 
-    1. Save the following JSON code to a file named
-       `sample-purchase-order.json`:
+   1. Save the following JSON code to a file named
+      `sample-purchase-order.json`:
 
-    ```
-    {
-      "purchaseOrder": {
-        "poNumber": "PO789012",
-        "orderDate": "2023-01-15",
-        "buyerInfo": {
-          "name": "ACME CORPORATION",
-          "address": "*** CORPORATE BLVD",
-          "city": "BUSINESSTOWN",
-          "state": "TX",
-          "postalCode": "*****",
-          "country": "US"
-        },
-        "supplierInfo": {
-          "name": "SUPPLIER XYZ",
-          "address": "*** VENDOR STREET",
-          "city": "VENDORVILLE",
-          "state": "CA",
-          "postalCode": "*****",
-          "country": "US"
-        },
-        "lineItems": [
-          {
-            "lineNumber": "1",
-            "quantity": "25",
-            "unitOfMeasure": "EA",
-            "unitPrice": "45.00",
-            "productId": "GADGET001",
-            "description": "PREMIUM GADGET"
-          },
-          {
-            "lineNumber": "2",
-            "quantity": "10",
-            "unitOfMeasure": "EA",
-            "unitPrice": "75.50",
-            "productId": "TOOL002",
-            "description": "PROFESSIONAL TOOL"
-          }
-        ]
-      }
-    }
-    ```
-    2. Upload this file to your input bucket:
-       `s3://my-b2bi-outbound-input-`account-id``.
+   ```
+   {
+     "purchaseOrder": {
+       "poNumber": "PO789012",
+       "orderDate": "2023-01-15",
+       "buyerInfo": {
+         "name": "ACME CORPORATION",
+         "address": "*** CORPORATE BLVD",
+         "city": "BUSINESSTOWN",
+         "state": "TX",
+         "postalCode": "*****",
+         "country": "US"
+       },
+       "supplierInfo": {
+         "name": "SUPPLIER XYZ",
+         "address": "*** VENDOR STREET",
+         "city": "VENDORVILLE",
+         "state": "CA",
+         "postalCode": "*****",
+         "country": "US"
+       },
+       "lineItems": [
+         {
+           "lineNumber": "1",
+           "quantity": "25",
+           "unitOfMeasure": "EA",
+           "unitPrice": "45.00",
+           "productId": "GADGET001",
+           "description": "PREMIUM GADGET"
+         },
+         {
+           "lineNumber": "2",
+           "quantity": "10",
+           "unitOfMeasure": "EA",
+           "unitPrice": "75.50",
+           "productId": "TOOL002",
+           "description": "PROFESSIONAL TOOL"
+         }
+       ]
+     }
+   }
+   ```
+   2. Upload this file to your input bucket:
+      `s3://my-b2bi-outbound-input-`account-id``.
 
-3.  Create the output sample file:
+3. Create the output sample file:
 
-        1. Save the following EDI code to a file named
-         `sample-850-output.edi`:
+   1. Save the following EDI code to a file named
+      `sample-850-output.edi`:
 
+   ```
+   ISA*00*          *00*          *ZZ*ACMECORP       *ZZ*SUPPLIERXYZ    *230115*1400*U*00401*000000001*0*P*>~
+   GS*PO*ACMECORP*SUPPLIERXYZ*20230115*1400*1*X*004010~
+   ST*850*0001~
+   BEG*00*SA*PO789012**20230115~
+   N1*BY*ACME CORPORATION~
+   N3*789 CORPORATE BLVD~
+   N4*BUSINESSTOWN*TX*75001*US~
+   N1*ST*SUPPLIER XYZ~
+   N3**** VENDOR STREET~
+   N4*VENDORVILLE*CA*******US~
+   PO1*1*25*EA*45.00**BP*GADGET001*VN*GADGET001~
+   PID*F****PREMIUM GADGET~
+   PO1*2*10*EA*75.50**BP*TOOL002*VN*TOOL002~
+   PID*F****PROFESSIONAL TOOL~
+   SE*13*0001~
+   GE*1*1~
+   IEA*1*000000001~
 
-
-        ```
-        ISA*00*          *00*          *ZZ*ACMECORP       *ZZ*SUPPLIERXYZ    *230115*1400*U*00401*000000001*0*P*>~
-        GS*PO*ACMECORP*SUPPLIERXYZ*20230115*1400*1*X*004010~
-        ST*850*0001~
-        BEG*00*SA*PO789012**20230115~
-        N1*BY*ACME CORPORATION~
-        N3*789 CORPORATE BLVD~
-        N4*BUSINESSTOWN*TX*75001*US~
-        N1*ST*SUPPLIER XYZ~
-        N3**** VENDOR STREET~
-        N4*VENDORVILLE*CA*******US~
-        PO1*1*25*EA*45.00**BP*GADGET001*VN*GADGET001~
-        PID*F****PREMIUM GADGET~
-        PO1*2*10*EA*75.50**BP*TOOL002*VN*TOOL002~
-        PID*F****PROFESSIONAL TOOL~
-        SE*13*0001~
-        GE*1*1~
-        IEA*1*000000001~
-
-        ```
-        2. Upload this file to your input bucket:
-         `s3://my-b2bi-outbound-input-`account-id``.
-
-    Now that you have your sample files ready, create your outbound transformer.
+   ```
+   2. Upload this file to your input bucket:
+      `s3://my-b2bi-outbound-input-`account-id``.
+      Now that you have your sample files ready, create your outbound transformer.
 
 ###### To create an outbound transformer
 
@@ -118,11 +115,11 @@ created earlier.
    - **Input sample**: Choose **Browse
      S3**, navigate to your input bucket
      (`s3://my-b2bi-outbound-input-`account-id``),
-and select `sample-purchase-order.json`.
+     and select `sample-purchase-order.json`.
    - **Output sample**: Choose **Browse
      S3**, navigate to your input bucket
      (`s3://my-b2bi-outbound-input-`account-id``),
-and select `sample-850-output.edi`.
+     and select `sample-850-output.edi`.
 
 7. Choose **Next**.
 8. On the **Mapping configuration** page, choose

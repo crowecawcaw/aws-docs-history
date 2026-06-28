@@ -81,7 +81,7 @@ structure. 3. Monitor the transformation:
      ``partnership-id`/`capability-id`/processed/`
 
 4. Verify the X12 EDI output contains properly formatted purchase order data with
-   correct ISA and GS headers.
+correct ISA and GS headers.
 
 ## Expected results
 

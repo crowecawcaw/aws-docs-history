@@ -61,12 +61,12 @@ report format includes:
 
 Each error entry in the report includes the following components:
 
-| Error entry components | Component                                                            | Description |
-| ---------------------- | -------------------------------------------------------------------- | ----------- |
-| Location information   | Interchange, functional group, transaction, and segment<br>position  |
-| Error type             | Missing required elements, invalid codes, length violations,<br>etc. |
-| Element details        | Specific element ID and position where the error occurred            |
-| Error description      | Clear explanation of what validation rule was violated               |
+Error entry components| Component | Description |
+| --- | --- |
+| Location information | Interchange, functional group, transaction, and segment<br>position |
+| Error type | Missing required elements, invalid codes, length violations,<br>etc. |
+| Element details | Specific element ID and position where the error occurred |
+| Error description | Clear explanation of what validation rule was violated |
 
 The following example shows the format of a validation error report:
 
@@ -92,11 +92,11 @@ partners.
 The Custom EDI Validation system supports three types of validation rules that you can
 apply to both inbound and outbound EDI transformers:
 
-| Types of custom validation rules | Rule type                                                                                                                                                                                                                                                             | Description |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Element length rules             | Customize minimum and maximum length constraints for specific EDI<br>elements. A rule on an element ID applies to all instances of that<br>element ID in that EDI version.                                                                                            |
-| Code list rules                  | Add or remove allowed codes from element code lists. A rule on an<br>element ID applies to all instances of that element ID in that EDI<br>version. For example, you can add code "0J" or remove codes "001", "002"<br>for element "0098".                            |
-| Element requirement rules        | Change element requirements between mandatory and optional. A rule on<br>an element position applies only to that element instance. For example,<br>you can make the element at position 2 in the BGN segment optional or<br>make the element at position 4 required. |
+Types of custom validation rules| Rule type | Description |
+| --- | --- |
+| Element length rules | Customize minimum and maximum length constraints for specific EDI<br>elements. A rule on an element ID applies to all instances of that<br>element ID in that EDI version. |
+| Code list rules | Add or remove allowed codes from element code lists. A rule on an<br>element ID applies to all instances of that element ID in that EDI<br>version. For example, you can add code "0J" or remove codes "001", "002"<br>for element "0098". |
+| Element requirement rules | Change element requirements between mandatory and optional. A rule on<br>an element position applies only to that element instance. For example,<br>you can make the element at position 2 in the BGN segment optional or<br>make the element at position 4 required. |
 
 ###### Note
 

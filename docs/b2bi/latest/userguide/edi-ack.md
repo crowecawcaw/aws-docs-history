@@ -22,21 +22,20 @@ The service generates the following types of acknowledgements:
 - _999 functional acknowledgements_: there are two types of 999
   functional acknowledgement, as follows:
 
-      + 999 functional acknowledgement for HIPAA transactions: the service
-       generates *999 X231* acknowledgements for all X12 version
-       5010 HIPAA transactions.
-      + 999 functional acknowledgement for non-HIPAA transactions: the service
-       generates *999* acknowledgements for all other
-       healthcare-related X12 transactions.
-
-  You have the option to disable acknowledgement generation for processed inbound EDI
-  documents. To do this, choose **Do not generate** in the
-  **Generated Acknowledgments Documents** section of your partnership
-  configuration. For functional acknowledgements, you can also opt to generate acknowledgments
-  without the AK2 loop by selecting **Generate without AK2 loop** in the
-  **Functional (997 and 999 Acknowledgements)** box. These
-  acknowledgement settings are configured at the partnership level and apply to all inbound
-  EDI documents processed within that partnership.
+  - 999 functional acknowledgement for HIPAA transactions: the service
+    generates _999 X231_ acknowledgements for all X12 version
+    5010 HIPAA transactions.
+  - 999 functional acknowledgement for non-HIPAA transactions: the service
+    generates _999_ acknowledgements for all other
+    healthcare-related X12 transactions.
+    You have the option to disable acknowledgement generation for processed inbound EDI
+    documents. To do this, choose **Do not generate** in the
+    **Generated Acknowledgments Documents** section of your partnership
+    configuration. For functional acknowledgements, you can also opt to generate acknowledgments
+    without the AK2 loop by selecting **Generate without AK2 loop** in the
+    **Functional (997 and 999 Acknowledgements)** box. These
+    acknowledgement settings are configured at the partnership level and apply to all inbound
+    EDI documents processed within that partnership.
 
 ###### Note
 
@@ -74,16 +73,16 @@ following input and output directories.
 In this example, the absolute paths for the EDI input document and the transformed
 JSON or XML output are as follows:
 
-- Inbound EDI: s3://amzn-s3-demo-bucket/IN/TP_ID/edi214xml-test83.txt
+- Inbound EDI: s3://amzn-s3-demo-bucket/IN/TP\_ID/edi214xml-test83.txt
 - Transformed output:
-  s3://amzn-s3-demo-bucket/OUT/TP_ID/edi214xml-test83.txt.2023-11-21T19:26:49.774Z.xml
+  s3://amzn-s3-demo-bucket/OUT/TP\_ID/edi214xml-test83.txt.2023-11-21T19:26:49.774Z.xml
 
 The path of the acknowledgement depends on whether the inbound X12 EDI document is
 transformed using a trading capability or transformed by directly invoking the
 `StartTransformerJob` API operation.
 
 When using a trading capability, the format for the acknowledgement files is
-s3://amzn-s3-demo-bucket/OUT/TP_ID/ACK/`filename`.`timestamp`.997
+s3://amzn-s3-demo-bucket/OUT/TP\_ID/ACK/`filename`.`timestamp`.997
 (.TA1 for TA1 acknowledgements).
 
 When invoking the `StartTransformerJob` API directly, acknowledgements will

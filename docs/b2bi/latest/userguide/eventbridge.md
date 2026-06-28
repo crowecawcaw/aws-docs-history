@@ -51,16 +51,15 @@ AWS B2B Data Interchange events.
 
 Creating a rule consists of the following general steps:
 
-1.  Creating an event pattern for the rule that specifies:
+1. Creating an event pattern for the rule that specifies:
 
-        * AWS B2B Data Interchange is the source of events being evaluated by the rule.
-        * (Optional): Any other event data to match against.
+   - AWS B2B Data Interchange is the source of events being evaluated by the rule.
+   - (Optional): Any other event data to match against.
+     For more information, see [Creating event patterns for AWS B2B Data Interchange events](#eventbridge-using-events-rules-patterns "#eventbridge-using-events-rules-patterns")
 
-    For more information, see [Creating event patterns for AWS B2B Data Interchange events](#eventbridge-using-events-rules-patterns "#eventbridge-using-events-rules-patterns")
-
-2.  (Optional): Creating an _input transformer_ that customizes
-    the data from the event before EventBridge passes the information to the
-    target of the rule.
+2. (Optional): Creating an _input transformer_ that customizes
+   the data from the event before EventBridge passes the information to the
+   target of the rule.
 
 For more information, see [Input
 transformation](../../../eventbridge/latest/userguide/eb-transform-target-input.md "../../../eventbridge/latest/userguide/eb-transform-target-input.md") in the _EventBridge User
