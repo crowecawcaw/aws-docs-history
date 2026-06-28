@@ -263,10 +263,10 @@ Contributors to this reference architecture diagram include:
 
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
-| Change              | Description                                                                    | Date             |
-| ------------------- | ------------------------------------------------------------------------------ | ---------------- |
-| Diagram updated     | Minor updates to initial diagrams, added \*Companion Application<br>• diagram. | January 17, 2024 |
-| Initial publication | Reference architecture diagram first published.                                | June 23, 2023    |
+| Change              | Description                                                                   | Date             |
+| ------------------- | ----------------------------------------------------------------------------- | ---------------- |
+| Diagram updated     | Minor updates to initial diagrams, added *Companion Application<br>• diagram. | January 17, 2024 |
+| Initial publication | Reference architecture diagram first published.                               | June 23, 2023    |
 
 ###### Note
 
