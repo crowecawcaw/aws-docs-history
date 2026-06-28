@@ -8,7 +8,9 @@ Perform these steps from your workstation.
 
 1. Place the OVA file in a convenient location accessible to the VM host.
 2. Start the Virtual Machine Manager client and choose **File**
-   > **Create New Virtual Machine**.
+
+> **Create New Virtual Machine**.
+
 3. In the **New VM** dialog, choose **Import existing
    disk image** and select **Forward**.
 4. Complete the fields as described in the following table and then select

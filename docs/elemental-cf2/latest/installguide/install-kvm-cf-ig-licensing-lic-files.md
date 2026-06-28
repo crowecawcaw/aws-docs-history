@@ -11,7 +11,9 @@ From your workstation, perform the following steps for each newly installed AWS 
 
 1. Navigate to the directory where you saved the `.tgz` file and unpack it.
 2. Bring up the web interface for the AWS Elemental Conductor File system. From the main menu, select **Settings**
-   > **Licenses**. The Licenses screen appears.
+
+> **Licenses**. The Licenses screen appears.
+
 3. Select **Choose File** and navigate to the directory where you placed the license
    files. Select the file name with the hostname portion matching the hostname of this node.
 
