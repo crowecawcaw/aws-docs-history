@@ -72,7 +72,7 @@ every output destination, user-facing responses, inter-agent
 messages,
 [Amazon
 Bedrock AgentCore Memory](../../../bedrock-agentcore/latest/devguide/best-practices.md "../../../bedrock-agentcore/latest/devguide/best-practices.md") writes through the
-create_event API, and audit logs, flows through
+create\_event API, and audit logs, flows through
 it. AgentCore Memory's built-in long-term memory strategies
 already filter PII from extracted long-term records by default,
 but short-term memory (raw events) retains original content, so

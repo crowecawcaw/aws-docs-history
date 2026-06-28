@@ -132,7 +132,7 @@ AI agents with user context using Amazon Cognito](https://aws.amazon.com/blogs/s
 [Amazon Cognito](https://aws.amazon.com/cognito/ "https://aws.amazon.com/cognito/") user pools: the agent authenticates through the
 client credentials flow while passing the user's token as
 additional context through the
-aws_client_metadata request parameter, and a
+aws\_client\_metadata request parameter, and a
 [pre-token-generation
 Lambda trigger](../../../cognito/latest/developerguide/user-pool-lambda-pre-token-generation.md "../../../cognito/latest/developerguide/user-pool-lambda-pre-token-generation.md") verifies the user token and injects an
 onBehalfOf claim into the agent's access token

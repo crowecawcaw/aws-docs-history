@@ -63,10 +63,10 @@ Bedrock AgentCore Observability](../../../bedrock-agentcore/latest/devguide/obse
 from a smaller customized model, and compare against one-time
 customization costs plus ongoing refresh. When monthly inference
 costs exceed $500 and task volume exceeds 10,000 invocations per
-month, customization typically reaches break-even within 6 to 12
-months. Make the break-even explicit: (one-time training cost +
-quarterly refresh cost × planning horizon in quarters) divided by
-monthly inference savings. For a $5,000 training run that saves
+ month, customization typically reaches break-even within 6 to 12
+ months. Make the break-even explicit: (one-time training cost +
+ quarterly refresh cost × planning horizon in quarters) divided by
+ monthly inference savings. For a $5,000 training run that saves
 $400 per month, break-even lands at month 13, which is acceptable
 for workloads with multi-year lifespans but not for experimental
 projects.
@@ -116,7 +116,7 @@ drift doesn't compound silently between refreshes.
    low error rates and acceptable latency using AgentCore
    Observability metrics. Target 500 to 1,000 examples per task
    category. Query Amazon CloudWatch for invocations where
-   latency falls within the p50 to p90 range and error_type is
+   latency falls within the p50 to p90 range and error\_type is
    absent, review a sample manually to verify quality, and
    store the curated dataset in Amazon S3.
 3. **Run distillation or

@@ -78,7 +78,7 @@ add, update, or skip new information, and outdated memories are
 marked as INVALID rather than deleted. That
 produces an immutable trail you can walk to trace how hallucinated
 content entered and propagated. Running grounding checks before
-create_event helps keep fabrications out of the
+create\_event helps keep fabrications out of the
 extraction pipeline, and custom memory strategy overrides let you
 bake grounding validation into the extraction and consolidation
 prompts for your domain.
@@ -124,7 +124,7 @@ every decision is auditable.
    consistency against the original context before the output
    is committed to memory.
 3. **Run grounding checks before
-   create_event:** Apply grounding
+   create\_event:** Apply grounding
    validation at the
    [Amazon
    Bedrock AgentCore Memory](../../../bedrock-agentcore/latest/devguide/memory.md "../../../bedrock-agentcore/latest/devguide/memory.md") event ingestion boundary, so

@@ -73,7 +73,7 @@ consistent with the current task and flags anomalies for review.
 Bedrock AgentCore Memory](../../../bedrock-agentcore/latest/devguide/memory.md "../../../bedrock-agentcore/latest/devguide/memory.md") gives this pipeline a natural
 integration point. Because long-term memory extraction runs
 asynchronously from event ingestion, running Guardrails before
-events are written through the create_event API
+events are written through the create\_event API
 blocks harmful content from entering the extraction pipeline, and
 running Guardrails again before consolidation catches anything
 that made it past the first check. The built-in memory strategies
@@ -94,7 +94,7 @@ adds a network-layer tier, and Amazon API Gateway request
 validation enforces schema constraints at the same layer. For
 writes that happen entirely in agent code through direct SDK
 calls, validating in the agent code before
-create_event is the simpler path.
+create\_event is the simpler path.
 
 Failed inputs need a tiered response. Clearly harmful inputs are
 blocked and logged. Ambiguous inputs go to an Amazon SQS
@@ -122,11 +122,11 @@ into alarms when something changes.
    inter-agent messages as well as user-provided content before
    any of them reach the memory store.
 4. **Validate before
-   create_event:** Run validation
+   create\_event:** Run validation
    on events before they enter
    [Amazon
    Bedrock AgentCore Memory](../../../bedrock-agentcore/latest/devguide/memory.md "../../../bedrock-agentcore/latest/devguide/memory.md") short-term storage through
-   create_event, so harmful content doesn't
+   create\_event, so harmful content doesn't
    enter the asynchronous long-term extraction pipeline.
 5. **Add AWS WAF on API-fronted memory
    writes:** Deploy AWS WAF managed rule groups on

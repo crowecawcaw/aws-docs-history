@@ -62,7 +62,8 @@ place, agents operate within their designated memory boundaries
 without cross-namespace leakage. As AgentCore Memory's
 authorization model evolves, adopt resource-based policies when
 available to further simplify namespace-level grants. Avoid
-wildcard resources in agent IAM policies. The temptation to use \* for convenience is the single most common
+wildcard resources in agent IAM policies. The temptation to use
+\* for convenience is the single most common
 reason least-privilege quietly degrades into broad access over
 time.
 

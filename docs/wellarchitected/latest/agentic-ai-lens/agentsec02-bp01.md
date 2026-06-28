@@ -86,14 +86,14 @@ day. That lets you express rules like "role=clinician can
 reschedule appointments for patients in their own panel" as
 a deterministic policy rather than a hope about the prompt.
 Policies can be authored directly in Cedar or generated from
-natural language, and Gateway supports a LOG_ONLY mode so you can
+natural language, and Gateway supports a LOG\_ONLY mode so you can
 validate policy behavior against live traffic before switching to
 enforce mode.
 
 Tool overload is its own risk. Presenting an agent with hundreds
 of tools increases the chance it selects the wrong one or follows
 an inefficient execution path. Gateway's built-in
-x_amz_bedrock_agentcore_search tool exposes
+x\_amz\_bedrock\_agentcore\_search tool exposes
 semantic tool discovery so agents locate relevant tools through
 natural language rather than seeing the full inventory. That
 reduces the surface the model reasons across on any given turn.
@@ -138,14 +138,14 @@ unexpected call patterns surface as signal.
    scopes, user ID) and tool input parameters. Author directly
    in Cedar or generate policies from natural language
    descriptions.
-4. **Validate policies in LOG_ONLY before
+4. **Validate policies in LOG\_ONLY before
    enforcing:** Associate the policy engine with
-   Gateway in LOG_ONLY mode, review observability logs to
+   Gateway in LOG\_ONLY mode, review observability logs to
    confirm the policies produce the expected permit and deny
    decisions, then switch to enforce mode.
 5. **Enable semantic tool
    discovery:** Opt in to the built-in
-   x_amz_bedrock_agentcore_search tool so
+   x\_amz\_bedrock\_agentcore\_search tool so
    agents locate relevant tools through natural language
    queries rather than reasoning over the full inventory.
 6. **Add human-in-the-loop approvals for

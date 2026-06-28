@@ -147,8 +147,8 @@ isolation controls hold under pressure.
    by default.
 5. **Enforce namespace-scoped retrieval
    in agent code:** Call
-   retrieve_memory_records and
-   list_events within the agent's authorized
+   retrieve\_memory\_records and
+   list\_events within the agent's authorized
    namespaces only, so cross-tenant data is blocked at the
    application layer as well as the authorization layer.
 6. **Layer HMAC integrity verification on
@@ -164,8 +164,8 @@ isolation controls hold under pressure.
    automated incident response.
 8. **Audit strategies and run red-team
    exercises:** Periodically review extraction and
-   consolidation patterns with list_memories
-   and retrieve_memory_records to verify
+   consolidation patterns with list\_memories
+   and retrieve\_memory\_records to verify
    strategies are capturing the right information and that PII
    filtering is working, and simulate memory poisoning
    scenarios to validate the isolation controls hold.

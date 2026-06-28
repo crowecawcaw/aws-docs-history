@@ -371,12 +371,12 @@ This appendix provides a complete reference of all best practices defined in the
 
 ## Summary
 
-| Best practice summary by pillar | Pillar | Questions | Best practices | High Risk | Medium Risk | Low Risk |
-| ------------------------------- | ------ | --------- | -------------- | --------- | ----------- | -------- |
-| Operational Excellence          | 7      | 26        | 18             | 8         | 0           |
-| Security                        | 9      | 30        | 19             | 11        | 0           |
-| Reliability                     | 8      | 33        | 18             | 15        | 0           |
-| Performance Efficiency          | 7      | 24        | 16             | 7         | 1           |
-| Cost Optimization               | 7      | 24        | 14             | 10        | 0           |
-| Sustainability                  | 3      | 13        | 5              | 8         | 0           |
-| **Total**                       | **41** | **150**   | **90**         | **59**    | **1**       |
+Best practice summary by pillar| Pillar | Questions | Best practices | High Risk | Medium Risk | Low Risk |
+| --- | --- | --- | --- | --- | --- |
+| Operational Excellence | 7 | 26 | 18 | 8 | 0 |
+| Security | 9 | 30 | 19 | 11 | 0 |
+| Reliability | 8 | 33 | 18 | 15 | 0 |
+| Performance Efficiency | 7 | 24 | 16 | 7 | 1 |
+| Cost Optimization | 7 | 24 | 14 | 10 | 0 |
+| Sustainability | 3 | 13 | 5 | 8 | 0 |
+| **Total** | **41** | **150** | **90** | **59** | **1** |

@@ -78,12 +78,12 @@ safety.
 Index design is a less obvious but still important cost
 consideration. For
 [Amazon OpenSearch Service Serverless](https://aws.amazon.com/opensearch-service/features/serverless/ "https://aws.amazon.com/opensearch-service/features/serverless/")-backed Knowledge Bases, HNSW
-parameters (ef_construction and
+parameters (ef\_construction and
 m) balance index build cost against query
 accuracy and recall. OpenSearch Serverless charges based on
 indexed data volume and query compute, so tuning these parameters
 is a direct cost decision, not just a quality decision. Higher
-ef_construction values improve recall but raise
+ef\_construction values improve recall but raise
 both build and query cost, while lower values reduce cost but risk
 missing relevant items.
 
@@ -111,7 +111,7 @@ tier reassignments.
    starting at K=5 and tuning based on observed reasoning
    quality and token cost.
 3. **Tune vector index
-   parameters:** Adjust HNSW ef_construction and m on
+   parameters:** Adjust HNSW ef\_construction and m on
    the
    [Amazon OpenSearch Service Serverless](https://aws.amazon.com/opensearch-service/features/serverless/ "https://aws.amazon.com/opensearch-service/features/serverless/") backing store to balance index
    build cost, query latency, and recall accuracy for your

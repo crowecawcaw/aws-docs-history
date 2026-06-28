@@ -125,11 +125,11 @@ span level. Enabling
 [CloudWatch
 Application Signals](../../../AmazonCloudWatch/latest/monitoring/Services-example-scenario-GenerativeAI.md "../../../AmazonCloudWatch/latest/monitoring/Services-example-scenario-GenerativeAI.md") on Amazon Bedrock API calls
 automatically populates OTel GenAI attributes,
-gen_ai.system,
-gen_ai.request.model,
-gen_ai.usage.input_tokens,
-gen_ai.usage.output_tokens,
-gen_ai.response.finish_reasons, so token, cost,
+gen\_ai.system,
+gen\_ai.request.model,
+gen\_ai.usage.input\_tokens,
+gen\_ai.usage.output\_tokens,
+gen\_ai.response.finish\_reasons, so token, cost,
 and finish-reason analysis is available without hand-written
 spans.
 

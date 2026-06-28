@@ -127,8 +127,8 @@ to start a task that may take minutes or hours, immediately
 acknowledge the request, continue approval workflows in the
 background, and let the user check back later for results. The SDK
 provides explicit task lifecycle management through
-add_async_task and
-complete_async_task APIs, which track
+add\_async\_task and
+complete\_async\_task APIs, which track
 processing status and report agent health through the
 /ping endpoint. An agent reports
 HealthyBusy while background approval tasks are

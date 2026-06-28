@@ -50,7 +50,7 @@ Adopt MCP as the standard tool integration protocol and use
 [Amazon
 Bedrock AgentCore Gateway](../../../bedrock-agentcore/latest/devguide/gateway.md "../../../bedrock-agentcore/latest/devguide/gateway.md") to expose tools as MCP-compatible
 endpoints. AgentCore Gateway provides built-in semantic tool
-discovery (x_amz_bedrock_agentcore_search) so
+discovery (x\_amz\_bedrock\_agentcore\_search) so
 agents query for relevant tools by natural language description
 rather than receiving the full catalog. For agents with access to
 large tool catalogs, a two-stage selection pattern works well: a
@@ -81,7 +81,7 @@ slow or failing tools.
    consistent interface.
 2. **Enable AgentCore Gateway's semantic
    tool discovery to filter tools by task relevance:**
-   Use x_amz_bedrock_agentcore_search to
+   Use x\_amz\_bedrock\_agentcore\_search to
    narrow the tool set per request so the LLM evaluates only
    the most relevant 5-10 tools.
 3. **Implement parallel tool execution
