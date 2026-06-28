@@ -58,13 +58,11 @@ Nondisclosure Agreement (AWS Artifact NDA).
     4. To accept the AWS Artifact NDA and to download a PDF of the agreement that you selected, choose **Accept NDA and
      download**.
 
-9. In a PDF viewer, review the agreement PDF that you downloaded.
-10. In the AWS Artifact console, with the agreement selected, choose **Accept agreement**.
-11. In the **Accept agreement** dialog box, do the following:
+9. In a PDF viewer, review the agreement PDF that you downloaded. 10. In the AWS Artifact console, with the agreement selected, choose **Accept agreement**. 11. In the **Accept agreement** dialog box, do the following:
 
     1. Review the agreement.
     2. Select **I agree to all of these terms and conditions**.
     3. Choose **Accept agreement**.
 
 12. Choose **Accept** to accept the agreement for all existing
-    and future accounts in your organization.
+and future accounts in your organization.
