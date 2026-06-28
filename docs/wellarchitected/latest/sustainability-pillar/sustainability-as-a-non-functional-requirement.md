@@ -27,7 +27,7 @@ trade Quality of Results (QoR) for a reduction in workload intensity
 with approximate computing. The practice of approximate computing
 looks for opportunities to exploit the gap between what customers
 need and what you actually produce. For example, if you place your
-data in a *set* data structure, you can drop the
+data in a _set_ data structure, you can drop the
 ORDER BY operator in SQL to remove unnecessary processing, saving
 resources while still providing an acceptable answer.
 
