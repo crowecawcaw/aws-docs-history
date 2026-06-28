@@ -234,13 +234,13 @@ tags**.
 The first and last rows of the **Cost Usage Report** are relevant to
 what the Seller sends to the Metering Service (as shown in the [Seller experience](#container-vendor-metered-tag-seller "#container-vendor-metered-tag-seller") example).
 
-| Cost Usage Report (Simplified) | ProductCode  | Buyer                       | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
-| ------------------------------ | ------------ | --------------------------- | -------------- | ------------- | ------------------------------- | ---------------------------------- |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 70             | 2222          | Operations                      |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 3333          | Finance                         |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 4444          | IT                              |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
+Cost Usage Report (Simplified)| ProductCode | Buyer | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
+| --- | --- | --- | --- | --- | --- |
+| xyz | 111122223333 | Network: per (GB) inspected | 70 | 2222 | Operations |
+| xyz | 111122223333 | Network: per (GB) inspected | 30 | 3333 | Finance |
+| xyz | 111122223333 | Network: per (GB) inspected | 20 | 4444 | IT |
+| xyz | 111122223333 | Network: per (GB) inspected | 20 | 5555 | Marketing |
+| xyz | 111122223333 | Network: per (GB) inspected | 30 | 1111 | Marketing |
 
 For a code example, see [MeterUsage code example with usage allocation tagging (Optional)](#container-meterusage-code-example "#container-meterusage-code-example").
 

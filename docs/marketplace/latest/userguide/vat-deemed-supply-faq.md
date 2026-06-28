@@ -32,11 +32,14 @@ This FAQ answers commonly asked questions about VAT on AWS Marketplace Deemed Su
 - **Reporting and Reconciliation**
 - [How do I identify which transactions I can submit VAT invoices for?](#faq-identify-transactions "#faq-identify-transactions")
 - [Where can I see whether VAT has been disbursed for my eligible transactions?](#faq-vat-disbursed "#faq-vat-disbursed")
+- [How do I reconcile VAT disbursement?](#faq-reconcile-vat-disbursement "#faq-reconcile-vat-disbursement")
 - **Errors, Duplicates, and Corrections**
 - [What happens if my invoice is rejected?](#faq-invoice-rejected "#faq-invoice-rejected")
 - [Can I submit more than one invoice for the same transaction?](#faq-duplicate-invoice "#faq-duplicate-invoice")
 - **Support**
 - [Where can I get additional help with VAT on Deemed Supplies?](#faq-additional-help "#faq-additional-help")
+- **Deemed VAT Supply vs Tax Portal**
+- [How do Deemed VAT Supply Invoicing and the Tax Portal differ?](#faq-deemed-vs-tax-portal "#faq-deemed-vs-tax-portal")
 
 ## What is a "Deemed Supply" on AWS Marketplace?
 
@@ -319,6 +322,23 @@ VAT disbursement on Deemed Supplies information is available in the following lo
 
 These reports are designed to support your internal reconciliation, financial reporting, and audit requirements.
 
+## How do I reconcile VAT disbursement?
+
+Visit the Collections and Disbursements dashboard in your Seller reports. You can use the following columns:
+
+- **Seller issued invoice ID:** An invoice issued by the Seller to AWS. Once you submit an invoice, it feeds into the Submission table and is associated with your "Seller Invoice ID." This same ID appears in the Collections and Disbursements dashboard for reconciliation.
+- **Seller issued invoice variant:** Displays "TAX\_VAT," indicating an invoice from the Seller to AWS for Deemed VAT payment.
+- **Seller tax share:** The VAT amount invoiced.
+
+For each transaction reference, two rows will appear in the dashboard:
+
+- One for the original disbursement
+- One for the VAT disbursement
+
+The VAT disbursement row contains the disbursement status, disbursement date, Bank Trace ID, and reference number.
+
+To match disbursements with their respective invoices, use the Collections and Disbursements dashboard to filter by the Bank Trace ID found in your bank statement. The Seller Invoice ID assigned at submission appears consistently across both the Submission table and the Collections and Disbursements dashboard, providing end-to-end traceability from invoice submission to payment receipt.
+
 ## What happens if my invoice is rejected?
 
 If your invoice fails validation, you will receive an error response identifying the specific issue. Common rejection reasons include:
@@ -338,3 +358,20 @@ No. The automated validation system includes controls to prevent duplicate invoi
 For questions about the VAT on Deemed Supplies invoicing process, invoice submission, or disbursement status, please Contact Us through the AMMP portal.
 
 For tax-specific questions regarding the Deemed Supply treatment, applicable VAT rates, or legal references, please consult your tax advisor. AWS is unable to provide tax advice on the VAT treatment of your individual transactions.
+
+## How do Deemed VAT Supply Invoicing and the Tax Portal differ?
+
+AWS Marketplace has launched the following capabilities accessible through AWS Partner Central:
+
+- **Deemed VAT Supply Invoicing:** Enables Sellers to submit VAT invoices to AWS and receive automated VAT disbursements for deemed supply of Digital Services in the EU, Norway, and the UK. This capability is for Sellers transacting through AWS EMEA SARL branches who must invoice AWS for VAT under deemed supply law.
+- **Tax Portal:** Provides Sellers centralized access to view, search, filter, and download listing fee and tax invoices issued by AWS. For more information, see [Managing invoices](managing-invoices.md "managing-invoices.md"). This capability is for all Sellers needing the ability to download and reconcile listing fee invoices or tax invoices issued by AWS across any invoicing entity.
+
+The following table summarizes the key differences:
+
+| Dimension         | Deemed VAT Supply Invoicing                               | Tax Portal                                                                               |
+| ----------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Invoice direction | Seller submits invoices to AWS                            | Seller retrieves invoices from AWS                                                       |
+| Scope             | EU, Norway, UK deemed supply transactions                 | All invoicing entities globally                                                          |
+| Key action        | Submit, track, and receive VAT disbursements              | View, search, filter, and download Listing Fee invoices and India customer invoices only |
+| Validation        | Automated field validation; disbursement on buyer payment | Sellers can download and reconcile invoices                                              |
+| Use case          | VAT compliance under deemed supply arrangements           | Listing fee invoice download and financial reconciliation                                |

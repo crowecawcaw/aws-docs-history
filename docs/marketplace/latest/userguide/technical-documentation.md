@@ -19,14 +19,14 @@ The AWS Marketplace Commerce Analytics Service exposes one method, `GenerateData
 request datasets to be published to your Amazon S3 bucket. The following table lists the parameters
 for `GenerateDataSet`.
 
-| Dataset parameters                | **Field**                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Description** |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| Data Set Type                     | This dataset will be returned as the result of the request.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Data Set Publication Date         | The date a dataset was published.<br>For daily datasets, provide a date with day-level granularity for the desired<br>day.<br>For monthly datasets, provide a date with month-level granularity for the<br>desired month. The day value is ignored.                                                                                                                                                                                                                  |
-| Role Name ARN                     | The ARN of the role with an attached permissions policy that provides the service<br>with access to your resources.                                                                                                                                                                                                                                                                                                                                                  |
-| Destination Amazon S3 Bucket Name | The name (the friendly name, not the ARN) of the destination Amazon S3 bucket. Your<br>datasets are published to this location.                                                                                                                                                                                                                                                                                                                                      |
-| Destination Amazon S3 Prefix      | (Optional) The Amazon S3 prefix for the published dataset, similar to a directory<br>path in standard file systems.<br>For example, if given the bucket name `mybucket` and the prefix<br>`myprefix/mydatasets`, the output file is published to<br>`s3://amzn-s3-demo-bucket/myprefix/mydatasets/outputfile`.<br>If the prefix directory structure doesn't exist, it's created.<br>If no prefix is provided, the dataset is published to the Amazon S3 bucket root. |
-| SNS Topic ARN                     | The ARN for the Amazon SNS topic that is notified when the dataset has been<br>published or if an error occurs.                                                                                                                                                                                                                                                                                                                                                      |
+Dataset parameters| **Field** | **Description** |
+| --- | --- |
+| Data Set Type | This dataset will be returned as the result of the request. |
+| Data Set Publication Date | The date a dataset was published.<br>For daily datasets, provide a date with day-level granularity for the desired<br>day.<br>For monthly datasets, provide a date with month-level granularity for the<br>desired month. The day value is ignored. |
+| Role Name ARN | The ARN of the role with an attached permissions policy that provides the service<br>with access to your resources. |
+| Destination Amazon S3 Bucket Name | The name (the friendly name, not the ARN) of the destination Amazon S3 bucket. Your<br>datasets are published to this location. |
+| Destination Amazon S3 Prefix | (Optional) The Amazon S3 prefix for the published dataset, similar to a directory<br>path in standard file systems.<br>For example, if given the bucket name `mybucket` and the prefix<br>`myprefix/mydatasets`, the output file is published to<br>`s3://amzn-s3-demo-bucket/myprefix/mydatasets/outputfile`.<br>If the prefix directory structure doesn't exist, it's created.<br>If no prefix is provided, the dataset is published to the Amazon S3 bucket root. |
+| SNS Topic ARN | The ARN for the Amazon SNS topic that is notified when the dataset has been<br>published or if an error occurs. |
 
 ## Responses
 
@@ -34,20 +34,20 @@ The AWS Marketplace Commerce Analytics Service returns two responses. The first 
 immediately, and the second is asynchronous, which is returned using the Amazon SNS. The
 synchronous response is similar to this example.
 
-| Data set parameters | **Field**                                                                                                                                                             | **Description** |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+Data set parameters| **Field** | **Description** |
+| --- | --- |
 | Data Set Request ID | A unique identifier representing a specific request to the service. This<br>identifier can be used to correlate a request with notifications on the Amazon SNS topic. |
 
 The asynchronous response is posted as a JSON-formatted document to your Amazon SNS topic and
 is similar to this example.
 
-| Dataset parameters             | **Field**                                                                                                                                                             | **Description** |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| Data Set S3 Location           | The bucket name and key for the delivered dataset.                                                                                                                    |
-| Data Set Meta Data S3 Location | The bucket name and key for the delivered dataset metadata file.                                                                                                      |
-| Data Set Request ID            | A unique identifier representing a specific request to the service. This<br>identifier can be used to correlate a request with notifications on the Amazon SNS topic. |
-| Success                        | "True" if the operation succeeded; "false" if not.                                                                                                                    |
-| Message                        | (Optional) If an error occurred (for example, "Success” is "false”), this<br>message contains information about the failure.                                          |
+Dataset parameters| **Field** | **Description** |
+| --- | --- |
+| Data Set S3 Location | The bucket name and key for the delivered dataset. |
+| Data Set Meta Data S3 Location | The bucket name and key for the delivered dataset metadata file. |
+| Data Set Request ID | A unique identifier representing a specific request to the service. This<br>identifier can be used to correlate a request with notifications on the Amazon SNS topic. |
+| Success | "True" if the operation succeeded; "false" if not. |
+| Message | (Optional) If an error occurred (for example, "Success” is "false”), this<br>message contains information about the failure. |
 
 **Example JSON-formatted asynchronous response**
 
@@ -76,13 +76,13 @@ file. The metadata file provides useful information about the dataset and origin
 parameters. The metadata file has the same name as the dataset file, but ends with the
 extension .meta.json. The following table lists the metadata fields in the .csv file.
 
-| Metadata fields                | **Field**                                                                                                                                                             | **Description** |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| Data Set Request ID            | A unique identifier representing a specific request to the service. This<br>identifier can be used to correlate a request with notifications on the Amazon SNS topic. |
-| Data Set Coverage Range        | Defines the start date/time and end date/time for the data coverage range.<br>These dates are in ISO 8601 format.                                                     |
-| Data Set Request Parameters    | The original request parameters to the `GenerateDataSet` method.                                                                                                      |
-| Data Set S3 Location           | The bucket name and key for the delivered dataset.                                                                                                                    |
-| Data Set Meta Data S3 Location | The bucket name and key for the delivered dataset metadata file.                                                                                                      |
+Metadata fields| **Field** | **Description** |
+| --- | --- |
+| Data Set Request ID | A unique identifier representing a specific request to the service. This<br>identifier can be used to correlate a request with notifications on the Amazon SNS topic. |
+| Data Set Coverage Range | Defines the start date/time and end date/time for the data coverage range.<br>These dates are in ISO 8601 format. |
+| Data Set Request Parameters | The original request parameters to the `GenerateDataSet` method. |
+| Data Set S3 Location | The bucket name and key for the delivered dataset. |
+| Data Set Meta Data S3 Location | The bucket name and key for the delivered dataset metadata file. |
 
 Following is an example of JSON-formatted metadata contents.
 

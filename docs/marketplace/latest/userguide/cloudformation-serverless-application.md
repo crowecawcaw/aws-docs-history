@@ -147,18 +147,15 @@ JSON
      the AWS Serverless Application Repository only has permission to access applications from the specified
      AWS account.
 
-6. Choose **Save**.
-7. Open the AWS Serverless Application Repository console at [https://console.aws.amazon.com/serverlessrepo](https://console.aws.amazon.com/serverlessrepo "https://console.aws.amazon.com/serverlessrepo").
-8. On the **My Applications** page, choose **Publish
-   application**.
-9. Complete the required fields and any optional field, as appropriate. The required
-   fields are:
+6. Choose **Save**. 7. Open the AWS Serverless Application Repository console at [https://console.aws.amazon.com/serverlessrepo](https://console.aws.amazon.com/serverlessrepo "https://console.aws.amazon.com/serverlessrepo"). 8. On the **My Applications** page, choose **Publish
+application**. 9. Complete the required fields and any optional field, as appropriate. The required
+fields are:
 
-   - **Application name**
-   - **Author**
-   - **Description**
-   - **Source code URL**
-   - **SAM template**
+    * **Application name**
+    * **Author**
+    * **Description**
+    * **Source code URL**
+    * **SAM template**
 
 10. Choose **Publish Application**.
 

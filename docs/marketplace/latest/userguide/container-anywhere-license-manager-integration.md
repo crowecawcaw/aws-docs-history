@@ -81,7 +81,7 @@ LicenseManagerClientBuilder clientBuilder = LicenseManagerClient.builder().crede
 ```
 
 5. Call the `CheckoutLicense` API operation by using the `aws
-license-manager checkout-license` command from each paid container image in your
+ license-manager checkout-license` command from each paid container image in your
    product offering. This checks that the buyer is entitled to use a license for your
    application. If the buyer is entitled to the application, `CheckoutLicense`
    succeeds and returns the requested entitlements and their values. If the buyer isn't
@@ -196,20 +196,19 @@ stringData:
   iam_role: <role_arn> // AWS Identity and Access Management role to assume with license token
 ```
 
-9.  Update the application deployment template in the Helm chart for container images
-    integrated with AWS License Manager to include the following:
+9. Update the application deployment template in the Helm chart for container images
+   integrated with AWS License Manager to include the following:
 
-        * Service account for pod – The service account is required for Helm
-         deployments on Amazon EKS. It's used to get permissions to call License Manager API operations by
-         setting up IAM roles for the service account on the container image. For more
-         information about IAM roles for service accounts, see [IAM roles for service accounts](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md").
-        * License access for on-premises deployments – The license configuration
-         secret is required to provide credentials and appropriate permissions to call License Manager
-         API operations for Helm deployments in on-premises environments. Buyers will generate
-         and provide the license secret to Helm from the AWS Marketplace buyer experience.
-
-    The following code snippet is a sample deployment specification with the service
-    account, license configuration, and image pull secret.
+   - Service account for pod – The service account is required for Helm
+     deployments on Amazon EKS. It's used to get permissions to call License Manager API operations by
+     setting up IAM roles for the service account on the container image. For more
+     information about IAM roles for service accounts, see [IAM roles for service accounts](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md").
+   - License access for on-premises deployments – The license configuration
+     secret is required to provide credentials and appropriate permissions to call License Manager
+     API operations for Helm deployments in on-premises environments. Buyers will generate
+     and provide the license secret to Helm from the AWS Marketplace buyer experience.
+     The following code snippet is a sample deployment specification with the service
+     account, license configuration, and image pull secret.
 
 ```
 apiVersion: apps/v1
@@ -269,7 +268,7 @@ following sections:
     2. [Testing License Manager integration on Amazon EKS](#container-testing-LM-integration-EKS "#container-testing-LM-integration-EKS")
 
 11. After you successfully verify License Manager integration both on AWS and on-premises, you
-    can create your container product listing by following the steps in [Overview: Create a container product](container-product-getting-started.md#create-container-product "container-product-getting-started.md#create-container-product").
+can create your container product listing by following the steps in [Overview: Create a container product](container-product-getting-started.md#create-container-product "container-product-getting-started.md#create-container-product").
 
 ## Testing License Manager integration locally
 

@@ -107,41 +107,43 @@ account. 3. Choose your AI agent or tool details:
     	+ **Other** - Additional tools that enhance AI agent capabilities.
 
 4. Enter the endpoint URL. This is the URL where your API receives requests. For
-   MCP servers, list the MCP endpoint.
-5. Add usage instructions:
+MCP servers, list the MCP endpoint. 5. Add usage instructions:
 
-   - Provide detailed instructions for buyers to use your API such as API schema, rate limits, and usage examples.
-   - You can also provide additional links to your documentation.
+    * Provide detailed instructions for buyers to use your API such as API schema, rate limits, and usage examples.
+    * You can also provide additional links to your documentation.
 
 6. Choose an authorization method:
 
-   - **API Keys** – Customers authenticate using API keys that you provide.
-   - **OAuth** – Customers authenticate using OAuth 2.0 authorization flow. If you choose OAuth, provide clear usage instructions for customers, including:
+    * **API Keys** – Customers authenticate using API keys that you provide.
+    * **OAuth** – Customers authenticate using OAuth 2.0 authorization flow. If you choose OAuth, provide clear usage instructions for customers, including:
 
-     - OAuth authorization URL and token endpoint
-     - Required scopes and permissions
-     - Step-by-step authentication flow instructions
-     - Example API calls with proper authentication headers
-     - Troubleshooting common authentication issues
+
+
+
+    	+ OAuth authorization URL and token endpoint
+    	+ Required scopes and permissions
+    	+ Step-by-step authentication flow instructions
+    	+ Example API calls with proper authentication headers
+    	+ Troubleshooting common authentication issues
 
 7. (Optional) Amazon Bedrock AgentCore integration
 
-   - If you list an MCP server that supports two-legged OAuth authentication, you can enable integration with Amazon Bedrock AgentCore Gateway using your MCP server endpoint as the target.
+    * If you list an MCP server that supports two-legged OAuth authentication, you can enable integration with Amazon Bedrock AgentCore Gateway using your MCP server endpoint as the target.
      For more information, see [MCP server targets](../../../bedrock-agentcore/latest/devguide/gateway-target-MCPservers.md "../../../bedrock-agentcore/latest/devguide/gateway-target-MCPservers.md").
      In this case, OpenAPI spec is not required.
-   - If you list any other API-based product or MCP servers with API Key authentication, you can
+    * If you list any other API-based product or MCP servers with API Key authentication, you can
      enable integration with Amazon Bedrock AgentCore by providing OpenAPI
      spec.
-   - To learn more about AgentCore's capabilities for deploying and scaling AI agents, see [What is Amazon Bedrock AgentCore?](../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md "../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md")
+    * To learn more about AgentCore's capabilities for deploying and scaling AI agents, see [What is Amazon Bedrock AgentCore?](../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md "../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md")
 
 8. (Optional) - Choose API integration protocols and provide usage instructions:
 
-   - **MCP** - Model Context Protocol (MCP) standardizes access to external tools, data, and services for enhanced functionality.
-   - **A2A** - Agent2Agent (A2A) enables direct communication and task delegation across different platforms.
+    * **MCP** - Model Context Protocol (MCP) standardizes access to external tools, data, and services for enhanced functionality.
+    * **A2A** - Agent2Agent (A2A) enables direct communication and task delegation across different platforms.
 
 9. If you selected an AI agent tool type, confirm that your agent uses reasoning LLMs and demonstrates autonomous capabilities.
-   These requirements help ensure that agents offered on AWS Marketplace meet a high quality bar. If your agent does not meet both requirements,
-   choose a different tool type.
+These requirements help ensure that agents offered on AWS Marketplace meet a high quality bar. If your agent does not meet both requirements,
+choose a different tool type.
 
 ## Step 3: Configure product pricing
 

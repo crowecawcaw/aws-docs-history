@@ -285,11 +285,12 @@ Content Type: application/json
 ```
 
 **Error Codes**
-| Status | Meaning |
+
+| Status | Meaning                        |
 | ------ | ------------------------------ |
-| `401` | Unauthorized (check your key) |
-| `429` | Too many requests (rate limit) |
-| `500` | Server error |
+| `401`  | Unauthorized (check your key)  |
+| `429`  | Too many requests (rate limit) |
+| `500`  | Server error                   |
 
 All error responses follow this structure:
 

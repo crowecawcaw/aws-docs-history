@@ -79,18 +79,18 @@ The software charge per unit for the 24-month option for this dimension. This fi
 
 The software charge per unit for the 36-month option for this dimension. This field supports three decimal places.
 
-| Example: Data storage application |          | Monthly price | 12-month price | 24-month price    | Pay-as-you-go price for additional usage |
-| --------------------------------- | -------- | ------------- | -------------- | ----------------- | ---------------------------------------- |
-| Unencrypted data (GB)             | $1.50/GB | $16.00/GB     | $30.00/GB      | $0.1/GB per hour  |
-| Encrypted data (GB)               | $1.55/GB | $16.60/GB     | $31.20/GB      | $0.11/GB per hour |
+Example: Data storage application| | Monthly price | 12-month price | 24-month price | Pay-as-you-go price for additional usage |
+| --- | --- | --- | --- | --- |
+| Unencrypted data (GB) | $1.50/GB | $16.00/GB | $30.00/GB | $0.1/GB per hour |
+| Encrypted data (GB) | $1.55/GB | $16.60/GB | $31.20/GB | $0.11/GB per hour |
 
-| Example: Log monitoring product                        |      | Monthly price | 12-month price | Pay-as-you-go price for additional usage |
-| ------------------------------------------------------ | ---- | ------------- | -------------- | ---------------------------------------- |
-| Basic (10 hosts monitored, 5 containers monitored)     | $100 | $1000         |                |
-| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000         |                |
-| Pro (40 hosts monitored, 20 containers monitored)      | $400 | $4000         |                |
-| Additional hosts monitored per hour                    |      |               | $0.1           |
-| Additional containers monitored per hour               |      |               | $0.2           |
+Example: Log monitoring product| | Monthly price | 12-month price | Pay-as-you-go price for additional usage |
+| --- | --- | --- | --- |
+| Basic (10 hosts monitored, 5 containers monitored) | $100 | $1000 | |
+| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000 | |
+| Pro (40 hosts monitored, 20 containers monitored) | $400 | $4000 | |
+| Additional hosts monitored per hour | | | $0.1 |
+| Additional containers monitored per hour |  |  | $0.2 |
 
 ###### Note
 

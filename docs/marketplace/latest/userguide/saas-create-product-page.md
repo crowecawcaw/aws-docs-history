@@ -48,9 +48,9 @@ product detail page and submit a change request.
 
 For products using non-free pricing models (contract, usage, or contract with consumption),
 your price will default to $0.001 per dimension during testing. This price
-allows you to test your product in the **Limited** state
-without incurring a large bill. For products using the Free pricing model,
-dimensions will default to $0.00. For non-free pricing models, you'll provide
+ allows you to test your product in the **Limited** state
+ without incurring a large bill. For products using the Free pricing model, 
+ dimensions will default to $0.00. For non-free pricing models, you'll provide
 your actual price when making your product public. Note that if all dimensions
 are set to $0.00, the product will automatically convert to the Free pricing model. 5. Choose **Submit**. Then, AWS Marketplace validates the information. If the
 validation succeeds, AWS Marketplace releases the product in a **Limited**

@@ -84,7 +84,7 @@ information, see [Create private offers](proserv-getting-started.md#proserv-crea
 
 Software as a service (SaaS) private offer products can't change the pricing level for a
 given pricing tier based on timing. For example, an offer can't charge $0.80/hour for three
-months and then change pricing to $0.60/hour thereafter for the same pricing tier. For SaaS
+ months and then change pricing to $0.60/hour thereafter for the same pricing tier. For SaaS
 contracts, private offers don't monitor usage.
 
 Buyers can manually upgrade to new contract levels at any time. However, the independent

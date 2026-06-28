@@ -71,7 +71,7 @@ aws-mp-standardcontract@amazon.com.
 5. Choose **Standard Contract for AWS Marketplace** for the EULA if it's not
    already selected.
 6. In **Notes & Notifications**, type `Please update
-this product to SCMP V2`.
+ this product to SCMP V2`.
 7. Review the changes, and choose **Submit for review**.
 
 ###### To update a EULA to the SCMP for AMI and SaaS products not listed through SSL
@@ -87,7 +87,7 @@ this product to SCMP V2`.
    - For the subcategory, choose **Standard Contract
      Request**.
    - In the description, type `Please update these products to SCMP
-V2` and provide the product titles and IDs that you want to update with
+  V2` and provide the product titles and IDs that you want to update with
      the SCMP.
 
 ## Reseller Contract for AWS Marketplace

@@ -82,7 +82,7 @@ All container-based products must adhere to the following product usage requirem
     instructions of the listing. For example, _This product
     requires an internet connection to deploy properly. The following
     packages are downloaded on deployment: <list of
-    package>._
+       package>._
   - Sellers are responsible for the use of and ensuring the availability
     and security of all external dependencies.
   - If the external dependencies are no longer available, the product must
@@ -99,7 +99,7 @@ All container-based products must adhere to the following product usage requirem
     instructions of the listing. For example, _This product
     requires an ongoing internet connection. The following ongoing
     external services are required to properly function: <list of
-    resources>._
+       resources>._
   - Sellers are responsible for the use of and ensuring the availability
     and security of all external resources.
   - If the external resources are no longer available, the product must be
@@ -220,8 +220,8 @@ If your Helm chart does not meet these requirements, you may encounter the follo
 | `INCOMPATIBLE_HELM_OBJECTS`                 | The specified Helm objects are not supported for EKS add-ons. See [Requirements for Amazon EKS add-on products](#publishing-eks-add-on "#publishing-eks-add-on").                                                                                                                      |
 | `INVALID_DEPENDENT_HELM_CHARTS`             | Dependent Helm charts must be contained within the parent chart directory and not externally sourced.                                                                                                                                                                                  |
 | `INVALID_HELM_SENSITIVE_CONFIG`             | The configuration schema cannot contain fields that collect sensitive information. Configuration schemas must not accept passwords, API keys, certificates, or secrets. Instead, provide fields for Kubernetes secret names that customers will create separately.                     |
-| `INVALID_HELM_CHART_IMAGES`                 | All images, including open-source dependencies, must be pushed to AWS Marketplace Amazon ECR repositories created via the \*_[Add Repository](container-add-version.md#add-repositories "container-add-version.md#add-repositories")_<br>• request.                                    |
-| `INVALID_HELM_UNDECLARED_IMAGES`            | All container images references must be explicitly listed in the \*_[Add Version](container-add-version.md#add-new-version "container-add-version.md#add-new-version")_<br>• request.                                                                                                  |
+| `INVALID_HELM_CHART_IMAGES`                 | All images, including open-source dependencies, must be pushed to AWS Marketplace Amazon ECR repositories created via the **[Add Repository](container-add-version.md#add-repositories "container-add-version.md#add-repositories")*<br>• request.                                     |
+| `INVALID_HELM_UNDECLARED_IMAGES`            | All container images references must be explicitly listed in the **[Add Version](container-add-version.md#add-new-version "container-add-version.md#add-new-version")*<br>• request.                                                                                                   |
 | `INVALID_HELM_LINT`                         | The Helm chart failed `helm lint` validation. Run `helm lint` locally to identify and fix structural or syntactical issues. Use Helm version `3.19.0` or later.                                                                                                                        |
 | `INVALID_HELM_TEMPLATE`                     | The Helm chart failed `helm template` validation. The chart cannot be rendered into valid Kubernetes manifests. Test locally with `helm template` to identify template syntax or logic errors. Use Helm version `3.19.0` or later.                                                     |
 | `MISSING_HELM_DEPLOYMENT_CONFIG`            | The Helm chart for an Amazon EKS add-on must contain a Deployment or DaemonSet resource. Amazon EKS requires at least one of these workload types for add-on lifecycle management. See [Requirements for Amazon EKS add-on products](#publishing-eks-add-on "#publishing-eks-add-on"). |
@@ -307,18 +307,18 @@ BYOL is not supported for Amazon EKS add-on delivery.
     no errors. The commands are as follows:
 
     - Helm Lint – `helm lint
-`helm-chart``
+   `helm-chart``
 
     Common issues include undeclared charts in the parent
     chart’s metadata. For example, `chart metadata is
- missing these dependencies: chart-base Error: 1 chart(s)
- linted, 1 chart(s) failed`
+   missing these dependencies: chart-base Error: 1 chart(s)
+   linted, 1 chart(s) failed`
     - Helm Template – `helm template
- `chart-name`
-`chart-location` --set
- k8version=`Kubernetes-version`  --kube-version
- `Kubernetes-version` --namespace`addon-namespace`  --include-crds --no-hooks -f
- `any-overriden-values``
+   `chart-name`
+  `chart-location` --set
+   k8version=`Kubernetes-version`    --kube-version
+   `Kubernetes-version`   --namespace`addon-namespace`    --include-crds --no-hooks -f
+   `any-overriden-values``
 
     Pass any overridden configurations with the
     `-f` flag.
@@ -338,8 +338,8 @@ BYOL is not supported for Amazon EKS add-on delivery.
   wrapper with the Helm chart, see [Amazon EKS
   add-ons: Advanced configuration](https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/ "https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/").
 
-According to [The "$schema" Keyword](https://json-schema.org/draft/2020-12/json-schema-core#name-the-schema-keyword "https://json-schema.org/draft/2020-12/json-schema-core#name-the-schema-keyword"), `$schema` must be a URI that
-points to a valid `application/schema+json` resource.
+According to [The "$schema" Keyword](https://json-schema.org/draft/2020-12/json-schema-core#name-the-schema-keyword "https://json-schema.org/draft/2020-12/json-schema-core#name-the-schema-keyword"), `$schema`must be a URI that
+ points to a valid`application/schema+json` resource.
 
 This file must not accept any sensitive information such as passwords,
 license keys, and certificates.
@@ -376,7 +376,7 @@ For more information about limitations for
   default. If the `serviceAccount` creation is handled by a
   parameter in a `values.yaml` file, set the parameter value to
   `true`. For example, `serviceAccount.create =
-true`. This is required because the customer might choose to
+ true`. This is required because the customer might choose to
   install the add-on by inheriting permissions from the underlying node
   instance which already has the required permissions. If the Helm chart
   doesn't create the `serviceAccount`, then the permissions can't
@@ -412,20 +412,19 @@ true`. This is required because the customer might choose to
   with IAM policies to access AWS services. You can choose from two options
   for your service account to make API requests to AWS services:
 
-      + Credentials via IRSA: This option allows your software to obtain
-       assume credentials from the Identity and Access Management (IAM) Role Service
-       (IRSA). For more information, see [IAM roles for service accounts.](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md")
-      + Amazon EKS pod identity: This option allows your software to use the
-       Pod Identity of the Amazon EKS pod to make API requests to AWS services.
-       For more information, see [Learn how EKS Pod Identity
-       grants pods access to AWS services](../../../eks/latest/userguide/pod-identities.md "../../../eks/latest/userguide/pod-identities.md")
-
-  Your add-on must have an additional configuration file named
-  `aws_mp_addon_parameters.json`
-  in the top level of the Helm chart, in the same directory as the current custom
-  configuration schema (`aws_mp_configuration_schema.json`). Currently,
-  this file only handles pod identity-compatible permissions. The file format is
-  as follows:
+  - Credentials via IRSA: This option allows your software to obtain
+    assume credentials from the Identity and Access Management (IAM) Role Service
+    (IRSA). For more information, see [IAM roles for service accounts.](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md")
+  - Amazon EKS pod identity: This option allows your software to use the
+    Pod Identity of the Amazon EKS pod to make API requests to AWS services.
+    For more information, see [Learn how EKS Pod Identity
+    grants pods access to AWS services](../../../eks/latest/userguide/pod-identities.md "../../../eks/latest/userguide/pod-identities.md")
+    Your add-on must have an additional configuration file named
+    `aws_mp_addon_parameters.json`
+    in the top level of the Helm chart, in the same directory as the current custom
+    configuration schema (`aws_mp_configuration_schema.json`). Currently,
+    this file only handles pod identity-compatible permissions. The file format is
+    as follows:
 
 ```
 {

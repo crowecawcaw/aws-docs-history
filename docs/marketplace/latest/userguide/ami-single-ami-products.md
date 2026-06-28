@@ -169,9 +169,9 @@ state.
      multiple versions for testing) before releasing it publicly.
 
 6. Test your product in the **Limited** state and make sure
-   that it follows AWS Marketplace [AMI-based product requirements](product-and-ami-policies.md "product-and-ami-policies.md") and the [product checklist](aws-marketplace-listing-checklist.md "aws-marketplace-listing-checklist.md"). Then, to request that your product be
-   published to **Public**, choose **Update visibility**. The AWS Marketplace Seller Operations team must review your product
-   before approving it to go **Public**.
+that it follows AWS Marketplace [AMI-based product requirements](product-and-ami-policies.md "product-and-ami-policies.md") and the [product checklist](aws-marketplace-listing-checklist.md "aws-marketplace-listing-checklist.md"). Then, to request that your product be
+published to **Public**, choose **Update visibility**. The AWS Marketplace Seller Operations team must review your product
+before approving it to go **Public**.
 
 ###### Note
 

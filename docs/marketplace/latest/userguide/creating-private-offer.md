@@ -103,12 +103,11 @@ offer.
 A renewal is defined as:
 
     * Any private offer to a customer with an existing or prior private offer for the product, including expansions and upsells.
-    * Any private offer to a customer with an existing paid software subscription between seller and customer that didn't originate but was renewed through AWS Marketplace.A private offer that moves the customer from public AWS Marketplace subscription to private offer is not considered a renewal.
+    * Any private offer to a customer with an existing paid software subscription between seller and customer that did not originate but was renewed through AWS Marketplace.A private offer that moves the customer from a public AWS Marketplace subscription to a private offer is not considered a renewal.
 
-2. Choose **Next**.
-3. On the **Configure offer pricing and duration** page, choose the
-   pricing model, contract or usage duration, pricing, currency, and payment schedule. For
-   pricing models that have an installment plan, see [Private offer installment plans](installment-plans.md "installment-plans.md").
+2. Choose **Next**. 3. On the **Configure offer pricing and duration** page, choose the
+pricing model, contract or usage duration, pricing, currency, and payment schedule. For
+pricing models that have an installment plan, see [Private offer installment plans](installment-plans.md "installment-plans.md").
 
 ###### Note
 
@@ -134,10 +133,10 @@ of the following options:
      created.
 
 7. On the **Review and create** page, review the details of your private
-   offer. After you review and confirm, choose **Create offer** to publish
-   the offer and extend it to the buyers you chose. Offer publishing includes a request to
-   the AWS Marketplace Catalog API, so it can take up to an hour to validate and process the offer.
-   This request can be viewed on the **Requests** page.
+offer. After you review and confirm, choose **Create offer** to publish
+the offer and extend it to the buyers you chose. Offer publishing includes a request to
+the AWS Marketplace Catalog API, so it can take up to an hour to validate and process the offer.
+This request can be viewed on the **Requests** page.
 
 ###### Note
 

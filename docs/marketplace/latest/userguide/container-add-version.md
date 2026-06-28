@@ -105,7 +105,7 @@ You can use the following Amazon Elastic Container Registry (Amazon ECR) API ope
      pushed.
 
 8. Use the commands listed to push any needed artifacts from your local repository to
-   the AWS Marketplace repository for your product.
+the AWS Marketplace repository for your product.
 
 ###### Note
 
@@ -181,130 +181,133 @@ four delivery options per version of the product.
      After adding an option, follow the instructions in the following steps to configure
      it.
 
-6.  Choose a delivery method for the delivery option. The delivery method determines how
-    buyers will launch your software.
+6. Choose a delivery method for the delivery option. The delivery method determines how
+buyers will launch your software.
 
-    - For a **Container image** delivery option, provide paths to
-      container images in an Amazon Elastic Container Registry (Amazon ECR) repository that was created in the AWS Marketplace
-      console. Buyers use the container image paths to launch the software by pulling the
-      images directly into their environments.
-    - For a **Helm chart** delivery option, provide
-      paths to Helm charts in an Amazon ECR repository that was created in the
-      AWS Marketplace console. Buyers install the Helm charts in their deployment
-      environment to launch the software.
-    - For an **Amazon EKS console add-on** delivery option, provide paths
-      to Helm charts in an Amazon ECR repository that was created in the AWS Marketplace
-      console. Buyers install the container using the Amazon EKS console or native Amazon EKS add-on
-      APIs to launch the software. For more information, see [Available Amazon EKS add-ons from Amazon EKS](../../../eks/latest/userguide/eks-add-ons.md#workloads-add-ons-available-eks "../../../eks/latest/userguide/eks-add-ons.md#workloads-add-ons-available-eks").
+    * For a **Container image** delivery option, provide paths to
+     container images in an Amazon Elastic Container Registry (Amazon ECR) repository that was created in the AWS Marketplace
+     console. Buyers use the container image paths to launch the software by pulling the
+     images directly into their environments.
+    * For a **Helm chart** delivery option, provide
+     paths to Helm charts in an Amazon ECR repository that was created in the
+     AWS Marketplace console. Buyers install the Helm charts in their deployment
+     environment to launch the software.
+    * For an **Amazon EKS console add-on** delivery option, provide paths
+     to Helm charts in an Amazon ECR repository that was created in the AWS Marketplace
+     console. Buyers install the container using the Amazon EKS console or native Amazon EKS add-on
+     APIs to launch the software. For more information, see [Available Amazon EKS add-ons from Amazon EKS](../../../eks/latest/userguide/eks-add-ons.md#workloads-add-ons-available-eks "../../../eks/latest/userguide/eks-add-ons.md#workloads-add-ons-available-eks").
     1. To add a **Container image** delivery option, perform the
-       following steps:
+     following steps:
 
-       1. In **Container images**, add the Amazon ECR URL to the container
-          images that contain the product version software.
-       2. In **Delivery option title** and **Deployment
-          option description**, enter a title and description for this delivery
-          option.
-       3. In **Usage instructions**, enter detailed information to
-          help your buyers use your software after launching it.
-       4. In **Supported services**, select the environments that
-          buyers can launch the software in.
-       5. In **Deployment templates**, add resources that buyers can
-          use to launch the software. Enter a title and a URL to the resource for each
-          template.
 
+    	1. In **Container images**, add the Amazon ECR URL to the container
+    	 images that contain the product version software.
+    	2. In **Delivery option title** and **Deployment
+    	 option description**, enter a title and description for this delivery
+    	 option.
+    	3. In **Usage instructions**, enter detailed information to
+    	 help your buyers use your software after launching it.
+    	4. In **Supported services**, select the environments that
+    	 buyers can launch the software in.
+    	5. In **Deployment templates**, add resources that buyers can
+    	 use to launch the software. Enter a title and a URL to the resource for each
+    	 template.
     2. To add a **Helm chart** delivery option, perform
-       the following steps:
+     the following steps:
 
-       1. In **Helm chart**, add the Amazon ECR URL to the
-          Helm chart that buyers will install in their deployment
-          environment to launch your software.
-       2. In **Container images**, add the Amazon ECR URL to the container
-          images that contain the product version software.
-       3. In **Delivery option title** and **Deployment
-          option description**, enter a title and description for this delivery
-          option.
-       4. In **Usage instructions**, enter detailed information to
-          help your buyers use your software after launching it.
-       5. In **Supported services**, select the environments that
-          buyers can launch the software in.
-       6. _Optional -_ In **Helm release
-          name**, enter the name of the Kubernetes namespace
-          where the Helm chart will be installed.
-       7. _Optional -_ In **Helm
-          installation namespace**, enter the name for the Helm
-          release that will be used by the `helm install` command.
-       8. _Optional -_ In **Kubernetes
-          service account name**, enter the name of the
-          Kubernetes service account that will be used to connect to
-          AWS Identity and Access Management (IAM). The Kubernetes service account calls AWS
-          services such as licensing or metering.
-       9. In **Override parameters**, enter parameters that will be
-          used in the Helm CLI commands that launch the software. These
-          parameters allow buyers to override the provided default values.
-          There is a limit of 15 parameters when using the AWS Marketplace Management
-          Console, but there is no limit when using the AWS Marketplace Catalog API. For more
-          information, see [Adding a new version to a container-based product](../../../marketplace-catalog/latest/api-reference/container-products.md#container-add-version "../../../marketplace-catalog/latest/api-reference/container-products.md#container-add-version").
 
-       ###### Note
+    	1. In **Helm chart**, add the Amazon ECR URL to the
+    	 Helm chart that buyers will install in their deployment
+    	 environment to launch your software.
+    	2. In **Container images**, add the Amazon ECR URL to the container
+    	 images that contain the product version software.
+    	3. In **Delivery option title** and **Deployment
+    	 option description**, enter a title and description for this delivery
+    	 option.
+    	4. In **Usage instructions**, enter detailed information to
+    	 help your buyers use your software after launching it.
+    	5. In **Supported services**, select the environments that
+    	 buyers can launch the software in.
+    	6. *Optional -*  In **Helm release
+    	 name**, enter the name of the Kubernetes namespace
+    	 where the Helm chart will be installed.
+    	7. *Optional -*  In **Helm
+    	 installation namespace**, enter the name for the Helm
+    	 release that will be used by the `helm install` command.
+    	8. *Optional -*  In **Kubernetes
+    	 service account name**, enter the name of the
+    	 Kubernetes service account that will be used to connect to
+    	 AWS Identity and Access Management (IAM). The Kubernetes service account calls AWS
+    	 services such as licensing or metering.
+    	9. In **Override parameters**, enter parameters that will be
+    	 used in the Helm CLI commands that launch the software. These
+    	 parameters allow buyers to override the provided default values.
+    	 There is a limit of 15 parameters when using the AWS Marketplace Management
+    	 Console, but there is no limit when using the AWS Marketplace Catalog API. For more
+    	 information, see [Adding a new version to a container-based product](../../../marketplace-catalog/latest/api-reference/container-products.md#container-add-version "../../../marketplace-catalog/latest/api-reference/container-products.md#container-add-version").
 
-       Some **Override parameters** are required. Amazon EKS Anywhere
-       products require an **Override parameter** for license secret
-       with a `DefaultValue` of `"${AWSMP_LICENSE_SECRET}"`.
-       For paid products, you must provide one **Override
-       parameter** for service account configuration with the
-       `DefaultValue` of `"${AWSMP_SERVICE_ACCOUNT}"`. 10. Choose **Hide passwords and secrets** to mask sensitive
-       information in consoles, command line tools, and APIs. For more information, see
-       the `NoEcho` parameter documentation in [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _AWS CloudFormation User Guide_.
 
+    	###### Note
+
+    	Some **Override parameters** are required. Amazon EKS Anywhere
+    	 products require an **Override parameter** for license secret
+    	 with a `DefaultValue` of `"${AWSMP_LICENSE_SECRET}"`.
+    	 For paid products, you must provide one **Override
+    	 parameter** for service account configuration with the
+    	 `DefaultValue` of `"${AWSMP_SERVICE_ACCOUNT}"`.
+    	10. Choose **Hide passwords and secrets** to mask sensitive
+    	 information in consoles, command line tools, and APIs. For more information, see
+    	 the `NoEcho` parameter documentation in [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the *AWS CloudFormation User Guide*.
     3. To add an **Amazon EKS console add-on** delivery option, make sure
-       that artifacts conform to [Requirements for Amazon EKS add-on products](container-product-policies.md#publishing-eks-add-on "container-product-policies.md#publishing-eks-add-on"), and then perform the following
-       steps:
+     that artifacts conform to [Requirements for Amazon EKS add-on products](container-product-policies.md#publishing-eks-add-on "container-product-policies.md#publishing-eks-add-on"), and then perform the following
+     steps:
+
 
     ###### Note
 
     Only one Amazon EKS add-on delivery option is supported per version. You aren't
-    able to add a new version until the current version you're working with is
-    published on the Amazon EKS console.
+     able to add a new version until the current version you're working with is
+     published on the Amazon EKS console.
 
-        1. In **Helm chart**, add the Amazon ECR URL to the
-         Helm chart that buyers will install in their deployment
-         environment to launch your software.
-        2. In **Container images**, add the Amazon ECR URL to the container
-         images that contain the product version software. Make sure that all images
-         within the Helm chart are listed.
-        3. In **Delivery option title** and **Deployment
-         option description**, enter a title and description for this delivery
-         option.
-        4. In **Visibility**, keep the default value of
-         **Limited selected**.
-        5. In **Add-on name**, enter a unique name for this add-on.
-         The add-on name that you enter will be appended with the seller’s name while
-         being displayed in the Amazon EKS console.
-        6. In **Add-on version**, enter the version of the add-on that
-         will be visible when installing or upgrading this add-on. Follow the format
-         `major.minor.patch`.
-        7. In **Add-on type**, select a category for your add-on from
-         the dropdown list.
-        8. In **Kubernetes Version**, select all the
-         Kubernetes versions that your add-on will support.
-        9. In **Architecture**, select the platform architectures that
-         your add-on supports. The options are **AMD64** and
-         **ARM64**. We recommend supporting both architectures to
-         maximize compatibility. If your add-on doesn't support ARM64 devices, you must
-         specify a planned date for adding support before your product can be published
-         in all commercial AWS Regions.
-        10. In **Namespace**, enter a unique Kubernetes
-         namespace where your add-on will be installed. The `default`,
-         `kube-system`, and `kube-public` namespaces aren't
-         supported for installing third-party add-ons.
-        11. In **Environment Override parameters**, you can select up
-         to 2 environment parameters from the Amazon EKS add-on framework. You can map
-         parameter names from your values.yaml to these environment variables, which are
-         `${AWS_REGION}` and `${AWS_EKS_CLUSTER_NAME}`.
 
-7.  To add additional delivery options, choose **New delivery option**
-    and repeat the instructions in the previous steps to configure them.
-8.  Choose **Submit**.
+    	1. In **Helm chart**, add the Amazon ECR URL to the
+    	 Helm chart that buyers will install in their deployment
+    	 environment to launch your software.
+    	2. In **Container images**, add the Amazon ECR URL to the container
+    	 images that contain the product version software. Make sure that all images
+    	 within the Helm chart are listed.
+    	3. In **Delivery option title** and **Deployment
+    	 option description**, enter a title and description for this delivery
+    	 option.
+    	4. In **Visibility**, keep the default value of
+    	 **Limited selected**.
+    	5. In **Add-on name**, enter a unique name for this add-on.
+    	 The add-on name that you enter will be appended with the seller’s name while
+    	 being displayed in the Amazon EKS console.
+    	6. In **Add-on version**, enter the version of the add-on that
+    	 will be visible when installing or upgrading this add-on. Follow the format
+    	 `major.minor.patch`.
+    	7. In **Add-on type**, select a category for your add-on from
+    	 the dropdown list.
+    	8. In **Kubernetes Version**, select all the
+    	 Kubernetes versions that your add-on will support.
+    	9. In **Architecture**, select the platform architectures that
+    	 your add-on supports. The options are **AMD64** and
+    	 **ARM64**. We recommend supporting both architectures to
+    	 maximize compatibility. If your add-on doesn't support ARM64 devices, you must
+    	 specify a planned date for adding support before your product can be published
+    	 in all commercial AWS Regions.
+    	10. In **Namespace**, enter a unique Kubernetes
+    	 namespace where your add-on will be installed. The `default`,
+    	 `kube-system`, and `kube-public` namespaces aren't
+    	 supported for installing third-party add-ons.
+    	11. In **Environment Override parameters**, you can select up
+    	 to 2 environment parameters from the Amazon EKS add-on framework. You can map
+    	 parameter names from your values.yaml to these environment variables, which are
+    	 `${AWS_REGION}` and `${AWS_EKS_CLUSTER_NAME}`.
+
+7. To add additional delivery options, choose **New delivery option**
+and repeat the instructions in the previous steps to configure them. 8. Choose **Submit**.
 
 ## Step 4: Update version information
 

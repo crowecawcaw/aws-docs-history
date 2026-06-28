@@ -15,7 +15,7 @@ Considerations when working with an annual subscription include the following:
   doesn't offer Annual-only pricing or Hourly without Annual on the same product. For any
   product offering Annual pricing, Hourly pricing also needs to be specified.
 - A $0 Annual price is allowed on a specific instance type, if the Hourly price is
-  also $0 and there are other non-$0 Annual instance types defined.
+ also $0 and there are other non-$0 Annual instance types defined.
 - At the end of the annual subscription period, the customer will start being charged
   at the hourly price.
 - If a customer buys X Annual subscriptions but is running Y software on Y instances,

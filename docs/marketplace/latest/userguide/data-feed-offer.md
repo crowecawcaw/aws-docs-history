@@ -23,15 +23,15 @@ The following table provides the names and descriptions of the data feed's colum
 | `opportunity_description` | Any descriptive information linked to this offer. If the offer is bound to an AWS<br>opportunity, this field is populated.                                                                                                |
 | `seller_account_id`       | The globally unique identifier (GUID) of the seller’s account. Can be used to join<br>with the `account_id` field in the account data feed.                                                                               |
 | `opportunity_id`          | An identifier for the opportunity is only populated if a reseller is selling your<br>product. All offers created by different channel partners (or sellers) have the same<br>`opportunity_id` if the product is the same. |
-| recipient_account_id      | The account of the seller that is receiving the data in the feeds. Can be used to join to the `Account` data feed on the `account_id` field.                                                                              |
+| recipient\_account\_id    | The account of the seller that is receiving the data in the feeds. Can be used to join to the `Account` data feed on the `account_id` field.                                                                              |
 
 ## Example of offer data feed
 
 The following shows an example of the offer data feed. For readability, the data history
 columns aren't shown. For information about data history fields, see [Historization of the data](data-feed-details.md#data-feed-historization "data-feed-details.md#data-feed-historization").
 
-| offer_id            | offer_revision | name                              | expiration_date      | opportunity_name | opportunity_description | seller_account_id | opportunity_id |
-| ------------------- | -------------- | --------------------------------- | -------------------- | ---------------- | ----------------------- | ----------------- | -------------- |
-| offer-dacpxznflfwin | 1              | Enterprise Contract Program Offer | 9999-01-01T00:00:00Z |                  |                         |                   |                |
-| offer-gszhmle5npzip | 1              | Private offer created by seller   | 2020-10-31T00:00:00Z |                  |                         |                   |                |
-| offer-hmzhyle8nphlp | 1              | Enterprise Contract Program Offer | 9999-01-01T00:00:00Z |                  |                         |                   |                |
+| offer\_id           | offer\_revision | name                              | expiration\_date     | opportunity\_name | opportunity\_description | seller\_account\_id | opportunity\_id |
+| ------------------- | --------------- | --------------------------------- | -------------------- | ----------------- | ------------------------ | ------------------- | --------------- |
+| offer-dacpxznflfwin | 1               | Enterprise Contract Program Offer | 9999-01-01T00:00:00Z |                   |                          |                     |                 |
+| offer-gszhmle5npzip | 1               | Private offer created by seller   | 2020-10-31T00:00:00Z |                   |                          |                     |                 |
+| offer-hmzhyle8nphlp | 1               | Enterprise Contract Program Offer | 9999-01-01T00:00:00Z |                   |                          |                     |                 |

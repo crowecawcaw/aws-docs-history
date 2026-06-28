@@ -70,13 +70,12 @@ All SaaS products must adhere to the following customer information requirements
   including credit card and bank account information.
 - The SaaS registration page must include an input field for the buyer's email address. You can include additional fields such as:
 
-      + Name
-      + ZIP code
-      + Phone number
-      + Company information
-      + Product setup preferences
-
-  If you plan to use multiple languages, you must provide an English-language view of the registration page.
+  - Name
+  - ZIP code
+  - Phone number
+  - Company information
+  - Product setup preferences
+    If you plan to use multiple languages, you must provide an English-language view of the registration page.
 
 ## Product usage guidelines
 

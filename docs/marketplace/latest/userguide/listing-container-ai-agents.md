@@ -134,24 +134,22 @@ Only container products with versions that support Amazon Bedrock AgentCore Runt
     * **Version title**
     * **Release notes**
 
-4. Select **Add delivery option**.
-5. For **Delivery method**, select **Container image** and fill in:
+4. Select **Add delivery option**. 5. For **Delivery method**, select **Container image** and fill in:
 
-   - **Supported services**: select the environment that buyers can launch the software in.
-   - For **Bedrock AgentCore** service, select
+    * **Supported services**: select the environment that buyers can launch the software in.
+    * For **Bedrock AgentCore** service, select
      **AI Agent, MCP Server, or A2A Server** in the **Type** field.
-   - **Container image**: _Repository URL_ and _version tag_
+    * **Container image**: *Repository URL* and *version tag*
      you specified previously.
-   - **Delivery option title** and **Deployment option description**:
+    * **Delivery option title** and **Deployment option description**:
      Enter a title and description for this delivery option.
-   - **Usage instructions**: Enter detailed information to help your buyers use your software after launching it.
-   - **Environment Variables**: Specify the environment variables buyers must provide to configure the runtime behavior of the agent. These variables can be used to pass settings, credentials, or custom flags to the container at startup. For each variable, provide the name as expected by your container, a description, and an optional default value. For variables such as credentials or API keys that are unique, do not provide a default value. You can use the description to specify details about the variable as well as possible values. All of the provided variables with their default values will be pre-populated when buyers launch your product.
+    * **Usage instructions**: Enter detailed information to help your buyers use your software after launching it.
+    * **Environment Variables**: Specify the environment variables buyers must provide to configure the runtime behavior of the agent. These variables can be used to pass settings, credentials, or custom flags to the container at startup. For each variable, provide the name as expected by your container, a description, and an optional default value. For variables such as credentials or API keys that are unique, do not provide a default value. You can use the description to specify details about the variable as well as possible values. All of the provided variables with their default values will be pre-populated when buyers launch your product.
 
 6. If you selected an **AI agent** or **A2A Server** tool type, confirm that your agent uses
-   reasoning LLMs and demonstrates autonomous capabilities. These requirements help
-   ensure that agents offered on AWS Marketplace meet a high quality bar. If your
-   agent does not meet both requirements, choose a different tool type.
-7. Select **Add version**.
+reasoning LLMs and demonstrates autonomous capabilities. These requirements help
+ensure that agents offered on AWS Marketplace meet a high quality bar. If your
+agent does not meet both requirements, choose a different tool type. 7. Select **Add version**.
 
 Wait and refresh the page until the request status shows _Succeeded_.
 

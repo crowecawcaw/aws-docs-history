@@ -11,12 +11,12 @@ list of SaaS pricing models for AWS Marketplace.
 All SaaS pricing models support free trials. For more information, see [SaaS free
 trials](saas-free-trials.md "saas-free-trials.md").
 
-| SaaS pricing models               | Pricing model                                                                                                                                                                                                                                                                                                       | Description |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| SaaS subscriptions                | A pay-as-you-go model where we bill buyers for their hourly usage of your SaaS<br>product. For more information, see [Pricing for SaaS subscriptions](saas-subscriptions.md "saas-subscriptions.md").                                                                                                               |
-| SaaS contracts                    | Buyers are either billed in advance for the use of your software, or you can offer<br>them a flexible payment schedule. Customers can also pay for additional usage above<br>their contract. For more information, see [Pricing for SaaS contracts](saas-contracts.md "saas-contracts.md").                         |
+SaaS pricing models| Pricing model | Description |
+| --- | --- |
+| SaaS subscriptions | A pay-as-you-go model where we bill buyers for their hourly usage of your SaaS<br>product. For more information, see [Pricing for SaaS subscriptions](saas-subscriptions.md "saas-subscriptions.md"). |
+| SaaS contracts | Buyers are either billed in advance for the use of your software, or you can offer<br>them a flexible payment schedule. Customers can also pay for additional usage above<br>their contract. For more information, see [Pricing for SaaS contracts](saas-contracts.md "saas-contracts.md"). |
 | SaaS contracts with pay-as-you-go | Buyers are either billed in advance for the use of your software, or you can offer<br>them a flexible payment schedule. Buyers are also billed an additional metered rate for<br>usage on top of the contract price. For more information, see [Pricing for SaaS contracts](saas-contracts.md "saas-contracts.md"). |
-| SaaS free                         | A free pricing model where customers can use your SaaS product at no cost. All pricing dimensions must be set to $0.00.                                                                                                                                                                                             |
+| SaaS free | A free pricing model where customers can use your SaaS product at no cost. All pricing dimensions must be set to $0.00. |
 
 ###### Note
 

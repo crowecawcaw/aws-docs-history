@@ -229,8 +229,8 @@ created. 5. Define the prices for each dimension you've added, and then choose
 You can only add dimensions for the pricing model selected for your
 product (for example, contract, usage, contract with consumption, or Free). For
 limited products using non-free pricing models, the prices for the newly added
-dimensions are set to $0.01. For products using the Free pricing model, newly added
-dimensions must be set to $0.00. For non-free pricing models, you can update the prices
+dimensions are set to $0.01. For products using the Free pricing model, newly added 
+ dimensions must be set to $0.00. For non-free pricing models, you can update the prices
 when the product is ready for public visibility. If all dimensions are set to $0.00,
 the product will automatically convert to the Free pricing model. 6. Choose **Submit** to submit your request for review. 7. In the **Requests** tab, verify that the request status is
 **Under review**. When the request is complete, the status
@@ -392,29 +392,26 @@ template** button and provide the following information:
      Reference*.
 
 6. (Optional) For **Manual configuration instructions**,
-   provide instructions for buyers who want to configure your product manually.
-   Consider including links to your product's onboarding guide and
-   documentation.
-7. For **Launch details**, provide the URL where buyers will
-   access the product after the CloudFormation stack has been deployed.
-8. (Optional) For **Allowlisted accounts for Quick Launch**,
-   provide a comma-separated list of AWS accounts that can view the Quick
-   Launch experience with Limited visibility.
-9. Choose the **Submit** button. The Quick Launch experience
-   will have Limited visibility, meaning it will only be visible to your
-   account and allowlisted accounts. With Limited visibility, you can test your
-   configuration using the **Configure and launch** page after
-   subscribing to your product and choosing the **Set up your
-   account** button.
+provide instructions for buyers who want to configure your product manually.
+Consider including links to your product's onboarding guide and
+documentation. 7. For **Launch details**, provide the URL where buyers will
+access the product after the CloudFormation stack has been deployed. 8. (Optional) For **Allowlisted accounts for Quick Launch**,
+provide a comma-separated list of AWS accounts that can view the Quick
+Launch experience with Limited visibility. 9. Choose the **Submit** button. The Quick Launch experience
+will have Limited visibility, meaning it will only be visible to your
+account and allowlisted accounts. With Limited visibility, you can test your
+configuration using the **Configure and launch** page after
+subscribing to your product and choosing the **Set up your
+account** button.
 
-   - To preview the page from the buyer's perspective, choose
+    * To preview the page from the buyer's perspective, choose
      **Preview**. Your configuration changes
      will reflect on the preview while both pages are open.
 
 10. When you're ready, you can publish the Quick Launch experience in the
-    AWS Marketplace catalog. Use the **Update Quick Launch visibility**
-    button on the **Fulfillment options** tab on the product
-    detail page.
+AWS Marketplace catalog. Use the **Update Quick Launch visibility**
+button on the **Fulfillment options** tab on the product
+detail page.
 
 When you change the visibility to Public, the AWS Marketplace Seller Operations team
 will review the configuration, conduct buyer testing, and publish the

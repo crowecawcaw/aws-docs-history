@@ -38,11 +38,11 @@ Use the following guidelines for building AMIs:
     registering a new AMI at the final build phase:
 
     - `aws ec2 register-image
---name my-image
---root-device-name /dev/xvda
---block-device-mappings DeviceName=/dev/xvda,Ebs={SnapshotId=snap-0123456789example}
---architecture x86_64
---imds-support v2.0`
+   --name my-image
+   --root-device-name /dev/xvda
+   --block-device-mappings DeviceName=/dev/xvda,Ebs={SnapshotId=snap-0123456789example}
+   --architecture x86_64
+   --imds-support v2.0`
 
 For more information about creating an AMI, see the following resources:
 
@@ -69,11 +69,10 @@ We recommend the following guidelines for creating secure AMIs:
   that your service uses only valid and up-to-date certificates.
 - When documenting your AMI product, provide security group recommendations for buyers to control inbound traffic access to their instances. Your recommendations should specify the following:
 
-      + The minimum set of ports required for your services to function.
-      + The recommended ports and source IP address ranges for administrative access.
-
-  These security group recommendations help buyers implement proper access controls. For
-  more information about how to add a new version to your AMI product, see [Add a new version](single-ami-versions.md#single-ami-adding-version "single-ami-versions.md#single-ami-adding-version").
+  - The minimum set of ports required for your services to function.
+  - The recommended ports and source IP address ranges for administrative access.
+    These security group recommendations help buyers implement proper access controls. For
+    more information about how to add a new version to your AMI product, see [Add a new version](single-ami-versions.md#single-ami-adding-version "single-ami-versions.md#single-ami-adding-version").
 
 - Consider performing a penetration test against your AWS computing environment at
   regular intervals, or consider employing a third party to conduct such tests on your

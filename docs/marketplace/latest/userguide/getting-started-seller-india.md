@@ -6,7 +6,7 @@ AWS Marketplace allows sellers in India to sell paid offers to buyers in India (
 
 - Sellers in India can sell paid offers on AWS Marketplace and receive disbursements to bank accounts in India in Indian rupees (INR).
 - Buyers are invoiced in Indian rupees (INR) and invoices include Goods and Service Tax (GST), as applicable.
-- AWS India facilitates issuance of tax-compliant invoices to AWS customers in INR with you as Seller of Record (SoR), based on information provided in the tax registration tab in AWS Marketplace Management Portal.
+- AWS India facilitates issuance of tax-compliant invoices to AWS customers in INR with you as Seller of Record (SoR), based on information provided in the tax registration tab in AWS Partner Central.
 
 ## Important considerations
 
@@ -26,13 +26,13 @@ Create a new AWS India account ID. This account should be a standalone account a
 
 Using a linked account may lead to incorrect and non-compliant tax invoices.
 
-### Step 2: Complete seller registration on AWS Marketplace Management Portal
+### Step 2: Complete seller registration on AWS Partner Central
 
 Once you create a new AWS account, use that account to create an AWS Marketplace seller account.
 
-1. Register as a seller on AWS Marketplace Management Portal.
+1. Register as a seller on AWS Partner Central.
 2. Provide a unique legal business name. This name is used on tax invoices.
-3. Create your public profile as described in [Step 1: Register and create your seller profile](create-public-profile.md "create-public-profile.md").
+3. Create your public profile as described in [Step 1: Register and create your seller profile](create-public-profile.md "create-public-profile.md"). Ensure that the root email provided is monitored, because all tax invoices are sent to your root email address. Your public profile is approved within 1-3 business days, and you receive a confirmation.
 
 ### Step 3: Provide tax information
 
@@ -40,15 +40,28 @@ Once you create a new AWS account, use that account to create an AWS Marketplace
 
 Under applicable tax regulations, there is a relaxation from affixing signatures on invoices for B2B transactions that are subject to e-invoicing. While we expect that most sellers will transact primarily with business customers, the classification of a transaction as B2B or B2C depends on whether the customer has provided valid GST details in their AWS India profile. If GST details are provided, the transaction is treated as B2B. If GST details aren't provided, the transaction is treated as B2C. In such cases, a tax invoice must include the seller's signature. Without this, the invoice is treated as non-compliant. To ensure compliance, we require a specimen signature of your authorized signatory. This allows us to print the signature on invoices generated in your name. The specimen signature you provide is used solely for the limited purpose of generating invoices on your behalf. Consistent with the [AWS Privacy Notice](https://aws.amazon.com/privacy/ "https://aws.amazon.com/privacy/"), we apply strict purpose-limitation principles and maintain robust safeguards to protect your personal information. We remain committed to handling your data securely and in accordance with applicable laws.
 
-After you complete your public profile, your account is verified by the AWS Marketplace operations team. You then receive an email from AWS to proceed with tax verification on AWS Marketplace Management Portal.
+After you complete your public profile, your account is verified by the AWS Marketplace operations team. You then receive an email from AWS to proceed with tax verification on AWS Partner Central.
 
 You must submit the following information before you can start listing your offers:
 
 1. GST identification number (GSTIN)
 2. Permanent Account Number (PAN) - auto-populated from the GSTIN you provided
-3. Seller signature that is used on tax invoices for your buyers - submit a ticket using the contact us form to submit signature
+3. Seller signature that is used on tax invoices for your buyers - submit a ticket using the [contact us form](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Faws.amazon.com%2Fmarketplace%2Fmanagement%2Fcontact-us%2F%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Faws-mp-seller-management-portal&forceMobileApp=0&code_challenge=gJsMIbNKDQWf7J8FBg2WdLN_ltqbJN6XDk5NTByYUK0&code_challenge_method=SHA-256 "https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Faws.amazon.com%2Fmarketplace%2Fmanagement%2Fcontact-us%2F%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Faws-mp-seller-management-portal&forceMobileApp=0&code_challenge=gJsMIbNKDQWf7J8FBg2WdLN_ltqbJN6XDk5NTByYUK0&code_challenge_method=SHA-256") to submit a wet seller signature sample. You are notified by email once your seller signature is approved, within 1-3 business days. You can proceed to add a disbursement method (Step 5) after your seller signature has been approved.
 4. Legal business name and address that corresponds to your GSTIN for tax purposes
-5. Acknowledgements on: (a) non-applicability of Withholding Tax (WHT) on listing fees; (b) confirmation that your GSTIN is enabled for e-invoicing; (c) authorization to AWS India to raise invoices (e-invoices to GST registered buyers) for sales made by you through AWS Marketplace, along with a declaration that you are responsible for remitting the applicable GST to the Government
+5. Acknowledgements on:
+
+   1. non-applicability of Withholding Tax (WHT) on listing fees;
+   2. confirmation that your GSTIN is enabled for e-invoicing;
+   3. authorization to AWS India to raise invoices (e-invoices to GST registered buyers) for sales made by you through AWS Marketplace, along with a declaration that you are responsible for remitting the applicable GST to the Government
+
+###### Important
+
+Ensure that e-invoicing is enabled for your GSTIN number before proceeding. Failure to enable this functionality results in tax invoice generation failures. In the event of such a failure, you need to:
+
+1. Enable e-invoicing for your GSTIN.
+2. Cancel any existing agreements with failed tax invoice production.
+3. Regenerate the offer to successfully produce the tax invoice.
+   We recommend verifying your e-invoicing status before initiating any new agreements to avoid processing delays.
 
 ### Step 4: Provide bank account information
 
@@ -89,21 +102,48 @@ Important considerations:
 
 #### Creating direct private offers
 
-1. From the Offers menu in AWS Marketplace Management Portal, choose Create private offer.
+1. From the Offers menu in AWS Partner Central, choose Create private offer.
 2. Select Direct private offer, product type, and your product.
 3. At offer creation step 2 (set offer duration and prices), select the currency from the dropdown.
 4. Enter all details, review the offer, and choose Create private offer.
 
 #### Creating Channel Partner Private Offers
 
-As an ISV or DSOR partner, you must first create a resale authorization.
+As an ISV or DSOR partner, you must complete the following preliminary steps before creating a Channel Partner Private Offer:
 
-**For ISVs or CP accounts that will be participating in the CPPO process:** Before you initiate an offer, complete a mandatory one-time step of creating a selling authorization Service-Linked Role (SLR). To do this, log into AWS Marketplace Management Portal with your AWS Marketplace seller account. Navigate to the **Settings** tab, then choose **Service linked roles**, then choose **Create service-linked role**. The SLR is required for ISVs, DSORs and CPs to create and accept selling authorizations.
+- Check that the ISV you are extending the offer from is currently onboarded on AWS India AWS Marketplace.
+- CP, ISV, and DSOR to create a one-time resale authorization.
+- Channel Partner to submit a request for allowlisting through the Channel Partner Submission Program (refer to the following section).
 
-1. From the Partners menu in AWS Marketplace Management Portal, choose Create opportunity.
-2. Under Discounts and Products, select the discount type and your product for resale.
-3. Select currency from the dropdown.
-4. Enter all details, review the authorization, and choose Create opportunity.
+##### Service-Linked Role (SLR) creation
+
+For ISV or Channel Partner accounts participating in the CPPO process, a mandatory one-time configuration is required before initiating any offers.
+
+To create a selling authorization Service-Linked Role:
+
+1. Log into AWS Partner Central using your AWS Marketplace seller account.
+2. Navigate to **Marketplace Settings**.
+3. Select **Service linked roles**.
+4. Choose **Create service-linked role**.
+5. The status updates in the portal to show it's created.
+
+###### Note
+
+This SLR is required for ISVs, DSORs, and Channel Partners to create and accept selling authorizations.
+
+##### Channel Partner Submission Program enrollment
+
+To request allowlisting through the Channel Partner Submission Program:
+
+1. Complete the [enrollment request form](https://pages.awscloud.com/awsmp_consulting_partner_offers "https://pages.awscloud.com/awsmp_consulting_partner_offers").
+2. In the **Briefly describe support required** field, enter: "I would like to enroll my AWS account ID XXXX-XXXX-XXXX into the Channel Program".
+3. Submit the request.
+
+Once your request is submitted, approved, and processed, a response email is sent to the Channel Partner, and ISVs are authorized to enable your AWS account ID to resell their products.
+
+We recommend verifying your e-invoicing status using the India e-Invoicing portal before initiating any new agreements to avoid processing delays.
+
+After you complete the preliminary steps, create the Channel Partner Private Offer in AWS Partner Central. For step-by-step instructions, see [Creating private offers as an AWS Marketplace Channel Partner](channel-partner-offers.md "channel-partner-offers.md") and [Creating a selling authorization for an AWS Marketplace Channel Partner as an ISV](channel-partner-isv-info.md "channel-partner-isv-info.md").
 
 ###### Note
 

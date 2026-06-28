@@ -3,7 +3,7 @@
 ###### Important
 
 AWS Marketplace will discontinue the PIIFeed, which is delivered using the [seller
-delivery data feeds service](data-feed-service.md "data-feed-service.md"), in December 2023. Use the AddressFeed_V1 data feed for
+delivery data feeds service](data-feed-service.md "data-feed-service.md"), in December 2023. Use the AddressFeed\_V1 data feed for
 your address data needs. If you have questions or require support, contact the [AWS Marketplace Seller
 Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team.
 
@@ -18,18 +18,18 @@ The address data feed is refreshed every 24 hours, so new data is available dail
 
 The following table explains the names and descriptions of the data feed's columns.
 
-| Column name     | Description                                                                                                                                                                                                               |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address_id      | The unique key of the address. Can be used to join from the<br>`Billing_Event` data feed on the `billing_address_id` field,<br>or from the `Account` data feed on the `mailing_address_id` or<br>`tax_address_id` fields. |
-| email_domain    | The domain for the email address on file for this account.                                                                                                                                                                |
-| company_name    | The company name on file for this account.                                                                                                                                                                                |
-| country_code    | The ISO 3166 alpha-2 country code on file for this address.                                                                                                                                                               |
-| state_or_region | The state or region on file for this address.                                                                                                                                                                             |
-| city            | The city on file for this address.                                                                                                                                                                                        |
-| postal_code     | The postal code on file for this address.                                                                                                                                                                                 |
-| address_line_1  | The first line of the address on file for this address.                                                                                                                                                                   |
-| address_line_2  | The second line of the address on file for this address.                                                                                                                                                                  |
-| address_line_3  | The third line of the address on file for this address.                                                                                                                                                                   |
+| Column name       | Description                                                                                                                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address\_id       | The unique key of the address. Can be used to join from the<br>`Billing_Event` data feed on the `billing_address_id` field,<br>or from the `Account` data feed on the `mailing_address_id` or<br>`tax_address_id` fields. |
+| email\_domain     | The domain for the email address on file for this account.                                                                                                                                                                |
+| company\_name     | The company name on file for this account.                                                                                                                                                                                |
+| country\_code     | The ISO 3166 alpha-2 country code on file for this address.                                                                                                                                                               |
+| state\_or\_region | The state or region on file for this address.                                                                                                                                                                             |
+| city              | The city on file for this address.                                                                                                                                                                                        |
+| postal\_code      | The postal code on file for this address.                                                                                                                                                                                 |
+| address\_line\_1  | The first line of the address on file for this address.                                                                                                                                                                   |
+| address\_line\_2  | The second line of the address on file for this address.                                                                                                                                                                  |
+| address\_line\_3  | The third line of the address on file for this address.                                                                                                                                                                   |
 
 ## Example of address data feed
 
@@ -38,14 +38,14 @@ information is presented in a single table. For readability, the data is shown i
 here, and the data history columns aren't shown. For information about data history fields,
 see [Historization of the data](data-feed-details.md#data-feed-historization "data-feed-details.md#data-feed-historization").
 
-| address_id                                    | email_domain | company_name            | country_code | state_or_region | city     | postal_code |
-| --------------------------------------------- | ------------ | ----------------------- | ------------ | --------------- | -------- | ----------- |
-| V5NhBYBiYogwy0WMhndGU4AfMggmuoTC2j7Pm8ZKKNNyT | a.com        | Mateo Jackson's Company | DE           |                 | Hamburg  | 67568       |
-| G68xdbkZQDVVHzfBGw6yf5yos0A6NiSVWHmH5ViLjf    | b.com        | Mary Major's Company    | US           | OH              | Dayton   | 57684       |
-| NLUc5UeiMlGFTrDWCoftDPhDUF1oaSd8xgl5QM8Db7    | c.com        | Our Seller              | US           | NY              | New York | 89475       |
+| address\_id                                   | email\_domain | company\_name           | country\_code | state\_or\_region | city     | postal\_code |
+| --------------------------------------------- | ------------- | ----------------------- | ------------- | ----------------- | -------- | ------------ |
+| V5NhBYBiYogwy0WMhndGU4AfMggmuoTC2j7Pm8ZKKNNyT | a.com         | Mateo Jackson's Company | DE            |                   | Hamburg  | 67568        |
+| G68xdbkZQDVVHzfBGw6yf5yos0A6NiSVWHmH5ViLjf    | b.com         | Mary Major's Company    | US            | OH                | Dayton   | 57684        |
+| NLUc5UeiMlGFTrDWCoftDPhDUF1oaSd8xgl5QM8Db7    | c.com         | Our Seller              | US            | NY                | New York | 89475        |
 
-| address_line_1 | address_line_2 | address_line_3 |
-| -------------- | -------------- | -------------- |
-|                |                |                |
-|                |                |                |
-|                | 19th Floor     |                |
+| address\_line\_1 | address\_line\_2 | address\_line\_3 |
+| ---------------- | ---------------- | ---------------- |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  | 19th Floor       |                  |

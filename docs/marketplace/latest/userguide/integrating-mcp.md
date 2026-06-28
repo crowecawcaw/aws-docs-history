@@ -112,6 +112,6 @@ When listing an AWS MCP Server-compatible agent or tool on AWS Marketplace, incl
 
 For more information about implementing AWS MCP Server in your AI agent or tool, refer to these resources:
 
-- [Model Context Protocol Specification](https://modelcontextprotocol.github.io/ "https://modelcontextprotocol.github.io/")
-- [MCP GitHub Repository](https://github.com/modelcontextprotocol/mcp "https://github.com/modelcontextprotocol/mcp")
+- [Model Context Protocol Specification](https://modelcontextprotocol.io/specification "https://modelcontextprotocol.io/specification") on the Model Context Protocol website
+- [MCP GitHub Repository](https://github.com/orgs/modelcontextprotocol/repositories "https://github.com/orgs/modelcontextprotocol/repositories") on the GitHub website
 - [AWS Marketplace Seller Operations team](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") for AWS MCP Server integration support

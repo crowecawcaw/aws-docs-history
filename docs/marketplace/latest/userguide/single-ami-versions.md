@@ -93,8 +93,8 @@ information:
      details about this version.
 
 5. In the **Delivery options** section, select how the buyer can
-   deploy the solution, either AMI (standalone), AMI with CloudFormation, or both.
-   You can choose up to three AMI with CloudFormation delivery options.
+deploy the solution, either AMI (standalone), AMI with CloudFormation, or both.
+You can choose up to three AMI with CloudFormation delivery options.
 
 ###### Note
 
@@ -136,65 +136,65 @@ following information:
      to share this AFI with AWS Marketplace.For more details on the required permissions, see [Giving AWS Marketplace access to your FPGA images](single-ami-marketplace-ami-access.md#single-ami-marketplace-afi-access "single-ami-marketplace-ami-access.md#single-ami-marketplace-afi-access").
 
 7. Provide the following configurations for the **AMI
-   delivery option** section, if applicable:
+delivery option** section, if applicable:
 
-   - **Recommended instance type**– Choose the
+    * **Recommended instance type**– Choose the
      instance type that buyers get by default.
-   - **Usage instructions** – Enter instructions
+    * **Usage instructions** – Enter instructions
      for using the AMI or a link to more information about using the AMI. For
      example: `To get started with the product, navigate to
-https://example.com/usage.htm.`
-   - **Endpoint URL** – Provide information about
+     https://example.com/usage.htm.`
+    * **Endpoint URL** – Provide information about
      how the buyer can access the software after they create an instance.
-     Enter the **Protocol** (_https_ or
-     _http_), the **Relative URL**
+     Enter the **Protocol** (*https* or
+     *http*), the **Relative URL**
      (for example, `/index.html`),
      and the **Port** (for example,
      `443`) that buyers can use to access your
      product. (The host name depends on the EC2 instance, so you only need to
      provide the relative path).
-   - **Security group recommendations** – Enter the
+    * **Security group recommendations** – Enter the
      information for one or more recommendations, including the protocol
-     (_TCP_ or _UDP_), range of
+     (*TCP* or *UDP*), range of
      ports to allow, and list of IPv4 CIDR IPs (in the form
-     _xxx.xxx.xxx.xxx/nn_, for example,
+     *xxx.xxx.xxx.xxx/nn*, for example,
      `192.0.2.0/24`).
 
 8. Provide the following configuration settings for the **AMI with
-   CloudFormation delivery option**, if applicable:
+CloudFormation delivery option**, if applicable:
 
-   - **Delivery option title** – This is a unique
+    * **Delivery option title** – This is a unique
      name to identify this Single AMI CloudFormation template delivery
      option.
-   - **Short Description** – A brief description of
+    * **Short Description** – A brief description of
      the CloudFormation template.
-   - **Long Description** – A detailed description
+    * **Long Description** – A detailed description
      of the CloudFormation template.
-   - **Recommended Instance type** – The instance
+    * **Recommended Instance type** – The instance
      type, buyers get by default.
-   - **Usage instructions** – Instructions for
+    * **Usage instructions** – Instructions for
      using the solution or a link to more information about using the
      solution.
-   - **CloudFormation template link** – The URL to
+    * **CloudFormation template link** – The URL to
      the location of your CloudFormation template in Amazon S3. For nested stacks
      or templates, provide the entry point, or parent, template. The Amazon S3
      bucket that your file resides must be publicly accessible. For more
      information, see [Add CloudFormation templates to your
      product](cloudformation.md "cloudformation.md").
-   - **AMI parameter name** – Add the name of the
+    * **AMI parameter name** – Add the name of the
      parameter in the CloudFormation template that the EC2 instance resources
      in your template are referencing for their `ImageId` property
      value. AWS Marketplace replaces the specified parameter with an [AWS Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") parameter. When buyers deploy your template, that parameter
      resolves to the AWS Region-specific AMI ID of your published product.
      For more information, see [Requirements for AMI details](cloudformation.md#ami-requirements-sse "cloudformation.md#ami-requirements-sse").
-   - **Architecture diagram link** – The URL to the
+    * **Architecture diagram link** – The URL to the
      location of your architectural diagram in Amazon S3. The max image file must
      be 1560x878 or 1560x3120 pixels in size with a 16:9 or 1:2 ratio. The Amazon S3
      bucket that your image file resides must be publicly accessible. For
      diagram requirements, see [Architectural diagram](cloudformation.md#topology-diagram "cloudformation.md#topology-diagram").
 
 9. Select **Submit** to submit the request to add your new
-   version.
+version.
 
 ###### Note
 

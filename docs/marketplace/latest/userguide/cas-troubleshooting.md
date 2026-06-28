@@ -54,14 +54,14 @@ specific resources. To use different resources, you need to modify your IAM poli
 3. Choose **MarketplaceCommerceAnalyticsRole**.
 4. Expand the **Inline Roles** section, if not already expanded.
 5. Locate the policy with a name that starts with
-   _oneClick_MarketplaceCommerceAnalyticsRole_ and
+   _oneClick\_MarketplaceCommerceAnalyticsRole_ and
    choose **Edit Policy**.
 6. In the policy document, locate the section that specifies actions related to the
    service that you want to modify. For example, to change your Amazon S3 bucket, locate the
    section that includes the actions that start with **s3:**
    and change their respective **Resource** selection to
    specify your new Amazon S3 bucket.
-   For additional information about IAM policies, see the following guide: [https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md")
+   For additional information about IAM policies, see the following guide: [https://docs.aws.amazon.com/IAM/latest/UserGuide/access\_policies.html](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md")
 
 **I get an `AccessDeniedException` error when I call the
 `GenerateDataSet` action**

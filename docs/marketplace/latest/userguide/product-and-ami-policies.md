@@ -32,7 +32,7 @@ All AMIs must adhere to the following seller policies:
 
 All AMIs must comply with the following policies:
 
-- AMIs must pass all security checks performed by the [AWS Marketplace AMI scanning tool](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server"), showing no known vulnerabilities or malware.
+- AMIs must pass all security checks and have no known vulnerabilities or malware.
 - AMIs must use currently supported operating systems and software. Operating systems and software that reached their end of life are not allowed.
 - AMIs must not be older than two years from their creation date. AMIs that exceed this age are not allowed.
 - Password-based authentication for instance services is prohibited. This applies
@@ -176,7 +176,7 @@ All AMIs must adhere to the following product usage policies:
   - The requirement must be disclosed in the description or the usage instructions of
     the listing. For example, _This product requires an internet connection to
     deploy properly. The following packages are downloaded on deployment: <list of
-    package>._
+       package>._
   - Sellers are responsible for the use of and ensuring the availability and security
     of all external dependencies.
   - If the external dependencies are no longer available, the product must be removed

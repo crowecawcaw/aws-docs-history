@@ -92,8 +92,8 @@ Notifications can have the following `executionStatus` states:
     * `FAILED` – The feed delivery has an issue.
 
 6. Validate the setup by running SQL queries. You can use the
-   [sample queries in this guide](data-feed-full-examples.md "data-feed-full-examples.md"), or the queries on GitHub, at
-   [https://github.com/aws-samples/aws-marketplace-api-samples/tree/main/seller-data-feeds/queries](https://github.com/aws-samples/aws-marketplace-api-samples/tree/main/seller-data-feeds/queries "https://github.com/aws-samples/aws-marketplace-api-samples/tree/main/seller-data-feeds/queries").
+[sample queries in this guide](data-feed-full-examples.md "data-feed-full-examples.md"), or the queries on GitHub, at
+[https://github.com/aws-samples/aws-marketplace-api-samples/tree/main/seller-data-feeds/queries](https://github.com/aws-samples/aws-marketplace-api-samples/tree/main/seller-data-feeds/queries "https://github.com/aws-samples/aws-marketplace-api-samples/tree/main/seller-data-feeds/queries").
 
 ###### Note
 

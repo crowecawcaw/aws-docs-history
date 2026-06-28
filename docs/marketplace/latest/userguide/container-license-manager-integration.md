@@ -48,18 +48,18 @@ none of the predefined categories fit your needs, you can choose the more generi
 
 The offer allows for up to 24 dimensions to be added to it.
 
-| Example: Data storage application |          | 1-month price | 12-month price | 24-month price | P36-month price |
-| --------------------------------- | -------- | ------------- | -------------- | -------------- | --------------- |
-| Unencrypted data (GB)             | $1.50/GB | $16.00/GB     | $30.00/GB      | $60.00/GB      |
-| Encrypted data (GB)               | $1.55/GB | $16.60/GB     | $31.20/GB      | $61.20/GB      |
+Example: Data storage application| | 1-month price | 12-month price | 24-month price | P36-month price |
+| --- | --- | --- | --- | --- |
+| Unencrypted data (GB) | $1.50/GB | $16.00/GB | $30.00/GB | $60.00/GB |
+| Encrypted data (GB) | $1.55/GB | $16.60/GB | $31.20/GB | $61.20/GB |
 
-| Example: Log monitoring product                        |      | 1-month price | 12-month price | 24-month price | 36-month price |
-| ------------------------------------------------------ | ---- | ------------- | -------------- | -------------- | -------------- |
-| Basic (10 hosts monitored, 5 containers monitored)     | $100 | $1000         | $2000          | $4000          |
-| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000         | $4000          | $8000          |
-| Pro (40 hosts monitored, 20 containers monitored)      | $400 | $4000         | $8000          | $16,000        |
-| Additional hosts monitored per hour                    | $10  | $100          | $200           | $400           |
-| Additional containers monitored per hour               | $10  | $100          | $200           | $400           |
+Example: Log monitoring product| | 1-month price | 12-month price | 24-month price | 36-month price |
+| --- | --- | --- | --- | --- |
+| Basic (10 hosts monitored, 5 containers monitored) | $100 | $1000 | $2000 | $4000 |
+| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000 | $4000 | $8000 |
+| Pro (40 hosts monitored, 20 containers monitored) | $400 | $4000 | $8000 | $16,000 |
+| Additional hosts monitored per hour | $10 | $100 | $200 | $400 |
+| Additional containers monitored per hour | $10 | $100 | $200 | $400 |
 
 ###### Note
 

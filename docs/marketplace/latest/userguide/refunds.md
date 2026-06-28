@@ -428,8 +428,7 @@ You can't complete these steps unless you sign in as the root user or as an IAM 
     * Business justification for the refund
     * AWS Marketplace Refund Ticket Reference ID
 
-7. Attach the CSV file and create the support case.
-8. The support case is routed to the next available agent for assistance.
+7. Attach the CSV file and create the support case. 8. The support case is routed to the next available agent for assistance.
 
 ## Legacy refund request process
 

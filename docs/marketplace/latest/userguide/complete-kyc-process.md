@@ -146,8 +146,7 @@ If you have questions, see **Frequently Asked Questions (FAQ)** located on the r
     * If publicly listed company (senior manager always required): Any individual who holds the position of senior managing official, such as a chief executive officer, chief financial officer, managing or executive director, or president. (Please enter Senior Manager Official details and document uploads in the beneficial owner section.)
     * Provide an accepted Identity document and Proof of Address. See the templates section below.
 
-10. Choose whether the **Legal representative** is the same as the point of contact or beneficial owner. If the legal representative is a different entity, provide the required information, save your entry, and then choose **Next**.
-11. In the **Additional documents** section, upload your letter of authorization (if applicable) and statute documents.
+10. Choose whether the **Legal representative** is the same as the point of contact or beneficial owner. If the legal representative is a different entity, provide the required information, save your entry, and then choose **Next**. 11. In the **Additional documents** section, upload your letter of authorization (if applicable) and statute documents.
 
 ###### Note
 

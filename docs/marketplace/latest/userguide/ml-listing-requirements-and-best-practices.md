@@ -91,7 +91,7 @@ and use your listing.
 For model package products, your sample notebook demonstrates the preparation of input
 data, creation of an endpoint for real-time inference, and performance of batch-transform
 jobs. For more information, see [Model Package listing and Sample notebook](https://github.com/aws/amazon-sagemaker-examples/tree/main/aws_marketplace/curating_aws_marketplace_listing_and_sample_notebook/ModelPackage "https://github.com/aws/amazon-sagemaker-examples/tree/main/aws_marketplace/curating_aws_marketplace_listing_and_sample_notebook/ModelPackage") on GitHub. For a sample notebook, see
-[auto_insurance](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_model_packages/auto_insurance "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_model_packages/auto_insurance"). The notebook works in all AWS Regions, without entering any
+[auto\_insurance](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_model_packages/auto_insurance "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_model_packages/auto_insurance"). The notebook works in all AWS Regions, without entering any
 parameters and without a buyer needing to locate sample data.
 
 ###### Note
@@ -102,7 +102,7 @@ product's value proposition.
 
 For algorithm products, the sample notebook demonstrates complete training, tuning, model
 creation, the creation of an endpoint for real-time inference, and the performance of
-batch-transform jobs. For more information, see [Algorithm listing and Sample notebook](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/curating_aws_marketplace_listing_and_sample_notebook/Algorithm "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/curating_aws_marketplace_listing_and_sample_notebook/Algorithm") on GitHub. For sample notebooks, see [amazon_demo_product](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_algorithms/amazon_demo_product "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_algorithms/amazon_demo_product") and [automl](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_algorithms/automl "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_algorithms/automl") on GitHub. These sample notebooks work in all Regions without entering any
+batch-transform jobs. For more information, see [Algorithm listing and Sample notebook](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/curating_aws_marketplace_listing_and_sample_notebook/Algorithm "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/curating_aws_marketplace_listing_and_sample_notebook/Algorithm") on GitHub. For sample notebooks, see [amazon\_demo\_product](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_algorithms/amazon_demo_product "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_algorithms/amazon_demo_product") and [automl](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_algorithms/automl "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_marketplace/using_algorithms/automl") on GitHub. These sample notebooks work in all Regions without entering any
 parameters and without a buyer needing to locate sample data.
 
 ###### Note

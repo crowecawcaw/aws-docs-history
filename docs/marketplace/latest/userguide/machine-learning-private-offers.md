@@ -49,7 +49,7 @@ For linked accounts to benefit from a private offer:
     * After the payer account accepts, linked accounts can then accept the private offer.
 
 9. On the **Configure legal terms and offer documents** page, add
-   any custom terms, then choose **Next**.
+any custom terms, then choose **Next**.
 
 ###### Note
 

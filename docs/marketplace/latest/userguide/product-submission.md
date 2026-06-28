@@ -26,17 +26,17 @@ columns describe how the product is deployed to the customer.
 
 | Pricing model                                 | Products launched using single-node AMI | Products launched with CloudFormation | Products launched as software as a service (SaaS) |
 | --------------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------------- |
-| Bring Your Own License (BYOL)                 | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
-| Free                                          | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
-| Paid Hourly                                   | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
-| Paid Hourly with Annual                       | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
-| Paid Monthly                                  | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
-| Hourly with Monthly                           | \*_Assets_<br>• tab                     | \*_Assets_<br>• tab                   |                                                   |
-| Paid Usage (AWS Marketplace Metering Service) | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
-| Contract Pricing                              | \*_Build_<br>• tab                      |                                       |                                                   |
-| SaaS Subscription                             |                                         |                                       | \*_Build_<br>• tab                                |
-| SaaS Contract                                 |                                         |                                       | \*_Build_<br>• tab                                |
-| SaaS Legacy                                   |                                         |                                       | \*_Assets_<br>• tab                               |
+| Bring Your Own License (BYOL)                 | *_Build_<br>• tab                       | *_Assets_<br>• tab                    |                                                   |
+| Free                                          | *_Build_<br>• tab                       | *_Assets_<br>• tab                    |                                                   |
+| Paid Hourly                                   | *_Build_<br>• tab                       | *_Assets_<br>• tab                    |                                                   |
+| Paid Hourly with Annual                       | *_Build_<br>• tab                       | *_Assets_<br>• tab                    |                                                   |
+| Paid Monthly                                  | *_Build_<br>• tab                       | *_Assets_<br>• tab                    |                                                   |
+| Hourly with Monthly                           | *_Assets_<br>• tab                      | *_Assets_<br>• tab                    |                                                   |
+| Paid Usage (AWS Marketplace Metering Service) | *_Build_<br>• tab                       | *_Assets_<br>• tab                    |                                                   |
+| Contract Pricing                              | *_Build_<br>• tab                       |                                       |                                                   |
+| SaaS Subscription                             |                                         |                                       | *_Build_<br>• tab                                 |
+| SaaS Contract                                 |                                         |                                       | *_Build_<br>• tab                                 |
+| SaaS Legacy                                   |                                         |                                       | *_Assets_<br>• tab                                |
 
 You can submit products individually or, if you use a product load form, you can submit
 multiple products or product updates at the same time. You cannot use the **Build** tab to submit multiple products.
@@ -269,13 +269,11 @@ Ensure the instance type is available in the Regions that you want to use.
     * You must ensure that the instance type is available in the same Regions as the product.
 
 6. In the columns between **Recommended Instance Type**
-   and **Countries To Include**, enter `TRUE` under your instance types. This activates the instance types.
-   Enter `FALSE` for the remaining types. For more information
-   about instance types, see [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
-7. In the **Countries to include** and **Countries to exclude** columns,
-   enter the two-letter country code, such as US, of any countries you want to include or exclude.
-8. In the **Pricing Model** column, enter the pricing
-   model for your product.
+and **Countries To Include**, enter `TRUE` under your instance types. This activates the instance types.
+Enter `FALSE` for the remaining types. For more information
+about instance types, see [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/"). 7. In the **Countries to include** and **Countries to exclude** columns,
+enter the two-letter country code, such as US, of any countries you want to include or exclude. 8. In the **Pricing Model** column, enter the pricing
+model for your product.
 
 The following list describes the pricing models and any additional columns that you
 must complete.
@@ -295,44 +293,43 @@ must complete.
      36-Month Rate** columns, enter the information related to the contract
      dimensions.
 
-9.  In the **Security Group Rule 1** to **Security Group Rule 12** columns,
-    enter the information about
-    your product’s security group. Follow the `tcp,#,#,0.0.0.0/0` format. For example, use
-    `tcp,22,22,0.0.0.0/0` for SSH and `tcp,3389,3389,0.0.0.0/0` for RDP.
-10. In the **Clusters and AWS Resources Topology 1: Title**
-    to **Clusters and AWS Resources Topology 3: Architecture Diagram
-    URL** columns, enter the CloudFormation data for your product. You must enter
-    the following data:
+9. In the **Security Group Rule 1** to **Security Group Rule 12** columns,
+enter the information about
+your product’s security group. Follow the `tcp,#,#,0.0.0.0/0` format. For example, use
+`tcp,22,22,0.0.0.0/0` for SSH and `tcp,3389,3389,0.0.0.0/0` for RDP. 10. In the **Clusters and AWS Resources Topology 1: Title**
+to **Clusters and AWS Resources Topology 3: Architecture Diagram
+URL** columns, enter the CloudFormation data for your product. You must enter
+the following data:
 
-        * **Topology title** – The title of your
-         deployment or fulfillment option. The title appears on the detail page of your
-         product in the **Fulfillment Options** section. For
-         example:
-
+    * **Topology title** – The title of your
+     deployment or fulfillment option. The title appears on the detail page of your
+     product in the **Fulfillment Options** section. For
+     example:
 
 
-        ![An example topology in the Fulfilment Options page of a product.](images/plf-topology.png)
-        * In the
-         **Pricing Estimate** column, enter a link to the [AWS
-         Calculator](https://calculator.aws/#/ "https://calculator.aws/#/") with your values.
-        * **Short and Long Description** – Enter
-         descriptions of your deployment option.
-        * **Template URL** – Provide a downloadable link to
-         your Cloudformation template.
-        * **Architectural Diagram** – Provide a downloadable
-         link to your CloudFormation’s topology architectural diagram. Each Deployment option must have a
-         distinct diagram that shows what the stack launches. Diagrams must follow the
-         requirements listed at [Architectural diagram](cloudformation.md#topology-diagram "cloudformation.md#topology-diagram").
 
-    The following steps explain how to submit a completed PLF.
+    ![An example topology in the Fulfilment Options page of a product.](images/plf-topology.png)
+    * In the
+     **Pricing Estimate** column, enter a link to the [AWS
+     Calculator](https://calculator.aws/#/ "https://calculator.aws/#/") with your values.
+    * **Short and Long Description** – Enter
+     descriptions of your deployment option.
+    * **Template URL** – Provide a downloadable link to
+     your Cloudformation template.
+    * **Architectural Diagram** – Provide a downloadable
+     link to your CloudFormation’s topology architectural diagram. Each Deployment option must have a
+     distinct diagram that shows what the stack launches. Diagrams must follow the
+     requirements listed at [Architectural diagram](cloudformation.md#topology-diagram "cloudformation.md#topology-diagram").
 
-11. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/? "https://aws.amazon.com/marketplace/management/products/?").
-12. On the **Assets** tab, choose **File Upload**.
-13. On the **File Uploads** page, upload your PLF and any
-    CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of
-    submitted files. The uploader automatically notifies the AWS Marketplace,
-    which reviews your submission for policy and security compliance, software vulnerabilities, and product usability.
-    If the team has any questions or issues with a request, they send you an email message.
+The following steps explain how to submit a completed PLF.
+
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/? "https://aws.amazon.com/marketplace/management/products/?").
+2. On the **Assets** tab, choose **File Upload**.
+3. On the **File Uploads** page, upload your PLF and any
+   CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of
+   submitted files. The uploader automatically notifies the AWS Marketplace,
+   which reviews your submission for policy and security compliance, software vulnerabilities, and product usability.
+   If the team has any questions or issues with a request, they send you an email message.
 
 ### Updating your product
 
@@ -382,7 +379,7 @@ changes. Common changes include:
   would be approximately June 16, but the price change happens on the first of the following
   month. The actual date of the change would be July 1.
 - **Pricing Model Change** – A change to the pricing
-  model (for example, Hourly, Free, Hourly_Annual). Not all pricing model changes are
+  model (for example, Hourly, Free, Hourly\_Annual). Not all pricing model changes are
   supported, and all requests to change models must be reviewed and approved by the AWS Marketplace
   team. Any change from a free to a paid model presents significant impact to existing
   customers. An alternative is to propose a new product with additional features and
@@ -496,8 +493,8 @@ your product request.
 - All values are within specified character limits.
 - All URLs load without error.
 - Product image is at least 110px wide and between a 1:1 and 2:1 ratio.
-- Pricing is specified for all enabled instance types (for hourly, hourly_monthly, and
-  hourly_annual pricing models).
-- Monthly pricing is specified (for hourly_monthly and monthly pricing models).
+- Pricing is specified for all enabled instance types (for hourly, hourly\_monthly, and
+  hourly\_annual pricing models).
+- Monthly pricing is specified (for hourly\_monthly and monthly pricing models).
 
 If you have any questions or comments about automated AMI building, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team.

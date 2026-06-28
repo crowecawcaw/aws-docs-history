@@ -54,21 +54,21 @@ Each data feed includes columns that document the history of the data. Except fo
 `valid_to`, these columns are common to all data feeds. They're included as a
 common history schema and are useful in querying the data.
 
-| Column name | Description                                                                                                            |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------- |
-| valid_from  | The first date that the value for the primary key is valid for in relation to<br>values for other fields.              |
-| valid_to    | This column is only shown on the [Address](data-feed-address.md "data-feed-address.md") data feed and is always blank. |
-| insert_date | The date a record was inserted into the data feed.                                                                     |
-| update_date | The date the record was last updated.                                                                                  |
-| delete_date | This column is always blank.                                                                                           |
+| Column name  | Description                                                                                                            |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| valid\_from  | The first date that the value for the primary key is valid for in relation to<br>values for other fields.              |
+| valid\_to    | This column is only shown on the [Address](data-feed-address.md "data-feed-address.md") data feed and is always blank. |
+| insert\_date | The date a record was inserted into the data feed.                                                                     |
+| update\_date | The date the record was last updated.                                                                                  |
+| delete\_date | This column is always blank.                                                                                           |
 
 The following shows an example of these columns.
 
-| valid_from           | valid_to | insert_date          | update_date          | delete_date |
-| -------------------- | -------- | -------------------- | -------------------- | ----------- |
-| 2018-12-12T02:00:00Z |          | 2018-12-12T02:00:00Z | 2018-12-12T02:00:00Z |             |
-| 2019-03-29T03:00:00Z |          | 2019-03-29T03:00:00Z | 2019-03-29T03:00:00Z |             |
-| 2019-03-29T03:00:00Z |          | 2019-03-29T03:00:00Z | 2019-04-28T03:00:00Z |             |
+| valid\_from          | valid\_to | insert\_date         | update\_date         | delete\_date |
+| -------------------- | --------- | -------------------- | -------------------- | ------------ |
+| 2018-12-12T02:00:00Z |           | 2018-12-12T02:00:00Z | 2018-12-12T02:00:00Z |              |
+| 2019-03-29T03:00:00Z |           | 2019-03-29T03:00:00Z | 2019-03-29T03:00:00Z |              |
+| 2019-03-29T03:00:00Z |           | 2019-03-29T03:00:00Z | 2019-04-28T03:00:00Z |              |
 
 The `valid_from` and `update_date` field together form a
 _bi-temporal data model_. The `valid_from` field, as it is

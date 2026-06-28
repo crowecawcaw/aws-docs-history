@@ -67,35 +67,35 @@ must define the following fields for your pricing dimensions:
 - **Contracts DimensionX Quantity** – This is used to calculate
   proration in cases of agreement amendments to a product. This value of this field should be
   set to 1 for all contract offers. It should not be edited.
-- **Contracts DimensionX **1-Month Rate\*\*\*\*
+- **Contracts DimensionX **1-Month Rate****
   – The contract rate to be charged for one month of entitlements against this
   dimension. For non-tiered offers, this rate is charged for each unit of the dimension that
   is procured. This ﬁeld supports three decimal places.
-- **Contracts DimensionX **12-Month Rate\*\*\*\*
+- **Contracts DimensionX **12-Month Rate****
   – The contract rate to be charged for 12 months of entitlements against the
   dimension. For non-tiered offers, this rate is charged for each unit of the dimension that
   is procured. This ﬁeld supports three decimal places.
-- **Contracts DimensionX **24-Month Rate\*\*\*\*
+- **Contracts DimensionX **24-Month Rate****
   – The contract rate to be charged for 24 months of entitlements against the
   dimension. For non-tiered offers, this rate is charged for each unit of the dimension that
   is procured. This ﬁeld supports three decimal places.
-- **Contracts DimensionX **36-Month Rate\*\*\*\*
+- **Contracts DimensionX **36-Month Rate****
   – The contract rate to be charged for 36 months of entitlements against the
   dimension. For non-tiered offers, this rate is charged for each unit of the dimension that
   is procured. This ﬁeld supports three decimal places.
 
-| Example: Data storage application |          | 1-month price | 12-month price | 24-month price | 36-month price |
-| --------------------------------- | -------- | ------------- | -------------- | -------------- | -------------- |
-| Unencrypted data (GB)             | $1.50/GB | $16.00/GB     | $30.00/GB      | $60.00/GB      |
-| Encrypted data (GB)               | $1.55/GB | $16.60/GB     | $31.20/GB      | $61.20/GB      |
+Example: Data storage application| | 1-month price | 12-month price | 24-month price | 36-month price |
+| --- | --- | --- | --- | --- |
+| Unencrypted data (GB) | $1.50/GB | $16.00/GB | $30.00/GB | $60.00/GB |
+| Encrypted data (GB) | $1.55/GB | $16.60/GB | $31.20/GB | $61.20/GB |
 
-| Example: Log monitoring product                        |      | 1-month price | 12-month price | 24-month price | 36-month price |
-| ------------------------------------------------------ | ---- | ------------- | -------------- | -------------- | -------------- |
-| Basic (10 hosts monitored, 5 containers monitored)     | $100 | $1000         | $2000          | $4000          |
-| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000         | $4000          | $8000          |
-| Pro (40 hosts monitored, 20 containers monitored)      | $400 | $4000         | $8000          | $16,000        |
-| Additional hosts monitored per hour                    | $10  | $100          | $200           | $400           |
-| Additional containers monitored per hour               | $10  | $100          | $200           | $400           |
+Example: Log monitoring product| | 1-month price | 12-month price | 24-month price | 36-month price |
+| --- | --- | --- | --- | --- |
+| Basic (10 hosts monitored, 5 containers monitored) | $100 | $1000 | $2000 | $4000 |
+| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000 | $4000 | $8000 |
+| Pro (40 hosts monitored, 20 containers monitored) | $400 | $4000 | $8000 | $16,000 |
+| Additional hosts monitored per hour | $10 | $100 | $200 | $400 |
+| Additional containers monitored per hour | $10 | $100 | $200 | $400 |
 
 ###### Note
 

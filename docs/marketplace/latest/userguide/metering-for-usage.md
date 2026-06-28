@@ -192,7 +192,7 @@ In the following diagram, **Resource 1** has a unique set of
 `Operations`. As a result, they're combined into a single
 `UsageAllocations` entry in the **Metering Record**.
 
-![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](/images/marketplace/latest/userguide/images/seller-vendor-meter-tag.png)
+![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](images/seller-vendor-meter-tag.png)
 
 Sellers can also combine resources without tags into a single
 `UsageAllocation` and send it as one of the entries in
@@ -243,13 +243,13 @@ tags**.
 The first and last rows of the **Cost Usage Report** are relevant to
 what the seller sends to the Metering Service (as shown in the [Seller experience](#saas-vendor-metered-tag-seller "#saas-vendor-metered-tag-seller") example).
 
-| Cost Usage Report (Simplified) | ProductCode  | Buyer                       | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
-| ------------------------------ | ------------ | --------------------------- | -------------- | ------------- | ------------------------------- | ---------------------------------- |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 70             | 2222          | Operations                      |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 3333          | Finance                         |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 4444          | IT                              |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
+Cost Usage Report (Simplified)| ProductCode | Buyer | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
+| --- | --- | --- | --- | --- | --- |
+| xyz | 111122223333 | Network: per (GB) inspected | 70 | 2222 | Operations |
+| xyz | 111122223333 | Network: per (GB) inspected | 30 | 3333 | Finance |
+| xyz | 111122223333 | Network: per (GB) inspected | 20 | 4444 | IT |
+| xyz | 111122223333 | Network: per (GB) inspected | 20 | 5555 | Marketing |
+| xyz | 111122223333 | Network: per (GB) inspected | 30 | 1111 | Marketing |
 
 The following screenshot shows an example of the AWS Cost Explorer Service view
 after a buyer activates vendor-metered tags and groups costs by the
@@ -258,10 +258,10 @@ after a buyer activates vendor-metered tags and groups costs by the
 ![Screenshot of Cost Explorer showing vendor-metered tag data grouped by user. The seller uses a $0.00 dimension to report credit consumption alongside a paid overage dimension. Cost allocation tags on both dimensions allow the buyer to see which users consumed credits and which users incurred overage charges.](images/vendor-metered-tag-cost-explorer.png)
 
 In this example, the seller defines a $0.00 dimension to report credit
-consumption and a $0.01 dimension for overage charges. Each unit represents $0.01.
-Cost allocation tags allow the buyer to interactively slice costs by any tag in
-[AWS Cost Explorer Service](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/"), showing that `john` totals 8,500
-units ($85.00) and `jane` totals 3,500 units ($35.00) across both
+ consumption and a $0.01 dimension for overage charges. Each unit represents $0.01.
+ Cost allocation tags allow the buyer to interactively slice costs by any tag in
+ [AWS Cost Explorer Service](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/"), showing that `john` totals 8,500
+ units ($85.00) and `jane` totals 3,500 units ($35.00) across both
 dimensions.
 
 ###### To activate vendor-metered tags in the buyer account

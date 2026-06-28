@@ -20,11 +20,11 @@ For information about accessing the dashboard, see [Seller dashboards](dashboard
 
 This section provides the following data filters.
 
-| Filter name       | Description                                                                                                                                       |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Product title** | The title of the product.                                                                                                                         |
-| **Product ID**    | The friendly unique identifiers for the software products.                                                                                        |
-| **Date filter**   | Filter by the past 30, 60, or 90 days, the trailing 12 months, or the year to<br>date. Choose \*_Custom_<br>• to enter other start and end dates. |
+| Filter name       | Description                                                                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Product title** | The title of the product.                                                                                                                        |
+| **Product ID**    | The friendly unique identifiers for the software products.                                                                                       |
+| **Date filter**   | Filter by the past 30, 60, or 90 days, the trailing 12 months, or the year to<br>date. Choose *_Custom_<br>• to enter other start and end dates. |
 
 For more information about filtering, see [Filtering data on Quick](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
 _Quick User Guide_.
@@ -41,7 +41,7 @@ date criteria in the **Filters** section.
 | Metric                                      | Description                                                                                                   |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | **Total button clicks**                     | The total number of clicks on the call-to-action buttons, such as **Buy<br>with AWS**, on the seller website. |
-| **Number of Buy with AWS page views**       | The total number of visits to the \*_Buy with AWS_<br>• procurement<br>page. This includes repeat visits.     |
+| **Number of Buy with AWS page views**       | The total number of visits to the *_Buy with AWS_<br>• procurement<br>page. This includes repeat visits.      |
 | **Total agreements from Buy with AWS page** | The total number of agreements created on the **Buy with AWS**<br>procurement page.                           |
 
 ## Section 3: Total clicks and trend data for page views and total agreements
@@ -49,11 +49,11 @@ date criteria in the **Filters** section.
 This section provides monthly or weekly trends for a specified date
 range. The following table lists and describes the KPIs:
 
-| Metric                  | Description                                                                                                                                                         |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Total button clicks** | The total clicks on the call-to-action buttons on the seller website.                                                                                               |
-| **Page views**          | The total page visits to the **Buy with AWS\*<br>• procurement page. Use the<br>**Display data by\*<br>• list to choose between monthly and weekly<br>views.        |
-| **Total agreements**    | The total agreements created on the **Buy with AWS\*<br>• procurement page. Use<br>the **Display data by\*<br>• list to choose between monthly and weekly<br>views. |
+| Metric                  | Description                                                                                                                                                       |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Total button clicks** | The total clicks on the call-to-action buttons on the seller website.                                                                                             |
+| **Page views**          | The total page visits to the *_Buy with AWS_<br>• procurement page. Use the<br>*_Display data by_<br>• list to choose between monthly and weekly<br>views.        |
+| **Total agreements**    | The total agreements created on the *_Buy with AWS_<br>• procurement page. Use<br>the *_Display data by_<br>• list to choose between monthly and weekly<br>views. |
 
 ## Section 4: AWS sign-in page drop-off rate
 
