@@ -50,12 +50,12 @@ aws emr-serverless update-application \
 The effective user background session configuration depends on both the EMR Serverless application setting and the IAM Identity Center
 instance-level settings:
 
-| User Background Session Configuration Matrix | IAM Identity Center userBackgroundSession Enabled | EMR Serverless userBackgroundSessionsEnabled     | Behavior |
-| -------------------------------------------- | ------------------------------------------------- | ------------------------------------------------ | -------- |
-| Yes                                          | TRUE                                              | User background sessions enabled                 |
-| Yes                                          | FALSE                                             | Session expires with user logout                 |
-| No                                           | TRUE                                              | Application creation/update fails with Exception |
-| No                                           | FALSE                                             | Session expires with user logout                 |
+User Background Session Configuration Matrix| IAM Identity Center userBackgroundSession Enabled | EMR Serverless userBackgroundSessionsEnabled | Behavior |
+| --- | --- | --- |
+| Yes | TRUE | User background sessions enabled |
+| Yes | FALSE | Session expires with user logout |
+| No | TRUE | Application creation/update fails with Exception |
+| No | FALSE | Session expires with user logout |
 
 ## Default user background session duration
 

@@ -20,7 +20,7 @@ application by following these steps.
 
    - **arm64** — 64-bit ARM architecture; to use
      Graviton processors
-   - **x86_64** — 64-bit x86 architecture; to use
+   - **x86\_64** — 64-bit x86 architecture; to use
      x86-based processors
 
 5. There are two application setup options for the remaining fields: default settings

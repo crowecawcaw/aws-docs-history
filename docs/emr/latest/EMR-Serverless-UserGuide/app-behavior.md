@@ -33,13 +33,13 @@ The following table lists supported worker configurations and sizes that can be 
 for EMR Serverless. Configure different sizes for drivers and executors based on
 the need of your workload.
 
-| Worker configurations and sizes | CPU                                               | Memory            | Default ephemeral storage |
-| ------------------------------- | ------------------------------------------------- | ----------------- | ------------------------- |
-| 1 vCPU                          | Minimum 2 GB, maximum 8 GB, in 1 GB increments    | 20 GB<br>• 200 GB |
-| 2 vCPU                          | Minimum 4 GB, maximum 16 GB, in 1 GB increments   | 20 GB<br>• 200 GB |
-| 4 vCPU                          | Minimum 8 GB, maximum 30 GB, in 1 GB increments   | 20 GB<br>• 200 GB |
-| 8 vCPU                          | Minimum 16 GB, maximum 60 GB, in 4 GB increments  | 20 GB<br>• 200 GB |
-| 16 vCPU                         | Minimum 32 GB, maximum 120 GB, in 8 GB increments | 20 GB<br>• 200 GB |
+Worker configurations and sizes| CPU | Memory | Default ephemeral storage |
+| --- | --- | --- |
+| 1 vCPU | Minimum 2 GB, maximum 8 GB, in 1 GB increments | 20 GB<br>• 200 GB |
+| 2 vCPU | Minimum 4 GB, maximum 16 GB, in 1 GB increments | 20 GB<br>• 200 GB |
+| 4 vCPU | Minimum 8 GB, maximum 30 GB, in 1 GB increments | 20 GB<br>• 200 GB |
+| 8 vCPU | Minimum 16 GB, maximum 60 GB, in 4 GB increments | 20 GB<br>• 200 GB |
+| 16 vCPU | Minimum 32 GB, maximum 120 GB, in 8 GB increments | 20 GB<br>• 200 GB |
 
 **CPU** — Each worker can have 1, 2, 4, 8, or
 16 vCPUs.

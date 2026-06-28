@@ -286,6 +286,6 @@ for the `logTypes` configuration:
 **Hive**
 
 - `HIVE_DRIVER : ["STDERR", "STDOUT", "HIVE_LOG",
-"TEZ_AM"]`
+ "TEZ_AM"]`
 - `TEZ_TASK : ["STDERR", "STDOUT",
-"SYSTEM_LOGS"]`
+ "SYSTEM_LOGS"]`

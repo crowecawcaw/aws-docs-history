@@ -33,21 +33,21 @@ constructor.
 The PySpark API is organized into modules. General support for methods within each
 module is detailed in the table below.
 
-| Module name                 | Status       | Notes                                                                                                                                     |
-| --------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| pyspark_core                | Supported    | This module contains the main RDD classes, and these functions<br>are mostly unsupported.                                                 |
-| pyspark_sql                 | Supported    |                                                                                                                                           |
-| pyspark_testing             | Supported    |                                                                                                                                           |
-| pyspark_resource            | Supported    |                                                                                                                                           |
-| pyspark_streaming           | Blocked      | Streaming usage is blocked in Spark FGAC.                                                                                                 |
-| pyspark_mllib               | Experimental | This module contains RDD based ML operations, and these<br>functions are mostly unsupported. This module isn't thoroughly<br>tested.      |
-| pyspark_ml                  | Experimental | This module containes DataFrame based ML operations, and these<br>functions are mostly supported. This module isn't thoroughly<br>tested. |
-| pyspark_pandas              | Supported    |                                                                                                                                           |
-| pyspark_pandas_slow         | Supported    |                                                                                                                                           |
-| pyspark_connect             | Blocked      | Spark Connect usage is blocked in Spark FGAC.                                                                                             |
-| pyspark_pandas_connect      | Blocked      | Spark Connect usage is blocked in Spark FGAC.                                                                                             |
-| pyspark_pandas_slow_connect | Blocked      | Spark Connect usage is blocked in Spark FGAC.                                                                                             |
-| pyspark_errors              | Experimental | This module is not thoroughly tested. Custom error classes<br>can't be utilized.                                                          |
+| Module name                    | Status       | Notes                                                                                                                                     |
+| ------------------------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| pyspark\_core                  | Supported    | This module contains the main RDD classes, and these functions<br>are mostly unsupported.                                                 |
+| pyspark\_sql                   | Supported    |                                                                                                                                           |
+| pyspark\_testing               | Supported    |                                                                                                                                           |
+| pyspark\_resource              | Supported    |                                                                                                                                           |
+| pyspark\_streaming             | Blocked      | Streaming usage is blocked in Spark FGAC.                                                                                                 |
+| pyspark\_mllib                 | Experimental | This module contains RDD based ML operations, and these<br>functions are mostly unsupported. This module isn't thoroughly<br>tested.      |
+| pyspark\_ml                    | Experimental | This module containes DataFrame based ML operations, and these<br>functions are mostly supported. This module isn't thoroughly<br>tested. |
+| pyspark\_pandas                | Supported    |                                                                                                                                           |
+| pyspark\_pandas\_slow          | Supported    |                                                                                                                                           |
+| pyspark\_connect               | Blocked      | Spark Connect usage is blocked in Spark FGAC.                                                                                             |
+| pyspark\_pandas\_connect       | Blocked      | Spark Connect usage is blocked in Spark FGAC.                                                                                             |
+| pyspark\_pandas\_slow\_connect | Blocked      | Spark Connect usage is blocked in Spark FGAC.                                                                                             |
+| pyspark\_errors                | Experimental | This module is not thoroughly tested. Custom error classes<br>can't be utilized.                                                          |
 
 **API Allowlist**
 

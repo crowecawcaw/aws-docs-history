@@ -3,19 +3,19 @@
 Before you use IAM to manage access to Amazon EMR Serverless, learn what IAM features are
 available to use with Amazon EMR Serverless.
 
-| IAM features use with EMR Serverless                                                                                      | IAM feature | Amazon EMR Serverless support |
-| ------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------- |
-| [Identity-based<br>policies](#security-iam-id-based-policies "#security-iam-id-based-policies")                           | Yes         |
-| [Resource-based<br>policies](#security-iam-resource-based-policies "#security-iam-resource-based-policies")               | No          |
-| [Policy<br>actions](#security-iam-id-based-policies-actions "#security-iam-id-based-policies-actions")                    | Yes         |
-| [Policy<br>resources](#security-iam-id-based-policies-resources "#security-iam-id-based-policies-resources")              | Yes         |
-| [Policy condition<br>keys](#security-iam-id-based-policies-conditionkeys "#security-iam-id-based-policies-conditionkeys") | No          |
-| [ACLs](#security-iam-acls "#security-iam-acls")                                                                           | No          |
-| [ABAC (tags in policies)](#security-iam-tags "#security-iam-tags")                                                        | Yes         |
-| [Temporary credentials](#security-iam-roles-tempcreds "#security-iam-roles-tempcreds")                                    | Yes         |
-| [Principal<br>permissions](#security-iam-principal-permissions "#security-iam-principal-permissions")                     | Yes         |
-| [Service roles](#security-iam-roles-service "#security-iam-roles-service")                                                | No          |
-| [Service-linked<br>roles](#security-iam-roles-service-linked "#security-iam-roles-service-linked")                        | Yes         |
+IAM features use with EMR Serverless| IAM feature | Amazon EMR Serverless support |
+| --- | --- |
+| [Identity-based<br>policies](#security-iam-id-based-policies "#security-iam-id-based-policies") | Yes |
+| [Resource-based<br>policies](#security-iam-resource-based-policies "#security-iam-resource-based-policies") | No |
+| [Policy<br>actions](#security-iam-id-based-policies-actions "#security-iam-id-based-policies-actions") | Yes |
+| [Policy<br>resources](#security-iam-id-based-policies-resources "#security-iam-id-based-policies-resources") | Yes |
+| [Policy condition<br>keys](#security-iam-id-based-policies-conditionkeys "#security-iam-id-based-policies-conditionkeys") | No |
+| [ACLs](#security-iam-acls "#security-iam-acls") | No |
+| [ABAC (tags in policies)](#security-iam-tags "#security-iam-tags") | Yes |
+| [Temporary credentials](#security-iam-roles-tempcreds "#security-iam-roles-tempcreds") | Yes |
+| [Principal<br>permissions](#security-iam-principal-permissions "#security-iam-principal-permissions") | Yes |
+| [Service roles](#security-iam-roles-service "#security-iam-roles-service") | No |
+| [Service-linked<br>roles](#security-iam-roles-service-linked "#security-iam-roles-service-linked") | Yes |
 
 To get a high-level view of how EMR Serverless and other AWS services work with most
 IAM features, refer to [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the

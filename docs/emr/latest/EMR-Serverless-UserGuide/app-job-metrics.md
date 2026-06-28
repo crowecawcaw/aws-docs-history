@@ -29,32 +29,32 @@ metrics will no longer be updated. For EMR releases below 7.10, the older metric
 
 The table below describes the EMR Serverless dimensions available within the `AWS/EMR Serverless` namespace.
 
-| Dimensions for EMR Serverless metrics | Dimension                                                                                                                                                                                  | Description |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `ApplicationId`                       | Filters for all metrics of an EMR Serverless application using the application ID.                                                                                                         |
-| `ApplicationName`                     | Filters for all metrics of an EMR Serverless application using the name. If the name isn't provided, or contains non-ASCII<br>characters, it is published as **[Unspecified]**.            |
-| `JobId`                               | Filters for all metrics of an EMR Serverless the job run ID.                                                                                                                               |
-| `JobName`                             | Filters for all metrics of an EMR Serverless job run using the name. If the name isn't provided, or contains non-ASCII<br>characters, it is published as **[Unspecified]**.                |
-| `WorkerType`                          | Filters for all metrics of a given worker type. For example, you can filter for<br>`SPARK_DRIVER` and `SPARK_EXECUTORS` for Spark jobs.                                                    |
-| `CapacityAllocationType`              | Filters for all metrics of a given capacity allocation type. For example, you can filter for `PreInitCapacity` for pre-initialized capacity<br>and `OnDemandCapacity` for everything else. |
+Dimensions for EMR Serverless metrics| Dimension | Description |
+| --- | --- |
+| `ApplicationId` | Filters for all metrics of an EMR Serverless application using the application ID. |
+| `ApplicationName` | Filters for all metrics of an EMR Serverless application using the name. If the name isn't provided, or contains non-ASCII<br>characters, it is published as **[Unspecified]**. |
+| `JobId` | Filters for all metrics of an EMR Serverless the job run ID. |
+| `JobName` | Filters for all metrics of an EMR Serverless job run using the name. If the name isn't provided, or contains non-ASCII<br>characters, it is published as **[Unspecified]**. |
+| `WorkerType` | Filters for all metrics of a given worker type. For example, you can filter for<br>`SPARK_DRIVER` and `SPARK_EXECUTORS` for Spark jobs. |
+| `CapacityAllocationType` | Filters for all metrics of a given capacity allocation type. For example, you can filter for `PreInitCapacity` for pre-initialized capacity<br>and `OnDemandCapacity` for everything else. |
 
 ## Application-level monitoring
 
 You can monitor capacity usage at the EMR Serverless application level with
 Amazon CloudWatch metrics. You can also set up a single display to monitor application capacity usage in a CloudWatch dashboard.
 
-| EMR Serverless application metrics | Metric                                                    | Description    | Unit                                                                          | Dimension |
-| ---------------------------------- | --------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------- | --------- |
-| `MaxCPUAllowed`                    | The maximum CPU allowed for the application.              | vCPU           | `ApplicationId`, `ApplicationName`                                            |
-| `MaxMemoryAllowed`                 | The maximum memory in GB allowed for the<br>application.  | Gigabytes (GB) | `ApplicationId`, `ApplicationName`                                            |
-| `MaxStorageAllowed`                | The maximum storage in GB allowed for the<br>application. | Gigabytes (GB) | `ApplicationId`, `ApplicationName`                                            |
-| `CPUAllocated`                     | The total numbers of vCPUs allocated.                     | vCPU           | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
-| `IdleWorkerCount`                  | The number of total workers idle.                         | Count          | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
-| `MemoryAllocated`                  | The total memory in GB allocated.                         | Gigabytes (GB) | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
-| `PendingCreationWorkerCount`       | The number of total workers pending creation.             | Count          | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
-| `RunningWorkerCount`               | The number of total workers in use by the<br>application. | Count          | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
-| `StorageAllocated`                 | The total disk storage in GB allocated.                   | Gigabytes (GB) | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
-| `TotalWorkerCount`                 | The number of total workers available.                    | Count          | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
+EMR Serverless application metrics| Metric | Description | Unit | Dimension |
+| --- | --- | --- | --- |
+| `MaxCPUAllowed` | The maximum CPU allowed for the application. | vCPU | `ApplicationId`, `ApplicationName` |
+| `MaxMemoryAllowed` | The maximum memory in GB allowed for the<br>application. | Gigabytes (GB) | `ApplicationId`, `ApplicationName` |
+| `MaxStorageAllowed` | The maximum storage in GB allowed for the<br>application. | Gigabytes (GB) | `ApplicationId`, `ApplicationName` |
+| `CPUAllocated` | The total numbers of vCPUs allocated. | vCPU | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
+| `IdleWorkerCount` | The number of total workers idle. | Count | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
+| `MemoryAllocated` | The total memory in GB allocated. | Gigabytes (GB) | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
+| `PendingCreationWorkerCount` | The number of total workers pending creation. | Count | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
+| `RunningWorkerCount` | The number of total workers in use by the<br>application. | Count | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
+| `StorageAllocated` | The total disk storage in GB allocated. | Gigabytes (GB) | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
+| `TotalWorkerCount` | The number of total workers available. | Count | `ApplicationId`, `ApplicationName`, `WorkerType`,<br>`CapacityAllocationType` |
 
 ## Job-level monitoring
 
@@ -63,16 +63,16 @@ Amazon CloudWatch every one minute. You can access the metric values for
 aggregate job runs by job run state. The unit for each of the metrics is
 _count_.
 
-| EMR Serverless job-level metrics | Metric                                       | Description                        | Dimension |
-| -------------------------------- | -------------------------------------------- | ---------------------------------- | --------- |
-| `SubmittedJobs`                  | The number of jobs in a Submitted state.     | `ApplicationId`, `ApplicationName` |
-| `PendingJobs`                    | The number of jobs in a Pending state.       | `ApplicationId`, `ApplicationName` |
-| `ScheduledJobs`                  | The number of jobs in a Scheduled state.     | `ApplicationId`, `ApplicationName` |
-| `RunningJobs`                    | The number of jobs in a Running state.       | `ApplicationId`, `ApplicationName` |
-| `SuccessJobs`                    | The number of jobs in a Success state.       | `ApplicationId`, `ApplicationName` |
-| `FailedJobs`                     | The number of jobs in a Failed state.        | `ApplicationId`, `ApplicationName` |
-| `CancellingJobs`                 | The number of jobs in a Cancelling<br>state. | `ApplicationId`, `ApplicationName` |
-| `CancelledJobs`                  | The number of jobs in a Cancelled state.     | `ApplicationId`, `ApplicationName` |
+EMR Serverless job-level metrics| Metric | Description | Dimension |
+| --- | --- | --- |
+| `SubmittedJobs` | The number of jobs in a Submitted state. | `ApplicationId`, `ApplicationName` |
+| `PendingJobs` | The number of jobs in a Pending state. | `ApplicationId`, `ApplicationName` |
+| `ScheduledJobs` | The number of jobs in a Scheduled state. | `ApplicationId`, `ApplicationName` |
+| `RunningJobs` | The number of jobs in a Running state. | `ApplicationId`, `ApplicationName` |
+| `SuccessJobs` | The number of jobs in a Success state. | `ApplicationId`, `ApplicationName` |
+| `FailedJobs` | The number of jobs in a Failed state. | `ApplicationId`, `ApplicationName` |
+| `CancellingJobs` | The number of jobs in a Cancelling<br>state. | `ApplicationId`, `ApplicationName` |
+| `CancelledJobs` | The number of jobs in a Cancelled state. | `ApplicationId`, `ApplicationName` |
 
 You can monitor engine-specific metrics for running and completed
 EMR Serverless jobs with engine-specific application UIs. When you access the UI
@@ -104,16 +104,16 @@ EMR Serverless collects data points from individual workers during job runs at t
 
 To view the total CPU and Memory used by an EMR Serverless job when viewing the metrics in the Amazon CloudWatch console, use the Statistic as Sum and Period as 1 minute.
 
-| EMR Serverless job worker-level metrics | Metric                                                                       | Description    | Unit                                                                                               | Dimension |
-| --------------------------------------- | ---------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------- | --------- |
-| `WorkerCpuAllocated`                    | The total numbers of vCPU cores allocated for workers in a job run.          | vCPU           | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
-| `WorkerCpuUsed`                         | The total numbers of vCPU cores utilized by workers in a job run.            | vCPU           | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
-| `WorkerMemoryAllocated`                 | The total memory in GB allocated for workers in a job run.                   | Gigabytes (GB) | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
-| `WorkerMemoryUsed`                      | The total memory in GB utilized by workers in a job run.                     | Gigabytes (GB) | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
-| `WorkerEphemeralStorageAllocated`       | The number of bytes of ephemeral storage allocated for workers in a job run. | Gigabytes (GB) | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
-| `WorkerEphemeralStorageUsed`            | The number of bytes of ephemeral storage used by workers in a job run.       | Gigabytes (GB) | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
-| `WorkerStorageReadBytes`                | The number of bytes read from storage by workers in a job run.               | Bytes          | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
-| `WorkerStorageWriteBytes`               | The number of bytes written to storage from workers in a job run.            | Bytes          | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
+EMR Serverless job worker-level metrics| Metric | Description | Unit | Dimension |
+| --- | --- | --- | --- |
+| `WorkerCpuAllocated` | The total numbers of vCPU cores allocated for workers in a job run. | vCPU | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
+| `WorkerCpuUsed` | The total numbers of vCPU cores utilized by workers in a job run. | vCPU | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
+| `WorkerMemoryAllocated` | The total memory in GB allocated for workers in a job run. | Gigabytes (GB) | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
+| `WorkerMemoryUsed` | The total memory in GB utilized by workers in a job run. | Gigabytes (GB) | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
+| `WorkerEphemeralStorageAllocated` | The number of bytes of ephemeral storage allocated for workers in a job run. | Gigabytes (GB) | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
+| `WorkerEphemeralStorageUsed` | The number of bytes of ephemeral storage used by workers in a job run. | Gigabytes (GB) | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
+| `WorkerStorageReadBytes` | The number of bytes read from storage by workers in a job run. | Bytes | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
+| `WorkerStorageWriteBytes` | The number of bytes written to storage from workers in a job run. | Bytes | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |
 
 The steps below describe how to access the various types of metrics.
 

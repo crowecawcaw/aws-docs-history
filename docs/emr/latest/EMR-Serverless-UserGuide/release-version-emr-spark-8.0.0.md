@@ -2,12 +2,12 @@
 
 The following table lists the application versions available with `AWS runtime for Apache Spark` (emr-spark-8.0.0).
 
-| Application version information | Application        | Version |
-| ------------------------------- | ------------------ | ------- |
-| Spark                           | 4.0.2-amzn-0       |
-| Iceberg                         | 1.10.1-amzn-0      |
-| Delta                           | 4.0.0-amzn-1-spark |
-| Hudi                            | 1.1.0-amzn-0       |
+Application version information| Application | Version |
+| --- | --- |
+| Spark | 4.0.2-amzn-0 |
+| Iceberg | 1.10.1-amzn-0 |
+| Delta | 4.0.0-amzn-1-spark |
+| Hudi | 1.1.0-amzn-0 |
 
 ###### **`AWS runtime for Apache Spark` (emr-spark-8.0.0) release notes**
 

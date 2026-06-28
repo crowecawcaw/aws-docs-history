@@ -10,3 +10,4 @@ applications when you use EMR Serverless.
 - [Understanding application behavior in EMR Serverless](app-behavior.md "app-behavior.md")
 - [Pre-initialized capacity for working with an application in EMR Serverless](pre-init-capacity.md "pre-init-capacity.md")
 - [Default application configuration for EMR Serverless](default-configs.md "default-configs.md")
+- [Updating Running Applications](updating-running-applications.md "updating-running-applications.md")

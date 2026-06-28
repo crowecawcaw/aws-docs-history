@@ -2,28 +2,28 @@
 
 The instruction set architecture of your Amazon EMR Serverless application determines the
 type of processors that the application uses to run the job. Amazon EMR provides two architecture
-options for your application: **x86_64** and
+options for your application: **x86\_64** and
 **arm64**. EMR Serverless automatically updates to the latest generation of
 instances as they become available, so your applications can use the newer instances
 without requiring additional effort from you.
 
 ###### Topics
 
-- [Using x86_64 architecture](#x86 "#x86")
+- [Using x86\_64 architecture](#x86 "#x86")
 - [Using arm64 architecture (Graviton)](#arm64 "#arm64")
 - [Launching new applications with Graviton support](#arm64-new "#arm64-new")
 - [Configuring existing applications to use Graviton](#arm64-existing "#arm64-existing")
 - [Considerations when using Graviton](#arm64-considerations "#arm64-considerations")
 
-## Using x86_64 architecture
+## Using x86\_64 architecture
 
-The **x86_64** architecture is also known as x86 64-bit or x64.
-**x86_64** is the default option for EMR Serverless applications. This
+The **x86\_64** architecture is also known as x86 64-bit or x64.
+**x86\_64** is the default option for EMR Serverless applications. This
 architecture uses x86-based processors and is compatible with most third-party tools and
 libraries.
 
 Most applications are compatible with the x86 hardware platform and can run successfully
-on the default **x86_64** architecture. However, if your application is
+on the default **x86\_64** architecture. However, if your application is
 compatible with 64-bit ARM, then switch to **arm64** to use Graviton
 processors for improved performance, compute power, and memory. It costs less to run
 instances on arm64 architecture than when you run instances of equal size on x86
@@ -35,7 +35,7 @@ AWS Graviton processors are custom designed by AWS with 64-bit ARM Neoverse core
 arm64 architecture (also known as Arch64 or 64-bit ARM). The AWS Graviton line of processors
 available on EMR Serverless include Graviton3 and Graviton2 processors. These processors
 deliver superior price-performance for Spark and Hive workloads compared to equivalent workloads
-that run on the x86_64 architecture. EMR Serverless automatically uses the latest generation of processors when available without any effort from
+that run on the x86\_64 architecture. EMR Serverless automatically uses the latest generation of processors when available without any effort from
 your side to upgrade to the latest generation of processors.
 
 ## Launching new applications with Graviton support

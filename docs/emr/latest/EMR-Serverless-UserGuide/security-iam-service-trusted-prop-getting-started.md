@@ -40,7 +40,7 @@ identity propagation to downstream.
 - `sso:PutApplicationGrant` – Grants permission to apply token-exchange, introspectToken, refreshToken and revokeToken
   grants on an IAM Identity Center Application.
 - `sso:PutApplicationAccessScope` – Grants permission to apply trusted-identity propagation enabled downstream scope to IAM Identity Center Application. We
-  apply "redshift:connect", "lakeformation:query" and "s3:read_write" scopes to enable trusted-identity-propagation to these services.
+  apply "redshift:connect", "lakeformation:query" and "s3:read\_write" scopes to enable trusted-identity-propagation to these services.
 
 ## Create a trusted-identity propagation enabled EMR Serverless Application
 

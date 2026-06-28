@@ -28,12 +28,11 @@ Streaming jobs in EMR Serverless automatically provide _job-resiliency_, which i
 - **Availability Zone (AZ) resiliency** – EMR Serverless automatically switches streaming jobs to a healthy AZ if the original AZ experiences issues.
 - **Log management:**
 
-      + **Log rotation** – for more efficient disk storage management, EMR Serverless
-       periodically rotates logs for long streaming jobs. Doing so prevents log accumulation that might consume all of the disk space.
-      + **Log compaction** – helps you efficiently manage and optimize log files in
-       managed-persistence. Compaction also improves the debug experience when you use the managed spark history server.
-
-  **Supported data sources and data sinks**
+  - **Log rotation** – for more efficient disk storage management, EMR Serverless
+    periodically rotates logs for long streaming jobs. Doing so prevents log accumulation that might consume all of the disk space.
+  - **Log compaction** – helps you efficiently manage and optimize log files in
+    managed-persistence. Compaction also improves the debug experience when you use the managed spark history server.
+    **Supported data sources and data sinks**
 
 EMR Serverless works with a number of input data sources and output data sinks:
 

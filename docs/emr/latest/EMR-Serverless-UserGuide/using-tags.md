@@ -3,11 +3,11 @@
 Use the following AWS CLI commands or Amazon EMR Serverless API operations to add, update,
 list, and delete the tags for your resources.
 
-| CLI commands and API operations for tags | Resource                 | Supports tags         | Supports tag propagation |
-| ---------------------------------------- | ------------------------ | --------------------- | ------------------------ |
-| Add or overwrite one or more tags        | `tag-resource`           | `TagResource`         |
-| List tags for a resource                 | `list-tags-for-resource` | `ListTagsForResource` |
-| Delete one or more tags                  | `untag-resource`         | `UntagResource`       |
+CLI commands and API operations for tags| Resource | Supports tags | Supports tag propagation |
+| --- | --- | --- |
+| Add or overwrite one or more tags | `tag-resource` | `TagResource` |
+| List tags for a resource | `list-tags-for-resource` | `ListTagsForResource` |
+| Delete one or more tags | `untag-resource` | `UntagResource` |
 
 The following examples demonstrate how to tag or untag resources using the AWS CLI.
 

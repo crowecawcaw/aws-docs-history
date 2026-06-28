@@ -27,7 +27,7 @@ EMR Serverless 6.6.0.
 
 - The following table lists Hive and Tez backports.
 
-| Hive and Tez changes | Change                                                                                                                                                                              | Description |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Backport             | [TEZ-4430](https://issues.apache.org/jira/browse/TEZ-4430 "https://issues.apache.org/jira/browse/TEZ-4430"): Fixed<br>issue with `tez.task.launch.cmd-opts` property                |
-| Backport             | [HIVE-25971](https://issues.apache.org/jira/browse/HIVE-25971 "https://issues.apache.org/jira/browse/HIVE-25971"):<br>Fixed Tez task shutdown delays due to open cached thread pool |
+Hive and Tez changes| Change | Description |
+| --- | --- |
+| Backport | [TEZ-4430](https://issues.apache.org/jira/browse/TEZ-4430 "https://issues.apache.org/jira/browse/TEZ-4430"): Fixed<br>issue with `tez.task.launch.cmd-opts` property |
+| Backport | [HIVE-25971](https://issues.apache.org/jira/browse/HIVE-25971 "https://issues.apache.org/jira/browse/HIVE-25971"):<br>Fixed Tez task shutdown delays due to open cached thread pool |

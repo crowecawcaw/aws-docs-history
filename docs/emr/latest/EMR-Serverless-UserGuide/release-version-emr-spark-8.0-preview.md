@@ -2,9 +2,9 @@
 
 The following table lists the application versions available with `AWS runtime for Apache Spark` (emr-spark-8.0-preview).
 
-| Application version information | Application  | Version |
-| ------------------------------- | ------------ | ------- |
-| Spark                           | 4.0.1-amzn-0 |
+Application version information| Application | Version |
+| --- | --- |
+| Spark | 4.0.1-amzn-0 |
 
 ###### **`AWS runtime for Apache Spark` (emr-spark-8.0-preview) release notes**
 

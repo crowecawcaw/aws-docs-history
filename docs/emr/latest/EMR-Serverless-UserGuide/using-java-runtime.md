@@ -10,7 +10,7 @@ To override the JVM setting for EMR Serverless 6.11.0 and higher, supply the
 `JAVA_HOME` setting to its `spark.emr-serverless.driverEnv`
 and `spark.executorEnv` environment classifications.
 
-x86_64
+x86\_64
 Set the required properties to specify Java 17 as the
 `JAVA_HOME` configuration for the Spark driver and
 executors:
@@ -20,7 +20,7 @@ executors:
 --conf spark.executorEnv.JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto.x86_64/
 ```
 
-arm_64
+arm\_64
 Set the required properties to specify Java 17 as the
 `JAVA_HOME` configuration for the Spark driver and
 executors:
@@ -35,7 +35,7 @@ executors:
 Alternatively, you can specify Java 17 in the `spark-defaults`
 classification to override the JVM setting for EMR Serverless 6.11.0 and higher.
 
-x86_64
+x86\_64
 Specify Java 17 in the `spark-defaults` classification:
 
 ```
@@ -52,7 +52,7 @@ Specify Java 17 in the `spark-defaults` classification:
 }
 ```
 
-arm_64
+arm\_64
 Specify Java 17 in the `spark-defaults` classification:
 
 ```
