@@ -72,7 +72,7 @@ restrictions apply:
   ECMP.
 - AWS Direct Connect Gateway - AWS Direct Connect Gateway attachments automatically
   support ECMP across multiple Direct Connect Gateway attachments when the network
-  prefix, prefix length, and AS_PATH are exactly the same.
+  prefix, prefix length, and AS\_PATH are exactly the same.
 - Transit gateway peering - Transit gateway peering does not support ECMP since
   it neither supports dynamic routing nor can you configure the same static route
   against two different targets.
@@ -279,10 +279,10 @@ gateway attachment to the VPN attachment, use a BGP VPN connection and propagate
 the routes in the transit gateway route table.
 
 | Destination    | Attachment (Target) | Resource type        | Route type             | Priority             |
-| -------------- | ------------------- | -------------------- | ---------------------- | -------------------- | --- |
+| -------------- | ------------------- | -------------------- | ---------------------- | -------------------- |
 | 10.0.0.0/16    | tgw-attach-123      | vpc-1234             | VPC                    | Static or propagated | 1   |
 | 192.168.0.0/16 | tgw-attach-789      | vpn-5678             | VPN                    | Static               | 2   |
-| 172.31.0.0/16  | tgw-attach-456      | dxgw_id              | Direct Connect gateway | Propagated           | 3   |
+| 172.31.0.0/16  | tgw-attach-456      | dxgw\_id             | Direct Connect gateway | Propagated           | 3   |
 | 172.31.0.0/16  | tgw-attach-789      | tgw-connect-peer-123 | Connect                | Propagated           | 4   |
 | 172.31.0.0/16  | tgw-attach-789      | vpn-5678             | VPN                    | Propagated           | 5   |
 

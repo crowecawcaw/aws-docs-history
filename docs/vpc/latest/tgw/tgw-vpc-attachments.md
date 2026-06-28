@@ -125,7 +125,7 @@ attachments** turned off.
   process of being deleted. At this stage, the attachment can go to
   `deleted`.
 - **Deleted**: An `available` or `pending
-acceptance` VPC attachment has been deleted. While in this state,
+ acceptance` VPC attachment has been deleted. While in this state,
   the VPC attachment cannot be modified. The VPC attachment remains visible 2
   hours, and then is no longer visible.
 - **Modifying**: A request has been made to modify the

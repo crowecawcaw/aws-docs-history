@@ -35,28 +35,28 @@ association route table and the default propagation route table.
 
 ###### To create a transit gateway
 
-1.  Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  In the Region selector, choose the Region that you used when you created the VPCs.
-3.  On the navigation pane, choose **Transit Gateways**.
-4.  Choose **Create transit gateway**.
-5.  (Optional) For **Name tag**, enter a name for the transit gateway. This creates
-    a tag with "Name" as the key and the name that you specified as the value.
-6.  (Optional) For **Description**, enter a description for the
-    transit gateway.
-7.  In **Configure the transit gateway** section, do the
-    following:
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the Region selector, choose the Region that you used when you created the VPCs.
+3. On the navigation pane, choose **Transit Gateways**.
+4. Choose **Create transit gateway**.
+5. (Optional) For **Name tag**, enter a name for the transit gateway. This creates
+   a tag with "Name" as the key and the name that you specified as the value.
+6. (Optional) For **Description**, enter a description for the
+   transit gateway.
+7. In **Configure the transit gateway** section, do the
+   following:
 
-    1. For **Amazon side Autonomous System Number (ASN)**, enter the
-       private ASN for your transit gateway. This should be the ASN for the AWS side of a Border
-       Gateway Protocol (BGP) session.
+   1. For **Amazon side Autonomous System Number (ASN)**, enter the
+      private ASN for your transit gateway. This should be the ASN for the AWS side of a Border
+      Gateway Protocol (BGP) session.
 
-    The range is from 64512 to 65534 for 16-bit ASNs.
+   The range is from 64512 to 65534 for 16-bit ASNs.
 
-    The range is from 4200000000 to 4294967294 for 32-bit ASNs.
+   The range is from 4200000000 to 4294967294 for 32-bit ASNs.
 
-    If you have a multi-Region deployment, we recommend that you use a unique ASN for
-    each of your transit gateways. 2. (Optional) Choose whether to enable any of the following:
+   If you have a multi-Region deployment, we recommend that you use a unique ASN for
+   each of your transit gateways. 2. (Optional) Choose whether to enable any of the following:
 
         * **DNS support** for VPCs attached to this transit gateway.
         * **VPN ECMP** support for VPN connections attached to the
@@ -70,15 +70,15 @@ association route table and the default propagation route table.
         * **Multicast support**, which allows you to create multicast
          domains in this transit gateway.
 
-8.  (Optional) In the **Configure-cross-account sharing options**
-    section, choose whether to **Auto accept shared attachments**. If
-    enabled, attachments are automatically accepted. Otherwise, you must accept or reject
-    attachment requests.
-9.  (Optional) In the **Transit gateway CIDR blocks section**, add a size
-    /24 CIDR block or larger for IPv4 addresses or /64 block or larger CIDR block for IPv6
-    addresses. You can associate any public or private IP address range, except for addresses
-    in the 169.254.0.0/16 range, and ranges that overlap with the addresses for your VPC
-    attachments and on-premises networks.
+8. (Optional) In the **Configure-cross-account sharing options**
+   section, choose whether to **Auto accept shared attachments**. If
+   enabled, attachments are automatically accepted. Otherwise, you must accept or reject
+   attachment requests.
+9. (Optional) In the **Transit gateway CIDR blocks section**, add a size
+   /24 CIDR block or larger for IPv4 addresses or /64 block or larger CIDR block for IPv6
+   addresses. You can associate any public or private IP address range, except for addresses
+   in the 169.254.0.0/16 range, and ranges that overlap with the addresses for your VPC
+   attachments and on-premises networks.
 
 ###### Note
 
@@ -94,7 +94,7 @@ it.
      next step.
 
 11. Choose **Create transit gateway**. When the gateway is created, the
-    initial state of the transit gateway is `pending`.
+initial state of the transit gateway is `pending`.
 
 ## Step 2: Attach your VPCs to your transit gateway
 

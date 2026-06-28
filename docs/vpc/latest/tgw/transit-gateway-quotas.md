@@ -106,7 +106,7 @@ For bandwidth and packet limits with VPN tunnel, please refer to
 - Transit gateways support Path MTU Discovery (PMTUD) for traffic ingressing on
   VPC and Connect attachments. Transit gateway generates the
   `FRAG_NEEDED` for ICMPv4 packets and `Packet Too Big
-(PTB)` for ICMPv6 packets. Transit gateways does not support PMTUD on
+ (PTB)` for ICMPv6 packets. Transit gateways does not support PMTUD on
   Site-to-site VPN, Direct Connect, and Peering attachments. For more information
   about Path MTU Discovery, see [Path MTU
   Discovery](../userguide/path_mtu_discovery.md "../userguide/path_mtu_discovery.md") in the _Amazon VPC User Guide_

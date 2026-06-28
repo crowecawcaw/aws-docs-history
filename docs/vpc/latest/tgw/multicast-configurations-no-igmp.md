@@ -30,7 +30,5 @@ Use the following settings:
      multicast traffic.
 
 6. Create an association between subnets in the transit gateway VPC attachment and the
-   multicast domain. For more information see [Associating VPC attachments and subnets with a multicast domain in AWS Transit Gateway](associate-attachment-to-domain.md "associate-attachment-to-domain.md").
-7. If you enable **Static sources support**, add the source to the
-   multicast group. For more information, see [Register sources with a multicast group in AWS Transit Gateway](add-source-multicast-group.md "add-source-multicast-group.md").
-8. Add the members to the multicast group. For more information, see [Register members with a multicast group in AWS Transit Gateway](add-members-multicast-group.md "add-members-multicast-group.md").
+multicast domain. For more information see [Associating VPC attachments and subnets with a multicast domain in AWS Transit Gateway](associate-attachment-to-domain.md "associate-attachment-to-domain.md"). 7. If you enable **Static sources support**, add the source to the
+multicast group. For more information, see [Register sources with a multicast group in AWS Transit Gateway](add-source-multicast-group.md "add-source-multicast-group.md"). 8. Add the members to the multicast group. For more information, see [Register members with a multicast group in AWS Transit Gateway](add-members-multicast-group.md "add-members-multicast-group.md").

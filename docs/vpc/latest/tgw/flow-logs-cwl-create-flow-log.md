@@ -33,8 +33,7 @@ log record.
      and then select fields from **Log format**.
 
 8. (Optional) Choose **Add new tag** to apply tags to the
-   flow log.
-9. Choose **Create flow log**.
+flow log. 9. Choose **Create flow log**.
 
 ###### To create a flow log using the command line
 

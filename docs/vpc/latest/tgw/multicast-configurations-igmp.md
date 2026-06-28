@@ -26,9 +26,8 @@ Use the following settings:
     * Disable **Static sources support**.
 
 6. Create an association between subnets in the transit gateway VPC attachment and the multicast
-   domain. For more information see [Associating VPC attachments and subnets with a multicast domain in AWS Transit Gateway](associate-attachment-to-domain.md "associate-attachment-to-domain.md").
-7. The default IGMP version for EC2 is IGMPv3. You need to change the version for all
-   IGMP group members. You can run the following command:
+domain. For more information see [Associating VPC attachments and subnets with a multicast domain in AWS Transit Gateway](associate-attachment-to-domain.md "associate-attachment-to-domain.md"). 7. The default IGMP version for EC2 is IGMPv3. You need to change the version for all
+IGMP group members. You can run the following command:
 
 ```
 sudo sysctl net.ipv4.conf.eth0.force_igmp_version=2

@@ -61,9 +61,7 @@ console. 10. Select the metric name that you created, and then choose
      of `1`.
 
 12. For **Notification**, select an existing SNS topic,
-    or choose **Create new topic** to create a new one.
-    Choose **Next**.
-13. Enter a name and description for the alarm and choose
-    **Next**.
-14. When you are done configuring the alarm, choose **Create
-    alarm**.
+or choose **Create new topic** to create a new one.
+Choose **Next**. 13. Enter a name and description for the alarm and choose
+**Next**. 14. When you are done configuring the alarm, choose **Create
+alarm**.
