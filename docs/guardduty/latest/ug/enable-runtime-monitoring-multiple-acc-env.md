@@ -28,9 +28,9 @@ then choose **Configure accounts manually**.
      section.
 
 6. For GuardDuty to receive the runtime events from one or more resource
-   types – an Amazon EC2 instance, Amazon ECS cluster, or an Amazon EKS cluster,
-   use the following options to manage the security agent for these
-   resources:
+types – an Amazon EC2 instance, Amazon ECS cluster, or an Amazon EKS cluster,
+use the following options to manage the security agent for these
+resources:
 
 ###### To enable GuardDuty security agent
 

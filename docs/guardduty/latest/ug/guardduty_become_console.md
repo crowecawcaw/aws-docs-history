@@ -96,15 +96,15 @@ to accept the membership invitation:
      invite.
 
 4. After you accept the invite, your account becomes a GuardDuty member
-   account. The account whose owner sent the invitation becomes the
-   GuardDuty administrator account. The administrator account will know that you have accepted the
-   invitation. The **Accounts** table in their GuardDuty
-   account will get updated. The value in the
-   **Status** column corresponding to your member
-   account ID will change to **Enabled**. The administrator account
-   owner can now view and manage GuardDuty and protection plan
-   configurations on behalf of your account. The administrator account can also view
-   and manage GuardDuty findings generated for your member account.
+account. The account whose owner sent the invitation becomes the
+GuardDuty administrator account. The administrator account will know that you have accepted the
+invitation. The **Accounts** table in their GuardDuty
+account will get updated. The value in the
+**Status** column corresponding to your member
+account ID will change to **Enabled**. The administrator account
+owner can now view and manage GuardDuty and protection plan
+configurations on behalf of your account. The administrator account can also view
+and manage GuardDuty findings generated for your member account.
 
 API/CLI
 You can designate a GuardDuty administrator account, and create or add GuardDuty member accounts

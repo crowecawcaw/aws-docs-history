@@ -242,42 +242,42 @@ SNS topic that you created earlier. For more information, see
 
 ###### To create an event rule by using console
 
-1.  Sign in to the AWS Management Console and open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2.  In the navigation pane, under **Buses**, choose
-    **Rules**.
-3.  In the **Rules** section, choose **Create
-    rule**.
-4.  On the **Define rule detail** page, do the
-    following:
+1. Sign in to the AWS Management Console and open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+2. In the navigation pane, under **Buses**, choose
+   **Rules**.
+3. In the **Rules** section, choose **Create
+   rule**.
+4. On the **Define rule detail** page, do the
+   following:
 
-    1. For **Name**, enter a name for the
-       rule.
-    2. (Optional) For **Description**, enter a
-       brief description of the rule.
-    3. For **Event bus**, ensure that
-       **default** is selected and
-       **Enable the rule on the selected event
-       bus** is turned on.
-    4. For **Rule type**, choose **Rule
-       with an event pattern**.
-    5. When you finish, choose **Next**.
+   1. For **Name**, enter a name for the
+      rule.
+   2. (Optional) For **Description**, enter a
+      brief description of the rule.
+   3. For **Event bus**, ensure that
+      **default** is selected and
+      **Enable the rule on the selected event
+      bus** is turned on.
+   4. For **Rule type**, choose **Rule
+      with an event pattern**.
+   5. When you finish, choose **Next**.
 
-5.  On the **Build event pattern** page, do the
-    following:
+5. On the **Build event pattern** page, do the
+   following:
 
-    1. For **Event source**, choose
-       **AWS events or EventBridge partner
-       events**.
-    2. (Optional) For **Sample event**, review a
-       sample finding event for GuardDuty to learn what an event might
-       contain. To do this, choose **AWS
-       events**. Then, for **Sample
-       events**, choose **GuardDuty
-       Finding**.
-    3. ###### Option 1 - Using pattern form, a template that EventBridge provides
+   1. For **Event source**, choose
+      **AWS events or EventBridge partner
+      events**.
+   2. (Optional) For **Sample event**, review a
+      sample finding event for GuardDuty to learn what an event might
+      contain. To do this, choose **AWS
+      events**. Then, for **Sample
+      events**, choose **GuardDuty
+      Finding**.
+   3. ###### Option 1 - Using pattern form, a template that EventBridge provides
 
-    In the **Event pattern**
-    section, you can do the following:
+   In the **Event pattern**
+   section, you can do the following:
 
         1. For **Creation method**, select
          **Use pattern form**.
@@ -288,10 +288,10 @@ SNS topic that you created earlier. For more information, see
         4. For **Event type**, choose
          **GuardDuty Finding**.
 
-    When you finish, choose **Next**. 4. ###### Option 2 - Using custom event pattern in JSON
+   When you finish, choose **Next**. 4. ###### Option 2 - Using custom event pattern in JSON
 
-    In the **Event pattern**
-    section, you can do the following:
+   In the **Event pattern**
+   section, you can do the following:
 
         1. For **Creation method**, select
          **Custom pattern (JSON editor)**.
@@ -387,9 +387,9 @@ SNS topic that you created earlier. For more information, see
         }
         ```
 
-    When you finish, choose **Next**.
+   When you finish, choose **Next**.
 
-6.  ###### Option A - Selecting AWS service - AWS Lambda as target
+6. ###### Option A - Selecting AWS service - AWS Lambda as target
 
 On the **Select target(s)** page, do the
 following:
@@ -458,10 +458,9 @@ following:
     ```
 
 8. On the **Configure tags** page, optionally enter
-   one or more tags to assign to the rule. Then choose
-   **Next**.
-9. On the **Review and create** page, review the
-   rule’s settings and verify that they're correct.
+one or more tags to assign to the rule. Then choose
+**Next**. 9. On the **Review and create** page, review the
+rule’s settings and verify that they're correct.
 
 To change a setting, choose **Edit** in the
 section that contains the setting, and then enter the correct

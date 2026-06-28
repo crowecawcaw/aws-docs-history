@@ -40,7 +40,7 @@ JSON
 ## Prerequisites for IP address lists
 
 Various IAM identities require special permissions to work with trusted IP
-lists and threat lists in GuardDuty. An identity with the attached [AmazonGuardDutyFullAccess_v2 (recommended)](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2")
+lists and threat lists in GuardDuty. An identity with the attached [AmazonGuardDutyFullAccess\_v2 (recommended)](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2")
 managed policy can only rename and deactivate uploaded trusted IP lists and
 threat lists.
 

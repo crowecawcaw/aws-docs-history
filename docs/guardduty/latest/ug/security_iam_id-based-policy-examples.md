@@ -73,7 +73,7 @@ _IAM User Guide_.
 ## Permissions required to enable GuardDuty
 
 To grant permissions that various IAM identities (users, groups, and roles) must
-have, attach the required [AWS managed policy: AmazonGuardDutyFullAccess_v2 (recommended)](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2") policy to enable
+have, attach the required [AWS managed policy: AmazonGuardDutyFullAccess\_v2 (recommended)](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2") policy to enable
 GuardDuty.
 
 ## Allow users to view their own permissions

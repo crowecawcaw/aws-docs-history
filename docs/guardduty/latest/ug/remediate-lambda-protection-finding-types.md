@@ -26,10 +26,10 @@ activity**.
      and ensure that the activity was authorized or expected.
 
 3. **Remediate the potentially compromised Lambda
-   function**.
+function**.
 
-   1. Disable the execution triggers of the Lambda function involved in the finding. For
-      more information, see [DeleteFunctionEventInvokeConfig](../../../lambda/latest/dg/API_DeleteFunctionEventInvokeConfig.md "../../../lambda/latest/dg/API_DeleteFunctionEventInvokeConfig.md").
-   2. Review the Lambda code and update the libraries imports and [Lambda function
-      layers](../../../lambda/latest/dg/chapter-layers.md "../../../lambda/latest/dg/chapter-layers.md") to remove the potentially suspicious libraries and layers.
-   3. Mitigate Amazon Inspector findings related to the Lambda function involved in the finding.
+    1. Disable the execution triggers of the Lambda function involved in the finding. For
+     more information, see [DeleteFunctionEventInvokeConfig](../../../lambda/latest/dg/API_DeleteFunctionEventInvokeConfig.md "../../../lambda/latest/dg/API_DeleteFunctionEventInvokeConfig.md").
+    2. Review the Lambda code and update the libraries imports and [Lambda function
+     layers](../../../lambda/latest/dg/chapter-layers.md "../../../lambda/latest/dg/chapter-layers.md") to remove the potentially suspicious libraries and layers.
+    3. Mitigate Amazon Inspector findings related to the Lambda function involved in the finding.

@@ -99,7 +99,7 @@ API/CLI
 - To selectively enable S3 Protection for your member accounts,
   invoke the [updateMemberDetectors](../APIReference/API_UpdateMemberDetectors.md "../APIReference/API_UpdateMemberDetectors.md") API
   operation using your own `detector
-ID`.
+ ID`.
 - The following example shows how you can enable S3 Protection for
   a single member account. Make sure to replace
   `12abc34d567e8fa901bc2d34e56789f0`
@@ -145,7 +145,7 @@ API/CLI
 - To selectively enable S3 Protection for your member accounts,
   invoke the [updateMemberDetectors](../APIReference/API_UpdateMemberDetectors.md "../APIReference/API_UpdateMemberDetectors.md") API
   operation using your own `detector
-ID`.
+ ID`.
 - The following example shows how you can enable S3 Protection for
   a single member account. Make sure to replace
   `12abc34d567e8fa901bc2d34e56789f0`
@@ -226,7 +226,7 @@ API/CLI
 - To selectively enable S3 Protection for your member accounts,
   invoke the [UpdateOrganizationConfiguration](../APIReference/API_UpdateOrganizationConfiguration.md "../APIReference/API_UpdateOrganizationConfiguration.md")
   API operation using your own `detector
-ID`.
+ ID`.
 - The following example shows how you can enable S3 Protection for
   a single member account. Set the preferences to
   automatically enable or disable the protection plan in that

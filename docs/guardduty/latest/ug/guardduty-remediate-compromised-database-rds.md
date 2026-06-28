@@ -37,19 +37,24 @@ finding:
     * A potentially suspicious actor who is involved in a successful login attempt potentially
      compromises the database.
 
-3.  **Begin this step if the behavior is unexpected.**
+3. **Begin this step if the behavior is unexpected.**
 
     1. **Restrict database access**
 
-    Restrict database access for the suspected accounts and the source of this login
-    activity. For more information, see [Remediating potentially compromised credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials") and [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access"). 2. **Assess the impact and determine what information was
-    accessed.**
 
-        * If available, review the audit logs to identify the pieces of information that might
-         have been accessed. For more information, see [Monitoring events,
-         logs, and streams in an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_Monitor_Logs_Events.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_Monitor_Logs_Events.md") in the
-         *Amazon Aurora User Guide*.
-        * Determine if any sensitive or protected information was accessed or modified.
+    Restrict database access for the suspected accounts and the source of this login
+     activity. For more information, see [Remediating potentially compromised credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials") and [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access").
+    2. **Assess the impact and determine what information was
+     accessed.**
+
+
+
+
+    	* If available, review the audit logs to identify the pieces of information that might
+    	 have been accessed. For more information, see [Monitoring events,
+    	 logs, and streams in an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_Monitor_Logs_Events.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_Monitor_Logs_Events.md") in the
+    	 *Amazon Aurora User Guide*.
+    	* Determine if any sensitive or protected information was accessed or modified.
 
 ## Remediating potentially compromised database with failed login events
 
@@ -82,15 +87,18 @@ the database as follows:
 
 4. **Begin this step if the behavior is unexpected.**
 
-   1. **Restrict database access**
+    1. **Restrict database access**
 
-   Restrict database access for the suspected accounts and the source of this login
-   activity. For more information, see [Remediating potentially compromised credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials") and [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access"). 2. **Perform root-cause analysis and determine the steps that
-   potentially led to this activity.**
 
-   Set up an alert to get notified when an activity modifies a networking policy and
-   creates an insecure state. For more information, see [Firewall policies in
-   AWS Network Firewall](../../../network-firewall/latest/developerguide/firewall-policies.md "../../../network-firewall/latest/developerguide/firewall-policies.md") in the _AWS Network Firewall Developer Guide_.
+    Restrict database access for the suspected accounts and the source of this login
+     activity. For more information, see [Remediating potentially compromised credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials") and [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access").
+    2. **Perform root-cause analysis and determine the steps that
+     potentially led to this activity.**
+
+
+    Set up an alert to get notified when an activity modifies a networking policy and
+     creates an insecure state. For more information, see  [Firewall policies in
+     AWS Network Firewall](../../../network-firewall/latest/developerguide/firewall-policies.md "../../../network-firewall/latest/developerguide/firewall-policies.md") in the *AWS Network Firewall Developer Guide*.
 
 ## Remediating potentially compromised credentials
 

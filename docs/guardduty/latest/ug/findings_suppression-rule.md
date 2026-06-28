@@ -175,28 +175,27 @@ Finding type: `Recon:EC2/PortProbeUnprotectedPort` Instance tag key: `prod`
   server pod. This may generate duplicates for the following DNS
   findings:
 
-      + [Backdoor:Runtime/C&CActivity.B!DNS](findings-runtime-monitoring.md#backdoor-runtime-ccactivitybdns "findings-runtime-monitoring.md#backdoor-runtime-ccactivitybdns")
-      + [CryptoCurrency:Runtime/BitcoinTool.B!DNS](findings-runtime-monitoring.md#cryptocurrency-runtime-bitcointoolbdns "findings-runtime-monitoring.md#cryptocurrency-runtime-bitcointoolbdns")
-      + [Impact:Runtime/AbusedDomainRequest.Reputation](findings-runtime-monitoring.md#impact-runtime-abuseddomainrequestreputation "findings-runtime-monitoring.md#impact-runtime-abuseddomainrequestreputation")
-      + [Impact:Runtime/BitcoinDomainRequest.Reputation](findings-runtime-monitoring.md#impact-runtime-bitcoindomainrequestreputation "findings-runtime-monitoring.md#impact-runtime-bitcoindomainrequestreputation")
-      + [Impact:Runtime/MaliciousDomainRequest.Reputation](findings-runtime-monitoring.md#impact-runtime-maliciousdomainrequestreputation "findings-runtime-monitoring.md#impact-runtime-maliciousdomainrequestreputation")
-      + [Impact:Runtime/SuspiciousDomainRequest.Reputation](findings-runtime-monitoring.md#impact-runtime-suspiciousdomainrequestreputation "findings-runtime-monitoring.md#impact-runtime-suspiciousdomainrequestreputation")
-      + [Trojan:Runtime/BlackholeTraffic!DNS](findings-runtime-monitoring.md#trojan-runtime-blackholetrafficdns "findings-runtime-monitoring.md#trojan-runtime-blackholetrafficdns")
-      + [Trojan:Runtime/DGADomainRequest.C!DNS](findings-runtime-monitoring.md#trojan-runtime-dgadomainrequestcdns "findings-runtime-monitoring.md#trojan-runtime-dgadomainrequestcdns")
-      + [Trojan:Runtime/DriveBySourceTraffic!DNS](findings-runtime-monitoring.md#trojan-runtime-drivebysourcetrafficdns "findings-runtime-monitoring.md#trojan-runtime-drivebysourcetrafficdns")
-      + [Trojan:Runtime/DropPoint!DNS](findings-runtime-monitoring.md#trojan-runtime-droppointdns "findings-runtime-monitoring.md#trojan-runtime-droppointdns")
-      + [Trojan:Runtime/PhishingDomainRequest!DNS](findings-runtime-monitoring.md#trojan-runtime-phishingdomainrequestdns "findings-runtime-monitoring.md#trojan-runtime-phishingdomainrequestdns")
-
-  The duplicate findings will include pod, container, and process details
-  that correspond to your DNS server pod. You may set up a suppression rule to
-  suppress these duplicate findings using these fields. The first filter
-  criteria should use the **Finding type** field with value
-  equal to a DNS finding type from the list of findings provided earlier in
-  this section. The second filter criteria could be either
-  **Executable path** with value equal to your DNS
-  server's `executablePath` or **Executable
-  SHA-256** with value equal to your DNS server's
-  `executableSHA256` in the generated finding. As an optional
-  third filter criteria, you can use **Kubernetes container
-  image** field with value equal to the container image of your
-  DNS server pod in the generated finding.
+  - [Backdoor:Runtime/C&CActivity.B!DNS](findings-runtime-monitoring.md#backdoor-runtime-ccactivitybdns "findings-runtime-monitoring.md#backdoor-runtime-ccactivitybdns")
+  - [CryptoCurrency:Runtime/BitcoinTool.B!DNS](findings-runtime-monitoring.md#cryptocurrency-runtime-bitcointoolbdns "findings-runtime-monitoring.md#cryptocurrency-runtime-bitcointoolbdns")
+  - [Impact:Runtime/AbusedDomainRequest.Reputation](findings-runtime-monitoring.md#impact-runtime-abuseddomainrequestreputation "findings-runtime-monitoring.md#impact-runtime-abuseddomainrequestreputation")
+  - [Impact:Runtime/BitcoinDomainRequest.Reputation](findings-runtime-monitoring.md#impact-runtime-bitcoindomainrequestreputation "findings-runtime-monitoring.md#impact-runtime-bitcoindomainrequestreputation")
+  - [Impact:Runtime/MaliciousDomainRequest.Reputation](findings-runtime-monitoring.md#impact-runtime-maliciousdomainrequestreputation "findings-runtime-monitoring.md#impact-runtime-maliciousdomainrequestreputation")
+  - [Impact:Runtime/SuspiciousDomainRequest.Reputation](findings-runtime-monitoring.md#impact-runtime-suspiciousdomainrequestreputation "findings-runtime-monitoring.md#impact-runtime-suspiciousdomainrequestreputation")
+  - [Trojan:Runtime/BlackholeTraffic!DNS](findings-runtime-monitoring.md#trojan-runtime-blackholetrafficdns "findings-runtime-monitoring.md#trojan-runtime-blackholetrafficdns")
+  - [Trojan:Runtime/DGADomainRequest.C!DNS](findings-runtime-monitoring.md#trojan-runtime-dgadomainrequestcdns "findings-runtime-monitoring.md#trojan-runtime-dgadomainrequestcdns")
+  - [Trojan:Runtime/DriveBySourceTraffic!DNS](findings-runtime-monitoring.md#trojan-runtime-drivebysourcetrafficdns "findings-runtime-monitoring.md#trojan-runtime-drivebysourcetrafficdns")
+  - [Trojan:Runtime/DropPoint!DNS](findings-runtime-monitoring.md#trojan-runtime-droppointdns "findings-runtime-monitoring.md#trojan-runtime-droppointdns")
+  - [Trojan:Runtime/PhishingDomainRequest!DNS](findings-runtime-monitoring.md#trojan-runtime-phishingdomainrequestdns "findings-runtime-monitoring.md#trojan-runtime-phishingdomainrequestdns")
+    The duplicate findings will include pod, container, and process details
+    that correspond to your DNS server pod. You may set up a suppression rule to
+    suppress these duplicate findings using these fields. The first filter
+    criteria should use the **Finding type** field with value
+    equal to a DNS finding type from the list of findings provided earlier in
+    this section. The second filter criteria could be either
+    **Executable path** with value equal to your DNS
+    server's `executablePath` or **Executable
+    SHA-256** with value equal to your DNS server's
+    `executableSHA256` in the generated finding. As an optional
+    third filter criteria, you can use **Kubernetes container
+    image** field with value equal to the container image of your
+    DNS server pod in the generated finding.

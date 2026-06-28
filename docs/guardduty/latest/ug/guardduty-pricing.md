@@ -14,7 +14,7 @@ always free, and short-term free trials. Amazon GuardDuty belongs to the short-t
 category and offers a 30-day free trial. When you continue using GuardDuty after this free
 trial ends, you start incurring cost based on how you use this service.
 
-\***\*1**Exception to GuardDuty 30-day free trial\*\*
+****1**Exception to GuardDuty 30-day free trial**
 
 On-demand malware scan (under Malware Protection for EC2) and Malware Protection for S3 don't fall into the GuardDuty 30-day short
 term free trial category. Malware Protection for S3 includes a Free Tier

@@ -46,13 +46,10 @@ parameters](guardduty-configure-security-agent-eks-addon.md "guardduty-configure
      information about the listed options, see [resolveConflicts](../../../eks/latest/APIReference/API_UpdateAddon.md#AmazonEKS-UpdateAddon-request-resolveConflicts "../../../eks/latest/APIReference/API_UpdateAddon.md#AmazonEKS-UpdateAddon-request-resolveConflicts")
      in the *Amazon EKS API Reference*.
 
-10. Choose **Next**.
-11. On the **Review and create** page, verify all the
-    details, and choose **Create**.
-12. Navigate back to the cluster details and choose the
-    **Resources** tab.
-13. You can view the new pods with the prefix
-    **aws-guardduty-agent**.
+10. Choose **Next**. 11. On the **Review and create** page, verify all the
+details, and choose **Create**. 12. Navigate back to the cluster details and choose the
+**Resources** tab. 13. You can view the new pods with the prefix
+**aws-guardduty-agent**.
 
 API/CLI
 You can configure the Amazon EKS add-on agent

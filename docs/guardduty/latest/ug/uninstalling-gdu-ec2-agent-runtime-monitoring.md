@@ -37,7 +37,7 @@ Use the following GuardDuty document and distributor:
     * Distributor: `AmazonGuardDuty-RuntimeMonitoringSsmPlugin`
 
 2. After providing all the details, when you choose **Run**, the
-   security agent that it deployed on the targeted Amazon EC2 instances is removed.
+security agent that it deployed on the targeted Amazon EC2 instances is removed.
 
 To remove the Amazon VPC endpoint configuration, you must disable both Runtime Monitoring and Amazon EKS
 Runtime Monitoring. 3. If you also want to delete the VPC endpoint that is associated with this security agent, then

@@ -77,7 +77,7 @@ type is identified by the user name `kubernetes-admin`.
 admin:**
 
 - Identify the `userType` from the `Access Key
-details` section.
+ details` section.
 
   - If the `userType` is **Role**
     and the role belongs to an EC2 instance role:

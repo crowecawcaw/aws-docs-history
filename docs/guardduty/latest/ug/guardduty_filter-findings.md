@@ -21,10 +21,10 @@ When you create filters, take the following list into consideration:
 - Fields under `service.additionalInfo` are specified using their full
   JSON path, the same as any other field. For example:
   `{
-"service.additionalInfo.sample": {
-"Equals": ["true"]
-}
-}`.
+ "service.additionalInfo.sample": {
+ "Equals": ["true"]
+ }
+ }`.
 - Timestamp fields accept values in Unix Epoch millisecond format (for example,
   `1486685375000`). For a full list of timestamp fields, see the note
   below.
@@ -135,30 +135,30 @@ aws guardduty create-filter \
   levels](guardduty_findings-severity.md "guardduty_findings-severity.md") are represented as numerals. To filter the findings based on the severity levels, use the following values:
 
   - For `LOW` severity levels, use `{
-"severity": {
-"Equals": ["1", "2", "3"]
-}
-}`
+   "severity": {
+   "Equals": ["1", "2", "3"]
+   }
+   }`
   - For `MEDIUM` severity levels, use `{
-"severity": {
-"Equals": ["4", "5", "6"]
-}
-}`
+   "severity": {
+   "Equals": ["4", "5", "6"]
+   }
+   }`
   - For `HIGH` severity levels, use `{
-"severity": {
-"Equals": ["7", "8"]
-}
-}`
+   "severity": {
+   "Equals": ["7", "8"]
+   }
+   }`
   - For `CRITICAL` severity levels, use `{
-"severity": {
-"Equals": ["9", "10"]
-}
-}`
+   "severity": {
+   "Equals": ["9", "10"]
+   }
+   }`
   - For findings with multiple severity levels, use placeholder values similar to the following example: `{
-"severity": {
-"Equals": ["7", "8", "9", "10"]
-}
-}`
+   "severity": {
+   "Equals": ["7", "8", "9", "10"]
+   }
+   }`
 
   This example will show the findings that have either `HIGH` or `CRITICAL` severity levels.
 
@@ -169,10 +169,10 @@ aws guardduty create-filter \
   the GuardDuty console, it will not work as expected. This
   is because the GuardDuty console considers the filter values as `CRITICAL`, `HIGH`, `MEDIUM`, and `LOW`.
   For example, a filter created with a CLI command that includes `{
- "severity": {
- "Equals": ["9"]
- }
- }` is expected to show an appropriate output in API/CLI. However, this saved filter includes
+   "severity": {
+   "Equals": ["9"]
+   }
+   }` is expected to show an appropriate output in API/CLI. However, this saved filter includes
   partial severity level when used in the GuardDuty console and will not show an expected output. This makes
   it necessary for the API and CLI to specify all the values associated with each severity level.
 

@@ -492,7 +492,7 @@ The following table includes a list of potential indicators and their descriptio
 
 | Indicator name            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ATTACK_TACTIC`           | The MITRE tactics used by the threat actor in an attack sequence. Examples include **Discovery\*<br>• and **Impact\*\*.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `ATTACK_TACTIC`           | The MITRE tactics used by the threat actor in an attack sequence. Examples include *_Discovery_<br>• and **Impact**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `ATTACK_TECHNIQUE`        | The MITRE technique used by the threat actor in an attack sequence. Examples include gaining<br>access to resources and using them in an unintended way, and exploiting vulnerabilities.                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `CRYPTOMINING_DOMAIN`     | Indicates a domain name associated with cryptocurrency mining pools or infrastructure. For example,<br>DNS queries or connections to these domains from container or Kubernetes environments may indicate unauthorized<br>cryptomining activity.                                                                                                                                                                                                                                                                                                                                                        |
 | `CRYPTOMINING_IP`         | Indicates an IP address associated with cryptocurrency mining pools or infrastructure. For example, connections to<br>these addresses from container or Kubernetes environments may indicate unauthorized cryptomining activity.                                                                                                                                                                                                                                                                                                                                                                        |
@@ -551,25 +551,25 @@ following example shows how network indicators might be associated with an indic
 The following table includes the network indicator values and their description. These tags are added based
 on the threat intelligence GuardDuty collects from sources such as Spur
 
-| Network indicator value        | Description                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TUNNEL_VPN`                   | Network or IP address is associated with a VPN tunnel type. This refers to a specific protocol that helps<br>establishing a secure, encrypted connection between two points over a public network.                                                                                                                                             |
-| `TUNNEL_PROXY`                 | Network or IP address is associated with a Proxy tunnel type. This refers to a specific protocol that helps<br>establishing a connection through a proxy server.                                                                                                                                                                               |
-| `TUNNEL_RDP`                   | Network or IP address is associated with using a method of encapsulating remote desktop (RDP) traffic<br>within another protocol to enhance security, bypass network restrictions, or enable<br>remote access through firewalls.                                                                                                               |
-| `IS_ANONYMOUS`                 | Network or IP address is associated with a known anonymous or proxy services. This may indicate potential<br>suspicious activities hiding behind anonymous networks.                                                                                                                                                                           |
-| `KNOWN_THREAT_OPERATOR`        | Network or IP address is associated with a known risky tunnel provider. This indicates that<br>suspicious activity has been detected from an IP address that is linked to a VPN, proxy,<br>or other tunneling services frequently used for malicious purposes.                                                                                 |
-| `ALLOWS_FREE_ACCESS`           | Network or IP address is associated with a<br>tunnel operator that allows access to it's<br>service without requiring authentication or payment. It might<br>also include trial accounts or limited usage experiences offered by various online services.                                                                                      |
-| `ALLOWS_CRYPTO`                | Network or IP address is associated with a<br>tunnel provider (such as VPN or proxy service) that exclusively accepts<br>cryptocurrency or other digital currencies as the method of payment.                                                                                                                                                  |
-| `ALLOWS_TORRENTS`              | Network or IP address is associated with services or platforms that allow<br>torrent traffic. Such services are often associated with supporting and using torrent,<br>and copyright circumvention activities.                                                                                                                                 |
-| `RISK_CALLBACK_PROXY`          | Network or IP address is associated with devices known to route traffic for<br>residential proxies, malware proxies, or other callback proxy-type networks. This \*_doesn't imply_<br>• all activity<br>on the network is proxy-related, but rather that the network has the capability<br>to route traffic on behalf of these proxy networks. |
-| `RISK_GEO_MISMATCH`            | This indicator suggests that the datacenter or hosting location of a network<br>differs from the expected location of the users and devices behind it. If this indicator value<br>is not present, it doesn't mean that there is no mismatch. It might imply that there is<br>insufficient data to confirm the discrepancy.                     |
-| `IS_SCANNER`                   | Network or IP address is associated with conducting<br>persistent login attempts against web forms.                                                                                                                                                                                                                                            |
-| `RISK_WEB_SCRAPING`            | Network of IP address is associated with automated web clients and<br>other programmatic web activities.                                                                                                                                                                                                                                       |
-| `CLIENT_BEHAVIOR_FILE_SHARING` | Network or IP address is associated with client behavior indicative of file sharing<br>activities, such as peer-to-peer (P2P) networks, or file sharing protocols.                                                                                                                                                                             |
-| `CATEGORY_COMMERCIAL_VPN`      | Network or IP address is associated with<br>a tunnel operator that is categorized as a traditional<br>Commercial Virtual Private Network (VPN) service operating within datacenter space.                                                                                                                                                      |
-| `CATEGORY_FREE_VPN`            | Network or IP address is associated with a tunnel<br>operator that is categorized as a completely free VPN service.                                                                                                                                                                                                                            |
-| `CATEGORY_RESIDENTIAL_PROXY`   | Network or IP address is associated with a tunnel operator<br>that is categorized as an SDK, malware, or get-paid-to sourced proxy service.                                                                                                                                                                                                    |
-| `OPERATOR_XXX`                 | The name of the service provider that is<br>operating this tunnel.                                                                                                                                                                                                                                                                             |
+| Network indicator value        | Description                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TUNNEL_VPN`                   | Network or IP address is associated with a VPN tunnel type. This refers to a specific protocol that helps<br>establishing a secure, encrypted connection between two points over a public network.                                                                                                                                            |
+| `TUNNEL_PROXY`                 | Network or IP address is associated with a Proxy tunnel type. This refers to a specific protocol that helps<br>establishing a connection through a proxy server.                                                                                                                                                                              |
+| `TUNNEL_RDP`                   | Network or IP address is associated with using a method of encapsulating remote desktop (RDP) traffic<br>within another protocol to enhance security, bypass network restrictions, or enable<br>remote access through firewalls.                                                                                                              |
+| `IS_ANONYMOUS`                 | Network or IP address is associated with a known anonymous or proxy services. This may indicate potential<br>suspicious activities hiding behind anonymous networks.                                                                                                                                                                          |
+| `KNOWN_THREAT_OPERATOR`        | Network or IP address is associated with a known risky tunnel provider. This indicates that<br>suspicious activity has been detected from an IP address that is linked to a VPN, proxy,<br>or other tunneling services frequently used for malicious purposes.                                                                                |
+| `ALLOWS_FREE_ACCESS`           | Network or IP address is associated with a<br>tunnel operator that allows access to it's<br>service without requiring authentication or payment. It might<br>also include trial accounts or limited usage experiences offered by various online services.                                                                                     |
+| `ALLOWS_CRYPTO`                | Network or IP address is associated with a<br>tunnel provider (such as VPN or proxy service) that exclusively accepts<br>cryptocurrency or other digital currencies as the method of payment.                                                                                                                                                 |
+| `ALLOWS_TORRENTS`              | Network or IP address is associated with services or platforms that allow<br>torrent traffic. Such services are often associated with supporting and using torrent,<br>and copyright circumvention activities.                                                                                                                                |
+| `RISK_CALLBACK_PROXY`          | Network or IP address is associated with devices known to route traffic for<br>residential proxies, malware proxies, or other callback proxy-type networks. This *_doesn't imply_<br>• all activity<br>on the network is proxy-related, but rather that the network has the capability<br>to route traffic on behalf of these proxy networks. |
+| `RISK_GEO_MISMATCH`            | This indicator suggests that the datacenter or hosting location of a network<br>differs from the expected location of the users and devices behind it. If this indicator value<br>is not present, it doesn't mean that there is no mismatch. It might imply that there is<br>insufficient data to confirm the discrepancy.                    |
+| `IS_SCANNER`                   | Network or IP address is associated with conducting<br>persistent login attempts against web forms.                                                                                                                                                                                                                                           |
+| `RISK_WEB_SCRAPING`            | Network of IP address is associated with automated web clients and<br>other programmatic web activities.                                                                                                                                                                                                                                      |
+| `CLIENT_BEHAVIOR_FILE_SHARING` | Network or IP address is associated with client behavior indicative of file sharing<br>activities, such as peer-to-peer (P2P) networks, or file sharing protocols.                                                                                                                                                                            |
+| `CATEGORY_COMMERCIAL_VPN`      | Network or IP address is associated with<br>a tunnel operator that is categorized as a traditional<br>Commercial Virtual Private Network (VPN) service operating within datacenter space.                                                                                                                                                     |
+| `CATEGORY_FREE_VPN`            | Network or IP address is associated with a tunnel<br>operator that is categorized as a completely free VPN service.                                                                                                                                                                                                                           |
+| `CATEGORY_RESIDENTIAL_PROXY`   | Network or IP address is associated with a tunnel operator<br>that is categorized as an SDK, malware, or get-paid-to sourced proxy service.                                                                                                                                                                                                   |
+| `OPERATOR_XXX`                 | The name of the service provider that is<br>operating this tunnel.                                                                                                                                                                                                                                                                            |
 
 ## RDS database (DB) user details
 
@@ -833,7 +833,7 @@ threats in it, Malware Protection for S3 reports only the first detected threat.
 the scan status is marked as complete. GuardDuty generates the associated finding type and
 also sends EventBridge events that it generates. For more information about monitoring
 the Amazon S3 object scans using the EventBridge events,
-see the sample notification schema for **THREATS_FOUND**
+see the sample notification schema for **THREATS\_FOUND**
 in [S3 object scan result](monitor-with-eventbridge-s3-malware-protection.md#s3-object-scan-status-malware-protection-s3-ev "monitor-with-eventbridge-s3-malware-protection.md#s3-object-scan-status-malware-protection-s3-ev").
 
 - **Item path** – A list of nested item path
@@ -865,12 +865,12 @@ A finding's **Action** gives details about the type of activity that
 triggered the finding. The information available varies based on action type.
 
 **Action type** – The finding activity type. This
-value can be **NETWORK_CONNECTION**, **PORT_PROBE**,
-**DNS_REQUEST**, **AWS_API_CALL**, or
-**RDS_LOGIN_ATTEMPT**. The information available varies based on
+value can be **NETWORK\_CONNECTION**, **PORT\_PROBE**,
+**DNS\_REQUEST**, **AWS\_API\_CALL**, or
+**RDS\_LOGIN\_ATTEMPT**. The information available varies based on
 action type:
 
-- **NETWORK_CONNECTION** – Indicates that
+- **NETWORK\_CONNECTION** – Indicates that
   network traffic was exchanged between the identified EC2 instance and the remote
   host. This action type has the following additional information:
 
@@ -902,7 +902,7 @@ action type:
   - **Blocked** – Indicates whether
     the targeted port is blocked.
 
-- **PORT_PROBE** – Indicates that a remote
+- **PORT\_PROBE** – Indicates that a remote
   host probed the identified EC2 instance on multiple open ports. This action type
   has the following additional information:
 
@@ -916,7 +916,7 @@ action type:
   - **Blocked** – Indicates whether
     the targeted port is blocked.
 
-- **DNS_REQUEST** – Indicates that the
+- **DNS\_REQUEST** – Indicates that the
   identified EC2 instance queried a domain name. This action type has the
   following additional information:
 
@@ -926,7 +926,7 @@ action type:
   - **Blocked** – Indicates whether
     the targeted port is blocked.
 
-- **AWS_API_CALL** – Indicates that an AWS
+- **AWS\_API\_CALL** – Indicates that an AWS
   API was invoked. This action type has the following additional
   information:
 
@@ -949,7 +949,7 @@ action type:
     the service that attempted to make the API call that triggered the
     finding.
 
-- **RDS_LOGIN_ATTEMPT** – Indicates that a
+- **RDS\_LOGIN\_ATTEMPT** – Indicates that a
   login attempt was made to the potentially compromised database from a remote IP
   address.
 
@@ -1090,7 +1090,7 @@ and are also available in the finding's JSON.
     API. Possible error response types are: `access denied`,
     `access denied exception`, `auth failure`,
     `instance limit exceeded`, `invalid permission -
-duplicate`, `invalid permission - not found`, and
+   duplicate`, `invalid permission - not found`, and
     `operation not permitted`.
   - APIs are categorized by their associated service.
   - For more context, choose **Historical APIs** to view
@@ -1184,21 +1184,20 @@ account.
   attempt made to this database instance in this way within the training period.
   The information tracked for this section in the finding panel includes:
 
-      + **User name** – The user name used
-       to make the anomalous login attempt.
-      + **ASN Org** – The ASN Org that the
-       anomalous login attempt was made from.
-      + **Application name** – The
-       application name used to make the anomalous login attempt.
-      + **Database name** – The name of
-       the database instance involved in the anomalous login attempt.
-
-  The **Historical behavior** section provides more context on
-  the previously observed **User names**, **ASN
-  Orgs**, **Application names**, and
-  **Database names** for the associated database. Each unique
-  value has an associated count representing the number of times this value was
-  observed in a successful login event.
+  - **User name** – The user name used
+    to make the anomalous login attempt.
+  - **ASN Org** – The ASN Org that the
+    anomalous login attempt was made from.
+  - **Application name** – The
+    application name used to make the anomalous login attempt.
+  - **Database name** – The name of
+    the database instance involved in the anomalous login attempt.
+    The **Historical behavior** section provides more context on
+    the previously observed **User names**, **ASN
+    Orgs**, **Application names**, and
+    **Database names** for the associated database. Each unique
+    value has an associated count representing the number of times this value was
+    observed in a successful login event.
 
 - **Unusual behavior (Account Kubernetes cluster, Kubernetes
   namespace, and Kubernetes username)** – This section provides

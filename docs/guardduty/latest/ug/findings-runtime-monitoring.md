@@ -711,8 +711,8 @@ exploit the following runC vulnerabilities:
   CVE-2024-21626 involves setting the current working directory (CWD) or a
   container to an open file descriptor
   `/proc/self/fd/`FileDescriptor``. This finding gets
-invoked when a container process with a current working directory under
-`/proc/self/fd/`is detected, for example,`/proc/self/fd/7`.
+  invoked when a container process with a current working directory under
+  `/proc/self/fd/` is detected, for example, `/proc/self/fd/7`.
 
 This finding may indicate that a malicious actor has attempted to perform exploitation in
 one of the following types of containers:

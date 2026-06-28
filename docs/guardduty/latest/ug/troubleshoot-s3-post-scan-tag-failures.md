@@ -9,7 +9,7 @@ are `ACCESS_DENIED` and `MAX_TAG_LIMIT_EXCEEDED`. Use the
 following topics to understand the potential reasons for these post-scan tag failure
 reasons and troubleshoot them.
 
-**ACCESS_DENIED**
+**ACCESS\_DENIED**
 
 The following list provides potential reasons that may cause this
 issue:
@@ -22,7 +22,7 @@ issue:
   tags to this object.
 - The scanned S3 object no longer exists.
 
-**MAX_TAG_LIMIT_EXCEEDED**
+**MAX\_TAG\_LIMIT\_EXCEEDED**
 
 By default, you can associate up to 10 tags with an S3 object. For
 more information, see Considerations for GuardDuty to add a tag to your S3

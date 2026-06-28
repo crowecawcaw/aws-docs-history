@@ -104,15 +104,13 @@ VPC endpoint with other AWS account IDs:
     ```
 
 8. Under **Additional settings**, choose **Enable DNS
-   name**.
-9. Under **Subnets**, choose the subnets in which your instance
-   resides.
-10. Under **Security groups**, choose a security group that has
-    the in-bound port 443 enabled from your VPC (or your Amazon EC2 instance). If you
-    don't already have a security group that has an in-bound port 443 enabled, see
-    [Create a security
-    group for your VPC](../../../vpc/latest/userguide/creating-security-groups.md "../../../vpc/latest/userguide/creating-security-groups.md") in the
-    _Amazon VPC User Guide_.
+name**. 9. Under **Subnets**, choose the subnets in which your instance
+resides. 10. Under **Security groups**, choose a security group that has
+the in-bound port 443 enabled from your VPC (or your Amazon EC2 instance). If you
+don't already have a security group that has an in-bound port 443 enabled, see
+[Create a security
+group for your VPC](../../../vpc/latest/userguide/creating-security-groups.md "../../../vpc/latest/userguide/creating-security-groups.md") in the
+_Amazon VPC User Guide_.
 
 If there is an issue while restricting the in-bound permissions to your VPC
 (or instance), you can the in-bound 443 port from any IP address

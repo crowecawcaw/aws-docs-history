@@ -34,4 +34,4 @@ Review and modify backup vault access policies to restrict recovery point access
 
 3. **Take remediation action**
 
-   - Before proceeding with deletion, ensure you have identified all dependencies and have proper backups if needed.
+    * Before proceeding with deletion, ensure you have identified all dependencies and have proper backups if needed.

@@ -134,8 +134,8 @@ Is GuardDuty already enabled in your account?
      page.
 
 3. Enter the twelve-digit AWS account ID of the account that you
-   want to designate as the GuardDuty delegated administrator for the
-   organization and choose **Delegate**.
+want to designate as the GuardDuty delegated administrator for the
+organization and choose **Delegate**.
 
 ###### Note
 
@@ -243,41 +243,41 @@ Amazon S3](guardduty_exportfindings.md "guardduty_exportfindings.md").
 
 ###### To export GuardDuty findings to Amazon S3 bucket
 
-1.  ###### Attach policy to KMS key
-    1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
-    2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
-    3. In the navigation pane, choose **Customer managed keys**.
-    4. Select an existing KMS key, or perform the steps to
-       [Create a symmetric
-       encryption KMS key](../../../kms/latest/developerguide/create-symmetric-cmk.md "../../../kms/latest/developerguide/create-symmetric-cmk.md") in the _AWS Key Management Service Developer Guide_.
+1. ###### Attach policy to KMS key
+   1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
+   2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
+   3. In the navigation pane, choose **Customer managed keys**.
+   4. Select an existing KMS key, or perform the steps to
+      [Create a symmetric
+      encryption KMS key](../../../kms/latest/developerguide/create-symmetric-cmk.md "../../../kms/latest/developerguide/create-symmetric-cmk.md") in the _AWS Key Management Service Developer Guide_.
 
-    The Region of your KMS key and Amazon S3 bucket must be the same.
+   The Region of your KMS key and Amazon S3 bucket must be the same.
 
-    Copy the key ARN to a notepad for use in the later steps. 5. In the **Key policy** section of your KMS key, choose **Edit**. If
-    **Switch to policy view** is displayed, choose it to display the **Key policy**, and
-    then choose **Edit**. 6. Copy the following policy block to your KMS key policy:
+   Copy the key ARN to a notepad for use in the later steps. 5. In the **Key policy** section of your KMS key, choose **Edit**. If
+   **Switch to policy view** is displayed, choose it to display the **Key policy**, and
+   then choose **Edit**. 6. Copy the following policy block to your KMS key policy:
 
-    ```
-    {
-        "Sid": "AllowGuardDutyKey",
-        "Effect": "Allow",
-        "Principal": {
-            "Service": "guardduty.amazonaws.com"
-        },
-        "Action": "kms:GenerateDataKey",
-        "Resource": "`KMS key ARN`",
-        "Condition": {
-            "StringEquals": {
-                "aws:SourceAccount": "123456789012",
-                "aws:SourceArn": "arn:aws:guardduty:`Region2`:`123456789012`:detector/`SourceDetectorID`"
-            }
-        }
-    }
-    ```
+   ```
+   {
+       "Sid": "AllowGuardDutyKey",
+       "Effect": "Allow",
+       "Principal": {
+           "Service": "guardduty.amazonaws.com"
+       },
+       "Action": "kms:GenerateDataKey",
+       "Resource": "`KMS key ARN`",
+       "Condition": {
+           "StringEquals": {
+               "aws:SourceAccount": "123456789012",
+               "aws:SourceArn": "arn:aws:guardduty:`Region2`:`123456789012`:detector/`SourceDetectorID`"
+           }
+       }
+   }
+   ```
 
-    Edit the policy by replacing the following values that are formatted in
-    _`red`_ in the policy
-    example:
+   Edit the policy by replacing the following values that are formatted in
+   _`red`_ in the policy
+   example:
 
         1. Replace `KMS key ARN` with the Amazon
          Resource Name (ARN) of the KMS key. To locate the key ARN, see [Finding the key ID and
@@ -296,7 +296,7 @@ Amazon S3](guardduty_exportfindings.md "guardduty_exportfindings.md").
         **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
         or run the [ListDetectors](../APIReference/API_ListDetectors.md "../APIReference/API_ListDetectors.md") API.
 
-2.  ###### Attach policy to Amazon S3 bucket
+2. ###### Attach policy to Amazon S3 bucket
 
 If you do not already have an Amazon S3 bucket where you want to export these findings, see
 [Creating a
@@ -456,18 +456,19 @@ bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../A
     	 *AWS Key Management Service Developer Guide*.
 
 3. ###### Steps in GuardDuty console
-   1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
-   2. In the navigation pane, choose **Settings**.
-   3. On the **Settings** page, under **Findings export options,**
-      for **S3 bucket**, choose **Configure now** (or **Edit**,
-      as needed).
-   4. For **S3 bucket ARN**, enter the `bucket ARN` to which you want to send the findings. To
-      view the bucket ARN, see [Viewing the properties for an S3 bucket](../../../AmazonS3/latest/userguide/view-bucket-properties.md "../../../AmazonS3/latest/userguide/view-bucket-properties.md")
-      in the _Amazon S3 User Guide_.
-   5. For **KMS key ARN**, enter the `key ARN`. To locate the key ARN,
-      see [Find the key ID and key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md") in the
-      _AWS Key Management Service Developer Guide_.
-   6. Choose **Save**.
+
+    1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
+    2. In the navigation pane, choose **Settings**.
+    3. On the **Settings** page, under **Findings export options,**
+     for **S3 bucket**, choose **Configure now** (or **Edit**,
+     as needed).
+    4. For **S3 bucket ARN**, enter the `bucket ARN` to which you want to send the findings. To
+     view the bucket ARN, see [Viewing the properties for an S3 bucket](../../../AmazonS3/latest/userguide/view-bucket-properties.md "../../../AmazonS3/latest/userguide/view-bucket-properties.md")
+     in the *Amazon S3 User Guide*.
+    5. For **KMS key ARN**, enter the `key ARN`. To locate the key ARN,
+     see [Find the key ID and key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md") in the
+     *AWS Key Management Service Developer Guide*.
+    6. Choose **Save**.
 
 [Show moreShow less](# "#")
 

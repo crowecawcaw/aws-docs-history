@@ -366,11 +366,11 @@ your KMS key and existing S3 bucket.
    **Configure now** (or **Edit**, as
    needed).
 4. For **S3 bucket ARN**, enter the `**bucket
-ARN**`. To find the bucket ARN, see [Viewing the
+ ARN**`. To find the bucket ARN, see [Viewing the
    properties for an S3 bucket](../../../AmazonS3/latest/userguide/view-bucket-properties.md "../../../AmazonS3/latest/userguide/view-bucket-properties.md") in the
    _Amazon S3 User Guide_.
 5. For **KMS key ARN**, enter the **`key
-ARN`**. To locate the key ARN, see [Finding the key ID and ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md")
+ ARN`**. To locate the key ARN, see [Finding the key ID and ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md")
    in the _AWS Key Management Service Developer Guide_.
 6. ###### Attach policies
    - Perform the steps to attach the S3 bucket policy. For more

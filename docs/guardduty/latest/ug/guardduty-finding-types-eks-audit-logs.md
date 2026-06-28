@@ -1,7 +1,7 @@
 # EKS Protection finding types
 
 The following findings are specific to Amazon EKS resources and have a
-**resource_type** of `EKSCluster`. The severity and details
+**resource\_type** of `EKSCluster`. The severity and details
 of the findings differ based on finding type.
 
 For all EKS audit logs type findings we recommend that you examine the resource in

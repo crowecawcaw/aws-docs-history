@@ -323,7 +323,7 @@ GuardDuty console
    key and value. For example, to filter the findings generated
    for the Amazon EC2 instances, use
    `CreatedBy`:`GuardDuty Test
-Script` tag key:value pair for **Instance
+ Script` tag key:value pair for **Instance
    tag key** and **Instance tag
    key**.
 
@@ -386,7 +386,7 @@ GuardDuty has identified common issues and recommends troubleshooting steps:
   to the **docker** or **docker-users** so that the dedicated account can run
   the commands. For more information about steps, see [Daemon socket option](https://docs.docker.com/reference/cli/dockerd/#daemon-socket-option "https://docs.docker.com/reference/cli/dockerd/#daemon-socket-option").
 - `Your requested instance type is not supported in your requested
-Availability Zone` – Some Availability zones don't support
+ Availability Zone` – Some Availability zones don't support
   particular instance types. To identify which availability zones support your
   preferred instance type and reattempt to deploy AWS resources, perform the
   following steps:
@@ -398,24 +398,24 @@ Availability Zone` – Some Availability zones don't support
 
   ###### To identify Availability zones that support preferred instance type
 
-      1. Sign in to the AWS Management Console and open the Amazon EC2 console at
-       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-      2. By using the AWS Region selector in the
-       upper-right corner of the page, choose the Region
-       where you want to launch the instance.
-      3. In the navigation pane, under
-       **Instances**, choose
-       **Instance Types**.
-      4. From the **Instance types**
-       table, choose a preferred instance type.
-      5. Under **Networking**, view the
-       Regions listed under **Availability
-       zones**.
+        1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+         [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+        2. By using the AWS Region selector in the
+         upper-right corner of the page, choose the Region
+         where you want to launch the instance.
+        3. In the navigation pane, under
+         **Instances**, choose
+         **Instance Types**.
+        4. From the **Instance types**
+         table, choose a preferred instance type.
+        5. Under **Networking**, view the
+         Regions listed under **Availability
+         zones**.
 
 
-      Based on this information, you might need to
-       choose a new Region where you can deploy the
-       resources.
+        Based on this information, you might need to
+         choose a new Region where you can deploy the
+         resources.
 
   AWS CLI
   Run the following command to view a list of Availability
@@ -437,15 +437,15 @@ Availability Zone` – Some Availability zones don't support
 
   ###### To re-attempt deploying AWS resources
 
-      1. Set up the default Region in the
-       `bin/cdk-gd-tester.ts` file.
-      2. To specify the Availability zone, open the
-       `amazon-guardduty-tester/lib/common/network/vpc.ts`
-       file.
-      3. In this file, replace `maxAzs: 2,` with
-       `availabilityZones:
-       ['`us-east-1a`',
-       '`us-east-1c`'],` where
-       you must specify the Availability zones for your instance
-       type.
-      4. Continue with the remaining steps under [Steps to deploy AWS resources](#steps-deploy-resource-test-guardduty-findings "#steps-deploy-resource-test-guardduty-findings").
+        1. Set up the default Region in the
+         `bin/cdk-gd-tester.ts` file.
+        2. To specify the Availability zone, open the
+         `amazon-guardduty-tester/lib/common/network/vpc.ts`
+         file.
+        3. In this file, replace `maxAzs: 2,` with
+         `availabilityZones:
+         ['`us-east-1a`',
+         '`us-east-1c`'],` where
+         you must specify the Availability zones for your instance
+         type.
+        4. Continue with the remaining steps under [Steps to deploy AWS resources](#steps-deploy-resource-test-guardduty-findings "#steps-deploy-resource-test-guardduty-findings").

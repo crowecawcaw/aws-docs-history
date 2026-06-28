@@ -48,7 +48,7 @@ instance:
      Playbook*.
 
 3. **Identify the source of the suspicious
-   activity**
+activity**
 
 If malware is detected, then based on the finding type in your account,
 identify and stop the potentially unauthorized activity on your EC2 instance.

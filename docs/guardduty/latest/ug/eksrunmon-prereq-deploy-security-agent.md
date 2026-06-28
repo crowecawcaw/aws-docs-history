@@ -105,13 +105,11 @@ IDs:
     ```
 
 8. Under **Additional settings**, choose
-   **Enable DNS name**.
-9. Under **Subnets**, choose the subnets in which
-   your cluster resides.
-10. Under **Security groups**, choose a security
-    group that has the in-bound port 443 enabled from your VPC (or your
-    EKS cluster). If you don't already have a security group that has an
-    in-bound port 443 enabled, [Create a security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group").
+**Enable DNS name**. 9. Under **Subnets**, choose the subnets in which
+your cluster resides. 10. Under **Security groups**, choose a security
+group that has the in-bound port 443 enabled from your VPC (or your
+EKS cluster). If you don't already have a security group that has an
+in-bound port 443 enabled, [Create a security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group").
 
 If there is an issue while restricting the in-bound permissions to
 your VPC (or instance), you can the in-bound 443 port from any IP

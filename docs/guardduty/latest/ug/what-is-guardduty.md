@@ -62,6 +62,13 @@ This will help Extended Threat Detection to identify multi-stage attacks that po
 For more information about how this capability
 works and what threat scenarios it covers, see [GuardDuty Extended Threat Detection](guardduty-extended-threat-detection.md "guardduty-extended-threat-detection.md").
 
+- **Investigation (Preview)** – GuardDuty Investigation
+  provides AI-powered security analysis of your GuardDuty findings. You can
+  create investigations to analyze specific findings, accounts, or your entire
+  organization, and receive structured investigation summaries with risk assessment,
+  confidence scoring, MITRE ATT&CK® classification, and actionable next steps.
+  For more information, see
+  [GuardDuty Investigation (Preview)](guardduty-investigation.md "guardduty-investigation.md").
 - **Use-case focused GuardDuty protection
   plans** – For enhanced threat detection
   visibility into the security of your AWS environment, GuardDuty offers

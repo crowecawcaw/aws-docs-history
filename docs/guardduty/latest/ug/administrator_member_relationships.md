@@ -46,7 +46,7 @@ AWS accounts are added as members.
   action.
 
 | **Action**                                                                                                                                               | **Through AWS Organizations**    | **By invitation**                   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------------------------------- | -------------------------------- | ---- |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------------------------------- |
 | **Delegated GuardDuty administrator account**                                                                                                            | **Associated member<br>account** | **GuardDuty administrator account** | **Associated member<br>account** |
 | Enable GuardDuty                                                                                                                                         | Any                              | –                                   | Self                             | Self |
 | Enable GuardDuty automatically for the entire organization<br>(`ALL`, `NEW`, `NONE`)                                                                     | All                              | –                                   | –                                | –    |

@@ -44,7 +44,7 @@ For example consider the following:
      resource sharing (CORS)](../../../AmazonS3/latest/userguide/cors.md "../../../AmazonS3/latest/userguide/cors.md") in the S3 user guide.
 
 4. **Determine whether the S3 bucket contains sensitive
-   data.**
+data.**
 
 Use [Amazon Macie](../../../macie/latest/user/what-is-macie.md "../../../macie/latest/user/what-is-macie.md") to determine whether the S3 bucket contains sensitive
 data, such as personally identifiable information (PII), financial data, or

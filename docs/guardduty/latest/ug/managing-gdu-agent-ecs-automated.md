@@ -1227,202 +1227,220 @@ For steps to update the service, see the following resources:
      in the *Amazon Elastic Container Service API Reference*.
     * [update-service](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html") in the *AWS CLI Command Reference*.
 
-1.  Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
-2.  In the navigation pane, choose **Runtime
-    Monitoring**.
-3.  Under the **Configuration** tab:
+1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
+2. In the navigation pane, choose **Runtime
+   Monitoring**.
+3. Under the **Configuration** tab:
 
-    1. ###### To manage Automated agent configuration for all Amazon ECS clusters (account level)
+   1. ###### To manage Automated agent configuration for all Amazon ECS clusters (account level)
 
-    Choose **Enable** in the **Automated
-    agent configuration** section for
-    **AWS Fargate (ECS only)**. When a new
-    Fargate Amazon ECS task launches, GuardDuty will manage the deployment of
-    the security agent.
+   Choose **Enable** in the **Automated
+   agent configuration** section for
+   **AWS Fargate (ECS only)**. When a new
+   Fargate Amazon ECS task launches, GuardDuty will manage the deployment of
+   the security agent.
 
         1. Choose **Save**.
-    2. ###### To manage Automated agent configuration by excluding some of the Amazon ECS clusters (cluster level)
-       1. Add a tag to the Amazon ECS cluster for which you want to
-          exclude all of the tasks. The key-value pair must be
-          `GuardDutyManaged`-`false`.
-       2. Prevent modification of these tags, except by trusted
-          entities. The policy provided in [Prevent tags from being modified except by authorized
-          principles](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin") in the
-          _AWS Organizations User Guide_ has been modified
-          to be applicable here.
 
-       JSON
+   2. ###### To manage Automated agent configuration by excluding some of the Amazon ECS clusters (cluster level)
 
-       ```
-       `{
-        "Version":"2012-10-17",
-        "Statement": [
-        {
-        "Sid": "DenyModifyTagsIfResAuthzTagAndPrinTagDontMatch",
-        "Effect": "Deny",
-        "Action": [
-        "ecs:TagResource",
-        "ecs:UntagResource"
-        ],
-        "Resource": [
-        "*"
-        ],
-        "Condition": {
-        "StringNotEquals": {
-        "ecs:ResourceTag/GuardDutyManaged": "${aws:PrincipalTag/GuardDutyManaged}",
-        "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
-        },
-        "Null": {
-        "ecs:ResourceTag/GuardDutyManaged": false
-        }
-        }
-        },
-        {
-        "Sid": "DenyModifyResAuthzTagIfPrinTagDontMatch",
-        "Effect": "Deny",
-        "Action": [
-        "ecs:TagResource",
-        "ecs:UntagResource"
-        ],
-        "Resource": [
-        "*"
-        ],
-        "Condition": {
-        "StringNotEquals": {
-        "aws:RequestTag/GuardDutyManaged": "${aws:PrincipalTag/GuardDutyManaged}",
-        "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
-        },
-        "ForAnyValue:StringEquals": {
-        "aws:TagKeys": [
-        "GuardDutyManaged"
-        ]
-        }
-        }
-        },
-        {
-        "Sid": "DenyModifyTagsIfPrinTagNotExists",
-        "Effect": "Deny",
-        "Action": [
-        "ecs:TagResource",
-        "ecs:UntagResource"
-        ],
-        "Resource": [
-        "*"
-        ],
-        "Condition": {
-        "StringNotEquals": {
-        "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
-        },
-        "Null": {
-        "aws:PrincipalTag/GuardDutyManaged": true
-        }
-        }
-        }
-        ]
-       }`
+        1. Add a tag to the Amazon ECS cluster for which you want to
+         exclude all of the tasks. The key-value pair must be
+         `GuardDutyManaged`-`false`.
+        2. Prevent modification of these tags, except by trusted
+         entities. The policy provided in [Prevent tags from being modified except by authorized
+         principles](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin") in the
+         *AWS Organizations User Guide* has been modified
+         to be applicable here.
 
-       ```
-       3. Under the **Configuration** tab, choose
-          **Enable** in the **Automated
-          agent configuration** section.
 
-       ###### Note
 
-       Always add the exclusion tag to your Amazon ECS cluster
-       before enabling GuardDuty agent auto-management for your account;
-       otherwise, the security agent will be deployed in all
-       the tasks that are launched within the corresponding
-       Amazon ECS cluster.
+        JSON
 
-       For the Amazon ECS clusters that have not been excluded, GuardDuty
-       will manage the deployment of the security agent in the
-       sidecar container. 4. Choose **Save**.
 
-    3. ###### To manage Automated agent configuration by including some of the Amazon ECS clusters (cluster level)
-       1. Add a tag to an Amazon ECS cluster for which you want to
-          include all of the tasks. The key-value pair must be
-          `GuardDutyManaged`-`true`.
-       2. Prevent modification of these tags, except by trusted
-          entities. The policy provided in [Prevent tags from being modified except by authorized
-          principles](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin") in the
-          _AWS Organizations User Guide_ has been modified
-          to be applicable here.
 
-       JSON
 
-       ```
-       `{
-        "Version":"2012-10-17",
-        "Statement": [
-        {
-        "Sid": "DenyModifyTagsIfResAuthzTagAndPrinTagDontMatch",
-        "Effect": "Deny",
-        "Action": [
-        "ecs:TagResource",
-        "ecs:UntagResource"
-        ],
-        "Resource": [
-        "*"
-        ],
-        "Condition": {
-        "StringNotEquals": {
-        "ecs:ResourceTag/GuardDutyManaged": "${aws:PrincipalTag/GuardDutyManaged}",
-        "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
-        },
-        "Null": {
-        "ecs:ResourceTag/GuardDutyManaged": false
-        }
-        }
-        },
-        {
-        "Sid": "DenyModifyResAuthzTagIfPrinTagDontMatch",
-        "Effect": "Deny",
-        "Action": [
-        "ecs:TagResource",
-        "ecs:UntagResource"
-        ],
-        "Resource": [
-        "*"
-        ],
-        "Condition": {
-        "StringNotEquals": {
-        "aws:RequestTag/GuardDutyManaged": "${aws:PrincipalTag/GuardDutyManaged}",
-        "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
-        },
-        "ForAnyValue:StringEquals": {
-        "aws:TagKeys": [
-        "GuardDutyManaged"
-        ]
-        }
-        }
-        },
-        {
-        "Sid": "DenyModifyTagsIfPrinTagNotExists",
-        "Effect": "Deny",
-        "Action": [
-        "ecs:TagResource",
-        "ecs:UntagResource"
-        ],
-        "Resource": [
-        "*"
-        ],
-        "Condition": {
-        "StringNotEquals": {
-        "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
-        },
-        "Null": {
-        "aws:PrincipalTag/GuardDutyManaged": true
-        }
-        }
-        }
-        ]
-       }`
 
-       ```
+        ```
+        `{
+         "Version":"2012-10-17",
+         "Statement": [
+         {
+         "Sid": "DenyModifyTagsIfResAuthzTagAndPrinTagDontMatch",
+         "Effect": "Deny",
+         "Action": [
+         "ecs:TagResource",
+         "ecs:UntagResource"
+         ],
+         "Resource": [
+         "*"
+         ],
+         "Condition": {
+         "StringNotEquals": {
+         "ecs:ResourceTag/GuardDutyManaged": "${aws:PrincipalTag/GuardDutyManaged}",
+         "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
+         },
+         "Null": {
+         "ecs:ResourceTag/GuardDutyManaged": false
+         }
+         }
+         },
+         {
+         "Sid": "DenyModifyResAuthzTagIfPrinTagDontMatch",
+         "Effect": "Deny",
+         "Action": [
+         "ecs:TagResource",
+         "ecs:UntagResource"
+         ],
+         "Resource": [
+         "*"
+         ],
+         "Condition": {
+         "StringNotEquals": {
+         "aws:RequestTag/GuardDutyManaged": "${aws:PrincipalTag/GuardDutyManaged}",
+         "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
+         },
+         "ForAnyValue:StringEquals": {
+         "aws:TagKeys": [
+         "GuardDutyManaged"
+         ]
+         }
+         }
+         },
+         {
+         "Sid": "DenyModifyTagsIfPrinTagNotExists",
+         "Effect": "Deny",
+         "Action": [
+         "ecs:TagResource",
+         "ecs:UntagResource"
+         ],
+         "Resource": [
+         "*"
+         ],
+         "Condition": {
+         "StringNotEquals": {
+         "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
+         },
+         "Null": {
+         "aws:PrincipalTag/GuardDutyManaged": true
+         }
+         }
+         }
+         ]
+        }`
 
-4.  When you want GuardDuty to monitor tasks that are part of a service, it requires
-    a new service deployment after you enable Runtime Monitoring. If the last deployment for a specific ECS service was started before you enabled Runtime Monitoring,
-    you can either restart the service, or update the service by using `forceNewDeployment`.
+        ```
+        3. Under the **Configuration** tab, choose
+         **Enable** in the **Automated
+         agent configuration** section.
+
+
+        ###### Note
+
+        Always add the exclusion tag to your Amazon ECS cluster
+         before enabling GuardDuty agent auto-management for your account;
+         otherwise, the security agent will be deployed in all
+         the tasks that are launched within the corresponding
+         Amazon ECS cluster.
+
+
+        For the Amazon ECS clusters that have not been excluded, GuardDuty
+         will manage the deployment of the security agent in the
+         sidecar container.
+        4. Choose **Save**.
+
+   3. ###### To manage Automated agent configuration by including some of the Amazon ECS clusters (cluster level)
+
+        1. Add a tag to an Amazon ECS cluster for which you want to
+         include all of the tasks. The key-value pair must be
+         `GuardDutyManaged`-`true`.
+        2. Prevent modification of these tags, except by trusted
+         entities. The policy provided in [Prevent tags from being modified except by authorized
+         principles](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin") in the
+         *AWS Organizations User Guide* has been modified
+         to be applicable here.
+
+
+
+        JSON
+
+
+
+
+
+        ```
+        `{
+         "Version":"2012-10-17",
+         "Statement": [
+         {
+         "Sid": "DenyModifyTagsIfResAuthzTagAndPrinTagDontMatch",
+         "Effect": "Deny",
+         "Action": [
+         "ecs:TagResource",
+         "ecs:UntagResource"
+         ],
+         "Resource": [
+         "*"
+         ],
+         "Condition": {
+         "StringNotEquals": {
+         "ecs:ResourceTag/GuardDutyManaged": "${aws:PrincipalTag/GuardDutyManaged}",
+         "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
+         },
+         "Null": {
+         "ecs:ResourceTag/GuardDutyManaged": false
+         }
+         }
+         },
+         {
+         "Sid": "DenyModifyResAuthzTagIfPrinTagDontMatch",
+         "Effect": "Deny",
+         "Action": [
+         "ecs:TagResource",
+         "ecs:UntagResource"
+         ],
+         "Resource": [
+         "*"
+         ],
+         "Condition": {
+         "StringNotEquals": {
+         "aws:RequestTag/GuardDutyManaged": "${aws:PrincipalTag/GuardDutyManaged}",
+         "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
+         },
+         "ForAnyValue:StringEquals": {
+         "aws:TagKeys": [
+         "GuardDutyManaged"
+         ]
+         }
+         }
+         },
+         {
+         "Sid": "DenyModifyTagsIfPrinTagNotExists",
+         "Effect": "Deny",
+         "Action": [
+         "ecs:TagResource",
+         "ecs:UntagResource"
+         ],
+         "Resource": [
+         "*"
+         ],
+         "Condition": {
+         "StringNotEquals": {
+         "aws:PrincipalArn": "arn:aws:iam::123456789012:role/org-admins/iam-admin"
+         },
+         "Null": {
+         "aws:PrincipalTag/GuardDutyManaged": true
+         }
+         }
+         }
+         ]
+        }`
+
+        ```
+
+4. When you want GuardDuty to monitor tasks that are part of a service, it requires
+   a new service deployment after you enable Runtime Monitoring. If the last deployment for a specific ECS service was started before you enabled Runtime Monitoring,
+   you can either restart the service, or update the service by using `forceNewDeployment`.
 
 For steps to update the service, see the following resources:
 

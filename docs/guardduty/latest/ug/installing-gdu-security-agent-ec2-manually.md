@@ -87,16 +87,16 @@ RPM installation
 We recommend verifying the GuardDuty security agent RPM
 signature before installing it on your machine.
 
-1.  Verify the GuardDuty security agent RPM signature
+1. Verify the GuardDuty security agent RPM signature
 
-    1. ###### Prepare the template
+   1. ###### Prepare the template
 
-    Prepare the commands with appropriate public key,
-    signature of x86_64 RPM, signature of arm64 RPM, and
-    the corresponding access link to the RPM scripts
-    hosted in Amazon S3 buckets. Replace the value of the
-    AWS Region, AWS account ID, and the GuardDuty agent
-    version to access the RPM scripts.
+   Prepare the commands with appropriate public key,
+   signature of x86\_64 RPM, signature of arm64 RPM, and
+   the corresponding access link to the RPM scripts
+   hosted in Amazon S3 buckets. Replace the value of the
+   AWS Region, AWS account ID, and the GuardDuty agent
+   version to access the RPM scripts.
 
         * **Public key**:
 
@@ -146,120 +146,120 @@ signature before installing it on your machine.
         s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/arm64/amazon-guardduty-agent-`1.15.0`.arm64.rpm
         ```
 
-    |                  |                           |                |
-    | ---------------- | ------------------------- | -------------- |
-    | AWS Region       | Region name               | AWS account ID |
-    | `eu-west-1`      | Europe (Ireland)          | 694911143906   |
-    | `us-east-1`      | US East (N. Virginia)     | 593207742271   |
-    | `us-west-2`      | US West (Oregon)          | 733349766148   |
-    | `eu-west-3`      | Europe (Paris)            | 665651866788   |
-    | `us-east-2`      | US East (Ohio)            | 307168627858   |
-    | `eu-central-1`   | Europe (Frankfurt)        | 323658145986   |
-    | `ap-northeast-2` | Asia Pacific (Seoul)      | 914738172881   |
-    | `eu-north-1`     | Europe (Stockholm)        | 591436053604   |
-    | `ap-east-1`      | Asia Pacific (Hong Kong)  | 258348409381   |
-    | `me-south-1`     | Middle East (Bahrain)     | 536382113932   |
-    | `eu-west-2`      | Europe (London)           | 892757235363   |
-    | `ap-northeast-1` | Asia Pacific (Tokyo)      | 533107202818   |
-    | `ap-southeast-1` | Asia Pacific (Singapore)  | 174946120834   |
-    | `ap-south-1`     | Asia Pacific (Mumbai)     | 251508486986   |
-    | `ap-southeast-3` | Asia Pacific (Jakarta)    | 510637619217   |
-    | `sa-east-1`      | South America (São Paulo) | 758426053663   |
-    | `ap-northeast-3` | Asia Pacific (Osaka)      | 273192626886   |
-    | `eu-south-1`     | Europe (Milan)            | 266869475730   |
-    | `af-south-1`     | Africa (Cape Town)        | 197869348890   |
-    | `ap-southeast-2` | Asia Pacific (Sydney)     | 005257825471   |
-    | `me-central-1`   | Middle East (UAE)         | 000014521398   |
-    | `us-west-1`      | US West (N. California)   | 684579721401   |
-    | `ca-central-1`   | Canada (Central)          | 354763396469   |
-    | `ca-west-1`      | Canada West (Calgary)     | 339712888787   |
-    | `ap-south-2`     | Asia Pacific (Hyderabad)  | 950823858135   |
-    | `eu-south-2`     | Europe (Spain)            | 919611009337   |
-    | `eu-central-2`   | Europe (Zurich)           | 529164026651   |
-    | `ap-southeast-4` | Asia Pacific (Melbourne)  | 251357961535   |
-    | `ap-southeast-7` | Asia Pacific (Thailand)   | 054037130133   |
-    | `il-central-1`   | Israel (Tel Aviv)         | 870907303882   |
-    | `mx-central-1`   | Mexico (Central)          | 982081086614   |
-    | `ap-east-2`      | Asia Pacific (Taipei)     | 259886477082   |
-    2. ###### Download the template
+   |                  |                           |                |
+   | ---------------- | ------------------------- | -------------- |
+   | AWS Region       | Region name               | AWS account ID |
+   | `eu-west-1`      | Europe (Ireland)          | 694911143906   |
+   | `us-east-1`      | US East (N. Virginia)     | 593207742271   |
+   | `us-west-2`      | US West (Oregon)          | 733349766148   |
+   | `eu-west-3`      | Europe (Paris)            | 665651866788   |
+   | `us-east-2`      | US East (Ohio)            | 307168627858   |
+   | `eu-central-1`   | Europe (Frankfurt)        | 323658145986   |
+   | `ap-northeast-2` | Asia Pacific (Seoul)      | 914738172881   |
+   | `eu-north-1`     | Europe (Stockholm)        | 591436053604   |
+   | `ap-east-1`      | Asia Pacific (Hong Kong)  | 258348409381   |
+   | `me-south-1`     | Middle East (Bahrain)     | 536382113932   |
+   | `eu-west-2`      | Europe (London)           | 892757235363   |
+   | `ap-northeast-1` | Asia Pacific (Tokyo)      | 533107202818   |
+   | `ap-southeast-1` | Asia Pacific (Singapore)  | 174946120834   |
+   | `ap-south-1`     | Asia Pacific (Mumbai)     | 251508486986   |
+   | `ap-southeast-3` | Asia Pacific (Jakarta)    | 510637619217   |
+   | `sa-east-1`      | South America (São Paulo) | 758426053663   |
+   | `ap-northeast-3` | Asia Pacific (Osaka)      | 273192626886   |
+   | `eu-south-1`     | Europe (Milan)            | 266869475730   |
+   | `af-south-1`     | Africa (Cape Town)        | 197869348890   |
+   | `ap-southeast-2` | Asia Pacific (Sydney)     | 005257825471   |
+   | `me-central-1`   | Middle East (UAE)         | 000014521398   |
+   | `us-west-1`      | US West (N. California)   | 684579721401   |
+   | `ca-central-1`   | Canada (Central)          | 354763396469   |
+   | `ca-west-1`      | Canada West (Calgary)     | 339712888787   |
+   | `ap-south-2`     | Asia Pacific (Hyderabad)  | 950823858135   |
+   | `eu-south-2`     | Europe (Spain)            | 919611009337   |
+   | `eu-central-2`   | Europe (Zurich)           | 529164026651   |
+   | `ap-southeast-4` | Asia Pacific (Melbourne)  | 251357961535   |
+   | `ap-southeast-7` | Asia Pacific (Thailand)   | 054037130133   |
+   | `il-central-1`   | Israel (Tel Aviv)         | 870907303882   |
+   | `mx-central-1`   | Mexico (Central)          | 982081086614   |
+   | `ap-east-2`      | Asia Pacific (Taipei)     | 259886477082   |
+   2. ###### Download the template
 
-    In the following command to download appropriate
-    public key, signature of x86_64 RPM, signature of
-    arm64 RPM, and the corresponding access link to the
-    RPM scripts hosted in Amazon S3 buckets, make sure to
-    replace the account ID with the appropriate
-    AWS account ID and the Region with your current
-    Region.
+   In the following command to download appropriate
+   public key, signature of x86\_64 RPM, signature of
+   arm64 RPM, and the corresponding access link to the
+   RPM scripts hosted in Amazon S3 buckets, make sure to
+   replace the account ID with the appropriate
+   AWS account ID and the Region with your current
+   Region.
 
-    ```
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/x86_64/amazon-guardduty-agent-`1.15.0`.x86_64.rpm ./amazon-guardduty-agent-`1.15.0`.x86_64.rpm
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/x86_64/amazon-guardduty-agent-`1.15.0`.x86_64.sig ./amazon-guardduty-agent-`1.15.0`.x86_64.sig
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/publickey.pem ./publickey.pem
+   ```
+   aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/x86_64/amazon-guardduty-agent-`1.15.0`.x86_64.rpm ./amazon-guardduty-agent-`1.15.0`.x86_64.rpm
+   aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/x86_64/amazon-guardduty-agent-`1.15.0`.x86_64.sig ./amazon-guardduty-agent-`1.15.0`.x86_64.sig
+   aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/publickey.pem ./publickey.pem
 
-    ```
-    3. ###### Import the public key
+   ```
+   3. ###### Import the public key
 
-    Use the following command to import the public key
-    to the database:
+   Use the following command to import the public key
+   to the database:
 
-    ```
-    gpg --import publickey.pem
-    ```
+   ```
+   gpg --import publickey.pem
+   ```
 
-    gpg shows import successfully
+   gpg shows import successfully
 
-    ```
-    gpg: key 093FF49D: public key "AwsGuardDuty" imported
-    gpg: Total number processed: 1
-    gpg:               imported: 1  (RSA: 1)
-    ```
-    4. ###### Verify the signature
+   ```
+   gpg: key 093FF49D: public key "AwsGuardDuty" imported
+   gpg: Total number processed: 1
+   gpg:               imported: 1  (RSA: 1)
+   ```
+   4. ###### Verify the signature
 
-    Use the following command to verify the
-    signature
+   Use the following command to verify the
+   signature
 
-    ```
-    gpg --verify amazon-guardduty-agent-`1.15.0`.x86_64.sig amazon-guardduty-agent-`1.15.0`.x86_64.rpm
-    ```
+   ```
+   gpg --verify amazon-guardduty-agent-`1.15.0`.x86_64.sig amazon-guardduty-agent-`1.15.0`.x86_64.rpm
+   ```
 
-    If verification passes, you will see a message
-    similar to the result below. You can now proceed to
-    install the GuardDuty security agent using RPM.
+   If verification passes, you will see a message
+   similar to the result below. You can now proceed to
+   install the GuardDuty security agent using RPM.
 
-    Example output:
+   Example output:
 
-    ```
-    gpg: Signature made Fri 17 Nov 2023 07:58:11 PM UTC using ? key ID 093FF49D
-    gpg: Good signature from "AwsGuardDuty"
-    gpg: WARNING: This key is not certified with a trusted signature!
-    gpg:          There is no indication that the signature belongs to the owner.
-    Primary key fingerprint: 7478 91EF 5378 1334 4456  7603 06C9 06A7 093F F49D
-    ```
+   ```
+   gpg: Signature made Fri 17 Nov 2023 07:58:11 PM UTC using ? key ID 093FF49D
+   gpg: Good signature from "AwsGuardDuty"
+   gpg: WARNING: This key is not certified with a trusted signature!
+   gpg:          There is no indication that the signature belongs to the owner.
+   Primary key fingerprint: 7478 91EF 5378 1334 4456  7603 06C9 06A7 093F F49D
+   ```
 
-    If verification fails, it means the signature on
-    RPM has been potentially tampered. You must remove
-    the public key from the database and retry the
-    verification process.
+   If verification fails, it means the signature on
+   RPM has been potentially tampered. You must remove
+   the public key from the database and retry the
+   verification process.
 
-    Example:
+   Example:
 
-    ```
-    gpg: Signature made Fri 17 Nov 2023 07:58:11 PM UTC using ? key ID 093FF49D
-    gpg: BAD signature from "AwsGuardDuty"
-    ```
+   ```
+   gpg: Signature made Fri 17 Nov 2023 07:58:11 PM UTC using ? key ID 093FF49D
+   gpg: BAD signature from "AwsGuardDuty"
+   ```
 
-    Use the following command to remove the public key
-    from the database:
+   Use the following command to remove the public key
+   from the database:
 
-    ```
-    gpg --delete-keys AwsGuardDuty
-    ```
+   ```
+   gpg --delete-keys AwsGuardDuty
+   ```
 
-    Now, try the verification process again.
+   Now, try the verification process again.
 
-2.  [Connect with SSH from Linux or macOS](../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md "../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md").
-3.  Install the GuardDuty security agent by using the following
-    command:
+2. [Connect with SSH from Linux or macOS](../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md "../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md").
+3. Install the GuardDuty security agent by using the following
+   command:
 
 ```
 sudo rpm -ivh amazon-guardduty-agent-`1.15.0`.x86_64.rpm
@@ -275,13 +275,13 @@ Debian installation
 We recommend verifying the GuardDuty security agent Debian
 signature before installing it on your machine.
 
-1.  Verify the GuardDuty security agent Debian signature
+1. Verify the GuardDuty security agent Debian signature
 
-    1. ###### Prepare templates for the appropriate public key, signature of amd64 Debian package, signature of arm64 Debian package, and the corresponding access link to the Debian scripts hosted in Amazon S3 buckets
+   1. ###### Prepare templates for the appropriate public key, signature of amd64 Debian package, signature of arm64 Debian package, and the corresponding access link to the Debian scripts hosted in Amazon S3 buckets
 
-    In the following templates, replace the value of
-    the AWS Region, AWS account ID, and the GuardDuty
-    agent version to access the Debian package scripts.
+   In the following templates, replace the value of
+   the AWS Region, AWS account ID, and the GuardDuty
+   agent version to access the Debian package scripts.
 
         * **Public key**:
 
@@ -331,110 +331,110 @@ signature before installing it on your machine.
         s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/arm64/amazon-guardduty-agent-`1.15.0`.arm64.deb
         ```
 
-    |                  |                           |                |
-    | ---------------- | ------------------------- | -------------- |
-    | AWS Region       | Region name               | AWS account ID |
-    | `eu-west-1`      | Europe (Ireland)          | 694911143906   |
-    | `us-east-1`      | US East (N. Virginia)     | 593207742271   |
-    | `us-west-2`      | US West (Oregon)          | 733349766148   |
-    | `eu-west-3`      | Europe (Paris)            | 665651866788   |
-    | `us-east-2`      | US East (Ohio)            | 307168627858   |
-    | `eu-central-1`   | Europe (Frankfurt)        | 323658145986   |
-    | `ap-northeast-2` | Asia Pacific (Seoul)      | 914738172881   |
-    | `eu-north-1`     | Europe (Stockholm)        | 591436053604   |
-    | `ap-east-1`      | Asia Pacific (Hong Kong)  | 258348409381   |
-    | `me-south-1`     | Middle East (Bahrain)     | 536382113932   |
-    | `eu-west-2`      | Europe (London)           | 892757235363   |
-    | `ap-northeast-1` | Asia Pacific (Tokyo)      | 533107202818   |
-    | `ap-southeast-1` | Asia Pacific (Singapore)  | 174946120834   |
-    | `ap-south-1`     | Asia Pacific (Mumbai)     | 251508486986   |
-    | `ap-southeast-3` | Asia Pacific (Jakarta)    | 510637619217   |
-    | `sa-east-1`      | South America (São Paulo) | 758426053663   |
-    | `ap-northeast-3` | Asia Pacific (Osaka)      | 273192626886   |
-    | `eu-south-1`     | Europe (Milan)            | 266869475730   |
-    | `af-south-1`     | Africa (Cape Town)        | 197869348890   |
-    | `ap-southeast-2` | Asia Pacific (Sydney)     | 005257825471   |
-    | `me-central-1`   | Middle East (UAE)         | 000014521398   |
-    | `us-west-1`      | US West (N. California)   | 684579721401   |
-    | `ca-central-1`   | Canada (Central)          | 354763396469   |
-    | `ca-west-1`      | Canada West (Calgary)     | 339712888787   |
-    | `ap-south-2`     | Asia Pacific (Hyderabad)  | 950823858135   |
-    | `eu-south-2`     | Europe (Spain)            | 919611009337   |
-    | `eu-central-2`   | Europe (Zurich)           | 529164026651   |
-    | `ap-southeast-4` | Asia Pacific (Melbourne)  | 251357961535   |
-    | `il-central-1`   | Israel (Tel Aviv)         | 870907303882   |
-    | `mx-central-1`   | Mexico (Central)          | 982081086614   |
-    | `ap-east-2`      | Asia Pacific (Taipei)     | 259886477082   |
-    2. ###### Download the appropriate public key, signature of amd64, signature of arm64, and the corresponding access link to the Debian scripts hosted in Amazon S3 buckets
+   |                  |                           |                |
+   | ---------------- | ------------------------- | -------------- |
+   | AWS Region       | Region name               | AWS account ID |
+   | `eu-west-1`      | Europe (Ireland)          | 694911143906   |
+   | `us-east-1`      | US East (N. Virginia)     | 593207742271   |
+   | `us-west-2`      | US West (Oregon)          | 733349766148   |
+   | `eu-west-3`      | Europe (Paris)            | 665651866788   |
+   | `us-east-2`      | US East (Ohio)            | 307168627858   |
+   | `eu-central-1`   | Europe (Frankfurt)        | 323658145986   |
+   | `ap-northeast-2` | Asia Pacific (Seoul)      | 914738172881   |
+   | `eu-north-1`     | Europe (Stockholm)        | 591436053604   |
+   | `ap-east-1`      | Asia Pacific (Hong Kong)  | 258348409381   |
+   | `me-south-1`     | Middle East (Bahrain)     | 536382113932   |
+   | `eu-west-2`      | Europe (London)           | 892757235363   |
+   | `ap-northeast-1` | Asia Pacific (Tokyo)      | 533107202818   |
+   | `ap-southeast-1` | Asia Pacific (Singapore)  | 174946120834   |
+   | `ap-south-1`     | Asia Pacific (Mumbai)     | 251508486986   |
+   | `ap-southeast-3` | Asia Pacific (Jakarta)    | 510637619217   |
+   | `sa-east-1`      | South America (São Paulo) | 758426053663   |
+   | `ap-northeast-3` | Asia Pacific (Osaka)      | 273192626886   |
+   | `eu-south-1`     | Europe (Milan)            | 266869475730   |
+   | `af-south-1`     | Africa (Cape Town)        | 197869348890   |
+   | `ap-southeast-2` | Asia Pacific (Sydney)     | 005257825471   |
+   | `me-central-1`   | Middle East (UAE)         | 000014521398   |
+   | `us-west-1`      | US West (N. California)   | 684579721401   |
+   | `ca-central-1`   | Canada (Central)          | 354763396469   |
+   | `ca-west-1`      | Canada West (Calgary)     | 339712888787   |
+   | `ap-south-2`     | Asia Pacific (Hyderabad)  | 950823858135   |
+   | `eu-south-2`     | Europe (Spain)            | 919611009337   |
+   | `eu-central-2`   | Europe (Zurich)           | 529164026651   |
+   | `ap-southeast-4` | Asia Pacific (Melbourne)  | 251357961535   |
+   | `il-central-1`   | Israel (Tel Aviv)         | 870907303882   |
+   | `mx-central-1`   | Mexico (Central)          | 982081086614   |
+   | `ap-east-2`      | Asia Pacific (Taipei)     | 259886477082   |
+   2. ###### Download the appropriate public key, signature of amd64, signature of arm64, and the corresponding access link to the Debian scripts hosted in Amazon S3 buckets
 
-    In the following commands, replace the account ID
-    with the appropriate AWS account ID, and the
-    Region with your current Region.
+   In the following commands, replace the account ID
+   with the appropriate AWS account ID, and the
+   Region with your current Region.
 
-    ```
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/amd64/amazon-guardduty-agent-`1.15.0`.amd64.deb ./amazon-guardduty-agent-`1.15.0`.amd64.deb
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/amd64/amazon-guardduty-agent-`1.15.0`.amd64.sig ./amazon-guardduty-agent-`1.15.0`.amd64.sig
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/publickey.pem ./publickey.pem
+   ```
+   aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/amd64/amazon-guardduty-agent-`1.15.0`.amd64.deb ./amazon-guardduty-agent-`1.15.0`.amd64.deb
+   aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/amd64/amazon-guardduty-agent-`1.15.0`.amd64.sig ./amazon-guardduty-agent-`1.15.0`.amd64.sig
+   aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/publickey.pem ./publickey.pem
 
-    ```
-    3. Import the public key to the database
+   ```
+   3. Import the public key to the database
 
-    ```
-    gpg --import publickey.pem
-    ```
+   ```
+   gpg --import publickey.pem
+   ```
 
-    gpg shows import successfully
+   gpg shows import successfully
 
-    ```
-    gpg: key 093FF49D: public key "AwsGuardDuty" imported
-    gpg: Total number processed: 1
-    gpg:               imported: 1  (RSA: 1)
-    ```
-    4. Verify the signature
+   ```
+   gpg: key 093FF49D: public key "AwsGuardDuty" imported
+   gpg: Total number processed: 1
+   gpg:               imported: 1  (RSA: 1)
+   ```
+   4. Verify the signature
 
-    ```
-    gpg --verify amazon-guardduty-agent-`1.15.0`.amd64.sig amazon-guardduty-agent-`1.15.0`.amd64.deb
-    ```
+   ```
+   gpg --verify amazon-guardduty-agent-`1.15.0`.amd64.sig amazon-guardduty-agent-`1.15.0`.amd64.deb
+   ```
 
-    After a successful verification, you will see a
-    message similar to the following result:
+   After a successful verification, you will see a
+   message similar to the following result:
 
-    Example output:
+   Example output:
 
-    ```
-    gpg: Signature made Fri 17 Nov 2023 07:58:11 PM UTC using ? key ID 093FF49D
-    gpg: Good signature from "AwsGuardDuty"
-    gpg: WARNING: This key is not certified with a trusted signature!
-    gpg:          There is no indication that the signature belongs to the owner.
-    Primary key fingerprint: 7478 91EF 5378 1334 4456  7603 06C9 06A7 093F F49D
-    ```
+   ```
+   gpg: Signature made Fri 17 Nov 2023 07:58:11 PM UTC using ? key ID 093FF49D
+   gpg: Good signature from "AwsGuardDuty"
+   gpg: WARNING: This key is not certified with a trusted signature!
+   gpg:          There is no indication that the signature belongs to the owner.
+   Primary key fingerprint: 7478 91EF 5378 1334 4456  7603 06C9 06A7 093F F49D
+   ```
 
-    You can now proceed to install the GuardDuty security
-    agent using Debian.
+   You can now proceed to install the GuardDuty security
+   agent using Debian.
 
-    However, if verification fails, it means the
-    signature in Debian package has been potentially
-    tampered.
+   However, if verification fails, it means the
+   signature in Debian package has been potentially
+   tampered.
 
-    Example:
+   Example:
 
-    ```
-    gpg: Signature made Fri 17 Nov 2023 07:58:11 PM UTC using ? key ID 093FF49D
-    gpg: BAD signature from "AwsGuardDuty"
-    ```
+   ```
+   gpg: Signature made Fri 17 Nov 2023 07:58:11 PM UTC using ? key ID 093FF49D
+   gpg: BAD signature from "AwsGuardDuty"
+   ```
 
-    Use the following command to remove the public key
-    from the database:
+   Use the following command to remove the public key
+   from the database:
 
-    ```
-    gpg --delete-keys AwsGuardDuty
-    ```
+   ```
+   gpg --delete-keys AwsGuardDuty
+   ```
 
-    Now, retry the verification process.
+   Now, retry the verification process.
 
-2.  [Connect with SSH from Linux or macOS](../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md "../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md").
-3.  Install the GuardDuty security agent by using the following
-    command:
+2. [Connect with SSH from Linux or macOS](../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md "../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md").
+3. Install the GuardDuty security agent by using the following
+   command:
 
 ```
 sudo dpkg -i amazon-guardduty-agent-`1.15.0`.amd64.deb

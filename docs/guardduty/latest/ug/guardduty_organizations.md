@@ -63,24 +63,22 @@ about feature parity in Regions where GuardDuty is available, see [Regions and e
   `NEW`, ensure that the following sequence is
   met:
 
-      1. The member accounts opt-in to an opt-in Region.
-      2. Add the member accounts to your organization in
-       AWS Organizations.
-
-  If you change the order of these steps, the GuardDuty auto-enable
-  setting with `NEW`
-  **will not** work in the specific
-  opt-in Region because the member account is no longer new to the
-  organization. GuardDuty provides two alternate solutions:
-
-      + Set the GuardDuty auto-enable configuration to
-       `ALL`, that includes new and existing members
-       accounts. In this case, the order of these steps is not
-       relevant.
-      + If a member account is already a part of your
-       organization, manage the GuardDuty configuration for this
-       account individually in the specific opt-in Region by using
-       the GuardDuty console or the API.
+  1.  The member accounts opt-in to an opt-in Region.
+  2.  Add the member accounts to your organization in
+      AWS Organizations.
+      If you change the order of these steps, the GuardDuty auto-enable
+      setting with `NEW`
+      **will not** work in the specific
+      opt-in Region because the member account is no longer new to the
+      organization. GuardDuty provides two alternate solutions:
+  - Set the GuardDuty auto-enable configuration to
+    `ALL`, that includes new and existing members
+    accounts. In this case, the order of these steps is not
+    relevant.
+  - If a member account is already a part of your
+    organization, manage the GuardDuty configuration for this
+    account individually in the specific opt-in Region by using
+    the GuardDuty console or the API.
 
 **Required for an AWS organization to have the same
 delegated GuardDuty administrator account across all the AWS Regions.**

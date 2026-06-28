@@ -25,52 +25,53 @@ Console
 
 ###### Step 2: Adding trusted or threat intelligence data
 
-1.  Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
-2.  In the navigation pane, choose **Lists**.
-3.  On the **Lists** page, choose **Entity
-    lists** or **IP address lists**
-    tab.
-4.  Based on your selected tab, choose to add a trusted list or a
-    threat list.
-5.  In the dialog box to add either trusted or threat list, do the
-    following steps:
+1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
+2. In the navigation pane, choose **Lists**.
+3. On the **Lists** page, choose **Entity
+   lists** or **IP address lists**
+   tab.
+4. Based on your selected tab, choose to add a trusted list or a
+   threat list.
+5. In the dialog box to add either trusted or threat list, do the
+   following steps:
 
-    1. For **List name**, enter a name for your
-       list.
+   1. For **List name**, enter a name for your
+      list.
 
-    **List naming constraints** – The name of your list can include
-    lowercase letters, uppercase letters, numbers, dash (-), and underscore (\_).
+   **List naming constraints** – The name of your list can include
+   lowercase letters, uppercase letters, numbers, dash (-), and underscore (\_).
 
-    For an IP address list, the name
-    of your list must be unique within an AWS account and Region. 2. For **Location**, provide the location
-    where you have uploaded your list. If you don't already have
-    it, see [Step 1: Fetching location URL of your list](#fetch-location-URL-list-manage "#fetch-location-URL-list-manage").
+   For an IP address list, the name
+   of your list must be unique within an AWS account and Region. 2. For **Location**, provide the location
+   where you have uploaded your list. If you don't already have
+   it, see [Step 1: Fetching location URL of your list](#fetch-location-URL-list-manage "#fetch-location-URL-list-manage").
 
-    Applies only to custom threat and custom trusted entity sets – If you provide a
-    location URL that doesn't match the following supported formats, then you will receive an error message during list addition and activation.
+   Applies only to custom threat and custom trusted entity sets – If you provide a
+   location URL that doesn't match the following supported formats, then you will receive an error message during list addition and activation.
 
-    ###### Format of location URL:
+   ###### Format of location URL:
 
         * https://s3.amazonaws.com/bucket.name/file.txt
         * https://s3-aws-region.amazonaws.com/bucket.name/file.txt
         * http://bucket.s3.amazonaws.com/file.txt
         * http://bucket.s3-aws-region.amazonaws.com/file.txt
         * s3://bucket.name/file.txt
-    3. (Optional) For **Expected bucket owner**,
-       you can enter the AWS account ID that owns the Amazon S3 bucket
-       specified in the **Location** field.
 
-    When you don't specify an AWS account ID owner, then
-    GuardDuty behaves differently for entity lists and IP address lists. For entity lists,
-    GuardDuty will validate that the current member account owns the S3 bucket specified in the
-    **Location** field. For IP address lists, if you don't
-    specify an AWS account ID owner, GuardDuty doesn't perform any validation.
+   3. (Optional) For **Expected bucket owner**,
+   you can enter the AWS account ID that owns the Amazon S3 bucket
+   specified in the **Location** field.
 
-    If GuardDuty finds that this S3 bucket doesn't belong to the specified
-    account ID, you will get an error at the time of activating the list. 4. Select the **I agree** check box. 5. Choose **Add list**. By default, the
-    **Status** of the added list is
-    **Inactive**. For the list to be
-    effective, you must activate the list.
+   When you don't specify an AWS account ID owner, then
+   GuardDuty behaves differently for entity lists and IP address lists. For entity lists,
+   GuardDuty will validate that the current member account owns the S3 bucket specified in the
+   **Location** field. For IP address lists, if you don't
+   specify an AWS account ID owner, GuardDuty doesn't perform any validation.
+
+   If GuardDuty finds that this S3 bucket doesn't belong to the specified
+   account ID, you will get an error at the time of activating the list. 4. Select the **I agree** check box. 5. Choose **Add list**. By default, the
+   **Status** of the added list is
+   **Inactive**. For the list to be
+   effective, you must activate the list.
 
 ###### Step 3: Activating an entity list or IP address list
 
