@@ -35,87 +35,87 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
 
 ###### To extend the file system of EBS volumes
 
-1.  [Connect to your instance](../../../AWSEC2/latest/UserGuide/connect-to-linux-instance.md "../../../AWSEC2/latest/UserGuide/connect-to-linux-instance.md").
-2.  Resize the partition, if needed. To do so:
+1. [Connect to your instance](../../../AWSEC2/latest/UserGuide/connect-to-linux-instance.md "../../../AWSEC2/latest/UserGuide/connect-to-linux-instance.md").
+2. Resize the partition, if needed. To do so:
 
-    1. Check whether the volume has a partition. Use the **lsblk**
-       command.
+   1. Check whether the volume has a partition. Use the **lsblk**
+      command.
 
-    Nitro instance example
-    In the following example output, the root volume (`nvme0n1`)
-    has two partitions (`nvme0n1p1` and `nvme0n1p128`),
-    while the additional volume (`nvme1n1`) has no partitions.
+   Nitro instance example
+   In the following example output, the root volume (`nvme0n1`)
+   has two partitions (`nvme0n1p1` and `nvme0n1p128`),
+   while the additional volume (`nvme1n1`) has no partitions.
 
-    ```
-    `[ec2-user ~]$` `sudo lsblk``NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-    nvme1n1 259:0 0 30G 0 disk /data
-    nvme0n1 259:1 0 16G 0 disk
-    └─nvme0n1p1 259:2 0 8G 0 part /
-    └─nvme0n1p128 259:3 0 1M 0 part`
-    ```
+   ```
+   `[ec2-user ~]$` `sudo lsblk``NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   nvme1n1 259:0 0 30G 0 disk /data
+   nvme0n1 259:1 0 16G 0 disk
+   └─nvme0n1p1 259:2 0 8G 0 part /
+   └─nvme0n1p128 259:3 0 1M 0 part`
+   ```
 
-    Xen instance example
-    In the following example output, the root volume (`xvda`) has a
-    partition (`xvda1`), while the additional volume
-    (`xvdf`) has no partition.
+   Xen instance example
+   In the following example output, the root volume (`xvda`) has a
+   partition (`xvda1`), while the additional volume
+   (`xvdf`) has no partition.
 
-    ```
-    `[ec2-user ~]$` `sudo lsblk` `NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-    xvda 202:0 0 16G 0 disk
-    └─xvda1 202:1 0 8G 0 part /
-    xvdf 202:80 0 24G 0 disk`
-    ```
+   ```
+   `[ec2-user ~]$` `sudo lsblk` `NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   xvda 202:0 0 16G 0 disk
+   └─xvda1 202:1 0 8G 0 part /
+   xvdf 202:80 0 24G 0 disk`
+   ```
 
         * If the volume has a partition, continue to the next step (2b).
         * If the volume has no partitions, skip steps 2b, 2c, and 2d, and continue to step 3.
 
-    ###### Troubleshooting tip
+   ###### Troubleshooting tip
 
-    If you do not see the volume in the command output, ensure that the volume is
-    [attached to the instance](ebs-attaching-volume.md "ebs-attaching-volume.md"), and that it is
-    [formatted and mounted](ebs-using-volumes.md#ebs-format-mount-volume "ebs-using-volumes.md#ebs-format-mount-volume"). 2. Check whether the partition needs to be extended. In the **lsblk** command
-    output from the previous step, compare the partition size and the volume size.
+   If you do not see the volume in the command output, ensure that the volume is
+   [attached to the instance](ebs-attaching-volume.md "ebs-attaching-volume.md"), and that it is
+   [formatted and mounted](ebs-using-volumes.md#ebs-format-mount-volume "ebs-using-volumes.md#ebs-format-mount-volume"). 2. Check whether the partition needs to be extended. In the **lsblk** command
+   output from the previous step, compare the partition size and the volume size.
 
         * If the partition size is smaller than the volume size, continue to the next step (2c).
         * If the partition size is equal to the volume size, the partition does not need
          to be extended - skip steps 2c and 2d, and continue to step 3.
 
-    ###### Troubleshooting tip
+   ###### Troubleshooting tip
 
-    If the volume still reflects the original size, [confirm that the volume modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). 3. Extend the partition. Use the **growpart** command and specify the device name
-    and the partition number.
+   If the volume still reflects the original size, [confirm that the volume modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). 3. Extend the partition. Use the **growpart** command and specify the device name
+   and the partition number.
 
-    Nitro instance example
-    The partition number is the number after the `p`. For example, for `nvme0n1p1`,
-    the partition number is `1`. For `nvme0n1p128`, the partition number is `128`.
+   Nitro instance example
+   The partition number is the number after the `p`. For example, for `nvme0n1p1`,
+   the partition number is `1`. For `nvme0n1p128`, the partition number is `128`.
 
-    To extend a partition named `nvme0n1p1`, use the following command.
+   To extend a partition named `nvme0n1p1`, use the following command.
 
-    ###### Important
+   ###### Important
 
-    Note the space between the device name (`nvme0n1`) and the partition number
-    (`1`).
+   Note the space between the device name (`nvme0n1`) and the partition number
+   (`1`).
 
-    ```
-    `[ec2-user ~]$` `sudo growpart /dev/nvme0n1 1`
-    ```
+   ```
+   `[ec2-user ~]$` `sudo growpart /dev/nvme0n1 1`
+   ```
 
-    Xen instance example
-    The partition number is the number after the device name. For example, for `xvda1`,
-    the partition number is `1`. For `xvda128`, the partition number is `128`.
+   Xen instance example
+   The partition number is the number after the device name. For example, for `xvda1`,
+   the partition number is `1`. For `xvda128`, the partition number is `128`.
 
-    To extend a partition named `xvda1`, use the following command.
+   To extend a partition named `xvda1`, use the following command.
 
-    ###### Important
+   ###### Important
 
-    Note the space between the device name (`xvda`) and the partition number
-    (`1`).
+   Note the space between the device name (`xvda`) and the partition number
+   (`1`).
 
-    ```
-    `[ec2-user ~]$` `sudo growpart /dev/xvda 1`
-    ```
+   ```
+   `[ec2-user ~]$` `sudo growpart /dev/xvda 1`
+   ```
 
-    ###### Troubleshooting tips
+   ###### Troubleshooting tips
 
         * `mkdir: cannot create directory ‘/tmp/growpart.31171’: No space left on device FAILED:
          failed to make temp dir`: Indicates that there is not enough free disk space on the volume
@@ -127,129 +127,150 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
         * `NOCHANGE: partition 1 is size 16773087. it cannot be grown`: Indicates that the
          partition already extends the entire volume and can't be extended.
          [Confirm that the volume modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md").
-    4. Verify that the partition has been extended. Use the **lsblk** command. The
-       partition size should now be equal to the volume size.
 
-    Nitro instance example
-    The following example output shows that both the volume
-    (`nvme0n1`) and the partition (`nvme0n1p1`) are the
-    same size (`16 GB`).
+   4. Verify that the partition has been extended. Use the **lsblk** command. The
+   partition size should now be equal to the volume size.
 
-    ```
-    `[ec2-user ~]$` `sudo lsblk``NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-    nvme1n1 259:0 0 30G 0 disk /data
-    nvme0n1 259:1 0 16G 0 disk
-    └─nvme0n1p1 259:2 0 16G 0 part /
-    └─nvme0n1p128 259:3 0 1M 0 part`
-    ```
+   Nitro instance example
+   The following example output shows that both the volume
+   (`nvme0n1`) and the partition (`nvme0n1p1`) are the
+   same size (`16 GB`).
 
-    Xen instance example
-    The following example output shows that both the volume
-    (`xvda`) and the partition (`xvda1`) are the same size
-    (`16 GB`).
+   ```
+   `[ec2-user ~]$` `sudo lsblk``NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   nvme1n1 259:0 0 30G 0 disk /data
+   nvme0n1 259:1 0 16G 0 disk
+   └─nvme0n1p1 259:2 0 16G 0 part /
+   └─nvme0n1p128 259:3 0 1M 0 part`
+   ```
 
-    ```
-    `[ec2-user ~]$` `sudo lsblk` `NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-    xvda 202:0 0 16G 0 disk
-    └─xvda1 202:1 0 16G 0 part /
-    xvdf 202:80 0 24G 0 disk`
-    ```
+   Xen instance example
+   The following example output shows that both the volume
+   (`xvda`) and the partition (`xvda1`) are the same size
+   (`16 GB`).
 
-3.  Extend the file system.
+   ```
+   `[ec2-user ~]$` `sudo lsblk` `NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   xvda 202:0 0 16G 0 disk
+   └─xvda1 202:1 0 16G 0 part /
+   xvdf 202:80 0 24G 0 disk`
+   ```
 
-    1. Get the name, size, type, and mount point for the file system that you need to
-       extend. Use the **df -hT** or **lsblk -f** command.
+3. Extend the file system.
 
-    Nitro instance example
-    The following example output for the **df -hT** command shows
-    that the `/dev/nvme0n1p1` file system is 8 GB in size, its type is
-    `xfs`, and its mount point is `/`.
+   1. Get the name, size, type, and mount point for the file system that you need to
+      extend. Use the **df -hT** or **lsblk -f** command.
 
-    ```
-    `[ec2-user ~]$` `df -hT``Filesystem Type Size Used Avail Use% Mounted on
-    /dev/nvme0n1p1 xfs 8.0G 1.6G 6.5G 20% /
-    /dev/nvme1n1 xfs 8.0G 33M 8.0G 1% /data
-    ...`
-    ```
+   Nitro instance example
+   The following example output for the **df -hT** command shows
+   that the `/dev/nvme0n1p1` file system is 8 GB in size, its type is
+   `xfs`, and its mount point is `/`.
 
-    Xen instance example
-    The following example output for the **df -hT** command shows
-    that the `/dev/xvda1` file system is 8 GB in size, its type is `ext4`,
-    and its mount point is `/`.
+   ```
+   `[ec2-user ~]$` `df -hT``Filesystem Type Size Used Avail Use% Mounted on
+   /dev/nvme0n1p1 xfs 8.0G 1.6G 6.5G 20% /
+   /dev/nvme1n1 xfs 8.0G 33M 8.0G 1% /data
+   ...`
+   ```
 
-    ```
-    `[ec2-user ~]$` `df -hT``Filesystem Type Size Used Avail Use% Mounted on
-    /dev/xvda1 ext4 8.0G 1.9G 6.2G 24% /
-    /dev/xvdf1 xfs 24.0G 45M 8.0G 1% /data
-    ...`
-    ```
+   Xen instance example
+   The following example output for the **df -hT** command shows
+   that the `/dev/xvda1` file system is 8 GB in size, its type is `ext4`,
+   and its mount point is `/`.
+
+   ```
+   `[ec2-user ~]$` `df -hT``Filesystem Type Size Used Avail Use% Mounted on
+   /dev/xvda1 ext4 8.0G 1.9G 6.2G 24% /
+   /dev/xvdf1 xfs 24.0G 45M 8.0G 1% /data
+   ...`
+   ```
 
         * If the file system size is smaller than the volume size, continue to the next
          step (3b).
         * If the file system size is equal to the volume size, then it does not need
          to be extended. In this case, skip the remaining steps - the partition and
          file system have been extended to the new volume size.
-    2.  The commands to extend the file system differ depending on the file system
-        type. Choose the following correct command based on the file system type that you
-        noted in the previous step.
 
-        - **[XFS file system]** Use the **xfs_growfs**
-          command and specify the mount point of the file system that you noted in the previous
-          step.
+   2. The commands to extend the file system differ depending on the file system
+   type. Choose the following correct command based on the file system type that you
+   noted in the previous step.
+
+        * **[XFS file system]** Use the **xfs\_growfs**
+         command and specify the mount point of the file system that you noted in the previous
+         step.
+
+
 
         Nitro and Xen instance example
         For example, to extend a file system mounted on `/`, use the following
-        command.
+         command.
+
+
 
         ```
         `[ec2-user ~]$` `sudo xfs_growfs -d /`
         ```
 
+
+
         ###### Troubleshooting tips
 
-            + `xfs_growfs: /data is not a mounted XFS filesystem`: Indicates that you
-             specified the incorrect mount point, or the file system is not XFS. To verify the mount
-             point and file system type, use the **df -hT** command.
-            + `data size unchanged, skipping`: Indicates that the file system already
-             extends the entire volume. If the volume has no partitions, [confirm that the volume modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions,
-             ensure that the partition was extended as described in step 2.
-        - **[Ext4 file system]** Use the **resize2fs**
-          command and specify the name of the file system that you noted in the previous step.
+
+
+        	+ `xfs_growfs: /data is not a mounted XFS filesystem`: Indicates that you
+        	 specified the incorrect mount point, or the file system is not XFS. To verify the mount
+        	 point and file system type, use the **df -hT** command.
+        	+ `data size unchanged, skipping`: Indicates that the file system already
+        	 extends the entire volume. If the volume has no partitions, [confirm that the volume modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions,
+        	 ensure that the partition was extended as described in step 2.
+        * **[Ext4 file system]** Use the **resize2fs**
+         command and specify the name of the file system that you noted in the previous step.
+
+
 
         Nitro instance example
         For example, to extend a file system mounted named `/dev/nvme0n1p1`, use the
-        following command.
+         following command.
+
+
 
         ```
         `[ec2-user ~]$` `sudo resize2fs /dev/nvme0n1p1`
         ```
 
+
         Xen instance example
         For example, to extend a file system mounted named `/dev/xvda1`, use the
-        following command.
+         following command.
+
+
 
         ```
         `[ec2-user ~]$` `sudo resize2fs /dev/xvda1`
         ```
 
+
+
         ###### Troubleshooting tips
 
-            + `resize2fs: Bad magic number in super-block while trying to open /dev/xvda1`:
-             Indicates that the file system is not Ext4. To verify file the system type, use the
-             **df -hT** command.
-            + `open: No such file or directory while opening /dev/xvdb1`: Indicates
-             that you specified an incorrect partition. To verify the partition, use the
-             **df -hT** command.
-            + `The filesystem is already 3932160 blocks long. Nothing to
-             do!`: Indicates that the file system already extends the entire
-             volume. If the volume has no partitions, [confirm that the volume
-             modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions, ensure that
-             the partition was extended, as described in step 2.
-        - **[Other file system]** See the documentation
-          for your file system for instructions.
 
-    3.  Verify that the file system has been extended. Use the **df -hT**
-        command and confirm that the file system size is equal to the volume size.
+
+        	+ `resize2fs: Bad magic number in super-block while trying to open /dev/xvda1`:
+        	 Indicates that the file system is not Ext4. To verify file the system type, use the
+        	 **df -hT** command.
+        	+ `open: No such file or directory while opening /dev/xvdb1`: Indicates
+        	 that you specified an incorrect partition. To verify the partition, use the
+        	 **df -hT** command.
+        	+ `The filesystem is already 3932160 blocks long. Nothing to
+        	 do!`: Indicates that the file system already extends the entire
+        	 volume. If the volume has no partitions, [confirm that the volume
+        	 modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions, ensure that
+        	 the partition was extended, as described in step 2.
+        * **[Other file system]** See the documentation
+         for your file system for instructions.
+
+   3. Verify that the file system has been extended. Use the **df -hT**
+   command and confirm that the file system size is equal to the volume size.
 
 Use one of the following methods to extend the file system on a Windows instance.
 

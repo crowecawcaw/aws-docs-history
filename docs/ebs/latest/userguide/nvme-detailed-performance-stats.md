@@ -122,7 +122,7 @@ into Prometheus.
 For more information, see [Ingest metrics to your Amazon Managed Service for Prometheus
 workspace](../../../prometheus/latest/userguide/AMP-ingest-methods.md "../../../prometheus/latest/userguide/AMP-ingest-methods.md") in the _Amazon Managed Service for Prometheus User Guide_.
 
-nvme_amzn.exe tool
+nvme\_amzn.exe tool
 
 ###### To access the statistics
 

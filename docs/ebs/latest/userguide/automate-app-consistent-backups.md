@@ -29,7 +29,7 @@ The following table outlines the requirements for using pre and post
 scripts with Amazon Data Lifecycle Manager.
 
 |                                                                                             | Application-consistent snapshots |                     |
-| ------------------------------------------------------------------------------------------- | -------------------------------- | ------------------- | --------------- |
+| ------------------------------------------------------------------------------------------- | -------------------------------- | ------------------- |
 | Requirement                                                                                 | VSS Backup                       | Custom SSM document | Other use cases |
 | SSM Agent installed and running on target instances                                         | ✓                                | ✓                   | ✓               |
 | VSS system requirements met on target instances                                             | ✓                                |                     |                 |
@@ -1145,27 +1145,28 @@ workload:
 
 8. Depending on the option you selected, configure the following additional options:
 
-   - **Script timeout** — (_Custom SSM document only_) The
+    * **Script timeout** — (*Custom SSM document only*) The
      timeout period after which Amazon Data Lifecycle Manager fails the script run attempt if it has not completed. If a script
      does not complete within its timeout period, Amazon Data Lifecycle Manager fails the attempt. The timeout period applies
      to the pre and post scripts individually. The minimum and default timeout period is 10 seconds. And
      the maximum timeout period is 120 seconds.
-   - **Retry failed scripts** — Select this option to retry scripts that do
+    * **Retry failed scripts** — Select this option to retry scripts that do
      not complete within their timeout period. If the pre script fails, Amazon Data Lifecycle Manager retries entire snapshot
      creation process, including running the pre and post scripts. If the post script fails, Amazon Data Lifecycle Manager
      retries the post script only; in this case, the pre script will have completed and the snapshot
      might have been created.
-   - **Default to crash-consistent snapshots** — Select this option to default
+    * **Default to crash-consistent snapshots** — Select this option to default
      to crash-consistent snapshots if the pre script fails to run. This is the default snapshot creation
      behavior for Amazon Data Lifecycle Manager if pre and post scripts is not enabled. If you enabled retries, Amazon Data Lifecycle Manager will
      default to crash-consistent snapshots only after all retry attempts have been exhausted. If the pre
      script fails and you do not default to crash-consistent snapshots, Amazon Data Lifecycle Manager will not create snapshots
      for the instance during that schedule run.
 
-   ###### Note
 
-   If you are creating snapshots for SAP HANA, then you might want to disabled this option.
-   Crash-consistent snapshots of SAP HANA workloads can't restored in the same manner.
+    ###### Note
+
+    If you are creating snapshots for SAP HANA, then you might want to disabled this option.
+     Crash-consistent snapshots of SAP HANA workloads can't restored in the same manner.
 
 9. Choose **Create default policy**.
 

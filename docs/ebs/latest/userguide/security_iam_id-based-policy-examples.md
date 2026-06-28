@@ -801,7 +801,7 @@ is created with tag key of `CSISnapshotName`.
 
 The following policy allows modification of a snapshot only if the snapshot is tagged
 with `User:`username``, where
- `username` is the customer's AWS account user name. The request
+`username` is the customer's AWS account user name. The request
 fails if this condition is not met.
 
 JSON

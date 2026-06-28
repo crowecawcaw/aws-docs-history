@@ -141,7 +141,7 @@ The following table shows the sector sizes that Amazon EBS advertises for the di
 types.
 
 | Instance type                   | Linux                                                      | Windows |
-| ------------------------------- | ---------------------------------------------------------- | ------- | ---- | --- | --- | --- | ---- | --- | --- | ---- | ---- | -------- | --- | --- | --- | ---- | ---- | --- | --- | ---- | --- | ---- | --- | ---- | ------- | ---- | ---- | --- | ---- | --- | --- | ---- | --- | ---- | --- | --- | -------- | --- | --- | --- | ------- | ------- | ------- | ------ | ------ | ------ | -------- | ------ | --- | --- | ------------------------------------------------------ | ---------------------------------------------------------- |
+| ------------------------------- | ---------------------------------------------------------- | ------- |
 | All Xen-based instance types    | Amazon EBS always advertises 512-byte physical sectors     |
 | A1                              | C5                                                         | C5a     | C5ad | C5d | C5n | C6g | C6gd | DL1 | D3  | D3en | G4ad | <br>G4dn | G5  | G5g | I3  | I3en | Inf1 | M5  | M5a | M5ad | M5d | M5dn | M5n | M5zn | <br>M6g | M6gd | P3dn | P4d | P4de | R5  | R5a | R5ad | R5d | R5dn | R5n | R6g | <br>R6gd | T3  | T3a | T4g | U-12tb1 | U-18tb1 | U-24tb1 | U-3tb1 | U-6tb1 | U-9tb1 | <br>X2gd | X2iezn | VT1 | Z1d | Amazon EBS always advertises 512-byte physical sectors | Amazon EBS advertises 512-byte or 4-KiB physical sectors 1 |
 | All other Nitro-based instances | Amazon EBS advertises 512-byte or 4-KiB physical sectors 1 |

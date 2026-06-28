@@ -7,30 +7,29 @@ Console
 
 ###### To lock a snapshot
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose **Snapshots**.
-3.  Select the snapshot to lock and choose **Actions**,
-    **Snapshot settings**, **Manage snapshot lock**.
-4.  Select **Lock snapshot**.
-5.  For **Lock mode**, choose either **Governance mode**
-    or **Compliance mode**. For more information, see [Lock mode](snapshot-lock-concepts.md#lock-mode "snapshot-lock-concepts.md#lock-mode").
-6.  For **Lock duration**, do one of the following:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Snapshots**.
+3. Select the snapshot to lock and choose **Actions**,
+   **Snapshot settings**, **Manage snapshot lock**.
+4. Select **Lock snapshot**.
+5. For **Lock mode**, choose either **Governance mode**
+   or **Compliance mode**. For more information, see [Lock mode](snapshot-lock-concepts.md#lock-mode "snapshot-lock-concepts.md#lock-mode").
+6. For **Lock duration**, do one of the following:
 
-        * To lock the snapshot for a specific period, choose **Lock snapshot for**,
-         and then enter the period in either days or years.
-        * To lock the snapshot until a specific date and time, choose **Lock snapshot
-         until**, and then select the expiration date and time.
+   - To lock the snapshot for a specific period, choose **Lock snapshot for**,
+     and then enter the period in either days or years.
+   - To lock the snapshot until a specific date and time, choose **Lock snapshot
+     until**, and then select the expiration date and time.
+     For more information, see [Lock duration](snapshot-lock-concepts.md#lock-duration "snapshot-lock-concepts.md#lock-duration").
 
-    For more information, see [Lock duration](snapshot-lock-concepts.md#lock-duration "snapshot-lock-concepts.md#lock-duration").
-
-7.  (_Compliance mode only_) For **Cooling-off period**,
-    specify a cooling-off period during which you can unlock the snapshot and modify the lock
-    configuration. For more information, see [Cooling-off period](snapshot-lock-concepts.md#cool-off "snapshot-lock-concepts.md#cool-off").
-8.  (_Compliance mode only_) To confirm that you want to lock the snapshot
-    in compliance mode and that you will not be able to unlock the snapshot after the cooling-off
-    period expires, choose **Acknowledge**.
-9.  Choose **Save lock settings**.
+7. (_Compliance mode only_) For **Cooling-off period**,
+   specify a cooling-off period during which you can unlock the snapshot and modify the lock
+   configuration. For more information, see [Cooling-off period](snapshot-lock-concepts.md#cool-off "snapshot-lock-concepts.md#cool-off").
+8. (_Compliance mode only_) To confirm that you want to lock the snapshot
+   in compliance mode and that you will not be able to unlock the snapshot after the cooling-off
+   period expires, choose **Acknowledge**.
+9. Choose **Save lock settings**.
 
 AWS CLI
 

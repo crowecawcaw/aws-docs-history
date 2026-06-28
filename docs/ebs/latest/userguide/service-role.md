@@ -64,191 +64,183 @@ the required permissions and then select them when you create a lifecycle policy
 
 ###### To create a custom IAM role
 
-1.  Create roles with the following permissions.
+1. Create roles with the following permissions.
 
-        * Permissions required for managing snapshot lifecycle policies
+   - Permissions required for managing snapshot lifecycle policies
 
+   JSON
 
+   ```
+   `{
+    "Version":"2012-10-17",
+    "Statement": [
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ec2:CreateSnapshot",
+    "ec2:CreateSnapshots",
+    "ec2:DeleteSnapshot",
+    "ec2:DescribeInstances",
+    "ec2:DescribeVolumes",
+    "ec2:DescribeSnapshots",
+    "ec2:EnableFastSnapshotRestores",
+    "ec2:DescribeFastSnapshotRestores",
+    "ec2:DisableFastSnapshotRestores",
+    "ec2:CopySnapshot",
+    "ec2:ModifySnapshotAttribute",
+    "ec2:DescribeSnapshotAttribute",
+    "ec2:ModifySnapshotTier",
+    "ec2:DescribeSnapshotTierStatus",
+    "ec2:DescribeAvailabilityZones"
+    ],
+    "Resource": "*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ec2:CreateTags"
+    ],
+    "Resource": "arn:aws:ec2:*::snapshot/*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "events:PutRule",
+    "events:DeleteRule",
+    "events:DescribeRule",
+    "events:EnableRule",
+    "events:DisableRule",
+    "events:ListTargetsByRule",
+    "events:PutTargets",
+    "events:RemoveTargets"
+    ],
+    "Resource": "arn:aws:events:*:*:rule/AwsDataLifecycleRule.managed-cwe.*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ssm:GetCommandInvocation",
+    "ssm:ListCommands",
+    "ssm:DescribeInstanceInformation"
+    ],
+    "Resource": "*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ssm:SendCommand",
+    "ssm:DescribeDocument",
+    "ssm:GetDocument"
+    ],
+    "Resource": [
+    "arn:aws:ssm:*:*:document/*"
+    ],
+    "Condition": {
+    "StringEquals": {
+    "aws:ResourceTag/DLMScriptsAccess": "true"
+    }
+    }
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ssm:SendCommand",
+    "ssm:DescribeDocument",
+    "ssm:GetDocument"
+    ],
+    "Resource": [
+    "arn:aws:ssm:*::document/*"
+    ]
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ssm:SendCommand"
+    ],
+    "Resource": [
+    "arn:aws:ec2:*:*:instance/*"
+    ],
+    "Condition": {
+    "StringNotLike": {
+    "aws:ResourceTag/DLMScriptsAccess": "false"
+    }
+    }
+    }
+    ]
+   }`
 
-        JSON
+   ```
+   - Permissions required for managing AMI lifecycle policies
 
+   JSON
 
+   ```
+   `{
+    "Version":"2012-10-17",
+    "Statement": [
+    {
+    "Effect": "Allow",
+    "Action": "ec2:CreateTags",
+    "Resource": [
+    "arn:aws:ec2:*::snapshot/*",
+    "arn:aws:ec2:*::image/*"
+    ]
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ec2:DescribeImages",
+    "ec2:DescribeInstances",
+    "ec2:DescribeImageAttribute",
+    "ec2:DescribeVolumes",
+    "ec2:DescribeSnapshots"
+    ],
+    "Resource": "*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": "ec2:DeleteSnapshot",
+    "Resource": "arn:aws:ec2:*::snapshot/*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ec2:ResetImageAttribute",
+    "ec2:DeregisterImage",
+    "ec2:CreateImage",
+    "ec2:CopyImage",
+    "ec2:ModifyImageAttribute"
+    ],
+    "Resource": "*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "ec2:EnableImageDeprecation",
+    "ec2:DisableImageDeprecation"
+    ],
+    "Resource": "arn:aws:ec2:*::image/*"
+    }
+    ]
+   }`
 
+   ```
 
-
-        ```
-        `{
-         "Version":"2012-10-17",
-         "Statement": [
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ec2:CreateSnapshot",
-         "ec2:CreateSnapshots",
-         "ec2:DeleteSnapshot",
-         "ec2:DescribeInstances",
-         "ec2:DescribeVolumes",
-         "ec2:DescribeSnapshots",
-         "ec2:EnableFastSnapshotRestores",
-         "ec2:DescribeFastSnapshotRestores",
-         "ec2:DisableFastSnapshotRestores",
-         "ec2:CopySnapshot",
-         "ec2:ModifySnapshotAttribute",
-         "ec2:DescribeSnapshotAttribute",
-         "ec2:ModifySnapshotTier",
-         "ec2:DescribeSnapshotTierStatus",
-         "ec2:DescribeAvailabilityZones"
-         ],
-         "Resource": "*"
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ec2:CreateTags"
-         ],
-         "Resource": "arn:aws:ec2:*::snapshot/*"
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "events:PutRule",
-         "events:DeleteRule",
-         "events:DescribeRule",
-         "events:EnableRule",
-         "events:DisableRule",
-         "events:ListTargetsByRule",
-         "events:PutTargets",
-         "events:RemoveTargets"
-         ],
-         "Resource": "arn:aws:events:*:*:rule/AwsDataLifecycleRule.managed-cwe.*"
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ssm:GetCommandInvocation",
-         "ssm:ListCommands",
-         "ssm:DescribeInstanceInformation"
-         ],
-         "Resource": "*"
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ssm:SendCommand",
-         "ssm:DescribeDocument",
-         "ssm:GetDocument"
-         ],
-         "Resource": [
-         "arn:aws:ssm:*:*:document/*"
-         ],
-         "Condition": {
-         "StringEquals": {
-         "aws:ResourceTag/DLMScriptsAccess": "true"
-         }
-         }
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ssm:SendCommand",
-         "ssm:DescribeDocument",
-         "ssm:GetDocument"
-         ],
-         "Resource": [
-         "arn:aws:ssm:*::document/*"
-         ]
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ssm:SendCommand"
-         ],
-         "Resource": [
-         "arn:aws:ec2:*:*:instance/*"
-         ],
-         "Condition": {
-         "StringNotLike": {
-         "aws:ResourceTag/DLMScriptsAccess": "false"
-         }
-         }
-         }
-         ]
-        }`
-
-        ```
-        * Permissions required for managing AMI lifecycle policies
-
-
-
-        JSON
-
-
-
-
-
-        ```
-        `{
-         "Version":"2012-10-17",
-         "Statement": [
-         {
-         "Effect": "Allow",
-         "Action": "ec2:CreateTags",
-         "Resource": [
-         "arn:aws:ec2:*::snapshot/*",
-         "arn:aws:ec2:*::image/*"
-         ]
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ec2:DescribeImages",
-         "ec2:DescribeInstances",
-         "ec2:DescribeImageAttribute",
-         "ec2:DescribeVolumes",
-         "ec2:DescribeSnapshots"
-         ],
-         "Resource": "*"
-         },
-         {
-         "Effect": "Allow",
-         "Action": "ec2:DeleteSnapshot",
-         "Resource": "arn:aws:ec2:*::snapshot/*"
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ec2:ResetImageAttribute",
-         "ec2:DeregisterImage",
-         "ec2:CreateImage",
-         "ec2:CopyImage",
-         "ec2:ModifyImageAttribute"
-         ],
-         "Resource": "*"
-         },
-         {
-         "Effect": "Allow",
-         "Action": [
-         "ec2:EnableImageDeprecation",
-         "ec2:DisableImageDeprecation"
-         ],
-         "Resource": "arn:aws:ec2:*::image/*"
-         }
-         ]
-        }`
-
-        ```
-
-    For more information, see [Creating a Role](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
-
-2.  Add a trust relationship to the roles.
+For more information, see [Creating a Role](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_. 2. Add a trust relationship to the roles.
 
     1. In the IAM console, choose **Roles**.
     2. Select the roles that you created, and then choose **Trust
-       relationships**.
+     relationships**.
     3. Choose **Edit Trust Relationship**, add the following policy, and then
-       choose **Update Trust Policy**.
+     choose **Update Trust Policy**.
+
+
 
     JSON
+
+
+
+
 
     ```
     `{
@@ -264,13 +256,19 @@ the required permissions and then select them when you create a lifecycle policy
 
     ```
 
+
+
+
+
     We recommend that you use the `aws:SourceAccount` and `aws:SourceArn`
-    condition keys to protect yourself against the [confused deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md"). For
-    example, you could add the following condition block to the previous trust policy. The
-    `aws:SourceAccount` is the owner of the lifecycle policy and the `aws:SourceArn`
-    is the ARN of the lifecycle policy. If you don't know the lifecycle policy ID, you can
-    replace that portion of the ARN with a wildcard (`*`) and then update the trust
-    policy after you create the lifecycle policy.
+     condition keys to protect yourself against the [confused deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md"). For
+     example, you could add the following condition block to the previous trust policy. The
+     `aws:SourceAccount` is the owner of the lifecycle policy and the `aws:SourceArn`
+     is the ARN of the lifecycle policy. If you don't know the lifecycle policy ID, you can
+     replace that portion of the ARN with a wildcard (`*`) and then update the trust
+     policy after you create the lifecycle policy.
+
+
 
     ```
     "Condition": {

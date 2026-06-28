@@ -140,28 +140,26 @@ to list the changed blocks between two snapshots:
 - The response can include one or more empty `ChangedBlocks` arrays. For
   example:
 
-      + Snapshot 1 — full snapshot with 1000 blocks with block indexes
-       `0` - `999`.
-      + Snapshot 2 — incremental snapshot with only one changed block with
-       block index `999`.
-
-  Listing the changed blocks for these snapshots with `StartingBlockIndex = 0`
-  and `MaxResults = 100` returns an empty array of `ChangedBlocks`.
-  You must request the remaining results using `nextToken` until the changed
-  block is returned in the tenth result set, which includes blocks with block indexes
-  `900` - `999`.
+  - Snapshot 1 — full snapshot with 1000 blocks with block indexes
+    `0` - `999`.
+  - Snapshot 2 — incremental snapshot with only one changed block with
+    block index `999`.
+    Listing the changed blocks for these snapshots with `StartingBlockIndex = 0`
+    and `MaxResults = 100` returns an empty array of `ChangedBlocks`.
+    You must request the remaining results using `nextToken` until the changed
+    block is returned in the tenth result set, which includes blocks with block indexes
+    `900` - `999`.
 
 - The response can skip unwritten blocks in the snapshots. For example:
 
-      + Snapshot 1 — full snapshot with 1000 blocks with block indexes
-       `2000` - `2999`.
-      + Snapshot 2 — incremental snapshot with only one changed block with block
-       index `2000`.
-
-  Listing the changed blocks for these snapshots with `StartingBlockIndex = 0`
-  and `MaxResults = 100`, the response skips block indexes `0` -
-  `1999` and includes block index `2000`. The response will not include
-  empty `ChangedBlocks` arrays.
+  - Snapshot 1 — full snapshot with 1000 blocks with block indexes
+    `2000` - `2999`.
+  - Snapshot 2 — incremental snapshot with only one changed block with block
+    index `2000`.
+    Listing the changed blocks for these snapshots with `StartingBlockIndex = 0`
+    and `MaxResults = 100`, the response skips block indexes `0` -
+    `1999` and includes block index `2000`. The response will not include
+    empty `ChangedBlocks` arrays.
 
 AWS CLI
 The following [list-changed-blocks](../../../cli/latest/reference/ebs/list-changed-blocks.md "../../../cli/latest/reference/ebs/list-changed-blocks.md")

@@ -15,17 +15,16 @@ Keep in mind the following considerations for pausing volume I/O:
   [NVMe I/O operation timeout for Amazon EBS volumes](timeout-nvme-ebs-volumes.md "timeout-nvme-ebs-volumes.md").
 - If you drive I/O to a volume that has I/O paused, the following happens:
 
-      + The volume's status transitions to `impaired` within 120 seconds. For more
-       information, see [Amazon EBS volume status checks](monitoring-volume-checks.md "monitoring-volume-checks.md").
-      + The CloudWatch metric for `VolumeStalledIOCheck` will be `1` if volume I/O is paused for over 60 seconds. For more information see [Metrics for Amazon EBS volumes](using_cloudwatch_ebs.md#ebs-volume-metrics "using_cloudwatch_ebs.md#ebs-volume-metrics").
-      + The CloudWatch metrics for queue length (`VolumeQueueLength`) will be non-zero.
-       Any alarms or monitoring should monitor for a non-zero queue depth.
-      + The CloudWatch metrics for `VolumeReadOps` or `VolumeWriteOps` will be
-       `0`, which indicates that the volume is no longer processing I/O.
-
-  You can perform a basic experiment from the Amazon EC2 console, or you can perform more advanced
-  experiments using the AWS FIS console. For more information about performing advanced experiments using
-  the AWS FIS console, see [Tutorials for AWS FIS](../../../fis/latest/userguide/fis-tutorials.md "../../../fis/latest/userguide/fis-tutorials.md") in the _AWS Fault Injection Service User Guide_.
+  - The volume's status transitions to `impaired` within 120 seconds. For more
+    information, see [Amazon EBS volume status checks](monitoring-volume-checks.md "monitoring-volume-checks.md").
+  - The CloudWatch metric for `VolumeStalledIOCheck` will be `1` if volume I/O is paused for over 60 seconds. For more information see [Metrics for Amazon EBS volumes](using_cloudwatch_ebs.md#ebs-volume-metrics "using_cloudwatch_ebs.md#ebs-volume-metrics").
+  - The CloudWatch metrics for queue length (`VolumeQueueLength`) will be non-zero.
+    Any alarms or monitoring should monitor for a non-zero queue depth.
+  - The CloudWatch metrics for `VolumeReadOps` or `VolumeWriteOps` will be
+    `0`, which indicates that the volume is no longer processing I/O.
+    You can perform a basic experiment from the Amazon EC2 console, or you can perform more advanced
+    experiments using the AWS FIS console. For more information about performing advanced experiments using
+    the AWS FIS console, see [Tutorials for AWS FIS](../../../fis/latest/userguide/fis-tutorials.md "../../../fis/latest/userguide/fis-tutorials.md") in the _AWS Fault Injection Service User Guide_.
 
 ###### To perform a basic experiment using the Amazon EC2 console
 

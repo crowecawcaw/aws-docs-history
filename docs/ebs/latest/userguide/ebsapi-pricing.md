@@ -10,11 +10,11 @@ information, see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https
   charges $0.0006 per 1,000 requests, you will be charged $0.06 ($0.0006 per 1,000 requests x
   100).
 - **GetSnapshotBlock** is charged per block returned. For
-  example, if you make 100,000 GetSnapshotBlock API requests in a Region that charges $0.003
-  per 1,000 blocks returned, you will be charged $0.30 ($0.003 per 1,000 blocks returned x 100).
+  example, if you make 100,000 GetSnapshotBlock API requests in a Region that charges $0.003 
+ per 1,000 blocks returned, you will be charged $0.30 ($0.003 per 1,000 blocks returned x 100).
 - **PutSnapshotBlock** is charged per block written. For
-  example, if you make 100,000 PutSnapshotBlock API requests in a Region that charges $0.006
-  per 1,000 blocks written, you will be charged $0.60 ($0.006 per 1,000 blocks written x 100).
+  example, if you make 100,000 PutSnapshotBlock API requests in a Region that charges $0.006 
+ per 1,000 blocks written, you will be charged $0.60 ($0.006 per 1,000 blocks written x 100).
 
 ## Networking costs
 

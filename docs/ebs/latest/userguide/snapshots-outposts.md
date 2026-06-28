@@ -271,13 +271,12 @@ The following rules apply to snapshot storage:
   snapshots must be stored in the same Region. To start creating local snapshots from that
   volume, do the following:
 
-      1. Create a snapshot of the volume in the AWS Region.
-      2. Copy the snapshot to the Outpost from the AWS Region.
-      3. Create a new volume from the local snapshot.
-      4. Attach the volume to an instance on the Outpost.
-
-  For the new volume on the Outpost, the next snapshot can be stored on the Outpost or in the
-  AWS Region. All successive snapshots must then be stored in that same location.
+  1.  Create a snapshot of the volume in the AWS Region.
+  2.  Copy the snapshot to the Outpost from the AWS Region.
+  3.  Create a new volume from the local snapshot.
+  4.  Attach the volume to an instance on the Outpost.
+      For the new volume on the Outpost, the next snapshot can be stored on the Outpost or in the
+      AWS Region. All successive snapshots must then be stored in that same location.
 
 - Local snapshots, including snapshots created on an Outpost and snapshots copied to an
   Outpost from an AWS Region, can be used only to create volumes on the same Outpost.
@@ -408,7 +407,7 @@ stored in an AWS Region to an Outpost.
 The following table provides an overview of the supported features.
 
 | Resource location | Snapshot destination | Cross-region copy | Fast snapshot restore | Cross-account sharing |
-| ----------------- | -------------------- | ----------------- | --------------------- | --------------------- | --- |
+| ----------------- | -------------------- | ----------------- | --------------------- | --------------------- |
 | To Region         | To Outpost           |
 | Region            | Region               | ✓                 | ✓                     | ✓                     | ✓   |
 | Outpost           | Region               | ✓                 | ✓                     | ✓                     | ✓   |

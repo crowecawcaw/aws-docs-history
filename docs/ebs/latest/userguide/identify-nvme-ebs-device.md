@@ -38,7 +38,8 @@ your instance, such as one of the following:
 
   - For Amazon Linux or FreeBSD AMI, use the `sudo ebsnvme-id /dev/`nvme0n1` -u`
     command for a consistent NVMe device name.
-  - For other distributions, use the `sudo nvme id-ctrl -V /dev/`nvme0n1``command to determine the NVMe device name. You might need to include the`--vendor-specific`
+  - For other distributions, use the `sudo nvme id-ctrl -V /dev/`nvme0n1``
+    command to determine the NVMe device name. You might need to include the `--vendor-specific`
     command option.
 
 - When a device is formatted, a UUID is generated that persists for the life of

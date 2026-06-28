@@ -232,11 +232,9 @@ for each destination Region. For each rule that you add, do the following:
      but do not specify a KMS key, the snapshots are encrypted using the default encryption KMS key in each destination
      Region. If you specify a KMS key for the destination Region, you must have access to the KMS key.
 
-9. To add additional snapshot copy actions, choose **Add new Regions**.
-10. For **Policy status after creation**, choose **Enable policy** to start the policy
-    runs at the next scheduled time, or **Disable policy** to prevent the policy from running. If you do
-    not enable the policy now, it will not start copying snapshots until you manually enable it after creation.
-11. Choose **Create policy**.
+9. To add additional snapshot copy actions, choose **Add new Regions**. 10. For **Policy status after creation**, choose **Enable policy** to start the policy
+runs at the next scheduled time, or **Disable policy** to prevent the policy from running. If you do
+not enable the policy now, it will not start copying snapshots until you manually enable it after creation. 11. Choose **Create policy**.
 
 Command line
 Use the [create-lifecycle-policy](../../../cli/latest/reference/dlm/create-lifecycle-policy.md "../../../cli/latest/reference/dlm/create-lifecycle-policy.md")

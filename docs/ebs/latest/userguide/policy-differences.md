@@ -29,7 +29,7 @@ EBS snapshots and custom EBS snapshot policies.
 | **Support fast snapshot restore**            | No                                                                                                                                        | Yes                                                                                    |
 | **Support cross-Region copying**             | Yes, with default settings 1                                                                                                              | Yes, with custom settings                                                              |
 | **Support cross-account sharing**            | No                                                                                                                                        | Yes                                                                                    |
-| \*_Support extended deletion_<br>• 2         | Yes                                                                                                                                       | No                                                                                     |
+| *_Support extended deletion_<br>• 2          | Yes                                                                                                                                       | No                                                                                     |
 
 1 For default policies:
 
@@ -67,7 +67,7 @@ EBS-backed AMIs and custom EBS-backed AMI policies.
 | **AMIs retention**                       | 2 to 14 days.                                                                                                                            | Up to 1000 AMIs (count-based) or up to 100 years (age-based).                |
 | **Support AMI deprecation**              | No                                                                                                                                       | Yes                                                                          |
 | **Support cross-Region copying**         | Yes, with default settings 1                                                                                                             | Yes, with custom settings                                                    |
-| \*_Support extended deletion_<br>• 2     | Yes                                                                                                                                      | No                                                                           |
+| *_Support extended deletion_<br>• 2      | Yes                                                                                                                                      | No                                                                           |
 
 1For default policies:
 

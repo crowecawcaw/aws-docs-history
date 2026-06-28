@@ -191,16 +191,15 @@ time, from oldest to newest, is as follows:
      archive)
 
 4. Identify the snapshots that were created immediately before and after the snapshot that you
-   want to archive. In this case, you want to archive snapshot `snap-09c9114207084f0d9`,
-   which was the second incremental snapshot created in the set of three snapshots. Snapshot
-   `snap-08ca60083f86816b0` was created immediately before, and snapshot
-   `snap-024f49fe8dd853fa8` was created immediately after.
-5. Find the unreferenced data in the snapshot that you want to archive. First, find the blocks
-   that are different between the snapshot that was created immediately before the snapshot that you
-   want to archive, and the snapshot that you want to archive. Use the [list-changed-blocks](../../../cli/latest/reference/ebs/list-changed-blocks.md "../../../cli/latest/reference/ebs/list-changed-blocks.md") command. For
-   `--first-snapshot-id`, specify the ID of the snapshot that was created immediately
-   before the snapshot that you want to archive. For `--second-snapshot-id`, specify the
-   ID of the snapshot that you want to archive.
+want to archive. In this case, you want to archive snapshot `snap-09c9114207084f0d9`,
+which was the second incremental snapshot created in the set of three snapshots. Snapshot
+`snap-08ca60083f86816b0` was created immediately before, and snapshot
+`snap-024f49fe8dd853fa8` was created immediately after. 5. Find the unreferenced data in the snapshot that you want to archive. First, find the blocks
+that are different between the snapshot that was created immediately before the snapshot that you
+want to archive, and the snapshot that you want to archive. Use the [list-changed-blocks](../../../cli/latest/reference/ebs/list-changed-blocks.md "../../../cli/latest/reference/ebs/list-changed-blocks.md") command. For
+`--first-snapshot-id`, specify the ID of the snapshot that was created immediately
+before the snapshot that you want to archive. For `--second-snapshot-id`, specify the
+ID of the snapshot that you want to archive.
 
 ```
 `$` aws ebs list-changed-blocks --first-snapshot-id `snapshot_created_before` --second-snapshot-id `snapshot_to_archive`

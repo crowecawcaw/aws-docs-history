@@ -9,12 +9,11 @@ When you create a retention rule, you must specify the following required parame
 - The retention period to retain resources after they are deleted. After this period expires, the
   resources are permanently deleted from the Recycle Bin. The supported retention periods are:
 
-      + EBS volumes: 1 - 7 days
-      + EBS snapshots and EBS-backed AMIs: 1 - 365 days
-
-  You can also optionally specify a rule name and description of up to 255 characters each, and
-  tags to help you identify and organize your rules. We recommend that you do not include personally
-  identifying, confidential, or sensitive information in the name, description, or tags.
+  - EBS volumes: 1 - 7 days
+  - EBS snapshots and EBS-backed AMIs: 1 - 365 days
+    You can also optionally specify a rule name and description of up to 255 characters each, and
+    tags to help you identify and organize your rules. We recommend that you do not include personally
+    identifying, confidential, or sensitive information in the name, description, or tags.
 
 You can also optionally lock Region-level retention rules on creation.
 If you lock a retention rule on creation, you must also specify the unlock delay period,

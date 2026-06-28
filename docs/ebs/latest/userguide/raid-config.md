@@ -390,7 +390,7 @@ disks to dynamic disks and to delete any existing volumes.
      to use in your array.
 
 7. Verify that the disks you want to use are now dynamic. In this case, we're using
-   disks 1 and 2 for the RAID volume.
+disks 1 and 2 for the RAID volume.
 
 ```
 `DISKPART>` `list disk``Disk ### Status Size Free Dyn Gpt

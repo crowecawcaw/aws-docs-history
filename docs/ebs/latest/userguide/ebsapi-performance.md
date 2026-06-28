@@ -2,7 +2,8 @@
 
 You can run API requests concurrently. Assuming PutSnapshotBlock latency is 100ms, then a
 thread can process 10 requests in one second. Furthermore, assuming your client application
-creates multiple threads and connections (for example, 100 connections), it can make 1000 (10 \* 100) requests per second in total. This will correspond to a throughput of around 500 MB per
+creates multiple threads and connections (for example, 100 connections), it can make 1000 (10
+\* 100) requests per second in total. This will correspond to a throughput of around 500 MB per
 second.
 
 The following list contains few things to look for in your application:

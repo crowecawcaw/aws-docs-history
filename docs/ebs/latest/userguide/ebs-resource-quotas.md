@@ -80,18 +80,17 @@ Your AWS account has the following quotas related to Amazon EBS.
   their combined current IOPS is equal to or less than `50,000`. If you
   have three `io1` volumes provisioned with `20,000` IOPS each,
   you can request IOPS modifications for two volumes concurrently (`20,000 * 2 < 
-50,000`). If you submit a concurrent IOPS modification request for the third
+ 50,000`). If you submit a concurrent IOPS modification request for the third
   volume, you exceed your quota and that request fails (`20,000 * 3 > 50,000`).
 - Amazon EBS has the following non-adjustable limits for the number of EBS volumes per instance
   launch request.
 
-      + `2500` — `us-east-1`, `us-west-2`, `eu-west-1`,
-       and `ap-northeast-1`
-      + `500` — all other Regions
-
-  This limit applies to instance launch requests that you make, and to instance launch
-  requests made by AWS services, such as Amazon EMR, on your behalf. If your instance launch
-  request fails as a result of exceeding this limit, we recommend that you adjust the EBS
-  volume configuration in the launch request to ensure the number of volumes is below the
-  limit, or that you work with your technical account manager (TAM) to explore other
-  options for launching your cluster without exceeding the limit.
+  - `2500` — `us-east-1`, `us-west-2`, `eu-west-1`,
+    and `ap-northeast-1`
+  - `500` — all other Regions
+    This limit applies to instance launch requests that you make, and to instance launch
+    requests made by AWS services, such as Amazon EMR, on your behalf. If your instance launch
+    request fails as a result of exceeding this limit, we recommend that you adjust the EBS
+    volume configuration in the launch request to ensure the number of volumes is below the
+    limit, or that you work with your technical account manager (TAM) to explore other
+    options for launching your cluster without exceeding the limit.

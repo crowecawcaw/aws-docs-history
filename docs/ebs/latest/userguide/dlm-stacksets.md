@@ -85,13 +85,9 @@ stack resources. 11. For **Managed execution**, choose **Active**. 12. Choose **
     	 an organizational unit**, and then for **Organization numbers**, enter
     	 the ID of the target OU.
 
-15. For **Automatic deployment**, choose **Activated**.
-16. For **Account removal behavior**, choose **Retain stacks**.
-17. For **Specify regions**, select specific Regions in which to enable default policies,
-    or choose **Add all Regions** to enable default policies in all Regions.
-18. Choose **Next**.
-19. Review the stack set settings, select **I acknowledge that CloudFormation might create IAM
-    resources**, and then choose **Submit**.
+15. For **Automatic deployment**, choose **Activated**. 16. For **Account removal behavior**, choose **Retain stacks**. 17. For **Specify regions**, select specific Regions in which to enable default policies,
+or choose **Add all Regions** to enable default policies in all Regions. 18. Choose **Next**. 19. Review the stack set settings, select **I acknowledge that CloudFormation might create IAM
+resources**, and then choose **Submit**.
 
 AWS CLI
 

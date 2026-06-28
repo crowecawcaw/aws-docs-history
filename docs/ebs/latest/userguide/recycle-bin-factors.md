@@ -31,11 +31,10 @@ retaining resources almost immediately.
 - When a resource is sent to the Recycle Bin, the following system-generate tag is
   assigned to the resource:
 
-      + Tag key — `aws:recycle-bin:resource-in-bin`
-      + Tag value — `true`
-
-  You can't manually edit or delete this tag. When the resource is restored from the
-  Recycle Bin, the tag is automatically removed.
+  - Tag key — `aws:recycle-bin:resource-in-bin`
+  - Tag value — `true`
+    You can't manually edit or delete this tag. When the resource is restored from the
+    Recycle Bin, the tag is automatically removed.
 
 ###### Considerations for volumes
 

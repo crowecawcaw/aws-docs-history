@@ -22,21 +22,21 @@ Console
 
 ###### To create a snapshot policy
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose **Elastic Block Store**, **Lifecycle Manager**,
-    and then choose **Create lifecycle policy**.
-3.  On the **Select policy type** screen, choose **EBS snapshot policy** and then
-    choose **Next**.
-4.  In the **Target resources** section, do the following:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Elastic Block Store**, **Lifecycle Manager**,
+   and then choose **Create lifecycle policy**.
+3. On the **Select policy type** screen, choose **EBS snapshot policy** and then
+   choose **Next**.
+4. In the **Target resources** section, do the following:
 
-    1. For **Target resource types**, choose the type of resource to back up. Choose
-       `Volume` to create snapshots of individual volumes, or choose `Instance` to create
-       multi-volume snapshots from the volumes attached to an instance.
-    2. (_Outpost and Local Zone customers only_) Specify where the target resources
-       are located.
+   1. For **Target resource types**, choose the type of resource to back up. Choose
+      `Volume` to create snapshots of individual volumes, or choose `Instance` to create
+      multi-volume snapshots from the volumes attached to an instance.
+   2. (_Outpost and Local Zone customers only_) Specify where the target resources
+      are located.
 
-    For **Target resource location**, specify where the target resources are located.
+   For **Target resource location**, specify where the target resources are located.
 
         * To target resources in a Region, choose **AWS Region**. Amazon Data Lifecycle Manager will back up
          all resources of the specified type that have matching target tags in the current Region only.
@@ -50,21 +50,21 @@ Console
          account. Snapshots can be created on the same Outpost as the source resource, or in its parent
          Region.
 
-    [Show moreShow less](# "#") 3. For **Target resource tags**, choose the resource tags that identify the volumes or
-    instances to back up. Only resources that have the specified tag key and value pairs are backed up by the
-    policy.
+   [Show moreShow less](# "#") 3. For **Target resource tags**, choose the resource tags that identify the volumes or
+   instances to back up. Only resources that have the specified tag key and value pairs are backed up by the
+   policy.
 
-5.  For **Description**, enter a brief description for the policy.
-6.  For **IAM role**, choose the IAM role that has permissions to manage snapshots and to describe
-    volumes and instances. To use the default role provided by Amazon Data Lifecycle Manager. choose **Default role**.
-    Alternatively, to use a custom IAM role that you previously created, choose **Choose another role**
-    and then select the role to use.
-7.  For **Policy tags**, add the tags to apply to the lifecycle policy. You can use these tags to
-    identify and categorize your policies.
-8.  For **Policy status**, choose **Enable** to start the policy runs at the next
-    scheduled time, or **Disable policy** to prevent the policy from running. If you do not enable
-    the policy now, it will not start creating snapshots until you manually enable it after creation.
-9.  (_Policies that target instances only_) Exclude volumes from multi-volume snapshot sets.
+5. For **Description**, enter a brief description for the policy.
+6. For **IAM role**, choose the IAM role that has permissions to manage snapshots and to describe
+   volumes and instances. To use the default role provided by Amazon Data Lifecycle Manager. choose **Default role**.
+   Alternatively, to use a custom IAM role that you previously created, choose **Choose another role**
+   and then select the role to use.
+7. For **Policy tags**, add the tags to apply to the lifecycle policy. You can use these tags to
+   identify and categorize your policies.
+8. For **Policy status**, choose **Enable** to start the policy runs at the next
+   scheduled time, or **Disable policy** to prevent the policy from running. If you do not enable
+   the policy now, it will not start creating snapshots until you manually enable it after creation.
+9. (_Policies that target instances only_) Exclude volumes from multi-volume snapshot sets.
 
 By default, Amazon Data Lifecycle Manager will create snapshots of all the volumes attached
 to targeted instances. However, you can choose to create snapshots of a subset of the attached volumes. In the

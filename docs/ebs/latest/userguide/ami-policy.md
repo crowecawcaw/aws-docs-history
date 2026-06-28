@@ -16,41 +16,41 @@ Console
 
 ###### To create an AMI policy
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  In the navigation pane, choose **Elastic Block Store**, **Lifecycle Manager**,
-    and then choose **Create lifecycle policy**.
-3.  On the **Select policy type** screen, choose **EBS-backed AMI
-    policy**, and then choose
-    **Next**.
-4.  In the **Target resources** section, for **Target resource
-    tags**, choose the resource tags that identify the
-    volumes or instances to back up. The policy backs up only the
-    resources that have the specified tag key and value pairs.
-5.  For **Description**, enter a brief description for the policy.
-6.  For **IAM role**, choose the IAM role that has permissions to
-    manage AMIs and snapshot and to describe instances. To use the
-    default role provided by Amazon Data Lifecycle Manager, choose **Default
-    role**. Alternatively, to use a custom IAM role that
-    you previously created, choose **Choose another
-    role**, and then select the role to use.
-7.  For **Policy tags**, add the tags to apply
-    to the lifecycle policy. You can use these tags to identify
-    and categorize your policies.
-8.  For **Policy status after creation**, choose **Enable
-    policy** to start running the policy at the next
-    scheduled time, or **Disable policy** to prevent
-    the policy from running. If you do not enable the policy now, it
-    will not start creating AMIs until you manually enable it after
-    creation.
-9.  In the **Instance reboot** section, indicate
-    whether instances should be rebooted before AMI creation. To
-    prevent the targeted instances from being rebooted, choose
-    **No**. Choosing **No** could
-    cause data consistency issues. To reboot instances before AMI
-    creation, choose **Yes**. Choosing this ensures
-    data consistency, but could result in multiple targeted instances
-    rebooting simultaneously.
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Elastic Block Store**, **Lifecycle Manager**,
+   and then choose **Create lifecycle policy**.
+3. On the **Select policy type** screen, choose **EBS-backed AMI
+   policy**, and then choose
+   **Next**.
+4. In the **Target resources** section, for **Target resource
+   tags**, choose the resource tags that identify the
+   volumes or instances to back up. The policy backs up only the
+   resources that have the specified tag key and value pairs.
+5. For **Description**, enter a brief description for the policy.
+6. For **IAM role**, choose the IAM role that has permissions to
+   manage AMIs and snapshot and to describe instances. To use the
+   default role provided by Amazon Data Lifecycle Manager, choose **Default
+   role**. Alternatively, to use a custom IAM role that
+   you previously created, choose **Choose another
+   role**, and then select the role to use.
+7. For **Policy tags**, add the tags to apply
+   to the lifecycle policy. You can use these tags to identify
+   and categorize your policies.
+8. For **Policy status after creation**, choose **Enable
+   policy** to start running the policy at the next
+   scheduled time, or **Disable policy** to prevent
+   the policy from running. If you do not enable the policy now, it
+   will not start creating AMIs until you manually enable it after
+   creation.
+9. In the **Instance reboot** section, indicate
+   whether instances should be rebooted before AMI creation. To
+   prevent the targeted instances from being rebooted, choose
+   **No**. Choosing **No** could
+   cause data consistency issues. To reboot instances before AMI
+   creation, choose **Yes**. Choosing this ensures
+   data consistency, but could result in multiple targeted instances
+   rebooting simultaneously.
 10. Choose **Next**.
 11. On the **Configure schedule** screen, configure
     the policy schedules. A policy can have up to four schedules.

@@ -108,25 +108,24 @@ see the [AWS Lambda Developer Guide](../../../lambda/latest/dg.md "../../../lamb
 
 6. For **Step 2: Build event pattern**, do the following:
 
-   1. For **Event source**, select **AWS events or EventBridge partner events**.
-   2. In the **Event pattern** section, for **Event source**,
-      ensure that **AWS service** is selected, and for **AWS service**,
-      select **EC2**.
-   3. For **Event type**, select **EBS Snapshot Notification**, select
-      **Specific event(s)**, and then choose **createSnapshot**.
-   4. Select **Specific result(s)** and then choose **succeeded**.
-   5. Choose **Next**.
+    1. For **Event source**, select **AWS events or EventBridge partner events**.
+    2. In the **Event pattern** section, for **Event source**,
+     ensure that **AWS service** is selected, and for **AWS service**,
+     select **EC2**.
+    3. For **Event type**, select **EBS Snapshot Notification**, select
+     **Specific event(s)**, and then choose **createSnapshot**.
+    4. Select **Specific result(s)** and then choose **succeeded**.
+    5. Choose **Next**.
 
 7. For **Step 3: Select targets**, do the following:
 
-   1. For **Target types**, choose **AWS service**.
-   2. For **Select target**, choose **Lambda function**, and for
-      **Function** select the function that you created earlier.
-   3. Choose **Next**
+    1. For **Target types**, choose **AWS service**.
+    2. For **Select target**, choose **Lambda function**, and for
+     **Function** select the function that you created earlier.
+    3. Choose **Next**
 
 8. For **Step 4: Configure tags**, specify tags for the rule if needed, and then choose
-   **Next**.
-9. For **Step 5: Review and create**, review the rule and then choose **Create rule**.
-   Your rule should now appear on the **Rules** tab. In the example
-   shown, the event that you configured should be emitted by EBS the next time you copy a
-   snapshot.
+**Next**. 9. For **Step 5: Review and create**, review the rule and then choose **Create rule**.
+Your rule should now appear on the **Rules** tab. In the example
+shown, the event that you configured should be emitted by EBS the next time you copy a
+snapshot.

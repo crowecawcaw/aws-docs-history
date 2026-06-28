@@ -124,11 +124,11 @@ To copy an encrypted snapshot, your user must have the following permissions to
 use Amazon EBS encryption.
 
 - - `kms:DescribeKey`
-  - `kms:CreateGrant`
-  - `kms:GenerateDataKey`
-  - `kms:GenerateDataKeyWithoutPlaintext`
-  - `kms:ReEncrypt`
-  - `kms:Decrypt`
+    - `kms:CreateGrant`
+    - `kms:GenerateDataKey`
+    - `kms:GenerateDataKeyWithoutPlaintext`
+    - `kms:ReEncrypt`
+    - `kms:Decrypt`
 - To copy an encrypted snapshot that is shared from another AWS account, you must
   have permissions to use customer managed key that was used to encrypt that snapshot. For more
   information, see [Share the KMS key used to encrypt a shared Amazon EBS snapshot](share-kms-key.md "share-kms-key.md").
@@ -176,9 +176,9 @@ so that you can identify a copy from the original. 5. Specify the destination fo
      the destination Outpost.
 
 6. If you need the snapshot copy to be completed within a specific timeframe, select
-   **Enable time-based copy**. For **Completion duration**,
-   enter the required completion duration, in 15-minute increments. For more information,
-   [Time-based copies for Amazon EBS snapshots and EBS-backed AMIs](time-based-copies.md "time-based-copies.md").
+**Enable time-based copy**. For **Completion duration**,
+enter the required completion duration, in 15-minute increments. For more information,
+[Time-based copies for Amazon EBS snapshots and EBS-backed AMIs](time-based-copies.md "time-based-copies.md").
 
 If you do not need the snapshot copy to be completed in a specific timeframe, do
 not enable time-based copy. In this case, the snapshot copy is completed on a best-effort

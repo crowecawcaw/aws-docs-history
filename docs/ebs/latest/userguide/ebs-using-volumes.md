@@ -391,7 +391,7 @@ If the disk is not initialized, initialize it as follows:
     ![Initialize volume settings.](images/windows-2016-volume-initialize-settings.png)
 
 5. Open the context (right-click) menu for the right panel for the disk, and choose
-   **New Simple Volume**.
+**New Simple Volume**.
 
 ![Mount a simple volume.](images/windows-2016-new-simple-volume.png) 6. In the **New Simple Volume Wizard**, choose
 **Next**.
