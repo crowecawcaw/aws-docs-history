@@ -5,12 +5,11 @@ You can require users to provide valid credentials when they access Elemental Li
 - For the web interface, users must complete the fields on the login screen.
 - For the REST API, users must include these additional HTTP headers in commands that they send:
 
-      + `X-Auth-User`
-      + `X-Auth-Expires`
-      + `X-Auth-Key`
-
-  For more information about using the API with authentication enabled, see the
-  Elemental Live REST API documentation.
+  - `X-Auth-User`
+  - `X-Auth-Expires`
+  - `X-Auth-Key`
+    For more information about using the API with authentication enabled, see the
+    Elemental Live REST API documentation.
 
 ###### To enable user authentication
 
@@ -40,10 +39,9 @@ Complete `--https` as follows:
      enabled by default in these versions.
 
 6. For the prompt `Do you wish to enable authentication?`,
-   type `Y`.
-7. For the prompt `Do you wish to enable PAM?`, type
-   `N`. If you're using PAM authentication, type
-   `Y`.
+type `Y`. 7. For the prompt `Do you wish to enable PAM?`, type
+`N`. If you're using PAM authentication, type
+`Y`.
 
 For information about the different authentication options, see [User authentication reference](config-wrkr-lv-cg-auth-ref.md "config-wrkr-lv-cg-auth-ref.md"). 8. At the prompts, create an admin API user name, email address, and password.
 
