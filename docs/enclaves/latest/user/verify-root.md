@@ -101,17 +101,17 @@ the [Nitro Enclaves Attestation Process](https://github.com/aws/aws-nitro-enclav
 
 When you request an attestation document from the Nitro Hypervisor, you receive a
 binary blob that contains the signed attestation document. The signed attestation
-document is a CBOR-encoded, COSE-signed (using the COSE_Sign1 signature structure)
+document is a CBOR-encoded, COSE-signed (using the COSE\_Sign1 signature structure)
 object. The overall validation process includes the following steps:
 
-1. Decode the CBOR object and map it to a COSE_Sign1 structure.
-2. Extract the attestation document from the COSE_Sign1 structure.
+1. Decode the CBOR object and map it to a COSE\_Sign1 structure.
+2. Extract the attestation document from the COSE\_Sign1 structure.
 3. Verify the certificate's chain.
 4. Ensure that the attestation document is properly signed.
 
 Attestation documents are signed by the AWS Nitro Attestation PKI, which includes a
 root certificate for the commercial AWS partitions. The root certificate can be
-downloaded from [https://aws-nitro-enclaves.amazonaws.com/AWS_NitroEnclaves_Root-G1.zip](https://aws-nitro-enclaves.amazonaws.com/AWS_NitroEnclaves_Root-G1.zip "https://aws-nitro-enclaves.amazonaws.com/AWS_NitroEnclaves_Root-G1.zip"), and
+downloaded from [https://aws-nitro-enclaves.amazonaws.com/AWS\_NitroEnclaves\_Root-G1.zip](https://aws-nitro-enclaves.amazonaws.com/AWS_NitroEnclaves_Root-G1.zip "https://aws-nitro-enclaves.amazonaws.com/AWS_NitroEnclaves_Root-G1.zip"), and
 it can be verified using the following fingerprint.
 
 ```
@@ -135,15 +135,15 @@ CN=aws.nitro-enclaves, C=US, O=Amazon, OU=AWS
 
 ### COSE and CBOR
 
-Usually, the COSE_Sign1 signature structure is used when only one signature is
+Usually, the COSE\_Sign1 signature structure is used when only one signature is
 going to be placed on a message. The parameters dealing with the content and the
 signature are placed in the protected header rather than having the separation of
-COSE_Sign. The structure can be encoded as either tagged or untagged, depending on
-the context it will be used in. A tagged COSE_Sign1 structure is identified by the
+COSE\_Sign. The structure can be encoded as either tagged or untagged, depending on
+the context it will be used in. A tagged COSE\_Sign1 structure is identified by the
 CBOR tag 18.
 
 The CBOR object that carries the body, the signature, and the information about
-the body and signature is called the COSE_Sign1 structure. The COSE_Sign1 structure
+the body and signature is called the COSE\_Sign1 structure. The COSE\_Sign1 structure
 is a CBOR array. The array includes the following fields.
 
 ```

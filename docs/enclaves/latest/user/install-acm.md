@@ -473,7 +473,7 @@ The completed section should appear as follows.
     ```
 
 7. Start the ACM for Nitro Enclaves service and ensure that it
-   starts automatically at instance boot.
+starts automatically at instance boot.
 
 ```
 `$` sudo systemctl start nitro-enclaves-acm.service
@@ -496,7 +496,7 @@ command.
 If you used a private certificate, you must add the host name
 to `/etc/hosts` in the following format:
 `127.0.0.1 `host_name``,
- for example `127.0.0.1 example.com`. And you must
+for example `127.0.0.1 example.com`. And you must
 specify the certificate chain to use to validate the
 certificate. For more information about generating the
 certificate chain for your certificate, see [Exporting a Private Certificate](../../../acm/latest/userguide/export-private.md#export-console "../../../acm/latest/userguide/export-private.md#export-console") in the

@@ -186,25 +186,24 @@ the previous step.
 
 ###### To create the cluster, node group, and worker node
 
-1.  Create a cluster configuration file named
-    `cluster_config.yaml` and add the following
-    configuration, which specifies the following:
+1. Create a cluster configuration file named
+   `cluster_config.yaml` and add the following
+   configuration, which specifies the following:
 
-        * The name of the cluster (`metadata:name`)
-        * The AWS Region in which to create the cluster
-         (`region`)
-        * The name of the node group
-         (`managedNodeGroups:name`)
-        * The ID and version of the launch template to use to create the worker
-         nodes (`id` and `version`)
-        * The number of nodes in the node group
-         (`desiredCapacity`)
-
-    For the purpose of this tutorial, the configuration file creates a cluster
-    named `ne-cluster` in `us-east-1`, it creates
-    `1` node in a node group named `ne-group` using
-    version `1` of launch template
-    `lt-01234567890abcdef`.
+   - The name of the cluster (`metadata:name`)
+   - The AWS Region in which to create the cluster
+     (`region`)
+   - The name of the node group
+     (`managedNodeGroups:name`)
+   - The ID and version of the launch template to use to create the worker
+     nodes (`id` and `version`)
+   - The number of nodes in the node group
+     (`desiredCapacity`)
+     For the purpose of this tutorial, the configuration file creates a cluster
+     named `ne-cluster` in `us-east-1`, it creates
+     `1` node in a node group named `ne-group` using
+     version `1` of launch template
+     `lt-01234567890abcdef`.
 
 ```
 apiVersion: eksctl.io/v1alpha5
@@ -399,10 +398,11 @@ package your own enclave applications into a Docker image. To do this, you
 must create a new directory with the name of your application in the
 `/container` directory. For example,
 `/aws-nitro-enclaves-with-k8s/container/`my-app``.
- Then, you must create your Dockerfile and an
- `enclave_manifest.json`file in this directory. Then, when
- you run the`enclavectl build`command, for`--image`  specify the name of the directory that you created. For example,
- `enclavectl build --image my-app`.
+Then, you must create your Dockerfile and an
+`enclave_manifest.json` file in this directory. Then, when
+you run the `enclavectl build` command, for `--image`
+specify the name of the directory that you created. For example,
+`enclavectl build --image my-app`.
 
 For more information about how to use the **enclavectl** tool to package you applications, see [How to create your own application](https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/container/README.md "https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/container/README.md") 5. The Docker image is created with a name in the following format:
 `hello-*unique\_uuid*`. To view the full
@@ -615,13 +615,13 @@ resources:
 The **enclavectl** tool automates and
 simplifies the steps required to deploy an application to a cluster. You can
 use the `enclavectl run --image
- `image_name``command to automatically
- generate a deployment specification for your application and to
- automatically deploy it to your cluster. For example,`enclavectl run
---image hello`. If you prefer automatically generate a deployment
- specification for your application, but deploy it manually, add the
- `--prepare-only`flag. For example,`enclavectl run
---image hello --prepare-only`. Doing this will generate the
- deployment specification but it will not deploy the application to the
- cluster. Once the deployment specification has been generated, you can
- deploy the application using the `kubectl apply` command.
+ `image_name`` command to automatically
+generate a deployment specification for your application and to
+automatically deploy it to your cluster. For example, `enclavectl run
+ --image hello`. If you prefer automatically generate a deployment
+specification for your application, but deploy it manually, add the
+`--prepare-only` flag. For example, `enclavectl run
+ --image hello --prepare-only`. Doing this will generate the
+deployment specification but it will not deploy the application to the
+cluster. Once the deployment specification has been generated, you can
+deploy the application using the `kubectl apply` command.

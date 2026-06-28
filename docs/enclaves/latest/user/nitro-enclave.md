@@ -60,7 +60,7 @@ Nitro Enclaves has the following requirements:
   General purpose
 
   | Instance family | Instance types                                 |
-  | --------------- | ---------------------------------------------- | ------------------ | ------------------ |
+  | --------------- | ---------------------------------------------- |
   | M5              | All instance types, **except**: `m5.large`     | `m5.metal`         |
   | M5a             | All instance types, **except**: `m5a.large`    |
   | M5ad            | All instance types, **except**: `m5ad.large`   |
@@ -98,7 +98,7 @@ Nitro Enclaves has the following requirements:
   Compute optimized
 
   | Instance family | Exceptions                                    |
-  | --------------- | --------------------------------------------- | ----------------- | ----------------- |
+  | --------------- | --------------------------------------------- |
   | C5              | All instance types, **except**: `c5.large`    | `c5.metal`        |
   | C5a             | All instance types, **except**: `c5a.large`   |
   | C5ad            | All instance types, **except**: `c5ad.large`  |
@@ -129,7 +129,7 @@ Nitro Enclaves has the following requirements:
   Memory optimized
 
   | Instance family | Instance types                                      |
-  | --------------- | --------------------------------------------------- | ------------------- | ------------------ |
+  | --------------- | --------------------------------------------------- |
   | R5              | All instance types, **except**: `r5.large`          | `r5.metal`          |
   | R5a             | All instance types, **except**: `r5a.large`         |
   | R5ad            | All instance types, **except**: `r5ad.large`        |
@@ -172,7 +172,7 @@ Nitro Enclaves has the following requirements:
   Storage optimized
 
   | Instance family | Instance types                                    |
-  | --------------- | ------------------------------------------------- | ----------------- | ----------------- |
+  | --------------- | ------------------------------------------------- |
   | D3              | All instance types.                               |
   | D3en            | All instance types.                               |
   | I3en            | All instance types, **except**: `i3en.large`      | `i3en.metal`      |
