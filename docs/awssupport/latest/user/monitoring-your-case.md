@@ -139,8 +139,7 @@ options:
      support agent.
 
 7. (Optional) For **Additional contacts**, enter email addresses
-   for other people that you want to receive case correspondences.
-8. Review your case details and choose **Submit**.
+for other people that you want to receive case correspondences. 8. Review your case details and choose **Submit**.
 
 ## Creating a related case
 

@@ -40,19 +40,19 @@ You can use the following checks for the fault tolerance category.
 - [Amazon RDS DB instances not using Multi-AZ deployment](fault-tolerance-checks.md#amazon-rds-db-instances-not-using-multi "fault-tolerance-checks.md#amazon-rds-db-instances-not-using-multi")
 - [Amazon RDS DiskQueueDepth](fault-tolerance-checks.md#Amazon-RDS-DiskQueueDepth "fault-tolerance-checks.md#Amazon-RDS-DiskQueueDepth")
 - [Amazon RDS FreeStorageSpace](fault-tolerance-checks.md#Amazon-RDS-FreeStorageSpace "fault-tolerance-checks.md#Amazon-RDS-FreeStorageSpace")
-- [Amazon RDS log_output parameter is set to table](fault-tolerance-checks.md#amazon-rds-log-parameter-set-to-table "fault-tolerance-checks.md#amazon-rds-log-parameter-set-to-table")
-- [Amazon RDS innodb_default_row_format parameter setting is unsafe](fault-tolerance-checks.md#rds-innodb-default-row-format-unsafe "fault-tolerance-checks.md#rds-innodb-default-row-format-unsafe")
-- [Amazon RDS innodb_flush_log_at_trx_commit parameter is not 1](fault-tolerance-checks.md#rds-innodb-flush-log-at-trx-parameter-off "fault-tolerance-checks.md#rds-innodb-flush-log-at-trx-parameter-off")
-- [Amazon RDS max_user_connections parameter is low](fault-tolerance-checks.md#rds-max-user-connections-parameter-low "fault-tolerance-checks.md#rds-max-user-connections-parameter-low")
+- [Amazon RDS log\_output parameter is set to table](fault-tolerance-checks.md#amazon-rds-log-parameter-set-to-table "fault-tolerance-checks.md#amazon-rds-log-parameter-set-to-table")
+- [Amazon RDS innodb\_default\_row\_format parameter setting is unsafe](fault-tolerance-checks.md#rds-innodb-default-row-format-unsafe "fault-tolerance-checks.md#rds-innodb-default-row-format-unsafe")
+- [Amazon RDS innodb\_flush\_log\_at\_trx\_commit parameter is not 1](fault-tolerance-checks.md#rds-innodb-flush-log-at-trx-parameter-off "fault-tolerance-checks.md#rds-innodb-flush-log-at-trx-parameter-off")
+- [Amazon RDS max\_user\_connections parameter is low](fault-tolerance-checks.md#rds-max-user-connections-parameter-low "fault-tolerance-checks.md#rds-max-user-connections-parameter-low")
 - [Amazon RDS Multi-AZ](fault-tolerance-checks.md#amazon-rds-multi-az "fault-tolerance-checks.md#amazon-rds-multi-az")
 - [Amazon RDS Not In AWS Backup Plan](fault-tolerance-checks.md#amazon-rds-not-in-backup-plan "fault-tolerance-checks.md#amazon-rds-not-in-backup-plan")
 - [Amazon RDS Read Replicas are open in writable mode](fault-tolerance-checks.md#rds-read-replicas-writable "fault-tolerance-checks.md#rds-read-replicas-writable")
 - [Amazon RDS resource automated backups is turned off](fault-tolerance-checks.md#amazon-rds-auto-backup-off "fault-tolerance-checks.md#amazon-rds-auto-backup-off")
-- [Amazon RDS sync_binlog parameter is turned off](fault-tolerance-checks.md#rds-sync-binlog-parameter-off "fault-tolerance-checks.md#rds-sync-binlog-parameter-off")
+- [Amazon RDS sync\_binlog parameter is turned off](fault-tolerance-checks.md#rds-sync-binlog-parameter-off "fault-tolerance-checks.md#rds-sync-binlog-parameter-off")
 - [RDS DB Cluster has no Multi-AZ replication enabled](fault-tolerance-checks.md#rds-db-cluster-multi-zone-replication-not-enabled "fault-tolerance-checks.md#rds-db-cluster-multi-zone-replication-not-enabled")
 - [RDS Multi-AZ Standby Instance Not Enabled](fault-tolerance-checks.md#rds-multi-az-standby-instance "fault-tolerance-checks.md#rds-multi-az-standby-instance")
 - [Amazon RDS ReplicaLag](fault-tolerance-checks.md#Amazon-RDS-ReplicaLag "fault-tolerance-checks.md#Amazon-RDS-ReplicaLag")
-- [Amazon RDS synchronous_commit parameter is turned off](fault-tolerance-checks.md#rds-synchronous-commit-parameter-off "fault-tolerance-checks.md#rds-synchronous-commit-parameter-off")
+- [Amazon RDS synchronous\_commit parameter is turned off](fault-tolerance-checks.md#rds-synchronous-commit-parameter-off "fault-tolerance-checks.md#rds-synchronous-commit-parameter-off")
 - [Amazon Redshift cluster automated snapshots](fault-tolerance-checks.md#amazon-redshift-cluster-automated-snapshots "fault-tolerance-checks.md#amazon-redshift-cluster-automated-snapshots")
 - [Amazon Route 53 Deleted Health Checks](fault-tolerance-checks.md#amazon-route-53-deleted-health-checks "fault-tolerance-checks.md#amazon-route-53-deleted-health-checks")
 - [Amazon Route 53 Failover Resource Record Sets](fault-tolerance-checks.md#amazon-route-53-failover-resource-record-sets "fault-tolerance-checks.md#amazon-route-53-failover-resource-record-sets")
@@ -1731,11 +1731,11 @@ Scale up the storage space for the RDS database instance that is running low on 
 - DB Instance Allocated Storage (MB)
 - DB Instance Storage Used Percent
 
-## Amazon RDS log_output parameter is set to table
+## Amazon RDS log\_output parameter is set to table
 
 **Description**
 
-When **log_output** is set to **TABLE**, more storage is used than when **log_output** is set to **FILE**. We recommend that you set the parameter to **FILE**, to avoid reaching the storage size limit.
+When **log\_output** is set to **TABLE**, more storage is used than when **log\_output** is set to **FILE**. We recommend that you set the parameter to **FILE**, to avoid reaching the storage size limit.
 
 ###### Note
 
@@ -1757,11 +1757,11 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Yellow: DB parameter groups have **log_output** parameter set to **TABLE**.
+Yellow: DB parameter groups have **log\_output** parameter set to **TABLE**.
 
 **Recommended Action**
 
-Set the **log_output** parameter value to **FILE** in your DB parameter groups.
+Set the **log\_output** parameter value to **FILE** in your DB parameter groups.
 
 **Additional Resources**
 
@@ -1776,13 +1776,13 @@ For more information, see [MySQL database log files](../../../AmazonRDS/latest/U
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS innodb_default_row_format parameter setting is unsafe
+## Amazon RDS innodb\_default\_row\_format parameter setting is unsafe
 
 **Description**
 
-Your DB instance encounters a known issue: A table created in a MySQL version lower than 8.0.26 with the **row_format** set to **COMPACT** or **REDUNDANT** is inaccessible and unrecoverable when the index exceeds 767 bytes.
+Your DB instance encounters a known issue: A table created in a MySQL version lower than 8.0.26 with the **row\_format** set to **COMPACT** or **REDUNDANT** is inaccessible and unrecoverable when the index exceeds 767 bytes.
 
-We recommend that you set the **innodb_default_row_format** parameter value to **DYNAMIC**.
+We recommend that you set the **innodb\_default\_row\_format** parameter value to **DYNAMIC**.
 
 ###### Note
 
@@ -1804,15 +1804,15 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Red: DB parameter groups have an unsafe setting for the **innodb_default_row_format** parameter.
+Red: DB parameter groups have an unsafe setting for the **innodb\_default\_row\_format** parameter.
 
 **Recommended Action**
 
-Set the **innodb_default_row_format** parameter to **DYNAMIC**.
+Set the **innodb\_default\_row\_format** parameter to **DYNAMIC**.
 
 **Additional Resources**
 
-When a table is created with MySQL version lower than 8.0.26 with **row_format** set to **COMPACT** or **REDUNDANT**, creating indexes with a key prefix shorter than 767 bytes isn't enforced. After the database restarts, these tables can't be accessed or recovered.
+When a table is created with MySQL version lower than 8.0.26 with **row\_format** set to **COMPACT** or **REDUNDANT**, creating indexes with a key prefix shorter than 767 bytes isn't enforced. After the database restarts, these tables can't be accessed or recovered.
 
 For more information, see [Changes in MySQL 8.0.26 (2021-07-20, General Availability)n](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-26.html#mysqld-8-0-26-bug%60 "https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-26.html#mysqld-8-0-26-bug%60") on the MySQL documentation website.
 
@@ -1825,15 +1825,15 @@ For more information, see [Changes in MySQL 8.0.26 (2021-07-20, General Availabi
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS innodb_flush_log_at_trx_commit parameter is not 1
+## Amazon RDS innodb\_flush\_log\_at\_trx\_commit parameter is not 1
 
 **Description**
 
-The value of the **innodb_flush_log_at_trx_commit**
+The value of the **innodb\_flush\_log\_at\_trx\_commit**
 parameter of your DB instance isn't a safe value. This parameter controls
 the persistence of commit operations to disk.
 
-We recommend that you set the **innodb_flush_log_at_trx_commit** parameter to 1.
+We recommend that you set the **innodb\_flush\_log\_at\_trx\_commit** parameter to 1.
 
 ###### Note
 
@@ -1856,17 +1856,15 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 **Alert Criteria**
 
 Yellow: DB parameter groups have
-**innodb_flush_log_at_trx_commit** set to other than
-
-1.
+**innodb\_flush\_log\_at\_trx\_commit** set to other than 1.
 
 **Recommended Action**
 
-Set the **innodb_flush_log_at_trx_commit** parameter value to 1
+Set the **innodb\_flush\_log\_at\_trx\_commit** parameter value to 1
 
 **Additional Resources**
 
-The database transaction is durable when the log buffer is saved to the durable storage. However, saving to the disk impacts performance. Depending on the value set for **innodb_flush_log_at_trx_commit** parameter, the behavior of how logs are written and saved to the disk can vary.
+The database transaction is durable when the log buffer is saved to the durable storage. However, saving to the disk impacts performance. Depending on the value set for **innodb\_flush\_log\_at\_trx\_commit** parameter, the behavior of how logs are written and saved to the disk can vary.
 
 - When the parameter value is 1, the logs are written and saved to the disk after each committed transaction.
 - When the parameter value is 0, the logs are written and saved to the disk once per second.
@@ -1887,13 +1885,13 @@ For more information, see [Best practices for configuring parameters for Amazon 
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS max_user_connections parameter is low
+## Amazon RDS max\_user\_connections parameter is low
 
 **Description**
 
 Your DB instance has a low value for the maximum number of simultaneous connections for each database account.
 
-We recommend setting the **max_user_connections** parameter to a number greater than **5**.
+We recommend setting the **max\_user\_connections** parameter to a number greater than **5**.
 
 ###### Note
 
@@ -1915,15 +1913,15 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Yellow: DB parameter groups have **max_user_connections** misconfigured.
+Yellow: DB parameter groups have **max\_user\_connections** misconfigured.
 
 **Recommended Action**
 
-Increase the value of the **max_user_connections** parameter to a number greater than **5**.
+Increase the value of the **max\_user\_connections** parameter to a number greater than **5**.
 
 **Additional Resources**
 
-The **max_user_connections** setting controls the maximum number of simultaneous connections allowed for a MySQL user account. Reaching this connection limit cause failures in the Amazon RDS instance administration operations, such as backup, patching, and parameters changes.
+The **max\_user\_connections** setting controls the maximum number of simultaneous connections allowed for a MySQL user account. Reaching this connection limit cause failures in the Amazon RDS instance administration operations, such as backup, patching, and parameters changes.
 
 For more information, see [Setting Account Resource Limits](https://dev.mysql.com/doc/refman/8.0/en/user-resources.html "https://dev.mysql.com/doc/refman/8.0/en/user-resources.html") on the MySQL documentation website.
 
@@ -2038,7 +2036,7 @@ For more information, see [Amazon RDS Backup and Restore Using AWS Backup](https
 
 Your DB instance has a read replica in writable mode, which allows updates from clients.
 
-We recommend that you set the the **read_only** parameter to **TrueIfReplica** so that the read replicas isn't in writable mode.
+We recommend that you set the the **read\_only** parameter to **TrueIfReplica** so that the read replicas isn't in writable mode.
 
 ###### Note
 
@@ -2064,11 +2062,11 @@ Yellow: DB parameter groups turn on writable mode for the read replicas.
 
 **Recommended Action**
 
-Set the **read_only** parameter value to **TrueIfReplica**.
+Set the **read\_only** parameter value to **TrueIfReplica**.
 
 **Additional Resources**
 
-The **read_only** parameter controls the write permission from the clients to a database instance. The default value for this parameter is **TrueIfReplica**. For a replica instance, **TrueIfReplica** sets the **read_only** value to ON (1) and disables any write activity from the clients. For a master/writer instance, **TrueIfReplica** sets the value to OFF (0) and enables the write activity from the clients for the instance. When the read replica is opened in writable mode, the data stored in this instance may diverge from the primary instance which causes replication errors.
+The **read\_only** parameter controls the write permission from the clients to a database instance. The default value for this parameter is **TrueIfReplica**. For a replica instance, **TrueIfReplica** sets the **read\_only** value to ON (1) and disables any write activity from the clients. For a master/writer instance, **TrueIfReplica** sets the value to OFF (0) and enables the write activity from the clients for the instance. When the read replica is opened in writable mode, the data stored in this instance may diverge from the primary instance which causes replication errors.
 
 For more information, see [Best practices for configuring parameters for Amazon RDS for MySQL, part 2: Parameters related to replication](https://aws.amazon.com/blogs/database/best-practices-for-configuring-parameters-for-amazon-rds-for-mysql-part-2-parameters-related-to-replication/ "https://aws.amazon.com/blogs/database/best-practices-for-configuring-parameters-for-amazon-rds-for-mysql-part-2-parameters-related-to-replication/") on the MySQL documentation website.
 
@@ -2131,13 +2129,13 @@ For more information, see the following resources:
 - Engine Name
 - Last Updated Time
 
-## Amazon RDS sync_binlog parameter is turned off
+## Amazon RDS sync\_binlog parameter is turned off
 
 **Description**
 
 The synchronization of the binary log to disk isn't enforced before the transaction commits are acknowledged in your DB instance.
 
-We recommend that you set the **sync_binlog** parameter value to **1**.
+We recommend that you set the **sync\_binlog** parameter value to **1**.
 
 ###### Note
 
@@ -2163,11 +2161,11 @@ Yellow: DB parameter groups have synchronous binary logging turned off.
 
 **Recommended Action**
 
-Set the **sync_binlog** parameter to **1**.
+Set the **sync\_binlog** parameter to **1**.
 
 **Additional Resources**
 
-The **sync_binlog** parameter controls how MySQL pushes the binary log to disk. When the value of this parameter is set to **1**, it turns on binary log synchronization to disk before transactions are committed. When the value of this parameter is set to **0**, it turns off the binary log synchronization to the disk. Typically, MySQL server depends on the operating system to push the binary log to disk regularly similar to other files. The **sync_binlog** parameter value set to **0** can enhance the performance. However, during a power failure or an operating system crash, the server loses all the committed transactions that weren't synchronized to the binary logs.
+The **sync\_binlog** parameter controls how MySQL pushes the binary log to disk. When the value of this parameter is set to **1**, it turns on binary log synchronization to disk before transactions are committed. When the value of this parameter is set to **0**, it turns off the binary log synchronization to the disk. Typically, MySQL server depends on the operating system to push the binary log to disk regularly similar to other files. The **sync\_binlog** parameter value set to **0** can enhance the performance. However, during a power failure or an operating system crash, the server loses all the committed transactions that weren't synchronized to the binary logs.
 
 For more information, see [Best practices for configuring parameters for Amazon RDS for MySQL, part 2: Parameters related to replication](https://aws.amazon.com/blogs/database/best-practices-for-configuring-parameters-for-amazon-rds-for-mysql-part-2-parameters-related-to-replication/ "https://aws.amazon.com/blogs/database/best-practices-for-configuring-parameters-for-amazon-rds-for-mysql-part-2-parameters-related-to-replication/").
 
@@ -2313,13 +2311,13 @@ There are several possible causes for ReplicaLag to increase beyond operationall
 - DB Instance ARN
 - ReplicaLag Metric
 
-## Amazon RDS synchronous_commit parameter is turned off
+## Amazon RDS synchronous\_commit parameter is turned off
 
 **Description**
 
-When the **synchronous_commit** parameter is turned off, data can be lost in a database crash. The durability of the database is at risk.
+When the **synchronous\_commit** parameter is turned off, data can be lost in a database crash. The durability of the database is at risk.
 
-We recommend that you turn on the **synchronous_commit** parameter.
+We recommend that you turn on the **synchronous\_commit** parameter.
 
 ###### Note
 
@@ -2341,15 +2339,15 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Red: DB parameter groups have **synchronous_commit** parameter turned off.
+Red: DB parameter groups have **synchronous\_commit** parameter turned off.
 
 **Recommended Action**
 
-Turn on **synchronous_commit** parameter in your DB parameter groups.
+Turn on **synchronous\_commit** parameter in your DB parameter groups.
 
 **Additional Resources**
 
-The **synchronous_commit** parameter defines the Write-Ahead Logging (WAL) process completion before the database server sends a successful notification to the client. This commit is called as an asynchronous commit because the client acknowledges the commit before WAL saves the transaction in the disk. If the **synchronous_commit** parameter is turned off, then the transactions can be lost, DB instance durability might be compromised, and data might be lost when a database crashes.
+The **synchronous\_commit** parameter defines the Write-Ahead Logging (WAL) process completion before the database server sends a successful notification to the client. This commit is called as an asynchronous commit because the client acknowledges the commit before WAL saves the transaction in the disk. If the **synchronous\_commit** parameter is turned off, then the transactions can be lost, DB instance durability might be compromised, and data might be lost when a database crashes.
 
 For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md").
 

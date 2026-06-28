@@ -16,7 +16,7 @@ You can use the following checks for the operational excellence category.
 - [Amazon RDS DB instances in the clusters with heterogeneous parameter groups](operational-excellence-checks.md#rds-db-instances-heterogeneous-parameter-groups "operational-excellence-checks.md#rds-db-instances-heterogeneous-parameter-groups")
 - [Amazon RDS Enhanced Monitoring is turned off](operational-excellence-checks.md#rds-enhanced-monitoring-off "operational-excellence-checks.md#rds-enhanced-monitoring-off")
 - [Amazon RDS Performance Insights is turned off](operational-excellence-checks.md#rds-performance-insights-off "operational-excellence-checks.md#rds-performance-insights-off")
-- [Amazon RDS track_counts parameter is turned off](operational-excellence-checks.md#rds-track-counts-parameters-off "operational-excellence-checks.md#rds-track-counts-parameters-off")
+- [Amazon RDS track\_counts parameter is turned off](operational-excellence-checks.md#rds-track-counts-parameters-off "operational-excellence-checks.md#rds-track-counts-parameters-off")
 - [Amazon Redshift cluster audit logging](operational-excellence-checks.md#redshift-audit-logging-enabled "operational-excellence-checks.md#redshift-audit-logging-enabled")
 - [Amazon S3 Access Logs Enabled](operational-excellence-checks.md#Amazon-S3-Server-Access-Logs-Enabled "operational-excellence-checks.md#Amazon-S3-Server-Access-Logs-Enabled")
 - [Amazon S3 does not have Event Notifications enabled](operational-excellence-checks.md#s3-event-notification-enabled "operational-excellence-checks.md#s3-event-notification-enabled")
@@ -197,7 +197,7 @@ For more information, see [Values that you specify when you create or update a d
 
 Checks if your Amazon CloudWatch alarm action is in a disabled state.
 
-You can use the AWS CLI to enable or disable the action feature in your alarm. Or, you can programatically disable or enable the action feature using the AWS SDK. When the alarm action feature is turned off, CloudWatch doesn't perform any defined action in any state (OK, INSUFFICIENT_DATA, ALARM).
+You can use the AWS CLI to enable or disable the action feature in your alarm. Or, you can programatically disable or enable the action feature using the AWS SDK. When the alarm action feature is turned off, CloudWatch doesn't perform any defined action in any state (OK, INSUFFICIENT\_DATA, ALARM).
 
 ###### Note
 
@@ -628,13 +628,13 @@ For more information, see [Monitoring DB load with Performance Insights on Amazo
 - Engine Name
 - Last Updated Time
 
-## Amazon RDS track_counts parameter is turned off
+## Amazon RDS track\_counts parameter is turned off
 
 **Description**
 
-When the **track_counts** parameter is turned off, the database doesn't collect the database activity statistics. Autovacuum requires these statistics to work correctly.
+When the **track\_counts** parameter is turned off, the database doesn't collect the database activity statistics. Autovacuum requires these statistics to work correctly.
 
-We recommend that you set **track_counts** parameter to 1
+We recommend that you set **track\_counts** parameter to 1
 
 ###### Note
 
@@ -656,15 +656,15 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Yellow: DB parameter groups have **track_counts** parameter turned off.
+Yellow: DB parameter groups have **track\_counts** parameter turned off.
 
 **Recommended Action**
 
-Set **track_counts** parameter to 1
+Set **track\_counts** parameter to 1
 
 **Additional Resources**
 
-When **track_counts** parameter is turned off, it disables the collection of database activity statistics. The autovacuum daemon requires the collected statistics to identify the tables for autovacuum and autoanalyze.
+When **track\_counts** parameter is turned off, it disables the collection of database activity statistics. The autovacuum daemon requires the collected statistics to identify the tables for autovacuum and autoanalyze.
 
 For more information, see [Run-time Statistics for PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-COUNTS "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-COUNTS") on the PostgreSQL documentation website.
 
@@ -1036,7 +1036,7 @@ Monitoring stack events helps you to respond quickly to unauthorized actions tha
 
 **Additional Resources**
 
-[How can I receive an email alert when my AWS CloudFormation stack enters ROLLBACK_IN_PROGRESS status?](https://repost.aws/knowledge-center/cloudformation-rollback-email "https://repost.aws/knowledge-center/cloudformation-rollback-email")
+[How can I receive an email alert when my AWS CloudFormation stack enters ROLLBACK\_IN\_PROGRESS status?](https://repost.aws/knowledge-center/cloudformation-rollback-email "https://repost.aws/knowledge-center/cloudformation-rollback-email")
 
 **Report columns**
 
@@ -1378,7 +1378,7 @@ For more information, see [Fargate task maintenance](../../../AmazonECS/latest/u
 
 **Description**
 
-Checks if the status of the AWS Systems Manager association compliance is COMPLIANT or NON_COMPLIANT after the association execution on the instance.
+Checks if the status of the AWS Systems Manager association compliance is COMPLIANT or NON\_COMPLIANT after the association execution on the instance.
 
 State Manager, a capability of AWS Systems Manager, is a secure and scalable configuration management service that automates the process of keeping your managed nodes and other AWS resources in a state that you define. A State Manager association is a configuration that you assign to your AWS resources. The configuration defines the state that you want to maintain on your resources, so it helps you to achieve the target, such as avoidance of configuration drifts across your Amazon EC2 instances.
 
@@ -1402,7 +1402,7 @@ For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations pla
 
 **Alert Criteria**
 
-Yellow: The status of the AWS Systems Manager association compliance is NON_COMPLIANT.
+Yellow: The status of the AWS Systems Manager association compliance is NON\_COMPLIANT.
 
 **Recommended Action**
 

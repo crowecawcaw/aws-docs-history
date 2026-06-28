@@ -68,7 +68,7 @@ In the AWS Management Console, you can also choose the question mark icon (
      [Request a service quota increase](create-service-quota-increase.md "create-service-quota-increase.md").
 
 4. Choose the **Service**, **Category**, and
-   **Severity**.
+**Severity**.
 
 ###### Tip
 
@@ -89,34 +89,37 @@ case, such as the following:
     	+ API operations
 
 8. (Optional) Choose **Attach files** to add any relevant files
-   to your case, such as error logs or screenshots. You can attach up to three
-   files. Each file can be up to 5 MB.
-9. Choose **Next step: Solve now or contact us**.
-10. On the **Contact us** page, choose your preferred language.
-11. Choose your preferred contact method. You can choose one of the following
-    options:
+to your case, such as error logs or screenshots. You can attach up to three
+files. Each file can be up to 5 MB. 9. Choose **Next step: Solve now or contact us**. 10. On the **Contact us** page, choose your preferred language. 11. Choose your preferred contact method. You can choose one of the following
+options:
 
     1. **Web** – Receive a reply in Support Center.
     2. **Chat** – Start a live chat with a support
-       agent. If you can't connect to a chat, see [Troubleshooting](troubleshooting-support-cases.md "troubleshooting-support-cases.md").
+     agent. If you can't connect to a chat, see [Troubleshooting](troubleshooting-support-cases.md "troubleshooting-support-cases.md").
     3. **Phone** – Receive a phone call from a
-       support agent. If you choose this option, enter the following
-       information:
+     support agent. If you choose this option, enter the following
+     information:
 
-       - **Country or region**
-       - **Phone number**
-       - **(Optional) Extension**###### Notes
-    - The contact options that appear depend on the type of case and
-      your support plan.
-    - You can choose **Discard draft** to clear your
-      support case draft.
+
+
+
+    	* **Country or region**
+    	* **Phone number**
+    	* **(Optional) Extension**###### Notes
+
+
+
+    * The contact options that appear depend on the type of case and
+     your support plan.
+    * You can choose **Discard draft** to clear your
+     support case draft.
 
 12. (Optional) If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, the **Additional
-    contacts** option appears. You can enter the email addresses of
-    people to notify when the status of the case changes. If you're signed in as an
-    IAM user, include your email address. If you're signed in with your root
-    account email address and password, you don't need to include your email
-    address
+contacts** option appears. You can enter the email addresses of
+people to notify when the status of the case changes. If you're signed in as an
+IAM user, include your email address. If you're signed in with your root
+account email address and password, you don't need to include your email
+address
 
 ###### Note
 
@@ -239,17 +242,17 @@ In the AWS Management Console, you can also choose the question mark icon (
     * Production system down
     * Business-critical system down
 
-5. For **Reason for case severity change**, choose from the available options for why you're changing the case severity.
-6. (Optional) For **Tell us more**, enter additional information about this change.
-7. Do one of the following:
+5. For **Reason for case severity change**, choose from the available options for why you're changing the case severity. 6. (Optional) For **Tell us more**, enter additional information about this change. 7. Do one of the following:
 
-   - If you're lowering the support case severity, or if you're raising it
+    * If you're lowering the support case severity, or if you're raising it
      from **General guidance** to **System
      impaired** or **Production system
      impaired**, choose **Update**.
-   - If you're raising the severity to **Production system down** or **Business-critical system down**, use one of the options in the **Contact methods** section to engage with AWS Support, and then choose **Update**. The following example shows the options available in the **Contact methods** section.
+    * If you're raising the severity to **Production system down** or **Business-critical system down**, use one of the options in the **Contact methods** section to engage with AWS Support, and then choose **Update**. The following example shows the options available in the **Contact methods** section.
 
-   ![The Change case severity screen showing the Contact methods section with the following options: Web, Chat, and Phone.](images/change-case-severity-contact-methods.png)
+
+
+    ![The Change case severity screen showing the Contact methods section with the following options: Web, Chat, and Phone.](images/change-case-severity-contact-methods.png)
 
 ###### Note
 

@@ -23,12 +23,12 @@ You can use the following checks for the performance category.
 - [Amazon RDS DB instances in the clusters with heterogeneous instance classes](performance-checks.md#rds-db-instances-heterogeneous-class "performance-checks.md#rds-db-instances-heterogeneous-class")
 - [Amazon RDS DB instances in the clusters with heterogeneous instance sizes](performance-checks.md#rds-db-instances-heterogeneous-size "performance-checks.md#rds-db-instances-heterogeneous-size")
 - [Amazon RDS DB memory parameters are diverging from default](performance-checks.md#rds-db-memory-parameters-diverging "performance-checks.md#rds-db-memory-parameters-diverging")
-- [Amazon RDS enable_indexonlyscan parameter is turned off](performance-checks.md#rds-enable-indexonlyscan-parameter-off "performance-checks.md#rds-enable-indexonlyscan-parameter-off")
-- [Amazon RDS enable_indexscan parameter is turned off](performance-checks.md#rds-enable-indexscan-parameter-off "performance-checks.md#rds-enable-indexscan-parameter-off")
-- [Amazon RDS general_logging parameter is turned on](performance-checks.md#rds-general-logging-on "performance-checks.md#rds-general-logging-on")
-- [Amazon RDS InnoDB_Change_Buffering parameter using less than optimum value](performance-checks.md#rds-innodb-parameter-less-than-optimal "performance-checks.md#rds-innodb-parameter-less-than-optimal")
-- [Amazon RDS innodb_open_files parameter is low](performance-checks.md#rds-innodb-open-files-parameter-low "performance-checks.md#rds-innodb-open-files-parameter-low")
-- [Amazon RDS innodb_stats_persistent parameter is turned off](performance-checks.md#rds-innodb-stats-persistent-parameter-off "performance-checks.md#rds-innodb-stats-persistent-parameter-off")
+- [Amazon RDS enable\_indexonlyscan parameter is turned off](performance-checks.md#rds-enable-indexonlyscan-parameter-off "performance-checks.md#rds-enable-indexonlyscan-parameter-off")
+- [Amazon RDS enable\_indexscan parameter is turned off](performance-checks.md#rds-enable-indexscan-parameter-off "performance-checks.md#rds-enable-indexscan-parameter-off")
+- [Amazon RDS general\_logging parameter is turned on](performance-checks.md#rds-general-logging-on "performance-checks.md#rds-general-logging-on")
+- [Amazon RDS InnoDB\_Change\_Buffering parameter using less than optimum value](performance-checks.md#rds-innodb-parameter-less-than-optimal "performance-checks.md#rds-innodb-parameter-less-than-optimal")
+- [Amazon RDS innodb\_open\_files parameter is low](performance-checks.md#rds-innodb-open-files-parameter-low "performance-checks.md#rds-innodb-open-files-parameter-low")
+- [Amazon RDS innodb\_stats\_persistent parameter is turned off](performance-checks.md#rds-innodb-stats-persistent-parameter-off "performance-checks.md#rds-innodb-stats-persistent-parameter-off")
 - [Amazon RDS instance under-provisioned for system capacity](performance-checks.md#amazon-rds-under-provisioned-system-capacity "performance-checks.md#amazon-rds-under-provisioned-system-capacity")
 - [Amazon RDS magnetic volume is in use](performance-checks.md#rds-magentic-volume-in-use "performance-checks.md#rds-magentic-volume-in-use")
 - [Amazon RDS parameter groups not using huge pages](performance-checks.md#rds--parameter-groups-no-huge-pages "performance-checks.md#rds--parameter-groups-no-huge-pages")
@@ -771,13 +771,13 @@ For more information, see [Best practices for configuring parameters for Amazon 
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS enable_indexonlyscan parameter is turned off
+## Amazon RDS enable\_indexonlyscan parameter is turned off
 
 **Description**
 
 The query planner or optimizer can't use the index-only scan plan type when it is turned off.
 
-We recommend that you set the **enable_indexonlyscan** parameter value to 1.
+We recommend that you set the **enable\_indexonlyscan** parameter value to 1.
 
 ###### Note
 
@@ -799,17 +799,17 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Yellow: DB parameter groups have **enable_indexonlyscan** parameter turned off.
+Yellow: DB parameter groups have **enable\_indexonlyscan** parameter turned off.
 
 **Recommended Action**
 
-Set the parameter **enable_indexonlyscan** to 1.
+Set the parameter **enable\_indexonlyscan** to 1.
 
 **Additional Resources**
 
-When you turn off **enable_indexonlyscan** parameter, it prevents the query planner from selecting an optimal execution plan. The query planner uses a different plan type, such as index scan which can increase the query cost and execution time. The index only scan plan type retrieves the data without accessing the table data.
+When you turn off **enable\_indexonlyscan** parameter, it prevents the query planner from selecting an optimal execution plan. The query planner uses a different plan type, such as index scan which can increase the query cost and execution time. The index only scan plan type retrieves the data without accessing the table data.
 
-For more information, see [enable_indexonlyscan (boolean)](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXONLYSCAN "https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXONLYSCAN") on the PostgreSQL documentation website.
+For more information, see [enable\_indexonlyscan (boolean)](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXONLYSCAN "https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXONLYSCAN") on the PostgreSQL documentation website.
 
 **Report columns**
 
@@ -820,13 +820,13 @@ For more information, see [enable_indexonlyscan (boolean)](https://www.postgresq
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS enable_indexscan parameter is turned off
+## Amazon RDS enable\_indexscan parameter is turned off
 
 **Description**
 
 The query planner or optimizer can't use the index scan plan type when it is turned off.
 
-We recommend that you set the **enable_indexscan** parameter value to 1.
+We recommend that you set the **enable\_indexscan** parameter value to 1.
 
 ###### Note
 
@@ -848,17 +848,17 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Yellow: DB parameter groups have **enable_indexscan** parameter turned off.
+Yellow: DB parameter groups have **enable\_indexscan** parameter turned off.
 
 **Recommended Action**
 
-Set the parameter **enable_indexscan** to 1.
+Set the parameter **enable\_indexscan** to 1.
 
 **Additional Resources**
 
-When you turn off **enable_indexscan** parameter, it prevents the query planner from selecting an optimal execution plan. The query planner uses a different plan type, such as index scan which can increase the query cost and execution time.
+When you turn off **enable\_indexscan** parameter, it prevents the query planner from selecting an optimal execution plan. The query planner uses a different plan type, such as index scan which can increase the query cost and execution time.
 
-For more information, see [enable_indexscan (boolean)](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN "https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN") on the PostgreSQL documentation website.
+For more information, see [enable\_indexscan (boolean)](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN "https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN") on the PostgreSQL documentation website.
 
 **Report columns**
 
@@ -869,13 +869,13 @@ For more information, see [enable_indexscan (boolean)](https://www.postgresql.or
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS general_logging parameter is turned on
+## Amazon RDS general\_logging parameter is turned on
 
 **Description**
 
 The general logging is turned on for your DB instance. This setting is useful while troubleshooting the database issues. However, turning on general logging increases the amount of I/O operations and allocated storage space, which might result in contention and performance degradation.
 
-Check your requirements for general logging usage. We recommend that you set the **general_logging** parameter value to **0**.
+Check your requirements for general logging usage. We recommend that you set the **general\_logging** parameter value to **0**.
 
 ###### Note
 
@@ -897,15 +897,15 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Yellow: DB parameter groups have **general_logging** turned on.
+Yellow: DB parameter groups have **general\_logging** turned on.
 
 **Recommended Action**
 
-Check your requirements for general logging usage. If it isn't mandatory, we recommend that you to set the **general_logging** parameter value to **0**.
+Check your requirements for general logging usage. If it isn't mandatory, we recommend that you to set the **general\_logging** parameter value to **0**.
 
 **Additional Resources**
 
-The general query log is turned on when the **general_logging** parameter value is 1. The general query log contains records of the database server operations. The server writes information to this log when clients connect or disconnect and the logs contain each SQL statement received from the clients. The general query log is useful when you suspect an error in a client and you want to find the information the client to sent to the database server.
+The general query log is turned on when the **general\_logging** parameter value is 1. The general query log contains records of the database server operations. The server writes information to this log when clients connect or disconnect and the logs contain each SQL statement received from the clients. The general query log is useful when you suspect an error in a client and you want to find the information the client to sent to the database server.
 
 For more information, see [Overview of RDS for MySQL database logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.LogFileSize.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.LogFileSize.md").
 
@@ -918,13 +918,13 @@ For more information, see [Overview of RDS for MySQL database logs](../../../Ama
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS InnoDB_Change_Buffering parameter using less than optimum value
+## Amazon RDS InnoDB\_Change\_Buffering parameter using less than optimum value
 
 **Description**
 
 Change buffering allows a MySQL DB instance to defer a few writes, which are required to maintain secondary indexes. This feature was useful in environments with slow disks. The change buffering configuration improved the DB performance slightly but caused a delay in crash recovery and long shutdown times during upgrade.
 
-We recommend that you set the value of **innodb_change_buffering** parameter to **NONE**.
+We recommend that you set the value of **innodb\_change\_buffering** parameter to **NONE**.
 
 ###### Note
 
@@ -946,11 +946,11 @@ If you delete a DB instance or DB cluster, then recommendations associated with 
 
 **Alert Criteria**
 
-Yellow: DB parameter groups have **innodb_change_buffering** parameter set to a low optimum value.
+Yellow: DB parameter groups have **innodb\_change\_buffering** parameter set to a low optimum value.
 
 **Recommended Action**
 
-Set **innodb_change_buffering** parameter value to **NONE** in your DB parameter groups.
+Set **innodb\_change\_buffering** parameter value to **NONE** in your DB parameter groups.
 
 **Additional Resources**
 
@@ -965,13 +965,13 @@ For more information, see [Best practices for configuring parameters for Amazon 
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS innodb_open_files parameter is low
+## Amazon RDS innodb\_open\_files parameter is low
 
 **Description**
 
-The innodb_open_files parameter controls the number of files InnoDB can open at one time. InnoDB opens all of the log and system tablespace files when mysqld is running.
+The innodb\_open\_files parameter controls the number of files InnoDB can open at one time. InnoDB opens all of the log and system tablespace files when mysqld is running.
 
-Your DB instance has a low value for the maximum number of files InnoDB can open at one time. We recommend that you set the innodb_open_files parameter to a minimum value of 65.
+Your DB instance has a low value for the maximum number of files InnoDB can open at one time. We recommend that you set the innodb\_open\_files parameter to a minimum value of 65.
 
 ###### Note
 
@@ -997,13 +997,13 @@ Yellow: DB parameter groups have the InnoDB open files setting misconfigured.
 
 **Recommended Action**
 
-Set the innodb_open_files parameter to a minimum value of 65.
+Set the innodb\_open\_files parameter to a minimum value of 65.
 
 **Additional Resources**
 
-The innodb_open_files parameter controls the number of files InnoDB can open at one time. InnoDB keeps all the log files and the system tablespace files open when mysqld is running. InnoDB also needs to open a few .ibd files, if file-per-table storage model is used. When the innodb_open_files setting is low, it impacts the database performance and the server may fail to start.
+The innodb\_open\_files parameter controls the number of files InnoDB can open at one time. InnoDB keeps all the log files and the system tablespace files open when mysqld is running. InnoDB also needs to open a few .ibd files, if file-per-table storage model is used. When the innodb\_open\_files setting is low, it impacts the database performance and the server may fail to start.
 
-For more information, see [InnoDB Startup Options and System Variables - innodb_open_files](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_open_files "https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_open_files") on the MySql documentation website.
+For more information, see [InnoDB Startup Options and System Variables - innodb\_open\_files](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_open_files "https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_open_files") on the MySql documentation website.
 
 **Report columns**
 
@@ -1014,13 +1014,13 @@ For more information, see [InnoDB Startup Options and System Variables - innodb_
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS innodb_stats_persistent parameter is turned off
+## Amazon RDS innodb\_stats\_persistent parameter is turned off
 
 **Description**
 
 Your DB instance isn't configured to persist the InnoDB statistics to the disk. When the statistics aren't stored, they are recalculated each time the instance restarts and the table accessed. This leads to variations in the query execution plan. You can modify the value of this global parameter at the table level.
 
-We recommend that you set the **innodb_stats_persistent** parameter value to **ON**.
+We recommend that you set the **innodb\_stats\_persistent** parameter value to **ON**.
 
 ###### Note
 
@@ -1046,11 +1046,11 @@ Yellow: DB parameter groups have optimizer statistics that aren't persisted to t
 
 **Recommended Action**
 
-Set the **innodb_stats_persistent** parameter value to **ON**.
+Set the **innodb\_stats\_persistent** parameter value to **ON**.
 
 **Additional Resources**
 
-If the **innodb_stats_persistent** parameter is set to **ON**, then the optimizer statistics are persisted when the instance restarts. This improves the execution plan stability and consistent query performance. You can modify global statistics persistence at the table level by using the clause **STATS_PERSISTENT** when you create or alter a table.
+If the **innodb\_stats\_persistent** parameter is set to **ON**, then the optimizer statistics are persisted when the instance restarts. This improves the execution plan stability and consistent query performance. You can modify global statistics persistence at the table level by using the clause **STATS\_PERSISTENT** when you create or alter a table.
 
 For more information, see [Best practices for configuring parameters for Amazon RDS for MySQL, part 1: Parameters related to performance](https://aws.amazon.com/blogs/database/best-practices-for-configuring-parameters-for-amazon-rds-for-mysql-part-1-parameters-related-to-performance/ "https://aws.amazon.com/blogs/database/best-practices-for-configuring-parameters-for-amazon-rds-for-mysql-part-1-parameters-related-to-performance/").
 
@@ -1169,7 +1169,7 @@ For more information, see [Previous generation volumes](../../../AWSEC2/latest/U
 
 **Description**
 
-Large pages can increase database scalability, but your DB instance isn't using large pages. We recommend that you set the **use_large_pages** parameter value to **ONLY** in the DB parameter group for your DB instance.
+Large pages can increase database scalability, but your DB instance isn't using large pages. We recommend that you set the **use\_large\_pages** parameter value to **ONLY** in the DB parameter group for your DB instance.
 
 ###### Note
 
@@ -1195,7 +1195,7 @@ Yellow: DB parameter groups don't use large pages.
 
 **Recommended Action**
 
-Set the **use_large_pages** parameter value to **ONLY** in your DB parameter groups.
+Set the **use\_large\_pages** parameter value to **ONLY** in your DB parameter groups.
 
 **Additional Resources**
 
@@ -1214,7 +1214,7 @@ For more information, see [Turning on HugePages for an RDS for Oracle instance](
 
 **Description**
 
-When changes require that your query cache is purged, your DB instance will appear to stall. Most workloads don't benefit from a query cache. The query cache was removed from MySQL version 8.0. We recommend that you set the query_cache_type parameter to 0.
+When changes require that your query cache is purged, your DB instance will appear to stall. Most workloads don't benefit from a query cache. The query cache was removed from MySQL version 8.0. We recommend that you set the query\_cache\_type parameter to 0.
 
 ###### Note
 
@@ -1240,7 +1240,7 @@ Yellow: DB parameter groups have query cache turned on.
 
 **Recommended Action**
 
-Set the query_cache_type parameter value to 0 in your DB parameter groups.
+Set the query\_cache\_type parameter value to 0 in your DB parameter groups.
 
 **Additional Resources**
 

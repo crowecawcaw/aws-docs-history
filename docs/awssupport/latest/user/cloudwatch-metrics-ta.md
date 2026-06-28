@@ -68,11 +68,9 @@ days.
     * Trusted Advisor doesn’t send metrics for **GreenResources**, which are
      resources for which Trusted Advisor hasn’t detected any issues.
 
-12. Choose **Next**.
-13. On the **Configure actions** page, for **Alarm state
-    trigger**, choose **In alarm**.
-14. For **Select an SNS topic**, choose an existing Amazon Simple Notification Service (Amazon SNS) topic
-    or create one.
+12. Choose **Next**. 13. On the **Configure actions** page, for **Alarm state
+trigger**, choose **In alarm**. 14. For **Select an SNS topic**, choose an existing Amazon Simple Notification Service (Amazon SNS) topic
+or create one.
 
 ![Screenshot of the notification settings for an alarm to monitor a Trusted Advisor metric in the CloudWatch console.](images/trusted_advisor_metrics_cloudwatch_SNS_topic.png) 15. Choose **Next**. 16. For **Name and description**, enter a name and description for your
 alarm. 17. Choose **Next**. 18. On the **Preview and create** page, review your alarm details, and then

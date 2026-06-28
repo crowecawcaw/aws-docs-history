@@ -92,31 +92,34 @@ If you're using an AWS Organizations Management or Delegated Administrator accou
     	+ Average time to resolve recommendations
 
 3. On the **Active** tab, the **Active prioritized
-   recommendations** show recommendations that your account team
-   prioritized for you. The **Closed** tab shows resolved or
-   dismissed recommendations.
+recommendations** show recommendations that your account team
+prioritized for you. The **Closed** tab shows resolved or
+dismissed recommendations.
 
-   1. To filter your results, use the following options:
+    1. To filter your results, use the following options:
 
-      - **Recommendation** – Enter keywords to
-        search by name. This can be a check name, or a custom name that
-        your account team created.
-      - **Status** – Whether the
-        recommendation is pending a response, in progress, dismissed, or
-        resolved.
-      - **Source** – The origin of a
-        prioritized recommendation. The recommendation can come from
-        AWS services, your AWS account team, or a planned service
-        event.
-      - **Category** – The recommendation
-        category, such as security or cost optimization.
-      - **Age** – When your account team
-        shared the recommendation with you.
+
+
+
+    	* **Recommendation** – Enter keywords to
+    	 search by name. This can be a check name, or a custom name that
+    	 your account team created.
+    	* **Status** – Whether the
+    	 recommendation is pending a response, in progress, dismissed, or
+    	 resolved.
+    	* **Source** – The origin of a
+    	 prioritized recommendation. The recommendation can come from
+    	 AWS services, your AWS account team, or a planned service
+    	 event.
+    	* **Category** – The recommendation
+    	 category, such as security or cost optimization.
+    	* **Age** – When your account team
+    	 shared the recommendation with you.
 
 4. Choose a recommendation to learn more about its details, the affected resources, and the recommended actions.
-   You can then [acknowledge](#acknowledge-recommendation "#acknowledge-recommendation") or
-   [dismiss](#dismiss-recommendation "#dismiss-recommendation") the
-   recommendation.
+You can then [acknowledge](#acknowledge-recommendation "#acknowledge-recommendation") or
+[dismiss](#dismiss-recommendation "#dismiss-recommendation") the
+recommendation.
 
 ###### To view prioritized recommendations across all accounts in your AWS organization
 
@@ -148,9 +151,9 @@ On the **My Organization** tab, you can view the following items:
     - The average time taken to resolve recommendations.
 
 4. Under the **Active** tab, the **Active prioritized
-   recommendations** section shows recommendations that your account team
-   prioritized for you. The **Closed** tab shows resolved or
-   dismissed recommendations.
+recommendations** section shows recommendations that your account team
+prioritized for you. The **Closed** tab shows resolved or
+dismissed recommendations.
 
 To filter your results, use the following options:
 
@@ -170,8 +173,8 @@ To filter your results, use the following options:
      shared the recommendation with you.
 
 5. Choose a recommendation to see additional details, affected accounts and resources, and the recommended actions. You can then [acknowledge](#acknowledge-recommendation "#acknowledge-recommendation") or
-   [dismiss](#dismiss-recommendation "#dismiss-recommendation") the
-   recommendation.
+[dismiss](#dismiss-recommendation "#dismiss-recommendation") the
+recommendation.
 
 ###### Example: Trusted Advisor Priority recommendations
 

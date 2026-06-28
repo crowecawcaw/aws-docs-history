@@ -24,23 +24,25 @@ following:
 
     ![A dialog box to create an AWS Support case in Slack.](images/supportapp/create-support-case-step-1-multiple-accounts-example.png)
 
-3. Choose **Next**.
-4. On the **Create a support case** dialog box, specify the
-   following options:
+3. Choose **Next**. 4. On the **Create a support case** dialog box, specify the
+following options:
 
-   1. Choose the **Issue type**.
-   2. Choose the **Service**.
-   3. Choose the **Category**.
-   4. Choose the **Severity**.
-   5. Review your case details and choose **Next**.
+    1. Choose the **Issue type**.
+    2. Choose the **Service**.
+    3. Choose the **Category**.
+    4. Choose the **Severity**.
+    5. Review your case details and choose **Next**.
 
-   The following example shows a technical support case for
-   Alexa Services.
 
-   ![An example showing how to create a support case in the AWS Support App.](images/supportapp/create-support-case-in-slack-step-2.png)
+    The following example shows a technical support case for
+     Alexa Services.
+
+
+
+    ![An example showing how to create a support case in the AWS Support App.](images/supportapp/create-support-case-in-slack-step-2.png)
 
 5. For **Contact language**, choose your preferred language for your
-   support case.
+support case.
 
 ###### Note
 
@@ -77,31 +79,32 @@ The following example shows how to choose a live chat in Slack.
      if you want all channel members to have access to your chat.
 
 7. (Optional) For **Additional contacts to notify**, enter email
-   addresses to also receive updates about this support case. You can add up to 10
-   email addresses.
-8. Choose **Review**.
-9. In the Slack channel, review the case details. You can do the
-   following:
+addresses to also receive updates about this support case. You can add up to 10
+email addresses. 8. Choose **Review**. 9. In the Slack channel, review the case details. You can do the
+following:
 
-   - Choose **Edit** to change the case details.
-   - Add a file to your case. To do so, follow these steps:
+    * Choose **Edit** to change the case details.
+    * Add a file to your case. To do so, follow these steps:
 
-     1. Choose **Attach file**, choose the
-        **+**
-        icon
-        in Slack, and choose **Your computer**.
-     2. Navigate to and choose your file.
-     3. In the **Upload a file** dialog box, enter
-        `@awssupport`, and press the send message
-        ![Green square button with a right-pointing arrow icon.](images/supportapp/enter-icon.png)
-        icon.###### Notes
-     - You can attach up to three files. Each file can be up to 5
-       MB.
-     - If you attach a file to your support case, you must submit
-       your case within 1 hour. If you don't, you must add the files
-       again.
 
-   - Choose **Share to channel** to share the case details
+    	1. Choose **Attach file**, choose the
+    	 **+**
+    	 icon
+    	 in Slack, and choose **Your computer**.
+    	2. Navigate to and choose your file.
+    	3. In the **Upload a file** dialog box, enter
+    	 `@awssupport`, and press the send message
+    	![Green square button with a right-pointing arrow icon.](images/supportapp/enter-icon.png)
+    	 icon.###### Notes
+
+
+
+    	+ You can attach up to three files. Each file can be up to 5
+    	 MB.
+    	+ If you attach a file to your support case, you must submit
+    	 your case within 1 hour. If you don't, you must add the files
+    	 again.
+    * Choose **Share to channel** to share the case details
      with others in the Slack channel. You can use this option to share the case
      details with your team before you create the case.
 

@@ -73,9 +73,9 @@ following:
      that looks like `C01234A5BCD`.
 
 7. Under **Channel configuration name**, enter a name that easily
-   identifies your Slack channel configuration for the AWS Support App. This name appears only
-   in your AWS account and doesn't appear in Slack. You can rename your channel
-   configuration later.
+identifies your Slack channel configuration for the AWS Support App. This name appears only
+in your AWS account and doesn't appear in Slack. You can rename your channel
+configuration later.
 
 Your Slack channel type might look like the following example.
 
@@ -99,14 +99,14 @@ cases.
      updates.
 
 10. (Optional) If you choose **All cases** or **High-severity
-    cases**, you must select at least one of the following options:
+cases**, you must select at least one of the following options:
 
-        * **New and reopened cases**
-        * **Case correspondences**
-        * **Resolved cases**
+    * **New and reopened cases**
+    * **Case correspondences**
+    * **Resolved cases**
 
-    The following channel receives case notifications for all case updates in
-    Slack.
+The following channel receives case notifications for all case updates in
+Slack.
 
 ![Set up a Slack channel in the AWS Support App.](images/supportapp/add-notifications-from-support-center.png) 11. Review your configuration and choose **Add
 channel**.

@@ -139,17 +139,17 @@ In the AWS Management Console, you can also choose the question mark icon (
     * Production system down
     * Business-critical system down
 
-5. For **Reason for case severity change**, choose from the available options for why you're changing the case severity.
-6. (Optional) For **Tell us more**, enter additional information about this change.
-7. Do one of the following:
+5. For **Reason for case severity change**, choose from the available options for why you're changing the case severity. 6. (Optional) For **Tell us more**, enter additional information about this change. 7. Do one of the following:
 
-   - If you're lowering the support case severity, or if you're raising it
+    * If you're lowering the support case severity, or if you're raising it
      from **General guidance** to **System
      impaired** or **Production system
      impaired**, choose **Update**.
-   - If you're raising the severity to **Production system down** or **Business-critical system down**, use one of the options in the **Contact methods** section to engage with AWS Support, and then choose **Update**. The following example shows the options available in the **Contact methods** section.
+    * If you're raising the severity to **Production system down** or **Business-critical system down**, use one of the options in the **Contact methods** section to engage with AWS Support, and then choose **Update**. The following example shows the options available in the **Contact methods** section.
 
-   ![The Change case severity screen showing the Contact methods section with the following options: Web, Chat, and Phone.](images/change-case-severity-contact-methods.png)
+
+
+    ![The Change case severity screen showing the Contact methods section with the following options: Web, Chat, and Phone.](images/change-case-severity-contact-methods.png)
 
 ###### Note
 

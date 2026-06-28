@@ -211,20 +211,17 @@ accounts.
      creating your stack.
 
 14. For **Deployment options**, for **Failure
-    tolerance - optional**, enter the number of accounts where the
-    stacks can fail before CloudFormation stops the operation. We recommend that you
-    enter the number of accounts that you want to add, minus one. For example,
-    if your specified OU has 10 member accounts, enter 9. This means that even
-    if CloudFormation fails the operation 9 times, at least one account will
-    succeed.
-15. Choose **Next**.
-16. On the **Review** page, review your options, and then
-    choose **Submit**. You can check the status of your stack
-    on the **Stack instances** tab.
-17. (Optional) Repeat this procedure to upload a template for a Slack channel
-    configuration. The example template also creates the IAM role and attaches
-    an AWS managed policy. This role has the required permissions to access
-    other services for you. For more information, see [Managing access to the AWS Support App](support-app-permissions.md "support-app-permissions.md").
+tolerance - optional**, enter the number of accounts where the
+stacks can fail before CloudFormation stops the operation. We recommend that you
+enter the number of accounts that you want to add, minus one. For example,
+if your specified OU has 10 member accounts, enter 9. This means that even
+if CloudFormation fails the operation 9 times, at least one account will
+succeed. 15. Choose **Next**. 16. On the **Review** page, review your options, and then
+choose **Submit**. You can check the status of your stack
+on the **Stack instances** tab. 17. (Optional) Repeat this procedure to upload a template for a Slack channel
+configuration. The example template also creates the IAM role and attaches
+an AWS managed policy. This role has the required permissions to access
+other services for you. For more information, see [Managing access to the AWS Support App](support-app-permissions.md "support-app-permissions.md").
 
 If you don't create a stack set to create the Slack channel configuration,
 your member accounts can manually configure the Slack channel. For more
