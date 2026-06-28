@@ -58,7 +58,7 @@ Windows
     ```
 
 2. To publish Ruby gems to your repository, use the following command to fetch your CodeArtifact repository's endpoint and storing it in the
-   `RUBYGEMS_HOST` environment variable. The `gem` CLI uses this environment variable to determine where gems are published.
+`RUBYGEMS_HOST` environment variable. The `gem` CLI uses this environment variable to determine where gems are published.
 
 ###### Note
 
@@ -132,8 +132,8 @@ Windows
     ```
 
 4. To use `gem` to install Ruby gems from your repository, you must add the repository endpoint information and auth token
-   to your `.gemrc` file. You can add it to the global file (`~/.gemrc`) or your project `.gemrc` file.
-   The CodeArtifact information you must add to the `.gemrc` is a combination of the repository endpoint and auth token. It is formatted as follows:
+to your `.gemrc` file. You can add it to the global file (`~/.gemrc`) or your project `.gemrc` file.
+The CodeArtifact information you must add to the `.gemrc` is a combination of the repository endpoint and auth token. It is formatted as follows:
 
 ```
 https://aws:${CODEARTIFACT_AUTH_TOKEN}@`my_domain`-`111122223333`.d.codeartifact.`us-west-2`.amazonaws.com/ruby/`my_repo`/
@@ -183,7 +183,7 @@ Windows
     ```
 
 5. To use Bundler, you must configure Bundler with your repository endpoint URL and authentication token by
-   running the following `bundle config` command:
+running the following `bundle config` command:
 
 macOS and Linux
 

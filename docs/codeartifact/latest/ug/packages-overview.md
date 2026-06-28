@@ -168,7 +168,7 @@ The following are possible values for package version status:
   successfully published and can be requested using a package manager. The package
   version will be included in package versions lists returned to package managers,
   for example, in the output of `npm view <package-name>
-versions`. All assets of the package version are available from the
+ versions`. All assets of the package version are available from the
   repository.
 - **Unfinished** – The client has uploaded one
   or more assets for a package version, but has not finalized it by moving it into
@@ -188,7 +188,7 @@ versions`. All assets of the package version are available from the
   are available for download from the repository, but the package version is not
   included in the list of versions returned to package managers. For example, for
   an npm package, the output of `npm view <package-name>
-versions` will not include the package version. This means that npm's
+ versions` will not include the package version. This means that npm's
   dependency resolution logic will not select the package version because the
   version does not appear in the list of available versions. However, if the
   **Unlisted** package version is already

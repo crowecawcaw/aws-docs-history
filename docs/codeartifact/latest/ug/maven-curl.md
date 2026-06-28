@@ -34,56 +34,48 @@ curl --request PUT https://`my_domain`-`111122223333`.d.codeartifact.`us-west-2`
      --data-binary @`my-app-1.0.pom`
 ```
 
-4.  At this point, the Maven artifact will be in your CodeArtifact repository with a status of `Unfinished`. To be able to consume the package,
-    it must be in the `Published` state. You can move the package from `Unfinished` to `Published` by either
-    uploading a `maven-metadata.xml` file to your package, or calling the
-    [UpdatePackageVersionsStatus API](../APIReference/API_UpdatePackageVersionsStatus.md "../APIReference/API_UpdatePackageVersionsStatus.md") to change the status.
+4. At this point, the Maven artifact will be in your CodeArtifact repository with a status of `Unfinished`. To be able to consume the package,
+   it must be in the `Published` state. You can move the package from `Unfinished` to `Published` by either
+   uploading a `maven-metadata.xml` file to your package, or calling the
+   [UpdatePackageVersionsStatus API](../APIReference/API_UpdatePackageVersionsStatus.md "../APIReference/API_UpdatePackageVersionsStatus.md") to change the status.
 
-        1. Option 1: Use the following `curl` command to add a `maven-metadata.xml` file to your package:
+   1. Option 1: Use the following `curl` command to add a `maven-metadata.xml` file to your package:
 
+   ```
+   curl --request PUT https://`my_domain`-`111122223333`.d.codeartifact.`region`.amazonaws.com/maven/`my_repo`/`com/mycompany/app/my-app/maven-metadata.xml` \
+        --user "aws:$CODEARTIFACT_AUTH_TOKEN" --header "Content-Type: application/octet-stream" \
+        --data-binary @`maven-metadata.xml`
+   ```
 
+   The following is an example of the contents of a `maven-metadata.xml` file:
 
+   ```
+   <metadata modelVersion="1.1.0">
+       <groupId>com.mycompany.app</groupId>
+       <artifactId>my-app</artifactId>
+       <versioning>
+           <latest>1.0</latest>
+           <release>1.0</release>
+           <versions>
+               <version>1.0</version>
+           </versions>
+           <lastUpdated>20200731090423</lastUpdated>
+       </versioning>
+   </metadata>
+   ```
+   2. Option 2: Update the package status to `Published` with the `UpdatePackageVersionsStatus` API.
 
-        ```
-        curl --request PUT https://`my_domain`-`111122223333`.d.codeartifact.`region`.amazonaws.com/maven/`my_repo`/`com/mycompany/app/my-app/maven-metadata.xml` \
-             --user "aws:$CODEARTIFACT_AUTH_TOKEN" --header "Content-Type: application/octet-stream" \
-             --data-binary @`maven-metadata.xml`
-        ```
+   ```
+   aws codeartifact update-package-versions-status \
+       --domain `my_domain` \
+       --domain-owner `111122223333` \
+       --repository `my_repo` \
+       --format maven \
+       --namespace `com.mycompany.app` \
+       --package `my-app` \
+       --versions `1.0` \
+       --target-status Published
+   ```
 
-        The following is an example of the contents of a `maven-metadata.xml` file:
-
-
-
-        ```
-        <metadata modelVersion="1.1.0">
-            <groupId>com.mycompany.app</groupId>
-            <artifactId>my-app</artifactId>
-            <versioning>
-                <latest>1.0</latest>
-                <release>1.0</release>
-                <versions>
-                    <version>1.0</version>
-                </versions>
-                <lastUpdated>20200731090423</lastUpdated>
-            </versioning>
-        </metadata>
-        ```
-        2. Option 2: Update the package status to `Published` with the `UpdatePackageVersionsStatus` API.
-
-
-
-
-        ```
-        aws codeartifact update-package-versions-status \
-            --domain `my_domain` \
-            --domain-owner `111122223333` \
-            --repository `my_repo` \
-            --format maven \
-            --namespace `com.mycompany.app` \
-            --package `my-app` \
-            --versions `1.0` \
-            --target-status Published
-        ```
-
-    If you only have an artifact's JAR file, you can publish a consumable package version to a CodeArtifact repository using `mvn`. This can be useful if you do not have
-    access to the artifact's source code or POM. See [Publish third-party artifacts](maven-mvn.md#publishing-third-party-artifacts "maven-mvn.md#publishing-third-party-artifacts") for details.
+If you only have an artifact's JAR file, you can publish a consumable package version to a CodeArtifact repository using `mvn`. This can be useful if you do not have
+access to the artifact's source code or POM. See [Publish third-party artifacts](maven-mvn.md#publishing-third-party-artifacts "maven-mvn.md#publishing-third-party-artifacts") for details.

@@ -14,7 +14,7 @@ The following actions can be triggered by an event:
   following are examples of CodeArtifact events:
 
 - Publishing a new package version (for example, by running `npm
-publish`).
+ publish`).
 - Adding a new asset to an existing package version (for example, by pushing a new
   JAR file to an existing Maven package).
 - Copying a package version from one repository to another using

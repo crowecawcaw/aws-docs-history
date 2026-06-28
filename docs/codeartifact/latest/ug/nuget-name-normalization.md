@@ -23,9 +23,8 @@ from the NuGet documentation.
 
 - SemVer 2.0.0 build metadata is removed:
 
-      + `1.0.7+r3456` is treated as `1.0.7`
-
-  **Package asset name normalization:** CodeArtifact constructs the NuGet package asset name from the normalized package name and package version.
+  - `1.0.7+r3456` is treated as `1.0.7`
+    **Package asset name normalization:** CodeArtifact constructs the NuGet package asset name from the normalized package name and package version.
 
 The non-normalized package name and version name can be used with API and CLI requests because CodeArtifact performs normalization on the package name and version inputs for those requests. For example,
 inputs of `--package Newtonsoft.JSON` and `--version 12.0.03.0` would be normalized and return a package that has

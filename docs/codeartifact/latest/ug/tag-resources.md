@@ -28,7 +28,8 @@ You can tag the following resource types in CodeArtifact:
   You can use the console, AWS CLI, CodeArtifact APIs, or AWS SDKs to:
 
 - Add tags to a domain or repository when you create it\*.
-- Add, manage, and remove tags for a domain or repository. \* You cannot add tags to a domain or repository when you create it in the console.
+- Add, manage, and remove tags for a domain or repository.
+  \* You cannot add tags to a domain or repository when you create it in the console.
 
 In addition to identifying, organizing, and tracking your resource with tags, you can use
 tags in IAM policies to help control who can view and interact with your resource. For

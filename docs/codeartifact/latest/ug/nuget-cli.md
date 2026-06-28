@@ -303,8 +303,8 @@ dotnet codeartifact-creds `command`
   Configures the credential provider to use the provided AWS profile.
 - `configure unset profile`: Removes the configured profile if set.
 - `install`: Copies the credential provider to the `plugins` folder.
-- `install --profile `profile``: Copies 
-the credential provider to the `plugins` folder and configures it to use the provided AWS profile.
+- `install --profile `profile``: Copies
+  the credential provider to the `plugins` folder and configures it to use the provided AWS profile.
 - `uninstall`: Uninstalls the credential provider. This does not remove the changes to the configuration file.
 - `uninstall --delete-configuration`: Uninstalls the credential provider and removes all changes to the configuration file.
 

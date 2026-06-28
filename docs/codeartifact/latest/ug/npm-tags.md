@@ -29,10 +29,10 @@ repository.
 For example, say both repository S and repository D contain a single version of the
 `web-helper` package with the latest tag set as shown in this table.
 
-| Repository | Package name | Package tags                            |
-| ---------- | ------------ | --------------------------------------- |
-| S          | `web-helper` | \*latest<br>• (alias for version 1.0.1) |
-| D          | `web-helper` | \*latest<br>• (alias for version 1.0.0) |
+| Repository | Package name | Package tags                           |
+| ---------- | ------------ | -------------------------------------- |
+| S          | `web-helper` | *latest<br>• (alias for version 1.0.1) |
+| D          | `web-helper` | *latest<br>• (alias for version 1.0.0) |
 
 `CopyPackageVersions` is invoked to copy `web-helper` 1.0.1 from S to
 D. After the operation is complete, the `latest` tag on `web-helper`
@@ -51,10 +51,10 @@ client. For example, a repository named R has an upstream repository named U. Th
 table shows the tags for a package named `web-helper` that's present in both
 repositories.
 
-| Repository | Package name | Package tags                            |
-| ---------- | ------------ | --------------------------------------- |
-| R          | `web-helper` | \*latest<br>• (alias for version 1.0.0) |
-| U          | `web-helper` | \*alpha<br>• (alias for version 1.0.1)  |
+| Repository | Package name | Package tags                           |
+| ---------- | ------------ | -------------------------------------- |
+| R          | `web-helper` | *latest<br>• (alias for version 1.0.0) |
+| U          | `web-helper` | *alpha<br>• (alias for version 1.0.1)  |
 
 In this case, when the npm client fetches the tags for the `web-helper`
 package from repository R, it receives both the _latest_ and
@@ -65,10 +65,10 @@ repository, CodeArtifact uses the tag that is present in the _upstream_
 repository. For example, suppose that the tags on _webhelper_ have been
 modified to look like the following.
 
-| Repository | Package name | Package tags                            |
-| ---------- | ------------ | --------------------------------------- |
-| R          | `web-helper` | \*latest<br>• (alias for version 1.0.0) |
-| U          | `web-helper` | \*latest<br>• (alias for version 1.0.1) |
+| Repository | Package name | Package tags                           |
+| ---------- | ------------ | -------------------------------------- |
+| R          | `web-helper` | *latest<br>• (alias for version 1.0.0) |
+| U          | `web-helper` | *latest<br>• (alias for version 1.0.1) |
 
 In this case, when the npm client fetches the tags for package
 _web-helper_ from repository R, the _latest_ tag
@@ -81,18 +81,18 @@ Using the tag in the upstream repository can be problematic when publishing new 
 of a package in a downstream repository. For example, say that the latest tag on the
 package _web-helper_ is the same in both R and U.
 
-| Repository | Package name | Package tags                            |
-| ---------- | ------------ | --------------------------------------- |
-| R          | `web-helper` | \*latest<br>• (alias for version 1.0.1) |
-| U          | `web-helper` | \*latest<br>• (alias for version 1.0.1) |
+| Repository | Package name | Package tags                           |
+| ---------- | ------------ | -------------------------------------- |
+| R          | `web-helper` | *latest<br>• (alias for version 1.0.1) |
+| U          | `web-helper` | *latest<br>• (alias for version 1.0.1) |
 
 When version 1.0.2 is published to R, npm updates the
 _latest_ tag to 1.0.2.
 
-| Repository | Package name | Package tags                            |
-| ---------- | ------------ | --------------------------------------- |
-| R          | `web-helper` | \*latest<br>• (alias for version 1.0.2) |
-| U          | `web-helper` | \*latest<br>• (alias for version 1.0.1) |
+| Repository | Package name | Package tags                           |
+| ---------- | ------------ | -------------------------------------- |
+| R          | `web-helper` | *latest<br>• (alias for version 1.0.2) |
+| U          | `web-helper` | *latest<br>• (alias for version 1.0.1) |
 
 However, the npm client never sees this tag value because the value of
 _latest_ in U is 1.0.1. Running `npm install` against

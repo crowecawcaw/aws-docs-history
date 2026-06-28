@@ -196,7 +196,7 @@ You now have three CodeArtifact resources:
      `my-repo` repository.
 
 9. To avoid further AWS charges, delete the resources that you used during this
-   tutorial:
+tutorial:
 
 ###### Note
 

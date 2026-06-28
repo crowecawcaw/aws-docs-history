@@ -81,17 +81,16 @@ replace-with = "`my_registry`"
 
 Windows: Publish and download packages
 
-1.  In order to configure Cargo with CodeArtifact, you need to define your CodeArtifact repository as a registry in
-    the Cargo configuration and provide credentials.
+1. In order to configure Cargo with CodeArtifact, you need to define your CodeArtifact repository as a registry in
+   the Cargo configuration and provide credentials.
 
-        * Replace `my_registry` with your registry name.
-        * Replace `my_domain` with your CodeArtifact domain name.
-        * Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
-         `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").
-        * Replace `my_repo` with your CodeArtifact repository name.
-
-    Copy the configuration to publish and download Cargo packages to your repository and save it in the `%USERPROFILE%\.cargo\config.toml`
-    file for a system-level configuration or `.cargo\config.toml` for a project-level configuration.
+   - Replace `my_registry` with your registry name.
+   - Replace `my_domain` with your CodeArtifact domain name.
+   - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
+     `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").
+   - Replace `my_repo` with your CodeArtifact repository name.
+     Copy the configuration to publish and download Cargo packages to your repository and save it in the `%USERPROFILE%\.cargo\config.toml`
+     file for a system-level configuration or `.cargo\config.toml` for a project-level configuration.
 
 It is recommended that you use the credential provider
 `cargo:token`, which uses the credentials stored in your `~/.cargo/credentials.toml` file. You may run into an

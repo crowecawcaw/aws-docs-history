@@ -29,11 +29,11 @@ in the domain using package managers or similar tools.
 
 - **ALLOW**: Package versions can be published directly to all repositories.
 - **BLOCK**: Package versions cannot be published directly to any repository.
-- **ALLOW_SPECIFIC_REPOSITORIES**: Package versions can only be published directly to repositories specified in the
+- **ALLOW\_SPECIFIC\_REPOSITORIES**: Package versions can only be published directly to repositories specified in the
   allowed repository list for publishing.
 - **INHERIT**: The `PUBLISH` setting is inherited from the first parent package group with a setting that is not `INHERIT`.
 
-### EXTERNAL_UPSTREAM
+### EXTERNAL\_UPSTREAM
 
 The `EXTERNAL_UPSTREAM` setting configures whether package versions can be ingested from external, public repositories when
 requested by a package manager. For a list of supported external repositories, see
@@ -41,18 +41,18 @@ requested by a package manager. For a list of supported external repositories, s
 
 - **ALLOW**: Any package version can be ingested into all repositories from a public source with an external connection.
 - **BLOCK**: Package versions cannot be ingested into any repository from a public source with an external connection.
-- **ALLOW_SPECIFIC_REPOSITORIES**: Package versions can only be ingested from a public source into repositories specified in the
+- **ALLOW\_SPECIFIC\_REPOSITORIES**: Package versions can only be ingested from a public source into repositories specified in the
   allowed repository list for external upstreams.
 - **INHERIT**: The `EXTERNAL_UPSTREAM` setting is inherited from the first parent package group with a setting that is not `INHERIT`.
 
-### INTERNAL_UPSTREAM
+### INTERNAL\_UPSTREAM
 
 The `INTERNAL_UPSTREAM` setting configures whether package versions can be retained from internal upstream repositories in the same CodeArtifact domain
 when requested by a package manager.
 
 - **ALLOW**: Any package version can be retained from other CodeArtifact repositories configured as upstream repositories.
 - **BLOCK**: Package versions cannot be retained from other CodeArtifact repositories configured as upstream repositories.
-- **ALLOW_SPECIFIC_REPOSITORIES**: Package versions can only be retained from other CodeArtifact respositories configured as upstream repositories into repositories specified in the
+- **ALLOW\_SPECIFIC\_REPOSITORIES**: Package versions can only be retained from other CodeArtifact respositories configured as upstream repositories into repositories specified in the
   allowed repository list for internal upstreams.
 - **INHERIT**: The `INTERNAL_UPSTREAM` setting is inherited from the first parent package group with a setting that is not `INHERIT`.
 
@@ -127,8 +127,8 @@ This scenario is likely a common scenario in package management:
   from being published to repositories in your domain from package managers.
 
 To achieve this, you should configure a package group with a pattern that includes the private name(s), and origin settings of
-**PUBLISH: ALLOW**, **EXTERNAL_UPSTREAM: BLOCK**, and
-**INTERNAL_UPSTREAM: ALLOW**. This will ensure packages with private names can be published directly, but cannot be
+**PUBLISH: ALLOW**, **EXTERNAL\_UPSTREAM: BLOCK**, and
+**INTERNAL\_UPSTREAM: ALLOW**. This will ensure packages with private names can be published directly, but cannot be
 ingested from external repositories.
 
 The following AWS CLI commands create and configure a package group with origin restriction settings that match the desired behavior:
@@ -167,8 +167,8 @@ ingestion of packages associated with the package group into any other repositor
 with package managers. To achieve this, you create and configure the package group as follows:
 
 Origin restriction settings of **PUBLISH: BLOCK**,
-and **EXTERNAL_UPSTREAM: ALLOW_SPECIFIC_REPOSITORIES**, and
-**INTERNAL_UPSTREAM: ALLOW_SPECIFIC_REPOSITORIES**.
+and **EXTERNAL\_UPSTREAM: ALLOW\_SPECIFIC\_REPOSITORIES**, and
+**INTERNAL\_UPSTREAM: ALLOW\_SPECIFIC\_REPOSITORIES**.
 
 `repoA` and `repoB` added to the appropriate allowed repository list:
 

@@ -16,7 +16,7 @@ repository when `pip install` is run.
 
 Some package versions in pypi.org are marked as _yanked_, which communicates to the package installer (such as pip)
 that the version should not be installed unless it is the only one that matches a version specifier
-(using either `==` or `===`). See [PEP_592](https://peps.python.org/pep-0592/ "https://peps.python.org/pep-0592/") for more information.
+(using either `==` or `===`). See [PEP\_592](https://peps.python.org/pep-0592/ "https://peps.python.org/pep-0592/") for more information.
 
 If a package version in CodeArtifact was originally fetched from an external connection to
 [pypi.org](https://pypi.org/ "https://pypi.org/"), when you install the

@@ -15,17 +15,16 @@ To use the login command, Swift 5.8 or later is required and Swift 5.9 or later 
 
 The `aws codeartifact login` command will do the following:
 
-1.  Fetch an authentication token from CodeArtifact and store it in your environment. How the credentials are stored
-    depends on the operating system of the environment:
+1. Fetch an authentication token from CodeArtifact and store it in your environment. How the credentials are stored
+   depends on the operating system of the environment:
 
-        1. **macOS:** An entry is created in the macOS Keychain application.
-        2. **Linux and Windows:** An entry is created in the `~/.netrc` file.
+   1. **macOS:** An entry is created in the macOS Keychain application.
+   2. **Linux and Windows:** An entry is created in the `~/.netrc` file.
+      In all operating systems, if a credentials entry exists, this command replaces that entry with a new token.
 
-    In all operating systems, if a credentials entry exists, this command replaces that entry with a new token.
-
-2.  Fetch your CodeArtifact repository endpoint URL and add it to your Swift configuration file. The command adds the
-    repository endpoint URL to the project level configuration file located at
-    `/path/to/project/.swiftpm/configuration/registries.json`.
+2. Fetch your CodeArtifact repository endpoint URL and add it to your Swift configuration file. The command adds the
+   repository endpoint URL to the project level configuration file located at
+   `/path/to/project/.swiftpm/configuration/registries.json`.
 
 ###### Note
 
@@ -108,12 +107,12 @@ Windows
     ```
 
 2. Get your CodeArtifact repository's endpoint by running the following command. Your repository endpoint is used to point the Swift
-   Package Manager to your repository to consume or publish packages.
+Package Manager to your repository to consume or publish packages.
 
-   - Replace `my_domain` with your CodeArtifact domain name.
-   - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
+    * Replace `my_domain` with your CodeArtifact domain name.
+    * Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
      `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").
-   - Replace `my_repo` with your CodeArtifact repository name.
+    * Replace `my_repo` with your CodeArtifact repository name.
 
 macOS and Linux
 
@@ -178,7 +177,7 @@ Windows
     ```
 
 4. Next, update the package registry used by your application so that any dependency will be pulled from your CodeArtifact repository.
-   This command must be run in the project directory where you are trying to resolve the package dependency:
+This command must be run in the project directory where you are trying to resolve the package dependency:
 
 macOS and Linux
 

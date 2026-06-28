@@ -159,7 +159,7 @@ casefolding (similar to converting to lowercase), replaces sequences of dash, do
 and normalizes confusable characters.
 
 Weak matching treats dashes, dots, and underscores as equivalent but does not completely ignore them. This means that _foo-bar_,
-_foo.bar_, _foo..bar_, and _foo_bar_ are all weak match equivalents, but
+_foo.bar_, _foo..bar_, and _foo\_bar_ are all weak match equivalents, but
 _foobar_ is not. Although several public repositories implement steps to prevent these types of varations, the
 protection provided by public repositories does not make this feature of package groups unnecessary. For example,
 public repositories such as the npm Public Registry registry will only prevent new variations of the package named
