@@ -30,11 +30,11 @@ Review the `enableDnsHostnames` and `enableDnsSupport` DNS attributes for your V
 
 The following shared file systems are covered in this document:
 
-| NFS Location Structure   | NFS Location Example | File System Location Structure   | File System Location Example |
-| ------------------------ | -------------------- | -------------------------------- | ---------------------------- |
-| <SID>\_sapmnt            | `SLX_sapmnt`         | /sapmnt/<SID>                    | `/sapmnt/SLX`                |
-| <SID>\_ASCS<ascs_sys_nr> | `SLX_ASCS00`         | /usr/sap/<SID>/ASCS<ascs_sys_nr> | `/usr/sap/SLX/ASCS00`        |
-| <SID>\_ERS<ers_sys_nr>   | `SLX_ERS10`          | /usr/sap/<SID>/ERS<ers_sys_nr>   | `/usr/sap/SLX/ERS10`         |
+| NFS Location Structure     | NFS Location Example | File System Location Structure     | File System Location Example |
+| -------------------------- | -------------------- | ---------------------------------- | ---------------------------- |
+| <SID>\_sapmnt              | `SLX_sapmnt`         | /sapmnt/<SID>                      | `/sapmnt/SLX`                |
+| <SID>\_ASCS<ascs\_sys\_nr> | `SLX_ASCS00`         | /usr/sap/<SID>/ASCS<ascs\_sys\_nr> | `/usr/sap/SLX/ASCS00`        |
+| <SID>\_ERS<ers\_sys\_nr>   | `SLX_ERS10`          | /usr/sap/<SID>/ERS<ers\_sys\_nr>   | `/usr/sap/SLX/ERS10`         |
 
 The following options can differ depending on how you architect and operate your systems:
 

@@ -139,7 +139,7 @@ Verify that:
 
 - Each instance returns two IP addresses from the same subnet
 - The primary network interface (eth0) has both IPs assigned
-- The secondary IPs will be used later for ring0_addr and ring1_addr in corosync.conf
+- The secondary IPs will be used later for ring0\_addr and ring1\_addr in corosync.conf
 
 ## Disable Source/Destination Check
 

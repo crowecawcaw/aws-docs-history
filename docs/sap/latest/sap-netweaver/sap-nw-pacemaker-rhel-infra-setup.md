@@ -24,7 +24,7 @@ For more information, see [IAM roles for Amazon EC2](../../../AWSEC2/latest/User
 
 ### STONITH Policy
 
-The RHEL STONITH resource agent (fence_aws) requires permission to start and stop both the nodes of the cluster. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
+The RHEL STONITH resource agent (fence\_aws) requires permission to start and stop both the nodes of the cluster. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
 
 ```
 {
@@ -94,8 +94,8 @@ The following checks and changes are required. We refer to the AWS account that 
 
 The latest version of the aws-vpc-move-ip agent shipped with RHEL8 and RHEL9 supports the shared VPC setup by default. The following are the minimum version required to support a shared VPC Setup:
 
-- RHEL 8 - resource-agents-4.1.1-90.el8_4.7.x86_64
-- RHEL 9 - resource-agents-4.9.0-16.el9_0.6.x86_64
+- RHEL 8 - resource-agents-4.1.1-90.el8\_4.7.x86\_64
+- RHEL 9 - resource-agents-4.9.0-16.el9\_0.6.x86\_64
 
 ###### IAM Roles and Policies
 

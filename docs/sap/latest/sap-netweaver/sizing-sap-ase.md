@@ -36,12 +36,12 @@ The io2 volume is well-suited for I/O-intensive database workloads that require 
 
 The following table lists the main directories for SAP ASE database.
 
-|                                    |                                                 |
-| ---------------------------------- | ----------------------------------------------- |
-| Usage                              | Directory                                       |
-| Database instance root files       | /sybase/<SID>                                   |
-| Database data files                | /sybase/<SID>/sapdata_1 /sybase/<SID>/sapdata_X |
-| Database log files                 | /sybase<SID>/saplog_1                           |
-| Database temporary tablespace      | /sybase/<SID>/saptmp                            |
-| Diagnostic tablespace for SAPTOOLS | /sybase/<SID>/sapdiag                           |
-| Directory for ASE backup           | /sybasebackup                                   |
+|                                    |                                                   |
+| ---------------------------------- | ------------------------------------------------- |
+| Usage                              | Directory                                         |
+| Database instance root files       | /sybase/<SID>                                     |
+| Database data files                | /sybase/<SID>/sapdata\_1 /sybase/<SID>/sapdata\_X |
+| Database log files                 | /sybase<SID>/saplog\_1                            |
+| Database temporary tablespace      | /sybase/<SID>/saptmp                              |
+| Diagnostic tablespace for SAPTOOLS | /sybase/<SID>/sapdiag                             |
+| Directory for ASE backup           | /sybasebackup                                     |

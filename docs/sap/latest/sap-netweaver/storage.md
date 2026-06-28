@@ -2,12 +2,12 @@
 
 The following table lists the main directories for SQL Server database.
 
-| Table 2 - Main directories for SQL Server database | Usage                                                                                          | Directory                                                                     | Description |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------- |
-| Database data files                                | `<drive>:\<SAPSID>DATA0`<br>`<drive>:\<SAPSID>DATA1`<br>**…​..**<br>`<drive>:\<SAPSID>DATA<N>` | Directory for SAP database data files                                         |
-| Database transaction log files                     | `<drive>:\<SAPSID>log<N>`                                                                      | Directory for SAP database transaction Log                                    |
-| Tempdb data files                                  | `<drive>:\Tempdb`                                                                              | Directory for temporary database data files                                   |
-| SQL binaries and other data files                  | `<drive>:\Program Files\Microsoft SQL Server`                                                  | Directory for SQL Server program files and master, msdb, and model data files |
+Table 2 - Main directories for SQL Server database| Usage | Directory | Description |
+| --- | --- | --- |
+| Database data files | `<drive>:\<SAPSID>DATA0`<br>`<drive>:\<SAPSID>DATA1`<br>**…​..**<br>`<drive>:\<SAPSID>DATA<N>` | Directory for SAP database data files |
+| Database transaction log files | `<drive>:\<SAPSID>log<N>` | Directory for SAP database transaction Log |
+| Tempdb data files | `<drive>:\Tempdb` | Directory for temporary database data files |
+| SQL binaries and other data files | `<drive>:\Program Files\Microsoft SQL Server` | Directory for SQL Server program files and master, msdb, and model data files |
 
 Amazon Elastic Block Store (Amazon EBS) volumes are designed to be highly available and reliable. Amazon EBS volume data is replicated across multiple servers in an Availability Zone to prevent the loss of data from the failure of any single component. Due to this built-in protection, you don’t have to configure RAID 1 for volumes containing database transaction log files, tempdb data files, SQL binaries, and other data files.
 

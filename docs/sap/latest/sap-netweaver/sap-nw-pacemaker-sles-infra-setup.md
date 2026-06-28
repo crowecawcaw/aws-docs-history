@@ -94,8 +94,8 @@ The following checks and changes are required. We refer to the AWS account that 
 
 The latest version of the aws-vpc-move-ip agent shipped with SLES15 SP3 supports the shared VPC setup by default. The following are the minimum version required to support a shared VPC Setup:
 
-- SLES 12 SP5 - resource-agents-4.3.018.a7fb5035-3.79.1.x86_64
-- SLES 15 SP2 - resource-agents-4.4.0+git57.70549516-3.30.1.x86_64
+- SLES 12 SP5 - resource-agents-4.3.018.a7fb5035-3.79.1.x86\_64
+- SLES 15 SP2 - resource-agents-4.4.0+git57.70549516-3.30.1.x86\_64
 - SLES 15 SP3 - resource-agents-4.8.0+git30.d0077df0-8.5.1
 
 ###### IAM Roles and Policies

@@ -147,7 +147,7 @@ RPM package `sap-suse-cluster-connector` has _dashes_. The executable `/usr/bin/
     ```
 
 5. **Check integration using `sapcontrol`** – `sapcontrol` includes functions: `HACheckConfig` and `HACheckFailoverConfig`. These functions can be used to check configuration, including awareness of the cluster connector.
-   These checks have limited value before the cluster is configured, but you can run HACheckFailoverConfig to ensure the base configuration is in place.
+These checks have limited value before the cluster is configured, but you can run HACheckFailoverConfig to ensure the base configuration is in place.
 
 **ASCS**
 
@@ -209,7 +209,7 @@ For more details, see the following SAP Notes (require SAP portal access):
 - [SAP Note 3139184 – Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184 "https://me.sap.com/notes/3139184")
 - [SAP Note 3115048 – sapstartsrv with native Linux systemd support](https://me.sap.com/notes/3115048 "https://me.sap.com/notes/3115048")
 
-You can confirm whether systemd is in place by running the following command. Systemd is in place if SAP Services (e.g., SAPSLX_00.service, SAPSLX_10.service) are listed.
+You can confirm whether systemd is in place by running the following command. Systemd is in place if SAP Services (e.g., SAPSLX\_00.service, SAPSLX\_10.service) are listed.
 
 ```
 # systemctl list-unit-files SAP*

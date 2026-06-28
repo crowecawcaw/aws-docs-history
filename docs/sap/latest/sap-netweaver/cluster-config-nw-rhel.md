@@ -59,7 +59,7 @@ Configure cluster properties to establish fencing behavior and resource failover
 # pcs property set priority-fencing-delay="20"
 ```
 
-- The **priority-fencing-delay** is recommended for protecting the SAP ASCS nodes during network partitioning events. When a cluster partition occurs, this delay gives preference to nodes hosting higher priority resources, with the ASCS receiving additional priority weighting over the ERS . This helps ensure the ASCS node survives in split-brain scenarios. The recommended 20 second priority-fencing-delay works in conjunction with the pcmk_delay_max (10 seconds) configured in the stonith resource, providing a total potential delay of up to 30 seconds before fencing occurs
+- The **priority-fencing-delay** is recommended for protecting the SAP ASCS nodes during network partitioning events. When a cluster partition occurs, this delay gives preference to nodes hosting higher priority resources, with the ASCS receiving additional priority weighting over the ERS . This helps ensure the ASCS node survives in split-brain scenarios. The recommended 20 second priority-fencing-delay works in conjunction with the pcmk\_delay\_max (10 seconds) configured in the stonith resource, providing a total potential delay of up to 30 seconds before fencing occurs
 
 To verify your cluster property settings:
 
@@ -106,7 +106,7 @@ To verify your resource default settings:
 # pcs resource op defaults update timeout="600"
 ```
 
-- The **op_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
+- The **op\_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
 
 To verify your operation default settings:
 
@@ -135,14 +135,14 @@ op monitor interval="180" timeout="60"
 
 Details:
 
-- **pcmk_host_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
+- **pcmk\_host\_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
 - **region** - AWS region where the EC2 instances are deployed
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient. Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
-- **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
-- **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
-- **skip_os_shutdown** (NEW) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
+- **pcmk\_delay\_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient. Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
+- **pcmk\_reboot\_timeout** - Maximum time in seconds allowed for a reboot operation
+- **pcmk\_reboot\_retries** - Number of times to retry a failed reboot operation
+- **skip\_os\_shutdown** (NEW) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
 
-  - [Red Hat Solution 4963741 - fence_aws fence action fails with "Timed out waiting to power OFF"](https://access.redhat.com/solutions/4963741 "https://access.redhat.com/solutions/4963741") (requires Red Hat Customer Portal access)
+  - [Red Hat Solution 4963741 - fence\_aws fence action fails with "Timed out waiting to power OFF"](https://access.redhat.com/solutions/4963741 "https://access.redhat.com/solutions/4963741") (requires Red Hat Customer Portal access)
 
 ENSA1
 
@@ -264,7 +264,7 @@ op monitor interval="20" timeout="40"
 - `force_unmount` and `fast_stop` are recommendations for ensuring the filesystem can be quickly unmounted. See Red Hat solutions:
 
   - [Red Hat Solution 3357961 - During failover of a pacemaker resources, a Filesystem resource kills processes not using the filesystem](https://access.redhat.com/solutions/3357961 "https://access.redhat.com/solutions/3357961") (requires Red Hat customer portal login)
-  - [Red Hat Solution 4801371 - What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371 "https://access.redhat.com/solutions/4801371") (requires Red Hat customer portal login)
+  - [Red Hat Solution 4801371 - What is the fast\_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371 "https://access.redhat.com/solutions/4801371") (requires Red Hat customer portal login)
 
 ## Create overlay IP resources
 

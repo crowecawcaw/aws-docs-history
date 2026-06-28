@@ -16,15 +16,15 @@ This guide is for users who are responsible for planning, architecting, and depl
 
 Instructions in this document are based on the recommendations provided by SAP and Microsoft for SAP NetWeaver on Windows as described in the following OSS notes:
 
-| SAP NetWeaver on Windows OSS Notes | SAP OSS Note                                                     | Description |
-| ---------------------------------- | ---------------------------------------------------------------- | ----------- |
-| 1656099                            | SAP Applications on AWS: Supported DB/OS and Amazon EC2 products |
-| 1409608                            | Virtualization on Windows                                        |
-| 1732161                            | SAP Systems on Windows Server 2012 (R2)                          |
-| 2384179                            | SAP Systems on Windows Server 2016                               |
-| 2751450                            | SAP Systems on Windows Server 2019                               |
-| 1564275                            | Install SAP Systems Using Virtual Host Names on Windows          |
-| 3143497                            | SAP Systems on Windows Server 2022                               |
+SAP NetWeaver on Windows OSS Notes| SAP OSS Note | Description |
+| --- | --- |
+| 1656099 | SAP Applications on AWS: Supported DB/OS and Amazon EC2 products |
+| 1409608 | Virtualization on Windows |
+| 1732161 | SAP Systems on Windows Server 2012 (R2) |
+| 2384179 | SAP Systems on Windows Server 2016 |
+| 2751450 | SAP Systems on Windows Server 2019 |
+| 1564275 | Install SAP Systems Using Virtual Host Names on Windows |
+| 3143497 | SAP Systems on Windows Server 2022 |
 
 In addition, this document also follows best practices from AWS, Microsoft, and SAP for SAP NetWeaver deployments on Windows. See the recommended reading section for more details.
 

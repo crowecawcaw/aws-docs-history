@@ -107,7 +107,7 @@ echo 'b' > /proc/sysrq-trigger
 - Iptables must be installed.
 - Use a subnet in this command because of the secondary ring.
 - Check for any existing iptables rules as iptables -F will flush all rules.
-- Review pcmk_delay and priority parameters if you see neither node survives the fence race.
+- Review pcmk\_delay and priority parameters if you see neither node survives the fence race.
 
 **Simulate failure** – On either node as root:
 

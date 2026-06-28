@@ -59,7 +59,7 @@ Configure cluster properties to establish fencing behavior and resource failover
 # crm configure property priority-fencing-delay="20"
 ```
 
-- The **priority-fencing-delay** is recommended for protecting the SAP ASCS nodes during network partitioning events. When a cluster partition occurs, this delay gives preference to nodes hosting higher priority resources, with the ASCS receiving additional priority weighting over the ERS . This helps ensure the ASCS node survives in split-brain scenarios. The recommended 20 second priority-fencing-delay works in conjunction with the pcmk_delay_max (10 seconds) configured in the stonith resource, providing a total potential delay of up to 30 seconds before fencing occurs
+- The **priority-fencing-delay** is recommended for protecting the SAP ASCS nodes during network partitioning events. When a cluster partition occurs, this delay gives preference to nodes hosting higher priority resources, with the ASCS receiving additional priority weighting over the ERS . This helps ensure the ASCS node survives in split-brain scenarios. The recommended 20 second priority-fencing-delay works in conjunction with the pcmk\_delay\_max (10 seconds) configured in the stonith resource, providing a total potential delay of up to 30 seconds before fencing occurs
 
 To verify your cluster property settings:
 
@@ -97,7 +97,7 @@ Configure operation timeout defaults:
 # crm configure op_defaults timeout="600"
 ```
 
-- The **op_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
+- The **op\_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
 
 To verify your operation default settings:
 
@@ -109,7 +109,7 @@ To verify your operation default settings:
 
 Create the STONITH or Fencing resource. As of SLES 15 SP5 with the latest fence-agents package, we recommend resource agent `fence_aws`. For older SLES versions, the `stonith:external/ec2` resource is supported.
 
-fence_aws (SLES 15 SP5 and above)
+fence\_aws (SLES 15 SP5 and above)
 
 ```
 # crm configure primitive <stonith_resource_name> stonith:fence_aws \
@@ -126,12 +126,12 @@ op monitor interval="300" timeout="60"
 
 Details:
 
-- **pcmk_host_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
+- **pcmk\_host\_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
 - **region** - AWS region where the EC2 instances are deployed
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection). Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
-- **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
-- **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
-- **skip_os_shutdown** (recommended) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
+- **pcmk\_delay\_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection). Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
+- **pcmk\_reboot\_timeout** - Maximum time in seconds allowed for a reboot operation
+- **pcmk\_reboot\_retries** - Number of times to retry a failed reboot operation
+- **skip\_os\_shutdown** (recommended) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
 
 _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
@@ -162,7 +162,7 @@ Details:
 
 - **tag** - EC2 instance tag key name that associates instances with this cluster configuration. This tag key must be unique within the AWS account and have a value which matches the instance hostname. See [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](sap-nw-pacemaker-sles-ec2-configuration.md#create-cluster-tags-nw-sles "sap-nw-pacemaker-sles-ec2-configuration.md#create-cluster-tags-nw-sles") for EC2 instance tagging configuration.
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection). Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
+- **pcmk\_delay\_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection). Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
 
 _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 

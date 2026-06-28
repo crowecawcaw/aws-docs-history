@@ -76,18 +76,18 @@ $ aws ec2 modify-instance-attribute --instance-id i-1234567890abcdef0 --ebs-opti
 
 The following table provides a reference configuration for SAP NetWeaver file systems:
 
-| Mount Point                            | Ownership             | Local/Shared         | Type | EFS Ref       | Storage Class | Encrypted | Snapshots | Device (example) | Suggested Size (GB) |
-| -------------------------------------- | --------------------- | -------------------- | ---- | ------------- | ------------- | --------- | --------- | ---------------- | ------------------- |
-| **`/`**                                | root                  | Local                | EBS  | -             | gp3           | Y         | Y         | /dev/xvda1       | > 20 GB             |
-| \*_`/tmp`_<br>• (1)                    | root                  | Local                | EBS  | -             | gp3           | N         | N         |                  |                     |
-| **`swap`**                             | root                  | Local                | EBS  | -             | gp3           | N         | N         | /dev/xvdb        | See SAP Guidance    |
-| **`/usr/sap`**                         | <sid>adm:sapsys (755) | Local                | EBS  | -             | gp3           | Y         | Y         | /dev/xvdc        | > 20 GB             |
-| \*_`/usr/sap/<SID>/ASCS<nn>`_<br>• (2) | <sid>adm:sapsys (755) | Shared (SID)         | NFS  | SHARED\_<SID> | -             | Y         | N/A       | -                | -                   |
-| \*_`/usr/sap/<SID>/ERS<nn>`_<br>• (2)  | <sid>adm:sapsys (755) | Shared (SID)         | NFS  | SHARED\_<SID> | -             | Y         | N/A       | -                | -                   |
-| **`/sapmnt/<SID>`**                    | <sid>adm:sapsys (755) | Shared (SID)         | NFS  | SHARED\_<SID> | -             | Y         | N/A       | -                | -                   |
-| **`/usr/sap/trans`**                   | <sid>adm:sapsys (755) | Shared (Landscape)   | NFS  | SHARED_TRANS  | -             | Y         | N/A       | -                | -                   |
-| **`/software`**                        | root:root (755)       | Shared (Environment) | NFS  | SHARED_COMMON | -             | Y         | N/A       | -                | -                   |
-| **`/interfaces`**                      | <sid>adm:sapsys (755) | Shared (Environment) | NFS  | SHARED_COMMON | -             | Y         | N/A       | -                | -                   |
+| Mount Point                           | Ownership             | Local/Shared         | Type | EFS Ref        | Storage Class | Encrypted | Snapshots | Device (example) | Suggested Size (GB) |
+| ------------------------------------- | --------------------- | -------------------- | ---- | -------------- | ------------- | --------- | --------- | ---------------- | ------------------- |
+| **`/`**                               | root                  | Local                | EBS  | -              | gp3           | Y         | Y         | /dev/xvda1       | > 20 GB             |
+| **`/tmp`*<br>• (1)                    | root                  | Local                | EBS  | -              | gp3           | N         | N         |                  |                     |
+| **`swap`**                            | root                  | Local                | EBS  | -              | gp3           | N         | N         | /dev/xvdb        | See SAP Guidance    |
+| **`/usr/sap`**                        | <sid>adm:sapsys (755) | Local                | EBS  | -              | gp3           | Y         | Y         | /dev/xvdc        | > 20 GB             |
+| **`/usr/sap/<SID>/ASCS<nn>`*<br>• (2) | <sid>adm:sapsys (755) | Shared (SID)         | NFS  | SHARED\_<SID>  | -             | Y         | N/A       | -                | -                   |
+| **`/usr/sap/<SID>/ERS<nn>`*<br>• (2)  | <sid>adm:sapsys (755) | Shared (SID)         | NFS  | SHARED\_<SID>  | -             | Y         | N/A       | -                | -                   |
+| **`/sapmnt/<SID>`**                   | <sid>adm:sapsys (755) | Shared (SID)         | NFS  | SHARED\_<SID>  | -             | Y         | N/A       | -                | -                   |
+| **`/usr/sap/trans`**                  | <sid>adm:sapsys (755) | Shared (Landscape)   | NFS  | SHARED\_TRANS  | -             | Y         | N/A       | -                | -                   |
+| **`/software`**                       | root:root (755)       | Shared (Environment) | NFS  | SHARED\_COMMON | -             | Y         | N/A       | -                | -                   |
+| **`/interfaces`**                     | <sid>adm:sapsys (755) | Shared (Environment) | NFS  | SHARED\_COMMON | -             | Y         | N/A       | -                | -                   |
 
 Notes:
 

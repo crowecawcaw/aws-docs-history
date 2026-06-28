@@ -78,4 +78,4 @@ In a two-node cluster setup for a primary resource and its replication pair, it 
 
 Since a two-node cluster introduces the possibility of a fence race in which a dual shoot out can occur with communication failures resulting in both nodes simultaneously claiming, "I can’t see you, so I am going to power you off". The fencing agent is designed to minimise this risk by providing an external witness.
 
-RHEL supports several fencing agents, including the one recommended for use with Amazon EC2 Instances (fence_aws). This resource uses API commands to check its own instance status - "Is my instance state anything other than running?" before proceeding to power off its pair. If it is already in a stopping or stopped state it will admit defeat and leave the surviving node untouched.
+RHEL supports several fencing agents, including the one recommended for use with Amazon EC2 Instances (fence\_aws). This resource uses API commands to check its own instance status - "Is my instance state anything other than running?" before proceeding to power off its pair. If it is already in a stopping or stopped state it will admit defeat and leave the surviving node untouched.

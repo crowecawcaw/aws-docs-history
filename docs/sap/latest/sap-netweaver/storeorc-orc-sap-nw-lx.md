@@ -55,15 +55,15 @@ _Choosing between general purpose and provisioned IOPS SSD_
 
 We recommend using `gp3` on Oracle for SAP on AWS workloads. It provides a better option for price over performance. You can dynamically switch from one volume type to another, if needed.
 
-*Choosing between `*io1*`and`*io2*`*
+_Choosing between `*io1*` and `*io2*`_
 
 We recommend you to use `io2` for provisioned IOPS use case. It provides lower annual failure rate and higher configurable IOPS per GB.
 
-*Choosing between `*gp3*`and`*io2*`*
+_Choosing between `*gp3*` and `*io2*`_
 
 `io2` provides lower annual failure rate and higher maximum IOPS per volume but costs more than `gp3`. You can decide to use either of the two based your requirements regarding failure rate, IOPS, and cost.
 
-*Choosing between `*io2*`and`*io2 Block Express*`*
+_Choosing between `*io2*` and `*io2 Block Express*`_
 
 `io2 Block Express` should be chosen over `io2` for workloads that require sub-millisecond latency and more than 64,000 IOPS and 1,000 MiB/s of throughput from a single volume. If `io2 Block Express` doesn’t support your Amazon EC2 instance and Amazon EBS volume, use `io2`.
 

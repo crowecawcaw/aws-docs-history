@@ -235,8 +235,8 @@ _Example IP configuration:_
 
 | Network Interface | Node 1    | Node 2    |
 | ----------------- | --------- | --------- |
-| ring0_addr        | 10.2.10.1 | 10.2.20.1 |
-| ring1_addr        | 10.2.10.2 | 10.2.20.2 |
+| ring0\_addr       | 10.2.10.1 | 10.2.20.1 |
+| ring1\_addr       | 10.2.10.2 | 10.2.20.2 |
 
 **3. Synchronize the modified configuration to all nodes:**
 
