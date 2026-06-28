@@ -23,17 +23,17 @@ The **Create RFC** page opens. 2. Choose either **Browse change types** (the def
 
 4. **Choose by category**:
 
-   1. Select the appropriate Category, Subcategory, Item, and Operation.
+    1. Select the appropriate Category, Subcategory, Item, and Operation.
 
-   The change type details box appears at the bottom of the page. 2. Choose **Create RFC** at the bottom of the page. 3. The **General configuration** area for that change type opens, the subject line is filled in. To see the change type details,
-   open the area at the top of the page.
+
+    The change type details box appears at the bottom of the page.
+    2. Choose **Create RFC** at the bottom of the page.
+    3. The **General configuration** area for that change type opens, the subject line is filled in. To see the change type details,
+     open the area at the top of the page.
 
 5. To ensure certain people get notifications of the RFC progress, fill in the **Email addresses**. To add details about the
-   change type, fill in the **Description**. Open the **Additional configuration** area to add more specifics about the RFC.
-6. For **Scheduling**select either **Execute this change ASAP** or **Schedule this change**.
-   If you select **Execute this change ASAP**, your RFC executes as soon as approvals have passed.
-   If you select **Schedule this change type**, a pick calendar, time, and time zone, appears and your RFC starts, after submission,
-   as scheduled.
-7. In the **Execution configuration** area, configure the change type parameters. To see optional parameters, open the
-   **Additional configuration** area.
-8. When ready, choose **Run**.
+change type, fill in the **Description**. Open the **Additional configuration** area to add more specifics about the RFC. 6. For **Scheduling**select either **Execute this change ASAP** or **Schedule this change**.
+If you select **Execute this change ASAP**, your RFC executes as soon as approvals have passed.
+If you select **Schedule this change type**, a pick calendar, time, and time zone, appears and your RFC starts, after submission,
+as scheduled. 7. In the **Execution configuration** area, configure the change type parameters. To see optional parameters, open the
+**Additional configuration** area. 8. When ready, choose **Run**.

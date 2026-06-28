@@ -71,39 +71,32 @@ the AMS operator in a screen-sharing session.
 
 Preparation: Migration Partner and AMS Operator:
 
-1.  Create CloudEndure migration project.
+1. Create CloudEndure migration project.
 
-    1. During project creation, have AMS type-in IAM user credentials in screen-sharing
-       sessions.
-    2. In **Replication Settings** -> **Choose the subnet where the Replication Servers will be launched**,
-       select **customer-application-x** subnet.
-    3. In **Replication Settings** -> **Choose the Security Groups to apply to the Replication Servers**,
-       select both Sentinel security groups (Private Only and EgressAll).
+   1. During project creation, have AMS type-in IAM user credentials in screen-sharing
+      sessions.
+   2. In **Replication Settings** -> **Choose the subnet where the Replication Servers will be launched**,
+      select **customer-application-x** subnet.
+   3. In **Replication Settings** -> **Choose the Security Groups to apply to the Replication Servers**,
+      select both Sentinel security groups (Private Only and EgressAll).
 
-2.  Define cutover options for the machines (instances).
+2. Define cutover options for the machines (instances).
 
-        1. Subnet: **migration-temp-subnet**.
-        2. Security Group: Both "Sentinel" security groups (Private Only and EgressAll).
+   1. Subnet: **migration-temp-subnet**.
+   2. Security Group: Both "Sentinel" security groups (Private Only and EgressAll).
 
+   Cutover instances must be able to communicate to the AMS Managed AD and to AWS public endpoints. 3. Elastic IP: **None** 4. Public IP: **no** 5. IAM role: **customer-mc-ec2-instance-profile**
 
-        Cutover instances must be able to communicate to the AMS Managed AD and to AWS public endpoints.
-        3. Elastic IP: **None**
-        4. Public IP: **no**
-        5. IAM role: **customer-mc-ec2-instance-profile**
+   The IAM role must allow for SSM communication. Better to use AMS default. 6. Set tags as per convention.
+   Migration: Migration Partner:
 
-
-        The IAM role must allow for SSM communication. Better to use AMS default.
-        6. Set tags as per convention.
-
-    Migration: Migration Partner:
-
-3.  Create a dummy stack on AMS. You use the stack ID to gain access to the bastions.
-4.  Install the CloudEndure (CE) agent on the source server. For details, see
-    [Installing the Agents](https://docs.cloudendure.com/Content/Installing_the_CloudEndure_Agents/Installing_the_Agents/Installing_the_Agents.htm "https://docs.cloudendure.com/Content/Installing_the_CloudEndure_Agents/Installing_the_Agents/Installing_the_Agents.htm").
-5.  Create local admin credentials on the source server.
-6.  Schedule a short cutover window and click **Cutover**, when ready. This finalizes the migration and redirects users to the target AWS Region.
-7.  Request stack Admin access to the dummy stack, see [Admin Access Request](../ctref/ex-access-admin-request-col.md "../ctref/ex-access-admin-request-col.md").
-8.  Log into the bastion, then to the cutover instance using the local admin credentials you created.
-9.  Create a failsafe AMI. For details on creating AMIs, see [AMI Create](../ctref/ex-ami-create-col.md "../ctref/ex-ami-create-col.md").
+3. Create a dummy stack on AMS. You use the stack ID to gain access to the bastions.
+4. Install the CloudEndure (CE) agent on the source server. For details, see
+   [Installing the Agents](https://docs.cloudendure.com/Content/Installing_the_CloudEndure_Agents/Installing_the_Agents/Installing_the_Agents.htm "https://docs.cloudendure.com/Content/Installing_the_CloudEndure_Agents/Installing_the_Agents/Installing_the_Agents.htm").
+5. Create local admin credentials on the source server.
+6. Schedule a short cutover window and click **Cutover**, when ready. This finalizes the migration and redirects users to the target AWS Region.
+7. Request stack Admin access to the dummy stack, see [Admin Access Request](../ctref/ex-access-admin-request-col.md "../ctref/ex-access-admin-request-col.md").
+8. Log into the bastion, then to the cutover instance using the local admin credentials you created.
+9. Create a failsafe AMI. For details on creating AMIs, see [AMI Create](../ctref/ex-ami-create-col.md "../ctref/ex-ami-create-col.md").
 10. Prepare the instance for ingestion, see [Migrating Workloads: Prerequisites for Linux and Windows](ex-migrate-instance-prereqs.md "ex-migrate-instance-prereqs.md").
 11. Run WIGS RFC against the instance, see [Workload Ingest Stack: Creating](ams-workload-ingest.md#ex-workload-ingest-col "ams-workload-ingest.md#ex-workload-ingest-col").

@@ -19,7 +19,7 @@ REQUIRED DATA:
 ###### Note
 
 Reference the CodeDeploy service role ARN in this format
-`"arn:aws:iam::085398962942:role/aws-codedeploy-role"` and use the previously-created Auto scaling group name for "ASG_NAME".
+`"arn:aws:iam::085398962942:role/aws-codedeploy-role"` and use the previously-created Auto scaling group name for "ASG\_NAME".
 
 ```
 **Description**:                      Create CodeDeploy Deployment Group for WP

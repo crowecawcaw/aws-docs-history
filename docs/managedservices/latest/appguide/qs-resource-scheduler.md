@@ -24,7 +24,7 @@ Before you begin, it's good to be familiar with the AMS Resource Scheduler termi
 - **enforced**: When set to **true**, based on the schedule defined,
   the Resource Scheduler stops a running resource if it's manually started outside of the running period, and it
   starts a resource if it's stopped manually during the running period.
-- **retain_running**: When set to **true**, prevents the Resource Scheduler from
+- **retain\_running**: When set to **true**, prevents the Resource Scheduler from
   stopping an instance at the end of a running period if the instance was manually started before the beginning of the period.
   For example, if an instance with a configured **period** that runs from 9 am to 5 pm is manually started before
   9 am, the Resource Scheduler does not stop the instance at 5 pm.
@@ -96,15 +96,15 @@ for hibernation](../../../AWSEC2/latest/UserGuide/Hibernate.md#enabling-hibernat
 prerequisites](../../../AWSEC2/latest/UserGuide/Hibernate.md#hibernating-prerequisites "../../../AWSEC2/latest/UserGuide/Hibernate.md#hibernating-prerequisites"), Resource Scheduler logs a warning and the instances are stopped without hibernation. For more information, see
 [Hibernate Your Instance](../../../AWSEC2/latest/UserGuide/Hibernate.md "../../../AWSEC2/latest/UserGuide/Hibernate.md").
 
-**Q**: What happens if I set both **override_status** and
+**Q**: What happens if I set both **override\_status** and
 **enforced**?
 
-**A**: If you set **override_status**
+**A**: If you set **override\_status**
 to **running**  and set **enforced** to
 **true** (prevents an instance from being manually started outside of a
 running period), Resource Scheduler stops the instance.
 
-If you set **override_status** to **stopped**, and
+If you set **override\_status** to **stopped**, and
 set **enforced** to **true** (prevents an instance from
 being manually stopped during a running period), the Resource Scheduler restarts the
 instance.

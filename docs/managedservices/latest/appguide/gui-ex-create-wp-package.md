@@ -82,7 +82,7 @@ Replace `DB_MasterUsername` with the `MasterUsername` value given in the HA Stac
 Replace `DB_MasterUserPassword` with the `MasterUserPassword` value given in the HA Stack RFC (for example, `p4ssw0rd`).
 
 Replace `DB_ENDPOINT` with the endpoint DNS name in the execution outputs of the HA Stack RFC (for example,
-`srt1cz23n45sfg.clgvd67uvydk.us-east-1.rds.amazonaws.com`). You can find this with the [GetRfc](../ApiReference-cm/API_GetRfc.md "../ApiReference-cm/API_GetRfc.md") operation (CLI: get-rfc --rfc-id RFC_ID) or in the AMS
+`srt1cz23n45sfg.clgvd67uvydk.us-east-1.rds.amazonaws.com`). You can find this with the [GetRfc](../ApiReference-cm/API_GetRfc.md "../ApiReference-cm/API_GetRfc.md") operation (CLI: get-rfc --rfc-id RFC\_ID) or in the AMS
 Console RFC details page for the HA Stack RFC that you previously submitted.
 
 ```

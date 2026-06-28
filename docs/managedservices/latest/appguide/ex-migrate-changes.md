@@ -30,9 +30,8 @@ _Changes made to ingested Linux instances_:
 
 - Software that is changed:
 
-      + The instances are configured to use the UTC timezone.
-
-  _Changes made to ingested Windows instances_:
+  - The instances are configured to use the UTC timezone.
+    _Changes made to ingested Windows instances_:
 
 - Software that is installed:
 

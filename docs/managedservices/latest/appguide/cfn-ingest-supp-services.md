@@ -306,14 +306,13 @@ Only those AWS resources listed here are supported.
 
 - [AWS Database Migration Service (DMS)](../../../AWSCloudFormation/latest/UserGuide/AWS_DMS.md "../../../AWSCloudFormation/latest/UserGuide/AWS_DMS.md")
 
-      + AWS::DMS::Certificate
-      + AWS::DMS::Endpoint
-      + AWS::DMS::EventSubscription
-      + AWS::DMS::ReplicationInstance
-      + AWS::DMS::ReplicationSubnetGroup
-      + AWS::DMS::ReplicationTask
-
-  The MongoDbSettings property in AWS::DMS::Endpoint resource is not allowed.
+  - AWS::DMS::Certificate
+  - AWS::DMS::Endpoint
+  - AWS::DMS::EventSubscription
+  - AWS::DMS::ReplicationInstance
+  - AWS::DMS::ReplicationSubnetGroup
+  - AWS::DMS::ReplicationTask
+    The MongoDbSettings property in AWS::DMS::Endpoint resource is not allowed.
 
 The following properties are only allowed if they are resolved by
 AWS Secrets Manager: CertificatePem and CertificateWallet properties

@@ -76,49 +76,46 @@ StackSet-mc
 - **AssumeRolePolicyDocument**: The following entities are pre-approved and can be included in the trust policy to
   assume the role being created:
 
-      + Any IAM entity (role, user, root user, STS assumed-role session) in the same account can assume the role.
-      + The following AWS services can assume the role:
+  - Any IAM entity (role, user, root user, STS assumed-role session) in the same account can assume the role.
+  - The following AWS services can assume the role:
 
-
-
-      ```
-      apigateway.amazonaws.com,
-      autoscaling.amazonaws.com,
-      cloudformation.amazonaws.com,
-      codebuild.amazonaws.com,
-      codedeploy.amazonaws.com,
-      codepipeline.amazonaws.com,
-      datapipeline.amazonaws.com,
-      datasync.amazonaws.com,
-      dax.amazonaws.com,
-      dms.amazonaws.com,
-      ec2.amazonaws.com,
-      ecs-tasks.amazonaws.com,
-      ecs.application-autoscaling.amazonaws.com,
-      elasticmapreduce.amazonaws.com,
-      es.amazonaws.com,
-      events.amazonaws.com,
-      firehose.amazonaws.com,
-      glue.amazonaws.com,
-      lambda.amazonaws.com,
-      monitoring.rds.amazonaws.com,
-      pinpoint.amazonaws.com,
-      rds.amazonaws.com,
-      redshift.amazonaws.com,
-      s3.amazonaws.com,
-      sagemaker.amazonaws.com,
-      servicecatalog.amazonaws.com,
-      sns.amazonaws.com,
-      ssm.amazonaws.com,
-      states.amazonaws.com,
-      storagegateway.amazonaws.com,
-      transfer.amazonaws.com,
-      vmie.amazonaws.com
-      ```
-      + The SAML provider in the same account can assume the role. Currently, the only supported SAML provider name is
-       `customer-saml`.
-
-  If one or more of the validations fail, the RFC is rejected. A sample RFC rejection reason look like this:
+  ```
+  apigateway.amazonaws.com,
+  autoscaling.amazonaws.com,
+  cloudformation.amazonaws.com,
+  codebuild.amazonaws.com,
+  codedeploy.amazonaws.com,
+  codepipeline.amazonaws.com,
+  datapipeline.amazonaws.com,
+  datasync.amazonaws.com,
+  dax.amazonaws.com,
+  dms.amazonaws.com,
+  ec2.amazonaws.com,
+  ecs-tasks.amazonaws.com,
+  ecs.application-autoscaling.amazonaws.com,
+  elasticmapreduce.amazonaws.com,
+  es.amazonaws.com,
+  events.amazonaws.com,
+  firehose.amazonaws.com,
+  glue.amazonaws.com,
+  lambda.amazonaws.com,
+  monitoring.rds.amazonaws.com,
+  pinpoint.amazonaws.com,
+  rds.amazonaws.com,
+  redshift.amazonaws.com,
+  s3.amazonaws.com,
+  sagemaker.amazonaws.com,
+  servicecatalog.amazonaws.com,
+  sns.amazonaws.com,
+  ssm.amazonaws.com,
+  states.amazonaws.com,
+  storagegateway.amazonaws.com,
+  transfer.amazonaws.com,
+  vmie.amazonaws.com
+  ```
+  - The SAML provider in the same account can assume the role. Currently, the only supported SAML provider name is
+    `customer-saml`.
+    If one or more of the validations fail, the RFC is rejected. A sample RFC rejection reason look like this:
 
 ```
 {"errorMessage":"[ 'LambdaRole: The maximum session duration (in seconds) should be a numeric value in the range 3600 to 14400 (i.e. 1 to 4 hours).', 'lambda-policy: Policy document is too permissive.']","errorType":"ClientError"}

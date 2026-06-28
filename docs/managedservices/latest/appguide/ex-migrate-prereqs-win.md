@@ -22,7 +22,7 @@ Observe the requirements listed in [Migrating Workloads: Prerequisites for Linux
 - (Optional but recommended) Create a Failsafe AMI from the prepared instance:
 
   - Use the Deployment | Advanced stack components | AMI | Create
-  - During creation, add a tag Key=Name, Value=APPLICATION-ID_IngestReady
+  - During creation, add a tag Key=Name, Value=APPLICATION-ID\_IngestReady
   - Wait until AMI is created before proceeding
 
 - Third-party software components that will conflict with AMS components have been removed:
