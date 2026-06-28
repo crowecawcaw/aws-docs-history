@@ -54,7 +54,7 @@ Use templates in contact points to customize your notifications.
 3. Enter the templates you wish to use in a field, such as
    **Message** or **Subject**. To enter
    a template, use the form `{{ template 
-"`template_name`" . }}`, replacing
+ "`template_name`" . }}`, replacing
    `template_name` with the name of the template
    you want to use.
 4. Choose **Save contact point**.

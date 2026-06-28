@@ -50,10 +50,10 @@ Add the data source, filling out the fields for your [admin API key](https://doc
 You can combine plaintext with the following variables to produce custom
 output.
 
-| Variable             | Description   | Example value |
-| -------------------- | ------------- | ------------- |
-| `$__nr_metric`       | Metric name   | CPU/User time |
-| `$__nr_metric_value` | Metric values | average_value |
+| Variable             | Description   | Example value  |
+| -------------------- | ------------- | -------------- |
+| `$__nr_metric`       | Metric name   | CPU/User time  |
+| `$__nr_metric_value` | Metric values | average\_value |
 
 For example:
 
@@ -104,7 +104,7 @@ To improve the writing experience when creating New Relic Query Language
 
 - `$__timeFilter` (or `[[timeFilter]]`) will
   interpolate to `SINCE &lt;from&gt; UNTIL
-&lt;to&gt;` based on your dashboard’s time range.
+ &lt;to&gt;` based on your dashboard’s time range.
 
 Example:
 

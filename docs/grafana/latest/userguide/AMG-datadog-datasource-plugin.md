@@ -48,7 +48,7 @@ by choosing a function name.
 
   - Enter your regular expression into "Alias
     RegExp" field in `/you regexp
-here/flags` format.
+   here/flags` format.
   - If "Alias by" field is empty, RegExp results
     will be joined using. Example with metric expression =
     `avg:system.load.5{*}` : "Alias
@@ -59,19 +59,19 @@ here/flags` format.
     "Alias by" field. Example with metric
     expression = `avg:system.load.5{*}` :
     "Alias by" field input: `$1: $2
-seconds`
+   seconds`
     "Alias RegExp" field input:
     `avg:(.+)\.(\d)` Result: `system.load: 5
-seconds`
+   seconds`
   - Use `$0` to get the whole expression. Example
     with metric expression =
     `datadog.dogstatsd.packet.count{*}` :
     "Alias by" field input: `Expression:
- $0`
+   $0`
     "Alias RegExp" field input:
     `DOGstatsd\.(.*)\.(.*){\*}/i` Result:
     `Expression:
- datadog.dogstatsd.packet.count{*}`
+   datadog.dogstatsd.packet.count{*}`
     Note: you’ll get an error using nonexistent group number.
 
 #### Metric arithmetic

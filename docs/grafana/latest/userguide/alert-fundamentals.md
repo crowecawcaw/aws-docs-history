@@ -44,10 +44,10 @@ enabled.
   `Alertmanager`, `Graphite`,
   `Prometheus` (including Amazon Managed Service for Prometheus), `Loki`,
   `InfluxDB`, `Amazon OpenSearch Service`, `Google Cloud
-Monitoring`, `Amazon CloudWatch`, `Azure Monitor`,
+ Monitoring`, `Amazon CloudWatch`, `Azure Monitor`,
   `MySQL`, `PostgreSQL`, `MSSQL`,
   `OpenTSDB`, `Oracle`, and `Azure
-Monitor`.
+ Monitor`.
 
 ## Alerting on numeric data
 

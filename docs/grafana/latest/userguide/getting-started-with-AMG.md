@@ -106,16 +106,13 @@ the workspace details page in a later step.
      **SAML**, you complete the SAML setup after the
      workspace is created.
 
-6. Choose **Next**.
-7. For this first workspace, confirm that **Service managed** is
-   selected for **Permission type**. This selection enables
-   Amazon Managed Grafana to automatically provision the permissions you need for the AWS data
-   sources that you choose to use for this workspace.
-8. For this tutorial, choose **Current account**.
-9. (Optional) Select the data sources that you want to query in this workspace.
-   For this getting started tutorial, you do not need to select any data sources.
-   However, if you plan to use this workspace with any of the listed data sources,
-   select them here.
+6. Choose **Next**. 7. For this first workspace, confirm that **Service managed** is
+selected for **Permission type**. This selection enables
+Amazon Managed Grafana to automatically provision the permissions you need for the AWS data
+sources that you choose to use for this workspace. 8. For this tutorial, choose **Current account**. 9. (Optional) Select the data sources that you want to query in this workspace.
+For this getting started tutorial, you do not need to select any data sources.
+However, if you plan to use this workspace with any of the listed data sources,
+select them here.
 
 Selecting data sources enables Amazon Managed Grafana to create AWS Identity and Access Management (IAM) policies
 for each of the data sources so that Amazon Managed Grafana has permission to read their
@@ -145,99 +142,105 @@ of the following:
 
 14. If you are using IAM Identity Center, do the following:
 
-    1.  In the **Authentication** tab, choose
-        **Assign new user or group**.
-    2.  Select the check box next to the user that you want to grant workspace
-        access to, and choose **Assign user**.
-    3.  Select the check box next to the user, and choose **Make
-        admin** action from the Actions dropdown list.
+    1. In the **Authentication** tab, choose
+     **Assign new user or group**.
+    2. Select the check box next to the user that you want to grant workspace
+     access to, and choose **Assign user**.
+    3. Select the check box next to the user, and choose **Make
+     admin** action from the Actions dropdown list.
+
 
     ###### Important
 
     Assign at least one user as `Admin` for each workspace,
-    in order to sign in to the Grafana workspace console to manage the
-    workspace.
+     in order to sign in to the Grafana workspace console to manage the
+     workspace.
 
 15. If you are using SAML, do the following:
 
-    1.  In the **Authentication** tab, under
-        **Security Assertion Markup Language (SAML)**,
-        choose **Complete setup**.
-    2.  For **Import method**, do one of the
-        following:
+    1. In the **Authentication** tab, under
+     **Security Assertion Markup Language (SAML)**,
+     choose **Complete setup**.
+    2. For **Import method**, do one of the
+     following:
 
-        - Choose **URL** and enter the URL of the IdP
-          metadata.
-        - Choose **Upload or copy/paste**. If you are
-          uploading the metadata, choose **Choose file**
-          and select the metadata file. Or, if you are using copy and
-          paste, copy the metadata into **Import the
-          metadata**.
 
-    3.  For **Assertion attribute role**, enter the name of
-        the SAML assertion attribute from which to extract role
-        information.
-    4.  For **Admin role values**, either enter the user
-        roles from your IdP who should all be granted the `Admin`
-        role in the Amazon Managed Grafana workspace, or select **I want to opt-out
-        of assigning admins to my workspace.**
+    	* Choose **URL** and enter the URL of the IdP
+    	 metadata.
+    	* Choose **Upload or copy/paste**. If you are
+    	 uploading the metadata, choose **Choose file**
+    	 and select the metadata file. Or, if you are using copy and
+    	 paste, copy the metadata into **Import the
+    	 metadata**.
+    3. For **Assertion attribute role**, enter the name of
+     the SAML assertion attribute from which to extract role
+     information.
+    4. For **Admin role values**, either enter the user
+     roles from your IdP who should all be granted the `Admin`
+     role in the Amazon Managed Grafana workspace, or select **I want to opt-out
+     of assigning admins to my workspace.**
+
 
     ###### Note
 
     If you choose **I want to opt-out of assigning admins to
-    my workspace.**, you won't be able to use the Grafana
-    workspace console to administer the workspace, including tasks such
-    as managing data sources, users, and dashboard permissions. You can
-    make administrative changes to the workspace only by using Grafana
-    APIs. 5. (Optional) To enter additional SAML settings, choose
-    **Additional settings** and do one or more the
-    following. All of these fields are optional.
+     my workspace.**, you won't be able to use the Grafana
+     workspace console to administer the workspace, including tasks such
+     as managing data sources, users, and dashboard permissions. You can
+     make administrative changes to the workspace only by using Grafana
+     APIs.
+    5. (Optional) To enter additional SAML settings, choose
+     **Additional settings** and do one or more the
+     following. All of these fields are optional.
 
-        * For **Assertion attribute name**, specify the
-         name of the attribute within the SAML assertion to use for the
-         user full "friendly" names for SAML users.
-        * For **Assertion attribute login**, specify
-         the name of the attribute within the SAML assertion to use for
-         the user sign-in names for SAML users.
-        * For **Assertion attribute email**, specify
-         the name of the attribute within the SAML assertion to use for
-         the user email names for SAML users.
-        * For **Login validity duration (in minutes)**,
-         specify how long a SAML user's sign-in is valid before the user
-         must sign in again.
-        * For **Assertion attribute organization**,
-         specify the name of the attribute within the SAML assertion to
-         use for the "friendly" name for user organizations.
-        * For **Assertion attribute groups**, specify
-         the name of the attribute within the SAML assertion to use for
-         the "friendly" name for user groups.
-        * For **Allowed organizations**, you can limit
-         user access to only the users who are members of certain
-         organizations in the IdP. Enter one or more organizations to
-         allow, separating them with commas.
-        * For **Editor role values**, enter the user
-         roles from your IdP who should all be granted the
-         `Editor` role in the Amazon Managed Grafana workspace. Enter
-         one or more roles, separated by commas.
 
+
+
+    	* For **Assertion attribute name**, specify the
+    	 name of the attribute within the SAML assertion to use for the
+    	 user full "friendly" names for SAML users.
+    	* For **Assertion attribute login**, specify
+    	 the name of the attribute within the SAML assertion to use for
+    	 the user sign-in names for SAML users.
+    	* For **Assertion attribute email**, specify
+    	 the name of the attribute within the SAML assertion to use for
+    	 the user email names for SAML users.
+    	* For **Login validity duration (in minutes)**,
+    	 specify how long a SAML user's sign-in is valid before the user
+    	 must sign in again.
+    	* For **Assertion attribute organization**,
+    	 specify the name of the attribute within the SAML assertion to
+    	 use for the "friendly" name for user organizations.
+    	* For **Assertion attribute groups**, specify
+    	 the name of the attribute within the SAML assertion to use for
+    	 the "friendly" name for user groups.
+    	* For **Allowed organizations**, you can limit
+    	 user access to only the users who are members of certain
+    	 organizations in the IdP. Enter one or more organizations to
+    	 allow, separating them with commas.
+    	* For **Editor role values**, enter the user
+    	 roles from your IdP who should all be granted the
+    	 `Editor` role in the Amazon Managed Grafana workspace. Enter
+    	 one or more roles, separated by commas.
     ###### Note
 
     Any users that are not specifically assigned an Admin or Editor
-    role are assigned as Viewers. 6. Choose **Save SAML configuration**.
+     role are assigned as Viewers.
+    6. Choose **Save SAML configuration**.
 
 16. In the workspace details page, choose the URL displayed under
-    **Grafana workspace URL**.
-17. Choosing the workspace URL takes you to the landing page for the Grafana
-    workspace console. Do one of the following:
+**Grafana workspace URL**. 17. Choosing the workspace URL takes you to the landing page for the Grafana
+workspace console. Do one of the following:
 
-    - Choose **Sign in with SAML**, and enter the name and
-      password.
-    - Choose **Sign in with AWS IAM Identity Center**, and enter the
-      email address and password of the user that you created earlier in this
-      procedure. These credentials only work if you have responded to the
-      email from Amazon Managed Grafana that prompted you to create a password for
-      IAM Identity Center.
+    * Choose **Sign in with SAML**, and enter the name and
+     password.
+    * Choose **Sign in with AWS IAM Identity Center**, and enter the
+     email address and password of the user that you created earlier in this
+     procedure. These credentials only work if you have responded to the
+     email from Amazon Managed Grafana that prompted you to create a password for
+     IAM Identity Center.
+
 
     You are now in your Grafana workspace, or logical Grafana server. You
-    can start adding data sources to query, visualize, and analyze data. For
-    more information, see [Use your Grafana workspace](AMG-working-with-Grafana-workspace.md "AMG-working-with-Grafana-workspace.md").
+     can start adding data sources to query, visualize, and analyze data. For
+     more information, see [Use your Grafana workspace](AMG-working-with-Grafana-workspace.md "AMG-working-with-Grafana-workspace.md").

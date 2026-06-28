@@ -41,7 +41,7 @@ Complete the following steps in Ping Identity.
      (Work)**.
    - **displayName** must be **Display
      Name**.
-   - **SAML_SUBJECT** must be **Email
+   - **SAML\_SUBJECT** must be **Email
      (Work)**. And then for this attribute, choose
      **Advanced**, set the **Name ID
      Format to send to SP** to

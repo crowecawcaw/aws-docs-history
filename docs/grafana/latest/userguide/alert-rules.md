@@ -125,11 +125,10 @@ the rule.
     * Add custom labels.
 
 7. Choose **Preview alerts** to evaluate the rule and see
-   what alerts it would produce. It displays a list of alerts with state and
-   value of each one.
-8. Choose **Save** to save the rule or **Save and
-   exit** to save the rule and go back to the
-   **Alerting** page.
+what alerts it would produce. It displays a list of alerts with state and
+value of each one. 8. Choose **Save** to save the rule or **Save and
+exit** to save the rule and go back to the
+**Alerting** page.
 
 ## Creating Cortex or Loki managed recording rules
 
@@ -202,8 +201,8 @@ the rule.
     * Add custom labels.
 
 6. Choose **Save** to save the rule or **Save and
-   exit** to save the rule and go back to the
-   **Alerting** page.
+exit** to save the rule and go back to the
+**Alerting** page.
 
 ## Creating Grafana managed alert rules
 

@@ -282,7 +282,7 @@ dashboard that shows you useful billing and usage information.
 
 Add the dashboard in the Snowflake Data Source configuration page:
 
-This dashboard uses the ACCOUNT_USAGE database, and requires the querier
+This dashboard uses the ACCOUNT\_USAGE database, and requires the querier
 to have the ACCOUNTADMIN role. To do this securely, create a new Grafana
 data source that has a user with the ACCOUNTADMIN role. Then select that
 data source in the variables.

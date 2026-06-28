@@ -64,20 +64,19 @@ documentation_.
   lists in Amazon VPC with the list of IP ranges to allow. There are a few
   limitations for prefix lists when used for Amazon Managed Grafana:
 
-      + Each prefix list can contain up to 100 IP address ranges.
-      + IPv6 address ranges in prefix lists are only effective on
-       dual-stack workspaces. On IPv4-only workspaces, IPv6 ranges are
-       ignored.
-      + Private IP address ranges (for example, `10.0.0.0/16`)
-       are ignored. You can include private IP address ranges in a prefix
-       list, but Amazon Managed Grafana ignores those when filtering traffic to the
-       workspace. To allow those hosts to reach the workspace, create a VPC
-       endpoint for your workspaces and give them access.
-
-  You create managed prefix lists through the [Amazon VPC Console](https://console.aws.amazon.com/vpc/home?#ManagedPrefixLists "https://console.aws.amazon.com/vpc/home?#ManagedPrefixLists"). After you have
-  created the prefix lists, you need the prefix list ID for each list you want
-  to allow in Amazon Managed Grafana. Prefix list IDs have the format
-  `pl-`1a2b3c4d``.
+  - Each prefix list can contain up to 100 IP address ranges.
+  - IPv6 address ranges in prefix lists are only effective on
+    dual-stack workspaces. On IPv4-only workspaces, IPv6 ranges are
+    ignored.
+  - Private IP address ranges (for example, `10.0.0.0/16`)
+    are ignored. You can include private IP address ranges in a prefix
+    list, but Amazon Managed Grafana ignores those when filtering traffic to the
+    workspace. To allow those hosts to reach the workspace, create a VPC
+    endpoint for your workspaces and give them access.
+    You create managed prefix lists through the [Amazon VPC Console](https://console.aws.amazon.com/vpc/home?#ManagedPrefixLists "https://console.aws.amazon.com/vpc/home?#ManagedPrefixLists"). After you have
+    created the prefix lists, you need the prefix list ID for each list you want
+    to allow in Amazon Managed Grafana. Prefix list IDs have the format
+    `pl-`1a2b3c4d``.
 
 For more information about creating prefix lists, see [Group CIDR blocks
 using managed prefix lists](../../../vpc/latest/userguide/managed-prefix-lists.md "../../../vpc/latest/userguide/managed-prefix-lists.md") in the _Amazon Virtual Private Cloud User

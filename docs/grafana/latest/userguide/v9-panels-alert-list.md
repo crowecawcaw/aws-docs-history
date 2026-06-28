@@ -53,7 +53,7 @@ tags that you choose:
 - Alert name – Enter an alert name query.
 - Alert instance label – Filter alert
   instances using label querying. For example, `{severity="critical",
-instance=~"cluster-us-.+"}`.
+ instance=~"cluster-us-.+"}`.
 - Folder – Select a folder. Only alerts
   from dashboards in the selected folder will be displayed.
 - **Datasource** – Filter alerts from the

@@ -87,10 +87,10 @@ The following example table produces a number that works with expressions. The
 string columns become labels and the number column the corresponding value. For
 example `{"Loc": "MIA", "Host": "A"}` with a value of 1.
 
-| Loc | Host | Avg_CPU |
-| --- | ---- | ------- |
-| MIA | A    | 1       |
-| NYC | B    | 2       |
+| Loc | Host | Avg\_CPU |
+| --- | ---- | -------- |
+| MIA | A    | 1        |
+| NYC | B    | 2        |
 
 **Operations**
 
@@ -182,9 +182,9 @@ _abs_
 abs returns the absolute value of its argument which can be a number or a
 series. For example `abs(-1)` or `abs($A)`.
 
-_is_inf_
+_is\_inf_
 
-is_inf takes a number or a series and returns `1` for
+is\_inf takes a number or a series and returns `1` for
 `Inf` values (negative or positive) and `0` for other
 values. For example `is_inf($A)`.
 
@@ -193,22 +193,22 @@ values. For example `is_inf($A)`.
 If you need to specifically check for negative infinity for example, you
 can do a comparison like `$A == infn()`.
 
-_is_nan_
+_is\_nan_
 
-is_nan takes a number or a series and returns `1` for
+is\_nan takes a number or a series and returns `1` for
 `NaN` values and `0` for other values. For example
 `is_nan($A)`. This function is required for this check because
 `NaN` is not equal to `NaN`.
 
-_is_null_
+_is\_null_
 
-is_null takes a number or a series and returns `1` for
+is\_null takes a number or a series and returns `1` for
 `null` values and `0` for other values. For example
 `is_null($A)`.
 
-_is_number_
+_is\_number_
 
-is_number takes a number or a series and returns `1` for all real
+is\_number takes a number or a series and returns `1` for all real
 number values and `0` for other values (which are `null`,
 `Inf+`, `Inf-`, and `NaN`). For example
 `is_number($A)`.

@@ -86,8 +86,8 @@ source-managed alert rule**. 4. Add one or more [expressions](v10-panels-query-x
      expression is successful.
 
 5. [Optional] To add a recovery threshold, turn the **Custom
-   recovery threshold** toggle on and fill in a value for when your
-   alert rule should stop firing.
+recovery threshold** toggle on and fill in a value for when your
+alert rule should stop firing.
 
 You can only add one recovery threshold in a query and it must be the alert
 condition. 6. Choose **Set as alert condition** on the query or
@@ -233,7 +233,7 @@ rule to appear as follows:
 | No Data  | Description                                                                                                                                      |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | No Data  | Creates a new alert `DatasourceNoData` with the name<br>and UID of the alert rule, and UID of the datasource that returned<br>no data as labels. |
-| Alerting | Sets alert rule state to `Alerting`. The alert rule<br>waits until the time set in the \*_For_<br>• field has<br>finished before firing.         |
+| Alerting | Sets alert rule state to `Alerting`. The alert rule<br>waits until the time set in the *_For_<br>• field has<br>finished before firing.          |
 | Ok       | Sets alert rule state to `Normal`.                                                                                                               |
 
 If your evaluation returns an error, you can set the state on your alert rule to
@@ -242,7 +242,7 @@ appear as follows:
 | Error    | Description                                                                                                                                           |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Error    | Creates an alert instance `DatasourceError` with the<br>name and UID of the alert rule, and UID of the datasource that<br>returned no data as labels. |
-| Alerting | Sets alert rule state to `Alerting`. The alert rule<br>waits until the time set in the \*_For_<br>• field has<br>finished before firing.              |
+| Alerting | Sets alert rule state to `Alerting`. The alert rule<br>waits until the time set in the *_For_<br>• field has<br>finished before firing.               |
 | Ok       | Sets alert rule state to `Normal`.                                                                                                                    |
 
 **Resolve stale alert instances**

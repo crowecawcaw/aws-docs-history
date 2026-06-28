@@ -19,7 +19,7 @@ To access Graphite settings, pause on the **Configuration** (gear) icon, then ch
 | `Basic Auth`          | Enable basic authentication to the data source.                                     |
 | `User`                | User name for basic authentication.                                                 |
 | `Password`            | Password for basic authentication.                                                  |
-| `Custom HTTP Headers` | Choose \*_Add header_<br>• to add a<br>custom HTTP header.                          |
+| `Custom HTTP Headers` | Choose *_Add header_<br>• to add a<br>custom HTTP header.                           |
 | `Header`              | Enter the custom header name.                                                       |
 | `Value`               | Enter the custom header value.                                                      |
 | `Graphite details`    |                                                                                     |
@@ -243,5 +243,5 @@ Graphite supports two ways to query annotations:
 - A regular metric query. For this, you use the **Graphite
   query** text box.
 - A Graphite events query. For this, you use the `Graphite event
-tags` text box, and specify a tag or wildcard character
+ tags` text box, and specify a tag or wildcard character
   (keeping it empty should also work).

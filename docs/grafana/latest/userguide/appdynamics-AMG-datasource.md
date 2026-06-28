@@ -16,7 +16,7 @@ require you to install the appropriate plugin. For more information, see [Extend
 Use Server (proxy) access (to avoid CORS and users looking up your password)
 and basic authentication. Remember that the username should be
 "user@account", (that is, your.name@customer1 or
-my_user@saas_account_name).
+my\_user@saas\_account\_name).
 
 Configure the password using the following steps:
 
@@ -120,4 +120,4 @@ Examples of legend key patterns and the legend keys that are generated:
 
 - `custom legend key` => `custom legend key`
 - `App: {{app}} MetricPart2: {{2}}` => `App: myApp
-MetricPart2: Average Response Time (ms)`
+ MetricPart2: Average Response Time (ms)`

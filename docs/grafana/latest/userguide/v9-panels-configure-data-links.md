@@ -35,7 +35,7 @@ You can also use template variables in your data links URLs, see [Adding and man
 
 These variables allow you to include the current time range in the data link URL.
 
-- **\_\_url_time_range** - current dashboard’s time range
+- **\_\_url\_time\_range** - current dashboard’s time range
   (i.e. **?from=now-6h&to=now**)
 - **$\_\_from and $\_\_to** - For more information, see [Global variables](v9-dash-variable-add.md#v9-dash-variable-add-global "v9-dash-variable-add.md#v9-dash-variable-add-global").
 
@@ -83,7 +83,7 @@ want to use.
 | selected **All**         | **var-myvar=All**                     |
 
 If you want to add all of the current dashboard’s variables to the URL, then use
-**${\_\_all_variables}**.
+**${\_\_all\_variables}**.
 
 ## Data links
 

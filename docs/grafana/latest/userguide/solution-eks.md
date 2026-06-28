@@ -442,7 +442,7 @@ configuration with no additional software installed.
 | `apiserver_flowcontrol_request_execution_seconds_bucket`         | The bucketed histogram of duration of initial stage (for a WATCH)<br>or any (for a non-WATCH) stage of request execution in the API<br>Priority and Fairness subsystem.    |
 | `apiserver_flowcontrol_request_queue_length_after_enqueue_count` | The count of initial stage (for a WATCH) or any (for a non-WATCH)<br>stage of request execution in the API Priority and Fairness<br>subsystem.                             |
 | `apiserver_request`                                              | Indicates an API server request.                                                                                                                                           |
-| `apiserver_requested_deprecated_apis`                            | Gauge of deprecated APIs that have been requested, broken out by<br>API group, version, resource, subresource, and<br>removed_release.                                     |
+| `apiserver_requested_deprecated_apis`                            | Gauge of deprecated APIs that have been requested, broken out by<br>API group, version, resource, subresource, and<br>removed\_release.                                    |
 | `apiserver_request_duration_seconds`                             | Response latency distribution in seconds for each verb, dry run<br>value, group, version, resource, subresource, scope and<br>component.                                   |
 | `apiserver_request_duration_seconds_bucket`                      | The bucketed histogram of response latency distribution in seconds<br>for each verb, dry run value, group, version, resource, subresource,<br>scope and component.         |
 | `apiserver_request_slo_duration_seconds`                         | The Service Level Objective (SLO) response latency distribution in<br>seconds for each verb, dry run value, group, version, resource,<br>subresource, scope and component. |
@@ -536,13 +536,13 @@ these alerts.
 
 | Alert           | Description and usage                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Watchdog`      | This is an alert meant to ensure that the entire alerting<br>pipeline is functional. This alert is always firing, therefore it<br>should always be firing in Alertmanager and always fire against a<br>receiver. You can integrate this with your notification mechanism<br>to send a notification when this alert is _not_<br>firing. For example, you could use the<br>\*_DeadMansSnitch_<br>• integration in<br>PagerDuty.                                              |
+| `Watchdog`      | This is an alert meant to ensure that the entire alerting<br>pipeline is functional. This alert is always firing, therefore it<br>should always be firing in Alertmanager and always fire against a<br>receiver. You can integrate this with your notification mechanism<br>to send a notification when this alert is _not_<br>firing. For example, you could use the<br>*_DeadMansSnitch_<br>• integration in<br>PagerDuty.                                               |
 | `InfoInhibitor` | This is an alert that is used to inhibit info alerts. By<br>themselves, info-level alerts can be very noisy, but they are relevant<br>when combined with other alerts. This alert fires whenever there's a<br>`severity=info` alert, and stops firing when another alert<br>with a severity of `warning` or `critical`<br>starts firing on the same namespace. This alert should be routed to<br>a null receiver and configured to inhibit alerts with<br>`severity=info`. |
 
 The following alerts give you information or warnings about your system.
 
 | Alert                                   | Severity   | Description                                                                |
-| --------------------------------------- | ---------- | -------------------------------------------------------------------------- | --------------------------------------------------- |
+| --------------------------------------- | ---------- | -------------------------------------------------------------------------- |
 | `NodeNetworkInterfaceFlapping`          | `warning`  | Network interface is often changing its status                             |
 | `NodeFilesystemSpaceFillingUp`          | `warning`  | File system is predicted to run out of space within the next 24<br>hours.  |
 | `NodeFilesystemSpaceFillingUp`          | `critical` | File system is predicted to run out of space within the next 4<br>hours.   |
@@ -659,9 +659,9 @@ check the following.
     and therefore unavailable.
 
   You can use `kubectl describe node 
- `NODENAME` | grep Taints` to check the
+   `NODENAME` | grep Taints` to check the
   taints. Then `kubectl taint node `NODENAME`
-`TAINT_NAME`-` to remove the taints.
+  `TAINT_NAME`-` to remove the taints.
   Make sure to include the `-` after the taint name.
   - The nodes have reached the capacity limit. In this case you can
     create a new node or increase the capacity.
@@ -753,8 +753,8 @@ again.
 
 - _Terraform installs_ – You see an error message that
   includes `cluster-secretstore-sm failed to create kubernetes rest client 
-for update of resource` and `failed to create kubernetes rest 
-client for update of resource`.
+ for update of resource` and `failed to create kubernetes rest 
+ client for update of resource`.
 
 This error typically indicates that the External Secrets Operator is not
 installed or enabled in your Kubernetes cluster. This is installed as part of

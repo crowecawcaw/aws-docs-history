@@ -104,19 +104,18 @@ imported.
 
 **Importing a dashboard**
 
-1.  Choose **Dashboards** in the side
-    menu.
-2.  Choose **New**, then select **Import** from the dropdown menu.
-3.  Perform one of the following steps.
+1. Choose **Dashboards** in the side
+   menu.
+2. Choose **New**, then select **Import** from the dropdown menu.
+3. Perform one of the following steps.
 
-        * Upload a dashboard JSON file.
-        * Paste a [Grafana.com](https://grafana.com/ "https://grafana.com/")
-         dashboard URL.
-        * Paste dashboard JSON text directly into the text area.
-
-    The import process enables you to change the name of the dashboard, pick
-    the data source you want the dashboard to use, and specify any metric
-    prefixes (if the dashboard uses any).
+   - Upload a dashboard JSON file.
+   - Paste a [Grafana.com](https://grafana.com/ "https://grafana.com/")
+     dashboard URL.
+   - Paste dashboard JSON text directly into the text area.
+     The import process enables you to change the name of the dashboard, pick
+     the data source you want the dashboard to use, and specify any metric
+     prefixes (if the dashboard uses any).
 
 ## Troubleshooting dashboards
 

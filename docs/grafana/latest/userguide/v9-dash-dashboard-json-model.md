@@ -75,10 +75,10 @@ The following describes each field in the dashboard JSON.
 | **title**         | current title of dashboard                                                                                                                  |
 | **tags**          | tags associated with dashboard, an array of<br>strings                                                                                      |
 | **style**         | theme of dashboard, such as _dark_<br>or _light_                                                                                            |
-| **timezone**      | timezone of dashboard, such as *utc<br>• or *browser\*                                                                                      |
+| **timezone**      | timezone of dashboard, such as *utc<br>• or _browser_                                                                                       |
 | **editable**      | if a dashboard is editable or not                                                                                                           |
 | **graphTooltip**  | 0 for no shared crosshair or tooltip (default), 1 for<br>shared crosshair, 2 for shared crosshair and shared<br>tooltip                     |
-| **time**          | time range for dashboard, such as *last 6 hours<br>• or *last 7<br>days\*                                                                   |
+| **time**          | time range for dashboard, such as *last 6 hours<br>• or _last 7<br>days_                                                                    |
 | **timepicker**    | timepicker metadata, see timepicker section for details                                                                                     |
 | **templating**    | templating metadata, see templating section for details                                                                                     |
 | **annotations**   | annotations metadata, see [annotations](v9-panels-annotate-visualizations.md "v9-panels-annotate-visualizations.md")<br>for how to add them |

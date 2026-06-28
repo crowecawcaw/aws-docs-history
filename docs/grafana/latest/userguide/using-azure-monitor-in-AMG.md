@@ -33,7 +33,7 @@ Azure Entra ID.
    section in the list of data sources.
 2. In the name field, Grafana will automatically fill in a name for the
    data source: `Azure Monitor` or something such as `Azure
-Monitor - 3`. If you are configuring multiple data sources,
+ Monitor - 3`. If you are configuring multiple data sources,
    change the name to something more informative.
 3. If you are using Azure Monitor, you need four pieces of information
    from the Azure portal (for detailed instructions, see the link provided
@@ -189,7 +189,7 @@ Examples:
 - Passing in metric name variable: `Namespaces(cosmo)`
 - Chaining template variables: `ResourceNames($rg, $ns)`
 - Do not quote parameters: `MetricNames(hg,
-Microsoft.Network/publicIPAddresses, grafanaIP)`
+ Microsoft.Network/publicIPAddresses, grafanaIP)`
 
 For more information about templating and template variables, see [Templates](templates-and-variables.md#templates "templates-and-variables.md#templates").
 
@@ -221,7 +221,7 @@ Application Insights examples:
 
 - `city: {{ client/city }}`
 - `{{ metric }} [Location: {{ client/countryOrRegion }}, {{
-client/city }}]`
+ client/city }}]`
 
 ### Alias patterns for Application Insights
 
@@ -388,13 +388,13 @@ can use in the where clause of a query:
   `$myVar` has the following two values as a string
   `'\\grafana-vm\Network(eth0)\Total','\\hello!'`, then
   it expands to: `@'\\grafana-vm\Network(eth0)\Total',
-@'\\hello!'`. If using single value variables there is no
+ @'\\hello!'`. If using single value variables there is no
   need for this macro, escape the variable inline instead:
   `@'\$myVar'`.
 - `$__contains(colName, $myVar)` – is to be used with
   multi-value template variables. If `$myVar` has the value
   `'value1','value2'`, it expands to: `colName in
-('value1','value2')`.
+ ('value1','value2')`.
 
 If using the **All** option, check the
 **Include All Option** check box and in the
@@ -414,7 +414,7 @@ Analytics queries:
   that can be used to group by time in queries. It returns a time
   grain such as `5m` or `1h` that can be used in
   the bin function; for example, `summarize count() by
-bin(TimeGenerated, $__interval)`. For more information
+ bin(TimeGenerated, $__interval)`. For more information
   about interval variables, see [Adding an interval variable](variables-types.md#add-an-interval-variable "variables-types.md#add-an-interval-variable").
 
 ### Templating with variables for Azure Log Analytics

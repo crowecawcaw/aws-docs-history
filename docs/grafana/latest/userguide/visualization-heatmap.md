@@ -132,7 +132,7 @@ bucket count.
         opacity.
       - sqrt – Power
         scale. Cell opacity calculated as `value ^
-k`, where `k` is a configured
+   k`, where `k` is a configured
         **Exponent** value.
         If the exponent is less than `1`, you
         will get a logarithmic scale. If the exponent is

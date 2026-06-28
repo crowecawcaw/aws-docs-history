@@ -99,7 +99,7 @@ change but the amount of opacity will change with the bucket count
         opacity.
       - **sqrt** –
         Power scale. Cell opacity calculated as `value 
-^ k`, where `k` is a
+   ^ k`, where `k` is a
         configured **Exponent**
         value. If exponent is less than `1`, you
         will get a logarithmic scale. If exponent is

@@ -118,9 +118,9 @@ Example queries:
 
 - `{job="mysql"} |= "error"`
 - `{name="kafka"} |~
-"tsdb-ops.*io:2003"`
+ "tsdb-ops.*io:2003"`
 - `{instance=~"kafka-[23]",name="kafka"} !=
-"kafka.server:type=ReplicaManager"`
+ "kafka.server:type=ReplicaManager"`
 
 Filter operators can be chained and will sequentially filter down the
 expression. The resulting log lines will satisfy every filter.

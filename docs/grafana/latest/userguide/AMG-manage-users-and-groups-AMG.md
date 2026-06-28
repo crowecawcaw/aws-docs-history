@@ -130,14 +130,14 @@ configuration** and do one or more of the following:
     	 Enter one or more roles, separated by commas.
 
 8. Alternatively, to add groups of users such as an LDAP group, choose the
-   **User Group** tab. Then, do one of the following:
+**User Group** tab. Then, do one of the following:
 
-   - To give all members of a group access to the Amazon Managed Grafana workspace,
+    * To give all members of a group access to the Amazon Managed Grafana workspace,
      select the check box next to the group, and choose **Assign
      group**.
-   - To give all members of a group the `Admin` role in the
+    * To give all members of a group the `Admin` role in the
      workspace, choose **Make admin**.
-   - To remove workspace access for all members of a group, choose
+    * To remove workspace access for all members of a group, choose
      **Unassign group**.
 
 ## Permission mismatch errors when configuring users and groups

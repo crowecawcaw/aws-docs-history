@@ -360,14 +360,14 @@ accessed by Grafana.
 Administrator access is required to perform the following actions.
 
 1. The logged in administrator needs to elevate access to
-   security_admin.
+   security\_admin.
 
    1. In the top right navigation pane, choose the profile
       icon. The profile icon has dropdown caret indicator.
    2. From the dropdown list, choose **Elevate
       Roles**.
    3. From the modal that is shown, select the
-      **security_admin** check box.
+      **security\_admin** check box.
    4. Choose OK.
 
 2. Create a new role with whatever naming convention you want.
@@ -382,14 +382,14 @@ Administrator access is required to perform the following actions.
    roles.
 
    1. The role you create in Step 2
-   2. personalize_dictionary
-   3. personalize_choices
-   4. cmdb_read (this will grant read access to all cmdb
+   2. personalize\_dictionary
+   3. personalize\_choices
+   4. cmdb\_read (this will grant read access to all cmdb
       tables)
 
 4. Create Table ACLs for the required tables and fields.
 
-   1. Create an ACL for the sys_db_object table.
+   1. Create an ACL for the sys\_db\_object table.
 
       1. In the second search header column
          **Name**, enter
@@ -419,11 +419,11 @@ Administrator access is required to perform the following actions.
          choose **Continue** when the modal
          appears.
 
-5. Create ACLs for specific sys_db_object fields. The following
+5. Create ACLs for specific sys\_db\_object fields. The following
    steps must be repeated for each of the following fields: Name,
    Label, Display Name, and Extends table.
 
-   1. While still on the table record view for sys_db_object,
+   1. While still on the table record view for sys\_db\_object,
       select the **Columns** tab in the tab group
       closest to the top of the screen.
    2. Locate the field name and select it.
@@ -441,4 +441,4 @@ Administrator access is required to perform the following actions.
 
 6. Repeat the steps from 4.1 on Change, Incident, and any other
    non-CMDB tables that you want to query from Grafana. Do not repeat
-   the steps from 4.2; that step is only required for sys_db_object.
+   the steps from 4.2; that step is only required for sys\_db\_object.

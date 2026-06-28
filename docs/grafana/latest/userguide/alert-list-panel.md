@@ -35,7 +35,7 @@ Use these settings to refine your visualization.
     according to the following values, with 1 being the highest:
 
     - alerting: 1
-    - no_data: 2
+    - no\_data: 2
     - pending: 3
     - ok: 4
     - paused: 5

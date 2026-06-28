@@ -105,7 +105,7 @@ AWS CLI**
 In the following example, replace the `key_name`,
 `key_role`, `seconds_to_live` and
 `workspace_id` with your own information. To find out about
-the format of the key-name, key-role and seconds-to-live, see [https://docs.aws.amazon.com/grafana/latest/APIReference/API_CreateWorkspaceApiKey.html](../APIReference/API_CreateWorkspaceApiKey.md "../APIReference/API_CreateWorkspaceApiKey.md") in the API guide.
+the format of the key-name, key-role and seconds-to-live, see [https://docs.aws.amazon.com/grafana/latest/APIReference/API\_CreateWorkspaceApiKey.html](../APIReference/API_CreateWorkspaceApiKey.md "../APIReference/API_CreateWorkspaceApiKey.md") in the API guide.
 
 ```
 aws grafana create-workspace-api-key --key-name "`key_name`" --key-role "`key_role`" --seconds-to-live `seconds_to_live` --workspace-id "`workspace_id`"

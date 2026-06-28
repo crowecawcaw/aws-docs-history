@@ -67,7 +67,7 @@ in the workspace details page in a later step.
      workspace is created.
 
 7. Choose **Service managed** or **Customer
-   managed**.
+managed**.
 
 If you choose **Service managed**, Amazon Managed Grafana
 automatically creates the IAM roles and provisions the permissions that
@@ -148,12 +148,10 @@ For more information about network access control, see [Configure network access
      clients or resources currently connecting over IPv6 will lose
      access to your workspace.
 
-12. (Optional) By default, Amazon Managed Grafana automatically provides you with encryption at rest and does this using AWS-owned encryption keys. But you have the option to use a customer managed key that you create, own, and manage as an alternative. For more information, see [Encryption at rest](AMG-encryption-at-rest.md "AMG-encryption-at-rest.md").
-13. Choose **Next**.
-14. If you chose **Service managed**, choose
-    **Current account** to have Amazon Managed Grafana automatically
-    create policies and permissions that allow it to read AWS data only in the
-    current account.
+12. (Optional) By default, Amazon Managed Grafana automatically provides you with encryption at rest and does this using AWS-owned encryption keys. But you have the option to use a customer managed key that you create, own, and manage as an alternative. For more information, see [Encryption at rest](AMG-encryption-at-rest.md "AMG-encryption-at-rest.md"). 13. Choose **Next**. 14. If you chose **Service managed**, choose
+**Current account** to have Amazon Managed Grafana automatically
+create policies and permissions that allow it to read AWS data only in the
+current account.
 
 If you are creating a workspace in the management account or a delegated
 administrator account in an organization, you can choose
@@ -178,19 +176,16 @@ practices.
      optional**.
 
 15. Select the AWS data sources that you want to query in this workspace.
-    Selecting data sources enables Amazon Managed Grafana to create IAM roles and
-    permissions that allow Amazon Managed Grafana to read data from these sources. You must
-    still add the data sources in the Grafana workspace console.
-16. (Optional) If you want Grafana alerts from this workspace to be sent to an
-    Amazon Simple Notification Service (Amazon SNS) notification channel, select **Amazon
-    SNS**. This enables Amazon Managed Grafana to create an IAM policy to
-    publish to the Amazon SNS topics in your account with `TopicName`
-    values that start with `grafana`. This does not completely set up
-    Amazon SNS as a notification channel for the workspace. You can do that within
-    the Grafana console in the workspace.
-17. Choose **Next**.
-18. Confirm the workspace details, and choose **Create
-    workspace**.
+Selecting data sources enables Amazon Managed Grafana to create IAM roles and
+permissions that allow Amazon Managed Grafana to read data from these sources. You must
+still add the data sources in the Grafana workspace console. 16. (Optional) If you want Grafana alerts from this workspace to be sent to an
+Amazon Simple Notification Service (Amazon SNS) notification channel, select **Amazon
+SNS**. This enables Amazon Managed Grafana to create an IAM policy to
+publish to the Amazon SNS topics in your account with `TopicName`
+values that start with `grafana`. This does not completely set up
+Amazon SNS as a notification channel for the workspace. You can do that within
+the Grafana console in the workspace. 17. Choose **Next**. 18. Confirm the workspace details, and choose **Create
+workspace**.
 
 The workspace details page appears.
 
@@ -225,85 +220,90 @@ status. 19. If you are using IAM Identity Center, do the following:
 
 20. If you are using SAML, do the following:
 
-    1.  In the **Authentication** tab, under
-        **Security Assertion Markup Language (SAML)**,
-        choose **Complete setup**.
-    2.  For **Import method**, do one of the
-        following:
+    1. In the **Authentication** tab, under
+     **Security Assertion Markup Language (SAML)**,
+     choose **Complete setup**.
+    2. For **Import method**, do one of the
+     following:
 
-        - Choose **URL** and enter the URL of the
-          IdP metadata.
-        - Choose **Upload or copy/paste**. If you
-          are uploading the metadata, choose **Choose
-          file** and select the metadata file. Or, if you
-          are using copy and paste, copy the metadata into
-          **Import the metadata**.
 
-    3.  For **Assertion attribute role**, enter the name
-        of the SAML assertion attribute from which to extract role
-        information.
-    4.  For **Admin role values**, either enter the user
-        roles from your IdP who should all be granted the `Admin`
-        role in the Amazon Managed Grafana workspace, or select **I want to
-        opt-out of assigning admins to my workspace.**
+    	* Choose **URL** and enter the URL of the
+    	 IdP metadata.
+    	* Choose **Upload or copy/paste**. If you
+    	 are uploading the metadata, choose **Choose
+    	 file** and select the metadata file. Or, if you
+    	 are using copy and paste, copy the metadata into
+    	 **Import the metadata**.
+    3. For **Assertion attribute role**, enter the name
+     of the SAML assertion attribute from which to extract role
+     information.
+    4. For **Admin role values**, either enter the user
+     roles from your IdP who should all be granted the `Admin`
+     role in the Amazon Managed Grafana workspace, or select **I want to
+     opt-out of assigning admins to my workspace.**
+
 
     ###### Note
 
     If you choose **I want to opt-out of assigning admins
-    to my workspace.**, you won't be able to use the
-    console to administer the workspace, including tasks such as
-    managing data sources, users, and dashboard permissions. You can
-    make administrative changes to the workspace only by using
-    Amazon Managed Grafana APIs. 5. (Optional) To enter additional SAML settings, choose
-    **Additional settings** and do one or more the
-    following. All of these fields are optional.
+     to my workspace.**, you won't be able to use the
+     console to administer the workspace, including tasks such as
+     managing data sources, users, and dashboard permissions. You can
+     make administrative changes to the workspace only by using
+     Amazon Managed Grafana APIs.
+    5. (Optional) To enter additional SAML settings, choose
+     **Additional settings** and do one or more the
+     following. All of these fields are optional.
 
-        * For **Assertion attribute name**, specify
-         the name of the attribute within the SAML assertion to use
-         for the user full "friendly" names for SAML users.
-        * For **Assertion attribute login**,
-         specify the name of the attribute within the SAML assertion
-         to use for the user sign-in names for SAML users.
-        * For **Assertion attribute email**,
-         specify the name of the attribute within the SAML assertion
-         to use for the user email names for SAML users.
-        * For **Login validity duration (in
-         minutes)**, specify how long a SAML user's
-         sign-in is valid before the user must sign in again. The
-         default is 1 day, and the maximum is 30 days.
-        * For **Assertion attribute organization**,
-         specify the name of the attribute within the SAML assertion
-         to use for the "friendly" name for user
-         organizations.
-        * For **Assertion attribute groups**,
-         specify the name of the attribute within the SAML assertion
-         to use for the "friendly" name for user groups.
-        * For **Allowed organizations**, you can
-         limit user access to only the users who are members of
-         certain organizations in the IdP. Enter one or more
-         organizations to allow, separating them with commas.
-        * For **Editor role values**, enter the
-         user roles from your IdP who should all be granted the
-         `Editor` role in the Amazon Managed Grafana workspace.
-         Enter one or more roles, separated by commas.
-    6.  Choose **Save SAML configuration**.
+
+
+
+    	* For **Assertion attribute name**, specify
+    	 the name of the attribute within the SAML assertion to use
+    	 for the user full "friendly" names for SAML users.
+    	* For **Assertion attribute login**,
+    	 specify the name of the attribute within the SAML assertion
+    	 to use for the user sign-in names for SAML users.
+    	* For **Assertion attribute email**,
+    	 specify the name of the attribute within the SAML assertion
+    	 to use for the user email names for SAML users.
+    	* For **Login validity duration (in
+    	 minutes)**, specify how long a SAML user's
+    	 sign-in is valid before the user must sign in again. The
+    	 default is 1 day, and the maximum is 30 days.
+    	* For **Assertion attribute organization**,
+    	 specify the name of the attribute within the SAML assertion
+    	 to use for the "friendly" name for user
+    	 organizations.
+    	* For **Assertion attribute groups**,
+    	 specify the name of the attribute within the SAML assertion
+    	 to use for the "friendly" name for user groups.
+    	* For **Allowed organizations**, you can
+    	 limit user access to only the users who are members of
+    	 certain organizations in the IdP. Enter one or more
+    	 organizations to allow, separating them with commas.
+    	* For **Editor role values**, enter the
+    	 user roles from your IdP who should all be granted the
+    	 `Editor` role in the Amazon Managed Grafana workspace.
+    	 Enter one or more roles, separated by commas.
+    6. Choose **Save SAML configuration**.
 
 21. In the workspace details page, choose the URL displayed under
-    **Grafana workspace URL**.
-22. Choosing the workspace URL takes you to the landing page for the Grafana
-    workspace console. Do one of the following:
+**Grafana workspace URL**. 22. Choosing the workspace URL takes you to the landing page for the Grafana
+workspace console. Do one of the following:
 
-    - Choose **Sign in with SAML**, and enter the name
-      and password.
-    - Choose **Sign in with AWS IAM Identity Center**, and enter the
-      email address and password of the user that you created earlier in
-      this procedure. These credentials only work if you have responded to
-      the email from Amazon Managed Grafana that prompted you to create a password for
-      IAM Identity Center.
+    * Choose **Sign in with SAML**, and enter the name
+     and password.
+    * Choose **Sign in with AWS IAM Identity Center**, and enter the
+     email address and password of the user that you created earlier in
+     this procedure. These credentials only work if you have responded to
+     the email from Amazon Managed Grafana that prompted you to create a password for
+     IAM Identity Center.
+
 
     You are now in your Grafana workspace, or logical Grafana server.
-    You can start adding data sources to query, visualize, and analyze
-    data. For more information, see [Use your Grafana workspace](AMG-working-with-Grafana-workspace.md "AMG-working-with-Grafana-workspace.md").
+     You can start adding data sources to query, visualize, and analyze
+     data. For more information, see [Use your Grafana workspace](AMG-working-with-Grafana-workspace.md "AMG-working-with-Grafana-workspace.md").
 
 For more information on
 

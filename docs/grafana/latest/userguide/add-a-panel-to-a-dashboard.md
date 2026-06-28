@@ -36,23 +36,21 @@ field, but not global variables. For more information, see [Templates and variab
      displaying.
 
 5. Write a query for the panel. To display a visualization, each panel needs at
-   least one query. You write queries on the **Query** tab of the
-   panel editor. For more information, see [Queries](panel-queries.md "panel-queries.md").
+least one query. You write queries on the **Query** tab of the
+panel editor. For more information, see [Queries](panel-queries.md "panel-queries.md").
 
-   1. Choose a data source. In the first line of the
-      **Query** tab, choose the dropdown list to see all
-      available data sources. This list includes all data sources that you
-      added. For more information about data sources, see [Connect to data sources](AMG-data-sources.md "AMG-data-sources.md").
-   2. Write or construct a query in the query language of your data source.
-      Options will vary. See your specific data source documentation for
-      specific guidelines.
+    1. Choose a data source. In the first line of the
+     **Query** tab, choose the dropdown list to see all
+     available data sources. This list includes all data sources that you
+     added. For more information about data sources, see [Connect to data sources](AMG-data-sources.md "AMG-data-sources.md").
+    2. Write or construct a query in the query language of your data source.
+     Options will vary. See your specific data source documentation for
+     specific guidelines.
 
 6. In the **Visualization** section of the
-   **Panel** tab, choose a visualization type. The Grafana
-   workspace displays a preview of your query results with that visualization
-   applied.
-7. We recommend that you add a note to describe your changes before you choose
-   **Save**. Notes are helpful if you need to
-   revert the dashboard to a previous version.
-8. To save the dashboard, choose **Save** in the upper-right
-   corner of the screen.
+**Panel** tab, choose a visualization type. The Grafana
+workspace displays a preview of your query results with that visualization
+applied. 7. We recommend that you add a note to describe your changes before you choose
+**Save**. Notes are helpful if you need to
+revert the dashboard to a previous version. 8. To save the dashboard, choose **Save** in the upper-right
+corner of the screen.

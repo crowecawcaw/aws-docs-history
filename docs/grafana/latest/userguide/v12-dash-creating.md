@@ -61,7 +61,7 @@ ways.
      standard options](v12-panels-configure-standard-options.md "v12-panels-configure-standard-options.md")
 
 9. When you've finished configuring your panel, choose
-   **Save** to save the dashboard.
+**Save** to save the dashboard.
 
 Alternatively, select **Apply** to see changes
 without leaving the panel editor. 10. Add a note to describe the visualization (or describe your changes) and
@@ -131,11 +131,11 @@ rows.
 For example, in a dashboard:
 
 - `Row 1` includes `Panel 1A` and `Panel 
-1B`.
+ 1B`.
 - `Panel 1B` uses the results from `Panel 1A` by
   using the `Dashboard` data source.
 - Repeating `Row 2` includes `Panel 2A` and `Panel 
-2B`.
+ 2B`.
 - `Panel 2B` references `Panel 1A`, not `Panel 
  2A`.
   **To move a panel**

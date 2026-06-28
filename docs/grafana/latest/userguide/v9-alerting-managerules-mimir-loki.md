@@ -99,10 +99,9 @@ the rule.
     * Add custom labels.
 
 7. Choose **Preview alerts** to evaluate the rule and see
-   what alerts it would produce. It displays a list of alerts with state and
-   value of each one.
-8. Choose **Save** to save the rule or **Save and
-   exit** to save the rule and go back to the
-   **Alerting** page.
-   After you have created your rule, you can create a notification for your rule.
-   For more information about notifications, see [Manage your alert notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").
+what alerts it would produce. It displays a list of alerts with state and
+value of each one. 8. Choose **Save** to save the rule or **Save and
+exit** to save the rule and go back to the
+**Alerting** page.
+After you have created your rule, you can create a notification for your rule.
+For more information about notifications, see [Manage your alert notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").

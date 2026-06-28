@@ -45,7 +45,7 @@ For time series and graph visualizations, there are a few requirements:
 - A column with a `date` or a `datetime` type must be
   selected.
 - The `date` column must be in ascending order (using `ORDER
-BY column ASC`).
+ BY column ASC`).
 - You must select a numeric column.
 
 To make a more reasonable graph, be sure to use the `$__timeFilter` and

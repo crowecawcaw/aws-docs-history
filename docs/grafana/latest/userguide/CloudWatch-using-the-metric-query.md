@@ -50,8 +50,10 @@ descriptions.
 The following are some examples:
 
 - ```
-  SELECT AVG(CPUUtilization) FROM "AWS/EC2"
+
   ```
+
+SELECT AVG(CPUUtilization) FROM "AWS/EC2"
 
 ````
 
@@ -67,8 +69,10 @@ the `AWS/EC2` namespace that do not have any
 dimensions defined.
 
 - ```
-  SELECT AVG(CPUUtilization) FROM SCHEMA("AWS/EC2", InstanceId)
+
   ```
+
+SELECT AVG(CPUUtilization) FROM SCHEMA("AWS/EC2", InstanceId)
 
 ````
 

@@ -110,22 +110,20 @@ instances** or **Add custom alerts**. 4. [Optional] To add alert data from exist
     3. Choose **Confirm** to add the alert
      instance to the payload.
 
-5.  [Optional] To add alert data using the Alert data
-    editor, choose **Add custom data**:
+5. [Optional] To add alert data using the Alert data
+editor, choose **Add custom data**:
 
-        1. Add annotations, custom labels, or set a dashboard or
-         panel.
-        2. Toggle Firing or resolved, depending on whether you want
-         to add firing or resolved alerts to your notification.
-        3. Choose **Add alert data**.
-        4. Choose **Refresh preview** to see what
-         your template content will look like and the corresponding
-         payload data.
+    1. Add annotations, custom labels, or set a dashboard or
+     panel.
+    2. Toggle Firing or resolved, depending on whether you want
+     to add firing or resolved alerts to your notification.
+    3. Choose **Add alert data**.
+    4. Choose **Refresh preview** to see what
+     your template content will look like and the corresponding
+     payload data.
 
-    If there are any errors in your template, they are displayed in
-    the Preview and you can correct them before saving.
-
-6.  Save your changes.
+If there are any errors in your template, they are displayed in
+the Preview and you can correct them before saving. 6. Save your changes.
 
 ## Creating a template for the subject of message
 

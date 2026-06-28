@@ -139,8 +139,7 @@ the time range to ensure the user is zoomed in on the right data in Grafana.
        `time+time.window/2`. Both params should be
        specified in ms. For example
        `?time=1500000000000&time.window=10000`
-       will result in 10s time range from 1499999995000 to
-     1500000005000.
+       will result in 10s time range from 1499999995000 to 1500000005000.
 
    - **Variable values** – Select this
      option to include template variables currently used as query
@@ -210,17 +209,17 @@ To see available panel links, select the icon to the right of the panel title.
 
   You can also use time variables.
 
-      + `from` defines the lower limit of the time
-       range, specified in ms epoch.
-      + `to` defines the upper limit of the time range,
-       specified in ms epoch.
-      + `time` and `time.window` defines a
-       time range from `time-time.window/2` to
-       `time+time.window/2`. Both parameters should
-       be specified in ms. For example
-       `?time=1500000000000&time.window=10000`
-       results in 10s time range from 1499999995000 to
-       1500000005000.
+        + `from` defines the lower limit of the time
+         range, specified in ms epoch.
+        + `to` defines the upper limit of the time range,
+         specified in ms epoch.
+        + `time` and `time.window` defines a
+         time range from `time-time.window/2` to
+         `time+time.window/2`. Both parameters should
+         be specified in ms. For example
+         `?time=1500000000000&time.window=10000`
+         results in 10s time range from 1499999995000 to
+         1500000005000.
 
 - **Updating a panel link**
 

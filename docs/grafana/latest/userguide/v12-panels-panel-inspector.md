@@ -65,10 +65,8 @@ you have additional options.
      heading to reorder the data.
 
 4. To see data before the system applies field overrides, select the
-   **Formatted data** toggle.
-5. To download a CSV file specifically formatted for Excel, select the
-   **Download for Excel** toggle.
-6. Select **Download CSV**.
+**Formatted data** toggle. 5. To download a CSV file specifically formatted for Excel, select the
+**Download for Excel** toggle. 6. Select **Download CSV**.
 
 ## Inspecting query performance
 

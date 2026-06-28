@@ -316,9 +316,9 @@ check the following.
     and therefore unavailable.
 
   You can use `kubectl describe node 
- `NODENAME` | grep Taints` to check the
+   `NODENAME` | grep Taints` to check the
   taints. Then `kubectl taint node `NODENAME`
-`TAINT_NAME`-` to remove the taints.
+  `TAINT_NAME`-` to remove the taints.
   Make sure to include the `-` after the taint name.
   - The nodes have reached the capacity limit. In this case you can
     create a new node or increase the capacity.

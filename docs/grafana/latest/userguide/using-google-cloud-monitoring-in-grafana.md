@@ -94,12 +94,14 @@ Monitoring data. 6. Upload it to Grafana on the data source
 upload the file or paste in the contents of the file.
 
 {{< docs-imagebox
-img="/img/docs/v71/cloudmonitoring_grafana_upload_key.png"
+img="/img/docs/v71/cloudmonitoring\_grafana\_upload\_key.png"
 class="docs-image–no-shadow"
 caption="Upload service key file to Grafana"
 
-> }} 7. The file contents will be encrypted and saved in the Grafana
-> database. Don’t forget to save after uploading the file!
+> }}
+
+7. The file contents will be encrypted and saved in the Grafana
+   database. Don’t forget to save after uploading the file!
 
 {{< docs-imagebox
  img="/img/docs/v71/cloudmonitoring\_grafana\_key\_uploaded.png"
@@ -199,7 +201,7 @@ such as `1h` or `1d`.
 
 Group by resource or metric labels to reduce the number of time
 series and to aggregate the results by a group by. For example, group by
-instance_name to see an aggregated metric for a compute instance.
+instance\_name to see an aggregated metric for a compute instance.
 
 ##### Metadata labels
 
@@ -296,9 +298,9 @@ documentation.
 
 | Selector dropdown list value | Corresponding time series selector used |
 | ---------------------------- | --------------------------------------- |
-| SLI Value                    | select_slo_health                       |
-| SLO Compliance               | select_slo_compliance                   |
-| SLO Error Budget Remaining   | select_slo_budget_fraction              |
+| SLI Value                    | select\_slo\_health                     |
+| SLO Compliance               | select\_slo\_compliance                 |
+| SLO Error Budget Remaining   | select\_slo\_budget\_fraction           |
 
 #### Alias patterns for SLO queries
 

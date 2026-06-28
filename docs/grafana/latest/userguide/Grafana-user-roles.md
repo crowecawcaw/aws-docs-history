@@ -27,18 +27,17 @@ console.
 - **Viewer role**— Users with the Viewer
   role can do the following:
 
-      + Can view any dashboard they have access to. This can be disabled on
-       specific folders and dashboards.
-      + Cannot create, update, or delete playlists.
-      + Cannot access Explore.
-      + Cannot add, edit, and delete notification channels.
-      + Cannot add, edit, or delete data sources.
-      + Cannot add, edit, or delete dashboards or panels.
-      + Cannot manage other users or teams.
-
-  User assignment and user access management from the Grafana workspace is not
-  supported in Amazon Managed Grafana. How you manage user and group access depends on whether you
-  use IAM Identity Center or SAML for authentication:
+  - Can view any dashboard they have access to. This can be disabled on
+    specific folders and dashboards.
+  - Cannot create, update, or delete playlists.
+  - Cannot access Explore.
+  - Cannot add, edit, and delete notification channels.
+  - Cannot add, edit, or delete data sources.
+  - Cannot add, edit, or delete dashboards or panels.
+  - Cannot manage other users or teams.
+    User assignment and user access management from the Grafana workspace is not
+    supported in Amazon Managed Grafana. How you manage user and group access depends on whether you
+    use IAM Identity Center or SAML for authentication:
 
 - If your workspace uses IAM Identity Center for authentication, you can use Amazon Managed Grafana
   console or APIs to assign roles. For more information, see [Manage user and group access to Amazon Managed Grafana workspaces](AMG-manage-users-and-groups-AMG.md "AMG-manage-users-and-groups-AMG.md").

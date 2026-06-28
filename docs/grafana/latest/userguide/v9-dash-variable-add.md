@@ -230,9 +230,9 @@ function parameter (for Graphite).
 2. In the **Values** field, enter the time range
    intervals that you want to appear in the variable dropdown list. The
    following time units are supported: `s (seconds)`, `m
-(minutes)`, `h (hours)`, `d (days)`,
+ (minutes)`, `h (hours)`, `d (days)`,
    `w (weeks)`, `M (months)`, and `y
-(years)`. You can also accept or edit the default values:
+ (years)`. You can also accept or edit the default values:
    `1m,10m,30m,1h,6h,12h,1d,7d,14d,30d`.
 3. (Optional) Turn on the **Auto Option** if you want to
    add the `auto` option to the list. This option allows you to
@@ -436,7 +436,7 @@ The InfluxDB and Elasticsearch data sources have `Group by time
 minimum limit for the `$__interval` variable (by using the
 `>` syntax -> `>10m`).
 
-**$\_\_interval_ms**
+**$\_\_interval\_ms**
 
 This variable is the `$__interval` variable in milliseconds, not a
 time interval formatted string. For example, if the `$__interval` is
@@ -461,7 +461,7 @@ represents the range for the current dashboard. It is calculated by `to -
  from`. It has a millisecond and a second representation called
 `$__range_ms` and `$__range_s`.
 
-**$\_\_rate_interval**
+**$\_\_rate\_interval**
 
 Currently only supported for Prometheus data sources. The
 `$__rate_interval` variable is meant to be used in the rate

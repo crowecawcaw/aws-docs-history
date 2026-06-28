@@ -176,7 +176,7 @@ results into answers for complex questions.
 1. Select Fields: **Sprint Name**, **Story
    point estimate**.
 2. Add a JQL filter: `project = "Your Project" AND type != epic
-AND status = done order by created ASC`
+ AND status = done order by created ASC`
 3. Add a **Group By** transformation:
 
    - Sprint Name | Group By
@@ -219,28 +219,31 @@ calculation**
     * Calculation = Difference
 
 3. Add a transformation: **Add field from
-   calculation**
+calculation**
 
-   - Mode = Binary Operation
-   - Operation = Difference / 86000000
-   - Alias = Days
+    * Mode = Binary Operation
+    * Operation = Difference / 86000000
+    * Alias = Days
 
 4. Add a transformation: **Organize fields**
 
-   - Hide Different field
+    * Hide Different field
 
 5. Add a transformation: **Filter data by
-   values**
+values**
 
-   - Filter Type = Include
-   - conditions = Match any
+    * Filter Type = Include
+    * conditions = Match any
 
-     - Field = Days | Match = Is Greater | Value =
-       1
+
+
+
+    	+ Field = Days | Match = Is Greater | Value =
+    	 1
 
 6. Add a transformation: **Reduce**
 
-   - Mode = Series to Rows
-   - Calculations = mean
+    * Mode = Series to Rows
+    * Calculations = mean
 
 7. Choose the **Stat** visualization.

@@ -63,7 +63,7 @@ alert permissions are matched to the new rules permissions as follows:
 
 - If the original alert's dashboard has permissions, migration creates a
   folder named with this format `Migrated {"dashboardUid": "UID",
-"panelId": 1, "alertId": 1}` to match permissions of the original
+ "panelId": 1, "alertId": 1}` to match permissions of the original
   dashboard (including the inherited permissions from the folder).
 - If there are no dashboard permissions and the dashboard is under a folder,
   then the rule is linked to this folder and inherits its permissions.

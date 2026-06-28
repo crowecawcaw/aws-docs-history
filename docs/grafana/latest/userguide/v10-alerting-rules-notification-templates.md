@@ -18,7 +18,7 @@ Grafana’s default templates are based on the [Go templating system](https://go
 where some fields are evaluated as text, while others are evaluated as HTML
 (which can affect escaping).
 
-The default template [default_template.go](https://github.com/grafana/alerting/blob/main/templates/default_template.go "https://github.com/grafana/alerting/blob/main/templates/default_template.go") is a useful reference for custom
+The default template [default\_template.go](https://github.com/grafana/alerting/blob/main/templates/default_template.go "https://github.com/grafana/alerting/blob/main/templates/default_template.go") is a useful reference for custom
 templates.
 
 Since most of the contact point fields can be templated, you can create

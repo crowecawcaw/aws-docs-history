@@ -254,7 +254,7 @@ This transformation has the following options:
 
     - Will show an option to specify a DateFormat as input
       by a string, like `yyyy-mm-dd` or `DD MM
-YYYY hh:mm:ss`.
+   YYYY hh:mm:ss`.
 
   - **Boolean** – will make the values
     Boolean.
@@ -317,7 +317,7 @@ Consider the following dataset:
 
 **Dataset Example**
 
-| Timestamp           | json_data     |
+| Timestamp           | json\_data    |
 | ------------------- | ------------- |
 | 1636678740000000000 | {"value": 1}  |
 | 1636678680000000000 | {"value": 5}  |
@@ -326,11 +326,11 @@ Consider the following dataset:
 You could prepare the data to be used by a [Time
 series panel](v10-panels-time-series.md "v10-panels-time-series.md") with this configuration:
 
-- Source: json_data
+- Source: json\_data
 - Format: JSON
 
   - Field: value
-  - Alias: my_value
+  - Alias: my\_value
 
 - Replace all fields: true
 - Keep time: true
@@ -339,11 +339,11 @@ This will generate the following output:
 
 **Transformed Data**
 
-| Timestamp           | my_value |
-| ------------------- | -------- |
-| 1636678740000000000 | 1        |
-| 1636678680000000000 | 5        |
-| 1636678620000000000 | 12       |
+| Timestamp           | my\_value |
+| ------------------- | --------- |
+| 1636678740000000000 | 1         |
+| 1636678680000000000 | 5         |
+| 1636678620000000000 | 12        |
 
 With this transformation, you can extract and format data in various
 ways. You can customize the extraction format based on your specific data
@@ -754,7 +754,7 @@ together, as if you sorted them For instance, if you group by the
 `Server ID` field, Grafana groups the data this way:
 
 | Server ID | Data |
-| --------- | ---- | ---- | --------------- | ------------- | ---- | ------- | ------- | ------- | ---- | -------------------- | --- | -------- | ---- | -------------------- | --- | --- | ---- | ------------------- | --- | --------- | --- |
+| --------- | ---- |
 | server 1  |      | Time | CPU Temperature | Server Status | <br> | --<br>• | --<br>• | --<br>• | <br> | 7/7/2020 11:34:20 AM | 80  | Shutdown | <br> | 7/7/2020 9:28:06 AM  | 80  | OK  | <br> | 7/7/2020 9:23:07 AM | 86  | OK        |     |
 | server 2  |      | Time | CPU Temperature | Server Status | <br> | --<br>• | --<br>• | --<br>• | <br> | 7/7/2020 10:32:20 AM | 90  | Overload | <br> | 7/7/2020 9:30:05 AM  | 88  | OK  | <br> | 7/7/2020 9:25:05 AM | 88  | OK        |     |
 | server 3  |      | Time | CPU Temperature | Server Status | <br> | --<br>• | --<br>• | --<br>• | <br> | 7/7/2020 11:34:20 AM | 62  | OK       | <br> | 7/7/2020 10:31:22 AM | 55  | OK  | <br> | 7/7/2020 9:30:57 AM | 62  | Rebooting |     |
@@ -767,7 +767,7 @@ calculation applied on the CPU Temperature field to get the following
 result:
 
 | Server ID | CPU Temperatute (mean) |     |
-| --------- | ---------------------- | --- | ---- | ------------- | ---- | ------- | ------- | ---- | -------------------- | -------- | ---- | -------------------- | --- | ---- | ------------------- | --------- | --- |
+| --------- | ---------------------- | --- |
 | server 1  | 82                     |     | Time | Server Status | <br> | --<br>• | --<br>• | <br> | 7/7/2020 11:34:20 AM | Shutdown | <br> | 7/7/2020 9:28:06 AM  | OK  | <br> | 7/7/2020 9:23:07 AM | OK        |     |
 | server 2  | 88.6                   |     | Time | Server Status | <br> | --<br>• | --<br>• | <br> | 7/7/2020 10:32:20 AM | Overload | <br> | 7/7/2020 9:30:05 AM  | OK  | <br> | 7/7/2020 9:25:05 AM | OK        |     |
 | server 3  | 59.6                   |     | Time | Server Status | <br> | --<br>• | --<br>• | <br> | 7/7/2020 11:34:20 AM | OK       | <br> | 7/7/2020 10:31:22 AM | OK  | <br> | 7/7/2020 9:30:57 AM | Rebooting |     |

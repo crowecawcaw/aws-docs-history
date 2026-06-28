@@ -72,7 +72,8 @@ link URL:
 - `$__from and $__to` – For more information, see [Global
   variables]({{< relref
   "../variables/variable-types/global-variables.md#\_\_from-and-\_\_to"
-  > }}).
+
+> }}).
 
 ### Series variables
 

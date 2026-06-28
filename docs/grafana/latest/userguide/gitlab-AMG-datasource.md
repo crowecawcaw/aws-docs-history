@@ -131,7 +131,7 @@ project?**
    type and add the project ID.
 2. Add a new **Group by** transformation: for
    **Group by**, select
-   **created_at_date** and then calculate
+   **created\_at\_date** and then calculate
    **(Count)=id**
 3. Choose the **Graph** visualization.
 
@@ -143,15 +143,15 @@ project?**
 2. Add a new **Add field from calculation**
    transformation: for **Mode**, select **Binary
    Operation**, for **Operation**, select
-   **closed_at = created_at** and for
+   **closed\_at = created\_at** and for
    **Alias** choose
-   **resolution_time**.
+   **resolution\_time**.
 3. Add a new **Add field from calculation**
    transformation: for **Mode**, select **Binary
    Operation**, for **Operation**, select
-   **resolution_time / 86400000** and for
+   **resolution\_time / 86400000** and for
    **Alias** choose
-   **resolution_time**.
+   **resolution\_time**.
 
 For **Replace all fields**, choose
 **True**. 4. Choose the **Stat** visualization.

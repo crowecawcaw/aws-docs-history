@@ -196,42 +196,42 @@ select * from "users" where "city" in ($cities)
   Grafana's time range to the specified column when used in the raw
   query. Applicable to date/timestamp/long time columns.
 - `$__timeFilter(<time_column>,
-<format>)`— Same as above. But gives the ability
-  to specify the format of the time_column stored in the
+ <format>)`— Same as above. But gives the ability
+  to specify the format of the time\_column stored in the
   database.
 - `$__timeFilter(<time_column>, "epoch",
-<format>)`— Same as above but can be used
+ <format>)`— Same as above but can be used
   when your time column is in epoch. format can be one of 's','ms' and
   'ns'.
 - `$__fromTimeFilter(<time_column>)`— Same
   as above but can be used when your time column is in epoch. format
   can be one of 's','ms' and 'ns'.
 - `$__fromTimeFilter(<time_column>,
-<comparison_predicate>)`— Same as above but
-  able to specify comparison_predicate.
+ <comparison_predicate>)`— Same as above but
+  able to specify comparison\_predicate.
 - `$__fromTimeFilter(<time_column>,
-<format>)`— Same as above but able to specify
+ <format>)`— Same as above but able to specify
   format of the time column.
 - `$__fromTimeFilter(<time_column>, <format>,
-<comparison_predicate>)`— Same as above but
-  able to specify comparison_predicate.
+ <comparison_predicate>)`— Same as above but
+  able to specify comparison\_predicate.
 - `$__toTimeFilter(<time_column>)`— Returns
   time condition based on grafana's to time over a time field.
 - `$__toTimeFilter(<time_column>,
-<comparison_predicate>)`— Same as above but
-  able to specify comparison_predicate.
+ <comparison_predicate>)`— Same as above but
+  able to specify comparison\_predicate.
 - `$__toTimeFilter(<time_column>,
-<format>)`— Same as above but able to specify
+ <format>)`— Same as above but able to specify
   format of the time column.
 - `$__toTimeFilter(<time_column>,
-<comparison_predicate>)`— Same as above but
-  able to specify comparison_predicate.
+ <comparison_predicate>)`— Same as above but
+  able to specify comparison\_predicate.
 - `$__timeGroup(<time_column>,
-<interval>)`— Expands the time column into
+ <interval>)`— Expands the time column into
   interval groups. Applicable to date/timestamp/long time
   columns..
 
-**$\_\_timeFilter(<time_column>)
+**$\_\_timeFilter(<time\_column>)
 macro**
 
 The following example explains the
@@ -245,7 +245,7 @@ select ts, temperature from weather where ts > '2021-02-24T12:52:48Z' AND ts < '
 --- where you can see the grafana dashboard's time range is applied to the column ts in the query.
 ```
 
-**$\_\_timeFilter(<time_column>, <format>)
+**$\_\_timeFilter(<time\_column>, <format>)
 macro**
 
 In some cases, time columns in the database are stored in custom formats.
@@ -263,7 +263,7 @@ your timestamp column. For example, `YYYYMMDDHH24MISS` is a valid
 format when your data is stored in `20210421162012`
 format.
 
-**$\_\_timeFilter(<time_column>, "epoch"
+**$\_\_timeFilter(<time\_column>, "epoch"
 <format>) macro**
 
 In some cases, timestamps are stored as epoch timestamps in your DB. The
@@ -280,7 +280,7 @@ SELECT ADD_SECONDS('1970-01-01', "TIMESTAMP"/1000000000) AS "METRIC_TIME", "VALU
 ```
 
 Instead of using third argument to the $\_\_timeFilter, you can use one of
-epoch_s, epoch_ms or epoch_ns as your second argument..
+epoch\_s, epoch\_ms or epoch\_ns as your second argument..
 
 ```
 SELECT ADD_SECONDS('1970-01-01', "TIMESTAMP"/1000) AS "METRIC_TIME", "VALUE" FROM "SCH"."TBL" WHERE $__timeFilter("TIMESTAMP","epoch","ms")
@@ -296,19 +296,19 @@ The `$__fromTimeFilter()` macro expands to a condition over a
 time field based on Grafana time picker's from time.
 
 This accepts three parameters. First parameter is time field name. You can
-pass comparison_predicate or format of the time column as second argument.
+pass comparison\_predicate or format of the time column as second argument.
 If you want to pass both, then format is second parameter and use
-comparison_predicate as your third parameter.
+comparison\_predicate as your third parameter.
 
 **<format>** If the format is not
 specified, plugin wil assume that the time column is of timestamp/date type.
 If your time column is stored in any other format than timestamp/date, then
-pass the format as second argument. <format> can be one of epoch_s,
-epoch_ms,epoch_ns or any other custom format like YYYY-MM-DD.
+pass the format as second argument. <format> can be one of epoch\_s,
+epoch\_ms,epoch\_ns or any other custom format like YYYY-MM-DD.
 
-**<comparison_predicate>** optional
+**<comparison\_predicate>** optional
 parameter. If not passed, plugin will use > as comparison predicate.
-<comparison_predicate> can be one of =, !=, <>, <, <=,
+<comparison\_predicate> can be one of =, !=, <>, <, <=,
 
 > , >=
 
@@ -316,11 +316,11 @@ parameter. If not passed, plugin will use > as comparison predicate.
 Instead of using Grafana's from time, it will use to time. Also the default
 comparison predicate will be <.
 
-**$\_\_timeGroup(<time_column>,
+**$\_\_timeGroup(<time\_column>,
 <interval>)**
 
 For example, the macro $\_\_timeGroup(timecol,1h) is expanded to
-SERIES_ROUND("timecol", 'INTERVAL 1 HOUR') in the query.
+SERIES\_ROUND("timecol", 'INTERVAL 1 HOUR') in the query.
 
 The following example explains the `$__timeGroup(<time_column>,
  <interval>) macro.`
@@ -353,7 +353,7 @@ select, sort by fields follows the same name as your group by field.
 Otherwise, HANA might not recognize the query.
 
 If you don't want to hard code the interval in $\_\_timeGroup() function,
-then you can leave that to Grafana by specifying $\_\_interval as your
+ then you can leave that to Grafana by specifying $\_\_interval as your
 interval. Grafana will calculate that interval from dashboard time range.
 Example query:
 

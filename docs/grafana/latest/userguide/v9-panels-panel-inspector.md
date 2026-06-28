@@ -56,9 +56,7 @@ have additional options.
      your queries at once, one result set per column. Click a column heading
      to reorder the data.
 
-4. To see data before the system applies field overrides, click the **Formatted data** toggle.
-5. To download a CSV file specifically formatted for Excel, click the **Download for Excel** toggle .
-6. Click **Download CSV**.
+4. To see data before the system applies field overrides, click the **Formatted data** toggle. 5. To download a CSV file specifically formatted for Excel, click the **Download for Excel** toggle . 6. Click **Download CSV**.
 
 ## Inspect query performance
 

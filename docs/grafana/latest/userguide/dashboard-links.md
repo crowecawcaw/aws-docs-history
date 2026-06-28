@@ -94,8 +94,7 @@ workspace.
        `time+time.window/2`. Both parameters should
        be specified in milliseconds. For example,
        `?time=1500000000000&time.window=10000`
-       results in a 10-second time range from 1499999995000 to
-     1500000005000.
+       results in a 10-second time range from 1499999995000 to 1500000005000.
 
    - Variable values – Select this
      option to include the template variables that are currently used as

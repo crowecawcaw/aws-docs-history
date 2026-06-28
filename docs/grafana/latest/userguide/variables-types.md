@@ -350,7 +350,7 @@ Graphite).
    range intervals that you want to appear in the variable drop-down list.
    The following time units are supported: `s (seconds)`,
    `m (minutes)`, `h (hours)`, `d
-(days)`, `w (weeks)`, `M (months)`, and
+ (days)`, `w (weeks)`, `M (months)`, and
    `y (years)`. You can also accept or edit the default
    values: `1m,10m,30m,1h,6h,12h,1d,7d,14d,30d`.
 2. (Optional) Turn on **Auto Option** if you
@@ -566,7 +566,7 @@ The InfluxDB and OpenSearch data sources have `Group by time
 minimum limit for the `$__interval` variable by using the
 `>` syntax -> `>10m`.
 
-### $\_\_interval_ms
+### $\_\_interval\_ms
 
 This variable is the `$__interval` variable in milliseconds, not a
 time interval formatted string. For example, if the `$__interval` is

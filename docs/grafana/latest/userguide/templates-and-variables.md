@@ -350,7 +350,8 @@ formatting, you must do one of the following:
   **Include All option** options.
 - Use the [raw variable format]({{< relref
   "advanced-variable-format-options.md#raw"
-  > }}).
+
+> }}).
 
 ### Filtering variables with regex
 

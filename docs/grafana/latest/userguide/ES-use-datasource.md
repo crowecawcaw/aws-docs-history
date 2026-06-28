@@ -98,7 +98,7 @@ be sorted alphabetically or numerically as for any variable). To produce
 a list of terms sorted by doc count (a top-N values list), add an
 `orderBy` property of `doc_count`. This
 automatically selects a descending sort. Using `asc` with
-doc_count (a bottom-N list) can be done by setting `order:
+doc\_count (a bottom-N list) can be done by setting `order:
  "asc"`, but it is discouraged because it increases
 the error on document counts. To keep terms in the doc count order, set
 the variable’s **Sort** dropdown list to

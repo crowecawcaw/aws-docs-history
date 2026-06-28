@@ -46,21 +46,16 @@ query:
      link.
 
 6. Choose a link to add a new correlation. Links are associated with a
-   field that is used as a result field of a correlation. For more details,
-   see [Correlation configuration](v10-correlations-config.md "v10-correlations-config.md").
-7. In the split view that opens, use the right pane to set up the target
-   query source of the correlation. For more details, see [Target query](v10-correlations-config.md#v10-correlations-config-target-query "v10-correlations-config.md#v10-correlations-config-target-query").
-8. Build a target query using [variables syntax](v10-dash-variable-syntax.md "v10-dash-variable-syntax.md") with variables from the list provided at the top
-   of the pane. The list contains sample values from the selected data
-   row.
-9. Provide a label and description (optional). A label will be used as the
-   name of the link inside the visualization and can contain variables.
-10. Provide transformations (optional; see below for details).
-11. Choose **Save** in the top toolbar to save
-    the correlation and exit Correlations Editor mode. The link used to create
-    the correlation is replaced with a data link in each row. When the link is
-    selected, the query you defined will run in another pane, with the variables
-    replaced dynamically with the values from the selected row.
+field that is used as a result field of a correlation. For more details,
+see [Correlation configuration](v10-correlations-config.md "v10-correlations-config.md"). 7. In the split view that opens, use the right pane to set up the target
+query source of the correlation. For more details, see [Target query](v10-correlations-config.md#v10-correlations-config-target-query "v10-correlations-config.md#v10-correlations-config-target-query"). 8. Build a target query using [variables syntax](v10-dash-variable-syntax.md "v10-dash-variable-syntax.md") with variables from the list provided at the top
+of the pane. The list contains sample values from the selected data
+row. 9. Provide a label and description (optional). A label will be used as the
+name of the link inside the visualization and can contain variables. 10. Provide transformations (optional; see below for details). 11. Choose **Save** in the top toolbar to save
+the correlation and exit Correlations Editor mode. The link used to create
+the correlation is replaced with a data link in each row. When the link is
+selected, the query you defined will run in another pane, with the variables
+replaced dynamically with the values from the selected row.
 
 ## Transformations
 
@@ -125,7 +120,7 @@ To follow this example, make sure you have set up a [test data source](testdata-
    border.
 5. Select the following scenario from the scenario dropdown menu:
    **CSV File**.
-6. Select the file, **population_by_state.csv**. Each
+6. Select the file, **population\_by\_state.csv**. Each
    cell is a link that you can click on to begin creating a new
    correlation.
 7. Click on any cell in the `State` column to create a
@@ -179,7 +174,7 @@ To follow this example, make sure you have set up a [test data source](testdata-
 5. In the **Scenario** menu, select
    **Logs**.
 6. Expand a log line to see the correlation links. Select `Correlate 
-with hostname`.
+ with hostname`.
 7. Explore opens in split view. Select the same data source you selected
    in the left pane. The helper above the query editor contains all
    available variables you can use the target query.

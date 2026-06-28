@@ -63,11 +63,11 @@ whitespace. 4. Define query
 
 5. Add namespace and group.
 
-   - From the **Namespace** dropdown, select an
+    * From the **Namespace** dropdown, select an
      existing rule namespace or add a new one. Namespaces can
      contain one or more rule groups and only have an organizational
      purpose.
-   - From the **Group** dropdown, select an existing
+    * From the **Group** dropdown, select an existing
      group within the selected namespace or add a new one. Newly created
      rules are appended to the end of the group. Rules within a group
      are run sequentially at a regular interval, with the same
@@ -75,9 +75,9 @@ whitespace. 4. Define query
 
 6. Add labels.
 
-   - Add custom labels selecting existing key-value pairs from the
+    * Add custom labels selecting existing key-value pairs from the
      dropdown, or add new labels by entering the new key or value.
 
 7. Choose **Save rule** to save the rule, or **Save
-   rule and exit** to save the rule and go back to the Alerting
-   page.
+rule and exit** to save the rule and go back to the Alerting
+page.

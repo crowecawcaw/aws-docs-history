@@ -68,39 +68,38 @@ for your API token.
 
 ### Configuration
 
-1.  Choose **Settings/Data Sources** within the
-    logical Grafana server UI and choose **Add data
-    source**.
-2.  On the **Add data source** page, filter for
-    **Dynatrace**, and select the Dynatrace plugin.
-3.  Configuring a Dynatrace data source requires the following
-    parameters:
+1. Choose **Settings/Data Sources** within the
+   logical Grafana server UI and choose **Add data
+   source**.
+2. On the **Add data source** page, filter for
+   **Dynatrace**, and select the Dynatrace plugin.
+3. Configuring a Dynatrace data source requires the following
+   parameters:
 
-        * `Name` - The name you want to apply to the
-         Dynatrace data source (default: Dynatrace).
-        * `Dynatrace API Type` - The type of Dynatrace
-         instance that you’re connecting to. This is either
-         `SaaS` or `Managed Cluster`.
-        * `Dynatrace API Token` - This is the API token you
-         generated in the previous step..
+   - `Name` - The name you want to apply to the
+     Dynatrace data source (default: Dynatrace).
+   - `Dynatrace API Type` - The type of Dynatrace
+     instance that you’re connecting to. This is either
+     `SaaS` or `Managed Cluster`.
+   - `Dynatrace API Token` - This is the API token you
+     generated in the previous step..
+     The next two settings depend on whether you are Dynatrace SaaS or
+     managed
 
-    The next two settings depend on whether you are Dynatrace SaaS or
-    managed
+   - In a SaaS example of
+     `yfc55578.live.dynatrace.com`, your
+     **Environment ID** would be
+     `yfc55578`.
+   - In the Managed example of
+     `yd8888.managed-sprint.dynalabs.io/e/abc99984-3af2-55tt-72kl-0672983gc45`,
+     your **Environment ID** would be
+     `abc99984-3af2-55tt-72kl-0672983gc45` and
+     your **Domain** would be
+     `yd8888.managed-sprint.dynalabs.io`
 
-        * In a SaaS example of
-         `yfc55578.live.dynatrace.com`, your
-         **Environment ID** would be
-         `yfc55578`.
-        * In the Managed example of
-         `yd8888.managed-sprint.dynalabs.io/e/abc99984-3af2-55tt-72kl-0672983gc45`,
-         your **Environment ID** would be
-         `abc99984-3af2-55tt-72kl-0672983gc45` and
-         your **Domain** would be
-         `yd8888.managed-sprint.dynalabs.io`
-
-4.  After all of the configuration values have been set, choose
-    **Save & Test** to validate the
-    configuration and save your changes.
+4. After all of the configuration values have been set, choose
+   **Save & Test** to validate the
+   configuration and save your changes.
 
 ### Query the data source
 

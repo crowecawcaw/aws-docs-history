@@ -148,12 +148,12 @@ possible for queries in the **Query history** and
 You can customize the query history in the **Settings** tab. The
 following table lists the available options.
 
-| Setting                                                                       | Default value                                                                      |
-| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Specify how long Grafana will save your query history.                        | 1 week                                                                             |
-| Change the default active tab.                                                | Query history tab                                                                  |
-| Show queries only for the data source that is currently active<br>in Explore. | True                                                                               |
-| Clear query history.                                                          | (Choose \*_Clear query history_<br>• to permanently<br>delete all stored queries.) |
+| Setting                                                                       | Default value                                                                     |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Specify how long Grafana will save your query history.                        | 1 week                                                                            |
+| Change the default active tab.                                                | Query history tab                                                                 |
+| Show queries only for the data source that is currently active<br>in Explore. | True                                                                              |
+| Clear query history.                                                          | (Choose *_Clear query history_<br>• to permanently<br>delete all stored queries.) |
 
 ###### Note
 
@@ -295,7 +295,7 @@ fields. Expand a log line, and then choose the eye icon to show or hide fields.
 
 {{< docs-imagebox img="/img/docs/explore/parsed-fields-7-2.gif"
  max-width="800px" caption="Toggling detected fields in
- Explore" >}}
+
 
 ## Tracing integration
 

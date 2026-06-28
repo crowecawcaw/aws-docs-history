@@ -49,10 +49,9 @@ Amazon Managed Grafana supports the following SAML 2.0 bindings:
 
 - From the identity provider (IdP) to the service provider (SP):
 
-      + HTTP-POST binding
-
-  Amazon Managed Grafana supports signed and encrypted assertions, but does not support signed or
-  encrypted requests.
+  - HTTP-POST binding
+    Amazon Managed Grafana supports signed and encrypted assertions, but does not support signed or
+    encrypted requests.
 
 Amazon Managed Grafana supports SP-initiated requests, and does not support IdP-initiated
 requests.

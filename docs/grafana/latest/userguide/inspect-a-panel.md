@@ -76,19 +76,17 @@ option overrides.
   set data you want to view.
 - **Transform data**
 
-      + Join by time – View raw
-       data from all your queries at the same time, with one result set
-       per column. Choose a column heading to reorder the data.
-
-  View raw query results in a table with field options and option
-  overrides applied.
-
-      1. Open the **Data** tab in the panel
-       inspector.
-      2. Above the table, choose on **Data display
-       options**.
-      3. Choose the **Apply field
-       configuration** toggle button.
+  - Join by time – View raw
+    data from all your queries at the same time, with one result set
+    per column. Choose a column heading to reorder the data.
+    View raw query results in a table with field options and option
+    overrides applied.
+  1.  Open the **Data** tab in the panel
+      inspector.
+  2.  Above the table, choose on **Data display
+      options**.
+  3.  Choose the **Apply field
+      configuration** toggle button.
 
 ### Download raw query results as a CSV file
 

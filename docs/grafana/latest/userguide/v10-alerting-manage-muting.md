@@ -90,7 +90,7 @@ Support time interval options are:
   the last day of the month.
 - **Months** – The months of the year in either
   numerical of full calendar month name. For example, `1, 
-may:august`.
+ may:august`.
 - **Years** – The year or years for the interval.
   For example, `2023:2024`.
 

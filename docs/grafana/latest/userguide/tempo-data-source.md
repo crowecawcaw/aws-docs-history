@@ -25,7 +25,7 @@ currently must be Loki. For more information, see [Tracing integration](explore.
   source.
 - **Tags** – The tags that will be
   used in the Loki query. The default is `'cluster', 'hostname',
-'namespace', pod'`
+ 'namespace', pod'`
 - **Span start time shift** – Shift
   in the start time for the Loki query based on the span start time. In
   order to extend to the past, you need to use a negative value. Time

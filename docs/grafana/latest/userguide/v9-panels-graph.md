@@ -229,15 +229,15 @@ Options are identical for both y-axes.
 
   For more information about histograms, see [Introduction to histograms and heatmaps](getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps "getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps").
 
-      - Buckets – Sets the
-       number of buckets to group the values by. If left empty,
-       Amazon Managed Grafana tries to calculate a suitable number of
-       buckets.
-      - X-Min – Filters out
-       values from the histogram that are less than this
-       minimum limit.
-      - X-Max – Filters out
-       values that are greater than this maximum limit.
+        - Buckets – Sets the
+         number of buckets to group the values by. If left empty,
+         Amazon Managed Grafana tries to calculate a suitable number of
+         buckets.
+        - X-Min – Filters out
+         values from the histogram that are less than this
+         minimum limit.
+        - X-Max – Filters out
+         values that are greater than this maximum limit.
 
 ## Legend
 

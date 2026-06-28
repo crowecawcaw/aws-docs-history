@@ -62,7 +62,7 @@ Amazon Managed Grafana adds a threshold with suggested numerical and color value
      mode to change it for all thresholds on this panel.
 
 5. Choose **Save** to save the changes in the
-   dashboard.
+dashboard.
 
 ## Adding a threshold to a graph panel
 

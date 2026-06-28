@@ -201,7 +201,7 @@ resource "grafana_notification_policy" "my_policy" {
 
 ```
 
-2. In the mute_timings field, link a mute timing to your
+2. In the mute\_timings field, link a mute timing to your
    notification policy.
 3. Run the command `terraform apply`.
 4. Go to the Grafana UI and check the details of your

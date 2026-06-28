@@ -84,10 +84,10 @@ When evaluation of an alert rule produces the state `NoData` or
 `Error`, Grafana alerting will generate alert instances that have
 the following additional labels.
 
-| Label              | Description                                                                |
-| ------------------ | -------------------------------------------------------------------------- |
-| **alertname**      | Either `DatasourceNoData` or<br>`DatasourceError`, depending on the state. |
-| **datasource_uid** | The UID of the data source that caused the state.                          |
+| Label               | Description                                                                |
+| ------------------- | -------------------------------------------------------------------------- |
+| **alertname**       | Either `DatasourceNoData` or<br>`DatasourceError`, depending on the state. |
+| **datasource\_uid** | The UID of the data source that caused the state.                          |
 
 ###### Note
 
