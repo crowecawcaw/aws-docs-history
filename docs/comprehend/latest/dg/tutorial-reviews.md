@@ -134,10 +134,9 @@ _IAM User Guide_.
   previous policy, you must also attach the following AWS managed policies to your
   group or user:
 
-      + `AWSGlueConsoleFullAccess`
-      + `AWSQuicksightAthenaAccess`
-
-  These managed policies give you permission to use AWS Glue,
-  Amazon Athena, and Quick. For information about attaching an IAM
-  policy, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the
-  _IAM User Guide_.
+  - `AWSGlueConsoleFullAccess`
+  - `AWSQuicksightAthenaAccess`
+    These managed policies give you permission to use AWS Glue,
+    Amazon Athena, and Quick. For information about attaching an IAM
+    policy, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the
+    _IAM User Guide_.

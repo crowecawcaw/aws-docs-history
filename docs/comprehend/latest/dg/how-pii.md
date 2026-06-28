@@ -94,39 +94,39 @@ precinct, and neighborhood.
 An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years
 old," Amazon Comprehend recognizes "40 years" as an age.
 
-**AWS_ACCESS_KEY**
+**AWS\_ACCESS\_KEY**
 
 A unique identifier that's associated with a secret access key; you use the access key ID and secret
 access key to sign programmatic AWS requests cryptographically.
 
-**AWS_SECRET_KEY**
+**AWS\_SECRET\_KEY**
 
 A unique identifier that's associated with an access key. You use the access key ID and secret access
 key to sign programmatic AWS requests cryptographically.
 
-**CREDIT_DEBIT_CVV**
+**CREDIT\_DEBIT\_CVV**
 
 A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and
 debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
 
-**CREDIT_DEBIT_EXPIRY**
+**CREDIT\_DEBIT\_EXPIRY**
 
 The expiration date for a credit or debit card. This number is usually four digits long and is often
 formatted as month/year or MM/YY. Amazon Comprehend recognizes expiration dates such as 01/21, 01/2021, and Jan 2021.
 
-**CREDIT_DEBIT_NUMBER**
+**CREDIT\_DEBIT\_NUMBER**
 
 The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However,
 Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present.
 
-**DATE_TIME**
+**DATE\_TIME**
 
 A date can include a year, month, day, day of week, or time of day. For example,
 Amazon Comprehend recognizes "January 19, 2020" or "11 am" as dates. Amazon Comprehend will recognize partial
 dates, date ranges, and date intervals. It will also recognize decades, such as "the
 1990s".
 
-**DRIVER_ID**
+**DRIVER\_ID**
 
 The number assigned to a driver's license, which is an official document permitting an individual to
 operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric
@@ -136,21 +136,21 @@ characters.
 
 An email address, such as marymajor@email.com.
 
-**INTERNATIONAL_BANK_ACCOUNT_NUMBER**
+**INTERNATIONAL\_BANK\_ACCOUNT\_NUMBER**
 
 An International Bank Account Number has specific formats in each country. See [www.iban.com/structure](https://www.iban.com/structure "https://www.iban.com/structure").
 
-**IP_ADDRESS**
+**IP\_ADDRESS**
 
 An IPv4 address, such as 198.51.100.0.
 
-**LICENSE_PLATE**
+**LICENSE\_PLATE**
 
 A license plate for a vehicle is issued by the state or country where the vehicle is registered. The
 format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and
 numbers. The format varies depending on the location of the issuing state or country.
 
-**MAC_ADDRESS**
+**MAC\_ADDRESS**
 
 A media access control (MAC) address is a unique identifier assigned to a network interface controller
 (NIC).
@@ -174,7 +174,7 @@ A phone number. This entity type also includes fax and pager numbers.
 
 A four-digit personal identification number (PIN) with which you can access your bank account.
 
-**SWIFT_CODE**
+**SWIFT\_CODE**
 
 A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or
 branch. Banks use these codes for money transfers such as international wire transfers.
@@ -190,7 +190,7 @@ A web address, such as www.example.com.
 
 A user name that identifies an account, such as a login name, screen name, nick name, or handle.
 
-**VEHICLE_IDENTIFICATION_NUMBER**
+**VEHICLE\_IDENTIFICATION\_NUMBER**
 
 A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined
 in the ISO 3779 specification. Each country has specific codes and formats for VINs.
@@ -200,12 +200,12 @@ in the ISO 3779 specification. Each country has specific codes and formats for V
 Some PII entity types are country-specific, such as passport numbers and other government-issued ID numbers.
 Amazon Comprehend detects the following types of country-specific PII entities:
 
-**CA_HEALTH_NUMBER**
+**CA\_HEALTH\_NUMBER**
 
 A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access
 healthcare benefits.
 
-**CA_SOCIAL_INSURANCE_NUMBER**
+**CA\_SOCIAL\_INSURANCE\_NUMBER**
 
 A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to
 access government programs and benefits.
@@ -213,27 +213,27 @@ access government programs and benefits.
 The SIN is formatted as three groups of three digits, such as 123-456-789. A SIN can be validated
 through a simple check-digit process called the [Luhn algorithm](https://www.wikipedia.org/wiki/Luhn_algorithm "https://www.wikipedia.org/wiki/Luhn_algorithm").
 
-**IN_AADHAAR**
+**IN\_AADHAAR**
 
 An Indian Aadhaar is a 12-digit unique identification number issued by
 the Indian government to the residents of India. The Aadhaar format has a space or hyphen after the fourth
 and eighth digit.
 
-**IN_NREGA**
+**IN\_NREGA**
 
 An Indian National Rural Employment Guarantee Act (NREGA) number consists of two
 letters followed by 14 numbers.
 
-**IN_PERMANENT_ACCOUNT_NUMBER**
+**IN\_PERMANENT\_ACCOUNT\_NUMBER**
 
 An Indian Permanent Account Number is a 10-digit unique alphanumeric number issued by the Income Tax
 Department.
 
-**IN_VOTER_NUMBER**
+**IN\_VOTER\_NUMBER**
 
 An Indian Voter ID consists of three letters followed by seven numbers.
 
-**UK_NATIONAL_HEALTH_SERVICE_NUMBER**
+**UK\_NATIONAL\_HEALTH\_SERVICE\_NUMBER**
 
 A UK National Health Service Number is a 10-17 digit number, such as **485 777
 3456**. The current system formats the 10-digit number with spaces after the third and sixth
@@ -241,7 +241,7 @@ digits. The final digit is an error-detecting checksum.
 
 The 17-digit number format has spaces after the 10th and 13th digits.
 
-**UK_NATIONAL_INSURANCE_NUMBER**
+**UK\_NATIONAL\_INSURANCE\_NUMBER**
 
 A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social
 security) benefits. It is also used for some purposes in the UK tax system.
@@ -250,26 +250,26 @@ The number is nine digits long and starts with two letters, followed by six numb
 NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth
 digits.
 
-**UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER**
+**UK\_UNIQUE\_TAXPAYER\_REFERENCE\_NUMBER**
 
 A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a
 business.
 
-**BANK_ACCOUNT_NUMBER**
+**BANK\_ACCOUNT\_NUMBER**
 
 A US bank account number, which is typically 10 to 12 digits long. Amazon Comprehend also recognizes bank account
 numbers when only the last four digits are present.
 
-**BANK_ROUTING**
+**BANK\_ROUTING**
 
 A US bank account routing number. These are typically nine digits long, but Amazon Comprehend also recognizes
 routing numbers when only the last four digits are present.
 
-**PASSPORT_NUMBER**
+**PASSPORT\_NUMBER**
 
 A US passport number. Passport numbers range from six to nine alphanumeric characters.
 
-**US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER**
+**US\_INDIVIDUAL\_TAX\_IDENTIFICATION\_NUMBER**
 
 A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and
 contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third

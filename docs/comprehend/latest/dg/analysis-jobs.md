@@ -34,71 +34,69 @@ the following additional fields:
 
     Select the output mode. For more information about PII detection settings, see [Detecting PII entities](how-pii.md "how-pii.md").
 
-6.  Under **Input data**, specify where the input documents are
-    located in Amazon S3:
+6. Under **Input data**, specify where the input documents are
+located in Amazon S3:
 
-    - To analyze your own documents, choose **My
-      documents**, and choose **Browse S3** to
-      provide the path to the bucket or folder that contains your
-      files.
-    - To analyze samples that are provided by Amazon Comprehend, choose
-      **Example documents**. In this case, Amazon Comprehend uses a
-      bucket that is managed by AWS, and you don't specify the
-      location.
+    * To analyze your own documents, choose **My
+     documents**, and choose **Browse S3** to
+     provide the path to the bucket or folder that contains your
+     files.
+    * To analyze samples that are provided by Amazon Comprehend, choose
+     **Example documents**. In this case, Amazon Comprehend uses a
+     bucket that is managed by AWS, and you don't specify the
+     location.
 
-7.  (Optional) For **Input format**, specify one of the following
-    formats for your input files:
+7. (Optional) For **Input format**, specify one of the following
+formats for your input files:
 
-    - **One document per file** – Each file contains
-      one input document. This is best for collections of large
-      documents.
-    - **One document per line** – The input is one
-      or more files. Each line in a file is considered a document. This is
-      best for short documents, such as social media postings. Each line must
-      end with a line feed (LF, \n), a carriage return (CR, \r), or both
-      (CRLF, \r\n). You can't use the UTF-8 line separator (u+2028) to end a
-      line.
+    * **One document per file** – Each file contains
+     one input document. This is best for collections of large
+     documents.
+    * **One document per line** – The input is one
+     or more files. Each line in a file is considered a document. This is
+     best for short documents, such as social media postings. Each line must
+     end with a line feed (LF, \n), a carriage return (CR, \r), or both
+     (CRLF, \r\n). You can't use the UTF-8 line separator (u+2028) to end a
+     line.
 
-8.  Under **Output data**, choose **Browse S3**.
-    Choose the Amazon S3 bucket or folder where you want Amazon Comprehend to write the
-    output data that is produced by the analysis.
-9.  (Optional) To encrypt the output result from your job, choose
-    **Encryption**. Then, choose whether to use a KMS key
-    associated with the current account or one from another account:
+8. Under **Output data**, choose **Browse S3**.
+Choose the Amazon S3 bucket or folder where you want Amazon Comprehend to write the
+output data that is produced by the analysis. 9. (Optional) To encrypt the output result from your job, choose
+**Encryption**. Then, choose whether to use a KMS key
+associated with the current account or one from another account:
 
-    - If you are using a key associated with the current account, choose the
-      key alias or ID for **KMS key ID**.
-    - If you are using a key associated with a different account, enter the
-      ARN for the key alias or ID under **KMS key
-      ID**.
+    * If you are using a key associated with the current account, choose the
+     key alias or ID for **KMS key ID**.
+    * If you are using a key associated with a different account, enter the
+     ARN for the key alias or ID under **KMS key
+     ID**.
+
 
     ###### Note
 
     For more information on creating and using KMS keys
-    and the associated encryption, see [Key management service (KMS)](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+     and the associated encryption, see [Key management service (KMS)](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
 
 10. Under **Access permissions**, provide an IAM role
-    that:
+that:
 
-        * Grants read access to the Amazon S3 location of your input
-         documents.
-        * Grants write access to the Amazon S3 location of your output
-         documents.
-        * Includes a trust policy that allows the
-         `comprehend.amazonaws.com` service principal to assume
-         the role and gain its permissions.
+    * Grants read access to the Amazon S3 location of your input
+     documents.
+    * Grants write access to the Amazon S3 location of your output
+     documents.
+    * Includes a trust policy that allows the
+     `comprehend.amazonaws.com` service principal to assume
+     the role and gain its permissions.
 
-    If you don't already have an IAM role with these permissions and an
-    appropriate trust policy, choose **Create an IAM** role to
-    create one.
-
-11. When you have finished filling out the form, choose **Create
-    job** to create and start the topic detection job.
-    The new job appears in the job list with the status field showing the status of the
-    job. The field can be `IN_PROGRESS` for a job that is processing,
-    `COMPLETED` for a job that has finished successfully, and
-    `FAILED` for a job that has an error. You can click on a job to get more
-    information about the job, including any error messages.
+If you don't already have an IAM role with these permissions and an
+appropriate trust policy, choose **Create an IAM** role to
+create one. 11. When you have finished filling out the form, choose **Create
+job** to create and start the topic detection job.
+The new job appears in the job list with the status field showing the status of the
+job. The field can be `IN_PROGRESS` for a job that is processing,
+`COMPLETED` for a job that has finished successfully, and
+`FAILED` for a job that has an error. You can click on a job to get more
+information about the job, including any error messages.
 
 When the job is completed, Amazon Comprehend stores the analysis results in the output Amazon S3 location that you specified
 for the job. For a description of the analysis results for each insight type, see [Insights](concepts-insights.md "concepts-insights.md").

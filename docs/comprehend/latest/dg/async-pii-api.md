@@ -52,7 +52,7 @@ To monitor the progress of an analysis job, provide the job ID to the [DescribeP
 operation. The response from `DescribePiiEntitiesDetectionJob` contains the `JobStatus`
 field with the current status of the job. A successful job transitions through the following states:
 
-SUBMITTED -> IN_PROGRESS -> COMPLETED.
+SUBMITTED -> IN\_PROGRESS -> COMPLETED.
 
 After an analysis job has finished (`JobStatus` is COMPLETED, FAILED, or STOPPED), use `DescribePiiEntitiesDetectionJob` to get the
 location of the results. If the job status is `COMPLETED`, the response

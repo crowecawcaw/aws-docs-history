@@ -45,25 +45,25 @@ Targeted sentiment identifies the following entity types. It assigns entity type
 belong in any other category. Each entity mention in the output file includes the entity type, such as
 `"Type": "PERSON"`.
 
-| Entity type definitions | Entity Type                                                                                                                                                    | Definition |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| PERSON                  | Examples include individuals, groups of people, nicknames, fictional characters, and animal<br>names.                                                          |
-| LOCATION                | Geographical locations such as countries, cities, states, addresses, geological formations, bodies of<br>water, natural landmarks, and astronomical locations. |
-| ORGANIZATION            | Examples include governments, companies, sports teams, and religions.                                                                                          |
-| FACILITY                | Buildings, airports, highways, bridges, and other permanent man-made structures and real estate<br>improvements.                                               |
-| BRAND                   | Organization, group, or producer of a specific commercial item or line of products.                                                                            |
-| COMMERCIAL_ITEM         | Any non-generic purchasable or acquirable item, including vehicles, and large products that had only<br>one item produced.                                     |
-| MOVIE                   | A movie or television show. Entity could be the full name, a nickname, or a subtitle.                                                                          |
-| MUSIC                   | A song, full or partial. Also, collections of individual music creations, such as an album or an<br>anthology.                                                 |
-| BOOK                    | A book, published professionally or self-published.                                                                                                            |
-| SOFTWARE                | An officially released software product.                                                                                                                       |
-| GAME                    | A game, such as video games, board games, common games, or sports.                                                                                             |
-| PERSONAL_TITLE          | Official titles and honorifics such as President, PhD, or Dr.                                                                                                  |
-| EVENT                   | Examples include festival, concert, election, war, conference, and promotional event.                                                                          |
-| DATE                    | Any reference to a date or time, whether specific or general, whether absolute or relative.                                                                    |
-| QUANTITY                | All measurements along with their units (currency, percent, number, bytes, etc.).                                                                              |
-| ATTRIBUTE               | An attribute, characteristic, or trait of an entity, such as the "quality" of a product, the "price"<br>of a phone, or the "speed" of a CPU.                   |
-| OTHER                   | Entities that don’t belong in any of the other categories.                                                                                                     |
+Entity type definitions| Entity Type | Definition |
+| --- | --- |
+| PERSON | Examples include individuals, groups of people, nicknames, fictional characters, and animal<br>names. |
+| LOCATION | Geographical locations such as countries, cities, states, addresses, geological formations, bodies of<br>water, natural landmarks, and astronomical locations. |
+| ORGANIZATION | Examples include governments, companies, sports teams, and religions. |
+| FACILITY | Buildings, airports, highways, bridges, and other permanent man-made structures and real estate<br>improvements. |
+| BRAND | Organization, group, or producer of a specific commercial item or line of products. |
+| COMMERCIAL\_ITEM | Any non-generic purchasable or acquirable item, including vehicles, and large products that had only<br>one item produced. |
+| MOVIE | A movie or television show. Entity could be the full name, a nickname, or a subtitle. |
+| MUSIC | A song, full or partial. Also, collections of individual music creations, such as an album or an<br>anthology. |
+| BOOK | A book, published professionally or self-published. |
+| SOFTWARE | An officially released software product. |
+| GAME | A game, such as video games, board games, common games, or sports. |
+| PERSONAL\_TITLE | Official titles and honorifics such as President, PhD, or Dr. |
+| EVENT | Examples include festival, concert, election, war, conference, and promotional event. |
+| DATE | Any reference to a date or time, whether specific or general, whether absolute or relative. |
+| QUANTITY | All measurements along with their units (currency, percent, number, bytes, etc.). |
+| ATTRIBUTE | An attribute, characteristic, or trait of an entity, such as the "quality" of a product, the "price"<br>of a phone, or the "speed" of a CPU. |
+| OTHER | Entities that don’t belong in any of the other categories. |
 
 ## Co-reference group
 
@@ -92,7 +92,7 @@ If targeted sentiment doesn't identify any entities in the input text,
 it returns an empty array as the Entities result.
 
 The following example shows **Entities** for an input file with three lines of
-input. The input format is **ONE_DOC_PER_LINE**, so each line of input is a
+input. The input format is **ONE\_DOC\_PER\_LINE**, so each line of input is a
 document.
 
 ```

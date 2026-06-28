@@ -14,17 +14,17 @@ scores to reduce the risk of using incorrect detections.
 
 The following table lists the entity types.
 
-| Type            | Description                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------- |
-| COMMERCIAL_ITEM | A branded product                                                                              |
-| DATE            | A full date (for example, 11/25/2017), day (Tuesday), month (May), or<br>time (8:30 a.m.)      |
-| EVENT           | An event, such as a festival, concert, election, etc.                                          |
-| LOCATION        | A specific location, such as a country, city, lake, building,<br>etc.                          |
-| ORGANIZATION    | Large organizations, such as a government, company, religion, sports<br>team, etc.             |
-| OTHER           | Entities that don't fit into any of the<br>other<br>entity categories                          |
-| PERSON          | Individuals, groups of people, nicknames, fictional<br>characters                              |
-| QUANTITY        | A quantified amount, such as currency, percentages, numbers, bytes,<br>etc.                    |
-| TITLE           | An official name given to any creation or creative work, such as<br>movies, books, songs, etc. |
+| Type             | Description                                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------------- |
+| COMMERCIAL\_ITEM | A branded product                                                                              |
+| DATE             | A full date (for example, 11/25/2017), day (Tuesday), month (May), or<br>time (8:30 a.m.)      |
+| EVENT            | An event, such as a festival, concert, election, etc.                                          |
+| LOCATION         | A specific location, such as a country, city, lake, building,<br>etc.                          |
+| ORGANIZATION     | Large organizations, such as a government, company, religion, sports<br>team, etc.             |
+| OTHER            | Entities that don't fit into any of the<br>other<br>entity categories                          |
+| PERSON           | Individuals, groups of people, nicknames, fictional<br>characters                              |
+| QUANTITY         | A quantified amount, such as currency, percentages, numbers, bytes,<br>etc.                    |
+| TITLE            | An official name given to any creation or creative work, such as<br>movies, books, songs, etc. |
 
 Detect entities operations can be performed using any of the primary languages supported by Amazon Comprehend. This includes only predefined (non-custom) entity detection.
 All documents must be in the same language.

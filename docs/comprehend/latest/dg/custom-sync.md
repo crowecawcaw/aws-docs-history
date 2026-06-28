@@ -44,28 +44,27 @@ run real-time analysis from the console. You can input text or upload a file, as
 
 ###### To run real-time analysis using a custom model (console)
 
-1.  Sign in to the AWS Management Console and open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
-2.  From the left menu, choose **Real-time analysis**.
-3.  Under **Input type**, choose **Custom** for **Analysis
-    type**.
-4.  Under **Custom model type**, choose **Custom classification**.
-5.  For **Endpoint**, choose the endpoint that you want to use. This endpoint links to a
-    specific custom model.
-6.  To specify the input data for analysis, you can input text or upload a file.
+1. Sign in to the AWS Management Console and open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
+2. From the left menu, choose **Real-time analysis**.
+3. Under **Input type**, choose **Custom** for **Analysis
+   type**.
+4. Under **Custom model type**, choose **Custom classification**.
+5. For **Endpoint**, choose the endpoint that you want to use. This endpoint links to a
+   specific custom model.
+6. To specify the input data for analysis, you can input text or upload a file.
 
-    - To enter text:
+   - To enter text:
 
-      1. Choose **Input text**.
-      2. Enter the text that you want to analyze.
+     1. Choose **Input text**.
+     2. Enter the text that you want to analyze.
 
-    - To upload a file:
+   - To upload a file:
 
-          1. Choose **Upload file** and enter the file name to upload.
-          2. (Optional) Under **Advanced read actions**, you can override the default actions
-           for text extraction. For details, see [Setting text extraction options](idp-set-textract-options.md "idp-set-textract-options.md")For best results, match the type of input to the classifier model type. The console displays a warning
+     1. Choose **Upload file** and enter the file name to upload.
+     2. (Optional) Under **Advanced read actions**, you can override the default actions
+        for text extraction. For details, see [Setting text extraction options](idp-set-textract-options.md "idp-set-textract-options.md")For best results, match the type of input to the classifier model type. The console displays a warning
+        if you submit a native document to a plain-text model, or plain text to a native document model.
+        For more information, see [Training classification models](training-classifier-model.md "training-classifier-model.md").
 
-      if you submit a native document to a plain-text model, or plain text to a native document model.
-      For more information, see [Training classification models](training-classifier-model.md "training-classifier-model.md").
-
-7.  Choose **Analyze**. Amazon Comprehend analyzes the input data using your custom model. Amazon Comprehend displays
-    the discovered classes, along with a confidence assessment for each class.
+7. Choose **Analyze**. Amazon Comprehend analyzes the input data using your custom model. Amazon Comprehend displays
+   the discovered classes, along with a confidence assessment for each class.

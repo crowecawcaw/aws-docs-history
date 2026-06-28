@@ -64,14 +64,14 @@ the API response includes an entry in the [Errors list](../APIReference/API_Erro
 
 The `ErrorCode` in the error list entry contains one of the following values:
 
-- TEXTRACT_BAD_PAGE – Amazon Textract cannot read the page. For more information about page limits in
+- TEXTRACT\_BAD\_PAGE – Amazon Textract cannot read the page. For more information about page limits in
   Amazon Textract, see [Page Quotas in
   Amazon Textract](../../../textract/latest/dg/limits-document.md "../../../textract/latest/dg/limits-document.md").
-- TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED – The number of requests exceeded your throughput limit.
+- TEXTRACT\_PROVISIONED\_THROUGHPUT\_EXCEEDED – The number of requests exceeded your throughput limit.
   For more information about throughput quotas in Amazon Textract, see [Default quotas in Amazon Textract](../../../textract/latest/dg/limits-quotas-explained.md "../../../textract/latest/dg/limits-quotas-explained.md").
-- PAGE_CHARACTERS_EXCEEDED – Too many text characters on the page (10,000 characters maximum).
-- PAGE_SIZE_EXCEEDED – The maximum page size is 10 MB.
-- INTERNAL_SERVER_ERROR – The request encountered a service issue. Try the API request again.
+- PAGE\_CHARACTERS\_EXCEEDED – Too many text characters on the page (10,000 characters maximum).
+- PAGE\_SIZE\_EXCEEDED – The maximum page size is 10 MB.
+- INTERNAL\_SERVER\_ERROR – The request encountered a service issue. Try the API request again.
 
 ### Document-level errors
 
@@ -82,11 +82,11 @@ In the error response, the **Reason** field contains the value `INVALID_DOCUMENT
 
 The **Detail** field contains one of the following values:
 
-- DOCUMENT_SIZE_EXCEEDED – Document size is too large. Check the size of your file and resubmit the request.
-- UNSUPPORTED_DOC_TYPE – Document type is not supported. Check the file type and resubmit the request.
-- PAGE_LIMIT_EXCEEDED – Too many pages in the document. Check the number of pages in your file and
+- DOCUMENT\_SIZE\_EXCEEDED – Document size is too large. Check the size of your file and resubmit the request.
+- UNSUPPORTED\_DOC\_TYPE – Document type is not supported. Check the file type and resubmit the request.
+- PAGE\_LIMIT\_EXCEEDED – Too many pages in the document. Check the number of pages in your file and
   resubmit the request.
-- TEXTRACT_ACCESS_DENIED_EXCEPTION – Access denied to Amazon Textract. Verify that your account has permission to use the
+- TEXTRACT\_ACCESS\_DENIED\_EXCEPTION – Access denied to Amazon Textract. Verify that your account has permission to use the
   Amazon Textract [DetectDocumentText](../../../textract/latest/dg/API_DetectDocumentText.md "../../../textract/latest/dg/API_DetectDocumentText.md") and
   [AnalyzeDocument](../../../textract/latest/dg/API_AnalyzeDocument.md "../../../textract/latest/dg/API_AnalyzeDocument.md")
   API operations and resubmit the request.

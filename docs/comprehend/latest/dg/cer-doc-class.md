@@ -68,13 +68,13 @@ The `Precision` metric is also known as _Macro Precision_.
 
 The following example shows precision results for a test set.
 
-| Label   | Sample size | Label precision |
-| ------- | ----------- | --------------- |
-| Label_1 | 400         | 0.75            |
-| Label_2 | 300         | 0.80            |
-| Label_3 | 30000       | 0.90            |
-| Label_4 | 20          | 0.50            |
-| Label_5 | 10          | 0.40            |
+| Label    | Sample size | Label precision |
+| -------- | ----------- | --------------- |
+| Label\_1 | 400         | 0.75            |
+| Label\_2 | 300         | 0.80            |
+| Label\_3 | 30000       | 0.90            |
+| Label\_4 | 20          | 0.50            |
+| Label\_5 | 10          | 0.40            |
 
 The Precision (Macro Precision) metric for the model is therefore:
 
@@ -94,13 +94,13 @@ The `Recall` metric is also known as _Macro Recall_.
 
 The following example shows recall results for a test set.
 
-| Label   | Sample size | Label recall |
-| ------- | ----------- | ------------ |
-| Label_1 | 400         | 0.70         |
-| Label_2 | 300         | 0.70         |
-| Label_3 | 30000       | 0.98         |
-| Label_4 | 20          | 0.80         |
-| Label_5 | 10          | 0.10         |
+| Label    | Sample size | Label recall |
+| -------- | ----------- | ------------ |
+| Label\_1 | 400         | 0.70         |
+| Label\_2 | 300         | 0.70         |
+| Label\_3 | 30000       | 0.98         |
+| Label\_4 | 20          | 0.80         |
+| Label\_5 | 10          | 0.10         |
 
 The Recall (Macro Recall) metric for the model is therefore:
 
@@ -116,13 +116,13 @@ overall accuracy of the classifier. The highest score is 1, and the lowest score
 Amazon Comprehend calculates the _Macro F1 Score_. It's the unweighted average of the label F1
 scores. Using the following test set as an example:
 
-| Label   | Sample size | Label F1 score |
-| ------- | ----------- | -------------- |
-| Label_1 | 400         | 0.724          |
-| Label_2 | 300         | 0.824          |
-| Label_3 | 30000       | 0.94           |
-| Label_4 | 20          | 0.62           |
-| Label_5 | 10          | 0.16           |
+| Label    | Sample size | Label F1 score |
+| -------- | ----------- | -------------- |
+| Label\_1 | 400         | 0.724          |
+| Label\_2 | 300         | 0.824          |
+| Label\_3 | 30000       | 0.94           |
+| Label\_4 | 20          | 0.62           |
+| Label\_5 | 10          | 0.16           |
 
 The F1 Score (Macro F1 Score) for the model is calculated as follows:
 

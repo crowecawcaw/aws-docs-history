@@ -35,71 +35,74 @@ use.
     * **Native documents:** Choose this option to create a native document model. Train the
      model using native documents (PDF, Word, images).
 
-8.  Choose the **Data format** of your training data. For information about the data formats,
-    see [Classifier training file formats](prep-class-data-format.md "prep-class-data-format.md").
+8. Choose the **Data format** of your training data. For information about the data formats,
+see [Classifier training file formats](prep-class-data-format.md "prep-class-data-format.md").
 
-    - **CSV file:** Choose this option if your training data
-      uses the CSV file format.
-    - **Augmented manifest:** Choose this option if you used Ground Truth to create augmented
-      manifest files for your training data. This format is available if you chose **Plain
-      text documents** as the training model type.
+    * **CSV file:** Choose this option if your training data
+     uses the CSV file format.
+    * **Augmented manifest:** Choose this option if you used Ground Truth to create augmented
+     manifest files for your training data. This format is available if you chose **Plain
+     text documents** as the training model type.
 
-9.  Choose the **Classifier mode** to use.
+9. Choose the **Classifier mode** to use.
 
-    - **Single-label mode:** Choose this mode if the categories you're assigning to
-      documents are mutually exclusive and you're training your classifier to assign one label to each document.
-      In the Amazon Comprehend API, single-label mode is known as multi-class mode.
-    - **Multi-label mode:** Choose this mode if multiple categories can be applied to a
-      document at the same time, and you are training your classifier to assign one or more labels to each
-      document.
+    * **Single-label mode:** Choose this mode if the categories you're assigning to
+     documents are mutually exclusive and you're training your classifier to assign one label to each document.
+     In the Amazon Comprehend API, single-label mode is known as multi-class mode.
+    * **Multi-label mode:** Choose this mode if multiple categories can be applied to a
+     document at the same time, and you are training your classifier to assign one or more labels to each
+     document.
 
 10. If you choose **Multi-label mode**, you can select the **Delimiter for
-    labels**. Use this delimiter character to separate labels when there are multiple classes for a
-    training document. The default delimiter is the pipe character.
-11. (Optional) If you chose **Augmented manifest** as the data format, you can input up to five
-    augmented manifest files. Each augmented manifest file contains either a training dataset or a test dataset. You
-    must provide at least one training dataset. Test datasets are optional. Use the following steps to configure the
-    augmented manifest files:
+labels**. Use this delimiter character to separate labels when there are multiple classes for a
+training document. The default delimiter is the pipe character. 11. (Optional) If you chose **Augmented manifest** as the data format, you can input up to five
+augmented manifest files. Each augmented manifest file contains either a training dataset or a test dataset. You
+must provide at least one training dataset. Test datasets are optional. Use the following steps to configure the
+augmented manifest files:
 
     1. Under **Training and test dataset**, expand the **Input location**
-       panel.
+     panel.
     2. In **Dataset type**, choose **Training data** or **Test
-       data**.
+     data**.
     3. For the **SageMaker AI Ground Truth augmented manifest file S3 location**, enter the location
-       of the Amazon S3 bucket that contains the manifest file or navigate to it by choosing **Browse
-       S3**. The IAM role that you're using for access permissions for the training job must have read
-       permissions for the S3 bucket.
+     of the Amazon S3 bucket that contains the manifest file or navigate to it by choosing **Browse
+     S3**. The IAM role that you're using for access permissions for the training job must have read
+     permissions for the S3 bucket.
     4. For the **Attribute names**, enter the name of the attribute that contains your annotations.
-       If the file contains annotations from multiple chained labeling jobs, add an attribute for each job.
+     If the file contains annotations from multiple chained labeling jobs, add an attribute for each job.
     5. To add another input location, choose **Add input location** and then configure the next
-       location.
+     location.
 
 12. (Optional) If you chose **CSV file** as the data format, use the following steps to
-    configure the training dataset and optional test dataset:
+configure the training dataset and optional test dataset:
 
     1. Under **Training dataset**, enter the location of the Amazon S3 bucket that contains
-       your training data CSV file or navigate to it by choosing **Browse S3**. The IAM role that you're
-       using for access permissions for the training job must have read permissions for the S3 bucket.
+     your training data CSV file or navigate to it by choosing **Browse S3**. The IAM role that you're
+     using for access permissions for the training job must have read permissions for the S3 bucket.
+
 
     (Optional) If you chose **Native documents** as the training model type, you also
-    provide the URL of the Amazon S3 folder that contains the training example files. 2. Under **Test dataset**, select whether you are providing extra data for Amazon Comprehend to
-    test the trained model.
-
-        * **Autosplit**: Autosplit automatically selects 10% of your training data to
-         reserve for use as testing data.
-        * (Optional) **Customer provided**: Enter the URL of the test data CSV file in
-         Amazon S3. You can also navigate to its location in Amazon S3 and choose **Select
-         folder**.
+     provide the URL of the Amazon S3 folder that contains the training example files.
+    2. Under **Test dataset**, select whether you are providing extra data for Amazon Comprehend to
+     test the trained model.
 
 
-        (Optional) If you chose **Native documents** as the training model type, you also
-         provide the URL of the Amazon S3 folder that contains the test files.
+
+
+    	* **Autosplit**: Autosplit automatically selects 10% of your training data to
+    	 reserve for use as testing data.
+    	* (Optional) **Customer provided**: Enter the URL of the test data CSV file in
+    	 Amazon S3. You can also navigate to its location in Amazon S3 and choose **Select
+    	 folder**.
+
+
+    	(Optional) If you chose **Native documents** as the training model type, you also
+    	 provide the URL of the Amazon S3 folder that contains the test files.
 
 13. (Optional) For **Document read mode**, you can override the default text extraction
-    actions. This option isn't required for plain-text models, as it applies to text extraction for scanned
-    documents. For more information, see [Setting text extraction options](idp-set-textract-options.md "idp-set-textract-options.md").
-14. (Optional for plain-text models) For **Output data**, enter the location of an Amazon S3 bucket to
-    save training output data, such as the confusion matrix. For more information, see [Confusion matrix](train-classifier-output.md#conf-matrix "train-classifier-output.md#conf-matrix").
+actions. This option isn't required for plain-text models, as it applies to text extraction for scanned
+documents. For more information, see [Setting text extraction options](idp-set-textract-options.md "idp-set-textract-options.md"). 14. (Optional for plain-text models) For **Output data**, enter the location of an Amazon S3 bucket to
+save training output data, such as the confusion matrix. For more information, see [Confusion matrix](train-classifier-output.md#conf-matrix "train-classifier-output.md#conf-matrix").
 
 (Optional) If you choose to encrypt the output result from your training job, choose
 **Encryption**. Then choose whether to use a KMS key associated with the current account,
@@ -111,9 +114,9 @@ or one from another account.
      ID under **KMS key ID**.
 
 15. For **IAM role**, choose **Choose an existing IAM
-    role**, and then choose an existing IAM role that has read permissions for the S3
-    bucket that contains your training documents. The role must have a trust policy that begins
-    with `comprehend.amazonaws.com` to be valid.
+role**, and then choose an existing IAM role that has read permissions for the S3
+bucket that contains your training documents. The role must have a trust policy that begins
+with `comprehend.amazonaws.com` to be valid.
 
 If you don't already have an IAM role with these permissions, choose **Create an IAM role** to make one.
 Choose the access permissions to grant

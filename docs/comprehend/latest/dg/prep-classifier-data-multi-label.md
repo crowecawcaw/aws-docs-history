@@ -41,7 +41,7 @@ COMEDY|MYSTERY|SCIENCE_FICTION|TEEN,"A band of misfit teens become unlikely dete
 
 The default delimiter between class names is a pipe (|). However, you can use a different character as a
 delimiter. The delimiter must be distinct from all characters in your class names. For example, if your classes
-are CLASS_1, CLASS_2, and CLASS_3, the underscore (**\_**) is part of the class
+are CLASS\_1, CLASS\_2, and CLASS\_3, the underscore (**\_**) is part of the class
 name. So don't use an underscore as the delimiter for separating class names.
 
 ### Augmented manifest file
@@ -128,5 +128,5 @@ COMEDY|TEEN,movie-summary-1.pdf,2
 
 The default delimiter between class names is a pipe (|). However, you can use a different character as a
 delimiter. The delimiter must be distinct from all characters in your class names. For example, if your classes
-are CLASS_1, CLASS_2, and CLASS_3, the underscore (**\_**) is part of the class
+are CLASS\_1, CLASS\_2, and CLASS\_3, the underscore (**\_**) is part of the class
 name. So don't use an underscore as the delimiter for separating class names.

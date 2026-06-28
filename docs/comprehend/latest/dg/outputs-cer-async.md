@@ -7,7 +7,7 @@ request.
 
 For text input files, the output consists of a list of entities for each input document.
 
-The following example shows the output for two documents from an input file named **50_docs**,
+The following example shows the output for two documents from an input file named **50\_docs**,
 using one document per line format.
 
 ```

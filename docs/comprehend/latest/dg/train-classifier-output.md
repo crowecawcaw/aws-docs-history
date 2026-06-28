@@ -163,13 +163,13 @@ Amazon Comprehend populates the test folder if you provided test documents in th
 
 ### Document annotation failures
 
-Amazon Comprehend creates the following files in the Amazon S3 output location (in the **skipped_documents/** folder) if there are any failed annotations:
+Amazon Comprehend creates the following files in the Amazon S3 output location (in the **skipped\_documents/** folder) if there are any failed annotations:
 
-- failed_annotations_train.jsonl
+- failed\_annotations\_train.jsonl
 
 File exists if any annotations failed in the training data.
 
-- failed_annotations_test.jsonl
+- failed\_annotations\_test.jsonl
 
 File exists if the request included test data and any annotations failed in the test data.
 

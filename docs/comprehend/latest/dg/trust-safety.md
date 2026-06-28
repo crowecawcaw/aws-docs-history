@@ -40,12 +40,12 @@ Toxicity detection detects the following categories of offensive content:
 Graphic speech uses visually descriptive, detailed, and unpleasantly vivid imagery. Such language is often
 made verbose to amplify an insult, discomfort or harm to the recipient.
 
-**HARASSMENT_OR_ABUSE**
+**HARASSMENT\_OR\_ABUSE**
 
 Speech that imposes disruptive power dynamics between the speaker and hearer, regardless of intent, seeks
 to affect the psychological well-being of the recipient, or objectifies a person.
 
-**HATE_SPEECH**
+**HATE\_SPEECH**
 
 Speech that criticizes, insults, denounces or dehumanizes a person or a group on the basis of an identity,
 be it race, ethnicity, gender identity, religion, sexual orientation, ability, national origin, or another
@@ -65,7 +65,7 @@ profane.
 Speech that indicates sexual interest, activity or arousal by using direct or indirect references to body
 parts or physical traits or sex .
 
-**VIOLENCE_OR_THREAT**
+**VIOLENCE\_OR\_THREAT**
 
 Speech that includes threats which seek to inflict pain, injury or hostility towards a person or
 group.

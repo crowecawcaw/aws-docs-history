@@ -177,45 +177,44 @@ You can use Amazon Comprehend in the AWS Management Console.
 
 ###### To import a custom model
 
-1.  Sign in to the AWS Management Console and open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
-2.  In the navigation menu on the left, under **Customization**, choose the
-    page for the type of model that you are importing:
+1. Sign in to the AWS Management Console and open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
+2. In the navigation menu on the left, under **Customization**, choose the
+   page for the type of model that you are importing:
 
-    1. If you are importing a custom document classifier, choose **Custom
-       classification**.
-    2. If you are importing a custom entity recognizer, choose **Custom entity
-       recognition**.
+   1. If you are importing a custom document classifier, choose **Custom
+      classification**.
+   2. If you are importing a custom entity recognizer, choose **Custom entity
+      recognition**.
 
-3.  Choose **Import version**.
-4.  On the **Import model version** page, enter the following
-    details:
+3. Choose **Import version**.
+4. On the **Import model version** page, enter the following
+   details:
 
-    - **Model version ARN** – The ARN of the model version to
-      import.
-    - **Model name** – A custom name for the new model that is
-      created by the import.
-    - **Version name** – A custom name for the new model version that
-      is created by the import.
+   - **Model version ARN** – The ARN of the model version to
+     import.
+   - **Model name** – A custom name for the new model that is
+     created by the import.
+   - **Version name** – A custom name for the new model version that
+     is created by the import.
 
-5.  For **Model encryption**, choose the type of KMS key to use to encrypt
-    the new custom model that you create with the import:
+5. For **Model encryption**, choose the type of KMS key to use to encrypt
+   the new custom model that you create with the import:
 
-    - **Use AWS owned key** – Amazon Comprehend encrypts your model by using a
-      key in AWS Key Management Service (AWS KMS) that is created, managed, and used on your behalf by AWS.
-    - **Choose a different AWS KMS key (advanced)** – Amazon Comprehend encrypts
-      your model by using a customer managed key that you manage in AWS KMS.
+   - **Use AWS owned key** – Amazon Comprehend encrypts your model by using a
+     key in AWS Key Management Service (AWS KMS) that is created, managed, and used on your behalf by AWS.
+   - **Choose a different AWS KMS key (advanced)** – Amazon Comprehend encrypts
+     your model by using a customer managed key that you manage in AWS KMS.
 
-    If you choose this option, select a KMS key that's in your AWS account, or create a
-    new one by choosing **Create an AWS KMS key**.
+   If you choose this option, select a KMS key that's in your AWS account, or create a
+   new one by choosing **Create an AWS KMS key**.
 
-6.  In the **Service access** section, grant Amazon Comprehend access to any AWS KMS
-    keys that it needs to:
+6. In the **Service access** section, grant Amazon Comprehend access to any AWS KMS
+   keys that it needs to:
 
-        * Decrypt the custom model that you import.
-        * Encrypt that the new custom model that you create with the import.
-
-    You grant access with an IAM service role that allows Amazon Comprehend to use the
-    KMS keys.
+   - Decrypt the custom model that you import.
+   - Encrypt that the new custom model that you create with the import.
+     You grant access with an IAM service role that allows Amazon Comprehend to use the
+     KMS keys.
 
 For **Service role**, do one of the following:
 
@@ -227,17 +226,16 @@ For **Service role**, do one of the following:
 
 7. If you chose to have Amazon Comprehend create the role for you, do the following:
 
-   1. For **Role name**, enter a role name suffix that will help you
-      recognize the role later.
-   2. For **Source KMS key ARN**, enter the ARN of the KMS key
-      that is used to encrypt the model that you're importing. Amazon Comprehend uses this key to
-      decrypt the model during the import.
+    1. For **Role name**, enter a role name suffix that will help you
+     recognize the role later.
+    2. For **Source KMS key ARN**, enter the ARN of the KMS key
+     that is used to encrypt the model that you're importing. Amazon Comprehend uses this key to
+     decrypt the model during the import.
 
 8. (Optional) In the **Tags** section, you can add tags to the new custom
-   model that you create by importing. For more information about tagging custom models, see
-   [Tagging a new resource](tagging-newtags.md "tagging-newtags.md").
-9. Choose **Confirm**.
-   You can use Amazon Comprehend by running commands with the AWS CLI.
+model that you create by importing. For more information about tagging custom models, see
+[Tagging a new resource](tagging-newtags.md "tagging-newtags.md"). 9. Choose **Confirm**.
+You can use Amazon Comprehend by running commands with the AWS CLI.
 
 ###### Example Import-model command
 

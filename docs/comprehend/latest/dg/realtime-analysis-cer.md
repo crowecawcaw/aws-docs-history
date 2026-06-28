@@ -68,32 +68,33 @@ training types.
      provided, you can specify exactly what test data you want to use.
 
 14. If you select Customer provided test dataset, enter the URL of the annotations file in
-    Amazon S3. You can also navigate to the bucket or folder in Amazon S3 where the annotation files are
-    located and choose **Select folder**.
-15. In the **Choose an IAM role** section, either select an existing IAM
-    role or create a new one.
+Amazon S3. You can also navigate to the bucket or folder in Amazon S3 where the annotation files are
+located and choose **Select folder**. 15. In the **Choose an IAM role** section, either select an existing IAM
+role or create a new one.
 
-    - **Choose an existing IAM role** – Select this option if you
-      already have an IAM role with permissions to access the input and output Amazon S3
-      buckets.
-    - **Create a new IAM role** – Select this option when you want to
-      create a new IAM role with the proper permissions for Amazon Comprehend to access the input and output
-      buckets.
+    * **Choose an existing IAM role** – Select this option if you
+     already have an IAM role with permissions to access the input and output Amazon S3
+     buckets.
+    * **Create a new IAM role** – Select this option when you want to
+     create a new IAM role with the proper permissions for Amazon Comprehend to access the input and output
+     buckets.
+
 
     ###### Note
 
     If the input documents are encrypted, the IAM role used must have `kms:Decrypt`
-    permission. For more information, see [Permissions required to use KMS encryption](security_iam_id-based-policy-examples.md#auth-kms-permissions "security_iam_id-based-policy-examples.md#auth-kms-permissions").
+     permission. For more information, see [Permissions required to use KMS encryption](security_iam_id-based-policy-examples.md#auth-kms-permissions "security_iam_id-based-policy-examples.md#auth-kms-permissions").
 
 16. (Optional) To
-    launch your resources into Amazon Comprehend from a VPC, enter the VPC ID under **VPC** or
-    choose the ID from the drop-down list.
+launch your resources into Amazon Comprehend from a VPC, enter the VPC ID under **VPC** or
+choose the ID from the drop-down list.
 
-    1.  Choose the subnet under **Subnet(s)**. After you select the first subnet,
+    1. Choose the subnet under **Subnet(s)**. After you select the first subnet,
 
-    you can choose additional ones. 2. Under **Security Group(s)**, choose the security group to use if you
-    specified one. After you select the first security group, you can choose additional
-    ones.
+     you can choose additional ones.
+    2. Under **Security Group(s)**, choose the security group to use if you
+     specified one. After you select the first security group, you can choose additional
+     ones.
 
 ###### Note
 
@@ -181,13 +182,13 @@ one.
      `kms:Decrypt` permission. For more information, see [Permissions required to use KMS encryption](security_iam_id-based-policy-examples.md#auth-kms-permissions "security_iam_id-based-policy-examples.md#auth-kms-permissions").
 
 19. (Optional) To launch your resources into Amazon Comprehend from a VPC, enter the VPC ID under
-    **VPC** or choose the ID from the drop-down list.
+**VPC** or choose the ID from the drop-down list.
 
-    1.  Choose the subnet under **Subnet(s)**. After you select the first
-        subnet, you can choose additional ones.
-    2.  Under **Security Group(s)**, choose the security group to use if you
-        specified one. After you select the first security group, you can choose additional
-        ones.
+    1. Choose the subnet under **Subnet(s)**. After you select the first
+     subnet, you can choose additional ones.
+    2. Under **Security Group(s)**, choose the security group to use if you
+     specified one. After you select the first security group, you can choose additional
+     ones.
 
 ###### Note
 

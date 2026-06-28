@@ -16,7 +16,7 @@ the following columns:
 - **Text**— The text of an entry example exactly as
   seen in the accompanying document corpus.
 - **Type**—The customer-defined entity type. Entity
-  types must an uppercase, underscore separated string such as MANAGER or SENIOR_MANAGER. Up
+  types must an uppercase, underscore separated string such as MANAGER or SENIOR\_MANAGER. Up
   to 25 entity types can be trained per model.
   The file `documents.txt` contains four lines:
 

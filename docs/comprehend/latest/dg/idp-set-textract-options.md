@@ -25,22 +25,21 @@ Set to `FORCE_DOCUMENT_READ_ACTION` to use Amazon Textract to parse digital PDF 
   Objects](../../../textract/latest/dg/how-it-works-document-layout.md "../../../textract/latest/dg/how-it-works-document-layout.md").
   The following examples show how to configure `DocumentReaderConfig` for specific use cases:
 
-1.  Use Amazon Textract for all PDF files.
+1. Use Amazon Textract for all PDF files.
 
-    1. **DocumentReadMode** – Set to `FORCE_DOCUMENT_READ_ACTION`.
-    2. **DocumentReadAction** – Set to `TEXTRACT_DETECT_DOCUMENT_TEXT`.
-    3. **FeatureTypes** – Not required.
+   1. **DocumentReadMode** – Set to `FORCE_DOCUMENT_READ_ACTION`.
+   2. **DocumentReadAction** – Set to `TEXTRACT_DETECT_DOCUMENT_TEXT`.
+   3. **FeatureTypes** – Not required.
 
-2.  Use Amazon Textract `AnalyzeDocument` API for all PDF and image files.
+2. Use Amazon Textract `AnalyzeDocument` API for all PDF and image files.
 
-    1. **DocumentReadMode** – Set to `FORCE_DOCUMENT_READ_ACTION`.
-    2. **DocumentReadAction** – Set to `TEXTRACT_ANALYZE_DOCUMENT`.
-    3. **FeatureTypes** – Set to `TABLES`, `FORMS` or both features.
+   1. **DocumentReadMode** – Set to `FORCE_DOCUMENT_READ_ACTION`.
+   2. **DocumentReadAction** – Set to `TEXTRACT_ANALYZE_DOCUMENT`.
+   3. **FeatureTypes** – Set to `TABLES`, `FORMS` or both features.
 
-3.  Use Amazon Textract `AnalyzeDocument` API for scanned PDF files and all image files.
+3. Use Amazon Textract `AnalyzeDocument` API for scanned PDF files and all image files.
 
-        1. **DocumentReadMode** – Set to `SERVICE_DEFAULT`.
-        2. **DocumentReadAction** – Set to `TEXTRACT_ANALYZE_DOCUMENT`.
-        3. **FeatureTypes** – Set to `TABLES`, `FORMS` or both features.
-
-    For more information about the Amazon Textract options, see [DocumentReaderConfig](../APIReference/API_DocumentReaderConfig.md "../APIReference/API_DocumentReaderConfig.md").
+   1. **DocumentReadMode** – Set to `SERVICE_DEFAULT`.
+   2. **DocumentReadAction** – Set to `TEXTRACT_ANALYZE_DOCUMENT`.
+   3. **FeatureTypes** – Set to `TABLES`, `FORMS` or both features.
+      For more information about the Amazon Textract options, see [DocumentReaderConfig](../APIReference/API_DocumentReaderConfig.md "../APIReference/API_DocumentReaderConfig.md").

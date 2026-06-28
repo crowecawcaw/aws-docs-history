@@ -36,7 +36,7 @@ aws comprehend create-document-classifier \
 To create a native custom classifier, provide the following additional parameters in the
 `create-document-classifier` request.
 
-1. DocumentType: set the value to SEMI_STRUCTURED_DOCUMENT.
+1. DocumentType: set the value to SEMI\_STRUCTURED\_DOCUMENT.
 2. Documents: the S3 location for the training documents (and, optionally, the test documents).
 3. OutputDataConfig: provide the S3 location for the output documents (and an optional KMS key).
 4. DocumentReaderConfig: Optional field for text extraction settings.

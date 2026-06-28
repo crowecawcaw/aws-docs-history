@@ -47,13 +47,13 @@ or one from another account.
      ID under **KMS key ID**.
 
 12. (Optional) To launch your resources into Amazon Comprehend from a VPC, enter the VPC ID under **VPC** or
-    choose the ID from the drop-down list.
+choose the ID from the drop-down list.
 
-    1.  Choose the subnet under **Subnet(s)**. After you select the first subnet, you
-        can choose additional ones.
-    2.  Under **Security Group(s)**, choose the security group to use if you
-        specified one. After you select the first security group, you can choose additional
-        ones.
+    1. Choose the subnet under **Subnet(s)**. After you select the first subnet, you
+     can choose additional ones.
+    2. Under **Security Group(s)**, choose the security group to use if you
+     specified one. After you select the first security group, you can choose additional
+     ones.
 
 ###### Note
 

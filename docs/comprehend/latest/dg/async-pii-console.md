@@ -5,45 +5,45 @@ For more information about PII entity types, see [Detecting PII entities](how-pi
 
 ###### To create an analysis job
 
-1.  Sign in to the AWS Management Console and open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
-2.  From the left menu, choose **Analysis jobs** and then choose
-    **Create job**.
-3.  Under **Job settings**, give the analysis job a unique
-    name.
-4.  For **Analysis type**, choose **Personally identifiable information
-    (PII)**.
-5.  For **Language**, choose one of the supported languages (English or Spanish).
-6.  From **Output mode**, select one of the following choices:
+1. Sign in to the AWS Management Console and open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
+2. From the left menu, choose **Analysis jobs** and then choose
+   **Create job**.
+3. Under **Job settings**, give the analysis job a unique
+   name.
+4. For **Analysis type**, choose **Personally identifiable information
+   (PII)**.
+5. For **Language**, choose one of the supported languages (English or Spanish).
+6. From **Output mode**, select one of the following choices:
 
-    - **Offsets** – The job output returns the location of each PII entity.
-    - **Redactions** – The job output returns a copy of the input text with each PII entry redacted.
+   - **Offsets** – The job output returns the location of each PII entity.
+   - **Redactions** – The job output returns a copy of the input text with each PII entry redacted.
 
-7.  (Optional)If you choose **Redactions** as the output mode, you can
-    select the PII entity types to redact.
-8.  Under **Input data**, specify where the input documents are
-    located in Amazon S3:
+7. (Optional)If you choose **Redactions** as the output mode, you can
+   select the PII entity types to redact.
+8. Under **Input data**, specify where the input documents are
+   located in Amazon S3:
 
-    - To analyze your own documents, choose **My
-      documents**, and choose **Browse S3** to
-      provide the path to the bucket or folder that contains your
-      files.
-    - To analyze samples that are provided by Amazon Comprehend, choose
-      **Example documents**. In this case, Amazon Comprehend uses a
-      bucket that is managed by AWS, and you don't specify the
-      location.
+   - To analyze your own documents, choose **My
+     documents**, and choose **Browse S3** to
+     provide the path to the bucket or folder that contains your
+     files.
+   - To analyze samples that are provided by Amazon Comprehend, choose
+     **Example documents**. In this case, Amazon Comprehend uses a
+     bucket that is managed by AWS, and you don't specify the
+     location.
 
-9.  (Optional) For **Input format**, specify one of the following
-    formats for your input files:
+9. (Optional) For **Input format**, specify one of the following
+   formats for your input files:
 
-    - **One document per file** – Each file contains
-      one input document. This is best for collections of large
-      documents.
-    - **One document per line** – The input is one
-      or more files. Each line in a file is considered a document. This is
-      best for short documents, such as social media postings. Each line must
-      end with a line feed (LF, \n), a carriage return (CR, \r), or both
-      (CRLF, \r\n). You can't use the UTF-8 line separator (u+2028) to end a
-      line.
+   - **One document per file** – Each file contains
+     one input document. This is best for collections of large
+     documents.
+   - **One document per line** – The input is one
+     or more files. Each line in a file is considered a document. This is
+     best for short documents, such as social media postings. Each line must
+     end with a line feed (LF, \n), a carriage return (CR, \r), or both
+     (CRLF, \r\n). You can't use the UTF-8 line separator (u+2028) to end a
+     line.
 
 10. Under **Output data**, choose **Browse S3**.
     Choose the Amazon S3 bucket or folder where you want Amazon Comprehend to write the
@@ -66,17 +66,16 @@ For more information about PII entity types, see [Detecting PII entities](how-pi
 12. Under **Access permissions**, provide an IAM role
     that:
 
-        * Grants read access to the Amazon S3 location of your input
-         documents.
-        * Grants write access to the Amazon S3 location of your output
-         documents.
-        * Includes a trust policy that allows the
-         `comprehend.amazonaws.com` service principal to assume
-         the role and gain its permissions.
-
-    If you don't already have an IAM role with these permissions and an
-    appropriate trust policy, choose **Create an IAM** role to
-    create one.
+    - Grants read access to the Amazon S3 location of your input
+      documents.
+    - Grants write access to the Amazon S3 location of your output
+      documents.
+    - Includes a trust policy that allows the
+      `comprehend.amazonaws.com` service principal to assume
+      the role and gain its permissions.
+      If you don't already have an IAM role with these permissions and an
+      appropriate trust policy, choose **Create an IAM** role to
+      create one.
 
 13. When you have finished filling out the form, choose **Create
     job** to create and start the topic detection job.

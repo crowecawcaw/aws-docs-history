@@ -40,86 +40,85 @@ as you use the same S3 bucket and folders.
 
 ###### To run sentiment and entities analysis jobs (console)
 
-1.  Ensure that you're in the same Region in which you created your
-    Amazon Simple Storage Service (Amazon S3) bucket. If you're in another Region, in the navigation
-    bar, choose the AWS Region where you created your S3 bucket from the
-    **Region selector**.
-2.  Open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
-3.  Choose **Launch Amazon Comprehend**.
-4.  In the navigation pane, choose **Analysis
-    jobs**.
-5.  Choose **Create job**.
-6.  In the **Job settings** section, do the
-    following:
+1. Ensure that you're in the same Region in which you created your
+   Amazon Simple Storage Service (Amazon S3) bucket. If you're in another Region, in the navigation
+   bar, choose the AWS Region where you created your S3 bucket from the
+   **Region selector**.
+2. Open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
+3. Choose **Launch Amazon Comprehend**.
+4. In the navigation pane, choose **Analysis
+   jobs**.
+5. Choose **Create job**.
+6. In the **Job settings** section, do the
+   following:
 
-    1. For **Name**, enter
-       `reviews-sentiment-analysis`.
-    2. For **Analysis type**, choose
-       **Sentiment**.
-    3. For **Language**, choose
-       **English**.
-    4. Leave the **Job encryption** setting as disabled.
+   1. For **Name**, enter
+      `reviews-sentiment-analysis`.
+   2. For **Analysis type**, choose
+      **Sentiment**.
+   3. For **Language**, choose
+      **English**.
+   4. Leave the **Job encryption** setting as disabled.
 
-7.  In the **Input data** section, do the
-    following:
+7. In the **Input data** section, do the
+   following:
 
-    1. For **Data source**, choose **My
-       documents**.
-    2. For **S3 location**, choose **Browse
-       S3** and then choose your bucket from the list of
-       buckets.
-    3. In your S3 bucket, for **Objects**, choose
-       your `input` folder.
-    4. In the `input` folder, choose the sample dataset
-       `amazon-reviews.csv` and then choose
-       **Choose**.
-    5. For **Input format**, choose **One
-       document per line**.
+   1. For **Data source**, choose **My
+      documents**.
+   2. For **S3 location**, choose **Browse
+      S3** and then choose your bucket from the list of
+      buckets.
+   3. In your S3 bucket, for **Objects**, choose
+      your `input` folder.
+   4. In the `input` folder, choose the sample dataset
+      `amazon-reviews.csv` and then choose
+      **Choose**.
+   5. For **Input format**, choose **One
+      document per line**.
 
-8.  In the **Output data** section, do the
-    following:
+8. In the **Output data** section, do the
+   following:
 
-    1. For **S3 location**, choose **Browse
-       S3** and then choose your bucket from the list of
-       buckets.
-    2. In your S3 bucket, for **Objects**, choose
-       the `output` folder and then choose
-       **Choose**.
-    3. Leave **Encryption** turned off.
+   1. For **S3 location**, choose **Browse
+      S3** and then choose your bucket from the list of
+      buckets.
+   2. In your S3 bucket, for **Objects**, choose
+      the `output` folder and then choose
+      **Choose**.
+   3. Leave **Encryption** turned off.
 
-9.  In the **Access permissions** section, do the
-    following:
+9. In the **Access permissions** section, do the
+   following:
 
-    1. For **IAM role**, choose **Create
-       an IAM role**.
-    2. For **Permissions to access**, choose
-       **Input and Output S3 buckets**.
-    3. For **Name suffix**, enter
-       `comprehend-access-role`. This role provides
-       access to your Amazon S3 bucket.
+   1. For **IAM role**, choose **Create
+      an IAM role**.
+   2. For **Permissions to access**, choose
+      **Input and Output S3 buckets**.
+   3. For **Name suffix**, enter
+      `comprehend-access-role`. This role provides
+      access to your Amazon S3 bucket.
 
 10. Choose **Create job**.
 11. Repeat steps 1-10 to create an entities analysis job. Make the
     following changes:
 
-        1. In **Job settings**, for
-         **Name**, enter
-         `reviews-entities-analysis`.
-        2. In **Job settings**, for **Analysis
-         type**, choose
-         **Entities**.
-        3. In **Access permissions**, choose
-         **Use an existing IAM role**. For
-         **Role name**, choose
-         `AmazonComprehendServiceRole-comprehend-access-role`
-         (this is the same role you created for the sentiment
-         job).
-
-    You use the `start-sentiment-detection-job` and the
-    `start-entities-detection-job` commands to run sentiment and
-    entities analysis jobs. After you run each command, the AWS CLI shows a JSON
-    object with a `JobId` value that allows you to access details about
-    the job, including the output S3 location.
+    1. In **Job settings**, for
+       **Name**, enter
+       `reviews-entities-analysis`.
+    2. In **Job settings**, for **Analysis
+       type**, choose
+       **Entities**.
+    3. In **Access permissions**, choose
+       **Use an existing IAM role**. For
+       **Role name**, choose
+       `AmazonComprehendServiceRole-comprehend-access-role`
+       (this is the same role you created for the sentiment
+       job).
+       You use the `start-sentiment-detection-job` and the
+       `start-entities-detection-job` commands to run sentiment and
+       entities analysis jobs. After you run each command, the AWS CLI shows a JSON
+       object with a `JobId` value that allows you to access details about
+       the job, including the output S3 location.
 
 ###### To run sentiment and entities analysis jobs (AWS CLI)
 
