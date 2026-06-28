@@ -1,8 +1,8 @@
 # Identity and access management
 
-| CMSEC_3: How do you manage the identities of your vehicles and individual<br>ECUs? |
-| ---------------------------------------------------------------------------------- |
-|                                                                                    |
+| CMSEC\_3: How do you manage the identities of your vehicles and individual<br>ECUs? |
+| ----------------------------------------------------------------------------------- |
+|                                                                                     |
 
 When working with connected vehicles, you must determine how you will manage the identities of your vehicles and individual
 Electronic Control Units (ECUs). These identities can come in different forms and are used to authenticate and authorize access
@@ -165,7 +165,7 @@ and whether and how it is shared with other entities such as suppliers.
 **[CMSEC\_BP3.3] Design a mechanism to tie various vehicle identities
 together as necessary**
 
-As described in CMSEC_BP3.2, a vehicle will have several identities, multiple
+As described in CMSEC\_BP3.2, a vehicle will have several identities, multiple
 identities per ECU and multiple identities for the vehicle. Based on your application needs,
 you may require the ability to tie these identities together so that you can map an
 authenticated ECU identity to its ECU ID or serial number, and to the vehicle's VIN where
@@ -195,9 +195,9 @@ strong authentication, access control, audit and logging.
 
 On AWS, you can choose from a number of [fully managed purpose-built database services](https://aws.amazon.com/products/databases/ "https://aws.amazon.com/products/databases/") to store mappings.
 
-| CMSEC_4: How do you manage the identities of the owners, drivers, and operators<br>of your vehicles and map them to the vehicle's identities? |
-| --------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                               |
+| CMSEC\_4: How do you manage the identities of the owners, drivers, and operators<br>of your vehicles and map them to the vehicle's identities? |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                |
 
 Connected vehicle services often need information on the identities of users: owners, drivers, and operators of the
 vehicles to provide service features corresponding to the user. For example, a vehicle is being driven by a teenaged family
@@ -226,7 +226,7 @@ application on a hand-held scanner device. The fleet operator uses the identity 
 driver of each vehicle and the routes taken for safety, efficiency, and audit purposes.
 
 In contrast to vehicle ECUs that are typically authenticated and authorized using X.509
-certificates (see CMSEC3_BP5 regarding designing a PKI for vehicle identities), users are
+certificates (see CMSEC3\_BP5 regarding designing a PKI for vehicle identities), users are
 usually authenticated using tokens. Consider using an identity provider that supports widely
 adopted identity standards such as [OpenID
 Connect](https://openid.net/connect/ "https://openid.net/connect/") (built on [OAuth 2.0](https://oauth.net/2/ "https://oauth.net/2/")) to
@@ -289,9 +289,9 @@ must be updated in the asset database when a vehicle is sold.
 Validate that access to the mapping between users and vehicles is stored securely and access to this mapping is restricted to
 applications and administrators on a need-to-know basis.
 
-| CMSEC_5: How do you manage the identities of your business partners, such as<br>dealers, suppliers, service providers, or other third parties? |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                |
+| CMSEC\_5: How do you manage the identities of your business partners, such as<br>dealers, suppliers, service providers, or other third parties? |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                 |
 
 Connected vehicle services operate in a rich environment with multiple business partners such as dealers, suppliers,
 repair shops, and service providers, to name only a few. In addition to managing the identities of your vehicles and users
@@ -346,9 +346,9 @@ On AWS, you services such as [Application Load Balancer](../../../elasticloadbal
 Core](../../../iot/latest/developerguide/cognito-identities.md "../../../iot/latest/developerguide/cognito-identities.md") can be configured to authenticate tokens issued by specific Cognito User
 Pools. With API Gateway, you can also implement custom authorization logic using [_Lambda authorizers_](../../../apigateway/latest/developerguide/apigateway-use-lambda-authorizer.md "../../../apigateway/latest/developerguide/apigateway-use-lambda-authorizer.md").
 
-| CMSEC_6: How do you manage access permissions to vehicle functions? |
-| ------------------------------------------------------------------- |
-|                                                                     |
+| CMSEC\_6: How do you manage access permissions to vehicle functions? |
+| -------------------------------------------------------------------- |
+|                                                                      |
 
 In the context of connected vehicle services, privileged actions are those that are initiated from the backend and can impact the safety and
 security of the vehicle. For example, an owner speaks to a customer support agent in a call center and requests a remote unlock of their vehicle
@@ -400,7 +400,7 @@ in a single, highly scalable service. You can then easily view them, search them
 specific error codes or patterns, filter them based on specific fields, or archive them
 securely for future analysis. CloudWatch Logs also supports querying your logs with a powerful query
 language, auditing and masking sensitive data in logs, and generating metrics from logs
-using filters or an embedded log format. (See CMSEC_BP11.1)
+using filters or an embedded log format. (See CMSEC\_BP11.1)
 
 **[CMSEC\_BP6.3] Alert on unauthorized attempts to access privileged
 actions on high-risk ECUs**
@@ -411,11 +411,11 @@ access privileged actions on high-risk ECUs such as the IVI or Head Unit. For ex
 can create a rule that triggers an alert notification when a single support staff performs
 privileged actions on multiple ECUs in a short period of time. This can trigger your Vehicle
 Security Operations Center (VSOC) to investigate the alert to determine if this is a case
-of compromised credentials or identity being used in an unauthorized manner. (See CMSEC_BP22.1)
+of compromised credentials or identity being used in an unauthorized manner. (See CMSEC\_BP22.1)
 
-| CMSEC_7: How do you verify that vehicles are granted least privilege access to<br>perform actions on your backend systems? |
-| -------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                            |
+| CMSEC\_7: How do you verify that vehicles are granted least privilege access to<br>perform actions on your backend systems? |
+| --------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                             |
 
 As your vehicle ECUs make requests to connected vehicle services, you must check that each ECU is authorized to
 perform the smallest set of actions that it needs to fulfill its function. For example, you may want to authorize an ECU to
@@ -428,7 +428,7 @@ Consider the following best practices to grant least privilege authorization to 
 individually.**
 
 Validate that every action taken by a vehicle's ECU on your connected vehicle services is authorized individually. You can use the
-identity of the ECU you defined in CMSEC_3 to define the baseline policies that grant specific actions to the ECU. You can enhance these
+identity of the ECU you defined in CMSEC\_3 to define the baseline policies that grant specific actions to the ECU. You can enhance these
 policies to grant or deny other actions based on dynamic context conditions such as the time of the day, location of the vehicle, and
 state of subscription services.
 
@@ -458,12 +458,12 @@ centralizes fine-grained permissions for custom applications and helps developer
 user actions within applications. Amazon Verified Permissions uses the [_Cedar_](https://www.cedarpolicy.com/ "https://www.cedarpolicy.com/") policy language to
 define fine-grained permissions for application users.
 
-| CMSEC_8: How do you validate that your backend systems have least privilege<br>access to perform actions on vehicle functions? |
-| ------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                                                |
+| CMSEC\_8: How do you validate that your backend systems have least privilege<br>access to perform actions on vehicle functions? |
+| ------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                 |
 
 As you design connected vehicle service backend systems, validate that each system is only granted the smallest set of
-permissions to perform actions on vehicles. This is especially important for CMSEC_7 regarding privileged access, as this is
+permissions to perform actions on vehicles. This is especially important for CMSEC\_7 regarding privileged access, as this is
 critical for backend systems that initiate privileged actions on vehicles because it can impact the safety, security, and operations of the vehicle.
 
 Consider the following best practices:

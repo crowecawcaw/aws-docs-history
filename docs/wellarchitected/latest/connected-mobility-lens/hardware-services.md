@@ -1,10 +1,10 @@
 # Hardware and services
 
-| CMSUS_10: Are you using the correct compute instance type and the minimum size<br>needed to process your workload? |
-| ------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                                    |
+| CMSUS\_10: Are you using the correct compute instance type and the minimum size<br>needed to process your workload? |
+| ------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                     |
 
-**CMSUS_BP10.1: Use the minimum amount of hardware to meet your
+**CMSUS\_BP10.1: Use the minimum amount of hardware to meet your
 needs and use instance types with the least impact**
 
 For more details, see  [SUS05-BP01](../sustainability-pillar/sus_sus_hardware_a2.md "../sustainability-pillar/sus_sus_hardware_a2.md") and [SUS05-BP02](../sustainability-pillar/sus_sus_hardware_a3.md "../sustainability-pillar/sus_sus_hardware_a3.md") in the _Sustainability Pillar
@@ -18,11 +18,11 @@ whitepaper_.
   impact, save money, and maintain performance benchmarks. Use Graviton-based EC2
   instances to reduce cost and power consumption.
 
-| CMSUS_11: Are you using managed services and serverless? |
-| -------------------------------------------------------- |
-|                                                          |
+| CMSUS\_11: Are you using managed services and serverless? |
+| --------------------------------------------------------- |
+|                                                           |
 
-**CMSUS_BP11.1: Use managed services to operate more efficiently in
+**CMSUS\_BP11.1: Use managed services to operate more efficiently in
 the cloud**
 
 For more details, see  [SUS05-BP03](../sustainability-pillar/sus_sus_hardware_a4.md "../sustainability-pillar/sus_sus_hardware_a4.md") in the _Sustainability Pillar

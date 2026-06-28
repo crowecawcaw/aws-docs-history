@@ -1,10 +1,10 @@
 # Software and architecture
 
-| CMSUS_4: Are you using efficient software designs and architectures to minimize<br>the average resources required per unit of work? |
-| ----------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                     |
+| CMSUS\_4: Are you using efficient software designs and architectures to minimize<br>the average resources required per unit of work? |
+| ------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                      |
 
-**CMSUS_BP4.1: Optimize areas of code that consume the most
+**CMSUS\_BP4.1: Optimize areas of code that consume the most
 resources**
 
 Optimize the code that runs within different components of your architecture to
@@ -17,11 +17,11 @@ whitepaper_.
   tests with managed device farms for testing to identify bottlenecks in advance. It might
   not be easy to upgrade hardware resources at the edge.
 
-| CMSUS_5: Are you selecting technologies to minimize data transfer, processing,<br>and storage requirements? |
-| ----------------------------------------------------------------------------------------------------------- |
-|                                                                                                             |
+| CMSUS\_5: Are you selecting technologies to minimize data transfer, processing,<br>and storage requirements? |
+| ------------------------------------------------------------------------------------------------------------ |
+|                                                                                                              |
 
-**CMSUS_BP5.1: Use software patterns and architectures that best
+**CMSUS\_BP5.1: Use software patterns and architectures that best
 support data access and storage patterns**
 
 Understand how data is used within your workload, consumed by your users, transferred,
@@ -39,11 +39,11 @@ whitepaper_.
   for your unique use cases. These architecture patterns allow for efficient data
   processing and reduce the resource usage.
 
-| CMSUS_6: What is the downstream impact on the devices with the design and<br>architecture? |
-| ------------------------------------------------------------------------------------------ |
-|                                                                                            |
+| CMSUS\_6: What is the downstream impact on the devices with the design and<br>architecture? |
+| ------------------------------------------------------------------------------------------- |
+|                                                                                             |
 
-**CMSUS_BP6.1: Optimize impact on devices and equipment**
+**CMSUS\_BP6.1: Optimize impact on devices and equipment**
 
 Understand the devices and equipment used in your architecture and use strategies to
 reduce their usage. This can minimize the overall environmental impact of your cloud

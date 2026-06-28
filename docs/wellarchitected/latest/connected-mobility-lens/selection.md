@@ -1,8 +1,8 @@
 # Selection
 
-| CMPERF_1: Have you identified the critical components of the architecture,<br>performance data collection to determine the best performing architecture? |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                          |
+| CMPERF\_1: Have you identified the critical components of the architecture,<br>performance data collection to determine the best performing architecture? |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                           |
 
 The connected mobility ecosystem falls under multiple areas based on the type of use
 cases. Architecture needs to account for vehicle, cloud, and communication between the
@@ -27,12 +27,11 @@ Additional aspects to take into account on data:
 
 - Business intelligence data
 
-      + Primary goal – To support the business for understanding the features use
-       (for example, infotainment, driver usage patterns, and environmental data)
-
-  When developing a connected mobility platform on AWS focusing on performance efficiency,
-  there are essential architectural components and methods for performance data collection
-  that should be identified and optimized. Let's break this down:
+  - Primary goal – To support the business for understanding the features use
+    (for example, infotainment, driver usage patterns, and environmental data)
+    When developing a connected mobility platform on AWS focusing on performance efficiency,
+    there are essential architectural components and methods for performance data collection
+    that should be identified and optimized. Let's break this down:
 
 **[CMPERF\_BP1.1] Confirm critical components of the connected vehicle
 platform**
@@ -102,9 +101,9 @@ continuously collect, monitor, and analyze performance data.
 To derive cost per vehicle = Total cloud cost / Number of vehicles connecting to the
 platform.
 
-| CMPERF_2: Have you conducted performance tests for vehicle-to-connected<br>mobility platform communication across various connectivity methods, including LTE,<br>Wi-Fi, satellite, and scenarios with no connection? |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                                                                       |
+| CMPERF\_2: Have you conducted performance tests for vehicle-to-connected<br>mobility platform communication across various connectivity methods, including LTE,<br>Wi-Fi, satellite, and scenarios with no connection? |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                                                                        |
 
 The performance of vehicle-to-connected mobility platform communication across different
 connectivity methods is crucial for the seamless functioning of connected vehicles.
@@ -145,9 +144,9 @@ A successful connected vehicle platform not only requires
 solid performance under various connectivity conditions but
 also robust security, redundancy, and fail-over mechanisms.
 
-| CMPERF_3: Have you evaluated the performance of the connected mobility platform<br>to ensure it can accommodate future vehicle demand projections? |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                    |
+| CMPERF\_3: Have you evaluated the performance of the connected mobility platform<br>to ensure it can accommodate future vehicle demand projections? |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                     |
 
 When designing a connected mobility platform, especially for performance efficiency,
 it's crucial to evaluate its performance to ensure it can accommodate future vehicle demand
@@ -195,9 +194,9 @@ scalability**
   3rd party providers. It's good practice to keep an eye on service limits to make sure
   monitoring is in place to alert and take proactive action.
 
-| CMPERF_4: Have you assessed the performance of the connected mobility platform<br>when integrated with third-party vendor solutions? |
-| ------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                                                      |
+| CMPERF\_4: Have you assessed the performance of the connected mobility platform<br>when integrated with third-party vendor solutions? |
+| ------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                       |
 
 Connected mobility platforms when integrated with third-party vendor solutions
 evaluate and select a high-performing architecture that aligns with your organization's
@@ -232,9 +231,9 @@ assessment**
   optimization tools. AWS offers a robust suite of services that can be leveraged for these
   purposes.
 
-| CMPERF_5: Have you considered irregular data traffic patterns during the day or<br>within Regions and can the system handle sporadic traffic without impacting the<br>overall Service Level Agreement (SLA) and user or vehicle experience? |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                                                                                             |
+| CMPERF\_5: Have you considered irregular data traffic patterns during the day or<br>within Regions and can the system handle sporadic traffic without impacting the<br>overall Service Level Agreement (SLA) and user or vehicle experience? |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                                                                                              |
 
 **[CMPERF\_BP5.1] Address irregular data traffic patterns and ensure
 that the system handles sporadic traffic efficiently.**
@@ -284,9 +283,9 @@ such as accidents and natural disasters.
   prepare the connected mobility platform to handle irregular and sporadic traffic patterns
   without adversely affecting performance or user experience.
 
-| CMPERF_6: Have you taken into account any data regulatory requirements for<br>vehicles and tested that might affect performance? |
-| -------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                  |
+| CMPERF\_6: Have you taken into account any data regulatory requirements for<br>vehicles and tested that might affect performance? |
+| --------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                   |
 
 **[CMPERF\_BP6.1] Consider data regulatory
 requirements**
@@ -325,9 +324,9 @@ Agreements (SLAs) you set. For example, if data encryption introduces a delay, f
 into your SLA. Similarly, if data localization introduces latency, that should be considered
 when setting performance benchmarks.
 
-| CMPERF_7: Have you considered a vehicle simulation tool to create artificial<br>load scenarios for better understanding and analyzing the performance metrics of the<br>system? |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                                 |
+| CMPERF\_7: Have you considered a vehicle simulation tool to create artificial<br>load scenarios for better understanding and analyzing the performance metrics of the<br>system? |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                                  |
 
 **[CMPERF\_7.1] Simulate real-world scenarios to understand how the
 system will behave under various conditions**
@@ -372,9 +371,9 @@ Whatever your choice, AWS provides a robust suite of tools and services that can
 harnessed to understand and optimize the performance metrics of the connected mobility
 platform under various simulated load scenarios.
 
-| CMPERF_8: Have you considered an edge inference simulation solution to<br>continuously test infer or predict based on the past data? |
-| ------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                                                      |
+| CMPERF\_8: Have you considered an edge inference simulation solution to<br>continuously test infer or predict based on the past data? |
+| ------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                       |
 
 Edge inference is a crucial concept, especially for applications where real-time data processing is essential, such as autonomous vehicles, industrial IoT, and smart cities. By running inference at the edge (closer to where data is generated), you can reduce latency, save bandwidth, and respond quickly to local changes. Continuously testing the ability of edge devices to infer or predict based on past data is essential to maintain system reliability and performance. 
 
@@ -438,9 +437,9 @@ platform, it's essential to select a solution that can:
   for real-time processing, continuous learning, and adaptation, ensuring that the platform
   remains responsive, accurate, and efficient.
 
-| CMPERF_9: Have you identified an appropriate communication protocol based on<br>use case? |
-| ----------------------------------------------------------------------------------------- |
-|                                                                                           |
+| CMPERF\_9: Have you identified an appropriate communication protocol based on<br>use case? |
+| ------------------------------------------------------------------------------------------ |
+|                                                                                            |
 
 **[CMPERF\_BP9.1] For vehicle-cloud communications, different
 protocols must address your specific use case.**

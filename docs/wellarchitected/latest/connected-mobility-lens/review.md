@@ -1,8 +1,8 @@
 # Review
 
-| CMPERF_10: Have you considered the implementation of scalable, cost-effective,<br>and low-maintenance managed services for high-performance computing workloads to<br>process diverse data types (such as high and low fidelity data, logs, and commands)<br>collected from vehicles? |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                                                                                                                                       |
+| CMPERF\_10: Have you considered the implementation of scalable, cost-effective,<br>and low-maintenance managed services for high-performance computing workloads to<br>process diverse data types (such as high and low fidelity data, logs, and commands)<br>collected from vehicles? |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                                                                                                                                        |
 
 **[CMPERF\_BP10.1] Build a cost-effective solution that is scalable
 and yet easy to manage as more vehicles connect to the cloud.**
@@ -23,9 +23,9 @@ Recommendation - Telemetry data strategy 
 - Next 500 Properties – Microsecond interval
 - 5000+ Properties – Seconds or higher interval
 
-| CMPERF_11: Have you tested the ability of your platform to seamlessly adopt,<br>replace, or upgrade various compute solutions, including standalone systems,<br>container-based architectures, and serverless technologies? |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                                                                             |
+| CMPERF\_11: Have you tested the ability of your platform to seamlessly adopt,<br>replace, or upgrade various compute solutions, including standalone systems,<br>container-based architectures, and serverless technologies? |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                                                                              |
 
 Ensuring that your platform can seamlessly adopt, replace, or
 upgrade various compute solutions is crucial for scalability,

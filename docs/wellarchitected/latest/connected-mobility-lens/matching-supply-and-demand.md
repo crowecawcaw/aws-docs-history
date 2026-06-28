@@ -1,8 +1,8 @@
 # Matching supply and demand
 
-| CMCOST_4: How do you optimize cost by matching backend resources with demand? |
-| ----------------------------------------------------------------------------- |
-|                                                                               |
+| CMCOST\_4: How do you optimize cost by matching backend resources with demand? |
+| ------------------------------------------------------------------------------ |
+|                                                                                |
 
 Connected vehicle solutions generate a massive amount of data and events, which can
 quickly become overwhelming for traditional, request-response-based architectures.

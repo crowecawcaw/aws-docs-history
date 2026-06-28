@@ -1,8 +1,8 @@
 # Monitoring
 
-| CMPERF_12: Have you implemented end-to-end monitoring and logging (between<br>edge, vehicle, and cloud) of your system along with notifications? |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                                                                  |
+| CMPERF\_12: Have you implemented end-to-end monitoring and logging (between<br>edge, vehicle, and cloud) of your system along with notifications? |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                   |
 
 **[CMPERF\_BP12.1] Monitoring, logging, and setting up notifications
 are critical for maintaining the health, performance, and security of a system.**
@@ -24,9 +24,9 @@ engineering (SRE) team once a certain threshold level is breached. These actions
 to define KPIs such as round-trip time, and network latency between vehicle-cloud and
 internal applications.
 
-| CMPERF_13: Have you built the right dashboards and widgets for your prioritized<br>actionable insights? |
-| ------------------------------------------------------------------------------------------------------- |
-|                                                                                                         |
+| CMPERF\_13: Have you built the right dashboards and widgets for your prioritized<br>actionable insights? |
+| -------------------------------------------------------------------------------------------------------- |
+|                                                                                                          |
 
 Building an effective dashboard involves focusing on the key
 performance indicators (KPIs) that matter most to your

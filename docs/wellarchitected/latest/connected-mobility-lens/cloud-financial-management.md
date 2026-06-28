@@ -1,8 +1,8 @@
 # Cloud Financial Management
 
-| CMCOST_5: Have you defined a tagging strategy for your connected mobility<br>workloads? |
-| --------------------------------------------------------------------------------------- |
-|                                                                                         |
+| CMCOST\_5: Have you defined a tagging strategy for your connected mobility<br>workloads? |
+| ---------------------------------------------------------------------------------------- |
+|                                                                                          |
 
 Resource classification allows you to categorize resources, providing clarity on
 usage and enabling you to allocate costs accurately to different departments or projects.

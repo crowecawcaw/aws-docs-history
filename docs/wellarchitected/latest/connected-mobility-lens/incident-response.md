@@ -1,8 +1,8 @@
 # Incident response
 
-| CMSEC_22: Does your team deploy a VSOC? If so, what are the required<br>capabilities of a VSOC? |
-| ----------------------------------------------------------------------------------------------- |
-|                                                                                                 |
+| CMSEC\_22: Does your team deploy a VSOC? If so, what are the required<br>capabilities of a VSOC? |
+| ------------------------------------------------------------------------------------------------ |
+|                                                                                                  |
 
 A VSOC has become a compliance requirement for automotive
 cybersecurity management systems very recently. An incident
@@ -51,9 +51,9 @@ their VSOC and personnel to identify, prepare, analyze, contain, and recover fro
 security incident. Argus Cyber Security provides consultive and managed VSOC services that
 can help address those security needs.
 
-| CMSEC_23: How do you contain, recover, and learn from incidents that can span<br>vehicles, backend systems, APIs, IT, cloud, AWS Partners, and supplier<br>resources? |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                       |
+| CMSEC\_23: How do you contain, recover, and learn from incidents that can span<br>vehicles, backend systems, APIs, IT, cloud, AWS Partners, and supplier<br>resources? |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                        |
 
 Organizations must be able effectively respond to an incident
 and notify the organization of severity and scope. This

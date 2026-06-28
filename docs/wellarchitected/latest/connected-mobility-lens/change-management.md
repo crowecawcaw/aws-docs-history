@@ -16,9 +16,9 @@ platform.
 
 ## Monitor workload resources
 
-| CMREL_6: Are you monitoring all components of the workloads, including<br>vehicle-based units? |
-| ---------------------------------------------------------------------------------------------- |
-|                                                                                                |
+| CMREL\_6: Are you monitoring all components of the workloads, including<br>vehicle-based units? |
+| ----------------------------------------------------------------------------------------------- |
+|                                                                                                 |
 
 **[CMREL\_BP6.1] Monitor what matters.**
 
@@ -79,9 +79,9 @@ for the selected time frame. 
 In all cases, tool interoperability and extensibility are an
 important consideration in observability.
 
-| CMREL_7: Are your connected mobility logs from various systems lacking the<br>correct level of information? |
-| ----------------------------------------------------------------------------------------------------------- |
-|                                                                                                             |
+| CMREL\_7: Are your connected mobility logs from various systems lacking the<br>correct level of information? |
+| ------------------------------------------------------------------------------------------------------------ |
+|                                                                                                              |
 
 **[CMREL\_BP7.1] Log interpretation and context
 propagation**
@@ -160,9 +160,9 @@ destinations
 | [Amazon VPC Lattice access logs](../../../vpc-lattice/latest/ug/monitoring-access-logs.md "../../../vpc-lattice/latest/ug/monitoring-access-logs.md")                                                                                                                                                    | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
 | [AWS WAF logs](../../../waf/latest/developerguide/logging-destinations.md "../../../waf/latest/developerguide/logging-destinations.md")                                                                                                                                                                  | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
 
-| CMREL_8: Is your metric collection aligned with a business outcome? |
-| ------------------------------------------------------------------- |
-|                                                                     |
+| CMREL\_8: Is your metric collection aligned with a business outcome? |
+| -------------------------------------------------------------------- |
+|                                                                      |
 
 **[CMREL\_BP8.1] Define and calculate metrics (Aggregation)**
 
@@ -189,9 +189,9 @@ you can specify a dimension that's called `ECUConnectionCount` to show the
 total number of log events that contain the word `ECU_Connected` and filter
 data by reported firmware version.
 
-| CMREL_9: Does your connected mobility network operations center (NOC) have<br>the correct level of searchability and interactivity? |
-| ----------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                     |
+| CMREL\_9: Does your connected mobility network operations center (NOC) have<br>the correct level of searchability and interactivity? |
+| ------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                      |
 
 **[CMREL\_BP9.1] Real-time processing and alarming with notifications
 and automated response**
@@ -227,9 +227,9 @@ expressions](../../../AmazonCloudWatch/latest/monitoring/Create-alarm-on-metric-
 
 ## Design your workload to adapt to changes in demand
 
-| CMREL_10: How does your connected mobility workload adapt to vehicle traffic<br>demand on resources? |
-| ---------------------------------------------------------------------------------------------------- |
-|                                                                                                      |
+| CMREL\_10: How does your connected mobility workload adapt to vehicle traffic<br>demand on resources? |
+| ----------------------------------------------------------------------------------------------------- |
+|                                                                                                       |
 
 **[CMREL\_BP10.1] Use automation when obtaining or scaling
 resources**
@@ -338,9 +338,9 @@ processes, and team's responses.
 
 ## Implement change
 
-| CMREL_11: How are you controlling the changes that are deployed? |
-| ---------------------------------------------------------------- |
-|                                                                  |
+| CMREL\_11: How are you controlling the changes that are deployed? |
+| ----------------------------------------------------------------- |
+|                                                                   |
 
 The number of features and scenarios that are supported by connected mobility
 platform have been growing rapidly. It is recommended to control the impact of these

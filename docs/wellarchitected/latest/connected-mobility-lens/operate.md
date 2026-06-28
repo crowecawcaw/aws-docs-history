@@ -1,8 +1,8 @@
 # Operate
 
-| CMOPS_5: How do you respond to an incident within your connected mobility<br>platform? |
-| -------------------------------------------------------------------------------------- |
-|                                                                                        |
+| CMOPS\_5: How do you respond to an incident within your connected mobility<br>platform? |
+| --------------------------------------------------------------------------------------- |
+|                                                                                         |
 
 Responding to disruptions is an important aspect of operating your connected mobility platform as it impacts end user's ability to access critical features of their vehicle, may impact company revenue, and could erode customer trust. Understanding the scope of an outage, including which functions are affected, allows for timely and accurate communication with your customers and key business stakeholders, and minimizing your Mean Time to Repair (MTTR), and Mean Time to Restore Service (MTRS).
 

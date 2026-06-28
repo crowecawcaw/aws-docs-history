@@ -1,8 +1,8 @@
 # Infrastructure protection
 
-| CMSEC_13: How do you protect your systems and APIs from unauthorized access or<br>exposure? |
-| ------------------------------------------------------------------------------------------- |
-|                                                                                             |
+| CMSEC\_13: How do you protect your systems and APIs from unauthorized access or<br>exposure? |
+| -------------------------------------------------------------------------------------------- |
+|                                                                                              |
 
 **[CMSEC\_BP13.1] Define a baseline of normal behavior for your vehicle as
 a reference and reject and alert on any request patterns that deviate.**
@@ -18,9 +18,9 @@ threshold is crossed which can be used to perform automated mitigation actions y
 such as updating a policy or certificate and can also send notifications via Amazon Simple Notification Service
 (SNS).
 
-| CMSEC_14: How do you test Electronic Control Units (ECUs) and implement<br>configuration changes to minimize vulnerabilities? |
-| ----------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                               |
+| CMSEC\_14: How do you test Electronic Control Units (ECUs) and implement<br>configuration changes to minimize vulnerabilities? |
+| ------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                |
 
 **[CMSEC\_BP14.1] Conduct threat modeling using a formal methodology such
 as the MITRE Threat Assessment and Threat Analysis Risk Assessment (TARA) on in-vehicle
@@ -33,11 +33,11 @@ running, or other vulnerabilities.**
 **[CMSEC\_BP14.3] Develop requirements and processes to address and
 remediate vulnerabilities discovered through testing.**
 
-| CMSEC_15: How do you manage processes for updating the software of components<br>within your connected vehicles? |
-| ---------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                  |
+| CMSEC\_15: How do you manage processes for updating the software of components<br>within your connected vehicles? |
+| ----------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                   |
 
-**CMSEC_BP15.1] Validate all software updates are cryptographically
+**CMSEC\_BP15.1] Validate all software updates are cryptographically
 signed upon release and verified before installation.**
 
 For devices which use AWS IoT, software updates can be signed using AWS Signer a fully managed code-signing service. AWS Signer uses certificates imported to AWS Certificate Manager to sign software, AWS Identity Access Management (IAM) to assign roles to restrict who can sign and in what Region. All actions within AWS Signer are also captured in AWS CloudTrail for auditing purposes.
@@ -48,9 +48,9 @@ prior to deployment.**
 **[CMSEC\_BP15.3] Perform controlled and secure deployment of software
 to vehicle fleets with rollback capabilities in case of failures.**
 
-| CMSEC_16: How do you maintain an accurate inventory of your connected vehicles<br>and associated software or hardware components? |
-| --------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                   |
+| CMSEC\_16: How do you maintain an accurate inventory of your connected vehicles<br>and associated software or hardware components? |
+| ---------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                    |
 
 **[CMSEC\_BP16.1] Maintain an accurate and continuously updated
 inventory of vehicles and any versions of software packages or underlying hardware.**
@@ -62,23 +62,23 @@ Department of Energy in coordination with the National Telecommunications and In
 Administration. A VEX document is an attestation and contains information about a product
 and whether it is affected by a known vulnerability.
 
-| CMSEC_17: How do you verify the integrity of the software running within your<br>vehicles? |
-| ------------------------------------------------------------------------------------------ |
-|                                                                                            |
+| CMSEC\_17: How do you verify the integrity of the software running within your<br>vehicles? |
+| ------------------------------------------------------------------------------------------- |
+|                                                                                             |
 
 **[CMSEC\_BP17.1] Use methods for ensuring integrity such as through
 secure boot and software signing methodologies.**
 
-| CMSEC_18: How do you secure the Software Development Lifecycle (SDLC)? |
-| ---------------------------------------------------------------------- |
-|                                                                        |
+| CMSEC\_18: How do you secure the Software Development Lifecycle (SDLC)? |
+| ----------------------------------------------------------------------- |
+|                                                                         |
 
 **[CMSEC\_BP18.1] Develop SDLC policies which govern these requirements
 and provide prescriptive guidance for implementing required controls.**
 
-| CMSEC_19: How do you manage vulnerabilities for your connected<br>vehicles? |
-| --------------------------------------------------------------------------- |
-|                                                                             |
+| CMSEC\_19: How do you manage vulnerabilities for your connected<br>vehicles? |
+| ---------------------------------------------------------------------------- |
+|                                                                              |
 
 **[CMSEC\_BP19.1] Continuously monitor informational feeds on threat
 intelligence from vendors, suppliers, third-party intelligence providers, repositories,

@@ -1,10 +1,10 @@
 # Region selection
 
-| CMSUS_1: Are you selecting the Region to meet both your business requirements<br>and sustainability goals? |
-| ---------------------------------------------------------------------------------------------------------- |
-|                                                                                                            |
+| CMSUS\_1: Are you selecting the Region to meet both your business requirements<br>and sustainability goals? |
+| ----------------------------------------------------------------------------------------------------------- |
+|                                                                                                             |
 
-**CMSUS_BP1.1: Choose a Region based on both your business
+**CMSUS\_BP1.1: Choose a Region based on both your business
 requirements and sustainability goals**
 
 Choose a Region to optimize your KPIs, including those related to performance, cost,

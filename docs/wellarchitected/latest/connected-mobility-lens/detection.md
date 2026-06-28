@@ -1,8 +1,8 @@
 # Detection
 
-| CMSEC_9: How do you monitor your in-vehicle software, components, and network<br>for threats? |
-| --------------------------------------------------------------------------------------------- |
-|                                                                                               |
+| CMSEC\_9: How do you monitor your in-vehicle software, components, and network<br>for threats? |
+| ---------------------------------------------------------------------------------------------- |
+|                                                                                                |
 
 Monitoring in-vehicle activity from threats, vulnerabilities, and fraud is becoming
 increasingly important as vehicles become connected. Standards like [ISO 21434](https://www.iso.org/standard/70918.html "https://www.iso.org/standard/70918.html") and regulations like
@@ -104,9 +104,9 @@ You can build a pipeline for vehicle data using the AWS services highlighted abo
 also consider adopting partner services from [Argus Cyber
 Security](https://aws.amazon.com/marketplace/seller-profile?id=c18d1099-5095-4d06-aee4-571c7fa75620 "https://aws.amazon.com/marketplace/seller-profile?id=c18d1099-5095-4d06-aee4-571c7fa75620") or [Upstream Security](https://upstream.auto/ "https://upstream.auto/").
 
-| CMSEC_10: How do you correlate events from vehicles, backend systems,<br>suppliers, vendors, and AWS Partners to generate actionable findings? |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                |
+| CMSEC\_10: How do you correlate events from vehicles, backend systems,<br>suppliers, vendors, and AWS Partners to generate actionable findings? |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                 |
 
 Organizations must integrate data from many data sources as inputs to VSOCs. It is necessary
 to gather information feeds from many relevant data sources that may be relevant when
@@ -154,9 +154,9 @@ using the AWS services highlighted above. You can also consider adopting partner
 from [Argus Cyber
 Security](https://aws.amazon.com/marketplace/seller-profile?id=c18d1099-5095-4d06-aee4-571c7fa75620 "https://aws.amazon.com/marketplace/seller-profile?id=c18d1099-5095-4d06-aee4-571c7fa75620") or [Upstream Security](https://upstream.auto/ "https://upstream.auto/").
 
-| CMSEC_11: How do you monitor and detect unauthorized use of vehicle credentials<br>and identities? |
-| -------------------------------------------------------------------------------------------------- |
-|                                                                                                    |
+| CMSEC\_11: How do you monitor and detect unauthorized use of vehicle credentials<br>and identities? |
+| --------------------------------------------------------------------------------------------------- |
+|                                                                                                     |
 
 You should be monitoring your ECUs for security best practices continuously. Due to the volume of ECUs and client certificates,
 it is important to monitor certificate and CA expiration and revocation. Organizations must monitor ECU permissions to detect overly
@@ -195,9 +195,9 @@ subscribing endpoints or clients. Detect and Rule based findings integrate with 
 management service that performs security best practice checks, aggregates alerts, and
 enables automated remediation.
 
-| CMSEC_12: How do you stay current and monitor on new threats and<br>vulnerabilities after concept and design phase? |
-| ------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                     |
+| CMSEC\_12: How do you stay current and monitor on new threats and<br>vulnerabilities after concept and design phase? |
+| -------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                      |
 
 Organizations must continually ingest data from the vehicle and internal systems, as well as
 public and private data sources. Vehicles have several potential vulnerabilities that are

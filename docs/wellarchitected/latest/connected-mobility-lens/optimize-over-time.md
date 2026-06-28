@@ -1,8 +1,8 @@
 # Optimize over time
 
-| CMCOST_6: How do you optimize the payload size to reduce cost in evolving<br>generations of connected vehicles? |
-| --------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                 |
+| CMCOST\_6: How do you optimize the payload size to reduce cost in evolving<br>generations of connected vehicles? |
+| ---------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                  |
 
 **[CMCOST\_BP6.1] Dynamically adjust the payload capacity to accommodate
 changing conditions or demands**
@@ -16,9 +16,9 @@ in the payload, while less time-sensitive data can be sent during off-peak times
 batches. Example: In a connected vehicle, prioritize alerts for collision warnings over
 routine diagnostics.
 
-| CMCOST_7: How do you optimize the cost of storing the state of connected<br>mobility application over time? |
-| ----------------------------------------------------------------------------------------------------------- |
-|                                                                                                             |
+| CMCOST\_7: How do you optimize the cost of storing the state of connected<br>mobility application over time? |
+| ------------------------------------------------------------------------------------------------------------ |
+|                                                                                                              |
 
 **[CMCOST\_BP7.1] Implement a monitoring strategy.**
 

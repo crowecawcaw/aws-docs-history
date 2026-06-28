@@ -1,10 +1,10 @@
 # Alignment to demand
 
-| CMSUS_2: Are you scaling the infrastructure in use at edge and cloud as per<br>workload requirements? Do you have this process under full automation? |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                       |
+| CMSUS\_2: Are you scaling the infrastructure in use at edge and cloud as per<br>workload requirements? Do you have this process under full automation? |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |
 
-**CMSUS_BP2.1: Scale workload infrastructure dynamically**
+**CMSUS\_BP2.1: Scale workload infrastructure dynamically**
 
 Use elasticity of the cloud and scale your cloud and connected devices dynamically
 to match supply of cloud resources to demand and avoid over-provisioned capacity in your
@@ -18,11 +18,11 @@ in the _Sustainability Pillar whitepaper_.
   configurable to run only required services based on the state of the vehicle (stopped or
   moving), and battery conditions (for EV).
 
-| CMSUS_3: Are you defining SLAs as per sustainability goals in terms of what<br>data gets transferred and processed in real time versus batch upload at a later<br>period? |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                           |
+| CMSUS\_3: Are you defining SLAs as per sustainability goals in terms of what<br>data gets transferred and processed in real time versus batch upload at a later<br>period? |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                            |
 
-**CMSUS_BP3.1: Align SLAs with sustainability goals**
+**CMSUS\_BP3.1: Align SLAs with sustainability goals**
 
 Review and optimize workload service level agreements (SLAs) based on your
 sustainability goals to minimize the resources required to support your workload while

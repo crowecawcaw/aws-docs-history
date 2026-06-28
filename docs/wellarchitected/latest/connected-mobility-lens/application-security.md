@@ -1,8 +1,8 @@
 # Application security
 
-| CMSEC_24: How do you make sure that only trusted software components are<br>running on vehicle hardware? |
-| -------------------------------------------------------------------------------------------------------- |
-|                                                                                                          |
+| CMSEC\_24: How do you make sure that only trusted software components are<br>running on vehicle hardware? |
+| --------------------------------------------------------------------------------------------------------- |
+|                                                                                                           |
 
 **[CMSEC\_BP24.1] Consider digitally signing software and firmware with a
 certificate that can be verified by the vehicle hardware during runtime ensuring that only
@@ -19,9 +19,9 @@ certificates. If you are leveraging AWS IoT you can also use [AWS Signer](../../
 create for IoT devices supported by Amazon FreeRTOS and AWS IoT device management. Code
 signing for AWS IoT is integrated with AWS Certificate Manager.
 
-| CMSEC_25: How do you check that you are writing, testing, validating, and<br>deploying vehicle software securely? |
-| ----------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                   |
+| CMSEC\_25: How do you check that you are writing, testing, validating, and<br>deploying vehicle software securely? |
+| ------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                    |
 
 **[CMSEC\_BP25.1] Implement a Secure Development Lifecycle (SDLC) for
 your vehicle software following open standards.**

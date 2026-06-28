@@ -1,8 +1,8 @@
 # Data protection
 
-| CMSEC_20: What are your encryption requirements for vehicle data? |
-| ----------------------------------------------------------------- |
-|                                                                   |
+| CMSEC\_20: What are your encryption requirements for vehicle data? |
+| ------------------------------------------------------------------ |
+|                                                                    |
 
 Vehicles can collect and generate data with different levels of sensitivity and risk to your
 organization. You must check that the data is protected using appropriate means to comply
@@ -31,7 +31,7 @@ Amazon ECS) behind a [Network Load Balancer](../../../elasticloadbalancing/lates
 data at the ECU**
 
 When highly sensitive data is transmitted from the vehicle to a connected vehicle backend, you may consider implementing client-side encryption
-of the data. In this approach, the vehicle ECU encrypts the sensitive data payload **_before_**
+of the data. In this approach, the vehicle ECU encrypts the sensitive data payload _**before**_
 transmitting it to the connected vehicle backend service. The encrypted payload is transmitted via any intermediate systems to the backend system
 that has access to the keys to decrypt the payload and recover the sensitive data in the clear. Note that message parts such as HTTP headers and MQTT
 topic names should still be transmitted without client-side encryption so that intermediate nodes can route and queue messages. The benefit is that
@@ -62,9 +62,9 @@ AWS KMS service limits as your application scales. Your ECUs can obtain temporar
 credentials to invoke AWS KMS API calls by using the [AWS IoT Credential
 Provider](../../../iot/latest/developerguide/authorizing-direct-aws.md "../../../iot/latest/developerguide/authorizing-direct-aws.md").
 
-| CMSEC_21: How do you identify and protect data in your connected vehicle<br>service? |
-| ------------------------------------------------------------------------------------ |
-|                                                                                      |
+| CMSEC\_21: How do you identify and protect data in your connected vehicle<br>service? |
+| ------------------------------------------------------------------------------------- |
+|                                                                                       |
 
 Classify the data processed by your connected vehicle service as described in [Well-Architected
 Security Data Protection](../framework/sec-07.md "../framework/sec-07.md"). Specifically, consider how you will classify data such

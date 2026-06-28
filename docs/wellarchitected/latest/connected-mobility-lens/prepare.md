@@ -1,8 +1,8 @@
 # Prepare
 
-| CMOPS_1: How do you define the meaningful monitoring KPIs and metrics of your<br>connected mobility platform? |
-| ------------------------------------------------------------------------------------------------------------- |
-|                                                                                                               |
+| CMOPS\_1: How do you define the meaningful monitoring KPIs and metrics of your<br>connected mobility platform? |
+| -------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                |
 
 Connected mobility platforms handle millions of vehicles and end users, and billions
 of messages being generated. The scale and distributed nature of connected mobility
@@ -80,9 +80,9 @@ follows:
   various issues that can affect the reliability and performance of your connected mobility
   platform.
 
-| CMOPS_2: How do you observe the health of your connected mobility platform and<br>proactively identify anomalies? |
-| ----------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                   |
+| CMOPS\_2: How do you observe the health of your connected mobility platform and<br>proactively identify anomalies? |
+| ------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                    |
 
 The connected mobility platform includes the vehicle edge, connectivity, cloud-based
 infrastructure and applications, enables various services like fleet management, remote
@@ -197,12 +197,12 @@ troubleshooting process. However, it's crucial to implement secure communication
 to protect data privacy and prevent unauthorized access. Utilizing end user consent and
 virtual private networks (VPNs) or encrypted remote access tools helps establish a secure
 connection. Regularly auditing and updating access permissions further enhances security
-while preventing unauthorized access. Follow the security best practices (CMSEC_6) for the
+while preventing unauthorized access. Follow the security best practices (CMSEC\_6) for the
 remote troubleshooting.
 
-| CMOPS_3: Have you set up a validation environment that has feature equality<br>with production environment of the connected mobility platform? |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                |
+| CMOPS\_3: Have you set up a validation environment that has feature equality<br>with production environment of the connected mobility platform? |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                 |
 
 **[CMOPS\_BP3.1] Validate the system in a non-production
 environment that has feature equality with production.**
@@ -225,9 +225,9 @@ navigation, entertainment, data collection and analytics. Such
 tests should be performed with hardware-in-loop using modular
 test benches. 
 
-| CMOPS_4: How do you do agile development of the connected mobility platform,<br>with a focus on minimizing disruptions? |
-| ----------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                         |
+| CMOPS\_4: How do you do agile development of the connected mobility platform,<br>with a focus on minimizing disruptions? |
+| ------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                          |
 
 **[CMOPS\_BP4.1] Leverage microservices architecture for connected
 mobility platform.**

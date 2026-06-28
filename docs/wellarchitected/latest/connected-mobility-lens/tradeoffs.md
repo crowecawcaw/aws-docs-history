@@ -1,8 +1,8 @@
 # Tradeoffs
 
-| CMPERF_14: What criteria have you identified where tradeoffs can be<br>made? |
-| ---------------------------------------------------------------------------- |
-|                                                                              |
+| CMPERF\_14: What criteria have you identified where tradeoffs can be<br>made? |
+| ----------------------------------------------------------------------------- |
+|                                                                               |
 
 **[CMPERF\_BP14.1] Develop criteria where trade-offs can be made
 based on the type of functionality.**

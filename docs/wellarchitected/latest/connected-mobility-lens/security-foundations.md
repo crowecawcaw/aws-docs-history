@@ -1,8 +1,8 @@
 # Security foundations
 
-| CMSEC_1: How are you maintaining consumer privacy during actions such as<br>in-vehicle purchase transactions or data collection? |
-| -------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                  |
+| CMSEC\_1: How are you maintaining consumer privacy during actions such as<br>in-vehicle purchase transactions or data collection? |
+| --------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                   |
 
 Vehicles today contain a multitude of sensors which enable many of the features we rely on for both convenience and safety. These sensors collect large amounts of data which must be both transmitted, stored, and potentially correlated between distributed systems which provide this functionality. When building these architectures, it is important to understand all applicable laws and compliance requirements which govern what data is necessary to collect, store or share with third parties, and how it should be anonymized to protect the privacy of consumers and their passengers. The system should be designed with these requirements in early stages and not after the system is in production.
 
@@ -31,9 +31,9 @@ as those that collect biometric data may be subject to other compliance standard
 the Health Insurance Portability and Accountability Act (HIPAA) and require different
 configurations for data handling and retention.
 
-| CMSEC_2: Your risk management program should align to security standards, laws,<br>regulations, and frameworks in the connected vehicle space. |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                |
+| CMSEC\_2: Your risk management program should align to security standards, laws,<br>regulations, and frameworks in the connected vehicle space. |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                 |
 
 Your risk management program should be used to capture functional safety,
 cybersecurity, privacy, and secure software development requirements throughout the

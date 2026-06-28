@@ -1,8 +1,8 @@
 # Cost-effective resources
 
-| CMCOST_1: How do you optimize your raw vehicle data storage? |
-| ------------------------------------------------------------ |
-|                                                              |
+| CMCOST\_1: How do you optimize your raw vehicle data storage? |
+| ------------------------------------------------------------- |
+|                                                               |
 
 Managing raw vehicle data is important because it allows
 organizations to leverage the data to drive innovation,
@@ -196,9 +196,9 @@ Process data at edge as much as possible:
 - The [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/")can estimate costs for specific
   message sizes, traffic, and operations.
 
-| CMCOST_2: How do you optimize your network consumption and interactions between<br>vehicles and cloud? |
-| ------------------------------------------------------------------------------------------------------ |
-|                                                                                                        |
+| CMCOST\_2: How do you optimize your network consumption and interactions between<br>vehicles and cloud? |
+| ------------------------------------------------------------------------------------------------------- |
+|                                                                                                         |
 
 With an expansive amount of data collected from vehicles,
 optimizing network consumption and payload size is essential

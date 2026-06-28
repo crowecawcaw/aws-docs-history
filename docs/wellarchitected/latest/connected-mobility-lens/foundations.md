@@ -1,8 +1,8 @@
 # Foundations
 
-| CMREL_1: Have you defined your message prioritization policy? |
-| ------------------------------------------------------------- |
-|                                                               |
+| CMREL\_1: Have you defined your message prioritization policy? |
+| -------------------------------------------------------------- |
+|                                                                |
 
 Connected vehicles generate a large amount of data that is sent to the cloud via
 messages. It's important to prioritize the message flow and handle different message
@@ -42,9 +42,9 @@ failure).
 Consider building the control plane in multiple Regions and have the vehicles connect to
 the first available endpoint for these critical functions.
 
-| CMREL_2: How do you ensure that you do not overflow your communication channel<br>to the cloud? |
-| ----------------------------------------------------------------------------------------------- |
-|                                                                                                 |
+| CMREL\_2: How do you ensure that you do not overflow your communication channel<br>to the cloud? |
+| ------------------------------------------------------------------------------------------------ |
+|                                                                                                  |
 
 Messaging from vehicles to the cloud is likely to be unpredictable, generating spikes
 that might approach AWS service quotas. If proper measures are not taken, these spikes
@@ -72,9 +72,9 @@ connection peaks or increase a service quota (where applicable). The same random
 behavior must be implemented on the cloud backend for messages that are being sent to the
 vehicles.
 
-| CMREL_3: Do you have a strategy in case connection certificates are unavailable<br>or accidentally deleted? |
-| ----------------------------------------------------------------------------------------------------------- |
-|                                                                                                             |
+| CMREL\_3: Do you have a strategy in case connection certificates are unavailable<br>or accidentally deleted? |
+| ------------------------------------------------------------------------------------------------------------ |
+|                                                                                                              |
 
 As a best practice, vehicles establish a connection to the backend by exchanging
 certificates. The connected mobility control plane must store these certificates with the
@@ -105,9 +105,9 @@ these messages to back up your registry data and save it somewhere, like a Dynam
 You are responsible for saving certificates that AWS IoT Core creates for you or those you
 create yourself.
 
-| CMREL_4: How is your connected mobility solution resilient to unintended<br>access? |
-| ----------------------------------------------------------------------------------- |
-|                                                                                     |
+| CMREL\_4: How is your connected mobility solution resilient to unintended<br>access? |
+| ------------------------------------------------------------------------------------ |
+|                                                                                      |
 
 Every infrastructure is susceptible to unintended access and threat actors. Connected
 mobility is no exception. Your connected mobility solution should implement the security by
@@ -135,9 +135,9 @@ Mission- and safety-critical components in a connected vehicle can be separated 
 non-critical components, and given limited connectivity to external networks through a
 few specific communication channels.
 
-| CMREL_5: How do you mitigate the impact of impairments in the connection layer<br>between vehicles and the AWS Cloud? |
-| --------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                       |
+| CMREL\_5: How do you mitigate the impact of impairments in the connection layer<br>between vehicles and the AWS Cloud? |
+| ---------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                        |
 
 Connected mobility is a peculiar scenario in Internet of Things (IoT) given that the
 things don’t have a reliable Local Area Network (LAN) to which they are connected. Vehicles

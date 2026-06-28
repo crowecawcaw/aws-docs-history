@@ -14,7 +14,7 @@
 - [What is Site Reliability Engineering (SRE)?](https://aws.amazon.com/what-is/sre/ "https://aws.amazon.com/what-is/sre/")
 - [What is
   observability? (AWS Observability Best Practices)](https://aws-observability.github.io/observability-best-practices/ "https://aws-observability.github.io/observability-best-practices/")
-- [AUTOSAR_SWS_DiagnosticLogAndTrace](https://www.autosar.org/fileadmin/standards/R22-11/CP/AUTOSAR_SWS_DiagnosticLogAndTrace.pdf "https://www.autosar.org/fileadmin/standards/R22-11/CP/AUTOSAR_SWS_DiagnosticLogAndTrace.pdf") (PDF)
-- [AUTOSAR_EXP_SystemHealthMonitoring](https://www.autosar.org/fileadmin/standards/R21-11/FO/AUTOSAR_EXP_SystemHealthMonitoring.pdf "https://www.autosar.org/fileadmin/standards/R21-11/FO/AUTOSAR_EXP_SystemHealthMonitoring.pdf") (PDF)
+- [AUTOSAR\_SWS\_DiagnosticLogAndTrace](https://www.autosar.org/fileadmin/standards/R22-11/CP/AUTOSAR_SWS_DiagnosticLogAndTrace.pdf "https://www.autosar.org/fileadmin/standards/R22-11/CP/AUTOSAR_SWS_DiagnosticLogAndTrace.pdf") (PDF)
+- [AUTOSAR\_EXP\_SystemHealthMonitoring](https://www.autosar.org/fileadmin/standards/R21-11/FO/AUTOSAR_EXP_SystemHealthMonitoring.pdf "https://www.autosar.org/fileadmin/standards/R21-11/FO/AUTOSAR_EXP_SystemHealthMonitoring.pdf") (PDF)
 - [Diagnostic Log and Trace
   daemon](https://github.com/COVESA/dlt-daemon#overview "https://github.com/COVESA/dlt-daemon#overview") (GitHub)

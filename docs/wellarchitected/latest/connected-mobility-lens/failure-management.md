@@ -20,9 +20,9 @@ company.
 
 ## Back up data
 
-| CMREL_12: How do your strategy and mechanisms manage failures to prevent<br>impact on your workload? |
-| ---------------------------------------------------------------------------------------------------- |
-|                                                                                                      |
+| CMREL\_12: How do your strategy and mechanisms manage failures to prevent<br>impact on your workload? |
+| ----------------------------------------------------------------------------------------------------- |
+|                                                                                                       |
 
 **[CMREL\_BP12.1] Identify and back up all data that needs to be
 backed up, or reproduce the data from sources**
@@ -123,9 +123,9 @@ Components outside of the boundary are unaffected by the
 failure. Using multiple fault isolated boundaries, you can
 limit the impact on your workload.
 
-| CMREL_13: How do you ensure that you don't have a single point of failure? |
-| -------------------------------------------------------------------------- |
-|                                                                            |
+| CMREL\_13: How do you ensure that you don't have a single point of failure? |
+| --------------------------------------------------------------------------- |
+|                                                                             |
 
 **[CMREL\_BP13.1] Deploy the workload to multiple locations**
 
