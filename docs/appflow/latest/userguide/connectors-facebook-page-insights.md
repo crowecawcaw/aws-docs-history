@@ -33,47 +33,42 @@ requirements:
   Login_ product, and you've configured this product to meet the following
   additional requirements:
 
-      + Client OAuth login is enabled.
-      + Web OAuth login is enabled.
-      + One or more OAuth redirect URIs are present for Amazon AppFlow. Each of these URIs has the
-       following form:
+  - Client OAuth login is enabled.
+  - Web OAuth login is enabled.
+  - One or more OAuth redirect URIs are present for Amazon AppFlow. Each of these URIs has the
+    following form:
 
+  `https://`region`.console.aws.amazon.com/appflow/oauth`
 
-      `https://`region`.console.aws.amazon.com/appflow/oauth`
+  In this URI, _region_ is the code for the AWS Region
+  where you use Amazon AppFlow to transfer data from the Marketing API. For example, if you use Amazon AppFlow
+  in the US East (N. Virginia) region, the URI is
+  `https://us-east-1.console.aws.amazon.com/appflow/oauth`.
 
-
-      In this URI, *region* is the code for the AWS Region
-       where you use Amazon AppFlow to transfer data from the Marketing API. For example, if you use Amazon AppFlow
-       in the US East (N. Virginia) region, the URI is
-       `https://us-east-1.console.aws.amazon.com/appflow/oauth`.
-
-
-      For the AWS Regions that Amazon AppFlow supports, see [Amazon AppFlow endpoints and quotas](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md") in the *AWS General Reference.*
-
+  For the AWS Regions that Amazon AppFlow supports, see [Amazon AppFlow endpoints and quotas](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md") in the _AWS General Reference._
   For more information about Facebook Login, see [Facebook Login](https://developers.facebook.com/docs/facebook-login "https://developers.facebook.com/docs/facebook-login") in the Meta
   For Developers documentation.
 
-- In the Data Use Checkup settings for your app, you've activated the public_profile and
+- In the Data Use Checkup settings for your app, you've activated the public\_profile and
   email permissions. For the steps to configure Data Use Checkup settings, see [Data Use Checkup](https://developers.facebook.com/docs/development/maintaining-data-access/data-use-checkup/ "https://developers.facebook.com/docs/development/maintaining-data-access/data-use-checkup/") in the Meta for Developers App Development documentation.
 - You've configured your app with the following permissions:
 
-      + `ads_management`
-      + `ads_read`
-      + `page_events`
-      + `pages_manage_ads`
-      + `pages_manage_cta`
-      + `pages_manage_engagement`
-      + `pages_manage_instant_articles`
-      + `pages_manage_metadata`
-      + `pages_manage_posts`
-      + `pages_read_engagement`
-      + `pages_read_user_content`
-      + `pages_show_list`
-      + `public_profile`
-      + `read_insights`
-
-  For more information about these permissions, see [Permissions Reference](https://developers.facebook.com/docs/permissions/reference "https://developers.facebook.com/docs/permissions/reference")
-  in the Meta for Developers Graph API documentation.
+  - `ads_management`
+  - `ads_read`
+  - `page_events`
+  - `pages_manage_ads`
+  - `pages_manage_cta`
+  - `pages_manage_engagement`
+  - `pages_manage_instant_articles`
+  - `pages_manage_metadata`
+  - `pages_manage_posts`
+  - `pages_read_engagement`
+  - `pages_read_user_content`
+  - `pages_show_list`
+  - `public_profile`
+  - `read_insights`
+    For more information about these permissions, see [Permissions Reference](https://developers.facebook.com/docs/permissions/reference "https://developers.facebook.com/docs/permissions/reference")
+    in the Meta for Developers Graph API documentation.
 
 From the settings for your app, note the app ID and app secret. You provide these values to
 Amazon AppFlow in the connection settings.
@@ -156,7 +151,7 @@ following data objects to supported destinations:
 | Feed                   | Created Time | String        |                       |
 | ID                     | String       |               |
 | Message                | String       |               |
-| Since                  | DateTime     | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Story                  | String       |               |
 | Page                   | Category     | String        |                       |
 | Category List          | List         |               |
@@ -166,36 +161,36 @@ following data objects to supported destinations:
 | Page CTA Click         | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page Content           | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page Engagement        | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page Impression        | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page Post              | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page Post Engagement   | Description  | String        |                       |
@@ -219,42 +214,42 @@ following data objects to supported destinations:
 | Page Reaction          | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page User Demographics | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page Video Post        | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page Video View        | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Page View              | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |
 | Story                  | Description  | String        |                       |
 | ID                     | String       |               |
 | Name                   | String       |               |
-| Period                 | String       | EQUAL_TO      |
-| Since                  | DateTime     | EQUAL_TO      |
+| Period                 | String       | EQUAL\_TO     |
+| Since                  | DateTime     | EQUAL\_TO     |
 | Title                  | String       |               |
 | Value                  | List         |               |

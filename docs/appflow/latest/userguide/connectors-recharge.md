@@ -104,15 +104,15 @@ following data objects to supported destinations:
 | Company                                 | String            |               |
 | Country Code                            | String            |               |
 | Created At                              | DateTime          |               |
-| Created At Max                          | DateTime          | EQUAL_TO      |
-| Created At Min                          | DateTime          | EQUAL_TO      |
-| Customer ID                             | Integer           | EQUAL_TO      |
-| Discount Code                           | String            | EQUAL_TO      |
-| Discount Id                             | String            | EQUAL_TO      |
+| Created At Max                          | DateTime          | EQUAL\_TO     |
+| Created At Min                          | DateTime          | EQUAL\_TO     |
+| Customer ID                             | Integer           | EQUAL\_TO     |
+| Discount Code                           | String            | EQUAL\_TO     |
+| Discount Id                             | String            | EQUAL\_TO     |
 | Discounts                               | List              |               |
 | First Name                              | String            |               |
 | Id                                      | Integer           |               |
-| Is Active                               | Boolean           | EQUAL_TO      |
+| Is Active                               | Boolean           | EQUAL\_TO     |
 | Last Name                               | String            |               |
 | Order Note                              | String            |               |
 | Payment Method ID                       | Integer           |               |
@@ -122,27 +122,27 @@ following data objects to supported destinations:
 | Shipping Lines Conserved                | List              |               |
 | Shipping Lines Override                 | List              |               |
 | Updated At                              | DateTime          |               |
-| Updated At Max                          | DateTime          | EQUAL_TO      |
-| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Updated At Max                          | DateTime          | EQUAL\_TO     |
+| Updated At Min                          | DateTime          | EQUAL\_TO     |
 | Zip                                     | String            |               |
-| Charge                                  | Address ID        | Integer       | EQUAL_TO              |
+| Charge                                  | Address ID        | Integer       | EQUAL\_TO             |
 | Analytics Data                          | Struct            |               |
 | Billing Address                         | Struct            |               |
 | Charge Attempts                         | Integer           |               |
 | Client Details                          | Struct            |               |
 | Created At                              | DateTime          |               |
-| Created At Max                          | DateTime          | EQUAL_TO      |
-| Created At Min                          | DateTime          | EQUAL_TO      |
+| Created At Max                          | DateTime          | EQUAL\_TO     |
+| Created At Min                          | DateTime          | EQUAL\_TO     |
 | Currency                                | String            |               |
 | Customer                                | Struct            |               |
-| Customer Id                             | String            | EQUAL_TO      |
-| Discount Code                           | String            | EQUAL_TO      |
-| Discount Id                             | String            | EQUAL_TO      |
+| Customer Id                             | String            | EQUAL\_TO     |
+| Discount Code                           | String            | EQUAL\_TO     |
+| Discount Id                             | String            | EQUAL\_TO     |
 | Discounts                               | List              |               |
 | Error                                   | String            |               |
 | Error Type                              | String            |               |
 | External Order ID                       | Struct            |               |
-| External Order ID E-Commerce            | String            | EQUAL_TO      |
+| External Order ID E-Commerce            | String            | EQUAL\_TO     |
 | External Transaction ID                 | Struct            |               |
 | External Variant Id not found           | Boolean           |               |
 | Has Uncommitted Changes                 | Boolean           |               |
@@ -154,17 +154,17 @@ following data objects to supported destinations:
 | Orders Count                            | Integer           |               |
 | Payment Processor                       | String            |               |
 | Processed At                            | DateTime          |               |
-| Processed At Max                        | DateTime          | EQUAL_TO      |
-| Processed At Min                        | DateTime          | EQUAL_TO      |
-| Purchase Item Id                        | String            | EQUAL_TO      |
+| Processed At Max                        | DateTime          | EQUAL\_TO     |
+| Processed At Min                        | DateTime          | EQUAL\_TO     |
+| Purchase Item Id                        | String            | EQUAL\_TO     |
 | Retry Date                              | Date              |               |
-| Scheduled At                            | Date              | EQUAL_TO      |
-| Scheduled At Max                        | DateTime          | EQUAL_TO      |
-| Scheduled At Min                        | DateTime          | EQUAL_TO      |
+| Scheduled At                            | Date              | EQUAL\_TO     |
+| Scheduled At Max                        | DateTime          | EQUAL\_TO     |
+| Scheduled At Min                        | DateTime          | EQUAL\_TO     |
 | Shipping Address                        | Struct            |               |
 | Shipping Lines                          | List              |               |
-| Sort By                                 | String            | EQUAL_TO      |
-| Status                                  | String            | EQUAL_TO      |
+| Sort By                                 | String            | EQUAL\_TO     |
+| Status                                  | String            | EQUAL\_TO     |
 | Subtotal Price                          | String            |               |
 | Tags                                    | String            |               |
 | Tax Lines                               | List              |               |
@@ -178,27 +178,27 @@ following data objects to supported destinations:
 | Total Weight Grams                      | Integer           |               |
 | Type                                    | String            |               |
 | Updated At                              | DateTime          |               |
-| Updated At Max                          | DateTime          | EQUAL_TO      |
-| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Updated At Max                          | DateTime          | EQUAL\_TO     |
+| Updated At Min                          | DateTime          | EQUAL\_TO     |
 | Collection                              | Created At        | DateTime      |                       |
 | Description                             | String            |               |
 | Id                                      | Integer           |               |
 | Sort Order                              | String            |               |
-| Title                                   | String            | EQUAL_TO      |
-| Type                                    | String            | EQUAL_TO      |
+| Title                                   | String            | EQUAL\_TO     |
+| Type                                    | String            | EQUAL\_TO     |
 | Updated At                              | DateTime          |               |
 | Customer                                | Analytics Data    | Struct        |                       |
 | Created At                              | DateTime          |               |
-| Created At Max                          | DateTime          | EQUAL_TO      |
-| Created At Min                          | DateTime          | EQUAL_TO      |
-| Email                                   | String            | EQUAL_TO      |
+| Created At Max                          | DateTime          | EQUAL\_TO     |
+| Created At Min                          | DateTime          | EQUAL\_TO     |
+| Email                                   | String            | EQUAL\_TO     |
 | External Customer Id                    | Struct            |               |
-| External Customer Id E-Commerce         | String            | EQUAL_TO      |
+| External Customer Id E-Commerce         | String            | EQUAL\_TO     |
 | First Charge Processed At               | DateTime          |               |
 | First Name                              | String            |               |
 | Has Payment Method In Dunning           | Boolean           |               |
 | Has Valid Payment Method                | Boolean           |               |
-| Hash                                    | String            | EQUAL_TO      |
+| Hash                                    | String            | EQUAL\_TO     |
 | Id                                      | Integer           |               |
 | Include                                 | Struct            |               |
 | Last Name                               | String            |               |
@@ -207,26 +207,26 @@ following data objects to supported destinations:
 | Subscriptions Total Count               | Integer           |               |
 | Tax Exempt                              | Boolean           |               |
 | Updated At                              | DateTime          |               |
-| Updated At Max                          | DateTime          | EQUAL_TO      |
-| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Updated At Max                          | DateTime          | EQUAL\_TO     |
+| Updated At Min                          | DateTime          | EQUAL\_TO     |
 | Discount                                | Applies To        | Struct        |                       |
 | Channel Settings                        | Struct            |               |
 | Code                                    | String            |               |
 | Created At                              | DateTime          |               |
-| Created At Max                          | DateTime          | EQUAL_TO      |
-| Created At Min                          | DateTime          | EQUAL_TO      |
-| Discount Code                           | String            | EQUAL_TO      |
-| Discount Type                           | String            | EQUAL_TO      |
+| Created At Max                          | DateTime          | EQUAL\_TO     |
+| Created At Min                          | DateTime          | EQUAL\_TO     |
+| Discount Code                           | String            | EQUAL\_TO     |
+| Discount Type                           | String            | EQUAL\_TO     |
 | Ends At                                 | DateTime          |               |
 | External Discount Id                    | Struct            |               |
 | External Discount Source                | String            |               |
 | Id                                      | Integer           |               |
 | Prerequisite Subtotal Min               | Integer           |               |
 | Starts At                               | DateTime          |               |
-| Status                                  | String            | EQUAL_TO      |
+| Status                                  | String            | EQUAL\_TO     |
 | Updated At                              | DateTime          |               |
-| Updated At Max                          | DateTime          | EQUAL_TO      |
-| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Updated At Max                          | DateTime          | EQUAL\_TO     |
+| Updated At Min                          | DateTime          | EQUAL\_TO     |
 | Usage Limits                            | Struct            |               |
 | Value                                   | String            |               |
 | Value Type                              | String            |               |
@@ -234,22 +234,22 @@ following data objects to supported destinations:
 | Description                             | String            |               |
 | Id                                      | Integer           |               |
 | Key                                     | String            |               |
-| Namespace                               | String            | EQUAL_TO      |
-| Owner Id                                | Integer           | EQUAL_TO      |
-| Owner Resource                          | String            | EQUAL_TO      |
+| Namespace                               | String            | EQUAL\_TO     |
+| Owner Id                                | Integer           | EQUAL\_TO     |
+| Owner Resource                          | String            | EQUAL\_TO     |
 | Updated At                              | DateTime          |               |
 | Value                                   | String            |               |
 | Value Type                              | String            |               |
-| Onetime                                 | Address Id        | Integer       | EQUAL_TO              |
+| Onetime                                 | Address Id        | Integer       | EQUAL\_TO             |
 | Created At                              | DateTime          |               |
-| Created At Max                          | DateTime          | EQUAL_TO      |
-| Created At Min                          | DateTime          | EQUAL_TO      |
-| Customer Id                             | Integer           | EQUAL_TO      |
+| Created At Max                          | DateTime          | EQUAL\_TO     |
+| Created At Min                          | DateTime          | EQUAL\_TO     |
+| Customer Id                             | Integer           | EQUAL\_TO     |
 | External Product Id                     | Struct            |               |
 | External Variant ID                     | Struct            |               |
-| External Variant ID E-Commerce          | String            | EQUAL_TO      |
+| External Variant ID E-Commerce          | String            | EQUAL\_TO     |
 | Id                                      | Integer           |               |
-| Include Cancelled                       | Boolean           | EQUAL_TO      |
+| Include Cancelled                       | Boolean           | EQUAL\_TO     |
 | Is Cancelled                            | Boolean           |               |
 | Next Charge Scheduled At                | DateTime          |               |
 | Presentment Currency                    | String            |               |
@@ -260,29 +260,29 @@ following data objects to supported destinations:
 | SKU                                     | String            |               |
 | SKU Override                            | Boolean           |               |
 | Updated At                              | DateTime          |               |
-| Updated At Max                          | DateTime          | EQUAL_TO      |
-| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Updated At Max                          | DateTime          | EQUAL\_TO     |
+| Updated At Min                          | DateTime          | EQUAL\_TO     |
 | Variant Title                           | String            |               |
-| Order                                   | Address ID        | Integer       | EQUAL_TO              |
+| Order                                   | Address ID        | Integer       | EQUAL\_TO             |
 | Billing Address                         | Struct            |               |
 | Charge                                  | Struct            |               |
-| Charge Id                               | String            | EQUAL_TO      |
+| Charge Id                               | String            | EQUAL\_TO     |
 | Client Details                          | Struct            |               |
 | Created At                              | DateTime          |               |
-| Created At Max                          | DateTime          | EQUAL_TO      |
-| Created At Min                          | DateTime          | EQUAL_TO      |
+| Created At Max                          | DateTime          | EQUAL\_TO     |
+| Created At Min                          | DateTime          | EQUAL\_TO     |
 | Currency                                | String            |               |
 | Customer                                | Struct            |               |
-| Customer Id                             | String            | EQUAL_TO      |
+| Customer Id                             | String            | EQUAL\_TO     |
 | Discounts                               | List              |               |
 | Error                                   | String            |               |
 | External Cart Token                     | String            |               |
-| External Customer Id                    | String            | EQUAL_TO      |
+| External Customer Id                    | String            | EQUAL\_TO     |
 | External Order ID                       | Struct            |               |
-| External Order ID E-Commerce            | String            | EQUAL_TO      |
+| External Order ID E-Commerce            | String            | EQUAL\_TO     |
 | External Order Name                     | Struct            |               |
 | External Order Number                   | Struct            |               |
-| Has External Order                      | Boolean           | EQUAL_TO      |
+| Has External Order                      | Boolean           | EQUAL\_TO     |
 | Id                                      | Integer           |               |
 | Include                                 | Struct            |               |
 | Is Prepaid                              | Boolean           |               |
@@ -290,13 +290,13 @@ following data objects to supported destinations:
 | Note                                    | String            |               |
 | Order Attributes                        | List              |               |
 | Processed At                            | DateTime          |               |
-| Purchase Item Id                        | String            | EQUAL_TO      |
+| Purchase Item Id                        | String            | EQUAL\_TO     |
 | Scheduled At                            | DateTime          |               |
-| Scheduled At Max                        | DateTime          | EQUAL_TO      |
-| Scheduled At Min                        | DateTime          | EQUAL_TO      |
+| Scheduled At Max                        | DateTime          | EQUAL\_TO     |
+| Scheduled At Min                        | DateTime          | EQUAL\_TO     |
 | Shipping Address                        | Struct            |               |
 | Shipping Lines                          | List              |               |
-| Status                                  | String            | EQUAL_TO      |
+| Status                                  | String            | EQUAL\_TO     |
 | Subtotal Price                          | String            |               |
 | Tags                                    | String            |               |
 | Tax Lines                               | List              |               |
@@ -308,10 +308,10 @@ following data objects to supported destinations:
 | Total Refunds                           | String            |               |
 | Total Tax                               | String            |               |
 | Total Weight Grams                      | Integer           |               |
-| Type                                    | String            | EQUAL_TO      |
+| Type                                    | String            | EQUAL\_TO     |
 | Updated At                              | DateTime          |               |
-| Updated At Max                          | DateTime          | EQUAL_TO      |
-| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Updated At Max                          | DateTime          | EQUAL\_TO     |
+| Updated At Min                          | DateTime          | EQUAL\_TO     |
 | Store                                   | Checkout Logo Url | String        |                       |
 | Checkout Platform                       | String            |               |
 | Created At                              | DateTime          |               |
@@ -328,19 +328,19 @@ following data objects to supported destinations:
 | Timezone                                | Struct            |               |
 | Updated At                              | DateTime          |               |
 | Weight Unit                             | String            |               |
-| Subscription                            | Address Id        | Integer       | EQUAL_TO              |
+| Subscription                            | Address Id        | Integer       | EQUAL\_TO             |
 | Analytics Data                          | Struct            |               |
 | Cancellation Reason                     | String            |               |
 | Cancellation Reason Comments            | String            |               |
 | Cancelled At                            | DateTime          |               |
 | Charge Interval Frequency               | Integer           |               |
 | Created At                              | DateTime          |               |
-| Created At Max                          | DateTime          | EQUAL_TO      |
-| Created At Min                          | DateTime          | EQUAL_TO      |
-| Customer Id                             | Integer           | EQUAL_TO      |
+| Created At Max                          | DateTime          | EQUAL\_TO     |
+| Created At Min                          | DateTime          | EQUAL\_TO     |
+| Customer Id                             | Integer           | EQUAL\_TO     |
 | Expire After Specific Number Of Charges | Integer           |               |
 | External Product Id                     | Struct            |               |
-| External Variant ID E-Commerce          | String            | EQUAL_TO      |
+| External Variant ID E-Commerce          | String            | EQUAL\_TO     |
 | External Variant Id                     | Struct            |               |
 | Has Queued Charges                      | Boolean           |               |
 | Id                                      | Integer           |               |
@@ -361,8 +361,8 @@ following data objects to supported destinations:
 | Quantity                                | Integer           |               |
 | SKU                                     | String            |               |
 | SKU Override                            | Boolean           |               |
-| Status                                  | String            | EQUAL_TO      |
+| Status                                  | String            | EQUAL\_TO     |
 | Updated At                              | DateTime          |               |
-| Updated At Max                          | DateTime          | EQUAL_TO      |
-| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Updated At Max                          | DateTime          | EQUAL\_TO     |
+| Updated At Min                          | DateTime          | EQUAL\_TO     |
 | Variant Title                           | String            |               |

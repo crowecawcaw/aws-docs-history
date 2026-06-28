@@ -24,16 +24,15 @@ Before you can use Amazon AppFlow to import data from ServiceNow, you need the f
 - Access to your ServiceNow instance through a role. This can be an admin role or one that
   allows the read operation for the following:
 
-      + `sys_db_object`
-      + `sys_db_object.*`
-      + `sys_dictionary`
-      + `sys_dictionary.*`
-      + `sys_glide_object`
-      + Any table that you want to access with Amazon AppFlow. For example, if you want to import
-       data from a table named `incidents`, you need read access to
-       `incidents` and `incidents.*`.
-
-  For more information about ServiceNow roles, see [Roles](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/roles/reference/r_SecurityJumpStartACLRules.html "https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/roles/reference/r_SecurityJumpStartACLRules.html") in the ServiceNow documentation.
+  - `sys_db_object`
+  - `sys_db_object.*`
+  - `sys_dictionary`
+  - `sys_dictionary.*`
+  - `sys_glide_object`
+  - Any table that you want to access with Amazon AppFlow. For example, if you want to import
+    data from a table named `incidents`, you need read access to
+    `incidents` and `incidents.*`.
+    For more information about ServiceNow roles, see [Roles](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/roles/reference/r_SecurityJumpStartACLRules.html "https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/roles/reference/r_SecurityJumpStartACLRules.html") in the ServiceNow documentation.
 
 ## Connection instructions
 

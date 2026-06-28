@@ -106,11 +106,11 @@ following data objects to supported destinations:
 
 | **Object**                     | **Field**      | **Data type** | **Supported filters** |
 | ------------------------------ | -------------- | ------------- | --------------------- |
-| Coupon                         | After          | DateTime      | EQUAL_TO              |
+| Coupon                         | After          | DateTime      | EQUAL\_TO             |
 | Amount                         | String         |               |
-| Before                         | DateTime       | EQUAL_TO      |
-| Code                           | String         | EQUAL_TO      |
-| Context                        | String         | EQUAL_TO      |
+| Before                         | DateTime       | EQUAL\_TO     |
+| Code                           | String         | EQUAL\_TO     |
+| Context                        | String         | EQUAL\_TO     |
 | Date Created                   | DateTime       |               |
 | Date Created GMT               | DateTime       |               |
 | Date Expires GMT               | String         |               |
@@ -130,11 +130,11 @@ following data objects to supported destinations:
 | Maximum Amount                 | String         |               |
 | Meta Data                      | List           |               |
 | Minimum Amount                 | String         |               |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
 | Product Category List          | List           |               |
 | Product ID                     | List           |               |
-| Search                         | String         | EQUAL_TO      |
+| Search                         | String         | EQUAL\_TO     |
 | Status                         | String         |               |
 | Usage Count                    | Integer        |               |
 | Usage Limit                    | Integer        |               |
@@ -146,22 +146,22 @@ following data objects to supported destinations:
 | Customer Total                 | Name           | String        |                       |
 | Slug                           | String         |               |
 | Total                          | String         |               |
-| Order                          | After          | DateTime      | EQUAL_TO              |
-| Before                         | DateTime       | EQUAL_TO      |
+| Order                          | After          | DateTime      | EQUAL\_TO             |
+| Before                         | DateTime       | EQUAL\_TO     |
 | Billing                        | Struct         |               |
 | Cart Hash                      | String         |               |
 | Cart Tax                       | String         |               |
-| Context                        | String         | EQUAL_TO      |
+| Context                        | String         | EQUAL\_TO     |
 | Coupon Line                    | List           |               |
 | Created Via                    | String         |               |
 | Currency                       | String         |               |
 | Currency Symbol                | String         |               |
-| Customer                       | Integer        | EQUAL_TO      |
+| Customer                       | Integer        | EQUAL\_TO     |
 | Customer IP Address            | String         |               |
 | Customer Id                    | Integer        |               |
 | Customer Note                  | String         |               |
 | Customer User Agent            | String         |               |
-| DP                             | Integer        | EQUAL_TO      |
+| DP                             | Integer        | EQUAL\_TO     |
 | Date Completed                 | DateTime       |               |
 | Date Completed GMT             | DateTime       |               |
 | Date Created                   | DateTime       |               |
@@ -180,17 +180,17 @@ following data objects to supported destinations:
 | Needs Payment                  | Boolean        |               |
 | Needs Processing               | Boolean        |               |
 | Number                         | String         |               |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
 | Order Key                      | String         |               |
 | Parent ID                      | Integer        |               |
 | Payment Method                 | String         |               |
 | Payment Method Title           | String         |               |
 | Payment Url                    | String         |               |
 | Prices Include Tax             | Boolean        |               |
-| Product                        | Integer        | EQUAL_TO      |
+| Product                        | Integer        | EQUAL\_TO     |
 | Refund                         | List           |               |
-| Search                         | String         | EQUAL_TO      |
+| Search                         | String         | EQUAL\_TO     |
 | Set Paid                       | Boolean        |               |
 | Shipping                       | Struct         |               |
 | Shipping Line                  | List           |               |
@@ -220,17 +220,17 @@ following data objects to supported destinations:
 | Settings Url                   | String         |               |
 | Setup Help Text                | String         |               |
 | Title                          | String         |               |
-| Product                        | After          | DateTime      | EQUAL_TO              |
+| Product                        | After          | DateTime      | EQUAL\_TO             |
 | Attribute List                 | List           |               |
 | Average Rating                 | String         |               |
 | Backorder                      | String         |               |
 | Backordered                    | Boolean        |               |
 | Backorders Allowed             | Boolean        |               |
-| Before                         | DateTime       | EQUAL_TO      |
+| Before                         | DateTime       | EQUAL\_TO     |
 | Button Text                    | String         |               |
 | Catalog Visibility             | String         |               |
 | Category List                  | List           |               |
-| Context                        | String         | EQUAL_TO      |
+| Context                        | String         | EQUAL\_TO     |
 | Date Created                   | DateTime       |               |
 | Date Created GMT               | DateTime       |               |
 | Date Modified                  | DateTime       |               |
@@ -247,7 +247,7 @@ following data objects to supported destinations:
 | Download Limit                 | Integer        |               |
 | Downloadable                   | Boolean        |               |
 | External Url                   | String         |               |
-| Featured                       | Boolean        | EQUAL_TO      |
+| Featured                       | Boolean        | EQUAL\_TO     |
 | Grouped Product List           | List           |               |
 | Has Option                     | Boolean        |               |
 | ID                             | Integer        |               |
@@ -263,9 +263,9 @@ following data objects to supported destinations:
 | Menu Order                     | Integer        |               |
 | Meta Data                      | List           |               |
 | Name                           | String         |               |
-| On Sale                        | Boolean        | EQUAL_TO      |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
+| On Sale                        | Boolean        | EQUAL\_TO     |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
 | Parent ID                      | Integer        |               |
 | Permalink                      | String         |               |
 | Price                          | String         |               |
@@ -277,70 +277,70 @@ following data objects to supported destinations:
 | Related ID                     | List           |               |
 | Reviews Allowed                | Boolean        |               |
 | Sale Price                     | String         |               |
-| Search                         | String         | EQUAL_TO      |
-| Shipping Class                 | String         | EQUAL_TO      |
+| Search                         | String         | EQUAL\_TO     |
+| Shipping Class                 | String         | EQUAL\_TO     |
 | Shipping Class ID              | Integer        |               |
 | Shipping Required              | Boolean        |               |
 | Shipping Taxable               | Boolean        |               |
 | Short Description              | String         |               |
-| Sku                            | String         | EQUAL_TO      |
-| Slug                           | String         | EQUAL_TO      |
+| Sku                            | String         | EQUAL\_TO     |
+| Slug                           | String         | EQUAL\_TO     |
 | Sold Individually              | Boolean        |               |
-| Status                         | String         | EQUAL_TO      |
+| Status                         | String         | EQUAL\_TO     |
 | Stock Quantity                 | Integer        |               |
-| Stock Status                   | String         | EQUAL_TO      |
+| Stock Status                   | String         | EQUAL\_TO     |
 | Tag                            | List           |               |
-| Tag                            | String         | EQUAL_TO      |
-| Tax Class                      | String         | EQUAL_TO      |
+| Tag                            | String         | EQUAL\_TO     |
+| Tax Class                      | String         | EQUAL\_TO     |
 | Tax Status                     | String         |               |
 | Total Sale                     | Integer        |               |
-| Type                           | String         | EQUAL_TO      |
+| Type                           | String         | EQUAL\_TO     |
 | Variation List                 | List           |               |
 | Virtual                        | Boolean        |               |
 | Weight                         | String         |               |
-| Product Attribute              | Context        | String        | EQUAL_TO              |
+| Product Attribute              | Context        | String        | EQUAL\_TO             |
 | Has Archive                    | Boolean        |               |
 | ID                             | Integer        |               |
 | Name                           | String         |               |
 | Order By                       | String         |               |
 | Slug                           | String         |               |
 | Type                           | String         |               |
-| Product Attribute Term         | Context        | String        | EQUAL_TO              |
+| Product Attribute Term         | Context        | String        | EQUAL\_TO             |
 | Count                          | Integer        |               |
 | Description                    | String         |               |
-| Hide Empty                     | Boolean        | EQUAL_TO      |
+| Hide Empty                     | Boolean        | EQUAL\_TO     |
 | ID                             | Integer        |               |
 | Menu Order                     | Integer        |               |
 | Name                           | String         |               |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
-| Parent                         | Integer        | EQUAL_TO      |
-| Product                        | Integer        | EQUAL_TO      |
-| Search                         | String         | EQUAL_TO      |
-| Slug                           | String         | EQUAL_TO      |
-| Product Category               | Context        | String        | EQUAL_TO              |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
+| Parent                         | Integer        | EQUAL\_TO     |
+| Product                        | Integer        | EQUAL\_TO     |
+| Search                         | String         | EQUAL\_TO     |
+| Slug                           | String         | EQUAL\_TO     |
+| Product Category               | Context        | String        | EQUAL\_TO             |
 | Count                          | Integer        |               |
 | Description                    | String         |               |
 | Display                        | String         |               |
-| Hide Empty                     | Boolean        | EQUAL_TO      |
+| Hide Empty                     | Boolean        | EQUAL\_TO     |
 | ID                             | Integer        |               |
 | Image                          | Struct         |               |
 | Menu Order                     | Integer        |               |
 | Name                           | String         |               |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
-| Parent                         | Integer        | EQUAL_TO      |
-| Product                        | Integer        | EQUAL_TO      |
-| Search                         | String         | EQUAL_TO      |
-| Slug                           | String         | EQUAL_TO      |
-| Product Review                 | After          | DateTime      | EQUAL_TO              |
-| Before                         | DateTime       | EQUAL_TO      |
-| Context                        | String         | EQUAL_TO      |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
+| Parent                         | Integer        | EQUAL\_TO     |
+| Product                        | Integer        | EQUAL\_TO     |
+| Search                         | String         | EQUAL\_TO     |
+| Slug                           | String         | EQUAL\_TO     |
+| Product Review                 | After          | DateTime      | EQUAL\_TO             |
+| Before                         | DateTime       | EQUAL\_TO     |
+| Context                        | String         | EQUAL\_TO     |
 | Date Created                   | DateTime       |               |
 | Date Created GMT               | DateTime       |               |
 | ID                             | Integer        |               |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
 | Product ID                     | Integer        |               |
 | Product Name                   | String         |               |
 | Product Permalink              | String         |               |
@@ -349,40 +349,40 @@ following data objects to supported destinations:
 | Reviewer                       | String         |               |
 | Reviewer Avatar URL            | Struct         |               |
 | Reviewer Email                 | String         |               |
-| Search                         | String         | EQUAL_TO      |
-| Status                         | String         | EQUAL_TO      |
+| Search                         | String         | EQUAL\_TO     |
+| Status                         | String         | EQUAL\_TO     |
 | Verified                       | Boolean        |               |
-| Product Shipping Class         | Context        | String        | EQUAL_TO              |
+| Product Shipping Class         | Context        | String        | EQUAL\_TO             |
 | Count                          | Integer        |               |
 | Description                    | String         |               |
-| Hide Empty                     | Boolean        | EQUAL_TO      |
+| Hide Empty                     | Boolean        | EQUAL\_TO     |
 | ID                             | Integer        |               |
 | Name                           | String         |               |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
-| Product                        | Integer        | EQUAL_TO      |
-| Search                         | String         | EQUAL_TO      |
-| Slug                           | String         | EQUAL_TO      |
-| Product Tag                    | Context        | String        | EQUAL_TO              |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
+| Product                        | Integer        | EQUAL\_TO     |
+| Search                         | String         | EQUAL\_TO     |
+| Slug                           | String         | EQUAL\_TO     |
+| Product Tag                    | Context        | String        | EQUAL\_TO             |
 | Count                          | Integer        |               |
 | Description                    | String         |               |
-| Hide Empty                     | Boolean        | EQUAL_TO      |
+| Hide Empty                     | Boolean        | EQUAL\_TO     |
 | ID                             | Integer        |               |
 | Name                           | String         |               |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
-| Product                        | Integer        | EQUAL_TO      |
-| Search                         | String         | EQUAL_TO      |
-| Slug                           | String         | EQUAL_TO      |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
+| Product                        | Integer        | EQUAL\_TO     |
+| Search                         | String         | EQUAL\_TO     |
+| Slug                           | String         | EQUAL\_TO     |
 | Product Total                  | Name           | String        |                       |
 | Slug                           | String         |               |
 | Total                          | String         |               |
-| Product Variation              | After          | DateTime      | EQUAL_TO              |
+| Product Variation              | After          | DateTime      | EQUAL\_TO             |
 | Backorder                      | String         |               |
 | Backordered                    | Boolean        |               |
 | Backorders Allowed             | Boolean        |               |
-| Before                         | DateTime       | EQUAL_TO      |
-| Context                        | String         | EQUAL_TO      |
+| Before                         | DateTime       | EQUAL\_TO     |
+| Context                        | String         | EQUAL\_TO     |
 | Date Created                   | DateTime       |               |
 | Date Created GMT               | DateTime       |               |
 | Date Modified                  | DateTime       |               |
@@ -401,28 +401,28 @@ following data objects to supported destinations:
 | Image                          | Struct         |               |
 | List of attribute              | List           |               |
 | Low Stock Amount               | Integer        |               |
-| MAX Price                      | String         | EQUAL_TO      |
-| MIN Price                      | String         | EQUAL_TO      |
+| MAX Price                      | String         | EQUAL\_TO     |
+| MIN Price                      | String         | EQUAL\_TO     |
 | Manage Stock                   | Boolean        |               |
 | Menu Order                     | Integer        |               |
 | Meta Data                      | List           |               |
-| On Sale                        | Boolean        | EQUAL_TO      |
-| Order                          | String         | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
+| On Sale                        | Boolean        | EQUAL\_TO     |
+| Order                          | String         | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
 | Permalink                      | String         |               |
 | Price                          | String         |               |
 | Purchasable                    | Boolean        |               |
 | Regular Price                  | String         |               |
 | Sale Price                     | String         |               |
-| Search                         | String         | EQUAL_TO      |
+| Search                         | String         | EQUAL\_TO     |
 | Shipping Class                 | String         |               |
 | Shipping Class ID              | Integer        |               |
-| Sku                            | String         | EQUAL_TO      |
-| Slug                           | String         | EQUAL_TO      |
-| Status                         | String         | EQUAL_TO      |
+| Sku                            | String         | EQUAL\_TO     |
+| Slug                           | String         | EQUAL\_TO     |
+| Status                         | String         | EQUAL\_TO     |
 | Stock Quantity                 | Integer        |               |
-| Stock Status                   | String         | EQUAL_TO      |
-| Tax Class                      | String         | EQUAL_TO      |
+| Stock Status                   | String         | EQUAL\_TO     |
+| Tax Class                      | String         | EQUAL\_TO     |
 | Tax Status                     | String         |               |
 | Virtual                        | Boolean        |               |
 | Weight                         | String         |               |
@@ -432,11 +432,11 @@ following data objects to supported destinations:
 | Slug                           | String         |               |
 | Total                          | String         |               |
 | Sale Report                    | Average Sale   | String        |                       |
-| Context                        | String         | EQUAL_TO      |
-| Date Max                       | Date           | EQUAL_TO      |
-| Date Min                       | Date           | EQUAL_TO      |
+| Context                        | String         | EQUAL\_TO     |
+| Date Max                       | Date           | EQUAL\_TO     |
+| Date Min                       | Date           | EQUAL\_TO     |
 | Net Sale                       | String         |               |
-| Period                         | String         | EQUAL_TO      |
+| Period                         | String         | EQUAL\_TO     |
 | Total                          | Struct         |               |
 | Total Customer                 | Integer        |               |
 | Total Discount                 | Integer        |               |
@@ -450,13 +450,13 @@ following data objects to supported destinations:
 | Shipping Method                | Description    | String        |                       |
 | ID                             | String         |               |
 | Title                          | String         |               |
-| Shipping Zone                  | ID             | Integer       | EQUAL_TO              |
+| Shipping Zone                  | ID             | Integer       | EQUAL\_TO             |
 | Name                           | String         |               |
 | Order                          | Integer        |               |
 | Shipping Zone Location         | Code           | String        |                       |
 | Type                           | String         |               |
 | Shipping Zone Method           | Enabled        | Boolean       |                       |
-| ID                             | Integer        | EQUAL_TO      |
+| ID                             | Integer        | EQUAL\_TO     |
 | Instance ID                    | Integer        |               |
 | Method Description             | String         |               |
 | Method ID                      | String         |               |
@@ -468,24 +468,24 @@ following data objects to supported destinations:
 | Slug                           | String         |               |
 | Tax Rate                       | Cities         | List          |                       |
 | City                           | String         |               |
-| Class                          | String         | EQUAL_TO      |
+| Class                          | String         | EQUAL\_TO     |
 | Compound                       | Boolean        |               |
-| Context                        | String         | EQUAL_TO      |
+| Context                        | String         | EQUAL\_TO     |
 | Country                        | String         |               |
 | ID                             | Integer        |               |
 | Name                           | String         |               |
-| Order                          | Integer        | EQUAL_TO      |
-| Order By                       | String         | EQUAL_TO      |
+| Order                          | Integer        | EQUAL\_TO     |
+| Order By                       | String         | EQUAL\_TO     |
 | Postcode                       | List           |               |
 | Postcode                       | String         |               |
 | Priority                       | Integer        |               |
 | Rate                           | String         |               |
 | Shipping                       | Boolean        |               |
 | State                          | String         |               |
-| Top Seller Report              | Context        | String        | EQUAL_TO              |
-| Date Max                       | Date           | EQUAL_TO      |
-| Date Min                       | Date           | EQUAL_TO      |
+| Top Seller Report              | Context        | String        | EQUAL\_TO             |
+| Date Max                       | Date           | EQUAL\_TO     |
+| Date Min                       | Date           | EQUAL\_TO     |
 | Name                           | String         |               |
-| Period                         | String         | EQUAL_TO      |
+| Period                         | String         | EQUAL\_TO     |
 | Product ID                     | Integer        |               |
 | Quantity                       | Integer        |               |

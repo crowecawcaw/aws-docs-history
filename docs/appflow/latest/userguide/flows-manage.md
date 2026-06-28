@@ -76,17 +76,15 @@ You can cancel any flow that's currently running.
 - Select a flow, and choose **View details**. Then, do either of the
   following:
 
-      + If the page shows a banner about your active flow run, choose **Cancel this
-       flow run** in the banner. If multiple runs are active at the same time, you
-       can cancel all of them.
-      + Choose the **Run history** tab and do the following:
+  - If the page shows a banner about your active flow run, choose **Cancel this
+    flow run** in the banner. If multiple runs are active at the same time, you
+    can cancel all of them.
+  - Choose the **Run history** tab and do the following:
 
-
-      	1. Select the checkbox for the flow run that you want to cancel. You can select
-      	 multiple runs.
-      	2. Choose **Cancel selected flow run**.
-
-  You cannot resume a run after you cancel it.
+    1. Select the checkbox for the flow run that you want to cancel. You can select
+       multiple runs.
+    2. Choose **Cancel selected flow run**.
+       You cannot resume a run after you cancel it.
 
 ###### Note
 

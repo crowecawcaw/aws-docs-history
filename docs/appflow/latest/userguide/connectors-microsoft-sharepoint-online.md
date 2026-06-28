@@ -66,34 +66,28 @@ registration, you must meet these requirements:
   with the Microsoft identity platform](https://learn.microsoft.com/en-us/graph/auth-register-app-v2 "https://learn.microsoft.com/en-us/graph/auth-register-app-v2") in the Microsoft Graph documentation.
 - You've configured your registered app as follows:
 
-      + You've added one or more redirect URLs for Amazon AppFlow.
+  - You've added one or more redirect URLs for Amazon AppFlow.
 
+  Redirect URLs have the following format:
 
-      Redirect URLs have the following format:
+  ```
+  https://`region`.console.aws.amazon.com/appflow/oauth
+  ```
 
+  In this URL, _region_ is the code for the AWS Region
+  where you use Amazon AppFlow to transfer data from Microsoft SharePoint Online. For example, the code for the US East (N. Virginia)
+  Region is `us-east-1`. For that Region, the URL is the following:
 
+  ```
+  https://us-east-1.console.aws.amazon.com/appflow/oauth
+  ```
 
-      ```
-      https://`region`.console.aws.amazon.com/appflow/oauth
-      ```
-
-      In this URL, *region* is the code for the AWS Region
-       where you use Amazon AppFlow to transfer data from Microsoft SharePoint Online. For example, the code for the US East (N. Virginia)
-       Region is `us-east-1`. For that Region, the URL is the following:
-
-
-
-      ```
-      https://us-east-1.console.aws.amazon.com/appflow/oauth
-      ```
-
-      For the AWS Regions that Amazon AppFlow supports, and their codes, see [Amazon AppFlow endpoints and quotas](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md")
-       in the *AWS General Reference.*
-      + You've added the recommended permissions.
-      + You've created a client secret.
-
-  Note the following values from your registered app because you provide them to Amazon AppFlow when
-  you connect to your Sharepoint account:
+  For the AWS Regions that Amazon AppFlow supports, and their codes, see [Amazon AppFlow endpoints and quotas](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md")
+  in the _AWS General Reference._
+  - You've added the recommended permissions.
+  - You've created a client secret.
+    Note the following values from your registered app because you provide them to Amazon AppFlow when
+    you connect to your Sharepoint account:
 
 - Application (client) ID
 - Client secret
@@ -113,12 +107,11 @@ Microsoft Azure portal. Configure your permissions as follows:
   delegated permissions, see [Permission types](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint "https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint") in the Microsoft identity platform documentation.
 - Add the following recommended permissions:
 
-      + `offline_access`
-      + `Sites.Read.All`
-      + `User.Read`
-
-  For information about these permissions, see the [Microsoft Graph
-  permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference "https://learn.microsoft.com/en-us/graph/permissions-reference") in the Microsoft Graph documentation.
+  - `offline_access`
+  - `Sites.Read.All`
+  - `User.Read`
+    For information about these permissions, see the [Microsoft Graph
+    permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference "https://learn.microsoft.com/en-us/graph/permissions-reference") in the Microsoft Graph documentation.
 
 ## Connecting Amazon AppFlow to your Microsoft SharePoint Online account
 
@@ -263,11 +256,11 @@ apply to the document type.
 | Entity Tag             | String        |                       |
 | File                   | Struct        |                       |
 | File System Info       | Struct        |                       |
-| File Type              | String        | EQUAL_TO              |
+| File Type              | String        | EQUAL\_TO             |
 | Id                     | String        |                       |
 | Image                  | Struct        |                       |
 | Last Modified By       | Struct        |                       |
-| Last Modified DateTime | DateTime      | GREATER_THAN          |
+| Last Modified DateTime | DateTime      | GREATER\_THAN         |
 | Location               | Struct        |                       |
 | Malware                | Struct        |                       |
 | Name                   | String        |                       |

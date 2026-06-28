@@ -51,10 +51,9 @@ Amazon Lookout for Metrics currently supports the following scheduling options:
     * If the source supports days: you can run the flow once a day by selecting
      **1** from the **Every** dropdown list.
 
-9. Choose **Next**.
-10. Under **Source to destination field mapping**, go to the **Source
-    field name** dropdown list and choose **Map all fields directly**.
-    Alternatively, you can manually select the fields that you want to use from the list.
+9. Choose **Next**. 10. Under **Source to destination field mapping**, go to the **Source
+field name** dropdown list and choose **Map all fields directly**.
+Alternatively, you can manually select the fields that you want to use from the list.
 
 ###### Note
 

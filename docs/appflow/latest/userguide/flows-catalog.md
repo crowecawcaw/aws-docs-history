@@ -91,12 +91,13 @@ console.
 
 5. When you've configured the Data Catalog settings, do either of the following:
 
-   - If you are creating a flow, work through the remaining flow creation steps in the
+    * If you are creating a flow, work through the remaining flow creation steps in the
      console. For all of the steps to create a flow, see [Create a flow using the AWS console](create-flow-console.md "create-flow-console.md").
-   - If you are editing a flow, choose **Save**.With this Data Catalog configuration, Amazon AppFlow stores metadata about the flow output each time
-     that the flow runs. To view this metadata, open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/"). In the
-     AWS Glue console, you can choose **Databases** and **Tables** in
-     the navigation pane to view the Data Catalog databases and tables that Amazon AppFlow creates.
+    * If you are editing a flow, choose **Save**.With this Data Catalog configuration, Amazon AppFlow stores metadata about the flow output each time
+
+that the flow runs. To view this metadata, open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/"). In the
+AWS Glue console, you can choose **Databases** and **Tables** in
+the navigation pane to view the Data Catalog databases and tables that Amazon AppFlow creates.
 
 ## Data Catalog table names
 
@@ -105,7 +106,7 @@ Amazon AppFlow creates metadata tables in the Data Catalog in several different 
 To query the latest data output from your flow, use the table with the name that appears in
 the following format:
 
-- ``prefix`_appflow_`flow-name`\_`timestamp`\_latest`
+- ``prefix`_appflow_`flow-name`_`timestamp`_latest`
 
 Amazon AppFlow updates this table continuously with the metadata from the most recent flow
 run.
@@ -182,7 +183,7 @@ The flow that transfers the example dataset has the following configuration unde
 #### Example Data Catalog table
 
 When the flow runs, Amazon AppFlow creates tables in the database named example-database. One of
-these tables is named example-prefix_appflow_exampleflow_1668036146_latest.Amazon AppFlow updates this
+these tables is named example-prefix\_appflow\_exampleflow\_1668036146\_latest.Amazon AppFlow updates this
 table every time the flow runs. You can view the tables that Amazon AppFlow creates for your flows in
 the Data Catalog console.
 

@@ -36,31 +36,30 @@ your Braintree account for Amazon AppFlow integration, see [Before you begin](#b
 
 ###### To connect to Braintree
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  In the navigation pane on the left, choose **Connections**.
-3.  On the **Manage connections** page, for **Connectors**,
-    choose **Braintree**.
-4.  Choose **Create connection**.
-5.  In the **Connect to Braintree** window, enter the following
-    information:
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. In the navigation pane on the left, choose **Connections**.
+3. On the **Manage connections** page, for **Connectors**,
+   choose **Braintree**.
+4. Choose **Create connection**.
+5. In the **Connect to Braintree** window, enter the following
+   information:
 
-    - **Public Key** – The public key value from the API key in your
-      Braintree account.
-    - **Private Key** – The private key value from the API key in your
-      Braintree account.
-    - **Braintree Instance Url** – Choose one of the following:
+   - **Public Key** – The public key value from the API key in your
+     Braintree account.
+   - **Private Key** – The private key value from the API key in your
+     Braintree account.
+   - **Braintree Instance Url** – Choose one of the following:
 
-          + **https://payments.braintree-api.com/graphql** – Connects to
-           the Braintree production environment.
-          + **https://payments.sandbox.braintree-api.com/graphql** –
-           Connects to the Braintree sandbox environment.
+     - **https://payments.braintree-api.com/graphql** – Connects to
+       the Braintree production environment.
+     - **https://payments.sandbox.braintree-api.com/graphql** –
+       Connects to the Braintree sandbox environment.
+       For more information about these environments, see [Try It
+       Out](https://developer.paypal.com/braintree/articles/get-started/try-it-out "https://developer.paypal.com/braintree/articles/get-started/try-it-out") in the Braintree documentation.
 
-      For more information about these environments, see [Try It
-      Out](https://developer.paypal.com/braintree/articles/get-started/try-it-out "https://developer.paypal.com/braintree/articles/get-started/try-it-out") in the Braintree documentation.
-
-6.  Optionally, under **Data encryption**, choose **Customize
-    encryption settings (advanced)** if you want to encrypt your data with a customer
-    managed key in the AWS Key Management Service (AWS KMS).
+6. Optionally, under **Data encryption**, choose **Customize
+   encryption settings (advanced)** if you want to encrypt your data with a customer
+   managed key in the AWS Key Management Service (AWS KMS).
 
 By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages
 for you. Choose this option if you want to encrypt your data with your own KMS key instead.

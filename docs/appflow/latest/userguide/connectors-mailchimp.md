@@ -104,155 +104,155 @@ When you create a flow that uses Mailchimp as the data source, you can set the d
 When you create a flow that uses Mailchimp as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**              | **Field**      | **Data type**           | **Supported filters**   |
-| ----------------------- | -------------- | ----------------------- | ----------------------- |
-| Abuse Report            | Campaign ID    | String                  |                         |
-| Date                    | String         |                         |
-| Email Address           | String         |                         |
-| Email ID                | String         |                         |
-| ID                      | Integer        |                         |
-| List ID                 | String         |                         |
-| List Is Active          | Boolean        |                         |
-| Merge Field             | Struct         |                         |
-| Vip                     | Boolean        |                         |
-| Automation              | Create Time    | DateTime                | LESS_THAN, GREATER_THAN |
-| Email Sent              | Integer        |                         |
-| ID                      | String         |                         |
-| Recipient               | Struct         |                         |
-| Report Summary          | Struct         |                         |
-| Setting                 | Struct         |                         |
-| Start Time              | DateTime       | LESS_THAN, GREATER_THAN |
-| Status                  | String         | EQUAL_TO                |
-| Tracking                | Struct         |                         |
-| Trigger Setting         | Struct         |                         |
-| Campaign                | Ab Split Opts  | Struct                  |                         |
-| Archive Url             | String         |                         |
-| Content Type            | String         |                         |
-| Create Time             | DateTime       | LESS_THAN, GREATER_THAN |
-| Delivery Status         | Struct         |                         |
-| Email Sent              | Integer        |                         |
-| Folder ID               | String         | EQUAL_TO                |
-| ID                      | String         |                         |
-| List ID                 | String         | EQUAL_TO                |
-| Long Archive Url        | String         |                         |
-| Member ID               | String         | EQUAL_TO                |
-| Need Block Refresh      | Boolean        |                         |
-| Parent Campaign ID      | String         |                         |
-| Recipient               | Struct         |                         |
-| Report Summary          | Struct         |                         |
-| Resendable              | Boolean        |                         |
-| Rss Opts                | Struct         |                         |
-| Send Time               | DateTime       | LESS_THAN, GREATER_THAN |
-| Setting                 | Struct         |                         |
-| Social Card             | Struct         |                         |
-| Sort Field              | String         | EQUAL_TO                |
-| Status                  | String         | EQUAL_TO                |
-| Tracking                | Struct         |                         |
-| Type                    | String         | EQUAL_TO                |
-| Variate Settings        | Struct         |                         |
-| Web ID                  | Integer        |                         |
-| Click Detail            | Ab Split       | Struct                  |                         |
-| Campaign ID             | String         |                         |
-| Click Percentage        | Float          |                         |
-| ID                      | String         |                         |
-| Last Click              | String         |                         |
-| Total Click             | Integer        |                         |
-| Unique Click            | Integer        |                         |
-| Unique Click Percentage | Float          |                         |
-| Url                     | String         |                         |
-| List                    | Beamer Address | String                  |                         |
-| Campaign Default        | Struct         |                         |
-| Campaign Last Sent      | DateTime       | LESS_THAN, GREATER_THAN |
-| Contact                 | Struct         |                         |
-| Date Created            | DateTime       | LESS_THAN, GREATER_THAN |
-| Double Optin            | Boolean        |                         |
-| Email                   | String         | EQUAL_TO                |
-| Email Type Option       | Boolean        |                         |
-| Has Ecommerce Store     | Boolean        | EQUAL_TO                |
-| Has Welcome             | Boolean        |                         |
-| ID                      | String         |                         |
-| Include Total Contact   | Boolean        | EQUAL_TO                |
-| List Rating             | Integer        |                         |
-| Marketing Permission    | Boolean        |                         |
-| Module                  | Struct         |                         |
-| Name                    | String         |                         |
-| Notify On Subscribe     | String         |                         |
-| Notify On Unsubscribe   | String         |                         |
-| Permission Reminder     | String         |                         |
-| Sort Field              | String         | EQUAL_TO                |
-| Stats                   | Struct         |                         |
-| Subscribe Url Short     | String         |                         |
-| Use Archive Bar         | Boolean        |                         |
-| Visibility              | String         |                         |
-| Web_ID                  | Integer        |                         |
-| subscribe Url Long      | String         |                         |
-| Open Detail             | Campaign ID    | String                  |                         |
-| Contact Status          | String         |                         |
-| Email Address           | String         |                         |
-| Email ID                | String         |                         |
-| List ID                 | String         |                         |
-| List is Active          | Boolean        |                         |
-| Merge Field             | Struct         |                         |
-| Open                    | Struct         |                         |
-| Open Count              | Integer        |                         |
-| Since                   | DateTime       | EQUAL_TO                |
-| Vip                     | Boolean        |                         |
-| Segment                 | Created At     | DateTime                | LESS_THAN, GREATER_THAN |
-| ID                      | Integer        |                         |
-| Include Cleaned         | Boolean        | EQUAL_TO                |
-| Include Unsubscribed    | Boolean        | EQUAL_TO                |
-| List ID                 | String         |                         |
-| Member Count            | Integer        |                         |
-| Name                    | String         |                         |
-| Option                  | Struct         |                         |
-| Type                    | String         | EQUAL_TO                |
-| Updated At              | DateTime       | LESS_THAN, GREATER_THAN |
-| Segment Member          | Email Address  | String                  |                         |
-| Email Client            | String         |                         |
-| Email Type              | String         |                         |
-| ID                      | String         |                         |
-| Include Cleaned         | Boolean        | EQUAL_TO                |
-| Include Unsubscribed    | Boolean        | EQUAL_TO                |
-| Interest                | Struct         |                         |
-| Ip Opt                  | String         |                         |
-| Ip Signup               | String         |                         |
-| Language                | String         |                         |
-| Last Changed            | String         |                         |
-| Last Note               | Struct         |                         |
-| List ID                 | String         |                         |
-| Location                | Struct         |                         |
-| Member Rating           | Integer        |                         |
-| Merge Field             | Struct         |                         |
-| Stats                   | Struct         |                         |
-| Status                  | String         |                         |
-| Timestamp Opt           | String         |                         |
-| Timestamp Signup        | String         |                         |
-| Unique Email ID         | String         |                         |
-| Vip                     | Boolean        |                         |
-| Store                   | Address        | Struct                  |                         |
-| Automation              | Struct         |                         |
-| Connected Site          | Struct         |                         |
-| Created At              | String         |                         |
-| Currency Code           | String         |                         |
-| Domain                  | String         |                         |
-| Email Address           | String         |                         |
-| ID                      | String         |                         |
-| Is Syncing              | Boolean        |                         |
-| List ID                 | String         |                         |
-| List Is Active          | Boolean        |                         |
-| Money Format            | String         |                         |
-| Name                    | String         |                         |
-| Phone                   | String         |                         |
-| Platform                | String         |                         |
-| Primary Locale          | String         |                         |
-| Timezone                | String         |                         |
-| Updated At              | String         |                         |
-| Unsubscribed            | Campaign ID    | String                  |                         |
-| Email Address           | String         |                         |
-| Email ID                | String         |                         |
-| List ID                 | String         |                         |
-| List Is Active          | Boolean        |                         |
-| Merge Field             | Struct         |                         |
-| Reason                  | String         |                         |
-| Timestamp               | String         |                         |
-| Vip                     | Boolean        |                         |
+| **Object**              | **Field**      | **Data type**             | **Supported filters**     |
+| ----------------------- | -------------- | ------------------------- | ------------------------- |
+| Abuse Report            | Campaign ID    | String                    |                           |
+| Date                    | String         |                           |
+| Email Address           | String         |                           |
+| Email ID                | String         |                           |
+| ID                      | Integer        |                           |
+| List ID                 | String         |                           |
+| List Is Active          | Boolean        |                           |
+| Merge Field             | Struct         |                           |
+| Vip                     | Boolean        |                           |
+| Automation              | Create Time    | DateTime                  | LESS\_THAN, GREATER\_THAN |
+| Email Sent              | Integer        |                           |
+| ID                      | String         |                           |
+| Recipient               | Struct         |                           |
+| Report Summary          | Struct         |                           |
+| Setting                 | Struct         |                           |
+| Start Time              | DateTime       | LESS\_THAN, GREATER\_THAN |
+| Status                  | String         | EQUAL\_TO                 |
+| Tracking                | Struct         |                           |
+| Trigger Setting         | Struct         |                           |
+| Campaign                | Ab Split Opts  | Struct                    |                           |
+| Archive Url             | String         |                           |
+| Content Type            | String         |                           |
+| Create Time             | DateTime       | LESS\_THAN, GREATER\_THAN |
+| Delivery Status         | Struct         |                           |
+| Email Sent              | Integer        |                           |
+| Folder ID               | String         | EQUAL\_TO                 |
+| ID                      | String         |                           |
+| List ID                 | String         | EQUAL\_TO                 |
+| Long Archive Url        | String         |                           |
+| Member ID               | String         | EQUAL\_TO                 |
+| Need Block Refresh      | Boolean        |                           |
+| Parent Campaign ID      | String         |                           |
+| Recipient               | Struct         |                           |
+| Report Summary          | Struct         |                           |
+| Resendable              | Boolean        |                           |
+| Rss Opts                | Struct         |                           |
+| Send Time               | DateTime       | LESS\_THAN, GREATER\_THAN |
+| Setting                 | Struct         |                           |
+| Social Card             | Struct         |                           |
+| Sort Field              | String         | EQUAL\_TO                 |
+| Status                  | String         | EQUAL\_TO                 |
+| Tracking                | Struct         |                           |
+| Type                    | String         | EQUAL\_TO                 |
+| Variate Settings        | Struct         |                           |
+| Web ID                  | Integer        |                           |
+| Click Detail            | Ab Split       | Struct                    |                           |
+| Campaign ID             | String         |                           |
+| Click Percentage        | Float          |                           |
+| ID                      | String         |                           |
+| Last Click              | String         |                           |
+| Total Click             | Integer        |                           |
+| Unique Click            | Integer        |                           |
+| Unique Click Percentage | Float          |                           |
+| Url                     | String         |                           |
+| List                    | Beamer Address | String                    |                           |
+| Campaign Default        | Struct         |                           |
+| Campaign Last Sent      | DateTime       | LESS\_THAN, GREATER\_THAN |
+| Contact                 | Struct         |                           |
+| Date Created            | DateTime       | LESS\_THAN, GREATER\_THAN |
+| Double Optin            | Boolean        |                           |
+| Email                   | String         | EQUAL\_TO                 |
+| Email Type Option       | Boolean        |                           |
+| Has Ecommerce Store     | Boolean        | EQUAL\_TO                 |
+| Has Welcome             | Boolean        |                           |
+| ID                      | String         |                           |
+| Include Total Contact   | Boolean        | EQUAL\_TO                 |
+| List Rating             | Integer        |                           |
+| Marketing Permission    | Boolean        |                           |
+| Module                  | Struct         |                           |
+| Name                    | String         |                           |
+| Notify On Subscribe     | String         |                           |
+| Notify On Unsubscribe   | String         |                           |
+| Permission Reminder     | String         |                           |
+| Sort Field              | String         | EQUAL\_TO                 |
+| Stats                   | Struct         |                           |
+| Subscribe Url Short     | String         |                           |
+| Use Archive Bar         | Boolean        |                           |
+| Visibility              | String         |                           |
+| Web\_ID                 | Integer        |                           |
+| subscribe Url Long      | String         |                           |
+| Open Detail             | Campaign ID    | String                    |                           |
+| Contact Status          | String         |                           |
+| Email Address           | String         |                           |
+| Email ID                | String         |                           |
+| List ID                 | String         |                           |
+| List is Active          | Boolean        |                           |
+| Merge Field             | Struct         |                           |
+| Open                    | Struct         |                           |
+| Open Count              | Integer        |                           |
+| Since                   | DateTime       | EQUAL\_TO                 |
+| Vip                     | Boolean        |                           |
+| Segment                 | Created At     | DateTime                  | LESS\_THAN, GREATER\_THAN |
+| ID                      | Integer        |                           |
+| Include Cleaned         | Boolean        | EQUAL\_TO                 |
+| Include Unsubscribed    | Boolean        | EQUAL\_TO                 |
+| List ID                 | String         |                           |
+| Member Count            | Integer        |                           |
+| Name                    | String         |                           |
+| Option                  | Struct         |                           |
+| Type                    | String         | EQUAL\_TO                 |
+| Updated At              | DateTime       | LESS\_THAN, GREATER\_THAN |
+| Segment Member          | Email Address  | String                    |                           |
+| Email Client            | String         |                           |
+| Email Type              | String         |                           |
+| ID                      | String         |                           |
+| Include Cleaned         | Boolean        | EQUAL\_TO                 |
+| Include Unsubscribed    | Boolean        | EQUAL\_TO                 |
+| Interest                | Struct         |                           |
+| Ip Opt                  | String         |                           |
+| Ip Signup               | String         |                           |
+| Language                | String         |                           |
+| Last Changed            | String         |                           |
+| Last Note               | Struct         |                           |
+| List ID                 | String         |                           |
+| Location                | Struct         |                           |
+| Member Rating           | Integer        |                           |
+| Merge Field             | Struct         |                           |
+| Stats                   | Struct         |                           |
+| Status                  | String         |                           |
+| Timestamp Opt           | String         |                           |
+| Timestamp Signup        | String         |                           |
+| Unique Email ID         | String         |                           |
+| Vip                     | Boolean        |                           |
+| Store                   | Address        | Struct                    |                           |
+| Automation              | Struct         |                           |
+| Connected Site          | Struct         |                           |
+| Created At              | String         |                           |
+| Currency Code           | String         |                           |
+| Domain                  | String         |                           |
+| Email Address           | String         |                           |
+| ID                      | String         |                           |
+| Is Syncing              | Boolean        |                           |
+| List ID                 | String         |                           |
+| List Is Active          | Boolean        |                           |
+| Money Format            | String         |                           |
+| Name                    | String         |                           |
+| Phone                   | String         |                           |
+| Platform                | String         |                           |
+| Primary Locale          | String         |                           |
+| Timezone                | String         |                           |
+| Updated At              | String         |                           |
+| Unsubscribed            | Campaign ID    | String                    |                           |
+| Email Address           | String         |                           |
+| Email ID                | String         |                           |
+| List ID                 | String         |                           |
+| List Is Active          | Boolean        |                           |
+| Merge Field             | Struct         |                           |
+| Reason                  | String         |                           |
+| Timestamp               | String         |                           |
+| Vip                     | Boolean        |                           |

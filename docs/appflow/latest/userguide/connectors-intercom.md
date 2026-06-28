@@ -50,7 +50,7 @@ in the _AWS General Reference._
 
 You must add your connecting profile region redirect URL (or URLs) to the list of redirect URLs in your Intercom app. If you don’t make this addition, the app defaults to the first redirect URL in the list, and your connection will fail. For more information, see
 [Redirect URLs](https://developers.intercom.com/docs/build-an-integration/learn-more/authentication/setting-up-oauth/#redirect-urls " https://developers.intercom.com/docs/build-an-integration/learn-more/authentication/setting-up-oauth/#redirect-urls ")  
- in the Intercom Developer Platform Help Center.
+in the Intercom Developer Platform Help Center.
 
 From the settings for your app, note the client ID and client Secret. You provide these
 values to Amazon AppFlow when you connect to your Intercom account.
@@ -79,7 +79,7 @@ your Intercom account for Amazon AppFlow integration, see [Before you begin](#in
      app.
    - **Client secret** — The client secret from your
      Intercom app.
-   - \***\*Instance URL\*\*** — Choose the
+   - ****Instance URL**** — Choose the
      URL based on the data host region where you use Intercom (Europe, US,
      Australia).
 
@@ -135,178 +135,178 @@ When you create a flow that uses Intercom as the data source, you can set the de
 When you create a flow that uses Intercom as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                     | **Field**         | **Data type**                                   | **Supported filters**                           |
-| ------------------------------ | ----------------- | ----------------------------------------------- | ----------------------------------------------- |
-| Admin                          | Avatar            | Struct                                          |                                                 |
-| Away Mode Enabled              | Boolean           |                                                 |
-| Away Mode Reassign             | Boolean           |                                                 |
-| Email                          | String            |                                                 |
-| Has Inbox Seat                 | Boolean           |                                                 |
-| Id                             | String            |                                                 |
-| Job Title                      | String            |                                                 |
-| Name                           | String            |                                                 |
-| Team Ids                       | List              |                                                 |
-| Type                           | String            |                                                 |
-| Company                        | App Id            | String                                          |                                                 |
-| Company Id                     | String            |                                                 |
-| Created At                     | Date              |                                                 |
-| Custom Attributes              | Struct            |                                                 |
-| Id                             | String            |                                                 |
-| Industry                       | String            |                                                 |
-| Last Request At                | Date              |                                                 |
-| Monthly Spend                  | Integer           |                                                 |
-| Name                           | String            |                                                 |
-| Plan                           | Struct            |                                                 |
-| Remote Created At              | Date              |                                                 |
-| Segments                       | Struct            |                                                 |
-| Session Count                  | Integer           |                                                 |
-| Size                           | Integer           |                                                 |
-| Tags                           | Struct            |                                                 |
-| Type                           | String            |                                                 |
-| Updated At                     | Date              |                                                 |
-| User Count                     | Integer           |                                                 |
-| Website                        | String            |                                                 |
-| Contact                        | Android App Name  | String                                          | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Android App Version            | String            |                                                 |
-| Android Device                 | String            |                                                 |
-| Android Last Seen At           | Date              |                                                 |
-| Android Os Version             | String            |                                                 |
-| Android Sdk Version            | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Avatar                         | String            |                                                 |
-| Browser                        | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Browser Language               | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Browser Version                | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| City                           | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Companies                      | List              |                                                 |
-| Country                        | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Created At                     | Date              | GREATER_THAN, LESS_THAN, EQUAL_TO               |
-| Custom Attributes              | Struct            |                                                 |
-| Email                          | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| External Id                    | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Has Hard Bounced               | Boolean           | EQUAL_TO                                        |
-| Id                             | String            | EQUAL_TO, NOT_EQUAL_TO                          |
-| Ios App Name                   | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Ios App Version                | String            |                                                 |
-| Ios Device                     | String            |                                                 |
-| Ios Last Seen At               | Date              |                                                 |
-| Ios Os Version                 | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Ios Sdk Version                | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Language Override              | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Last Contacted At              | Date              | GREATER_THAN, LESS_THAN, EQUAL_TO               |
-| Last Email Clicked At          | Date              | GREATER_THAN, LESS_THAN, EQUAL_TO               |
-| Last Email Opened At           | Date              | GREATER_THAN, LESS_THAN, EQUAL_TO               |
-| Last Replied At                | Date              | GREATER_THAN, LESS_THAN, EQUAL_TO               |
-| Last Seen At                   | Date              | GREATER_THAN, LESS_THAN, EQUAL_TO               |
-| Location                       | Struct            |                                                 |
-| Marked Email As Spam           | Boolean           | EQUAL_TO                                        |
-| Name                           | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Notes                          | List              |                                                 |
-| Opted Out Subscription Types   | Struct            |                                                 |
-| Os                             | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Owner Id                       | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Phone                          | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Referrer                       | Struct            |                                                 |
-| Region                         | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Role                           | String            | EQUAL_TO, NOT_EQUAL_TO                          |
-| SMS Content                    | Boolean           |                                                 |
-| Signed Up At                   | Date              | GREATER_THAN, LESS_THAN, EQUAL_TO               |
-| Social Profiles                | List              |                                                 |
-| Tags                           | List              |                                                 |
-| Type                           | String            |                                                 |
-| Unsubscribed From Emails       | Boolean           | EQUAL_TO                                        |
-| Unsubscribed From SMS          | Boolean           |                                                 |
-| Updated At                     | Date              | GREATER_THAN, LESS_THAN, EQUAL_TO               |
-| Utm Campaign                   | String            |                                                 |
-| Utm Content                    | String            |                                                 |
-| Utm Medium                     | String            |                                                 |
-| Utm Source                     | String            |                                                 |
-| Utm Term                       | String            |                                                 |
-| Workspace Id                   | String            |                                                 |
-| Conversation                   | Admin Assignee Id | Integer                                         | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Contacts                       | List              |                                                 |
-| Conversation Parts             | List              |                                                 |
-| Conversation Rating            | Struct            |                                                 |
-| Count assignments              | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Count conversation parts       | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Count reopens                  | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Created At                     | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Custom Attributes              | Struct            |                                                 |
-| First Contact Reply            | Struct            |                                                 |
-| First admin reply at           | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| First assignment at            | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| First close at                 | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| First contact reply at         | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Id                             | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Last admin reply at            | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Last assignment admin reply at | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Last assignment at             | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Last close at                  | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Last closed by Id              | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Last contact reply at          | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Median time to reply           | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Open                           | Boolean           | EQUAL_TO                                        |
-| Priority                       | String            | EQUAL_TO, NOT_EQUAL_TO                          |
-| Rating admin id                | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Rating contact id              | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Rating remark                  | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Rating requested at            | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Rating requested at            | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Rating score                   | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Read                           | Boolean           | EQUAL_TO                                        |
-| Sla Applied                    | Struct            |                                                 |
-| Snoozed Until                  | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Source                         | Struct            |                                                 |
-| Source Id                      | String            | EQUAL_TO, NOT_EQUAL_TO                          |
-| Source author email            | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Source author id               | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Source author name             | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Source author type             | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Source body                    | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Source delivered as            | String            | EQUAL_TO, NOT_EQUAL_TO                          |
-| Source subject                 | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Source type                    | String            | EQUAL_TO, NOT_EQUAL_TO                          |
-| Source url                     | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| State                          | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Statistics                     | Struct            |                                                 |
-| Tags                           | List              |                                                 |
-| Team Assignee Id               | String            | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Teammates                      | List              |                                                 |
-| Time to admin reply            | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Time to assignment             | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Time to first close            | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Time to last close             | Integer           | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Title                          | String            |                                                 |
-| Topics                         | List              |                                                 |
-| Type                           | String            |                                                 |
-| Updated At                     | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Waiting Since                  | DateTime          | GREATER_THAN, LESS_THAN, EQUAL_TO, NOT_EQUAL_TO |
-| Data Attribute                 | Admin Id          | String                                          |                                                 |
-| Api Writable                   | Boolean           |                                                 |
-| Archived                       | Boolean           |                                                 |
-| Created At                     | Date              |                                                 |
-| Custom                         | Boolean           |                                                 |
-| Data Type                      | String            |                                                 |
-| Description                    | String            |                                                 |
-| Full Name                      | String            |                                                 |
-| Id                             | Integer           |                                                 |
-| Label                          | String            |                                                 |
-| Model                          | String            |                                                 |
-| Name                           | String            |                                                 |
-| Options                        | List              |                                                 |
-| Type                           | String            |                                                 |
-| Ui Writable                    | Boolean           |                                                 |
-| Updated At                     | Date              |                                                 |
-| Segment                        | Count             | Integer                                         |                                                 |
-| Created At                     | Date              |                                                 |
-| Id                             | String            |                                                 |
-| Name                           | String            |                                                 |
-| Person Type                    | String            |                                                 |
-| Type                           | String            |                                                 |
-| Updated At                     | Date              |                                                 |
-| Tag                            | Id                | String                                          |                                                 |
-| Name                           | String            |                                                 |
-| Type                           | String            |                                                 |
-| Team                           | Admin Ids         | List                                            |                                                 |
-| Id                             | String            |                                                 |
-| Name                           | String            |                                                 |
-| Type                           | String            |                                                 |
+| **Object**                     | **Field**         | **Data type**                                        | **Supported filters**                                |
+| ------------------------------ | ----------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| Admin                          | Avatar            | Struct                                               |                                                      |
+| Away Mode Enabled              | Boolean           |                                                      |
+| Away Mode Reassign             | Boolean           |                                                      |
+| Email                          | String            |                                                      |
+| Has Inbox Seat                 | Boolean           |                                                      |
+| Id                             | String            |                                                      |
+| Job Title                      | String            |                                                      |
+| Name                           | String            |                                                      |
+| Team Ids                       | List              |                                                      |
+| Type                           | String            |                                                      |
+| Company                        | App Id            | String                                               |                                                      |
+| Company Id                     | String            |                                                      |
+| Created At                     | Date              |                                                      |
+| Custom Attributes              | Struct            |                                                      |
+| Id                             | String            |                                                      |
+| Industry                       | String            |                                                      |
+| Last Request At                | Date              |                                                      |
+| Monthly Spend                  | Integer           |                                                      |
+| Name                           | String            |                                                      |
+| Plan                           | Struct            |                                                      |
+| Remote Created At              | Date              |                                                      |
+| Segments                       | Struct            |                                                      |
+| Session Count                  | Integer           |                                                      |
+| Size                           | Integer           |                                                      |
+| Tags                           | Struct            |                                                      |
+| Type                           | String            |                                                      |
+| Updated At                     | Date              |                                                      |
+| User Count                     | Integer           |                                                      |
+| Website                        | String            |                                                      |
+| Contact                        | Android App Name  | String                                               | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Android App Version            | String            |                                                      |
+| Android Device                 | String            |                                                      |
+| Android Last Seen At           | Date              |                                                      |
+| Android Os Version             | String            |                                                      |
+| Android Sdk Version            | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Avatar                         | String            |                                                      |
+| Browser                        | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Browser Language               | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Browser Version                | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| City                           | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Companies                      | List              |                                                      |
+| Country                        | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Created At                     | Date              | GREATER\_THAN, LESS\_THAN, EQUAL\_TO                 |
+| Custom Attributes              | Struct            |                                                      |
+| Email                          | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| External Id                    | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Has Hard Bounced               | Boolean           | EQUAL\_TO                                            |
+| Id                             | String            | EQUAL\_TO, NOT\_EQUAL\_TO                            |
+| Ios App Name                   | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Ios App Version                | String            |                                                      |
+| Ios Device                     | String            |                                                      |
+| Ios Last Seen At               | Date              |                                                      |
+| Ios Os Version                 | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Ios Sdk Version                | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Language Override              | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Last Contacted At              | Date              | GREATER\_THAN, LESS\_THAN, EQUAL\_TO                 |
+| Last Email Clicked At          | Date              | GREATER\_THAN, LESS\_THAN, EQUAL\_TO                 |
+| Last Email Opened At           | Date              | GREATER\_THAN, LESS\_THAN, EQUAL\_TO                 |
+| Last Replied At                | Date              | GREATER\_THAN, LESS\_THAN, EQUAL\_TO                 |
+| Last Seen At                   | Date              | GREATER\_THAN, LESS\_THAN, EQUAL\_TO                 |
+| Location                       | Struct            |                                                      |
+| Marked Email As Spam           | Boolean           | EQUAL\_TO                                            |
+| Name                           | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Notes                          | List              |                                                      |
+| Opted Out Subscription Types   | Struct            |                                                      |
+| Os                             | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Owner Id                       | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Phone                          | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Referrer                       | Struct            |                                                      |
+| Region                         | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Role                           | String            | EQUAL\_TO, NOT\_EQUAL\_TO                            |
+| SMS Content                    | Boolean           |                                                      |
+| Signed Up At                   | Date              | GREATER\_THAN, LESS\_THAN, EQUAL\_TO                 |
+| Social Profiles                | List              |                                                      |
+| Tags                           | List              |                                                      |
+| Type                           | String            |                                                      |
+| Unsubscribed From Emails       | Boolean           | EQUAL\_TO                                            |
+| Unsubscribed From SMS          | Boolean           |                                                      |
+| Updated At                     | Date              | GREATER\_THAN, LESS\_THAN, EQUAL\_TO                 |
+| Utm Campaign                   | String            |                                                      |
+| Utm Content                    | String            |                                                      |
+| Utm Medium                     | String            |                                                      |
+| Utm Source                     | String            |                                                      |
+| Utm Term                       | String            |                                                      |
+| Workspace Id                   | String            |                                                      |
+| Conversation                   | Admin Assignee Id | Integer                                              | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Contacts                       | List              |                                                      |
+| Conversation Parts             | List              |                                                      |
+| Conversation Rating            | Struct            |                                                      |
+| Count assignments              | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Count conversation parts       | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Count reopens                  | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Created At                     | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Custom Attributes              | Struct            |                                                      |
+| First Contact Reply            | Struct            |                                                      |
+| First admin reply at           | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| First assignment at            | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| First close at                 | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| First contact reply at         | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Id                             | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Last admin reply at            | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Last assignment admin reply at | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Last assignment at             | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Last close at                  | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Last closed by Id              | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Last contact reply at          | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Median time to reply           | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Open                           | Boolean           | EQUAL\_TO                                            |
+| Priority                       | String            | EQUAL\_TO, NOT\_EQUAL\_TO                            |
+| Rating admin id                | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Rating contact id              | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Rating remark                  | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Rating requested at            | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Rating requested at            | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Rating score                   | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Read                           | Boolean           | EQUAL\_TO                                            |
+| Sla Applied                    | Struct            |                                                      |
+| Snoozed Until                  | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Source                         | Struct            |                                                      |
+| Source Id                      | String            | EQUAL\_TO, NOT\_EQUAL\_TO                            |
+| Source author email            | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Source author id               | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Source author name             | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Source author type             | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Source body                    | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Source delivered as            | String            | EQUAL\_TO, NOT\_EQUAL\_TO                            |
+| Source subject                 | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Source type                    | String            | EQUAL\_TO, NOT\_EQUAL\_TO                            |
+| Source url                     | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| State                          | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Statistics                     | Struct            |                                                      |
+| Tags                           | List              |                                                      |
+| Team Assignee Id               | String            | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Teammates                      | List              |                                                      |
+| Time to admin reply            | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Time to assignment             | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Time to first close            | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Time to last close             | Integer           | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Title                          | String            |                                                      |
+| Topics                         | List              |                                                      |
+| Type                           | String            |                                                      |
+| Updated At                     | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Waiting Since                  | DateTime          | GREATER\_THAN, LESS\_THAN, EQUAL\_TO, NOT\_EQUAL\_TO |
+| Data Attribute                 | Admin Id          | String                                               |                                                      |
+| Api Writable                   | Boolean           |                                                      |
+| Archived                       | Boolean           |                                                      |
+| Created At                     | Date              |                                                      |
+| Custom                         | Boolean           |                                                      |
+| Data Type                      | String            |                                                      |
+| Description                    | String            |                                                      |
+| Full Name                      | String            |                                                      |
+| Id                             | Integer           |                                                      |
+| Label                          | String            |                                                      |
+| Model                          | String            |                                                      |
+| Name                           | String            |                                                      |
+| Options                        | List              |                                                      |
+| Type                           | String            |                                                      |
+| Ui Writable                    | Boolean           |                                                      |
+| Updated At                     | Date              |                                                      |
+| Segment                        | Count             | Integer                                              |                                                      |
+| Created At                     | Date              |                                                      |
+| Id                             | String            |                                                      |
+| Name                           | String            |                                                      |
+| Person Type                    | String            |                                                      |
+| Type                           | String            |                                                      |
+| Updated At                     | Date              |                                                      |
+| Tag                            | Id                | String                                               |                                                      |
+| Name                           | String            |                                                      |
+| Type                           | String            |                                                      |
+| Team                           | Admin Ids         | List                                                 |                                                      |
+| Id                             | String            |                                                      |
+| Name                           | String            |                                                      |
+| Type                           | String            |                                                      |

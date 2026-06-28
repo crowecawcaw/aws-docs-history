@@ -25,29 +25,28 @@ You can use Veeva as a source only.
 
 ###### To connect to Veeva while creating a flow
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  Choose **Create flow**.
-3.  For **Flow details**, enter a name and description for the flow.
-4.  (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
-    **Data encryption**, **Customize encryption settings** and
-    then choose an existing CMK or create a new one.
-5.  (Optional) To add a tag, choose **Tags**, **Add tag**
-    and then enter the key name and value.
-6.  Choose **Next**.
-7.  Choose **Veeva** from the **Source name** dropdown
-    list.
-8.  Choose **Connect** to open the **Connect to Veeva**
-    dialog box.
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. Choose **Create flow**.
+3. For **Flow details**, enter a name and description for the flow.
+4. (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
+   **Data encryption**, **Customize encryption settings** and
+   then choose an existing CMK or create a new one.
+5. (Optional) To add a tag, choose **Tags**, **Add tag**
+   and then enter the key name and value.
+6. Choose **Next**.
+7. Choose **Veeva** from the **Source name** dropdown
+   list.
+8. Choose **Connect** to open the **Connect to Veeva**
+   dialog box.
 
-        1. Under **User name**, enter the user name you use to log into
-         Veeva.
-        2. Under **Password**, enter your secret key.
-        3. Under **Instance name**, enter the name of your Veeva instance.
-        4. Under **Data encryption**, enter your AWS KMS key.
-        5. Under **Connection name**, specify a name for your connection.
-        6. Choose **Connect**.
-
-    ![Connect to Veeva dialog with fields for user name, password, instance name, encryption, and connection name.](images/connection_setup-veeva-console.png)
+   1. Under **User name**, enter the user name you use to log into
+      Veeva.
+   2. Under **Password**, enter your secret key.
+   3. Under **Instance name**, enter the name of your Veeva instance.
+   4. Under **Data encryption**, enter your AWS KMS key.
+   5. Under **Connection name**, specify a name for your connection.
+   6. Choose **Connect**.
+      ![Connect to Veeva dialog with fields for user name, password, instance name, encryption, and connection name.](images/connection_setup-veeva-console.png)
 
 Now that you are connected to your Veeva account, you can continue with the flow creation
 steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").
@@ -76,25 +75,24 @@ configure a flow to extract documents.
 
 ###### Step 2: Configure the flow
 
-1.  Choose **Veeva VAULT** from the **Source name** dropdown
-    list.
-2.  Choose a Veeva VAULT connection from already existing connections or create a new
-    connection.
-3.  Choose **Veeva VAULT documents** from the radio options.
-4.  Choose a **Veeva VAULT document type** from the dropdown.
-5.  Choose **Document metadata and source files** option to extract source
-    files along with associated metadata. Choose **Metadata only** option to only
-    download Metadata. By default Metadata only is selected.
-6.  If you select **Document metadata and source files.**
+1. Choose **Veeva VAULT** from the **Source name** dropdown
+   list.
+2. Choose a Veeva VAULT connection from already existing connections or create a new
+   connection.
+3. Choose **Veeva VAULT documents** from the radio options.
+4. Choose a **Veeva VAULT document type** from the dropdown.
+5. Choose **Document metadata and source files** option to extract source
+   files along with associated metadata. Choose **Metadata only** option to only
+   download Metadata. By default Metadata only is selected.
+6. If you select **Document metadata and source files.**
 
-        1. Choose **versions** of the document you want to extract, By default
-         only latest version of document is extracted, You can select all versions to be extracted.
-        2. Choose **Renditions** options if required, By default Renditions are
-         not included.
+   1. Choose **versions** of the document you want to extract, By default
+      only latest version of document is extracted, You can select all versions to be extracted.
+   2. Choose **Renditions** options if required, By default Renditions are
+      not included.
+      ![Configure flow page showing Veeva source settings with document type, download options, and version selections.](images/flow_setup_veeva-document_extraction.png)
 
-    ![Configure flow page showing Veeva source settings with document type, download options, and version selections.](images/flow_setup_veeva-document_extraction.png)
-
-7.  Choose a destination from drop down menu.
+7. Choose a destination from drop down menu.
 
 ###### Note
 

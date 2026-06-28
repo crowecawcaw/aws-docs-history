@@ -157,7 +157,7 @@ following data objects to supported destinations:
 | Optimization Goal               | String                |               |
 | Pacing Type                     | String                |               |
 | Placement V2                    | Struct                |               |
-| Read Deleted Entities           | Boolean               | EQUAL_TO      |
+| Read Deleted Entities           | Boolean               | EQUAL\_TO     |
 | Skadnetwork Properties          | Struct                |               |
 | Start Time                      | DateTime              |               |
 | Status                          | String                |               |
@@ -173,7 +173,7 @@ following data objects to supported destinations:
 | Delivery Status                 | List                  |               |
 | Id                              | String                |               |
 | Name                            | String                |               |
-| Read Deleted Entities           | Boolean               | EQUAL_TO      |
+| Read Deleted Entities           | Boolean               | EQUAL\_TO     |
 | Render Type                     | String                |               |
 | Review Status                   | String                |               |
 | Review Status Reasons           | List                  |               |
@@ -202,7 +202,7 @@ following data objects to supported destinations:
 | Id                              | String                |               |
 | Name                            | String                |               |
 | Objective                       | String                |               |
-| Read Deleted Entities           | Boolean               | EQUAL_TO      |
+| Read Deleted Entities           | Boolean               | EQUAL\_TO     |
 | Start Time                      | DateTime              |               |
 | Status                          | String                |               |
 | Update At                       | DateTime              |               |

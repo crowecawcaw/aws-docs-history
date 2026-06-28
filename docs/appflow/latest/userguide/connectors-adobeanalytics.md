@@ -131,12 +131,12 @@ following data objects to supported destinations:
 | Date Range                         | String                   |               |
 | Description                        | String                   |               |
 | Favorite                           | Boolean                  |               |
-| Filter By Date Range               | String                   | EQUAL_TO      |
-| Filter By Ids                      | String                   | EQUAL_TO      |
-| Filter By Modified After           | DateTime                 | EQUAL_TO      |
+| Filter By Date Range               | String                   | EQUAL\_TO     |
+| Filter By Ids                      | String                   | EQUAL\_TO     |
+| Filter By Modified After           | DateTime                 | EQUAL\_TO     |
 | Id                                 | String                   |               |
-| Include Type                       | String                   | EQUAL_TO      |
-| Locale                             | String                   | EQUAL_TO      |
+| Include Type                       | String                   | EQUAL\_TO     |
+| Locale                             | String                   | EQUAL\_TO     |
 | Modified By Id                     | String                   |               |
 | Modified Date                      | DateTime                 |               |
 | Name                               | String                   |               |
@@ -146,38 +146,38 @@ following data objects to supported destinations:
 | Rsid                               | String                   |               |
 | Scope                              | Struct                   |               |
 | Shares                             | List                     |               |
-| Sort Property                      | String                   | EQUAL_TO      |
+| Sort Property                      | String                   | EQUAL\_TO     |
 | System User Owned                  | Boolean                  |               |
 | Tags                               | List                     |               |
 | Usage Summary                      | Struct                   |               |
 | Usage Summary With Relevancy Score | String                   |               |
-| Calculated Metric                  | Approved                 | Boolean       | EQUAL_TO              |
+| Calculated Metric                  | Approved                 | Boolean       | EQUAL\_TO             |
 | Categories                         | List                     |               |
 | Compatibility                      | Struct                   |               |
 | Created                            | DateTime                 |               |
 | Definition                         | Struct                   |               |
 | Description                        | String                   |               |
-| Favorite                           | Boolean                  | EQUAL_TO      |
-| Filter By Ids                      | String                   | EQUAL_TO      |
+| Favorite                           | Boolean                  | EQUAL\_TO     |
+| Filter By Ids                      | String                   | EQUAL\_TO     |
 | Id                                 | String                   |               |
-| Include Type                       | String                   | EQUAL_TO      |
-| Locale                             | String                   | EQUAL_TO      |
+| Include Type                       | String                   | EQUAL\_TO     |
+| Locale                             | String                   | EQUAL\_TO     |
 | Modified                           | DateTime                 |               |
-| Name                               | String                   | EQUAL_TO      |
+| Name                               | String                   | EQUAL\_TO     |
 | Owner                              | Struct                   |               |
 | Owner Full Name                    | String                   |               |
-| Owner Id                           | Integer                  | EQUAL_TO      |
+| Owner Id                           | Integer                  | EQUAL\_TO     |
 | Polarity                           | String                   |               |
 | Precision                          | Integer                  |               |
 | Report Suite Name                  | String                   |               |
 | Rsid                               | String                   |               |
-| Rsids                              | String                   | EQUAL_TO      |
+| Rsids                              | String                   | EQUAL\_TO     |
 | Site Title                         | String                   |               |
-| Sort Direction                     | String                   | EQUAL_TO      |
-| Sort Property                      | String                   | EQUAL_TO      |
-| Tag Names                          | String                   | EQUAL_TO      |
+| Sort Direction                     | String                   | EQUAL\_TO     |
+| Sort Property                      | String                   | EQUAL\_TO     |
+| Tag Names                          | String                   | EQUAL\_TO     |
 | Tags                               | List                     |               |
-| To Be Used In Rs Id                | String                   | EQUAL_TO      |
+| To Be Used In Rs Id                | String                   | EQUAL\_TO     |
 | Type                               | String                   |               |
 | Calculated Metric Function         | Category                 | String        |                       |
 | Definition                         | Struct                   |               |
@@ -185,7 +185,7 @@ following data objects to supported destinations:
 | Example                            | String                   |               |
 | Example Key                        | String                   |               |
 | Id                                 | String                   |               |
-| Locale                             | String                   | EQUAL_TO      |
+| Locale                             | String                   | EQUAL\_TO     |
 | Name                               | String                   |               |
 | Namespace                          | String                   |               |
 | Persistable                        | Boolean                  |               |
@@ -193,7 +193,7 @@ following data objects to supported destinations:
 | Component Id                       | String                   |               |
 | Component Type                     | String                   |               |
 | Ims Org Id                         | String                   |               |
-| Include Type                       | String                   | EQUAL_TO      |
+| Include Type                       | String                   | EQUAL\_TO     |
 | Share From Ims Id                  | String                   |               |
 | Share Id                           | String                   |               |
 | Share To Id                        | Integer                  |               |
@@ -201,7 +201,7 @@ following data objects to supported destinations:
 | Share To Login                     | String                   |               |
 | Share To Type                      | String                   |               |
 | shareToDisplayName                 | String                   |               |
-| user Id                            | Integer                  | EQUAL_TO      |
+| user Id                            | Integer                  | EQUAL\_TO     |
 | Component Metadata Tag             | Components               | List          |                       |
 | Description                        | String                   |               |
 | Id                                 | String                   |               |
@@ -211,20 +211,20 @@ following data objects to supported destinations:
 | Company ID                         | Integer                  |               |
 | Create Date                        | DateTime                 |               |
 | Curated Item                       | Boolean                  |               |
-| Curated RSID                       | String                   | EQUAL_TO      |
+| Curated RSID                       | String                   | EQUAL\_TO     |
 | Definition                         | String                   |               |
 | Description                        | String                   |               |
 | Disabled Date                      | DateTime                 |               |
 | Favorite                           | Boolean                  |               |
-| Filter By IDs                      | String                   | EQUAL_TO      |
-| Filter By Modified After           | DateTime                 | EQUAL_TO      |
+| Filter By IDs                      | String                   | EQUAL\_TO     |
+| Filter By Modified After           | DateTime                 | EQUAL\_TO     |
 | ID                                 | String                   |               |
 | IMS Org ID                         | String                   |               |
-| Include Type                       | String                   | EQUAL_TO      |
-| Locale                             | String                   | EQUAL_TO      |
+| Include Type                       | String                   | EQUAL\_TO     |
+| Locale                             | String                   | EQUAL\_TO     |
 | Modified                           | DateTime                 |               |
 | Name                               | String                   |               |
-| New Definition                     | Boolean                  | EQUAL_TO      |
+| New Definition                     | Boolean                  | EQUAL\_TO     |
 | Owner                              | Struct                   |               |
 | Owner Full Name                    | String                   |               |
 | Shares                             | List                     |               |
@@ -237,19 +237,19 @@ following data objects to supported destinations:
 | Dimension                          | Allowed For Reporting    | Boolean       |                       |
 | Categories                         | List                     |               |
 | Category                           | String                   |               |
-| Classifiable                       | Boolean                  | EQUAL_TO      |
+| Classifiable                       | Boolean                  | EQUAL\_TO     |
 | Description                        | String                   |               |
 | Extra Title Info                   | String                   |               |
-| Filter Reportable                  | Boolean                  | EQUAL_TO      |
+| Filter Reportable                  | Boolean                  | EQUAL\_TO     |
 | ID                                 | String                   |               |
-| Locale                             | String                   | EQUAL_TO      |
+| Locale                             | String                   | EQUAL\_TO     |
 | Multi Valued                       | Boolean                  |               |
 | Name                               | String                   |               |
 | None Settings                      | Struct                   |               |
 | Parent                             | String                   |               |
 | Pathable                           | Boolean                  |               |
 | Reportable                         | List                     |               |
-| Segmentable                        | Boolean                  | EQUAL_TO      |
+| Segmentable                        | Boolean                  | EQUAL\_TO     |
 | Standard Component                 | Boolean                  |               |
 | Support                            | List                     |               |
 | Supports Data Governance           | Boolean                  |               |
@@ -266,11 +266,11 @@ following data objects to supported destinations:
 | Extra Title Info                   | String                   |               |
 | Help Link                          | String                   |               |
 | Id                                 | String                   |               |
-| Locale                             | String                   | EQUAL_TO      |
+| Locale                             | String                   | EQUAL\_TO     |
 | Name                               | String                   |               |
 | Polarity                           | String                   |               |
 | Precision                          | Integer                  |               |
-| Segmentable                        | Boolean                  | EQUAL_TO      |
+| Segmentable                        | Boolean                  | EQUAL\_TO     |
 | Standard Component                 | Boolean                  |               |
 | Support                            | List                     |               |
 | Supports Data Governance           | Boolean                  |               |
@@ -287,15 +287,15 @@ following data objects to supported destinations:
 | Description                        | String                   |               |
 | External References                | Struct                   |               |
 | Favorite                           | Boolean                  |               |
-| Filter By IDs                      | String                   | EQUAL_TO      |
+| Filter By IDs                      | String                   | EQUAL\_TO     |
 | Id                                 | String                   |               |
-| Include Type                       | String                   | EQUAL_TO      |
-| Locale                             | String                   | EQUAL_TO      |
+| Include Type                       | String                   | EQUAL\_TO     |
+| Locale                             | String                   | EQUAL\_TO     |
 | Migrated IDs                       | List                     |               |
 | Modified                           | DateTime                 |               |
 | Name                               | String                   |               |
 | Owner                              | Struct                   |               |
-| Owner ID                           | String                   | EQUAL_TO      |
+| Owner ID                           | String                   | EQUAL\_TO     |
 | Report Suite Name                  | String                   |               |
 | Rsid                               | String                   |               |
 | Shares                             | List                     |               |
@@ -310,20 +310,20 @@ following data objects to supported destinations:
 | Currency                           | String                   |               |
 | Id                                 | String                   |               |
 | Name                               | String                   |               |
-| RS Id Contains                     | String                   | EQUAL_TO      |
+| RS Id Contains                     | String                   | EQUAL\_TO     |
 | RS Ids                             | String                   |               |
 | Rsid                               | String                   |               |
 | Timezone Zone Info                 | String                   |               |
-| Report Top Item                    | Date Range               | String        | EQUAL_TO              |
-| End Date                           | DateTime                 | EQUAL_TO      |
+| Report Top Item                    | Date Range               | String        | EQUAL\_TO             |
+| End Date                           | DateTime                 | EQUAL\_TO     |
 | Item Id                            | String                   |               |
 | Locale                             | String                   |               |
-| Lookup None Values                 | Boolean                  | EQUAL_TO      |
-| Search And                         | String                   | EQUAL_TO      |
-| Search Not                         | String                   | EQUAL_TO      |
-| Search Or                          | String                   | EQUAL_TO      |
-| Search Phrase                      | String                   | EQUAL_TO      |
-| Start Date                         | DateTime                 | EQUAL_TO      |
+| Lookup None Values                 | Boolean                  | EQUAL\_TO     |
+| Search And                         | String                   | EQUAL\_TO     |
+| Search Not                         | String                   | EQUAL\_TO     |
+| Search Or                          | String                   | EQUAL\_TO     |
+| Search Phrase                      | String                   | EQUAL\_TO     |
+| Start Date                         | DateTime                 | EQUAL\_TO     |
 | Value                              | String                   |               |
 | search-clause                      | String                   |               |
 | Segment                            | Categories               | List          |                       |
@@ -331,24 +331,24 @@ following data objects to supported destinations:
 | Definition                         | Struct                   |               |
 | Definition Last Modified           | DateTime                 |               |
 | Description                        | String                   |               |
-| Filter By Published Segments       | String                   | EQUAL_TO      |
+| Filter By Published Segments       | String                   | EQUAL\_TO     |
 | Id                                 | String                   |               |
-| Include Type                       | String                   | EQUAL_TO      |
-| Locale                             | String                   | EQUAL_TO      |
+| Include Type                       | String                   | EQUAL\_TO     |
+| Locale                             | String                   | EQUAL\_TO     |
 | Modified                           | DateTime                 |               |
 | Modified By ID                     | String                   |               |
-| Name                               | String                   | EQUAL_TO      |
+| Name                               | String                   | EQUAL\_TO     |
 | Owner                              | Struct                   |               |
 | Owner Full Name                    | String                   |               |
 | Publishing Status                  | Struct                   |               |
-| RSIDs                              | String                   | EQUAL_TO      |
+| RSIDs                              | String                   | EQUAL\_TO     |
 | Report Suite Name                  | String                   |               |
-| Rsid                               | String                   | EQUAL_TO      |
-| Segment Filter                     | String                   | EQUAL_TO      |
+| Rsid                               | String                   | EQUAL\_TO     |
+| Segment Filter                     | String                   | EQUAL\_TO     |
 | Site Title                         | String                   |               |
-| Sort Direction                     | String                   | EQUAL_TO      |
-| Sort Property                      | String                   | EQUAL_TO      |
-| Tag Names                          | String                   | EQUAL_TO      |
+| Sort Direction                     | String                   | EQUAL\_TO     |
+| Sort Property                      | String                   | EQUAL\_TO     |
+| Tag Names                          | String                   | EQUAL\_TO     |
 | Tags                               | List                     |               |
 | compatibility                      | Struct                   |               |
 | Timezone                           | Current Timezone Offset  | Float         |                       |
@@ -356,15 +356,15 @@ following data objects to supported destinations:
 | Timezone Id                        | Integer                  |               |
 | Timezone Zoneinfo                  | String                   |               |
 | Usage Log                          | Date Created             | DateTime      |                       |
-| End Date                           | DateTime                 | EQUAL_TO      |
-| Event                              | String                   | EQUAL_TO      |
+| End Date                           | DateTime                 | EQUAL\_TO     |
+| Event                              | String                   | EQUAL\_TO     |
 | Event Description                  | String                   |               |
-| Event Type                         | String                   | EQUAL_TO      |
-| IP                                 | String                   | EQUAL_TO      |
+| Event Type                         | String                   | EQUAL\_TO     |
+| IP                                 | String                   | EQUAL\_TO     |
 | IP Address                         | String                   |               |
-| Login                              | String                   | EQUAL_TO      |
-| Rsid                               | String                   | EQUAL_TO      |
-| Start Date                         | DateTime                 | EQUAL_TO      |
+| Login                              | String                   | EQUAL\_TO     |
+| Rsid                               | String                   | EQUAL\_TO     |
+| Start Date                         | DateTime                 | EQUAL\_TO     |
 | User                               | Admin                    | Boolean       |                       |
 | Change Password                    | Boolean                  |               |
 | Company ID                         | Integer                  |               |

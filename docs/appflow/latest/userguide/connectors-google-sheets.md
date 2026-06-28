@@ -34,13 +34,12 @@ requirements:
   screen](https://support.google.com/cloud/answer/10311615# "https://support.google.com/cloud/answer/10311615#") in the Google Cloud Platform Console Help.
 - In the OAuth consent screen, you've added the following scopes:
 
-      + The Google Sheets API read-only scope,
-       https://www.googleapis.com/auth/spreadsheets.readonly.
-      + The Google Drive API read-only scope,
-       https://www.googleapis.com/auth/drive.readonly.
-
-  For more information about these scopes, see [OAuth 2.0 Scopes for
-  Google APIs](https://developers.google.com/identity/protocols/oauth2/scopes "https://developers.google.com/identity/protocols/oauth2/scopes") in the Google Identity documentation.
+  - The Google Sheets API read-only scope,
+    https://www.googleapis.com/auth/spreadsheets.readonly.
+  - The Google Drive API read-only scope,
+    https://www.googleapis.com/auth/drive.readonly.
+    For more information about these scopes, see [OAuth 2.0 Scopes for
+    Google APIs](https://developers.google.com/identity/protocols/oauth2/scopes "https://developers.google.com/identity/protocols/oauth2/scopes") in the Google Identity documentation.
 
 - In your Google Cloud project, you've configured an OAuth 2.0 client ID. For the steps to
   create this client ID, see [Setting up OAuth

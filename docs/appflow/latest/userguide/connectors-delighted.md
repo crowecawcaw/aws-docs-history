@@ -90,58 +90,58 @@ When you create a flow that uses Delighted as the data source, you can set the d
 When you create a flow that uses Delighted as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**               | **Field**          | **Data type** | **Supported filters** |
-| ------------------------ | ------------------ | ------------- | --------------------- |
-| Bounce                   | bounced_at         | DateTime      |                       |
-| email                    | String             |               |
-| name                     | String             |               |
-| person_id                | String             |               |
-| since                    | DateTime           | EQUAL_TO      |
-| until                    | DateTime           | EQUAL_TO      |
-| Metric                   | detractor_count    | Integer       |                       |
-| detractor_percent        | Double             |               |
-| nps                      | Integer            |               |
-| passive_count            | Integer            |               |
-| passive_percent          | Double             |               |
-| promoter_count           | Integer            |               |
-| promoter_percent         | Double             |               |
-| response_count           | Integer            |               |
-| since                    | DateTime           | EQUAL_TO      |
-| trend                    | String             | EQUAL_TO      |
-| until                    | DateTime           | EQUAL_TO      |
-| People                   | created_at         | DateTime      |                       |
-| email                    | String             | EQUAL_TO      |
-| id                       | String             |               |
-| last_responded_at        | DateTime           |               |
-| last_sent_at             | DateTime           |               |
-| name                     | String             |               |
-| next_survey_scheduled_at | DateTime           |               |
-| phone_number             | String             | EQUAL_TO      |
-| since                    | DateTime           | EQUAL_TO      |
-| until                    | DateTime           | EQUAL_TO      |
-| Survey Response          | additional_answers | List          |                       |
-| comment                  | String             |               |
-| created_at               | DateTime           |               |
-| id                       | String             |               |
-| notes                    | List               |               |
-| order                    | String             | EQUAL_TO      |
-| permalink                | String             |               |
-| person                   | String             |               |
-| person_email             | String             | EQUAL_TO      |
-| person_id                | String             | EQUAL_TO      |
-| person_properties        | Struct             |               |
-| score                    | Integer            |               |
-| since                    | DateTime           | EQUAL_TO      |
-| survey_type              | String             |               |
-| tags                     | List               |               |
-| trend                    | String             | EQUAL_TO      |
-| until                    | DateTime           | EQUAL_TO      |
-| updated_at               | DateTime           |               |
-| updated_since            | DateTime           | EQUAL_TO      |
-| updated_until            | DateTime           | EQUAL_TO      |
-| Unsubscribe              | email              | String        |                       |
-| name                     | String             |               |
-| person_id                | String             |               |
-| since                    | DateTime           | EQUAL_TO      |
-| unsubscribed_at          | DateTime           |               |
-| until                    | DateTime           | EQUAL_TO      |
+| **Object**                  | **Field**           | **Data type** | **Supported filters** |
+| --------------------------- | ------------------- | ------------- | --------------------- |
+| Bounce                      | bounced\_at         | DateTime      |                       |
+| email                       | String              |               |
+| name                        | String              |               |
+| person\_id                  | String              |               |
+| since                       | DateTime            | EQUAL\_TO     |
+| until                       | DateTime            | EQUAL\_TO     |
+| Metric                      | detractor\_count    | Integer       |                       |
+| detractor\_percent          | Double              |               |
+| nps                         | Integer             |               |
+| passive\_count              | Integer             |               |
+| passive\_percent            | Double              |               |
+| promoter\_count             | Integer             |               |
+| promoter\_percent           | Double              |               |
+| response\_count             | Integer             |               |
+| since                       | DateTime            | EQUAL\_TO     |
+| trend                       | String              | EQUAL\_TO     |
+| until                       | DateTime            | EQUAL\_TO     |
+| People                      | created\_at         | DateTime      |                       |
+| email                       | String              | EQUAL\_TO     |
+| id                          | String              |               |
+| last\_responded\_at         | DateTime            |               |
+| last\_sent\_at              | DateTime            |               |
+| name                        | String              |               |
+| next\_survey\_scheduled\_at | DateTime            |               |
+| phone\_number               | String              | EQUAL\_TO     |
+| since                       | DateTime            | EQUAL\_TO     |
+| until                       | DateTime            | EQUAL\_TO     |
+| Survey Response             | additional\_answers | List          |                       |
+| comment                     | String              |               |
+| created\_at                 | DateTime            |               |
+| id                          | String              |               |
+| notes                       | List                |               |
+| order                       | String              | EQUAL\_TO     |
+| permalink                   | String              |               |
+| person                      | String              |               |
+| person\_email               | String              | EQUAL\_TO     |
+| person\_id                  | String              | EQUAL\_TO     |
+| person\_properties          | Struct              |               |
+| score                       | Integer             |               |
+| since                       | DateTime            | EQUAL\_TO     |
+| survey\_type                | String              |               |
+| tags                        | List                |               |
+| trend                       | String              | EQUAL\_TO     |
+| until                       | DateTime            | EQUAL\_TO     |
+| updated\_at                 | DateTime            |               |
+| updated\_since              | DateTime            | EQUAL\_TO     |
+| updated\_until              | DateTime            | EQUAL\_TO     |
+| Unsubscribe                 | email               | String        |                       |
+| name                        | String              |               |
+| person\_id                  | String              |               |
+| since                       | DateTime            | EQUAL\_TO     |
+| unsubscribed\_at            | DateTime            |               |
+| until                       | DateTime            | EQUAL\_TO     |

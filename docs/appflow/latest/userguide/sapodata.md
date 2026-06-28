@@ -34,7 +34,7 @@ requirements:
 - You must enable catalog service for service discovery.
 
   - **OData V2.0:** The OData V2.0 catalog service(s) can be
-    enabled in your SAP Gateway via transaction **/IWFND/MAINT_SERVICE** .
+    enabled in your SAP Gateway via transaction **/IWFND/MAINT\_SERVICE** .
 
   ![Service Catalog showing two catalog services with namespace, OAuth scope, and soft state status.](images/sapodata-odatav2-catalog-service-enablement.png)
   - **OData V4.0:** The OData V4.0 catalog services can be
@@ -44,8 +44,8 @@ requirements:
   ![Service Group /IWFND/CONFIG showing LOCAL system alias with two available catalog services.](images/sapodata-odatav4-catalog-service-enablement.png)
 
 - You must enable OData V2.0/V4.0 services in your SAP Gateway. The OData V2.0 services can
-  be enabled via transaction **/IWFND/MAINT_SERVICE** and V4.0
-  services can be published via transaction **/IWFND/V4_ADMIN**.
+  be enabled via transaction **/IWFND/MAINT\_SERVICE** and V4.0
+  services can be published via transaction **/IWFND/V4\_ADMIN**.
 - Your SAP OData service must support client side pagination/query options such as **$top** and **$skip**. It must also support
   system query option **$count**.
 - Amazon AppFlow supports following authentication mechanisms:
@@ -119,69 +119,61 @@ service for Amazon AppFlow integration, see [Before you begin](#sapodata-require
 
 ###### To create an SAP OData connection
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  In the navigation pane on the left, choose **Connections**.
-3.  On the **Manage connections** page, for **Connectors**,
-    choose **SAP OData**.
-4.  Choose **Create connection**.
-5.  In the **Connect to SAP OData** window, enter the following
-    information:
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. In the navigation pane on the left, choose **Connections**.
+3. On the **Manage connections** page, for **Connectors**,
+   choose **SAP OData**.
+4. Choose **Create connection**.
+5. In the **Connect to SAP OData** window, enter the following
+   information:
 
-        1. Under **Application Host URL**, enter your Application host url. This
-         application host url must be accessible over public internet for non PrivateLink
-         connection.
-        2. Under **Application Service Path**, enter your catalog service path.
-         e.g.**/sap/opu/odata/iwfnd/catalogservice;v=2**. Amazon AppFlow doesn’t accept
-         specific object path.
-        3. Under **Port Number**, enter your port number.
-        4. Under **Client Number**, enter your 3 digit client number. Acceptable
-         values are [001-999]. e.g.**010**
-        5. Under **Logon Language**, enter your two character logon language. e.g.
-         **EN**.
-        6. (Optional) To use private connection for data transfer, under **AWS PrivateLink
-         service name**, enter your VPC Endpoint (PrivateLink) service name. e.g.
-         **com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxx**
-        7. Select your preferred Authentication Mode.
+   1. Under **Application Host URL**, enter your Application host url. This
+      application host url must be accessible over public internet for non PrivateLink
+      connection.
+   2. Under **Application Service Path**, enter your catalog service path.
+      e.g.**/sap/opu/odata/iwfnd/catalogservice;v=2**. Amazon AppFlow doesn’t accept
+      specific object path.
+   3. Under **Port Number**, enter your port number.
+   4. Under **Client Number**, enter your 3 digit client number. Acceptable
+      values are [001-999]. e.g.**010**
+   5. Under **Logon Language**, enter your two character logon language. e.g.
+      **EN**.
+   6. (Optional) To use private connection for data transfer, under **AWS PrivateLink
+      service name**, enter your VPC Endpoint (PrivateLink) service name. e.g.
+      **com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxx**
+   7. Select your preferred Authentication Mode.
 
+      - If Basic,
 
-        	* If Basic,
+        1. Under **User name**, enter your useraname.
+        2. Under **Password**, enter your password.
 
+      - If OAuth2,
 
-        		1. Under **User name**, enter your useraname.
-        		2. Under **Password**, enter your password.
-        	* If OAuth2,
+        1. Under **Authorization Code URL**, enter your authorization code
+           URL.
+        2. Under **Authorization Tokens URL**, enter your authorization token
+           URL.
+        3. Under **OAuth Scopes**, enter your OAuth scopes separated by space.
+           e.g.**/IWFND/SG\_MED\_CATALOG\_0002 ZAPI\_SALES\_ORDER\_SRV\_0001**
+        4. Under **Client ID**, enter your client id .
+        5. Under **Client Secret**, enter your client secret .
 
+   8. Optionally, under **Data encryption**, choose **Customize
+      encryption settings (advanced)** if you want to encrypt your data with a customer
+      managed key in the AWS Key Management Service (AWS KMS).
 
-        		1. Under **Authorization Code URL**, enter your authorization code
-        		 URL.
-        		2. Under **Authorization Tokens URL**, enter your authorization token
-        		 URL.
-        		3. Under **OAuth Scopes**, enter your OAuth scopes separated by space.
-        		 e.g.**/IWFND/SG\_MED\_CATALOG\_0002 ZAPI\_SALES\_ORDER\_SRV\_0001**
-        		4. Under **Client ID**, enter your client id .
-        		5. Under **Client Secret**, enter your client secret .
-        8. Optionally, under **Data encryption**, choose **Customize
-         encryption settings (advanced)** if you want to encrypt your data with a customer
-         managed key in the AWS Key Management Service (AWS KMS).
+   By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages
+   for you. Choose this option if you want to encrypt your data with your own KMS key instead.
 
+   Amazon AppFlow always encrypts your data during transit and at rest. For more information, see
+   [Data protection in Amazon AppFlow](data-protection.md "data-protection.md").
 
-        By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages
-         for you. Choose this option if you want to encrypt your data with your own KMS key instead.
-
-
-        Amazon AppFlow always encrypts your data during transit and at rest. For more information, see
-         [Data protection in Amazon AppFlow](data-protection.md "data-protection.md").
-
-
-        If you want to use a KMS key from the current AWS account, select this key under
-         **Choose an AWS KMS key**. If you want to use a KMS key from a different
-         AWS account, enter the Amazon Resource Name (ARN) for that key.
-        9. Under **Connection name**, specify a name for your connection.
-        10. Choose **Continue**.
-        11. If using OAuth, you will be redirected to the SAP login page. When prompted, grant
-         Amazon AppFlow permissions to access your SAP account.
-
-    ![Connect to SAP OData with AWS PrivateLink dialog showing OAuth2 authentication fields.](images/connection_setup-sapodata-console.png)
+   If you want to use a KMS key from the current AWS account, select this key under
+   **Choose an AWS KMS key**. If you want to use a KMS key from a different
+   AWS account, enter the Amazon Resource Name (ARN) for that key. 9. Under **Connection name**, specify a name for your connection. 10. Choose **Continue**. 11. If using OAuth, you will be redirected to the SAP login page. When prompted, grant
+   Amazon AppFlow permissions to access your SAP account.
+   ![Connect to SAP OData with AWS PrivateLink dialog showing OAuth2 authentication fields.](images/connection_setup-sapodata-console.png)
 
 On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow

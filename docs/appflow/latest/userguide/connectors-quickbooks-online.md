@@ -124,7 +124,7 @@ following data objects to supported destinations:
 | AccountSubType                | String                |               |
 | AccountType                   | Struct                |               |
 | AcctNum                       | String                |               |
-| Active                        | Boolean               | EQUAL_TO      |
+| Active                        | Boolean               | EQUAL\_TO     |
 | Classification                | String                |               |
 | CreateTime                    | DateTime              |               |
 | CurrencyRef                   | Struct                |               |
@@ -136,7 +136,7 @@ following data objects to supported destinations:
 | LastUpdatedTime               | DateTime              |               |
 | Name                          | String                |               |
 | ParentRef                     | Struct                |               |
-| SubAccount                    | Boolean               | EQUAL_TO      |
+| SubAccount                    | Boolean               | EQUAL\_TO     |
 | SyncToken                     | String                |               |
 | TaxCodeRef                    | Struct                |               |
 | TxnLocationType               | String                |               |
@@ -184,7 +184,7 @@ following data objects to supported destinations:
 | SyncToken                     | String                |               |
 | WebAddr                       | Struct                |               |
 | Customer                      | ARAccountRef          | Struct        |                       |
-| Active                        | Boolean               | EQUAL_TO      |
+| Active                        | Boolean               | EQUAL\_TO     |
 | AlternatePhone                | Struct                |               |
 | Balance                       | BigDecimal            |               |
 | BalanceWithJobs               | BigDecimal            |               |
@@ -231,7 +231,7 @@ following data objects to supported destinations:
 | Taxable                       | Boolean               |               |
 | Title                         | String                |               |
 | WebAddr                       | Struct                |               |
-| Employee                      | Active                | Boolean       | EQUAL_TO              |
+| Employee                      | Active                | Boolean       | EQUAL\_TO             |
 | BillRate                      | BigDecimal            |               |
 | BillableTime                  | Boolean               |               |
 | BirthDate                     | Date                  |               |
@@ -348,7 +348,7 @@ following data objects to supported destinations:
 | TxnSource                     | String                |               |
 | TxnTaxDetail                  | Struct                |               |
 | Item                          | AbatementRate         | BigDecimal    |                       |
-| Active                        | Boolean               | EQUAL_TO      |
+| Active                        | Boolean               | EQUAL\_TO     |
 | AssetAccountRef               | Struct                |               |
 | ClassRef                      | Struct                |               |
 | CreateTime                    | DateTime              |               |
@@ -422,22 +422,22 @@ following data objects to supported destinations:
 | TaxPrefs                      | Struct                |               |
 | TimeTrackingPrefs             | Struct                |               |
 | VendorAndPurchasesPrefs       | Struct                |               |
-| Profit And Loss               | Accounting Method     | String        | EQUAL_TO              |
-| Adjusted Gain Loss            | String                | EQUAL_TO      |
-| Class                         | String                | EQUAL_TO      |
+| Profit And Loss               | Accounting Method     | String        | EQUAL\_TO             |
+| Adjusted Gain Loss            | String                | EQUAL\_TO     |
+| Class                         | String                | EQUAL\_TO     |
 | Columns                       | Struct                |               |
-| Customer                      | String                | EQUAL_TO      |
-| Date Macro                    | String                | EQUAL_TO      |
-| Department                    | String                | EQUAL_TO      |
-| End Date                      | Date                  | EQUAL_TO      |
+| Customer                      | String                | EQUAL\_TO     |
+| Date Macro                    | String                | EQUAL\_TO     |
+| Department                    | String                | EQUAL\_TO     |
+| End Date                      | Date                  | EQUAL\_TO     |
 | Header                        | Struct                |               |
-| Item                          | String                | EQUAL_TO      |
+| Item                          | String                | EQUAL\_TO     |
 | Rows                          | Struct                |               |
-| Sort Order                    | String                | EQUAL_TO      |
-| Start Date                    | Date                  | EQUAL_TO      |
-| Summarize Column By           | String                | EQUAL_TO      |
-| Vendor                        | String                | EQUAL_TO      |
-| qzurl                         | String                | EQUAL_TO      |
+| Sort Order                    | String                | EQUAL\_TO     |
+| Start Date                    | Date                  | EQUAL\_TO     |
+| Summarize Column By           | String                | EQUAL\_TO     |
+| Vendor                        | String                | EQUAL\_TO     |
+| qzurl                         | String                | EQUAL\_TO     |
 | Tax Agency                    | CreateTime            | DateTime      |                       |
 | DisplayName                   | String                |               |
 | Id                            | String                |               |
@@ -451,7 +451,7 @@ following data objects to supported destinations:
 | TaxTrackedOnSales             | Boolean               |               |
 | Vendor                        | APAccountRef          | Struct        |                       |
 | AcctNum                       | String                |               |
-| Active                        | Boolean               | EQUAL_TO      |
+| Active                        | Boolean               | EQUAL\_TO     |
 | AlternatePhone                | Struct                |               |
 | Balance                       | BigDecimal            |               |
 | BillAddr                      | Struct                |               |

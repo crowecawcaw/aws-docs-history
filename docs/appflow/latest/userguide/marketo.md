@@ -24,32 +24,31 @@ about how to retrieve your client ID and client secret, see [Credentials for API
 
 ###### To connect to Marketo while creating a flow
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  Choose **Create flow**.
-3.  For **Flow details**, enter a name and description for the flow.
-4.  (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
-    **Data encryption**, **Customize encryption settings**. Then
-    choose an existing CMK or create a new one.
-5.  (Optional) To add a tag, choose **Tags**, **Add tag**,
-    and then enter the key name and value.
-6.  Choose **Next**.
-7.  Choose **Marketo** from the **Source name** or
-    **Destination name** dropdown list.
-8.  Choose **Connect** to open the **Connect to Marketo**
-    dialog box.
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. Choose **Create flow**.
+3. For **Flow details**, enter a name and description for the flow.
+4. (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
+   **Data encryption**, **Customize encryption settings**. Then
+   choose an existing CMK or create a new one.
+5. (Optional) To add a tag, choose **Tags**, **Add tag**,
+   and then enter the key name and value.
+6. Choose **Next**.
+7. Choose **Marketo** from the **Source name** or
+   **Destination name** dropdown list.
+8. Choose **Connect** to open the **Connect to Marketo**
+   dialog box.
 
-        1. Under **Client ID**, enter your Marketo client ID.
-        2. Under **Client secret**, enter your client secret.
-        3. Under **Account/Munchkin ID**, specify the unique part of the base URL
-         or endpoint assigned to your Marketo account.
-        4. Under **Data encryption**, enter your AWS KMS key.
-        5. Under **Connection name**, specify a name for your connection.
-        6. Choose **Connect**.
+   1. Under **Client ID**, enter your Marketo client ID.
+   2. Under **Client secret**, enter your client secret.
+   3. Under **Account/Munchkin ID**, specify the unique part of the base URL
+      or endpoint assigned to your Marketo account.
+   4. Under **Data encryption**, enter your AWS KMS key.
+   5. Under **Connection name**, specify a name for your connection.
+   6. Choose **Connect**.
+      ![Connect to Marketo dialog with fields for Client ID, Client secret, Account/Munchkin ID, and Connection name.](images/connection_setup-marketo-console.png)
 
-    ![Connect to Marketo dialog with fields for Client ID, Client secret, Account/Munchkin ID, and Connection name.](images/connection_setup-marketo-console.png)
-
-9.  You will be redirected to the Marketo login page. When prompted, grant Amazon AppFlow
-    permissions to access your Marketo account.
+9. You will be redirected to the Marketo login page. When prompted, grant Amazon AppFlow
+   permissions to access your Marketo account.
 
 Now that you are connected to your Marketo account, you can continue with the flow creation
 steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

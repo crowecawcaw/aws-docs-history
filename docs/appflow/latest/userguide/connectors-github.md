@@ -58,20 +58,19 @@ requirements:
   you want to allow fewer scopes, you can omit any that apply to objects that you don't want to
   transfer.
 
-      + `repo:status`
-      + `repo_deployment`
-      + `public_repo`
-      + `security_events`
-      + `admin:repo_hook`
-      + `read:repo_hook`
-      + `read:org`
-      + `read:public_key`
-      + `notifications`
-      + `read:user`
-      + `user:email`
-      + `read:discussion`
-
-  For more information about these scopes, see [Available scopes](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes "https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes") in the GitHub Docs.
+  - `repo:status`
+  - `repo_deployment`
+  - `public_repo`
+  - `security_events`
+  - `admin:repo_hook`
+  - `read:repo_hook`
+  - `read:org`
+  - `read:public_key`
+  - `notifications`
+  - `read:user`
+  - `user:email`
+  - `read:discussion`
+    For more information about these scopes, see [Available scopes](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes "https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes") in the GitHub Docs.
 
 If you created an OAuth app, note the client ID and client secret. If you created a personal
 access token, note the token value. You provide these values to Amazon AppFlow when you connect to your
@@ -159,11 +158,11 @@ following data objects to supported destinations:
 | --------------------------------- | ------------------ | ------------- | --------------------- |
 | Branch                            | Commit             | Struct        |                       |
 | Name                              | String             |               |
-| Protected                         | Boolean            | EQUAL_TO      |
+| Protected                         | Boolean            | EQUAL\_TO     |
 | Protection                        | Struct             |               |
 | Protection URL                    | String             |               |
 | Card (aka Project Card)           | Archived           | Boolean       |                       |
-| Archived State                    | String             | EQUAL_TO      |
+| Archived State                    | String             | EQUAL\_TO     |
 | Column URL                        | String             |               |
 | Content URL                       | String             |               |
 | Created at                        | DateTime           |               |
@@ -177,14 +176,14 @@ following data objects to supported destinations:
 | Commit                            | Author             | Struct        |                       |
 | Comments URL                      | String             |               |
 | Commit                            | Struct             |               |
-| Commit Author Name                | String             | EQUAL_TO      |
+| Commit Author Name                | String             | EQUAL\_TO     |
 | Committer                         | Struct             |               |
 | HTML URL                          | String             |               |
 | Node ID                           | String             |               |
 | Parents                           | List               |               |
-| SHA                               | String             | EQUAL_TO      |
+| SHA                               | String             | EQUAL\_TO     |
 | URL                               | String             |               |
-| Updated since                     | DateTime           | EQUAL_TO      |
+| Updated since                     | DateTime           | EQUAL\_TO     |
 | Commit Comment                    | Author Association | String        |                       |
 | Body                              | String             |               |
 | Commit ID                         | String             |               |
@@ -238,7 +237,7 @@ following data objects to supported destinations:
 | Deployment                        | Created at         | DateTime      |                       |
 | Creator                           | Struct             |               |
 | Description                       | String             |               |
-| Environment                       | String             | EQUAL_TO      |
+| Environment                       | String             | EQUAL\_TO     |
 | ID                                | Long               |               |
 | Node ID                           | String             |               |
 | Original Environment              | String             |               |
@@ -246,13 +245,13 @@ following data objects to supported destinations:
 | Performed via GitHub app          | Struct             |               |
 | Production Environment            | Boolean            |               |
 | Repository URL                    | String             |               |
-| SHA                               | String             | EQUAL_TO      |
+| SHA                               | String             | EQUAL\_TO     |
 | Statuses URL                      | String             |               |
-| Task                              | String             | EQUAL_TO      |
+| Task                              | String             | EQUAL\_TO     |
 | Transient Environment             | Boolean            |               |
 | URL                               | String             |               |
 | Updated at                        | DateTime           |               |
-| ref                               | String             | EQUAL_TO      |
+| ref                               | String             | EQUAL\_TO     |
 | Deployment Status                 | Created at         | DateTime      |                       |
 | Creator                           | Struct             |               |
 | Deployment URL                    | String             |               |
@@ -357,10 +356,10 @@ following data objects to supported destinations:
 | Comments URL                      | String             |               |
 | Created at                        | DateTime           |               |
 | Events URL                        | String             |               |
-| Filter                            | String             | EQUAL_TO      |
+| Filter                            | String             | EQUAL\_TO     |
 | HTML URL                          | String             |               |
 | ID                                | Long               |               |
-| Issue Labels Name                 | String             | EQUAL_TO      |
+| Issue Labels Name                 | String             | EQUAL\_TO     |
 | Labels                            | List               |               |
 | Labels URL                        | String             |               |
 | Locked                            | Boolean            |               |
@@ -370,11 +369,11 @@ following data objects to supported destinations:
 | Performed via GitHub App          | Struct             |               |
 | Reactions                         | Struct             |               |
 | Repository URL                    | String             |               |
-| State                             | String             | EQUAL_TO      |
+| State                             | String             | EQUAL\_TO     |
 | Timeline URL                      | String             |               |
 | Title                             | String             |               |
 | URL                               | String             |               |
-| Updated at                        | DateTime           | EQUAL_TO      |
+| Updated at                        | DateTime           | EQUAL\_TO     |
 | User                              | Struct             |               |
 | Issue Assignee                    | Avatar URL         | String        |                       |
 | Events URL                        | String             |               |
@@ -404,7 +403,7 @@ following data objects to supported destinations:
 | Performed via GitHub app          | Struct             |               |
 | Reactions                         | Struct             |               |
 | URL                               | String             |               |
-| Updated at                        | DateTime           | EQUAL_TO      |
+| Updated at                        | DateTime           | EQUAL\_TO     |
 | User                              | Struct             |               |
 | Issue Event                       | Actor              | Struct        |                       |
 | Assignee                          | Struct             |               |
@@ -436,7 +435,7 @@ following data objects to supported destinations:
 | Node ID                           | String             |               |
 | Number                            | Long               |               |
 | Open Issues                       | Long               |               |
-| State                             | String             | EQUAL_TO      |
+| State                             | String             | EQUAL\_TO     |
 | Title                             | String             |               |
 | URL                               | String             |               |
 | Updated at                        | DateTime           |               |
@@ -461,7 +460,7 @@ following data objects to supported destinations:
 | Number                            | Long               |               |
 | Organization Permission           | String             |               |
 | Private                           | Boolean            |               |
-| State                             | String             | EQUAL_TO      |
+| State                             | String             | EQUAL\_TO     |
 | Updated at                        | DateTime           |               |
 | Project Column                    | Created at         | DateTime      |                       |
 | ID                                | Long               |               |
@@ -493,13 +492,13 @@ following data objects to supported destinations:
 | Node ID                           | String             |               |
 | Number                            | Long               |               |
 | Patch URL                         | String             |               |
-| Pull Request Base                 | String             | EQUAL_TO      |
-| Pull Request Head Label           | String             | EQUAL_TO      |
+| Pull Request Base                 | String             | EQUAL\_TO     |
+| Pull Request Head Label           | String             | EQUAL\_TO     |
 | Requested Reviewers               | List               |               |
 | Requested Teams                   | List               |               |
 | Review Comment URL                | String             |               |
 | Review Comments URL               | String             |               |
-| State                             | String             | EQUAL_TO      |
+| State                             | String             | EQUAL\_TO     |
 | Statuses URL                      | String             |               |
 | Title                             | String             |               |
 | URL                               | String             |               |
@@ -626,7 +625,7 @@ following data objects to supported destinations:
 | Temp Clone Token                  | String             |               |
 | Topics                            | List               |               |
 | Trees URL                         | String             |               |
-| Type                              | String             | EQUAL_TO      |
+| Type                              | String             | EQUAL\_TO     |
 | URL                               | String             |               |
 | Updated at                        | DateTime           |               |
 | Visibility                        | String             |               |
@@ -642,28 +641,28 @@ following data objects to supported destinations:
 | Comments                          | Long               |               |
 | Comments URL                      | String             |               |
 | Created at                        | DateTime           |               |
-| Creator                           | String             | EQUAL_TO      |
+| Creator                           | String             | EQUAL\_TO     |
 | Events URL                        | String             |               |
 | HTML URL                          | String             |               |
 | ID                                | Long               |               |
 | Labels                            | List               |               |
 | Labels URL                        | String             |               |
 | Locked                            | Boolean            |               |
-| Mentioned                         | String             | EQUAL_TO      |
+| Mentioned                         | String             | EQUAL\_TO     |
 | Milestone                         | Struct             |               |
 | Node ID                           | String             |               |
 | Number                            | Long               |               |
 | Performed via GitHub App          | Struct             |               |
 | Reactions                         | Struct             |               |
-| Repository Issue Assignee Login   | String             | EQUAL_TO      |
-| Repository Issue Labels Name      | String             | EQUAL_TO      |
-| Repository Issue Milestone Number | String             | EQUAL_TO      |
+| Repository Issue Assignee Login   | String             | EQUAL\_TO     |
+| Repository Issue Labels Name      | String             | EQUAL\_TO     |
+| Repository Issue Milestone Number | String             | EQUAL\_TO     |
 | Repository URL                    | String             |               |
-| State                             | String             | EQUAL_TO      |
+| State                             | String             | EQUAL\_TO     |
 | Timeline URL                      | String             |               |
 | Title                             | String             |               |
 | URL                               | String             |               |
-| Updated at                        | DateTime           | EQUAL_TO      |
+| Updated at                        | DateTime           | EQUAL\_TO     |
 | User                              | Struct             |               |
 | Repository Project                | Body               | String        |                       |
 | Created at                        | DateTime           |               |
@@ -674,7 +673,7 @@ following data objects to supported destinations:
 | Number                            | Long               |               |
 | Organization Permission           | String             |               |
 | Private                           | Boolean            |               |
-| State                             | String             | EQUAL_TO      |
+| State                             | String             | EQUAL\_TO     |
 | Updated at                        | DateTime           |               |
 | Review Comment                    | Author Association | String        |                       |
 | Body                              | Struct             |               |
@@ -692,7 +691,7 @@ following data objects to supported destinations:
 | Pull Request Review ID            | Long               |               |
 | Pull Request URL                  | String             |               |
 | URL                               | String             |               |
-| Updated at                        | DateTime           | EQUAL_TO      |
+| Updated at                        | DateTime           | EQUAL\_TO     |
 | User                              | Struct             |               |
 | \_links                           | Struct             |               |
 | Stargazer                         | Avatar URL         | String        |                       |

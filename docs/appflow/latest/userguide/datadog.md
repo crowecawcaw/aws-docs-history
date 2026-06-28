@@ -26,32 +26,31 @@ You can use Datadog as a source only.
 
 ###### To connect to Datadog while creating a flow
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  Choose **Create flow**.
-3.  For **Flow details**, enter a name and description for the flow.
-4.  (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
-    **Data encryption**, **Customize encryption settings** and
-    then choose an existing CMK or create a new one.
-5.  (Optional) To add a tag, choose **Tags**, **Add tag**
-    and then enter the key name and value.
-6.  Choose **Next**.
-7.  Choose **Datadog** from the **Source name** dropdown
-    list.
-8.  Choose **Connect** to open the **Connect to Datadog**
-    dialog box.
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. Choose **Create flow**.
+3. For **Flow details**, enter a name and description for the flow.
+4. (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
+   **Data encryption**, **Customize encryption settings** and
+   then choose an existing CMK or create a new one.
+5. (Optional) To add a tag, choose **Tags**, **Add tag**
+   and then enter the key name and value.
+6. Choose **Next**.
+7. Choose **Datadog** from the **Source name** dropdown
+   list.
+8. Choose **Connect** to open the **Connect to Datadog**
+   dialog box.
 
-        1. Under **API key**, enter your API key.
-        2. Under **Application key**, enter your application key.
-        3. Under **Select region**, select the region for your instance of
-         Datadog.
-        4. Under **Data encryption**, enter your AWS KMS key.
-        5. Under **Connection name**, specify a name for your connection.
-        6. Choose **Connect**.
+   1. Under **API key**, enter your API key.
+   2. Under **Application key**, enter your application key.
+   3. Under **Select region**, select the region for your instance of
+      Datadog.
+   4. Under **Data encryption**, enter your AWS KMS key.
+   5. Under **Connection name**, specify a name for your connection.
+   6. Choose **Connect**.
+      ![Datadog connection form with API key, Application key, region selection, and encryption options.](images/connection_setup-datadog-console.png)
 
-    ![Datadog connection form with API key, Application key, region selection, and encryption options.](images/connection_setup-datadog-console.png)
-
-9.  You will be redirected to the Datadog login page. When prompted, grant Amazon AppFlow
-    permissions to access your Datadog account.
+9. You will be redirected to the Datadog login page. When prompted, grant Amazon AppFlow
+   permissions to access your Datadog account.
 
 Now that you are connected to your Datadog, you can continue with the flow creation steps as
 described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

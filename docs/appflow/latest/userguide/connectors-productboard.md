@@ -101,19 +101,19 @@ following data objects to supported destinations:
 | UpdatedAt               | String    |               |
 | Custom Field Definition |           |               |                       |
 | Custom Field Value      |           |               |                       |
-| Feature                 | Archived  | Boolean       | EQUAL_TO              |
+| Feature                 | Archived  | Boolean       | EQUAL\_TO             |
 | CreatedAt               | String    |               |
 | Description             | String    |               |
 | Id                      | String    |               |
 | Links                   | Struct    |               |
 | Name                    | String    |               |
 | Owner                   | Struct    |               |
-| Owner Email             | String    | EQUAL_TO      |
+| Owner Email             | String    | EQUAL\_TO     |
 | Parent                  | Struct    |               |
-| Parent Id               | String    | EQUAL_TO      |
+| Parent Id               | String    | EQUAL\_TO     |
 | Status                  | Struct    |               |
-| Status Id               | String    | EQUAL_TO      |
-| Status Name             | String    | EQUAL_TO      |
+| Status Id               | String    | EQUAL\_TO     |
+| Status Name             | String    | EQUAL\_TO     |
 | Time Frame              | Struct    |               |
 | Type                    | String    |               |
 | UpdatedAt               | String    |               |

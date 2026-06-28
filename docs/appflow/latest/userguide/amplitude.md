@@ -25,30 +25,29 @@ dashboard. For more information about how to retrieve this information from Ampl
 
 ###### To connect to Amplitude while creating a flow
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  Choose **Create flow**.
-3.  For **Flow details**, enter a name and description for the flow.
-4.  (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
-    **Data encryption**, **Customize encryption settings** and
-    then choose an existing CMK or create a new one.
-5.  (Optional) To add a tag, choose **Tags**, **Add tag**
-    and then enter the key name and value.
-6.  Choose **Next**.
-7.  Choose **Amplitude** from the **Source name** dropdown
-    list.
-8.  Choose **Connect** to open the **Connect to Amplitude**
-    dialog box.
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. Choose **Create flow**.
+3. For **Flow details**, enter a name and description for the flow.
+4. (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
+   **Data encryption**, **Customize encryption settings** and
+   then choose an existing CMK or create a new one.
+5. (Optional) To add a tag, choose **Tags**, **Add tag**
+   and then enter the key name and value.
+6. Choose **Next**.
+7. Choose **Amplitude** from the **Source name** dropdown
+   list.
+8. Choose **Connect** to open the **Connect to Amplitude**
+   dialog box.
 
-        1. Under **API key**, enter your API key.
-        2. Under **Secret key**, enter your secret key.
-        3. Under **Data encryption**, enter your AWS KMS key.
-        4. Under **Connection name**, specify a name for your connection.
-        5. Choose **Connect**.
+   1. Under **API key**, enter your API key.
+   2. Under **Secret key**, enter your secret key.
+   3. Under **Data encryption**, enter your AWS KMS key.
+   4. Under **Connection name**, specify a name for your connection.
+   5. Choose **Connect**.
+      ![Connect to Amplitude dialog with fields for API key, secret key, AWS KMS key, and connection name.](images/connection_setup-amplitude-console.png)
 
-    ![Connect to Amplitude dialog with fields for API key, secret key, AWS KMS key, and connection name.](images/connection_setup-amplitude-console.png)
-
-9.  You will be redirected to the Amplitude login page. When prompted, grant Amazon AppFlow
-    permissions to access your Amplitude account.
+9. You will be redirected to the Amplitude login page. When prompted, grant Amazon AppFlow
+   permissions to access your Amplitude account.
 
 Now that you are connected to your Amplitude account, you can continue with the flow
 creation steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

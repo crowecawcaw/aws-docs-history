@@ -35,12 +35,11 @@ requirements:
 - You have a Google Cloud Platform account and a Google Cloud project.
 - In your Google Cloud project, you've enabled the following APIs:
 
-      + Google Analytics API
-      + Google Analytics Admin API
-      + Google Analytics Data API
-
-  For the steps to enable these APIs, see [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841 "https://support.google.com/googleapi/answer/6158841") in
-  the API Console Help for Google Cloud Platform.
+  - Google Analytics API
+  - Google Analytics Admin API
+  - Google Analytics Data API
+    For the steps to enable these APIs, see [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841 "https://support.google.com/googleapi/answer/6158841") in
+    the API Console Help for Google Cloud Platform.
 
 - In your Google Cloud project, you've configured an OAuth consent screen for external
   users. For information about the OAuth consent screen, see [Setting up your OAuth consent
@@ -145,24 +144,24 @@ When you create a flow that uses Google Analytics 4 as the data source, you can 
 When you create a flow that uses Google Analytics 4 as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                  | **Field**            | **Data type**      | **Supported filters** |
-| --------------------------- | -------------------- | ------------------ | --------------------- |
-| Core Report                 |                      |                    |                       |
-| Real-Time Report            | Dimension:appVersion | String             | CONTAINS, EQUAL_TO    |
-| Dimension:audienceId        | String               | CONTAINS, EQUAL_TO |
-| Dimension:audienceName      | String               | CONTAINS, EQUAL_TO |
-| Dimension:city              | String               | CONTAINS, EQUAL_TO |
-| Dimension:cityId            | String               | CONTAINS, EQUAL_TO |
-| Dimension:country           | String               | CONTAINS, EQUAL_TO |
-| Dimension:countryId         | String               | CONTAINS, EQUAL_TO |
-| Dimension:deviceCategory    | String               | CONTAINS, EQUAL_TO |
-| Dimension:eventName         | String               | CONTAINS, EQUAL_TO |
-| Dimension:minutesAgo        | String               | CONTAINS, EQUAL_TO |
-| Dimension:platform          | String               | CONTAINS, EQUAL_TO |
-| Dimension:streamId          | String               | CONTAINS, EQUAL_TO |
-| Dimension:streamName        | String               | CONTAINS, EQUAL_TO |
-| Dimension:unifiedScreenName | String               | CONTAINS, EQUAL_TO |
-| Metrics:activeUsers         | String               |                    |
-| Metrics:conversions         | String               |                    |
-| Metrics:eventCount          | String               |                    |
-| Metrics:screenPageViews     | String               |                    |
+| **Object**                  | **Field**            | **Data type**       | **Supported filters** |
+| --------------------------- | -------------------- | ------------------- | --------------------- |
+| Core Report                 |                      |                     |                       |
+| Real-Time Report            | Dimension:appVersion | String              | CONTAINS, EQUAL\_TO   |
+| Dimension:audienceId        | String               | CONTAINS, EQUAL\_TO |
+| Dimension:audienceName      | String               | CONTAINS, EQUAL\_TO |
+| Dimension:city              | String               | CONTAINS, EQUAL\_TO |
+| Dimension:cityId            | String               | CONTAINS, EQUAL\_TO |
+| Dimension:country           | String               | CONTAINS, EQUAL\_TO |
+| Dimension:countryId         | String               | CONTAINS, EQUAL\_TO |
+| Dimension:deviceCategory    | String               | CONTAINS, EQUAL\_TO |
+| Dimension:eventName         | String               | CONTAINS, EQUAL\_TO |
+| Dimension:minutesAgo        | String               | CONTAINS, EQUAL\_TO |
+| Dimension:platform          | String               | CONTAINS, EQUAL\_TO |
+| Dimension:streamId          | String               | CONTAINS, EQUAL\_TO |
+| Dimension:streamName        | String               | CONTAINS, EQUAL\_TO |
+| Dimension:unifiedScreenName | String               | CONTAINS, EQUAL\_TO |
+| Metrics:activeUsers         | String               |                     |
+| Metrics:conversions         | String               |                     |
+| Metrics:eventCount          | String               |                     |
+| Metrics:screenPageViews     | String               |                     |

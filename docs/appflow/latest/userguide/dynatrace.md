@@ -26,31 +26,30 @@ You can use Dynatrace as a source only.
 
 ###### To connect to Dynatrace while creating a flow
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  Choose **Create flow**.
-3.  For **Flow details**, enter a name and description for the flow.
-4.  (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
-    **Data encryption**, **Customize encryption settings** and
-    then choose an existing CMK or create a new one.
-5.  (Optional) To add a tag, choose **Tags**, **Add tag**
-    and then enter the key name and value.
-6.  Choose **Next**.
-7.  Choose **Dynatrace** from the **Source name** dropdown
-    list.
-8.  Choose **Connect** to open the **Connect to Dynatrace**
-    dialog box.
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. Choose **Create flow**.
+3. For **Flow details**, enter a name and description for the flow.
+4. (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
+   **Data encryption**, **Customize encryption settings** and
+   then choose an existing CMK or create a new one.
+5. (Optional) To add a tag, choose **Tags**, **Add tag**
+   and then enter the key name and value.
+6. Choose **Next**.
+7. Choose **Dynatrace** from the **Source name** dropdown
+   list.
+8. Choose **Connect** to open the **Connect to Dynatrace**
+   dialog box.
 
-        1. Under **API token**, enter your API token.
-        2. Under **Subdomain**, enter the subdomain for your instance of
-         Dynatrace.
-        3. Under **Data encryption**, enter your AWS KMS key.
-        4. Under **Connection name**, specify a name for your connection.
-        5. Choose **Connect**.
+   1. Under **API token**, enter your API token.
+   2. Under **Subdomain**, enter the subdomain for your instance of
+      Dynatrace.
+   3. Under **Data encryption**, enter your AWS KMS key.
+   4. Under **Connection name**, specify a name for your connection.
+   5. Choose **Connect**.
+      ![Connect to Dynatrace dialog with fields for API token, subdomain, encryption key, and connection name.](images/connection_setup-dynatrace-console.png)
 
-    ![Connect to Dynatrace dialog with fields for API token, subdomain, encryption key, and connection name.](images/connection_setup-dynatrace-console.png)
-
-9.  You will be redirected to the Dynatrace login page. When prompted, grant Amazon AppFlow
-    permissions to access your Dynatrace account.
+9. You will be redirected to the Dynatrace login page. When prompted, grant Amazon AppFlow
+   permissions to access your Dynatrace account.
 
 Now that you are connected to your Dynatrace account, you can continue with the flow
 creation steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

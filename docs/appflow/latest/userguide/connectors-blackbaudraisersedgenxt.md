@@ -136,40 +136,40 @@ following data objects to supported destinations:
 | Action                           | Category               | String        |                       |
 | Completed                        | Boolean                |               |
 | Completed Date                   | DateTime               |               |
-| Computed Status                  | String                 | EQUAL_TO      |
+| Computed Status                  | String                 | EQUAL\_TO     |
 | Constituent ID                   | String                 |               |
 | Date                             | DateTime               |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Description                      | String                 |               |
 | End Time                         | String                 |               |
 | Fundraisers                      | List                   |               |
 | ID                               | String                 |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
-| List ID                          | String                 | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
+| List ID                          | String                 | EQUAL\_TO     |
 | Location                         | String                 |               |
 | Opportunity ID                   | String                 |               |
 | Outcome                          | String                 |               |
 | Priority                         | String                 |               |
 | Start Time                       | String                 |               |
 | Status                           | String                 |               |
-| Status Code                      | String                 | EQUAL_TO      |
+| Status Code                      | String                 | EQUAL\_TO     |
 | Summary                          | String                 |               |
 | Type                             | String                 |               |
 | Address                          | Address Lines          | String        |                       |
 | City                             | String                 |               |
-| Constituent ID                   | String                 | EQUAL_TO      |
+| Constituent ID                   | String                 | EQUAL\_TO     |
 | Country                          | String                 |               |
 | County                           | String                 |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Do Not Mail                      | Boolean                |               |
 | End                              | DateTime               |               |
 | Formatted Address                | String                 |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Postal Code                      | String                 |               |
 | Preferred                        | Boolean                |               |
 | Seasonal End                     | Struct                 |               |
@@ -178,58 +178,58 @@ following data objects to supported destinations:
 | State                            | String                 |               |
 | Type                             | String                 |               |
 | Appeal                           | Category               | String        |                       |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Description                      | String                 |               |
 | End Date                         | DateTime               |               |
 | Goal                             | Struct                 |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Lookup ID                        | String                 |               |
 | Start Date                       | DateTime               |               |
 | Campaign                         | Category               | String        |                       |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Description                      | String                 |               |
 | End Date                         | DateTime               |               |
 | Goal                             | Struct                 |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Lookup ID                        | String                 |               |
 | Start Date                       | DateTime               |               |
 | Constituent                      | Address                | Struct        |                       |
 | Age                              | Integer                |               |
 | Birthdate                        | Struct                 |               |
-| Constituent Code                 | String                 | EQUAL_TO      |
-| Constituent ID                   | String                 | EQUAL_TO      |
-| Custom Field Category            | String                 | EQUAL_TO      |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Constituent Code                 | String                 | EQUAL\_TO     |
+| Constituent ID                   | String                 | EQUAL\_TO     |
+| Custom Field Category            | String                 | EQUAL\_TO     |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Deceased                         | Boolean                |               |
 | Email                            | Struct                 |               |
 | First                            | String                 |               |
 | Former Name                      | String                 |               |
-| Fundraiser Status                | String                 | EQUAL_TO      |
+| Fundraiser Status                | String                 | EQUAL\_TO     |
 | Gender                           | String                 |               |
 | Gives Anonymously                | Boolean                |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Deceased                 | Boolean                | EQUAL_TO      |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
+| Include Deceased                 | Boolean                | EQUAL\_TO     |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
 | Last                             | String                 |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
-| List ID                          | String                 | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
+| List ID                          | String                 | EQUAL\_TO     |
 | Lookup ID                        | String                 |               |
 | Marital Status                   | String                 |               |
 | Middle                           | String                 |               |
 | Name                             | String                 |               |
 | Online Presence                  | Struct                 |               |
 | Phone                            | Struct                 |               |
-| Postal Code                      | String                 | EQUAL_TO      |
+| Postal Code                      | String                 | EQUAL\_TO     |
 | Preferred Name                   | String                 |               |
 | Spouse                           | Struct                 |               |
 | Suffix                           | String                 |               |
@@ -237,21 +237,21 @@ following data objects to supported destinations:
 | Title                            | String                 |               |
 | Title 2                          | String                 |               |
 | Type                             | String                 |               |
-| Custom Field                     | Category               | String        | EQUAL_TO              |
+| Custom Field                     | Category               | String        | EQUAL\_TO             |
 | Comment                          | String                 |               |
 | Date                             | DateTime               |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
-| Gift ID                          | Integer                | EQUAL_TO      |
+| Gift ID                          | Integer                | EQUAL\_TO     |
 | ID                               | String                 |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Parent ID                        | String                 |               |
 | Type                             | String                 |               |
-| Value                            | String                 | EQUAL_TO      |
+| Value                            | String                 | EQUAL\_TO     |
 | Education                        | Campus                 | String        |                       |
 | Class Of Degree                  | String                 |               |
 | Constituent ID                   | String                 |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Entered                     | Struct                 |               |
 | Date Graduated                   | Struct                 |               |
 | Date Left                        | Struct                 |               |
@@ -261,7 +261,7 @@ following data objects to supported destinations:
 | GPA                              | Double                 |               |
 | ID                               | String                 |               |
 | Known Name                       | String                 |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Majors                           | List                   |               |
 | Minors                           | List                   |               |
 | Primary                          | Boolean                |               |
@@ -274,80 +274,80 @@ following data objects to supported destinations:
 | Type                             | String                 |               |
 | class Of                         | String                 |               |
 | Email Address                    | Address                | String        |                       |
-| Constituent ID                   | String                 | EQUAL_TO      |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Constituent ID                   | String                 | EQUAL\_TO     |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Do Not Email                     | Boolean                |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Primary                          | Boolean                |               |
 | Type                             | String                 |               |
 | Event                            | Attended Count         | Integer       |                       |
 | Attending Count                  | Integer                |               |
 | Capacity                         | Integer                |               |
 | Category                         | Struct                 |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | End Date                         | Date                   |               |
 | End Time                         | String                 |               |
-| Event Category                   | String                 | EQUAL_TO      |
-| Event ID                         | String                 | EQUAL_TO      |
+| Event Category                   | String                 | EQUAL\_TO     |
+| Event ID                         | String                 | EQUAL\_TO     |
 | Goal                             | Double                 |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
 | Invited Count                    | Integer                |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
-| Lookup ID                        | String                 | EQUAL_TO      |
-| Name                             | String                 | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
+| Lookup ID                        | String                 | EQUAL\_TO     |
+| Name                             | String                 | EQUAL\_TO     |
 | Percent Of Goal                  | Integer                |               |
 | Revenue                          | Double                 |               |
 | Start Date                       | Date                   |               |
-| Start Date From                  | Date                   | EQUAL_TO      |
-| Start Date To                    | DateTime               | EQUAL_TO      |
+| Start Date From                  | Date                   | EQUAL\_TO     |
+| Start Date To                    | DateTime               | EQUAL\_TO     |
 | Start Time                       | String                 |               |
 | Event Participant                | Attended               | Boolean       |                       |
-| Attended Filter                  | Boolean                | EQUAL_TO      |
+| Attended Filter                  | Boolean                | EQUAL\_TO     |
 | Class Of                         | String                 |               |
 | Contact ID                       | String                 |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Do Not Call                      | Boolean                |               |
 | Do Not Email                     | Boolean                |               |
 | Donations                        | Double                 |               |
 | Email                            | String                 |               |
-| Email Eligible Filter            | Boolean                | EQUAL_TO      |
-| Fees Paid Filter                 | Boolean                | EQUAL_TO      |
+| Email Eligible Filter            | Boolean                | EQUAL\_TO     |
+| Fees Paid Filter                 | Boolean                | EQUAL\_TO     |
 | First Name                       | String                 |               |
 | Former Name                      | String                 |               |
 | Guests                           | Struct                 |               |
 | Host                             | Struct                 |               |
 | ID                               | String                 |               |
-| Invitation Status                | String                 | EQUAL_TO      |
+| Invitation Status                | String                 | EQUAL\_TO     |
 | Is Constituent                   | Boolean                |               |
-| Is Constituent Filter            | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Is Constituent Filter            | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Last Name                        | String                 |               |
 | Lookup ID                        | String                 |               |
 | Memberships                      | Struct                 |               |
 | Middle Name                      | String                 |               |
-| Name                             | String                 | EQUAL_TO      |
+| Name                             | String                 | EQUAL\_TO     |
 | Name Tag                         | String                 |               |
-| Online Data Health               | String                 | EQUAL_TO      |
-| Participant Option ID            | String                 | EQUAL_TO      |
+| Online Data Health               | String                 | EQUAL\_TO     |
+| Participant Option ID            | String                 | EQUAL\_TO     |
 | Participant Options              | Struct                 |               |
-| Participation Level              | String                 | EQUAL_TO      |
+| Participation Level              | String                 | EQUAL\_TO     |
 | Participation Level              | Struct                 |               |
 | Phone                            | String                 |               |
-| Phone Call Eligible Filter       | Boolean                | EQUAL_TO      |
+| Phone Call Eligible Filter       | Boolean                | EQUAL\_TO     |
 | Preferred Name                   | String                 |               |
 | RSVP Date                        | Struct                 |               |
-| RSVP Status                      | String                 | EQUAL_TO      |
+| RSVP Status                      | String                 | EQUAL\_TO     |
 | Registration Form                | Struct                 |               |
-| Registration Form IDs            | String                 | EQUAL_TO      |
-| Registration Form Include Type   | String                 | EQUAL_TO      |
+| Registration Form IDs            | String                 | EQUAL\_TO     |
+| Registration Form Include Type   | String                 | EQUAL\_TO     |
 | Revenue                          | Double                 |               |
 | Seat                             | String                 |               |
 | Suffix                           | String                 |               |
@@ -356,117 +356,117 @@ following data objects to supported destinations:
 | Total Paid                       | Double                 |               |
 | Total Registration Fees          | Double                 |               |
 | Fund                             | Category               | String        |                       |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Description                      | String                 |               |
 | End Date                         | DateTime               |               |
-| Fund ID                          | Integer                | EQUAL_TO      |
+| Fund ID                          | Integer                | EQUAL\_TO     |
 | Goal                             | Struct                 |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Lookup ID                        | String                 |               |
 | Start Date                       | DateTime               |               |
 | Type                             | String                 |               |
 | Fundraiser Assignment            | Amount                 | Struct        |                       |
 | Appeal ID                        | String                 |               |
 | Campaign ID                      | String                 |               |
-| Constituent ID                   | String                 | EQUAL_TO      |
+| Constituent ID                   | String                 | EQUAL\_TO     |
 | End                              | DateTime               |               |
 | Fund ID                          | String                 |               |
 | Fundraiser ID                    | String                 |               |
 | ID                               | String                 |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
 | Start                            | DateTime               |               |
 | Type                             | String                 |               |
-| Gift                             | Acknowledgement Status | String        | EQUAL_TO              |
+| Gift                             | Acknowledgement Status | String        | EQUAL\_TO             |
 | Acknowledgements                 | List                   |               |
 | Amount                           | Struct                 |               |
-| Appeal ID                        | String                 | EQUAL_TO      |
+| Appeal ID                        | String                 | EQUAL\_TO     |
 | Balance                          | Struct                 |               |
 | Batch Number                     | String                 |               |
-| Campaign ID                      | String                 | EQUAL_TO      |
+| Campaign ID                      | String                 | EQUAL\_TO     |
 | Constituency                     | String                 |               |
-| Constituent ID                   | String                 | EQUAL_TO      |
+| Constituent ID                   | String                 | EQUAL\_TO     |
 | Date                             | DateTime               |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
-| End Gift Amount                  | Double                 | EQUAL_TO      |
-| End Gift Date                    | DateTime               | EQUAL_TO      |
-| Fund ID                          | String                 | EQUAL_TO      |
+| End Gift Amount                  | Double                 | EQUAL\_TO     |
+| End Gift Date                    | DateTime               | EQUAL\_TO     |
+| Fund ID                          | String                 | EQUAL\_TO     |
 | Fundraisers                      | List                   |               |
 | Gift Splits                      | List                   |               |
 | Gift Status                      | String                 |               |
-| Gift Type                        | String                 | EQUAL_TO      |
+| Gift Type                        | String                 | EQUAL\_TO     |
 | ID                               | String                 |               |
 | Is Anonymous                     | Boolean                |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Linked Gifts                     | List                   |               |
-| List ID                          | String                 | EQUAL_TO      |
+| List ID                          | String                 | EQUAL\_TO     |
 | Lookup ID                        | String                 |               |
 | Origin                           | String                 |               |
 | Payments                         | List                   |               |
 | Post Date                        | DateTime               |               |
-| Post Status                      | String                 | EQUAL_TO      |
-| Receipt Status                   | String                 | EQUAL_TO      |
+| Post Status                      | String                 | EQUAL\_TO     |
+| Receipt Status                   | String                 | EQUAL\_TO     |
 | Receipts                         | List                   |               |
 | Reference                        | String                 |               |
 | Soft Credits                     | List                   |               |
-| Start Gift Amount                | Double                 | EQUAL_TO      |
-| Start Gift Date                  | DateTime               | EQUAL_TO      |
+| Start Gift Amount                | Double                 | EQUAL\_TO     |
+| Start Gift Date                  | DateTime               | EQUAL\_TO     |
 | Subtype                          | String                 |               |
 | Type                             | String                 |               |
 | Gift Batch                       | Actual Amount          | Double        |                       |
 | Added By                         | String                 |               |
-| Approved                         | Boolean                | EQUAL_TO      |
+| Approved                         | Boolean                | EQUAL\_TO     |
 | Batch Description                | String                 |               |
-| Batch Number                     | String                 | EQUAL_TO      |
+| Batch Number                     | String                 | EQUAL\_TO     |
 | Created By                       | String                 |               |
 | Created On                       | DateTime               |               |
 | Date Added                       | DateTime               |               |
-| Has Exceptions                   | Boolean                | EQUAL_TO      |
+| Has Exceptions                   | Boolean                | EQUAL\_TO     |
 | ID                               | String                 |               |
 | Is Approved                      | Boolean                |               |
 | Number Of Gifts                  | Integer                |               |
-| Search Text                      | String                 | EQUAL_TO      |
+| Search Text                      | String                 | EQUAL\_TO     |
 | Membership                       | Category               | String        |                       |
 | Constituent ID                   | String                 |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Dues                             | Struct                 |               |
 | Expires                          | DateTime               |               |
 | ID                               | String                 |               |
 | Joined                           | DateTime               |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Members                          | List                   |               |
 | Program                          | String                 |               |
 | Standing                         | String                 |               |
 | Subcategory                      | String                 |               |
 | Note                             | Constituent ID         | String        |                       |
 | Date                             | Struct                 |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | ID                               | String                 |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Summary                          | String                 |               |
 | Text                             | String                 |               |
 | Type                             | String                 |               |
 | Online Presence                  | Address                | String        |                       |
-| Constituent ID                   | String                 | EQUAL_TO      |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Constituent ID                   | String                 | EQUAL\_TO     |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Primary                          | Boolean                |               |
 | Type                             | String                 |               |
 | Opportunity                      | Ask Amount             | Struct        |                       |
 | Ask Date                         | DateTime               |               |
 | Campaign ID                      | String                 |               |
-| Constituent ID                   | String                 | EQUAL_TO      |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Constituent ID                   | String                 | EQUAL\_TO     |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Deadline                         | DateTime               |               |
 | Expected Amount                  | Struct                 |               |
@@ -477,16 +477,16 @@ following data objects to supported destinations:
 | Fundraisers                      | List                   |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Linked Gifts                     | List                   |               |
-| List ID                          | String                 | EQUAL_TO      |
+| List ID                          | String                 | EQUAL\_TO     |
 | Name                             | String                 |               |
 | Purpose                          | String                 |               |
 | Status                           | String                 |               |
-| Package                          | Appeal ID              | String        | EQUAL_TO              |
+| Package                          | Appeal ID              | String        | EQUAL\_TO             |
 | Category                         | String                 |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | Default Gift Aamount             | Struct                 |               |
 | Description                      | String                 |               |
@@ -494,13 +494,13 @@ following data objects to supported destinations:
 | Goal                             | Struct                 |               |
 | ID                               | String                 |               |
 | Inactive                         | Boolean                |               |
-| Include Inactive                 | Boolean                | EQUAL_TO      |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Include Inactive                 | Boolean                | EQUAL\_TO     |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Lookup ID                        | String                 |               |
 | Notes                            | String                 |               |
 | Recipient Count                  | Integer                |               |
 | Start                            | DateTime               |               |
-| Phone                            | Constituent ID         | String        | EQUAL_TO              |
+| Phone                            | Constituent ID         | String        | EQUAL\_TO             |
 | Date Added                       | DateTime               |               |
 | Date Modified                    | DateTime               |               |
 | Do Not Call                      | Boolean                |               |
@@ -511,7 +511,7 @@ following data objects to supported destinations:
 | Type                             | String                 |               |
 | Relationship                     | Comment                | String        |                       |
 | Constituent ID                   | String                 |               |
-| Date Added                       | DateTime               | EQUAL_TO      |
+| Date Added                       | DateTime               | EQUAL\_TO     |
 | Date Modified                    | DateTime               |               |
 | End                              | Struct                 |               |
 | ID                               | String                 |               |
@@ -520,7 +520,7 @@ following data objects to supported destinations:
 | Is Primary Business              | Boolean                |               |
 | Is Spouse                        | Boolean                |               |
 | Is Spouse Head Of Household      | Boolean                |               |
-| Last Modified                    | DateTime               | EQUAL_TO      |
+| Last Modified                    | DateTime               | EQUAL\_TO     |
 | Name                             | String                 |               |
 | Organization Contact Type        | String                 |               |
 | Position                         | String                 |               |

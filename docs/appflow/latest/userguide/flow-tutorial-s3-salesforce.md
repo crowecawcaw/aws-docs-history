@@ -29,7 +29,7 @@ destination.
    Amazon AppFlow console is the same one as your S3 bucket.
 2. Choose **Create flow**.
 3. For **Flow name**, enter `s3-to-`SaaS``.
-For example, if your destination is Salesforce, enter `s3-to-salesforce`.
+   For example, if your destination is Salesforce, enter `s3-to-salesforce`.
 4. Under **Data encryption**, you have the option to
    activate custom encryption settings. By default, Amazon AppFlow encrypts your data with a
    key in AWS Key Management Service (AWS KMS). AWS creates, uses, and manages this key for you.

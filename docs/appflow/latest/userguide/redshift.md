@@ -150,7 +150,7 @@ necessary if you chose to connect to an Amazon Redshift cluster.
 You grant the access privileges to a database user that Amazon Redshift creates for you when you
 create the connection in Amazon AppFlow. Amazon Redshift names this user
 `IAMR:`data-api-access-role``. In that name,
- `data-api-access-role` is the name of the IAM role that authorizes access to
+`data-api-access-role` is the name of the IAM role that authorizes access to
 your database through the Amazon Redshift Data API. If you already created the connection in the Amazon AppFlow
 console, you provided that role for the **IAM role for Amazon Redshift Data API
 access** field.

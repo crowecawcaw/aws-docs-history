@@ -56,23 +56,19 @@ to meet these requirements:
   Login_ product, which you've configured to meet the following additional
   requirements:
 
-      + Client OAuth login is enabled
-      + Web OAuth login is enabled
-      + One or more OAuth redirect URIs are present for Amazon AppFlow. Each of these URIs has the
-       following form:
+  - Client OAuth login is enabled
+  - Web OAuth login is enabled
+  - One or more OAuth redirect URIs are present for Amazon AppFlow. Each of these URIs has the
+    following form:
 
+  `https://`region`.console.aws.amazon.com/appflow/oauth`
 
-      `https://`region`.console.aws.amazon.com/appflow/oauth`
+  In this URI, _region_ is the code for the AWS Region
+  where you use Amazon AppFlow to transfer data from the Marketing API. For example, if you use Amazon AppFlow
+  in the US East (N. Virginia) region, the URI is
+  `https://us-east-1.console.aws.amazon.com/appflow/oauth`.
 
-
-      In this URI, *region* is the code for the AWS Region
-       where you use Amazon AppFlow to transfer data from the Marketing API. For example, if you use Amazon AppFlow
-       in the US East (N. Virginia) region, the URI is
-       `https://us-east-1.console.aws.amazon.com/appflow/oauth`.
-
-
-      For the AWS Regions that Amazon AppFlow supports, see [Amazon AppFlow endpoints and quotas](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md") in the *AWS General Reference.*
-
+  For the AWS Regions that Amazon AppFlow supports, see [Amazon AppFlow endpoints and quotas](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md") in the _AWS General Reference._
   For more information about Facebook Login, see [Facebook Login](https://developers.facebook.com/docs/facebook-login "https://developers.facebook.com/docs/facebook-login") in the Meta
   For Developers documentation.
 

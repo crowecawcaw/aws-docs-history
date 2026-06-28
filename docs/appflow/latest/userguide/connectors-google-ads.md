@@ -49,12 +49,11 @@ requirements:
 - In your Google Cloud project, you've configured an OAuth consent screen for external users
   that meets the following requirements:
 
-      + You've set *amazon.com* as an authorized domain.
-      + You've set *Google Ads API* as an authorized
-       scope.
-
-  For information about the OAuth consent screen, see [Setting up your OAuth consent
-  screen](https://support.google.com/cloud/answer/10311615# "https://support.google.com/cloud/answer/10311615#") in the Google Cloud Platform Console Help.
+  - You've set _amazon.com_ as an authorized domain.
+  - You've set _Google Ads API_ as an authorized
+    scope.
+    For information about the OAuth consent screen, see [Setting up your OAuth consent
+    screen](https://support.google.com/cloud/answer/10311615# "https://support.google.com/cloud/answer/10311615#") in the Google Cloud Platform Console Help.
 
 - In your Google Cloud project, you've configured an OAuth 2.0 client ID. For information on
   how to create one, see [Setting up OAuth

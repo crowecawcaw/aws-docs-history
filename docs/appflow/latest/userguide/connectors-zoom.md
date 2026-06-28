@@ -162,7 +162,7 @@ following data objects to supported destinations:
 | Daily Report        | Date            | String        |                       |
 | Meeting Minutes     | Integer         |               |
 | Meetings            | Integer         |               |
-| Month Year          | Date            | EQUAL_TO      |
+| Month Year          | Date            | EQUAL\_TO     |
 | New Users           | Integer         |               |
 | Participants        | Integer         |               |
 | Group               | Id              | String        |                       |
@@ -194,16 +194,16 @@ following data objects to supported destinations:
 | Last Name           | String          |               |
 | Personal Meeting ID | Integer         |               |
 | Plan United Type    | String          |               |
-| Role Id             | String          | EQUAL_TO      |
-| Status              | String          | EQUAL_TO      |
+| Role Id             | String          | EQUAL\_TO     |
+| Status              | String          | EQUAL\_TO     |
 | Timezone            | String          |               |
 | Type                | Integer         |               |
 | Verified            | Integer         |               |
 | Zoom Room           | Activation Code | String        |                       |
 | Id                  | String          |               |
-| Location Id         | String          | EQUAL_TO      |
+| Location Id         | String          | EQUAL\_TO     |
 | Name                | String          |               |
 | Room Id             | String          |               |
-| Status              | String          | EQUAL_TO      |
-| Type                | String          | EQUAL_TO      |
-| Unassigned Rooms    | Boolean         | EQUAL_TO      |
+| Status              | String          | EQUAL\_TO     |
+| Type                | String          | EQUAL\_TO     |
+| Unassigned Rooms    | Boolean         | EQUAL\_TO     |

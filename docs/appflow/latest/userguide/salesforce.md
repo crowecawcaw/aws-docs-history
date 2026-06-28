@@ -145,10 +145,10 @@ meet these requirements:
     following scopes:
 
     - Manage user data via APIs (api)
-    - Access custom permissions (custom_permissions)
+    - Access custom permissions (custom\_permissions)
     - Access the identity URL service (id, profile, email, address, phone)
     - Access unique user identifiers (openid)
-    - Perform requests at any time (refresh_token, offline_access)
+    - Perform requests at any time (refresh\_token, offline\_access)
 
   - You've set the refresh token policy for the connected app to **Refresh
     token is valid until revoked**. Otherwise, your flows will fail when your
@@ -185,19 +185,18 @@ your Salesforce data:
      JWT.
 
 7. For **Salesforce environment**, choose one of the
-   following:
+following:
 
-   - **Production** — Connects Amazon AppFlow to your
+    * **Production** — Connects Amazon AppFlow to your
      Salesforce production org.
-   - **Sandbox** — Connects Amazon AppFlow to a Salesforce
+    * **Sandbox** — Connects Amazon AppFlow to a Salesforce
      sandbox.
 
 8. For **PrivateLink**, choose **Enabled** if you want
-   to connect to your Salesforce account privately through an AWS PrivateLink
-   connection. Otherwise, leave this open set to **Disabled**.
-9. Optionally, under **Data encryption**, choose **Customize
-   encryption settings (advanced)** if you want to encrypt your data with a customer
-   managed key in the AWS Key Management Service (AWS KMS).
+to connect to your Salesforce account privately through an AWS PrivateLink
+connection. Otherwise, leave this open set to **Disabled**. 9. Optionally, under **Data encryption**, choose **Customize
+encryption settings (advanced)** if you want to encrypt your data with a customer
+managed key in the AWS Key Management Service (AWS KMS).
 
 By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages
 for you. Choose this option if you want to encrypt your data with your own KMS key instead.

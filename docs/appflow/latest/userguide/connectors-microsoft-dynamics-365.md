@@ -57,22 +57,21 @@ requirements:
 
   ###### Notes
 
-      - When you connect Amazon AppFlow to your Microsoft Dynamics 365 account, you provide the client
-       secret *value*. You don't provide the client secret
-       *ID*.
-      - At the time that you create the client secret, you must store it's value somewhere
-       that you can access later. After you leave the page where you create the client secret,
-       Microsoft Azure never shows the value again.
+        - When you connect Amazon AppFlow to your Microsoft Dynamics 365 account, you provide the client
+         secret *value*. You don't provide the client secret
+         *ID*.
+        - At the time that you create the client secret, you must store it's value somewhere
+         that you can access later. After you leave the page where you create the client secret,
+         Microsoft Azure never shows the value again.
   - In the app manifest, you've edited the following attributes to have a value of
     `true`:
 
-        - `"allowPublicClient": true,`
-        - `"oauth2AllowIdTokenImplicitFlow": true,`
-        - `"oauth2AllowImplicitFlow": true,`
-
-    For more information about these attributes, and for the steps to configure the app
-    manifest, see [Azure Active Directory app manifest](https://learn.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest "https://learn.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest") in the Microsoft identity platform
-    documentation.
+    - `"allowPublicClient": true,`
+    - `"oauth2AllowIdTokenImplicitFlow": true,`
+    - `"oauth2AllowImplicitFlow": true,`
+      For more information about these attributes, and for the steps to configure the app
+      manifest, see [Azure Active Directory app manifest](https://learn.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest "https://learn.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest") in the Microsoft identity platform
+      documentation.
 
   - In the API permissions settings, you've set the following configurations:
 

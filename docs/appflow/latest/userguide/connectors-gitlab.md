@@ -148,472 +148,472 @@ When you create a flow that uses GitLab as the data source, you can set the dest
 When you create a flow that uses GitLab as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                                       | **Field**           | **Data type**            | **Supported filters** |
-| ------------------------------------------------ | ------------------- | ------------------------ | --------------------- |
-| Branch                                           | can_push            | Boolean                  |                       |
-| commit                                           | Struct              |                          |
-| default                                          | Boolean             |                          |
-| developers_can_merge                             | Boolean             |                          |
-| developers_can_push                              | Boolean             |                          |
-| merged                                           | Boolean             |                          |
-| name                                             | String              |                          |
-| protected                                        | Boolean             |                          |
-| search                                           | String              | EQUAL_TO                 |
-| web_url                                          | String              |                          |
-| Commit                                           | all                 | Boolean                  | EQUAL_TO              |
-| author_email                                     | String              |                          |
-| author_name                                      | String              |                          |
-| authored_date                                    | DateTime            |                          |
-| committed_date                                   | DateTime            |                          |
-| committer_email                                  | String              |                          |
-| committer_name                                   | String              |                          |
-| created_at                                       | DateTime            |                          |
-| first_parent                                     | Boolean             | EQUAL_TO                 |
-| id                                               | String              |                          |
-| message                                          | String              |                          |
-| order                                            | String              | EQUAL_TO                 |
-| parent_ids                                       | List                |                          |
-| path                                             | String              | EQUAL_TO                 |
-| ref_name                                         | String              | EQUAL_TO                 |
-| short_id                                         | String              |                          |
-| since                                            | DateTime            | GREATER_THAN_OR_EQUAL_TO |
-| since_until                                      | DateTime            | BETWEEN                  |
-| title                                            | String              |                          |
-| trailers                                         | Boolean             | EQUAL_TO                 |
-| until                                            | DateTime            | LESS_THAN_OR_EQUAL_TO    |
-| web_url                                          | String              |                          |
-| with_stats                                       | Boolean             | EQUAL_TO                 |
-| Group                                            | auto_devops_enabled | String                   |                       |
-| avatar_url                                       | String              |                          |
-| created_at                                       | DateTime            |                          |
-| default_branch_protection                        | Integer             |                          |
-| description                                      | String              |                          |
-| emails_disabled                                  | String              |                          |
-| file_template_project_id                         | Integer             |                          |
-| full_name                                        | String              |                          |
-| full_path                                        | String              |                          |
-| id                                               | Integer             |                          |
-| ip_restriction_ranges                            | String              |                          |
-| ldap_access                                      | String              |                          |
-| ldap_cn                                          | String              |                          |
-| lfs_enabled                                      | Boolean             |                          |
-| mentions_disabled                                | String              |                          |
-| min_access_level                                 | Integer             | EQUAL_TO                 |
-| name                                             | String              |                          |
-| order_by                                         | String              | EQUAL_TO                 |
-| owned                                            | Boolean             | EQUAL_TO                 |
-| parent_id                                        | String              |                          |
-| path                                             | String              |                          |
-| project_creation_level                           | String              |                          |
-| request_access_enabled                           | Boolean             |                          |
-| require_two_factor_authentication                | Boolean             |                          |
-| search                                           | String              | EQUAL_TO                 |
-| share_with_group_lock                            | Boolean             |                          |
-| skip_groups                                      | Integer             | EQUAL_TO                 |
-| sort                                             | String              | EQUAL_TO                 |
-| statistics                                       | Boolean             | EQUAL_TO                 |
-| subgroup_creation_level                          | String              |                          |
-| top_level_only                                   | Boolean             | EQUAL_TO                 |
-| two_factor_grace_period                          | Integer             |                          |
-| visibility                                       | String              |                          |
-| web_url                                          | String              |                          |
-| with_custom_attributes                           | Boolean             | EQUAL_TO                 |
-| Group Member                                     | access_level        | Integer                  |                       |
-| avatar_url                                       | String              |                          |
-| created_at                                       | DateTime            |                          |
-| created_by                                       | Struct              |                          |
-| email                                            | String              |                          |
-| expires_at                                       | DateTime            |                          |
-| group_saml_identity                              | Struct              |                          |
-| id                                               | Integer             |                          |
-| is_using_seat                                    | String              |                          |
-| membership_state                                 | String              |                          |
-| name                                             | String              |                          |
-| query                                            | String              | EQUAL_TO                 |
-| show_seat_info                                   | Boolean             | EQUAL_TO                 |
-| skip_users                                       | Integer             | EQUAL_TO                 |
-| state                                            | String              |                          |
-| user_ids                                         | Integer             | EQUAL_TO                 |
-| username                                         | String              |                          |
-| web_url                                          | String              |                          |
-| Group label                                      | closed_issues_count | Integer                  |                       |
-| color                                            | String              |                          |
-| description                                      | String              |                          |
-| description_html                                 | String              |                          |
-| id                                               | Integer             |                          |
-| include_ancestor_groups                          | Boolean             | EQUAL_TO                 |
-| include_descendant_groups                        | Boolean             | EQUAL_TO                 |
-| name                                             | String              |                          |
-| only_group_labels                                | Boolean             | EQUAL_TO                 |
-| open_issues_count                                | Integer             |                          |
-| open_merge_requests_count                        | Integer             |                          |
-| search                                           | String              | EQUAL_TO                 |
-| subscribed                                       | Boolean             |                          |
-| text_color                                       | String              |                          |
-| with_counts                                      | Boolean             | EQUAL_TO                 |
-| Group milestone                                  | created_at          | DateTime                 |                       |
-| description                                      | String              |                          |
-| due_date                                         | Date                |                          |
-| expired                                          | Boolean             |                          |
-| group_id                                         | Integer             |                          |
-| id                                               | Integer             |                          |
-| iid                                              | Integer             |                          |
-| iids                                             | Integer             | EQUAL_TO                 |
-| include_parent_milestones                        | Boolean             | EQUAL_TO                 |
-| search                                           | String              | EQUAL_TO                 |
-| start_date                                       | Date                |                          |
-| state                                            | String              | EQUAL_TO                 |
-| title                                            | String              | EQUAL_TO                 |
-| updated_at                                       | DateTime            |                          |
-| web_url                                          | String              |                          |
-| Issue                                            | \_links             | Struct                   |                       |
-| assignee                                         | Struct              |                          |
-| assignee_id                                      | Integer             | EQUAL_TO                 |
-| assignee_username                                | String              | EQUAL_TO                 |
-| assignees                                        | List                |                          |
-| author                                           | Struct              |                          |
-| author_id                                        | String              | EQUAL_TO                 |
-| author_username                                  | String              | EQUAL_TO                 |
-| blocking_issues_count                            | Integer             |                          |
-| closed_at                                        | DateTime            |                          |
-| closed_by                                        | String              |                          |
-| confidential                                     | Boolean             | EQUAL_TO                 |
-| created_after                                    | DateTime            | GREATER_THAN_OR_EQUAL_TO |
-| created_at                                       | DateTime            |                          |
-| created_before                                   | DateTime            | LESS_THAN_OR_EQUAL_TO    |
-| created_before_after                             | DateTime            | BETWEEN                  |
-| description                                      | String              |                          |
-| discussion_locked                                | Boolean             |                          |
-| downvotes                                        | Integer             |                          |
-| due_date                                         | String              | EQUAL_TO                 |
-| has_tasks                                        | Boolean             |                          |
-| id                                               | Integer             |                          |
-| iid                                              | Integer             |                          |
-| iids                                             | Integer             | EQUAL_TO                 |
-| issue_type                                       | String              | EQUAL_TO                 |
-| labels                                           | List                |                          |
-| merge_requests_count                             | Integer             |                          |
-| milestone                                        | Struct              |                          |
-| milestone_id                                     | String              | EQUAL_TO                 |
-| moved_to_id                                      | String              |                          |
-| my_reaction_emoji                                | String              | EQUAL_TO                 |
-| non_archived                                     | Boolean             | EQUAL_TO                 |
-| order_by                                         | String              | EQUAL_TO                 |
-| project_id                                       | Integer             |                          |
-| references                                       | Struct              |                          |
-| scope                                            | String              | EQUAL_TO                 |
-| search                                           | String              | EQUAL_TO                 |
-| service_desk_reply_to                            | String              |                          |
-| severity                                         | String              |                          |
-| sort                                             | String              | EQUAL_TO                 |
-| state                                            | String              | EQUAL_TO                 |
-| task_completion_status                           | Struct              |                          |
-| task_status                                      | String              |                          |
-| time_stats                                       | Struct              |                          |
-| title                                            | String              |                          |
-| type                                             | String              |                          |
-| updated_after                                    | DateTime            | GREATER_THAN_OR_EQUAL_TO |
-| updated_at                                       | DateTime            |                          |
-| updated_before                                   | DateTime            | LESS_THAN_OR_EQUAL_TO    |
-| updated_before_after                             | DateTime            | BETWEEN                  |
-| upvotes                                          | Integer             |                          |
-| user_notes_count                                 | Integer             |                          |
-| web_url                                          | String              |                          |
-| with_labels_details                              | Boolean             | EQUAL_TO                 |
-| Job                                              | allow_failure       | Boolean                  |                       |
-| artifacts                                        | List                |                          |
-| artifacts_expire_at                              | DateTime            |                          |
-| artifacts_file                                   | Struct              |                          |
-| commit                                           | Struct              |                          |
-| coverage                                         | String              |                          |
-| created_at                                       | DateTime            |                          |
-| duration                                         | Integer             |                          |
-| failure_reason                                   | String              |                          |
-| finished_at                                      | DateTime            |                          |
-| id                                               | Integer             |                          |
-| name                                             | String              |                          |
-| pipeline                                         | Struct              |                          |
-| project                                          | Struct              |                          |
-| queued_duration                                  | Integer             |                          |
-| ref                                              | String              |                          |
-| runner                                           | String              |                          |
-| scope                                            | String              | EQUAL_TO                 |
-| stage                                            | String              |                          |
-| started_at                                       | DateTime            |                          |
-| status                                           | String              |                          |
-| tag                                              | Boolean             |                          |
-| tag_list                                         | List                |                          |
-| user                                             | Struct              |                          |
-| web_url                                          | String              |                          |
-| Pipeline                                         | created_at          | DateTime                 |                       |
-| id                                               | Integer             |                          |
-| iid                                              | Integer             |                          |
-| order_by                                         | String              | EQUAL_TO                 |
-| project_id                                       | Integer             |                          |
-| ref                                              | String              | EQUAL_TO                 |
-| scope                                            | String              | EQUAL_TO                 |
-| sha                                              | String              | EQUAL_TO                 |
-| sort                                             | String              | EQUAL_TO                 |
-| source                                           | String              | EQUAL_TO                 |
-| status                                           | String              | EQUAL_TO                 |
-| updated_after                                    | DateTime            | GREATER_THAN_OR_EQUAL_TO |
-| updated_at                                       | DateTime            |                          |
-| updated_before                                   | DateTime            | LESS_THAN_OR_EQUAL_TO    |
-| updated_before_after                             | DateTime            | BETWEEN                  |
-| username                                         | String              | EQUAL_TO                 |
-| web_url                                          | String              |                          |
-| yaml_errors                                      | Boolean             | EQUAL_TO                 |
-| Project                                          | \_links             | Struct                   |                       |
-| allow_merge_on_skipped_pipeline                  | String              |                          |
-| analytics_access_level                           | String              |                          |
-| archived                                         | Boolean             | EQUAL_TO                 |
-| auto_cancel_pending_pipelines                    | String              |                          |
-| auto_devops_deploy_strategy                      | String              |                          |
-| auto_devops_enabled                              | Boolean             |                          |
-| autoclose_referenced_issues                      | Boolean             |                          |
-| avatar_url                                       | String              |                          |
-| build_timeout                                    | Integer             |                          |
-| builds_access_level                              | String              |                          |
-| can_create_merge_request_in                      | Boolean             |                          |
-| ci_allow_fork_pipelines_to_run_in_parent_project | Boolean             |                          |
-| ci_config_path                                   | String              |                          |
-| ci_default_git_depth                             | Integer             |                          |
-| ci_forward_deployment_enabled                    | Boolean             |                          |
-| ci_job_token_scope_enabled                       | Boolean             |                          |
-| ci_separated_caches                              | Boolean             |                          |
-| compliance_frameworks                            | List                |                          |
-| container_expiration_policy                      | Struct              |                          |
-| container_registry_access_level                  | String              |                          |
-| container_registry_enabled                       | Boolean             |                          |
-| container_registry_image_prefix                  | String              |                          |
-| created_at                                       | DateTime            |                          |
-| creator_id                                       | Integer             |                          |
-| default_branch                                   | String              |                          |
-| description                                      | String              |                          |
-| emails_disabled                                  | String              |                          |
-| empty_Repo                                       | Boolean             |                          |
-| enforce_auth_checks_on_uploads                   | Boolean             |                          |
-| external_authorization_classification_label      | String              |                          |
-| forking_access_level                             | String              |                          |
-| forks_count                                      | Integer             |                          |
-| http_url_to_repo                                 | String              |                          |
-| id                                               | Integer             |                          |
-| id_after                                         | Integer             | EQUAL_TO                 |
-| id_before                                        | Integer             | EQUAL_TO                 |
-| import_status                                    | String              |                          |
-| imported                                         | Boolean             | EQUAL_TO                 |
-| issues_access_level                              | String              |                          |
-| issues_enabled                                   | Boolean             |                          |
-| jobs_enabled                                     | Boolean             |                          |
-| keep_latest_artifact                             | Boolean             |                          |
-| last_activity_after                              | DateTime            | GREATER_THAN_OR_EQUAL_TO |
-| last_activity_at                                 | DateTime            |                          |
-| last_activity_before                             | DateTime            | LESS_THAN_OR_EQUAL_TO    |
-| last_activity_before_after                       | DateTime            | BETWEEN                  |
-| lfs_enabled                                      | Boolean             |                          |
-| membership                                       | Boolean             | EQUAL_TO                 |
-| merge_commit_template                            | String              |                          |
-| merge_method                                     | String              |                          |
-| merge_requests_access_level                      | String              |                          |
-| merge_requests_enabled                           | Boolean             |                          |
-| min_access_level                                 | Integer             | EQUAL_TO                 |
-| name                                             | String              |                          |
-| name_with_namespace                              | String              |                          |
-| namespace                                        | Struct              |                          |
-| only_allow_merge_if_all_discussions_are_resolved | Boolean             |                          |
-| only_allow_merge_if_pipeline_succeeds            | Boolean             |                          |
-| open_issues_count                                | Integer             |                          |
-| operations_access_level                          | String              |                          |
-| order_by                                         | String              | EQUAL_TO                 |
-| owned                                            | Boolean             | EQUAL_TO                 |
-| packages_enabled                                 | Boolean             |                          |
-| pages_access_level                               | String              |                          |
-| path                                             | String              |                          |
-| path_with_namespace                              | String              |                          |
-| permissions                                      | Struct              |                          |
-| printing_merge_request_link_enabled              | Boolean             |                          |
-| public_jobs                                      | Boolean             |                          |
-| readme_url                                       | String              |                          |
-| remove_source_branch_after_merge                 | Boolean             |                          |
-| repository_access_level                          | String              |                          |
-| repository_storage                               | String              | EQUAL_TO                 |
-| request_access_enabled                           | Boolean             |                          |
-| requirements_access_level                        | String              |                          |
-| requirements_enabled                             | Boolean             |                          |
-| resolve_outdated_diff_discussions                | Boolean             |                          |
-| restrict_user_defined_variables                  | Boolean             |                          |
-| runner_token_expiration_interval                 | String              |                          |
-| search                                           | String              | EQUAL_TO                 |
-| search_namespaces                                | Boolean             | EQUAL_TO                 |
-| security_and_compliance_access_level             | String              |                          |
-| security_and_compliance_enabled                  | Boolean             |                          |
-| service_desk_enabled                             | Boolean             |                          |
-| shared_runners_enabled                           | Boolean             |                          |
-| shared_with_groups                               | List                |                          |
-| simple                                           | Boolean             | EQUAL_TO                 |
-| snippets_access_level                            | String              |                          |
-| snippets_enabled                                 | Boolean             |                          |
-| sort                                             | String              | EQUAL_TO                 |
-| squash_commit_template                           | String              |                          |
-| squash_option                                    | String              |                          |
-| ssh_url_to_repo                                  | String              |                          |
-| star_count                                       | Integer             |                          |
-| starred                                          | Boolean             | EQUAL_TO                 |
-| statistics                                       | Boolean             | EQUAL_TO                 |
-| suggestion_commit_message                        | String              |                          |
-| tag_list                                         | List                |                          |
-| topic                                            | String              | EQUAL_TO                 |
-| topic_id                                         | Integer             | EQUAL_TO                 |
-| topics                                           | List                |                          |
-| visibility                                       | String              | EQUAL_TO                 |
-| web_url                                          | String              |                          |
-| wiki_access_level                                | String              |                          |
-| wiki_enabled                                     | Boolean             |                          |
-| with_custom_attributes                           | Boolean             | EQUAL_TO                 |
-| with_issues_enabled                              | Boolean             | EQUAL_TO                 |
-| with_merge_requests_enabled                      | Boolean             | EQUAL_TO                 |
-| with_programming_language                        | Boolean             | EQUAL_TO                 |
-| Project Label                                    | closed_issues_count | Integer                  |                       |
-| color                                            | String              |                          |
-| description                                      | String              |                          |
-| description_html                                 | String              |                          |
-| id                                               | Integer             |                          |
-| include_ancestor_groups                          | Boolean             | EQUAL_TO                 |
-| is_project_label                                 | Boolean             |                          |
-| name                                             | String              |                          |
-| open_issues_count                                | Integer             |                          |
-| open_merge_requests_count                        | Integer             |                          |
-| priority                                         | Integer             |                          |
-| search                                           | String              | EQUAL_TO                 |
-| subscribed                                       | Boolean             |                          |
-| text_color                                       | String              |                          |
-| with_counts                                      | Boolean             | EQUAL_TO                 |
-| Project Member                                   | access_level        | Integer                  |                       |
-| avatar_url                                       | String              |                          |
-| created_at                                       | DateTime            |                          |
-| created_by                                       | Struct              |                          |
-| email                                            | String              |                          |
-| expires_at                                       | DateTime            |                          |
-| group_saml_identity                              | Struct              |                          |
-| id                                               | Integer             |                          |
-| is_using_seat                                    | String              |                          |
-| membership_state                                 | String              |                          |
-| name                                             | String              |                          |
-| query                                            | String              | EQUAL_TO                 |
-| show_seat_info                                   | Boolean             | EQUAL_TO                 |
-| skip_users                                       | Integer             | EQUAL_TO                 |
-| state                                            | String              |                          |
-| user_ids                                         | Integer             | EQUAL_TO                 |
-| username                                         | String              |                          |
-| web_url                                          | String              |                          |
-| Project Merge Request                            | allow_collaboration | Boolean                  |                       |
-| allow_maintainer_to_push                         | Boolean             |                          |
-| approvals_before_merge                           | String              |                          |
-| assignee                                         | Struct              |                          |
-| assignee_id                                      | Integer             | EQUAL_TO                 |
-| assignees                                        | List                |                          |
-| author                                           | Struct              |                          |
-| author_id                                        | Integer             | EQUAL_TO                 |
-| author_username                                  | Integer             | EQUAL_TO                 |
-| blocking_discussions_resolved                    | Boolean             |                          |
-| closed_at                                        | DateTime            |                          |
-| closed_by                                        | String              |                          |
-| created_after                                    | DateTime            | GREATER_THAN_OR_EQUAL_TO |
-| created_at                                       | DateTime            |                          |
-| created_before                                   | DateTime            | LESS_THAN_OR_EQUAL_TO    |
-| created_before_after                             | DateTime            | BETWEEN                  |
-| deployed_after                                   | DateTime            | GREATER_THAN_OR_EQUAL_TO |
-| deployed_before                                  | DateTime            | LESS_THAN_OR_EQUAL_TO    |
-| deployed_before_after                            | DateTime            | BETWEEN                  |
-| description                                      | String              |                          |
-| discussion_locked                                | String              |                          |
-| downvotes                                        | Integer             |                          |
-| draft                                            | Boolean             |                          |
-| environment                                      | String              | EQUAL_TO                 |
-| force_remove_source_branch                       | Boolean             |                          |
-| has_conflicts                                    | Boolean             |                          |
-| id                                               | Integer             |                          |
-| iid                                              | Integer             |                          |
-| labels                                           | List                |                          |
-| merge_commit_sha                                 | String              |                          |
-| merge_status                                     | String              |                          |
-| merge_user                                       | Struct              |                          |
-| merge_when_pipeline_succeeds                     | Boolean             |                          |
-| merged_at                                        | DateTime            |                          |
-| merged_by                                        | Struct              |                          |
-| milestone                                        | Struct              |                          |
-| my_reaction_emoji                                | String              | EQUAL_TO                 |
-| order_by                                         | String              | EQUAL_TO                 |
-| project_id                                       | Integer             |                          |
-| references                                       | Struct              |                          |
-| reviewer_id                                      | Integer             | EQUAL_TO                 |
-| reviewer_username                                | String              | EQUAL_TO                 |
-| reviewers                                        | List                |                          |
-| scope                                            | String              | EQUAL_TO                 |
-| search                                           | String              | EQUAL_TO                 |
-| sha                                              | String              |                          |
-| should_remove_source_branch                      | Boolean             |                          |
-| sort                                             | String              | EQUAL_TO                 |
-| source_branch                                    | String              | EQUAL_TO                 |
-| source_project_id                                | Integer             |                          |
-| squash                                           | Boolean             |                          |
-| squash_commit_sha                                | String              |                          |
-| state                                            | String              | EQUAL_TO                 |
-| target_branch                                    | String              | EQUAL_TO                 |
-| target_project_id                                | Integer             |                          |
-| task_completion_status                           | Struct              |                          |
-| time_stats                                       | Struct              |                          |
-| title                                            | String              |                          |
-| updated_after                                    | DateTime            | GREATER_THAN_OR_EQUAL_TO |
-| updated_at                                       | DateTime            |                          |
-| updated_before                                   | DateTime            | LESS_THAN_OR_EQUAL_TO    |
-| updated_before_after                             | DateTime            | BETWEEN                  |
-| upvotes                                          | Integer             |                          |
-| user_notes_count                                 | Integer             |                          |
-| view                                             | String              | EQUAL_TO                 |
-| web_url                                          | String              |                          |
-| wip                                              | String              | EQUAL_TO                 |
-| with_labels_details                              | Boolean             | EQUAL_TO                 |
-| with_merge_status_recheck                        | Boolean             | EQUAL_TO                 |
-| work_in_progress                                 | Boolean             |                          |
-| Project milestone                                | created_at          | DateTime                 |                       |
-| description                                      | String              |                          |
-| due_date                                         | Date                |                          |
-| expired                                          | Boolean             |                          |
-| id                                               | Integer             |                          |
-| iid                                              | Integer             |                          |
-| iids                                             | Integer             | EQUAL_TO                 |
-| include_parent_milestones                        | Boolean             | EQUAL_TO                 |
-| project_id                                       | Integer             |                          |
-| search                                           | String              | EQUAL_TO                 |
-| start_date                                       | Date                |                          |
-| state                                            | String              | EQUAL_TO                 |
-| title                                            | String              | EQUAL_TO                 |
-| updated_at                                       | DateTime            |                          |
-| web_url                                          | String              |                          |
-| Release                                          | \_links             | Struct                   |                       |
-| assets                                           | Struct              |                          |
-| author                                           | Struct              |                          |
-| commit                                           | Struct              |                          |
-| commit_path                                      | String              |                          |
-| created_at                                       | DateTime            |                          |
-| description                                      | String              |                          |
-| evidences                                        | List                |                          |
-| include_html_description                         | Boolean             | EQUAL_TO                 |
-| milestones                                       | List                |                          |
-| name                                             | String              |                          |
-| order_by                                         | String              | EQUAL_TO                 |
-| released_at                                      | DateTime            |                          |
-| sort                                             | String              | EQUAL_TO                 |
-| tag_name                                         | String              |                          |
-| tag_path                                         | String              |                          |
-| upcoming_release                                 | Boolean             |                          |
-| Tag                                              | commit              | Struct                   |                       |
-| message                                          | String              |                          |
-| name                                             | String              |                          |
-| order_by                                         | String              | EQUAL_TO                 |
-| protected                                        | Boolean             |                          |
-| release                                          | Struct              |                          |
-| search                                           | String              | EQUAL_TO                 |
-| sort                                             | String              | EQUAL_TO                 |
-| target                                           | String              |                          |
+| **Object**                                               | **Field**             | **Data type**                | **Supported filters** |
+| -------------------------------------------------------- | --------------------- | ---------------------------- | --------------------- |
+| Branch                                                   | can\_push             | Boolean                      |                       |
+| commit                                                   | Struct                |                              |
+| default                                                  | Boolean               |                              |
+| developers\_can\_merge                                   | Boolean               |                              |
+| developers\_can\_push                                    | Boolean               |                              |
+| merged                                                   | Boolean               |                              |
+| name                                                     | String                |                              |
+| protected                                                | Boolean               |                              |
+| search                                                   | String                | EQUAL\_TO                    |
+| web\_url                                                 | String                |                              |
+| Commit                                                   | all                   | Boolean                      | EQUAL\_TO             |
+| author\_email                                            | String                |                              |
+| author\_name                                             | String                |                              |
+| authored\_date                                           | DateTime              |                              |
+| committed\_date                                          | DateTime              |                              |
+| committer\_email                                         | String                |                              |
+| committer\_name                                          | String                |                              |
+| created\_at                                              | DateTime              |                              |
+| first\_parent                                            | Boolean               | EQUAL\_TO                    |
+| id                                                       | String                |                              |
+| message                                                  | String                |                              |
+| order                                                    | String                | EQUAL\_TO                    |
+| parent\_ids                                              | List                  |                              |
+| path                                                     | String                | EQUAL\_TO                    |
+| ref\_name                                                | String                | EQUAL\_TO                    |
+| short\_id                                                | String                |                              |
+| since                                                    | DateTime              | GREATER\_THAN\_OR\_EQUAL\_TO |
+| since\_until                                             | DateTime              | BETWEEN                      |
+| title                                                    | String                |                              |
+| trailers                                                 | Boolean               | EQUAL\_TO                    |
+| until                                                    | DateTime              | LESS\_THAN\_OR\_EQUAL\_TO    |
+| web\_url                                                 | String                |                              |
+| with\_stats                                              | Boolean               | EQUAL\_TO                    |
+| Group                                                    | auto\_devops\_enabled | String                       |                       |
+| avatar\_url                                              | String                |                              |
+| created\_at                                              | DateTime              |                              |
+| default\_branch\_protection                              | Integer               |                              |
+| description                                              | String                |                              |
+| emails\_disabled                                         | String                |                              |
+| file\_template\_project\_id                              | Integer               |                              |
+| full\_name                                               | String                |                              |
+| full\_path                                               | String                |                              |
+| id                                                       | Integer               |                              |
+| ip\_restriction\_ranges                                  | String                |                              |
+| ldap\_access                                             | String                |                              |
+| ldap\_cn                                                 | String                |                              |
+| lfs\_enabled                                             | Boolean               |                              |
+| mentions\_disabled                                       | String                |                              |
+| min\_access\_level                                       | Integer               | EQUAL\_TO                    |
+| name                                                     | String                |                              |
+| order\_by                                                | String                | EQUAL\_TO                    |
+| owned                                                    | Boolean               | EQUAL\_TO                    |
+| parent\_id                                               | String                |                              |
+| path                                                     | String                |                              |
+| project\_creation\_level                                 | String                |                              |
+| request\_access\_enabled                                 | Boolean               |                              |
+| require\_two\_factor\_authentication                     | Boolean               |                              |
+| search                                                   | String                | EQUAL\_TO                    |
+| share\_with\_group\_lock                                 | Boolean               |                              |
+| skip\_groups                                             | Integer               | EQUAL\_TO                    |
+| sort                                                     | String                | EQUAL\_TO                    |
+| statistics                                               | Boolean               | EQUAL\_TO                    |
+| subgroup\_creation\_level                                | String                |                              |
+| top\_level\_only                                         | Boolean               | EQUAL\_TO                    |
+| two\_factor\_grace\_period                               | Integer               |                              |
+| visibility                                               | String                |                              |
+| web\_url                                                 | String                |                              |
+| with\_custom\_attributes                                 | Boolean               | EQUAL\_TO                    |
+| Group Member                                             | access\_level         | Integer                      |                       |
+| avatar\_url                                              | String                |                              |
+| created\_at                                              | DateTime              |                              |
+| created\_by                                              | Struct                |                              |
+| email                                                    | String                |                              |
+| expires\_at                                              | DateTime              |                              |
+| group\_saml\_identity                                    | Struct                |                              |
+| id                                                       | Integer               |                              |
+| is\_using\_seat                                          | String                |                              |
+| membership\_state                                        | String                |                              |
+| name                                                     | String                |                              |
+| query                                                    | String                | EQUAL\_TO                    |
+| show\_seat\_info                                         | Boolean               | EQUAL\_TO                    |
+| skip\_users                                              | Integer               | EQUAL\_TO                    |
+| state                                                    | String                |                              |
+| user\_ids                                                | Integer               | EQUAL\_TO                    |
+| username                                                 | String                |                              |
+| web\_url                                                 | String                |                              |
+| Group label                                              | closed\_issues\_count | Integer                      |                       |
+| color                                                    | String                |                              |
+| description                                              | String                |                              |
+| description\_html                                        | String                |                              |
+| id                                                       | Integer               |                              |
+| include\_ancestor\_groups                                | Boolean               | EQUAL\_TO                    |
+| include\_descendant\_groups                              | Boolean               | EQUAL\_TO                    |
+| name                                                     | String                |                              |
+| only\_group\_labels                                      | Boolean               | EQUAL\_TO                    |
+| open\_issues\_count                                      | Integer               |                              |
+| open\_merge\_requests\_count                             | Integer               |                              |
+| search                                                   | String                | EQUAL\_TO                    |
+| subscribed                                               | Boolean               |                              |
+| text\_color                                              | String                |                              |
+| with\_counts                                             | Boolean               | EQUAL\_TO                    |
+| Group milestone                                          | created\_at           | DateTime                     |                       |
+| description                                              | String                |                              |
+| due\_date                                                | Date                  |                              |
+| expired                                                  | Boolean               |                              |
+| group\_id                                                | Integer               |                              |
+| id                                                       | Integer               |                              |
+| iid                                                      | Integer               |                              |
+| iids                                                     | Integer               | EQUAL\_TO                    |
+| include\_parent\_milestones                              | Boolean               | EQUAL\_TO                    |
+| search                                                   | String                | EQUAL\_TO                    |
+| start\_date                                              | Date                  |                              |
+| state                                                    | String                | EQUAL\_TO                    |
+| title                                                    | String                | EQUAL\_TO                    |
+| updated\_at                                              | DateTime              |                              |
+| web\_url                                                 | String                |                              |
+| Issue                                                    | \_links               | Struct                       |                       |
+| assignee                                                 | Struct                |                              |
+| assignee\_id                                             | Integer               | EQUAL\_TO                    |
+| assignee\_username                                       | String                | EQUAL\_TO                    |
+| assignees                                                | List                  |                              |
+| author                                                   | Struct                |                              |
+| author\_id                                               | String                | EQUAL\_TO                    |
+| author\_username                                         | String                | EQUAL\_TO                    |
+| blocking\_issues\_count                                  | Integer               |                              |
+| closed\_at                                               | DateTime              |                              |
+| closed\_by                                               | String                |                              |
+| confidential                                             | Boolean               | EQUAL\_TO                    |
+| created\_after                                           | DateTime              | GREATER\_THAN\_OR\_EQUAL\_TO |
+| created\_at                                              | DateTime              |                              |
+| created\_before                                          | DateTime              | LESS\_THAN\_OR\_EQUAL\_TO    |
+| created\_before\_after                                   | DateTime              | BETWEEN                      |
+| description                                              | String                |                              |
+| discussion\_locked                                       | Boolean               |                              |
+| downvotes                                                | Integer               |                              |
+| due\_date                                                | String                | EQUAL\_TO                    |
+| has\_tasks                                               | Boolean               |                              |
+| id                                                       | Integer               |                              |
+| iid                                                      | Integer               |                              |
+| iids                                                     | Integer               | EQUAL\_TO                    |
+| issue\_type                                              | String                | EQUAL\_TO                    |
+| labels                                                   | List                  |                              |
+| merge\_requests\_count                                   | Integer               |                              |
+| milestone                                                | Struct                |                              |
+| milestone\_id                                            | String                | EQUAL\_TO                    |
+| moved\_to\_id                                            | String                |                              |
+| my\_reaction\_emoji                                      | String                | EQUAL\_TO                    |
+| non\_archived                                            | Boolean               | EQUAL\_TO                    |
+| order\_by                                                | String                | EQUAL\_TO                    |
+| project\_id                                              | Integer               |                              |
+| references                                               | Struct                |                              |
+| scope                                                    | String                | EQUAL\_TO                    |
+| search                                                   | String                | EQUAL\_TO                    |
+| service\_desk\_reply\_to                                 | String                |                              |
+| severity                                                 | String                |                              |
+| sort                                                     | String                | EQUAL\_TO                    |
+| state                                                    | String                | EQUAL\_TO                    |
+| task\_completion\_status                                 | Struct                |                              |
+| task\_status                                             | String                |                              |
+| time\_stats                                              | Struct                |                              |
+| title                                                    | String                |                              |
+| type                                                     | String                |                              |
+| updated\_after                                           | DateTime              | GREATER\_THAN\_OR\_EQUAL\_TO |
+| updated\_at                                              | DateTime              |                              |
+| updated\_before                                          | DateTime              | LESS\_THAN\_OR\_EQUAL\_TO    |
+| updated\_before\_after                                   | DateTime              | BETWEEN                      |
+| upvotes                                                  | Integer               |                              |
+| user\_notes\_count                                       | Integer               |                              |
+| web\_url                                                 | String                |                              |
+| with\_labels\_details                                    | Boolean               | EQUAL\_TO                    |
+| Job                                                      | allow\_failure        | Boolean                      |                       |
+| artifacts                                                | List                  |                              |
+| artifacts\_expire\_at                                    | DateTime              |                              |
+| artifacts\_file                                          | Struct                |                              |
+| commit                                                   | Struct                |                              |
+| coverage                                                 | String                |                              |
+| created\_at                                              | DateTime              |                              |
+| duration                                                 | Integer               |                              |
+| failure\_reason                                          | String                |                              |
+| finished\_at                                             | DateTime              |                              |
+| id                                                       | Integer               |                              |
+| name                                                     | String                |                              |
+| pipeline                                                 | Struct                |                              |
+| project                                                  | Struct                |                              |
+| queued\_duration                                         | Integer               |                              |
+| ref                                                      | String                |                              |
+| runner                                                   | String                |                              |
+| scope                                                    | String                | EQUAL\_TO                    |
+| stage                                                    | String                |                              |
+| started\_at                                              | DateTime              |                              |
+| status                                                   | String                |                              |
+| tag                                                      | Boolean               |                              |
+| tag\_list                                                | List                  |                              |
+| user                                                     | Struct                |                              |
+| web\_url                                                 | String                |                              |
+| Pipeline                                                 | created\_at           | DateTime                     |                       |
+| id                                                       | Integer               |                              |
+| iid                                                      | Integer               |                              |
+| order\_by                                                | String                | EQUAL\_TO                    |
+| project\_id                                              | Integer               |                              |
+| ref                                                      | String                | EQUAL\_TO                    |
+| scope                                                    | String                | EQUAL\_TO                    |
+| sha                                                      | String                | EQUAL\_TO                    |
+| sort                                                     | String                | EQUAL\_TO                    |
+| source                                                   | String                | EQUAL\_TO                    |
+| status                                                   | String                | EQUAL\_TO                    |
+| updated\_after                                           | DateTime              | GREATER\_THAN\_OR\_EQUAL\_TO |
+| updated\_at                                              | DateTime              |                              |
+| updated\_before                                          | DateTime              | LESS\_THAN\_OR\_EQUAL\_TO    |
+| updated\_before\_after                                   | DateTime              | BETWEEN                      |
+| username                                                 | String                | EQUAL\_TO                    |
+| web\_url                                                 | String                |                              |
+| yaml\_errors                                             | Boolean               | EQUAL\_TO                    |
+| Project                                                  | \_links               | Struct                       |                       |
+| allow\_merge\_on\_skipped\_pipeline                      | String                |                              |
+| analytics\_access\_level                                 | String                |                              |
+| archived                                                 | Boolean               | EQUAL\_TO                    |
+| auto\_cancel\_pending\_pipelines                         | String                |                              |
+| auto\_devops\_deploy\_strategy                           | String                |                              |
+| auto\_devops\_enabled                                    | Boolean               |                              |
+| autoclose\_referenced\_issues                            | Boolean               |                              |
+| avatar\_url                                              | String                |                              |
+| build\_timeout                                           | Integer               |                              |
+| builds\_access\_level                                    | String                |                              |
+| can\_create\_merge\_request\_in                          | Boolean               |                              |
+| ci\_allow\_fork\_pipelines\_to\_run\_in\_parent\_project | Boolean               |                              |
+| ci\_config\_path                                         | String                |                              |
+| ci\_default\_git\_depth                                  | Integer               |                              |
+| ci\_forward\_deployment\_enabled                         | Boolean               |                              |
+| ci\_job\_token\_scope\_enabled                           | Boolean               |                              |
+| ci\_separated\_caches                                    | Boolean               |                              |
+| compliance\_frameworks                                   | List                  |                              |
+| container\_expiration\_policy                            | Struct                |                              |
+| container\_registry\_access\_level                       | String                |                              |
+| container\_registry\_enabled                             | Boolean               |                              |
+| container\_registry\_image\_prefix                       | String                |                              |
+| created\_at                                              | DateTime              |                              |
+| creator\_id                                              | Integer               |                              |
+| default\_branch                                          | String                |                              |
+| description                                              | String                |                              |
+| emails\_disabled                                         | String                |                              |
+| empty\_Repo                                              | Boolean               |                              |
+| enforce\_auth\_checks\_on\_uploads                       | Boolean               |                              |
+| external\_authorization\_classification\_label           | String                |                              |
+| forking\_access\_level                                   | String                |                              |
+| forks\_count                                             | Integer               |                              |
+| http\_url\_to\_repo                                      | String                |                              |
+| id                                                       | Integer               |                              |
+| id\_after                                                | Integer               | EQUAL\_TO                    |
+| id\_before                                               | Integer               | EQUAL\_TO                    |
+| import\_status                                           | String                |                              |
+| imported                                                 | Boolean               | EQUAL\_TO                    |
+| issues\_access\_level                                    | String                |                              |
+| issues\_enabled                                          | Boolean               |                              |
+| jobs\_enabled                                            | Boolean               |                              |
+| keep\_latest\_artifact                                   | Boolean               |                              |
+| last\_activity\_after                                    | DateTime              | GREATER\_THAN\_OR\_EQUAL\_TO |
+| last\_activity\_at                                       | DateTime              |                              |
+| last\_activity\_before                                   | DateTime              | LESS\_THAN\_OR\_EQUAL\_TO    |
+| last\_activity\_before\_after                            | DateTime              | BETWEEN                      |
+| lfs\_enabled                                             | Boolean               |                              |
+| membership                                               | Boolean               | EQUAL\_TO                    |
+| merge\_commit\_template                                  | String                |                              |
+| merge\_method                                            | String                |                              |
+| merge\_requests\_access\_level                           | String                |                              |
+| merge\_requests\_enabled                                 | Boolean               |                              |
+| min\_access\_level                                       | Integer               | EQUAL\_TO                    |
+| name                                                     | String                |                              |
+| name\_with\_namespace                                    | String                |                              |
+| namespace                                                | Struct                |                              |
+| only\_allow\_merge\_if\_all\_discussions\_are\_resolved  | Boolean               |                              |
+| only\_allow\_merge\_if\_pipeline\_succeeds               | Boolean               |                              |
+| open\_issues\_count                                      | Integer               |                              |
+| operations\_access\_level                                | String                |                              |
+| order\_by                                                | String                | EQUAL\_TO                    |
+| owned                                                    | Boolean               | EQUAL\_TO                    |
+| packages\_enabled                                        | Boolean               |                              |
+| pages\_access\_level                                     | String                |                              |
+| path                                                     | String                |                              |
+| path\_with\_namespace                                    | String                |                              |
+| permissions                                              | Struct                |                              |
+| printing\_merge\_request\_link\_enabled                  | Boolean               |                              |
+| public\_jobs                                             | Boolean               |                              |
+| readme\_url                                              | String                |                              |
+| remove\_source\_branch\_after\_merge                     | Boolean               |                              |
+| repository\_access\_level                                | String                |                              |
+| repository\_storage                                      | String                | EQUAL\_TO                    |
+| request\_access\_enabled                                 | Boolean               |                              |
+| requirements\_access\_level                              | String                |                              |
+| requirements\_enabled                                    | Boolean               |                              |
+| resolve\_outdated\_diff\_discussions                     | Boolean               |                              |
+| restrict\_user\_defined\_variables                       | Boolean               |                              |
+| runner\_token\_expiration\_interval                      | String                |                              |
+| search                                                   | String                | EQUAL\_TO                    |
+| search\_namespaces                                       | Boolean               | EQUAL\_TO                    |
+| security\_and\_compliance\_access\_level                 | String                |                              |
+| security\_and\_compliance\_enabled                       | Boolean               |                              |
+| service\_desk\_enabled                                   | Boolean               |                              |
+| shared\_runners\_enabled                                 | Boolean               |                              |
+| shared\_with\_groups                                     | List                  |                              |
+| simple                                                   | Boolean               | EQUAL\_TO                    |
+| snippets\_access\_level                                  | String                |                              |
+| snippets\_enabled                                        | Boolean               |                              |
+| sort                                                     | String                | EQUAL\_TO                    |
+| squash\_commit\_template                                 | String                |                              |
+| squash\_option                                           | String                |                              |
+| ssh\_url\_to\_repo                                       | String                |                              |
+| star\_count                                              | Integer               |                              |
+| starred                                                  | Boolean               | EQUAL\_TO                    |
+| statistics                                               | Boolean               | EQUAL\_TO                    |
+| suggestion\_commit\_message                              | String                |                              |
+| tag\_list                                                | List                  |                              |
+| topic                                                    | String                | EQUAL\_TO                    |
+| topic\_id                                                | Integer               | EQUAL\_TO                    |
+| topics                                                   | List                  |                              |
+| visibility                                               | String                | EQUAL\_TO                    |
+| web\_url                                                 | String                |                              |
+| wiki\_access\_level                                      | String                |                              |
+| wiki\_enabled                                            | Boolean               |                              |
+| with\_custom\_attributes                                 | Boolean               | EQUAL\_TO                    |
+| with\_issues\_enabled                                    | Boolean               | EQUAL\_TO                    |
+| with\_merge\_requests\_enabled                           | Boolean               | EQUAL\_TO                    |
+| with\_programming\_language                              | Boolean               | EQUAL\_TO                    |
+| Project Label                                            | closed\_issues\_count | Integer                      |                       |
+| color                                                    | String                |                              |
+| description                                              | String                |                              |
+| description\_html                                        | String                |                              |
+| id                                                       | Integer               |                              |
+| include\_ancestor\_groups                                | Boolean               | EQUAL\_TO                    |
+| is\_project\_label                                       | Boolean               |                              |
+| name                                                     | String                |                              |
+| open\_issues\_count                                      | Integer               |                              |
+| open\_merge\_requests\_count                             | Integer               |                              |
+| priority                                                 | Integer               |                              |
+| search                                                   | String                | EQUAL\_TO                    |
+| subscribed                                               | Boolean               |                              |
+| text\_color                                              | String                |                              |
+| with\_counts                                             | Boolean               | EQUAL\_TO                    |
+| Project Member                                           | access\_level         | Integer                      |                       |
+| avatar\_url                                              | String                |                              |
+| created\_at                                              | DateTime              |                              |
+| created\_by                                              | Struct                |                              |
+| email                                                    | String                |                              |
+| expires\_at                                              | DateTime              |                              |
+| group\_saml\_identity                                    | Struct                |                              |
+| id                                                       | Integer               |                              |
+| is\_using\_seat                                          | String                |                              |
+| membership\_state                                        | String                |                              |
+| name                                                     | String                |                              |
+| query                                                    | String                | EQUAL\_TO                    |
+| show\_seat\_info                                         | Boolean               | EQUAL\_TO                    |
+| skip\_users                                              | Integer               | EQUAL\_TO                    |
+| state                                                    | String                |                              |
+| user\_ids                                                | Integer               | EQUAL\_TO                    |
+| username                                                 | String                |                              |
+| web\_url                                                 | String                |                              |
+| Project Merge Request                                    | allow\_collaboration  | Boolean                      |                       |
+| allow\_maintainer\_to\_push                              | Boolean               |                              |
+| approvals\_before\_merge                                 | String                |                              |
+| assignee                                                 | Struct                |                              |
+| assignee\_id                                             | Integer               | EQUAL\_TO                    |
+| assignees                                                | List                  |                              |
+| author                                                   | Struct                |                              |
+| author\_id                                               | Integer               | EQUAL\_TO                    |
+| author\_username                                         | Integer               | EQUAL\_TO                    |
+| blocking\_discussions\_resolved                          | Boolean               |                              |
+| closed\_at                                               | DateTime              |                              |
+| closed\_by                                               | String                |                              |
+| created\_after                                           | DateTime              | GREATER\_THAN\_OR\_EQUAL\_TO |
+| created\_at                                              | DateTime              |                              |
+| created\_before                                          | DateTime              | LESS\_THAN\_OR\_EQUAL\_TO    |
+| created\_before\_after                                   | DateTime              | BETWEEN                      |
+| deployed\_after                                          | DateTime              | GREATER\_THAN\_OR\_EQUAL\_TO |
+| deployed\_before                                         | DateTime              | LESS\_THAN\_OR\_EQUAL\_TO    |
+| deployed\_before\_after                                  | DateTime              | BETWEEN                      |
+| description                                              | String                |                              |
+| discussion\_locked                                       | String                |                              |
+| downvotes                                                | Integer               |                              |
+| draft                                                    | Boolean               |                              |
+| environment                                              | String                | EQUAL\_TO                    |
+| force\_remove\_source\_branch                            | Boolean               |                              |
+| has\_conflicts                                           | Boolean               |                              |
+| id                                                       | Integer               |                              |
+| iid                                                      | Integer               |                              |
+| labels                                                   | List                  |                              |
+| merge\_commit\_sha                                       | String                |                              |
+| merge\_status                                            | String                |                              |
+| merge\_user                                              | Struct                |                              |
+| merge\_when\_pipeline\_succeeds                          | Boolean               |                              |
+| merged\_at                                               | DateTime              |                              |
+| merged\_by                                               | Struct                |                              |
+| milestone                                                | Struct                |                              |
+| my\_reaction\_emoji                                      | String                | EQUAL\_TO                    |
+| order\_by                                                | String                | EQUAL\_TO                    |
+| project\_id                                              | Integer               |                              |
+| references                                               | Struct                |                              |
+| reviewer\_id                                             | Integer               | EQUAL\_TO                    |
+| reviewer\_username                                       | String                | EQUAL\_TO                    |
+| reviewers                                                | List                  |                              |
+| scope                                                    | String                | EQUAL\_TO                    |
+| search                                                   | String                | EQUAL\_TO                    |
+| sha                                                      | String                |                              |
+| should\_remove\_source\_branch                           | Boolean               |                              |
+| sort                                                     | String                | EQUAL\_TO                    |
+| source\_branch                                           | String                | EQUAL\_TO                    |
+| source\_project\_id                                      | Integer               |                              |
+| squash                                                   | Boolean               |                              |
+| squash\_commit\_sha                                      | String                |                              |
+| state                                                    | String                | EQUAL\_TO                    |
+| target\_branch                                           | String                | EQUAL\_TO                    |
+| target\_project\_id                                      | Integer               |                              |
+| task\_completion\_status                                 | Struct                |                              |
+| time\_stats                                              | Struct                |                              |
+| title                                                    | String                |                              |
+| updated\_after                                           | DateTime              | GREATER\_THAN\_OR\_EQUAL\_TO |
+| updated\_at                                              | DateTime              |                              |
+| updated\_before                                          | DateTime              | LESS\_THAN\_OR\_EQUAL\_TO    |
+| updated\_before\_after                                   | DateTime              | BETWEEN                      |
+| upvotes                                                  | Integer               |                              |
+| user\_notes\_count                                       | Integer               |                              |
+| view                                                     | String                | EQUAL\_TO                    |
+| web\_url                                                 | String                |                              |
+| wip                                                      | String                | EQUAL\_TO                    |
+| with\_labels\_details                                    | Boolean               | EQUAL\_TO                    |
+| with\_merge\_status\_recheck                             | Boolean               | EQUAL\_TO                    |
+| work\_in\_progress                                       | Boolean               |                              |
+| Project milestone                                        | created\_at           | DateTime                     |                       |
+| description                                              | String                |                              |
+| due\_date                                                | Date                  |                              |
+| expired                                                  | Boolean               |                              |
+| id                                                       | Integer               |                              |
+| iid                                                      | Integer               |                              |
+| iids                                                     | Integer               | EQUAL\_TO                    |
+| include\_parent\_milestones                              | Boolean               | EQUAL\_TO                    |
+| project\_id                                              | Integer               |                              |
+| search                                                   | String                | EQUAL\_TO                    |
+| start\_date                                              | Date                  |                              |
+| state                                                    | String                | EQUAL\_TO                    |
+| title                                                    | String                | EQUAL\_TO                    |
+| updated\_at                                              | DateTime              |                              |
+| web\_url                                                 | String                |                              |
+| Release                                                  | \_links               | Struct                       |                       |
+| assets                                                   | Struct                |                              |
+| author                                                   | Struct                |                              |
+| commit                                                   | Struct                |                              |
+| commit\_path                                             | String                |                              |
+| created\_at                                              | DateTime              |                              |
+| description                                              | String                |                              |
+| evidences                                                | List                  |                              |
+| include\_html\_description                               | Boolean               | EQUAL\_TO                    |
+| milestones                                               | List                  |                              |
+| name                                                     | String                |                              |
+| order\_by                                                | String                | EQUAL\_TO                    |
+| released\_at                                             | DateTime              |                              |
+| sort                                                     | String                | EQUAL\_TO                    |
+| tag\_name                                                | String                |                              |
+| tag\_path                                                | String                |                              |
+| upcoming\_release                                        | Boolean               |                              |
+| Tag                                                      | commit                | Struct                       |                       |
+| message                                                  | String                |                              |
+| name                                                     | String                |                              |
+| order\_by                                                | String                | EQUAL\_TO                    |
+| protected                                                | Boolean               |                              |
+| release                                                  | Struct                |                              |
+| search                                                   | String                | EQUAL\_TO                    |
+| sort                                                     | String                | EQUAL\_TO                    |
+| target                                                   | String                |                              |

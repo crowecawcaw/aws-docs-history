@@ -61,46 +61,41 @@ Amazon AppFlow can access your data. To learn how to create a package, see [Befo
 
 ###### To connect to Salesforce Marketing Cloud
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  In the navigation pane on the left, choose **Connections**.
-3.  On the **Manage connections** page, for **Connectors**,
-    choose **Salesforce Marketing Cloud**.
-4.  Choose **Create connection**.
-5.  In the **Connect to Salesforce Marketing Cloud** window, provide the
-    following details:
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. In the navigation pane on the left, choose **Connections**.
+3. On the **Manage connections** page, for **Connectors**,
+   choose **Salesforce Marketing Cloud**.
+4. Choose **Create connection**.
+5. In the **Connect to Salesforce Marketing Cloud** window, provide the
+   following details:
 
-        * **Custom authorization tokens URL** – The authentication base
-         URI that's assigned to your Marketing Cloud package. Provide the subdomain to complete the
-         URI shown in the console:
-         `https://`subdomain`.auth.marketingcloudapis.com/v2/token`.
-        * **Client ID** – The client ID that is assigned to your Marketing
-         Cloud package.
-        * **Client secret** – The client secret that is assigned to your
-         Marketing Cloud package.
-        * **Salesforce Marketing Cloud Subdomain Endpoint** – The REST
-         base URI or SOAP base URI that is assigned to your Marketing Cloud package. These URIs looks
-         similar to the following examples:
+   - **Custom authorization tokens URL** – The authentication base
+     URI that's assigned to your Marketing Cloud package. Provide the subdomain to complete the
+     URI shown in the console:
+     `https://`subdomain`.auth.marketingcloudapis.com/v2/token`.
+   - **Client ID** – The client ID that is assigned to your Marketing
+     Cloud package.
+   - **Client secret** – The client secret that is assigned to your
+     Marketing Cloud package.
+   - **Salesforce Marketing Cloud Subdomain Endpoint** – The REST
+     base URI or SOAP base URI that is assigned to your Marketing Cloud package. These URIs looks
+     similar to the following examples:
 
+     - `https://`subdomain`.rest.marketingcloudapis.com/`
+     - `https://`subdomain`.soap.marketingcloudapis.com/`
+       In these examples, _subdomain_ is the same value that
+       you provide for the custom authorization tokens URL.
 
+   You must provide either the REST or SOAP URI, but the one that you use doesn't matter.
+   With either one, Amazon AppFlow connects to your Marketing Cloud package, and it transfers data by
+   using the REST or SOAP endpoint as needed.
+   For more information about the authentication, REST, and SOAP URIs for Marketing Cloud
+   packages, see [Your Subdomain and Your Tenant's Endpoints](https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/your-subdomain-tenant-specific-endpoints.html "https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/your-subdomain-tenant-specific-endpoints.html") in the Marketing Cloud
+   documentation.
 
-
-        	+ `https://`subdomain`.rest.marketingcloudapis.com/`
-        	+ `https://`subdomain`.soap.marketingcloudapis.com/`
-        In these examples, *subdomain* is the same value that
-         you provide for the custom authorization tokens URL.
-
-
-        You must provide either the REST or SOAP URI, but the one that you use doesn't matter.
-         With either one, Amazon AppFlow connects to your Marketing Cloud package, and it transfers data by
-         using the REST or SOAP endpoint as needed.
-
-    For more information about the authentication, REST, and SOAP URIs for Marketing Cloud
-    packages, see [Your Subdomain and Your Tenant's Endpoints](https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/your-subdomain-tenant-specific-endpoints.html "https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/your-subdomain-tenant-specific-endpoints.html") in the Marketing Cloud
-    documentation.
-
-6.  Optionally, under **Data encryption**, choose **Customize
-    encryption settings (advanced)** if you want to encrypt your data with a customer
-    managed key in the AWS Key Management Service (AWS KMS).
+6. Optionally, under **Data encryption**, choose **Customize
+   encryption settings (advanced)** if you want to encrypt your data with a customer
+   managed key in the AWS Key Management Service (AWS KMS).
 
 By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages
 for you. Choose this option if you want to encrypt your data with your own KMS key instead.

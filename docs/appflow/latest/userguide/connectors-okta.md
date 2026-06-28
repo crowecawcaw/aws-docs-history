@@ -102,7 +102,7 @@ Okta account for Amazon AppFlow integration, see [Before you begin](#okta-prereq
      - **Client secret** – The client secret from your app
        integration.
 
-   - Choose **Okta_API_Token** to authenticate Amazon AppFlow with an API token.
+   - Choose **Okta\_API\_Token** to authenticate Amazon AppFlow with an API token.
      Then, enter the token value for **Okta API Token**.
 
 6. For **Your Okta Domain URL**, enter your domain URL, such as
@@ -160,120 +160,120 @@ When you create a flow that uses Okta as the data source, you can set the destin
 When you create a flow that uses Okta as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                             | **Field**     | **Data type**                                                                                    | **Supported filters**                                                                            |
-| -------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| Application                            | Accessibility | Struct                                                                                           |                                                                                                  |
-| Created                                | DateTime      |                                                                                                  |
-| Credentials                            | Struct        |                                                                                                  |
-| Credentials Signing Key ID             | String        | EQUAL_TO                                                                                         |
-| Embedded                               | Struct        |                                                                                                  |
-| Features                               | List          |                                                                                                  |
-| Group ID                               | String        | EQUAL_TO                                                                                         |
-| ID                                     | String        |                                                                                                  |
-| Label                                  | String        |                                                                                                  |
-| Last Updated                           | DateTime      |                                                                                                  |
-| Links                                  | Struct        |                                                                                                  |
-| Name                                   | String        | EQUAL_TO                                                                                         |
-| Profile                                | Struct        |                                                                                                  |
-| Request Object Signing Alg             | String        |                                                                                                  |
-| Settings                               | Struct        |                                                                                                  |
-| Status                                 | String        | EQUAL_TO                                                                                         |
-| User ID                                | String        | EQUAL_TO                                                                                         |
-| Visibility                             | Struct        |                                                                                                  |
-| signOnMode                             | String        |                                                                                                  |
-| Device                                 | Created       | DateTime                                                                                         |                                                                                                  |
-| Display Name                           | String        | EQUAL_TO                                                                                         |
-| ID                                     | String        | EQUAL_TO                                                                                         |
-| IMEI                                   | String        | EQUAL_TO                                                                                         |
-| Last Updated                           | DateTime      | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO |
-| Links                                  | Struct        |                                                                                                  |
-| Manufacturer                           | String        | EQUAL_TO                                                                                         |
-| Mobile Equipment Identifier (MEID)     | String        | EQUAL_TO                                                                                         |
-| Model                                  | String        | EQUAL_TO                                                                                         |
-| OS Version                             | String        | EQUAL_TO                                                                                         |
-| Platform                               | String        | EQUAL_TO                                                                                         |
-| Profile                                | Struct        |                                                                                                  |
-| Registered                             | Boolean       | EQUAL_TO                                                                                         |
-| Resource Alternate ID                  | String        |                                                                                                  |
-| Resource Display Name                  | Struct        |                                                                                                  |
-| Resource ID                            | String        |                                                                                                  |
-| Resource Type                          | String        |                                                                                                  |
-| Secure Hardware Present                | Boolean       | EQUAL_TO                                                                                         |
-| Serial Number                          | String        | EQUAL_TO                                                                                         |
-| Status                                 | String        | EQUAL_TO                                                                                         |
-| Windows Security identifier (SID)      | String        | EQUAL_TO                                                                                         |
-| macOS UDID                             | String        | EQUAL_TO                                                                                         |
-| tpmPublicKeyHash                       | String        | EQUAL_TO                                                                                         |
-| Group                                  | Created       | DateTime                                                                                         | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO |
-| Embedded                               | Struct        |                                                                                                  |
-| GUID (objectGUID) of the Windows Group | String        | EQUAL_TO                                                                                         |
-| Group Description                      | String        | EQUAL_TO                                                                                         |
-| Group Name                             | String        | EQUAL_TO                                                                                         |
-| ID                                     | String        | EQUAL_TO                                                                                         |
-| Last Membership Updated                | DateTime      | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO |
-| Last Updated                           | DateTime      | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO |
-| Links                                  | Struct        |                                                                                                  |
-| Object Class                           | List          |                                                                                                  |
-| Profile                                | Struct        |                                                                                                  |
-| SAM Account Name                       | String        | EQUAL_TO                                                                                         |
-| Source ID                              | String        | EQUAL_TO                                                                                         |
-| Type                                   | String        | EQUAL_TO                                                                                         |
-| Windows Domain Qualified Name          | String        | EQUAL_TO                                                                                         |
-| Windows Group Distinguished Name       | String        | EQUAL_TO                                                                                         |
-| User                                   | Activated     | DateTime                                                                                         | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO |
-| City                                   | String        | EQUAL_TO                                                                                         |
-| Cost Center                            | String        | EQUAL_TO                                                                                         |
-| Country Code                           | String        | EQUAL_TO                                                                                         |
-| Created                                | DateTime      | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO |
-| Credentials                            | Struct        |                                                                                                  |
-| Department                             | String        | EQUAL_TO                                                                                         |
-| Display Name                           | String        | EQUAL_TO                                                                                         |
-| Division                               | String        | EQUAL_TO                                                                                         |
-| Email                                  | String        | EQUAL_TO                                                                                         |
-| Embedded Resources                     | Struct        |                                                                                                  |
-| Employee Number                        | String        | EQUAL_TO                                                                                         |
-| First Name                             | String        | EQUAL_TO                                                                                         |
-| Honorific Prefix                       | String        | EQUAL_TO                                                                                         |
-| Honorific Suffix                       | String        | EQUAL_TO                                                                                         |
-| ID                                     | String        | EQUAL_TO                                                                                         |
-| Last Login                             | DateTime      |                                                                                                  |
-| Last Name                              | String        | EQUAL_TO                                                                                         |
-| Last Updated                           | DateTime      | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO |
-| Links                                  | Struct        |                                                                                                  |
-| Locale                                 | String        | EQUAL_TO                                                                                         |
-| Manager Display Name                   | String        | EQUAL_TO                                                                                         |
-| Manager ID                             | String        | EQUAL_TO                                                                                         |
-| Middle Name                            | String        | EQUAL_TO                                                                                         |
-| Mobile Phone                           | String        | EQUAL_TO                                                                                         |
-| Nickname                               | String        | EQUAL_TO                                                                                         |
-| Occupation                             | String        | EQUAL_TO                                                                                         |
-| Organization                           | String        | EQUAL_TO                                                                                         |
-| Password Changed                       | DateTime      |                                                                                                  |
-| Postal Address                         | String        | EQUAL_TO                                                                                         |
-| Preferred Language                     | String        | EQUAL_TO                                                                                         |
-| Primary Phone                          | String        | EQUAL_TO                                                                                         |
-| Profile                                | Struct        |                                                                                                  |
-| Profile URL                            | String        | EQUAL_TO                                                                                         |
-| Second Email                           | String        | EQUAL_TO                                                                                         |
-| State                                  | String        | EQUAL_TO                                                                                         |
-| Status                                 | String        | EQUAL_TO                                                                                         |
-| Status Changed                         | DateTime      | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO |
-| Street Address                         | String        | EQUAL_TO                                                                                         |
-| Timezone                               | String        | EQUAL_TO                                                                                         |
-| Title                                  | String        | EQUAL_TO                                                                                         |
-| Transitioning to status                | String        |                                                                                                  |
-| Type                                   | Struct        |                                                                                                  |
-| Type ID                                | String        | EQUAL_TO                                                                                         |
-| User Type                              | String        | EQUAL_TO                                                                                         |
-| Username                               | String        | EQUAL_TO                                                                                         |
-| Zip Code                               | String        | EQUAL_TO                                                                                         |
-| User Type                              | Created       | DateTime                                                                                         |                                                                                                  |
-| Created By                             | String        |                                                                                                  |
-| Default                                | Boolean       |                                                                                                  |
-| Description                            | String        |                                                                                                  |
-| Display Name                           | String        |                                                                                                  |
-| ID                                     | String        |                                                                                                  |
-| Last Updated                           | DateTime      |                                                                                                  |
-| Last Updated By                        | String        |                                                                                                  |
-| Links                                  | Struct        |                                                                                                  |
-| Name                                   | String        |                                                                                                  |
+| **Object**                             | **Field**     | **Data type**                                                                                                 | **Supported filters**                                                                                         |
+| -------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Application                            | Accessibility | Struct                                                                                                        |                                                                                                               |
+| Created                                | DateTime      |                                                                                                               |
+| Credentials                            | Struct        |                                                                                                               |
+| Credentials Signing Key ID             | String        | EQUAL\_TO                                                                                                     |
+| Embedded                               | Struct        |                                                                                                               |
+| Features                               | List          |                                                                                                               |
+| Group ID                               | String        | EQUAL\_TO                                                                                                     |
+| ID                                     | String        |                                                                                                               |
+| Label                                  | String        |                                                                                                               |
+| Last Updated                           | DateTime      |                                                                                                               |
+| Links                                  | Struct        |                                                                                                               |
+| Name                                   | String        | EQUAL\_TO                                                                                                     |
+| Profile                                | Struct        |                                                                                                               |
+| Request Object Signing Alg             | String        |                                                                                                               |
+| Settings                               | Struct        |                                                                                                               |
+| Status                                 | String        | EQUAL\_TO                                                                                                     |
+| User ID                                | String        | EQUAL\_TO                                                                                                     |
+| Visibility                             | Struct        |                                                                                                               |
+| signOnMode                             | String        |                                                                                                               |
+| Device                                 | Created       | DateTime                                                                                                      |                                                                                                               |
+| Display Name                           | String        | EQUAL\_TO                                                                                                     |
+| ID                                     | String        | EQUAL\_TO                                                                                                     |
+| IMEI                                   | String        | EQUAL\_TO                                                                                                     |
+| Last Updated                           | DateTime      | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN, LESS\_THAN\_OR\_EQUAL\_TO |
+| Links                                  | Struct        |                                                                                                               |
+| Manufacturer                           | String        | EQUAL\_TO                                                                                                     |
+| Mobile Equipment Identifier (MEID)     | String        | EQUAL\_TO                                                                                                     |
+| Model                                  | String        | EQUAL\_TO                                                                                                     |
+| OS Version                             | String        | EQUAL\_TO                                                                                                     |
+| Platform                               | String        | EQUAL\_TO                                                                                                     |
+| Profile                                | Struct        |                                                                                                               |
+| Registered                             | Boolean       | EQUAL\_TO                                                                                                     |
+| Resource Alternate ID                  | String        |                                                                                                               |
+| Resource Display Name                  | Struct        |                                                                                                               |
+| Resource ID                            | String        |                                                                                                               |
+| Resource Type                          | String        |                                                                                                               |
+| Secure Hardware Present                | Boolean       | EQUAL\_TO                                                                                                     |
+| Serial Number                          | String        | EQUAL\_TO                                                                                                     |
+| Status                                 | String        | EQUAL\_TO                                                                                                     |
+| Windows Security identifier (SID)      | String        | EQUAL\_TO                                                                                                     |
+| macOS UDID                             | String        | EQUAL\_TO                                                                                                     |
+| tpmPublicKeyHash                       | String        | EQUAL\_TO                                                                                                     |
+| Group                                  | Created       | DateTime                                                                                                      | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN, LESS\_THAN\_OR\_EQUAL\_TO |
+| Embedded                               | Struct        |                                                                                                               |
+| GUID (objectGUID) of the Windows Group | String        | EQUAL\_TO                                                                                                     |
+| Group Description                      | String        | EQUAL\_TO                                                                                                     |
+| Group Name                             | String        | EQUAL\_TO                                                                                                     |
+| ID                                     | String        | EQUAL\_TO                                                                                                     |
+| Last Membership Updated                | DateTime      | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN, LESS\_THAN\_OR\_EQUAL\_TO |
+| Last Updated                           | DateTime      | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN, LESS\_THAN\_OR\_EQUAL\_TO |
+| Links                                  | Struct        |                                                                                                               |
+| Object Class                           | List          |                                                                                                               |
+| Profile                                | Struct        |                                                                                                               |
+| SAM Account Name                       | String        | EQUAL\_TO                                                                                                     |
+| Source ID                              | String        | EQUAL\_TO                                                                                                     |
+| Type                                   | String        | EQUAL\_TO                                                                                                     |
+| Windows Domain Qualified Name          | String        | EQUAL\_TO                                                                                                     |
+| Windows Group Distinguished Name       | String        | EQUAL\_TO                                                                                                     |
+| User                                   | Activated     | DateTime                                                                                                      | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN, LESS\_THAN\_OR\_EQUAL\_TO |
+| City                                   | String        | EQUAL\_TO                                                                                                     |
+| Cost Center                            | String        | EQUAL\_TO                                                                                                     |
+| Country Code                           | String        | EQUAL\_TO                                                                                                     |
+| Created                                | DateTime      | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN, LESS\_THAN\_OR\_EQUAL\_TO |
+| Credentials                            | Struct        |                                                                                                               |
+| Department                             | String        | EQUAL\_TO                                                                                                     |
+| Display Name                           | String        | EQUAL\_TO                                                                                                     |
+| Division                               | String        | EQUAL\_TO                                                                                                     |
+| Email                                  | String        | EQUAL\_TO                                                                                                     |
+| Embedded Resources                     | Struct        |                                                                                                               |
+| Employee Number                        | String        | EQUAL\_TO                                                                                                     |
+| First Name                             | String        | EQUAL\_TO                                                                                                     |
+| Honorific Prefix                       | String        | EQUAL\_TO                                                                                                     |
+| Honorific Suffix                       | String        | EQUAL\_TO                                                                                                     |
+| ID                                     | String        | EQUAL\_TO                                                                                                     |
+| Last Login                             | DateTime      |                                                                                                               |
+| Last Name                              | String        | EQUAL\_TO                                                                                                     |
+| Last Updated                           | DateTime      | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN, LESS\_THAN\_OR\_EQUAL\_TO |
+| Links                                  | Struct        |                                                                                                               |
+| Locale                                 | String        | EQUAL\_TO                                                                                                     |
+| Manager Display Name                   | String        | EQUAL\_TO                                                                                                     |
+| Manager ID                             | String        | EQUAL\_TO                                                                                                     |
+| Middle Name                            | String        | EQUAL\_TO                                                                                                     |
+| Mobile Phone                           | String        | EQUAL\_TO                                                                                                     |
+| Nickname                               | String        | EQUAL\_TO                                                                                                     |
+| Occupation                             | String        | EQUAL\_TO                                                                                                     |
+| Organization                           | String        | EQUAL\_TO                                                                                                     |
+| Password Changed                       | DateTime      |                                                                                                               |
+| Postal Address                         | String        | EQUAL\_TO                                                                                                     |
+| Preferred Language                     | String        | EQUAL\_TO                                                                                                     |
+| Primary Phone                          | String        | EQUAL\_TO                                                                                                     |
+| Profile                                | Struct        |                                                                                                               |
+| Profile URL                            | String        | EQUAL\_TO                                                                                                     |
+| Second Email                           | String        | EQUAL\_TO                                                                                                     |
+| State                                  | String        | EQUAL\_TO                                                                                                     |
+| Status                                 | String        | EQUAL\_TO                                                                                                     |
+| Status Changed                         | DateTime      | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN, LESS\_THAN\_OR\_EQUAL\_TO |
+| Street Address                         | String        | EQUAL\_TO                                                                                                     |
+| Timezone                               | String        | EQUAL\_TO                                                                                                     |
+| Title                                  | String        | EQUAL\_TO                                                                                                     |
+| Transitioning to status                | String        |                                                                                                               |
+| Type                                   | Struct        |                                                                                                               |
+| Type ID                                | String        | EQUAL\_TO                                                                                                     |
+| User Type                              | String        | EQUAL\_TO                                                                                                     |
+| Username                               | String        | EQUAL\_TO                                                                                                     |
+| Zip Code                               | String        | EQUAL\_TO                                                                                                     |
+| User Type                              | Created       | DateTime                                                                                                      |                                                                                                               |
+| Created By                             | String        |                                                                                                               |
+| Default                                | Boolean       |                                                                                                               |
+| Description                            | String        |                                                                                                               |
+| Display Name                           | String        |                                                                                                               |
+| ID                                     | String        |                                                                                                               |
+| Last Updated                           | DateTime      |                                                                                                               |
+| Last Updated By                        | String        |                                                                                                               |
+| Links                                  | Struct        |                                                                                                               |
+| Name                                   | String        |                                                                                                               |

@@ -93,661 +93,661 @@ When you create a flow that uses Stripe as the data source, you can set the dest
 When you create a flow that uses Stripe as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                        | **Field**          | **Data type**                                             | **Supported filters**                                     |
-| --------------------------------- | ------------------ | --------------------------------------------------------- | --------------------------------------------------------- |
-| Account                           | business_profile   | Struct                                                    |                                                           |
-| capabilities                      | Struct             |                                                           |
-| charges_enabled                   | Boolean            |                                                           |
-| controller                        | Struct             |                                                           |
-| country                           | String             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| default_currency                  | String             |                                                           |
-| details_submitted                 | Boolean            |                                                           |
-| email                             | String             |                                                           |
-| external_account                  | Struct             |                                                           |
-| future_requirements               | Struct             |                                                           |
-| id                                | Integer            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| payouts_enabled                   | Boolean            |                                                           |
-| requirements                      | Struct             |                                                           |
-| settings                          | Struct             |                                                           |
-| type                              | String             |                                                           |
-| Application Fee                   | account            | String                                                    |                                                           |
-| amount                            | Integer            | EQUAL_TO                                                  |
-| amount_refunded                   | Integer            | EQUAL_TO                                                  |
-| application                       | String             |                                                           |
-| balance_transaction               | String             |                                                           |
-| charge                            | String             | EQUAL_TO                                                  |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| object                            | String             |                                                           |
-| originating_transaction           | String             |                                                           |
-| refunded                          | Boolean            | EQUAL_TO                                                  |
-| refunds                           | List               |                                                           |
-| Balance                           | amount             | Integer                                                   |                                                           |
-| currency                          | String             |                                                           |
-| source_types                      | Struct             |                                                           |
-| Balance Transaction               | amount             | Integer                                                   |                                                           |
-| available_on                      | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| description                       | String             |                                                           |
-| exchange_rate                     | Double             |                                                           |
-| fee                               | Integer            |                                                           |
-| fee_details                       | List               |                                                           |
-| id                                | String             |                                                           |
-| net                               | Integer            |                                                           |
-| object                            | String             |                                                           |
-| reporting_category                | String             |                                                           |
-| source                            | String             | EQUAL_TO                                                  |
-| status                            | String             |                                                           |
-| type                              | String             | EQUAL_TO                                                  |
-| Charge                            | amount             | Integer                                                   | EQUAL_TO                                                  |
-| amount_captured                   | Integer            |                                                           |
-| amount_refunded                   | Integer            |                                                           |
-| application                       | String             |                                                           |
-| application_fee                   | String             |                                                           |
-| application_fee_amount            | Integer            |                                                           |
-| balance_transaction               | String             |                                                           |
-| billing_details                   | Struct             |                                                           |
-| calculated_statement_descriptor   | String             |                                                           |
-| captured                          | Boolean            |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| customer                          | String             | EQUAL_TO                                                  |
-| description                       | String             |                                                           |
-| destination                       | String             |                                                           |
-| dispute                           | String             |                                                           |
-| disputed                          | Boolean            | EQUAL_TO                                                  |
-| failure_balance_transaction       | String             |                                                           |
-| failure_code                      | String             |                                                           |
-| failure_message                   | String             |                                                           |
-| fraud_details                     | Struct             |                                                           |
-| id                                | String             |                                                           |
-| invoice                           | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| on_behalf_of                      | String             |                                                           |
-| order                             | String             |                                                           |
-| outcome                           | Struct             |                                                           |
-| paid                              | Boolean            |                                                           |
-| payment_intent                    | String             | EQUAL_TO                                                  |
-| payment_method                    | String             |                                                           |
-| payment_method_details            | Struct             |                                                           |
-| receipt_email                     | String             |                                                           |
-| receipt_number                    | String             |                                                           |
-| receipt_url                       | String             |                                                           |
-| refunded                          | Boolean            | EQUAL_TO                                                  |
-| refunds                           | Struct             |                                                           |
-| review                            | String             |                                                           |
-| shipping                          | Struct             |                                                           |
-| source                            | String             |                                                           |
-| source_transfer                   | String             |                                                           |
-| statement_descriptor              | String             |                                                           |
-| statement_descriptor_suffix       | String             |                                                           |
-| status                            | String             |                                                           |
-| transfer_data                     | Struct             |                                                           |
-| transfer_group                    | String             | EQUAL_TO                                                  |
-| Country Spec                      | default_currency   | String                                                    |                                                           |
-| id                                | String             |                                                           |
-| object                            | String             |                                                           |
-| supported_bank_account_currencies | Struct             |                                                           |
-| supported_payment_currencies      | List               |                                                           |
-| supported_payment_methods         | List               |                                                           |
-| supported_transfer_countries      | List               |                                                           |
-| verification_fields               | Struct             |                                                           |
-| Coupon                            | amount_off         | Integer                                                   |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             | EQUAL_TO                                                  |
-| duration                          | String             | EQUAL_TO                                                  |
-| duration_in_months                | Integer            | EQUAL_TO                                                  |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| max_redemptions                   | Integer            | EQUAL_TO                                                  |
-| metadata                          | Struct             |                                                           |
-| name                              | String             |                                                           |
-| object                            | String             |                                                           |
-| percent_off                       | Double             | EQUAL_TO                                                  |
-| redeem_by                         | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| times_redeemed                    | Integer            |                                                           |
-| valid                             | Boolean            |                                                           |
-| Credit Note                       | amount             | Integer                                                   |                                                           |
-| created                           | DateTime           |                                                           |
-| currency                          | String             |                                                           |
-| customer                          | String             | EQUAL_TO                                                  |
-| customer_balance_transaction      | String             |                                                           |
-| discount_amount                   | Integer            |                                                           |
-| discount_amounts                  | List               |                                                           |
-| id                                | String             |                                                           |
-| invoice                           | String             | EQUAL_TO                                                  |
-| lines                             | List               |                                                           |
-| livemode                          | Boolean            |                                                           |
-| memo                              | String             |                                                           |
-| metadata                          | Struct             |                                                           |
-| number                            | String             |                                                           |
-| object                            | String             |                                                           |
-| out_of_band_amount                | Integer            |                                                           |
-| pdf                               | String             |                                                           |
-| reason                            | String             |                                                           |
-| refund                            | String             |                                                           |
-| status                            | String             |                                                           |
-| subtotal                          | Integer            |                                                           |
-| tax_amounts                       | List               |                                                           |
-| total                             | Integer            |                                                           |
-| type                              | String             |                                                           |
-| voided_at                         | DateTime           |                                                           |
-| Customer                          | address            | Struct                                                    |                                                           |
-| balance                           | Integer            |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| default_source                    | String             |                                                           |
-| delinquent                        | Boolean            | EQUAL_TO                                                  |
-| description                       | String             |                                                           |
-| discount                          | Struct             |                                                           |
-| email                             | String             | EQUAL_TO                                                  |
-| id                                | String             |                                                           |
-| invoice_prefix                    | String             |                                                           |
-| invoice_settings                  | Struct             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| name                              | String             |                                                           |
-| next_invoice_sequence             | Integer            |                                                           |
-| object                            | String             |                                                           |
-| phone                             | String             |                                                           |
-| preferred_locales                 | List               |                                                           |
-| shipping                          | Struct             |                                                           |
-| tax_exempt                        | String             |                                                           |
-| test_clock                        | String             |                                                           |
-| Dispute                           | amount             | Integer                                                   | EQUAL_TO                                                  |
-| balance_transaction               | String             |                                                           |
-| balance_transactions              | List               |                                                           |
-| charge                            | String             | EQUAL_TO                                                  |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| evidence                          | Struct             |                                                           |
-| evidence_details                  | Struct             |                                                           |
-| id                                | String             |                                                           |
-| is_charge_refundable              | Boolean            |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| payment_intent                    | String             | EQUAL_TO                                                  |
-| reason                            | String             | EQUAL_TO                                                  |
-| status                            | String             | EQUAL_TO                                                  |
-| Early Fraud Warning               | actionable         | Boolean                                                   |                                                           |
-| charge                            | String             | EQUAL_TO                                                  |
-| created                           | DateTime           |                                                           |
-| fraud_type                        | String             |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| object                            | String             |                                                           |
-| payment_intent                    | String             | EQUAL_TO                                                  |
-| File Link                         | created            | DateTime                                                  | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| expired                           | Boolean            | EQUAL_TO                                                  |
-| expires_at                        | DateTime           |                                                           |
-| file                              | String             | EQUAL_TO                                                  |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| url                               | String             |                                                           |
-| Invoice                           | account_country    | String                                                    |                                                           |
-| account_name                      | String             |                                                           |
-| account_tax_ids                   | List               |                                                           |
-| amount_due                        | Integer            |                                                           |
-| amount_paid                       | Integer            |                                                           |
-| amount_remaining                  | Integer            |                                                           |
-| application                       | String             |                                                           |
-| application_fee_amount            | Integer            |                                                           |
-| attempt_count                     | Integer            |                                                           |
-| attempted                         | Boolean            | EQUAL_TO                                                  |
-| auto_advance                      | Boolean            | EQUAL_TO                                                  |
-| automatic_tax                     | Struct             |                                                           |
-| billing_reason                    | String             | EQUAL_TO                                                  |
-| charge                            | String             |                                                           |
-| collection_method                 | String             | EQUAL_TO                                                  |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| custom_fields                     | List               |                                                           |
-| customer                          | String             | EQUAL_TO                                                  |
-| customer_address                  | Struct             |                                                           |
-| customer_email                    | String             |                                                           |
-| customer_name                     | String             |                                                           |
-| customer_phone                    | String             |                                                           |
-| customer_shipping                 | Struct             |                                                           |
-| customer_tax_exempt               | String             |                                                           |
-| customer_tax_ids                  | List               |                                                           |
-| default_payment_method            | String             |                                                           |
-| default_source                    | String             |                                                           |
-| default_tax_rates                 | List               |                                                           |
-| description                       | String             |                                                           |
-| discount                          | Struct             |                                                           |
-| discounts                         | List               |                                                           |
-| due_date                          | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| ending_balance                    | Integer            |                                                           |
-| footer                            | String             |                                                           |
-| hosted_invoice_url                | String             |                                                           |
-| id                                | String             |                                                           |
-| invoice_pdf                       | String             |                                                           |
-| last_finalization_error           | Struct             |                                                           |
-| lines                             | List               |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| next_payment_attempt              | DateTime           |                                                           |
-| number                            | String             |                                                           |
-| object                            | String             |                                                           |
-| on_behalf_of                      | String             |                                                           |
-| paid                              | Boolean            | EQUAL_TO                                                  |
-| paid_out_of_band                  | Boolean            |                                                           |
-| payment_intent                    | String             |                                                           |
-| payment_settings                  | Struct             |                                                           |
-| period_end                        | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| period_start                      | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| post_payment_credit_notes_amount  | Integer            |                                                           |
-| pre_payment_credit_notes_amount   | Integer            |                                                           |
-| quote                             | String             |                                                           |
-| receipt_number                    | String             |                                                           |
-| starting_balance                  | Integer            |                                                           |
-| statement_descriptor              | String             |                                                           |
-| status                            | String             | EQUAL_TO                                                  |
-| status_transitions                | Struct             |                                                           |
-| subscription                      | Integer            |                                                           |
-| subtotal                          | Integer            | EQUAL_TO                                                  |
-| tax                               | Integer            |                                                           |
-| test_clock                        | String             |                                                           |
-| total                             | Integer            | EQUAL_TO                                                  |
-| total_discount_amounts            | List               |                                                           |
-| total_tax_amounts                 | List               |                                                           |
-| transfer_data                     | Struct             |                                                           |
-| webhooks_delivered_at             | DateTime           |                                                           |
-| Invoice Item                      | amount             | Integer                                                   | EQUAL_TO                                                  |
-| currency                          | String             |                                                           |
-| customer                          | String             | EQUAL_TO                                                  |
-| date                              | DateTime           |                                                           |
-| description                       | String             |                                                           |
-| discountable                      | Boolean            |                                                           |
-| discounts                         | List               |                                                           |
-| id                                | String             |                                                           |
-| invoice                           | String             | EQUAL_TO                                                  |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| period                            | Struct             |                                                           |
-| plan                              | String             |                                                           |
-| price                             | Struct             |                                                           |
-| proration                         | Boolean            | EQUAL_TO                                                  |
-| quantity                          | Integer            |                                                           |
-| subscription                      | String             |                                                           |
-| subscription_item                 | String             |                                                           |
-| tax_rates                         | List               |                                                           |
-| test_clock                        | String             |                                                           |
-| unit_amount                       | Integer            |                                                           |
-| unit_amount_decimal               | String             |                                                           |
-| Payment Intent                    | amount             | Integer                                                   |                                                           |
-| amount_capturable                 | Integer            |                                                           |
-| amount_details                    | Struct             |                                                           |
-| amount_received                   | Integer            |                                                           |
-| application                       | String             |                                                           |
-| application_fee_amount            | Integer            |                                                           |
-| automatic_payment_methods         | Struct             |                                                           |
-| canceled_at                       | DateTime           |                                                           |
-| cancellation_reason               | String             |                                                           |
-| capture_method                    | String             |                                                           |
-| charges                           | List               |                                                           |
-| client_secret                     | String             |                                                           |
-| confirmation_method               | String             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| customer                          | String             | EQUAL_TO                                                  |
-| description                       | String             |                                                           |
-| id                                | String             |                                                           |
-| invoice                           | String             |                                                           |
-| last_payment_error                | Struct             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| next_action                       | Struct             |                                                           |
-| object                            | String             |                                                           |
-| on_behalf_of                      | String             |                                                           |
-| payment_method                    | String             |                                                           |
-| payment_method_options            | Struct             |                                                           |
-| payment_method_types              | List               |                                                           |
-| processing                        | Struct             |                                                           |
-| receipt_email                     | String             |                                                           |
-| review                            | String             |                                                           |
-| setup_future_usage                | String             |                                                           |
-| shipping                          | Struct             |                                                           |
-| source                            | String             |                                                           |
-| statement_descriptor              | String             |                                                           |
-| statement_descriptor_suffix       | String             |                                                           |
-| status                            | String             |                                                           |
-| transfer_data                     | Struct             |                                                           |
-| transfer_group                    | String             |                                                           |
-| Payout                            | amount             | Integer                                                   | EQUAL_TO                                                  |
-| arrival_date                      | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| automatic                         | Boolean            |                                                           |
-| balance_transaction               | String             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| description                       | String             |                                                           |
-| destination                       | String             | EQUAL_TO                                                  |
-| failure_balance_transaction       | String             |                                                           |
-| failure_code                      | String             |                                                           |
-| failure_message                   | String             |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| method                            | String             |                                                           |
-| object                            | String             |                                                           |
-| original_payout                   | String             |                                                           |
-| reversed_by                       | String             |                                                           |
-| source_type                       | String             |                                                           |
-| statement_descriptor              | String             |                                                           |
-| status                            | String             |                                                           |
-| type                              | String             |                                                           |
-| Plan                              | active             | Boolean                                                   | EQUAL_TO                                                  |
-| aggregate_usage                   | String             |                                                           |
-| amount                            | Integer            |                                                           |
-| amount_decimal                    | String             |                                                           |
-| billing_scheme                    | String             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             | EQUAL_TO                                                  |
-| id                                | String             |                                                           |
-| interval                          | String             | EQUAL_TO                                                  |
-| interval_count                    | Integer            |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| nickname                          | String             |                                                           |
-| object                            | String             |                                                           |
-| product                           | String             | EQUAL_TO                                                  |
-| tiers_mode                        | String             |                                                           |
-| transform_usage                   | Struct             |                                                           |
-| trial_period_days                 | Integer            | EQUAL_TO                                                  |
-| usage_type                        | String             |                                                           |
-| Price                             | active             | Boolean                                                   | EQUAL_TO                                                  |
-| billing_scheme                    | String             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             | EQUAL_TO                                                  |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| lookup_key                        | String             |                                                           |
-| metadata                          | Struct             |                                                           |
-| nickname                          | String             |                                                           |
-| object                            | String             |                                                           |
-| product                           | String             | EQUAL_TO                                                  |
-| recurring                         | Struct             |                                                           |
-| tax_behaviour                     | String             |                                                           |
-| tiers_mode                        | String             |                                                           |
-| transform_quantity                | Struct             |                                                           |
-| type                              | String             | EQUAL_TO                                                  |
-| unit_amount                       | Integer            |                                                           |
-| unit_amount_decimal               | String             |                                                           |
-| Product                           | active             | Boolean                                                   | EQUAL_TO                                                  |
-| attributes                        | List               |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| default_price                     | String             |                                                           |
-| description                       | String             |                                                           |
-| id                                | String             |                                                           |
-| images                            | List               |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| name                              | String             |                                                           |
-| object                            | String             |                                                           |
-| package_dimensions                | Struct             |                                                           |
-| shippable                         | Boolean            |                                                           |
-| statement_descriptor              | String             |                                                           |
-| tax_code                          | String             |                                                           |
-| type                              | String             | EQUAL_TO                                                  |
-| unit_label                        | String             |                                                           |
-| updated                           | DateTime           |                                                           |
-| url                               | String             |                                                           |
-| Promotion Code                    | active             | Boolean                                                   | EQUAL_TO                                                  |
-| code                              | String             | EQUAL_TO                                                  |
-| coupon                            | Struct             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| customer                          | String             |                                                           |
-| expires_at                        | DateTime           |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| max_redemptions                   | Integer            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| restrictions                      | Struct             |                                                           |
-| times_redeemed                    | Integer            |                                                           |
-| Quote                             | amount_subtotal    | Integer                                                   |                                                           |
-| amount_total                      | Integer            |                                                           |
-| application                       | String             |                                                           |
-| application_fee_amount            | Integer            |                                                           |
-| application_fee_percent           | Double             |                                                           |
-| automatic_tax                     | Struct             |                                                           |
-| collection_method                 | String             |                                                           |
-| computed                          | Struct             |                                                           |
-| created                           | DateTime           |                                                           |
-| currency                          | String             |                                                           |
-| customer                          | String             | EQUAL_TO                                                  |
-| default_tax_rates                 | List               |                                                           |
-| description                       | String             |                                                           |
-| discounts                         | List               |                                                           |
-| expires_at                        | DateTime           |                                                           |
-| footer                            | String             |                                                           |
-| from_quote                        | Struct             |                                                           |
-| header                            | String             |                                                           |
-| id                                | String             |                                                           |
-| invoice                           | String             |                                                           |
-| invoice_settings                  | Struct             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| number                            | String             |                                                           |
-| object                            | String             |                                                           |
-| on_behalf_of                      | String             |                                                           |
-| status                            | String             | EQUAL_TO                                                  |
-| status_transitions                | Struct             |                                                           |
-| subscription                      | String             |                                                           |
-| subscription_data                 | Struct             |                                                           |
-| subscription_schedule             | String             |                                                           |
-| test_clock                        | String             |                                                           |
-| total_details                     | Struct             |                                                           |
-| transfer_data                     | Struct             |                                                           |
-| Refund                            | amount             | Integer                                                   |                                                           |
-| balance_transaction               | String             |                                                           |
-| charge                            | String             | EQUAL_TO                                                  |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             |                                                           |
-| id                                | String             |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| payment_intent                    | String             | EQUAL_TO                                                  |
-| reason                            | String             |                                                           |
-| receipt_number                    | String             |                                                           |
-| source_transfer_reversal          | String             |                                                           |
-| status                            | String             |                                                           |
-| transfer_reversal                 | String             |                                                           |
-| Report Type                       | data_available_end | DateTime                                                  |                                                           |
-| data_available_start              | DateTime           |                                                           |
-| default_columns                   | List               |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| name                              | String             |                                                           |
-| object                            | String             |                                                           |
-| updated                           | DateTime           |                                                           |
-| version                           | Integer            |                                                           |
-| Session                           | after_expiration   | Struct                                                    |                                                           |
-| allow_promotion_codes             | Boolean            |                                                           |
-| amount_subtotal                   | Integer            |                                                           |
-| amount_total                      | Integer            |                                                           |
-| automatic_tax                     | Struct             |                                                           |
-| billing_address_collection        | String             |                                                           |
-| cancel_url                        | String             |                                                           |
-| client_reference_id               | String             |                                                           |
-| consent                           | Struct             |                                                           |
-| consent_collection                | Struct             |                                                           |
-| currency                          | String             |                                                           |
-| customer                          | String             |                                                           |
-| customer_creation                 | String             |                                                           |
-| customer_details                  | Struct             |                                                           |
-| customer_email                    | String             |                                                           |
-| expires_at                        | DateTime           |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| locale                            | String             |                                                           |
-| metadata                          | Struct             |                                                           |
-| mode                              | String             |                                                           |
-| object                            | String             |                                                           |
-| payment_intent                    | String             | EQUAL_TO                                                  |
-| payment_link                      | String             |                                                           |
-| payment_method_options            | Struct             |                                                           |
-| payment_method_types              | List               |                                                           |
-| payment_status                    | String             |                                                           |
-| phone_number_collection           | Struct             |                                                           |
-| recovered_from                    | String             |                                                           |
-| setup_intent                      | String             |                                                           |
-| shipping                          | Struct             |                                                           |
-| shipping_address_collection       | Struct             |                                                           |
-| shipping_options                  | Struct             |                                                           |
-| shipping_rate                     | String             |                                                           |
-| status                            | String             |                                                           |
-| submit_type                       | String             |                                                           |
-| subscription                      | String             |                                                           |
-| success_url                       | String             |                                                           |
-| total_details                     | Struct             |                                                           |
-| url                               | String             |                                                           |
-| Setup Intent                      | application        | String                                                    |                                                           |
-| cancellation_reason               | String             |                                                           |
-| client_secret                     | String             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| customer                          | String             | EQUAL_TO                                                  |
-| description                       | String             |                                                           |
-| id                                | String             |                                                           |
-| last_setup_error                  | Struct             |                                                           |
-| latest_attempt                    | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| mandate                           | String             |                                                           |
-| metadata                          | Struct             |                                                           |
-| next_action                       | Struct             |                                                           |
-| object                            | String             |                                                           |
-| on_behalf_of                      | String             |                                                           |
-| payment_method                    | String             |                                                           |
-| payment_method_options            | Struct             |                                                           |
-| payment_method_types              | List               |                                                           |
-| single_use_mandate                | String             |                                                           |
-| status                            | String             |                                                           |
-| usage                             | String             |                                                           |
-| Shipping Rate                     | active             | Boolean                                                   | EQUAL_TO                                                  |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| delivery_estimate                 | Struct             |                                                           |
-| display_name                      | String             |                                                           |
-| fixed_amount                      | Struct             |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| tax_behavior                      | String             |                                                           |
-| tax_code                          | String             |                                                           |
-| type                              | String             |                                                           |
-| Subscription                      | application        | String                                                    |                                                           |
-| application_fee_percent           | Double             |                                                           |
-| automatic_tax                     | Struct             |                                                           |
-| billing_cycle_anchor              | DateTime           |                                                           |
-| billing_thresholds                | Struct             |                                                           |
-| cancel_at                         | DateTime           |                                                           |
-| cancel_at_period_end              | Boolean            |                                                           |
-| canceled_at                       | DateTime           |                                                           |
-| collection_method                 | String             | EQUAL_TO                                                  |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| current_period_end                | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| current_period_start              | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| customer                          | String             | EQUAL_TO                                                  |
-| days_until_due                    | Integer            |                                                           |
-| default_payment_method            | String             |                                                           |
-| default_source                    | String             |                                                           |
-| default_tax_rates                 | List               |                                                           |
-| description                       | String             |                                                           |
-| discount                          | Struct             |                                                           |
-| ended_at                          | DateTime           |                                                           |
-| id                                | String             |                                                           |
-| items                             | List               |                                                           |
-| latest_invoice                    | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| next_pending_invoice_item_invoice | DateTime           |                                                           |
-| object                            | String             |                                                           |
-| pause_collection                  | Struct             |                                                           |
-| payment_settings                  | Struct             |                                                           |
-| pending_invoice_item_interval     | Struct             |                                                           |
-| pending_setup_intent              | String             |                                                           |
-| pending_update                    | Struct             |                                                           |
-| plan                              | Struct             |                                                           |
-| quantity                          | Integer            |                                                           |
-| schedule                          | String             |                                                           |
-| start_date                        | DateTime           |                                                           |
-| status                            | String             | EQUAL_TO                                                  |
-| test_clock                        | String             |                                                           |
-| transfer_data                     | Struct             |                                                           |
-| trial_end                         | DateTime           |                                                           |
-| trial_start                       | DateTime           |                                                           |
-| Subscription Item                 | billing_thresholds | Struct                                                    |                                                           |
-| created                           | DateTime           |                                                           |
-| id                                | String             |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| plan                              | Struct             |                                                           |
-| price                             | Struct             |                                                           |
-| subscription                      | String             |                                                           |
-| tax_rates                         | List               |                                                           |
-| Subscription Schedule             | application        | String                                                    |                                                           |
-| canceled_at                       | DateTime           |                                                           |
-| completed_at                      | DateTime           |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| current_phase                     | Struct             |                                                           |
-| customer                          | String             | EQUAL_TO                                                  |
-| default_settings                  | Struct             |                                                           |
-| end_behavior                      | String             |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| phases                            | List               |                                                           |
-| released_at                       | DateTime           |                                                           |
-| released_subscription             | String             |                                                           |
-| renewal_interval                  | String             |                                                           |
-| status                            | String             |                                                           |
-| subscription                      | String             |                                                           |
-| test_clock                        | String             |                                                           |
-| Tax Code                          | description        | String                                                    |                                                           |
-| id                                | String             |                                                           |
-| name                              | String             |                                                           |
-| object                            | String             |                                                           |
-| Tax Rate                          | active             | Boolean                                                   | EQUAL_TO                                                  |
-| country                           | String             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| description                       | String             |                                                           |
-| display_name                      | String             |                                                           |
-| id                                | String             |                                                           |
-| inclusive                         | Boolean            | EQUAL_TO                                                  |
-| jurisdiction                      | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| percentage                        | Double             |                                                           |
-| state                             | String             |                                                           |
-| tax_type                          | String             |                                                           |
-| Transfer                          | amount             | Integer                                                   | EQUAL_TO                                                  |
-| amount_reversed                   | Integer            |                                                           |
-| balance_transaction               | String             |                                                           |
-| created                           | DateTime           | EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO |
-| currency                          | String             | EQUAL_TO                                                  |
-| description                       | String             |                                                           |
-| destination                       | String             | EQUAL_TO                                                  |
-| destination_payment               | String             |                                                           |
-| id                                | String             |                                                           |
-| livemode                          | Boolean            |                                                           |
-| metadata                          | Struct             |                                                           |
-| object                            | String             |                                                           |
-| reversals                         | List               |                                                           |
-| reversed                          | Boolean            |                                                           |
-| source_transaction                | String             |                                                           |
-| source_type                       | String             |                                                           |
-| transfer_group                    | String             | EQUAL_TO                                                  |
+| **Object**                            | **Field**            | **Data type**                                                      | **Supported filters**                                              |
+| ------------------------------------- | -------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| Account                               | business\_profile    | Struct                                                             |                                                                    |
+| capabilities                          | Struct               |                                                                    |
+| charges\_enabled                      | Boolean              |                                                                    |
+| controller                            | Struct               |                                                                    |
+| country                               | String               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| default\_currency                     | String               |                                                                    |
+| details\_submitted                    | Boolean              |                                                                    |
+| email                                 | String               |                                                                    |
+| external\_account                     | Struct               |                                                                    |
+| future\_requirements                  | Struct               |                                                                    |
+| id                                    | Integer              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| payouts\_enabled                      | Boolean              |                                                                    |
+| requirements                          | Struct               |                                                                    |
+| settings                              | Struct               |                                                                    |
+| type                                  | String               |                                                                    |
+| Application Fee                       | account              | String                                                             |                                                                    |
+| amount                                | Integer              | EQUAL\_TO                                                          |
+| amount\_refunded                      | Integer              | EQUAL\_TO                                                          |
+| application                           | String               |                                                                    |
+| balance\_transaction                  | String               |                                                                    |
+| charge                                | String               | EQUAL\_TO                                                          |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| object                                | String               |                                                                    |
+| originating\_transaction              | String               |                                                                    |
+| refunded                              | Boolean              | EQUAL\_TO                                                          |
+| refunds                               | List                 |                                                                    |
+| Balance                               | amount               | Integer                                                            |                                                                    |
+| currency                              | String               |                                                                    |
+| source\_types                         | Struct               |                                                                    |
+| Balance Transaction                   | amount               | Integer                                                            |                                                                    |
+| available\_on                         | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| description                           | String               |                                                                    |
+| exchange\_rate                        | Double               |                                                                    |
+| fee                                   | Integer              |                                                                    |
+| fee\_details                          | List                 |                                                                    |
+| id                                    | String               |                                                                    |
+| net                                   | Integer              |                                                                    |
+| object                                | String               |                                                                    |
+| reporting\_category                   | String               |                                                                    |
+| source                                | String               | EQUAL\_TO                                                          |
+| status                                | String               |                                                                    |
+| type                                  | String               | EQUAL\_TO                                                          |
+| Charge                                | amount               | Integer                                                            | EQUAL\_TO                                                          |
+| amount\_captured                      | Integer              |                                                                    |
+| amount\_refunded                      | Integer              |                                                                    |
+| application                           | String               |                                                                    |
+| application\_fee                      | String               |                                                                    |
+| application\_fee\_amount              | Integer              |                                                                    |
+| balance\_transaction                  | String               |                                                                    |
+| billing\_details                      | Struct               |                                                                    |
+| calculated\_statement\_descriptor     | String               |                                                                    |
+| captured                              | Boolean              |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| customer                              | String               | EQUAL\_TO                                                          |
+| description                           | String               |                                                                    |
+| destination                           | String               |                                                                    |
+| dispute                               | String               |                                                                    |
+| disputed                              | Boolean              | EQUAL\_TO                                                          |
+| failure\_balance\_transaction         | String               |                                                                    |
+| failure\_code                         | String               |                                                                    |
+| failure\_message                      | String               |                                                                    |
+| fraud\_details                        | Struct               |                                                                    |
+| id                                    | String               |                                                                    |
+| invoice                               | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| on\_behalf\_of                        | String               |                                                                    |
+| order                                 | String               |                                                                    |
+| outcome                               | Struct               |                                                                    |
+| paid                                  | Boolean              |                                                                    |
+| payment\_intent                       | String               | EQUAL\_TO                                                          |
+| payment\_method                       | String               |                                                                    |
+| payment\_method\_details              | Struct               |                                                                    |
+| receipt\_email                        | String               |                                                                    |
+| receipt\_number                       | String               |                                                                    |
+| receipt\_url                          | String               |                                                                    |
+| refunded                              | Boolean              | EQUAL\_TO                                                          |
+| refunds                               | Struct               |                                                                    |
+| review                                | String               |                                                                    |
+| shipping                              | Struct               |                                                                    |
+| source                                | String               |                                                                    |
+| source\_transfer                      | String               |                                                                    |
+| statement\_descriptor                 | String               |                                                                    |
+| statement\_descriptor\_suffix         | String               |                                                                    |
+| status                                | String               |                                                                    |
+| transfer\_data                        | Struct               |                                                                    |
+| transfer\_group                       | String               | EQUAL\_TO                                                          |
+| Country Spec                          | default\_currency    | String                                                             |                                                                    |
+| id                                    | String               |                                                                    |
+| object                                | String               |                                                                    |
+| supported\_bank\_account\_currencies  | Struct               |                                                                    |
+| supported\_payment\_currencies        | List                 |                                                                    |
+| supported\_payment\_methods           | List                 |                                                                    |
+| supported\_transfer\_countries        | List                 |                                                                    |
+| verification\_fields                  | Struct               |                                                                    |
+| Coupon                                | amount\_off          | Integer                                                            |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               | EQUAL\_TO                                                          |
+| duration                              | String               | EQUAL\_TO                                                          |
+| duration\_in\_months                  | Integer              | EQUAL\_TO                                                          |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| max\_redemptions                      | Integer              | EQUAL\_TO                                                          |
+| metadata                              | Struct               |                                                                    |
+| name                                  | String               |                                                                    |
+| object                                | String               |                                                                    |
+| percent\_off                          | Double               | EQUAL\_TO                                                          |
+| redeem\_by                            | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| times\_redeemed                       | Integer              |                                                                    |
+| valid                                 | Boolean              |                                                                    |
+| Credit Note                           | amount               | Integer                                                            |                                                                    |
+| created                               | DateTime             |                                                                    |
+| currency                              | String               |                                                                    |
+| customer                              | String               | EQUAL\_TO                                                          |
+| customer\_balance\_transaction        | String               |                                                                    |
+| discount\_amount                      | Integer              |                                                                    |
+| discount\_amounts                     | List                 |                                                                    |
+| id                                    | String               |                                                                    |
+| invoice                               | String               | EQUAL\_TO                                                          |
+| lines                                 | List                 |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| memo                                  | String               |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| number                                | String               |                                                                    |
+| object                                | String               |                                                                    |
+| out\_of\_band\_amount                 | Integer              |                                                                    |
+| pdf                                   | String               |                                                                    |
+| reason                                | String               |                                                                    |
+| refund                                | String               |                                                                    |
+| status                                | String               |                                                                    |
+| subtotal                              | Integer              |                                                                    |
+| tax\_amounts                          | List                 |                                                                    |
+| total                                 | Integer              |                                                                    |
+| type                                  | String               |                                                                    |
+| voided\_at                            | DateTime             |                                                                    |
+| Customer                              | address              | Struct                                                             |                                                                    |
+| balance                               | Integer              |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| default\_source                       | String               |                                                                    |
+| delinquent                            | Boolean              | EQUAL\_TO                                                          |
+| description                           | String               |                                                                    |
+| discount                              | Struct               |                                                                    |
+| email                                 | String               | EQUAL\_TO                                                          |
+| id                                    | String               |                                                                    |
+| invoice\_prefix                       | String               |                                                                    |
+| invoice\_settings                     | Struct               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| name                                  | String               |                                                                    |
+| next\_invoice\_sequence               | Integer              |                                                                    |
+| object                                | String               |                                                                    |
+| phone                                 | String               |                                                                    |
+| preferred\_locales                    | List                 |                                                                    |
+| shipping                              | Struct               |                                                                    |
+| tax\_exempt                           | String               |                                                                    |
+| test\_clock                           | String               |                                                                    |
+| Dispute                               | amount               | Integer                                                            | EQUAL\_TO                                                          |
+| balance\_transaction                  | String               |                                                                    |
+| balance\_transactions                 | List                 |                                                                    |
+| charge                                | String               | EQUAL\_TO                                                          |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| evidence                              | Struct               |                                                                    |
+| evidence\_details                     | Struct               |                                                                    |
+| id                                    | String               |                                                                    |
+| is\_charge\_refundable                | Boolean              |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| payment\_intent                       | String               | EQUAL\_TO                                                          |
+| reason                                | String               | EQUAL\_TO                                                          |
+| status                                | String               | EQUAL\_TO                                                          |
+| Early Fraud Warning                   | actionable           | Boolean                                                            |                                                                    |
+| charge                                | String               | EQUAL\_TO                                                          |
+| created                               | DateTime             |                                                                    |
+| fraud\_type                           | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| object                                | String               |                                                                    |
+| payment\_intent                       | String               | EQUAL\_TO                                                          |
+| File Link                             | created              | DateTime                                                           | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| expired                               | Boolean              | EQUAL\_TO                                                          |
+| expires\_at                           | DateTime             |                                                                    |
+| file                                  | String               | EQUAL\_TO                                                          |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| url                                   | String               |                                                                    |
+| Invoice                               | account\_country     | String                                                             |                                                                    |
+| account\_name                         | String               |                                                                    |
+| account\_tax\_ids                     | List                 |                                                                    |
+| amount\_due                           | Integer              |                                                                    |
+| amount\_paid                          | Integer              |                                                                    |
+| amount\_remaining                     | Integer              |                                                                    |
+| application                           | String               |                                                                    |
+| application\_fee\_amount              | Integer              |                                                                    |
+| attempt\_count                        | Integer              |                                                                    |
+| attempted                             | Boolean              | EQUAL\_TO                                                          |
+| auto\_advance                         | Boolean              | EQUAL\_TO                                                          |
+| automatic\_tax                        | Struct               |                                                                    |
+| billing\_reason                       | String               | EQUAL\_TO                                                          |
+| charge                                | String               |                                                                    |
+| collection\_method                    | String               | EQUAL\_TO                                                          |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| custom\_fields                        | List                 |                                                                    |
+| customer                              | String               | EQUAL\_TO                                                          |
+| customer\_address                     | Struct               |                                                                    |
+| customer\_email                       | String               |                                                                    |
+| customer\_name                        | String               |                                                                    |
+| customer\_phone                       | String               |                                                                    |
+| customer\_shipping                    | Struct               |                                                                    |
+| customer\_tax\_exempt                 | String               |                                                                    |
+| customer\_tax\_ids                    | List                 |                                                                    |
+| default\_payment\_method              | String               |                                                                    |
+| default\_source                       | String               |                                                                    |
+| default\_tax\_rates                   | List                 |                                                                    |
+| description                           | String               |                                                                    |
+| discount                              | Struct               |                                                                    |
+| discounts                             | List                 |                                                                    |
+| due\_date                             | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| ending\_balance                       | Integer              |                                                                    |
+| footer                                | String               |                                                                    |
+| hosted\_invoice\_url                  | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| invoice\_pdf                          | String               |                                                                    |
+| last\_finalization\_error             | Struct               |                                                                    |
+| lines                                 | List                 |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| next\_payment\_attempt                | DateTime             |                                                                    |
+| number                                | String               |                                                                    |
+| object                                | String               |                                                                    |
+| on\_behalf\_of                        | String               |                                                                    |
+| paid                                  | Boolean              | EQUAL\_TO                                                          |
+| paid\_out\_of\_band                   | Boolean              |                                                                    |
+| payment\_intent                       | String               |                                                                    |
+| payment\_settings                     | Struct               |                                                                    |
+| period\_end                           | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| period\_start                         | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| post\_payment\_credit\_notes\_amount  | Integer              |                                                                    |
+| pre\_payment\_credit\_notes\_amount   | Integer              |                                                                    |
+| quote                                 | String               |                                                                    |
+| receipt\_number                       | String               |                                                                    |
+| starting\_balance                     | Integer              |                                                                    |
+| statement\_descriptor                 | String               |                                                                    |
+| status                                | String               | EQUAL\_TO                                                          |
+| status\_transitions                   | Struct               |                                                                    |
+| subscription                          | Integer              |                                                                    |
+| subtotal                              | Integer              | EQUAL\_TO                                                          |
+| tax                                   | Integer              |                                                                    |
+| test\_clock                           | String               |                                                                    |
+| total                                 | Integer              | EQUAL\_TO                                                          |
+| total\_discount\_amounts              | List                 |                                                                    |
+| total\_tax\_amounts                   | List                 |                                                                    |
+| transfer\_data                        | Struct               |                                                                    |
+| webhooks\_delivered\_at               | DateTime             |                                                                    |
+| Invoice Item                          | amount               | Integer                                                            | EQUAL\_TO                                                          |
+| currency                              | String               |                                                                    |
+| customer                              | String               | EQUAL\_TO                                                          |
+| date                                  | DateTime             |                                                                    |
+| description                           | String               |                                                                    |
+| discountable                          | Boolean              |                                                                    |
+| discounts                             | List                 |                                                                    |
+| id                                    | String               |                                                                    |
+| invoice                               | String               | EQUAL\_TO                                                          |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| period                                | Struct               |                                                                    |
+| plan                                  | String               |                                                                    |
+| price                                 | Struct               |                                                                    |
+| proration                             | Boolean              | EQUAL\_TO                                                          |
+| quantity                              | Integer              |                                                                    |
+| subscription                          | String               |                                                                    |
+| subscription\_item                    | String               |                                                                    |
+| tax\_rates                            | List                 |                                                                    |
+| test\_clock                           | String               |                                                                    |
+| unit\_amount                          | Integer              |                                                                    |
+| unit\_amount\_decimal                 | String               |                                                                    |
+| Payment Intent                        | amount               | Integer                                                            |                                                                    |
+| amount\_capturable                    | Integer              |                                                                    |
+| amount\_details                       | Struct               |                                                                    |
+| amount\_received                      | Integer              |                                                                    |
+| application                           | String               |                                                                    |
+| application\_fee\_amount              | Integer              |                                                                    |
+| automatic\_payment\_methods           | Struct               |                                                                    |
+| canceled\_at                          | DateTime             |                                                                    |
+| cancellation\_reason                  | String               |                                                                    |
+| capture\_method                       | String               |                                                                    |
+| charges                               | List                 |                                                                    |
+| client\_secret                        | String               |                                                                    |
+| confirmation\_method                  | String               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| customer                              | String               | EQUAL\_TO                                                          |
+| description                           | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| invoice                               | String               |                                                                    |
+| last\_payment\_error                  | Struct               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| next\_action                          | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| on\_behalf\_of                        | String               |                                                                    |
+| payment\_method                       | String               |                                                                    |
+| payment\_method\_options              | Struct               |                                                                    |
+| payment\_method\_types                | List                 |                                                                    |
+| processing                            | Struct               |                                                                    |
+| receipt\_email                        | String               |                                                                    |
+| review                                | String               |                                                                    |
+| setup\_future\_usage                  | String               |                                                                    |
+| shipping                              | Struct               |                                                                    |
+| source                                | String               |                                                                    |
+| statement\_descriptor                 | String               |                                                                    |
+| statement\_descriptor\_suffix         | String               |                                                                    |
+| status                                | String               |                                                                    |
+| transfer\_data                        | Struct               |                                                                    |
+| transfer\_group                       | String               |                                                                    |
+| Payout                                | amount               | Integer                                                            | EQUAL\_TO                                                          |
+| arrival\_date                         | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| automatic                             | Boolean              |                                                                    |
+| balance\_transaction                  | String               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| description                           | String               |                                                                    |
+| destination                           | String               | EQUAL\_TO                                                          |
+| failure\_balance\_transaction         | String               |                                                                    |
+| failure\_code                         | String               |                                                                    |
+| failure\_message                      | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| method                                | String               |                                                                    |
+| object                                | String               |                                                                    |
+| original\_payout                      | String               |                                                                    |
+| reversed\_by                          | String               |                                                                    |
+| source\_type                          | String               |                                                                    |
+| statement\_descriptor                 | String               |                                                                    |
+| status                                | String               |                                                                    |
+| type                                  | String               |                                                                    |
+| Plan                                  | active               | Boolean                                                            | EQUAL\_TO                                                          |
+| aggregate\_usage                      | String               |                                                                    |
+| amount                                | Integer              |                                                                    |
+| amount\_decimal                       | String               |                                                                    |
+| billing\_scheme                       | String               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               | EQUAL\_TO                                                          |
+| id                                    | String               |                                                                    |
+| interval                              | String               | EQUAL\_TO                                                          |
+| interval\_count                       | Integer              |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| nickname                              | String               |                                                                    |
+| object                                | String               |                                                                    |
+| product                               | String               | EQUAL\_TO                                                          |
+| tiers\_mode                           | String               |                                                                    |
+| transform\_usage                      | Struct               |                                                                    |
+| trial\_period\_days                   | Integer              | EQUAL\_TO                                                          |
+| usage\_type                           | String               |                                                                    |
+| Price                                 | active               | Boolean                                                            | EQUAL\_TO                                                          |
+| billing\_scheme                       | String               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               | EQUAL\_TO                                                          |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| lookup\_key                           | String               |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| nickname                              | String               |                                                                    |
+| object                                | String               |                                                                    |
+| product                               | String               | EQUAL\_TO                                                          |
+| recurring                             | Struct               |                                                                    |
+| tax\_behaviour                        | String               |                                                                    |
+| tiers\_mode                           | String               |                                                                    |
+| transform\_quantity                   | Struct               |                                                                    |
+| type                                  | String               | EQUAL\_TO                                                          |
+| unit\_amount                          | Integer              |                                                                    |
+| unit\_amount\_decimal                 | String               |                                                                    |
+| Product                               | active               | Boolean                                                            | EQUAL\_TO                                                          |
+| attributes                            | List                 |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| default\_price                        | String               |                                                                    |
+| description                           | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| images                                | List                 |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| name                                  | String               |                                                                    |
+| object                                | String               |                                                                    |
+| package\_dimensions                   | Struct               |                                                                    |
+| shippable                             | Boolean              |                                                                    |
+| statement\_descriptor                 | String               |                                                                    |
+| tax\_code                             | String               |                                                                    |
+| type                                  | String               | EQUAL\_TO                                                          |
+| unit\_label                           | String               |                                                                    |
+| updated                               | DateTime             |                                                                    |
+| url                                   | String               |                                                                    |
+| Promotion Code                        | active               | Boolean                                                            | EQUAL\_TO                                                          |
+| code                                  | String               | EQUAL\_TO                                                          |
+| coupon                                | Struct               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| customer                              | String               |                                                                    |
+| expires\_at                           | DateTime             |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| max\_redemptions                      | Integer              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| restrictions                          | Struct               |                                                                    |
+| times\_redeemed                       | Integer              |                                                                    |
+| Quote                                 | amount\_subtotal     | Integer                                                            |                                                                    |
+| amount\_total                         | Integer              |                                                                    |
+| application                           | String               |                                                                    |
+| application\_fee\_amount              | Integer              |                                                                    |
+| application\_fee\_percent             | Double               |                                                                    |
+| automatic\_tax                        | Struct               |                                                                    |
+| collection\_method                    | String               |                                                                    |
+| computed                              | Struct               |                                                                    |
+| created                               | DateTime             |                                                                    |
+| currency                              | String               |                                                                    |
+| customer                              | String               | EQUAL\_TO                                                          |
+| default\_tax\_rates                   | List                 |                                                                    |
+| description                           | String               |                                                                    |
+| discounts                             | List                 |                                                                    |
+| expires\_at                           | DateTime             |                                                                    |
+| footer                                | String               |                                                                    |
+| from\_quote                           | Struct               |                                                                    |
+| header                                | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| invoice                               | String               |                                                                    |
+| invoice\_settings                     | Struct               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| number                                | String               |                                                                    |
+| object                                | String               |                                                                    |
+| on\_behalf\_of                        | String               |                                                                    |
+| status                                | String               | EQUAL\_TO                                                          |
+| status\_transitions                   | Struct               |                                                                    |
+| subscription                          | String               |                                                                    |
+| subscription\_data                    | Struct               |                                                                    |
+| subscription\_schedule                | String               |                                                                    |
+| test\_clock                           | String               |                                                                    |
+| total\_details                        | Struct               |                                                                    |
+| transfer\_data                        | Struct               |                                                                    |
+| Refund                                | amount               | Integer                                                            |                                                                    |
+| balance\_transaction                  | String               |                                                                    |
+| charge                                | String               | EQUAL\_TO                                                          |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| payment\_intent                       | String               | EQUAL\_TO                                                          |
+| reason                                | String               |                                                                    |
+| receipt\_number                       | String               |                                                                    |
+| source\_transfer\_reversal            | String               |                                                                    |
+| status                                | String               |                                                                    |
+| transfer\_reversal                    | String               |                                                                    |
+| Report Type                           | data\_available\_end | DateTime                                                           |                                                                    |
+| data\_available\_start                | DateTime             |                                                                    |
+| default\_columns                      | List                 |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| name                                  | String               |                                                                    |
+| object                                | String               |                                                                    |
+| updated                               | DateTime             |                                                                    |
+| version                               | Integer              |                                                                    |
+| Session                               | after\_expiration    | Struct                                                             |                                                                    |
+| allow\_promotion\_codes               | Boolean              |                                                                    |
+| amount\_subtotal                      | Integer              |                                                                    |
+| amount\_total                         | Integer              |                                                                    |
+| automatic\_tax                        | Struct               |                                                                    |
+| billing\_address\_collection          | String               |                                                                    |
+| cancel\_url                           | String               |                                                                    |
+| client\_reference\_id                 | String               |                                                                    |
+| consent                               | Struct               |                                                                    |
+| consent\_collection                   | Struct               |                                                                    |
+| currency                              | String               |                                                                    |
+| customer                              | String               |                                                                    |
+| customer\_creation                    | String               |                                                                    |
+| customer\_details                     | Struct               |                                                                    |
+| customer\_email                       | String               |                                                                    |
+| expires\_at                           | DateTime             |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| locale                                | String               |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| mode                                  | String               |                                                                    |
+| object                                | String               |                                                                    |
+| payment\_intent                       | String               | EQUAL\_TO                                                          |
+| payment\_link                         | String               |                                                                    |
+| payment\_method\_options              | Struct               |                                                                    |
+| payment\_method\_types                | List                 |                                                                    |
+| payment\_status                       | String               |                                                                    |
+| phone\_number\_collection             | Struct               |                                                                    |
+| recovered\_from                       | String               |                                                                    |
+| setup\_intent                         | String               |                                                                    |
+| shipping                              | Struct               |                                                                    |
+| shipping\_address\_collection         | Struct               |                                                                    |
+| shipping\_options                     | Struct               |                                                                    |
+| shipping\_rate                        | String               |                                                                    |
+| status                                | String               |                                                                    |
+| submit\_type                          | String               |                                                                    |
+| subscription                          | String               |                                                                    |
+| success\_url                          | String               |                                                                    |
+| total\_details                        | Struct               |                                                                    |
+| url                                   | String               |                                                                    |
+| Setup Intent                          | application          | String                                                             |                                                                    |
+| cancellation\_reason                  | String               |                                                                    |
+| client\_secret                        | String               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| customer                              | String               | EQUAL\_TO                                                          |
+| description                           | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| last\_setup\_error                    | Struct               |                                                                    |
+| latest\_attempt                       | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| mandate                               | String               |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| next\_action                          | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| on\_behalf\_of                        | String               |                                                                    |
+| payment\_method                       | String               |                                                                    |
+| payment\_method\_options              | Struct               |                                                                    |
+| payment\_method\_types                | List                 |                                                                    |
+| single\_use\_mandate                  | String               |                                                                    |
+| status                                | String               |                                                                    |
+| usage                                 | String               |                                                                    |
+| Shipping Rate                         | active               | Boolean                                                            | EQUAL\_TO                                                          |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| delivery\_estimate                    | Struct               |                                                                    |
+| display\_name                         | String               |                                                                    |
+| fixed\_amount                         | Struct               |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| tax\_behavior                         | String               |                                                                    |
+| tax\_code                             | String               |                                                                    |
+| type                                  | String               |                                                                    |
+| Subscription                          | application          | String                                                             |                                                                    |
+| application\_fee\_percent             | Double               |                                                                    |
+| automatic\_tax                        | Struct               |                                                                    |
+| billing\_cycle\_anchor                | DateTime             |                                                                    |
+| billing\_thresholds                   | Struct               |                                                                    |
+| cancel\_at                            | DateTime             |                                                                    |
+| cancel\_at\_period\_end               | Boolean              |                                                                    |
+| canceled\_at                          | DateTime             |                                                                    |
+| collection\_method                    | String               | EQUAL\_TO                                                          |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| current\_period\_end                  | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| current\_period\_start                | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| customer                              | String               | EQUAL\_TO                                                          |
+| days\_until\_due                      | Integer              |                                                                    |
+| default\_payment\_method              | String               |                                                                    |
+| default\_source                       | String               |                                                                    |
+| default\_tax\_rates                   | List                 |                                                                    |
+| description                           | String               |                                                                    |
+| discount                              | Struct               |                                                                    |
+| ended\_at                             | DateTime             |                                                                    |
+| id                                    | String               |                                                                    |
+| items                                 | List                 |                                                                    |
+| latest\_invoice                       | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| next\_pending\_invoice\_item\_invoice | DateTime             |                                                                    |
+| object                                | String               |                                                                    |
+| pause\_collection                     | Struct               |                                                                    |
+| payment\_settings                     | Struct               |                                                                    |
+| pending\_invoice\_item\_interval      | Struct               |                                                                    |
+| pending\_setup\_intent                | String               |                                                                    |
+| pending\_update                       | Struct               |                                                                    |
+| plan                                  | Struct               |                                                                    |
+| quantity                              | Integer              |                                                                    |
+| schedule                              | String               |                                                                    |
+| start\_date                           | DateTime             |                                                                    |
+| status                                | String               | EQUAL\_TO                                                          |
+| test\_clock                           | String               |                                                                    |
+| transfer\_data                        | Struct               |                                                                    |
+| trial\_end                            | DateTime             |                                                                    |
+| trial\_start                          | DateTime             |                                                                    |
+| Subscription Item                     | billing\_thresholds  | Struct                                                             |                                                                    |
+| created                               | DateTime             |                                                                    |
+| id                                    | String               |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| plan                                  | Struct               |                                                                    |
+| price                                 | Struct               |                                                                    |
+| subscription                          | String               |                                                                    |
+| tax\_rates                            | List                 |                                                                    |
+| Subscription Schedule                 | application          | String                                                             |                                                                    |
+| canceled\_at                          | DateTime             |                                                                    |
+| completed\_at                         | DateTime             |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| current\_phase                        | Struct               |                                                                    |
+| customer                              | String               | EQUAL\_TO                                                          |
+| default\_settings                     | Struct               |                                                                    |
+| end\_behavior                         | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| phases                                | List                 |                                                                    |
+| released\_at                          | DateTime             |                                                                    |
+| released\_subscription                | String               |                                                                    |
+| renewal\_interval                     | String               |                                                                    |
+| status                                | String               |                                                                    |
+| subscription                          | String               |                                                                    |
+| test\_clock                           | String               |                                                                    |
+| Tax Code                              | description          | String                                                             |                                                                    |
+| id                                    | String               |                                                                    |
+| name                                  | String               |                                                                    |
+| object                                | String               |                                                                    |
+| Tax Rate                              | active               | Boolean                                                            | EQUAL\_TO                                                          |
+| country                               | String               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| description                           | String               |                                                                    |
+| display\_name                         | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| inclusive                             | Boolean              | EQUAL\_TO                                                          |
+| jurisdiction                          | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| percentage                            | Double               |                                                                    |
+| state                                 | String               |                                                                    |
+| tax\_type                             | String               |                                                                    |
+| Transfer                              | amount               | Integer                                                            | EQUAL\_TO                                                          |
+| amount\_reversed                      | Integer              |                                                                    |
+| balance\_transaction                  | String               |                                                                    |
+| created                               | DateTime             | EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, LESS\_THAN\_OR\_EQUAL\_TO |
+| currency                              | String               | EQUAL\_TO                                                          |
+| description                           | String               |                                                                    |
+| destination                           | String               | EQUAL\_TO                                                          |
+| destination\_payment                  | String               |                                                                    |
+| id                                    | String               |                                                                    |
+| livemode                              | Boolean              |                                                                    |
+| metadata                              | Struct               |                                                                    |
+| object                                | String               |                                                                    |
+| reversals                             | List                 |                                                                    |
+| reversed                              | Boolean              |                                                                    |
+| source\_transaction                   | String               |                                                                    |
+| source\_type                          | String               |                                                                    |
+| transfer\_group                       | String               | EQUAL\_TO                                                          |

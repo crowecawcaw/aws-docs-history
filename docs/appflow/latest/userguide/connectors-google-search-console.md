@@ -31,12 +31,11 @@ requirements:
 - In your Google Cloud project, you've configured an OAuth consent screen for external users
   that meets the following requirements:
 
-      + You've set *amazon.com* as an authorized domain.
-      + You've set *Google Ads API* as an authorized
-       scope.
-
-  For information about the OAuth consent screen, see [Setting up your OAuth consent
-  screen](https://support.google.com/cloud/answer/10311615# "https://support.google.com/cloud/answer/10311615#") in the Google Cloud Platform Console Help.
+  - You've set _amazon.com_ as an authorized domain.
+  - You've set _Google Ads API_ as an authorized
+    scope.
+    For information about the OAuth consent screen, see [Setting up your OAuth consent
+    screen](https://support.google.com/cloud/answer/10311615# "https://support.google.com/cloud/answer/10311615#") in the Google Cloud Platform Console Help.
 
 - In your Google Cloud project, you've configured an OAuth 2.0 client ID. For the steps to
   create one, see [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en#zippy= "https://support.google.com/cloud/answer/6158849?hl=en#zippy=") in the Google Cloud Platform Console Help.
@@ -80,7 +79,7 @@ your data. If you haven't yet configured your Google Cloud project for Amazon Ap
 5. In the **Connect to Google Search Console** window, enter the following
    information:
 
-   - **access_type** – Choose **offline**.
+   - **access\_type** – Choose **offline**.
    - **Client ID** – The client ID of the OAuth 2.0 client ID in your
      Google Cloud project.
    - **Client secret** – The client secret of the OAuth 2.0 client ID
@@ -139,28 +138,28 @@ When you create a flow that uses Google Search Console as the data source, you c
 When you create a flow that uses Google Search Console as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**      | **Field**       | **Data type**      | **Supported filters** |
-| --------------- | --------------- | ------------------ | --------------------- |
-| Search Analytic | clicks          | Double             |                       |
-| country         | String          | EQUAL_TO           |
-| ctr             | Double          |                    |
-| device          | String          | EQUAL_TO           |
-| dimension       | String          | EQUAL_TO           |
-| impressions     | Double          |                    |
-| keys            | List            |                    |
-| page            | String          | EQUAL_TO, CONTAINS |
-| position        | Double          |                    |
-| query           | String          | EQUAL_TO, CONTAINS |
-| search_type     | String          | EQUAL_TO           |
-| start_end_date  | DateTime        | BETWEEN            |
-| Site            | permissionLevel | String             |                       |
-| siteUrl         | String          |                    |
-| Sitemap         | contents        | List               |                       |
-| errors          | Long            |                    |
-| isPending       | Boolean         |                    |
-| isSitemapsIndex | Boolean         |                    |
-| lastDownloaded  | DateTime        |                    |
-| lastSubmitted   | DateTime        |                    |
-| path            | String          |                    |
-| type            | String          |                    |
-| warnings        | Long            |                    |
+| **Object**       | **Field**       | **Data type**       | **Supported filters** |
+| ---------------- | --------------- | ------------------- | --------------------- |
+| Search Analytic  | clicks          | Double              |                       |
+| country          | String          | EQUAL\_TO           |
+| ctr              | Double          |                     |
+| device           | String          | EQUAL\_TO           |
+| dimension        | String          | EQUAL\_TO           |
+| impressions      | Double          |                     |
+| keys             | List            |                     |
+| page             | String          | EQUAL\_TO, CONTAINS |
+| position         | Double          |                     |
+| query            | String          | EQUAL\_TO, CONTAINS |
+| search\_type     | String          | EQUAL\_TO           |
+| start\_end\_date | DateTime        | BETWEEN             |
+| Site             | permissionLevel | String              |                       |
+| siteUrl          | String          |                     |
+| Sitemap          | contents        | List                |                       |
+| errors           | Long            |                     |
+| isPending        | Boolean         |                     |
+| isSitemapsIndex  | Boolean         |                     |
+| lastDownloaded   | DateTime        |                     |
+| lastSubmitted    | DateTime        |                     |
+| path             | String          |                     |
+| type             | String          |                     |
+| warnings         | Long            |                     |

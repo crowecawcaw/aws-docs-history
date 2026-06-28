@@ -141,31 +141,31 @@ When you create a flow that uses Typeform as the data source, you can set the de
 When you create a flow that uses Typeform as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**      | **Field** | **Data type**      | **Supported filters** |
-| --------------- | --------- | ------------------ | --------------------- |
-| Form            | \_links   | Struct             |                       |
-| created_at      | String    |                    |
-| id              | String    |                    |
-| last_updated_at | String    |                    |
-| search          | String    | EQUAL_TO, CONTAINS |
-| self            | Struct    |                    |
-| settings        | Struct    |                    |
-| theme           | Struct    |                    |
-| title           | String    |                    |
-| type            | String    |                    |
-| workspace_id    | String    | EQUAL_TO           |
-| Form Insight    | fields    | List               |                       |
-| form            | Struct    |                    |
-| Response        | answers   | List               |                       |
-| calculated      | Struct    |                    |
-| completed       | Boolean   | EQUAL_TO           |
-| hidden          | Struct    |                    |
-| landed_at       | String    |                    |
-| landing_id      | String    |                    |
-| metadata        | Struct    |                    |
-| query           | String    | EQUAL_TO, CONTAINS |
-| response_id     | String    |                    |
-| since           | DateTime  | EQUAL_TO           |
-| submitted_at    | String    |                    |
-| token           | String    |                    |
-| until           | DateTime  | EQUAL_TO           |
+| **Object**        | **Field** | **Data type**       | **Supported filters** |
+| ----------------- | --------- | ------------------- | --------------------- |
+| Form              | \_links   | Struct              |                       |
+| created\_at       | String    |                     |
+| id                | String    |                     |
+| last\_updated\_at | String    |                     |
+| search            | String    | EQUAL\_TO, CONTAINS |
+| self              | Struct    |                     |
+| settings          | Struct    |                     |
+| theme             | Struct    |                     |
+| title             | String    |                     |
+| type              | String    |                     |
+| workspace\_id     | String    | EQUAL\_TO           |
+| Form Insight      | fields    | List                |                       |
+| form              | Struct    |                     |
+| Response          | answers   | List                |                       |
+| calculated        | Struct    |                     |
+| completed         | Boolean   | EQUAL\_TO           |
+| hidden            | Struct    |                     |
+| landed\_at        | String    |                     |
+| landing\_id       | String    |                     |
+| metadata          | Struct    |                     |
+| query             | String    | EQUAL\_TO, CONTAINS |
+| response\_id      | String    |                     |
+| since             | DateTime  | EQUAL\_TO           |
+| submitted\_at     | String    |                     |
+| token             | String    |                     |
+| until             | DateTime  | EQUAL\_TO           |

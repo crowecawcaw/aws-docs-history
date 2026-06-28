@@ -36,12 +36,11 @@ Amazon AppFlow enables you to do the following:
   with the service. With custom connectors, you can transfer data between private APIs,
   on-premise systems, other cloud services, and AWS. The SDKs are available on GitHub:
 
-      + [Amazon AppFlow Custom Connector SDK (Python)](https://github.com/awslabs/aws-appflow-custom-connector-python "https://github.com/awslabs/aws-appflow-custom-connector-python")
-      + [Amazon AppFlow
-       Custom Connector SDK (Java)](https://github.com/awslabs/aws-appflow-custom-connector-java "https://github.com/awslabs/aws-appflow-custom-connector-java")
-
-  For a list of
-  Amazon AppFlow Regions, see [Amazon AppFlow Regions and Endpoints](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md") in the _AWS General Reference_.
+  - [Amazon AppFlow Custom Connector SDK (Python)](https://github.com/awslabs/aws-appflow-custom-connector-python "https://github.com/awslabs/aws-appflow-custom-connector-python")
+  - [Amazon AppFlow
+    Custom Connector SDK (Java)](https://github.com/awslabs/aws-appflow-custom-connector-java "https://github.com/awslabs/aws-appflow-custom-connector-java")
+    For a list of
+    Amazon AppFlow Regions, see [Amazon AppFlow Regions and Endpoints](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md") in the _AWS General Reference_.
 
 ## Use cases
 

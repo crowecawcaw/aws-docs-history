@@ -24,34 +24,33 @@ You can use Infor Nexus as a source only.
 
 ###### To connect to Infor Nexus while creating a flow
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  Choose **Create flow**.
-3.  For **Flow details**, enter a name and description for the flow.
-4.  (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
-    **Data encryption**, **Customize encryption settings** and
-    then choose an existing CMK or create a new one.
-5.  (Optional) To add a tag, choose **Tags**, **Add tag**
-    and then enter the key name and value.
-6.  Choose **Next**.
-7.  Choose **Infor Nexus** from the **Source name** dropdown
-    list.
-8.  Choose **Connect** to open the **Connect to Infor
-    Nexus** dialog box.
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. Choose **Create flow**.
+3. For **Flow details**, enter a name and description for the flow.
+4. (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
+   **Data encryption**, **Customize encryption settings** and
+   then choose an existing CMK or create a new one.
+5. (Optional) To add a tag, choose **Tags**, **Add tag**
+   and then enter the key name and value.
+6. Choose **Next**.
+7. Choose **Infor Nexus** from the **Source name** dropdown
+   list.
+8. Choose **Connect** to open the **Connect to Infor
+   Nexus** dialog box.
 
-        1. Under **Access Key ID**, enter your access key ID.
-        2. Under **User ID**, enter your Infor Nexus user ID.
-        3. Under **Secret access key**, enter your secret access key.
-        4. Under **Datakey**, enter your data key.
-        5. Under **Subdomain**, enter the subdomain for your instance of Infor
-         Nexus.
-        6. Under **Data encryption**, enter your AWS KMS key.
-        7. Under **Connection name**, specify a name for your connection.
-        8. Choose **Connect**.
+   1. Under **Access Key ID**, enter your access key ID.
+   2. Under **User ID**, enter your Infor Nexus user ID.
+   3. Under **Secret access key**, enter your secret access key.
+   4. Under **Datakey**, enter your data key.
+   5. Under **Subdomain**, enter the subdomain for your instance of Infor
+      Nexus.
+   6. Under **Data encryption**, enter your AWS KMS key.
+   7. Under **Connection name**, specify a name for your connection.
+   8. Choose **Connect**.
+      ![Connect to Infor Nexus form with fields for access credentials and subdomain.](images/connection_setup-infornexus-console.png)
 
-    ![Connect to Infor Nexus form with fields for access credentials and subdomain.](images/connection_setup-infornexus-console.png)
-
-9.  You will be redirected to the Infor Nexus login page. When prompted, grant Amazon AppFlow
-    permissions to access your Infor Nexus account.
+9. You will be redirected to the Infor Nexus login page. When prompted, grant Amazon AppFlow
+   permissions to access your Infor Nexus account.
 
 Now that you are connected to your Infor Nexus account, you can continue with the flow
 creation steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

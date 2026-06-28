@@ -138,19 +138,19 @@ following data objects to supported destinations:
 | **Object**                     | **Field**    | **Data type** | **Supported filters** |
 | ------------------------------ | ------------ | ------------- | --------------------- |
 | Transaction                    | Auction Info | Struct        |                       |
-| Balance Affecting Records Only | String       | EQUAL_TO      |
+| Balance Affecting Records Only | String       | EQUAL\_TO     |
 | Cart Info                      | Struct       |               |
 | Date Range                     | DateTime     | BETWEEN       |
 | Incentive Info                 | Struct       |               |
 | Last Refreshed Date Time       | String       |               |
 | Payer Info                     | Struct       |               |
-| Payment Instrument Type        | String       | EQUAL_TO      |
+| Payment Instrument Type        | String       | EQUAL\_TO     |
 | Shipping Info                  | Struct       |               |
-| Store ID                       | String       | EQUAL_TO      |
+| Store ID                       | String       | EQUAL\_TO     |
 | Store Info                     | Struct       |               |
-| Terminal ID                    | String       | EQUAL_TO      |
-| Transaction Currency           | String       | EQUAL_TO      |
-| Transaction ID                 | String       | EQUAL_TO      |
+| Terminal ID                    | String       | EQUAL\_TO     |
+| Transaction Currency           | String       | EQUAL\_TO     |
+| Transaction ID                 | String       | EQUAL\_TO     |
 | Transaction Info               | Struct       |               |
-| Transaction Status             | String       | EQUAL_TO      |
-| Transaction Type               | String       | EQUAL_TO      |
+| Transaction Status             | String       | EQUAL\_TO     |
+| Transaction Type               | String       | EQUAL\_TO     |

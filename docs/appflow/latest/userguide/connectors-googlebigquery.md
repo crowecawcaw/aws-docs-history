@@ -69,7 +69,7 @@ Google BigQuery project for Amazon AppFlow integration, see [Before you begin](#
    information:
 
    - **Connection name** — A name for your connection.
-   - **access_type** — Specify an access type to generate a refresh
+   - **access\_type** — Specify an access type to generate a refresh
      token.
    - **Client ID** — The client ID in your Google Cloud web app.
    - **Client secret** — The client secret in your Google Cloud web

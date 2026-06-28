@@ -42,31 +42,30 @@ You can use Slack as a source only.
 
 ###### To connect to Slack while creating a flow
 
-1.  Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2.  Choose **Create flow**.
-3.  For **Flow details**, enter a name and description for the flow.
-4.  (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
-    **Data encryption**, **Customize encryption settings** and
-    then choose an existing CMK or create a new one.
-5.  (Optional) To add a tag, choose **Tags**, **Add tag**
-    and then enter the key name and value.
-6.  Choose **Next**.
-7.  Choose **Slack** from the **Source name** dropdown
-    list.
-8.  Choose **Connect** to open the **Connect to Slack**
-    dialog box.
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
+2. Choose **Create flow**.
+3. For **Flow details**, enter a name and description for the flow.
+4. (Optional) To use a customer managed CMK instead of the default AWS managed CMK, choose
+   **Data encryption**, **Customize encryption settings** and
+   then choose an existing CMK or create a new one.
+5. (Optional) To add a tag, choose **Tags**, **Add tag**
+   and then enter the key name and value.
+6. Choose **Next**.
+7. Choose **Slack** from the **Source name** dropdown
+   list.
+8. Choose **Connect** to open the **Connect to Slack**
+   dialog box.
 
-        1. Under **Client ID**, enter your Slack client ID.
-        2. Under **Client secret**, enter your Slack client secret.
-        3. Under **Workspace**, enter the name of your Slack instance.
-        4. Under **Data encryption**, enter your AWS KMS key.
-        5. Under **Connection name**, specify a name for your connection.
-        6. Choose **Continue**.
+   1. Under **Client ID**, enter your Slack client ID.
+   2. Under **Client secret**, enter your Slack client secret.
+   3. Under **Workspace**, enter the name of your Slack instance.
+   4. Under **Data encryption**, enter your AWS KMS key.
+   5. Under **Connection name**, specify a name for your connection.
+   6. Choose **Continue**.
+      ![Slack connection form with fields for client ID, secret, workspace URL, and connection name.](images/connection_setup-slack-console.png)
 
-    ![Slack connection form with fields for client ID, secret, workspace URL, and connection name.](images/connection_setup-slack-console.png)
-
-9.  You will be redirected to the Slack login page. When prompted, grant Amazon AppFlow
-    permissions to access your Slack account.
+9. You will be redirected to the Slack login page. When prompted, grant Amazon AppFlow
+   permissions to access your Slack account.
 
 Now that you are connected to your Slack account, you can continue with the flow creation
 steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").
