@@ -1,8 +1,8 @@
-# VAR_SAMP
+# VAR\_SAMP
 
 Returns the sample variance of a non-null set of numbers (nulls being ignored).
 
-VAR_SAMP uses the following calculation:
+VAR\_SAMP uses the following calculation:
 
 - (SUM(expr\*expr) - SUM(expr)\*SUM(expr) / COUNT(expr)) / (COUNT(expr)-1)
   In other words, for a given set of non-null values, using S1 as the sum of the values and S2
@@ -131,6 +131,6 @@ The preceding example outputs a stream similar to the following:
 
 ## See Also
 
-- Population standard deviation: [STDDEV_POP](sql-reference-STDDEVPOP.md "sql-reference-STDDEVPOP.md")
-- Sample standard deviation: [STDDEV_SAMP](sql-reference-STDDEVSAMP.md "sql-reference-STDDEVSAMP.md")
-- Population variance:[VAR_POP](sql-reference-VARPOP.md "sql-reference-VARPOP.md")
+- Population standard deviation: [STDDEV\_POP](sql-reference-STDDEVPOP.md "sql-reference-STDDEVPOP.md")
+- Sample standard deviation: [STDDEV\_SAMP](sql-reference-STDDEVSAMP.md "sql-reference-STDDEVSAMP.md")
+- Population variance:[VAR\_POP](sql-reference-VARPOP.md "sql-reference-VARPOP.md")

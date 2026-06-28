@@ -1,11 +1,11 @@
-# TOP_K_ITEMS_TUMBLING Function
+# TOP\_K\_ITEMS\_TUMBLING Function
 
 Returns the most frequently occurring values in the specified
 in-application stream column over a tumbling window. This can be used to find
 trending (most popular) values in a specified column.
 
 For example, the Getting Started exercise uses a demo stream that provides
-continuous stock price updates (ticker_symbol, price, change, and other columns).
+continuous stock price updates (ticker\_symbol, price, change, and other columns).
 Suppose you want to find the three most frequently traded stocks in each 1-minute
 tumbling window. You can use this function to find those ticker symbols.
 

@@ -1,7 +1,7 @@
-# RANDOM_CUT_FOREST
+# RANDOM\_CUT\_FOREST
 
 Detects anomalies in your data stream.  A record is an anomaly if it is distant from other records.  To detect anomalies in individual record columns, see
-[RANDOM_CUT_FOREST_WITH_EXPLANATION](sqlrf-random-cut-forest-with-explanation.md "sqlrf-random-cut-forest-with-explanation.md").
+[RANDOM\_CUT\_FOREST\_WITH\_EXPLANATION](sqlrf-random-cut-forest-with-explanation.md "sqlrf-random-cut-forest-with-explanation.md").
 
 ###### Note
 
@@ -14,10 +14,10 @@ For more information, see [inputStream](#random-cut-forest-input-view "#random-c
 A stream record can have non-numeric columns, but the function uses only numeric
 columns to assign an anomaly score. A record can have one or more numeric
 columns. The algorithm uses all of the numeric data in computing an anomaly score.  If
-a record has **_n_** numeric columns,
+a record has _**n**_ numeric columns,
 the underlying algorithm assumes each record is a
-point in **_n_**-dimensional space. A point in
-**_n_**-dimensional space that is distant from
+point in _**n**_-dimensional space. A point in
+_**n**_-dimensional space that is distant from
 other points receives a higher anomaly score.
 
 The algorithm starts developing the machine learning model using current records in the stream when

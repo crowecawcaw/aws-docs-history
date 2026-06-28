@@ -8,7 +8,7 @@ It is used in four distinct ways:
 - As a system column of a stream
 - As a column alias, to override the timestamp on the current row
 - As an ordinary column in a table
-  For more details, see the topics Timestamp, ROWTIME, and [CURRENT_ROW_TIMESTAMP](sql-reference-current-row-timestamp.md "sql-reference-current-row-timestamp.md") in this guide.
+  For more details, see the topics Timestamp, ROWTIME, and [CURRENT\_ROW\_TIMESTAMP](sql-reference-current-row-timestamp.md "sql-reference-current-row-timestamp.md") in this guide.
 
 ###### ROWTIME operator
 

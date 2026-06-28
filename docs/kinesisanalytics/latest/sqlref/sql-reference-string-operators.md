@@ -4,7 +4,7 @@ You can use string operators for streaming SQL, including concatenation and stri
 comparison, to combine and compare strings.
 
 | Operator   | Unary/Binary | Description               | Notes                                                                   |
-| ---------- | ------------ | ------------------------- | ----------------------------------------------------------------------- | ------------- | ---------------------------- |
+| ---------- | ------------ | ------------------------- | ----------------------------------------------------------------------- |
 |            |              |                           | B                                                                       | Concatenation | Also applies to binary types |
 | LIKE       | B            | String pattern comparison | <string> LIKE <like pattern> [ESCAPE <escape character>]                |
 | SIMILAR TO | B            | String pattern comparison | <string> SIMILAR TO <similar to pattern> [ESCAPE <escape<br>character>] |
@@ -15,7 +15,7 @@ This operator is used to concatenate one or more strings as shown in the followi
 table.
 
 | Operation | Result |
-| --------- | ------ | -------- | --------- | --------------- | ---------------------- | ------ | ------------------------ |
+| --------- | ------ |
 | 'SQL'     |        | 'stream' | SQLstream |
 | 'SQL'     |        | ''       |           | 'stream'        | SQLstream              |
 | 'SQL'     |        | 'stream' |           | ' Incorporated' | SQLstream Incorporated |
@@ -38,25 +38,25 @@ To explicitly match a special character in the character string, you must specif
 escape character using the ESCAPE clause. The escape character must then precede the special
 character in the pattern. The following table lists examples.
 
-| Operation                     | Result |
-| ----------------------------- | ------ |
-| 'a' LIKE 'a'                  | TRUE   |
-| 'a' LIKE 'A'                  | FALSE  |
-| 'a' LIKE 'b'                  | FALSE  |
-| 'ab' LIKE 'a\_'               | TRUE   |
-| 'ab' LIKE 'a%'                | TRUE   |
-| 'ab' LIKE 'a\\\_' ESCAPE '\'  | FALSE  |
-| 'ab' LIKE 'a\%' ESCAPE '\'    | FALSE  |
-| 'a\_' LIKE 'a\\\_' ESCAPE '\' | TRUE   |
-| 'a%' LIKE 'a\%' ESCAPE '\'    | TRUE   |
-| 'a' LIKE 'a\_'                | FALSE  |
-| 'a' LIKE 'a%'                 | TRUE   |
-| 'abcd' LIKE 'a\_'             | FALSE  |
-| 'abcd' LIKE 'a%'              | TRUE   |
-| '' LIKE ''                    | TRUE   |
-| '1a' LIKE '\_a'               | TRUE   |
-| '123aXYZ' LIKE '%a%'          | TRUE   |
-| '123aXYZ' LIKE '\_%\_a%\_'    | TRUE   |
+| Operation                    | Result |
+| ---------------------------- | ------ |
+| 'a' LIKE 'a'                 | TRUE   |
+| 'a' LIKE 'A'                 | FALSE  |
+| 'a' LIKE 'b'                 | FALSE  |
+| 'ab' LIKE 'a\_'              | TRUE   |
+| 'ab' LIKE 'a%'               | TRUE   |
+| 'ab' LIKE 'a\\_' ESCAPE '\'  | FALSE  |
+| 'ab' LIKE 'a\%' ESCAPE '\'   | FALSE  |
+| 'a\_' LIKE 'a\\_' ESCAPE '\' | TRUE   |
+| 'a%' LIKE 'a\%' ESCAPE '\'   | TRUE   |
+| 'a' LIKE 'a\_'               | FALSE  |
+| 'a' LIKE 'a%'                | TRUE   |
+| 'abcd' LIKE 'a\_'            | FALSE  |
+| 'abcd' LIKE 'a%'             | TRUE   |
+| '' LIKE ''                   | TRUE   |
+| '1a' LIKE '\_a'              | TRUE   |
+| '123aXYZ' LIKE '%a%'         | TRUE   |
+| '123aXYZ' LIKE '\_%\_a%\_'   | TRUE   |
 
 ## SIMILAR TO patterns
 
@@ -81,7 +81,7 @@ before surrounding operations are applied, again by innermost-first precedence.
 
 | Delimiter           | Character in pattern            | Effect                                                                                                                                                                                                       | Rule ID |
 | ------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| parentheses (  )    | (  seq  )                       | Groups the \*seq<br>• (used for defining precedence of pattern<br>expressions)                                                                                                                               | 1       |
+| parentheses (  )    | (  seq  )                       | Groups the *seq<br>• (used for defining precedence of pattern<br>expressions)                                                                                                                                | 1       |
 | brackets [  ]       | [  seq  ]                       | Matches any single character in the seq                                                                                                                                                                      | 2       |
 | caret or circumflex | [^seq]                          | Matches any single character not in the seq                                                                                                                                                                  | 3       |
 |                     | [ seq ^ seq]                    | Matches any single character in seq and not in seq                                                                                                                                                           | 4       |
@@ -143,9 +143,9 @@ The following table lists examples.
 | 'ab' SIMILAR TO 'ab?'                         | TRUE    | 11      |
 | 'ab' SIMILAR TO 'a(b?)'                       | TRUE    | 11      |
 | 'abb' SIMILAR TO 'ab?'                        | FALSE   | 11      |
-| 'ab' SIMILAR TO 'a\\\_' ESCAPE '\'            | FALSE   | 16      |
+| 'ab' SIMILAR TO 'a\\_' ESCAPE '\'             | FALSE   | 16      |
 | 'ab' SIMILAR TO 'a\%' ESCAPE '\'              | FALSE   | 16      |
-| 'a\_' SIMILAR TO 'a\\\_' ESCAPE '\'           | TRUE    | 16      |
+| 'a\_' SIMILAR TO 'a\\_' ESCAPE '\'            | TRUE    | 16      |
 | 'a%' SIMILAR TO 'a\%' ESCAPE '\'              | TRUE    | 16      |
 | 'a(b{3})' SIMILAR TO 'a(b{3})'                | FALSE   | 16      |
 | 'a(b{3})' SIMILAR TO 'a\(b\{3\}\)' ESCAPE '\' | TRUE    | 16      |

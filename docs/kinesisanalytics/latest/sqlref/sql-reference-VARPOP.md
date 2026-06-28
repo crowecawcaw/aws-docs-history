@@ -1,12 +1,12 @@
-# VAR_POP
+# VAR\_POP
 
 Returns the population variance of a non-null set of numbers (nulls being ignored)
 
-VAR_POP uses the following calculation:
+VAR\_POP uses the following calculation:
 
 - (SUM(expr\*expr) - SUM(expr)\*SUM(expr) / COUNT(expr)) / COUNT(expr)
   In other words, for a given set of non-null values, using S1 as the sum of the values and S2
-  as the sum of the squares of the values, VAR_POP returns the result (S2-S1\*S1/N)/N.
+  as the sum of the squares of the values, VAR\_POP returns the result (S2-S1\*S1/N)/N.
 
 When you use `VAR_POP`, be aware of the following:
 
@@ -128,6 +128,6 @@ The preceding example outputs a stream similar to the following:
 
 ## See Also
 
-- Population standard deviation: [STDDEV_POP](sql-reference-STDDEVPOP.md "sql-reference-STDDEVPOP.md")
-- Sample standard deviation: [STDDEV_SAMP](sql-reference-STDDEVSAMP.md "sql-reference-STDDEVSAMP.md")
-- Sample variance: [VAR_SAMP](sql-reference-VARSAMP.md "sql-reference-VARSAMP.md")
+- Population standard deviation: [STDDEV\_POP](sql-reference-STDDEVPOP.md "sql-reference-STDDEVPOP.md")
+- Sample standard deviation: [STDDEV\_SAMP](sql-reference-STDDEVSAMP.md "sql-reference-STDDEVSAMP.md")
+- Sample variance: [VAR\_SAMP](sql-reference-VARSAMP.md "sql-reference-VARSAMP.md")

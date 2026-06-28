@@ -1,4 +1,4 @@
-# COUNT_DISTINCT_ITEMS_TUMBLING Function
+# COUNT\_DISTINCT\_ITEMS\_TUMBLING Function
 
 Returns a count of the number of distinct items in the specified in-application stream
 column over a tumbling window. The resulting count is approximate; the function uses the

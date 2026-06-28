@@ -19,7 +19,7 @@ include the following:
 
 The functional attributes and DDL are described in the sections that follow.
 
-###### Functional Attributes for Group_Rank
+###### Functional Attributes for Group\_Rank
 
 This function acts as follows:
 
@@ -31,7 +31,7 @@ This function acts as follows:
 - Orders the output rows either in the order received or in ascending or descending
   order of values in the selected column.
 
-### DDL for Group_Rank
+### DDL for Group\_Rank
 
 ```
   group_rank(c cursor, rankByColumnName VARCHAR(128),

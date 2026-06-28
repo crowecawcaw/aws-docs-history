@@ -1,4 +1,4 @@
-# TO_TIMESTAMP
+# TO\_TIMESTAMP
 
 Converts a Unix timestamp to a SQL timestamp in 'YYYY-MM-DD HH:MM:SS' format.
 
@@ -26,7 +26,7 @@ Guide_.
 
 ###### Note
 
-The sample dataset has been modified to include a Unix timestamp value (CHANGE_TIME).
+The sample dataset has been modified to include a Unix timestamp value (CHANGE\_TIME).
 
 To run each example, you need an Amazon Kinesis Analytics application that has the
 input stream for the sample stock ticker. To learn how to create an Analytics
@@ -75,5 +75,5 @@ The preceding example outputs a stream similar to the following.
 
 ## Notes
 
-TO_TIMESTAMP is not part of the SQL:2008 standard. It is an Amazon Kinesis Data Analytics streaming SQL
+TO\_TIMESTAMP is not part of the SQL:2008 standard. It is an Amazon Kinesis Data Analytics streaming SQL
 extension.

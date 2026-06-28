@@ -33,7 +33,7 @@ following syntax:
 The T-sort has the following restrictions:
 
 - The datatype of the ORDER BY expression must be timestamp.
-- The partially-ordered expression <timestamp_expr> must be present in the select list of the query with the alias ROWTIME.
+- The partially-ordered expression <timestamp\_expr> must be present in the select list of the query with the alias ROWTIME.
 - The leading expression of the ORDER BY clause must not contain the ROWTIME function and must not use the DESC keyword.
 - The ROWTIME column needs to be fully qualified. For example:
 
@@ -44,4 +44,4 @@ The T-sort has the following restrictions:
 Additional notes:
 
 - You cannot use incoming rowtimebounds. These are ignored by the system.
-- If <timestamp_expr> evaluates to NULL, the corresponding row is discarded.
+- If <timestamp\_expr> evaluates to NULL, the corresponding row is discarded.

@@ -1,4 +1,4 @@
-# CHAR_TO_TIME
+# CHAR\_TO\_TIME
 
 Converts a string to a date, according to the specified format string
 

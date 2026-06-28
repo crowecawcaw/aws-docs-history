@@ -35,53 +35,53 @@ UNKOWN represents "maybe TRUE, maybe FALSE" or, to put it another way, "not defi
 TRUE and not definitely FALSE." This understanding may help you clarify why some of the
 expressions in the tables evaluate as they do.
 
-| Negation (NOT) | Operation | Result |
-| -------------- | --------- | ------ |
-| NOT TRUE       | FALSE     |
-| NOT FALSE      | TRUE      |
-| NOT UNKNOWN    | UNKNOWN   |
+Negation (NOT)| Operation | Result |
+| --- | --- |
+| NOT TRUE | FALSE |
+| NOT FALSE | TRUE |
+| NOT UNKNOWN | UNKNOWN |
 
-| Conjunction (AND)   | Operation | Result |
-| ------------------- | --------- | ------ |
-| TRUE AND TRUE       | TRUE      |
-| TRUE AND FALSE      | FALSE     |
-| TRUE AND UNKNOWN    | UNKNOWN   |
-| FALSE AND TRUE      | FALSE     |
-| FALSE AND FALSE     | FALSE     |
-| FALSE AND UNKNOWN   | FALSE     |
-| UNKNOWN AND TRUE    | UNKNOWN   |
-| UNKNOWN AND FALSE   | FALSE     |
-| UNKNOWN AND UNKNOWN | UNKNOWN   |
+Conjunction (AND)| Operation | Result |
+| --- | --- |
+| TRUE AND TRUE | TRUE |
+| TRUE AND FALSE | FALSE |
+| TRUE AND UNKNOWN | UNKNOWN |
+| FALSE AND TRUE | FALSE |
+| FALSE AND FALSE | FALSE |
+| FALSE AND UNKNOWN | FALSE |
+| UNKNOWN AND TRUE | UNKNOWN |
+| UNKNOWN AND FALSE | FALSE |
+| UNKNOWN AND UNKNOWN | UNKNOWN |
 
-| Disjunction (OR)   | Operation | Result |
-| ------------------ | --------- | ------ |
-| TRUE OR TRUE       | TRUE      |
-| TRUE OR FALSE      | TRUE      |
-| TRUE OR UNKNOWN    | TRUE      |
-| FALSE OR TRUE      | TRUE      |
-| FALSE OR FALSE     | FALSE     |
-| FALSE OR UNKNOWN   | UNKNOWN   |
-| UNKNOWN OR TRUE    | TRUE      |
-| UNKNOWN OR FALSE   | UNKNOWN   |
-| UNKNOWN OR UNKNOWN | UNKNOWN   |
+Disjunction (OR)| Operation | Result |
+| --- | --- |
+| TRUE OR TRUE | TRUE |
+| TRUE OR FALSE | TRUE |
+| TRUE OR UNKNOWN | TRUE |
+| FALSE OR TRUE | TRUE |
+| FALSE OR FALSE | FALSE |
+| FALSE OR UNKNOWN | UNKNOWN |
+| UNKNOWN OR TRUE | TRUE |
+| UNKNOWN OR FALSE | UNKNOWN |
+| UNKNOWN OR UNKNOWN | UNKNOWN |
 
-| Assertion (IS)     | Operation | Result |
-| ------------------ | --------- | ------ |
-| TRUE IS TRUE       | TRUE      |
-| TRUE IS FALSE      | FALSE     |
-| TRUE IS UNKNOWN    | FALSE     |
-| FALSE IS TRUE      | FALSE     |
-| FALSE IS FALSE     | TRUE      |
-| FALSE IS UNKNOWN   | FALSE     |
-| UNKNOWN IS TRUE    | FALSE     |
-| UNKNOWN IS FALSE   | FALSE     |
-| UNKNOWN IS UNKNOWN | TRUE      |
+Assertion (IS)| Operation | Result |
+| --- | --- |
+| TRUE IS TRUE | TRUE |
+| TRUE IS FALSE | FALSE |
+| TRUE IS UNKNOWN | FALSE |
+| FALSE IS TRUE | FALSE |
+| FALSE IS FALSE | TRUE |
+| FALSE IS UNKNOWN | FALSE |
+| UNKNOWN IS TRUE | FALSE |
+| UNKNOWN IS FALSE | FALSE |
+| UNKNOWN IS UNKNOWN | TRUE |
 
-| IS NOT UNKNOWN         | Operation | Result |
-| ---------------------- | --------- | ------ |
-| TRUE IS NOT UNKNOWN    | TRUE      |
-| FALSE IS NOT UNKNOWN   | TRUE      |
-| UNKNOWN IS NOT UNKNOWN | FALSE     |
+IS NOT UNKNOWN| Operation | Result |
+| --- | --- |
+| TRUE IS NOT UNKNOWN | TRUE |
+| FALSE IS NOT UNKNOWN | TRUE |
+| UNKNOWN IS NOT UNKNOWN | FALSE |
 
 IS NOT UNKNOWN is a special operator in and of itself. The expression "x IS NOT UNKNOWN"
 is equivalent to "(x IS TRUE) OR (x IS FALSE)", not "x IS (NOT UNKNOWN)". Thus, substituting
@@ -102,21 +102,21 @@ the word IS:
 | NOT UNKNOWN IS FALSE   | FALSE  |
 | NOT UNKNOWN IS UNKNOWN | TRUE   |
 
-| IS NULL and IS NOT NULL | Operation | Result |
-| ----------------------- | --------- | ------ |
-| UNKNOWN IS NULL         | TRUE      |
-| UNKNOWN IS NOT NULL     | FALSE     |
-| NULL IS NULL            | TRUE      |
-| NULL IS NOT NULL        | FALSE     |
+IS NULL and IS NOT NULL| Operation | Result |
+| --- | --- |
+| UNKNOWN IS NULL | TRUE |
+| UNKNOWN IS NOT NULL | FALSE |
+| NULL IS NULL | TRUE |
+| NULL IS NOT NULL | FALSE |
 
-| IS DISTINCT FROM and IS NOT DISTINCT FROM | Operation | Result |
-| ----------------------------------------- | --------- | ------ |
-| UNKNOWN IS DISTINCT FROM TRUE             | TRUE      |
-| UNKNOWN IS DISTINCT FROM FALSE            | TRUE      |
-| UNKNOWN IS DISTINCT FROM UNKNOWN          | FALSE     |
-| UNKNOWN IS NOT DISTINCT FROM TRUE         | FALSE     |
-| UNKNOWN IS NOT DISTINCT FROM FALSE        | FALSE     |
-| UNKNOWN IS NOT DISTINCT FROM UNKNOWN      | TRUE      |
+IS DISTINCT FROM and IS NOT DISTINCT FROM| Operation | Result |
+| --- | --- |
+| UNKNOWN IS DISTINCT FROM TRUE | TRUE |
+| UNKNOWN IS DISTINCT FROM FALSE | TRUE |
+| UNKNOWN IS DISTINCT FROM UNKNOWN | FALSE |
+| UNKNOWN IS NOT DISTINCT FROM TRUE | FALSE |
+| UNKNOWN IS NOT DISTINCT FROM FALSE | FALSE |
+| UNKNOWN IS NOT DISTINCT FROM UNKNOWN | TRUE |
 
 Informally, "x IS DISTINCT FROM y" is similar to "x <> y", except that it is true
 even when either x or y (but not both) is NULL. DISTINCT FROM is the opposite of identical,
@@ -129,19 +129,19 @@ because it represents "maybe TRUE, maybe FALSE".
 For all other operators, passing a NULL or UNKNOWN operand will cause the result to be
 UNKNOWN (which is the same as NULL).
 
-| Examples                                                            | Operation | Result |
-| ------------------------------------------------------------------- | --------- | ------ |
-| TRUE AND CAST( NULL AS BOOLEAN)                                     | UNKNOWN   |
-| FALSE AND CAST( NULL AS BOOLEAN)                                    | FALSE     |
-| 1 > 2                                                               | FALSE     |
-| 1 < 2                                                               | TRUE      |
-| 'foo' = 'bar'                                                       | FALSE     |
-| 'foo' <> 'bar'                                                      | TRUE      |
-| 'foo' <= 'bar'                                                      | FALSE     |
-| 'foo' <= 'bar'                                                      | TRUE      |
-| 3 BETWEEN 1 AND 5                                                   | TRUE      |
-| 1 BETWEEN 3 AND 5                                                   | FALSE     |
-| 3 BETWEEN 3 AND 5                                                   | TRUE      |
-| 5 BETWEEN 3 AND 5                                                   | TRUE      |
-| 1 IS DISTINCT FROM 1.0                                              | FALSE     |
-| CAST( NULL AS INTEGER ) IS NOT DISTINCT FROM CAST (NULL AS INTEGER) | TRUE      |
+Examples| Operation | Result |
+| --- | --- |
+| TRUE AND CAST( NULL AS BOOLEAN) | UNKNOWN |
+| FALSE AND CAST( NULL AS BOOLEAN) | FALSE |
+| 1 > 2 | FALSE |
+| 1 < 2 | TRUE |
+| 'foo' = 'bar' | FALSE |
+| 'foo' <> 'bar' | TRUE |
+| 'foo' <= 'bar' | FALSE |
+| 'foo' <= 'bar' | TRUE |
+| 3 BETWEEN 1 AND 5 | TRUE |
+| 1 BETWEEN 3 AND 5 | FALSE |
+| 3 BETWEEN 3 AND 5 | TRUE |
+| 5 BETWEEN 3 AND 5 | TRUE |
+| 1 IS DISTINCT FROM 1.0 | FALSE |
+| CAST( NULL AS INTEGER ) IS NOT DISTINCT FROM CAST (NULL AS INTEGER) | TRUE |

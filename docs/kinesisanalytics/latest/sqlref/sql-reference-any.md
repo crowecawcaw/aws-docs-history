@@ -4,8 +4,8 @@
 ANY ( <boolean_expression> )
 ```
 
-ANY returns true if the supplied boolean_expression is true in any of the selected rows.
-Returns false if the supplied boolean_expression is true in none of the selected rows.
+ANY returns true if the supplied boolean\_expression is true in any of the selected rows.
+Returns false if the supplied boolean\_expression is true in none of the selected rows.
 
 ###### Example
 

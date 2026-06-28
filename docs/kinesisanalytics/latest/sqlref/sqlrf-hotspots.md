@@ -119,7 +119,7 @@ chosen value for window size.
 The output of the HOTSPOTS function is a table object that has the same schema as the
 input, with the following additional column:
 
-### HOTSPOT_RESULTS
+### HOTSPOT\_RESULTS
 
 A JSON string describing all the hotspots found around the record. The function returns all potential hotspots; you can filter out hotspots below a certain `density` threshold in your application. The field has the following nodes, with
 values for each of the input columns:

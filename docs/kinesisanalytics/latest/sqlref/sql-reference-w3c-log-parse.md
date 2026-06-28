@@ -1,4 +1,4 @@
-# W3C_LOG_PARSE
+# W3C\_LOG\_PARSE
 
 ```
  W3C_LOG_PARSE( <character-expression>, <format-string> )
@@ -34,7 +34,7 @@ specifiers indicated, as shown in the following statement:
 
 ## W3C Format Specifiers
 
-The format specifiers are listed below. W3C_LOG_PARSE automatically detects these
+The format specifiers are listed below. W3C\_LOG\_PARSE automatically detects these
 specifiers and output records with one column for each specifier. The column's type is
 automatically chosen based on the possible outputs of the specifier. For example, %b
 represents the number of bytes sent in processing an HTTP request, so the column type is
@@ -76,8 +76,8 @@ The following table lists W3C format specifiers alphabetically by command.
 | %...v               | The canonical ServerName of the server serving the request.                                                                                                                                                                                                                                                                                                            |
 | %...V               | The server name according to the UseCanonicalName setting.                                                                                                                                                                                                                                                                                                             |
 | %...X               | Connection status when response is completed<br>X = connection aborted before the response completed.<br>+ = connection may be kept alive after the response is sent.<br>• = connection will be closed after the response is sent.<br>(The %..X directive was %...c in late versions of Apache 1.3,<br>but this conflicted with the historical ssl %...[var]c syntax.) |
-| :%...I:             | Bytes received, including request and headers, cannot be zero. You need to<br>enable [mod_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html") to use this.                                                                                                                                               |
-| :%...O:             | Bytes sent, including headers, cannot be zero. You need to enable [mod_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html") to use<br>this.                                                                                                                                                               |
+| :%...I:             | Bytes received, including request and headers, cannot be zero. You need to<br>enable [mod\_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html") to use this.                                                                                                                                              |
+| :%...O:             | Bytes sent, including headers, cannot be zero. You need to enable [mod\_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html") to use<br>this.                                                                                                                                                              |
 
 ###### Note
 
@@ -112,7 +112,7 @@ files, since clients could have inserted control characters into the log.
 Also, in httpd 2.0, the B format strings represent simply the size in bytes of the HTTP
 response (which will differ, for instance, if the connection is aborted, or if SSL is used).
 For the actual number of bytes sent over the network to the client, use the %O format
-provided by [mod_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html").
+provided by [mod\_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html").
 
 ## W3C Format Specifiers by Function or Category
 
@@ -120,32 +120,32 @@ The categories are bytes sent, connection status, content of environmental varia
 filename, host, IP, notes, protocol, query string, replies, requests, and time. For the
 markings "..." or "<" or "<", see the previous note.
 
-| Function or Category                                                                                                                                                                                             | W3C Format Specifiers |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| **Bytes sent, excluding HTTP headers**                                                                                                                                                                           |
-| with a "0" when no bytes are sent                                                                                                                                                                                | %...B                 |
-| with a "-" (CLF format) when no bytes are sent                                                                                                                                                                   | %...b                 |
-| Bytes received, including request and headers, cannot be zero<br>Must enable [mod_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html") to use this. | :% ... I:             |
-| Bytes sent, including headers, cannot be zero<br>Must enable [mod_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html") to use this.                 | :%... O:              |
-| **Connection status when response is<br>completed**                                                                                                                                                              |
-| Connection aborted before the response completed                                                                                                                                                                 | X                     |
-| Connection may be kept alive after the response is sent                                                                                                                                                          | +                     |
-| Connection will be closed after the response is sent                                                                                                                                                             | -                     |
-| NoteThe %..X directive was %...c in late versions of Apache 1.3, but this<br>conflicted with the historical ssl %...[var]c syntax.                                                                               |
-| **Environment variable CUSTOMERDATA**                                                                                                                                                                            |
-| contents                                                                                                                                                                                                         | %...[CUSTOMERDATA]e   |
-| **Filename**                                                                                                                                                                                                     | %...f                 |
-| **Host (remote)**                                                                                                                                                                                                | %...h                 |
-| **Protocol**                                                                                                                                                                                                     | %...H                 |
-| **IP addresses**                                                                                                                                                                                                 |
-| Remote                                                                                                                                                                                                           | %...a                 |
-| Local                                                                                                                                                                                                            | %...A                 |
-| **Notes**                                                                                                                                                                                                        |
-| Contents of note Customerdata from another module                                                                                                                                                                | %...[Customerdata]n   |
-| **Protocol (request)**                                                                                                                                                                                           | %...H                 |
-| **Query string**<br>NoteIf query exists, prepended with a ?If not, the empty string.                                                                                                                             | %...q                 |
-| **Replies**                                                                                                                                                                                                      |
-| Contents of Customerdata (header lines in the reply)                                                                                                                                                             | %...[Customerdata]o   |
+| Function or Category                                                                                                                                                                                              | W3C Format Specifiers |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| **Bytes sent, excluding HTTP headers**                                                                                                                                                                            |
+| with a "0" when no bytes are sent                                                                                                                                                                                 | %...B                 |
+| with a "-" (CLF format) when no bytes are sent                                                                                                                                                                    | %...b                 |
+| Bytes received, including request and headers, cannot be zero<br>Must enable [mod\_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html") to use this. | :% ... I:             |
+| Bytes sent, including headers, cannot be zero<br>Must enable [mod\_logio](http://httpd.apache.org/docs/2.0/mod/mod_logio.html "http://httpd.apache.org/docs/2.0/mod/mod_logio.html") to use this.                 | :%... O:              |
+| **Connection status when response is<br>completed**                                                                                                                                                               |
+| Connection aborted before the response completed                                                                                                                                                                  | X                     |
+| Connection may be kept alive after the response is sent                                                                                                                                                           | +                     |
+| Connection will be closed after the response is sent                                                                                                                                                              | -                     |
+| NoteThe %..X directive was %...c in late versions of Apache 1.3, but this<br>conflicted with the historical ssl %...[var]c syntax.                                                                                |
+| **Environment variable CUSTOMERDATA**                                                                                                                                                                             |
+| contents                                                                                                                                                                                                          | %...[CUSTOMERDATA]e   |
+| **Filename**                                                                                                                                                                                                      | %...f                 |
+| **Host (remote)**                                                                                                                                                                                                 | %...h                 |
+| **Protocol**                                                                                                                                                                                                      | %...H                 |
+| **IP addresses**                                                                                                                                                                                                  |
+| Remote                                                                                                                                                                                                            | %...a                 |
+| Local                                                                                                                                                                                                             | %...A                 |
+| **Notes**                                                                                                                                                                                                         |
+| Contents of note Customerdata from another module                                                                                                                                                                 | %...[Customerdata]n   |
+| **Protocol (request)**                                                                                                                                                                                            | %...H                 |
+| **Query string**<br>NoteIf query exists, prepended with a ?If not, the empty string.                                                                                                                              | %...q                 |
+| **Replies**                                                                                                                                                                                                       |
+| Contents of Customerdata (header lines in the reply)                                                                                                                                                              | %...[Customerdata]o   |
 
 The W3C format specifiers for the response and time categories are listed following
 table.
@@ -178,10 +178,10 @@ table.
 
 ## W3C Examples
 
-W3C_LOG_PARSE supports access to logs generated by W3C-compliant applications like the Apache web server,
+W3C\_LOG\_PARSE supports access to logs generated by W3C-compliant applications like the Apache web server,
 producing output rows with one column for each specifier. The data types are derived from the
 log entry description specifiers listed in the [Apache
-mod_log_config](http://httpd.apache.org/docs/2.0/mod/mod_log_config.html?#formats "http://httpd.apache.org/docs/2.0/mod/mod_log_config.html?#formats") specification.
+mod\_log\_config](http://httpd.apache.org/docs/2.0/mod/mod_log_config.html?#formats "http://httpd.apache.org/docs/2.0/mod/mod_log_config.html?#formats") specification.
 
 ## Example 1
 

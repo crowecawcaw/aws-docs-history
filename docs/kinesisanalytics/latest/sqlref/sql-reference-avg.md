@@ -2,7 +2,7 @@
 
 Returns the average of a group of values from a windowed query. A windowed query is defined in terms of time or rows.
 For information about windowed queries, see [Windowed Queries](../dev/windowed-sql.md "../dev/windowed-sql.md"). To return an exponentially weighted average of a stream of value
-expressions selected in a specified time window, see [EXP_AVG](sql-reference-exp-avg.md "sql-reference-exp-avg.md").
+expressions selected in a specified time window, see [EXP\_AVG](sql-reference-exp-avg.md "sql-reference-exp-avg.md").
 
 When you use AVG, be aware of the following:
 
@@ -170,7 +170,7 @@ For more information about `PARTITION BY`, see [WINDOW Clause (Sliding Windows)]
 ## Related Topics
 
 - [Windowed Queries](../dev/windowed-sql.md "../dev/windowed-sql.md")
-- [EXP_AVG](sql-reference-exp-avg.md "sql-reference-exp-avg.md")
+- [EXP\_AVG](sql-reference-exp-avg.md "sql-reference-exp-avg.md")
 - [Aggregate Functions](sql-reference-aggregate-functions.md "sql-reference-aggregate-functions.md")
 - [GROUP BY clause](sql-reference-group-by-clause.md "sql-reference-group-by-clause.md")
 - [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md")

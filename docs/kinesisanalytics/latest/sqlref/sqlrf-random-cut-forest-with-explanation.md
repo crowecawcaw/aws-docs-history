@@ -1,4 +1,4 @@
-# RANDOM_CUT_FOREST_WITH_EXPLANATION
+# RANDOM\_CUT\_FOREST\_WITH\_EXPLANATION
 
 Computes an anomaly score and explains it for each record in your data stream. The anomaly
 score for a record indicates how different it is from the trends that have recently been

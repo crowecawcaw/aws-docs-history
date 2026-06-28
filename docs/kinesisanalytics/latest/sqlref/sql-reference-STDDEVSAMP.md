@@ -1,7 +1,7 @@
-# STDDEV_SAMP
+# STDDEV\_SAMP
 
 Returns the statistical standard deviation of all values in <number-expression>, evaluated for
-each row remaining in the group and defined as the square root of the [VAR_SAMP](sql-reference-VARSAMP.md "sql-reference-VARSAMP.md").
+each row remaining in the group and defined as the square root of the [VAR\_SAMP](sql-reference-VARSAMP.md "sql-reference-VARSAMP.md").
 
 When you use `STDDEV_SAMP`, be aware of the following:
 
@@ -105,6 +105,6 @@ The preceding example outputs a stream similar to the following:
 
 ## See Also
 
-- Population standard deviation: [STDDEV_POP](sql-reference-STDDEVPOP.md "sql-reference-STDDEVPOP.md")
-- Sample variance: [VAR_SAMP](sql-reference-VARSAMP.md "sql-reference-VARSAMP.md")
-- Population variance: [VAR_POP](sql-reference-VARPOP.md "sql-reference-VARPOP.md")
+- Population standard deviation: [STDDEV\_POP](sql-reference-STDDEVPOP.md "sql-reference-STDDEVPOP.md")
+- Sample variance: [VAR\_SAMP](sql-reference-VARSAMP.md "sql-reference-VARSAMP.md")
+- Population variance: [VAR\_POP](sql-reference-VARPOP.md "sql-reference-VARPOP.md")

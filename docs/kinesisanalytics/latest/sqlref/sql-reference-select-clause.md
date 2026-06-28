@@ -30,7 +30,7 @@ Each of these expressions may be:
 - the [ROWTIME](sql-reference-rowtime.md "sql-reference-rowtime.md")
 - a [CASE expression](#sql-reference-select-clause-caseexpr "#sql-reference-select-clause-caseexpr")
 
-Each expression may be assigned an alias, using the AS column_name syntax. This is the
+Each expression may be assigned an alias, using the AS column\_name syntax. This is the
 name of the column in the result set of this query. If this query is in the FROM clause of
 an enclosing query, this will be the name that will be used to reference the column. The
 number of columns specified in the AS clause of a stream reference must match the

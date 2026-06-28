@@ -1,6 +1,6 @@
-# DATE_TO_CHAR
+# DATE\_TO\_CHAR
 
-The DATE_TO_CHAR converts a date to a string.
+The DATE\_TO\_CHAR converts a date to a string.
 
 ```
 DATE_TO_CHAR(format,d);

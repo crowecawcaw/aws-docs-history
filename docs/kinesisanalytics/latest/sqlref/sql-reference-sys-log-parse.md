@@ -1,4 +1,4 @@
-# SYS_LOG_PARSE
+# SYS\_LOG\_PARSE
 
 Parses the standard syslog format:
 
@@ -6,8 +6,8 @@ Parses the standard syslog format:
  Mon DD HH:MM:SS server message
 ```
 
-SYS_LOG_PARSE processes entries commonly found in UNIX/Linux system logs. System log entries
-start with a timestamp and are followed with a free form text field. SYS_LOG_PARSE output
+SYS\_LOG\_PARSE processes entries commonly found in UNIX/Linux system logs. System log entries
+start with a timestamp and are followed with a free form text field. SYS\_LOG\_PARSE output
 consists of two columns. The first column is named "COLUMN1" and is SQL data type TIMESTAMP. The
 second column is named "COLUMN2" and is SQL type VARCHAR().
 

@@ -31,10 +31,10 @@ cases where the window (or in the case of a PARTITION BY, a partition within the
 contains no rows, an analytic function will return null. The exception to this is COUNT, which
 returns zero.
 
-| Differences Between Aggregate and Analytic Functions                                               | Function Type                           | Outputs                                                                          | Rows or Windows Used                                                                                                                                                                                                                            | Notes |
-| -------------------------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+Differences Between Aggregate and Analytic Functions| Function Type | Outputs | Rows or Windows Used | Notes |
+| --- | --- | --- | --- |
 | [Aggregate Functions](sql-reference-aggregate-functions.md "sql-reference-aggregate-functions.md") | One output row per group of input rows. | All output columns are calculated over the same window or same group of<br>rows. | COUNT DISTINCT is not allowed in [Aggregate Functions](sql-reference-aggregate-functions.md "sql-reference-aggregate-functions.md"). Statements of the following type are<br>not allowed:<br>SELECT COUNT(DISTINCT x) ... FROM ... GROUP BY ... |
-| Analytic Functions                                                                                 | One output row for each input row.      | Each output column may be calculated using a different window or partition.      | COUNT DISTINCT can't be used as analytic functions or in windowed<br>aggregation.                                                                                                                                                               |
+| Analytic Functions | One output row for each input row. | Each output column may be calculated using a different window or partition. | COUNT DISTINCT can't be used as analytic functions or in windowed<br>aggregation. |
 
 ## Related Topics
 

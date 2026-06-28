@@ -1,12 +1,12 @@
-# EXP_AVG
+# EXP\_AVG
 
 ```
 EXP_AVG ( expression, <time-interval> )
 ```
 
-EXP_AVG returns an exponentially-weighted average
+EXP\_AVG returns an exponentially-weighted average
 ([exponential moving average](https://en.wikipedia.org/wiki/Moving_average "https://en.wikipedia.org/wiki/Moving_average")) of a
-stream of value expressions selected in a specified time window. EXP_AVG divides the specified
+stream of value expressions selected in a specified time window. EXP\_AVG divides the specified
 window into intervals based on the value of <time-interval>. The values of the specified
 expression are weighted the most heavily for the most recent time-intervals and exponentially
 less heavily for earlier intervals.
@@ -28,4 +28,4 @@ window w as (partition by ticker range interval '30' second preceding);
 In this example, 10 seconds is the half-life of the decay function, that is, the period over
 which the weights applied to the prices being averaged decrease by a factor of two. In other
 words, the older one will be given half as much weight as the newer one. It is specified as the
-time_interval in the call to EXP_AVG as interval '10' second .
+time\_interval in the call to EXP\_AVG as interval '10' second .

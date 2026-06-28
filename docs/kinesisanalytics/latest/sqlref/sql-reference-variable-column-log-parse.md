@@ -1,4 +1,4 @@
-# VARIABLE_COLUMN_LOG_PARSE
+# VARIABLE\_COLUMN\_LOG\_PARSE
 
 ```
  VARIABLE_COLUMN_LOG_PARSE(
@@ -13,10 +13,10 @@
   <quote-string> := '<begin quote character> [ <end quote character> ]'
 ```
 
-VARIABLE_COLUMN_LOG_PARSE splits an input string (its first argument,
+VARIABLE\_COLUMN\_LOG\_PARSE splits an input string (its first argument,
 <character-expression>) into fields separated by a delimiter character or delimiter
 string. Thus it handles comma-separated values or tab-separated values. It can be combined with
-[FIXED_COLUMN_LOG_PARSE](sql-reference-fixed-column-log-parse.md "sql-reference-fixed-column-log-parse.md") to handle something like maillog, where some
+[FIXED\_COLUMN\_LOG\_PARSE](sql-reference-fixed-column-log-parse.md "sql-reference-fixed-column-log-parse.md") to handle something like maillog, where some
 fields are fixed-length and others are variable-length.
 
 ###### Note

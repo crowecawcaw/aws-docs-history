@@ -97,12 +97,12 @@ seconds), or uses any delimiters different from those shown above, CAST will not
 value. (Fractional seconds are disallowed.)
 
 If the input string is thus not in the appropriate format to be CAST, then to convert the
-string to a timestamp, you must use the CHAR_TO_TIMESTAMP method.
+string to a timestamp, you must use the CHAR\_TO\_TIMESTAMP method.
 
-## Using CHAR_TO_TIMESTAMP to convert a String to a Timestamp
+## Using CHAR\_TO\_TIMESTAMP to convert a String to a Timestamp
 
 When the input string is not in the appropriate format to be CAST, you can use the
-CHAR_TO_TIMESTAMP method. It has the additional advantage that you can specify which parts of
+CHAR\_TO\_TIMESTAMP method. It has the additional advantage that you can specify which parts of
 the timestamp string you wish to use in subsequent processing, and create a TIMESTAMP value
 containing only those. To do so, you specify a template that identifies which parts you want,
 such as 'yyyy-MM' to use only the year and month parts.
@@ -115,12 +115,12 @@ hour, minute, and seconds, such as in '2009-09-16 03:15:24'. The yyyy cannot be 
 hh can be uppercase to mean using a 24-hour clock. For many examples of valid specifiers, see
 the table and examples later in this topic. For the full range of valid specifiers, see [Class SimpleDateFormat](http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html "http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html") on the Oracle website.
 
-CHAR_TO_TIMESTAMP uses the template you specify as a parameter in the function call. The
+CHAR\_TO\_TIMESTAMP uses the template you specify as a parameter in the function call. The
 template causes the TIMESTAMP result to use only the parts of the input-date-time value that
 you specified in the template. Those fields in the resulting TIMESTAMP will then contain the
 corresponding data taken from your input-date-time string; fields not specified in your
 template will use default values (see below). The format of the template used by
-CHAR_TO_TIMESTAMP is defined by [Class SimpleDateFormat](http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html "http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html"), at which link all the specifiers are listed, some with
+CHAR\_TO\_TIMESTAMP is defined by [Class SimpleDateFormat](http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html "http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html"), at which link all the specifiers are listed, some with
 examples. For more information, see [Date and Time Patterns](sql-reference-parse-timestamp-format.md "sql-reference-parse-timestamp-format.md").
 
 The function-call syntax is as follows:
@@ -130,11 +130,11 @@ The function-call syntax is as follows:
 ```
 
 Where <format\_ string> is the template you specify for the parts of
-<date_time_string> you want, and <input_date_time_string> is the original string
+<date\_time\_string> you want, and <input\_date\_time\_string> is the original string
 that is being converted to a TIMESTAMP result.
 
 Each string must be enclosed in single quotes, and each element of the
-<input_date_time_string> must be in the range for its corresponding element in the
+<input\_date\_time\_string> must be in the range for its corresponding element in the
 template. Otherwise, no result is returned.
 
 ### Example 1
@@ -164,7 +164,7 @@ The result would be the TIMESTAMP 2009-09-16 00:00:00.
 
 - If the call had kept hours and minutes in the template while omitting months, days,
   and seconds, as illustrated in the following call --- ---
-  CHAR_TO_TIMESTAMP('yyyy-hh-mm','2009-09-16 03:15:24') --- --- then the resulting TIMESTAMP
+  CHAR\_TO\_TIMESTAMP('yyyy-hh-mm','2009-09-16 03:15:24') --- --- then the resulting TIMESTAMP
   would be 2009-01-01 03:15:00.
 
 | Template                | Input String                                   | Output TIMESTAMP                                   | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -186,7 +186,7 @@ The result would be the TIMESTAMP 2009-09-16 00:00:00.
 
 ### Further examples
 
-The examples below illustrate using various templates with CHAR_TO_TIMESTAMP, including
+The examples below illustrate using various templates with CHAR\_TO\_TIMESTAMP, including
 some common misunderstandings.
 
 ```
@@ -632,7 +632,7 @@ For additional examples, see SQL Operators: Further examples.
 Amazon Kinesis Data Analytics does not support directly casting numeric values to interval values. This is a
 departure from the SQL:2008 standard. The recommended way to convert a numeric to an interval
 is to multiply the numeric value against a specific interval value. For example, to convert
-the integer time_in_millis to a day-time interval:
+the integer time\_in\_millis to a day-time interval:
 
 ```
 time_in_millis * INTERVAL '0 00:00:00.001' DAY TO SECOND

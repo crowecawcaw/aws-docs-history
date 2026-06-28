@@ -102,7 +102,7 @@ definitions:
 
 ```
 
-##### Creating the ORDERS_STREAM In-Application Stream
+##### Creating the ORDERS\_STREAM In-Application Stream
 
 ```
 CREATE OR REPLACE STREAM "ORDERS_STREAM" ("orderid" int, "orderrowtime" timestamp);
@@ -112,7 +112,7 @@ FROM "SOURCE_SQL_STREAM_001" WHERE "orders" = 1;
 
 ```
 
-##### Creating the SHIPMENTS_STREAM In-Application Stream
+##### Creating the SHIPMENTS\_STREAM In-Application Stream
 
 ```
 CREATE OR REPLACE STREAM "SHIPMENTS_STREAM" ("orderid" int, "shipmentrowtime" timestamp);
@@ -142,16 +142,16 @@ INSERT INTO "OUTPUT_STREAM"
 
 ##### Query Results
 
-| ORDERS_STREAM | SHIPMENTS_STREAM | OUTPUT_STREAM |
-| ------------- | ---------------- | ------------- | ------- | ------------- | ------- | ------------ | --------- |
-| ROWTIME       | orderid          | ROWTIME       | orderid | resultrowtime | orderid | shipmenttime | OrderTime |
-| 10:00:00      | 101              | 10:00:00      | 100     |               |         |              |           |
-| 10:00:20      | 102              |               |         |               |         |              |           |
-| 10:00:30      | 103              |               |         |               |         |              |           |
-| 10:00:40      | 104              |               |         |               |         |              |           |
-|               |                  | 10:00:45      | 104     |               |         |              |
-| 10:00:45      | 100\*            |               |         | 10:00:45      | 104     | 10:00:45     | 10:00:40  |
-|               |                  | 10:00:50      | 105     |               |         |              |           |
+| ORDERS\_STREAM | SHIPMENTS\_STREAM | OUTPUT\_STREAM |
+| -------------- | ----------------- | -------------- |
+| ROWTIME        | orderid           | ROWTIME        | orderid | resultrowtime | orderid | shipmenttime | OrderTime |
+| 10:00:00       | 101               | 10:00:00       | 100     |               |         |              |           |
+| 10:00:20       | 102               |                |         |               |         |              |           |
+| 10:00:30       | 103               |                |         |               |         |              |           |
+| 10:00:40       | 104               |                |         |               |         |              |           |
+|                |                   | 10:00:45       | 104     |               |         |              |
+| 10:00:45       | 100\*             |                |         | 10:00:45      | 104     | 10:00:45     | 10:00:40  |
+|                |                   | 10:00:50       | 105     |               |         |              |           |
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
@@ -207,17 +207,17 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 ##### Query Results
 
-| ORDERS_STREAM | SHIPMENTS_STREAM | OUTPUT_STREAM |
-| ------------- | ---------------- | ------------- | ------- | ------------- | ------- | ------------ | --------- |
-| ROWTIME       | orderid          | ROWTIME       | orderid | resultrowtime | orderid | shipmenttime | OrderTime |
-| 10:00:00      | 101              | 10:00:00      | 100     |               |         |              |           |
-| 10:00:20      | 102              |               |         |               |         |              |           |
-| 10:00:30      | 103              |               |         |               |         |              |           |
-| 10:00:40      | 104              |               |         |               |         |              |           |
-|               |                  | 10:00:45      | 104     |               |         |              |           |
-| 10:00:45      | 100\*            |               |         | 10:00:45      | 104     | 10:00:45     | 10:00:40  |
-|               |                  |               |         | 10:00:45      | 100     | 10:00:00     | 10:00:45  |
-|               |                  | 10:00:50      | 105     |               |         |              |           |
+| ORDERS\_STREAM | SHIPMENTS\_STREAM | OUTPUT\_STREAM |
+| -------------- | ----------------- | -------------- |
+| ROWTIME        | orderid           | ROWTIME        | orderid | resultrowtime | orderid | shipmenttime | OrderTime |
+| 10:00:00       | 101               | 10:00:00       | 100     |               |         |              |           |
+| 10:00:20       | 102               |                |         |               |         |              |           |
+| 10:00:30       | 103               |                |         |               |         |              |           |
+| 10:00:40       | 104               |                |         |               |         |              |           |
+|                |                   | 10:00:45       | 104     |               |         |              |           |
+| 10:00:45       | 100\*             |                |         | 10:00:45      | 104     | 10:00:45     | 10:00:40  |
+|                |                   |                |         | 10:00:45      | 100     | 10:00:00     | 10:00:45  |
+|                |                   | 10:00:50       | 105     |               |         |              |           |
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
@@ -270,18 +270,18 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 ##### Query Results
 
-| ORDERS_STREAM | SHIPMENTS_STREAM | OUTPUT_STREAM |
-| ------------- | ---------------- | ------------- | ------- | ------------- | ------- | --------- |
-| ROWTIME       | orderid          | ROWTIME       | orderid | resultrowtime | orderid | OrderTime |
-| 10:00:00      | 101              | 10:00:00      | 100     |               |         |           |
-|               |                  |               |         | 10:00:00      | 100     | null      |
-| 10:00:20      | 102              |               |         |               |         |           |
-| 10:00:30      | 103              |               |         |               |         |           |
-| 10:00:40      | 104              |               |         |               |         |           |
-|               |                  | 10:00:45      | 104     |               |         |           |
-| 10:00:45      | 100\*            |               |         | 10:00:45      | 104     | 10:00:40  |
-|               |                  | 10:00:50      | 105     |               |         |           |
-|               |                  |               |         | 10:00:50      | 105     | null      |
+| ORDERS\_STREAM | SHIPMENTS\_STREAM | OUTPUT\_STREAM |
+| -------------- | ----------------- | -------------- |
+| ROWTIME        | orderid           | ROWTIME        | orderid | resultrowtime | orderid | OrderTime |
+| 10:00:00       | 101               | 10:00:00       | 100     |               |         |           |
+|                |                   |                |         | 10:00:00      | 100     | null      |
+| 10:00:20       | 102               |                |         |               |         |           |
+| 10:00:30       | 103               |                |         |               |         |           |
+| 10:00:40       | 104               |                |         |               |         |           |
+|                |                   | 10:00:45       | 104     |               |         |           |
+| 10:00:45       | 100\*             |                |         | 10:00:45      | 104     | 10:00:40  |
+|                |                   | 10:00:50       | 105     |               |         |           |
+|                |                   |                |         | 10:00:50      | 105     | null      |
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
@@ -330,19 +330,19 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 ##### Query Results
 
-| ORDERS_STREAM | SHIPMENTS_STREAM | OUTPUT_STREAM |
-| ------------- | ---------------- | ------------- | ------- | ------------- | ------- | ------------ | --------- |
-| ROWTIME       | orderid          | ROWTIME       | orderid | resultrowtime | orderid | shipmenttime | OrderTime |
-| 10:00:00      | 101              | 10:00:00      | 100     |               |         |              |           |
-| 10:00:20      | 102              |               |         |               |         |              |           |
-| 10:00:30      | 103              |               |         |               |         |              |           |
-| 10:00:40      | 104              |               |         |               |         |              |           |
-|               |                  | 10:00:45      | 104     |               |         |              |           |
-| 10:00:45      | 100\*            |               |         | 10:00:45      | 104     | 10:00:40     | 10:00:45  |
-|               |                  |               |         | 10:00:45      | 100     | 10:00:45     | 10:00:00  |
-|               |                  | 10:00:50      | 105     |               |         |              |           |
-|               |                  |               |         |               |         |              |           |
-|               |                  |               |         | 10:01:50      | 105     | 10:00:50     | null      |
+| ORDERS\_STREAM | SHIPMENTS\_STREAM | OUTPUT\_STREAM |
+| -------------- | ----------------- | -------------- |
+| ROWTIME        | orderid           | ROWTIME        | orderid | resultrowtime | orderid | shipmenttime | OrderTime |
+| 10:00:00       | 101               | 10:00:00       | 100     |               |         |              |           |
+| 10:00:20       | 102               |                |         |               |         |              |           |
+| 10:00:30       | 103               |                |         |               |         |              |           |
+| 10:00:40       | 104               |                |         |               |         |              |           |
+|                |                   | 10:00:45       | 104     |               |         |              |           |
+| 10:00:45       | 100\*             |                |         | 10:00:45      | 104     | 10:00:40     | 10:00:45  |
+|                |                   |                |         | 10:00:45      | 100     | 10:00:45     | 10:00:00  |
+|                |                   | 10:00:50       | 105     |               |         |              |           |
+|                |                   |                |         |               |         |              |           |
+|                |                   |                |         | 10:01:50      | 105     | 10:00:50     | null      |
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
@@ -396,22 +396,22 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 ##### Query Results
 
-| ORDERS_STREAM | SHIPMENTS_STREAM | OUTPUT_STREAM |
-| ------------- | ---------------- | ------------- | ------- | ------------- | ------- | --------- |
-| ROWTIME       | orderid          | ROWTIME       | orderid | resultrowtime | orderid | OrderTime |
-| 10:00:00      | 101              | 10:00:00      | 100     |               |         |           |
-| 10:00:20      | 102              |               |         |               |         |           |
-| 10:00:30      | 103              |               |         |               |         |           |
-| 10:00:40      | 104              |               |         |               |         |           |
-|               |                  | 10:00:45      | 104     |               |         |           |
-| 10:00:45      | 100\*            |               |         | 10:00:45      | 104     | 10:00:40  |
-|               |                  | 10:00:50      | 105     |               |         |           |
-|               |                  |               |         |               |         |           |
-|               |                  |               |         | 10:01:00      | 101     | 10:00:00  |
-|               |                  |               |         | 10:01:20      | 102     | 10:00:20  |
-|               |                  |               |         | 10:01:30      | 103     | 10:00:30  |
-|               |                  |               |         | 10:01:40      | 104     | 10:00:40  |
-|               |                  |               |         | 10:01:45      | 100     | 10:00:45  |
+| ORDERS\_STREAM | SHIPMENTS\_STREAM | OUTPUT\_STREAM |
+| -------------- | ----------------- | -------------- |
+| ROWTIME        | orderid           | ROWTIME        | orderid | resultrowtime | orderid | OrderTime |
+| 10:00:00       | 101               | 10:00:00       | 100     |               |         |           |
+| 10:00:20       | 102               |                |         |               |         |           |
+| 10:00:30       | 103               |                |         |               |         |           |
+| 10:00:40       | 104               |                |         |               |         |           |
+|                |                   | 10:00:45       | 104     |               |         |           |
+| 10:00:45       | 100\*             |                |         | 10:00:45      | 104     | 10:00:40  |
+|                |                   | 10:00:50       | 105     |               |         |           |
+|                |                   |                |         |               |         |           |
+|                |                   |                |         | 10:01:00      | 101     | 10:00:00  |
+|                |                   |                |         | 10:01:20      | 102     | 10:00:20  |
+|                |                   |                |         | 10:01:30      | 103     | 10:00:30  |
+|                |                   |                |         | 10:01:40      | 104     | 10:00:40  |
+|                |                   |                |         | 10:01:45      | 100     | 10:00:45  |
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
@@ -460,22 +460,22 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 ##### Query Results
 
-| ORDERS_STREAM | SHIPMENTS_STREAM | OUTPUT_STREAM |
-| ------------- | ---------------- | ------------- | ------- | ------------- | ------- | ------------ | --------- |
-| ROWTIME       | orderid          | ROWTIME       | orderid | resultrowtime | orderid | shipmenttime | OrderTime |
-| 10:00:00      | 101              | 10:00:00      | 100     |               |         |              |           |
-| 10:00:20      | 102              |               |         |               |         |              |           |
-| 10:00:30      | 103              |               |         |               |         |              |           |
-| 10:00:40      | 104              |               |         |               |         |              |           |
-|               |                  | 10:00:45      | 104     |               |         |              |           |
-| 10:00:45      | 100\*            |               |         | 10:00:45      | 104     | 10:00:40     | 10:00:45  |
-|               |                  | 10:00:50      | 105     | 10:00:45      | 100     | 10:00:00     | 10:00:45  |
-|               |                  |               |         |               |         |              |           |
-|               |                  |               |         | 10:01:00      | 101     | null         | 10:00:00  |
-|               |                  |               |         | 10:01:20      | 102     | null         | 10:00:20  |
-|               |                  |               |         | 10:01:30      | 103     | null         | 10:00:30  |
-|               |                  |               |         | 10:01:40      | 104     | null         | 10:00:40  |
-|               |                  |               |         | 10:01:45      | 100     | null         | 10:00:45  |
+| ORDERS\_STREAM | SHIPMENTS\_STREAM | OUTPUT\_STREAM |
+| -------------- | ----------------- | -------------- |
+| ROWTIME        | orderid           | ROWTIME        | orderid | resultrowtime | orderid | shipmenttime | OrderTime |
+| 10:00:00       | 101               | 10:00:00       | 100     |               |         |              |           |
+| 10:00:20       | 102               |                |         |               |         |              |           |
+| 10:00:30       | 103               |                |         |               |         |              |           |
+| 10:00:40       | 104               |                |         |               |         |              |           |
+|                |                   | 10:00:45       | 104     |               |         |              |           |
+| 10:00:45       | 100\*             |                |         | 10:00:45      | 104     | 10:00:40     | 10:00:45  |
+|                |                   | 10:00:50       | 105     | 10:00:45      | 100     | 10:00:00     | 10:00:45  |
+|                |                   |                |         |               |         |              |           |
+|                |                   |                |         | 10:01:00      | 101     | null         | 10:00:00  |
+|                |                   |                |         | 10:01:20      | 102     | null         | 10:00:20  |
+|                |                   |                |         | 10:01:30      | 103     | null         | 10:00:30  |
+|                |                   |                |         | 10:01:40      | 104     | null         | 10:00:40  |
+|                |                   |                |         | 10:01:45      | 100     | null         | 10:00:45  |
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 

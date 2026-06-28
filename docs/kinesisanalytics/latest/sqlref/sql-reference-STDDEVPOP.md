@@ -1,6 +1,6 @@
-# STDDEV_POP
+# STDDEV\_POP
 
-Returns the square root of the [VAR_POP](sql-reference-VARPOP.md "sql-reference-VARPOP.md") population variance for <number expression>, evaluated
+Returns the square root of the [VAR\_POP](sql-reference-VARPOP.md "sql-reference-VARPOP.md") population variance for <number expression>, evaluated
 for each row remaining in the group.
 
 When you use `STDDEV_POP`, be aware of the following:
@@ -121,6 +121,6 @@ The preceding example outputs a stream similar to the following:
 
 ## See Also
 
-- Sample standard deviation: [STDDEV_SAMP](sql-reference-STDDEVSAMP.md "sql-reference-STDDEVSAMP.md")
-- Sample variance: [VAR_SAMP](sql-reference-VARSAMP.md "sql-reference-VARSAMP.md")
-- Population variance: [VAR_POP](sql-reference-VARPOP.md "sql-reference-VARPOP.md")
+- Sample standard deviation: [STDDEV\_SAMP](sql-reference-STDDEVSAMP.md "sql-reference-STDDEVSAMP.md")
+- Sample variance: [VAR\_SAMP](sql-reference-VARSAMP.md "sql-reference-VARSAMP.md")
+- Population variance: [VAR\_POP](sql-reference-VARPOP.md "sql-reference-VARPOP.md")

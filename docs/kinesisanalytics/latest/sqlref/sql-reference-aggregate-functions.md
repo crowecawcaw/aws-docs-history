@@ -36,10 +36,10 @@ stream-to-stream joins, see [JOIN clause](sql-reference-join-clause.md "sql-refe
 If an input row contains a `null` in a column used as an input to a data analysis
 function, the data analysis function ignores the row (except for COUNT).
 
-| Differences Between Aggregate and Analytic Functions                                            | Function Type                           | Outputs                                                                          | Rows or Windows Used                                                                                                                                               | Notes |
-| ----------------------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| Aggregate Functions                                                                             | One output row per group of input rows. | All output columns are calculated over the same window or same group of<br>rows. | COUNT DISTINCT is not allowed in streaming aggregation. Statements of the<br>following type are not allowed:<br>SELECT COUNT(DISTINCT x) ... FROM ... GROUP BY ... |
-| [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md") | One output row for each input row.      | Each output column may be calculated using a different window or partition.      | COUNT DISTINCT can't be used as [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md") or in windowed aggregation.        |
+Differences Between Aggregate and Analytic Functions| Function Type | Outputs | Rows or Windows Used | Notes |
+| --- | --- | --- | --- |
+| Aggregate Functions | One output row per group of input rows. | All output columns are calculated over the same window or same group of<br>rows. | COUNT DISTINCT is not allowed in streaming aggregation. Statements of the<br>following type are not allowed:<br>SELECT COUNT(DISTINCT x) ... FROM ... GROUP BY ... |
+| [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md") | One output row for each input row. | Each output column may be calculated using a different window or partition. | COUNT DISTINCT can't be used as [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md") or in windowed aggregation. |
 
 ## Streaming Aggregation and Rowtime Bounds
 
@@ -61,14 +61,14 @@ Amazon Kinesis Data Analytics supports the following aggregate functions:
 
 - [AVG](sql-reference-avg.md "sql-reference-avg.md")
 - [COUNT](sql-reference-count.md "sql-reference-count.md")
-- [COUNT_DISTINCT_ITEMS_TUMBLING Function](count-distinct-items.md "count-distinct-items.md")
-- [EXP_AVG](sql-reference-exp-avg.md "sql-reference-exp-avg.md")
-- [FIRST_VALUE](sql-reference-first-value.md "sql-reference-first-value.md")
-- [LAST_VALUE](sql-reference-last-value.md "sql-reference-last-value.md")
+- [COUNT\_DISTINCT\_ITEMS\_TUMBLING Function](count-distinct-items.md "count-distinct-items.md")
+- [EXP\_AVG](sql-reference-exp-avg.md "sql-reference-exp-avg.md")
+- [FIRST\_VALUE](sql-reference-first-value.md "sql-reference-first-value.md")
+- [LAST\_VALUE](sql-reference-last-value.md "sql-reference-last-value.md")
 - [MAX](sql-reference-max.md "sql-reference-max.md")
 - [MIN](sql-reference-min.md "sql-reference-min.md")
 - [SUM](sql-reference-sum.md "sql-reference-sum.md")
-- [TOP_K_ITEMS_TUMBLING Function](top-k.md "top-k.md")
+- [TOP\_K\_ITEMS\_TUMBLING Function](top-k.md "top-k.md")
 
 The following SQL uses the AVG aggregate function as part of a query to find the average
 age of all employees:
@@ -82,9 +82,9 @@ FROM SALES.EMPS;
 
 Result:
 
-| AVERAGE_AGE |
-| ----------- |
-| 38          |
+| AVERAGE\_AGE |
+| ------------ |
+| 38           |
 
 To find the average age of employees in each department, we can add an explicit GROUP BY
 clause to the query:
@@ -99,12 +99,12 @@ GROUP BY DEPTNO;
 
 Returns:
 
-| DEPTNO | AVERAGE_AGE |
-| ------ | ----------- |
-| 10     | 30          |
-| 20     | 25          |
-| 30     | 40          |
-| 40     | 57          |
+| DEPTNO | AVERAGE\_AGE |
+| ------ | ------------ |
+| 10     | 30           |
+| 20     | 25           |
+| 30     | 40           |
+| 40     | 57           |
 
 ## Examples of Aggregate Queries on Streams (Streaming Aggregation)
 
@@ -154,10 +154,10 @@ GROUP BY FLOOR(WEATHERSTREAM.ROWTIME TO DAY);
 
 The result of the aggregate query is shown in the following table.
 
-| FLOOR_DAY             | MIN_TEMP | MAX_TEMP |
-| --------------------- | -------- | -------- |
-| 2018-11-01 00:00:00.0 | 2        | 71       |
-| 2018-11-02 00:00:00.0 | 2        | 56       |
+| FLOOR\_DAY            | MIN\_TEMP | MAX\_TEMP |
+| --------------------- | --------- | --------- |
+| 2018-11-01 00:00:00.0 | 2         | 71        |
+| 2018-11-02 00:00:00.0 | 2         | 56        |
 
 There is no row for 2018-11-03, even though the example data does include temperature
 measurements on that day. This is because the rows for 2018-11-03 cannot be aggregated until
@@ -166,9 +166,9 @@ with a rowtime of 2018-11-04 00:00:00.0 (or later) or a rowtime bound of 2018-11
 (or later) arrives. If and when either did arrive, the next result would be as described in
 the following table.
 
-| FLOOR_DAY             | MIN_TEMP | MAX_TEMP |
-| --------------------- | -------- | -------- |
-| 2018-11-03 00:00:00.0 | 1        | 36       |
+| FLOOR\_DAY            | MIN\_TEMP | MAX\_TEMP |
+| --------------------- | --------- | --------- |
+| 2018-11-03 00:00:00.0 | 1         | 36        |
 
 Let's say that instead of finding the global minimum and maximum temperatures each day, we
 want to find the minimum, maximum, and average temperature for each city each day. To do this,
@@ -191,13 +191,13 @@ GROUP BY FLOOR(WEATHERSTREAM.ROWTIME TO DAY), CITY;
 
 The result of the aggregate query is shown in the following table.
 
-| FLOOR_DAY             | CITY      | MIN_TEMP | MAX_TEMP | AVG_TEMP |
-| --------------------- | --------- | -------- | -------- | -------- |
-| 2018-11-01 00:00:00.0 | Anchorage | 2        | 10       | 7        |
-| 2018-11-01 00:00:00.0 | Denver    | 29       | 50       | 38       |
-| 2018-11-01 00:00:00.0 | Miami     | 65       | 71       | 68       |
-| 2018-11-02 00:00:00.0 | Anchorage | 2        | 4        | 3        |
-| 2018-11-02 00:00:00.0 | Denver    | 39       | 56       | 47       |
+| FLOOR\_DAY            | CITY      | MIN\_TEMP | MAX\_TEMP | AVG\_TEMP |
+| --------------------- | --------- | --------- | --------- | --------- |
+| 2018-11-01 00:00:00.0 | Anchorage | 2         | 10        | 7         |
+| 2018-11-01 00:00:00.0 | Denver    | 29        | 50        | 38        |
+| 2018-11-01 00:00:00.0 | Miami     | 65        | 71        | 68        |
+| 2018-11-02 00:00:00.0 | Anchorage | 2         | 4         | 3         |
+| 2018-11-02 00:00:00.0 | Denver    | 39        | 56        | 47        |
 
 In this case, the arrival of rows for a new day's temperature measurements triggers the
 aggregation of the previous day's data, grouped by CITY, which then results in one row being
@@ -207,7 +207,7 @@ Here again, a rowtime bound 2018-11-04 00:00:00.0 could be used to prompt a resu
 2018-11-03 prior to any actual measurements for 2018-11-04 coming in is shown in the following
 table.
 
-| FLOOR_DAY             | CITY      | MIN_TEMP | MAX_TEMP | AVG_TEMP |
-| --------------------- | --------- | -------- | -------- | -------- |
-| 2018-11-03 00:00:00.0 | Anchorage | 1        | 1        | 1        |
-| 2018-11-03 00:00:00.0 | Denver    | 36       | 36       | 36       |
+| FLOOR\_DAY            | CITY      | MIN\_TEMP | MAX\_TEMP | AVG\_TEMP |
+| --------------------- | --------- | --------- | --------- | --------- |
+| 2018-11-03 00:00:00.0 | Anchorage | 1         | 1         | 1         |
+| 2018-11-03 00:00:00.0 | Denver    | 36        | 36        | 36        |

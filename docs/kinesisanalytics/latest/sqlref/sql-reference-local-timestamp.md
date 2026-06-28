@@ -3,7 +3,7 @@
 Returns the current timestamp as defined by the environment on Amazon Kinesis Data Analytics application is
 running. Time is always returned as UTC (GMT), not the local timezone.
 
-For more information, see [CURRENT_TIME](sql-reference-current-time.md "sql-reference-current-time.md"), [CURRENT_DATE](sql-reference-current-date.md "sql-reference-current-date.md"), [CURRENT_TIMESTAMP](sql-reference-current-timestamp.md "sql-reference-current-timestamp.md"), [LOCALTIME](sql-reference-localtime.md "sql-reference-localtime.md"), and [CURRENT_ROW_TIMESTAMP](sql-reference-current-row-timestamp.md "sql-reference-current-row-timestamp.md").
+For more information, see [CURRENT\_TIME](sql-reference-current-time.md "sql-reference-current-time.md"), [CURRENT\_DATE](sql-reference-current-date.md "sql-reference-current-date.md"), [CURRENT\_TIMESTAMP](sql-reference-current-timestamp.md "sql-reference-current-timestamp.md"), [LOCALTIME](sql-reference-localtime.md "sql-reference-localtime.md"), and [CURRENT\_ROW\_TIMESTAMP](sql-reference-current-row-timestamp.md "sql-reference-current-row-timestamp.md").
 
 ## Example
 

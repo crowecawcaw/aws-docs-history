@@ -4,8 +4,8 @@
 EVERY ( <boolean_expression> )
 ```
 
-EVERY returns true if the supplied boolean_expression is true in all of the selected rows.
-Returns false if the supplied boolean_expression is false in any of the selected rows.
+EVERY returns true if the supplied boolean\_expression is true in all of the selected rows.
+Returns false if the supplied boolean\_expression is false in any of the selected rows.
 
 ###### Example
 

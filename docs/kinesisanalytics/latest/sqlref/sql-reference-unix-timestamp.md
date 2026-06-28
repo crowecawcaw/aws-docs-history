@@ -1,4 +1,4 @@
-# UNIX_TIMESTAMP
+# UNIX\_TIMESTAMP
 
 Converts a SQL timestamp to a Unix timestamp that is expressed in milliseconds since
 '1970-01-01 00:00:00' UTC and that is a BIGINT.
@@ -26,7 +26,7 @@ Guide_.
 
 ###### Note
 
-The sample dataset has been modified to include a Timestamp value (CHANGE_TIME).
+The sample dataset has been modified to include a Timestamp value (CHANGE\_TIME).
 
 To run each example, you need an Amazon Kinesis Analytics application that has the
 input stream for the sample stock ticker. To learn how to create an Analytics
@@ -74,5 +74,5 @@ The preceding example outputs a stream similar to the following.
 
 ## Notes
 
-UNIX_TIMESTAMP is not part of the SQL:2008 standard. It is an Amazon Kinesis Data Analytics streaming SQL
+UNIX\_TIMESTAMP is not part of the SQL:2008 standard. It is an Amazon Kinesis Data Analytics streaming SQL
 extension.

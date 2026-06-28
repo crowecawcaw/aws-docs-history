@@ -53,4 +53,4 @@ Regarding characters:
   or both of type TIMESTAMP).
 
 - The Amazon Kinesis Data Analytics timezone is always UTC. The time functions, including the Amazon Kinesis Data Analytics
-  extension CURRENT_ROW_TIMESTAMP, return time in UTC.
+  extension CURRENT\_ROW\_TIMESTAMP, return time in UTC.

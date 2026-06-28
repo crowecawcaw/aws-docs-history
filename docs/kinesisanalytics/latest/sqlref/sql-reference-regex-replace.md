@@ -1,6 +1,6 @@
-# REGEX_REPLACE
+# REGEX\_REPLACE
 
-REGEX_REPLACE replaces a substring with an alternative substring. It returns the value of
+REGEX\_REPLACE replaces a substring with an alternative substring. It returns the value of
 the following Java expression.
 
 ```
@@ -101,7 +101,7 @@ The preceding example outputs a stream similar to the following.
 
 ## Notes
 
-REGEX_REPLACE is not part of the SQL:2008 standard. It is an Amazon Kinesis Data Analytics streaming SQL
+REGEX\_REPLACE is not part of the SQL:2008 standard. It is an Amazon Kinesis Data Analytics streaming SQL
 extension.
 
-REGEX_REPLACE returns `null` if any parameters are `null`.
+REGEX\_REPLACE returns `null` if any parameters are `null`.

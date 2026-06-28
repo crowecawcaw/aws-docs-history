@@ -1,4 +1,4 @@
-# TIMESTAMP_TO_CHAR
+# TIMESTAMP\_TO\_CHAR
 
 Uses a format string to format a timestamp as char. Returns the timestamp as a
 string.

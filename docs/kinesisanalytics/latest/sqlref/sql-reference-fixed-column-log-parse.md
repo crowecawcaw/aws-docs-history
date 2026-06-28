@@ -1,4 +1,4 @@
-# FIXED_COLUMN_LOG_PARSE
+# FIXED\_COLUMN\_LOG\_PARSE
 
 Parses fixed-width fields and automatically converts them to the given SQL types.
 
@@ -23,4 +23,4 @@ with a format string:
 
 ###### Related Topics
 
-[REGEX_LOG_PARSE](sql-reference-regex-log-parse.md "sql-reference-regex-log-parse.md")
+[REGEX\_LOG\_PARSE](sql-reference-regex-log-parse.md "sql-reference-regex-log-parse.md")

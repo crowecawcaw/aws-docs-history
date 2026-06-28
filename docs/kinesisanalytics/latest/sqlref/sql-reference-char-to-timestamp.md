@@ -15,11 +15,11 @@ uppercase; the hh can be uppercase to mean using a 24-hour clock.
 
 For the full range of valid specifiers, see [Class SimpleDateFormat](http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html "http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html") on the Oracle website.
 
-CHAR_TO_TIMESTAMP uses the template you specify as a parameter in the function call. The
+CHAR\_TO\_TIMESTAMP uses the template you specify as a parameter in the function call. The
 template causes the TIMESTAMP result to use only the parts of the input-date-time value that you
 specified in the template. Those fields in the resulting TIMESTAMP contain the corresponding
 data taken from your input-date-time string. Fields not specified in your template will use
-default values (see below). The format of the template used by CHAR_TO_TIMESTAMP is defined by
+default values (see below). The format of the template used by CHAR\_TO\_TIMESTAMP is defined by
 the [Class SimpleDateFormat](http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html "http://docs.oracle.com/javase/7/docs/api/index.html?java/text/SimpleDateFormat.html") on the Oracle website. For more information, see [Date and Time Patterns](sql-reference-parse-timestamp-format.md "sql-reference-parse-timestamp-format.md").
 
 The function-call syntax is as follows:
@@ -29,11 +29,11 @@ CHAR_TO_TIMESTAMP('<format_string>','<input_date_time_string>')
 ```
 
 Where <format\_ string> is the template you specify for the parts of
-<date_time_string> you want, and <input_date_time_string> is the original string
+<date\_time\_string> you want, and <input\_date\_time\_string> is the original string
 that is being converted to a TIMESTAMP result.
 
 Note that each string must be enclosed in single quotes and each element of the
-<input_date_time_string> must be in the range for its corresponding element in the
+<input\_date\_time\_string> must be in the range for its corresponding element in the
 template, otherwise no result is returned.
 
 For example, the input-string-element whose position corresponds with MM must be an integer

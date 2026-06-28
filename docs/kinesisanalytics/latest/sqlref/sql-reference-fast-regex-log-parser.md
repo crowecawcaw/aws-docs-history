@@ -1,10 +1,10 @@
-# FAST_REGEX_LOG_PARSER
+# FAST\_REGEX\_LOG\_PARSER
 
 ```
 FAST_REGEX_LOG_PARSE('input_string', 'fast_regex_pattern')
 ```
 
-The FAST_REGEX_LOG_PARSE works by first decomposing the regular expression into a series of
+The FAST\_REGEX\_LOG\_PARSE works by first decomposing the regular expression into a series of
 regular expressions, one for each expression inside a group and one for each expression outside
 a group. Any fixed length portions at the start of any expressions are moved to the end of the
 previous expression. If any expression is entirely fixed length, it is merged with the previous
@@ -16,24 +16,24 @@ The columns returned will be COLUMN1 through COLUMNn, where n is the number of g
 regular expression. The columns will be of type varchar(1024).  See sample usage below at First
 FRLP Example and at Further FRLP Examples.
 
-## FAST_REGEX_LOG_PARSER (FRLP)
+## FAST\_REGEX\_LOG\_PARSER (FRLP)
 
-FAST_REGEX_LOG_PARSER uses a lazy search - it stops at the first match. By contrast, the
-[REGEX_LOG_PARSE](sql-reference-regex-log-parse.md "sql-reference-regex-log-parse.md") is greedy unless possessive quantifiers are used.
+FAST\_REGEX\_LOG\_PARSER uses a lazy search - it stops at the first match. By contrast, the
+[REGEX\_LOG\_PARSE](sql-reference-regex-log-parse.md "sql-reference-regex-log-parse.md") is greedy unless possessive quantifiers are used.
 
-FAST_REGEX_LOG_PARSE scans the supplied input string for all the characters specified by
+FAST\_REGEX\_LOG\_PARSE scans the supplied input string for all the characters specified by
 the Fast Regex pattern.  
 
 - All characters in that input string must be accounted for by the characters and scan
   groups defined in the Fast Regex pattern. Scan groups define the fields-or-columns
   resulting when a scan is successful.
-- If all characters in the input_string are accounted for when the Fast Regex pattern is
+- If all characters in the input\_string are accounted for when the Fast Regex pattern is
   applied, then FRLP creates an output field (column) from each parenthetical expression in
   that Fast Regex pattern, in left-to-right order. The first (leftmost) parenthetical
   expression creates the first output field, the next (second) parenthetical expression
   creates the second output field, up through the last parenthetical expression creating the
   last output field.
-- If the input_string contains any characters not accounted for (matched) by applying
+- If the input\_string contains any characters not accounted for (matched) by applying
   Fast Regex pattern, then FRLP returns no fields at all.
 
 ## Character Class Symbols for Fast Regex
@@ -42,7 +42,7 @@ Fast Regex uses a different set of character class symbols from the regular rege
 parser:
 
 | Symbol or Construct                      | Meaning                              |
-| ---------------------------------------- | ------------------------------------ | ----- |
+| ---------------------------------------- | ------------------------------------ |
 | -                                        | Character range, including endpoints |
 | [ charclasses ]                          | Character class                      |
 | [^ charclasses ]                         | Negated character class              |
@@ -109,7 +109,7 @@ select t.r."COLUMN1", t.r."COLUMN2" from
 
 ```
 
-1. The scan of input_string ('Mary_had_a_little_lamb') begins with the 1st group defined
+1. The scan of input\_string ('Mary\_had\_a\_little\_lamb') begins with the 1st group defined
    in Fast Regex pattern:  (.\*), which means "find any character 0 or more times."  
 
 '**(.\*)**\_(.\_.\*)\_.\*' 2. This group specification, defining the first column to be parsed, asks the Fast Regex
@@ -121,7 +121,7 @@ next literal character after the first group is an underscore:  
 '(.\*)**\_**(.\_.\*)\_.\*' 3. The parser scans each character in the input string until it finds the next
 specification in the Fast Regex pattern: an underscore:
 
-'(.\*)\_**(.\_.\*)**\_.\*' 4. Group-2 thus begins with "a_l". Next, the parser needs to determine the end of this
+'(.\*)\_**(.\_.\*)**\_.\*' 4. Group-2 thus begins with "a\_l". Next, the parser needs to determine the end of this
 group, using the remaining specification in the pattern:
 
 '(.\*)\_(.\_.\*)**\_.\***'
@@ -156,7 +156,7 @@ select t.r."COLUMN1", t.r."COLUMN2" from
 ```
 
 The preceding example returns no fields because the "+" required there be at least one
-more underscore-in-a-row; and the input_string does not have that.
+more underscore-in-a-row; and the input\_string does not have that.
 
 ### Example B
 
@@ -176,7 +176,7 @@ select t.r."COLUMN1", t.r."COLUMN2" from
 
 The preceding example succeeds in returning two fields because after finding the
 multiple underscores required by the "\_+" specification, the group-2 specification (.\*)
-accepts all remaining characters in the .input_string. Underscores do not appear trailing
+accepts all remaining characters in the .input\_string. Underscores do not appear trailing
 "Mary" nor leading "had" because the "\_+" specification is not enclosed in
 parentheses.
 
@@ -186,7 +186,7 @@ each step.
 
 The first case in this topic, A, fails because when it gets to the first underscore, the
 regex processor has no way of knowing without backtracking that it can't use the underscore
-to match "\_+", and FRLP doesn't backtrack, whereas [REGEX_LOG_PARSE](sql-reference-regex-log-parse.md "sql-reference-regex-log-parse.md")
+to match "\_+", and FRLP doesn't backtrack, whereas [REGEX\_LOG\_PARSE](sql-reference-regex-log-parse.md "sql-reference-regex-log-parse.md")
 does.  
 
 The search directly above, B, gets turned into three searches:
@@ -203,8 +203,8 @@ also that "\_+" is considered the same as "\_\_\*" (that is, it considers "under
 repeat-underscore-1-or-more-times" the same as "underscore underscore
 repeat-underscore-0-or-more-times".)
 
-Case A demonstrates the main difference between REGEX_LOG_PARSE and
-FAST_REGEX_LOG_PARSE, because the search in A would work under REGEX_LOG_PARSE because that
+Case A demonstrates the main difference between REGEX\_LOG\_PARSE and
+FAST\_REGEX\_LOG\_PARSE, because the search in A would work under REGEX\_LOG\_PARSE because that
 function would use backtracking.
 
 ### Example C
