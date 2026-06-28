@@ -12,6 +12,7 @@ The following list contains AWS services and features that are in scope for the 
 - [Containers](#soa-03-in-scope-containers "#soa-03-in-scope-containers")
 - [Database](#soa-03-in-scope-database "#soa-03-in-scope-database")
 - [Developer Tools](#soa-03-in-scope-developer-tools "#soa-03-in-scope-developer-tools")
+- [Machine Learning and Artificial Intelligence](#soa-03-in-scope-ml-ai "#soa-03-in-scope-ml-ai")
 - [Management and Governance](#soa-03-in-scope-management-governance "#soa-03-in-scope-management-governance")
 - [Migration and Transfer](#soa-03-in-scope-migration-transfer "#soa-03-in-scope-migration-transfer")
 - [Network and Content Delivery](#soa-03-in-scope-network-content-delivery "#soa-03-in-scope-network-content-delivery")
@@ -26,13 +27,13 @@ The following list contains AWS services and features that are in scope for the 
 ## Application Integration
 
 - Amazon EventBridge
-- Amazon Simple Notification Service (Amazon SNS)
-- Amazon Simple Queue Service (Amazon SQS)
+- Amazon SNS
+- Amazon SQS
 - AWS Step Functions
 
 ## Business Applications
 
-- Amazon Simple Email Service (Amazon SES)
+- Amazon SES
 
 ## Cloud Financial Management
 
@@ -48,9 +49,9 @@ The following list contains AWS services and features that are in scope for the 
 
 ## Containers
 
-- Amazon Elastic Container Registry (Amazon ECR)
-- Amazon Elastic Container Service (Amazon ECS)
-- Amazon Elastic Kubernetes Service (Amazon EKS)
+- Amazon ECR
+- Amazon ECS
+- Amazon EKS
 
 ## Database
 
@@ -65,17 +66,24 @@ The following list contains AWS services and features that are in scope for the 
 ## Developer Tools
 
 - AWS X-Ray
+- Kiro
+
+## Machine Learning and Artificial Intelligence
+
+- Amazon Bedrock
 
 ## Management and Governance
 
 - AWS Auto Scaling
-- AWS Cloud Development Kit (AWS CDK)
+- AWS CDK
 - AWS CloudFormation
 - AWS CloudTrail
 - Amazon CloudWatch
 - AWS Compute Optimizer
 - AWS Config
 - AWS Control Tower
+- AWS DevOps Agent
+- AWS Health Dashboard
 - Amazon Managed Grafana
 - AWS Managed Service for Prometheus
 - AWS Organizations
@@ -103,7 +111,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Site-to-Site VPN
 - AWS Transit Gateway
 - Amazon VPC
-- VPC Endpoints
+- VPC endpoints
 - VPC Flow Logs
 - VPC peering
 - VPC Reachability Analyzer
@@ -117,15 +125,16 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon GuardDuty
 - AWS IAM Access Analyzer
 - AWS IAM Identity Center
-- AWS Identity and Access Management (IAM)
+- IAM
 - Amazon Inspector
 - Internet gateways
-- AWS Key Management Service (AWS KMS)
+- AWS KMS
 - Amazon Macie
 - AWS Network Firewall
 - NAT gateways
 - Network ACLs
 - AWS Secrets Manager
+- AWS Security Agent
 - AWS Security Hub
 - AWS Shield
 - AWS WAF
@@ -133,8 +142,8 @@ The following list contains AWS services and features that are in scope for the 
 ## Storage
 
 - AWS Backup
-- Amazon Elastic Block Store (Amazon EBS)
-- Amazon Elastic File System (Amazon EFS)
+- Amazon EBS
+- Amazon EFS
 - Amazon FSx
 - Amazon S3
 - AWS Storage Gateway

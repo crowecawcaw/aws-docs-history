@@ -13,7 +13,7 @@ The following list contains AWS services and features that are out of scope for 
 - [Developer Tools](#soa-03-out-of-scope-developer-tools "#soa-03-out-of-scope-developer-tools")
 - [End User Computing](#soa-03-out-of-scope-end-user-computing "#soa-03-out-of-scope-end-user-computing")
 - [Frontend Web and Mobile](#soa-03-out-of-scope-frontend-web-mobile "#soa-03-out-of-scope-frontend-web-mobile")
-- [Machine Learning](#soa-03-out-of-scope-machine-learning "#soa-03-out-of-scope-machine-learning")
+- [Machine Learning and Artificial Intelligence](#soa-03-out-of-scope-machine-learning "#soa-03-out-of-scope-machine-learning")
 - [Migration and Transfer](#soa-03-out-of-scope-migration-transfer "#soa-03-out-of-scope-migration-transfer")
 - [Network and Content Delivery](#soa-03-out-of-scope-network-content-delivery "#soa-03-out-of-scope-network-content-delivery")
 - [Security, Identity, and Compliance](#soa-03-out-of-scope-security-identity-compliance "#soa-03-out-of-scope-security-identity-compliance")
@@ -65,28 +65,24 @@ The following list contains AWS services and features that are out of scope for 
 
 - AWS AppConfig
 - AWS App Studio
-- Amazon Q Developer
 
 ## End User Computing
 
-- Amazon AppStream 2.0
+- Amazon WorkSpaces applications
 - Amazon WorkSpaces
 
 ## Frontend Web and Mobile
 
-- AWS AppSync
 - AWS Device Farm
 - Amazon Location Service
 
-## Machine Learning
+## Machine Learning and Artificial Intelligence
 
-- Amazon Augmented AI (Amazon A2I)
 - Amazon CodeGuru
 - Amazon Comprehend
 - AWS Deep Learning AMIs (DLAMI)
 - AWS HealthLake
 - AWS HealthOmics
-- Amazon Kendra
 - Amazon Lex
 - Amazon Polly
 - Amazon Rekognition
@@ -115,5 +111,4 @@ The following list contains AWS services and features that are out of scope for 
 
 ## Storage
 
-- Amazon Cloud Directory
 - Amazon FSx for OpenZFS

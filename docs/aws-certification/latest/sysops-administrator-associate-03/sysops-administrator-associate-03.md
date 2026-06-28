@@ -13,8 +13,11 @@ The AWS Certified CloudOps Engineer - Associate (SOA-C03) exam is intended for C
 - [Content Domain 3: Deployment, Provisioning, and Automation](sysops-administrator-associate-03-domain3.md "sysops-administrator-associate-03-domain3.md")
 - [Content Domain 4: Security and Compliance](sysops-administrator-associate-03-domain4.md "sysops-administrator-associate-03-domain4.md")
 - [Content Domain 5: Networking and Content Delivery](sysops-administrator-associate-03-domain5.md "sysops-administrator-associate-03-domain5.md")
+- [Mentions of AWS services on the exam](soa-03-service-mentions.md "soa-03-service-mentions.md")
 - [In-Scope AWS Services](soa-03-in-scope-services.md "soa-03-in-scope-services.md")
 - [Out-of-Scope AWS Services](soa-03-out-of-scope-services.md "soa-03-out-of-scope-services.md")
+- [Comparison of SOA-C02 and SOA-C03](sysops-administrator-associate-03-comparison.md "sysops-administrator-associate-03-comparison.md")
+- [Revisions](soa-03-revisions.md "soa-03-revisions.md")
 - [Survey](#sysops-administrator-associate-03-survey "#sysops-administrator-associate-03-survey")
 
 ## Introduction
@@ -62,7 +65,7 @@ The target candidate should have the following AWS knowledge:
 - Cloud financial management
 - Operations within hybrid and multi-VPC environments
 - AWS database services (for example, Amazon RDS, Amazon DynamoDB, Amazon ElastiCache)
-- AWS compute services (for example, Amazon EC2, AWS Lambda, Amazon Elastic Container Service [Amazon ECS])
+- AWS compute services (for example, Amazon EC2, AWS Lambda, Amazon ECS)
 
 ### Job tasks that are out of scope for the target candidate
 
