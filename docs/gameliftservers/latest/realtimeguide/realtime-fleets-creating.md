@@ -224,7 +224,7 @@ time after deployment.
      during a specified time span.
 
 5. Choose **Next** to continue the
-   workflow.
+workflow.
 
 **Step 5 Review and create**
 

@@ -22,7 +22,7 @@ If you don't specify a connection type, the default is unsecured.
 ###### Note
 
 When connecting to a Realtime server on a secured fleet with a TLS
-certificate, you must use the value RT_OVER_WSS_DTLS_TLS12.
+certificate, you must use the value RT\_OVER\_WSS\_DTLS\_TLS12.
 
 Type: A `ConnectionType`
 [enum](#realtime-sdk-csharp-ref-datatypes-enums "#realtime-sdk-csharp-ref-datatypes-enums")
@@ -206,16 +206,16 @@ Enums defined for the client SDK for Amazon GameLift Servers Realtime are defin
 - CONNECTED – Game client is connected to the Realtime
   server with a TCP connection only. All messages regardless of
   delivery intent are sent via TCP.
-- CONNECTED_SEND_FAST – Game client is connected to the
+- CONNECTED\_SEND\_FAST – Game client is connected to the
   Realtime server with a TCP and a UDP connection. However, the
   ability to receive messages via UDP is not yet verified; as a
   result, all messages sent to the game client use TCP.
-- CONNECTED_SEND_AND_RECEIVE_FAST – Game client is connected
+- CONNECTED\_SEND\_AND\_RECEIVE\_FAST – Game client is connected
   to the Realtime server with a TCP and a UDP connection. The game
   client can send and receive messages using either TCP or UDP.
 - CONNECTING Game client has sent a connection request and the
   Realtime server is processing it.
-- DISCONNECTED_CLIENT_CALL – Game client was disconnected
+- DISCONNECTED\_CLIENT\_CALL – Game client was disconnected
   from the Realtime server in response to a [Disconnect()](realtime-sdk-csharp-ref-actions.md#realtime-sdk-csharp-ref-actions-disconnect "realtime-sdk-csharp-ref-actions.md#realtime-sdk-csharp-ref-actions-disconnect")request from the game client.
 - DISCONNECTED – Game client was disconnected from the
   Realtime server for a reason other than a client disconnect
@@ -223,16 +223,16 @@ Enums defined for the client SDK for Amazon GameLift Servers Realtime are defin
 
 **ConnectionType**
 
-- RT_OVER_WSS_DTLS_TLS12 – Secure connection type.
+- RT\_OVER\_WSS\_DTLS\_TLS12 – Secure connection type.
 
 For use with Realtime servers that are
 running on an Amazon GameLift Servers fleet with a TLS certificate generated. When
 using a secure connection, TCP traffic is encrypted using TLS 1.2,
 and UDP traffic is encrypted using DTLS 1.2.
 
-- RT_OVER_WS_UDP_UNSECURED – Non-secure connection
+- RT\_OVER\_WS\_UDP\_UNSECURED – Non-secure connection
   type.
-- RT_OVER_WEBSOCKET – Non-secure connection type. This value
+- RT\_OVER\_WEBSOCKET – Non-secure connection type. This value
   is no longer preferred.
 
 **DeliveryIntent**
