@@ -1,8 +1,8 @@
 # Selection
 
-| CONTAINER_BUILD_PERF_01: How do you reduce the size of your<br>container image? |
-| ------------------------------------------------------------------------------- |
-|                                                                                 |
+| CONTAINER\_BUILD\_PERF\_01: How do you reduce the size of your<br>container image? |
+| ---------------------------------------------------------------------------------- |
+|                                                                                    |
 
 **Use small parent
 images**
@@ -82,9 +82,9 @@ target-directory, JAR-files, and subdirectories.
 !target/quarkus-app/*
 ```
 
-| CONTAINER_BUILD_PERF_02: How do you reduce the pull time of your<br>container image? |
-| ------------------------------------------------------------------------------------ |
-|                                                                                      |
+| CONTAINER\_BUILD\_PERF\_02: How do you reduce the pull time of your<br>container image? |
+| --------------------------------------------------------------------------------------- |
+|                                                                                         |
 
 **Use a container registry
 close to your cluster**

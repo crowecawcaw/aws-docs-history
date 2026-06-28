@@ -1,8 +1,8 @@
 # Workload architecture
 
-| CONTAINER_BUILD_REL_02: How do you handle persistent data in a<br>container application? |
-| ---------------------------------------------------------------------------------------- |
-|                                                                                          |
+| CONTAINER\_BUILD\_REL\_02: How do you handle persistent data in a<br>container application? |
+| ------------------------------------------------------------------------------------------- |
+|                                                                                             |
 
 **Use volumes to persist
 data**
@@ -13,9 +13,9 @@ Use mounted volumes, whether block or network file system (NFS), to persist file
 
 For persisting data, use external database such as Amazon Relational Database Service (Amazon RDS), Amazon DynamoDB, or Amazon Aurora. Use a database system that provides performance, high-availability, and scalability to your container application when persisting data.
 
-| CONTAINER_BUILD_REL_03: How do you automate building and<br>testing of containers? |
-| ---------------------------------------------------------------------------------- |
-|                                                                                    |
+| CONTAINER\_BUILD\_REL\_03: How do you automate building and<br>testing of containers? |
+| ------------------------------------------------------------------------------------- |
+|                                                                                       |
 
 **Create local testing
 processes**

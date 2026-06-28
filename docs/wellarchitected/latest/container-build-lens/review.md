@@ -1,17 +1,17 @@
 # Review
 
-| CONTAINER_BUILD_PERF_03: How do you make sure to get consistent<br>results for your target images? |
-| -------------------------------------------------------------------------------------------------- |
-|                                                                                                    |
+| CONTAINER\_BUILD\_PERF\_03: How do you make sure to get consistent<br>results for your target images? |
+| ----------------------------------------------------------------------------------------------------- |
+|                                                                                                       |
 
 Using the `latest` tag for
 the parent image could potentially lead to issues because the
 latest version of the image might include breaking changes
 compared to the version that is currently used.
 
-| CONTAINER_BUILD_PERF_04: How do you make sure to use updated<br>versions for parent images? |
-| ------------------------------------------------------------------------------------------- |
-|                                                                                             |
+| CONTAINER\_BUILD\_PERF\_04: How do you make sure to use updated<br>versions for parent images? |
+| ---------------------------------------------------------------------------------------------- |
+|                                                                                                |
 
 **Implement a notification
 mechanism for updated parent images**

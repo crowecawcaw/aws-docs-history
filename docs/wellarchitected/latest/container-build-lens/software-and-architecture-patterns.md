@@ -1,8 +1,8 @@
 # Software and architecture patterns
 
-| CONTAINER_BUILD_SUSTAINABILITY_01: How do you design<br>your containerized application in a way that reduces the use of the underlying<br>resources? |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                      |
+| CONTAINER\_BUILD\_SUSTAINABILITY\_01: How do you design<br>your containerized application in a way that reduces the use of the underlying<br>resources? |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                         |
 
 When designing containerized application, you should keep your
 build manifests up-to-date and aligned with your application

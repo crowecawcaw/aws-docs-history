@@ -1,8 +1,8 @@
 # Prepare
 
-| CONTAINER_BUILD_OPS_01: How do you manage the lifecycle of your containers<br>and images? |
-| ----------------------------------------------------------------------------------------- |
-|                                                                                           |
+| CONTAINER\_BUILD\_OPS\_01: How do you manage the lifecycle of your containers<br>and images? |
+| -------------------------------------------------------------------------------------------- |
+|                                                                                              |
 
 **Understand the lineage of your container image**
 

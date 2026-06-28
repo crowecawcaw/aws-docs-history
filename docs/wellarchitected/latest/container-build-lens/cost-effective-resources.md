@@ -5,9 +5,9 @@ workloads. In this section, we’ll describe what has to be done
 in order to optimize your container images, and why it is
 important from cost perspective.
 
-| CONTAINER_BUILD_COST_03: Ensure that your container images<br>contain only what is relevant for your application to run |
-| ----------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                         |
+| CONTAINER\_BUILD\_COST\_03: Ensure that your container images<br>contain only what is relevant for your application to run |
+| -------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                            |
 
 Container image size affects several processes related to
 running your containerized workload. The following processes
@@ -49,9 +49,9 @@ per GB-month. For current pricing, refer to the
 [pricing
 page](https://aws.amazon.com/ecr/pricing/ "https://aws.amazon.com/ecr/pricing/").
 
-| CONTAINER_BUILD_COST_04: How do you reduce your container<br>images size? |
-| ------------------------------------------------------------------------- |
-|                                                                           |
+| CONTAINER\_BUILD\_COST\_04: How do you reduce your container<br>images size? |
+| ---------------------------------------------------------------------------- |
+|                                                                              |
 
 A container image consists of read-only layers that represent a Dockerfile
 instruction. Each instruction creates one additional layer on top of the previous layer.
@@ -121,9 +121,9 @@ Reducing image layers can be done with several techniques:
     makes it easy to exclude unnecessary files from `COPY`
     or `ADD` commands.
 
-| CONTAINER_BUILD_COST_05: How do you design your containerized<br>application to support automatic scaling and graceful termination? |
-| ----------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                     |
+| CONTAINER\_BUILD\_COST\_05: How do you design your containerized<br>application to support automatic scaling and graceful termination? |
+| -------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                        |
 
 When designing applications that will be containerized, it is
 important to include signal handling within the code and/or
@@ -142,9 +142,9 @@ gracefully. If it fails to do so, the process may end up being
 terminated while performing work, which can prohibit the use
 of auto scaling or spot in general.
 
-| CONTAINER_BUILD_COST_06: How do you design your containerized<br>application to support multiple CPU architectures? |
-| ------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                     |
+| CONTAINER\_BUILD\_COST\_06: How do you design your containerized<br>application to support multiple CPU architectures? |
+| ---------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                        |
 
 Different instance families offer different performance for the same amount of
 hardware (CPU and memory). An example is using a newer instead of an older generation of

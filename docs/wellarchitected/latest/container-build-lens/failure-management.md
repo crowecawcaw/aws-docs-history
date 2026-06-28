@@ -1,8 +1,8 @@
 # Failure management
 
-| CONTAINER_BUILD_REL_05: How do you monitor the health of a<br>container? |
-| ------------------------------------------------------------------------ |
-|                                                                          |
+| CONTAINER\_BUILD\_REL\_05: How do you monitor the health of a<br>container? |
+| --------------------------------------------------------------------------- |
+|                                                                             |
 
 **Plan for health checks in
 all containers builds and deployments**

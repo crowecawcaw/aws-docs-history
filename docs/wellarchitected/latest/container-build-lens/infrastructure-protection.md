@@ -1,8 +1,8 @@
 # Infrastructure protection
 
-| CONTAINER_BUILD_SEC_04: How do you manage your container image<br>boundaries? |
-| ----------------------------------------------------------------------------- |
-|                                                                               |
+| CONTAINER\_BUILD\_SEC\_04: How do you manage your container image<br>boundaries? |
+| -------------------------------------------------------------------------------- |
+|                                                                                  |
 
 **Minimize attack surface**
 

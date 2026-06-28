@@ -1,8 +1,8 @@
 # Tradeoffs
 
-| CONTAINER_BUILD_PERF_06: How do you optimize the size of your<br>target image? |
-| ------------------------------------------------------------------------------ |
-|                                                                                |
+| CONTAINER\_BUILD\_PERF\_06: How do you optimize the size of your<br>target image? |
+| --------------------------------------------------------------------------------- |
+|                                                                                   |
 
 **Use caching during
 build**

@@ -1,8 +1,8 @@
 # Identity and access management
 
-| CONTAINER_BUILD_SEC_01: How do you ensure that your container<br>images are using least privilege identity? |
-| ----------------------------------------------------------------------------------------------------------- |
-|                                                                                                             |
+| CONTAINER\_BUILD\_SEC\_01: How do you ensure that your container<br>images are using least privilege identity? |
+| -------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                |
 
 By default, containers provide process isolation. This means that processes running inside of a container are isolated from processes and data
 that exist in other containers as well as the container host’s operating system. However, it is important to note that the default behavior is to run
@@ -29,9 +29,9 @@ container. Therefore, even if the application hosted in this container is compro
 attackers would not be able to use the `dev` user within the container
 to access other containers or the container host’s operating system.
 
-| CONTAINER_BUILD_SEC_02: How do you control access to your build<br>infrastructure? |
-| ---------------------------------------------------------------------------------- |
-|                                                                                    |
+| CONTAINER\_BUILD\_SEC\_02: How do you control access to your build<br>infrastructure? |
+| ------------------------------------------------------------------------------------- |
+|                                                                                       |
 
 **Limit administrator access to build infrastructure (CI pipeline)**
 

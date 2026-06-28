@@ -4,9 +4,9 @@ Look for opportunities to reduce your sustainability impact by
 making changes to your development, test, and deployment
 practices. 
 
-| CONTAINER_BUILD_SUSTAINABILITY_03: How do you design<br>your build tooling and services to improve efficiency of the underlying<br>resources? |
-| --------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                               |
+| CONTAINER\_BUILD\_SUSTAINABILITY\_03: How do you design<br>your build tooling and services to improve efficiency of the underlying<br>resources? |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                  |
 
 **Use dynamically created
 build servers for building your containerized

@@ -1,8 +1,8 @@
 # Operate
 
-| CONTAINER_BUILD_OPS_02: How do you know whether your<br>containerized workload is achieving its business goals? |
-| --------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                 |
+| CONTAINER\_BUILD\_OPS\_02: How do you know whether your<br>containerized workload is achieving its business goals? |
+| ------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                    |
 
 An important part of operating any workload is understanding
 the health of your workload quickly. The sooner an issue can

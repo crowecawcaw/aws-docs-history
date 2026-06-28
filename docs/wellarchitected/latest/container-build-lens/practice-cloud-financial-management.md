@@ -1,8 +1,8 @@
 # Practice cloud financial management
 
-| CONTAINER_BUILD_COST_01: How do you design your container<br>build process to avoid unnecessary cost? |
-| ----------------------------------------------------------------------------------------------------- |
-|                                                                                                       |
+| CONTAINER\_BUILD\_COST\_01: How do you design your container<br>build process to avoid unnecessary cost? |
+| -------------------------------------------------------------------------------------------------------- |
+|                                                                                                          |
 
 Building a containerized application can result in multiple
 images for the same service. Depending on your organization

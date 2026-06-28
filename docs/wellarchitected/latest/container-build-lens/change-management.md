@@ -1,8 +1,8 @@
 # Change management
 
-| CONTAINER_BUILD_REL_04: How do I cascade updates to a parent or<br>base image? |
-| ------------------------------------------------------------------------------ |
-|                                                                                |
+| CONTAINER\_BUILD\_REL\_04: How do I cascade updates to a parent or<br>base image? |
+| --------------------------------------------------------------------------------- |
+|                                                                                   |
 
 **Create a standardized parent
 image**

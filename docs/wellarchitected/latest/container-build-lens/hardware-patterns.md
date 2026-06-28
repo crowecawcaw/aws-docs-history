@@ -1,8 +1,8 @@
 # Hardware patterns
 
-| CONTAINER_BUILD_SUSTAINABILITY_02: How do you<br>support your containerized application to run on energy-efficient hardware? |
-| ---------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                              |
+| CONTAINER\_BUILD\_SUSTAINABILITY\_02: How do you<br>support your containerized application to run on energy-efficient hardware? |
+| ------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                 |
 
 To be able to [use instance types with the least environmental impact](../sustainability-pillar/use-instance-types-with-the-least-impact.md "../sustainability-pillar/use-instance-types-with-the-least-impact.md") (from the Sustainability
 Pillar whitepaper), you have to ensure your containerized application is able to run on a

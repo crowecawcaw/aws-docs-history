@@ -1,8 +1,8 @@
 # Expenditure and usage awareness
 
-| CONTAINER_BUILD_COST_02: How do you design your container<br>build process to avoid unnecessary cost? |
-| ----------------------------------------------------------------------------------------------------- |
-|                                                                                                       |
+| CONTAINER\_BUILD\_COST\_02: How do you design your container<br>build process to avoid unnecessary cost? |
+| -------------------------------------------------------------------------------------------------------- |
+|                                                                                                          |
 
 **Designing efficient
 container build process**

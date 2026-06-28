@@ -1,8 +1,8 @@
 # Foundations
 
-| CONTAINER_BUILD_REL_01: How do you limit the amount of CPU and<br>memory a container consumes? |
-| ---------------------------------------------------------------------------------------------- |
-|                                                                                                |
+| CONTAINER\_BUILD\_REL\_01: How do you limit the amount of CPU and<br>memory a container consumes? |
+| ------------------------------------------------------------------------------------------------- |
+|                                                                                                   |
 
 **Use RAM and CPU limits**
 

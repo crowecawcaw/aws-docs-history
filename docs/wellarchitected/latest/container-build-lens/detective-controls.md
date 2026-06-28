@@ -1,8 +1,8 @@
 # Detective controls
 
-| CONTAINER_BUILD_SEC_03: How do you detect and address<br>vulnerabilities within your container image? |
-| ----------------------------------------------------------------------------------------------------- |
-|                                                                                                       |
+| CONTAINER\_BUILD\_SEC\_03: How do you detect and address<br>vulnerabilities within your container image? |
+| -------------------------------------------------------------------------------------------------------- |
+|                                                                                                          |
 
 **Ensure that your images are scanned for vulnerabilities**
 

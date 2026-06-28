@@ -1,8 +1,8 @@
 # Data protection
 
-| CONTAINER_BUILD_SEC_05: How do you handle data within your<br>containerized applications? |
-| ----------------------------------------------------------------------------------------- |
-|                                                                                           |
+| CONTAINER\_BUILD\_SEC\_05: How do you handle data within your<br>containerized applications? |
+| -------------------------------------------------------------------------------------------- |
+|                                                                                              |
 
 **Do not hardcode sensitive data into your container image**
 
