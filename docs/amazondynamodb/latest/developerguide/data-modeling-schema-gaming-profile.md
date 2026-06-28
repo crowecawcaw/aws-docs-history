@@ -111,7 +111,7 @@ with that Partition Key value. Access pattern 2 (`getPlayerAllProfile`) is
 implemented in this way. Optionally, we can add a sort key condition expression — a
 string that determines the items to be read from the table. Access pattern 3
 (`getPlayerAllItems`) is implemented by adding the key condition of sort
-key begins_with `ITEMS#`. Further, in order to simplify the development of
+key begins\_with `ITEMS#`. Further, in order to simplify the development of
 the application side, we can use filter expressions to implement access pattern 4
 (`getPlayerSpecificItem`).
 
@@ -179,14 +179,14 @@ more information on transactions, see [DynamoDB transactions example](transactio
 All access patterns and how the schema design addresses them are summarized in the
 table below:
 
-| Access pattern            | Base table/GSI/LSI | Operation  | Partition key value | Sort key value          | Other conditions/filters                                                                                        |
-| ------------------------- | ------------------ | ---------- | ------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------- |
-| getPlayerFriends          | Base table         | GetItem    | PK=PlayerID         | SK=“FRIENDS#playerID”   |                                                                                                                 |
-| getPlayerAllProfile       | Base table         | Query      | PK=PlayerID         |                         |                                                                                                                 |
-| getPlayerAllItems         | Base table         | Query      | PK=PlayerID         | SK begins_with “ITEMS#” |                                                                                                                 |
-| getPlayerSpecificItem     | Base table         | Query      | PK=PlayerID         | SK begins_with “ITEMS#” | filterExpression: "ItemType = :itemType" expressionAttributeValues: {<br>":itemType": "Weapon" }                |
-| updateCharacterAttributes | Base table         | UpdateItem | PK=PlayerID         | SK=“#METADATA#playerID” | UpdateExpression: "SET currency = currency<br>• :amount"<br>ConditionExpression: "currency >= :minAmount"       |
-| updateItemCount           | Base table         | UpdateItem | PK=PlayerID         | SK =“ITEMS#ItemID”      | update-expression: "SET ItemCount = ItemCount<br>• :incr"<br>expression-attribute-values: '{":incr":{"N":"1"}}' |
+| Access pattern            | Base table/GSI/LSI | Operation  | Partition key value | Sort key value           | Other conditions/filters                                                                                        |
+| ------------------------- | ------------------ | ---------- | ------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| getPlayerFriends          | Base table         | GetItem    | PK=PlayerID         | SK=“FRIENDS#playerID”    |                                                                                                                 |
+| getPlayerAllProfile       | Base table         | Query      | PK=PlayerID         |                          |                                                                                                                 |
+| getPlayerAllItems         | Base table         | Query      | PK=PlayerID         | SK begins\_with “ITEMS#” |                                                                                                                 |
+| getPlayerSpecificItem     | Base table         | Query      | PK=PlayerID         | SK begins\_with “ITEMS#” | filterExpression: "ItemType = :itemType" expressionAttributeValues: {<br>":itemType": "Weapon" }                |
+| updateCharacterAttributes | Base table         | UpdateItem | PK=PlayerID         | SK=“#METADATA#playerID”  | UpdateExpression: "SET currency = currency<br>• :amount"<br>ConditionExpression: "currency >= :minAmount"       |
+| updateItemCount           | Base table         | UpdateItem | PK=PlayerID         | SK =“ITEMS#ItemID”       | update-expression: "SET ItemCount = ItemCount<br>• :incr"<br>expression-attribute-values: '{":incr":{"N":"1"}}' |
 
 ## Gaming profile final schema
 

@@ -33,8 +33,8 @@ If one does not already exist, the AWS Management Console creates an Amazon S3 b
 bucket name is
 `aws-logs-`account-id`-`region`,
  where `account-id`is your AWS account number
- and`region``is the region in which you
- launched the cluster (for example,
+ and`region`` is the region in which you
+launched the cluster (for example,
 `aws-logs-123456789012-us-west-2`).
 
 ###### Note

@@ -12,12 +12,12 @@ queries should not expect that the data is up-to-date.
 
 The examples in this section are written with the assumption you followed the
 steps in [Tutorial: Working with Amazon DynamoDB and Apache Hive](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md") and have an external table in
-DynamoDB named _ddb_features_.
+DynamoDB named _ddb\_features_.
 
 ###### Example From DynamoDB to native Hive table
 
 You can create a native Hive table and populate it with data from
-_ddb_features_, like this:
+_ddb\_features_, like this:
 
 ```
 CREATE TABLE features_snapshot AS
@@ -32,7 +32,7 @@ SELECT * FROM ddb_features;
 ```
 
 In these examples, the subquery `SELECT * FROM ddb_features` will
-retrieve all of the data from _ddb_features_. If you only
+retrieve all of the data from _ddb\_features_. If you only
 want to copy a subset of the data, you can use a `WHERE` clause in
 the subquery.
 
@@ -49,7 +49,7 @@ WHERE feature_class IN ('Lake','Summit');
 ###### Example From native Hive table to DynamoDB
 
 Use the following HiveQL statement to copy the data from the native Hive table
-to _ddb_features_:
+to _ddb\_features_:
 
 ```
 INSERT OVERWRITE TABLE ddb_features

@@ -17,7 +17,7 @@ create an Amazon Redshift Serverless workgroup, see [Creating a workgroup with a
 see [Creating a cluster](../../../redshift/latest/mgmt/create-cluster.md "../../../redshift/latest/mgmt/create-cluster.md").
 
 The target Amazon Redshift workgroup or cluster must have the
-enable_case_sensitive_identifier parameter turned on for the integration to be
+enable\_case\_sensitive\_identifier parameter turned on for the integration to be
 successful. For more information on enabling case sensitivity, see [Turn
 on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md "../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md") in the Amazon Redshift
 management guide.

@@ -74,7 +74,7 @@ This topic also includes information about getting started and details about pre
   - [Query a table by using batches of PartiQL statements](example_dynamodb_Scenario_PartiQLBatch_section.md "example_dynamodb_Scenario_PartiQLBatch_section.md")
   - [Query a table using PartiQL](example_dynamodb_Scenario_PartiQLSingle_section.md "example_dynamodb_Scenario_PartiQLSingle_section.md")
   - [Query a table using a Global Secondary Index](example_dynamodb_Scenarios_QueryWithGlobalSecondaryIndex_section.md "example_dynamodb_Scenarios_QueryWithGlobalSecondaryIndex_section.md")
-  - [Query a table using a begins_with condition](example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md "example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md")
+  - [Query a table using a begins\_with condition](example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md "example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md")
   - [Query a table using a date range](example_dynamodb_Scenarios_QueryWithDateRange_section.md "example_dynamodb_Scenarios_QueryWithDateRange_section.md")
   - [Query a table with a complex filter expression](example_dynamodb_Scenarios_QueryWithComplexFilter_section.md "example_dynamodb_Scenarios_QueryWithComplexFilter_section.md")
   - [Query a table with a dynamic filter expression](example_dynamodb_Scenarios_QueryWithDynamicFilter_section.md "example_dynamodb_Scenarios_QueryWithDynamicFilter_section.md")

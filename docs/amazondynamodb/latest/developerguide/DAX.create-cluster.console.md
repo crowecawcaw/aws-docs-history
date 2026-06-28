@@ -75,53 +75,53 @@ Amazon VPC.
 
 ###### To create a DAX cluster
 
-1.  Open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  In the navigation pane, under **DAX**, choose
-    **Clusters**.
-3.  Choose **Create cluster**.
-4.  In the **Create cluster** window, do the following:
+1. Open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. In the navigation pane, under **DAX**, choose
+   **Clusters**.
+3. Choose **Create cluster**.
+4. In the **Create cluster** window, do the following:
 
-    1. **Cluster name**—Enter a short name for your
-       DAX cluster.
-    2. **Cluster description**—Enter a description for
-       the cluster.
-    3. **Node types**—Choose the node type for all of
-       the nodes in the cluster.
-    4. **Cluster size**—Choose the number of nodes in
-       the cluster. A cluster consists of one primary node and up to nine read
-       replicas.
+   1. **Cluster name**—Enter a short name for your
+      DAX cluster.
+   2. **Cluster description**—Enter a description for
+      the cluster.
+   3. **Node types**—Choose the node type for all of
+      the nodes in the cluster.
+   4. **Cluster size**—Choose the number of nodes in
+      the cluster. A cluster consists of one primary node and up to nine read
+      replicas.
 
-    ###### Note
+   ###### Note
 
-    If you want to create a single-node cluster, choose
-    **1**. Your cluster will consist of one primary
-    node.
+   If you want to create a single-node cluster, choose
+   **1**. Your cluster will consist of one primary
+   node.
 
-    If you want to create a multi-node cluster, choose a number
-    between **3** (one primary and two read replicas)
-    and **10** (one primary and nine read
-    replicas).
+   If you want to create a multi-node cluster, choose a number
+   between **3** (one primary and two read replicas)
+   and **10** (one primary and nine read
+   replicas).
 
-    ###### Important
+   ###### Important
 
-    For production usage, we strongly recommend using DAX with
-    at least three nodes, where each node is placed in a different
-    Availability Zone. Three nodes are required for a DAX cluster
-    to be fault-tolerant.
+   For production usage, we strongly recommend using DAX with
+   at least three nodes, where each node is placed in a different
+   Availability Zone. Three nodes are required for a DAX cluster
+   to be fault-tolerant.
 
-    A DAX cluster can be deployed with one or two nodes for
-    development or test workloads. One- and two-node clusters are
-    not fault-tolerant, and we don't recommend using fewer than
-    three nodes for production use. If a one- or two-node cluster
-    encounters software or hardware errors, the cluster can become
-    unavailable or lose cached data. 5. Choose **Next**. 6. **Subnet group**—Select **Choose
-    existing** and choose the subnet group that you created in
-    [Step 1: Create a subnet group using the AWS Management Console](#DAX.create-cluster.console.create-subnet-group "#DAX.create-cluster.console.create-subnet-group"). 7. **Access control**—Choose the
-    **default** security group. 8. **Availability Zones (AZ)**—Choose
-    **Automatic**. 9. Choose next. 10. **IAM service role for DynamoDB access**—Choose
-    **Create new**, and enter the following
-    information:
+   A DAX cluster can be deployed with one or two nodes for
+   development or test workloads. One- and two-node clusters are
+   not fault-tolerant, and we don't recommend using fewer than
+   three nodes for production use. If a one- or two-node cluster
+   encounters software or hardware errors, the cluster can become
+   unavailable or lose cached data. 5. Choose **Next**. 6. **Subnet group**—Select **Choose
+   existing** and choose the subnet group that you created in
+   [Step 1: Create a subnet group using the AWS Management Console](#DAX.create-cluster.console.create-subnet-group "#DAX.create-cluster.console.create-subnet-group"). 7. **Access control**—Choose the
+   **default** security group. 8. **Availability Zones (AZ)**—Choose
+   **Automatic**. 9. Choose next. 10. **IAM service role for DynamoDB access**—Choose
+   **Create new**, and enter the following
+   information:
 
         * **IAM role name**—Enter a name for an
          IAM role, for example, `DAXServiceRole`. The
@@ -139,21 +139,22 @@ Amazon VPC.
          to the IAM role.
         * **Access to DynamoDB tables**—Choose
          **All tables**.
-    11. **Encryption**—Choose **Turn on
-        encryption at rest** and **Turn on encryption in
-        transit** For more information, see [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md")
-        and [DAX encryption in transit](DAXEncryptionInTransit.md "DAXEncryptionInTransit.md").A separate service role for DAX to access Amazon EC2 is also required. DAX
-        automatically creates this service role for you. For more information, see
-        [Using service-linked roles for DAX](using-service-linked-roles.md "using-service-linked-roles.md").
 
-5.  When the settings are as you want them, choose **Next**.
-6.  **Parameter group**—Choose **Choose existing**.
-7.  **Maintenance window**—Choose **No preference** if you
-    don't have a preference when software upgrades are applied, or choose **Specify time window**
-    and provide the **Weekday**, **Time(UTC)** and **Start within (hours)**
-    options to schedule your maintenance window.
-8.  **Tags**—Choose **Add new tag** to enter a key/value pair for tagging purposes.
-9.  Choose **Next**.
+   11. **Encryption**—Choose **Turn on
+   encryption at rest** and **Turn on encryption in
+   transit** For more information, see [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md")
+   and [DAX encryption in transit](DAXEncryptionInTransit.md "DAXEncryptionInTransit.md").A separate service role for DAX to access Amazon EC2 is also required. DAX
+   automatically creates this service role for you. For more information, see
+   [Using service-linked roles for DAX](using-service-linked-roles.md "using-service-linked-roles.md").
+
+5. When the settings are as you want them, choose **Next**.
+6. **Parameter group**—Choose **Choose existing**.
+7. **Maintenance window**—Choose **No preference** if you
+   don't have a preference when software upgrades are applied, or choose **Specify time window**
+   and provide the **Weekday**, **Time(UTC)** and **Start within (hours)**
+   options to schedule your maintenance window.
+8. **Tags**—Choose **Add new tag** to enter a key/value pair for tagging purposes.
+9. Choose **Next**.
 
 On the **Review and create** screen, you can review all of the settings. If you are ready to create the cluster,
 choose **Create cluster**.

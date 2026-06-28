@@ -47,7 +47,7 @@ of job, the import status is set to FAILED with a FailureCode, ItemValidationErr
 for more details."
 
 Common causes for data validation errors include objects being unparsable, objects being in the
-incorrect format (input specifies DYNAMODB_JSON but the object is not in DYNAMODB_JSON), and schema mismatch with
+incorrect format (input specifies DYNAMODB\_JSON but the object is not in DYNAMODB\_JSON), and schema mismatch with
 specified source table keys.
 
 ### Configuration errors
@@ -68,7 +68,7 @@ In order to validate source S3 objects, take the following steps.
 1. Validate the data format and compression type
 
    - Make sure that all matching Amazon S3 objects under the specified prefix have the same format
-     (DYNAMODB_JSON, DYNAMODB_ION, CSV)
+     (DYNAMODB\_JSON, DYNAMODB\_ION, CSV)
    - Make sure that all matching Amazon S3 objects under the specified prefix are compressed the same way (GZIP, ZSTD, NONE)
 
    ###### Note

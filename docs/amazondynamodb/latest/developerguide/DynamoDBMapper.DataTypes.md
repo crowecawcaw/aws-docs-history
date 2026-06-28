@@ -9,8 +9,8 @@ classes.
 - `String`
 - `Boolean`, `boolean`
 - `Byte`, `byte`
-- `Date` (as [ISO_8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601") millisecond-precision string, shifted to UTC)
-- `Calendar` (as [ISO_8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601") millisecond-precision string, shifted to UTC)
+- `Date` (as [ISO\_8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601") millisecond-precision string, shifted to UTC)
+- `Calendar` (as [ISO\_8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601") millisecond-precision string, shifted to UTC)
 - `Long`, `long`
 - `Integer`, `int`
 - `Double`, `double`

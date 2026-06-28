@@ -74,31 +74,30 @@ performance impact on a table if you enable a stream.
 
 The easiest way to manage DynamoDB Streams is by using the AWS Management Console.
 
-1.  Sign in to the AWS Management Console and open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  On the DynamoDB console dashboard, choose **Tables** and
-    select an existing table.
-3.  Choose the **Exports and streams** tab.
-4.  In the **DynamoDB stream details** section, choose **Turn on**.
-5.  On the **Turn on DynamoDB stream** page, choose the
-    information that will be written to the stream whenever the data in the
-    table is modified:
+1. Sign in to the AWS Management Console and open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. On the DynamoDB console dashboard, choose **Tables** and
+   select an existing table.
+3. Choose the **Exports and streams** tab.
+4. In the **DynamoDB stream details** section, choose **Turn on**.
+5. On the **Turn on DynamoDB stream** page, choose the
+   information that will be written to the stream whenever the data in the
+   table is modified:
 
-        * **Key attributes only** — Only the key
-         attributes of the modified item.
-        * **New image** — The entire item, as it
-         appears after it was modified.
-        * **Old image** — The entire item, as it
-         appeared before it was modified.
-        * **New and old images** — Both the new and
-         the old images of the item.
+   - **Key attributes only** — Only the key
+     attributes of the modified item.
+   - **New image** — The entire item, as it
+     appears after it was modified.
+   - **Old image** — The entire item, as it
+     appeared before it was modified.
+   - **New and old images** — Both the new and
+     the old images of the item.
+     When the settings are as you want them, choose **Turn on
+     stream**.
 
-    When the settings are as you want them, choose **Turn on
-    stream**.
-
-6.  (Optional) To disable an existing stream, choose
-    **Turn off** under **DynamoDB stream
-    details**.
+6. (Optional) To disable an existing stream, choose
+   **Turn off** under **DynamoDB stream
+   details**.
 
 You can also use the `CreateTable` or `UpdateTable` API
 operations to enable or modify a stream. The `StreamSpecification`

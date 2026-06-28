@@ -88,12 +88,12 @@ region. 10. To test replication:
 
 11. Verify replication by switching to the other regions:
 
-    1.  From the Region selector in the upper-right corner, choose
-        **Europe (Frankfurt)**.
-    2.  Verify that the **Music** table contains the
-        item you created.
-    3.  Repeat the verification for
-        **US West (Oregon)**.
+    1. From the Region selector in the upper-right corner, choose
+     **Europe (Frankfurt)**.
+    2. Verify that the **Music** table contains the
+     item you created.
+    3. Repeat the verification for
+     **US West (Oregon)**.
 
 CLI
 The following code example shows how to manage DynamoDB global tables with multi-Region replication with eventual consistency (MREC).
@@ -686,7 +686,7 @@ AWS Management Console.
       **Strong consistency**.
    2. For **Replication Region 1**, choose
       `US East (N. Virginia)
-us-east-1`.
+  us-east-1`.
    3. For **Replication Region 2**, choose
       `US West (Oregon) us-west-2`.
    4. Check **Configure as Witness** for the US

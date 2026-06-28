@@ -105,7 +105,7 @@ operators_:
 
 ### Accessing list elements
 
-The dereference operator for a list element is [*N*], where _n_ is the
+The dereference operator for a list element is [_N_], where _n_ is the
 element number. List elements are zero-based, so [0] represents the first
 element in the list, [1] represents the second, and so on. Here are some
 examples:

@@ -61,9 +61,8 @@ more details. 4. If your statement uses parameters
     4. If you want to add additional parameters, repeat steps b and
      c.
 
-5. If you want to add more statements, repeat steps 2 to 4.
-6. If you want to generate code, choose **Generate
-   code**.
+5. If you want to add more statements, repeat steps 2 to 4. 6. If you want to generate code, choose **Generate
+code**.
 
 Select your desired language from the displayed tabs. You can now copy
 this code and use it in your application. 7. If you want the operation to be run immediately, choose
@@ -97,9 +96,8 @@ more details. 4. If your statement uses parameters:
     4. If you want to add additional parameters, repeat steps b and
      c.
 
-5. If you want to add more statements, repeat steps 2 to 4.
-6. If you want to generate code, choose **Generate
-   code**.
+5. If you want to add more statements, repeat steps 2 to 4. 6. If you want to generate code, choose **Generate
+code**.
 
 Select your desired language from the displayed tabs. You can now copy
 this code and use it in your application. 7. If you want the operation to be run immediately, choose

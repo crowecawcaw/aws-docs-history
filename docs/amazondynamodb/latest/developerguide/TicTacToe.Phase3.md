@@ -259,7 +259,7 @@ After Elastic Beanstalk creates the application, choose
     ![Application screenshot showing the environment properties section.](images/tic-tac-toe-beanstalk-setup-70.png)After the update completes, you can play the game.
 
 5. In the browser, enter the URL you copied in the previous step, as shown in
-   the following example.
+the following example.
 
 ```
 http://`<pen-name>`.elasticbeanstalk.com

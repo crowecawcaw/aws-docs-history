@@ -27,8 +27,8 @@ that combines write sharding and Global Secondary Indexes to enable flexible, ef
 
 ###### Structure of the GSI
 
-- GSI Partition Key (PK_GSI): "ShardNumber#"
-- GSI Sort Key (SK_GSI): ISO 8601 timestamp (e.g., "2030-04-01T12:00:00Z")
+- GSI Partition Key (PK\_GSI): "ShardNumber#"
+- GSI Sort Key (SK\_GSI): ISO 8601 timestamp (e.g., "2030-04-01T12:00:00Z")
 
 ![Pattern designs for time-series data.](images/BestPractices-44-TimeBoundedTable-2.png)
 

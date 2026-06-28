@@ -5,17 +5,16 @@ your AWS account.
 
 ###### To add a connection to your database
 
-1.  In NoSQL Workbench, in the navigation pane on the left side, choose the
-    **Operation builder** icon.
-2.  Choose **Add connection**.
-3.  Specify the following information:
+1. In NoSQL Workbench, in the navigation pane on the left side, choose the
+   **Operation builder** icon.
+2. Choose **Add connection**.
+3. Specify the following information:
 
-        * **Connection name**
-        * **AWS Region**
-        * **Access key ID**
-        * **Secret access key**
-
-    For more information about how to obtain the access keys, see [Getting an AWS access key](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials").
+   - **Connection name**
+   - **AWS Region**
+   - **Access key ID**
+   - **Secret access key**
+     For more information about how to obtain the access keys, see [Getting an AWS access key](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials").
 
 You can optionally, specify the following:
 

@@ -129,7 +129,7 @@ A _projection_ is the set of attributes that is copied from a table into a secon
 
 When you create a secondary index, you need to specify the attributes that will be projected into the index. DynamoDB provides three different options for this:
 
-- _KEYS_ONLY_ – Each item in the index consists only
+- _KEYS\_ONLY_ – Each item in the index consists only
   of the table partition key and sort key values, plus the index key values. The
   `KEYS_ONLY` option results in the smallest possible secondary index.
 - _INCLUDE_ – In addition to the attributes
@@ -168,7 +168,7 @@ between provisioned throughput costs and storage costs:
   would increase, or even double if you are projecting all attributes.
 - If your application needs to query a table infrequently, but must perform many
   writes or updates against the data in the table, consider projecting
-  _KEYS_ONLY_. The local secondary index would be of minimal size, but
+  _KEYS\_ONLY_. The local secondary index would be of minimal size, but
   would still be available when needed for query activity.
 
 ## Creating a Local Secondary Index

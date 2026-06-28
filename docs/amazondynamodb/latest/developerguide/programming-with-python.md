@@ -9,7 +9,7 @@ handling, controlling retry policies, managing keep-alive, and more.
 - [About Boto](#programming-with-python-about "#programming-with-python-about")
 - [Using the Boto documentation](#programming-with-python-documentation "#programming-with-python-documentation")
 - [Understanding the client and resource abstraction layers](#programming-with-python-client-resource "#programming-with-python-client-resource")
-- [Using the table resource batch_writer](#programming-with-python-batch-writer "#programming-with-python-batch-writer")
+- [Using the table resource batch\_writer](#programming-with-python-batch-writer "#programming-with-python-batch-writer")
 - [Additional code examples that explore the client and resource layers](#programming-with-python-additional-code "#programming-with-python-additional-code")
 - [Understanding how the Client and Resource objects interact with sessions and threads](#programming-with-python-sessions-thread-safety "#programming-with-python-sessions-thread-safety")
 - [Customizing the Config object](#programming-with-python-config "#programming-with-python-config")
@@ -224,7 +224,7 @@ add new features to the resources interface in boto3. Existing interfaces will
 continue to operate during boto3’s lifecycle. Customers can find access to newer
 service features through the client interface.”
 
-## Using the table resource batch_writer
+## Using the table resource batch\_writer
 
 One convenience available only with the higher-level table resource is the
 `batch_writer`. DynamoDB supports batch write operations allowing up to 25
@@ -238,7 +238,7 @@ the write operations may succeed while others could fail). You then have to pass
 unprocessed items again into a later `batch_write_item()` operation. There's
 a significant amount of boilerplate code.
 
-The [Table.batch_writer](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/table/batch_writer.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/table/batch_writer.html") method creates a context manager for writing objects in
+The [Table.batch\_writer](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/table/batch_writer.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/table/batch_writer.html") method creates a context manager for writing objects in
 a batch. It presents an interface where it seems as if you're writing items one at a
 time, but internally it's buffering and sending the items in batches. It also handles
 unprocessed item retries implicitly.
@@ -304,10 +304,10 @@ AWS configuration file, or as environment variables.
 
 One use of a custom config is to adjust networking behaviors:
 
-- **connect_timeout (float or int)** – The time in
+- **connect\_timeout (float or int)** – The time in
   seconds till a timeout exception is thrown when attempting to make a connection.
   The default is 60 seconds.
-- **read_timeout (float or int)** – The time in
+- **read\_timeout (float or int)** – The time in
   seconds till a timeout exception is thrown when attempting to read from a
   connection. The default is 60 seconds.
 
@@ -335,7 +335,7 @@ Python.
 
 If you're using botocore 1.27.84 or later, you can also control **TCP Keep-Alive**:
 
-- **tcp_keepalive** (bool) - Enables the TCP
+- **tcp\_keepalive** (bool) - Enables the TCP
   Keep-Alive socket option used when creating new connections if set to
   `True` ( defaults to `False`). This is only available
   starting with botocore 1.27.84.
@@ -385,12 +385,12 @@ internally (and a retry eventually produces a successful response), there's no e
 seen from the calling code's perspective, just a slightly elevated latency. Here are the
 values you can specify:
 
-- **max_attempts** – An integer representing the
+- **max\_attempts** – An integer representing the
   maximum number of retry attempts that will be made on a single request. For
   example, setting this value to 2 will result in the request being retried at
   most two times after the initial request. Setting this value to 0 will result in
   no retries ever being attempted after the initial request.
-- **total_max_attempts** – An integer representing
+- **total\_max\_attempts** – An integer representing
   the maximum number of total attempts that will be made on a single request. This
   includes the initial request, so a value of 1 indicates that no requests will be
   retried. If `total_max_attempts` and `max_attempts` are
@@ -479,7 +479,7 @@ and errors:
 
 Lastly, the config lets you control the connection pool size:
 
-- **max_pool_connections (int)** – The maximum
+- **max\_pool\_connections (int)** – The maximum
   number of connections to keep in a connection pool. If this value is not set,
   the default value of 10 is used.
 

@@ -70,8 +70,8 @@ requests, and does not include the table restore and cross-Region data transfer
 charges that would be incurred in the example):
 
 **Day 1 - Single-Region table:** You have a
-single-Region on-demand DynamoDB table named Table_A in the us-west-2 Region. You
-write 100 1KB items to Table_A. For these single-Region write operations, you are
+single-Region on-demand DynamoDB table named Table\_A in the us-west-2 Region. You
+write 100 1KB items to Table\_A. For these single-Region write operations, you are
 charged 1 write request unit (WRU) per 1KB written. Your day 1 charges are:
 
 - 100 WRUs in the us-west-2 Region for single-Region writes
@@ -80,7 +80,7 @@ The total request units charged on day 1: **100
 WRUs**.
 
 **Day 2 - Creating a global table:** You create a
-global table by adding a replica to Table_A in the us-east-2 Region. Table_A is now
+global table by adding a replica to Table\_A in the us-east-2 Region. Table\_A is now
 a global table with two replica tables; one in the us-west-2 Region, and one in the
 us-east-2 Region. You write 150 1KB items to the replica table in the us-west-2
 Region. Your day 2 charges are:

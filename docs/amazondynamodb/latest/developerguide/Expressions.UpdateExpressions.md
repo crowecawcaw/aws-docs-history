@@ -309,7 +309,7 @@ the `list_append` function. (The function name is case sensitive.) The
 can only be used in an update expression. The syntax is as follows.
 
 - `list_append (`list1`,
-`list2`)`
+ `list2`)`
 
 The function takes two lists as input and appends all elements from
 `list2` to `list1`.

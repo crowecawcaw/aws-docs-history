@@ -78,7 +78,7 @@ and the majority of the items are filtered out, we can continue evolving our tab
 design so it runs more efficiently.
 
 Let's change how to handle this access pattern by using [composite sort keys](data-modeling-blocks.md#data-modeling-blocks-composite "data-modeling-blocks.md#data-modeling-blocks-composite"). You can import
-sample data from [DeviceStateLog_3.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_3.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_3.json") where the sort key is changed to
+sample data from [DeviceStateLog\_3.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_3.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_3.json") where the sort key is changed to
 `State#Date`. This sort key is the composition of the attributes
 `State`, `#`, and `Date`. In this example,
 `#` is used as a delimiter. The data now looks something like this:
@@ -94,7 +94,7 @@ _warning_ state.
 **Step 3: Address access pattern 4
 (`getLogsForOperatorBetweenTwoDates`)**
 
-You can import [DeviceStateLog_4.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_4.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_4.json")D where the `Operator` attribute was added
+You can import [DeviceStateLog\_4.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_4.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_4.json")D where the `Operator` attribute was added
 to the `DeviceStateLog` table with example data.
 
 ![DeviceStateLog table design with Operator attribute to get an operator's logs between specific dates.](images/DataModeling/DeviceStatus-4-Step3.png)
@@ -127,7 +127,7 @@ contain primary key attributes of the index will actually appear in the index. T
 another way of excluding items that are not relevant for the access pattern being
 modeled.
 
-You can import [DeviceStateLog_6.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_6.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_6.json") where the `EscalatedTo` attribute was
+You can import [DeviceStateLog\_6.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_6.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_6.json") where the `EscalatedTo` attribute was
 added to the `DeviceStateLog` table with example data. As mentioned earlier,
 not all of the logs gets escalated to a supervisor.
 
@@ -145,15 +145,15 @@ The rest of the access patterns are summarized as follows:
 All access patterns and how the schema design addresses them are summarized in the
 table below:
 
-| Access pattern                                         | Base table/GSI/LSI | Operation | Partition key value        | Sort key value                        | Other conditions/filters |
-| ------------------------------------------------------ | ------------------ | --------- | -------------------------- | ------------------------------------- | ------------------------ |
-| createLogEntryForSpecificDevice                        | Base table         | PutItem   | DeviceID=deviceId          | State#Date=state#date                 |                          |
-| getLogsForSpecificDevice                               | Base table         | Query     | DeviceID=deviceId          | State#Date begins_with "state1#"      | ScanIndexForward = False |
-| getWarningLogsForSpecificDevice                        | Base table         | Query     | DeviceID=deviceId          | State#Date begins_with "WARNING"      |                          |
-| getLogsForOperatorBetweenTwoDates                      | GSI-1              | Query     | Operator=operatorName      | Date between date1 and date2          |                          |
-| getEscalatedLogsForSupervisor                          | GSI-2              | Query     | EscalatedTo=supervisorName |                                       |                          |
-| getEscalatedLogsWithSpecificStatusForSupervisor        | GSI-2              | Query     | EscalatedTo=supervisorName | State#Date begins_with "state1#"      |                          |
-| getEscalatedLogsWithSpecificStatusForSupervisorForDate | GSI-2              | Query     | EscalatedTo=supervisorName | State#Date begins_with "state1#date1" |                          |
+| Access pattern                                         | Base table/GSI/LSI | Operation | Partition key value        | Sort key value                         | Other conditions/filters |
+| ------------------------------------------------------ | ------------------ | --------- | -------------------------- | -------------------------------------- | ------------------------ |
+| createLogEntryForSpecificDevice                        | Base table         | PutItem   | DeviceID=deviceId          | State#Date=state#date                  |                          |
+| getLogsForSpecificDevice                               | Base table         | Query     | DeviceID=deviceId          | State#Date begins\_with "state1#"      | ScanIndexForward = False |
+| getWarningLogsForSpecificDevice                        | Base table         | Query     | DeviceID=deviceId          | State#Date begins\_with "WARNING"      |                          |
+| getLogsForOperatorBetweenTwoDates                      | GSI-1              | Query     | Operator=operatorName      | Date between date1 and date2           |                          |
+| getEscalatedLogsForSupervisor                          | GSI-2              | Query     | EscalatedTo=supervisorName |                                        |                          |
+| getEscalatedLogsWithSpecificStatusForSupervisor        | GSI-2              | Query     | EscalatedTo=supervisorName | State#Date begins\_with "state1#"      |                          |
+| getEscalatedLogsWithSpecificStatusForSupervisorForDate | GSI-2              | Query     | EscalatedTo=supervisorName | State#Date begins\_with "state1#date1" |                          |
 
 ## Final schema
 

@@ -153,25 +153,24 @@ Step 7: Review Instance Launch
     * Choose **Launch**.
 
 3. In the **Select an existing key pair or create a new key
-   pair** window, do one of the following:
+pair** window, do one of the following:
 
-   - If you do not have an Amazon EC2 key pair, choose **Create a
+    * If you do not have an Amazon EC2 key pair, choose **Create a
      new key pair** and follow the instructions. You will be
-     asked to download a private key file (_.pem_
+     asked to download a private key file (*.pem*
      file); you will need this file later when you log in to your Amazon EC2
      instance.
-   - If you already have an existing Amazon EC2 key pair, go to
+    * If you already have an existing Amazon EC2 key pair, go to
      **Select a key pair** and choose your key pair
      from the list. You must already have the private key file (
-     _.pem_ file) available in order to log in to
+     *.pem* file) available in order to log in to
      your Amazon EC2 instance.
 
 4. When you have configured your key pair, choose **Launch
-   Instances**.
-5. Return to the Amazon EC2 console home page and choose the instance that you
-   launched. In the lower pane, on the **Description** tab,
-   find the **Public DNS** for your instance. For example:
-   `ec2-00-00-00-00.us-east-1.compute.amazonaws.com`.
+Instances**. 5. Return to the Amazon EC2 console home page and choose the instance that you
+launched. In the lower pane, on the **Description** tab,
+find the **Public DNS** for your instance. For example:
+`ec2-00-00-00-00.us-east-1.compute.amazonaws.com`.
 
 Make a note of this public DNS name, because you will need it in the next
 step in this tutorial ([Step 2: Configure your Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance "#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance")).
@@ -194,52 +193,48 @@ The following steps assume that you are connecting to your Amazon EC2 instance f
 a computer running Linux. For other ways to connect, see [Connect to Your Linux
 Instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md") in the Amazon EC2 User Guide.
 
-1.  You will need to authorize inbound SSH traffic to your Amazon EC2 instance. To
-    do this, you will create a new EC2 security group, and then assign the
-    security group to your EC2 instance.
+1. You will need to authorize inbound SSH traffic to your Amazon EC2 instance. To
+   do this, you will create a new EC2 security group, and then assign the
+   security group to your EC2 instance.
 
-    1.  In the navigation pane, choose **Security
-        Groups**.
-    2.  Choose **Create Security Group**. In the
-        **Create Security Group** window, do the
+   1. In the navigation pane, choose **Security
+      Groups**.
+   2. Choose **Create Security Group**. In the
+      **Create Security Group** window, do the
+      following:
+
+      - **Security group name**—type a name
+        for your security group. For example:
+        `my-ssh-access`
+      - **Description**—type a short
+        description for the security group.
+      - **VPC**—choose your default
+        VPC.
+      - In the **Security group rules** section,
+        choose **Add Rule** and do the
         following:
 
-            * **Security group name**—type a name
-             for your security group. For example:
-             `my-ssh-access`
-            * **Description**—type a short
-             description for the security group.
-            * **VPC**—choose your default
-             VPC.
-            * In the **Security group rules** section,
-             choose **Add Rule** and do the
-             following:
+        - **Type**—choose SSH.
+        - **Source**—choose My
+          IP.
+          When the settings are as you want them, choose
+          **Create**.
 
+   3. In the navigation pane, choose
+      **Instances**.
+   4. Choose the Amazon EC2 instance that you launched in [Step 1: Launch an Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance "#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance").
+   5. Choose **Actions** -->
+      **Networking** --> **Change Security
+      Groups**.
+   6. In the **Change Security Groups**, select the
+      security group that you created earlier in this procedure (for
+      example: `my-ssh-access`). The existing
+      `default` security group should also be selected.
+      When the settings are as you want them, choose **Assign
+      Security Groups**.
 
-
-
-            	+ **Type**—choose SSH.
-            	+ **Source**—choose My
-            	 IP.
-
-        When the settings are as you want them, choose
-        **Create**.
-
-    3.  In the navigation pane, choose
-        **Instances**.
-    4.  Choose the Amazon EC2 instance that you launched in [Step 1: Launch an Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance "#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance").
-    5.  Choose **Actions** -->
-        **Networking** --> **Change Security
-        Groups**.
-    6.  In the **Change Security Groups**, select the
-        security group that you created earlier in this procedure (for
-        example: `my-ssh-access`). The existing
-        `default` security group should also be selected.
-        When the settings are as you want them, choose **Assign
-        Security Groups**.
-
-2.  Use the `ssh` command to log in to your Amazon EC2 instance, as in
-    the following example.
+2. Use the `ssh` command to log in to your Amazon EC2 instance, as in
+   the following example.
 
 ```
 ssh -i `my-keypair.pem` ec2-user@`public-dns-name`

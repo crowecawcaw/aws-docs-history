@@ -209,20 +209,19 @@ The following parameters can be used instead of `AttributeValueList` and
 - `Exists` - A Boolean value that causes DynamoDB to evaluate the value before attempting the conditional
   operation:
 
-      + If `Exists` is `true`, DynamoDB will check
-       to see if that attribute value already exists in the table. If it is
-       found, then the condition evaluates to true; otherwise the condition
-       evaluates to false.
-      + If `Exists` is `false`, DynamoDB assumes that the attribute value
-       does `not` exist in the table. If in fact the value does not exist, then the
-       assumption is valid and the condition evaluates to true. If the value is found,
-       despite the assumption that it does not exist, the condition evaluates to
-       false.
-
-  Note that the default value for `Exists` is `true`.
-  The `Value` and `Exists` parameters are incompatible with
-  `AttributeValueList` and `ComparisonOperator`. Note that if you use both sets
-  of parameters at once, DynamoDB will return a `ValidationException` exception.
+  - If `Exists` is `true`, DynamoDB will check
+    to see if that attribute value already exists in the table. If it is
+    found, then the condition evaluates to true; otherwise the condition
+    evaluates to false.
+  - If `Exists` is `false`, DynamoDB assumes that the attribute value
+    does `not` exist in the table. If in fact the value does not exist, then the
+    assumption is valid and the condition evaluates to true. If the value is found,
+    despite the assumption that it does not exist, the condition evaluates to
+    false.
+    Note that the default value for `Exists` is `true`.
+    The `Value` and `Exists` parameters are incompatible with
+    `AttributeValueList` and `ComparisonOperator`. Note that if you use both sets
+    of parameters at once, DynamoDB will return a `ValidationException` exception.
 
 ###### Note
 

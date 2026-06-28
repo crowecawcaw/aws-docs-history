@@ -18,7 +18,7 @@ With IPv6 support, you can do the following:
 - **Network configuration options:**
 
   - IPv4-only and dual-stack clusters on `dual_stack
-subnets`.
+   subnets`.
   - IPv6-only clusters on IPv6-only subnets.
 
 - **Subnet group management:**
@@ -32,17 +32,14 @@ subnets`.
 
 - **Client configuration:**
 
-      + When making data plane calls, you can set preferred IP protocol for
-       dual\_stack clusters using:
+  - When making data plane calls, you can set preferred IP protocol for
+    dual\_stack clusters using:
 
+    - `ip_discovery` parameter in Python SDK
+    - `ipDiscovery` parameter in other SDKs
 
-
-
-      	- `ip_discovery` parameter in Python SDK
-      	- `ipDiscovery` parameter in other SDKs
-      + Default: IPv4 when protocol preference not specified
-
-  Before implementing IPv6 in your DAX clusters, you must consider the following:
+  - Default: IPv4 when protocol preference not specified
+    Before implementing IPv6 in your DAX clusters, you must consider the following:
 
 - Network type cannot be changed after cluster creation
 - For dual-stack clusters, the `ip_discovery/ipDiscovery` parameter

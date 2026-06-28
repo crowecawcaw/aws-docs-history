@@ -406,11 +406,10 @@ for these additional update operations:
   following permission on the table resource in all Regions containing
   replicas:
 
-      + `dynamodb:UpdateTimeToLive`
-
-  Note that Time to Live (TTL) is only supported for global tables
-  configured with Multi-Region Eventual Consistency (MREC). For more
-  information about how global tables work with TTL, see [How DynamoDB global tables work](V2globaltables_HowItWorks.md "V2globaltables_HowItWorks.md").
+  - `dynamodb:UpdateTimeToLive`
+    Note that Time to Live (TTL) is only supported for global tables
+    configured with Multi-Region Eventual Consistency (MREC). For more
+    information about how global tables work with TTL, see [How DynamoDB global tables work](V2globaltables_HowItWorks.md "V2globaltables_HowItWorks.md").
 
 ### Deleting global tables and removing replicas
 

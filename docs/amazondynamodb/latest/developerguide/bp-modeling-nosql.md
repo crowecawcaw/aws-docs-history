@@ -21,23 +21,23 @@ systems (OSS/BSS) that it needs to support:
   After completing this process, you should end up with a list that might look something like
   the following.
 
-| Access Patterns for Order Entry Application | Pattern #                                     | Access Pattern Description |
-| ------------------------------------------- | --------------------------------------------- | -------------------------- |
-| 1                                           | Look up Employee Details by Employee ID       |
-| 2                                           | Query Employee Details by Employee Name       |
-| 3                                           | Find an Employee's Phone Number(s)            |
-| 4                                           | Find a Customer's Phone Number(s)             |
-| 5                                           | Get Orders for Customer within Date Range     |
-| 6                                           | Show all Open Orders within Date Range        |
-| 7                                           | See all Employees hired recently              |
-| 8                                           | Find all Employees in Warehouse               |
-| 9                                           | Get all Items on Order for Product            |
-| 10                                          | Get Inventories for Product at all Warehouses |
-| 11                                          | Get Customers by Account Rep                  |
-| 12                                          | Get Orders by Account Rep                     |
-| 13                                          | Get Employees with Job Title                  |
-| 14                                          | Get Inventory by Product and Warehouse        |
-| 15                                          | Get Total Product Inventory                   |
+Access Patterns for Order Entry Application| Pattern # | Access Pattern Description |
+| --- | --- |
+| 1 | Look up Employee Details by Employee ID |
+| 2 | Query Employee Details by Employee Name |
+| 3 | Find an Employee's Phone Number(s) |
+| 4 | Find a Customer's Phone Number(s) |
+| 5 | Get Orders for Customer within Date Range |
+| 6 | Show all Open Orders within Date Range |
+| 7 | See all Employees hired recently |
+| 8 | Find all Employees in Warehouse |
+| 9 | Get all Items on Order for Product |
+| 10 | Get Inventories for Product at all Warehouses |
+| 11 | Get Customers by Account Rep |
+| 12 | Get Orders by Account Rep |
+| 13 | Get Employees with Job Title |
+| 14 | Get Inventory by Product and Warehouse |
+| 15 | Get Total Product Inventory |
 
 In a real application, your list might be much longer. But this collection represents the
 range of query pattern complexity that you might find in a production environment.

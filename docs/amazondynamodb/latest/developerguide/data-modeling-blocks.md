@@ -119,7 +119,7 @@ are common.
 - A composite sort key can still be used to further narrow down the items that
   match the desired query, for instance, a timestamp could be used for the sort
   key to only view faults reported in the last X minutes (`SK > 5 minutes
-ago, ScanIndexForward: False`)
+ ago, ScanIndexForward: False`)
 
 ## Time to live building block
 

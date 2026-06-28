@@ -161,7 +161,7 @@ generate code for a `Put Item` operation, do the following.
       **Type**, and **Value**.
 
 6. If a condition expression must be satisfied for the `Put
-Item` operation to succeed, do the following:
+ Item` operation to succeed, do the following:
 
    1. Choose **Condition**.
    2. Specify the attribute name, comparison operator, attribute
@@ -194,7 +194,7 @@ following:
    **Update Expression** dropdown list, and then
    select the **+** icon.
 5. If a condition expression must be satisfied for the `Update
-Item` operation to succeed, do the following:
+ Item` operation to succeed, do the following:
 
    1. Choose **Condition**.
    2. Specify the attribute name, comparison operator, attribute
@@ -337,24 +337,23 @@ transactions](transactions.md "transactions.md").
 To run or generate code for a `TransactWriteItems` operation, do
 the following.
 
-1.  From the **More operations** dropdown at
-    the top of the NoSQL Workbench UI, choose **TransactWriteItems**.
-2.  Choose an operation from the **Actions**
-    dropdown.
-3.  Choose the **+** icon near **TransactWriteItem**.
-4.  In the **Actions** dropdown, choose the operation
-    that you want to perform.
+1. From the **More operations** dropdown at
+   the top of the NoSQL Workbench UI, choose **TransactWriteItems**.
+2. Choose an operation from the **Actions**
+   dropdown.
+3. Choose the **+** icon near **TransactWriteItem**.
+4. In the **Actions** dropdown, choose the operation
+   that you want to perform.
 
-        * For `DeleteItem`, follow the instructions for the
-         [Delete item](#workbench.querybuilder.operationbuilder.Delete "#workbench.querybuilder.operationbuilder.Delete") operation.
-        * For `PutItem`, follow the instructions for the
-         [Put item](#workbench.querybuilder.operationbuilder.Put "#workbench.querybuilder.operationbuilder.Put") operation.
-        * For `UpdateItem`, follow the instructions for the
-         [Update item](#workbench.querybuilder.operationbuilder.update "#workbench.querybuilder.operationbuilder.update") operation.
-
-    To change the order of actions, choose an action in the list on the
-    left side, and then choose the up or down arrows to move it up or down
-    in the list.
+   - For `DeleteItem`, follow the instructions for the
+     [Delete item](#workbench.querybuilder.operationbuilder.Delete "#workbench.querybuilder.operationbuilder.Delete") operation.
+   - For `PutItem`, follow the instructions for the
+     [Put item](#workbench.querybuilder.operationbuilder.Put "#workbench.querybuilder.operationbuilder.Put") operation.
+   - For `UpdateItem`, follow the instructions for the
+     [Update item](#workbench.querybuilder.operationbuilder.update "#workbench.querybuilder.operationbuilder.update") operation.
+     To change the order of actions, choose an action in the list on the
+     left side, and then choose the up or down arrows to move it up or down
+     in the list.
 
 To delete an action, choose the action in the list, and then choose
 the **Delete** (trash can) icon. 5. Select **Run** to perform the operation,

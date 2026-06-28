@@ -63,7 +63,7 @@ has the following permissions:
 
 When configuring a global table for provisioned capacity mode, auto scaling must be configured for the global table. DynamoDB auto scaling
 uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your global table replicas. The Application Auto Scaling
-service creates a service-linked role (SLR) named [AWSServiceRoleForApplicationAutoScaling_DynamoDBTable](../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md "../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md").
+service creates a service-linked role (SLR) named [AWSServiceRoleForApplicationAutoScaling\_DynamoDBTable](../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md "../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md").
 This service-linked role is automatically created in your AWS account when you first configure auto scaling for a DynamoDB table. It allows Application Auto Scaling to manage provisioned
 table capacity and create CloudWatch alarms.
 

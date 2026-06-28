@@ -10,24 +10,24 @@ For more information about write operations, see [Writing an item](WorkingWithIt
 You can use the DynamoDB console to update data in the `Music`
 table.
 
-1.  Open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  In the left navigation pane, choose
-    **Tables**.
-3.  Choose the **Music** table from the table
-    list.
-4.  Choose **Explore table items**.
-5.  In **Items returned**, for the item row with
-    **Acme Band**
-    **Artist** and **Happy Day**
-    **SongTitle**, do the following:
+1. Open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. In the left navigation pane, choose
+   **Tables**.
+3. Choose the **Music** table from the table
+   list.
+4. Choose **Explore table items**.
+5. In **Items returned**, for the item row with
+   **Acme Band**
+   **Artist** and **Happy Day**
+   **SongTitle**, do the following:
 
-        1. Place your cursor on the **AlbumTitle** named
-         **Songs About Life**.
-        2. Choose the Edit icon.
-        3. In the **Edit String** popup window, enter
-         `Songs of Twilight`.
-        4. Choose **Save**.###### Tip
+   1. Place your cursor on the **AlbumTitle** named
+      **Songs About Life**.
+   2. Choose the Edit icon.
+   3. In the **Edit String** popup window, enter
+      `Songs of Twilight`.
+   4. Choose **Save**.###### Tip
 
 Alternatively, to update an item, do the following in the
 **Items returned** section:

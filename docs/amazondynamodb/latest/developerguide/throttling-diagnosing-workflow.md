@@ -165,24 +165,24 @@ capacity.
 2. Match your throttling reason to the corresponding CloudWatch metrics using
    this reference table:
 
-| Complete throttling reasons and CloudWatch metrics reference | Category                                       | Throttling reason                       | Primary CloudWatch metrics |
-| ------------------------------------------------------------ | ---------------------------------------------- | --------------------------------------- | -------------------------- |
-| Provisioned capacity exceeded                                | TableReadProvisionedThroughputExceeded         | ReadProvisionedThroughputThrottleEvents |
-| TableWriteProvisionedThroughputExceeded                      | WriteProvisionedThroughputThrottleEvents       |
-| IndexReadProvisionedThroughputExceeded                       | ReadProvisionedThroughputThrottleEvents (GSI)  |
-| IndexWriteProvisionedThroughputExceeded                      | WriteProvisionedThroughputThrottleEvents (GSI) |
-| Partition limits exceeded                                    | TableReadKeyRangeThroughputExceeded            | ReadKeyRangeThroughputThrottleEvents    |
-| TableWriteKeyRangeThroughputExceeded                         | WriteKeyRangeThroughputThrottleEvents          |
-| IndexReadKeyRangeThroughputExceeded                          | ReadKeyRangeThroughputThrottleEvents (GSI)     |
-| IndexWriteKeyRangeThroughputExceeded                         | WriteKeyRangeThroughputThrottleEvents (GSI)    |
-| On-demand maximum exceeded                                   | TableReadMaxOnDemandThroughputExceeded         | ReadMaxOnDemandThroughputThrottleEvents |
-| TableWriteMaxOnDemandThroughputExceeded                      | WriteMaxOnDemandThroughputThrottleEvents       |
-| IndexReadMaxOnDemandThroughputExceeded                       | ReadMaxOnDemandThroughputThrottleEvents (GSI)  |
-| IndexWriteMaxOnDemandThroughputExceeded                      | WriteMaxOnDemandThroughputThrottleEvents (GSI) |
-| Account limits exceeded                                      | TableReadAccountLimitExceeded                  | ReadAccountLimitThrottleEvents          |
-| TableWriteAccountLimitExceeded                               | WriteAccountLimitThrottleEvents                |
-| IndexReadAccountLimitExceeded                                | ReadAccountLimitThrottleEvents (GSIs)          |
-| IndexWriteAccountLimitExceeded                               | WriteAccountLimitThrottleEvents (GSIs)         |
+Complete throttling reasons and CloudWatch metrics reference| Category | Throttling reason | Primary CloudWatch metrics |
+| --- | --- | --- |
+| Provisioned capacity exceeded | TableReadProvisionedThroughputExceeded | ReadProvisionedThroughputThrottleEvents |
+| TableWriteProvisionedThroughputExceeded | WriteProvisionedThroughputThrottleEvents |
+| IndexReadProvisionedThroughputExceeded | ReadProvisionedThroughputThrottleEvents (GSI) |
+| IndexWriteProvisionedThroughputExceeded | WriteProvisionedThroughputThrottleEvents (GSI) |
+| Partition limits exceeded | TableReadKeyRangeThroughputExceeded | ReadKeyRangeThroughputThrottleEvents |
+| TableWriteKeyRangeThroughputExceeded | WriteKeyRangeThroughputThrottleEvents |
+| IndexReadKeyRangeThroughputExceeded | ReadKeyRangeThroughputThrottleEvents (GSI) |
+| IndexWriteKeyRangeThroughputExceeded | WriteKeyRangeThroughputThrottleEvents (GSI) |
+| On-demand maximum exceeded | TableReadMaxOnDemandThroughputExceeded | ReadMaxOnDemandThroughputThrottleEvents |
+| TableWriteMaxOnDemandThroughputExceeded | WriteMaxOnDemandThroughputThrottleEvents |
+| IndexReadMaxOnDemandThroughputExceeded | ReadMaxOnDemandThroughputThrottleEvents (GSI) |
+| IndexWriteMaxOnDemandThroughputExceeded | WriteMaxOnDemandThroughputThrottleEvents (GSI) |
+| Account limits exceeded | TableReadAccountLimitExceeded | ReadAccountLimitThrottleEvents |
+| TableWriteAccountLimitExceeded | WriteAccountLimitThrottleEvents |
+| IndexReadAccountLimitExceeded | ReadAccountLimitThrottleEvents (GSIs) |
+| IndexWriteAccountLimitExceeded | WriteAccountLimitThrottleEvents (GSIs) |
 
 For example, if you received
 `IndexWriteProvisionedThroughputExceeded`, at a minimum, you

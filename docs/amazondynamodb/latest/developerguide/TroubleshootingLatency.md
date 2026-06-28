@@ -85,16 +85,15 @@ Consider one or more of the following strategies to reduce latency:
   path from your client to DynamoDB traverses many components, each designed with
   redundancy in mind. Consider the following aspects:
 
-      + Network resiliency
-      + TCP packet timeouts
-      + DynamoDB's distributed architecture
-
-  Default SDK behaviors are optimized for most applications. However, you can
-  implement a fail-fast strategy and adjust timeout settings. Requests taking
-  significantly longer than normal are less likely to ultimately succeed. By failing
-  fast and retrying, you may quickly succeed through a different path. This is similar
-  to request hedging but ends the first request instead of allowing it to
-  proceed.
+  - Network resiliency
+  - TCP packet timeouts
+  - DynamoDB's distributed architecture
+    Default SDK behaviors are optimized for most applications. However, you can
+    implement a fail-fast strategy and adjust timeout settings. Requests taking
+    significantly longer than normal are less likely to ultimately succeed. By failing
+    fast and retrying, you may quickly succeed through a different path. This is similar
+    to request hedging but ends the first request instead of allowing it to
+    proceed.
 
 Avoid setting timeout values too low. Overly low timeouts can lead to
 client-induced availability issues. For example, a 50-millisecond socket timeout

@@ -113,45 +113,39 @@ cp TryDax/dotNet/02-Write-Data.cs myApp/Program.cs
 dotnet run --project myApp
 ```
 
-8.  Next, run some programs to perform `GetItem`,
-    `Query`, and `Scan` operations on your DAX
-    cluster. To determine the endpoint for your DAX cluster, choose one of the
-    following:
+8. Next, run some programs to perform `GetItem`,
+   `Query`, and `Scan` operations on your DAX
+   cluster. To determine the endpoint for your DAX cluster, choose one of the
+   following:
 
-        * Using the DynamoDB console —
-         Choose your DAX cluster. The cluster endpoint is shown on the
-         console, as in the following example.
+   - Using the DynamoDB console —
+     Choose your DAX cluster. The cluster endpoint is shown on the
+     console, as in the following example.
 
+   ```
+   dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
+   ```
+   - Using the AWS CLI — Enter the
+     following command.
 
+   ```
+   aws dax describe-clusters --query "Clusters[*].ClusterDiscoveryEndpoint"
+   ```
 
-        ```
-        dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
-        ```
-        * Using the AWS CLI — Enter the
-         following command.
+   The cluster endpoint is shown in the output, as in the following
+   example.
 
+   ```
+   {
+       "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
+       "Port": 8111,
+       "URL": "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+   }
+   ```
 
-
-        ```
-        aws dax describe-clusters --query "Clusters[*].ClusterDiscoveryEndpoint"
-        ```
-
-        The cluster endpoint is shown in the output, as in the following
-         example.
-
-
-
-        ```
-        {
-            "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
-            "Port": 8111,
-            "URL": "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
-        }
-        ```
-
-    Now run the following programs, specifying your cluster endpoint as a
-    command line parameter. (Replace the sample endpoint with your actual DAX
-    cluster endpoint.)
+Now run the following programs, specifying your cluster endpoint as a
+command line parameter. (Replace the sample endpoint with your actual DAX
+cluster endpoint.)
 
 ```
 cp TryDax/dotNet/03-GetItem-Test.cs myApp/Program.cs

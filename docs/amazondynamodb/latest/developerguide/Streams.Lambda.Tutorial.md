@@ -161,7 +161,7 @@ do the following:
     * Publish messages to Amazon SNS.
 
 4. Enter the following command to attach the policy to
-   `WooferLambdaRole`.
+`WooferLambdaRole`.
 
 ```
 aws iam put-role-policy --role-name WooferLambdaRole \

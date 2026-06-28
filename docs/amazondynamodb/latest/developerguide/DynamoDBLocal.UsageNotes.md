@@ -9,7 +9,7 @@ locally, you should be aware of the following:
   program that connects to DynamoDB accesses this file. If you delete the file,
   you lose any data that you have stored in it.
 - If you omit `-sharedDb`, the database file is named
-  _myaccesskeyid_region.db_, with the AWS access key
+  _myaccesskeyid\_region.db_, with the AWS access key
   ID and AWS Region as they appear in your application configuration. If you
   delete the file, you lose any data that you have stored in it.
 - If you use the `-inMemory` option, DynamoDB doesn't write any

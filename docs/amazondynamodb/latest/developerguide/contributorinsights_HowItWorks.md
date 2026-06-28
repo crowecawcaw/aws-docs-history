@@ -403,15 +403,14 @@ throttled, but all other operations succeed.
 
 - **Throttled keys mode**
 
-      + If your table or global secondary index has only a partition keys,
-       it results in 1 event (only for the throttled
-       `PutItem`).
-      + If your table or global secondary index has a partition keys and
-       sort keys, it results in 2 events (2 for the throttled
-       `PutItem`).
-
-  The successful `GetItem` and `BatchWriteItem`
-  operations generate no events in throttled keys mode.
+  - If your table or global secondary index has only a partition keys,
+    it results in 1 event (only for the throttled
+    `PutItem`).
+  - If your table or global secondary index has a partition keys and
+    sort keys, it results in 2 events (2 for the throttled
+    `PutItem`).
+    The successful `GetItem` and `BatchWriteItem`
+    operations generate no events in throttled keys mode.
 
 ### Common billing factors
 

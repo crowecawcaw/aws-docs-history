@@ -121,20 +121,19 @@ Current versions of global tables.
   cost-effective for most customers. The differences for these DynamoDB operations
   are as follows:
 
-      + Invoking [PutItem](../APIReference/API_PutItem.md "../APIReference/API_PutItem.md") for a 1KB item in a Region and replicating to other
-       Regions requires 2 rWRUs per region for 2017.11.29 (Legacy), but only 1
-       rWRU for 2019.11.21 (Current).
-      + Invoking [UpdateItem](../APIReference/API_UpdateItem.md "../APIReference/API_UpdateItem.md") for a 1KB item requires 2 rWRUs in the source
-       Region and 1 rWRU per destination Region for 2017.11.29 (Legacy), but
-       only 1 rWRU for both source and destination Regions for 2019.11.21
-       (Current).
-      + Invoking [DeleteItem](../APIReference/API_DeleteItem.md "../APIReference/API_DeleteItem.md") for a 1KB item requires 1 rWRU in the source
-       Region and 2 rWRUs per destination Region for 2017.11.29 (Legacy), but
-       only 1 rWRU for both source or destination Region for 2019.11.21
-       (Current).
-
-  The following table shows the rWRU consumption of 2017.11.29 (Legacy) and
-  2019.11.21 (Current) tables for a 1KB item in two Regions.
+  - Invoking [PutItem](../APIReference/API_PutItem.md "../APIReference/API_PutItem.md") for a 1KB item in a Region and replicating to other
+    Regions requires 2 rWRUs per region for 2017.11.29 (Legacy), but only 1
+    rWRU for 2019.11.21 (Current).
+  - Invoking [UpdateItem](../APIReference/API_UpdateItem.md "../APIReference/API_UpdateItem.md") for a 1KB item requires 2 rWRUs in the source
+    Region and 1 rWRU per destination Region for 2017.11.29 (Legacy), but
+    only 1 rWRU for both source and destination Regions for 2019.11.21
+    (Current).
+  - Invoking [DeleteItem](../APIReference/API_DeleteItem.md "../APIReference/API_DeleteItem.md") for a 1KB item requires 1 rWRU in the source
+    Region and 2 rWRUs per destination Region for 2017.11.29 (Legacy), but
+    only 1 rWRU for both source or destination Region for 2019.11.21
+    (Current).
+    The following table shows the rWRU consumption of 2017.11.29 (Legacy) and
+    2019.11.21 (Current) tables for a 1KB item in two Regions.
 
 | Operation                                                                           | 2017.11.29 (Legacy) | 2019.11.21 (Current) | Savings |
 | ----------------------------------------------------------------------------------- | ------------------- | -------------------- | ------- |
@@ -155,14 +154,13 @@ Current versions of global tables.
 - version 2017.11.29 (Legacy) uses the following dedicated set of control plane
   APIs for managing replicas:
 
-      + [CreateGlobalTable](../APIReference/API_CreateGlobalTable.md "../APIReference/API_CreateGlobalTable.md")
-      + [DescribeGlobalTable](../APIReference/API_DescribeGlobalTable.md "../APIReference/API_DescribeGlobalTable.md")
-      + [DescribeGlobalTableSettings](../APIReference/API_DescribeGlobalTableSettings.md "../APIReference/API_DescribeGlobalTableSettings.md")
-      + [ListGlobalTables](../APIReference/API_ListGlobalTables.md "../APIReference/API_ListGlobalTables.md")
-      + [UpdateGlobalTable](../APIReference/API_UpdateGlobalTable.md "../APIReference/API_UpdateGlobalTable.md")
-      + [UpdateGlobalTableSettings](../APIReference/API_UpdateGlobalTableSettings.md "../APIReference/API_UpdateGlobalTableSettings.md")
-
-  version 2019.11.21 (Current) uses the [DescribeTable](../APIReference/API_DescribeTable.md "../APIReference/API_DescribeTable.md") and [UpdateTable](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md") APIs to manage replicas.
+  - [CreateGlobalTable](../APIReference/API_CreateGlobalTable.md "../APIReference/API_CreateGlobalTable.md")
+  - [DescribeGlobalTable](../APIReference/API_DescribeGlobalTable.md "../APIReference/API_DescribeGlobalTable.md")
+  - [DescribeGlobalTableSettings](../APIReference/API_DescribeGlobalTableSettings.md "../APIReference/API_DescribeGlobalTableSettings.md")
+  - [ListGlobalTables](../APIReference/API_ListGlobalTables.md "../APIReference/API_ListGlobalTables.md")
+  - [UpdateGlobalTable](../APIReference/API_UpdateGlobalTable.md "../APIReference/API_UpdateGlobalTable.md")
+  - [UpdateGlobalTableSettings](../APIReference/API_UpdateGlobalTableSettings.md "../APIReference/API_UpdateGlobalTableSettings.md")
+    version 2019.11.21 (Current) uses the [DescribeTable](../APIReference/API_DescribeTable.md "../APIReference/API_DescribeTable.md") and [UpdateTable](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md") APIs to manage replicas.
 
 - version 2017.11.29 (Legacy) publishes two DynamoDB Streams records for each write. version
   2019.11.21 (Current) only publishes one DynamoDB Streams record for each write.

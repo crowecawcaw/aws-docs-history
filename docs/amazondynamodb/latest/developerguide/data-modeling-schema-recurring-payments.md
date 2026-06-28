@@ -124,13 +124,13 @@ table below:
 
 | Access pattern            | Base table/GSI/LSI | Operation  | Partition key value | Sort key value               |
 | ------------------------- | ------------------ | ---------- | ------------------- | ---------------------------- |
-| createSubscription        | Base table         | PutItem    | ACC#account_id      | SUB#<SUBID>#SKU<SKUID>       |
-| createReceipt             | Base table         | PutItem    | ACC#account_id      | REC#<RecieptDate>#SKU<SKUID> |
-| updateSubscription        | Base table         | UpdateItem | ACC#account_id      | SUB#<SUBID>#SKU<SKUID>       |
+| createSubscription        | Base table         | PutItem    | ACC#account\_id     | SUB#<SUBID>#SKU<SKUID>       |
+| createReceipt             | Base table         | PutItem    | ACC#account\_id     | REC#<RecieptDate>#SKU<SKUID> |
+| updateSubscription        | Base table         | UpdateItem | ACC#account\_id     | SUB#<SUBID>#SKU<SKUID>       |
 | getDueRemindersByDate     | GSI-1              | Query      | <NextReminderDate>  |                              |
 | getDuePaymentsByDate      | GSI-2              | Query      | <NextPaymentDate>   |                              |
-| getSubscriptionsByAccount | Base table         | Query      | ACC#account_id      | SK begins_with “SUB#”        |
-| getReceiptsByAccount      | Base table         | Query      | ACC#account_id      | SK begins_with “REC#”        |
+| getSubscriptionsByAccount | Base table         | Query      | ACC#account\_id     | SK begins\_with “SUB#”       |
+| getReceiptsByAccount      | Base table         | Query      | ACC#account\_id     | SK begins\_with “REC#”       |
 
 ## Recurring payments final schema
 

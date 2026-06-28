@@ -134,7 +134,7 @@ recovery**.
    owned by your account, you can use the **Browse S3** button
    to find it. Otherwise, enter the URL of the bucket using the
    `s3://`bucketname`/`prefix`
-format.` the `prefix` is an optional folder to
+ format.` the `prefix` is an optional folder to
    help keep your destination bucket organized.
 5. Choose **Full export** or **Incremental export**. A **full
    export** outputs the full table snapshot of your table as it was at

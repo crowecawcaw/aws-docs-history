@@ -48,24 +48,23 @@ software on that instance.
     1. Choose **Launch**.
 
 3. In the **Select an existing key pair or create a new key
-   pair** window, do one of the following:
+pair** window, do one of the following:
 
-   - If you don't have an Amazon EC2 key pair, choose **Create a new key
+    * If you don't have an Amazon EC2 key pair, choose **Create a new key
      pair** and follow the instructions. You are asked to
      download a private key file (`.pem` file). You need
      this file later when you log in to your Amazon EC2 instance.
-   - If you already have an existing Amazon EC2 key pair, go to **Select a key pair** and choose your key pair from the list.
+    * If you already have an existing Amazon EC2 key pair, go to **Select a key pair** and choose your key pair from the list.
      You must already have the private key file (`.pem`
      file) available in order to log in to your Amazon EC2 instance.
 
 4. After configuring your key pair, choose **Launch
-   Instances**.
-5. In the console navigation pane, choose **EC2 Dashboard**, and
-   then choose the instance that you launched. In the lower pane, on the
-   **Description** tab, find the **Public
-   DNS** for your instance, for example:
-   `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`. Make a note of
-   this public DNS name because you need it for [Step 3: Configure an Amazon EC2 instance](DAX.client.configure-ec2-instance.md "DAX.client.configure-ec2-instance.md").
+Instances**. 5. In the console navigation pane, choose **EC2 Dashboard**, and
+then choose the instance that you launched. In the lower pane, on the
+**Description** tab, find the **Public
+DNS** for your instance, for example:
+`ec2-11-22-33-44.us-west-2.compute.amazonaws.com`. Make a note of
+this public DNS name because you need it for [Step 3: Configure an Amazon EC2 instance](DAX.client.configure-ec2-instance.md "DAX.client.configure-ec2-instance.md").
 
 ###### Note
 

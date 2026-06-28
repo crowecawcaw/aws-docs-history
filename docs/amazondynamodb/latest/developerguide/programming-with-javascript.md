@@ -717,13 +717,13 @@ CommonJS uses the `require` function, while ES uses the
 `import` keyword.
 
 1. **Common JS** – `const {
-DynamoDBClient, PutItemCommand } =
-require("@aws-sdk/client-dynamodb");`
+ DynamoDBClient, PutItemCommand } =
+ require("@aws-sdk/client-dynamodb");`
 2. **ES (ECMAScript**
    –
    `import { DynamoDBClient, PutItemCommand }
-from
-"@aws-sdk/client-dynamodb";`
+ from
+ "@aws-sdk/client-dynamodb";`
 
 The project type dictates the module system to be used and is specified in
 the type section of your package.json file. The default is CommonJS. Use

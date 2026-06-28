@@ -1,4 +1,4 @@
-# Using the ATTRIBUTE_TYPE function with PartiQL for DynamoDB
+# Using the ATTRIBUTE\_TYPE function with PartiQL for DynamoDB
 
 Returns `TRUE` if the attribute at the specified path is of a particular
 data type.
@@ -18,7 +18,7 @@ attribute_type( `attributename`, `type` )
 `type`
 
 (Required) The attribute type to check for. For a list of valid
-values, see DynamoDB [attribute_type](Expressions.OperatorsAndFunctions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.OperatorsAndFunctions.md#Expressions.OperatorsAndFunctions.Functions").
+values, see DynamoDB [attribute\_type](Expressions.OperatorsAndFunctions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.OperatorsAndFunctions.md#Expressions.OperatorsAndFunctions.Functions").
 
 ## Return type
 

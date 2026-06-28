@@ -124,26 +124,25 @@ Consider these steps to address your throttling events:
   partition key values are hot. This is a first step to target your mitigation
   efforts effectively. Consider these common patterns:
 
-      + If you see the same partition key appearing frequently in your
-       throttling data, this indicates a concentrated hot key.
-      + If you do not see repeated keys but are writing data in an ordered
-       way (such as sequential timestamps or scan-based operations that
-       follow keyspace order), you likely have rolling hot partitions where
-       different keys become hot over time as your writes move through the
-       keyspace.
-
-  Note that write throttling can also occur with operations like
-  `BatchWriteItem` or transactions that affect multiple items
-  simultaneously. When individual items within a `BatchWriteItem`
-  request are throttled, DynamoDB does not propagate these throttling errors to
-  the application code. Instead, DynamoDB returns information about the
-  unprocessed items in the response, which your application must handle by
-  retrying those specific items. For transactions, the entire operation fails
-  with a `TransactionCanceledException` if any item experiences
-  throttling. For these complex scenarios, you may need to analyze your
-  application's write patterns and data ingestion workflows, correlate them
-  with the timing of throttling events, and implement appropriate retry
-  handling strategies.
+  - If you see the same partition key appearing frequently in your
+    throttling data, this indicates a concentrated hot key.
+  - If you do not see repeated keys but are writing data in an ordered
+    way (such as sequential timestamps or scan-based operations that
+    follow keyspace order), you likely have rolling hot partitions where
+    different keys become hot over time as your writes move through the
+    keyspace.
+    Note that write throttling can also occur with operations like
+    `BatchWriteItem` or transactions that affect multiple items
+    simultaneously. When individual items within a `BatchWriteItem`
+    request are throttled, DynamoDB does not propagate these throttling errors to
+    the application code. Instead, DynamoDB returns information about the
+    unprocessed items in the response, which your application must handle by
+    retrying those specific items. For transactions, the entire operation fails
+    with a `TransactionCanceledException` if any item experiences
+    throttling. For these complex scenarios, you may need to analyze your
+    application's write patterns and data ingestion workflows, correlate them
+    with the timing of throttling events, and implement appropriate retry
+    handling strategies.
 
 - **Improve partition key design:** As a
   long-term solution, consider [Improving partition key design](#key-range-improve-partition-key-design "#key-range-improve-partition-key-design") to distribute access

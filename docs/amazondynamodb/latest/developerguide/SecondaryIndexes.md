@@ -97,16 +97,15 @@ it is associated with. For each secondary index, you must specify the following:
   type, including scalars, documents, and sets.
 - The provisioned throughput settings for the index, if necessary:
 
-      + For a global secondary index, you must specify read and write capacity unit settings. These
-       provisioned throughput settings are independent of the base table's
-       settings.
-      + For a local secondary index, you do not need to specify read and write capacity unit
-       settings. Any read and write operations on a local secondary index draw from the provisioned
-       throughput settings of its base table.
-
-  For maximum query flexibility, you can create up to 20 global secondary
-  indexes (default quota) and up to 5 local secondary indexes per
-  table.
+  - For a global secondary index, you must specify read and write capacity unit settings. These
+    provisioned throughput settings are independent of the base table's
+    settings.
+  - For a local secondary index, you do not need to specify read and write capacity unit
+    settings. Any read and write operations on a local secondary index draw from the provisioned
+    throughput settings of its base table.
+    For maximum query flexibility, you can create up to 20 global secondary
+    indexes (default quota) and up to 5 local secondary indexes per
+    table.
 
 To get a detailed listing of secondary indexes on a table, use the
 `DescribeTable` operation. `DescribeTable` returns the name,

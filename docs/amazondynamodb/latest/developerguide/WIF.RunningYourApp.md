@@ -67,35 +67,32 @@ URL: https://sts.amazonaws.com/?ProviderId=www.amazon.com
 </AssumeRoleWithWebIdentityResponse>
 ```
 
-3.  Access AWS resources. The response from
-    AWS STS contains information that your app requires in order to access
-    DynamoDB resources:
+3. Access AWS resources. The response from
+   AWS STS contains information that your app requires in order to access
+   DynamoDB resources:
 
-        * The `AccessKeyID`, `SecretAccessKey`, and
-         `SessionToken` fields contain security credentials
-         that are valid for this user and this app only.
-        * The `Expiration` field signifies the time limit for
-         these credentials, after which they are no longer valid.
-        * The `AssumedRoleId` field contains the name of a
-         session-specific IAM role that has been assumed by the app. The
-         app honors the access controls in the IAM policy document for the
-         duration of this session.
-        * The `SubjectFromWebIdentityToken` field contains the
-         unique ID that appears in an IAM policy variable for this
-         particular identity provider. The following are the IAM policy
-         variables for supported providers, and some example values for
-         them:
+   - The `AccessKeyID`, `SecretAccessKey`, and
+     `SessionToken` fields contain security credentials
+     that are valid for this user and this app only.
+   - The `Expiration` field signifies the time limit for
+     these credentials, after which they are no longer valid.
+   - The `AssumedRoleId` field contains the name of a
+     session-specific IAM role that has been assumed by the app. The
+     app honors the access controls in the IAM policy document for the
+     duration of this session.
+   - The `SubjectFromWebIdentityToken` field contains the
+     unique ID that appears in an IAM policy variable for this
+     particular identity provider. The following are the IAM policy
+     variables for supported providers, and some example values for
+     them:
 
+   | Policy Variable              | Example Value                                |
+   | ---------------------------- | -------------------------------------------- |
+   | `${www.amazon.com:user_id}`  | `amzn1.account.AGJZDKHJKAUUSW6C44CHPEXAMPLE` |
+   | `${graph.facebook.com:id}`   | `123456789`                                  |
+   | `${accounts.google.com:sub}` | `123456789012345678901`                      |
 
-
-
-        | Policy Variable | Example Value |
-        | --- | --- |
-        | `${www.amazon.com:user_id}` | `amzn1.account.AGJZDKHJKAUUSW6C44CHPEXAMPLE` |
-        | `${graph.facebook.com:id}` | `123456789` |
-        | `${accounts.google.com:sub}` | `123456789012345678901` |
-
-    For example IAM policies where these policy variables are used, see [Example policies: Using conditions for fine-grained access control](specifying-conditions.md#FGAC_DDB.Examples "specifying-conditions.md#FGAC_DDB.Examples").
+For example IAM policies where these policy variables are used, see [Example policies: Using conditions for fine-grained access control](specifying-conditions.md#FGAC_DDB.Examples "specifying-conditions.md#FGAC_DDB.Examples").
 
 For more information about how AWS STS generates temporary access credentials, see
 [Requesting Temporary

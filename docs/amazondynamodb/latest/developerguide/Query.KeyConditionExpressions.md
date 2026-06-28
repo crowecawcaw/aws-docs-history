@@ -45,23 +45,23 @@ sort key condition must use one of the following comparison operators:
   — true if the attribute `a` is equal to the
   value `b`
 - ``a` <
-`b`` — true if
+ `b`` — true if
   `a` is less than
   `b`
 - ``a` <=
-`b`` — true if
+ `b`` — true if
   `a` is less than or equal to
   `b`
 - ``a` >
-`b`` — true if
+ `b`` — true if
   `a` is greater than
   `b`
 - ``a` >=
-`b`` — true if
+ `b`` — true if
   `a` is greater than or equal to
   `b`
 - ``a` BETWEEN `b`
-AND `c`` — true if
+ AND `c`` — true if
   `a` is greater than or equal to
   `b`, and less than or equal to
   `c`.
@@ -69,7 +69,7 @@ AND `c`` — true if
 The following function is also supported:
 
 - `begins_with (`a`,
-`substr`)`— true if the value
+ `substr`)`— true if the value
   of attribute `a` begins with a
   particular substring.
 

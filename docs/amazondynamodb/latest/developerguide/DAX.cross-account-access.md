@@ -216,7 +216,7 @@ aws ec2 describe-route-tables \
 
 7. Add a route to send traffic destined for account A's CIDR to the VPC peering
    connection. Remember to replace each `user input
-placeholder` with the correct values for your accounts.
+ placeholder` with the correct values for your accounts.
 
 ```
 aws ec2 create-route \
@@ -236,7 +236,7 @@ aws ec2 describe-route-tables \
 
 9. From account A, add a route to send traffic destined for account B's CIDR to
    the VPC peering connection. Replace each `user input
-placeholder` with the correct values for your accounts.
+ placeholder` with the correct values for your accounts.
 
 ```
 aws ec2 create-route \
@@ -301,7 +301,7 @@ import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder
 
 2. Get a credentials provider from AWS STS and create a DAX
    client object. Remember to replace each `user input
-placeholder` with the correct values for your
+ placeholder` with the correct values for your
    accounts.
 
 ```
@@ -385,7 +385,7 @@ import (
 2. Get temporary credentials from
    `AmazonSimpleTokenService` and create a DAX client
    object. Remember to replace each `user input
-placeholder` with the correct values for your
+ placeholder` with the correct values for your
    accounts.
 
 ```

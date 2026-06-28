@@ -52,7 +52,7 @@ tagging](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/a
 use for a variety of purposes, such as to identify all resources belonging to a project or
 department. For this example, we'll assume you have a table named **MyTable**.
 
-1. Set a tag with the key of **table_name** and the value of
+1. Set a tag with the key of **table\_name** and the value of
    **MyTable**.
 2. [Activate the tag
    within Cost Explorer](../../../awsaccountbilling/latest/aboutv2/activating-tags.md "../../../awsaccountbilling/latest/aboutv2/activating-tags.md") and then filter on the tag value to gain more visibility into each
@@ -63,7 +63,7 @@ department. For this example, we'll assume you have a table named **MyTable**.
 It may take one or two days for the tag to start appearing in Cost Explorer
 
 You can set metadata tags yourself in the console, or via automation such as the AWS CLI
-or AWS SDK. Consider requiring a **table_name** tag to be set
+or AWS SDK. Consider requiring a **table\_name** tag to be set
 as part of your organization’s new table creation process. For existing tables, there is a
 Python utility available that will find and apply these tags to all existing tables in a
 certain region in your account. See [Eponymous

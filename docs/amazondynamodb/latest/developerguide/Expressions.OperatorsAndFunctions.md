@@ -65,7 +65,7 @@ Use these comparators to compare an operand against a single value:
   – True if `a` is equal to
   `b`.
 - ``a` <>
-`b`` – True if
+ `b`` – True if
   `a` is not equal to
   `b`.
 - ``a` < `b``
@@ -85,15 +85,15 @@ Use the `BETWEEN` and `IN` keywords to compare an operand
 against a range of values or an enumerated list of values:
 
 - ``a` BETWEEN `b` AND
-`c`` – True if
+ `c`` – True if
   `a` is greater than or equal to
   `b`, and less than or equal to
   `c`.
 - ``a` IN (`b`,
-  `c`, `d`)`
-– True if`a`is equal to any value in the
-list—for example, any of`b`,
-`c`, or `d`. The list can
+ `c`, `d`)`
+  – True if `a` is equal to any value in the
+  list—for example, any of `b`,
+  `c`, or `d`. The list can
   contain up to 100 values, separated by commas.
 
 ## Functions
@@ -123,7 +123,8 @@ logical evaluations. In the following list, `a` and
 - ``a` OR `b``
   – True if either `a` or
   `b` (or both) are true.
-- `NOT `a``– True if`a`is false. False if`a`
+- `NOT `a`` – True if
+  `a` is false. False if `a`
   is true.
 
 The following is a code example of AND in an operation.
@@ -139,13 +140,13 @@ and that condition `c` is false. The following expression
 evaluates to true:
 
 - ``a` OR `b` AND
-`c``
+ `c``
 
 However, if you enclose a condition in parentheses, it is evaluated first. For
 example, the following evaluates to false:
 
 - `(`a`OR`b`) AND
-`c``
+ `c``
 
 ###### Note
 

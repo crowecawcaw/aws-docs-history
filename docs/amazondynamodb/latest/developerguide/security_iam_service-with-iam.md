@@ -226,6 +226,6 @@ The following service-linked roles are supported in DynamoDB.
 In addition to these DynamoDB service-linked roles, DynamoDB uses the Application Auto
 Scaling service for automatically managing throughput settings on provisioned
 capacity mode tables. The Application Auto Scaling service uses the
-service-linked role**AWSServiceRoleForApplicationAutoScaling_DynamoDBTable** to manage
+service-linked role**AWSServiceRoleForApplicationAutoScaling\_DynamoDBTable** to manage
 throughput settings on DynamoDB tables that have auto scaling enabled. See [Service-linked roles for Application Auto Scaling](../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md "../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md") for more
 information.

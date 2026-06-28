@@ -3,7 +3,7 @@
 The following examples show some ways that you can use HiveQL to query data stored in
 DynamoDB.
 
-These examples refer to the _ddb_features_ table in the tutorial
+These examples refer to the _ddb\_features_ table in the tutorial
 ([Step 5: Copy data to DynamoDB](EMRforDynamoDB.Tutorial.CopyDataToDDB.md "EMRforDynamoDB.Tutorial.CopyDataToDDB.md")).
 
 ###### Topics
@@ -35,7 +35,7 @@ records. This is often used with an aggregate function such as `SUM`,
 criteria.
 
 The following example returns a list of the highest elevations from states that
-have more than five features in the _ddb_features_ table.
+have more than five features in the _ddb\_features_ table.
 
 ```
 SELECT state_alpha, max(elev_in_ft)
@@ -47,7 +47,7 @@ HAVING count(*) >= 5;
 ## Joining two DynamoDB tables
 
 The following example maps another Hive table
-(_east_coast_states_) to a table in DynamoDB. The
+(_east\_coast\_states_) to a table in DynamoDB. The
 `SELECT` statement is a join across these two tables. The join is
 computed on the cluster and returned. The join does not take place in DynamoDB.
 
@@ -74,7 +74,7 @@ Florida         FL
 ```
 
 Let's assume the table is available as a Hive external table named
-east_coast_states:
+east\_coast\_states:
 
 ```
 CREATE EXTERNAL TABLE ddb_east_coast_states (state_name STRING, state_alpha STRING)
@@ -96,8 +96,8 @@ HAVING COUNT(*) >= 3;
 
 ## Joining tables from different sources
 
-In the following example, s3_east_coast_states is a Hive table associated with a
-CSV file stored in Amazon S3. The _ddb_features_ table is associated
+In the following example, s3\_east\_coast\_states is a Hive table associated with a
+CSV file stored in Amazon S3. The _ddb\_features_ table is associated
 with data in DynamoDB. The following example joins these two tables, returning the
 geographic features from states whose names begin with "New."
 

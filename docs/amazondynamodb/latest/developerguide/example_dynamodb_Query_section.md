@@ -12,7 +12,7 @@ context in the following code examples:
 - [Getting started with NoSQL databases](example_dynamodb_GettingStarted_070_section.md "example_dynamodb_GettingStarted_070_section.md")
 - [Manage Global Secondary Indexes](example_dynamodb_Scenario_GSILifecycle_section.md "example_dynamodb_Scenario_GSILifecycle_section.md")
 - [Perform advanced query operations](example_dynamodb_Scenario_AdvancedQueryTechniques_section.md "example_dynamodb_Scenario_AdvancedQueryTechniques_section.md")
-- [Query a table using a begins_with condition](example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md "example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md")
+- [Query a table using a begins\_with condition](example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md "example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md")
 - [Query a table using a date range](example_dynamodb_Scenarios_QueryWithDateRange_section.md "example_dynamodb_Scenarios_QueryWithDateRange_section.md")
 - [Query a table using a Global Secondary Index](example_dynamodb_Scenarios_QueryWithGlobalSecondaryIndex_section.md "example_dynamodb_Scenarios_QueryWithGlobalSecondaryIndex_section.md")
 - [Query a table with a complex filter expression](example_dynamodb_Scenarios_QueryWithComplexFilter_section.md "example_dynamodb_Scenarios_QueryWithComplexFilter_section.md")

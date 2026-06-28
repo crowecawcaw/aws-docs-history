@@ -59,7 +59,7 @@ for an online shop.
 
 ## Schema design evolution
 
-Using [NoSQL Workbench for DynamoDB](workbench.md "workbench.md") , import [AnOnlineShop_1.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_1.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_1.json") to create a new data model called
+Using [NoSQL Workbench for DynamoDB](workbench.md "workbench.md") , import [AnOnlineShop\_1.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_1.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_1.json") to create a new data model called
 `AnOnlineShop` and a new table called `OnlineShop`. Note that
 we use the generic names `PK` and `SK` for the partition key and
 sort key. This is a practice used in order to store different types of entities in the
@@ -68,7 +68,7 @@ same table.
 **Step 1: Address access pattern 1
 (`getCustomerByCustomerId`)**
 
-Import [AnOnlineShop_2.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_2.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_2.json") to handle access pattern 1
+Import [AnOnlineShop\_2.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_2.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_2.json") to handle access pattern 1
 (`getCustomerByCustomerId`). Some entities do not have relationships to
 other entities, so we will use the same value of `PK` and `SK` for
 them. In the example data, note that the keys use a prefix `c#` in order to
@@ -81,7 +81,7 @@ and `SK=customerId`.
 **Step 2: Address access pattern 2
 (`getProductByProductId`)**
 
-Import [AnOnlineShop_3.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_3.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_3.json") to address access pattern 2
+Import [AnOnlineShop\_3.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_3.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_3.json") to address access pattern 2
 (`getProductByProductId`) for the `product` entity. The
 product entities are prefixed by `p#` and the same sort key attribute has
 been used to store `customerID` as well as `productID`. Generic
@@ -95,7 +95,7 @@ To address this access pattern, a `GetItem` operation can be used with
 **Step 3: Address access pattern 3
 (`getWarehouseByWarehouseId`)**
 
-Import [AnOnlineShop_4.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_4.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_4.json") to address access pattern 3
+Import [AnOnlineShop\_4.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_4.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_4.json") to address access pattern 3
 (`getWarehouseByWarehouseId`) for the `warehouse` entity. We
 currently have the `customer`, `product`, and
 `warehouse` entities added to the same table. They are distinguished
@@ -114,7 +114,7 @@ To address this access pattern, a `GetItem` operation can be used with
 **Step 4: Address access pattern 4
 (`getProductInventoryByProductId`)**
 
-Import [AnOnlineShop_5.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_5.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_5.json") to address access pattern 4
+Import [AnOnlineShop\_5.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_5.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_5.json") to address access pattern 4
 (`getProductInventoryByProductId`). `warehouseItem` entity is
 used to keep track of the number of products in each warehouse. This item would normally
 be updated when a product is added or removed from a warehouse. As seen in the ERD,
@@ -140,7 +140,7 @@ Expressions](Query.KeyConditionExpressions.md "Query.KeyConditionExpressions.md"
 (`getProductByOrderId`)**
 
 Add some more `customer`, `product`, and `warehouse`
-items to the table by importing [AnOnlineShop_6.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_6.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_6.json"). Then, import [AnOnlineShop_7.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_7.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_7.json") to build an item collection for `order` that
+items to the table by importing [AnOnlineShop\_6.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_6.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_6.json"). Then, import [AnOnlineShop\_7.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_7.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_7.json") to build an item collection for `order` that
 can address access patterns 5 (`getOrderDetailsByOrderId`) and 6
 (`getProductByOrderId`). You can see the one-to-many relationship between
 `order` and `product` modeled as orderItem entities.
@@ -164,7 +164,7 @@ products in an `order` only. Query the table with `PK=orderId` and
 **Step 6: Address access pattern 7
 (`getInvoiceByOrderId`)**
 
-Import [AnOnlineShop_8.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_8.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_8.json") to add an `invoice` entity to the _order_ item collection to handle access pattern 7
+Import [AnOnlineShop\_8.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_8.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_8.json") to add an `invoice` entity to the _order_ item collection to handle access pattern 7
 (`getInvoiceByOrderId`). To address this access pattern, you can use a
 query operation with `PK=orderId` and `SK begins_with
  “i#”`.
@@ -176,7 +176,7 @@ query operation with `PK=orderId` and `SK begins_with
 **Step 7: Address access pattern 8
 (`getShipmentByOrderId`)**
 
-Import [AnOnlineShop_9.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_9.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_9.json") to add `shipment` entities to the _order_ item collection to address access pattern 8
+Import [AnOnlineShop\_9.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_9.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_9.json") to add `shipment` entities to the _order_ item collection to address access pattern 8
 (`getShipmentByOrderId`). We are extending the same vertically
 partitioned model by adding more types of entities in the single table design. Notice
 how the _order_ item collection contains the different
@@ -197,7 +197,7 @@ We created an _order_ item collection in the previous
 step. This access pattern has new lookup dimensions (`ProductID` and
 `Date`) which requires you to scan the whole table and filter out
 relevant records to fetch targeted items. In order to address this access pattern, we'll
-need to create a [global secondary index (GSI)](GSI.md "GSI.md"). Import [AnOnlineShop_10.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_10.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_10.json") to create a new item collection using the GSI that
+need to create a [global secondary index (GSI)](GSI.md "GSI.md"). Import [AnOnlineShop\_10.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_10.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_10.json") to create a new item collection using the GSI that
 makes it possible to retrieve `orderItem` data from several _order_ item collections. The data now has
 `GSI1-PK` and `GSI1-SK` which will be `GSI1`’s
 partition key and sort key, respectively.
@@ -221,7 +221,7 @@ To address access pattern 9, perform a query on `GSI1` with
 (`getInvoiceByInvoiceId`) and 11
 (`getPaymentByInvoiceId`)**
 
-Import [AnOnlineShop_11.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_11.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_11.json") to address access patterns 10
+Import [AnOnlineShop\_11.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_11.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_11.json") to address access patterns 10
 (`getInvoiceByInvoiceId`) and 11 (`getPaymentByInvoiceId`),
 both of which are related to `invoice`. Even though these are two different
 access patterns, they are realized using the same key condition. `Payments`
@@ -245,7 +245,7 @@ To address access pattern 10 and 11, query `GSI1` with
 (`getShipmentDetailsByShipmentId`) and 13
 (`getShipmentByWarehouseId`)**
 
-Import [AnOnlineShop_12.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_12.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_12.json") to address access patterns 12
+Import [AnOnlineShop\_12.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_12.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_12.json") to address access patterns 12
 (`getShipmentDetailsByShipmentId`) and 13
 (`getShipmentByWarehouseId`).
 
@@ -281,7 +281,7 @@ relationship between `warehouse` and `shipment` for access pattern
 (`getInvoiceByCustomerIdForDateRange`), and 16
 (`getProductsByCustomerIdForDateRange`)**
 
-Import [AnOnlineShop_13.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_13.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_13.json") to add data related to the next set of access
+Import [AnOnlineShop\_13.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_13.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_13.json") to add data related to the next set of access
 patterns. To address access pattern 14 (`getProductInventoryByWarehouseId`),
 query `GSI2` with `GSI2-PK=warehouseId` and `GSI2-SK
  begins_with “p#”`.
@@ -314,7 +314,7 @@ to see records that don't meet the constraints of the facet. Facets are consider
 visual data modeling tool, and don't exist as a usable construct in DynamoDB as they
 are purely an aid for modeling access patterns.
 
-Import [AnOnlineShop_facets.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_facets.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_facets.json") to see the facets for this use case.
+Import [AnOnlineShop\_facets.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_facets.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_facets.json") to see the facets for this use case.
 
 All access patterns and how the schema design addresses them are summarized in the
 table below:
@@ -324,17 +324,17 @@ table below:
 | getCustomerByCustomerId             | Base table         | GetItem   | PK=customerId       | SK=customerId                  |
 | getProductByProductId               | Base table         | GetItem   | PK=productId        | SK=productId                   |
 | getWarehouseByWarehouseId           | Base table         | GetItem   | PK=warehouseId      | SK=warehouseId                 |
-| getProductInventoryByProductId      | Base table         | Query     | PK=productId        | SK begins_with "w#"            |
+| getProductInventoryByProductId      | Base table         | Query     | PK=productId        | SK begins\_with "w#"           |
 | getOrderDetailsByOrderId            | Base table         | Query     | PK=orderId          |                                |
-| getProductByOrderId                 | Base table         | Query     | PK=orderId          | SK begins_with "p#"            |
-| getInvoiceByOrderId                 | Base table         | Query     | PK=orderId          | SK begins_with "i#"            |
-| getShipmentByOrderId                | Base table         | Query     | PK=orderId          | SK begins_with "sh#"           |
+| getProductByOrderId                 | Base table         | Query     | PK=orderId          | SK begins\_with "p#"           |
+| getInvoiceByOrderId                 | Base table         | Query     | PK=orderId          | SK begins\_with "i#"           |
+| getShipmentByOrderId                | Base table         | Query     | PK=orderId          | SK begins\_with "sh#"          |
 | getOrderByProductIdForDateRange     | GSI1               | Query     | PK=productId        | SK between date1 and date2     |
 | getInvoiceByInvoiceId               | GSI1               | Query     | PK=invoiceId        | SK=invoiceId                   |
 | getPaymentByInvoiceId               | GSI1               | Query     | PK=invoiceId        | SK=invoiceId                   |
 | getShipmentDetailsByShipmentId      | GSI1               | Query     | PK=shipmentId       | SK=shipmentId                  |
-| getShipmentByWarehouseId            | GSI2               | Query     | PK=warehouseId      | SK begins_with "sh#"           |
-| getProductInventoryByWarehouseId    | GSI2               | Query     | PK=warehouseId      | SK begins_with "p#"            |
+| getShipmentByWarehouseId            | GSI2               | Query     | PK=warehouseId      | SK begins\_with "sh#"          |
+| getProductInventoryByWarehouseId    | GSI2               | Query     | PK=warehouseId      | SK begins\_with "p#"           |
 | getInvoiceByCustomerIdForDateRange  | GSI2               | Query     | PK=customerId       | SK between i#date1 and i#date2 |
 | getProductsByCustomerIdForDateRange | GSI2               | Query     | PK=customerId       | SK between p#date1 and p#date2 |
 

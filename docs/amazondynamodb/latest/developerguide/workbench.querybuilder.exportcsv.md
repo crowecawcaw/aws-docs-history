@@ -18,8 +18,6 @@ programming language.
      file. If there are multiple pages of results, you must export each
      page individually.
 
-2. Select the items you want to export from the results.
-3. In the **Actions** dropdown, choose **Export as
-   CSV**.
-4. Choose a filename and location for your CSV file and select
-   **Save**.
+2. Select the items you want to export from the results. 3. In the **Actions** dropdown, choose **Export as
+CSV**. 4. Choose a filename and location for your CSV file and select
+**Save**.

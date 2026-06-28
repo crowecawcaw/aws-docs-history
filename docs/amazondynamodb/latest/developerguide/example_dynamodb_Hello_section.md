@@ -135,7 +135,7 @@ target_link_libraries(${PROJECT_NAME}
 
 ```
 
-Code for the hello_dynamodb.cpp source file.
+Code for the hello\_dynamodb.cpp source file.
 
 ```
 #include <aws/core/Aws.h>

@@ -184,9 +184,9 @@ through AWS Support. If any of the following apply to you, please see [https://a
   service quota increase for your add replica data backfill quota.
 - If you encounter an error similar to the following:
 
-  - Cannot create a replica of table 'example_table' in region
-    'example_region_A' because its exceeds your current account limit in
-    region 'example_region_B'.
+  - Cannot create a replica of table 'example\_table' in region
+    'example\_region\_A' because its exceeds your current account limit in
+    region 'example\_region\_B'.
 
 ## Secondary indexes
 

@@ -24,7 +24,7 @@ Console
 4. Choose **Query table**. This action generates a query that
    will not result in a full table scan.
 5. Replace `partitionKeyValue` with the string value `Acme
-Band`. Replace `sortKeyValue` with the string value
+ Band`. Replace `sortKeyValue` with the string value
    `Happy Day`.
 6. Choose the **Run** button.
 7. You can view the results of the query by choosing the **Table view** or the **JSON view** buttons.

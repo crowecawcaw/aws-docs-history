@@ -130,9 +130,7 @@ creation.
   accessed and the nearest Region participating in the global table. For more information,
   see the AWS re:Invent 2024 presentation, [Multi-Region strong consistency with
   DynamoDB global tables](https://www.youtube.com/watch?v=R-nTs8ZD8mA "https://www.youtube.com/watch?v=R-nTs8ZD8mA"). Eventually consistent read operations experience
-  no extra latency. There is an open source [tester
-  tool](https://github.com/awslabs/amazon-dynamodb-tools/tree/main/tester "https://github.com/awslabs/amazon-dynamodb-tools/tree/main/tester") that lets you experimentally calculate these latencies with your
-  Regions.
+  no extra latency.
 - Items are replicated individually. Global tables using MRSC do not support the
   transaction APIs.
 - A MRSC global table must be deployed in exactly three Regions. You can configure a

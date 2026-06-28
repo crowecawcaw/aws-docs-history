@@ -45,10 +45,10 @@ TBLPROPERTIES (
 ```
 
 Line 1 is the start of the `CREATE EXTERNAL TABLE` statement, where you
-provide the name of the Hive table (_hive_table_) you want to
+provide the name of the Hive table (_hive\_table_) you want to
 create.
 
-Line 2 specifies the columns and data types for _hive_table_.
+Line 2 specifies the columns and data types for _hive\_table_.
 You need to define columns and data types that correspond to the attributes in the
 DynamoDB table.
 
@@ -63,7 +63,7 @@ following parameters for `DynamoDBStorageHandler`:
 - `dynamodb.table.name`—the name of the DynamoDB table.
 - `dynamodb.column.mapping`—pairs of column names in the Hive
   table and their corresponding attributes in the DynamoDB table. Each pair is of
-  the form _hive_column_name:dynamodb_attribute_name_, and
+  the form _hive\_column\_name:dynamodb\_attribute\_name_, and
   the pairs are separated by commas.
 
 Note the following:

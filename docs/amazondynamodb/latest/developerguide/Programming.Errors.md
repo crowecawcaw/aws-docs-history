@@ -26,7 +26,7 @@ components:
 - An HTTP status code (such as `400`).
 - An exception name (such as `ResourceNotFoundException`).
 - An error message (such as `Requested resource not found: Table:
-`tablename` not found`).
+ `tablename` not found`).
 
 The AWS SDKs take care of propagating errors to your application so that you can
 take appropriate action. For example, in a Java program, you can write
@@ -216,7 +216,7 @@ Message: _Rate of requests exceeds the allowed
 throughput._
 
 This exception is returned as an AmazonServiceException response with
-a THROTTLING_EXCEPTION status code. This exception might be returned if
+a THROTTLING\_EXCEPTION status code. This exception might be returned if
 you perform [control plane](HowItWorks.API.md#HowItWorks.API.ControlPlane "HowItWorks.API.md#HowItWorks.API.ControlPlane") API operations too rapidly.
 
 For tables using on-demand mode, this exception might be returned for
@@ -408,7 +408,7 @@ example:
 - **Python** – The boto3
   Table resource `batch_writer` handles unprocessed item retries
   implicitly for batch write operations. For more information, see
-  [Using the table resource batch_writer](programming-with-python.md#programming-with-python-batch-writer "programming-with-python.md#programming-with-python-batch-writer").
+  [Using the table resource batch\_writer](programming-with-python.md#programming-with-python-batch-writer "programming-with-python.md#programming-with-python-batch-writer").
   If you are using a low-level client or an SDK that does not provide this
   behavior, you must implement the retry logic yourself as described
   above.

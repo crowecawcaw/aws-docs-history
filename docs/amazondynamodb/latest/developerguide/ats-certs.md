@@ -104,7 +104,7 @@ support Amazon Trust Services certificates:
 - Ubuntu 8.10
 - Debian 5.0
 - Amazon Linux (all versions)
-- Java 1.4.2_12, Java 5 update 2, and all newer
+- Java 1.4.2\_12, Java 5 update 2, and all newer
   versions, including Java 6, Java 7, and Java 8
 
 If you're still unable to connect, consult your

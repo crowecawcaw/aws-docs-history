@@ -285,7 +285,7 @@ match the names for the ones we used in the AWS CLI section. Click on the **m1 I
 Rename the **ConsumedWriteCapacityUnit** label as `consumedWCU`.
 
 ![The graphed metric with ConsumedWriteCapacityUnit label is renamed to consumedWCU.](images/CostOptimization/RightSizedProvisioning5.png) 9. Change the statistic from **Average** to **Sum**. This action will automatically create another metric
-called **ANOMALY_DETECTION_BAND**. For the scope of
+called **ANOMALY\_DETECTION\_BAND**. For the scope of
 this procedure, let's ignore it by removing the checkbox on the newly generated
 **ad1 metric**.
 
@@ -301,7 +301,7 @@ value to **m1** and the label to **Consumed WCUs**.
 Make sure you have only selected **m1** (checkbox
 on the left) and **provisionedWCU** to properly
 visualize the data. Update the formula by clicking in **Details** and changing the formula to **consumedWCU/PERIOD(consumedWCU)**. This step might also generate
-another **ANOMALY_DETECTION_BAND** metric, but for
+another **ANOMALY\_DETECTION\_BAND** metric, but for
 the scope of this procedure we can ignore it.
 
 ![m1 and provisionedWCU are selected. Details for m1 is updated as consumedWCU/PERIOD(consumedWCU).](images/CostOptimization/RightSizedProvisioning10.png) 12. You should have now have two graphics: one that indicates your provisioned WCUs

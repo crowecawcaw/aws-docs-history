@@ -39,7 +39,7 @@ The result should look similar to this:
 ```
 
 The `features.txt` file contains a subset of data from the
-United States Board on Geographic Names ([http://geonames.usgs.gov/domestic/download_data.htm](http://geonames.usgs.gov/domestic/download_data.htm "http://geonames.usgs.gov/domestic/download_data.htm")). The
+United States Board on Geographic Names ([http://geonames.usgs.gov/domestic/download\_data.htm](http://geonames.usgs.gov/domestic/download_data.htm "http://geonames.usgs.gov/domestic/download_data.htm")). The
 fields in each line represent the following:
 
     * Feature ID (unique identifier)

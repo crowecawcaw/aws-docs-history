@@ -173,15 +173,15 @@ table.
 
 The following table lists the mapping of DynamoDB data types to ion data types:
 
-| DynamoDB data type | Ion representation                                                           |
-| ------------------ | ---------------------------------------------------------------------------- |
-| String (S)         | string                                                                       |
-| Boolean (BOOL)     | bool                                                                         |
-| Number (N)         | decimal                                                                      |
-| Binary (B)         | blob                                                                         |
-| Set (SS, NS, BS)   | list (with type annotation $dynamodb\_SS, $dynamodb\_NS, or<br>$dynamodb_BS) |
-| List               | list                                                                         |
-| Map                | struct                                                                       |
+| DynamoDB data type | Ion representation                                                            |
+| ------------------ | ----------------------------------------------------------------------------- |
+| String (S)         | string                                                                        |
+| Boolean (BOOL)     | bool                                                                          |
+| Number (N)         | decimal                                                                       |
+| Binary (B)         | blob                                                                          |
+| Set (SS, NS, BS)   | list (with type annotation $dynamodb\_SS, $dynamodb\_NS, or<br>$dynamodb\_BS) |
+| List               | list                                                                          |
+| Map                | struct                                                                        |
 
 Items in an Ion export are delimited by newlines. Each line begins with an
 Ion version marker, followed by an item in Ion format. In the following
@@ -466,15 +466,15 @@ table.
 
 The following table lists the mapping of DynamoDB data types to ion data types:
 
-| DynamoDB data type | Ion representation                                                           |
-| ------------------ | ---------------------------------------------------------------------------- |
-| String (S)         | string                                                                       |
-| Boolean (BOOL)     | bool                                                                         |
-| Number (N)         | decimal                                                                      |
-| Binary (B)         | blob                                                                         |
-| Set (SS, NS, BS)   | list (with type annotation $dynamodb\_SS, $dynamodb\_NS, or<br>$dynamodb_BS) |
-| List               | list                                                                         |
-| Map                | struct                                                                       |
+| DynamoDB data type | Ion representation                                                            |
+| ------------------ | ----------------------------------------------------------------------------- |
+| String (S)         | string                                                                        |
+| Boolean (BOOL)     | bool                                                                          |
+| Number (N)         | decimal                                                                       |
+| Binary (B)         | blob                                                                          |
+| Set (SS, NS, BS)   | list (with type annotation $dynamodb\_SS, $dynamodb\_NS, or<br>$dynamodb\_BS) |
+| List               | list                                                                          |
+| Map                | struct                                                                        |
 
 Items in an Ion export are delimited by newlines. Each line begins with an
 Ion version marker, followed by an item in Ion format. In the following

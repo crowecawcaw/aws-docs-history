@@ -68,11 +68,10 @@ Item**.
     3. To write the item, choose **Create item**.
 
 9. After a short time, the item is replicated across all three Regions of your
-   global table. To verify this, in the console, on the Region selector in the
-   upper-right corner, choose **Europe (Frankfurt)**. The
-   `Music` table in Europe (Frankfurt) should contain the new
-   item.
-10. Repeat step 9 and choose **US West (Oregon)** to verify replication in that region.
+global table. To verify this, in the console, on the Region selector in the
+upper-right corner, choose **Europe (Frankfurt)**. The
+`Music` table in Europe (Frankfurt) should contain the new
+item. 10. Repeat step 9 and choose **US West (Oregon)** to verify replication in that region.
 
 ## Creating a global table (AWS CLI)
 

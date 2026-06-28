@@ -8,65 +8,64 @@ For more information about write operations, see [Writing an item](WorkingWithIt
 Follow these steps to write data to the `Music` table using the
 DynamoDB console.
 
-1.  Open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  In the left navigation pane, choose **Tables**.
-3.  On the **Tables** page, choose the
-    **Music** table.
-4.  Choose **Explore table items**.
-5.  In the **Items returned** section, choose
-    **Create item**.
-6.  On the **Create item** page, do the following to add
-    items to your table:
+1. Open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. In the left navigation pane, choose **Tables**.
+3. On the **Tables** page, choose the
+   **Music** table.
+4. Choose **Explore table items**.
+5. In the **Items returned** section, choose
+   **Create item**.
+6. On the **Create item** page, do the following to add
+   items to your table:
 
-    1. Choose **Add new attribute**, and then choose
-       **Number**.
-    2. For Attribute name, enter
-       `Awards`.
-    3. Repeat this process to create an
-       `AlbumTitle` of type
-       **String**.
-    4. Enter the following values for your item:
+   1. Choose **Add new attribute**, and then choose
+      **Number**.
+   2. For Attribute name, enter
+      `Awards`.
+   3. Repeat this process to create an
+      `AlbumTitle` of type
+      **String**.
+   4. Enter the following values for your item:
 
-       1. For **Artist**, enter `No
-One You Know`.
-       2. For **SongTitle**, enter
-          `Call Me Today`.
-       3. For **AlbumTitle**, enter
-          `Somewhat Famous`.
-       4. For **Awards**, enter
-          `1`.
+      1. For **Artist**, enter `No
+  One You Know`.
+      2. For **SongTitle**, enter
+         `Call Me Today`.
+      3. For **AlbumTitle**, enter
+         `Somewhat Famous`.
+      4. For **Awards**, enter
+         `1`.
 
-7.  Choose **Create item**.
-8.  Repeat this process and create another item with the following
-    values:
+7. Choose **Create item**.
+8. Repeat this process and create another item with the following
+   values:
 
-    1. For **Artist**, enter `Acme
-Band`.
-    2. For **SongTitle** enter `Happy
-Day`.
-    3. For **AlbumTitle**, enter `Songs
-About Life`.
-    4. For **Awards**, enter
-       `10`.
+   1. For **Artist**, enter `Acme
+  Band`.
+   2. For **SongTitle** enter `Happy
+  Day`.
+   3. For **AlbumTitle**, enter `Songs
+  About Life`.
+   4. For **Awards**, enter
+      `10`.
 
-9.  Do this one more time to create another item with the same
-    **Artist** as the previous step, but different
-    values for the other attributes:
+9. Do this one more time to create another item with the same
+   **Artist** as the previous step, but different
+   values for the other attributes:
 
-        1. For **Artist**, enter `Acme
-         Band`.
-        2. For **SongTitle** enter `PartiQL
-         Rocks`.
-        3. For **AlbumTitle**, enter `Another
-         Album Title`.
-        4. For **Awards**, enter
-         `8`.
-
-    The following AWS CLI example creates several new items in the
-    `Music` table. You can do this either through the DynamoDB API or
-    [PartiQL](ql-reference.md "ql-reference.md"), a
-    SQL-compatible query language for DynamoDB.
+   1. For **Artist**, enter `Acme
+  Band`.
+   2. For **SongTitle** enter `PartiQL
+  Rocks`.
+   3. For **AlbumTitle**, enter `Another
+  Album Title`.
+   4. For **Awards**, enter
+      `8`.
+      The following AWS CLI example creates several new items in the
+      `Music` table. You can do this either through the DynamoDB API or
+      [PartiQL](ql-reference.md "ql-reference.md"), a
+      SQL-compatible query language for DynamoDB.
 
 DynamoDB API
 **Linux**

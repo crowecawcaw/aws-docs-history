@@ -28,9 +28,9 @@ need.
    1. Open the Amazon S3 console at
       [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
    2. From the list of buckets, choose `aws-logs-
-`accountID`-`region``,
-where `accountID`is your AWS account
-number and`region` is the region in which
+  `accountID`-`region``,
+      where `accountID` is your AWS account
+      number and `region` is the region in which
       you launched the cluster.
    3. From the **Action** menu, choose
       **Delete**.

@@ -15,7 +15,7 @@ directory: `/user/hadoop/hive-test`
 
 The examples in this section are written with the assumption you followed the
 steps in [Tutorial: Working with Amazon DynamoDB and Apache Hive](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md") and you have an external table in
-DynamoDB named _ddb_features_.
+DynamoDB named _ddb\_features_.
 
 ###### Topics
 
@@ -231,7 +231,7 @@ Found 1 items
 -rw-r--r-- 1 hadoop hadoop 29504 2016-06-08 23:40 /user/hadoop/hive-test/000000_0
 ```
 
-The file name (_000000_0_) is
+The file name (_000000\_0_) is
 system-generated. 3. View the contents of the file:
 
 ```

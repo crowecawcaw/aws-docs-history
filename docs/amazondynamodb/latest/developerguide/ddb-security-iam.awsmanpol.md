@@ -34,7 +34,7 @@ This policy grants permissions to do the following:
 The definition of this managed policy can be found
 [here](../../../aws-managed-policy/latest/reference/DynamoDBReplicationServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/DynamoDBReplicationServiceRolePolicy.md").
 
-## AWS managed policy: AmazonDynamoDBFullAccess_v2
+## AWS managed policy: AmazonDynamoDBFullAccess\_v2
 
 The scoped-down `AmazonDynamoDBFullAccess_v2` policy grants specific access privileges to users. You can attach the `AmazonDynamoDBFullAccess_v2` policy to your IAM identities. This policy grants administrative access to Amazon DynamoDB resources and grants an IAM identity (such as a user, group, or role) access to the AWS services that DynamoDB is integrated with to use all of DynamoDB features. Using this policy allows access to all of DynamoDB features that are available in the AWS Management Console.
 
@@ -53,7 +53,7 @@ This policy includes the following permissions:
 - `Amazon EC2`
 - `IAM`
 
-To review the policy in `JSON` format, see [AmazonDynamoDBFullAccess_v2](../../../aws-managed-policy/latest/reference/AmazonDynamoDBFullAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonDynamoDBFullAccess_v2.md").
+To review the policy in `JSON` format, see [AmazonDynamoDBFullAccess\_v2](../../../aws-managed-policy/latest/reference/AmazonDynamoDBFullAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonDynamoDBFullAccess_v2.md").
 
 ## AWS managed policy: AmazonDynamoDBReadOnlyAccess
 

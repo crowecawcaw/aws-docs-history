@@ -3,28 +3,28 @@
 In this step, you will copy data from the Hive table (`hive_features`)
 to a new table in DynamoDB.
 
-1.  Open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  Choose **Create Table**.
-3.  On the **Create DynamoDB table** page, do the
-    following:
+1. Open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. Choose **Create Table**.
+3. On the **Create DynamoDB table** page, do the
+   following:
 
-    1. In **Table**, type
-       `Features`.
-    2. For **Primary key**, in the **Partition
-       key** field, type `Id`. Set the
-       data type to **Number**.
+   1. In **Table**, type
+      `Features`.
+   2. For **Primary key**, in the **Partition
+      key** field, type `Id`. Set the
+      data type to **Number**.
 
-    Clear **Use Default Settings**. For
-    **Provisioned Capacity**, type the
-    following:
+   Clear **Use Default Settings**. For
+   **Provisioned Capacity**, type the
+   following:
 
         * **Read Capacity
          Units**—`10`
         * **Write Capacity
          Units**—`10`Choose **Create**.
 
-4.  At the Hive prompt, enter the following HiveQL statement:
+4. At the Hive prompt, enter the following HiveQL statement:
 
 ```
 CREATE EXTERNAL TABLE ddb_features

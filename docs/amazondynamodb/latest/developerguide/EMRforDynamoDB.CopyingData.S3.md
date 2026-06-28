@@ -35,7 +35,7 @@ example:
 
 The following procedures are written with the assumption you followed the steps in
 the tutorial and have an external table in DynamoDB named
-_ddb_features_.
+_ddb\_features_.
 
 ###### Topics
 
@@ -235,7 +235,7 @@ The response should look similar to this:
 
 `2016-11-01 23:19:54 81983 000000_0`
 
-The file name (_000000_0_) is
+The file name (_000000\_0_) is
 system-generated. 3. (Optional) You can copy the data file from Amazon S3 to the local file
 system on the leader node. After you do this, you can use
 standard Linux command line utilities to work with the data in the

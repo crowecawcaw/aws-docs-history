@@ -43,9 +43,9 @@ operation.
 
 The supported operations to use with SET:
 
-- LIST_APPEND: adds a value to a list type.
-- SET_ADD: adds a value to a number or string set.
-- SET_DELETE: removes a value from a number or string
+- LIST\_APPEND: adds a value to a list type.
+- SET\_ADD: adds a value to a number or string set.
+- SET\_DELETE: removes a value from a number or string
   set.
 
 **`condition`**

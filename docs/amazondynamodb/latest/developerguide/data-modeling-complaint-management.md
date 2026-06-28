@@ -184,7 +184,7 @@ In order to get all comments for a complaint, we can use the [query](Query.md "Q
 consuming additional read capacity to read the metadata entry and then having the
 overhead of filtering the relevant results, having a sort key condition like this help
 us only read what we need. For example, a query operation with `PK=Complaint123` and
-`SK` begins_with `comm#` would return the following while
+`SK` begins\_with `comm#` would return the following while
 skipping the metadata entry:
 
 ![Query operation result using a sort key condition that only displyas a complaint's comments.](images/DataModeling/ComplaintManagement-10-Step4.png)
@@ -299,21 +299,21 @@ the result of which is:
 All access patterns and how the schema design addresses them are summarized in the
 table below:
 
-| Access pattern                                                | Base table/GSI/LSI     | Operation          | Partition key value     | Sort key value                         | Other conditions/filters          |
-| ------------------------------------------------------------- | ---------------------- | ------------------ | ----------------------- | -------------------------------------- | --------------------------------- |
-| createComplaint                                               | Base table             | PutItem            | PK=complaint_id         | SK=metadata                            |                                   |
-| updateComplaint                                               | Base table             | UpdateItem         | PK=complaint_id         | SK=metadata                            |                                   |
-| updateSeveritybyComplaintID                                   | Base table             | UpdateItem         | PK=complaint_id         | SK=metadata                            |                                   |
-| getComplaintByComplaintID                                     | Base table             | GetItem            | PK=complaint_id         | SK=metadata                            |                                   |
-| addCommentByComplaintID                                       | Base table             | TransactWriteItems | PK=complaint_id         | SK=metadata, SK=comm#comm_date#comm_id |                                   |
-| getAllCommentsByComplaintID                                   | Base table             | Query              | PK=complaint_id         | SK begins_with "comm#"                 |                                   |
-| getLatestCommentByComplaintID                                 | Base table             | Query              | PK=complaint_id         | SK begins_with "comm#"                 | scan_index_forward=False, Limit 1 |
-| getAComplaintbyCustomerIDAndComplaintID                       | Customer_complaint_GSI | Query              | customer_id=customer_id | complaint_id = complaint_id            |                                   |
-| getAllComplaintsByCustomerID                                  | Customer_complaint_GSI | Query              | customer_id=customer_id | N/A                                    |                                   |
-| escalateComplaintByComplaintID                                | Base table             | UpdateItem         | PK=complaint_id         | SK=metadata                            |                                   |
-| getAllEscalatedComplaints                                     | Escalations_GSI        | Scan               | N/A                     | N/A                                    |                                   |
-| getEscalatedComplaintsByAgentID (order from newest to oldest) | Escalations_GSI        | Query              | escalated_to=agent_id   | N/A                                    | scan_index_forward=False          |
-| getCommentsByAgentID (between two dates)                      | Agents_Comments_GSI    | Query              | agent_id=agent_id       | SK between (date1, date2)              |                                   |
+| Access pattern                                                | Base table/GSI/LSI       | Operation          | Partition key value       | Sort key value                           | Other conditions/filters            |
+| ------------------------------------------------------------- | ------------------------ | ------------------ | ------------------------- | ---------------------------------------- | ----------------------------------- |
+| createComplaint                                               | Base table               | PutItem            | PK=complaint\_id          | SK=metadata                              |                                     |
+| updateComplaint                                               | Base table               | UpdateItem         | PK=complaint\_id          | SK=metadata                              |                                     |
+| updateSeveritybyComplaintID                                   | Base table               | UpdateItem         | PK=complaint\_id          | SK=metadata                              |                                     |
+| getComplaintByComplaintID                                     | Base table               | GetItem            | PK=complaint\_id          | SK=metadata                              |                                     |
+| addCommentByComplaintID                                       | Base table               | TransactWriteItems | PK=complaint\_id          | SK=metadata, SK=comm#comm\_date#comm\_id |                                     |
+| getAllCommentsByComplaintID                                   | Base table               | Query              | PK=complaint\_id          | SK begins\_with "comm#"                  |                                     |
+| getLatestCommentByComplaintID                                 | Base table               | Query              | PK=complaint\_id          | SK begins\_with "comm#"                  | scan\_index\_forward=False, Limit 1 |
+| getAComplaintbyCustomerIDAndComplaintID                       | Customer\_complaint\_GSI | Query              | customer\_id=customer\_id | complaint\_id = complaint\_id            |                                     |
+| getAllComplaintsByCustomerID                                  | Customer\_complaint\_GSI | Query              | customer\_id=customer\_id | N/A                                      |                                     |
+| escalateComplaintByComplaintID                                | Base table               | UpdateItem         | PK=complaint\_id          | SK=metadata                              |                                     |
+| getAllEscalatedComplaints                                     | Escalations\_GSI         | Scan               | N/A                       | N/A                                      |                                     |
+| getEscalatedComplaintsByAgentID (order from newest to oldest) | Escalations\_GSI         | Query              | escalated\_to=agent\_id   | N/A                                      | scan\_index\_forward=False          |
+| getCommentsByAgentID (between two dates)                      | Agents\_Comments\_GSI    | Query              | agent\_id=agent\_id       | SK between (date1, date2)                |                                     |
 
 ## Complaint management system final schema
 
@@ -324,15 +324,15 @@ Here are the final schema designs. To download this schema design as a JSON file
 
 ![Base table design with complaint metadata.](images/DataModeling/ComplaintManagement-20-Complaint_management_system.png)
 
-**Customer_Complaint_GSI**
+**Customer\_Complaint\_GSI**
 
 ![GSI design showing complaints by a given customer.](images/DataModeling/ComplaintManagement-21-Customer_Complaint_GSI.png)
 
-**Escalations_GSI**
+**Escalations\_GSI**
 
 ![GSI design showing escalation-related attributes.](images/DataModeling/ComplaintManagement-22-Escalations_GSI.png)
 
-**Agents_Comments_GSI**
+**Agents\_Comments\_GSI**
 
 ![GSI design showing comments made by a given agent.](images/DataModeling/ComplaintManagement-23-Comments_GSI.png)
 

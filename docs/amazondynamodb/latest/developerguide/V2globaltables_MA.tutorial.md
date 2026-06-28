@@ -57,9 +57,9 @@ JSON
 
 ```
 
-7.  This new table serves as the first replica table in a new global table. It is the prototype for other replica tables that you add later.
-8.  Wait for the table to become **Active**. For the newly created table, from the **Global tables** tab, navigate to **Settings Replication** and click **Enable**.
-9.  Logout of this account (`111122223333` here).
+7. This new table serves as the first replica table in a new global table. It is the prototype for other replica tables that you add later.
+8. Wait for the table to become **Active**. For the newly created table, from the **Global tables** tab, navigate to **Settings Replication** and click **Enable**.
+9. Logout of this account (`111122223333` here).
 10. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/") for the second account (say `444455556666`).
 11. For this example, choose **US East (N. Virginia)** from the Region selector in the navigation bar.
 12. The console ensures that a table with the same name doesn't exist in the selected Region. If a table with the same name does exist, you must delete the existing table before you can create a new replica table in that Region.
@@ -73,17 +73,16 @@ JSON
 15. The **Global tables** tab for the Music table (and for any other replica tables) shows that the table has been replicated in multiple Regions.
 16. To test replication:
 
-        1. You can use any of the regions where a replica exists for this table
-        2. Choose **Explore table items**.
-        3. Choose **Create item**.
-        4. Enter `item_1` for **Artist** and `Song Value 1` for **SongTitle**.
-        5. Choose **Create item**.
-        6. Verify replication by switching to the other regions:
-        7. Verify that the Music table contains the item you created.
-
-    The following examples show how to create a multi-account global table
-    using the AWS CLI. These examples demonstrate the complete workflow for setting up
-    cross-account replication.
+    1. You can use any of the regions where a replica exists for this table
+    2. Choose **Explore table items**.
+    3. Choose **Create item**.
+    4. Enter `item_1` for **Artist** and `Song Value 1` for **SongTitle**.
+    5. Choose **Create item**.
+    6. Verify replication by switching to the other regions:
+    7. Verify that the Music table contains the item you created.
+       The following examples show how to create a multi-account global table
+       using the AWS CLI. These examples demonstrate the complete workflow for setting up
+       cross-account replication.
 
 CLI
 Use the following AWS CLI commands to create a multi-account global table with cross-account replication.

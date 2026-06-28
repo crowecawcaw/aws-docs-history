@@ -108,7 +108,7 @@ way to do this is by using epoch time—the number of seconds since
 00:00:00 UTC on 1 January 1970. For example, the epoch time
 `1437136300` represents 12:31:40 PM UTC on 17 July 2015.
 
-For more information, see [http://en.wikipedia.org/wiki/Unix_time](http://en.wikipedia.org/wiki/Unix_time "http://en.wikipedia.org/wiki/Unix_time").
+For more information, see [http://en.wikipedia.org/wiki/Unix\_time](http://en.wikipedia.org/wiki/Unix_time "http://en.wikipedia.org/wiki/Unix_time").
 
 #### String
 
@@ -139,7 +139,7 @@ examples:
 - `2015-12-21T17:42:34Z`
 - `20150311T122706Z`
 
-For more information, see [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601").
+For more information, see [http://en.wikipedia.org/wiki/ISO\_8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601").
 
 ###### Note
 

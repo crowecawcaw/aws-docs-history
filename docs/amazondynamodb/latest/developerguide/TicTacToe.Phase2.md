@@ -63,7 +63,7 @@ which user made the move. For example, consider the following board.
   (`PENDING`, `IN_PROGRESS`, and
   `FINISHED`) and date (when the last move was made), you
   combine them as single attribute, for example `IN_PROGRESS_2014-04-30
-10:20:32`.
+ 10:20:32`.
 
 The application then uses the `StatusDate` attribute in
 creating secondary indexes by specifying `StatusDate` as a sort
@@ -228,16 +228,15 @@ The function specifies the query as follows:
   use with the following index key values and comparison
   operators:
 
-      + The partition key is `OpponentId` and takes the
-       index key ``user
-       ID``.
-      + The sort key is `StatusDate` and takes the
-       comparison operator and index key value
-       `beginswith="PENDING_"`.
-
-  You use the `OpponentId-StatusDate-index` index to
-  retrieve games to which the logged-in user is invited—that is,
-  where the logged-in user is the opponent.
+  - The partition key is `OpponentId` and takes the
+    index key `user
+   ID`.
+  - The sort key is `StatusDate` and takes the
+    comparison operator and index key value
+    `beginswith="PENDING_"`.
+    You use the `OpponentId-StatusDate-index` index to
+    retrieve games to which the logged-in user is invited—that is,
+    where the logged-in user is the opponent.
 
 - The query limits the result to 10 items.
 

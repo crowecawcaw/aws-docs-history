@@ -38,21 +38,21 @@ multiple DAX clusters and allow each cluster to access only a single table.
 ## IAM service role for DAX
 
 When you create a DAX cluster, you must associate the cluster with an IAM role.
-This is known as the *service role* for the cluster.
+This is known as the _service role_ for the cluster.
 
 Suppose that you wanted to create a new DAX cluster
-named *DAXCluster01*. You could create a service role named
+named _DAXCluster01_. You could create a service role named
 _DAXServiceRole_, and associate the role
-with *DAXCluster01*. The policy
-for *DAXServiceRole* would define the DynamoDB actions
-that *DAXCluster01* could perform, on behalf of the users who
-interact with *DAXCluster01*.
+with _DAXCluster01_. The policy
+for _DAXServiceRole_ would define the DynamoDB actions
+that _DAXCluster01_ could perform, on behalf of the users who
+interact with _DAXCluster01_.
 
 When you create a service role, you must specify a trust relationship
-between *DAXServiceRole* and the DAX service itself. A trust
+between _DAXServiceRole_ and the DAX service itself. A trust
 relationship determines which entities can assume a role and make use of its
 permissions. The following is an example trust relationship document
-for *DAXServiceRole*:
+for _DAXServiceRole_:
 
 JSON
 
@@ -73,11 +73,11 @@ JSON
 ```
 
 This trust relationship allows a DAX cluster to
-assume *DAXServiceRole* and perform DynamoDB API calls on your
+assume _DAXServiceRole_ and perform DynamoDB API calls on your
 behalf.
 
 The DynamoDB API actions that are allowed are described in an IAM policy document,
-which you attach to *DAXServiceRole*. The following is an example
+which you attach to _DAXServiceRole_. The following is an example
 policy document.
 
 JSON

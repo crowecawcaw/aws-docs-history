@@ -1,15 +1,15 @@
-# Query a DynamoDB table using a begins_with condition with an AWS SDK
+# Query a DynamoDB table using a begins\_with condition with an AWS SDK
 
-The following code examples show how to query a table using a begins_with condition.
+The following code examples show how to query a table using a begins\_with condition.
 
-- Use the begins_with function in a key condition expression.
+- Use the begins\_with function in a key condition expression.
 - Filter items based on a prefix pattern in the sort key.
 
 Java
 
 **SDK for Java 2.x**
 
-Query a DynamoDB table using a begins_with condition on the sort key with AWS SDK for Java 2.x.
+Query a DynamoDB table using a begins\_with condition on the sort key with AWS SDK for Java 2.x.
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -73,7 +73,7 @@ import java.util.logging.Logger;
 
 ```
 
-Demonstrate using begins_with with different prefix lengths with AWS SDK for Java 2.x.
+Demonstrate using begins\_with with different prefix lengths with AWS SDK for Java 2.x.
 
 ```
     public static void main(String[] args) {
@@ -141,7 +141,7 @@ JavaScript
 
 **SDK for JavaScript (v3)**
 
-Query a DynamoDB table using a begins_with condition on the sort key with AWS SDK for JavaScript.
+Query a DynamoDB table using a begins\_with condition on the sort key with AWS SDK for JavaScript.
 
 ```
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
@@ -203,7 +203,7 @@ Python
 
 **SDK for Python (Boto3)**
 
-Query a DynamoDB table using a begins_with condition on the sort key with AWS SDK for Python (Boto3).
+Query a DynamoDB table using a begins\_with condition on the sort key with AWS SDK for Python (Boto3).
 
 ```
 import boto3

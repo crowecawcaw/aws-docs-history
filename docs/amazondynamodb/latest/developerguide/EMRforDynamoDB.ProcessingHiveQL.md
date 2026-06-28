@@ -4,7 +4,7 @@ Hive is an application that runs on Hadoop, which is a batch-oriented framework 
 running MapReduce jobs. When you issue a HiveQL statement, Hive determines whether it
 can return the results immediately or whether it must submit a MapReduce job.
 
-For example, consider the _ddb_features_ table (from [Tutorial: Working with Amazon DynamoDB and Apache Hive](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")). The
+For example, consider the _ddb\_features_ table (from [Tutorial: Working with Amazon DynamoDB and Apache Hive](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")). The
 following Hive query prints state abbreviations and the number of summits in
 each:
 

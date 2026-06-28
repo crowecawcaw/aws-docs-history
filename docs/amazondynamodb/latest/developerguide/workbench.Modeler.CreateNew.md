@@ -25,12 +25,12 @@ keys effectively, and using sort keys, see the following:
 
 3. You can add other attributes to more clearly validate your model and access patterns. To add other attributes:
 
-   - Choose **Add an attribute**.
-   - Specify the attribute name and its type.
-   - Optionally, you can select a more granular data type format for sample data generation.
+    * Choose **Add an attribute**.
+    * Specify the attribute name and its type.
+    * Optionally, you can select a more granular data type format for sample data generation.
 
 4. If you want to add a global secondary index, choose **Add global secondary index**.
-   Specify the **Global secondary index name**, **Partition key** attribute, and **Projection type**.
+Specify the **Global secondary index name**, **Partition key** attribute, and **Projection type**.
 
 For more information about working with global secondary indexes in DynamoDB, see
 [Global secondary
