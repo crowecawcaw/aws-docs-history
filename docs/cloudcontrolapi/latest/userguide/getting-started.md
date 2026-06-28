@@ -27,7 +27,7 @@ and set the retention policy on it to 90 days.
      that sets the desired properties:
 
    `{"LogGroupName": "CloudControlExample", "RetentionInDays":
- 90}`
+  90}`
 
 ```
 `$` `aws cloudcontrol create-resource --type-name AWS::Logs::LogGroup \
@@ -131,7 +131,7 @@ Next, update your log group to double the retention policy to 180 days.
      retention policy to 180 days.
 
    `[{"op": "replace", "path": "RetentionInDays", "value":
- 180}]`
+  180}]`
 
    For detailed information about composing patch documents, see [Composing the patch document](resource-operations-update.md#resource-operations-update-patch "resource-operations-update.md#resource-operations-update-patch").
 

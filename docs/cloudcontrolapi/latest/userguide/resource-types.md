@@ -71,16 +71,15 @@ or to determine if a specific resource type supports Cloud Control API.
 
 - Use the `list-types` command, with the following parameters:
 
-      + `type` – Specify `RESOURCE` to select
-       only resource types.
-      + `visibility` – Specify `PUBLIC` to select
-       public resources or `PRIVATE` for private resources.
-      + `provisioning-type` – Specify
-       `FULLY_MUTABLE` or `IMMUTABLE` to select only
-       those resource types that are provisionable.
-
-  For example, the following command selects the first 100 public resource types
-  that are fully mutable from the CloudFormation registry.
+  - `type` – Specify `RESOURCE` to select
+    only resource types.
+  - `visibility` – Specify `PUBLIC` to select
+    public resources or `PRIVATE` for private resources.
+  - `provisioning-type` – Specify
+    `FULLY_MUTABLE` or `IMMUTABLE` to select only
+    those resource types that are provisionable.
+    For example, the following command selects the first 100 public resource types
+    that are fully mutable from the CloudFormation registry.
 
 ```
 `$` `aws cloudformation list-types \

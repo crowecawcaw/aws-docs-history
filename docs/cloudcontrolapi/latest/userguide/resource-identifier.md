@@ -22,8 +22,10 @@ of the following commands returns a `ProgressEvent` object that contains the pri
 specified resources:
 
 - ```
-  cancel-resource-request
+
   ```
+
+cancel-resource-request
 
 ````
 * ```
@@ -31,8 +33,10 @@ create-resource
 ````
 
 - ```
-  get-resource-request-status
+
   ```
+
+get-resource-request-status
 
 ````
 * ```
