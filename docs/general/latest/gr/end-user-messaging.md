@@ -53,42 +53,42 @@ AWS End User Messaging includes the AWS End User Messaging SMS and Voice V2 API 
 
 ### AWS End User Messaging Social API
 
-| Region availability        | Region name    | Region                                                                                                                                                                                 | Endpoint             | WhatsApp API version |
-| -------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------- |
-| US East (N. Virginia)      | us-east-1      | social-messaging.us-east-1.amazonaws.com<br>social-messaging.us-east-1.api.aws<br>social-messaging-fips.us-east-1.amazonaws.com<br>social-messaging-fips.us-east-1.api.aws             | Version 20 and later |
-| US East (Ohio)             | us-east-2      | social-messaging.us-east-2.amazonaws.com<br>social-messaging.us-east-2.api.aws<br>social-messaging-fips.us-east-2.amazonaws.com<br>social-messaging-fips.us-east-2.api.aws             | Version 20 and later |
-| US West (N. California)    | us-west-1      | social-messaging.us-west-1.amazonaws.com<br>social-messaging.us-west-1.api.aws<br>social-messaging-fips.us-west-1.amazonaws.com<br>social-messaging-fips.us-west-1.api.aws             | Version 20 and later |
-| US West (Oregon)           | us-west-2      | social-messaging.us-west-2.amazonaws.com<br>social-messaging.us-west-2.api.aws<br>social-messaging-fips.us-west-2.amazonaws.com<br>social-messaging-fips.us-west-2.api.aws             | Version 20 and later |
-| Africa (Cape Town)         | af-south-1     | social-messaging.af-south-1.amazonaws.com<br>social-messaging.af-south-1.api.aws                                                                                                       | Version 20 and later |
-| Asia Pacific (Hong Kong)   | ap-east-1      | social-messaging.ap-east-1.amazonaws.com<br>social-messaging.ap-east-1.api.aws                                                                                                         | Version 20 and later |
-| Asia Pacific (Taipei)      | ap-east-2      | social-messaging.ap-east-2.amazonaws.com<br>social-messaging.ap-east-2.api.aws                                                                                                         | Version 20 and later |
-| Asia Pacific (Mumbai)      | ap-south-1     | social-messaging.ap-south-1.amazonaws.com<br>social-messaging.ap-south-1.api.aws                                                                                                       | Version 20 and later |
-| Asia Pacific (Hyderabad)   | ap-south-2     | social-messaging.ap-south-2.amazonaws.com<br>social-messaging.ap-south-2.api.aws                                                                                                       | Version 20 and later |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | social-messaging.ap-northeast-1.amazonaws.com<br>social-messaging.ap-northeast-1.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (Seoul)       | ap-northeast-2 | social-messaging.ap-northeast-2.amazonaws.com<br>social-messaging.ap-northeast-2.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (Osaka)       | ap-northeast-3 | social-messaging.ap-northeast-3.amazonaws.com<br>social-messaging.ap-northeast-3.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (Singapore)   | ap-southeast-1 | social-messaging.ap-southeast-1.amazonaws.com<br>social-messaging.ap-southeast-1.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (Sydney)      | ap-southeast-2 | social-messaging.ap-southeast-2.amazonaws.com<br>social-messaging.ap-southeast-2.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | social-messaging.ap-southeast-3.amazonaws.com<br>social-messaging.ap-southeast-3.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | social-messaging.ap-southeast-4.amazonaws.com<br>social-messaging.ap-southeast-4.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | social-messaging.ap-southeast-5.amazonaws.com<br>social-messaging.ap-southeast-5.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (New Zealand) | ap-southeast-6 | social-messaging.ap-southeast-6.amazonaws.com<br>social-messaging.ap-southeast-6.api.aws                                                                                               | Version 20 and later |
-| Asia Pacific (Thailand)    | ap-southeast-7 | social-messaging.ap-southeast-7.amazonaws.com<br>social-messaging.ap-southeast-7.api.aws                                                                                               | Version 20 and later |
-| Canada (Central)           | ca-central-1   | social-messaging.ca-central-1.amazonaws.com<br>social-messaging.ca-central-1.api.aws<br>social-messaging-fips.ca-central-1.amazonaws.com<br>social-messaging-fips.ca-central-1.api.aws | Version 20 and later |
-| Canada West (Calgary)      | ca-west-1      | social-messaging.ca-west-1.amazonaws.com<br>social-messaging.ca-west-1.api.aws<br>social-messaging-fips.ca-west-1.amazonaws.com<br>social-messaging-fips.ca-west-1.api.aws             | Version 20 and later |
-| Europe (Frankfurt)         | eu-central-1   | social-messaging.eu-central-1.amazonaws.com<br>social-messaging.eu-central-1.api.aws                                                                                                   | Version 20 and later |
-| Europe (Zurich)            | eu-central-2   | social-messaging.eu-central-2.amazonaws.com<br>social-messaging.eu-central-2.api.aws                                                                                                   | Version 20 and later |
-| Europe (Stockholm)         | eu-north-1     | social-messaging.eu-north-1.amazonaws.com<br>social-messaging.eu-north-1.api.aws                                                                                                       | Version 20 and later |
-| Europe (Milan)             | eu-south-1     | social-messaging.eu-south-1.amazonaws.com<br>social-messaging.eu-south-1.api.aws                                                                                                       | Version 20 and later |
-| Europe (Spain)             | eu-south-2     | social-messaging.eu-south-2.amazonaws.com<br>social-messaging.eu-south-2.api.aws                                                                                                       | Version 20 and later |
-| Europe (Ireland)           | eu-west-1      | social-messaging.eu-west-1.amazonaws.com<br>social-messaging.eu-west-1.api.aws                                                                                                         | Version 20 and later |
-| Europe (London)            | eu-west-2      | social-messaging.eu-west-2.amazonaws.com<br>social-messaging.eu-west-2.api.aws                                                                                                         | Version 20 and later |
-| Europe (Paris)             | eu-west-3      | social-messaging.eu-west-3.amazonaws.com<br>social-messaging.eu-west-3.api.aws                                                                                                         | Version 20 and later |
-| Israel (Tel Aviv)          | il-central-1   | social-messaging.il-central-1.amazonaws.com<br>social-messaging.il-central-1.api.aws                                                                                                   | Version 20 and later |
-| Middle East (Bahrain)      | me-south-1     | social-messaging.me-south-1.amazonaws.com<br>social-messaging.me-south-1.api.aws                                                                                                       | Version 20 and later |
-| Middle East (UAE)          | me-central-1   | social-messaging.me-central-1.amazonaws.com<br>social-messaging.me-central-1.api.aws                                                                                                   | Version 20 and later |
-| Mexico (Central)           | mx-central-1   | social-messaging.mx-central-1.amazonaws.com<br>social-messaging.mx-central-1.api.aws                                                                                                   | Version 20 and later |
-| South America (São Paulo)  | sa-east-1      | social-messaging.sa-east-1.amazonaws.com<br>social-messaging.sa-east-1.api.aws                                                                                                         | Version 20 and later |
+Region availability| Region name | Region | Endpoint | WhatsApp API version |
+| --- | --- | --- | --- |
+| US East (N. Virginia) | us-east-1 | social-messaging.us-east-1.amazonaws.com<br>social-messaging.us-east-1.api.aws<br>social-messaging-fips.us-east-1.amazonaws.com<br>social-messaging-fips.us-east-1.api.aws | Version 20 and later |
+| US East (Ohio) | us-east-2 | social-messaging.us-east-2.amazonaws.com<br>social-messaging.us-east-2.api.aws<br>social-messaging-fips.us-east-2.amazonaws.com<br>social-messaging-fips.us-east-2.api.aws | Version 20 and later |
+| US West (N. California) | us-west-1 | social-messaging.us-west-1.amazonaws.com<br>social-messaging.us-west-1.api.aws<br>social-messaging-fips.us-west-1.amazonaws.com<br>social-messaging-fips.us-west-1.api.aws | Version 20 and later |
+| US West (Oregon) | us-west-2 | social-messaging.us-west-2.amazonaws.com<br>social-messaging.us-west-2.api.aws<br>social-messaging-fips.us-west-2.amazonaws.com<br>social-messaging-fips.us-west-2.api.aws | Version 20 and later |
+| Africa (Cape Town) | af-south-1 | social-messaging.af-south-1.amazonaws.com<br>social-messaging.af-south-1.api.aws | Version 20 and later |
+| Asia Pacific (Hong Kong) | ap-east-1 | social-messaging.ap-east-1.amazonaws.com<br>social-messaging.ap-east-1.api.aws | Version 20 and later |
+| Asia Pacific (Taipei) | ap-east-2 | social-messaging.ap-east-2.amazonaws.com<br>social-messaging.ap-east-2.api.aws | Version 20 and later |
+| Asia Pacific (Mumbai) | ap-south-1 | social-messaging.ap-south-1.amazonaws.com<br>social-messaging.ap-south-1.api.aws | Version 20 and later |
+| Asia Pacific (Hyderabad) | ap-south-2 | social-messaging.ap-south-2.amazonaws.com<br>social-messaging.ap-south-2.api.aws | Version 20 and later |
+| Asia Pacific (Tokyo) | ap-northeast-1 | social-messaging.ap-northeast-1.amazonaws.com<br>social-messaging.ap-northeast-1.api.aws | Version 20 and later |
+| Asia Pacific (Seoul) | ap-northeast-2 | social-messaging.ap-northeast-2.amazonaws.com<br>social-messaging.ap-northeast-2.api.aws | Version 20 and later |
+| Asia Pacific (Osaka) | ap-northeast-3 | social-messaging.ap-northeast-3.amazonaws.com<br>social-messaging.ap-northeast-3.api.aws | Version 20 and later |
+| Asia Pacific (Singapore) | ap-southeast-1 | social-messaging.ap-southeast-1.amazonaws.com<br>social-messaging.ap-southeast-1.api.aws | Version 20 and later |
+| Asia Pacific (Sydney) | ap-southeast-2 | social-messaging.ap-southeast-2.amazonaws.com<br>social-messaging.ap-southeast-2.api.aws | Version 20 and later |
+| Asia Pacific (Jakarta) | ap-southeast-3 | social-messaging.ap-southeast-3.amazonaws.com<br>social-messaging.ap-southeast-3.api.aws | Version 20 and later |
+| Asia Pacific (Melbourne) | ap-southeast-4 | social-messaging.ap-southeast-4.amazonaws.com<br>social-messaging.ap-southeast-4.api.aws | Version 20 and later |
+| Asia Pacific (Malaysia) | ap-southeast-5 | social-messaging.ap-southeast-5.amazonaws.com<br>social-messaging.ap-southeast-5.api.aws | Version 20 and later |
+| Asia Pacific (New Zealand) | ap-southeast-6 | social-messaging.ap-southeast-6.amazonaws.com<br>social-messaging.ap-southeast-6.api.aws | Version 20 and later |
+| Asia Pacific (Thailand) | ap-southeast-7 | social-messaging.ap-southeast-7.amazonaws.com<br>social-messaging.ap-southeast-7.api.aws | Version 20 and later |
+| Canada (Central) | ca-central-1 | social-messaging.ca-central-1.amazonaws.com<br>social-messaging.ca-central-1.api.aws<br>social-messaging-fips.ca-central-1.amazonaws.com<br>social-messaging-fips.ca-central-1.api.aws | Version 20 and later |
+| Canada West (Calgary) | ca-west-1 | social-messaging.ca-west-1.amazonaws.com<br>social-messaging.ca-west-1.api.aws<br>social-messaging-fips.ca-west-1.amazonaws.com<br>social-messaging-fips.ca-west-1.api.aws | Version 20 and later |
+| Europe (Frankfurt) | eu-central-1 | social-messaging.eu-central-1.amazonaws.com<br>social-messaging.eu-central-1.api.aws | Version 20 and later |
+| Europe (Zurich) | eu-central-2 | social-messaging.eu-central-2.amazonaws.com<br>social-messaging.eu-central-2.api.aws | Version 20 and later |
+| Europe (Stockholm) | eu-north-1 | social-messaging.eu-north-1.amazonaws.com<br>social-messaging.eu-north-1.api.aws | Version 20 and later |
+| Europe (Milan) | eu-south-1 | social-messaging.eu-south-1.amazonaws.com<br>social-messaging.eu-south-1.api.aws | Version 20 and later |
+| Europe (Spain) | eu-south-2 | social-messaging.eu-south-2.amazonaws.com<br>social-messaging.eu-south-2.api.aws | Version 20 and later |
+| Europe (Ireland) | eu-west-1 | social-messaging.eu-west-1.amazonaws.com<br>social-messaging.eu-west-1.api.aws | Version 20 and later |
+| Europe (London) | eu-west-2 | social-messaging.eu-west-2.amazonaws.com<br>social-messaging.eu-west-2.api.aws | Version 20 and later |
+| Europe (Paris) | eu-west-3 | social-messaging.eu-west-3.amazonaws.com<br>social-messaging.eu-west-3.api.aws | Version 20 and later |
+| Israel (Tel Aviv) | il-central-1 | social-messaging.il-central-1.amazonaws.com<br>social-messaging.il-central-1.api.aws | Version 20 and later |
+| Middle East (Bahrain) | me-south-1 | social-messaging.me-south-1.amazonaws.com<br>social-messaging.me-south-1.api.aws | Version 20 and later |
+| Middle East (UAE) | me-central-1 | social-messaging.me-central-1.amazonaws.com<br>social-messaging.me-central-1.api.aws | Version 20 and later |
+| Mexico (Central) | mx-central-1 | social-messaging.mx-central-1.amazonaws.com<br>social-messaging.mx-central-1.api.aws | Version 20 and later |
+| South America (São Paulo) | sa-east-1 | social-messaging.sa-east-1.amazonaws.com<br>social-messaging.sa-east-1.api.aws | Version 20 and later |
 
 ## Service quotas
 

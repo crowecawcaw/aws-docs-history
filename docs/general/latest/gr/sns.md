@@ -136,12 +136,12 @@ account, there are a few ways this quota can be reached:
   second to publish 20,000 messages (10 messages per batch API request)
   for a total of 30,000 messages published per second.
 
-| Publish API throttling per account                                                                                                                                                                                                                    | AWS Regions                | Standard topics            | FIFO topics\* |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | -------------------------- | ------------- |
-| US East (N. Virginia) Region                                                                                                                                                                                                                          | 30,000 messages per second | 30,000 messages per second |
-| US West (Oregon) RegionEurope (Ireland) Region                                                                                                                                                                                                        | 9,000 messages per second  | 9,000 messages per second  |
-| US East (Ohio) Region<br>US West (N. California) Region<br>Asia Pacific (Mumbai) Region<br>Asia Pacific (Seoul) Region<br>Asia Pacific (Singapore) Region<br>Asia Pacific (Sydney) Region<br>Asia Pacific (Tokyo) Region<br>Europe (Frankfurt) Region | 1,500 messages per second  | 3,000 messages per second  |
-| All other supported Regions                                                                                                                                                                                                                           | 300 messages per second    | 3,000 messages per second  |
+Publish API throttling per account| AWS Regions | Standard topics | FIFO topics\* |
+| --- | --- | --- |
+| US East (N. Virginia) Region | 30,000 messages per second | 30,000 messages per second |
+| US West (Oregon) RegionEurope (Ireland) Region | 9,000 messages per second | 9,000 messages per second |
+| US East (Ohio) Region<br>US West (N. California) Region<br>Asia Pacific (Mumbai) Region<br>Asia Pacific (Seoul) Region<br>Asia Pacific (Singapore) Region<br>Asia Pacific (Sydney) Region<br>Asia Pacific (Tokyo) Region<br>Europe (Frankfurt) Region | 1,500 messages per second | 3,000 messages per second |
+| All other supported Regions | 300 messages per second | 3,000 messages per second |
 
 \*Amazon SNS FIFO per topic limits exceed the default per account limit when
 `FifoThroughputScope` is set to `MessageGroup`. Amazon SNS
@@ -153,17 +153,17 @@ topics can experience reduced throughput within a message group for cross
 Regional deliveries due to the added latency between Regions, and the need to
 maintain the strict order of messages.
 
-| Other API throttling                                                                                                                                                                                                                                                                                                                                                                                                              | APIs                         | AWS Regions | Transactions per second |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------- | ----------------------- |
-| ConfirmSubscription<br>CreatePlatformApplication<br>CreatePlatformEndpoint<br>CreateTopic<br>DeleteEndpoint<br>DeletePlatformApplication<br>DeleteTopic<br>GetEndpointAttributes<br>GetDataProtectionPolicy<br>GetPlatformApplicationAttributes<br>GetSubscriptionAttributes<br>GetTopicAttributes<br>SetEndpointAttributes<br>SetPlatformApplicationAttributes<br>SetSubscriptionAttributes<br>SetTopicAttributes                | US East (N. Virginia) Region | 3,000       |
-| US West (Oregon) Region<br>Europe (Ireland) Region                                                                                                                                                                                                                                                                                                                                                                                | 900                          |
-| US East (Ohio) Region<br>US West (N. California) Region<br>Asia Pacific (Mumbai) Region<br>Asia Pacific (Seoul) Region<br>Asia Pacific (Singapore) Region<br>Asia Pacific (Sydney) Region<br>Asia Pacific (Tokyo) Region<br>Europe (Frankfurt) Region                                                                                                                                                                             | 150                          |
-| Africa (Cape Town) Region<br>Asia Pacific (Hong Kong) Region<br>Asia Pacific (Hyderabad)<br>Asia Pacific (Osaka) Region<br>Canada (Central) Region<br>China (Beijing) Region<br>China (Ningxia) Region<br>Europe (London) Region<br>Europe (Milan) Region<br>Europe (Paris) Region<br>Europe (Spain)<br>Europe (Stockholm) Region<br>Israel (Tel Aviv) Region<br>Middle East (Bahrain) Region<br>South America (São Paulo) Region | 30                           |
-| PutDataProtectionPolicy                                                                                                                                                                                                                                                                                                                                                                                                           | All Commercial Regions       | 1           |
+Other API throttling| APIs | AWS Regions | Transactions per second |
+| --- | --- | --- |
+| ConfirmSubscription<br>CreatePlatformApplication<br>CreatePlatformEndpoint<br>CreateTopic<br>DeleteEndpoint<br>DeletePlatformApplication<br>DeleteTopic<br>GetEndpointAttributes<br>GetDataProtectionPolicy<br>GetPlatformApplicationAttributes<br>GetSubscriptionAttributes<br>GetTopicAttributes<br>SetEndpointAttributes<br>SetPlatformApplicationAttributes<br>SetSubscriptionAttributes<br>SetTopicAttributes | US East (N. Virginia) Region | 3,000 |
+| US West (Oregon) Region<br>Europe (Ireland) Region | 900 |
+| US East (Ohio) Region<br>US West (N. California) Region<br>Asia Pacific (Mumbai) Region<br>Asia Pacific (Seoul) Region<br>Asia Pacific (Singapore) Region<br>Asia Pacific (Sydney) Region<br>Asia Pacific (Tokyo) Region<br>Europe (Frankfurt) Region | 150 |
+| Africa (Cape Town) Region<br>Asia Pacific (Hong Kong) Region<br>Asia Pacific (Hyderabad)<br>Asia Pacific (Osaka) Region<br>Canada (Central) Region<br>China (Beijing) Region<br>China (Ningxia) Region<br>Europe (London) Region<br>Europe (Milan) Region<br>Europe (Paris) Region<br>Europe (Spain)<br>Europe (Stockholm) Region<br>Israel (Tel Aviv) Region<br>Middle East (Bahrain) Region<br>South America (São Paulo) Region | 30 |
+| PutDataProtectionPolicy | All Commercial Regions | 1 |
 
-| Message Archiving and Replay | Policy                 | AWS Regions | Standard topics | FIFO topics |
-| ---------------------------- | ---------------------- | ----------- | --------------- | ----------- |
-| ArchivePolicy                | All Commercial Regions | N/A         | Yes             |
-| AWS GovCloud (US) Regions    | N/A                    | Yes         |
-| ReplayPolicy                 | All Commercial Regions | N/A         | Yes             |
-| AWS GovCloud (US) Regions    | N/A                    | Yes         |
+Message Archiving and Replay| Policy | AWS Regions | Standard topics | FIFO topics |
+| --- | --- | --- | --- |
+| ArchivePolicy | All Commercial Regions | N/A | Yes |
+| AWS GovCloud (US) Regions | N/A | Yes |
+| ReplayPolicy | All Commercial Regions | N/A | Yes |
+| AWS GovCloud (US) Regions | N/A | Yes |

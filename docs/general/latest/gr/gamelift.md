@@ -42,47 +42,47 @@ AWS locations. You can use these UDP ping beacon endpoints to collect latency da
 informed decisions about which hosting locations provide the best gaming experience for your
 players. The following table lists the UDP ping beacon endpoints available for each AWS location and Local Zone that Amazon GameLift Servers supports.
 
-| UDP ping beacons by location | Location name    | Location code                             | Endpoint | Protocol | IPv6 Support |
-| ---------------------------- | ---------------- | ----------------------------------------- | -------- | -------- | ------------ |
-| **North America**            |                  |                                           |          |          |
-| US East (N. Virginia)        | us-east-1        | gamelift-ping.us-east-1.api.aws:7770      | UDP      | Yes      |
-| US East (Ohio)               | us-east-2        | gamelift-ping.us-east-2.api.aws:7770      | UDP      | Yes      |
-| US West (N. California)      | us-west-1        | gamelift-ping.us-west-1.api.aws:7770      | UDP      | Yes      |
-| US West (Oregon)             | us-west-2        | gamelift-ping.us-west-2.api.aws:7770      | UDP      | Yes      |
-| Canada (Central)             | ca-central-1     | gamelift-ping.ca-central-1.api.aws:7770   | UDP      | Yes      |
-| **US Local Zones**           |                  |                                           |          |          |
-| US West (Los Angeles)        | us-west-2-lax-1  | gamelift-ping-lax.us-west-2.api.aws:7770  | UDP      | Yes      |
-| US East (Chicago)            | us-east-1-chi-1  | gamelift-ping-chi.us-east-1.api.aws:7770  | UDP      | No       |
-| US East (Houston)            | us-east-1-iah-1  | gamelift-ping-iah.us-east-1.api.aws:7770  | UDP      | No       |
-| US East (Dallas)             | us-east-1-dfw-1  | gamelift-ping-dfw.us-east-1.api.aws:7770  | UDP      | No       |
-| US West (Denver)             | us-west-2-den-1  | gamelift-ping-den.us-west-2.api.aws:7770  | UDP      | No       |
-| US East (Atlanta)            | us-east-1-atl-1  | gamelift-ping-atl.us-east-1.api.aws:7770  | UDP      | No       |
-| US West (Phoenix)            | us-west-2-phx-1  | gamelift-ping-phx.us-west-2.api.aws:7770  | UDP      | No       |
-| US East (Kansas City)        | us-east-1-mci-1  | gamelift-ping-mci.us-east-1.api.aws:7770  | UDP      | No       |
-| **South America**            |                  |                                           |          |          |
-| South America (São Paulo)    | sa-east-1        | gamelift-ping.sa-east-1.api.aws:7770      | UDP      | Yes      |
-| **Europe**                   |                  |                                           |          |          |
-| Europe (Ireland)             | eu-west-1        | gamelift-ping.eu-west-1.api.aws:7770      | UDP      | Yes      |
-| Europe (London)              | eu-west-2        | gamelift-ping.eu-west-2.api.aws:7770      | UDP      | Yes      |
-| Europe (Paris)               | eu-west-3        | gamelift-ping.eu-west-3.api.aws:7770      | UDP      | Yes      |
-| Europe (Frankfurt)           | eu-central-1     | gamelift-ping.eu-central-1.api.aws:7770   | UDP      | Yes      |
-| Europe (Milan)               | eu-south-1       | gamelift-ping.eu-south-1.api.aws:7770     | UDP      | Yes      |
-| Europe (Stockholm)           | eu-north-1       | gamelift-ping.eu-north-1.api.aws:7770     | UDP      | Yes      |
-| **Asia Pacific**             |                  |                                           |          |          |
-| Asia Pacific (Malaysia)      | ap-southeast-5   | gamelift-ping.ap-southeast-5.api.aws:7770 | UDP      | Yes      |
-| Asia Pacific (Mumbai)        | ap-south-1       | gamelift-ping.ap-south-1.api.aws:7770     | UDP      | Yes      |
-| Asia Pacific (Hong Kong)     | ap-east-1        | gamelift-ping.ap-east-1.api.aws:7770      | UDP      | Yes      |
-| Asia Pacific (Thailand)      | ap-southeast-7   | gamelift-ping.ap-southeast-7.api.aws:7770 | UDP      | Yes      |
-| Asia Pacific (Osaka)         | ap-northeast-3   | gamelift-ping.ap-northeast-3.api.aws:7770 | UDP      | Yes      |
-| Asia Pacific (Seoul)         | ap-northeast-2   | gamelift-ping.ap-northeast-2.api.aws:7770 | UDP      | Yes      |
-| Asia Pacific (Singapore)     | ap-southeast-1   | gamelift-ping.ap-southeast-1.api.aws:7770 | UDP      | Yes      |
-| Asia Pacific (Sydney)        | ap-southeast-2   | gamelift-ping.ap-southeast-2.api.aws:7770 | UDP      | Yes      |
-| Asia Pacific (Tokyo)         | ap-northeast-1   | gamelift-ping.ap-northeast-1.api.aws:7770 | UDP      | Yes      |
-| **Middle East**              |                  |                                           |          |          |
-| Middle East (Bahrain)        | me-south-1       | gamelift-ping.me-south-1.api.aws:7770     | UDP      | Yes      |
-| **Africa**                   |                  |                                           |          |          |
-| Africa (Cape Town)           | af-south-1       | gamelift-ping.af-south-1.api.aws:7770     | UDP      | Yes      |
-| Africa (Lagos)               | af-south-1-los-1 | gamelift-ping-los.af-south-1.api.aws:7770 | UDP      | No       |
+UDP ping beacons by location| Location name | Location code | Endpoint | Protocol | IPv6 Support |
+| --- | --- | --- | --- | --- |
+| **North America** | | | | |
+| US East (N. Virginia) | us-east-1 | gamelift-ping.us-east-1.api.aws:7770 | UDP | Yes |
+| US East (Ohio) | us-east-2 | gamelift-ping.us-east-2.api.aws:7770 | UDP | Yes |
+| US West (N. California) | us-west-1 | gamelift-ping.us-west-1.api.aws:7770 | UDP | Yes |
+| US West (Oregon) | us-west-2 | gamelift-ping.us-west-2.api.aws:7770 | UDP | Yes |
+| Canada (Central) | ca-central-1 | gamelift-ping.ca-central-1.api.aws:7770 | UDP | Yes |
+| **US Local Zones** | | | | |
+| US West (Los Angeles) | us-west-2-lax-1 | gamelift-ping-lax.us-west-2.api.aws:7770 | UDP | Yes |
+| US East (Chicago) | us-east-1-chi-1 | gamelift-ping-chi.us-east-1.api.aws:7770 | UDP | No |
+| US East (Houston) | us-east-1-iah-1 | gamelift-ping-iah.us-east-1.api.aws:7770 | UDP | No |
+| US East (Dallas) | us-east-1-dfw-1 | gamelift-ping-dfw.us-east-1.api.aws:7770 | UDP | No |
+| US West (Denver) | us-west-2-den-1 | gamelift-ping-den.us-west-2.api.aws:7770 | UDP | No |
+| US East (Atlanta) | us-east-1-atl-1 | gamelift-ping-atl.us-east-1.api.aws:7770 | UDP | No |
+| US West (Phoenix) | us-west-2-phx-1 | gamelift-ping-phx.us-west-2.api.aws:7770 | UDP | No |
+| US East (Kansas City) | us-east-1-mci-1 | gamelift-ping-mci.us-east-1.api.aws:7770 | UDP | No |
+| **South America** | | | | |
+| South America (São Paulo) | sa-east-1 | gamelift-ping.sa-east-1.api.aws:7770 | UDP | Yes |
+| **Europe** | | | | |
+| Europe (Ireland) | eu-west-1 | gamelift-ping.eu-west-1.api.aws:7770 | UDP | Yes |
+| Europe (London) | eu-west-2 | gamelift-ping.eu-west-2.api.aws:7770 | UDP | Yes |
+| Europe (Paris) | eu-west-3 | gamelift-ping.eu-west-3.api.aws:7770 | UDP | Yes |
+| Europe (Frankfurt) | eu-central-1 | gamelift-ping.eu-central-1.api.aws:7770 | UDP | Yes |
+| Europe (Milan) | eu-south-1 | gamelift-ping.eu-south-1.api.aws:7770 | UDP | Yes |
+| Europe (Stockholm) | eu-north-1 | gamelift-ping.eu-north-1.api.aws:7770 | UDP | Yes |
+| **Asia Pacific** | | | | |
+| Asia Pacific (Malaysia) | ap-southeast-5 | gamelift-ping.ap-southeast-5.api.aws:7770 | UDP | Yes |
+| Asia Pacific (Mumbai) | ap-south-1 | gamelift-ping.ap-south-1.api.aws:7770 | UDP | Yes |
+| Asia Pacific (Hong Kong) | ap-east-1 | gamelift-ping.ap-east-1.api.aws:7770 | UDP | Yes |
+| Asia Pacific (Thailand) | ap-southeast-7 | gamelift-ping.ap-southeast-7.api.aws:7770 | UDP | Yes |
+| Asia Pacific (Osaka) | ap-northeast-3 | gamelift-ping.ap-northeast-3.api.aws:7770 | UDP | Yes |
+| Asia Pacific (Seoul) | ap-northeast-2 | gamelift-ping.ap-northeast-2.api.aws:7770 | UDP | Yes |
+| Asia Pacific (Singapore) | ap-southeast-1 | gamelift-ping.ap-southeast-1.api.aws:7770 | UDP | Yes |
+| Asia Pacific (Sydney) | ap-southeast-2 | gamelift-ping.ap-southeast-2.api.aws:7770 | UDP | Yes |
+| Asia Pacific (Tokyo) | ap-northeast-1 | gamelift-ping.ap-northeast-1.api.aws:7770 | UDP | Yes |
+| **Middle East** | | | | |
+| Middle East (Bahrain) | me-south-1 | gamelift-ping.me-south-1.api.aws:7770 | UDP | Yes |
+| **Africa** | | | | |
+| Africa (Cape Town) | af-south-1 | gamelift-ping.af-south-1.api.aws:7770 | UDP | Yes |
+| Africa (Lagos) | af-south-1-los-1 | gamelift-ping-los.af-south-1.api.aws:7770 | UDP | No |
 
 ## Service quotas
 

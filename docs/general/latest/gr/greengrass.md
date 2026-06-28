@@ -153,15 +153,15 @@ AWS IoT Greengrass APIs depends on the API and the AWS Region where AWS IoT Gree
 For most APIs and [supported AWS Regions](#greengrass_region "#greengrass_region"), the
 default quota is 30. Exceptions are noted in the following tables.
 
-| API exceptions   | API | Default |
-| ---------------- | --- | ------- |
-| CreateDeployment | 20  |
+API exceptions| API | Default |
+| --- | --- |
+| CreateDeployment | 20 |
 
-| AWS Region exceptions  | AWS Region | Default |
-| ---------------------- | ---------- | ------- |
-| China (Beijing)        | 10         |
-| AWS GovCloud (US-West) | 10         |
-| AWS GovCloud (US-East) | 10         |
+AWS Region exceptions| AWS Region | Default |
+| --- | --- |
+| China (Beijing) | 10 |
+| AWS GovCloud (US-West) | 10 |
+| AWS GovCloud (US-East) | 10 |
 
 This quota applies per AWS account. For example, in the US East (N. Virginia) Region, each
 account has a default quota of 30 TPS. Each API (such as `CreateGroupVersion` or

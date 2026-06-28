@@ -79,42 +79,42 @@ Analytics**. Note that 'post-call' refers to a batch transcription and
 To get the endpoints for these Regions, refer to the preceding Amazon Transcribe
 endpoints tables.
 
-| Amazon Transcribe Medical         | **Region**       | **Transcription type** |
-| --------------------------------- | ---------------- | ---------------------- |
-| ap-east-1 (Hong Kong)             | batch            |
-| ap-northeast-1 (Tokyo)            | batch, streaming |
-| ap-northeast-2 (Seoul)            | batch, streaming |
-| ap-south-1 (Mumbai)               | batch            |
-| ap-southeast-1 (Singapore)        | batch            |
-| ap-southeast-2 (Sydney)           | batch, streaming |
-| ca-central-1 (Canada, Central)    | batch, streaming |
-| eu-central-1 (Frankfurt)          | batch, streaming |
-| eu-west-1 (Ireland)               | batch, streaming |
-| eu-west-2 (London)                | batch, streaming |
-| eu-west-3 (Paris)                 | batch            |
-| me-south-1 (Bahrain)              | batch            |
-| sa-east-1 (São Paulo)             | batch, streaming |
-| us-east-1 (N. Virginia)           | batch, streaming |
-| us-east-2 (Ohio)                  | batch, streaming |
+Amazon Transcribe Medical| **Region** | **Transcription type** |
+| --- | --- |
+| ap-east-1 (Hong Kong) | batch |
+| ap-northeast-1 (Tokyo) | batch, streaming |
+| ap-northeast-2 (Seoul) | batch, streaming |
+| ap-south-1 (Mumbai) | batch |
+| ap-southeast-1 (Singapore) | batch |
+| ap-southeast-2 (Sydney) | batch, streaming |
+| ca-central-1 (Canada, Central) | batch, streaming |
+| eu-central-1 (Frankfurt) | batch, streaming |
+| eu-west-1 (Ireland) | batch, streaming |
+| eu-west-2 (London) | batch, streaming |
+| eu-west-3 (Paris) | batch |
+| me-south-1 (Bahrain) | batch |
+| sa-east-1 (São Paulo) | batch, streaming |
+| us-east-1 (N. Virginia) | batch, streaming |
+| us-east-2 (Ohio) | batch, streaming |
 | us-gov-east-1 (GovCloud, US-East) | batch, streaming |
 | us-gov-west-1 (GovCloud, US-West) | batch, streaming |
-| us-west-1 (San Francisco)         | batch            |
-| us-west-2 (Oregon)                | batch, streaming |
-| eu-north-1 (Stockholm)            | batch            |
-| af-south-1 (Cape Town)            | batch            |
+| us-west-1 (San Francisco) | batch |
+| us-west-2 (Oregon) | batch, streaming |
+| eu-north-1 (Stockholm) | batch |
+| af-south-1 (Cape Town) | batch |
 
-| Amazon Transcribe Call Analytics | **Region**           | **Transcription type** |
-| -------------------------------- | -------------------- | ---------------------- |
-| ap-northeast-1 (Tokyo)           | post-call, real-time |
-| ap-northeast-2 (Seoul)           | post-call, real-time |
-| ap-south-1 (Mumbai)              | post-call            |
-| ap-southeast-1 (Singapore)       | post-call            |
-| ap-southeast-2 (Sydney)          | post-call, real-time |
-| ca-central-1 (Canada, Central)   | post-call, real-time |
-| eu-central-1 (Frankfurt)         | post-call, real-time |
-| eu-west-2 (London)               | post-call, real-time |
-| us-east-1 (N. Virginia)          | post-call, real-time |
-| us-west-2 (Oregon)               | post-call, real-time |
+Amazon Transcribe Call Analytics| **Region** | **Transcription type** |
+| --- | --- |
+| ap-northeast-1 (Tokyo) | post-call, real-time |
+| ap-northeast-2 (Seoul) | post-call, real-time |
+| ap-south-1 (Mumbai) | post-call |
+| ap-southeast-1 (Singapore) | post-call |
+| ap-southeast-2 (Sydney) | post-call, real-time |
+| ca-central-1 (Canada, Central) | post-call, real-time |
+| eu-central-1 (Frankfurt) | post-call, real-time |
+| eu-west-2 (London) | post-call, real-time |
+| us-east-1 (N. Virginia) | post-call, real-time |
+| us-west-2 (Oregon) | post-call, real-time |
 
 ## Service quotas
 

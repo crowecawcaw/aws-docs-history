@@ -52,42 +52,42 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service quotas
 
-| Resource tags                       | Name | Default | Adjustable |
-| ----------------------------------- | ---- | ------- | ---------- |
-| Maximum number of tags per resource | 50   | No      |
+Resource tags| Name | Default | Adjustable |
+| --- | --- | --- |
+| Maximum number of tags per resource | 50 | No |
 
-| AWS Config rules                                          | Name | Default | Adjustable |
-| --------------------------------------------------------- | ---- | ------- | ---------- |
-| Maximum number of AWS Config Rules per Region per account | 1000 | No      |
+AWS Config rules| Name | Default | Adjustable |
+| --- | --- | --- |
+| Maximum number of AWS Config Rules per Region per account | 1000 | No |
 
-| Single Account Conformance Packs                        | Name | Default | Adjustable |
-| ------------------------------------------------------- | ---- | ------- | ---------- |
-| Maximum number of conformance packs per account         | 50   | No      |
-| Maximum number of AWS Config Rules per conformance pack | 130  | No      |
+Single Account Conformance Packs| Name | Default | Adjustable |
+| --- | --- | --- |
+| Maximum number of conformance packs per account | 50 | No |
+| Maximum number of AWS Config Rules per conformance pack | 130 | No |
 
 ###### Note
 
 AWS Config rules in conformance packs count in the quota for the Maximum number of AWS Config Rules per Region per account.
 
-| Organization Conformance Packs                                       | Name | Default | Adjustable |
-| -------------------------------------------------------------------- | ---- | ------- | ---------- |
-| Maximum number of conformance packs per organization                 | 50   | No      |
-| Maximum number of AWS Config Rules per organization conformance pack | 130  | No      |
+Organization Conformance Packs| Name | Default | Adjustable |
+| --- | --- | --- |
+| Maximum number of conformance packs per organization | 50 | No |
+| Maximum number of AWS Config Rules per organization conformance pack | 130 | No |
 
 ###### Note
 
 Deploying at the organization level counts in quota for child accounts. AWS Config rules in conformance packs count in the quota for the Maximum number of AWS Config Rules per Region per account.
 
-| Aggregators                                                                 | Name  | Default                                                                                                      | Adjustable |
-| --------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| Maximum number of configuration aggregators                                 | 50    | [Yes](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") |
-| Maximum number of accounts in an aggregator                                 | 10000 | No                                                                                                           |
-| Maximum number of accounts added or deleted per week for all<br>aggregators | 1000  | [Yes](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") |
+Aggregators| Name | Default | Adjustable |
+| --- | --- | --- |
+| Maximum number of configuration aggregators | 50 | [Yes](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") |
+| Maximum number of accounts in an aggregator | 10000 | No |
+| Maximum number of accounts added or deleted per week for all<br>aggregators | 1000 | [Yes](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") |
 
 ###### Note
 
 Organization level aggregators and individual account aggregators both count in the quota for the Maximum number of configuration aggregators.
 
-| Advanced queries                                                 | Name | Default                                                                                                      | Adjustable |
-| ---------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-| Maximum number of saved queries in a single account and a Region | 300  | [Yes](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") |
+Advanced queries| Name | Default | Adjustable |
+| --- | --- | --- |
+| Maximum number of saved queries in a single account and a Region | 300 | [Yes](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") |

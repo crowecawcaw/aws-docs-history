@@ -28,12 +28,12 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service quotas
 
-| Name                                                                                     | Default | Adjustable                                                                                                                                                                             |
-| ---------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Flow definitions                                                                         | 100     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas/L-73C1B556 "https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas/L-73C1B556") |
-| Worker task templates (human task UIs)                                                   | 100     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas/L-3036C9CA "https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas/L-3036C9CA") |
-| \*In-flight<br>• human loops per flow definition (private or vendor work<br>team) †      | 5,000   | No                                                                                                                                                                                     |
-| \*In-flight<br>• human loops per flow definition<br>(Amazon Mechanical Turk work team) † | 1,000   | No                                                                                                                                                                                     |
+| Name                                                                                    | Default | Adjustable                                                                                                                                                                             |
+| --------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Flow definitions                                                                        | 100     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas/L-73C1B556 "https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas/L-73C1B556") |
+| Worker task templates (human task UIs)                                                  | 100     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas/L-3036C9CA "https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas/L-3036C9CA") |
+| *In-flight<br>• human loops per flow definition (private or vendor work<br>team) †      | 5,000   | No                                                                                                                                                                                     |
+| *In-flight<br>• human loops per flow definition<br>(Amazon Mechanical Turk work team) † | 1,000   | No                                                                                                                                                                                     |
 
 † Human loops are considered _in-flight_ when
 their status is `InProgress` or `Stopping`.

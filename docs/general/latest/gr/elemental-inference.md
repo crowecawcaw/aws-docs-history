@@ -13,10 +13,10 @@ The following are the service endpoints and service quotas for this service.
 
 | Region Name           | Region     | Endpoint                                     | Protocol |
 | --------------------- | ---------- | -------------------------------------------- | -------- |
-| US East (N. Virginia) | us-east-1  | elemental-inference.us-east-1.amazonaws.com  |          |
-| US West (Oregon)      | us-west-2  | elemental-inference.us-west-2.amazonaws.com  |          |
-| Asia Pacific (Mumbai) | ap-south-1 | elemental-inference.ap-south-1.amazonaws.com |          |
-| Europe (Ireland)      | eu-west-1  | elemental-inference.eu-west-1.amazonaws.com  |          |
+| US East (N. Virginia) | us-east-1  | elemental-inference.us-east-1.amazonaws.com  | HTTPS    |
+| US West (Oregon)      | us-west-2  | elemental-inference.us-west-2.amazonaws.com  | HTTPS    |
+| Asia Pacific (Mumbai) | ap-south-1 | elemental-inference.ap-south-1.amazonaws.com | HTTPS    |
+| Europe (Ireland)      | eu-west-1  | elemental-inference.eu-west-1.amazonaws.com  | HTTPS    |
 
 ## Service quotas
 

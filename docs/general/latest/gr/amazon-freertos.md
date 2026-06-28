@@ -62,13 +62,13 @@ The FreeRTOS console is also supported in these Regions.
 
 ## Service quotas
 
-| FreeRTOS OTA Resource Quotas | Resource | Default |
-| ---------------------------- | -------- | ------- |
-| File size                    | 16MB     |
+FreeRTOS OTA Resource Quotas| Resource | Default |
+| --- | --- |
+| File size | 16MB |
 
-| FreeRTOS OTA Throttling | API    | Transactions Per Second |
-| ----------------------- | ------ | ----------------------- |
-| CreateOTAUpdate         | 10 TPS |
-| DeleteOTAUpdate         | 5 TPS  |
-| GetOTAUpdate            | 15 TPS |
-| ListOTAUpdates          | 15 TPS |
+FreeRTOS OTA Throttling| API | Transactions Per Second |
+| --- | --- |
+| CreateOTAUpdate | 10 TPS |
+| DeleteOTAUpdate | 5 TPS |
+| GetOTAUpdate | 15 TPS |
+| ListOTAUpdates | 15 TPS |

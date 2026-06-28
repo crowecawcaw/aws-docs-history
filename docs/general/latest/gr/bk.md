@@ -70,7 +70,7 @@ The following are the service endpoints and service quotas for this service.
 If you regularly receive throttling exceptions, consider using a rate limiter.
 
 | API name             | Default calls/sec         |
-| -------------------- | ------------------------- | ----------------------- | -------------------------- | --------------------- | ------------------------------ | ---------------------------------- | ----------------------------------- | ----------------------------------- | ---------------------------- | ----------------------------- | --------------------------- | ------------------ | --------------- | ------------- | --------------- | ------------- | ---------------- | -------------------------------- | --- |
+| -------------------- | ------------------------- |
 | CreateBackupPlan     | CreateBackupSelection     | <br>DeleteBackupPlan    | DeleteBackupSelection      | <br>DeleteBackupVault | DeleteBackupVaultAccessPolicy  | <br>DeleteBackupVaultNotifications | DescribeBackupVault                 | <br>ExportBackupPlanTemplate        | GetBackupPlanFromJSON        | <br>GetBackupPlanFromTemplate | PutBackupVaultNotifications | <br>StartBackupJob | StartRestoreJob | StopBackupJob | <br>TagResource | UntagResource | UpdateBackupPlan | <br>UpdateRecoveryPointLifecycle | 5   |
 | DeleteRecoveryPoint  | DescribeProtectedResource | 10                      |
 | DescribeBackupJob    | DescribeRecoveryPoint     | <br>DescribeRestoreJob  | GetBackupPlan              | GetBackupSelection    | <br>GetBackupVaultAccessPolicy | GetBackupVaultNotifications        | <br>GetRecoveryPointRestoreMetadata | GetSupportedResourceTypes           | 15                           |

@@ -150,24 +150,24 @@ Data plane operations (legacy endpoints)
 The following tables describe quotas in AWS IoT Greengrass V2. For more information about quotas and
 how to request quota increases, see [AWS service quotas](aws_service_limits.md "aws_service_limits.md").
 
-| Quotas for core devices                    | Resource                              | Quota | Adjustable |
-| ------------------------------------------ | ------------------------------------- | ----- | ---------- |
-| Maximum length of a core device thing name | 124 bytes of UTF-8 encoded characters | No    |
+Quotas for core devices| Resource | Quota | Adjustable |
+| --- | --- | --- |
+| Maximum length of a core device thing name | 124 bytes of UTF-8 encoded characters | No |
 
-| Quotas for components                     | Resource                                | Quota | Adjustable                                                         | Notes |
-| ----------------------------------------- | --------------------------------------- | ----- | ------------------------------------------------------------------ | ----- |
-| Maximum number of components              | 5,000 components per Region             | No    |                                                                    |
-| Maximum number of component versions      | 5,000 versions per component per Region | No    |                                                                    |
-| Maximum size of component recipe          | 16 KB                                   | No    |                                                                    |
-| Maximum total size of component artifacts | 2 GB                                    | No    | This quota applies to the sum of all artifacts for a<br>component. |
+Quotas for components| Resource | Quota | Adjustable | Notes |
+| --- | --- | --- | --- |
+| Maximum number of components | 5,000 components per Region | No | |
+| Maximum number of component versions | 5,000 versions per component per Region | No | |
+| Maximum size of component recipe | 16 KB | No | |
+| Maximum total size of component artifacts | 2 GB | No | This quota applies to the sum of all artifacts for a<br>component. |
 
-| Quotas for deployments                                                                                    | Resource | Quota | Adjustable                                                                                                         | Notes |
-| --------------------------------------------------------------------------------------------------------- | -------- | ----- | ------------------------------------------------------------------------------------------------------------------ | ----- |
-| Maximum size of deployment document for a thing deployment (without<br>large configuration support)       | 7 KB     | No    | The deployment document includes the component configurations,<br>deployment configurations, and payload overhead. |
-| Maximum size of deployment document for a thing group deployment<br>(without large configuration support) | 31 KB    | No    | The deployment document includes the component configurations,<br>deployment configurations, and payload overhead. |
-| Maximum size of deployment document with large configuration<br>support                                   | 6 MB     | No    | The deployment document includes the component configurations,<br>deployment configurations, and payload overhead. |
+Quotas for deployments| Resource | Quota | Adjustable | Notes |
+| --- | --- | --- | --- |
+| Maximum size of deployment document for a thing deployment (without<br>large configuration support) | 7 KB | No | The deployment document includes the component configurations,<br>deployment configurations, and payload overhead. |
+| Maximum size of deployment document for a thing group deployment<br>(without large configuration support) | 31 KB | No | The deployment document includes the component configurations,<br>deployment configurations, and payload overhead. |
+| Maximum size of deployment document with large configuration<br>support | 6 MB | No | The deployment document includes the component configurations,<br>deployment configurations, and payload overhead. |
 
-| Quotas for API operations               | Resource                          | Quota | Adjustable                                                                                                                                                                                                                                                                                                 | Notes |
-| --------------------------------------- | --------------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| Request rate for CreateComponentVersion | 1 request per second per Region   | No    |                                                                                                                                                                                                                                                                                                            |
-| Request rate for other API operations   | 30 requests per second per Region | No    | This quota applies to the combination of API requests for all<br>control plane operations.<br>Exceptions<br>• China (Beijing) – 10 requests per second per<br>Region<br>• AWS GovCloud (US-West) – 10 requests per second per<br>Region<br>• AWS GovCloud (US-East) – 10 requests per second per<br>Region |
+Quotas for API operations| Resource | Quota | Adjustable | Notes |
+| --- | --- | --- | --- |
+| Request rate for CreateComponentVersion | 1 request per second per Region | No | |
+| Request rate for other API operations | 30 requests per second per Region | No | This quota applies to the combination of API requests for all<br>control plane operations.<br>Exceptions<br>• China (Beijing) – 10 requests per second per<br>Region<br>• AWS GovCloud (US-West) – 10 requests per second per<br>Region<br>• AWS GovCloud (US-East) – 10 requests per second per<br>Region |

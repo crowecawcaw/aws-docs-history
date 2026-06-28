@@ -33,7 +33,7 @@ The following are the service endpoints and service quotas for this service.
 ## Service quotas
 
 | Resources                                                                      | Regions               |
-| ------------------------------------------------------------------------------ | --------------------- | --------------------- | ---------------- | -------------- | ---------------- | --------------------- | ------------- |
+| ------------------------------------------------------------------------------ | --------------------- |
 | Synchronous Operations                                                         | API                   | US East (N. Virginia) | US West (Oregon) | US East (Ohio) | Europe (Ireland) | Asia Pacific (Mumbai) | Other Regions |
 | Transactions per second per account for synchronous operations                 | AnalyzeDocument       | 10                    | 10               | 10             | 5                | 5                     | 1             |
 | DetectDocumentText                                                             | 25                    | 25                    | 10               | 5              | 5                | 1                     |

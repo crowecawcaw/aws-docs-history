@@ -12,6 +12,8 @@ for your AWS account. For more information, see [AWS service quotas](aws_service
 | US East (Ohio)            | us-east-2      | pcs.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.api.aws<br>pcs.us-east-2.api.aws                 |          |
 | US East (N. Virginia)     | us-east-1      | pcs.us-east-1.amazonaws.com<br>pcs-fips.us-east-1.amazonaws.com<br>pcs-fips.us-east-1.api.aws<br>pcs.us-east-1.api.aws                 |          |
 | US West (Oregon)          | us-west-2      | pcs.us-west-2.amazonaws.com<br>pcs-fips.us-west-2.amazonaws.com<br>pcs-fips.us-west-2.api.aws<br>pcs.us-west-2.api.aws                 |          |
+| Africa (Cape Town)        | af-south-1     | pcs.af-south-1.amazonaws.com<br>pcs.af-south-1.api.aws                                                                                 |          |
+| Asia Pacific (Jakarta)    | ap-southeast-3 | pcs.ap-southeast-3.amazonaws.com<br>pcs.ap-southeast-3.api.aws                                                                         |          |
 | Asia Pacific (Mumbai)     | ap-south-1     | pcs.ap-south-1.amazonaws.com<br>pcs.ap-south-1.api.aws                                                                                 |          |
 | Asia Pacific (Osaka)      | ap-northeast-3 | pcs.ap-northeast-3.amazonaws.com<br>pcs.ap-northeast-3.api.aws                                                                         |          |
 | Asia Pacific (Singapore)  | ap-southeast-1 | pcs.ap-southeast-1.amazonaws.com<br>pcs.ap-southeast-1.api.aws                                                                         |          |

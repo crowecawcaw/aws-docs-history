@@ -67,7 +67,7 @@ The following are the service endpoints and service quotas for this service.
 
 - The quota for **Number of pending invitations** applies
   to only _sending_ accounts who share with
-  accounts that are **_not_** part of sender's AWS
+  accounts that are _**not**_ part of sender's AWS
   Organization.
 - There is no quota for how many pending invitations a receiving account can
   have.
