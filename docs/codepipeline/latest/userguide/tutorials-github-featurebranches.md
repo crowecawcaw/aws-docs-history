@@ -103,13 +103,12 @@ Choose **Next**. 8. On the **Step 3: Add source stage** page, add a source stage
      start the pipeline.Choose **Next**.
 
 9. In **Step 4: Add build stage**, in **Build
-   provider**, choose **AWS CodeBuild**. Allow
-   **Region** to default to the pipeline Region. Choose or create the
-   build project as instructed in [Tutorial: Use Git tags to start your pipeline](tutorials-github-tags.md "tutorials-github-tags.md"). This action will only be used in this tutorial
-   as the second stage needed to create your pipeline.
-10. In **Step 5: Add test stage**, choose **Skip test
-    stage**, and then accept the warning message by choosing
-    **Skip** again.
+provider**, choose **AWS CodeBuild**. Allow
+**Region** to default to the pipeline Region. Choose or create the
+build project as instructed in [Tutorial: Use Git tags to start your pipeline](tutorials-github-tags.md "tutorials-github-tags.md"). This action will only be used in this tutorial
+as the second stage needed to create your pipeline. 10. In **Step 5: Add test stage**, choose **Skip test
+stage**, and then accept the warning message by choosing
+**Skip** again.
 
 Choose **Next**. 11. On the **Step 6: Add deploy stage** page, choose **Skip
 deploy stage**, and then accept the warning message by choosing

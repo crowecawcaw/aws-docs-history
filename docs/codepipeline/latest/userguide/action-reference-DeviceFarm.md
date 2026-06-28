@@ -88,20 +88,20 @@ Required: Yes
 Specifies the supported testing framework for your test. The following is
 a list of valid values for `TestType`:
 
-- **APPIUM_JAVA_JUNIT**
-- **APPIUM_JAVA_TESTNG**
-- **APPIUM_NODE**
-- **APPIUM_RUBY**
-- **APPIUM_PYTHON**
-- **APPIUM_WEB_JAVA_JUNIT**
-- **APPIUM_WEB_JAVA_TESTNG**
-- **APPIUM_WEB_NODE**
-- **APPIUM_WEB_RUBY**
-- **APPIUM_WEB_PYTHON**
-- **BUILTIN_FUZZ**
+- **APPIUM\_JAVA\_JUNIT**
+- **APPIUM\_JAVA\_TESTNG**
+- **APPIUM\_NODE**
+- **APPIUM\_RUBY**
+- **APPIUM\_PYTHON**
+- **APPIUM\_WEB\_JAVA\_JUNIT**
+- **APPIUM\_WEB\_JAVA\_TESTNG**
+- **APPIUM\_WEB\_NODE**
+- **APPIUM\_WEB\_RUBY**
+- **APPIUM\_WEB\_PYTHON**
+- **BUILTIN\_FUZZ**
 - **INSTRUMENTATION**
 - **XCTEST**
-- **XCTEST_UI**
+- **XCTEST\_UI**
 
 ###### Note
 

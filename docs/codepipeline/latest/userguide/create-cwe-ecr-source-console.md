@@ -72,48 +72,51 @@ is CodePipeline).
      executions.
 
 9. (Optional) To specify source overrides with a specific image ID, use the
-   input transformer to pass the data as a JSON parameters. You can also use
-   the input transformer to pass pipeline variables.
+input transformer to pass the data as a JSON parameters. You can also use
+the input transformer to pass pipeline variables.
 
-   - Expand **Additional settings**.
+    * Expand **Additional settings**.
 
-   Under **Configure target input**, choose
-   **Configure input transformer**.
 
-   In the dialog window, choose **Enter my own**. In
-   the **Input path** box, type the following
-   key-value pairs.
+    Under **Configure target input**, choose
+     **Configure input transformer**.
 
-   ```
-   {"revisionValue": "$.detail.image-digest"}
-   ```
-   - In the **Template** box, type the following
+
+    In the dialog window, choose **Enter my own**. In
+     the **Input path** box, type the following
      key-value pairs.
 
-   ```
-   {
-       "sourceRevisions": [
-           {
-               "actionName": "`Source`",
-               "revisionType": "`IMAGE_DIGEST`",
-               "revisionValue": "<`revisionValue`>"
-           }
-       ],
-        "variables": [
-           {
-               "name": "`Variable_Name`",
-               "value": "`Variable_Value`"
-           }
-       ]
-   }
 
-   ```
-   - Choose **Confirm**.
 
-10. Review your rule setup to make sure it meets your requirements.
-11. Choose **Configure details**.
-12. On the **Configure rule details** page, enter a name and
-    description for the rule, and then choose **State** to
-    enable the rule.
-13. If you're satisfied with the rule, choose **Create
-    rule**.
+    ```
+    {"revisionValue": "$.detail.image-digest"}
+    ```
+    * In the **Template** box, type the following
+     key-value pairs.
+
+
+
+    ```
+    {
+        "sourceRevisions": [
+            {
+                "actionName": "`Source`",
+                "revisionType": "`IMAGE_DIGEST`",
+                "revisionValue": "<`revisionValue`>"
+            }
+        ],
+         "variables": [
+            {
+                "name": "`Variable_Name`",
+                "value": "`Variable_Value`"
+            }
+        ]
+    }
+
+    ```
+    * Choose **Confirm**.
+
+10. Review your rule setup to make sure it meets your requirements. 11. Choose **Configure details**. 12. On the **Configure rule details** page, enter a name and
+description for the rule, and then choose **State** to
+enable the rule. 13. If you're satisfied with the rule, choose **Create
+rule**.

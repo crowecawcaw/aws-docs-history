@@ -99,18 +99,17 @@ JSON
 
 ###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
-1.  In the template, under `Resources`, use the
-    `AWS::IAM::Role` CloudFormation resource to configure the IAM role
-    that allows your event to start your pipeline. This entry creates a role
-    that uses two policies:
+1. In the template, under `Resources`, use the
+   `AWS::IAM::Role` CloudFormation resource to configure the IAM role
+   that allows your event to start your pipeline. This entry creates a role
+   that uses two policies:
 
-        * The first policy allows the role to be assumed.
-        * The second policy provides permissions to start the
-         pipeline.
-
-    **Why am I making this change?** Adding
-    `AWS::IAM::Role` resource enables CloudFormation to create permissions
-    for EventBridge. This resource is added to your CloudFormation stack.
+   - The first policy allows the role to be assumed.
+   - The second policy provides permissions to start the
+     pipeline.
+     **Why am I making this change?** Adding
+     `AWS::IAM::Role` resource enables CloudFormation to create permissions
+     for EventBridge. This resource is added to your CloudFormation stack.
 
 YAML
 

@@ -163,19 +163,14 @@ the following.
     ![Console screenshot showing create GitHub Enterprise Server connection page for VPC options.](images/connections-create-ghes-screen-vpc.png)
 
 4. Choose **Connect to GitHub Enterprise Server**. The
-   created connection is shown with a **Pending** status. A
-   host resource is created for the connection with the server information you
-   provided. For the host name, the URL is used.
-5. Choose **Update pending connection.**
-6. If prompted, on the GitHub Enterprise login page, sign in with your GitHub
-   Enterprise credentials.
-7. On the **Create GitHub App** page, choose a name for your
-   app.
-8. On the GitHub authorization page, choose **Authorize
-   <app-name>**.
-9. On the app installation page, a message shows that the connector app is
-   ready to be installed. If you have multiple organizations, you might be
-   prompted to choose the organization where you want to install the app.
+created connection is shown with a **Pending** status. A
+host resource is created for the connection with the server information you
+provided. For the host name, the URL is used. 5. Choose **Update pending connection.** 6. If prompted, on the GitHub Enterprise login page, sign in with your GitHub
+Enterprise credentials. 7. On the **Create GitHub App** page, choose a name for your
+app. 8. On the GitHub authorization page, choose **Authorize
+<app-name>**. 9. On the app installation page, a message shows that the connector app is
+ready to be installed. If you have multiple organizations, you might be
+prompted to choose the organization where you want to install the app.
 
 Choose the repository settings where you want to install the app. Choose
 **Install**. 10. The connection page shows the created connection in an

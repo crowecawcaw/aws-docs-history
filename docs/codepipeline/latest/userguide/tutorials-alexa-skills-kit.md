@@ -247,9 +247,9 @@ Add deploy stage**:
     6. Choose **Next**.
 
 13. In **Step
-    7:
-    Review**, review the information, and then choose **Create
-    pipeline**.
+7:
+Review**, review the information, and then choose **Create
+pipeline**.
 
 ## Step 5: Make a change to any source file and verify deployment
 

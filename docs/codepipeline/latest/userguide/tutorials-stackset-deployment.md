@@ -321,7 +321,7 @@ You can view the resources and status for your stack set deployment.
    **View**. The diagram shows your pipeline source and deployment
    stages.
 3. Choose the CloudFormation action on the **`AWS CloudFormation Stack
-Instances`** action in your pipeline. The template, resources, and
+ Instances`** action in your pipeline. The template, resources, and
    events for your stack set are shown in the CloudFormation console.
 4. In the left navigation panel, choose **StackSets**. In the list,
    choose your stack set.

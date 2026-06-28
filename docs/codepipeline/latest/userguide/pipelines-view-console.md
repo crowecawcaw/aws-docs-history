@@ -87,17 +87,13 @@ each stage:
      actions that have run in the account of the pipeline.
 
 4. To view the details of the provider of the action, choose the provider. For
-   example, in the preceding example pipeline, if you choose CodeDeploy in either the
-   Staging or Production stages the CodeDeploy console page for the deployment group
-   configured for that stage is displayed.
-5. To see the progress for an action is displayed next to an action in progress
-   (indicated by an **In Progress** message). If the action is in
-   progress, you see the incremental progress and the steps or actions as they
-   occur.
-6. To approve or reject actions that have been configured for manual approval,
-   choose **Review**.
-7. To retry actions in a stage that were not completed successfully, choose
-   **Retry**.
-8. The status from the last time the action ran, including the results of that
-   action (**Succeeded** or **Failed**) is
-   displayed.
+example, in the preceding example pipeline, if you choose CodeDeploy in either the
+Staging or Production stages the CodeDeploy console page for the deployment group
+configured for that stage is displayed. 5. To see the progress for an action is displayed next to an action in progress
+(indicated by an **In Progress** message). If the action is in
+progress, you see the incremental progress and the steps or actions as they
+occur. 6. To approve or reject actions that have been configured for manual approval,
+choose **Review**. 7. To retry actions in a stage that were not completed successfully, choose
+**Retry**. 8. The status from the last time the action ran, including the results of that
+action (**Succeeded** or **Failed**) is
+displayed.

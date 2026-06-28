@@ -68,7 +68,7 @@ For more information on S3 source configuration parameters, see [Configuration p
    **--source-revisions** argument to provide the source
    revision ID. The source revision is made up of the actionName, revisionType,
    and revisionValue. Valid revisionType values are `COMMIT_ID |
-IMAGE_DIGEST | S3_OBJECT_VERSION_ID | S3_OBJECT_KEY`.
+ IMAGE_DIGEST | S3_OBJECT_VERSION_ID | S3_OBJECT_KEY`.
 
 In the following example, to start running the specified change through a
 pipeline named **codecommit-pipeline**, the following command

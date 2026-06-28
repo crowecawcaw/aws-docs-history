@@ -45,7 +45,7 @@ Before you begin:
 
 - You must have already created an account with GitLab and have GitLab Enterprise
   Edition or GitLab Community Edition with a self-managed installation. For more
-  information, see [https://docs.gitlab.com/ee/subscriptions/self_managed/](https://docs.gitlab.com/ee/subscriptions/self_managed/ "https://docs.gitlab.com/ee/subscriptions/self_managed/").
+  information, see [https://docs.gitlab.com/ee/subscriptions/self\_managed/](https://docs.gitlab.com/ee/subscriptions/self_managed/ "https://docs.gitlab.com/ee/subscriptions/self_managed/").
 
 ###### Note
 
@@ -59,7 +59,7 @@ used with with resources such as CodePipeline. For repositories in groups, you d
 need to be the group owner.
 
 - You must have already created a GitLab personal access token (PAT) with the
-  following scoped-down permission only: api. For more information, see [https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html").
+  following scoped-down permission only: api. For more information, see [https://docs.gitlab.com/ee/user/profile/personal\_access\_tokens.html](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html").
   You must be an administrator to create and use the PAT.
 
 ###### Note

@@ -131,7 +131,7 @@ command to create a pipeline with that structure and give it a new name.
 ## `roleArn`
 
 The IAM ARN for the CodePipeline service role, such as
-arn:aws:iam::80398EXAMPLE:role/CodePipeline_Service_Role.
+arn:aws:iam::80398EXAMPLE:role/CodePipeline\_Service\_Role.
 
 To use the console to view the pipeline service role ARN instead of the JSON
 structure, choose your pipeline in the console, and then choose

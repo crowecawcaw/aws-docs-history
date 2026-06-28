@@ -111,6 +111,8 @@ CMD /root/run_apache.sh
    ````
    `git push`
    ```Be sure to place the file at the root level of your repository.
+
+
    ````
 
 ```
@@ -159,6 +161,8 @@ your Amazon ECR repository where the image is stored.
    ````
    `git push`
    ```Be sure to place the file at the root level of your repository.
+
+
    ````
 
 ```
@@ -217,8 +221,8 @@ repository.
     2. Choose **Next**.
 
 10. In **Step 5: Add test stage**, choose **Skip test
-    stage**, and then accept the warning message by choosing
-    **Skip** again.
+stage**, and then accept the warning message by choosing
+**Skip** again.
 
 Choose **Next**. 11. On the **Step 6: Add deploy stage** page, choose
 **Skip deploy stage**. You will add the ECS action in the

@@ -81,7 +81,7 @@ deploy.
 ###### Note
 
 If you choose $LATEST, you cannot use traffic shifting features because
-Lambda does not support $LATEST for an alias pointing to more than 1
+ Lambda does not support $LATEST for an alias pointing to more than 1
 version.
 
 ## Step 2: Upload the function file to your repository
@@ -167,9 +167,9 @@ repository.
     3. Choose **Next**.
 
 12. On the **Step
-    7:
-    Review** page, review your pipeline configuration and choose
-    **Create pipeline** to create the pipeline.
+7:
+Review** page, review your pipeline configuration and choose
+**Create pipeline** to create the pipeline.
 
 ![A console diagram showing a successful pipeline run with the Lambda deploy action added to your pipeline.](images/lambdadeploy-pipeline-screen.png)
 

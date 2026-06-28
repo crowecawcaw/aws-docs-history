@@ -34,7 +34,7 @@ CloudWatch.
 Required: No
 
 The desired CloudWatch alarm states for the rule to monitor. Valid values
-are ALARM, OK, and INSUFFICIENT_DATA.
+are ALARM, OK, and INSUFFICIENT\_DATA.
 
 **WaitTime**
 

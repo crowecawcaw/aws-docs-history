@@ -198,43 +198,48 @@ displayed. Choose the pipeline where you want to add the action. 2. Add the Lamb
 
 3. Add the manual approval action to your pipeline.
 
-   1. With your pipeline still in editing mode, add a stage after the invoke
-      action. Enter a name for the stage, such as
-      `Approval`.
-   2. In the new stage, choose the icon to add an action. In
-      **Action name**, enter the name of the approval
-      action, such as `Change_Approval`.
-   3. In **Action provider**, choose **Manual
-      approval**.
-   4. In **URL for review**, construct the URL by adding
-      the variable syntax for the `region` variable and the
-      `CommitId` variable. Make sure that you use the
-      namespaces assigned to the actions that provide the output variables.
+    1. With your pipeline still in editing mode, add a stage after the invoke
+     action. Enter a name for the stage, such as
+     `Approval`.
+    2. In the new stage, choose the icon to add an action. In
+     **Action name**, enter the name of the approval
+     action, such as `Change_Approval`.
+    3. In **Action provider**, choose **Manual
+     approval**.
+    4. In **URL for review**, construct the URL by adding
+     the variable syntax for the `region` variable and the
+     `CommitId` variable. Make sure that you use the
+     namespaces assigned to the actions that provide the output variables.
 
-   For this example, the URL with the variable syntax for a CodeCommit action
-   has the default namespace `SourceVariables`. The Lambda
-   region output variable has the `TestVariables` namespace. The
-   URL looks like the following.
 
-   ```
-   https://#{TestVariables.region}.console.aws.amazon.com/codesuite/codecommit/repositories/MyDemoRepo/commit/#{SourceVariables.CommitId}
-   ```
+    For this example, the URL with the variable syntax for a CodeCommit action
+     has the default namespace `SourceVariables`. The Lambda
+     region output variable has the `TestVariables` namespace. The
+     URL looks like the following.
 
-   In **Comments**, construct the approval message text
-   by adding the variable syntax for the `testRunId` variable.
-   For this example, the URL with the variable syntax for the Lambda
-   `testRunId` output variable has the
-   `TestVariables` namespace. Enter the following
-   message.
 
-   ```
-   Make sure to review the code before approving this action. Test Run ID: #{TestVariables.testRunId}
-   ```
+
+    ```
+    https://#{TestVariables.region}.console.aws.amazon.com/codesuite/codecommit/repositories/MyDemoRepo/commit/#{SourceVariables.CommitId}
+    ```
+
+    In **Comments**, construct the approval message text
+     by adding the variable syntax for the `testRunId` variable.
+     For this example, the URL with the variable syntax for the Lambda
+     `testRunId` output variable has the
+     `TestVariables` namespace. Enter the following
+     message.
+
+
+
+    ```
+    Make sure to review the code before approving this action. Test Run ID: #{TestVariables.testRunId}
+    ```
 
 4. Choose **Done** to close the edit screen for the action, and
-   then choose **Done** to close the edit screen for the stage. To
-   save the pipeline, choose **Done**. The completed pipeline now
-   contains a structure with source, test, approval, and deploy stages.
+then choose **Done** to close the edit screen for the stage. To
+save the pipeline, choose **Done**. The completed pipeline now
+contains a structure with source, test, approval, and deploy stages.
 
 Choose **Release change** to run the latest change through
 the pipeline structure. 5. When the pipeline reaches the manual approval stage, choose

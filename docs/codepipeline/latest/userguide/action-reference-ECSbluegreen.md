@@ -139,10 +139,10 @@ for a pipeline where the action is not automated. For information about the
 The `CodeDeployToECS` action dynamically generates a new revision of
 the task definition. In this phase, this action replaces placeholders in task
 definition file into image URI retrieved from imageDetail.json files. For
-example, if you set _IMAGE1_NAME_ as
-Image1ContainerName parameter, you should specify the placeholder _<IMAGE1_NAME>_ as the value of image field in
+example, if you set _IMAGE1\_NAME_ as
+Image1ContainerName parameter, you should specify the placeholder _<IMAGE1\_NAME>_ as the value of image field in
 your task definition file. In this case, the CodeDeployToECS action replaces the
-placeholder _<IMAGE1_NAME>_ into actual
+placeholder _<IMAGE1\_NAME>_ into actual
 image URI retrieved from imageDetail.json in the artifact which you specify as
 Image1ArtifactName.
 
@@ -157,7 +157,7 @@ This property will be updated by the `CodeDeployToECS` action after
 the new task definition is created.
 
 For the value of the `TaskDefinition` field, the placeholder text
-must be <TASK_DEFINITION>. The `CodeDeployToECS` action replaces
+must be <TASK\_DEFINITION>. The `CodeDeployToECS` action replaces
 this placeholder with the actual ARN of the dynamically generated task
 definition.
 

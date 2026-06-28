@@ -180,9 +180,8 @@ Choose **Next**. 5. In **Step 6: Add deploy stage**, complete the following:
     8. Choose **Next**.
 
 6. In **Step 7: Review**, review your pipeline settings, and then
-   choose **Create**.
-7. After your pipeline runs successfully, on the deployment stage, choose
-   **Details**. This opens your product in Service Catalog.
+choose **Create**. 7. After your pipeline runs successfully, on the deployment stage, choose
+**Details**. This opens your product in Service Catalog.
 
 ![View your pipeline's Service Catalog deploy stage](images/deploy-servicecatalog-pipeline.png) 8. Under your product information, choose your version name to open the product
 template. View the template deployment.

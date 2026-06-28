@@ -47,13 +47,12 @@ The deployment group that you created in CodeDeploy.
 - **Description:** The AppSpec file that CodeDeploy uses
   to determine:
 
-      + What to install onto your instances from your application revision in
-       Amazon S3 or GitHub.
-      + Which lifecycle event hooks to run in response to deployment lifecycle
-       events.
-
-  For more information about the AppSpec file, see the [CodeDeploy AppSpec File
-  Reference](../../../codedeploy/latest/userguide/reference-appspec-file.md "../../../codedeploy/latest/userguide/reference-appspec-file.md").
+  - What to install onto your instances from your application revision in
+    Amazon S3 or GitHub.
+  - Which lifecycle event hooks to run in response to deployment lifecycle
+    events.
+    For more information about the AppSpec file, see the [CodeDeploy AppSpec File
+    Reference](../../../codedeploy/latest/userguide/reference-appspec-file.md "../../../codedeploy/latest/userguide/reference-appspec-file.md").
 
 ## Output artifacts
 

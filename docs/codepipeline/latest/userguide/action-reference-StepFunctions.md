@@ -347,7 +347,7 @@ the account with the action. However, the quota increase applies to
 all actions of this type in all Regions for that account.
 
 - If the state machine execution reaches a terminal status of FAILED,
-  TIMED_OUT, or ABORTED, the action execution fails.
+  TIMED\_OUT, or ABORTED, the action execution fails.
 
 ### Express state machines
 

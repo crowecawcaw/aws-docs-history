@@ -77,23 +77,29 @@ is CodePipeline):
      executions.
 
 12. (Optional) To specify source overrides with a specific image ID, use the
-    input transformer to pass the data as a JSON parameters. You can also use
-    the input transformer to pass pipeline variables.
+input transformer to pass the data as a JSON parameters. You can also use
+the input transformer to pass pipeline variables.
 
-    - Expand **Additional settings**.
+    * Expand **Additional settings**.
+
 
     Under **Configure target input**, choose
-    **Configure input transformer**.
+     **Configure input transformer**.
+
 
     In the dialog window, choose **Enter my own**. In
-    the **Input path** box, type the following
-    key-value pairs.
+     the **Input path** box, type the following
+     key-value pairs.
+
+
 
     ```
     {"revisionValue": "$.detail.image-digest"}
     ```
-    - In the **Template** box, type the following
-      key-value pairs.
+    * In the **Template** box, type the following
+     key-value pairs.
+
+
 
     ```
     {
@@ -113,11 +119,9 @@ is CodePipeline):
     }
 
     ```
-    - Choose **Confirm**.
+    * Choose **Confirm**.
 
-13. Choose **Next**.
-14. On the **Tags** page, choose
-    **Next**.
-15. On the **Review and create** page, review the rule
-    configuration. If you're satisfied with the rule, choose **Create
-    rule**.
+13. Choose **Next**. 14. On the **Tags** page, choose
+**Next**. 15. On the **Review and create** page, review the rule
+configuration. If you're satisfied with the rule, choose **Create
+rule**.

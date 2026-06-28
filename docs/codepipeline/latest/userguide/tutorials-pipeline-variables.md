@@ -80,29 +80,33 @@ Choose **Next**. 9. On the **Step 3: Add source stage** page, add a source stage
 
 10. In **Step 4: Add build stage**, add a build stage:
 
-    1.  In **Build provider**, choose **AWS CodeBuild**.
-        Allow **Region** to default to the pipeline Region.
-    2.  Choose **Create project**.
-    3.  In **Project name**, enter a name for this build project.
-    4.  In **Environment image**, choose **Managed
-        image**. For **Operating system**, choose
-        **Ubuntu**.
-    5.  For **Runtime**, choose **Standard**. For
-        **Image**, choose
-        **aws/codebuild/standard:5.0**.
-    6.  For **Service role**, choose **New service
-        role**.
+    1. In **Build provider**, choose **AWS CodeBuild**.
+     Allow **Region** to default to the pipeline Region.
+    2. Choose **Create project**.
+    3. In **Project name**, enter a name for this build project.
+    4. In **Environment image**, choose **Managed
+     image**. For **Operating system**, choose
+     **Ubuntu**.
+    5. For **Runtime**, choose **Standard**. For
+     **Image**, choose
+     **aws/codebuild/standard:5.0**.
+    6. For **Service role**, choose **New service
+     role**.
+
 
     ###### Note
 
     Note the name of your CodeBuild service role. You will need the role name for the
-    final step in this tutorial. 7. Under **Buildspec**, for **Build
-    specifications**, choose **Insert build commands**. Choose
-    **Switch to editor**, and paste the following under **Build
-    commands**. In the buildspec, the customer variable
-    `$CUSTOM_VAR1` will be used to output the pipeline variable in the build
-    log. You will create the `$CUSTOM_VAR1` output variable as an environment
-    variable in the following step.
+     final step in this tutorial.
+    7. Under **Buildspec**, for **Build
+     specifications**, choose **Insert build commands**. Choose
+     **Switch to editor**, and paste the following under **Build
+     commands**. In the buildspec, the customer variable
+     `$CUSTOM_VAR1` will be used to output the pipeline variable in the build
+     log. You will create the `$CUSTOM_VAR1` output variable as an environment
+     variable in the following step.
+
+
 
     ```
     version: 0.2
@@ -145,26 +149,28 @@ Choose **Next**. 9. On the **Step 3: Add source stage** page, add a source stage
       #paths:
         # - paths
     ```
-    8.  Choose **Continue to CodePipeline**. This returns to the CodePipeline
-        console and creates a CodeBuild project that uses your build commands for configuration.
-        The build project uses a service role to manage AWS service permissions. This step
-        might take a couple of minutes.
-    9.  Under **Environment variables _-
-        optional_**, to create an environment variable as an input
-        variable for the build action that will be resolved by the pipeline-level variable,
-        choose **Add environment variable**. This will create the variable
-        specified in the buildspec as `$CUSTOM_VAR1`. In **Name**,
-        enter `CUSTOM_VAR1`. In **Value**, enter
-        `#{variables.timeout}`. In **Type**, choose
-        `Plaintext`.
+    8. Choose **Continue to CodePipeline**. This returns to the CodePipeline
+     console and creates a CodeBuild project that uses your build commands for configuration.
+     The build project uses a service role to manage AWS service permissions. This step
+     might take a couple of minutes.
+    9. Under **Environment variables *-
+     optional***, to create an environment variable as an input
+     variable for the build action that will be resolved by the pipeline-level variable,
+     choose **Add environment variable**. This will create the variable
+     specified in the buildspec as `$CUSTOM_VAR1`. In **Name**,
+     enter `CUSTOM_VAR1`. In **Value**, enter
+     `#{variables.timeout}`. In **Type**, choose
+     `Plaintext`.
+
 
     The `#{variables.timeout}` value for the environment variable is based
-    on the pipeline-level variable namespace `variables` and the pipeline-level
-    variable `timeout` created for the pipeline in step 7. 10. Choose **Next**.
+     on the pipeline-level variable namespace `variables` and the pipeline-level
+     variable `timeout` created for the pipeline in step 7.
+    10. Choose **Next**.
 
 11. In **Step 5: Add test stage**, choose **Skip test
-    stage**, and then accept the warning message by choosing
-    **Skip** again.
+stage**, and then accept the warning message by choosing
+**Skip** again.
 
 Choose **Next**. 12. On the **Step 6: Add deploy stage** page, choose **Skip
 deploy stage**, and then accept the warning message by choosing

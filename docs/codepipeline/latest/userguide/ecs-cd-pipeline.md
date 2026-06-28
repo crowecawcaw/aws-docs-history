@@ -270,51 +270,52 @@ For more information, see [Pipeline types](pipeline-types.md "pipeline-types.md"
      choose **Next**.
 
 7. On the **Step 4: Add build stage** page, for **Build
-   provider** choose **AWS CodeBuild**, and then choose
-   **Create project**.
+provider** choose **AWS CodeBuild**, and then choose
+**Create project**.
 
-   1. For **Project name**, choose a unique name for your
-      build project. For this tutorial, the project name is
-      **hello-world**.
-   2. For **Environment image**, choose **Managed
-      image**.
-   3. For **Operating system**, choose **Amazon
-      Linux 2**.
-   4. For **Runtime(s)**, choose
-      **Standard**.
-   5. For **Image**, choose
-      **`aws/codebuild/amazonlinux2-x86_64-standard:3.0`**.
-   6. For **Image version** and **Environment
-      type**, use the default values.
-   7. Select **Enable this flag if you want to build Docker images
-      or want your builds to get elevated privileges**.
-   8. Deselect **CloudWatch logs**. You might need to
-      expand **Advanced**.
-   9. Choose **Continue to CodePipeline**.
-   10. Choose **Next**.
+    1. For **Project name**, choose a unique name for your
+     build project. For this tutorial, the project name is
+     **hello-world**.
+    2. For **Environment image**, choose **Managed
+     image**.
+    3. For **Operating system**, choose **Amazon
+     Linux 2**.
+    4. For **Runtime(s)**, choose
+     **Standard**.
+    5. For **Image**, choose
+     **`aws/codebuild/amazonlinux2-x86_64-standard:3.0`**.
+    6. For **Image version** and **Environment
+     type**, use the default values.
+    7. Select **Enable this flag if you want to build Docker images
+     or want your builds to get elevated privileges**.
+    8. Deselect **CloudWatch logs**. You might need to
+     expand **Advanced**.
+    9. Choose **Continue to CodePipeline**.
+    10. Choose **Next**.
 
-   ###### Note
 
-   The wizard creates a CodeBuild service role for your build project,
-   called
-   **codebuild-`build-project-name`-service-role**.
-   Note this role name, as you add Amazon ECR permissions to it
-   later.
+    ###### Note
+
+    The wizard creates a CodeBuild service role for your build project,
+     called
+     **codebuild-`build-project-name`-service-role**.
+     Note this role name, as you add Amazon ECR permissions to it
+     later.
 
 8. On the **Step 5: Add deploy stage** page, for
-   **Deployment provider**, choose
-   **Amazon ECS**.
+**Deployment provider**, choose
+**Amazon ECS**.
 
-   1. For **Cluster name**, choose the Amazon ECS cluster in
-      which your service is running. For this tutorial, the cluster is
-      **default**.
-   2. For **Service name**, choose the service to update
-      and choose **Next**. For this tutorial, the service
-      name is **hello-world**.
+    1. For **Cluster name**, choose the Amazon ECS cluster in
+     which your service is running. For this tutorial, the cluster is
+     **default**.
+    2. For **Service name**, choose the service to update
+     and choose **Next**. For this tutorial, the service
+     name is **hello-world**.
 
 9. On the **Step 6: Review** page, review your pipeline
-   configuration and choose **Create pipeline** to create the
-   pipeline.
+configuration and choose **Create pipeline** to create the
+pipeline.
 
 ###### Note
 

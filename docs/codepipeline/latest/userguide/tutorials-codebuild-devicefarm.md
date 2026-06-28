@@ -122,29 +122,34 @@ If you use Device Farm built-in tests, you can skip this step. 3. To create your
 
 4. In **Step 4: Add build stage**, add a build stage:
 
-   1. In **Build provider**, choose **Other build
-      providers**, and then choose **AWS CodeBuild**. Allow
-      **Region** to default to the pipeline Region.
-   2. Choose **Create project**.
-   3. In **Project name**, enter a name for this build project.
-   4. In **Environment image**, choose **Managed
-      image**. For **Operating system**, choose
-      **Ubuntu**.
-   5. For **Runtime**, choose **Standard**. For
-      **Image**, choose
-      **aws/codebuild/standard:5.0**.
+    1. In **Build provider**, choose **Other build
+     providers**, and then choose **AWS CodeBuild**. Allow
+     **Region** to default to the pipeline Region.
+    2. Choose **Create project**.
+    3. In **Project name**, enter a name for this build project.
+    4. In **Environment image**, choose **Managed
+     image**. For **Operating system**, choose
+     **Ubuntu**.
+    5. For **Runtime**, choose **Standard**. For
+     **Image**, choose
+     **aws/codebuild/standard:5.0**.
 
-   CodeBuild uses this OS image, which has Android Studio installed, to build your
-   app. 6. For **Service role**, choose your existing CodeBuild service role or
-   create a new one. 7. For **Build specifications**, choose **Use a buildspec
-   file**. 8. Choose **Continue to CodePipeline**. This returns to the CodePipeline
-   console and creates a CodeBuild project that uses the `buildspec.yml`
-   in your repository for configuration. The build project uses a service role to manage
-   AWS service permissions. This step might take a couple of minutes. 9. Choose **Next**.
+
+    CodeBuild uses this OS image, which has Android Studio installed, to build your
+     app.
+    6. For **Service role**, choose your existing CodeBuild service role or
+     create a new one.
+    7. For **Build specifications**, choose **Use a buildspec
+     file**.
+    8. Choose **Continue to CodePipeline**. This returns to the CodePipeline
+     console and creates a CodeBuild project that uses the `buildspec.yml`
+     in your repository for configuration. The build project uses a service role to manage
+     AWS service permissions. This step might take a couple of minutes.
+    9. Choose **Next**.
 
 5. In **Step 5: Add test stage**, choose **Skip test
-   stage**, and then accept the warning message by choosing
-   **Skip** again.
+stage**, and then accept the warning message by choosing
+**Skip** again.
 
 Choose **Next**. 6. On the **Step 6: Add deploy stage** page, choose **Skip
 deploy stage**, and then accept the warning message by choosing

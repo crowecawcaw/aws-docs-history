@@ -205,9 +205,8 @@ Choose **Next**. 11. In **Step 6: Add deploy stage**:
     6. Choose **Next**.
 
 12. In **Step 7: Review**, review the information, and then
-    choose **Create pipeline**.
-13. After your pipeline runs successfully, open the Amazon S3 console and verify
-    that your files appear in your public bucket as shown:
+choose **Create pipeline**. 13. After your pipeline runs successfully, open the Amazon S3 console and verify
+that your files appear in your public bucket as shown:
 
 ```
 index.html
@@ -385,37 +384,43 @@ Choose **Next**. 8. In **Step 4: Add build stage**:
 
 9. In **Step 5: Add deploy stage**:
 
-   1. In **Deploy provider**, choose **Amazon
-      S3**.
-   2. In **Bucket**, enter the name of your S3 target
-      bucket.
-   3. Make sure that **Extract file before deploy** is
-      cleared.
+    1. In **Deploy provider**, choose **Amazon
+     S3**.
+    2. In **Bucket**, enter the name of your S3 target
+     bucket.
+    3. Make sure that **Extract file before deploy** is
+     cleared.
 
-   When **Extract file before deploy** is cleared,
-   **S3 object key** is displayed. Enter the name
-   of the path you want to use:
-   `js-application/{datetime}.zip`.
 
-   This creates a `js-application` folder in Amazon S3 to which
-   the files are extracted. In this folder, the `{datetime}`
-   variable creates a timestamp on each output file when your pipeline
-   runs.
+    When **Extract file before deploy** is cleared,
+     **S3 object key** is displayed. Enter the name
+     of the path you want to use:
+     `js-application/{datetime}.zip`.
 
-   ![The Step 5: Deploy page for an Amazon S3 deploy action with an Amazon S3 source](images/tutorial-s3deploy-stage-s3source.png) 4. (Optional) In **Canned ACL**, you can apply a set
-   of predefined grants, known as a [canned
-   ACL](../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl "../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl"), to the uploaded artifacts. 5. (Optional) In **Cache control**, enter the
-   caching parameters. You can set this to control caching behavior for
-   requests/responses. For valid values, see the [`Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 "http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9") header field for HTTP
-   operations. 6. Choose **Next**.
+
+    This creates a `js-application` folder in Amazon S3 to which
+     the files are extracted. In this folder, the `{datetime}`
+     variable creates a timestamp on each output file when your pipeline
+     runs.
+
+
+
+    ![The Step 5: Deploy page for an Amazon S3 deploy action with an Amazon S3 source](images/tutorial-s3deploy-stage-s3source.png)
+    4. (Optional) In **Canned ACL**, you can apply a set
+     of predefined grants, known as a [canned
+     ACL](../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl "../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl"), to the uploaded artifacts.
+    5. (Optional) In **Cache control**, enter the
+     caching parameters. You can set this to control caching behavior for
+     requests/responses. For valid values, see the [`Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 "http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9") header field for HTTP
+     operations.
+    6. Choose **Next**.
 
 10. In **Step 6: Review**, review the information, and then
-    choose **Create pipeline**.
-11. After your pipeline runs successfully, view your bucket in the Amazon S3
-    console. Verify that your deployed ZIP file is displayed in your target
-    bucket under the `js-application` folder. The JavaScript file
-    contained in the ZIP file should be `index.js`. The
-    `index.js` file contains the following output:
+choose **Create pipeline**. 11. After your pipeline runs successfully, view your bucket in the Amazon S3
+console. Verify that your deployed ZIP file is displayed in your target
+bucket under the `js-application` folder. The JavaScript file
+contained in the ZIP file should be `index.js`. The
+`index.js` file contains the following output:
 
 ```
 var HelloGreeting = /** @class */ (function () {

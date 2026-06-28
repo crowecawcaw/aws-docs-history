@@ -79,9 +79,9 @@ following options.
      for destination branches and file paths.
 
 6. Under **Push**, in **Filter type**, choose
-   one of the following options.
+one of the following options.
 
-   - Choose **Branch** to specify the branches
+    * Choose **Branch** to specify the branches
      in your source repository that the trigger monitors in order to know
      when to start a workflow run. In **Include**, enter
      patterns for branch names in glob format that you want to specify for
@@ -91,25 +91,29 @@ following options.
      the trigger configuration to ignore and to not start your pipeline on
      changes in the specified branches. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
 
-   ###### Note
 
-   If the include and exclude both have the same pattern, then the
-   default is to exclude the pattern.
+    ###### Note
 
-   You can use glob patterns to define your branch names. For example,
-   use `main*` to match all branches beginning with
-   `main`. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
+    If the include and exclude both have the same pattern, then the
+     default is to exclude the pattern.
 
-   For a push trigger, specify the branches you're pushing _to_, that is, the _destination_ branches. For a pull request trigger,
-   specify destination branches you're opening pull request to.
-   - (Optional) Under **File paths**, specify
+
+    You can use glob patterns to define your branch names. For example,
+     use `main*` to match all branches beginning with
+     `main`. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
+
+
+    For a push trigger, specify the branches you're pushing *to*, that is, the *destination* branches. For a pull request trigger,
+     specify destination branches you're opening pull request to.
+    * (Optional) Under **File paths**, specify
      file paths for your trigger. Enter the names in **Include** and **Exclude** as
      appropriate.
 
-   You can use glob patterns to define your file path names. For example,
-   use `prod*` to match all file paths beginning with
-   `prod`. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
-   - Choose **Tags** to configure the pipeline trigger
+
+    You can use glob patterns to define your file path names. For example,
+     use `prod*` to match all file paths beginning with
+     `prod`. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
+    * Choose **Tags** to configure the pipeline trigger
      configuration to start with Git tags. In **Include**,
      enter patterns for tag names in glob format that you want to specify for
      the trigger configuration to start your pipeline on release of the
@@ -121,9 +125,9 @@ following options.
      pattern.
 
 7. Under **Push**, in **Filter type**, choose
-   one of the following options.
+one of the following options.
 
-   - Choose **Branch** to specify the branches
+    * Choose **Branch** to specify the branches
      in your source repository that the trigger monitors in order to know
      when to start a workflow run. In **Include**, enter
      patterns for branch names in glob format that you want to specify for
@@ -133,25 +137,29 @@ following options.
      the trigger configuration to ignore and to not start your pipeline on
      changes in the specified branches. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
 
-   ###### Note
 
-   If the include and exclude both have the same pattern, then the
-   default is to exclude the pattern.
+    ###### Note
 
-   You can use glob patterns to define your branch names. For example,
-   use `main*` to match all branches beginning with
-   `main`. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
+    If the include and exclude both have the same pattern, then the
+     default is to exclude the pattern.
 
-   For a push trigger, specify the branches you're pushing _to_, that is, the _destination_ branches. For a pull request trigger,
-   specify destination branches you're opening pull request to.
-   - (Optional) Under **File paths**, specify
+
+    You can use glob patterns to define your branch names. For example,
+     use `main*` to match all branches beginning with
+     `main`. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
+
+
+    For a push trigger, specify the branches you're pushing *to*, that is, the *destination* branches. For a pull request trigger,
+     specify destination branches you're opening pull request to.
+    * (Optional) Under **File paths**, specify
      file paths for your trigger. Enter the names in **Include** and **Exclude** as
      appropriate.
 
-   You can use glob patterns to define your file path names. For example,
-   use `prod*` to match all file paths beginning with
-   `prod`. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
-   - Choose **Pull request** to configure the pipeline
+
+    You can use glob patterns to define your file path names. For example,
+     use `prod*` to match all file paths beginning with
+     `prod`. See [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md") for more information.
+    * Choose **Pull request** to configure the pipeline
      trigger configuration to start with pull request events that you
      specify.
 

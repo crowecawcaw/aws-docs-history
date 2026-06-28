@@ -50,7 +50,7 @@ You must already have the following:
 
 Download the sample AWS CloudFormation template file and upload it to your CodeCommit repository.
 
-1. Navigate to the sample template for your Region. For example, use the table at [https://docs.aws.amazon.com/documentdb/latest/developerguide/quick_start_cfn.html#quick_start_cfn-launch_stack](../../../documentdb/latest/developerguide/quick_start_cfn.md#quick_start_cfn-launch_stack "../../../documentdb/latest/developerguide/quick_start_cfn.md#quick_start_cfn-launch_stack") to choose the Region and download the template. Download the template for an Amazon
+1. Navigate to the sample template for your Region. For example, use the table at [https://docs.aws.amazon.com/documentdb/latest/developerguide/quick\_start\_cfn.html#quick\_start\_cfn-launch\_stack](../../../documentdb/latest/developerguide/quick_start_cfn.md#quick_start_cfn-launch_stack "../../../documentdb/latest/developerguide/quick_start_cfn.md#quick_start_cfn-launch_stack") to choose the Region and download the template. Download the template for an Amazon
    DocumentDB Cluster. The file name is
    `documentdb_full_stack.yaml`.
 2. Unzip the `documentdb_full_stack.yaml` file, and open it in a text

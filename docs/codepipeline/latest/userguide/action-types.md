@@ -366,7 +366,7 @@ format:
 
 Note that the minimum and maximum quantities allowed are defined based on the
 `inputArtifactDetails` specified in the action type definition
-file. 8. Choose **Connect to <Action_Name>**.
+file. 8. Choose **Connect to <Action\_Name>**.
 
 A browser window opens and connects to the website you have created for your
 action type. 9. Log in to your website as a customer and complete the steps a customer takes
@@ -537,7 +537,7 @@ the Lambda integration model. This example makes the following changes:
     ```
 
 3. At the terminal or command line, run the **update-action-type**
-   command
+command
 
 ```
 aws codepipeline update-action-type --cli-input-json file://action.json

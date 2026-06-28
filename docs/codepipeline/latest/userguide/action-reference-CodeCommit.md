@@ -92,7 +92,7 @@ set to `true`.
   for source changes. Use this setting if you intend to configure a
   CloudWatch Events rule to detect source changes.
 
-\***\*OutputArtifactFormat\*\***
+****OutputArtifactFormat****
 
 Required: No
 

@@ -87,20 +87,19 @@ The following sample command creates a rule called
 aws events put-rule --name "MyCodeCommitRepoRule" --event-pattern "{\"source\":[\"aws.codecommit\"],\"detail-type\":[\"CodeCommit Repository State Change\"],\"resources\":[\"`repository-ARN`\"],\"detail\":{\"referenceType\":[\"branch\"],\"referenceName\":[\"`main`\"]}}" --role-arn "arn:aws:iam::`ACCOUNT_ID`:role/Role-for-MyRule"
 ```
 
-3.  To add CodePipeline as a target, call the **put-targets** command and include
-    the following parameters:
+3. To add CodePipeline as a target, call the **put-targets** command and include
+   the following parameters:
 
-        * The `--rule` parameter is used with the `rule_name` you
-         created by using **put-rule**.
-        * The `--targets` parameter is used with the list `Id` of
-         the target in the list of targets and the `ARN` of the target
-         pipeline.
-
-    The following sample command specifies that for the rule called
-    `MyCodeCommitRepoRule`, the target `Id` is composed of the
-    number one, indicating that in a list of targets for the rule, this is target 1. The
-    sample command also specifies an example `ARN` for the pipeline. The pipeline
-    starts when something changes in the repository.
+   - The `--rule` parameter is used with the `rule_name` you
+     created by using **put-rule**.
+   - The `--targets` parameter is used with the list `Id` of
+     the target in the list of targets and the `ARN` of the target
+     pipeline.
+     The following sample command specifies that for the rule called
+     `MyCodeCommitRepoRule`, the target `Id` is composed of the
+     number one, indicating that in a list of targets for the rule, this is target 1. The
+     sample command also specifies an example `ARN` for the pipeline. The pipeline
+     starts when something changes in the repository.
 
 ```
 aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:codepipeline:us-west-2:80398EXAMPLE:TestPipeline

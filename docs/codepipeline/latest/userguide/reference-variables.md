@@ -346,37 +346,37 @@ action in the pipeline.
 
 #### CodePipeline execution ID variable
 
-| CodePipeline execution ID variable | Provider              | Variable key                 | Example value                         | Example variable syntax |
-| ---------------------------------- | --------------------- | ---------------------------- | ------------------------------------- | ----------------------- |
-| codepipeline                       | `PipelineExecutionId` | 8abc75f0-fbf8-4f4c-bfEXAMPLE | `#{codepipeline.PipelineExecutionId}` |
+CodePipeline execution ID variable| Provider | Variable key | Example value | Example variable syntax |
+| --- | --- | --- | --- |
+| codepipeline | `PipelineExecutionId` | 8abc75f0-fbf8-4f4c-bfEXAMPLE | `#{codepipeline.PipelineExecutionId}` |
 
 #### Amazon ECR action output variables
 
-| Amazon ECR variables | Variable key                                                 | Example value                       | Example variable syntax |
-| -------------------- | ------------------------------------------------------------ | ----------------------------------- | ----------------------- |
-| `ImageDigest`        | sha256:EXAMPLE1122334455                                     | `#{SourceVariables.ImageDigest}`    |
-| `ImageTag`           | latest                                                       | `#{SourceVariables.ImageTag}`       |
-| `ImageURI`           | 11111EXAMPLE.dkr.ecr.us-west-2.amazonaws.com/ecs-repo:latest | `#{SourceVariables.ImageURI}`       |
-| `RegistryId`         | EXAMPLE12233                                                 | `#{SourceVariables.RegistryId}`     |
-| `RepositoryName`     | my-image-repo                                                | `#{SourceVariables.RepositoryName}` |
+Amazon ECR variables| Variable key | Example value | Example variable syntax |
+| --- | --- | --- |
+| `ImageDigest` | sha256:EXAMPLE1122334455 | `#{SourceVariables.ImageDigest}` |
+| `ImageTag` | latest | `#{SourceVariables.ImageTag}` |
+| `ImageURI` | 11111EXAMPLE.dkr.ecr.us-west-2.amazonaws.com/ecs-repo:latest | `#{SourceVariables.ImageURI}` |
+| `RegistryId` | EXAMPLE12233 | `#{SourceVariables.RegistryId}` |
+| `RepositoryName` | my-image-repo | `#{SourceVariables.RepositoryName}` |
 
 #### CloudFormation StackSets action output variables
 
-| CloudFormation StackSets variables | Variable key                                     | Example value                    | Example variable syntax |
-| ---------------------------------- | ------------------------------------------------ | -------------------------------- | ----------------------- |
-| `OperationId`                      | 11111111-2bbb-111-2bbb-11111example              | `#{DeployVariables.OperationId}` |
-| `StackSetId`                       | my-stackset:1111aaaa-1111-2222-2bbb-11111example | `#{DeployVariables.StackSetId}`  |
+CloudFormation StackSets variables| Variable key | Example value | Example variable syntax |
+| --- | --- | --- |
+| `OperationId` | 11111111-2bbb-111-2bbb-11111example | `#{DeployVariables.OperationId}` |
+| `StackSetId` | my-stackset:1111aaaa-1111-2222-2bbb-11111example | `#{DeployVariables.StackSetId}` |
 
 #### CodeCommit action output variables
 
-| CodeCommit variables | Variable key                      | Example value                       | Example variable syntax |
-| -------------------- | --------------------------------- | ----------------------------------- | ----------------------- |
-| `AuthorDate`         | 2019-10-29T03:32:21Z              | `#{SourceVariables.AuthorDate}`     |
-| `BranchName`         | development                       | `#{SourceVariables.BranchName}`     |
-| `CommitId`           | exampleb01f91b31                  | `#{SourceVariables.CommitId}`       |
-| `CommitMessage`      | Fixed a bug (100 KB maximum size) | `#{SourceVariables.CommitMessage}`  |
-| `CommitterDate`      | 2019-10-29T03:32:21Z              | `#{SourceVariables.CommitterDate}`  |
-| `RepositoryName`     | myCodeCommitRepo                  | `#{SourceVariables.RepositoryName}` |
+CodeCommit variables| Variable key | Example value | Example variable syntax |
+| --- | --- | --- |
+| `AuthorDate` | 2019-10-29T03:32:21Z | `#{SourceVariables.AuthorDate}` |
+| `BranchName` | development | `#{SourceVariables.BranchName}` |
+| `CommitId` | exampleb01f91b31 | `#{SourceVariables.CommitId}` |
+| `CommitMessage` | Fixed a bug (100 KB maximum size) | `#{SourceVariables.CommitMessage}` |
+| `CommitterDate` | 2019-10-29T03:32:21Z | `#{SourceVariables.CommitterDate}` |
+| `RepositoryName` | myCodeCommitRepo | `#{SourceVariables.RepositoryName}` |
 
 #### CodeStarSourceConnection action output variables
 
@@ -385,42 +385,42 @@ tag). Variables in the following table marked as _All_ are produced for
 every trigger type. Variables marked with a specific trigger type are only produced when
 the pipeline execution is started by that trigger.
 
-| `CodeStarSourceConnection` variables (Bitbucket Cloud, GitHub, GitHub Enterprise Repository, and GitLab.com) | Variable key                                                                | Example value                              | Example variable syntax | Trigger type |
-| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | ------------------------------------------ | ----------------------- | ------------ |
-| `AuthorDate`                                                                                                 | 2019-10-29T03:32:21Z                                                        | `#{SourceVariables.AuthorDate}`            | All                     |
-| `AuthorDisplayName`                                                                                          | Jane Doe                                                                    | `#{SourceVariables.AuthorDisplayName}`     | All                     |
-| `AuthorEmail`                                                                                                | jane.doe@example.com                                                        | `#{SourceVariables.AuthorEmail}`           | All                     |
-| `AuthorId`                                                                                                   | janedoe                                                                     | `#{SourceVariables.AuthorId}`              | All                     |
-| `BranchName`                                                                                                 | development                                                                 | `#{SourceVariables.BranchName}`            | Push, Tag               |
-| `CommitId`                                                                                                   | exampleb01f91b31                                                            | `#{SourceVariables.CommitId}`              | All                     |
-| `CommitMessage`                                                                                              | Fixed a bug (100 KB maximum size)                                           | `#{SourceVariables.CommitMessage}`         | All                     |
-| `ConnectionArn`                                                                                              | arn:aws:codestar-connections:region:`account-id`:connection/`connection-id` | `#{SourceVariables.ConnectionArn}`         | All                     |
-| `DestinationBranchName`                                                                                      | main                                                                        | `#{SourceVariables.DestinationBranchName}` | Pull request            |
-| `FullRepositoryName`                                                                                         | username/GitHubRepo                                                         | `#{SourceVariables.FullRepositoryName}`    | All                     |
-| `ProviderType`                                                                                               | GitHub                                                                      | `#{SourceVariables.ProviderType}`          | All                     |
-| `PullRequestId`                                                                                              | 1                                                                           | `#{SourceVariables.PullRequestId}`         | Pull request            |
-| `PullRequestTitle`                                                                                           | Add new feature                                                             | `#{SourceVariables.PullRequestTitle}`      | Pull request            |
-| `SourceBranchName`                                                                                           | feature-branch                                                              | `#{SourceVariables.SourceBranchName}`      | Pull request            |
-| `TagName`                                                                                                    | v1.0.0                                                                      | `#{SourceVariables.TagName}`               | Tag                     |
+`CodeStarSourceConnection` variables (Bitbucket Cloud, GitHub, GitHub Enterprise Repository, and GitLab.com)| Variable key | Example value | Example variable syntax | Trigger type |
+| --- | --- | --- | --- |
+| `AuthorDate` | 2019-10-29T03:32:21Z | `#{SourceVariables.AuthorDate}` | All |
+| `AuthorDisplayName` | Jane Doe | `#{SourceVariables.AuthorDisplayName}` | All |
+| `AuthorEmail` | jane.doe@example.com | `#{SourceVariables.AuthorEmail}` | All |
+| `AuthorId` | janedoe | `#{SourceVariables.AuthorId}` | All |
+| `BranchName` | development | `#{SourceVariables.BranchName}` | Push, Tag |
+| `CommitId` | exampleb01f91b31 | `#{SourceVariables.CommitId}` | All |
+| `CommitMessage` | Fixed a bug (100 KB maximum size) | `#{SourceVariables.CommitMessage}` | All |
+| `ConnectionArn` | arn:aws:codestar-connections:region:`account-id`:connection/`connection-id` | `#{SourceVariables.ConnectionArn}` | All |
+| `DestinationBranchName` | main | `#{SourceVariables.DestinationBranchName}` | Pull request |
+| `FullRepositoryName` | username/GitHubRepo | `#{SourceVariables.FullRepositoryName}` | All |
+| `ProviderType` | GitHub | `#{SourceVariables.ProviderType}` | All |
+| `PullRequestId` | 1 | `#{SourceVariables.PullRequestId}` | Pull request |
+| `PullRequestTitle` | Add new feature | `#{SourceVariables.PullRequestTitle}` | Pull request |
+| `SourceBranchName` | feature-branch | `#{SourceVariables.SourceBranchName}` | Pull request |
+| `TagName` | v1.0.0 | `#{SourceVariables.TagName}` | Tag |
 
 #### GitHub action output variables (GitHub (via OAuth app) action)
 
-| GitHub variables (GitHub (via OAuth app) action) | Variable key                      | Example value                       | Example variable syntax |
-| ------------------------------------------------ | --------------------------------- | ----------------------------------- | ----------------------- |
-| `AuthorDate`                                     | 2019-10-29T03:32:21Z              | `#{SourceVariables.AuthorDate}`     |
-| `BranchName`                                     | main                              | `#{SourceVariables.BranchName}`     |
-| `CommitId`                                       | exampleb01f91b31                  | `#{SourceVariables.CommitId}`       |
-| `CommitMessage`                                  | Fixed a bug (100 KB maximum size) | `#{SourceVariables.CommitMessage}`  |
-| `CommitterDate`                                  | 2019-10-29T03:32:21Z              | `#{SourceVariables.CommitterDate}`  |
-| `CommitUrl`                                      |                                   | `#{SourceVariables.CommitUrl}`      |
-| `RepositoryName`                                 | myGitHubRepo                      | `#{SourceVariables.RepositoryName}` |
+GitHub variables (GitHub (via OAuth app) action)| Variable key | Example value | Example variable syntax |
+| --- | --- | --- |
+| `AuthorDate` | 2019-10-29T03:32:21Z | `#{SourceVariables.AuthorDate}` |
+| `BranchName` | main | `#{SourceVariables.BranchName}` |
+| `CommitId` | exampleb01f91b31 | `#{SourceVariables.CommitId}` |
+| `CommitMessage` | Fixed a bug (100 KB maximum size) | `#{SourceVariables.CommitMessage}` |
+| `CommitterDate` | 2019-10-29T03:32:21Z | `#{SourceVariables.CommitterDate}` |
+| `CommitUrl` | | `#{SourceVariables.CommitUrl}` |
+| `RepositoryName` | myGitHubRepo | `#{SourceVariables.RepositoryName}` |
 
 #### S3 action output variables
 
-| S3 variables | Variable key    | Example value                  | Example variable syntax |
-| ------------ | --------------- | ------------------------------ | ----------------------- |
-| `ETag`       | example28be1c3  | `#{SourceVariables.ETag}`      |
-| `VersionId`  | exampleta_IUQCv | `#{SourceVariables.VersionId}` |
+S3 variables| Variable key | Example value | Example variable syntax |
+| --- | --- | --- |
+| `ETag` | example28be1c3 | `#{SourceVariables.ETag}` |
+| `VersionId` | exampleta\_IUQCv | `#{SourceVariables.VersionId}` |
 
 ### Actions with user-configured variable keys
 
@@ -435,18 +435,18 @@ user.
 
 #### CloudFormation action output variables
 
-| CloudFormation variables                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Variable key                   | Example variable syntax |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------------------- |
-| For CloudFormation actions, variables are produced from any values designated in<br>the `Outputs` section of a stack template. Note that the only<br>CloudFormation action modes that generate outputs are those that result in<br>creating or updating a stack, such as stack creation, stack updates, and change<br>set execution. The corresponding action modes that generate variables<br>are:<br>• CREATE_UPDATE<br>• CHANGE_SET_EXECUTE<br>• CHANGE_SET_REPLACE<br>• REPLACE_ON_FAILURE<br>For more information about these action modes, see [CloudFormation deploy action reference](action-reference-CloudFormation.md "action-reference-CloudFormation.md"). For a tutorial that shows you<br>how to create a pipeline with an CloudFormation deployment action in a pipeline that uses<br>CloudFormation output variables, see [Tutorial: Create a pipeline that uses variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md"). | `#{DeployVariables.StackName}` |
+CloudFormation variables| Variable key | Example variable syntax |
+| --- | --- |
+| For CloudFormation actions, variables are produced from any values designated in<br>the `Outputs` section of a stack template. Note that the only<br>CloudFormation action modes that generate outputs are those that result in<br>creating or updating a stack, such as stack creation, stack updates, and change<br>set execution. The corresponding action modes that generate variables<br>are:<br>• CREATE\_UPDATE<br>• CHANGE\_SET\_EXECUTE<br>• CHANGE\_SET\_REPLACE<br>• REPLACE\_ON\_FAILURE<br>For more information about these action modes, see [CloudFormation deploy action reference](action-reference-CloudFormation.md "action-reference-CloudFormation.md"). For a tutorial that shows you<br>how to create a pipeline with an CloudFormation deployment action in a pipeline that uses<br>CloudFormation output variables, see [Tutorial: Create a pipeline that uses variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md"). | `#{DeployVariables.StackName}` |
 
 #### CodeBuild action output variables
 
-| CodeBuild variables                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Variable key                       | Example variable syntax |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------------- |
+CodeBuild variables| Variable key | Example variable syntax |
+| --- | --- |
 | For CodeBuild actions, variables are produced from values generated by exported<br>environment variables. Set up a CodeBuild environment variable by editing your CodeBuild<br>action in CodePipeline or by adding the environment variable to the build spec.<br>Add instructions to your CodeBuild build spec to add the environment variable<br>under the exported variables section. See [env/exported-variables](../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.exported-variables "../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.exported-variables") in the _AWS CodeBuild User<br>Guide_. | `<br>#{BuildVariables.EnvVar}<br>` |
 
 #### Lambda action output variables
 
-| Lambda variables                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Variable key                 | Example variable syntax |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------------------- |
+Lambda variables| Variable key | Example variable syntax |
+| --- | --- |
 | The Lambda action will produce as variables all key-value pairs that are<br>included in the `outputVariables` section of the [PutJobSuccessResult API](../APIReference/API_PutJobSuccessResult.md "../APIReference/API_PutJobSuccessResult.md")<br>request. For a tutorial with a Lambda action that uses variables from an<br>upstream action (CodeCommit) and generates output variables, see [Tutorial: Using variables with Lambda invoke actions](tutorials-lambda-variables.md "tutorials-lambda-variables.md"). | `#{TestVariables.testRunId}` |

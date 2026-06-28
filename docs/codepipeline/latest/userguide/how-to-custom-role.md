@@ -21,9 +21,9 @@ name
 
 Service roles created after September 2018 use the service role name format
 `AWSCodePipelineServiceRole-`Region`-`Pipeline_Name``.
- For example, for a pipeline named `MyFirstPipeline`in
+For example, for a pipeline named `MyFirstPipeline` in
 `eu-west-2`, the console names the role and policy
- `AWSCodePipelineServiceRole-eu-west-2-MyFirstPipeline`.
+`AWSCodePipelineServiceRole-eu-west-2-MyFirstPipeline`.
 
 ## CodePipeline service role policy
 

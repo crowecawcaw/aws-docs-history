@@ -4,16 +4,15 @@ To use CloudFormation to create a rule, update your template as shown here.
 
 ###### To update your pipeline CloudFormation template and create EventBridge rule
 
-1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
-    resource to configure the IAM role that allows your event to start your pipeline. This entry
-    creates a role that uses two policies:
+1. In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
+   resource to configure the IAM role that allows your event to start your pipeline. This entry
+   creates a role that uses two policies:
 
-        * The first policy allows the role to be assumed.
-        * The second policy provides permissions to start the pipeline.
-
-    **Why am I making this change?** Adding the
-    `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
-    resource is added to your CloudFormation stack.
+   - The first policy allows the role to be assumed.
+   - The second policy provides permissions to start the pipeline.
+     **Why am I making this change?** Adding the
+     `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
+     resource is added to your CloudFormation stack.
 
 YAML
 

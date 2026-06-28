@@ -107,27 +107,26 @@ the policy example in [Service role policy permissions](action-reference-Command
     * logs:PutLogEvents
 
 7. Leave the settings under **Advanced settings** at their
-   defaults, and then choose **Next**.
-8. On the **Step 3: Add source stage** page, add a source
-   stage:
+defaults, and then choose **Next**. 8. On the **Step 3: Add source stage** page, add a source
+stage:
 
-   1. In **Source provider**, choose **GitHub (via
-      GitHub App)**.
-   2. Under **Connection**, choose an existing connection
-      or create a new one. To create or manage a connection for your GitHub
-      source action, see [GitHub connections](connections-github.md "connections-github.md").
-   3. In **Repository name**, choose the name of your
-      GitHub.com repository.
-   4. In **Default branch**, choose the branch that you
-      want to specify when the pipeline is started manually or with a source
-      event that is not a Git tag. If the source of the change is not the
-      trigger or if a pipeline execution was started manually, then the change
-      used will be the HEAD commit from the default branch. Optionally, you
-      can also specify webhooks with filtering (triggers). For more
-      information, see [Automate starting pipelines using triggers and filtering](pipelines-triggers.md "pipelines-triggers.md").Choose **Next**.
+    1. In **Source provider**, choose **GitHub (via
+     GitHub App)**.
+    2. Under **Connection**, choose an existing connection
+     or create a new one. To create or manage a connection for your GitHub
+     source action, see [GitHub connections](connections-github.md "connections-github.md").
+    3. In **Repository name**, choose the name of your
+     GitHub.com repository.
+    4. In **Default branch**, choose the branch that you
+     want to specify when the pipeline is started manually or with a source
+     event that is not a Git tag. If the source of the change is not the
+     trigger or if a pipeline execution was started manually, then the change
+     used will be the HEAD commit from the default branch. Optionally, you
+     can also specify webhooks with filtering (triggers). For more
+     information, see [Automate starting pipelines using triggers and filtering](pipelines-triggers.md "pipelines-triggers.md").Choose **Next**.
 
 9. In **Step 4: Add build stage**, choose
-   **Commands**.
+**Commands**.
 
 ###### Note
 

@@ -109,7 +109,7 @@ following capabilities:
 
 You can specify more than one capability by using a comma (no space)
 between capabilities. The example in [Action declaration](#action-reference-CloudFormation-example "#action-reference-CloudFormation-example") shows an entry
-with both the CAPABILITY_IAM and CAPABILITY_AUTO_EXPAND properties.
+with both the CAPABILITY\_IAM and CAPABILITY\_AUTO\_EXPAND properties.
 
 For more information about `Capabilities`, see the properties
 under [UpdateStack](../../../AWSCloudFormation/latest/APIReference/API_UpdateStack.md "../../../AWSCloudFormation/latest/APIReference/API_UpdateStack.md") in
@@ -123,7 +123,7 @@ Required: Conditional
 change set that you want to create for the specified stack.
 
 This property is required for the following action modes:
-CHANGE_SET_REPLACE and CHANGE_SET_EXECUTE. For all other action modes, this
+CHANGE\_SET\_REPLACE and CHANGE\_SET\_EXECUTE. For all other action modes, this
 property is ignored.
 
 **RoleArn**
@@ -144,10 +144,10 @@ is running, as configured in the action declaration
 
 This property is required for the following action modes:
 
-- CREATE_UPDATE
-- REPLACE_ON_FAILURE
-- DELETE_ONLY
-- CHANGE_SET_REPLACE
+- CREATE\_UPDATE
+- REPLACE\_ON\_FAILURE
+- DELETE\_ONLY
+- CHANGE\_SET\_REPLACE
 
 ###### Note
 
@@ -179,9 +179,9 @@ CodePipeline. For example, a source stage with the artifact name of
 
 This property is required for the following action modes:
 
-- CREATE_UPDATE
-- REPLACE_ON_FAILURE
-- CHANGE_SET_REPLACE
+- CREATE\_UPDATE
+- REPLACE\_ON\_FAILURE
+- CHANGE\_SET\_REPLACE
 
 For all other action modes, this property is ignored.
 

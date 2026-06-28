@@ -85,13 +85,12 @@ you plan to execute an action.
 - Every action has a type. Depending on the type, the action might have one or
   both of the following:
 
-      + An input artifact, which is the artifact it consumes or works on over
-       the course of the action run.
-      + An output artifact, which is the output of the action.
-
-  Every output artifact in the pipeline must have a unique name. Every input
-  artifact for an action must match the output artifact of an action earlier in
-  the pipeline, whether that action is immediately before the action in a stage or
-  runs in a stage several stages earlier.
+  - An input artifact, which is the artifact it consumes or works on over
+    the course of the action run.
+  - An output artifact, which is the output of the action.
+    Every output artifact in the pipeline must have a unique name. Every input
+    artifact for an action must match the output artifact of an action earlier in
+    the pipeline, whether that action is immediately before the action in a stage or
+    runs in a stage several stages earlier.
 
 An artifact can be worked on by more than one action.

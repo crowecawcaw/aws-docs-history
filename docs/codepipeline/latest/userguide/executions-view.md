@@ -73,29 +73,29 @@ The following are valid states for pipelines, stages, and actions:
 The following pipeline states also apply to a pipeline execution that is an
 inbound execution. To view an inbound execution and its status, see [View an inbound execution (Console)](#pipelines-executions-inbound-console "#pipelines-executions-inbound-console").
 
-| Pipeline-level states | Pipeline state                                                                                                                                                      | Description |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| InProgress            | The pipeline execution is currently running.                                                                                                                        |
-| Stopping              | The pipeline execution is stopping due to a request to either stop<br>and wait or stop and abandon the pipeline execution.                                          |
-| Stopped               | The stopping process is complete, and the pipeline execution is<br>stopped.                                                                                         |
-| Succeeded             | The pipeline execution was completed successfully.                                                                                                                  |
-| Superseded            | While this pipeline execution was waiting for the next stage to be<br>completed, a newer pipeline execution advanced and continued through the<br>pipeline instead. |
-| Failed                | The pipeline execution was not completed successfully.                                                                                                              |
+Pipeline-level states| Pipeline state | Description |
+| --- | --- |
+| InProgress | The pipeline execution is currently running. |
+| Stopping | The pipeline execution is stopping due to a request to either stop<br>and wait or stop and abandon the pipeline execution. |
+| Stopped | The stopping process is complete, and the pipeline execution is<br>stopped. |
+| Succeeded | The pipeline execution was completed successfully. |
+| Superseded | While this pipeline execution was waiting for the next stage to be<br>completed, a newer pipeline execution advanced and continued through the<br>pipeline instead. |
+| Failed | The pipeline execution was not completed successfully. |
 
-| Stage-level states | Stage state                                                                                                             | Description |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------- | ----------- |
-| InProgress         | The stage is currently running.                                                                                         |
-| Stopping           | The stage execution is stopping due to a request to either stop and<br>wait or stop and abandon the pipeline execution. |
-| Stopped            | The stopping process is complete, and the stage execution is<br>stopped.                                                |
-| Succeeded          | The stage was completed successfully.                                                                                   |
-| Failed             | The stage was not completed successfully.                                                                               |
+Stage-level states| Stage state | Description |
+| --- | --- |
+| InProgress | The stage is currently running. |
+| Stopping | The stage execution is stopping due to a request to either stop and<br>wait or stop and abandon the pipeline execution. |
+| Stopped | The stopping process is complete, and the stage execution is<br>stopped. |
+| Succeeded | The stage was completed successfully. |
+| Failed | The stage was not completed successfully. |
 
-| Action-level states | Action state                                                                                                                                          | Description |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| InProgress          | The action is currently running.                                                                                                                      |
-| Abandoned           | The action is abandoned due to a request to stop and abandon the<br>pipeline execution.                                                               |
-| Succeeded           | The action was completed successfully.                                                                                                                |
-| Failed              | For approval actions, the FAILED state means the action was either<br>rejected by the reviewer or failed due to an incorrect action<br>configuration. |
+Action-level states| Action state | Description |
+| --- | --- |
+| InProgress | The action is currently running. |
+| Abandoned | The action is abandoned due to a request to stop and abandon the<br>pipeline execution. |
+| Succeeded | The action was completed successfully. |
+| Failed | For approval actions, the FAILED state means the action was either<br>rejected by the reviewer or failed due to an incorrect action<br>configuration. |
 
 ## View an inbound execution (Console)
 

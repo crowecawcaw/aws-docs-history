@@ -395,8 +395,8 @@ repository.
     3. Choose **Next**.
 
 11. On the **Step 6: Review** page, review your pipeline
-    configuration and choose **Create pipeline** to create the
-    pipeline.
+configuration and choose **Create pipeline** to create the
+pipeline.
 
 ![A console diagram showing a successful pipeline run with the deploy action added to your pipeline.](images/eks-deploy-pipeline.png) 12. After the pipeline runs successfully, choose **View details**
 to view the logs on the action to view the action output.

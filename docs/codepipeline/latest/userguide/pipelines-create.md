@@ -86,9 +86,9 @@ Pipeline types differ in characteristics and price. For more information, see
 
 6. In **Service role**, do one of the following:
 
-   - Choose **New service role** to allow CodePipeline to create
+    * Choose **New service role** to allow CodePipeline to create
      a new service role in IAM.
-   - Choose **Existing service role** to use a service
+    * Choose **Existing service role** to use a service
      role already created in IAM. In **Role ARN**, choose
      your service role ARN from the list.
 
@@ -140,125 +140,123 @@ For more information, see [Input and output artifacts](welcome-introducing-artif
 
 ###### Step 2: Create a source stage
 
-1.  On the **Step 3: Add source stage** page, in **Source
-    provider**, choose the type of repository where your source code is
-    stored, specify its required options. The additional fields display depending on
-    the source provider selected as follows.
+1. On the **Step 3: Add source stage** page, in **Source
+   provider**, choose the type of repository where your source code is
+   stored, specify its required options. The additional fields display depending on
+   the source provider selected as follows.
 
-    - For **Bitbucket Cloud, GitHub (via GitHub App),
-      GitHub Enterprise Server, GitLab.com, or GitLab
-      self-managed**:
+   - For **Bitbucket Cloud, GitHub (via GitHub App),
+     GitHub Enterprise Server, GitLab.com, or GitLab
+     self-managed**:
 
-      1. Under **Connection**, choose an existing
-         connection or create a new one. To create or manage a connection
-         for your GitHub source action, see [GitHub connections](connections-github.md "connections-github.md").
-      2. Choose the repository you want to use as the source location
-         for your pipeline.
+     1. Under **Connection**, choose an existing
+        connection or create a new one. To create or manage a connection
+        for your GitHub source action, see [GitHub connections](connections-github.md "connections-github.md").
+     2. Choose the repository you want to use as the source location
+        for your pipeline.
 
-      Choose to add a trigger or filter on trigger types to start
-      your pipeline. For more information about working with triggers,
-      see [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For more information
-      about filtering with glob patterns, see [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md"). 3. In **Output artifact format**, choose the
-      format for your artifacts.
+     Choose to add a trigger or filter on trigger types to start
+     your pipeline. For more information about working with triggers,
+     see [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For more information
+     about filtering with glob patterns, see [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md"). 3. In **Output artifact format**, choose the
+     format for your artifacts.
 
-          + To store output artifacts from the GitHub action using
-           the default method, choose **CodePipeline
-           default**. The action accesses the files
-           from the GitHub repository and stores the artifacts in a
-           ZIP file in the pipeline artifact store.
-          + To store a JSON file that contains a URL reference to
-           the repository so that downstream actions can perform
-           Git commands directly, choose **Full
-           clone**. This option can only be used by
-           CodeBuild downstream actions.
-
-
-          If you choose this option, you will need to update the
-           permissions for your CodeBuild project service role as shown
-           in [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md"). For a tutorial
-           that shows you how to use the **Full
-           clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
-
-    - For **Amazon S3**:
-
-      1. In **Amazon S3 location**, provide the S3
-         bucket name and path to the object in a bucket with versioning
-         enabled. The format of the bucket name and path looks like
-         this:
-
-      ```
-       s3://`bucketName`/`folderName`/`objectName`
-      ```
-
-      ###### Note
-
-      When Amazon S3 is the source provider for your pipeline, you
-      may zip your source file or files into a single .zip and
-      upload the .zip to your source bucket. You may also upload a
-      single unzipped file; however, downstream actions that
-      expect a .zip file will fail. 2. After you choose the S3 source bucket, CodePipeline creates the
-      Amazon CloudWatch Events rule and the AWS CloudTrail trail to be created for this
-      pipeline. Accept the defaults under **Change detection
-      options**. This allows CodePipeline to use Amazon CloudWatch Events and
-      AWS CloudTrail to detect changes for your new pipeline. Choose
-      **Next**.
-
-    - For **AWS CodeCommit**:
-
-      - In **Repository name**, choose the name of
-        the CodeCommit repository you want to use as the source location for
-        your pipeline. In **Branch name**, from the
-        drop-down list, choose the branch you want to use.
-      - In **Output artifact format**, choose the
-        format for your artifacts.
-
-        - To store output artifacts from the CodeCommit action using
-          the default method, choose **CodePipeline
-          default**. The action accesses the files
-          from the CodeCommit repository and stores the artifacts in a
-          ZIP file in the pipeline artifact store.
-        - To store a JSON file that contains a URL reference to
-          the repository so that downstream actions can perform
-          Git commands directly, choose **Full
-          clone**. This option can only be used by
-          CodeBuild downstream actions.
-
-        If you choose this option, you will need to add the
-        `codecommit:GitPull` permission to your
-        CodeBuild service role as shown in [Add CodeBuild GitClone permissions for CodeCommit source actions](troubleshooting.md#codebuild-role-codecommitclone "troubleshooting.md#codebuild-role-codecommitclone").
-        You will also need to add the
-        `codecommit:GetRepository` permissions to
-        your CodePipeline service role as shown in [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
-        For a tutorial that shows you how to use the
-        **Full clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
-
-      - After you choose the CodeCommit repository name and branch, a
-        message is displayed in **Change detection
-        options** showing the Amazon CloudWatch Events rule to be created
-        for this pipeline. Accept the defaults under **Change
-        detection options**. This allows CodePipeline to use
-        Amazon CloudWatch Events to detect changes for your new pipeline.
-
-    - For **Amazon ECR**:
-
-          + In **Repository name**, choose the name of
-           your Amazon ECR repository.
-          + In **Image tag**, specify the image name and
-           version, if different from LATEST.
-          + In **Output artifacts**, choose the output
-           artifact default, such as MyApp, that contains the image name
-           and repository URI information you want the next stage to
-           use.
+           + To store output artifacts from the GitHub action using
+            the default method, choose **CodePipeline
+            default**. The action accesses the files
+            from the GitHub repository and stores the artifacts in a
+            ZIP file in the pipeline artifact store.
+           + To store a JSON file that contains a URL reference to
+            the repository so that downstream actions can perform
+            Git commands directly, choose **Full
+            clone**. This option can only be used by
+            CodeBuild downstream actions.
 
 
-          For a tutorial about creating a pipeline for Amazon ECS with CodeDeploy
-           blue-green deployments that includes an Amazon ECR source stage, see
-           [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+           If you choose this option, you will need to update the
+            permissions for your CodeBuild project service role as shown
+            in [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md"). For a tutorial
+            that shows you how to use the **Full
+            clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
-      When you include an Amazon ECR source stage in your pipeline, the source
-      action generates an `imageDetail.json` file as an
-      output artifact when you commit a change. For information about the
-      `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+   - For **Amazon S3**:
+
+     1. In **Amazon S3 location**, provide the S3
+        bucket name and path to the object in a bucket with versioning
+        enabled. The format of the bucket name and path looks like
+        this:
+
+     ```
+      s3://`bucketName`/`folderName`/`objectName`
+     ```
+
+     ###### Note
+
+     When Amazon S3 is the source provider for your pipeline, you
+     may zip your source file or files into a single .zip and
+     upload the .zip to your source bucket. You may also upload a
+     single unzipped file; however, downstream actions that
+     expect a .zip file will fail. 2. After you choose the S3 source bucket, CodePipeline creates the
+     Amazon CloudWatch Events rule and the AWS CloudTrail trail to be created for this
+     pipeline. Accept the defaults under **Change detection
+     options**. This allows CodePipeline to use Amazon CloudWatch Events and
+     AWS CloudTrail to detect changes for your new pipeline. Choose
+     **Next**.
+
+   - For **AWS CodeCommit**:
+
+     - In **Repository name**, choose the name of
+       the CodeCommit repository you want to use as the source location for
+       your pipeline. In **Branch name**, from the
+       drop-down list, choose the branch you want to use.
+     - In **Output artifact format**, choose the
+       format for your artifacts.
+
+       - To store output artifacts from the CodeCommit action using
+         the default method, choose **CodePipeline
+         default**. The action accesses the files
+         from the CodeCommit repository and stores the artifacts in a
+         ZIP file in the pipeline artifact store.
+       - To store a JSON file that contains a URL reference to
+         the repository so that downstream actions can perform
+         Git commands directly, choose **Full
+         clone**. This option can only be used by
+         CodeBuild downstream actions.
+
+       If you choose this option, you will need to add the
+       `codecommit:GitPull` permission to your
+       CodeBuild service role as shown in [Add CodeBuild GitClone permissions for CodeCommit source actions](troubleshooting.md#codebuild-role-codecommitclone "troubleshooting.md#codebuild-role-codecommitclone").
+       You will also need to add the
+       `codecommit:GetRepository` permissions to
+       your CodePipeline service role as shown in [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+       For a tutorial that shows you how to use the
+       **Full clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+
+     - After you choose the CodeCommit repository name and branch, a
+       message is displayed in **Change detection
+       options** showing the Amazon CloudWatch Events rule to be created
+       for this pipeline. Accept the defaults under **Change
+       detection options**. This allows CodePipeline to use
+       Amazon CloudWatch Events to detect changes for your new pipeline.
+
+   - For **Amazon ECR**:
+
+     - In **Repository name**, choose the name of
+       your Amazon ECR repository.
+     - In **Image tag**, specify the image name and
+       version, if different from LATEST.
+     - In **Output artifacts**, choose the output
+       artifact default, such as MyApp, that contains the image name
+       and repository URI information you want the next stage to
+       use.
+
+     For a tutorial about creating a pipeline for Amazon ECS with CodeDeploy
+     blue-green deployments that includes an Amazon ECR source stage, see
+     [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+     When you include an Amazon ECR source stage in your pipeline, the source
+     action generates an `imageDetail.json` file as an
+     output artifact when you commit a change. For information about the
+     `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
 ###### Note
 
@@ -276,60 +274,60 @@ retry, see [Configure a stage for automatic retry on failure](stage-retry.md#sta
 
 This step is optional if you plan to create a deployment stage.
 
-1.  On the **Step
-    4:
-    Add build stage** page, do one of the following, and then choose
-    **Next**:
+1. On the **Step
+   4:
+   Add build stage** page, do one of the following, and then choose
+   **Next**:
 
-    - Choose **Skip build stage** if you plan to create a
-      test
-      or deployment stage.
-    - To choose the Commands action for your build stage, choose
-      **Commands**.
+   - Choose **Skip build stage** if you plan to create a
+     test
+     or deployment stage.
+   - To choose the Commands action for your build stage, choose
+     **Commands**.
 
-    ###### Note
+   ###### Note
 
-    Running the Commands action will incur separate charges in
-    AWS CodeBuild.
-    If you plan to insert build commands as part of a CodeBuild action,
-    go ahead and choose Other build providers, and then select
-    CodeBuild.
+   Running the Commands action will incur separate charges in
+   AWS CodeBuild.
+   If you plan to insert build commands as part of a CodeBuild action,
+   go ahead and choose Other build providers, and then select
+   CodeBuild.
 
-    In **Commands**, enter the shell commands for your
-    action. For more information about the Commands action, see [Commands action reference](action-reference-Commands.md "action-reference-Commands.md").
-    - To choose other build providers such as CodeBuild, choose
-      **Other providers**. From **Build
-      provider**, choose a custom action provider of build
-      services, and provide the configuration details for that provider. For
-      an example of how to add Jenkins as a build provider, see [Tutorial: Create a four-stage pipeline](tutorials-four-stage-pipeline.md "tutorials-four-stage-pipeline.md").
-    - From **Build provider**, choose
-      **AWS CodeBuild**.
+   In **Commands**, enter the shell commands for your
+   action. For more information about the Commands action, see [Commands action reference](action-reference-Commands.md "action-reference-Commands.md").
+   - To choose other build providers such as CodeBuild, choose
+     **Other providers**. From **Build
+     provider**, choose a custom action provider of build
+     services, and provide the configuration details for that provider. For
+     an example of how to add Jenkins as a build provider, see [Tutorial: Create a four-stage pipeline](tutorials-four-stage-pipeline.md "tutorials-four-stage-pipeline.md").
+   - From **Build provider**, choose
+     **AWS CodeBuild**.
 
-    In **Region**, choose the AWS Region where the
-    resource exists. The **Region** field designates where
-    the AWS resources are created for this action type and provider type.
-    This field is displayed only for actions where the action provider is an
-    AWS service. The **Region** field defaults to the
-    same AWS Region as your pipeline.
+   In **Region**, choose the AWS Region where the
+   resource exists. The **Region** field designates where
+   the AWS resources are created for this action type and provider type.
+   This field is displayed only for actions where the action provider is an
+   AWS service. The **Region** field defaults to the
+   same AWS Region as your pipeline.
 
-    In **Project name**, choose your build project. If
-    you have already created a build project in CodeBuild, choose it. Or you can
-    create a build project in CodeBuild and then return to this task. Follow the
-    instructions in [Create a Pipeline That Uses CodeBuild](../../../codebuild/latest/userguide/how-to-create-pipeline.md#pipelines-create-console "../../../codebuild/latest/userguide/how-to-create-pipeline.md#pipelines-create-console") in the _CodeBuild
-    User Guide_.
+   In **Project name**, choose your build project. If
+   you have already created a build project in CodeBuild, choose it. Or you can
+   create a build project in CodeBuild and then return to this task. Follow the
+   instructions in [Create a Pipeline That Uses CodeBuild](../../../codebuild/latest/userguide/how-to-create-pipeline.md#pipelines-create-console "../../../codebuild/latest/userguide/how-to-create-pipeline.md#pipelines-create-console") in the _CodeBuild
+   User Guide_.
 
-    Under **Build specifications**, the CodeBuild
-    buildspec file is optional, and you can enter commands instead. In
-    **Insert build commands**, enter the shell commands
-    for your action. For more information about considerations for using
-    build commands, see [Commands action reference](action-reference-Commands.md "action-reference-Commands.md"). Choose **Use a
-    buildspec file** if you want to run commands in other
-    phases or if you have a long list of commands.
+   Under **Build specifications**, the CodeBuild
+   buildspec file is optional, and you can enter commands instead. In
+   **Insert build commands**, enter the shell commands
+   for your action. For more information about considerations for using
+   build commands, see [Commands action reference](action-reference-Commands.md "action-reference-Commands.md"). Choose **Use a
+   buildspec file** if you want to run commands in other
+   phases or if you have a long list of commands.
 
-    In **Environment variables**, to add CodeBuild
-    environment variables to your build action, choose **Add
-    environment variable**. Each variable is made up of three
-    entries:
+   In **Environment variables**, to add CodeBuild
+   environment variables to your build action, choose **Add
+   environment variable**. Each variable is made up of three
+   entries:
 
         + In **Name**, enter the name or key of the
          environment variable.
@@ -354,23 +352,23 @@ This step is optional if you plan to create a deployment stage.
          **Parameter**. The default is
          **Plaintext**.
 
-    (Optional) In **Build type**, choose one of the
-    following:
+   (Optional) In **Build type**, choose one of the
+   following:
 
         + To run each build in a single build action execution, choose
          **Single build**.
         + To run multiple builds in the same build action execution,
          choose **Batch build**.
 
-    (Optional) If you chose to run batch builds, you can choose
-    **Combine all artifacts from batch into a single
-    location** to place all build artifacts into a single
-    output artifact.
+   (Optional) If you chose to run batch builds, you can choose
+   **Combine all artifacts from batch into a single
+   location** to place all build artifacts into a single
+   output artifact.
 
-2.  To configure the stage for automatic retry, choose **Enable automatic
-    retry on stage failure**. For more information about automatic
-    retry, see [Configure a stage for automatic retry on failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto").
-3.  Choose **Next**.
+2. To configure the stage for automatic retry, choose **Enable automatic
+   retry on stage failure**. For more information about automatic
+   retry, see [Configure a stage for automatic retry on failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto").
+3. Choose **Next**.
 
 ###### Step 5: Create a test stage
 
@@ -390,214 +388,214 @@ This step is optional if you plan to create a build or deployment stage.
 
 This step is optional if you have already created a build stage.
 
-1.  On the **Step
-    6:
-    Add deploy stage** page, do one of the following, and then choose
-    **Next**:
+1. On the **Step
+   6:
+   Add deploy stage** page, do one of the following, and then choose
+   **Next**:
 
-    - Choose **Skip deploy stage** if you created a build
-      or
-      test stage in the previous
-      steps.
+   - Choose **Skip deploy stage** if you created a build
+     or
+     test stage in the previous
+     steps.
 
-    ###### Note
+   ###### Note
 
-    This option does not appear if you have already skipped the build
-    or
-    test stage.
-    - In **Deploy provider**, choose a custom action that
-      you have created for a deployment provider.
+   This option does not appear if you have already skipped the build
+   or
+   test stage.
+   - In **Deploy provider**, choose a custom action that
+     you have created for a deployment provider.
 
-    In **Region**, for cross-Region actions only, choose
-    the AWS Region where the resource is created. The
-    **Region** field designates where the AWS
-    resources are created for this action type and provider type. This field
-    only displays for actions where the action provider is an AWS service.
-    The **Region** field defaults to the same AWS Region
-    as your pipeline.
-    - In **Deploy provider**, fields are available for
-      default providers as follows:
+   In **Region**, for cross-Region actions only, choose
+   the AWS Region where the resource is created. The
+   **Region** field designates where the AWS
+   resources are created for this action type and provider type. This field
+   only displays for actions where the action provider is an AWS service.
+   The **Region** field defaults to the same AWS Region
+   as your pipeline.
+   - In **Deploy provider**, fields are available for
+     default providers as follows:
 
-      - **CodeDeploy**
+     - **CodeDeploy**
 
-      In **Application name**, enter or choose the
-      name of an existing CodeDeploy application. In **Deployment
-      group**, enter the name of a deployment group for
-      the application. Choose **Next**. You can also
-      create an application, deployment group, or both in the CodeDeploy
-      console.
-      - **AWS Elastic Beanstalk**
+     In **Application name**, enter or choose the
+     name of an existing CodeDeploy application. In **Deployment
+     group**, enter the name of a deployment group for
+     the application. Choose **Next**. You can also
+     create an application, deployment group, or both in the CodeDeploy
+     console.
+     - **AWS Elastic Beanstalk**
 
-      In **Application name**, enter or choose the
-      name of an existing Elastic Beanstalk application. In **Environment
-      name**, enter an environment for the application.
-      Choose **Next**. You can also create an
-      application, environment, or both in the Elastic Beanstalk console.
-      - **AWS OpsWorks Stacks**
+     In **Application name**, enter or choose the
+     name of an existing Elastic Beanstalk application. In **Environment
+     name**, enter an environment for the application.
+     Choose **Next**. You can also create an
+     application, environment, or both in the Elastic Beanstalk console.
+     - **AWS OpsWorks Stacks**
 
-      In **Stack**, enter or choose the
-      name of the stack you want to use. In **Layer**, choose the layer that your target
-      instances belong to. In **App**,
-      choose the application that you want to update and deploy. If
-      you need to create an app, choose **Create a new one in
-      AWS OpsWorks**.
+     In **Stack**, enter or choose the
+     name of the stack you want to use. In **Layer**, choose the layer that your target
+     instances belong to. In **App**,
+     choose the application that you want to update and deploy. If
+     you need to create an app, choose **Create a new one in
+     AWS OpsWorks**.
 
-      For information about adding an application to a stack and
-      layer in AWS OpsWorks, see [Adding
-      Apps](../../../opsworks/latest/userguide/workingapps-creating.md "../../../opsworks/latest/userguide/workingapps-creating.md") in the _AWS OpsWorks User Guide_.
+     For information about adding an application to a stack and
+     layer in AWS OpsWorks, see [Adding
+     Apps](../../../opsworks/latest/userguide/workingapps-creating.md "../../../opsworks/latest/userguide/workingapps-creating.md") in the _AWS OpsWorks User Guide_.
 
-      For an end-to-end example of how to use a simple pipeline in
-      CodePipeline as the source for code that you run on AWS OpsWorks layers,
-      see [Using
-      CodePipeline with AWS OpsWorks Stacks](../../../opsworks/latest/userguide/other-services-cp.md "../../../opsworks/latest/userguide/other-services-cp.md").
-      - **AWS CloudFormation**
+     For an end-to-end example of how to use a simple pipeline in
+     CodePipeline as the source for code that you run on AWS OpsWorks layers,
+     see [Using
+     CodePipeline with AWS OpsWorks Stacks](../../../opsworks/latest/userguide/other-services-cp.md "../../../opsworks/latest/userguide/other-services-cp.md").
+     - **AWS CloudFormation**
 
-      Do one of the following:
+     Do one of the following:
 
-          - In **Action mode**, choose
-           **Create or update a stack**, enter
-           a stack name and template file name, and then choose the
-           name of a role for AWS CloudFormation to assume. Optionally,
-           enter the name of a configuration file and choose an
-           IAM capability option.
-          - In **Action mode**, choose
-           **Create or replace a change set**,
-           enter a stack name and change set name, and then choose
-           the name of a role for AWS CloudFormation to assume. Optionally,
-           enter the name of a configuration file and choose an
-           IAM capability option.
+           - In **Action mode**, choose
+            **Create or update a stack**, enter
+            a stack name and template file name, and then choose the
+            name of a role for AWS CloudFormation to assume. Optionally,
+            enter the name of a configuration file and choose an
+            IAM capability option.
+           - In **Action mode**, choose
+            **Create or replace a change set**,
+            enter a stack name and change set name, and then choose
+            the name of a role for AWS CloudFormation to assume. Optionally,
+            enter the name of a configuration file and choose an
+            IAM capability option.
 
-      For information about integrating AWS CloudFormation capabilities into
-      a pipeline in CodePipeline, see [Continuous Delivery with CodePipeline](../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md "../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md") in the
-      _AWS CloudFormation User Guide_.
-      - **Amazon ECS**
+     For information about integrating AWS CloudFormation capabilities into
+     a pipeline in CodePipeline, see [Continuous Delivery with CodePipeline](../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md "../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md") in the
+     _AWS CloudFormation User Guide_.
+     - **Amazon ECS**
 
-      In **Cluster name**, enter or choose the name
-      of an existing Amazon ECS cluster. In **Service
-      name**, enter or choose the name of the service
-      running on the cluster. You can also create a cluster and
-      service. In **Image filename**, enter the name
-      of the image definitions file that describes your service's
-      container and image.
+     In **Cluster name**, enter or choose the name
+     of an existing Amazon ECS cluster. In **Service
+     name**, enter or choose the name of the service
+     running on the cluster. You can also create a cluster and
+     service. In **Image filename**, enter the name
+     of the image definitions file that describes your service's
+     container and image.
 
-      ###### Note
+     ###### Note
 
-      The Amazon ECS deployment action requires an
-      `imagedefinitions.json` file as an
-      input to the deployment action. The default ﬁle name for the
-      ﬁle is imagedefinitions.json. If you choose to use a
-      diﬀerent ﬁle name, you must provide it when you create the
-      pipeline deployment stage. For more information, see [imagedefinitions.json file for Amazon ECS standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
+     The Amazon ECS deployment action requires an
+     `imagedefinitions.json` file as an
+     input to the deployment action. The default ﬁle name for the
+     ﬁle is imagedefinitions.json. If you choose to use a
+     diﬀerent ﬁle name, you must provide it when you create the
+     pipeline deployment stage. For more information, see [imagedefinitions.json file for Amazon ECS standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
 
-      Choose **Next**.
+     Choose **Next**.
 
-      ###### Note
+     ###### Note
 
-      Make sure your Amazon ECS cluster is configured with two or
-      more instances. Amazon ECS clusters must contain at least two
-      instances so that one is maintained as the primary instance
-      and another is used to accommodate new deployments.
+     Make sure your Amazon ECS cluster is configured with two or
+     more instances. Amazon ECS clusters must contain at least two
+     instances so that one is maintained as the primary instance
+     and another is used to accommodate new deployments.
 
-      For a tutorial about deploying container-based applications
-      with your pipeline, see [Tutorial: Continuous
-      Deployment with CodePipeline](../../../AmazonECS/latest/developerguide/ecs-cd-pipeline.md "../../../AmazonECS/latest/developerguide/ecs-cd-pipeline.md").
-      - **Amazon ECS (Blue/Green)**
+     For a tutorial about deploying container-based applications
+     with your pipeline, see [Tutorial: Continuous
+     Deployment with CodePipeline](../../../AmazonECS/latest/developerguide/ecs-cd-pipeline.md "../../../AmazonECS/latest/developerguide/ecs-cd-pipeline.md").
+     - **Amazon ECS (Blue/Green)**
 
-      Enter the CodeDeploy application and deployment group, Amazon ECS task
-      definition, and AppSpec file information, and then choose
-      **Next**.
+     Enter the CodeDeploy application and deployment group, Amazon ECS task
+     definition, and AppSpec file information, and then choose
+     **Next**.
 
-      ###### Note
+     ###### Note
 
-      The **Amazon ECS (Blue/Green)** action
-      requires an imageDetail.json file as an input artifact to
-      the deploy action. Because the Amazon ECR source action creates
-      this file, pipelines with an Amazon ECR source action do not need
-      to provide an `imageDetail.json` file.
-      For more information, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+     The **Amazon ECS (Blue/Green)** action
+     requires an imageDetail.json file as an input artifact to
+     the deploy action. Because the Amazon ECR source action creates
+     this file, pipelines with an Amazon ECR source action do not need
+     to provide an `imageDetail.json` file.
+     For more information, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
-      For a tutorial about creating a pipeline for blue-green
-      deployments to an Amazon ECS cluster with CodeDeploy, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
-      - **AWS Service Catalog**
+     For a tutorial about creating a pipeline for blue-green
+     deployments to an Amazon ECS cluster with CodeDeploy, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+     - **AWS Service Catalog**
 
-      Choose **Enter deployment configuration** if
-      you want to use fields in the console to specify your
-      configuration, or choose **Configuration file**
-      if you have a separate configuration file. Enter product and
-      configuration information, and then choose
-      **Next**.
+     Choose **Enter deployment configuration** if
+     you want to use fields in the console to specify your
+     configuration, or choose **Configuration file**
+     if you have a separate configuration file. Enter product and
+     configuration information, and then choose
+     **Next**.
 
-      For a tutorial about deploying product changes to Service Catalog with
-      your pipeline, see [Tutorial: Create a pipeline that deploys to Service Catalog](tutorials-S3-servicecatalog.md "tutorials-S3-servicecatalog.md").
-      - **Alexa Skills Kit**
+     For a tutorial about deploying product changes to Service Catalog with
+     your pipeline, see [Tutorial: Create a pipeline that deploys to Service Catalog](tutorials-S3-servicecatalog.md "tutorials-S3-servicecatalog.md").
+     - **Alexa Skills Kit**
 
-      In **Alexa Skill ID**, enter the skill ID for
-      your Alexa skill. In **Client ID** and
-      **Client secret**, enter the credentials
-      generated using a Login with Amazon (LWA) security profile. In
-      **Refresh token**, enter the refresh token
-      you generated using the ASK CLI command for retrieving a refresh
-      token. Choose **Next**.
+     In **Alexa Skill ID**, enter the skill ID for
+     your Alexa skill. In **Client ID** and
+     **Client secret**, enter the credentials
+     generated using a Login with Amazon (LWA) security profile. In
+     **Refresh token**, enter the refresh token
+     you generated using the ASK CLI command for retrieving a refresh
+     token. Choose **Next**.
 
-      For a tutorial about deploying Alexa skills with your pipeline
-      and generating the LWA credentials, see [Tutorial: Create a pipeline that deploys an Amazon Alexa skill](tutorials-alexa-skills-kit.md "tutorials-alexa-skills-kit.md").
-      - **Amazon S3**
+     For a tutorial about deploying Alexa skills with your pipeline
+     and generating the LWA credentials, see [Tutorial: Create a pipeline that deploys an Amazon Alexa skill](tutorials-alexa-skills-kit.md "tutorials-alexa-skills-kit.md").
+     - **Amazon S3**
 
-      In **Bucket**, enter the name of the S3
-      bucket you want to use. Choose **Extract file before
-      deploy** if the input artifact to your deploy stage
-      is a ZIP file. If **Extract file before
-      deploy** is selected, you may optionally enter a
-      value for **Deployment path** to which your ZIP
-      file will be unzipped. If it is not selected, you are required
-      to to enter a value in **S3 object
-      key**.
+     In **Bucket**, enter the name of the S3
+     bucket you want to use. Choose **Extract file before
+     deploy** if the input artifact to your deploy stage
+     is a ZIP file. If **Extract file before
+     deploy** is selected, you may optionally enter a
+     value for **Deployment path** to which your ZIP
+     file will be unzipped. If it is not selected, you are required
+     to to enter a value in **S3 object
+     key**.
 
-      ###### Note
+     ###### Note
 
-      Most source and build stage output artifacts are zipped.
-      All pipeline source providers except Amazon S3 zip your source
-      files before providing them as the input artifact to the
-      next action.
+     Most source and build stage output artifacts are zipped.
+     All pipeline source providers except Amazon S3 zip your source
+     files before providing them as the input artifact to the
+     next action.
 
-      (Optional) In **Canned ACL**, enter the
-      [canned
-      ACL](../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl "../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl") to apply to the object deployed to Amazon S3.
+     (Optional) In **Canned ACL**, enter the
+     [canned
+     ACL](../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl "../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl") to apply to the object deployed to Amazon S3.
 
-      ###### Note
+     ###### Note
 
-      Applying a canned ACL overwrites any existing ACL applied
-      to the object.
+     Applying a canned ACL overwrites any existing ACL applied
+     to the object.
 
-      (Optional) In **Cache control**, specify the
-      cache control parameters for requests to download objects from
-      the bucket. For a list of valid values, see the [`Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 "http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9") header field for
-      HTTP operations. To enter multiple values in **Cache
-      control**, use a comma between each value. You can
-      add a space after each comma (optional), as shown in this
-      example.
+     (Optional) In **Cache control**, specify the
+     cache control parameters for requests to download objects from
+     the bucket. For a list of valid values, see the [`Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 "http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9") header field for
+     HTTP operations. To enter multiple values in **Cache
+     control**, use a comma between each value. You can
+     add a space after each comma (optional), as shown in this
+     example.
 
-      ![Image showing the Cache control field in the console with the following entry: public, max-age=0, no-transform](images/cache_control_values.png)
+     ![Image showing the Cache control field in the console with the following entry: public, max-age=0, no-transform](images/cache_control_values.png)
 
-      The preceding example entry is displayed in the CLI as
-      follows:
+     The preceding example entry is displayed in the CLI as
+     follows:
 
-      ```
-      "CacheControl": "public, max-age=0, no-transform"
-      ```
+     ```
+     "CacheControl": "public, max-age=0, no-transform"
+     ```
 
-      Choose **Next**.
+     Choose **Next**.
 
-      For a tutorial about creating a pipeline with an Amazon S3
-      deployment action provider, see [Tutorial: Create a pipeline that uses Amazon S3 as a deployment provider](tutorials-s3deploy.md "tutorials-s3deploy.md").
+     For a tutorial about creating a pipeline with an Amazon S3
+     deployment action provider, see [Tutorial: Create a pipeline that uses Amazon S3 as a deployment provider](tutorials-s3deploy.md "tutorials-s3deploy.md").
 
-2.  To configure the stage for automatic retry, choose **Enable automatic
-    retry on stage failure**. For more information about automatic
-    retry, see [Configure a stage for automatic retry on failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto").
-3.  To configure the stage for automatic rollback, choose **Configure
-    automatic rollback on stage failure**. For more information about
-    automatic rollback, see [Configure a stage for automatic rollback](stage-rollback-auto.md "stage-rollback-auto.md").
-4.  Choose **Next step**.
+2. To configure the stage for automatic retry, choose **Enable automatic
+   retry on stage failure**. For more information about automatic
+   retry, see [Configure a stage for automatic retry on failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto").
+3. To configure the stage for automatic rollback, choose **Configure
+   automatic rollback on stage failure**. For more information about
+   automatic rollback, see [Configure a stage for automatic rollback](stage-rollback-auto.md "stage-rollback-auto.md").
+4. Choose **Next step**.
 
 ###### Step 7: Review the pipeline
 
@@ -829,7 +827,7 @@ instructions, see [Add a cross-Region action in CodePipeline](actions-create-cro
      bucket for each AWS Region where you have an action.
 
 5. When you are satisfied with its structure, save your file with a name like
-   `pipeline.json`.
+`pipeline.json`.
 
 ###### To create a pipeline
 
@@ -957,39 +955,38 @@ CI pipeline.
     about filtering with glob patterns, see [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md"). 3. In **Output artifact format**, choose the
     format for your artifacts.
 
-        - To store output artifacts from the GitHub action using
-         the default method, choose **CodePipeline
-         default**. The action accesses the files
-         from the GitHub repository and stores the artifacts in a
-         ZIP file in the pipeline artifact store.
-        - To store a JSON file that contains a URL reference to
-         the repository so that downstream actions can perform
-         Git commands directly, choose **Full
-         clone**. This option can only be used by
-         CodeBuild downstream actions.
+          - To store output artifacts from the GitHub action using
+           the default method, choose **CodePipeline
+           default**. The action accesses the files
+           from the GitHub repository and stores the artifacts in a
+           ZIP file in the pipeline artifact store.
+          - To store a JSON file that contains a URL reference to
+           the repository so that downstream actions can perform
+           Git commands directly, choose **Full
+           clone**. This option can only be used by
+           CodeBuild downstream actions.
 
 
-        If you choose this option, you will need to update the
-         permissions for your CodeBuild project service role as shown
-         in [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md"). For a tutorial
-         that shows you how to use the **Full
-         clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+          If you choose this option, you will need to update the
+           permissions for your CodeBuild project service role as shown
+           in [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md"). For a tutorial
+           that shows you how to use the **Full
+           clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
   - For **Amazon ECR**:
 
-        - In **Repository name**, choose the name of
-         your Amazon ECR repository.
-        - In **Image tag**, specify the image name and
-         version, if different from LATEST.
-        - In **Output artifacts**, choose the output
-         artifact default, such as MyApp, that contains the image name
-         and repository URI information you want the next stage to
-         use.
-
-    When you include an Amazon ECR source stage in your pipeline, the source
-    action generates an `imageDetail.json` file as an
-    output artifact when you commit a change. For information about the
-    `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+    - In **Repository name**, choose the name of
+      your Amazon ECR repository.
+    - In **Image tag**, specify the image name and
+      version, if different from LATEST.
+    - In **Output artifacts**, choose the output
+      artifact default, such as MyApp, that contains the image name
+      and repository URI information you want the next stage to
+      use.
+      When you include an Amazon ECR source stage in your pipeline, the source
+      action generates an `imageDetail.json` file as an
+      output artifact when you commit a change. For information about the
+      `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
 ###### Note
 

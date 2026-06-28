@@ -87,8 +87,8 @@ This tutorial also assumes that:
    your local computer. There are two sample packages:
 
    - If you will be deploying your sample to Amazon Linux, RHEL, or Ubuntu Server instances,
-     choose [codepipeline-jenkins-aws-codedeploy_linux.zip](https://github.com/awslabs/aws-codepipeline-jenkins-aws-codedeploy_linux "https://github.com/awslabs/aws-codepipeline-jenkins-aws-codedeploy_linux").
-   - If you will be deploying your sample to Windows Server instances, choose [CodePipeline-Jenkins-AWSCodeDeploy_Windows.zip](https://github.com/awslabs/AWSCodePipeline-Jenkins-AWSCodeDeploy_windows "https://github.com/awslabs/AWSCodePipeline-Jenkins-AWSCodeDeploy_windows").
+     choose [codepipeline-jenkins-aws-codedeploy\_linux.zip](https://github.com/awslabs/aws-codepipeline-jenkins-aws-codedeploy_linux "https://github.com/awslabs/aws-codepipeline-jenkins-aws-codedeploy_linux").
+   - If you will be deploying your sample to Windows Server instances, choose [CodePipeline-Jenkins-AWSCodeDeploy\_Windows.zip](https://github.com/awslabs/AWSCodePipeline-Jenkins-AWSCodeDeploy_windows "https://github.com/awslabs/AWSCodePipeline-Jenkins-AWSCodeDeploy_windows").
 
 2. From the repository, choose **Fork** to clone the sample repo into
    a repo in your Github account. For more information, see the [GitHub

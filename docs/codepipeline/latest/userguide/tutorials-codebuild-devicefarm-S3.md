@@ -100,108 +100,132 @@ Your sample application must be packaged in a .zip file. 3. To create your pipel
      `s3-ios-test-1.zip` for your .zip file.
     10. Choose **Next**.
 
-4.  In **Step 4: Add build stage**, create a placeholder build stage for
-    your pipeline. This allows you to create the pipeline in the wizard. After you use the
-    wizard to create your two-stage pipeline, you no longer need this placeholder build stage.
-    After the pipeline is completed, this second stage is deleted and the new test stage is
-    added in step 5.
+4. In **Step 4: Add build stage**, create a placeholder build stage for
+your pipeline. This allows you to create the pipeline in the wizard. After you use the
+wizard to create your two-stage pipeline, you no longer need this placeholder build stage.
+After the pipeline is completed, this second stage is deleted and the new test stage is
+added in step 5.
 
     1. In **Build provider**, choose **Add Jenkins**.
-       This build selection is a placeholder. It is not used.
+     This build selection is a placeholder. It is not used.
     2. In **Provider name**, enter a name. The name is a placeholder. It
-       is not used.
+     is not used.
     3. In **Server URL**, enter text. The text is a placeholder. It is
-       not used.
+     not used.
     4. In **Project name**, enter a name. The name is a placeholder. It
-       is not used.
+     is not used.
     5. Choose **Next**.
     6. In **Step 5: Add test stage**, choose **Skip test
-       stage**, and then accept the warning message by choosing
-       **Skip** again.
+     stage**, and then accept the warning message by choosing
+     **Skip** again.
 
-    Choose **Next**. 7. On the **Step 6: Add deploy stage** page, choose **Skip
-    deploy stage**, and then accept the warning message by choosing
-    **Skip** again. 8. On **Step 7: Review**, choose **Create
-    pipeline**. You should see a diagram that shows the source and build
-    stages.
+
+    Choose **Next**.
+    7. On the **Step 6: Add deploy stage** page, choose **Skip
+     deploy stage**, and then accept the warning message by choosing
+     **Skip** again.
+    8. On **Step 7: Review**, choose **Create
+     pipeline**. You should see a diagram that shows the source and build
+     stages.
+
+
 
     ![View your pipeline.](images/codepipeline-view-pipeline-S3.png)
 
-5.  Add a Device Farm test action to your pipeline as follows:
+5. Add a Device Farm test action to your pipeline as follows:
 
     1. In the upper right, choose **Edit**.
     2. Choose **Edit stage**. Choose **Delete**. This
-       deletes the placeholder stage now that you no longer need it for pipeline
-       creation.
+     deletes the placeholder stage now that you no longer need it for pipeline
+     creation.
     3. At the bottom of the diagram, choose **+ Add stage**.
     4. In Stage name, enter a name for the stage, such as Test, and then choose
-       **Add stage**.
+     **Add stage**.
     5. Choose **+ Add action group**.
     6. In **Action name**, enter a name, such as DeviceFarmTest.
     7. In **Action provider**, choose **AWS Device
-       Farm**. Allow **Region** to default to the pipeline
-       Region.
+     Farm**. Allow **Region** to default to the pipeline
+     Region.
     8. In **Input artifacts**, choose the input artifact that matches
-       the output artifact of the stage that comes before the test stage, such as
-       `SourceArtifact`.
+     the output artifact of the stage that comes before the test stage, such as
+     `SourceArtifact`.
+
 
     In the AWS CodePipeline console, you can find the name of the output artifact for each
-    stage by hovering over the information icon in the pipeline diagram. If your pipeline
-    tests your app directly from the **Source** stage, choose
-    **SourceArtifact**. If the pipeline includes a
-    **Build** stage, choose **BuildArtifact**. 9. In **ProjectId**, choose your Device Farm project ID. Use the steps at
-    the start of this tutorial to retrieve your project ID. 10. In **DevicePoolArn**, enter the ARN for the device pool. To get
-    the available device pool ARNs for the project, including the ARN for Top Devices, use
-    the AWS CLI to enter the following command:
+     stage by hovering over the information icon in the pipeline diagram. If your pipeline
+     tests your app directly from the **Source** stage, choose
+     **SourceArtifact**. If the pipeline includes a
+     **Build** stage, choose **BuildArtifact**.
+    9. In **ProjectId**, choose your Device Farm project ID. Use the steps at
+     the start of this tutorial to retrieve your project ID.
+    10. In **DevicePoolArn**, enter the ARN for the device pool. To get
+     the available device pool ARNs for the project, including the ARN for Top Devices, use
+     the AWS CLI to enter the following command:
+
+
 
     ```
     aws devicefarm list-device-pools --arn arn:aws:devicefarm:us-west-2:`account_ID`:project:`project_ID`
     ```
     11. In **AppType**, enter **iOS**.
 
+
     The following is a list of valid values for **AppType**:
 
-        * **iOS**
-        * **Android**
-        * **Web**
+
+
+
+    	* **iOS**
+    	* **Android**
+    	* **Web**
     12. In **App**, enter the path of the compiled app package. The path
-        is relative to the root of the input artifact for the test stage. Typically, this path
-        is similar to `ios-test.ipa`.
+     is relative to the root of the input artifact for the test stage. Typically, this path
+     is similar to `ios-test.ipa`.
     13. In **TestType**, enter your type of test, and then in
-        **Test**, enter the path of the test definition file. The path is
-        relative to the root of the input artifact for your test.
+     **Test**, enter the path of the test definition file. The path is
+     relative to the root of the input artifact for your test.
+
 
     If you're using one of the built-in Device Farm tests, enter the type of test configured
-    in your Device Farm project, such as BUILTIN_FUZZ. In **FuzzEventCount**,
-    enter a time in milliseconds, such as 6000. In **FuzzEventThrottle**,
-    enter a time in milliseconds, such as 50.
+     in your Device Farm project, such as BUILTIN\_FUZZ. In **FuzzEventCount**,
+     enter a time in milliseconds, such as 6000. In **FuzzEventThrottle**,
+     enter a time in milliseconds, such as 50.
+
 
     If you aren't using one of the built-in Device Farm tests, enter your type of test, and
-    then in **Test**, enter the path of the test definition file. The
-    path is relative to the root of the input artifact for your test.
+     then in **Test**, enter the path of the test definition file. The
+     path is relative to the root of the input artifact for your test.
+
 
     The following is a list of valid values for **TestType**:
 
-        * **APPIUM\_JAVA\_JUNIT**
-        * **APPIUM\_JAVA\_TESTNG**
-        * **APPIUM\_NODE**
-        * **APPIUM\_RUBY**
-        * **APPIUM\_PYTHON**
-        * **APPIUM\_WEB\_JAVA\_JUNIT**
-        * **APPIUM\_WEB\_JAVA\_TESTNG**
-        * **APPIUM\_WEB\_NODE**
-        * **APPIUM\_WEB\_RUBY**
-        * **APPIUM\_WEB\_PYTHON**
-        * **BUILTIN\_FUZZ**
-        * **INSTRUMENTATION**
-        * **XCTEST**
-        * **XCTEST\_UI**
 
+
+
+    	* **APPIUM\_JAVA\_JUNIT**
+    	* **APPIUM\_JAVA\_TESTNG**
+    	* **APPIUM\_NODE**
+    	* **APPIUM\_RUBY**
+    	* **APPIUM\_PYTHON**
+    	* **APPIUM\_WEB\_JAVA\_JUNIT**
+    	* **APPIUM\_WEB\_JAVA\_TESTNG**
+    	* **APPIUM\_WEB\_NODE**
+    	* **APPIUM\_WEB\_RUBY**
+    	* **APPIUM\_WEB\_PYTHON**
+    	* **BUILTIN\_FUZZ**
+    	* **INSTRUMENTATION**
+    	* **XCTEST**
+    	* **XCTEST\_UI**
     ###### Note
 
-    Custom environment nodes are not supported. 14. In the remaining fields, provide the configuration that is appropriate for your
-    test and application type. 15. (Optional) In **Advanced**, provide configuration information for
-    your test run. 16. Choose **Save**. 17. On the stage you are editing, choose **Done**. In the AWS CodePipeline
-    pane, choose **Save**, and then choose **Save** on
-    the warning message. 18. To submit your changes and start a pipeline execution, choose **Release
-    change**, and then choose **Release**.
+    Custom environment nodes are not supported.
+    14. In the remaining fields, provide the configuration that is appropriate for your
+     test and application type.
+    15. (Optional) In **Advanced**, provide configuration information for
+     your test run.
+    16. Choose **Save**.
+    17. On the stage you are editing, choose **Done**. In the AWS CodePipeline
+     pane, choose **Save**, and then choose **Save** on
+     the warning message.
+    18. To submit your changes and start a pipeline execution, choose **Release
+     change**, and then choose **Release**.

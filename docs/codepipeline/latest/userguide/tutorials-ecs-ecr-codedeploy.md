@@ -686,7 +686,7 @@ Choose **Next**. 11. In **Step 6: Add deploy stage**:
     4. Choose **Next**.
 
 12. In **Step 7: Review**, review the information, and then
-    choose **Create pipeline**.
+choose **Create pipeline**.
 
 ###### To add an Amazon ECR source action to your pipeline
 

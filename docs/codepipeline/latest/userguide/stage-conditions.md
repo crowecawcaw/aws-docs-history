@@ -87,13 +87,13 @@ Considerations for stage conditions are as follows:
   stage condition when starting a pipeline execution. For a stage condition where
   an override is engaged, the execution will perform as detailed in the following
   table.
-- | Type      | Configured result on condition failure | Stage status | Override behavior    |
-  | --------- | -------------------------------------- | ------------ | -------------------- |
-  | Entry     | Fail                                   | In-progress  | The stage proceeds.  |
-  | Entry     | Skip                                   | Skipped      | Not applicable.      |
-  | OnFailure | Rollback                               | Failed       | The stage is failed. |
-  | OnSuccess | Rollback                               | Succeeded    | The stage proceeds.  |
-  | OnSuccess | Fail                                   | Failed       | The stage proceeds.  |
+- | Type | Configured result on condition failure | Stage status | Override behavior |
+  | --- | --- | --- | --- |
+  | Entry | Fail | In-progress | The stage proceeds. |
+  | Entry | Skip | Skipped | Not applicable. |
+  | OnFailure | Rollback | Failed | The stage is failed. |
+  | OnSuccess | Rollback | Succeeded | The stage proceeds. |
+  | OnSuccess | Fail | Failed | The stage proceeds. |
 
 ## Considerations for rules configured for stage conditions
 

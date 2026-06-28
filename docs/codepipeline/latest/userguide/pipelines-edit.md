@@ -283,12 +283,12 @@ must add the following to your pipeline structure. For detailed instructions, se
      each Region where you have an action.
 
 4. If you are working with the pipeline structure retrieved using the
-   **get-pipeline** command, you must modify the structure in the JSON file.
-   You must remove the `metadata` lines from the file so the
-   **update-pipeline** command can use it. Remove the section from the
-   pipeline structure in the JSON file (the `"metadata": { }` lines and the
-   `"created"`, `"pipelineARN"`, and `"updated"`
-   fields).
+**get-pipeline** command, you must modify the structure in the JSON file.
+You must remove the `metadata` lines from the file so the
+**update-pipeline** command can use it. Remove the section from the
+pipeline structure in the JSON file (the `"metadata": { }` lines and the
+`"created"`, `"pipelineARN"`, and `"updated"`
+fields).
 
 For example, remove the following lines from the structure:
 
@@ -308,7 +308,7 @@ detection resources for your pipeline:
      described in [Connecting to Amazon S3 source actions that use EventBridge and AWS CloudTrail](create-cloudtrail-S3-source.md "create-cloudtrail-S3-source.md").
 
 6. To apply your changes, run the **update-pipeline** command, specifying
-   the pipeline JSON file:
+the pipeline JSON file:
 
 ###### Important
 

@@ -62,7 +62,7 @@ you to specify a schedule pattern with a cron expression as follows.
   day 31 for January, day 28 for February on non-leap years. If used
   in the day-of-week field by itself, it simply means "7" or "SAT".
   But if used in the day-of-week field after another value, it means
-  "the last <specified_day> day of the month" - for example "6L"
+  "the last <specified\_day> day of the month" - for example "6L"
   means "the last friday of the month". You can also specify an offset
   from the last day of the month, such as "L-3" which would mean the
   third-to-last day of the calendar month.
@@ -78,7 +78,7 @@ you to specify a schedule pattern with a cron expression as follows.
   day-of-month expression to yield 'LW', which translates to "last
   weekday of the month".
 - The '#' character is allowed for the day-of-week field. This
-  character is used to specify "the nth" <specified_day> day of the
+  character is used to specify "the nth" <specified\_day> day of the
   month. For example, the value of "6#3" in the day-of-week field
   means the third Friday of the month (day 6 = Friday and "#3" = the
   3rd one in the month).
@@ -93,7 +93,7 @@ The time zone for the deployment window. The regular expression matches
 patterns in the following formats:
 
 - **Region/City format**. The value
-  matches a time zone in the format Region/City or Region/City_City.
+  matches a time zone in the format Region/City or Region/City\_City.
   For example, `America/New_York` or
   `Europe/Berlin`.
 - **UTC format**. The value matches the

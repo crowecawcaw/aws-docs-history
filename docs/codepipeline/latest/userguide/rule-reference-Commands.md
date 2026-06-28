@@ -128,11 +128,11 @@ compute modes and types](../../../codebuild/latest/userguide/build-env-ref-compu
 Guide.
 
 - **CodeBuild image:**
-  aws/codebuild/amazonlinux2-x86_64-standard:5.0
+  aws/codebuild/amazonlinux2-x86\_64-standard:5.0
 - **Compute type:** Linux Small
-- **Environment computeType value:** BUILD_GENERAL1_SMALL
+- **Environment computeType value:** BUILD\_GENERAL1\_SMALL
 - **Environment type value:**
-  LINUX_CONTAINER
+  LINUX\_CONTAINER
 
 ## Example rule configuration
 

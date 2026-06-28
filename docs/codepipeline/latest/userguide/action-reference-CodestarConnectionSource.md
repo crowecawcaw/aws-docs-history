@@ -48,7 +48,7 @@ organization, you must be the repository owner.
 
 - GitHub Enterprise Server (through the **GitHub Enterprise
   Server** provider option in the CodePipeline console or the `GitHub
-Enterprise Server` provider in the CLI)
+ Enterprise Server` provider in the CLI)
 - GitLab.com (through the **GitLab** provider option in the CodePipeline
   console or the `GitLab` provider in the CLI)
 
@@ -138,14 +138,14 @@ the app once you disable the Region. For more information, see [Enabling a Regio
 
 ## Configuration parameters
 
-\***\*ConnectionArn\*\***
+****ConnectionArn****
 
 Required: Yes
 
 The connection ARN that is configured and authenticated for the source
 provider.
 
-\***\*FullRepositoryId\*\***
+****FullRepositoryId****
 
 Required: Yes
 
@@ -163,13 +163,13 @@ user name is `some-user` and repo name is
 **FullRepositoryId** is
 `some-user/My-Repo`.
 
-\***\*BranchName\*\***
+****BranchName****
 
 Required: Yes
 
 The name of the branch where source changes are to be detected.
 
-\***\*OutputArtifactFormat\*\***
+****OutputArtifactFormat****
 
 Required: No
 

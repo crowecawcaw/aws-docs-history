@@ -92,7 +92,7 @@ properties**. 5. Choose the mode for your pipeline.
      required)**
 
 6. On the **Edit** page, choose
-   **Done**.
+**Done**.
 
 ## Set the pipeline execution mode (CLI)
 

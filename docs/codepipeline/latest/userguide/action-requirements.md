@@ -151,10 +151,10 @@ The action structure has the following requirements:
   location name you want the pipeline to use. Amazon S3 deployment actions support the
   use of the following variables in Amazon S3 object keys.
 
-| Using variables in Amazon S3 | Variable                      | Example of console input                                                                                                                                                                                                                                                                                    | Output |
-| ---------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| datetime                     | js-application/{datetime}.zip | UTC timestamp in this format: <_YYYY_>-<_MM_>-_DD_>\_<_HH_>-<_MM_>-<_SS_>Example:js-application/2019-01-10_07-39-57.zip                                                                                                                                                                                     |
-| uuid                         | js-application/{uuid}.zip     | The UUID is a globally unique identifier that is guaranteed<br>to be different from any other identifier. The UUID is in this<br>format (all digits in hexadecimal format): <_8-digits_>-<_4-digits_>-_4-digits_>-<_4-digits_>-<_12-digits_>Example:js-application/54a60075-b96a-4bf3-9013-db3a9EXAMPLE.zip |
+Using variables in Amazon S3| Variable | Example of console input | Output |
+| --- | --- | --- |
+| datetime | js-application/{datetime}.zip | UTC timestamp in this format: <_YYYY_>-<_MM_>-_DD_>\_<_HH_>-<_MM_>-<_SS_>Example:js-application/2019-01-10\_07-39-57.zip |
+| uuid | js-application/{uuid}.zip | The UUID is a globally unique identifier that is guaranteed<br>to be different from any other identifier. The UUID is in this<br>format (all digits in hexadecimal format): <_8-digits_>-<_4-digits_>-_4-digits_>-<_4-digits_>-<_12-digits_>Example:js-application/54a60075-b96a-4bf3-9013-db3a9EXAMPLE.zip |
 
 ## `name`
 

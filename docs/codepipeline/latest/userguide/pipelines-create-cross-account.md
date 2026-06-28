@@ -12,22 +12,20 @@ pipelines. The following limitations apply to cross-account actions:
 
 - In general, an action can only consume an artifact if:
 
-      + The action is in the same account as the pipeline account OR
-      + The artifact was created in the pipeline account for an action in another account
-       OR
-      + The artifact was produced by a previous action in the same account as the
-       action
-
-  In other words, you cannot pass an artifact from one account to another if neither
-  account is the pipeline account.
+  - The action is in the same account as the pipeline account OR
+  - The artifact was created in the pipeline account for an action in another account
+    OR
+  - The artifact was produced by a previous action in the same account as the
+    action
+    In other words, you cannot pass an artifact from one account to another if neither
+    account is the pipeline account.
 
 - Cross-account actions are not supported for the following action types:
 
-      + Jenkins build actions
-
-  For this example, you must create an AWS Key Management Service (AWS KMS) key to use, add the key to the
-  pipeline, and set up account policies and roles to enable cross-account access. For an AWS KMS
-  key, you can use the key ID, the key ARN, or the alias ARN.
+  - Jenkins build actions
+    For this example, you must create an AWS Key Management Service (AWS KMS) key to use, add the key to the
+    pipeline, and set up account policies and roles to enable cross-account access. For an AWS KMS
+    key, you can use the key ID, the key ARN, or the alias ARN.
 
 ###### Note
 
@@ -108,7 +106,7 @@ example, `us-east-2`).
    choose **Next**.
 6. In **Define Key Usage Permissions**, under **This
    Account**, select the name of the service role for the pipeline (for example,
-   CodePipeline_Service_Role). Under **Other AWS accounts**, choose **Add
+   CodePipeline\_Service\_Role). Under **Other AWS accounts**, choose **Add
    another AWS account**. Enter the account ID for
    `AccountB` to complete the ARN, and then choose
    **Next**.
@@ -142,9 +140,10 @@ to store artifacts and the service role for CodePipeline.
 2. In the list of Amazon S3 buckets, choose the Amazon S3 bucket where artifacts for your
    pipelines are stored. This bucket is named
    `codepipeline-`region`-`1234567EXAMPLE``,
-where `region`is the AWS Region in which you created the
-pipeline and`1234567EXAMPLE`is a ten-digit random number that
-ensures the bucket name is unique (for example,`codepipeline-us-east-2-1234567890`).
+   where `region` is the AWS Region in which you created the
+   pipeline and `1234567EXAMPLE` is a ten-digit random number that
+   ensures the bucket name is unique (for example,
+   `codepipeline-us-east-2-1234567890`).
 3. On the detail page for the Amazon S3 bucket, choose
    **Properties**.
 4. In the properties pane, expand **Permissions**, and then choose

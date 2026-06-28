@@ -22,7 +22,7 @@ You must have the following resources to use with the AWS CloudFormation sample 
   - Download the sample template for your CloudTrail bucket and trail: [YAML](samples/codepipeline-s3-cloudtrail-yaml.zip.md "samples/codepipeline-s3-cloudtrail-yaml.zip.md") | [JSON](samples/codepipeline-s3-cloudtrail-json.zip.md "samples/codepipeline-s3-cloudtrail-json.zip.md")
   - Unzip the files and place them on your local computer.
 
-- Download the sample application from [SampleApp_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md").
+- Download the sample application from [SampleApp\_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md").
 
 Save the .zip file on your local computer. You upload the .zip file after the stack is
 created.

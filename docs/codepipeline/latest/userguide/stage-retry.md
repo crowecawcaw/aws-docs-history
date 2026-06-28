@@ -106,86 +106,85 @@ The output returns the execution ID:
 }
 ```
 
-2.  You can also run the command with a JSON input file. You first create a JSON file that
-    identifies the pipeline, the stage that contains the failed actions, and the latest
-    pipeline execution in that stage. You then run the
-    **retry-stage-execution** command with the
-    `--cli-input-json` parameter. To retrieve the details you need for the
-    JSON file, it's easiest to use the **get-pipeline-state** command.
+2. You can also run the command with a JSON input file. You first create a JSON file that
+   identifies the pipeline, the stage that contains the failed actions, and the latest
+   pipeline execution in that stage. You then run the
+   **retry-stage-execution** command with the
+   `--cli-input-json` parameter. To retrieve the details you need for the
+   JSON file, it's easiest to use the **get-pipeline-state** command.
 
-    1. At a terminal (Linux, macOS, or Unix) or command prompt (Windows), run the [**get-pipeline-state**](../../../cli/latest/reference/codepipeline/get-pipeline-state.md "../../../cli/latest/reference/codepipeline/get-pipeline-state.md") command on a pipeline.
-       For example, for a pipeline named MyFirstPipeline, you would type
-       something similar to the following:
+   1. At a terminal (Linux, macOS, or Unix) or command prompt (Windows), run the [**get-pipeline-state**](../../../cli/latest/reference/codepipeline/get-pipeline-state.md "../../../cli/latest/reference/codepipeline/get-pipeline-state.md") command on a pipeline.
+      For example, for a pipeline named MyFirstPipeline, you would type
+      something similar to the following:
 
-    ```
-    aws codepipeline get-pipeline-state --name `MyFirstPipeline`
-    ```
+   ```
+   aws codepipeline get-pipeline-state --name `MyFirstPipeline`
+   ```
 
-    The response to the command includes pipeline state information for each
-    stage. In the following example, the response indicates that one or more actions
-    failed in the Staging stage:
+   The response to the command includes pipeline state information for each
+   stage. In the following example, the response indicates that one or more actions
+   failed in the Staging stage:
 
-    ```
-    {
-        "updated": 1427245911.525,
-        "created": 1427245911.525,
-        "pipelineVersion": 1,
-        "pipelineName": "MyFirstPipeline",
-        "stageStates": [
-            {
-                "actionStates": [...],
-                "stageName": "Source",
-                "latestExecution": {
-                    "pipelineExecutionId": "9811f7cb-7cf7-SUCCESS",
-                    "status": "Succeeded"
-                }
-            },
-            `{
-     "actionStates": [...],
-     "stageName": "Staging",
-     "latestExecution": {
-     "pipelineExecutionId": "3137f7cb-7cf7-EXAMPLE",
-     "status": "Failed"
-     }`
-            }
-        ]
-    }
-    ```
-    2.  In a plain-text editor, create a file where you will record the following, in
-        JSON format:
+   ```
+   {
+       "updated": 1427245911.525,
+       "created": 1427245911.525,
+       "pipelineVersion": 1,
+       "pipelineName": "MyFirstPipeline",
+       "stageStates": [
+           {
+               "actionStates": [...],
+               "stageName": "Source",
+               "latestExecution": {
+                   "pipelineExecutionId": "9811f7cb-7cf7-SUCCESS",
+                   "status": "Succeeded"
+               }
+           },
+           `{
+    "actionStates": [...],
+    "stageName": "Staging",
+    "latestExecution": {
+    "pipelineExecutionId": "3137f7cb-7cf7-EXAMPLE",
+    "status": "Failed"
+    }`
+           }
+       ]
+   }
+   ```
+   2. In a plain-text editor, create a file where you will record the following, in
+      JSON format:
 
-            * The name of the pipeline that contains the failed actions
-            * The name of the stage that contains the failed actions
-            * The ID of the latest pipeline execution in the stage
-            * The retry mode.
-
+      - The name of the pipeline that contains the failed actions
+      - The name of the stage that contains the failed actions
+      - The ID of the latest pipeline execution in the stage
+      - The retry mode.
         For the preceding MyFirstPipeline example, your file would look
         something like this:
 
-    ```
-    {
-        "pipelineName": "MyFirstPipeline",
-        "stageName": "Staging",
-        "pipelineExecutionId": "3137f7cb-7cf7-EXAMPLE",
-        "retryMode": "FAILED_ACTIONS"
-    }
-    ```
-    3. Save the file with a name like
-       `retry-failed-actions.json`.
-    4. Call the file you created when you run the [**retry-stage-execution**](../../../cli/latest/reference/codepipeline/retry-stage-execution.md "../../../cli/latest/reference/codepipeline/retry-stage-execution.md") command. For
-       example:
+   ```
+   {
+       "pipelineName": "MyFirstPipeline",
+       "stageName": "Staging",
+       "pipelineExecutionId": "3137f7cb-7cf7-EXAMPLE",
+       "retryMode": "FAILED_ACTIONS"
+   }
+   ```
+   3. Save the file with a name like
+      `retry-failed-actions.json`.
+   4. Call the file you created when you run the [**retry-stage-execution**](../../../cli/latest/reference/codepipeline/retry-stage-execution.md "../../../cli/latest/reference/codepipeline/retry-stage-execution.md") command. For
+      example:
 
-    ###### Important
+   ###### Important
 
-    Be sure to include `file://` before the file name. It is required in this command.
+   Be sure to include `file://` before the file name. It is required in this command.
 
-    ```
-    aws codepipeline retry-stage-execution --cli-input-json file://retry-failed-actions.json
-    ```
-    5. To view the results of the retry attempt, either open the CodePipeline console and
-       choose the pipeline that contains the actions that failed, or use the
-       **get-pipeline-state** command again. For more information,
-       see [View pipelines and details in CodePipeline](pipelines-view.md "pipelines-view.md").
+   ```
+   aws codepipeline retry-stage-execution --cli-input-json file://retry-failed-actions.json
+   ```
+   5. To view the results of the retry attempt, either open the CodePipeline console and
+      choose the pipeline that contains the actions that failed, or use the
+      **get-pipeline-state** command again. For more information,
+      see [View pipelines and details in CodePipeline](pipelines-view.md "pipelines-view.md").
 
 ## Configure a stage for automatic retry on failure
 

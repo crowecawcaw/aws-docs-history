@@ -253,7 +253,7 @@ You can provide parameters as a literal list or a file path:
 - You can enter parameters in the following shorthand syntax
   format:
   `ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string
-ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string`.
+ ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string`.
   For more information about these data types, see [Template parameter data types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes").
 
 The following example shows a parameter named
@@ -341,7 +341,7 @@ Valid values are:
 This parameter can only be changed when no stack instances exist
 in the stack set.
 
-\***\*AdministrationRoleArn\*\***
+****AdministrationRoleArn****
 
 ###### Note
 
@@ -353,8 +353,8 @@ Required: No
 
 ###### Note
 
-This parameter is optional for the SELF_MANAGED permissions model
-and is not used for the SERVICE_MANAGED permissions model.
+This parameter is optional for the SELF\_MANAGED permissions model
+and is not used for the SERVICE\_MANAGED permissions model.
 
 The ARN of the IAM role in the administrator account used to perform
 stack set operations.
@@ -368,7 +368,7 @@ specify the role name, it is set to
 AWSCloudFormationStackSetAdministrationRole. If you specify
 ServiceManaged, you must not define a role name.
 
-\***\*ExecutionRoleName\*\***
+****ExecutionRoleName****
 
 ###### Note
 
@@ -380,8 +380,8 @@ Required: No
 
 ###### Note
 
-This parameter is optional for the SELF_MANAGED permissions model
-and is not used for the SERVICE_MANAGED permissions model.
+This parameter is optional for the SELF\_MANAGED permissions model
+and is not used for the SERVICE\_MANAGED permissions model.
 
 The name of the IAM role in the target accounts used to perform stack
 set operations. The name may contain alphanumeric characters, any of the
@@ -392,16 +392,16 @@ account. The role name specified here must be an existing role name. Do
 not specify this role if you are using customized execution roles. If
 you do not specify the role name, it is set to
 `AWSCloudFormationStackSetExecutionRole`. If you set
-Service_Managed to true, you must not define a role name.
+Service\_Managed to true, you must not define a role name.
 
-\***\*OrganizationsAutoDeployment\*\***
+****OrganizationsAutoDeployment****
 
 Required: No
 
 ###### Note
 
-This parameter is optional for the SERVICE_MANAGED permissions
-model and is not used for the SELF_MANAGED permissions model.
+This parameter is optional for the SERVICE\_MANAGED permissions
+model and is not used for the SELF\_MANAGED permissions model.
 
 Describes whether CloudFormation StackSets automatically deploys to AWS
 Organizations accounts that are added to a target organization or
@@ -438,15 +438,15 @@ Regions.
 Stack resources are retained when an account is removed from a
 target organization or OU.
 
-\***\*DeploymentTargets\*\***
+****DeploymentTargets****
 
 Required: No
 
 ###### Note
 
-For the SERVICE_MANAGED permissions model, you can provide either
+For the SERVICE\_MANAGED permissions model, you can provide either
 the organization root ID or organizational Unit IDs for deployment
-targets. For the SELF_MANAGED permissions model, you can only
+targets. For the SELF\_MANAGED permissions model, you can only
 provide accounts.
 
 ###### Note
@@ -513,8 +513,8 @@ path:
 
 ###### Note
 
-This parameter is optional for the SERVICE_MANAGED
-permissions model and is not used for the SELF_MANAGED
+This parameter is optional for the SERVICE\_MANAGED
+permissions model and is not used for the SELF\_MANAGED
 permissions model. Do not use this if you select **OrganizationsAutoDeployment**.
 
 The AWS organizational units in which to update associated
@@ -562,7 +562,7 @@ file path:
     ]
     ```
 
-\***\*Regions\*\***
+****Regions****
 
 Required: No
 
@@ -582,7 +582,7 @@ example.
 us-west-2,us-east-1
 ```
 
-\***\*FailureTolerancePercentage\*\***
+****FailureTolerancePercentage****
 
 Required: No
 
@@ -592,7 +592,7 @@ operation is stopped in a Region, CloudFormation doesn't attempt the operation i
 subsequent Regions. When calculating the number of accounts based on the
 specified percentage, CloudFormation rounds _down_ to the next whole number.
 
-\***\*MaxConcurrentPercentage\*\***
+****MaxConcurrentPercentage****
 
 Required: No
 
@@ -887,15 +887,15 @@ The name may only contain alphanumeric and hyphen characters. It must
 begin with an alphabetic character and be 128 characters or
 fewer.
 
-\***\*DeploymentTargets\*\***
+****DeploymentTargets****
 
 Required: No
 
 ###### Note
 
-For the SERVICE_MANAGED permissions model, you can provide either
+For the SERVICE\_MANAGED permissions model, you can provide either
 the organization root ID or organizational Unit IDs for deployment
-targets. For the SELF_MANAGED permissions model, you can only
+targets. For the SELF\_MANAGED permissions model, you can only
 provide accounts.
 
 ###### Note
@@ -962,8 +962,8 @@ path:
 
 ###### Note
 
-This parameter is optional for the SERVICE_MANAGED
-permissions model and is not used for the SELF_MANAGED
+This parameter is optional for the SERVICE\_MANAGED
+permissions model and is not used for the SELF\_MANAGED
 permissions model. Do not use this if you select **OrganizationsAutoDeployment**.
 
 The AWS organizational units in which to update associated
@@ -1011,7 +1011,7 @@ file path.
     ]
     ```
 
-\***\*Regions\*\***
+****Regions****
 
 Required: Yes
 
@@ -1044,7 +1044,7 @@ You can provide parameters as a literal list or a file path:
 - You can enter parameters in the following shorthand syntax
   format:
   `ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string
-ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string`.
+ ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string`.
   For more information about these data types, see [Template parameter data types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes").
 
 The following example shows a parameter named
@@ -1091,7 +1091,7 @@ The following example shows the file contents for
 ]
 ```
 
-\***\*FailureTolerancePercentage\*\***
+****FailureTolerancePercentage****
 
 Required: No
 
@@ -1101,7 +1101,7 @@ operation is stopped in a Region, CloudFormation doesn't attempt the operation i
 subsequent Regions. When calculating the number of accounts based on the
 specified percentage, CloudFormation rounds _down_ to the next whole number.
 
-\***\*MaxConcurrentPercentage\*\***
+****MaxConcurrentPercentage****
 
 Required: No
 

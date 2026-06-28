@@ -122,10 +122,10 @@ computer.
 
 8. In the Amazon S3 console, for your bucket, upload the file:
 
-   1. Choose **Upload**.
-   2. Drag and drop the file or choose **Add files** and browse for the
-      file.
-   3. Choose **Upload**.
+    1. Choose **Upload**.
+    2. Drag and drop the file or choose **Add files** and browse for the
+     file.
+    3. Choose **Upload**.
 
 ## Step 2: Create Amazon EC2 Windows instances and install the CodeDeploy agent
 
@@ -204,21 +204,16 @@ In **Auto-assign Public IP**, make sure the status is
      IP**.
 
 8. Expand **Advanced details**. In **IAM instance
-   profile**, choose the IAM role you created in the previous procedure (for
-   example, `EC2InstanceRole`).
-9. Under **Summary**, under **Number of instances**,
-   enter `2`..
-10. Choose **Launch instance**.
-11. Choose **View all instances** to close the confirmation page and
-    return to the console.
-12. You can view the status of the launch on the **Instances** page. When
-    you launch an instance, its initial state is `pending`. After the instance
-    starts, its state changes to `running`, and it receives a public DNS name. (If
-    the **Public DNS** column is not displayed, choose the **Show/Hide** icon, and then select **Public
-    DNS**.)
-13. It can take a few minutes for the instance to be ready for you to connect to it. Check
-    that your instance has passed its status checks. You can view this information in the
-    **Status Checks** column.
+profile**, choose the IAM role you created in the previous procedure (for
+example, `EC2InstanceRole`). 9. Under **Summary**, under **Number of instances**,
+enter `2`.. 10. Choose **Launch instance**. 11. Choose **View all instances** to close the confirmation page and
+return to the console. 12. You can view the status of the launch on the **Instances** page. When
+you launch an instance, its initial state is `pending`. After the instance
+starts, its state changes to `running`, and it receives a public DNS name. (If
+the **Public DNS** column is not displayed, choose the **Show/Hide** icon, and then select **Public
+DNS**.) 13. It can take a few minutes for the instance to be ready for you to connect to it. Check
+that your instance has passed its status checks. You can view this information in the
+**Status Checks** column.
 
 ## Step 3: Create an application in CodeDeploy
 
@@ -320,13 +315,12 @@ The V2 type is the only type you can choose in the console. For more information
      list.
 
 7. Leave the settings under **Advanced settings** at their defaults, and
-   then choose **Next**.
-8. In **Step 3: Add source stage**, in **Source
-   provider**, choose **Amazon S3**. In **Bucket**,
-   enter the name of the S3 bucket you created in [Step 1: Create an S3 source bucket for your application](#s3-create-s3-bucket "#s3-create-s3-bucket"). In **S3 object key**, enter the
-   object key with or without a file path, and remember to include the file extension. For
-   example, for `SampleApp_Windows.zip`, enter the sample file name as shown in
-   this example:
+then choose **Next**. 8. In **Step 3: Add source stage**, in **Source
+provider**, choose **Amazon S3**. In **Bucket**,
+enter the name of the S3 bucket you created in [Step 1: Create an S3 source bucket for your application](#s3-create-s3-bucket "#s3-create-s3-bucket"). In **S3 object key**, enter the
+object key with or without a file path, and remember to include the file extension. For
+example, for `SampleApp_Windows.zip`, enter the sample file name as shown in
+this example:
 
 ```
 SampleApp_Windows.zip

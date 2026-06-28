@@ -143,8 +143,8 @@ Required: No
 The OS image for the build environment that supports the Commands action.
 The following are valid values for build environments:
 
-- LINUX_CONTAINER
-- WINDOWS_SERVER_2022_CONTAINER
+- LINUX\_CONTAINER
+- WINDOWS\_SERVER\_2022\_CONTAINER
 
 The selection for **EnvironmentType** will then allow the
 compute type for that OS in the **ComputeType** field. For
@@ -158,8 +158,8 @@ Guide.
 If not specified, the compute defaults to the following for the build
 environment:
 
-- **Compute type:** BUILD_GENERAL1_SMALL
-- **Environment type:** LINUX_CONTAINER
+- **Compute type:** BUILD\_GENERAL1\_SMALL
+- **Environment type:** LINUX\_CONTAINER
 
 **ComputeType**
 
@@ -169,15 +169,15 @@ Based on the selection for EnvironmentType, the compute type can be
 provided. The following are available values for compute; however, note that
 the options available can vary by OS.
 
-- BUILD_GENERAL1_SMALL
-- BUILD_GENERAL1_MEDIUM
-- BUILD_GENERAL1_LARGE
+- BUILD\_GENERAL1\_SMALL
+- BUILD\_GENERAL1\_MEDIUM
+- BUILD\_GENERAL1\_LARGE
 
 ###### Important
 
 Some compute types are not compatible with certain environment types.
-For example, WINDOWS_SERVER_2022_CONTAINER is not compatible with
-BUILD_GENERAL1_SMALL. Using incompatible combinations causes the action
+For example, WINDOWS\_SERVER\_2022\_CONTAINER is not compatible with
+BUILD\_GENERAL1\_SMALL. Using incompatible combinations causes the action
 to fail and generates a runtime error.
 
 **outputVariables**

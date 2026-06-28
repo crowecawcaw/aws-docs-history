@@ -25,7 +25,7 @@ recommended event-based change detection method:
   CloudFormation.
 
 | How to migrate pipelines to the<br>recommended change detection method |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------------------------- |
 | Pipeline source                                                        | Recommended event-based detection method                                 | Migration procedures                                                                                                                                                                |
 | AWS CodeCommit                                                         | EventBridge (recommended).                                               | See [Migrate polling pipelines with a CodeCommit source](#update-change-detection-codecommit "#update-change-detection-codecommit").                                                |
 | Amazon S3                                                              | EventBridge and bucket enabled for event notifications<br>(recommended). | See [Migrate polling pipelines with an S3 source enabled for events](#update-change-detection-S3-event "#update-change-detection-S3-event").                                        |
@@ -56,175 +56,171 @@ change detection.
 Follow these steps to use a script to determine pipelines in your account that are
 using polling.
 
-1.  Open a terminal window, and then do one of the following:
+1. Open a terminal window, and then do one of the following:
 
-    - Run the following command to create a new script named **PollingPipelinesExtractor.sh**.
+   - Run the following command to create a new script named **PollingPipelinesExtractor.sh**.
 
-    ```
-    vi PollingPipelinesExtractor.sh
-    ```
-    - To use a python script, run the following command to create a new
-      python script named **PollingPipelinesExtractor.py**.
+   ```
+   vi PollingPipelinesExtractor.sh
+   ```
+   - To use a python script, run the following command to create a new
+     python script named **PollingPipelinesExtractor.py**.
 
-    ```
-    vi PollingPipelinesExtractor.py
-    ```
+   ```
+   vi PollingPipelinesExtractor.py
+   ```
 
-2.  Copy and paste the following code into the **PollingPipelinesExtractor** script. Do one of the
-    following:
+2. Copy and paste the following code into the **PollingPipelinesExtractor** script. Do one of the
+   following:
 
-    - Copy and paste the following code into the **PollingPipelinesExtractor.sh** script.
+   - Copy and paste the following code into the **PollingPipelinesExtractor.sh** script.
 
-    ```
-    #!/bin/bash
+   ```
+   #!/bin/bash
 
-    set +x
+   set +x
 
-    POLLING_PIPELINES=()
-    LAST_EXECUTED_DATES=()
-    NEXT_TOKEN=null
-    HAS_NEXT_TOKEN=true
-    if [[ $# -eq 0 ]] ; then
-        echo 'Please provide region name'
-        exit 0
-    fi
-    REGION=$1
-
-
-    while [ "$HAS_NEXT_TOKEN" != "false" ]; do
-        if [ "$NEXT_TOKEN" != "null" ];
-            then
-                LIST_PIPELINES_RESPONSE=$(aws codepipeline list-pipelines --region $REGION --next-token $NEXT_TOKEN)
-            else
-                LIST_PIPELINES_RESPONSE=$(aws codepipeline list-pipelines --region $REGION)
-        fi
-        LIST_PIPELINES=$(jq -r '.pipelines[].name' <<< "$LIST_PIPELINES_RESPONSE")
-        NEXT_TOKEN=$(jq -r '.nextToken' <<< "$LIST_PIPELINES_RESPONSE")
-        if [ "$NEXT_TOKEN" == "null" ];
-            then
-                HAS_NEXT_TOKEN=false
-        fi
-
-        for pipline_name in $LIST_PIPELINES
-        do
-            PIPELINE=$(aws codepipeline get-pipeline --name $pipline_name --region $REGION)
-            HAS_POLLABLE_ACTIONS=$(jq '.pipeline.stages[].actions[] | select(.actionTypeId.category == "Source") | select(.actionTypeId.owner == ("ThirdParty","AWS")) | select(.actionTypeId.provider == ("GitHub","S3","CodeCommit")) | select(.configuration.PollForSourceChanges == ("true",null))' <<< "$PIPELINE")
-            if [ ! -z "$HAS_POLLABLE_ACTIONS" ];
-            then
-                POLLING_PIPELINES+=("$pipline_name")
-                PIPELINE_EXECUTIONS=$(aws codepipeline list-pipeline-executions --pipeline-name $pipline_name --region $REGION)
-                LAST_EXECUTION=$(jq -r '.pipelineExecutionSummaries[0]' <<< "$PIPELINE_EXECUTIONS")
-                if [ "$LAST_EXECUTION" != "null" ];
-                    then
-                        LAST_EXECUTED_TIMESTAMP=$(jq -r '.startTime' <<< "$LAST_EXECUTION")
-                        LAST_EXECUTED_DATE="$(date -r ${LAST_EXECUTED_TIMESTAMP%.*})"
-                    else
-                        LAST_EXECUTED_DATE="Not executed in last year"
-                fi
-                LAST_EXECUTED_DATES+=("$LAST_EXECUTED_DATE")
-            fi
-        done
-
-    done
-
-    fileName=$REGION-$(date +%s)
-    printf "| %-30s | %-30s |\n" "Polling Pipeline Name" "Last Executed Time"
-    printf "| %-30s | %-30s |\n" "_____________________" "__________________"
-    for i in "${!POLLING_PIPELINES[@]}"; do
-      printf "| %-30s | %-30s |\n" "${POLLING_PIPELINES[i]}" "${LAST_EXECUTED_DATES[i]}"
-      printf "${POLLING_PIPELINES[i]}," >> $fileName.csv
-    done
-
-    printf "\nSaving Polling Pipeline Names to file $fileName.csv."
-    ```
-    - Copy and paste the following code into the **PollingPipelinesExtractor.py** script.
-
-    ```
-    import boto3
-    import sys
-    import time
-    import math
-
-    hasNextToken = True
-    nextToken = ""
-    pollablePipelines = []
-    lastExecutedTimes = []
-    if len(sys.argv) == 1:
-        raise Exception("Please provide region name.")
-    session = boto3.Session(profile_name='default', region_name=sys.argv[1])
-    codepipeline = session.client('codepipeline')
-
-    def is_pollable_action(action):
-        actionTypeId = action['actionTypeId']
-        configuration = action['configuration']
-        return actionTypeId['owner'] in {"AWS", "ThirdParty"} and actionTypeId['provider'] in {"GitHub", "CodeCommit", "S3"} and ('PollForSourceChanges' not in configuration or configuration['PollForSourceChanges'] == 'true')
-
-    def has_pollable_actions(pipeline):
-        hasPollableAction = False
-        pipelineDefinition = codepipeline.get_pipeline(name=pipeline['name'])['pipeline']
-        for action in pipelineDefinition['stages'][0]['actions']:
-            hasPollableAction = is_pollable_action(action)
-            if hasPollableAction:
-                break
-        return hasPollableAction
-
-    def get_last_executed_time(pipelineName):
-        pipelineExecutions=codepipeline.list_pipeline_executions(pipelineName=pipelineName)['pipelineExecutionSummaries']
-        if pipelineExecutions:
-            return pipelineExecutions[0]['startTime'].strftime("%A %m/%d/%Y, %H:%M:%S")
-        else:
-            return "Not executed in last year"
-
-    while hasNextToken:
-        if nextToken=="":
-            list_pipelines_response = codepipeline.list_pipelines()
-        else:
-            list_pipelines_response = codepipeline.list_pipelines(nextToken=nextToken)
-        if 'nextToken' in list_pipelines_response:
-            nextToken = list_pipelines_response['nextToken']
-        else:
-            hasNextToken= False
-        for pipeline in list_pipelines_response['pipelines']:
-            if has_pollable_actions(pipeline):
-                pollablePipelines.append(pipeline['name'])
-                lastExecutedTimes.append(get_last_executed_time(pipeline['name']))
-
-    fileName="{region}-{timeNow}.csv".format(region=sys.argv[1],timeNow=math.trunc(time.time()))
-    file = open(fileName, 'w')
-
-    print ("{:<30} {:<30} {:<30}".format('Polling Pipeline Name', '|','Last Executed Time'))
-    print ("{:<30} {:<30} {:<30}".format('_____________________', '|','__________________'))
-    for i in range(len(pollablePipelines)):
-        print("{:<30} {:<30} {:<30}".format(pollablePipelines[i], '|', lastExecutedTimes[i]))
-        file.write("{pipeline},".format(pipeline=pollablePipelines[i]))
-    file.close()
-    print("\nSaving Polling Pipeline Names to file {fileName}".format(fileName=fileName))
-    ```
-
-3.  For each Region where you have pipelines, you must run the script for that
-    Region. To run the script, do one of the following:
-
-        * Run the following command to run the script named **PollingPipelinesExtractor.sh**. In this
-         example, the Region is us-west-2.
+   POLLING_PIPELINES=()
+   LAST_EXECUTED_DATES=()
+   NEXT_TOKEN=null
+   HAS_NEXT_TOKEN=true
+   if [[ $# -eq 0 ]] ; then
+       echo 'Please provide region name'
+       exit 0
+   fi
+   REGION=$1
 
 
+   while [ "$HAS_NEXT_TOKEN" != "false" ]; do
+       if [ "$NEXT_TOKEN" != "null" ];
+           then
+               LIST_PIPELINES_RESPONSE=$(aws codepipeline list-pipelines --region $REGION --next-token $NEXT_TOKEN)
+           else
+               LIST_PIPELINES_RESPONSE=$(aws codepipeline list-pipelines --region $REGION)
+       fi
+       LIST_PIPELINES=$(jq -r '.pipelines[].name' <<< "$LIST_PIPELINES_RESPONSE")
+       NEXT_TOKEN=$(jq -r '.nextToken' <<< "$LIST_PIPELINES_RESPONSE")
+       if [ "$NEXT_TOKEN" == "null" ];
+           then
+               HAS_NEXT_TOKEN=false
+       fi
 
-        ```
-        ./PollingPipelinesExtractor.sh us-west-2
-        ```
-        * For the python script, run the following command to run the python
-         script named**PollingPipelinesExtractor.py**. In this example, the
-         Region is us-west-2.
+       for pipline_name in $LIST_PIPELINES
+       do
+           PIPELINE=$(aws codepipeline get-pipeline --name $pipline_name --region $REGION)
+           HAS_POLLABLE_ACTIONS=$(jq '.pipeline.stages[].actions[] | select(.actionTypeId.category == "Source") | select(.actionTypeId.owner == ("ThirdParty","AWS")) | select(.actionTypeId.provider == ("GitHub","S3","CodeCommit")) | select(.configuration.PollForSourceChanges == ("true",null))' <<< "$PIPELINE")
+           if [ ! -z "$HAS_POLLABLE_ACTIONS" ];
+           then
+               POLLING_PIPELINES+=("$pipline_name")
+               PIPELINE_EXECUTIONS=$(aws codepipeline list-pipeline-executions --pipeline-name $pipline_name --region $REGION)
+               LAST_EXECUTION=$(jq -r '.pipelineExecutionSummaries[0]' <<< "$PIPELINE_EXECUTIONS")
+               if [ "$LAST_EXECUTION" != "null" ];
+                   then
+                       LAST_EXECUTED_TIMESTAMP=$(jq -r '.startTime' <<< "$LAST_EXECUTION")
+                       LAST_EXECUTED_DATE="$(date -r ${LAST_EXECUTED_TIMESTAMP%.*})"
+                   else
+                       LAST_EXECUTED_DATE="Not executed in last year"
+               fi
+               LAST_EXECUTED_DATES+=("$LAST_EXECUTED_DATE")
+           fi
+       done
 
+   done
 
+   fileName=$REGION-$(date +%s)
+   printf "| %-30s | %-30s |\n" "Polling Pipeline Name" "Last Executed Time"
+   printf "| %-30s | %-30s |\n" "_____________________" "__________________"
+   for i in "${!POLLING_PIPELINES[@]}"; do
+     printf "| %-30s | %-30s |\n" "${POLLING_PIPELINES[i]}" "${LAST_EXECUTED_DATES[i]}"
+     printf "${POLLING_PIPELINES[i]}," >> $fileName.csv
+   done
 
-        ```
-        python3 PollingPipelinesExtractor.py us-west-2
-        ```
+   printf "\nSaving Polling Pipeline Names to file $fileName.csv."
+   ```
+   - Copy and paste the following code into the **PollingPipelinesExtractor.py** script.
 
-    In the following sample output from the script, the Region us-west-2
-    returned a list of polling pipelines and shows the last execution time for
-    each pipeline.
+   ```
+   import boto3
+   import sys
+   import time
+   import math
+
+   hasNextToken = True
+   nextToken = ""
+   pollablePipelines = []
+   lastExecutedTimes = []
+   if len(sys.argv) == 1:
+       raise Exception("Please provide region name.")
+   session = boto3.Session(profile_name='default', region_name=sys.argv[1])
+   codepipeline = session.client('codepipeline')
+
+   def is_pollable_action(action):
+       actionTypeId = action['actionTypeId']
+       configuration = action['configuration']
+       return actionTypeId['owner'] in {"AWS", "ThirdParty"} and actionTypeId['provider'] in {"GitHub", "CodeCommit", "S3"} and ('PollForSourceChanges' not in configuration or configuration['PollForSourceChanges'] == 'true')
+
+   def has_pollable_actions(pipeline):
+       hasPollableAction = False
+       pipelineDefinition = codepipeline.get_pipeline(name=pipeline['name'])['pipeline']
+       for action in pipelineDefinition['stages'][0]['actions']:
+           hasPollableAction = is_pollable_action(action)
+           if hasPollableAction:
+               break
+       return hasPollableAction
+
+   def get_last_executed_time(pipelineName):
+       pipelineExecutions=codepipeline.list_pipeline_executions(pipelineName=pipelineName)['pipelineExecutionSummaries']
+       if pipelineExecutions:
+           return pipelineExecutions[0]['startTime'].strftime("%A %m/%d/%Y, %H:%M:%S")
+       else:
+           return "Not executed in last year"
+
+   while hasNextToken:
+       if nextToken=="":
+           list_pipelines_response = codepipeline.list_pipelines()
+       else:
+           list_pipelines_response = codepipeline.list_pipelines(nextToken=nextToken)
+       if 'nextToken' in list_pipelines_response:
+           nextToken = list_pipelines_response['nextToken']
+       else:
+           hasNextToken= False
+       for pipeline in list_pipelines_response['pipelines']:
+           if has_pollable_actions(pipeline):
+               pollablePipelines.append(pipeline['name'])
+               lastExecutedTimes.append(get_last_executed_time(pipeline['name']))
+
+   fileName="{region}-{timeNow}.csv".format(region=sys.argv[1],timeNow=math.trunc(time.time()))
+   file = open(fileName, 'w')
+
+   print ("{:<30} {:<30} {:<30}".format('Polling Pipeline Name', '|','Last Executed Time'))
+   print ("{:<30} {:<30} {:<30}".format('_____________________', '|','__________________'))
+   for i in range(len(pollablePipelines)):
+       print("{:<30} {:<30} {:<30}".format(pollablePipelines[i], '|', lastExecutedTimes[i]))
+       file.write("{pipeline},".format(pipeline=pollablePipelines[i]))
+   file.close()
+   print("\nSaving Polling Pipeline Names to file {fileName}".format(fileName=fileName))
+   ```
+
+3. For each Region where you have pipelines, you must run the script for that
+   Region. To run the script, do one of the following:
+
+   - Run the following command to run the script named **PollingPipelinesExtractor.sh**. In this
+     example, the Region is us-west-2.
+
+   ```
+   ./PollingPipelinesExtractor.sh us-west-2
+   ```
+   - For the python script, run the following command to run the python
+     script named**PollingPipelinesExtractor.py**. In this example, the
+     Region is us-west-2.
+
+   ```
+   python3 PollingPipelinesExtractor.py us-west-2
+   ```
+
+In the following sample output from the script, the Region us-west-2
+returned a list of polling pipelines and shows the last execution time for
+each pipeline.
 
 ```
 
@@ -474,20 +470,19 @@ The following sample command creates a rule called
 aws events put-rule --name "MyCodeCommitRepoRule" --event-pattern "{\"source\":[\"aws.codecommit\"],\"detail-type\":[\"CodeCommit Repository State Change\"],\"resources\":[\"`repository-ARN`\"],\"detail\":{\"referenceType\":[\"branch\"],\"referenceName\":[\"`main`\"]}}" --role-arn "arn:aws:iam::`ACCOUNT_ID`:role/Role-for-MyRule"
 ```
 
-3.  To add CodePipeline as a target, call the **put-targets** command and include
-    the following parameters:
+3. To add CodePipeline as a target, call the **put-targets** command and include
+   the following parameters:
 
-        * The `--rule` parameter is used with the `rule_name` you
-         created by using **put-rule**.
-        * The `--targets` parameter is used with the list `Id` of
-         the target in the list of targets and the `ARN` of the target
-         pipeline.
-
-    The following sample command specifies that for the rule called
-    `MyCodeCommitRepoRule`, the target `Id` is composed of the
-    number one, indicating that in a list of targets for the rule, this is target 1. The
-    sample command also specifies an example `ARN` for the pipeline. The pipeline
-    starts when something changes in the repository.
+   - The `--rule` parameter is used with the `rule_name` you
+     created by using **put-rule**.
+   - The `--targets` parameter is used with the list `Id` of
+     the target in the list of targets and the `ARN` of the target
+     pipeline.
+     The following sample command specifies that for the rule called
+     `MyCodeCommitRepoRule`, the target `Id` is composed of the
+     number one, indicating that in a list of targets for the rule, this is target 1. The
+     sample command also specifies an example `ARN` for the pipeline. The pipeline
+     starts when something changes in the repository.
 
 ```
 aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:codepipeline:us-west-2:80398EXAMPLE:TestPipeline
@@ -613,16 +608,15 @@ JSON
 
 ###### To update your pipeline CloudFormation template and create EventBridge rule
 
-1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
-    resource to configure the IAM role that allows your event to start your pipeline. This entry
-    creates a role that uses two policies:
+1. In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
+   resource to configure the IAM role that allows your event to start your pipeline. This entry
+   creates a role that uses two policies:
 
-        * The first policy allows the role to be assumed.
-        * The second policy provides permissions to start the pipeline.
-
-    **Why am I making this change?** Adding the
-    `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
-    resource is added to your CloudFormation stack.
+   - The first policy allows the role to be assumed.
+   - The second policy provides permissions to start the pipeline.
+     **Why am I making this change?** Adding the
+     `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
+     resource is added to your CloudFormation stack.
 
 YAML
 
@@ -1497,18 +1491,17 @@ JSON
 
 ###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
-1.  In the template, under `Resources`, use the
-    `AWS::IAM::Role` CloudFormation resource to configure the IAM role
-    that allows your event to start your pipeline. This entry creates a role
-    that uses two policies:
+1. In the template, under `Resources`, use the
+   `AWS::IAM::Role` CloudFormation resource to configure the IAM role
+   that allows your event to start your pipeline. This entry creates a role
+   that uses two policies:
 
-        * The first policy allows the role to be assumed.
-        * The second policy provides permissions to start the
-         pipeline.
-
-    **Why am I making this change?** Adding
-    `AWS::IAM::Role` resource enables CloudFormation to create permissions
-    for EventBridge. This resource is added to your CloudFormation stack.
+   - The first policy allows the role to be assumed.
+   - The second policy provides permissions to start the
+     pipeline.
+     **Why am I making this change?** Adding
+     `AWS::IAM::Role` resource enables CloudFormation to create permissions
+     for EventBridge. This resource is added to your CloudFormation stack.
 
 YAML
 
@@ -2415,16 +2408,15 @@ JSON
 
 ###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
-1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
-    resource to configure the IAM role that allows your event to start your pipeline. This entry
-    creates a role that uses two policies:
+1. In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
+   resource to configure the IAM role that allows your event to start your pipeline. This entry
+   creates a role that uses two policies:
 
-        * The first policy allows the role to be assumed.
-        * The second policy provides permissions to start the pipeline.
-
-    **Why am I making this change?** Adding
-    `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
-    resource is added to your CloudFormation stack.
+   - The first policy allows the role to be assumed.
+   - The second policy provides permissions to start the pipeline.
+     **Why am I making this change?** Adding
+     `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
+     resource is added to your CloudFormation stack.
 
 YAML
 

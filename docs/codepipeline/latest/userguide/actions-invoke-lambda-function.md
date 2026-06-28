@@ -58,17 +58,16 @@ functions in CodePipeline:
 
 - [Sample Python function that uses an AWS CloudFormation template](#actions-invoke-lambda-function-samples-python-cloudformation "#actions-invoke-lambda-function-samples-python-cloudformation")
 
-      + Using JSON-encoded user parameters to pass multiple configuration values
-       to the function (`get_user_params`).
-      + Interacting with .zip artifacts in an artifact bucket
-       (`get_template`).
-      + Using a continuation token to monitor a long-running asynchronous process
-       (`continue_job_later`). This allows the action to continue
-       and the function to succeed even if it exceeds a fifteen-minute runtime (a
-       limit in Lambda).
-
-  Each sample function includes information about the permissions you must add to the role.
-  For information about limits in AWS Lambda, see [Limits](../../../lambda/latest/dg/limits.md "../../../lambda/latest/dg/limits.md") in the _AWS Lambda Developer Guide_.
+  - Using JSON-encoded user parameters to pass multiple configuration values
+    to the function (`get_user_params`).
+  - Interacting with .zip artifacts in an artifact bucket
+    (`get_template`).
+  - Using a continuation token to monitor a long-running asynchronous process
+    (`continue_job_later`). This allows the action to continue
+    and the function to succeed even if it exceeds a fifteen-minute runtime (a
+    limit in Lambda).
+    Each sample function includes information about the permissions you must add to the role.
+    For information about limits in AWS Lambda, see [Limits](../../../lambda/latest/dg/limits.md "../../../lambda/latest/dg/limits.md") in the _AWS Lambda Developer Guide_.
 
 ###### Important
 
@@ -158,7 +157,7 @@ JSON
    type a name for the policy (for example,
    `CodePipelineLambdaExecPolicy`). In
    **Description**, enter `Enables Lambda to execute
-code`.
+ code`.
 
 Choose **Create Policy**.
 

@@ -133,81 +133,86 @@ Choose **Next**. 8. On the **Step 3: Add source stage** page, add a source stage
 
 9. In **Step 4: Add build stage**, add a build stage:
 
-   1. In **Build provider**, choose **AWS CodeBuild**.
-      Allow **Region** to default to the pipeline Region.
-   2. Choose **Create project**.
-   3. In **Project name**, enter a name for this build project.
-   4. In **Environment image**, choose **Managed
-      image**. For **Operating system**, choose
-      **Ubuntu**.
-   5. For **Runtime**, choose **Standard**. For
-      **Image**, choose
-      **aws/codebuild/standard:5.0**.
-   6. For **Service role**, choose **New service
-      role**.
+    1. In **Build provider**, choose **AWS CodeBuild**.
+     Allow **Region** to default to the pipeline Region.
+    2. Choose **Create project**.
+    3. In **Project name**, enter a name for this build project.
+    4. In **Environment image**, choose **Managed
+     image**. For **Operating system**, choose
+     **Ubuntu**.
+    5. For **Runtime**, choose **Standard**. For
+     **Image**, choose
+     **aws/codebuild/standard:5.0**.
+    6. For **Service role**, choose **New service
+     role**.
 
-   ###### Note
 
-   Note the name of your CodeBuild service role. You will need the role name for the
-   final step in this tutorial. 7. Under **Buildspec**, for **Build
-   specifications**, choose **Insert build commands**. Choose
-   **Switch to editor**, and paste the following under **Build
-   commands**.
+    ###### Note
 
-   ###### Note
+    Note the name of your CodeBuild service role. You will need the role name for the
+     final step in this tutorial.
+    7. Under **Buildspec**, for **Build
+     specifications**, choose **Insert build commands**. Choose
+     **Switch to editor**, and paste the following under **Build
+     commands**.
 
-   In the `env` section of the build spec, make sure the credential
-   helper for git commands is enabled as shown in this example.
 
-   ```
-   version: 0.2
+    ###### Note
 
-   env:
-     git-credential-helper: yes
-   phases:
-     install:
-       #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
-       #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
-       runtime-versions:
-         nodejs: 12
-         # name: version
-       #commands:
-         # - command
-         # - command
-     pre_build:
-       commands:
-         - ls -lt
-         - cat README.md
-     build:
-       commands:
-         - git log | head -100
-         - git status
-         - ls
-         - git archive --format=zip HEAD > application.zip
-     #post_build:
-       #commands:
-         # - command
-         # - command
-   artifacts:
-     files:
-       - application.zip
-       # - location
-     #name: $(date +%Y-%m-%d)
-     #discard-paths: yes
-     #base-directory: location
-   #cache:
-     #paths:
-       # - paths
-   ```
-   8. Choose **Continue to CodePipeline**. This returns to the CodePipeline
-      console and creates a CodeBuild project that uses your build commands for configuration.
-      The build project uses a service role to manage AWS service permissions. This step
-      might take a couple of minutes.
-   9. Choose **Next**.
+    In the `env` section of the build spec, make sure the credential
+     helper for git commands is enabled as shown in this example.
+
+
+
+    ```
+    version: 0.2
+
+    env:
+      git-credential-helper: yes
+    phases:
+      install:
+        #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+        #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+        runtime-versions:
+          nodejs: 12
+          # name: version
+        #commands:
+          # - command
+          # - command
+      pre_build:
+        commands:
+          - ls -lt
+          - cat README.md
+      build:
+        commands:
+          - git log | head -100
+          - git status
+          - ls
+          - git archive --format=zip HEAD > application.zip
+      #post_build:
+        #commands:
+          # - command
+          # - command
+    artifacts:
+      files:
+        - application.zip
+        # - location
+      #name: $(date +%Y-%m-%d)
+      #discard-paths: yes
+      #base-directory: location
+    #cache:
+      #paths:
+        # - paths
+    ```
+    8. Choose **Continue to CodePipeline**. This returns to the CodePipeline
+     console and creates a CodeBuild project that uses your build commands for configuration.
+     The build project uses a service role to manage AWS service permissions. This step
+     might take a couple of minutes.
+    9. Choose **Next**.
 
 10. In **Step 5: Add test stage**, choose **Skip test
-    stage**, and then accept the warning message by choosing
-    **Skip** again.
+stage**, and then accept the warning message by choosing
+**Skip** again.
 
 Choose **Next**. 11. On the **Step 6: Add deploy stage** page, choose **Skip
 deploy stage**, and then accept the warning message by choosing

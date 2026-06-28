@@ -80,8 +80,8 @@ The following are managed rules that you can add to stage conditions.
   about this rule, see [LambdaInvoke](rule-reference-LambdaInvoke.md "rule-reference-LambdaInvoke.md").
 - Conditions can use the **AWS CloudWatchAlarm** rule to
   check for alarms configured from CloudWatch events. The rule is met when the check
-  returns an alarm state of OK, ALARM, or INSUFF_DATA. For On Success
-  conditions, OK and INSUFFICIENT_DATA meet the criteria. ALARM meets the
+  returns an alarm state of OK, ALARM, or INSUFF\_DATA. For On Success
+  conditions, OK and INSUFFICIENT\_DATA meet the criteria. ALARM meets the
   criteria for On Failure conditions. For more information about this rule,
   see [CloudWatchAlarm](rule-reference-CloudWatchAlarm.md "rule-reference-CloudWatchAlarm.md").
 - Conditions can use the **VariableCheck** rule to create a

@@ -588,12 +588,14 @@ where the target directory is `/home/ec2-user/deploy/` and the source repository
 path is `myRepo/postScript.sh`.
 
 - ```
-  Instance i-0145a2d3f3EXAMPLE is FAILED on event AFTER_DEPLOY, message:
-  ----------ERROR-------
-  chmod: cannot access '/home/ec2-user/deploy/myRepo/postScript.sh': No such file or directory
-  /var/lib/<path>/_script.sh: line 2: /home/ec2-user/deploy/myRepo/postScript.sh: No such file or directory
-  failed to run commands: exit status 127
+
   ```
+
+Instance i-0145a2d3f3EXAMPLE is FAILED on event AFTER_DEPLOY, message:
+----------ERROR-------
+chmod: cannot access '/home/ec2-user/deploy/myRepo/postScript.sh': No such file or directory
+/var/lib/<path>/_script.sh: line 2: /home/ec2-user/deploy/myRepo/postScript.sh: No such file or directory
+failed to run commands: exit status 127
 
 ````
 * ```

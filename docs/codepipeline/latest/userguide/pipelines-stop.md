@@ -64,7 +64,7 @@ execution, the stage does not accept a subsequent pipeline execution.
      **Stop execution**.
 
 3. On the **Stop execution** page, under **Select
-   execution**, choose the execution you want to stop.
+execution**, choose the execution you want to stop.
 
 ###### Note
 
@@ -93,8 +93,7 @@ of the following:
      tasks.
 
 5. (Optional) Enter comments. These comments, along with the execution status,
-   are displayed on the history page for the execution.
-6. Choose **Stop**.
+are displayed on the history page for the execution. 6. Choose **Stop**.
 
 ###### Important
 
@@ -172,7 +171,7 @@ execution, Do one of the following:
      to stop the execution.
 
 3. In the **Stop execution** modal, follow the steps in the
-   section above to select the execution ID and specify the stop method.
+section above to select the execution ID and specify the stop method.
 
 Use the **get-pipeline-state** command to view the status of
 the inbound execution.

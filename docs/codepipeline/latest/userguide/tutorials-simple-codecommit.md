@@ -79,50 +79,46 @@ git clone ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/MyDemoRepo
 In this step, you download code for a sample application that was created for a CodeDeploy
 sample walkthrough, and add it to your CodeCommit repository.
 
-1.  Next, download a sample and save it into a folder or directory on your local
-    computer.
+1. Next, download a sample and save it into a folder or directory on your local
+   computer.
 
-    1.  Choose one of the following. Choose `SampleApp_Linux.zip` if
-        you want to follow the steps in this tutorial for Linux instances.
+   1. Choose one of the following. Choose `SampleApp_Linux.zip` if
+      you want to follow the steps in this tutorial for Linux instances.
 
-            * If you want to deploy to Amazon Linux instances using CodeDeploy, download the sample
-             application here: [SampleApp\_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md").
-            * If you want to deploy to Windows Server instances using CodeDeploy, download the
-             sample application here: [SampleApp\_Windows.zip](samples/SampleApp_Windows.zip.md "samples/SampleApp_Windows.zip.md").
-
+      - If you want to deploy to Amazon Linux instances using CodeDeploy, download the sample
+        application here: [SampleApp\_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md").
+      - If you want to deploy to Windows Server instances using CodeDeploy, download the
+        sample application here: [SampleApp\_Windows.zip](samples/SampleApp_Windows.zip.md "samples/SampleApp_Windows.zip.md").
         The sample application contains the following files for deploying with CodeDeploy:
 
-            * `appspec.yml` – The application specification file (AppSpec
-             file) is a [YAML](http://www.yaml.org "http://www.yaml.org")-formatted file used by
-             CodeDeploy to manage a deployment. For more information about the AppSpec file, see
-             [CodeDeploy AppSpec File
-             reference](../../../codedeploy/latest/userguide/reference-appspec-file.md "../../../codedeploy/latest/userguide/reference-appspec-file.md") in the *AWS CodeDeploy User Guide*.
-            * `index.html` – The index file contains the home page
-             for the deployed sample application.
-            * `LICENSE.txt` – The license file contains license
-             information for the sample application.
-            * Files for scripts – The sample application uses scripts to write text
-             files to a location on your instance. One file is written for each of several
-             CodeDeploy deployment lifecycle events as follows:
+      - `appspec.yml` – The application specification file (AppSpec
+        file) is a [YAML](http://www.yaml.org "http://www.yaml.org")-formatted file used by
+        CodeDeploy to manage a deployment. For more information about the AppSpec file, see
+        [CodeDeploy AppSpec File
+        reference](../../../codedeploy/latest/userguide/reference-appspec-file.md "../../../codedeploy/latest/userguide/reference-appspec-file.md") in the _AWS CodeDeploy User Guide_.
+      - `index.html` – The index file contains the home page
+        for the deployed sample application.
+      - `LICENSE.txt` – The license file contains license
+        information for the sample application.
+      - Files for scripts – The sample application uses scripts to write text
+        files to a location on your instance. One file is written for each of several
+        CodeDeploy deployment lifecycle events as follows:
 
+        - (Linux sample only) `scripts` folder – The
+          folder contains the following shell scripts to install dependencies and start
+          and stop the sample application for the automated deployment:
+          `install_dependencies`, `start_server`, and
+          `stop_server`.
+        - (Windows sample only) `before-install.bat` –
+          This is a batch script for the `BeforeInstall` deployment lifecycle
+          event, which will run to remove old files written during previous deployments
+          of this sample and create a location on your instance to which to write the
+          new files.
 
+   2. Download the compressed (zipped) file.
 
-
-            	+ (Linux sample only) `scripts` folder – The
-            	 folder contains the following shell scripts to install dependencies and start
-            	 and stop the sample application for the automated deployment:
-            	 `install_dependencies`, `start_server`, and
-            	 `stop_server`.
-            	+ (Windows sample only) `before-install.bat` –
-            	 This is a batch script for the `BeforeInstall` deployment lifecycle
-            	 event, which will run to remove old files written during previous deployments
-            	 of this sample and create a location on your instance to which to write the
-            	 new files.
-
-    2.  Download the compressed (zipped) file.
-
-2.  Unzip the files from [SampleApp_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md") into the local directory you created earlier (for example,
-    `/tmp/MyDemoRepo` or `c:\temp\MyDemoRepo`).
+2. Unzip the files from [SampleApp\_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md") into the local directory you created earlier (for example,
+   `/tmp/MyDemoRepo` or `c:\temp\MyDemoRepo`).
 
 Be sure to place the files directly into your local repository. Do not include a
 `SampleApp_Linux` folder. On your local Linux, macOS, or Unix machine, for example, your
