@@ -44,37 +44,33 @@ aws iam create-role \
      --assume-role-policy-document file://~/TrustPolicyForCWLSubscriptionFilter.json
 ```
 
-3.  Create a permissions policy to define the actions that CloudWatch Logs can
-    perform on your account.
+3. Create a permissions policy to define the actions that CloudWatch Logs can
+   perform on your account.
 
-        1. First, use a text editor to create the following
-         permissions policy in a file named
-         `~/PermissionsForCWLSubscriptionFilter.json`.
+   1. First, use a text editor to create the following
+      permissions policy in a file named
+      `~/PermissionsForCWLSubscriptionFilter.json`.
 
+   ```
+   {
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "logs:PutLogEvents",
+               "Resource": "arn:aws:logs:`region`:111111111111:log-group:LogGroupOnWhichSubscriptionFilterIsCreated:*"
+           }
+       ]
+   }
+   ```
+   2. Enter the following command to associate the permissions
+      policy you just created with the role that you created in
+      step 2.
 
+   ```
+   aws iam put-role-policy
+       --role-name CWLtoSubscriptionFilterRole
+       --policy-name Permissions-Policy-For-CWL-Subscription-filter
+       --policy-document file://~/PermissionsForCWLSubscriptionFilter.json
+   ```
 
-        ```
-        {
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Action": "logs:PutLogEvents",
-                    "Resource": "arn:aws:logs:`region`:111111111111:log-group:LogGroupOnWhichSubscriptionFilterIsCreated:*"
-                }
-            ]
-        }
-        ```
-        2. Enter the following command to associate the permissions
-         policy you just created with the role that you created in
-         step 2.
-
-
-
-        ```
-        aws iam put-role-policy
-            --role-name CWLtoSubscriptionFilterRole
-            --policy-name Permissions-Policy-For-CWL-Subscription-filter
-            --policy-document file://~/PermissionsForCWLSubscriptionFilter.json
-        ```
-
-    When you have finished, you can proceed to [Step 3: Create an account-level subscription filter policy](CreateSubscriptionFilter-Account.md "CreateSubscriptionFilter-Account.md").
+When you have finished, you can proceed to [Step 3: Create an account-level subscription filter policy](CreateSubscriptionFilter-Account.md "CreateSubscriptionFilter-Account.md").

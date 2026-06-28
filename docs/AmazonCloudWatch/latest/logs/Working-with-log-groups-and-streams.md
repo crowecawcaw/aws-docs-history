@@ -33,9 +33,9 @@ part of that process. You can also create a log group directly in the CloudWatch
 ###### Tip
 
 You can favorite log groups, as well as dashboards and alarms,
-from the **_Favorites and recents_** menu
+from the _**Favorites and recents**_ menu
 in the navigation pane.
-Under the **_Recently visited_** column,
+Under the _**Recently visited**_ column,
 hover
 over the log group
 that you want to favorite,
@@ -197,7 +197,7 @@ The following restrictions apply to tags.
 - Tag keys must be between 1 and 128 Unicode characters in length.
 - Tag keys must consist of the following characters: Unicode letters, digits,
   white space, and the following special characters: `_ . / = + -
-@`.
+ @`.
 
 ###### Tag value restrictions
 

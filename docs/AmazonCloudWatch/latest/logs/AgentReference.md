@@ -50,11 +50,11 @@ batch_size = `integer`
 ...
 ```
 
-**state_file**
+**state\_file**
 
 Specifies where the state file is stored.
 
-**logging_config_file**
+**logging\_config\_file**
 
 (Optional) Specifies the location of the agent logging config file. If you do not specify an agent
 logging config file here, the default file awslogs.conf is used. The default file location is `/var/awslogs/etc/awslogs.conf`
@@ -119,12 +119,12 @@ args=(sys.stderr,)
 format=%(asctime)s - %(name)s - %(levelname)s - %(process)d - %(threadName)s - %(message)s
 ```
 
-**use_gzip_http_content_encoding**
+**use\_gzip\_http\_content\_encoding**
 
 When set to true (default), enables gzip http content encoding to send
 compressed payloads to CloudWatch Logs. This decreases CPU usage, lowers
 NetworkOut, and decreases put latency. To disable this feature, add
-**use_gzip_http_content_encoding = false** to the
+**use\_gzip\_http\_content\_encoding = false** to the
 **[general]** section of the CloudWatch Logs agent
 configuration file, and then restart the agent.
 
@@ -133,7 +133,7 @@ configuration file, and then restart the agent.
 This setting is only available in awscli-cwlogs version 1.3.3 and
 later.
 
-**log_group_name**
+**log\_group\_name**
 
 Specifies the destination log group. A log group is created
 automatically if it doesn't already exist. Log group names can be
@@ -141,25 +141,25 @@ between 1 and 512 characters long. Allowed characters include a-z, A-Z,
 0-9, '\_' (underscore), '-' (hyphen), '/' (forward slash), and '.'
 (period).
 
-**log_stream_name**
+**log\_stream\_name**
 
 Specifies the destination log stream. You can use a literal string or
-predefined variables ({instance_id}, {hostname}, {ip_address}), or
+predefined variables ({instance\_id}, {hostname}, {ip\_address}), or
 combination of both to define a log stream name. A log stream is created
 automatically if it doesn't already exist.
 
-**datetime_format**
+**datetime\_format**
 
 Specifies how the timestamp is extracted from logs. The timestamp is
 used for retrieving log events and generating metrics. The current time
-is used for each log event if the **datetime_format**
-isn't provided. If the provided **datetime_format**
+is used for each log event if the **datetime\_format**
+isn't provided. If the provided **datetime\_format**
 value is invalid for a given log message, the timestamp from the last
 log event with a successfully parsed timestamp is used. If no previous
 log events exist, the current time is used.
 
-The common datetime_format codes are listed below. You can also use
-any datetime_format codes supported by Python, datetime.strptime(). The
+The common datetime\_format codes are listed below. You can also use
+any datetime\_format codes supported by Python, datetime.strptime(). The
 timezone offset (%z) is also supported even though it's not supported
 until python 3.2, [+-]HHMM without colon(:). For more information, see
 [strftime() and strptime() Behavior](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior "https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior").
@@ -171,10 +171,10 @@ number. 00, 01, ..., 99
 1988, 2001, 2013
 
 **%b**: Month as locale's abbreviated name. Jan, Feb,
-..., Dec (en_US);
+..., Dec (en\_US);
 
 **%B**: Month as locale's full name. January,
-February, ..., December (en_US);
+February, ..., December (en\_US);
 
 **%m**: Month as a zero-padded decimal number. 01,
 02, ..., 12
@@ -213,12 +213,12 @@ on the left. 000000, ..., 999999
 `ISO8601: '%Y-%m-%dT%H:%M:%S%z', e.g.
  2014-02-20T05:20:20+0000`
 
-**time_zone**
+**time\_zone**
 
 Specifies the time zone of log event timestamp. The two supported
 values are UTC and LOCAL. The default is LOCAL, which is used if time
 zone can't be inferred based on
-**datetime_format**.
+**datetime\_format**.
 
 **file**
 
@@ -226,14 +226,14 @@ Specifies log files that you want to push to CloudWatch Logs. File can point to
 a specific file or multiple files (using wildcards such as
 /var/log/system.log\*). Only the latest file is pushed to CloudWatch Logs based on
 file modification time. We recommend that you use wildcards to specify a
-series of files of the same type, such as access_log.2014-06-01-01,
-access_log.2014-06-01-02, and so on, but not multiple kinds of
-files, such as access_log_80 and access_log_443. To specify multiple
+series of files of the same type, such as access\_log.2014-06-01-01,
+access\_log.2014-06-01-02, and so on, but not multiple kinds of
+files, such as access\_log\_80 and access\_log\_443. To specify multiple
 kinds of files, add another log stream entry to the
 configuration file so each kind of log file goes to a different log
 stream. Zipped files are not supported.
 
-**file_fingerprint_lines**
+**file\_fingerprint\_lines**
 
 Specifies the range of lines for identifying a file. The valid values
 are one number or two dash delimited numbers, such as '1', '2-5'. The
@@ -241,26 +241,26 @@ default value is '1' so the first line is used to calculate fingerprint.
 Fingerprint lines are not sent to CloudWatch Logs unless all the specified lines
 are available.
 
-**multi_line_start_pattern**
+**multi\_line\_start\_pattern**
 
 Specifies the pattern for identifying the start of a log message. A
 log message is made of a line that matches the pattern and any following
 lines that don't match the pattern. The valid values are regular
-expression or {datetime_format}. When using {datetime_format}, the
-datetime_format option should be specified. The default value is
+expression or {datetime\_format}. When using {datetime\_format}, the
+datetime\_format option should be specified. The default value is
 ‘^[^\s]' so any line that begins with non-whitespace character closes
 the previous log message and starts a new log message.
 
-**initial_position**
+**initial\_position**
 
-Specifies where to start to read data (start_of_file or end_of_file).
-The default is start_of_file. It's only used if there is no state
+Specifies where to start to read data (start\_of\_file or end\_of\_file).
+The default is start\_of\_file. It's only used if there is no state
 persisted for that log stream.
 
 **encoding**
 
 Specifies the encoding of the log file so that the file can be read
-correctly. The default is utf_8. Encodings supported by Python
+correctly. The default is utf\_8. Encodings supported by Python
 codecs.decode() can be used here.
 
 ###### Warning
@@ -286,17 +286,17 @@ Below are some common encodings:
  shift_jis_2004, shift_jisx0213, utf_32, utf_32_be, utf_32_le,
  utf_16, utf_16_be, utf_16_le, utf_7, utf_8, utf_8_sig`
 
-**buffer_duration**
+**buffer\_duration**
 
 Specifies the time duration for the batching of log events. The
 minimum value is 5000ms and default value is 5000ms.
 
-**batch_count**
+**batch\_count**
 
 Specifies the max number of log events in a batch, up to 10000. The
 default value is 10000.
 
-**batch_size**
+**batch\_size**
 
 Specifies the max size of log events in a batch, in bytes, up to
 1048576 bytes. The default value is 1048576 bytes. This size is calculated
@@ -403,7 +403,7 @@ The following file rotation mechanisms are supported:
 
 The fingerprint (source ID) of the file is calculated by hashing the
 log stream key and the first line of file content. To override this
-behavior, the **file_fingerprint_lines** option can be
+behavior, the **file\_fingerprint\_lines** option can be
 used. When file rotation happens, the new file is supposed to have new
 content and the old file is not supposed to have content appended; the
 agent pushes the new file after it finishes reading the old file.
@@ -424,22 +424,22 @@ Log events contain two properties: the timestamp of when the event
 occurred, and the raw log message. By default, any line that begins with
 non-whitespace character closes the previous log message if there is
 one, and starts a new log message. To override this behavior, the
-**multi_line_start_pattern** can be used and any
+**multi\_line\_start\_pattern** can be used and any
 line that matches the pattern starts a new log message. The pattern
-could be any regex or '{datetime_format}'. For example, if the first
+could be any regex or '{datetime\_format}'. For example, if the first
 line of every log message contains a timestamp like
 '2014-01-02T13:13:01Z', then the
-**multi_line_start_pattern** can be set to
+**multi\_line\_start\_pattern** can be set to
 '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z'. To simplify the configuration,
-the ‘{datetime_format}' variable can be used if the
-**datetime_format option** is specified. For the
-same example, if **datetime_format** is set to
-'%Y-%m-%dT%H:%M:%S%z', then multi_line_start_pattern could be simply
-'{datetime_format}'.
+the ‘{datetime\_format}' variable can be used if the
+**datetime\_format option** is specified. For the
+same example, if **datetime\_format** is set to
+'%Y-%m-%dT%H:%M:%S%z', then multi\_line\_start\_pattern could be simply
+'{datetime\_format}'.
 
 The current time is used for each log event if the
-**datetime_format** isn't provided. If the provided
-**datetime_format** is invalid for a given log
+**datetime\_format** isn't provided. If the provided
+**datetime\_format** is invalid for a given log
 message, the timestamp from the last log event with a successfully
 parsed timestamp is used. If no previous log events exist, the current
 time is used. A warning message is logged when a log event falls back to
@@ -454,13 +454,13 @@ non-retrievable and generate wrong metrics.
 A batch becomes full and is published when any of the following
 conditions are met:
 
-1. The **buffer_duration** amount of time has
+1. The **buffer\_duration** amount of time has
    passed since the first log event was added.
-2. Less than **batch_size** of log events have
+2. Less than **batch\_size** of log events have
    been accumulated but adding the new log event exceeds the
-   **batch_size**.
+   **batch\_size**.
 3. The number of log events has reached
-   **batch_count**.
+   **batch\_count**.
 4. Log events from the batch don't span more than 24 hours, but
    adding the new log event exceeds the 24 hours constraint.
 

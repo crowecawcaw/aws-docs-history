@@ -120,15 +120,15 @@ it inherits the value from its parent variable in the hierarchy.
 You can use the following attributes in your destination log group name
 pattern:
 
-| Destination log group name attributes | Attribute                                            | Description |
-| ------------------------------------- | ---------------------------------------------------- | ----------- |
-| `${source.accountId}`                 | The AWS account ID where the log originated.         |
-| `${source.region}`                    | The AWS Region where the log originated.             |
-| `${source.logGroup}`                  | The original log group name from the source account. |
-| `${source.org.id}`                    | Your AWS Organizations ID of the source account.     |
-| `${source.org.ouId}`                  | The organizational unit ID of the source account     |
-| `${source.org.rootId}`                | The organization root ID                             |
-| `${source.org.path}`                  | The full organizational path from account to root    |
+Destination log group name attributes| Attribute | Description |
+| --- | --- |
+| `${source.accountId}` | The AWS account ID where the log originated. |
+| `${source.region}` | The AWS Region where the log originated. |
+| `${source.logGroup}` | The original log group name from the source account. |
+| `${source.org.id}` | Your AWS Organizations ID of the source account. |
+| `${source.org.ouId}` | The organizational unit ID of the source account |
+| `${source.org.rootId}` | The organization root ID |
+| `${source.org.path}` | The full organizational path from account to root |
 
 #### Examples
 
@@ -173,112 +173,103 @@ data from source accounts to your destination account.
 
 ###### To create a centralization rule
 
-1.  Navigate to the CloudWatch console in the Management or Delegated Administrator
-    account of the organization.
-2.  Choose **Settings**.
-3.  Navigate to the **Organization** tab.
-4.  Choose **Configure rule**.
-5.  Specify source details by setting the following fields, then choose
-    **Next**:
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator
+   account of the organization.
+2. Choose **Settings**.
+3. Navigate to the **Organization** tab.
+4. Choose **Configure rule**.
+5. Specify source details by setting the following fields, then choose
+   **Next**:
 
-    1.  **Centralization rule name**: Enter a unique name
-        for the centralization rule.
-    2.  **Source accounts**: Define source selection
-        criteria to pick accounts from which telemetry data will be
-        centralized. The selection criteria can include:
+   1. **Centralization rule name**: Enter a unique name
+      for the centralization rule.
+   2. **Source accounts**: Define source selection
+      criteria to pick accounts from which telemetry data will be
+      centralized. The selection criteria can include:
 
-            * A list of member accounts in the organization
-            * A list of organization units in the organization
-            * The entire organization
-
+      - A list of member accounts in the organization
+      - A list of organization units in the organization
+      - The entire organization
         You can provide the selection criteria in two modes:
 
-            * **Builder**: A click-based experience to
-             generate the source selection criteria
-            * **Editor**: A free-form text box to
-             provide the source selection criteria
-
+      - **Builder**: A click-based experience to
+        generate the source selection criteria
+      - **Editor**: A free-form text box to
+        provide the source selection criteria
         Supported syntax for source selection criteria:
 
-            * *Supported Keys:* OrganizationId |
-             OrganizationUnitId | AccountId | \*
-            * *Supported Operators:* = | IN |
-             OR
+      - _Supported Keys:_ OrganizationId |
+        OrganizationUnitId | AccountId | \*
+      - _Supported Operators:_ = | IN |
+        OR
 
-    3.  **Source Regions**: Select a list of regions to
-        look for the telemetry data to centralize.
+   3. **Source Regions**: Select a list of regions to
+      look for the telemetry data to centralize.
 
-6.  Specify destination details by setting the following fields, then choose
-    **Next**:
+6. Specify destination details by setting the following fields, then choose
+   **Next**:
 
-    1. **Destination account**: Select an account in the
-       organization that acts as a central destination for telemetry
-       data.
-    2. **Destination Region**: Select a primary region
-       that stores a copy of the centralized telemetry data.
-    3. **Backup Region**: Optionally select a region
-       that stores a second copy of the centralized telemetry data.
+   1. **Destination account**: Select an account in the
+      organization that acts as a central destination for telemetry
+      data.
+   2. **Destination Region**: Select a primary region
+      that stores a copy of the centralized telemetry data.
+   3. **Backup Region**: Optionally select a region
+      that stores a second copy of the centralized telemetry data.
 
-7.  Specify telemetry data by setting the following fields, then choose
-    **Next**:
+7. Specify telemetry data by setting the following fields, then choose
+   **Next**:
 
-    1.  **Log groups**: Choose one of the following
-        options:
+   1. **Log groups**: Choose one of the following
+      options:
 
-        - **All log groups**: Centralize logs from
-          all log groups in the source accounts.
-        - **Filter log group**: Centralize logs
-          from a subset of log groups in the source accounts, matching
-          selection criteria. You can provide the
-          selection criteria in two modes:
+      - **All log groups**: Centralize logs from
+        all log groups in the source accounts.
+      - **Filter log group**: Centralize logs
+        from a subset of log groups in the source accounts, matching
+        selection criteria. You can provide the
+        selection criteria in two modes:
 
-              + **Builder**: A choose-based
-               experience to generate the selection
-               criteria
-              + **Editor**: A free-form text box
-               to provide the selection criteria
-
+        - **Builder**: A choose-based
+          experience to generate the selection
+          criteria
+        - **Editor**: A free-form text box
+          to provide the selection criteria
           There are two selection criteria that you can use to filter
           logs:
 
-              + **Log group selection criteria**:
-               The selection criteria that specifies which
-               source log groups to centralize.
+        - **Log group selection criteria**:
+          The selection criteria that specifies which
+          source log groups to centralize.
 
+          - _Supported Keys:_ LogGroupName
+            | \*
+          - _Supported Operators:_ = | != |
+            IN | NOT IN | AND | OR | LIKE | NOT LIKE
 
+        - **Data source selection criteria**:
+          The selection criteria that specifies which
+          data sources to centralize.
 
+          - _Supported Keys:_ DataSourceName
+            | DataSourceType
+          - _Supported Operators:_ = | != |
+            IN | NOT IN | AND | OR | LIKE | NOT LIKE
+            When both log group selection criteria and data source
+            selection criteria are specified, a log event must match
+            both criteria to be centralized.
 
-              	- *Supported Keys:* LogGroupName
-              	 | \*
-              	- *Supported Operators:* = | != |
-              	 IN | NOT IN | AND | OR | LIKE | NOT LIKE
-              + **Data source selection criteria**:
-               The selection criteria that specifies which
-               data sources to centralize.
+   2. **KMS Encrypted Log Group**
 
+   ###### Important
 
+   CloudWatch centralization rules will fail to deliver logs from the
+   source account to the destination log groups if the KMS Key
+   provided in the Centralization rule doesn't permit CloudWatch Logs to use
+   it. If you are using customer managed KMS key in your destination log groups,
+   add the tag LogsManaged = true to the kms key. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
 
-
-              	- *Supported Keys:* DataSourceName
-              	 | DataSourceType
-              	- *Supported Operators:* = | != |
-              	 IN | NOT IN | AND | OR | LIKE | NOT LIKE
-
-          When both log group selection criteria and data source
-          selection criteria are specified, a log event must match
-          both criteria to be centralized.
-
-    2.  **KMS Encrypted Log Group**
-
-    ###### Important
-
-    CloudWatch centralization rules will fail to deliver logs from the
-    source account to the destination log groups if the KMS Key
-    provided in the Centralization rule doesn't permit CloudWatch Logs to use
-    it. If you are using customer managed KMS key in your destination log groups,
-    add the tag LogsManaged = true to the kms key. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
-
-    Choose one of the following options:
+   Choose one of the following options:
 
         * **Centralize source log groups encrypted with customer managed KMS keys
          using a destination specific customer managed KMS key** : Centralize log events from source log groups encrypted with
@@ -310,8 +301,8 @@ data from source accounts to your destination account.
          customer managed KMS keys**: Skip centralization of log events from source log groups
          encrypted with customer managed KMS keys.
 
-8.  Review the centralization rule, optionally make any last-minute edits, and
-    choose **Create Centralization policy**.
+8. Review the centralization rule, optionally make any last-minute edits, and
+   choose **Create Centralization policy**.
 
 ### Modifying a centralization rule
 

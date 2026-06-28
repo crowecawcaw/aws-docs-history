@@ -12,12 +12,11 @@ receiver:
   encapsulates a Amazon Kinesis Data Streams stream and lets CloudWatch Logs know that the recipient wants to
   receive log data. The recipient then shares the information about this
   destination with the sender. In the procedures in the rest of this section,
-  the log data recipient is shown with a fictional AWS account number of
-
-222222222222. The example in this section uses a Firehose delivery stream with Amazon S3 storage. You
-              can also set up Firehose delivery streams with different settings. For more
-              information, see [Creating a Firehose Delivery
-              Stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md").
+  the log data recipient is shown with a fictional AWS account number of 222222222222.
+  The example in this section uses a Firehose delivery stream with Amazon S3 storage. You
+  can also set up Firehose delivery streams with different settings. For more
+  information, see [Creating a Firehose Delivery
+  Stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md").
 
 ###### Note
 
@@ -27,9 +26,9 @@ Region.
 
 ###### Note
 
-Firehose subscription filter for a **_same
-account_** and
-**_cross-Region_** delivery stream
+Firehose subscription filter for a _**same
+account**_ and
+_**cross-Region**_ delivery stream
 is supported.
 
 ###### Topics

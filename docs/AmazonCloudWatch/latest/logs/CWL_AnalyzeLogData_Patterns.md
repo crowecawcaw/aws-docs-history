@@ -120,8 +120,8 @@ For each pattern, the following information is displayed:
      sort the patterns by severity.
 
 9. Now change the query. Replace the `| sort @timestamp desc` line
-   in the query with `| pattern @message`, so that the complete
-   query is as follows:
+in the query with `| pattern @message`, so that the complete
+query is as follows:
 
 ```
 fields @timestamp, @message, @logStream, @log
@@ -183,6 +183,6 @@ For more details about `pattern` syntax, see [pattern](CWL_QuerySyntax-Pattern.m
   events to be used as input for pattern analysis.
 - To see pattern results for a particular field, such as a field derived
   from the `parse` command, use `pattern
-@fieldname`.
+ @fieldname`.
 - Queries with non-log output, such as queries with the `stats`
   command, do not return pattern results.

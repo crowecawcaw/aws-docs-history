@@ -165,7 +165,7 @@ Example: Match a single term
 The following code snippet shows an example
 of a single-term filter pattern
 that returns all log events
-where messages contain the word **_ERROR_**.
+where messages contain the word _**ERROR**_.
 
 ```
 
@@ -185,7 +185,7 @@ Example: Match multiple terms
 The following code snippet shows an example
 of a multiple-term filter pattern
 that returns all log events
-where messages contain the words **_ERROR_** and **_ARGUMENTS_**.
+where messages contain the words _**ERROR**_ and _**ARGUMENTS**_.
 
 ```
 
@@ -219,8 +219,8 @@ The following code snippet shows an example
 of a filter pattern
 that returns all log events
 where messages
-contain the word **_ERROR_** or the word
-**_ARGUMENTS_**.
+contain the word _**ERROR**_ or the word
+_**ARGUMENTS**_.
 
 ```
 
@@ -260,7 +260,7 @@ The following code snippet shows an example
 of a filter pattern
 that returns log events
 where messages contain the exact phrase
-**_INTERNAL SERVER ERROR_**.
+_**INTERNAL SERVER ERROR**_.
 
 ```
 
@@ -285,8 +285,8 @@ The following code snippet shows an example
 of a filter pattern
 that returns log events
 where messages
-include the term **_ERROR_**
-and exclude the term **_ARGUMENTS_**.
+include the term _**ERROR**_
+and exclude the term _**ARGUMENTS**_.
 
 ```
 
@@ -301,7 +301,7 @@ such as the following:
 - `[ERROR 401] UNAUTHORIZED REQUEST`
 
 This filter pattern doesn't return the following log event messages
-because they contain the word **_ARGUMENTS_**.
+because they contain the word _**ARGUMENTS**_.
 
 - `[ERROR 419] MISSING ARGUMENTS`
 - `[ERROR 420] INVALID ARGUMENTS`
@@ -900,7 +900,7 @@ ERROR 09/25/2014 12:00:02 Failed to process request
 Example: Match terms in order
 The following space-delimited filter pattern returns log events
 where the first word
-in the log events is **_ERROR_**.
+in the log events is _**ERROR**_.
 
 ```
 
@@ -918,7 +918,7 @@ of your terms.
 For example,
 if you create a filter pattern
 that returns log events
-where the first word is **_ERROR_**,
+where the first word is _**ERROR**_,
 include a blank **w2** indicator
 after the **w1** term.
 
@@ -930,7 +930,7 @@ that contain conditions.
 The following filter pattern
 returns log events
 where the first word
-in the events is **_ERROR_** or **_WARNING_**.
+in the events is _**ERROR**_ or _**WARNING**_.
 
 ```
 
@@ -948,7 +948,7 @@ that you want to exclude.
 The following code snippet shows an example
 of a filter pattern
 that returns log events
-where the first words aren't **_ERROR_** and **_WARNING_**.
+where the first words aren't _**ERROR**_ and _**WARNING**_.
 
 ```
 

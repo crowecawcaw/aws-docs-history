@@ -249,7 +249,7 @@ ready.
 | Destination Log Group name  | The name for your log group. The installer suggests a<br>log group name for you.                                                                                                                                     |
 | Destination Log Stream name | By default, this is the name of the host. The<br>installer suggests a host name for you.                                                                                                                             |
 | Timestamp format            | Specify the format of the time stamp within the<br>specified log file. Choose custom to specify your<br>own format.                                                                                                  |
-| Initial position            | How data is uploaded. Set this to start_of_file to<br>upload everything in the data file. Set to<br>end_of_file to upload only newly appended<br>data.                                                               |
+| Initial position            | How data is uploaded. Set this to start\_of\_file to<br>upload everything in the data file. Set to<br>end\_of\_file to upload only newly appended<br>data.                                                           |
 
 After you have completed these steps, the installer asks about configuring
 another log file. You can run the process as many times as you like for

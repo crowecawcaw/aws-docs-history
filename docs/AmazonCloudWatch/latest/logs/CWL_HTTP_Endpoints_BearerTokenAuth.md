@@ -36,8 +36,8 @@ The console automatically:
 
 6. Copy and securely save the displayed credentials:
 
-   - **API Key ID** (Service-specific credential ID)
-   - **API Key Secret** (Bearer token)
+    * **API Key ID** (Service-specific credential ID)
+    * **API Key Secret** (Bearer token)
 
 ###### Important
 

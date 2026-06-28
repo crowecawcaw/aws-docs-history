@@ -77,26 +77,25 @@ The command uses the following arguments:
   lookup table. You can use either of the following
   forms:
 
-      + ``lookup-field` as
-       `log-field`
-       [,...]` – Use `as` when the
-       lookup table column name differs from the log event
-       field name. For example,
-       `ip_address as srcAddr` matches the
-       `ip_address` column in the lookup table
-       against the `srcAddr` field in your log
-       events.
-      + ``lookup-field`
-       [,...]` – When the log event field name
-       is the same as the lookup table column name, you can
-       omit `as` and specify the field name
-       directly. For example, `department, role`
-       matches both columns against log event fields with
-       the same names.
-
-  When multiple match fields are specified, a row in the
-  lookup table must match all fields to produce a result (AND
-  logic).
+  - ``lookup-field`as
+  `log-field`
+   [,...]` – Use `as` when the
+    lookup table column name differs from the log event
+    field name. For example,
+    `ip_address as srcAddr` matches the
+    `ip_address` column in the lookup table
+    against the `srcAddr` field in your log
+    events.
+  - ``lookup-field`
+   [,...]` – When the log event field name
+    is the same as the lookup table column name, you can
+    omit `as` and specify the field name
+    directly. For example, `department, role`
+    matches both columns against log event fields with
+    the same names.
+    When multiple match fields are specified, a row in the
+    lookup table must match all fields to produce a result (AND
+    logic).
 
 - `output-mode` –
   Specifies how output fields are added to the results. Use one

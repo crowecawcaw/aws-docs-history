@@ -56,14 +56,14 @@ following:
      generate the token count, not the absolute value.
 
 4. To suppress an anomaly, choose the radio button in its row and then do the
-   following:
+following:
 
-   1. Choose **Actions**, **Suppress
-      Anomaly**.
-   2. Then specify how long you want the anomaly to be suppressed.
-   3. To suppress all anomalies related to this pattern, select
-      **Suppress Pattern**.
-   4. Choose **Suppress anomaly**.
+    1. Choose **Actions**, **Suppress
+     Anomaly**.
+    2. Then specify how long you want the anomaly to be suppressed.
+    3. To suppress all anomalies related to this pattern, select
+     **Suppress Pattern**.
+    4. Choose **Suppress anomaly**.
 
 ###### To view the anomalies found in a single log group
 
@@ -115,11 +115,11 @@ following:
      generate the token count, not the absolute value.
 
 5. To suppress an anomaly, choose the radio button in its row and then do the
-   following:
+following:
 
-   1. Choose **Actions**, **Suppress
-      Anomaly**.
-   2. Then specify how long you want the anomaly to be suppressed.
-   3. To suppress all anomalies related to this pattern, select
-      **Suppress Pattern**.
-   4. Choose **Suppress anomaly**.
+    1. Choose **Actions**, **Suppress
+     Anomaly**.
+    2. Then specify how long you want the anomaly to be suppressed.
+    3. To suppress all anomalies related to this pattern, select
+     **Suppress Pattern**.
+    4. Choose **Suppress anomaly**.

@@ -168,19 +168,18 @@ Matching log events begin appearing in the window. The following information is 
      in **% displayed**.
 
 8. To pause the flow of events to investigate what is currently displayed, choose anywhere
-   in the events window.
-9. During the session, you can use the following to see more details about each log event.
+in the events window. 9. During the session, you can use the following to see more details about each log event.
 
-   - To display the entire text for a log event in the main window,
+    * To display the entire text for a log event in the main window,
      choose the arrow next to that log event.
-   - To display the entire text for a log event in a side window,
+    * To display the entire text for a log event in a side window,
      choose the **+** magnifying glass next to that log event. The event flow pauses
      and the side window appears.
 
-   Displaying a log event text in the side window can be useful to compare its text
-   to other events in the main window.
 
-10. To stop the Live Tail session, choose **Stop**.
-11. To restart the session, optionally use the **Filter** panel
-    to modify the filtering criteria, and choose **Apply filters**.
-    Then choose **Start**.
+    Displaying a log event text in the side window can be useful to compare its text
+     to other events in the main window.
+
+10. To stop the Live Tail session, choose **Stop**. 11. To restart the session, optionally use the **Filter** panel
+to modify the filtering criteria, and choose **Apply filters**.
+Then choose **Start**.

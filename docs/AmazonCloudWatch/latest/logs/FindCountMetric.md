@@ -19,7 +19,7 @@ example.
 4. Choose `Actions`, **Create metric
    filter**.
 5. For **Filter pattern**, enter `[ip, id, user,
-timestamp, request, status_code=4*, size]`.
+ timestamp, request, status_code=4*, size]`.
 6. (Optional) To test your filter pattern, under **Test
    Pattern**, enter one or more log events to use to test the
    pattern. Each log event must be within one line, because line breaks are

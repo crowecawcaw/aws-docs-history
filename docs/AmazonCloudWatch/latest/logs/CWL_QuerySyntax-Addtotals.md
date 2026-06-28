@@ -12,15 +12,16 @@ and `row=false` to disable row totals.
 | addtotals [fieldname=`Name`] [row=`bool`] [col=`bool`] [`field1`, `field2`, ...]
 ```
 
-- `fieldname=`Name``— Sets
-the name of the row total column. The default is`Total`.
-- `row=`bool``— Enable or
-disable row totals. The default is`true`.
-- `col=`bool``— Enable or
-disable column totals, which adds a summary row at the bottom. The
-default is`false`.
+- `fieldname=`Name`` — Sets
+  the name of the row total column. The default is
+  `Total`.
+- `row=`bool`` — Enable or
+  disable row totals. The default is `true`.
+- `col=`bool`` — Enable or
+  disable column totals, which adds a summary row at the bottom. The
+  default is `false`.
 - ``field1`,
-  `field2`, ...` — Optional list
+ `field2`, ...` — Optional list
   of specific fields to sum. If omitted, all numeric fields are
   summed.
   **Examples**

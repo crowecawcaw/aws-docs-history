@@ -60,5 +60,4 @@ so far on a sample log event. To do so, do one of the following in the
      transformer**.The transformed version of the log then appears.
 
 10. When you are finished adding processors and satisfied with the tests on
-    sample logs, choose **Save**.
-11. When you have finished, choose **Create**.
+sample logs, choose **Save**. 11. When you have finished, choose **Create**.

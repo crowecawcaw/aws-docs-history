@@ -92,8 +92,8 @@ originating log data.
 
 **messageType**
 
-Data messages use the "DATA_MESSAGE" type. Sometimes CloudWatch Logs may
-emit Amazon Kinesis Data Streams records with a "CONTROL_MESSAGE" type, mainly for
+Data messages use the "DATA\_MESSAGE" type. Sometimes CloudWatch Logs may
+emit Amazon Kinesis Data Streams records with a "CONTROL\_MESSAGE" type, mainly for
 checking if the destination is reachable.
 
 **logEvents**

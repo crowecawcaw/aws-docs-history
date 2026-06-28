@@ -47,12 +47,11 @@ Currently only VPC version 2 fields format is supported.
   quickly identify potential security issues and optimize network configurations. Key
   metrics displayed include the following:
 
-      + Top talkers and protocols
-      + Insights into PrivateLink endpoints
-      + Allowed and blocked TLS Server Name Indication traffic
-
-  The metrics displayed in these curated dashboards are derived from
-  Amazon OpenSearch Service analytics.
+  - Top talkers and protocols
+  - Insights into PrivateLink endpoints
+  - Allowed and blocked TLS Server Name Indication traffic
+    The metrics displayed in these curated dashboards are derived from
+    Amazon OpenSearch Service analytics.
 
 Before you can view these dashboards, you must create an IAM role and perform a one-time
 integration of CloudWatch Logs with Amazon OpenSearch Service. This one-time integration

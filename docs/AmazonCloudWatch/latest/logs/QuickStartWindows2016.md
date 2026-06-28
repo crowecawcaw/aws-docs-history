@@ -119,19 +119,18 @@ and other log data to CloudWatch Logs.
 },
 ```
 
-2.  For `Levels`, specify the type of messages to upload.
-    You can specify one of the following values:
+2. For `Levels`, specify the type of messages to upload.
+   You can specify one of the following values:
 
-        * `1` - Upload only error messages.
-        * `2` - Upload only warning messages.
-        * `4` - Upload only information messages.
-
-    You can combine values to include more than one type of message.
-    For example, a value of `3` uploads error messages
-    (`1`) and warning messages (`2`).
-    A value of `7` uploads error messages
-    (`1`), warning messages (`2`),
-    and information messages (`4`).
+   - `1` - Upload only error messages.
+   - `2` - Upload only warning messages.
+   - `4` - Upload only information messages.
+     You can combine values to include more than one type of message.
+     For example, a value of `3` uploads error messages
+     (`1`) and warning messages (`2`).
+     A value of `7` uploads error messages
+     (`1`), warning messages (`2`),
+     and information messages (`4`).
 
 ###### To send security log data to CloudWatch Logs
 
@@ -167,19 +166,18 @@ and other log data to CloudWatch Logs.
 },
 ```
 
-2.  For `Levels`, specify the type of messages to upload.
-    You can specify one of the following values:
+2. For `Levels`, specify the type of messages to upload.
+   You can specify one of the following values:
 
-        * `1` - Upload only error messages.
-        * `2` - Upload only warning messages.
-        * `4` - Upload only information messages.
-
-    You can combine values to include more than one type of message.
-    For example, a value of `3` uploads error messages
-    (`1`) and warning messages (`2`).
-    A value of `7` uploads error messages
-    (`1`), warning messages (`2`),
-    and information messages (`4`).
+   - `1` - Upload only error messages.
+   - `2` - Upload only warning messages.
+   - `4` - Upload only information messages.
+     You can combine values to include more than one type of message.
+     For example, a value of `3` uploads error messages
+     (`1`) and warning messages (`2`).
+     A value of `7` uploads error messages
+     (`1`), warning messages (`2`),
+     and information messages (`4`).
 
 ###### To send other types of event log data to CloudWatch Logs
 
@@ -197,30 +195,29 @@ and other log data to CloudWatch Logs.
 },
 ```
 
-2.  For `Id`, type a name for the log
-    to upload (for example, `WindowsBackup`).
-3.  For `LogName`, type the name of the
-    log to upload. You can find the name of the log as follows.
+2. For `Id`, type a name for the log
+   to upload (for example, `WindowsBackup`).
+3. For `LogName`, type the name of the
+   log to upload. You can find the name of the log as follows.
 
-    1. Open Event Viewer.
-    2. In the navigation pane, choose
-       **Applications and Services Logs**.
-    3. Navigate to the log, and then
-       choose **Actions**, **Properties**.
+   1. Open Event Viewer.
+   2. In the navigation pane, choose
+      **Applications and Services Logs**.
+   3. Navigate to the log, and then
+      choose **Actions**, **Properties**.
 
-4.  For `Levels`, specify the type of messages to upload.
-    You can specify one of the following values:
+4. For `Levels`, specify the type of messages to upload.
+   You can specify one of the following values:
 
-        * `1` - Upload only error messages.
-        * `2` - Upload only warning messages.
-        * `4` - Upload only information messages.
-
-    You can combine values to include more than one type of message.
-    For example, a value of `3` uploads error messages
-    (`1`) and warning messages (`2`).
-    A value of `7` uploads error messages
-    (`1`), warning messages (`2`),
-    and information messages (`4`).
+   - `1` - Upload only error messages.
+   - `2` - Upload only warning messages.
+   - `4` - Upload only information messages.
+     You can combine values to include more than one type of message.
+     For example, a value of `3` uploads error messages
+     (`1`) and warning messages (`2`).
+     A value of `7` uploads error messages
+     (`1`), warning messages (`2`),
+     and information messages (`4`).
 
 ###### To send Event Tracing for Windows data to CloudWatch Logs
 
@@ -242,20 +239,19 @@ has a provider and one or more consumers.
 },
 ```
 
-2.  For `LogName`, type the name of the log to upload.
-3.  For `Levels`, specify the type of messages to upload.
-    You can specify one of the following values:
+2. For `LogName`, type the name of the log to upload.
+3. For `Levels`, specify the type of messages to upload.
+   You can specify one of the following values:
 
-        * `1` - Upload only error messages.
-        * `2` - Upload only warning messages.
-        * `4` - Upload only information messages.
-
-    You can combine values to include more than one type of message.
-    For example, a value of `3` uploads error messages
-    (`1`) and warning messages (`2`).
-    A value of `7` uploads error messages
-    (`1`), warning messages (`2`),
-    and information messages (`4`).
+   - `1` - Upload only error messages.
+   - `2` - Upload only warning messages.
+   - `4` - Upload only information messages.
+     You can combine values to include more than one type of message.
+     For example, a value of `3` uploads error messages
+     (`1`) and warning messages (`2`).
+     A value of `7` uploads error messages
+     (`1`), warning messages (`2`),
+     and information messages (`4`).
 
 ###### To send custom logs (any text-based log file) to CloudWatch Logs
 

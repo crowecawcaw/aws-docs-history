@@ -351,12 +351,12 @@ The expanded query string cannot exceed 10,000 characters. Parameter names
 must start with a letter or underscore. A saved query cannot reference another
 saved query (nested invocations are not supported).
 
-| Common errors                                            | Error                                                                                                    | Cause |
-| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----- |
-| Parameters are only supported for CWLI query<br>language | Parameters are only supported in the CloudWatch Logs<br>Insights query language.                         |
-| Required parameters not found in<br>queryString          | A parameter name in `--parameters` does<br>not have a matching `{{placeholder}}` in the<br>query string. |
-| Parameter count exceeds the maximum of<br>20             | Saved queries currently only support 20<br>parameters.                                                   |
-| Duplicate parameter name                                 | The query definition has duplicate parameters in<br>`parameters`.                                        |
+Common errors| Error | Cause |
+| --- | --- |
+| Parameters are only supported for CWLI query<br>language | Parameters are only supported in the CloudWatch Logs<br>Insights query language. |
+| Required parameters not found in<br>queryString | A parameter name in `--parameters` does<br>not have a matching `{{placeholder}}` in the<br>query string. |
+| Parameter count exceeds the maximum of<br>20 | Saved queries currently only support 20<br>parameters. |
+| Duplicate parameter name | The query definition has duplicate parameters in<br>`parameters`. |
 
 ###### Note
 

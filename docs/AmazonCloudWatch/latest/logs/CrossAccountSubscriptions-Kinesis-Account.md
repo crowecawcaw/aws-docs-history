@@ -24,11 +24,10 @@ account.
   encapsulates a Amazon Kinesis Data Streams stream and lets CloudWatch Logs know that the recipient wants to
   receive log data. The recipient then shares the information about this
   destination with the sender. In the procedures in the rest of this section,
-  the log data recipient is shown with a fictional AWS account number of
-
-999999999999. To start receiving log events from cross-account users, the log data recipient
-              first creates a CloudWatch Logs destination. Each destination consists of the following key
-              elements:
+  the log data recipient is shown with a fictional AWS account number of 999999999999.
+  To start receiving log events from cross-account users, the log data recipient
+  first creates a CloudWatch Logs destination. Each destination consists of the following key
+  elements:
 
 **Destination name**
 

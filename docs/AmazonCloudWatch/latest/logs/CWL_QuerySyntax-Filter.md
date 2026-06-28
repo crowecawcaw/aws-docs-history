@@ -7,7 +7,7 @@ conditions.
 
 The code snippet shows an example of a query that returns all log events
 where the value for `range` is greater than
-**_3000_**. The query limits the
+_**3000**_. The query limits the
 results to 20 log events and sorts the logs events by
 `@timestamp` and in descending order.
 
@@ -25,9 +25,9 @@ more than one condition.
 
 The code snippet shows an example of a query that returns log events
 where the value for `range` is greater than
-**_3000_** and value for
+_**3000**_ and value for
 `accountId` is equal to
-**_123456789012_**.
+_**123456789012**_.
 The query limits the results to 20 log events and sorts the logs events by
 `@timestamp` and in descending order.
 
@@ -44,9 +44,9 @@ If you have created field indexes for a log group, you can leverage
 those field indexes to make your `filter` queries more
 efficient and reduce scanned volume. For example, suppose you have
 created a field index for `requestId`. Then, any CloudWatch Logs Insights query on that log group that includes
-`filter requestId = `value``or
+`filter requestId = `value`` or
 `filter requestId IN [`value`,
-`value`, ...]` will attempt to
+ `value`, ...]` will attempt to
 skip processing log events that are known not to include the indexed
 field. By attempting to scan only the log events that are known to
 contain that indexed field, scan volume can be reduced and the query is
@@ -117,7 +117,7 @@ can match substrings using the `filter` command.
 **Examples: Match substrings**
 
 The following examples return log events where `f1`
-contains the word **_Exception_**.
+contains the word _**Exception**_.
 All three examples are case sensitive.
 
 The first example matches a substring with `like`.
@@ -175,7 +175,7 @@ Possible matches can be formatted like the following:
 
 The following example shows a query that returns log events where
 `f1` doesn't contain the word
-**_Exception_**. The example
+_**Exception**_. The example
 is case senstive.
 
 ```
@@ -191,8 +191,8 @@ You can match substrings that are case insensitive with
 parameter (**?i**) before the substring you want to
 match. The following example shows a query that returns log events where
 `f1` contains the word
-**_Exception_** or
-**_exception_**.
+_**Exception**_ or
+_**exception**_.
 
 ```
 fields f1, f2, f3

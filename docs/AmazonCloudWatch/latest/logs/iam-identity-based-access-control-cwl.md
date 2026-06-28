@@ -65,7 +65,7 @@ the listed actions on any CloudWatch Logs resource.
 
 For a user to work with CloudWatch Logs in the CloudWatch console, that user must have a minimum
 set of permissions that allows the user to describe other AWS resources in their
-AWS account. In order to use CloudWatch Logs in the CloudWatch console, you must have permissions
+AWS account. To use CloudWatch Logs in the CloudWatch console, you must have permissions
 from the following services:
 
 - CloudWatch
@@ -272,9 +272,9 @@ AWS SDKs, or the AWS CLI.
 
 ###### Examples
 
-- [Example 1: Allow full access to CloudWatch Logs](#w2aac63c15c15c27c19b9 "#w2aac63c15c15c27c19b9")
-- [Example 2: Allow read-only access to CloudWatch Logs](#w2aac63c15c15c27c19c11 "#w2aac63c15c15c27c19c11")
-- [Example 3: Allow access to one log group / log stream](#w2aac63c15c15c27c19c13 "#w2aac63c15c15c27c19c13")
+- [Example 1: Allow full access to CloudWatch Logs](#w2aac65c15c15c27c19b9 "#w2aac65c15c15c27c19b9")
+- [Example 2: Allow read-only access to CloudWatch Logs](#w2aac65c15c15c27c19c11 "#w2aac65c15c15c27c19c11")
+- [Example 3: Allow access to one log group / log stream](#w2aac65c15c15c27c19c13 "#w2aac65c15c15c27c19c13")
 
 #### Example 1: Allow full access to CloudWatch Logs
 

@@ -31,7 +31,7 @@ You could specify a rule which attempts to match events of that structure for HT
 3. Choose `Actions`, **Create metric
    filter**.
 4. For **Filter Pattern**, type `[IP, UserInfo,
-User, Timestamp, RequestInfo, StatusCode=404, Bytes]`.
+ User, Timestamp, RequestInfo, StatusCode=404, Bytes]`.
 5. (Optional) To test your filter pattern, under **Test
    Pattern**, enter one or more log events to use to test the
    pattern. Each log event must be within one line, because line breaks are

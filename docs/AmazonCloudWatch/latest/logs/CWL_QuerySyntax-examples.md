@@ -310,8 +310,8 @@ filter (dstAddr like 'x.x.x.x' and srcAddr like 'y.y.') or (srcAddr like 'xxx.xx
 instances in your VPC communicate with most often for uploads and
 downloads.**
 
-**\***For
-uploads**\***
+_****For
+uploads****_
 
 ```
 filter (srcAddr like 'x.x.x.x' and dstAddr not like 'y.y.')
@@ -321,8 +321,8 @@ filter (srcAddr like 'x.x.x.x' and dstAddr not like 'y.y.')
 
 ```
 
-**\***For
-downloads**\***
+_****For
+downloads****_
 
 ```
 filter (dstAddr like 'x.x.x.x' and srcAddr not like 'y.y.')

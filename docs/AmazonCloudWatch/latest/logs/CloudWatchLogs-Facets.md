@@ -87,9 +87,9 @@ values, use filters in your query instead.
 Facet management can be done using the field index policy. See [`field
  index`](../../../AmazonCloudWatchLogs/latest/APIReference/API_FieldIndex.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_FieldIndex.md") APIs for details.
 
-| Field Index APIs | No.                 | Name                                                                                                                                                                                                                              | Description |
-| ---------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1                | PutIndexPolicy      | Creates or updates a field index policy for the specific log<br>group                                                                                                                                                             |
-| 2                | PutAccountPolicy    | Creates an account-level data protection policy, subscription<br>filter policy, field index policy, transformer policy, or metric<br>extraction policy that applies to all log groups or a subset of log<br>groups in the account |
-| 3                | DeleteIndexPolicy   | Deletes a log-group level field index policy that was applied to<br>a single log group                                                                                                                                            |
-| 4                | DeleteAccountPolicy | Deletes a CloudWatch Logs account policy                                                                                                                                                                                          |
+Field Index APIs| No. | Name | Description |
+| --- | --- | --- |
+| 1 | PutIndexPolicy | Creates or updates a field index policy for the specific log<br>group |
+| 2 | PutAccountPolicy | Creates an account-level data protection policy, subscription<br>filter policy, field index policy, transformer policy, or metric<br>extraction policy that applies to all log groups or a subset of log<br>groups in the account |
+| 3 | DeleteIndexPolicy | Deletes a log-group level field index policy that was applied to<br>a single log group |
+| 4 | DeleteAccountPolicy | Deletes a CloudWatch Logs account policy |

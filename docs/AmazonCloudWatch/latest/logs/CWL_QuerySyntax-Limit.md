@@ -14,8 +14,8 @@ fields @timestamp, @message | sort @timestamp desc | limit 25
 
 ## limit any
 
-Use `limit any `N``to stop the
- query as soon as`N` matching log events are
+Use `limit any `N`` to stop the
+query as soon as `N` matching log events are
 found, without scanning remaining data. This can significantly reduce
 the amount of data scanned and speed up queries when you need only a
 sample of matching events rather than a specific ordered set.

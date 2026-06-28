@@ -37,7 +37,7 @@ so far on a sample log event. To do so, do the following:
      version of the log appears
 
 9. When you are finished adding processors and satisfied with the tests on
-   sample logs, choose **Save**.
+sample logs, choose **Save**.
 
 ###### To use the AWS CLI to create a log transformer from scratch
 

@@ -148,7 +148,7 @@ JSON
 For each CloudWatch Logs resource, the service defines a set of API operations. To grant
 permissions for these API operations, CloudWatch Logs defines a set of actions that you can
 specify in a policy. Some API operations can require permissions for more than one
-action in order to perform the API operation. For more information about resources
+action to perform the API operation. For more information about resources
 and API operations, see [CloudWatch Logs resources and operations](#CWL_ARN_Format "#CWL_ARN_Format") and [CloudWatch Logs permissions reference](permissions-reference-cwl.md "permissions-reference-cwl.md").
 
 The following are the basic policy elements:

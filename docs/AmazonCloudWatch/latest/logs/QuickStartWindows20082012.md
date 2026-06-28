@@ -108,19 +108,18 @@ and other log data to CloudWatch Logs.
 },
 ```
 
-2.  For `Levels`, specify the type of messages to upload.
-    You can specify one of the following values:
+2. For `Levels`, specify the type of messages to upload.
+   You can specify one of the following values:
 
-        * `1` - Upload only error messages.
-        * `2` - Upload only warning messages.
-        * `4` - Upload only information messages.
-
-    You can combine values to include more than one type of message.
-    For example, a value of `3` uploads error messages
-    (`1`) and warning messages (`2`).
-    A value of `7` uploads error messages
-    (`1`), warning messages (`2`),
-    and information messages (`4`).
+   - `1` - Upload only error messages.
+   - `2` - Upload only warning messages.
+   - `4` - Upload only information messages.
+     You can combine values to include more than one type of message.
+     For example, a value of `3` uploads error messages
+     (`1`) and warning messages (`2`).
+     A value of `7` uploads error messages
+     (`1`), warning messages (`2`),
+     and information messages (`4`).
 
 ###### To send security log data to CloudWatch Logs
 
@@ -156,19 +155,18 @@ and other log data to CloudWatch Logs.
 },
 ```
 
-2.  For `Levels`, specify the type of messages to upload.
-    You can specify one of the following values:
+2. For `Levels`, specify the type of messages to upload.
+   You can specify one of the following values:
 
-        * `1` - Upload only error messages.
-        * `2` - Upload only warning messages.
-        * `4` - Upload only information messages.
-
-    You can combine values to include more than one type of message.
-    For example, a value of `3` uploads error messages
-    (`1`) and warning messages (`2`).
-    A value of `7` uploads error messages
-    (`1`), warning messages (`2`),
-    and information messages (`4`).
+   - `1` - Upload only error messages.
+   - `2` - Upload only warning messages.
+   - `4` - Upload only information messages.
+     You can combine values to include more than one type of message.
+     For example, a value of `3` uploads error messages
+     (`1`) and warning messages (`2`).
+     A value of `7` uploads error messages
+     (`1`), warning messages (`2`),
+     and information messages (`4`).
 
 ###### To send other types of event log data to CloudWatch Logs
 
@@ -185,30 +183,29 @@ and other log data to CloudWatch Logs.
 },
 ```
 
-2.  For `Id`, type a name for the log
-    to upload (for example, `WindowsBackup`).
-3.  For `LogName`, type the name of the
-    log to upload. You can find the name of the log as follows.
+2. For `Id`, type a name for the log
+   to upload (for example, `WindowsBackup`).
+3. For `LogName`, type the name of the
+   log to upload. You can find the name of the log as follows.
 
-    1. Open Event Viewer.
-    2. In the navigation pane, choose
-       **Applications and Services Logs**.
-    3. Navigate to the log, and then
-       choose **Actions**, **Properties**.
+   1. Open Event Viewer.
+   2. In the navigation pane, choose
+      **Applications and Services Logs**.
+   3. Navigate to the log, and then
+      choose **Actions**, **Properties**.
 
-4.  For `Levels`, specify the type of messages to upload.
-    You can specify one of the following values:
+4. For `Levels`, specify the type of messages to upload.
+   You can specify one of the following values:
 
-        * `1` - Upload only error messages.
-        * `2` - Upload only warning messages.
-        * `4` - Upload only information messages.
-
-    You can combine values to include more than one type of message.
-    For example, a value of `3` uploads error messages
-    (`1`) and warning messages (`2`).
-    A value of `7` uploads error messages
-    (`1`), warning messages (`2`),
-    and information messages (`4`).
+   - `1` - Upload only error messages.
+   - `2` - Upload only warning messages.
+   - `4` - Upload only information messages.
+     You can combine values to include more than one type of message.
+     For example, a value of `3` uploads error messages
+     (`1`) and warning messages (`2`).
+     A value of `7` uploads error messages
+     (`1`), warning messages (`2`),
+     and information messages (`4`).
 
 ###### To send Event Tracing for Windows data to CloudWatch Logs
 
@@ -230,20 +227,19 @@ has a provider and one or more consumers.
 },
 ```
 
-2.  For `LogName`, type the name of the log to upload.
-3.  For `Levels`, specify the type of messages to upload.
-    You can specify one of the following values:
+2. For `LogName`, type the name of the log to upload.
+3. For `Levels`, specify the type of messages to upload.
+   You can specify one of the following values:
 
-        * `1` - Upload only error messages.
-        * `2` - Upload only warning messages.
-        * `4` - Upload only information messages.
-
-    You can combine values to include more than one type of message.
-    For example, a value of `3` uploads error messages
-    (`1`) and warning messages (`2`).
-    A value of `7` uploads error messages
-    (`1`), warning messages (`2`),
-    and information messages (`4`).
+   - `1` - Upload only error messages.
+   - `2` - Upload only warning messages.
+   - `4` - Upload only information messages.
+     You can combine values to include more than one type of message.
+     For example, a value of `3` uploads error messages
+     (`1`) and warning messages (`2`).
+     A value of `7` uploads error messages
+     (`1`), warning messages (`2`),
+     and information messages (`4`).
 
 ###### To send custom logs (any text-based log file) to CloudWatch Logs
 
@@ -424,7 +420,7 @@ should have EC2Config 4.0 or later, and you can use this procedure.
 1. Check the encoding of the `AWS.EC2.Windows.CloudWatch.json` file that you edited
    earlier in this procedure. Only UTF-8 without BOM encoding is supported. Then save the file in the following folder on your
    Windows Server 2008 - 2012 R2 instance: `C:\Program
-Files\Amazon\SSM\Plugins\awsCloudWatch\`.
+ Files\Amazon\SSM\Plugins\awsCloudWatch\`.
 2. Start or restart the SSM agent
    (`AmazonSSMAgent.exe`) using the Windows Services
    control panel or using the following PowerShell command:

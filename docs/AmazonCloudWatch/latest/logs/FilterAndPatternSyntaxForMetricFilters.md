@@ -32,14 +32,14 @@ which includes the following examples:
 
 When a metric filter matches a term, it increments the metric's count by a specified
 numerical value. For example, you can create a metric filter that counts the number of
-times the word **_ERROR_** occurs in your log
+times the word _**ERROR**_ occurs in your log
 events.
 
 You can assign units of measure and dimensions to metrics. For example, if you create
 a metric filter that counts the number of times the word
-**_ERROR_** occurs in your log events, you
+_**ERROR**_ occurs in your log events, you
 can specify a dimension that's called `ErrorCode` to show the total number of
-log events that contain the word **_ERROR_** and
+log events that contain the word _**ERROR**_ and
 filter data by reported error codes.
 
 ###### Tip

@@ -76,8 +76,8 @@ The key elements in the data structure are the following:
 
 **messageType**
 
-Data messages will use the "DATA_MESSAGE" type. Sometimes
-CloudWatch Logs might emit Amazon Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
+Data messages will use the "DATA\_MESSAGE" type. Sometimes
+CloudWatch Logs might emit Amazon Kinesis Data Streams records with a "CONTROL\_MESSAGE" type,
 mainly for checking if the destination is reachable.
 
 **owner**
@@ -106,5 +106,5 @@ event.
 **policyLevel**
 
 The level at which the policy was enforced.
-"ACCOUNT_LEVEL_POLICY" is the `policyLevel` for an
+"ACCOUNT\_LEVEL\_POLICY" is the `policyLevel` for an
 account-level subscription filter policy.

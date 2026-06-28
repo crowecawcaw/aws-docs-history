@@ -13,8 +13,8 @@ matched to the target value.
 
 For example, suppose you have created a field index for `requestId`. Then,
 any CloudWatch Logs Insights query on that log group that includes `requestId =
- `value``or`requestId IN
-[`value`, `value`, ...]`
+ `value`` or `requestId IN
+ [`value`, `value`, ...]`
 will attempt to process only the log events that are known to contain that indexed field
 and the queried value, and that CloudWatch Logs has detected a value for that field in the
 past.
@@ -25,7 +25,7 @@ of the `filter` command, the query will run against selected log groups on
 log events that have field indexes. These queries can scan as many as 10,000 log groups
 which you choose by specifying as many as five log group name prefixes. If this is a
 monitoring account in CloudWatch cross-account observability, you can choose all the source
-accounts or specify individual source accounts to select the log groups”.
+accounts or specify individual source accounts to select the log groups".
 
 Indexed fields are case-sensitive. For example, a field index of
 `RequestId` won't match a log event containing

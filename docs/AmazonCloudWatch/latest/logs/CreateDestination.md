@@ -156,146 +156,121 @@ that you gathered from the first call. For more information, see
  --policy-document file://~/PermissionsForCWL.json`
 ```
 
-7.  After the stream is in the active state and you have created the
-    IAM role, you can create the CloudWatch Logs destination.
+7. After the stream is in the active state and you have created the
+   IAM role, you can create the CloudWatch Logs destination.
 
-        1. This step doesn't associate an access policy with your
-         destination and is only the first step out of two that
-         completes a destination creation. Make a note of the
-         **DestinationArn** that is returned in
-         the payload:
+   1. This step doesn't associate an access policy with your
+      destination and is only the first step out of two that
+      completes a destination creation. Make a note of the
+      **DestinationArn** that is returned in
+      the payload:
 
+   ```
+   `aws logs put-destination \
+    --destination-name "testDestination" \
+    --target-arn "arn:aws:kinesis:`region`:999999999999:stream/RecipientStream" \
+    --role-arn "arn:aws:iam::999999999999:role/CWLtoKinesisRole"`
 
+   `{
+    "DestinationName" : "testDestination",
+    "RoleArn" : "arn:aws:iam::999999999999:role/CWLtoKinesisRole",
+    "DestinationArn" : "arn:aws:logs:us-east-1:999999999999:destination:testDestination",
+    "TargetArn" : "arn:aws:kinesis:us-east-1:999999999999:stream/RecipientStream"
+   }`
+   ```
+   2. After step 7a is complete, in the log data recipient
+      account, associate an access policy with the destination.
+      This policy must specify the
+      **logs:PutSubscriptionFilter** action
+      and grants permission to the sender account to access the
+      destination.
 
-        ```
-        `aws logs put-destination \
-         --destination-name "testDestination" \
-         --target-arn "arn:aws:kinesis:`region`:999999999999:stream/RecipientStream" \
-         --role-arn "arn:aws:iam::999999999999:role/CWLtoKinesisRole"`
+   The policy grants permission to the AWS account that
+   sends logs. You can specify just this one account in the
+   policy, or if the sender account is a member of an
+   organization, the policy can specify the organization ID of
+   the organization. This way, you can create just one policy
+   to allow multiple accounts in one organization to send logs
+   to this destination account.
 
-        `{
-         "DestinationName" : "testDestination",
-         "RoleArn" : "arn:aws:iam::999999999999:role/CWLtoKinesisRole",
-         "DestinationArn" : "arn:aws:logs:us-east-1:999999999999:destination:testDestination",
-         "TargetArn" : "arn:aws:kinesis:us-east-1:999999999999:stream/RecipientStream"
-        }`
-        ```
-        2. After step 7a is complete, in the log data recipient
-         account, associate an access policy with the destination.
-         This policy must specify the
-         **logs:PutSubscriptionFilter** action
-         and grants permission to the sender account to access the
-         destination.
+   Use a text editor to create a file named
+   `~/AccessPolicy.json` with one of the
+   following policy statements.
 
+   This first example policy allows all accounts in the
+   organization that have an ID of `o-1234567890` to
+   send logs to the recipient account.
 
-        The policy grants permission to the AWS account that
-         sends logs. You can specify just this one account in the
-         policy, or if the sender account is a member of an
-         organization, the policy can specify the organization ID of
-         the organization. This way, you can create just one policy
-         to allow multiple accounts in one organization to send logs
-         to this destination account.
+   JSON
 
+   ```
+   `{
+    "Version":"2012-10-17",
+    "Statement": [
+    {
+    "Sid": "",
+    "Effect": "Allow",
+    "Principal": "*",
+    "Action": "logs:PutSubscriptionFilter",
+    "Resource": "arn:aws:logs:us-east-1:999999999999:destination:testDestination",
+    "Condition": {
+    "StringEquals": {
+    "aws:PrincipalOrgID": [
+    "o-1234567890"
+    ]
+    }
+    }
+    }
+    ]
+   }`
 
-        Use a text editor to create a file named
-         `~/AccessPolicy.json` with one of the
-         following policy statements.
+   ```
 
+   This next example allows just the log data sender account
+   (111111111111) to send logs to the log data recipient
+   account.
 
-        This first example policy allows all accounts in the
-         organization that have an ID of `o-1234567890` to
-         send logs to the recipient account.
+   JSON
 
+   ```
+   `{
+    "Version":"2012-10-17",
+    "Statement": [
+    {
+    "Sid": "",
+    "Effect": "Allow",
+    "Principal": {
+    "AWS": "111111111111"
+    },
+    "Action": "logs:PutSubscriptionFilter",
+    "Resource": "arn:aws:logs:`us-east-1`:999999999999:destination:testDestination"
+    }
+    ]
+   }`
 
+   ```
+   3. Attach the policy you created in the previous step to the
+      destination.
 
-        JSON
+   ```
+   `aws logs put-destination-policy \
+    --destination-name "testDestination" \
+    --access-policy file://~/AccessPolicy.json`
+   ```
 
+   This access policy enables users in the AWS Account with
+   ID 111111111111 to call
+   **PutSubscriptionFilter** against the
+   destination with ARN
+   arn:aws:logs:`region`:999999999999:destination:testDestination.
+   Any other user's attempt to call PutSubscriptionFilter
+   against this destination will be rejected.
 
-
-
-
-        ```
-        `{
-         "Version":"2012-10-17",
-         "Statement": [
-         {
-         "Sid": "",
-         "Effect": "Allow",
-         "Principal": "*",
-         "Action": "logs:PutSubscriptionFilter",
-         "Resource": "arn:aws:logs:us-east-1:999999999999:destination:testDestination",
-         "Condition": {
-         "StringEquals": {
-         "aws:PrincipalOrgID": [
-         "o-1234567890"
-         ]
-         }
-         }
-         }
-         ]
-        }`
-
-        ```
-
-
-
-
-
-        This next example allows just the log data sender account
-         (111111111111) to send logs to the log data recipient
-         account.
-
-
-
-        JSON
-
-
-
-
-
-        ```
-        `{
-         "Version":"2012-10-17",
-         "Statement": [
-         {
-         "Sid": "",
-         "Effect": "Allow",
-         "Principal": {
-         "AWS": "111111111111"
-         },
-         "Action": "logs:PutSubscriptionFilter",
-         "Resource": "arn:aws:logs:`us-east-1`:999999999999:destination:testDestination"
-         }
-         ]
-        }`
-
-        ```
-        3. Attach the policy you created in the previous step to the
-         destination.
-
-
-
-        ```
-        `aws logs put-destination-policy \
-         --destination-name "testDestination" \
-         --access-policy file://~/AccessPolicy.json`
-        ```
-
-        This access policy enables users in the AWS Account with
-         ID 111111111111 to call
-         **PutSubscriptionFilter** against the
-         destination with ARN
-         arn:aws:logs:`region`:999999999999:destination:testDestination.
-         Any other user's attempt to call PutSubscriptionFilter
-         against this destination will be rejected.
-
-
-        To validate a user's privileges against an access policy,
-         see [Using
-         Policy Validator](../../../IAM/latest/UserGuide/policies_policy-validator.md "../../../IAM/latest/UserGuide/policies_policy-validator.md") in the
-         *IAM User Guide*.
-
-    When you have finished, if you're using AWS Organizations for your cross-account
-    permissions, follow the steps in [Step 2: (Only if using an organization) Create an IAM role](CreateSubscriptionFilter-IAMrole.md "CreateSubscriptionFilter-IAMrole.md"). If you're granting
-    permissions directly to the other account instead of using Organizations, you can
-    skip that step and proceed to [Step 4: Create a subscription filter](CreateSubscriptionFilter.md "CreateSubscriptionFilter.md").
+   To validate a user's privileges against an access policy,
+   see [Using
+   Policy Validator](../../../IAM/latest/UserGuide/policies_policy-validator.md "../../../IAM/latest/UserGuide/policies_policy-validator.md") in the
+   _IAM User Guide_.
+   When you have finished, if you're using AWS Organizations for your cross-account
+   permissions, follow the steps in [Step 2: (Only if using an organization) Create an IAM role](CreateSubscriptionFilter-IAMrole.md "CreateSubscriptionFilter-IAMrole.md"). If you're granting
+   permissions directly to the other account instead of using Organizations, you can
+   skip that step and proceed to [Step 4: Create a subscription filter](CreateSubscriptionFilter.md "CreateSubscriptionFilter.md").

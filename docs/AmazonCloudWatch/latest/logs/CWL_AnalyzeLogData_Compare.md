@@ -79,7 +79,7 @@ The table displays the following information:
      `WARN`.
 
 10. To further inspect one of the patterns in the list, choose the icon in
-    the **Inspect** column for one of the patterns.
+the **Inspect** column for one of the patterns.
 
 The **Pattern inspect** pane appears and displays the
 following:

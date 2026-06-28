@@ -89,11 +89,8 @@ The IAM role you choose must fulfill these requirements:
      customer's VPC, enabling Lambda to write to the OpenSearch endpoint in
      the VPC.
 
-7. For **Log format**, choose a log format.
-8. For **Subscription filter pattern**, type the terms or
-   pattern to find in your log events. This ensures that you send only the data
-   you're interested in to your OpenSearch cluster. For more information, see [Creating metrics from log events using filters](MonitoringLogData.md "MonitoringLogData.md").
-9. (Optional) For **Select log data to test**, select a log
-   stream and then choose **Test pattern** to verify that your
-   search filter is returning the results you expect.
-10. Choose **Start streaming**.
+7. For **Log format**, choose a log format. 8. For **Subscription filter pattern**, type the terms or
+pattern to find in your log events. This ensures that you send only the data
+you're interested in to your OpenSearch cluster. For more information, see [Creating metrics from log events using filters](MonitoringLogData.md "MonitoringLogData.md"). 9. (Optional) For **Select log data to test**, select a log
+stream and then choose **Test pattern** to verify that your
+search filter is returning the results you expect. 10. Choose **Start streaming**.
