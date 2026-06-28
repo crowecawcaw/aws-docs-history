@@ -369,7 +369,7 @@ For jobs using compute instances, before you can add any AMIs to your job, you m
 and it must be a supported image type. Currently, supported AMIs are based on these operating systems:
 
 - [Amazon Linux 2](https://aws.amazon.com/marketplace/pp/B08Q76DLTM "https://aws.amazon.com/marketplace/pp/B08Q76DLTM")
-- [CentOS 7 (x86_64) - with Updates HVM](https://aws.amazon.com/marketplace/pp/B00O7WM7QW "https://aws.amazon.com/marketplace/pp/B00O7WM7QW")
+- [CentOS 7 (x86\_64) - with Updates HVM](https://aws.amazon.com/marketplace/pp/B00O7WM7QW "https://aws.amazon.com/marketplace/pp/B00O7WM7QW")
 - Ubuntu 16.04 LTS - Xenial (HVM)
 - [Ubuntu 20.04 LTS - Focal](https://aws.amazon.com/marketplace/pp/prodview-iftkyuwv2sjxi "https://aws.amazon.com/marketplace/pp/prodview-iftkyuwv2sjxi")
 - [Ubuntu 22.04 LTS - Jammy](https://aws.amazon.com/marketplace/pp/prodview-f2if34z3a4e3i "https://aws.amazon.com/marketplace/pp/prodview-f2if34z3a4e3i")

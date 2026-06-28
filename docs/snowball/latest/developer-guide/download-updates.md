@@ -37,11 +37,11 @@ snowballEdge download-updates --uri file:/`C:/path/to/local-update`
    locked, use the `unlock-device` command to unlock
    it. For more information, see [Unlocking the Snowball Edge](unlockdevice.md "unlockdevice.md").
 2. When the device is unlocked, run the `snowballEdge
-check-for-updates` command. This command returns the latest available
+ check-for-updates` command. This command returns the latest available
    version of the Snowball Edge software, and also the current version installed
    on the device.
 3. If your device software is out of date, run the `snowballEdge
-download-updates` command.
+ download-updates` command.
 
 ###### Note
 
@@ -62,7 +62,7 @@ snowballEdge download-updates --uri file:/`C:/path/to/local-update`
 ```
 
 4. You can check the status of this download with the `snowballEdge
-describe-device-software` command. While an update is downloading, you
+ describe-device-software` command. While an update is downloading, you
    display the status using this command.
 
 ###### Example output of `describe-device-software` command

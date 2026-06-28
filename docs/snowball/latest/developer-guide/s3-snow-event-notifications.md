@@ -30,7 +30,7 @@ When prompted, enter the following information:
      `https://10.0.0.1`).
 
 3. Run the following `put-notification-configuration` command to send
-   notifications to an external broker.
+notifications to an external broker.
 
 ```
 snowballEdge put-notification-configuration --broker-endpoint ssl://`mqtt-broker-ip-address`:8883 --enabled true --service-id s3-snow --ca-certificate file:`path-to-mqtt-broker-ca-cert`

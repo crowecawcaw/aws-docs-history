@@ -107,7 +107,7 @@ arn:`partition`:s3:snow:`account-id`:`device`/`device-id`/bucket/`bucket-name`
 
 Where `partition` is the partition of the Region where
 you ordered your Snowball Edge device. `device-id` is the
-job_id if the device is a standalone Snowball Edge device, or the
+job\_id if the device is a standalone Snowball Edge device, or the
 `cluster_id` if you have a Snowball Edge
 cluster.
 

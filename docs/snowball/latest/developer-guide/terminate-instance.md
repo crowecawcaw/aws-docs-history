@@ -18,7 +18,7 @@ instance.
    the instance that you want to terminate.
 4. Choose the instance, and choose the **Actions**menu. From the **Actions** menu, choose **Terminate**.
 
-![Instances tab showing instance chose and Actions menu showing Terminate chosen.](images/opshub-instance-terminate-console.png) 5. In the **Terminate instances window, choose **Confirm terminate\*\*\*\*.
+![Instances tab showing instance chose and Actions menu showing Terminate chosen.](images/opshub-instance-terminate-console.png) 5. In the **Terminate instances window, choose **Confirm terminate****.
 
 ![Terminate instances window showing instance name and Confirm terminate button.](images/opshub-instance-terminate-instances-console.png)
 

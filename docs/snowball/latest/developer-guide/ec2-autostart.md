@@ -37,7 +37,7 @@ steps:
 3. Use the EC2-compatible API command `aws ec2 create-launch-template` to create
    a launch template.
 4. Use the Snowball Edge client command `snowballEdge
-create-autostart-configuration` to bind your EC2-compatible instance launch template to
+ create-autostart-configuration` to bind your EC2-compatible instance launch template to
    your network configuration. For more information, see [Creating an EC2-compatible launch configuration on a Snowball Edge](using-ec2-edge-client.md#ec2-edge-create-autostart-config "using-ec2-edge-client.md#ec2-edge-create-autostart-config").
 5. Reboot, then unlock your device. Your EC2-compatible instances are automatically
    started using the attributes specified in your launch template and your

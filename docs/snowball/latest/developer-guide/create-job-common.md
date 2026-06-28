@@ -106,8 +106,8 @@ Storage type options available depend on the job type and Snow device you chose.
 
 5. If you selected _Amazon S3 compatible storage_ as the storage type, in the **S3 storage capacity** section, do the following:
 
-   1. Select to use Amazon S3 compatible storage on Snowball Edge on a single device or a cluster of devices. See [Using a AWS Snowball Edge cluster](UsingCluster.md "UsingCluster.md") in this guide.
-   2. Select the amount of device storage to use for Amazon S3 compatible storage on Snowball Edge.###### Note
+    1. Select to use Amazon S3 compatible storage on Snowball Edge on a single device or a cluster of devices. See [Using a AWS Snowball Edge cluster](UsingCluster.md "UsingCluster.md") in this guide.
+    2. Select the amount of device storage to use for Amazon S3 compatible storage on Snowball Edge.###### Note
 
 When using Amazon S3 compatible storage on Snowball Edge, you can manage and create Amazon S3 buckets after you receive the device, so you don't need to choose them while ordering. See [Amazon S3 compatible storage on Snowball Edge](s3compatible-on-snow.md "s3compatible-on-snow.md") in this guide.
 
@@ -151,12 +151,10 @@ We recommend that you create your Kubernetes cluster with the latest available K
     2. In the **High availability** section, to operate Amazon EKS Anywhere clusters across multiple Snowball Edge devices, choose the number of devices to include in your order.
 
 2. In the **AWS IoT Greengrass on Snow** section, to include a validated
-   AMI for IoT workloads, select **Install AWS IoT Greengrass validated AMI on my
-   Snow device**.
-3. To enable remote management of your Snowball Edge device by AWS OpsHub or
-   Snowball Edge Client, select **Manage your Snow device remotely with
-   AWS OpsHub or Snowball Edge Client**.
-4. Select the **Next** button.
+AMI for IoT workloads, select **Install AWS IoT Greengrass validated AMI on my
+Snow device**. 3. To enable remote management of your Snowball Edge device by AWS OpsHub or
+Snowball Edge Client, select **Manage your Snow device remotely with
+AWS OpsHub or Snowball Edge Client**. 4. Select the **Next** button.
 
 ## Choosing security, shipping, and notification preferences
 

@@ -138,13 +138,12 @@ unsupported options along with a command. However, these are ignored.
     information for the launch template. The following attributes
     are supported:
 
-        - `ImageId`
-        - `InstanceType`
-        - `SecurityGroupIds`
-        - `TagSpecifications`
-        - `UserData`
-
-    JSON syntax:
+    - `ImageId`
+    - `InstanceType`
+    - `SecurityGroupIds`
+    - `TagSpecifications`
+    - `UserData`
+      JSON syntax:
 
   ```
   {
@@ -360,62 +359,49 @@ fails with `DependencyViolation`.
 - [describe-instance-status](../../../cli/latest/reference/ec2/describe-instance-status.md "../../../cli/latest/reference/ec2/describe-instance-status.md") – Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.
   Instance status includes the following components:
 
-      + **Status checks** – Snow device performs status checks on running Amazon EC2-compatible instances to identify hardware and software issues.
-      + **Instance state** – You can manage your instances from the moment you launch them through their termination.
+  - **Status checks** – Snow device performs status checks on running Amazon EC2-compatible instances to identify hardware and software issues.
+  - **Instance state** – You can manage your instances from the moment you launch them through their termination.
+    With this command following filters are supported.
 
-  With this command following filters are supported.
+  - `[--filters]` (list)
 
-      + `[--filters]` (list)
+  The filters.
 
+        - `instance-state-code` – The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal service reporting purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
+        - `instance-state-name` – The state of the instance (`pending` | `running` | `shutting-down` | `terminated` | `stopping` | `stopped` ).
+        - `instance-status.reachability` – Filters on instance status where the name is `reachability` (`passed` | `failed` | `initializing` | `insufficient-data` ).
+        - `instance-status.status` – The status of the instance (`ok` | `impaired` | `initializing` | `insufficient-data` | `not-applicable` ).
+        - `system-status.reachability` – Filters on system status where the name is reachability (`passed` | `failed` | `initializing` | `insufficient-data` ).
+        - `system-status.status` – The system status of the instance (`ok` | `impaired` | `initializing` | `insufficient-data` | `not-applicable` ).
+  - JSON Syntax:
 
-      The filters.
+  ```
+  [
+    {
+      "Name": "string",
+      "Values": ["string", ...]
+    }
+    ...
+  ]
+  ```
+  - `[--instance-ids]` (list)
 
+  The instance IDs.
 
+  Default: Describes all of your instances.
+  - `[--dry-run|--no-dry-run]` (boolean)
 
+  Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is `DryRunOperation`.
 
-      	- `instance-state-code` – The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal service reporting purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
-      	- `instance-state-name` – The state of the instance (`pending` | `running` | `shutting-down` | `terminated` | `stopping` | `stopped` ).
-      	- `instance-status.reachability` – Filters on instance status where the name is `reachability` (`passed` | `failed` | `initializing` | `insufficient-data` ).
-      	- `instance-status.status` – The status of the instance (`ok` | `impaired` | `initializing` | `insufficient-data` | `not-applicable` ).
-      	- `system-status.reachability` – Filters on system status where the name is reachability (`passed` | `failed` | `initializing` | `insufficient-data` ).
-      	- `system-status.status` – The system status of the instance (`ok` | `impaired` | `initializing` | `insufficient-data` | `not-applicable` ).
-      + JSON Syntax:
+  Otherwise, it is `UnauthorizedOperation`.
+  - `[--include-all-instances | --no-include-all-instances]` (boolean)
 
+  When `true`, includes the health status for all instances. When `false`, includes the health status for running instances only.
 
-
-      ```
-      [
-        {
-          "Name": "string",
-          "Values": ["string", ...]
-        }
-        ...
-      ]
-      ```
-      + `[--instance-ids]` (list)
-
-
-      The instance IDs.
-
-
-      Default: Describes all of your instances.
-      + `[--dry-run|--no-dry-run]` (boolean)
-
-
-      Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is `DryRunOperation`.
-
-
-      Otherwise, it is `UnauthorizedOperation`.
-      + `[--include-all-instances | --no-include-all-instances]` (boolean)
-
-
-      When `true`, includes the health status for all instances. When `false`, includes the health status for running instances only.
-
-
-      Default: `false`
-      + `[--page-size]` (integer) – The size of each page to get in the call. This value doesn't affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the device, retrieving fewer items in each call. Doing this can help prevent the calls from timing out.
-      + `[--max-items]` (integer) – The total number of items to return in the command's output. If the total number of items available is more than the value specified, `NextToken` is provided in the command's output. To resume pagination, provide the `NextToken` value in the `starting-token` argument of a subsequent command.
-      + `[--starting-token]` (string) – A token to specify where to start paginating. This token is the `NextToken` value from a previously truncated response.
+  Default: `false`
+  - `[--page-size]` (integer) – The size of each page to get in the call. This value doesn't affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the device, retrieving fewer items in each call. Doing this can help prevent the calls from timing out.
+  - `[--max-items]` (integer) – The total number of items to return in the command's output. If the total number of items available is more than the value specified, `NextToken` is provided in the command's output. To resume pagination, provide the `NextToken` value in the `starting-token` argument of a subsequent command.
+  - `[--starting-token]` (string) – A token to specify where to start paginating. This token is the `NextToken` value from a previously truncated response.
 
 - [describe-launch-templates](../../../cli/latest/reference/ec2/describe-launch-templates.md "../../../cli/latest/reference/ec2/describe-launch-templates.md") – Describes one or more
   launch templates. The `describe-launch-templates` command is

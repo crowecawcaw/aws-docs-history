@@ -44,7 +44,7 @@ supported.
   a DOWNLOAD of an object from the Snow device's S3 bucket.
 - [PUT Object](../../../AmazonS3/latest/API/RESTObjectPUT.md "../../../AmazonS3/latest/API/RESTObjectPUT.md") –
   When an object is uploaded to an AWS Snowball Edge device using `PUT
-Object`, an ETag is generated.
+ Object`, an ETag is generated.
 
 The ETag is a hash of the object. The ETag reflects changes only to the
 contents of an object, not its metadata. The ETag might or might not be an

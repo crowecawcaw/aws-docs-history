@@ -85,7 +85,7 @@ profile. After configuration, you can use Snowball Edge Client commands
 without having to manually enter these values for each command by including the profile name with the command. After you
 configure the Snowball Edge Client, the information is saved in a plaintext JSON
 format to ``home
- directory`/.aws/snowball/config/snowball-edge.config`. Make sure your environment is configured to allow you to create this file.
+directory`/.aws/snowball/config/snowball-edge.config`. Make sure your environment is configured to allow you to create this file.
 
 ###### Important
 

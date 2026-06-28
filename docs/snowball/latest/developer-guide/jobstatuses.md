@@ -14,20 +14,20 @@ current processing state, or the storage used for the associated devices.
 3. Click on your job name within the console.
 4. The Job Status pane will be located near the top and reflects the status of the job.
 
-| AWS Snowball Edge device job statuses | Console Identifier       | API Identifier                                                                                                                                                        | Status Description |
-| ------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| Job created                           | `New`                    | Your job has just been created. This status is the only one during<br>which you can cancel a job or its job parts, if the job is an export<br>job.                    |
-| Preparing appliance                   | `PreparingAppliance`     | AWS is preparing a device for your job.                                                                                                                               |
-| Exporting                             | `InProgress`             | AWS is exporting your data from Amazon S3 onto a device.                                                                                                              |
-| Preparing shipment                    | `PreparingShipment`      | AWS is preparing to ship a device to you. The expected<br>shipping tracking information is provided for customers in the<br>status.                                   |
-| In transit to you                     | `InTransitToCustomer`    | The device has been shipped to the address you provided during job<br>creation.                                                                                       |
-| Delivered to you                      | `WithCustomer`           | The device has arrived at the address you provided during job<br>creation.                                                                                            |
-| In transit to AWS                     | `InTransitToAWS`         | You have shipped the device back to AWS.                                                                                                                              |
-| At sorting facility                   | `WithAWSSortingFacility` | The device for this job is at our internal sorting facility. Any<br>additional processing for import jobs into Amazon S3 will begin soon,<br>typically within 2 days. |
-| At AWS                                | `WithAWS`                | Your shipment has arrived at AWS. If you're importing data, your<br>import typically begins within a day of its arrival.                                              |
-| Importing                             | `InProgress`             | AWS is importing your data into Amazon Simple Storage Service (Amazon S3).                                                                                            |
-| Completed                             | `Complete`               | Your job or a part of your job has completed successfully.                                                                                                            |
-| Canceled                              | `Cancelled`              | Your job has been canceled.                                                                                                                                           |
+AWS Snowball Edge device job statuses| Console Identifier | API Identifier | Status Description |
+| --- | --- | --- |
+| Job created | `New` | Your job has just been created. This status is the only one during<br>which you can cancel a job or its job parts, if the job is an export<br>job. |
+| Preparing appliance | `PreparingAppliance` | AWS is preparing a device for your job. |
+| Exporting | `InProgress` | AWS is exporting your data from Amazon S3 onto a device. |
+| Preparing shipment | `PreparingShipment` | AWS is preparing to ship a device to you. The expected<br>shipping tracking information is provided for customers in the<br>status. |
+| In transit to you | `InTransitToCustomer` | The device has been shipped to the address you provided during job<br>creation. |
+| Delivered to you | `WithCustomer` | The device has arrived at the address you provided during job<br>creation. |
+| In transit to AWS | `InTransitToAWS` | You have shipped the device back to AWS. |
+| At sorting facility | `WithAWSSortingFacility` | The device for this job is at our internal sorting facility. Any<br>additional processing for import jobs into Amazon S3 will begin soon,<br>typically within 2 days. |
+| At AWS | `WithAWS` | Your shipment has arrived at AWS. If you're importing data, your<br>import typically begins within a day of its arrival. |
+| Importing | `InProgress` | AWS is importing your data into Amazon Simple Storage Service (Amazon S3). |
+| Completed | `Complete` | Your job or a part of your job has completed successfully. |
+| Canceled | `Cancelled` | Your job has been canceled. |
 
 ## Statuses of Snowball Edge cluster jobs
 

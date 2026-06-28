@@ -50,22 +50,22 @@ Snowball Edge devices:
   perform a complete erasure of the device. This erasure follows the National
   Institute of Standards and Technology (NIST) 800-88 standards.
 
-| Amazon S3 compatible storage on Snowball Edge cluster fault tolerance and storage capacity | Cluster size          | Fault tolerance | Storage capacity of Snowball Edge Compute Optimized (Compute<br>Optimized with AMD EPYC Gen2 and NVMe) devices (in TB) | Storage capacity of Snowball Edge storage optimized 210 TB<br>devices (in TB) |
-| ------------------------------------------------------------------------------------------ | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| 3                                                                                          | Loss of up to 1 node  | 38              | 438                                                                                                                    |
-| 4                                                                                          | Loss of up to 1 node  | 57              | 657                                                                                                                    |
-| 5                                                                                          | Loss of up to 2 nodes | 57              | 657                                                                                                                    |
-| 6                                                                                          | Loss of up to 2 nodes | 76              | 904                                                                                                                    |
-| 7                                                                                          | Loss of up to 2 nodes | 95              | 1096                                                                                                                   |
-| 8                                                                                          | Loss of up to 2 nodes | 114             | 1315                                                                                                                   |
-| 9                                                                                          | Loss of up to 2 nodes | 133             | 1534                                                                                                                   |
-| 10                                                                                         | Loss of up to 2 nodes | 152             | 1754                                                                                                                   |
-| 11                                                                                         | Loss of up to 2 nodes | 165             | 1970                                                                                                                   |
-| 12                                                                                         | Loss of up to 2 nodes | 171             | 1973                                                                                                                   |
-| 13                                                                                         | Loss of up to 2 nodes | 190             | 2192                                                                                                                   |
-| 14                                                                                         | Loss of up to 2 nodes | 209             | 2411                                                                                                                   |
-| 15                                                                                         | Loss of up to 2 nodes | 225             | 2625                                                                                                                   |
-| 16                                                                                         | Loss of up to 2 nodes | 228             | 2631                                                                                                                   |
+Amazon S3 compatible storage on Snowball Edge cluster fault tolerance and storage capacity| Cluster size | Fault tolerance | Storage capacity of Snowball Edge Compute Optimized (Compute<br>Optimized with AMD EPYC Gen2 and NVMe) devices (in TB) | Storage capacity of Snowball Edge storage optimized 210 TB<br>devices (in TB) |
+| --- | --- | --- | --- |
+| 3 | Loss of up to 1 node | 38 | 438 |
+| 4 | Loss of up to 1 node | 57 | 657 |
+| 5 | Loss of up to 2 nodes | 57 | 657 |
+| 6 | Loss of up to 2 nodes | 76 | 904 |
+| 7 | Loss of up to 2 nodes | 95 | 1096 |
+| 8 | Loss of up to 2 nodes | 114 | 1315 |
+| 9 | Loss of up to 2 nodes | 133 | 1534 |
+| 10 | Loss of up to 2 nodes | 152 | 1754 |
+| 11 | Loss of up to 2 nodes | 165 | 1970 |
+| 12 | Loss of up to 2 nodes | 171 | 1973 |
+| 13 | Loss of up to 2 nodes | 190 | 2192 |
+| 14 | Loss of up to 2 nodes | 209 | 2411 |
+| 15 | Loss of up to 2 nodes | 225 | 2625 |
+| 16 | Loss of up to 2 nodes | 228 | 2631 |
 
 After you unlock a cluster, you're ready to store and access data on that
 cluster. You can use the Amazon S3 compatible endpoint to read from and write data to

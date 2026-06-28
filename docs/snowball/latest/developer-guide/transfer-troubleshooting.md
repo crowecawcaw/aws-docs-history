@@ -20,7 +20,7 @@ issues that you might have with your data transfer to or from a Snowball Edge:
   one of the UTF-8 locales like `en_US.UTF-8`. You can configure the
   `locales` package by exporting the environment variable
   `LC_ALL`, for example: `export
-LC_ALL=en_US.UTF-8`
+ LC_ALL=en_US.UTF-8`
 - When you use the Amazon S3 interface with the AWS CLI, you can work with
   files or folders with spaces in their names, such as `my photo.jpg`
   or `My Documents`. However, make sure that you handle the spaces

@@ -98,7 +98,7 @@ Stopping the AWS service on your Snowball Edge. You can determine the status of 
 
 5. Run the `snowballEdge install-updates` command.
 6. You can check the status of this installation with the `snowballEdge
-describe-device-software` command. While an update is installing, you
+ describe-device-software` command. While an update is installing, you
    display the status with this command.
 
 ###### Example output

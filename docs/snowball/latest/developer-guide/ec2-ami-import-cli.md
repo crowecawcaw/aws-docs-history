@@ -203,8 +203,8 @@ The following is an output example from the create-policy command.
 }
 ```
 
-\***\*Attach the policy to the
-role\*\***
+****Attach the policy to the
+role****
 
 Attach a policy to the preceding role and grant permissions to access the required
 resources. This allows the local VM Import/Export service to download the snapshot from Amazon S3 on
@@ -259,8 +259,8 @@ JSON
 
 ```
 
-\***\*Create a policy with the policy
-file:\*\***
+****Create a policy with the policy
+file:****
 
 ```
 aws iam create-policy --policy-name `policy-name` --policy-document file:///`policy-json-file-path` --endpoint http://`snowball-ip`:6078 --region snow --profile `profile-name`

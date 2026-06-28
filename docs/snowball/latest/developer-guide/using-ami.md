@@ -23,7 +23,7 @@ The following Linux operating systems are supported:
 The latest version of this AMI will be provided at the time your Snowball Edge is being prepared to ship by AWS. To determine the version of this AMI on the device when you receive it, see [Determining the version of the Amazon Linux 2 AMI for Snowball Edge](#snow-al-version "#snow-al-version").
 
 - [CentOS 7
-  (x86_64) - with Updates HVM](https://aws.amazon.com/marketplace/pp/B00O7WM7QW "https://aws.amazon.com/marketplace/pp/B00O7WM7QW")
+  (x86\_64) - with Updates HVM](https://aws.amazon.com/marketplace/pp/B00O7WM7QW "https://aws.amazon.com/marketplace/pp/B00O7WM7QW")
 - Ubuntu 16.04 LTS - Xenial (HVM)
 
 ###### Note
@@ -110,21 +110,19 @@ Before you begin the process to add an AMI from AWS Marketplace to your Snowball
 
 AMIs from AWS Marketplace include **aws-marketplace** in the **Source** column. 5. In the **AMI ID** column, choose the AMI ID of the AMI. 6. In the **Image summary** of the AMI, ensure the **Product codes** are supported by your Region. For more information, see the table below.
 
-| Supported AWS Marketplace AMI product codes | AMI operating system      | Product code |
-| ------------------------------------------- | ------------------------- | ------------ |
-| Ubuntu Server 14.04 LTS                     | b3dl4415quatdndl4qa6kcu45 |
-| CentOS 7 (x86_64)                           | aw0evgkw8e5c1q413zgy5pjce |
-| Ubuntu 16.04 LTS                            | csv6h7oyg29b7epjzg7qdr7no |
-| Amazon Linux 2                              | avyfzznywektkgl5qv5f57ska |
-| Ubuntu 20.04 LTS                            | a8jyynf4hjutohctm41o2z18m |
-| Ubuntu 22.04 LTS                            | 47xbqns9xujfkkjt189a13aqe |
+Supported AWS Marketplace AMI product codes| AMI operating system | Product code |
+| --- | --- |
+| Ubuntu Server 14.04 LTS | b3dl4415quatdndl4qa6kcu45 |
+| CentOS 7 (x86\_64) | aw0evgkw8e5c1q413zgy5pjce |
+| Ubuntu 16.04 LTS | csv6h7oyg29b7epjzg7qdr7no |
+| Amazon Linux 2 | avyfzznywektkgl5qv5f57ska |
+| Ubuntu 20.04 LTS | a8jyynf4hjutohctm41o2z18m |
+| Ubuntu 22.04 LTS | 47xbqns9xujfkkjt189a13aqe | 7. Then, also ensure the **Platform details** contains one of entries from the list below.
 
-7. Then, also ensure the **Platform details** contains one of entries from the list below.
-
-   - Amazon Linux, Ubuntu, or Debian
-   - Red Hat Linux bring-your-own-license
-   - Amazon RDS for Oracle bring-your-own-license
-   - Windows bring-your-own-license
+    * Amazon Linux, Ubuntu, or Debian
+    * Red Hat Linux bring-your-own-license
+    * Amazon RDS for Oracle bring-your-own-license
+    * Windows bring-your-own-license
 
 ### Determining the version of the Amazon Linux 2 AMI for Snowball Edge
 
@@ -203,10 +201,10 @@ sure that they work as expected.
     * The EBS snapshot in your AMI must not be encrypted.
 
 4. Make a copy of the PEM or PPK file that you used for the SSH key pair when you
-   created this instance. Save this file to the server that you plan to use to
-   communicate with the Snowball Edge device. Make a note of the path to this
-   file because you will need it when you use SSH to connect to the EC2-compatible instance on
-   your device.
+created this instance. Save this file to the server that you plan to use to
+communicate with the Snowball Edge device. Make a note of the path to this
+file because you will need it when you use SSH to connect to the EC2-compatible instance on
+your device.
 
 ###### Important
 

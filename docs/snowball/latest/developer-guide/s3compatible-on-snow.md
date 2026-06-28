@@ -26,29 +26,29 @@ device using Amazon S3 compatible storage on Snowball Edge. For fault tolerance 
 
 Snowball Edge Compute Optimized with NVMe storage
 
-| Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge Compute Optimized (Compute Optimized with AMD EPYC Gen2 and NVMe) devices | Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- | ------------------------------ |
-| 3                                                                                                                                                                              | 17.5                                                                   |
-| 5.5                                                                                                                                                                            | 14.5                                                                   |
-| 10.5                                                                                                                                                                           | 8.5                                                                    |
-| 12                                                                                                                                                                             | 6.5                                                                    |
-| 13                                                                                                                                                                             | 5.5                                                                    |
-| 16.5                                                                                                                                                                           | 1.5                                                                    |
+Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge Compute Optimized (Compute Optimized with AMD EPYC Gen2 and NVMe) devices| Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
+| --- | --- |
+| 3 | 17.5 |
+| 5.5 | 14.5 |
+| 10.5 | 8.5 |
+| 12 | 6.5 |
+| 13 | 5.5 |
+| 16.5 | 1.5 |
 
 Snowball Edge storage optimized 210 TB
 
-| Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge storage optimized 210 TB devices | Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------ |
-| 20                                                                                                                                    | 206                                                                    |
-| 40                                                                                                                                    | 182                                                                    |
-| 60                                                                                                                                    | 158                                                                    |
-| 80                                                                                                                                    | 134                                                                    |
-| 100                                                                                                                                   | 110                                                                    |
-| 120                                                                                                                                   | 86                                                                     |
-| 140                                                                                                                                   | 62                                                                     |
-| 160                                                                                                                                   | 38                                                                     |
-| 180                                                                                                                                   | 14                                                                     |
-| 190                                                                                                                                   | 2                                                                      |
+Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge storage optimized 210 TB devices| Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
+| --- | --- |
+| 20 | 206 |
+| 40 | 182 |
+| 60 | 158 |
+| 80 | 134 |
+| 100 | 110 |
+| 120 | 86 |
+| 140 | 62 |
+| 160 | 38 |
+| 180 | 14 |
+| 190 | 2 |
 
 Amazon S3 compatible storage on Snowball Edge specifications:
 

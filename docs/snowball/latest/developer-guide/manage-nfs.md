@@ -135,9 +135,8 @@ interface** list box. 5. Choose to restrict access to the NFS interface and prov
     If you choose **Restrict NFS to allowed hosts** and do not provide allowed CIDR blocks, the Snowball Edge will deny all requests to mount the NFS interface.
     * To allow any device on the network to access the NFS interface, choose **Allow all hosts**.
 
-6. To allow EC2-compatible instances running on the Snowball Edge to access the NFS adapter, choose **Enable**.
-7. Choose **Start NFS**. It could
-   take about a minute or two to start.
+6. To allow EC2-compatible instances running on the Snowball Edge to access the NFS adapter, choose **Enable**. 7. Choose **Start NFS**. It could
+take about a minute or two to start.
 
 ###### Important
 
