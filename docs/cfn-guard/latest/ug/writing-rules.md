@@ -108,16 +108,16 @@ _Supported value literals_:
 
   - `r[<lower_limit>, <upper_limit>]`, which translates to any value
     `k` that satisfies the following expression: `lower_limit <= k <=
-upper_limit`
+   upper_limit`
   - `r[<lower_limit>, <upper_limit>`), which translates to any value
     `k` that satisfies the following expression: `lower_limit <= k <
-upper_limit`
+   upper_limit`
   - `r(<lower_limit>, <upper_limit>]`, which translates to any value
     `k` that satisfies the following expression: `lower_limit < k <=
-upper_limit`
+   upper_limit`
   - `r(<lower_limit>, <upper_limit>),` which translates to any value
     `k` that satisfies the following expression: `lower_limit < k <
-upper_limit`
+   upper_limit`
 
 - Associative arrays (maps) for nested key-value structure data. For example:
 

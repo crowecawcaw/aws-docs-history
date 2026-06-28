@@ -45,7 +45,7 @@ Queries follow these basic principles:
   Ports: `[20, 21, 110, 190]`
 
   Tags: `[{"Key": "Stage", "Value": "PROD"}, {"Key": "App",
- "Value": "MyService"}]`
+   "Value": "MyService"}]`
   - When traversing all values for a structure like
     `Resources.*`
   - Any query result is itself a collection from which values can be
@@ -282,7 +282,7 @@ The following block failures are associated with running queries.
   `FAIL`, and the associated block level clauses also evaluate to
   `FAIL`.
 - When a template contains an empty resources block like `{ "Resources": {}
-}`, the query evaluates to `FAIL`, and the associated block
+ }`, the query evaluates to `FAIL`, and the associated block
   level clauses also evaluate to `FAIL`.
 - If a template contains resources but none match the query, then the query
   returns empty results, and the block level clauses are skipped.

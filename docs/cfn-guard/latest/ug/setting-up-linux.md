@@ -59,7 +59,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     ```
 
 2. Configure your `PATH` environment variable, and run the following
-   command.
+command.
 
 ```
 source $HOME/.cargo/env

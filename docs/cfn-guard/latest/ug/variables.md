@@ -51,7 +51,7 @@ Resources.*.Properties.TaskDefinitionArn == %ecs_task_definition_role_arn
 ```
 
 Based on the `ecs_tasks` variable example in [Assigning variables](#assigning-variables "#assigning-variables"), you can
-reference `ecs_tasks` in a query (for example, %ecs_tasks.Properties). First,
+reference `ecs_tasks` in a query (for example, %ecs\_tasks.Properties). First,
 Guard evaluates the variable `ecs_tasks` and then uses the returned
 values to traverse the hierarchy. If the variable `ecs_tasks` resolves to
 non-string values, then Guard throws an error.

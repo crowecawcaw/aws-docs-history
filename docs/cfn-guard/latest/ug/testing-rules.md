@@ -205,26 +205,23 @@ Name: "MyTest2"
     check_rest_api_is_private: Expected = SKIP, Evaluated = SKIP
 ```
 
-5.  Add two more tests to your unit testing file. Extend the testing to include the
-    following:
+5. Add two more tests to your unit testing file. Extend the testing to include the
+   following:
 
-        * An `AWS::ApiGateway::RestApi` resource with no properties specified.
+   - An `AWS::ApiGateway::RestApi` resource with no properties specified.
 
+   ###### Note
 
-        ###### Note
+   This isn’t a valid CloudFormation template, but it's useful to test whether the rule works
+   correctly even for malformed inputs.
 
-        This isn’t a valid CloudFormation template, but it's useful to test whether the rule works
-         correctly even for malformed inputs.
-
-
-        Expect that this test will fail because the `EndpointConfiguration` property
-         isn't specified and is therefore not set to `PRIVATE`.
-        * An `AWS::ApiGateway::RestApi` resource that satisfies the first intent with
-         the `EndpointConfiguration` property set to `PRIVATE` but does
-         not satisfy the second intent because it has no policy statements defined. Expect that
-         this test will pass.
-
-    The following is the updated unit testing file.
+   Expect that this test will fail because the `EndpointConfiguration` property
+   isn't specified and is therefore not set to `PRIVATE`.
+   - An `AWS::ApiGateway::RestApi` resource that satisfies the first intent with
+     the `EndpointConfiguration` property set to `PRIVATE` but does
+     not satisfy the second intent because it has no policy statements defined. Expect that
+     this test will pass.
+     The following is the updated unit testing file.
 
 ```
 ---
