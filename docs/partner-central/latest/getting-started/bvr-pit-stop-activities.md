@@ -4,12 +4,12 @@ Each pit stop contains activities that you complete to demonstrate progress. Act
 
 ## Activity statuses
 
-| Status          | Description                                                        |
-| --------------- | ------------------------------------------------------------------ |
-| Not submitted   | The activity hasn't been started. Choose \*_Submit_<br>• to begin. |
-| Under review    | Submitted and awaiting PSS review. No action needed from you.      |
-| Complete        | Approved and finalized.                                            |
-| Action required | Your PSS requested changes. Review feedback and resubmit.          |
+| Status          | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| Not submitted   | The activity hasn't been started. Choose *_Submit_<br>• to begin. |
+| Under review    | Submitted and awaiting PSS review. No action needed from you.     |
+| Complete        | Approved and finalized.                                           |
+| Action required | Your PSS requested changes. Review feedback and resubmit.         |
 
 ## Submitting an activity
 
