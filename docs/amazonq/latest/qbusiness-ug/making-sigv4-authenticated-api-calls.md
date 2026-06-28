@@ -432,7 +432,7 @@ ChatSyncResponse chatSyncResponse = qBusinessClient.chatSync(chatSyncRequest);
    ###### Note
 
    The `ContextAssertion` uses the
-   “sts:identity_context” object from the claims object of
+   “sts:identity\_context” object from the claims object of
    the decoded JWT bearer grant token obtained as part of
    Step 1 in this procedure.
 

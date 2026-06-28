@@ -55,26 +55,25 @@ the following:
   Support.
 - Note your:
 
-      + **Access token URL** – For
-       Jira Cloud OAuth applications, this is
-       `https://auth.atlassian.com/oauth/token`.
-      + **Authorization URL** – For
-       Jira Cloud OAuth applications, this is
-       `https://auth.atlassian.com/authorize`.
-      + **Redirect URL** – The URL to
-       which user needs to be redirected after authentication. If your deployed
-       web url is `<q-endpoint>`, use
-       `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
-       URL needs to be allowlisted in your third-party application.
-      + **Client ID** – The client ID
-       generated when you create your OAuth 2.0 application in
-       Jira Cloud.
-      + **Client secret** – The client
-       secret generated when you create your OAuth 2.0 application in
-       Jira Cloud.
-
-  You will need this authentication information during the plugin configuration
-  process.
+  - **Access token URL** – For
+    Jira Cloud OAuth applications, this is
+    `https://auth.atlassian.com/oauth/token`.
+  - **Authorization URL** – For
+    Jira Cloud OAuth applications, this is
+    `https://auth.atlassian.com/authorize`.
+  - **Redirect URL** – The URL to
+    which user needs to be redirected after authentication. If your deployed
+    web url is `<q-endpoint>`, use
+    `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
+    URL needs to be allowlisted in your third-party application.
+  - **Client ID** – The client ID
+    generated when you create your OAuth 2.0 application in
+    Jira Cloud.
+  - **Client secret** – The client
+    secret generated when you create your OAuth 2.0 application in
+    Jira Cloud.
+    You will need this authentication information during the plugin configuration
+    process.
 
 ## Service access roles
 

@@ -42,23 +42,23 @@ your **AWS Secrets Manager secret**.
     3. Choose **Save**.
 
 5. **Configure VPC and security group –
-   _optional_** – Choose
-   whether you want to use a VPC. If you do, enter the following
-   information:
+_optional_** – Choose
+whether you want to use a VPC. If you do, enter the following
+information:
 
-   1. **Subnets** – Select up to 6
-      repository subnets that define the subnets and IP ranges
-      the repository instance uses in the selected VPC.
-   2. **VPC security groups** –
-      Choose up to 10 security groups that allow access to
-      your data source. Ensure that the security group allows
-      incoming traffic from Amazon EC2 instances and
-      devices outside your VPC. For databases, security group
-      instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
+    1. **Subnets** – Select up to 6
+     repository subnets that define the subnets and IP ranges
+     the repository instance uses in the selected VPC.
+    2. **VPC security groups** –
+     Choose up to 10 security groups that allow access to
+     your data source. Ensure that the security group allows
+     incoming traffic from Amazon EC2 instances and
+     devices outside your VPC. For databases, security group
+     instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
 
 6. **IAM role** – Choose
-   an existing IAM role or create an IAM role to access your repository credentials and
-   index content.
+an existing IAM role or create an IAM role to access your repository credentials and
+index content.
 
 ###### Note
 
@@ -112,32 +112,28 @@ settings:
      content.
 
 10. In **Sync mode**, choose how you
-    want to update your index when your data source
-    content changes. When you sync your data source with
-    Amazon Q for the first time, all content
-    is synced by default.
+want to update your index when your data source
+content changes. When you sync your data source with
+Amazon Q for the first time, all content
+is synced by default.
 
-        * **Full sync** – Sync
-         all content regardless of the previous sync
-         status.
-        * **New or modified content
-         sync** – Sync only new and modified
-         documents.
-        * **New, modified, or deleted
-         content sync** – Sync only new,
-         modified, and deleted documents.
+    * **Full sync** – Sync
+     all content regardless of the previous sync
+     status.
+    * **New or modified content
+     sync** – Sync only new and modified
+     documents.
+    * **New, modified, or deleted
+     content sync** – Sync only new,
+     modified, and deleted documents.
 
-    For more details, see [Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode").
-
-11. In **Sync run schedule**, for
-    **Frequency** – Choose how often
-    Amazon Q will sync with your data
-    source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
-    see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs").
-12. **Tags - _optional_** –
-    Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details.
-13. **Field mappings** – A list of data source document
-    attributes to map to your index fields.
+For more details, see [Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode"). 11. In **Sync run schedule**, for
+**Frequency** – Choose how often
+Amazon Q will sync with your data
+source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
+see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs"). 12. **Tags - _optional_** –
+Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details. 13. **Field mappings** – A list of data source document
+attributes to map to your index fields.
 
 ###### Note
 
@@ -161,9 +157,9 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 14. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

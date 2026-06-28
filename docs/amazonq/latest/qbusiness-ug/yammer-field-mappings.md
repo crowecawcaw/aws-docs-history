@@ -38,69 +38,69 @@ Amazon Q reserved/default index fields.
 Amazon Q supports crawling [Microsoft Yammer Messages](https://learn.microsoft.com/en-us/rest/api/yammer/messagesjson "https://learn.microsoft.com/en-us/rest/api/yammer/messagesjson") and offers the following message field
 mappings.
 
-| Microsoft Yammer field name | Index field name            | Description | Data type |
-| --------------------------- | --------------------------- | ----------- | --------- |
-| id                          | ymr_id                      | Custom      | String    |
-| message_type                | ymr_message_type            | Custom      | String    |
-| api_url                     | ymr_api_url                 | Custom      | String    |
-| group_id                    | ymr_group_id                | Custom      | String    |
-| group_name                  | ymr_group_name              | Custom      | String    |
-| in_private_conversation     | ymr_in_private_conversation | Custom      | String    |
-| in_private_group            | ymr_in_private_group        | Custom      | String    |
-| sender_email                | ymr_sender_email            | Custom      | String    |
-| sender_id                   | ymr_sender_id               | Custom      | String    |
-| sender_name                 | ymr_sender_name             | Custom      | String    |
-| created_at                  | \_created_at                | Default     | Date      |
-| web_url                     | \_source_uri                | Default     | String    |
+| Microsoft Yammer field name | Index field name               | Description | Data type |
+| --------------------------- | ------------------------------ | ----------- | --------- |
+| id                          | ymr\_id                        | Custom      | String    |
+| message\_type               | ymr\_message\_type             | Custom      | String    |
+| api\_url                    | ymr\_api\_url                  | Custom      | String    |
+| group\_id                   | ymr\_group\_id                 | Custom      | String    |
+| group\_name                 | ymr\_group\_name               | Custom      | String    |
+| in\_private\_conversation   | ymr\_in\_private\_conversation | Custom      | String    |
+| in\_private\_group          | ymr\_in\_private\_group        | Custom      | String    |
+| sender\_email               | ymr\_sender\_email             | Custom      | String    |
+| sender\_id                  | ymr\_sender\_id                | Custom      | String    |
+| sender\_name                | ymr\_sender\_name              | Custom      | String    |
+| created\_at                 | \_created\_at                  | Default     | Date      |
+| web\_url                    | \_source\_uri                  | Default     | String    |
 
 ## Attachment
 
-| Microsoft Yammer field name | Index field name            | Description | Data type |
-| --------------------------- | --------------------------- | ----------- | --------- |
-| id                          | ymr_attachment_id           | Custom      | String    |
-| name                        | ymr_attachment_name         | Custom      | String    |
-| size                        | ymr_attachment_size         | Custom      | String    |
-| url                         | ymr_attachment_url          | Custom      | String    |
-| file_type                   | ymr_attachment_type         | Custom      | String    |
-| created_at                  | \_created_at                | Default     | Date      |
-| privacy                     | ymr_attachment_privacy      | Custom      | String    |
-| group_name                  | ymr_attachment_group_name   | Custom      | String    |
-| sender_email                | ymr_attachment_sender_email | Custom      | String    |
-| web_url                     | \_source_uri                | Default     | String    |
+| Microsoft Yammer field name | Index field name               | Description | Data type |
+| --------------------------- | ------------------------------ | ----------- | --------- |
+| id                          | ymr\_attachment\_id            | Custom      | String    |
+| name                        | ymr\_attachment\_name          | Custom      | String    |
+| size                        | ymr\_attachment\_size          | Custom      | String    |
+| url                         | ymr\_attachment\_url           | Custom      | String    |
+| file\_type                  | ymr\_attachment\_type          | Custom      | String    |
+| created\_at                 | \_created\_at                  | Default     | Date      |
+| privacy                     | ymr\_attachment\_privacy       | Custom      | String    |
+| group\_name                 | ymr\_attachment\_group\_name   | Custom      | String    |
+| sender\_email               | ymr\_attachment\_sender\_email | Custom      | String    |
+| web\_url                    | \_source\_uri                  | Default     | String    |
 
 ## User
 
-| Microsoft Yammer field name | Index field name         | Description | Data type |
-| --------------------------- | ------------------------ | ----------- | --------- |
-| id                          | ymr_user_id              | Custom      | String    |
-| user_type                   | ymr_user_type            | Custom      | String    |
-| state                       | ymr_user_state           | Custom      | String    |
-| full_name                   | ymr_user_full_name       | Custom      | String    |
-| activated_at                | \_created_at             | Default     | Date      |
-| first_name                  | ymr_user_first_name      | Custom      | String    |
-| last_name                   | ymr_user_last_name       | Custom      | String    |
-| network_name                | ymr_user_network_name    | Custom      | String    |
-| network_domains             | ymr_user_network_domains | Custom      | String    |
-| url                         | ymr_user_url             | Custom      | String    |
-| name                        | ymr_user_name            | Custom      | String    |
-| birth_date                  | ymr_user_birth_date      | Custom      | Date      |
-| admin                       | ymr_user_admin           | Custom      | String    |
-| verified_admin              | ymr_user_verified_admin  | Custom      | String    |
-| contact                     | ymr_user_contact         | Custom      | String    |
-| email                       | ymr_user_email           | Custom      | String    |
-| web_url                     | \_source_uri             | Default     | String    |
+| Microsoft Yammer field name | Index field name            | Description | Data type |
+| --------------------------- | --------------------------- | ----------- | --------- |
+| id                          | ymr\_user\_id               | Custom      | String    |
+| user\_type                  | ymr\_user\_type             | Custom      | String    |
+| state                       | ymr\_user\_state            | Custom      | String    |
+| full\_name                  | ymr\_user\_full\_name       | Custom      | String    |
+| activated\_at               | \_created\_at               | Default     | Date      |
+| first\_name                 | ymr\_user\_first\_name      | Custom      | String    |
+| last\_name                  | ymr\_user\_last\_name       | Custom      | String    |
+| network\_name               | ymr\_user\_network\_name    | Custom      | String    |
+| network\_domains            | ymr\_user\_network\_domains | Custom      | String    |
+| url                         | ymr\_user\_url              | Custom      | String    |
+| name                        | ymr\_user\_name             | Custom      | String    |
+| birth\_date                 | ymr\_user\_birth\_date      | Custom      | Date      |
+| admin                       | ymr\_user\_admin            | Custom      | String    |
+| verified\_admin             | ymr\_user\_verified\_admin  | Custom      | String    |
+| contact                     | ymr\_user\_contact          | Custom      | String    |
+| email                       | ymr\_user\_email            | Custom      | String    |
+| web\_url                    | \_source\_uri               | Default     | String    |
 
 ## Community
 
-| Microsoft Yammer field name | Index field name          | Description | Data type |
-| --------------------------- | ------------------------- | ----------- | --------- |
-| id                          | ymr_community_id          | Custom      | String    |
-| name                        | ymr_community_name        | Custom      | String    |
-| email                       | ymr_community_email       | Custom      | String    |
-| full_name                   | ymr_community_full_name   | Custom      | String    |
-| description                 | ymr_community_description | Custom      | String    |
-| privacy                     | ymr_community_privacy     | Custom      | String    |
-| url                         | ymr_community_url         | Custom      | String    |
-| created_at                  | \_created_at              | Default     | Date      |
-| state                       | ymr_community_state       | Custom      | String    |
-| web_url                     | \_source_uri              | Default     | String    |
+| Microsoft Yammer field name | Index field name            | Description | Data type |
+| --------------------------- | --------------------------- | ----------- | --------- |
+| id                          | ymr\_community\_id          | Custom      | String    |
+| name                        | ymr\_community\_name        | Custom      | String    |
+| email                       | ymr\_community\_email       | Custom      | String    |
+| full\_name                  | ymr\_community\_full\_name  | Custom      | String    |
+| description                 | ymr\_community\_description | Custom      | String    |
+| privacy                     | ymr\_community\_privacy     | Custom      | String    |
+| url                         | ymr\_community\_url         | Custom      | String    |
+| created\_at                 | \_created\_at               | Default     | Date      |
+| state                       | ymr\_community\_state       | Custom      | String    |
+| web\_url                    | \_source\_uri               | Default     | String    |

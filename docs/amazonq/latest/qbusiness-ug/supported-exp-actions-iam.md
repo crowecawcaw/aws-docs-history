@@ -95,22 +95,21 @@ the AWS CLI.
 Console
 **To get properties of an Amazon Q Business web experience**
 
-1.  Sign in to the AWS Management Console and open the Amazon Q Business console.
-2.  In **Applications**, select the name of
-    your application environment from the list of applications.
-3.  For **Web experience settings**, the
-    following settings are available:
+1. Sign in to the AWS Management Console and open the Amazon Q Business console.
+2. In **Applications**, select the name of
+   your application environment from the list of applications.
+3. For **Web experience settings**, the
+   following settings are available:
 
-        * **Web experience IAM role ARN**
-         – The IAM role assumed by end
-         users when they log in to your web experience.
-        * **Deployed URL** – The
-         deployed URL of your web experience.
-        * **Tags** – Tags that are
-         attached to your web experience.
-
-    To update a setting, choose
-    **Edit**.
+   - **Web experience IAM role ARN**
+     – The IAM role assumed by end
+     users when they log in to your web experience.
+   - **Deployed URL** – The
+     deployed URL of your web experience.
+   - **Tags** – Tags that are
+     attached to your web experience.
+     To update a setting, choose
+     **Edit**.
 
 AWS CLI
 **To get properties of an Amazon Q Business web experience**

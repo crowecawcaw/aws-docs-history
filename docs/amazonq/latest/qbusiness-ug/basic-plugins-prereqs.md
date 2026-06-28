@@ -15,7 +15,7 @@ Before you can configure built-in plugins, make sure you've added the following
 permissions in you Amazon Q Business web experience’s IAM permissions policy:
 
 - In `Action` field for `"Sid":
-"QBusinessConversationPermissions`, add the following permissions to allow
+ "QBusinessConversationPermissions`, add the following permissions to allow
   Amazon Q Business to list plugin actions:
 
 ```

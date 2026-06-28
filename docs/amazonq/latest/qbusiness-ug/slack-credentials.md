@@ -137,7 +137,7 @@ types](https://api.slack.com/authentication/token-types "https://api.slack.com/a
     	 workspace
 
 9. Then, scroll to **OAuth Tokens** section, and choose
-   **Install to Workspace**.
+**Install to Workspace**.
 
 ![Screenshot of the Slack "OAuth & Permissions" page showing the "Install to Workspace" button that users need to click to install the app to their workspace.](images/slack-8.png) 10. On the dialog box that opens up informing you that the app that you created is
 requesting permission to access the Slack workspace you wanted to

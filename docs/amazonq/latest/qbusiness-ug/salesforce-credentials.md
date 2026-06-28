@@ -75,8 +75,8 @@ Then, from the **Lightning Experience App Manager** page, select
     * Select **Save**.
 
 7. From the **Manage Connected Apps** page that opens, choose
-   **Manage Consumer Details**. You will be redirected to a
-   **Connected App Name** summary page.
+**Manage Consumer Details**. You will be redirected to a
+**Connected App Name** summary page.
 
 ![Screenshot of the Salesforce confirmation message indicating that the connected app has been created successfully and will be available after a short delay.](images/salesforce-6.png) 8. On the **Connected App Name** page, do the following:
 
@@ -97,8 +97,8 @@ Then, from the **Lightning Experience App Manager** page, select
     	![Screenshot of the Salesforce Connected App details page showing the Consumer Details section with the Consumer Key (client ID) and Consumer Secret that need to be copied for API authentication.](images/salesforce-7.png)
 
 9. Next, you will generate a security token. Navigate back to your Salesforce Online
-   account home page. From the Salesforce Online profile menu, select
-   **Settings**.
+account home page. From the Salesforce Online profile menu, select
+**Settings**.
 
 ![Screenshot of the Salesforce user menu showing the "Settings" option that users need to select to access personal settings for generating a security token.](images/salesforce-8.png) 10. Then, from the left navigation menu, select **My Personal
 Information**. Then, select **Reset My Security Token**. Your

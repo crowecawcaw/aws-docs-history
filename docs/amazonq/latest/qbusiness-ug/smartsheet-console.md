@@ -104,19 +104,19 @@ For more information, see [IAM role](smartsheet-connector.md#smartsheet-iam "sma
      [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 11. For **Sync mode**, choose how you want to update your index
-    when your data source content changes. When you sync your data source with
-    Amazon Q for the first time, all content is synced by
-    default.
+when your data source content changes. When you sync your data source with
+Amazon Q for the first time, all content is synced by
+default.
 
-    - **Full sync**—Sync all content regardless of
-      the previous sync status.
-    - **New, modified, or deleted content
-      sync**—Sync only new, modified, and deleted
-      documents.
+    * **Full sync**—Sync all content regardless of
+     the previous sync status.
+    * **New, modified, or deleted content
+     sync**—Sync only new, modified, and deleted
+     documents.
 
 12. In **Sync run schedule**, for **Frequency**
-    – Choose how often Amazon Q will sync with your data source.
-    For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run").
+– Choose how often Amazon Q will sync with your data source.
+For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run").
 
 ###### Note
 
@@ -143,9 +143,9 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 15. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

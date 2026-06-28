@@ -34,8 +34,8 @@ The Amazon Q PostgreSQL connector supports the following field mappings:
 
 ## Document
 
-| JDBC field name   | Index field name  | Description | Data type |
-| ----------------- | ----------------- | ----------- | --------- |
-| jd_document_id    | jd_document_id    | Custom      | String    |
-| jd_document_title | jd_document_title | Custom      | String    |
-| jd_source_uri     | \_source_uri      | Default     | String    |
+| JDBC field name     | Index field name    | Description | Data type |
+| ------------------- | ------------------- | ----------- | --------- |
+| jd\_document\_id    | jd\_document\_id    | Custom      | String    |
+| jd\_document\_title | jd\_document\_title | Custom      | String    |
+| jd\_source\_uri     | \_source\_uri       | Default     | String    |

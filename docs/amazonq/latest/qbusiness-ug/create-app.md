@@ -50,250 +50,250 @@ the AWS CLI.
 Console
 **To create an application**
 
-1.  Sign in to the AWS Management Console and open the Amazon Q Business
-    console.
-2.  On the **Create application** page, for
-    **What kind of application do you want to
-    build?**, enter the following information for your
-    Amazon Q Business application:
+1. Sign in to the AWS Management Console and open the Amazon Q Business
+   console.
+2. On the **Create application** page, for
+   **What kind of application do you want to
+   build?**, enter the following information for your
+   Amazon Q Business application:
 
-    1. **Application name** – A name for
-       your Amazon Q Business application environment for easy
-       identification. This name is only visible in the AWS Management Console.
-       The name can include hyphens (-), but not spaces, and can
-       have a maximum of 1,000 alphanumeric characters. Amazon Q Business auto-generates an application name for
-       you, unless you choose to enter a custom name.
-    2. **Outcome** – Select **Web
-       experience** to create a web experience for
-       your application. Amazon Q Business creates a web
-       experience by default when you create an application. If you
-       don't want to create a web experience, unselect this
-       option.
+   1. **Application name** – A name for
+      your Amazon Q Business application environment for easy
+      identification. This name is only visible in the AWS Management Console.
+      The name can include hyphens (-), but not spaces, and can
+      have a maximum of 1,000 alphanumeric characters. Amazon Q Business auto-generates an application name for
+      you, unless you choose to enter a custom name.
+   2. **Outcome** – Select **Web
+      experience** to create a web experience for
+      your application. Amazon Q Business creates a web
+      experience by default when you create an application. If you
+      don't want to create a web experience, unselect this
+      option.
 
-3.  For **Access management method**, choose
-    **IAM Identity Center (recommended)**. Then, complete the
-    following steps:
+3. For **Access management method**, choose
+   **IAM Identity Center (recommended)**. Then, complete the
+   following steps:
 
-    1.  (Optional) **Advanced IAM Identity Center settings –
-        _optional_** –
-        Activate **Enable cross-region calls** to
-        allow Amazon Q Business to connect to an IAM Identity Center
-        instance that exists in a region not already supported by
-        Amazon Q Business. For more information, see
-        [Creating a cross-region IAM Identity Center
-        integration](setting-up.md#cross-region-idc "setting-up.md#cross-region-idc").
-    2.  Then, you will see the following options based on whether
-        you have an IAM Identity Center instance already configured, or need to
-        create one.
+   1. (Optional) **Advanced IAM Identity Center settings –
+      _optional_** –
+      Activate **Enable cross-region calls** to
+      allow Amazon Q Business to connect to an IAM Identity Center
+      instance that exists in a region not already supported by
+      Amazon Q Business. For more information, see
+      [Creating a cross-region IAM Identity Center
+      integration](setting-up.md#cross-region-idc "setting-up.md#cross-region-idc").
+   2. Then, you will see the following options based on whether
+      you have an IAM Identity Center instance already configured, or need to
+      create one.
 
-        1. If you don't have an IAM Identity Center instance
-           configured, you see the following:
+      1. If you don't have an IAM Identity Center instance
+         configured, you see the following:
 
-           1. The region your Amazon Q Business
-              application environment is in.
-           2. **Specify tags for IAM Identity Center**
-              – Add tags to keep track of your IAM Identity Center
-              instance.
-           3. **Create IAM Identity Center** –
-              Select to create an IAM Identity Center instance. Depending on
-              your setup, you may be prompted to create either
-              an account instance, or an organization instance,
-              or be given the option to choose between creating
-              an account instance and an organization instance.
-              The console will display an ARN for your newly
-              created resource after it's created.
+         1. The region your Amazon Q Business
+            application environment is in.
+         2. **Specify tags for IAM Identity Center**
+            – Add tags to keep track of your IAM Identity Center
+            instance.
+         3. **Create IAM Identity Center** –
+            Select to create an IAM Identity Center instance. Depending on
+            your setup, you may be prompted to create either
+            an account instance, or an organization instance,
+            or be given the option to choose between creating
+            an account instance and an organization instance.
+            The console will display an ARN for your newly
+            created resource after it's created.
 
-        2. If you have _both_ an IAM Identity Center
-           organization instance and an account instance
-           configured, your instances will be auto-detected,
-           and you see the following options:
+      2. If you have _both_ an IAM Identity Center
+         organization instance and an account instance
+         configured, your instances will be auto-detected,
+         and you see the following options:
 
-           1. **[Organization instance of
-              IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")** – Select this
-              option to manage access to Amazon Q Business
-              by assigning users and groups from the Identity
-              Center directory for your organization.
-           2. **[Account instance of
-              IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")** – Select this
-              option to manage access to Amazon Q Business
-              by assigning existing users and groups from your
-              Identity Center directory.
-           3. The region your Amazon Q Business
-              application environment is in.
-           4. **IAM Identity Center** – The ARN
-              for your IAM Identity Center instance.
+         1. **[Organization instance of
+            IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")** – Select this
+            option to manage access to Amazon Q Business
+            by assigning users and groups from the Identity
+            Center directory for your organization.
+         2. **[Account instance of
+            IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")** – Select this
+            option to manage access to Amazon Q Business
+            by assigning existing users and groups from your
+            Identity Center directory.
+         3. The region your Amazon Q Business
+            application environment is in.
+         4. **IAM Identity Center** – The ARN
+            for your IAM Identity Center instance.
 
-        3. If you have an IAM Identity Center account instance configured,
-           your account instance will be auto-detected.
-        4. If you have an IAM Identity Center organization instance
-           configured, your organization instance will be
-           auto-detected.
-        5. If your IAM Identity Center instance is configured in an AWS
-           region Amazon Q Business isn’t available in,
-           and you haven’t activated cross-region IAM Identity Center calls,
-           you will see a message saying that a connection is
-           unavailable with an option to **Switch
-           region**. Once you allow a cross-region
-           connection between Amazon Q Business and IAM Identity Center
-           using **Advanced IAM Identity Center settings**,
-           your cross-region IAM Identity Center instance will be
-           auto-detected by Amazon Q Business.
+      3. If you have an IAM Identity Center account instance configured,
+         your account instance will be auto-detected.
+      4. If you have an IAM Identity Center organization instance
+         configured, your organization instance will be
+         auto-detected.
+      5. If your IAM Identity Center instance is configured in an AWS
+         region Amazon Q Business isn’t available in,
+         and you haven’t activated cross-region IAM Identity Center calls,
+         you will see a message saying that a connection is
+         unavailable with an option to **Switch
+         region**. Once you allow a cross-region
+         connection between Amazon Q Business and IAM Identity Center
+         using **Advanced IAM Identity Center settings**,
+         your cross-region IAM Identity Center instance will be
+         auto-detected by Amazon Q Business.
 
-        ###### Note
+      ###### Note
 
-        Selecting **Switch region**
-        will only give you the option to change your
-        AWS Management Console region. To create a cross-region IAM Identity Center
-        connection, use **Advanced IAM Identity Center
-        settings**.
+      Selecting **Switch region**
+      will only give you the option to change your
+      AWS Management Console region. To create a cross-region IAM Identity Center
+      connection, use **Advanced IAM Identity Center
+      settings**.
 
-    3.  In **Quick start user –
-        _optional_**, do the
-        following:
+   3. In **Quick start user –
+      _optional_**, do the
+      following:
 
-        1.  In **Select user**, choose from
-            the following options:
+      1. In **Select user**, choose from
+         the following options:
 
-            1.  If you've connected a pre-configured IAM Identity Center
-                instance with users and groups already configured,
-                Amazon Q Business detects the users and
-                groups you have configured in IAM Identity Center. In this case,
-                you can select **Choose a user**
-                and, from the dropdown menu that opens, add users
-                and groups directly from your IAM Identity Center
-                directory.
-            2.  If you've created a IAM Identity Center instance from
-                within the Amazon Q Business console for your Amazon Q Business
-                application, you can add a new user to your
-                application and IAM Identity Center instance. Choose
-                **Add new users and groups** and
-                then complete the following steps:
+         1. If you've connected a pre-configured IAM Identity Center
+            instance with users and groups already configured,
+            Amazon Q Business detects the users and
+            groups you have configured in IAM Identity Center. In this case,
+            you can select **Choose a user**
+            and, from the dropdown menu that opens, add users
+            and groups directly from your IAM Identity Center
+            directory.
+         2. If you've created a IAM Identity Center instance from
+            within the Amazon Q Business console for your Amazon Q Business
+            application, you can add a new user to your
+            application and IAM Identity Center instance. Choose
+            **Add new users and groups** and
+            then complete the following steps:
 
-                1. In the **Add new users**
-                   dialog box that opens, enter the details of your
-                   user. Then select **Next** and
-                   **Add**.
+            1. In the **Add new users**
+               dialog box that opens, enter the details of your
+               user. Then select **Next** and
+               **Add**.
 
-                ###### Note
+            ###### Note
 
-                You can add multiple users by selecting
-                **Add new user** and entering
-                each user's details before you select
-                **Add**.
+            You can add multiple users by selecting
+            **Add new user** and entering
+            each user's details before you select
+            **Add**.
 
-                Then, select **Assign**.
-                The user is automatically added to an IAM Identity Center
-                directory. 2. The details you must enter for each user
-                include:
+            Then, select **Assign**.
+            The user is automatically added to an IAM Identity Center
+            directory. 2. The details you must enter for each user
+            include:
 
-                    * **Username** – A
-                     username is required for a user to sign into the
-                     AWS access portal. You can't change the
-                     username later. Maximum length 128 characters. Can
-                     only contain alphanumeric characters or any of the
-                     following: +=,.@-\_
-                    * **First name** –
-                     First name of user.
-                    * **Last name** – Last
-                     name of user.
-                    * **Email address** –
-                     Email address of user.
-                    * **Confirm email address**
-                     – Enter email address again to confirm
-                     it.
-                    * **Display name** –
-                     The display name assigned to your user.
+                 * **Username** – A
+                  username is required for a user to sign into the
+                  AWS access portal. You can't change the
+                  username later. Maximum length 128 characters. Can
+                  only contain alphanumeric characters or any of the
+                  following: +=,.@-\_
+                 * **First name** –
+                  First name of user.
+                 * **Last name** – Last
+                  name of user.
+                 * **Email address** –
+                  Email address of user.
+                 * **Confirm email address**
+                  – Enter email address again to confirm
+                  it.
+                 * **Display name** –
+                  The display name assigned to your user.
 
-        2.  For **Select subscription**
-            – Choose between **Q Business
-            Pro** and **Q Business
-            Lite**
+      2. For **Select subscription**
+         – Choose between **Q Business
+         Pro** and **Q Business
+         Lite**
 
-        ###### Note
+      ###### Note
 
-        Amazon Q Business assigns Q Business Pro
-        subscriptions to users and groups by default. To
-        learn more about subscription tiers, see [User subscription
-        tiers](tiers.md#user-sub-tiers "tiers.md#user-sub-tiers").
+      Amazon Q Business assigns Q Business Pro
+      subscriptions to users and groups by default. To
+      learn more about subscription tiers, see [User subscription
+      tiers](tiers.md#user-sub-tiers "tiers.md#user-sub-tiers").
 
-        ###### Important
+      ###### Important
 
-        If you add a user to a group in IAM Identity Center and have
-        given that group access to your application, it
-        can take up to 24 hours for the change to take
-        effect and for the user to be able to access your
-        Amazon Q Business application.
+      If you add a user to a group in IAM Identity Center and have
+      given that group access to your application, it
+      can take up to 24 hours for the change to take
+      effect and for the user to be able to access your
+      Amazon Q Business application.
 
-4.  For **Application details** – Amazon Q Business chooses the following configuration settings for
-    your application by default:
+4. For **Application details** – Amazon Q Business chooses the following configuration settings for
+   your application by default:
 
-    1. For **Application service access**
-       – Amazon Q Business will create a new
-       service-linked role for your application.
-    2. **Encryption** – Amazon Q Business will create an AWS owned AWS KMS key to
-       encrypt your data.
-    3. **Web experience service access**
-       – If you've chosen to create a web experience,
-       Amazon Q Business creates a service access role to
-       allow end users to log in to a Amazon Q Business web
-       experience.
+   1. For **Application service access**
+      – Amazon Q Business will create a new
+      service-linked role for your application.
+   2. **Encryption** – Amazon Q Business will create an AWS owned AWS KMS key to
+      encrypt your data.
+   3. **Web experience service access**
+      – If you've chosen to create a web experience,
+      Amazon Q Business creates a service access role to
+      allow end users to log in to a Amazon Q Business web
+      experience.
 
-5.  (Optional) To customize **Application details**,
-    expand the **Application details section**, and
-    then do the following:
+5. (Optional) To customize **Application details**,
+   expand the **Application details section**, and
+   then do the following:
 
-    1. In **Application service access**, for
-       **Choose a method to authorize Amazon Q Business**, choose from the
-       following options:
+   1. In **Application service access**, for
+      **Choose a method to authorize Amazon Q Business**, choose from the
+      following options:
 
-       1. **Create and use a new service-linked role
-          (SLR)** – Create and use a new
-          Amazon Q Business-managed IAM role to
-          allow it to access the AWS resources
-          it needs to create your application.
-       2. **Create and use a new service role
-          (SR)** – Create and use a new
-          IAM role for Amazon Q Business to allow it to access the AWS
-          resources it needs to create your
-          application.
-       3. **Use an existing service role
-          (SR)/service-linked role (SLR)** –
-          Use an existing service role or service-linked
-          IAM role to allow Amazon Q Business to access the AWS
-          resources it needs to create your
-          application.
+      1. **Create and use a new service-linked role
+         (SLR)** – Create and use a new
+         Amazon Q Business-managed IAM role to
+         allow it to access the AWS resources
+         it needs to create your application.
+      2. **Create and use a new service role
+         (SR)** – Create and use a new
+         IAM role for Amazon Q Business to allow it to access the AWS
+         resources it needs to create your
+         application.
+      3. **Use an existing service role
+         (SR)/service-linked role (SLR)** –
+         Use an existing service role or service-linked
+         IAM role to allow Amazon Q Business to access the AWS
+         resources it needs to create your
+         application.
 
-       ###### Note
+      ###### Note
 
-       For more information about example service
-       roles, see [IAM role for an Amazon Q Business application](create-application-iam-role.md "create-application-iam-role.md"). For
-       information on service-linked roles, including to
-       manage them, see [Using service-linked
-       roles](../business-use-dg/using-service-linked-roles.md "../business-use-dg/using-service-linked-roles.md"). 4. **Service role name** – A
-       name for the service (IAM) role you
-       created for easy identification on the
-       console.
+      For more information about example service
+      roles, see [IAM role for an Amazon Q Business application](create-application-iam-role.md "create-application-iam-role.md"). For
+      information on service-linked roles, including to
+      manage them, see [Using service-linked
+      roles](../business-use-dg/using-service-linked-roles.md "../business-use-dg/using-service-linked-roles.md"). 4. **Service role name** – A
+      name for the service (IAM) role you
+      created for easy identification on the
+      console.
 
-    2. For **Encryption** – Amazon Q Business encrypts your data by default using
-       AWS managed AWS KMS keys. To customize your
-       encryption settings, select **Customize encryption
-       settings (advanced)**. Then, you can choose to
-       use an existing AWS KMS key or create a new
-       one.
-    3. In **Web experience service access**,
-       enter the following information:
+   2. For **Encryption** – Amazon Q Business encrypts your data by default using
+      AWS managed AWS KMS keys. To customize your
+      encryption settings, select **Customize encryption
+      settings (advanced)**. Then, you can choose to
+      use an existing AWS KMS key or create a new
+      one.
+   3. In **Web experience service access**,
+      enter the following information:
 
-       1. For **Choose a method to authorize Amazon Q Business** – A service
-          access role assumed by end users when they sign in
-          to your web experience that grants them permission
-          to start and manage conversations Amazon Q Business. You can choose to use an existing
-          role or create a new role.
-       2. **Service role name** – A
-          name for the service role you created for easy
-          identification on the console.
+      1. For **Choose a method to authorize Amazon Q Business** – A service
+         access role assumed by end users when they sign in
+         to your web experience that grants them permission
+         to start and manage conversations Amazon Q Business. You can choose to use an existing
+         role or create a new role.
+      2. **Service role name** – A
+         name for the service role you created for easy
+         identification on the console.
 
-6.  To start creating your application, choose
-    **Create**.
+6. To start creating your application, choose
+   **Create**.
 
 ###### Note
 

@@ -46,28 +46,28 @@ Amazon Q will generate responses from data in the document title and body.
 Amazon Q supports crawling [AEM Pages](https://experienceleague.adobe.com/docs/experience-manager-65/content/sites/authoring/essentials/page-authoring.html?lang=en "https://experienceleague.adobe.com/docs/experience-manager-65/content/sites/authoring/essentials/page-authoring.html?lang=en") and offers the following page field
 mappings.
 
-| Adobe Experience Manager (AEM) field name | Index field name     | Description | Data type   |
-| ----------------------------------------- | -------------------- | ----------- | ----------- |
-| aem_page_source_uri                       | \_source_uri         | Default     | String      |
-| aem_page_createdBy                        | \_authors            | Default     | String list |
-| aem_page_template                         | aem_page_template    | Custom      | String      |
-| aem_entity_type                           | \_category           | Default     | String      |
-| aem_page_createdAt                        | \_created_at         | Default     | Date        |
-| aem_page_lastModified                     | \_last_updated_at    | Default     | Date        |
-| aem_page_lastReplicatedBy                 | aem_page_publisher   | Custom      | String      |
-| aem_page_lastReplicatedAt                 | aem_page_publishedAt | Custom      | Date        |
+| Adobe Experience Manager (AEM) field name | Index field name       | Description | Data type   |
+| ----------------------------------------- | ---------------------- | ----------- | ----------- |
+| aem\_page\_source\_uri                    | \_source\_uri          | Default     | String      |
+| aem\_page\_createdBy                      | \_authors              | Default     | String list |
+| aem\_page\_template                       | aem\_page\_template    | Custom      | String      |
+| aem\_entity\_type                         | \_category             | Default     | String      |
+| aem\_page\_createdAt                      | \_created\_at          | Default     | Date        |
+| aem\_page\_lastModified                   | \_last\_updated\_at    | Default     | Date        |
+| aem\_page\_lastReplicatedBy               | aem\_page\_publisher   | Custom      | String      |
+| aem\_page\_lastReplicatedAt               | aem\_page\_publishedAt | Custom      | Date        |
 
 ## Assets
 
 Amazon Q supports crawling [AEM Assets](https://experienceleague.adobe.com/docs/experience-manager-65/content/assets/assets.html?lang=en "https://experienceleague.adobe.com/docs/experience-manager-65/content/assets/assets.html?lang=en") and offers the following asset field
 mappings.
 
-| Adobe Experience Manager (AEM) field name | Index field name     | Description | Data type   |
-| ----------------------------------------- | -------------------- | ----------- | ----------- |
-| aem_page_source_uri                       | \_source_uri         | Default     | String      |
-| aem_page_createdBy                        | \_authors            | Default     | String list |
-| aem_entity_type                           | \_category           | Default     | String      |
-| aem_page_createdAt                        | \_created_at         | Default     | Date        |
-| aem_page_lastModified                     | \_last_updated_at    | Default     | Date        |
-| aem_page_lastReplicatedBy                 | aem_page_publisher   | Custom      | String      |
-| aem_page_lastReplicatedAt                 | aem_page_publishedAt | Custom      | Date        |
+| Adobe Experience Manager (AEM) field name | Index field name       | Description | Data type   |
+| ----------------------------------------- | ---------------------- | ----------- | ----------- |
+| aem\_page\_source\_uri                    | \_source\_uri          | Default     | String      |
+| aem\_page\_createdBy                      | \_authors              | Default     | String list |
+| aem\_entity\_type                         | \_category             | Default     | String      |
+| aem\_page\_createdAt                      | \_created\_at          | Default     | Date        |
+| aem\_page\_lastModified                   | \_last\_updated\_at    | Default     | Date        |
+| aem\_page\_lastReplicatedBy               | aem\_page\_publisher   | Custom      | String      |
+| aem\_page\_lastReplicatedAt               | aem\_page\_publishedAt | Custom      | Date        |

@@ -59,29 +59,28 @@ the AWS CLI.
 Console
 **To get properties of an Amazon Q Business application environment**
 
-1.  Sign in to the AWS Management Console and open the Amazon Q Business console.
-2.  For **Applications**, select the name of
-    your application environment from the list of applications.
-3.  On **Application settings**, the
-    following properties are available:
+1. Sign in to the AWS Management Console and open the Amazon Q Business console.
+2. For **Applications**, select the name of
+   your application environment from the list of applications.
+3. On **Application settings**, the
+   following properties are available:
 
-        * **Application name** – The
-         name that you chose for your application environment.
-        * **Application ID** – The
-         ID assigned to your application environment.
-        * **Subtitle** – The
-         subtitle that you chose to assign to your
-         application environment.
-        * **Service access** – The
-         service access role that your application environment is
-         using.
-        * **Title** – The title that
-         you gave to your application environment.
-        * **Application status** –
-         The status of your application environment.
-
-    To update a setting, select
-    **Edit**.
+   - **Application name** – The
+     name that you chose for your application environment.
+   - **Application ID** – The
+     ID assigned to your application environment.
+   - **Subtitle** – The
+     subtitle that you chose to assign to your
+     application environment.
+   - **Service access** – The
+     service access role that your application environment is
+     using.
+   - **Title** – The title that
+     you gave to your application environment.
+   - **Application status** –
+     The status of your application environment.
+     To update a setting, select
+     **Edit**.
 
 AWS CLI
 **To get Amazon Q Business application

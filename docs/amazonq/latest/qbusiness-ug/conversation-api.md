@@ -262,9 +262,9 @@ are in pseudocode.
     ```
 
 3. Create the string to sign, which contains meta information about your
-   request. You use the string to sign in the next step when you calculate
-   the request signature. For more information, see [Create a
-   String to Sign for Signature Version 4](../../../general/latest/gr/sigv4-create-string-to-sign.md "../../../general/latest/gr/sigv4-create-string-to-sign.md").
+request. You use the string to sign in the next step when you calculate
+the request signature. For more information, see [Create a
+String to Sign for Signature Version 4](../../../general/latest/gr/sigv4-create-string-to-sign.md "../../../general/latest/gr/sigv4-create-string-to-sign.md").
 
 ```
 hashed_canonical_request = HashSHA256(canonical_request.Encode("utf-8")).HexDigest()

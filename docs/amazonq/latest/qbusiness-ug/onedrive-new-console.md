@@ -46,8 +46,8 @@ See [Authorization](connector-concepts.md#connector-authorization "connector-con
     	 and then choose **Save authentication**.
 
 9. **IAM role** – Choose an existing
-   IAM role or create an IAM role to access your
-   repository credentials and index content.
+IAM role or create an IAM role to access your
+repository credentials and index content.
 
 ###### Note
 
@@ -126,16 +126,14 @@ choose **Create a new role** to avoid errors. 10. In **Sync scope**, configure w
      [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 11. In **Sync run schedule**, for
-    **Frequency** – Choose how often
-    Amazon Q will sync with your data
-    source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
-    see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs").
-12. **Tags - _optional_** –
-    Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details.
-13. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+**Frequency** – Choose how often
+Amazon Q will sync with your data
+source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
+see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs"). 12. **Tags - _optional_** –
+Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details. 13. In **Data source details**, choose **Sync
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

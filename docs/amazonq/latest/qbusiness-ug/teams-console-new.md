@@ -4,51 +4,51 @@ The latest Microsoft Teams connector provides a simplified configuration experie
 
 ###### To connect Amazon Q to Microsoft Teams using the latest connector
 
-1.  Sign in to the AWS Management Console and open the Amazon Q Business
-    console.
-2.  From the left navigation menu, choose **Data
-    sources**.
-3.  From the **Data sources** page, choose
-    **Add data source**.
-4.  Then, on the **Add data sources** page, from
-    **Data sources**, add the **Microsoft Teams** data source to your Amazon Q application.
-5.  Then, on the **Microsoft Teams** data source page, enter
-    the following information:
-6.  **Name and description**, do the following:
+1. Sign in to the AWS Management Console and open the Amazon Q Business
+   console.
+2. From the left navigation menu, choose **Data
+   sources**.
+3. From the **Data sources** page, choose
+   **Add data source**.
+4. Then, on the **Add data sources** page, from
+   **Data sources**, add the **Microsoft Teams** data source to your Amazon Q application.
+5. Then, on the **Microsoft Teams** data source page, enter
+   the following information:
+6. **Name and description**, do the following:
 
-    - For **Data source name** – Name your data
-      source for easy tracking.
+   - For **Data source name** – Name your data
+     source for easy tracking.
 
-    ###### Note
+   ###### Note
 
-    You can include hyphens (-) but
-    not spaces. Maximum of 1,000 alphanumeric characters.
-    - **Description –
-      _optional_** – Add an optional
-      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
+   You can include hyphens (-) but
+   not spaces. Maximum of 1,000 alphanumeric characters.
+   - **Description –
+     _optional_** – Add an optional
+     description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
-7.  In **Source**, enter the following information:
+7. In **Source**, enter the following information:
 
-    1. **Tenant ID** – Enter your Tenant ID.
+   1. **Tenant ID** – Enter your Tenant ID.
 
-    ###### Note
+   ###### Note
 
-    Your Microsoft Tenant ID is a globally unique identifier that's
-    necessary to configure each connector instance. Your Tenant ID is
-    different from your organization name or domain and can be found in
-    the **Properties** section of your Azure
-    Active Directory Portal.
+   Your Microsoft Tenant ID is a globally unique identifier that's
+   necessary to configure each connector instance. Your Tenant ID is
+   different from your organization name or domain and can be found in
+   the **Properties** section of your Azure
+   Active Directory Portal.
 
-8.  For **Authentication**, in **AWS Secrets Manager**
-    – Choose between **Create and add new secret** and
-    **Use existing secrets**.
+8. For **Authentication**, in **AWS Secrets Manager**
+   – Choose between **Create and add new secret** and
+   **Use existing secrets**.
 
-    1. If you choose **Use existing secrets**, select an
-       existing secret.
+   1. If you choose **Use existing secrets**, select an
+      existing secret.
 
-    If you choose **Create and add a new secret**, enter
-    the following information in the **Create AWS Secrets Manager
-    secret** section:
+   If you choose **Create and add a new secret**, enter
+   the following information in the **Create AWS Secrets Manager
+   secret** section:
 
         1. **Secret name** – A name for your
          secret.
@@ -61,9 +61,9 @@ The latest Microsoft Teams connector provides a simplified configuration experie
          secret that you generated from your Teams
          account.
 
-9.  **IAM role** – Choose
-    an existing IAM role or create an IAM role to access your repository credentials and
-    index content.
+9. **IAM role** – Choose
+   an existing IAM role or create an IAM role to access your repository credentials and
+   index content.
 
 ###### Note
 
@@ -102,12 +102,12 @@ sync.
      [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 11. In **Additional configuration –
-    _optional_**, configure the following simplified
-    options:
+_optional_**, configure the following simplified
+options:
 
-    - **Date Range** – Enter the date range for
-      which the connector will crawl your content. End date is optional.
-      Rolling window options available: Last [X] Days/Weeks/Months.
+    * **Date Range** – Enter the date range for
+     which the connector will crawl your content. End date is optional.
+     Rolling window options available: Last [X] Days/Weeks/Months.
 
 ###### Note
 

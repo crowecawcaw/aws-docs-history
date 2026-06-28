@@ -65,7 +65,7 @@ The Amazon Q Business Microsoft Teams integration does not support [actions or p
 3. The Amazon Q Business Teams app will have access to the same knowledge
    available in the corresponding Amazon Q Business web experience.
 4. To reset, start new conversation, using the
-   _/new_conversation_ command.
+   _/new\_conversation_ command.
 5. When you upload a file, the Amazon Q bot for Teams will only be able to
    respond from the file (and general knowledge if your Amazon Q admin has
    enabled it). Start a new chat if you want to return to getting answers

@@ -73,7 +73,7 @@ curl --request POST \
 
 2. In the API response, find the workspace entry that matches your
    Confluence Cloud instance. Look for `"type":
-"Confluence"`. Verify the workspace name matches your
+ "Confluence"`. Verify the workspace name matches your
    instance and then copy the directory value from the attributes
    section. If your instance isn't listed, use the pagination cursor in
    the `links.next` field to view additional pages.

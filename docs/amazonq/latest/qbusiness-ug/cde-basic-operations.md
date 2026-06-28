@@ -79,19 +79,19 @@ identification numbers in the document field called
 The following table shows the data before basic manipulation is
 applied.
 
-| **\_document_id** | **\_document_body** | **customer_id** |
-| ----------------- | ------------------- | --------------- |
-| 1                 | Example text        | CID1234         |
-| 2                 | Example text        | CID1235         |
-| 3                 | Example text        | CID1236         |
+| **\_document\_id** | **\_document\_body** | **customer\_id** |
+| ------------------ | -------------------- | ---------------- |
+| 1                  | Example text         | CID1234          |
+| 2                  | Example text         | CID1235          |
+| 3                  | Example text         | CID1236          |
 
 The following table shows the data after basic manipulation is applied.
 
-| **\_document_id** | **\_document_body** | **customer_id** |
-| ----------------- | ------------------- | --------------- |
-| 1                 | Example text        |                 |
-| 2                 | Example text        |                 |
-| 3                 | Example text        |                 |
+| **\_document\_id** | **\_document\_body** | **customer\_id** |
+| ------------------ | -------------------- | ---------------- |
+| 1                  | Example text         |                  |
+| 2                  | Example text         |                  |
+| 3                  | Example text         |                  |
 
 **Example 2: Creating and pre-filling the
 Department field with department names associated with
@@ -108,19 +108,19 @@ the condition that, if the `_source_uri` field contains
 The following table shows the data before basic manipulation is
 applied.
 
-| **\_document_id** | **document_body** | **\_source_uri** |
-| ----------------- | ----------------- | ---------------- |
-| 1                 | Example text      | financial/1      |
-| 2                 | Example text      | financial/2      |
-| 3                 | Example text      | financial/3      |
+| **\_document\_id** | **document\_body** | **\_source\_uri** |
+| ------------------ | ------------------ | ----------------- |
+| 1                  | Example text       | financial/1       |
+| 2                  | Example text       | financial/2       |
+| 3                  | Example text       | financial/3       |
 
 The following table shows the data after basic manipulation is applied.
 
-| **\_document_id** | **\_document_body** | **\_source_uri** | **department** |
-| ----------------- | ------------------- | ---------------- | -------------- |
-| 1                 | Example text        | financial/1      | Finance        |
-| 2                 | Example text        | financial/2      | Finance        |
-| 3                 | Example text        | financial/3      | Finance        |
+| **\_document\_id** | **\_document\_body** | **\_source\_uri** | **department** |
+| ------------------ | -------------------- | ----------------- | -------------- |
+| 1                  | Example text         | financial/1       | Finance        |
+| 2                  | Example text         | financial/2       | Finance        |
+| 3                  | Example text         | financial/3       | Finance        |
 
 ## Code examples of basic operations
 
@@ -140,7 +140,7 @@ remove customer identification numbers**
    page, choose from the data source that you want to alter
    document fields and content in.
 4. Select the document field name
-   **Customer_ID** from the dropdown menu,
+   **Customer\_ID** from the dropdown menu,
    and then select the target action
    **Delete**.
 5. Select **Add basic operation**.

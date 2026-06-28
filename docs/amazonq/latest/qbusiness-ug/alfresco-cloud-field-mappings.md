@@ -43,34 +43,34 @@ Amazon Q will generate responses from data in the document title and body.
 
 ## Documents
 
-| Alfresco field name | Index field name  | Description | Data type      |
-| ------------------- | ----------------- | ----------- | -------------- |
-| creationTime        | \_created_at      | Default     | Date           |
-| lastModified        | \_last_updated_at | Default     | Date           |
-| author              | \_authors         | Default     | String list    |
-| sourceUri           | \_source_uri      | Default     | String         |
-| category            | \_category        | Default     | String         |
-| fileType            | \_file_type       | Default     | String         |
-| version             | \_version         | Default     | String         |
-| siteName            | al_site_name      | Custom      | String         |
-| size                | al_document_size  | Custom      | Long (numeric) |
-| versionType         | al_version_type   | Custom      | String         |
-| title               | al_document_title | Custom      | String         |
-| repositoryId        | al_repository_id  | Custom      | String         |
+| Alfresco field name | Index field name    | Description | Data type      |
+| ------------------- | ------------------- | ----------- | -------------- |
+| creationTime        | \_created\_at       | Default     | Date           |
+| lastModified        | \_last\_updated\_at | Default     | Date           |
+| author              | \_authors           | Default     | String list    |
+| sourceUri           | \_source\_uri       | Default     | String         |
+| category            | \_category          | Default     | String         |
+| fileType            | \_file\_type        | Default     | String         |
+| version             | \_version           | Default     | String         |
+| siteName            | al\_site\_name      | Custom      | String         |
+| size                | al\_document\_size  | Custom      | Long (numeric) |
+| versionType         | al\_version\_type   | Custom      | String         |
+| title               | al\_document\_title | Custom      | String         |
+| repositoryId        | al\_repository\_id  | Custom      | String         |
 
 ## Comments
 
-| Alfresco field name | Index field name  | Description | Data type      |
-| ------------------- | ----------------- | ----------- | -------------- |
-| creationTime        | \_created_at      | Default     | Date           |
-| lastModified        | \_last_updated_at | Default     | Date           |
-| author              | \_authors         | Default     | String list    |
-| sourceUri           | \_source_uri      | Default     | String         |
-| version             | \_version         | Default     | String         |
-| category            | \_category        | Default     | String         |
-| fileType            | \_file_type       | Default     | String         |
-| siteName            | al_site_name      | Custom      | String         |
-| size                | al_document_size  | Custom      | Long (numeric) |
-| versionType         | \_al_version_type | Custom      | String         |
-| title               | al_document_title | Custom      | String         |
-| repositoryId        | al_repository_id  | Custom      | String         |
+| Alfresco field name | Index field name    | Description | Data type      |
+| ------------------- | ------------------- | ----------- | -------------- |
+| creationTime        | \_created\_at       | Default     | Date           |
+| lastModified        | \_last\_updated\_at | Default     | Date           |
+| author              | \_authors           | Default     | String list    |
+| sourceUri           | \_source\_uri       | Default     | String         |
+| version             | \_version           | Default     | String         |
+| category            | \_category          | Default     | String         |
+| fileType            | \_file\_type        | Default     | String         |
+| siteName            | al\_site\_name      | Custom      | String         |
+| size                | al\_document\_size  | Custom      | Long (numeric) |
+| versionType         | \_al\_version\_type | Custom      | String         |
+| title               | al\_document\_title | Custom      | String         |
+| repositoryId        | al\_repository\_id  | Custom      | String         |

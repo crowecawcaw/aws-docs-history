@@ -23,17 +23,16 @@ knowledge articles.
 - `_group_ids` – The group names in
   Salesforce.
 
-      + Name of the Salesforce
-       `Profile`
-      + Name of the Salesforce
-       `Group`
-      + Name of the Salesforce
-       `UserRole`
-      + Name of the Salesforce
-       `PermissionSet`
-
-  **For chatter feeds, the `_user_id` and
-  `_group_ids` are used as follows:**
+  - Name of the Salesforce
+    `Profile`
+  - Name of the Salesforce
+    `Group`
+  - Name of the Salesforce
+    `UserRole`
+  - Name of the Salesforce
+    `PermissionSet`
+    **For chatter feeds, the `_user_id` and
+    `_group_ids` are used as follows:**
 
 - `_user_id` – The username of the Salesforce user.
   Only available if the item is posted in the user's feed.

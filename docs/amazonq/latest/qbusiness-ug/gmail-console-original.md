@@ -52,8 +52,8 @@ opens.
     	5. Choose **Save**.
 
 9. **IAM role** – Choose
-   an existing IAM role or create an IAM role to access your repository credentials and
-   index content.
+an existing IAM role or create an IAM role to access your repository credentials and
+index content.
 
 ###### Note
 
@@ -64,30 +64,32 @@ For more information, see [IAM role](gmail-connector.md#gmail-iam "gmail-connect
     * **Message attachments** – Choose to crawl email attachments. Messages are crawled by default.
 
 11. For **Maximum file size** – Specify the file size
-    limit in MBs that Amazon Q will crawl. Amazon Q will crawl only the files
-    within the size limit you define. The default file size is 50MB. The maximum
-    file size should be greater than 0MB and less than or equal to 50MB.
-12. For **Additional configuration –
-    _optional_**, configure the comprehensive filtering options available in the original connector:
+limit in MBs that Amazon Q will crawl. Amazon Q will crawl only the files
+within the size limit you define. The default file size is 50MB. The maximum
+file size should be greater than 0MB and less than or equal to 50MB. 12. For **Additional configuration –
+_optional_**, configure the comprehensive filtering options available in the original connector:
 
-    1.  **Date range** – Enter a date range to specify
-        the start and end date of email messages to be crawled.
-    2.  **Email domains** – Include or exclude email
-        messages based on domains.
-    3.  **Keywords in subjects** – Include or exclude
-        email messages based on keywords in their subjects.
+    1. **Date range** – Enter a date range to specify
+     the start and end date of email messages to be crawled.
+    2. **Email domains** – Include or exclude email
+     messages based on domains.
+    3. **Keywords in subjects** – Include or exclude
+     email messages based on keywords in their subjects.
+
 
     ###### Note
 
     You can also choose to include any documents that match all the
-    subject keywords that you have entered. 4. **Labels** – Add regular expression patterns
-    to include or exclude specific labels. You can add up to 100
-    patterns. 5. **Attachments** – Add regular expression
-    patterns to include or exclude specific attachments. You can add up to
-    100 patterns.
+     subject keywords that you have entered.
+    4. **Labels** – Add regular expression patterns
+     to include or exclude specific labels. You can add up to 100
+     patterns.
+    5. **Attachments** – Add regular expression
+     patterns to include or exclude specific attachments. You can add up to
+     100 patterns.
 
 13. **Multi-media content configuration – optional** –
-    To enable content extraction from embedded images and visuals in documents, choose **Visual content in documents**.
+To enable content extraction from embedded images and visuals in documents, choose **Visual content in documents**.
 
 To extract audio transcriptions and video content, enable processing for the following file types: 14. For **Sync mode**, choose how you want to update your index
 when your data source content changes. When you sync your data source with
@@ -100,29 +102,27 @@ default.
      Sync only new, modified, and deleted documents.
 
 15. **Configure VPC and security group –
-    _optional_** – Choose
-    whether you want to use a VPC. If you do, enter the following
-    information:
+_optional_** – Choose
+whether you want to use a VPC. If you do, enter the following
+information:
 
-    1.  **Subnets** – Select up to 6
-        repository subnets that define the subnets and IP ranges
-        the repository instance uses in the selected VPC.
-    2.  **VPC security groups** –
-        Choose up to 10 security groups that allow access to
-        your data source. Ensure that the security group allows
-        incoming traffic from Amazon EC2 instances and
-        devices outside your VPC. For databases, security group
-        instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
+    1. **Subnets** – Select up to 6
+     repository subnets that define the subnets and IP ranges
+     the repository instance uses in the selected VPC.
+    2. **VPC security groups** –
+     Choose up to 10 security groups that allow access to
+     your data source. Ensure that the security group allows
+     incoming traffic from Amazon EC2 instances and
+     devices outside your VPC. For databases, security group
+     instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
 
 16. In **Sync run schedule**, for
-    **Frequency** – Choose how often
-    Amazon Q will sync with your data
-    source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
-    see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs").
-17. **Tags - _optional_** –
-    Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details.
-18. **Field mappings** – A list of data source document
-    attributes to map to your index fields.
+**Frequency** – Choose how often
+Amazon Q will sync with your data
+source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
+see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs"). 17. **Tags - _optional_** –
+Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details. 18. **Field mappings** – A list of data source document
+attributes to map to your index fields.
 
 ###### Note
 
@@ -146,9 +146,9 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 19. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

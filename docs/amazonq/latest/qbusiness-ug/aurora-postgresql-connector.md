@@ -9,9 +9,7 @@ You can connect your Aurora (PostgreSQL) instance to Amazon Q Business—using
 either the AWS Management Console, CLI, or the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") API—and create an Amazon Q web experience.
 
 The Amazon Q
-Aurora (PostgreSQL) data source connector supports Aurora PostgreSQL
-
-1.
+Aurora (PostgreSQL) data source connector supports Aurora PostgreSQL 1.
 
 ###### Important
 

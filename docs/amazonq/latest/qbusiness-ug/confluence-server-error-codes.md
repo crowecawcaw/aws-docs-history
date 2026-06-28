@@ -16,7 +16,7 @@ Confluence (Server/Data Center) connector and suggested resolutions.
 | CNF-5508   | Empty/null host URL.                                                       | Host Url should not be null or empty value.                    |
 | CNF-5509   | Null/empty crawl type.                                                     | Crawl Type should not be null or empty value.                  |
 | CNF-5510   | Null/empty Repository Configurations.                                      | Repository Configurations should not be null or empty value.   |
-| CNF-5511   | Incorrect type.                                                            | type should be SAAS or ON_PREM.                                |
+| CNF-5511   | Incorrect type.                                                            | type should be SAAS or ON\_PREM.                               |
 | CNF-5512   | Invalid inclusion file type patterns.                                      | Provide the correct inclusion patterns.                        |
 | CNF-5513   | Invalid exclusion file type patterns.                                      | Provide the correct exclusion patterns.                        |
 | CNF-5514   | Invalid regex patterns.                                                    | Provide the correct regex patterns.                            |

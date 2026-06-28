@@ -25,24 +25,24 @@ the AWS CLI.
 
 ## Prerequisites for accessing your customization artifacts stored in Amazon S3
 
-1.  All S3 URIs for files to read and folders to store must be located in the
-    same AWS Region as the application environment of the web experience.
-2.  You can use public or private Amazon S3 buckets to save and store your web
-    experience customization.
+1. All S3 URIs for files to read and folders to store must be located in the
+   same AWS Region as the application environment of the web experience.
+2. You can use public or private Amazon S3 buckets to save and store your web
+   experience customization.
 
-    - ###### Prerequisites for public S3 buckets
-      - Ensure all S3 URIs for files to read and folders to store
-        are publicly accessible. For managing access to your S3
-        files, see [Access Control in Amazon S3](../../../AmazonS3/latest/userguide/access-management.md "../../../AmazonS3/latest/userguide/access-management.md").
-      - Configure CORS to allow console and web app access to
-        resources. For more information, see [Configuring cross-origin resource sharing
-        (CORS)](../../../AmazonS3/latest/userguide/enabling-cors-examples.md "../../../AmazonS3/latest/userguide/enabling-cors-examples.md").
+   - ###### Prerequisites for public S3 buckets
+     - Ensure all S3 URIs for files to read and folders to store
+       are publicly accessible. For managing access to your S3
+       files, see [Access Control in Amazon S3](../../../AmazonS3/latest/userguide/access-management.md "../../../AmazonS3/latest/userguide/access-management.md").
+     - Configure CORS to allow console and web app access to
+       resources. For more information, see [Configuring cross-origin resource sharing
+       (CORS)](../../../AmazonS3/latest/userguide/enabling-cors-examples.md "../../../AmazonS3/latest/userguide/enabling-cors-examples.md").
 
-    - **Prerequisites for private S3
-      buckets**
+   - **Prerequisites for private S3
+     buckets**
 
-    To allow Amazon Q Business to access web customization artifacts from
-    your private S3 buckets, you must do the following:
+   To allow Amazon Q Business to access web customization artifacts from
+   your private S3 buckets, you must do the following:
 
         + Disable [access
          control lists (ACLs)](../../../AmazonS3/latest/userguide/acl-overview.md "../../../AmazonS3/latest/userguide/acl-overview.md"). For more information, see
@@ -77,47 +77,47 @@ the AWS CLI.
         ```
         + Create a bucket policy in your private bucket.
 
-    ###### Note
+   ###### Note
 
-    The value of "`aws:Referer"` cannot contain
-    `"https://"` or end with `"/"`.
+   The value of "`aws:Referer"` cannot contain
+   `"https://"` or end with `"/"`.
 
-    ###### Example policy for giving Amazon Q Business access to your web experience artifacts
+   ###### Example policy for giving Amazon Q Business access to your web experience artifacts
 
-    JSON
+   JSON
 
-    ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Sid": "PolicyForAmazonQWebAccessForWebExperienceArtifacts",
-     "Effect": "Allow",
-     "Principal": {
-     "Service": "application.qbusiness.amazonaws.com"
-     },
-     "Action": [
-     "s3:GetObject"
-     ],
-     "Resource": [
-     "arn:aws:s3:::amzn-s3-demo-bucket/`web-experience-object-key`",
-     "arn:aws:s3:::amzn-s3-demo-bucket/`web-experience-object-key-2`"
-     ],
-     "Condition":{
-     "StringLike":{
-     "aws:Referer":[
-     "`web-experience-domain-without-https`"
-     ]
-     },
-     "Bool": {
-     "aws:SecureTransport": "true"
-     }
-     }
-     }
-     ]
-     }`
+   ```
+   `{
+    "Version":"2012-10-17",
+    "Statement": [
+    {
+    "Sid": "PolicyForAmazonQWebAccessForWebExperienceArtifacts",
+    "Effect": "Allow",
+    "Principal": {
+    "Service": "application.qbusiness.amazonaws.com"
+    },
+    "Action": [
+    "s3:GetObject"
+    ],
+    "Resource": [
+    "arn:aws:s3:::amzn-s3-demo-bucket/`web-experience-object-key`",
+    "arn:aws:s3:::amzn-s3-demo-bucket/`web-experience-object-key-2`"
+    ],
+    "Condition":{
+    "StringLike":{
+    "aws:Referer":[
+    "`web-experience-domain-without-https`"
+    ]
+    },
+    "Bool": {
+    "aws:SecureTransport": "true"
+    }
+    }
+    }
+    ]
+    }`
 
-    ```
+   ```
 
 ## Using the AWS Management Console
 

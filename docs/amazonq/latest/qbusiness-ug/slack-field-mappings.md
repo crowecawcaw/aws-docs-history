@@ -30,15 +30,15 @@ Filtering using document attributes in chat is only supported through the API.
 The Amazon Q Slack connector supports the following field
 mappings:
 
-| Slack field name | Index field name      | Description | Data type      |
-| ---------------- | --------------------- | ----------- | -------------- |
-| size             | sl_gen_size           | Custom      | Long (numeric) |
-| emojis           | sl_gen_emojis         | Custom      | String list    |
-| title            | sl_gen_title          | Custom      | String         |
-| authors          | \_authors             | Default     | String list    |
-| url              | \_source_uri          | Default     | String         |
-| category         | sl_gen_category       | Custom      | String         |
-| created_at       | \_created_at          | Default     | Date           |
-| last_updated_at  | \_last_updated_at     | Default     | Date           |
-| msg_channel_id   | sl_message_channel_id | Custom      | String         |
-| msg_channel_name | sl_msg_channel_name   | Custom      | String         |
+| Slack field name   | Index field name         | Description | Data type      |
+| ------------------ | ------------------------ | ----------- | -------------- |
+| size               | sl\_gen\_size            | Custom      | Long (numeric) |
+| emojis             | sl\_gen\_emojis          | Custom      | String list    |
+| title              | sl\_gen\_title           | Custom      | String         |
+| authors            | \_authors                | Default     | String list    |
+| url                | \_source\_uri            | Default     | String         |
+| category           | sl\_gen\_category        | Custom      | String         |
+| created\_at        | \_created\_at            | Default     | Date           |
+| last\_updated\_at  | \_last\_updated\_at      | Default     | Date           |
+| msg\_channel\_id   | sl\_message\_channel\_id | Custom      | String         |
+| msg\_channel\_name | sl\_msg\_channel\_name   | Custom      | String         |

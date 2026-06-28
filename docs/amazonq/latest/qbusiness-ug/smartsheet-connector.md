@@ -29,13 +29,12 @@ like:
 - **Task management** – Find information about
   tasks and action items with questions like:
 
-      + "What tasks are assigned to Mary Major?"
-      + "Has the marketing plan document been completed?"
-      + "What's the due date for the customer research presentation?"
-
-  The Amazon Q Business Smartsheet connector understands user access
-  permissions and strictly enforces them at the time of the query. This ensures that users
-  aren't able to see content they don't have access to.
+  - "What tasks are assigned to Mary Major?"
+  - "Has the marketing plan document been completed?"
+  - "What's the due date for the customer research presentation?"
+    The Amazon Q Business Smartsheet connector understands user access
+    permissions and strictly enforces them at the time of the query. This ensures that users
+    aren't able to see content they don't have access to.
 
 ###### Note
 

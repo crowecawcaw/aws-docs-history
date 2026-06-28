@@ -48,26 +48,25 @@ We recommend choosing Classic OAuth Scopes.
   `https://api.pagerduty.com`.
 - Note your:
 
-      + **Access token URL** – For
-       PagerDuty Advance OAuth applications, this is
-       `https://identity.pagerduty.com/oauth/token`.
-      + **Authorization URL** – For
-       PagerDuty Advance OAuth applications, this is
-       `https://identity.pagerduty.com/oauth/authorize`.
-      + **Redirect URL** – The URL to
-       which user needs to be redirected after authentication. If your deployed
-       web url is `<q-endpoint>`, use
-       `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
-       URL needs to be allowlisted in your third-party application.
-      + **Client ID** – The client ID
-       generated when you create your OAuth 2.0 application in
-       PagerDuty Advance.
-      + **Client secret** – The client
-       secret generated when you create your OAuth 2.0 application in
-       PagerDuty Advance.
-
-  You will need this authentication information during the plugin configuration
-  process.
+  - **Access token URL** – For
+    PagerDuty Advance OAuth applications, this is
+    `https://identity.pagerduty.com/oauth/token`.
+  - **Authorization URL** – For
+    PagerDuty Advance OAuth applications, this is
+    `https://identity.pagerduty.com/oauth/authorize`.
+  - **Redirect URL** – The URL to
+    which user needs to be redirected after authentication. If your deployed
+    web url is `<q-endpoint>`, use
+    `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
+    URL needs to be allowlisted in your third-party application.
+  - **Client ID** – The client ID
+    generated when you create your OAuth 2.0 application in
+    PagerDuty Advance.
+  - **Client secret** – The client
+    secret generated when you create your OAuth 2.0 application in
+    PagerDuty Advance.
+    You will need this authentication information during the plugin configuration
+    process.
 
 ## Service access roles
 

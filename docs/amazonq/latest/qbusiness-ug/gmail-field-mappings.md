@@ -25,15 +25,15 @@ and custom attributes.
 
 ## Messages
 
-| Gmail field name | Index field name         | Description | Data type   |
-| ---------------- | ------------------------ | ----------- | ----------- |
-| category         | \_category               | Default     | String      |
-| internalDate     | \_created_at             | Default     | Date        |
-| id               | gmail_message_is         | Custom      | String      |
-| labelIds         | gmail_message_label_ids  | Custom      | String list |
-| historyId        | gmail_message_history_id | Custom      | String      |
-| subject          | gmail_subject            | Custom      | String      |
-| from             | gmail_from               | Custom      | String      |
-| to               | gmail_to                 | Custom      | String list |
-| cc               | gmail_cc                 | Custom      | String list |
-| bcc              | gmail_bcc                | Custom      | String list |
+| Gmail field name | Index field name            | Description | Data type   |
+| ---------------- | --------------------------- | ----------- | ----------- |
+| category         | \_category                  | Default     | String      |
+| internalDate     | \_created\_at               | Default     | Date        |
+| id               | gmail\_message\_is          | Custom      | String      |
+| labelIds         | gmail\_message\_label\_ids  | Custom      | String list |
+| historyId        | gmail\_message\_history\_id | Custom      | String      |
+| subject          | gmail\_subject              | Custom      | String      |
+| from             | gmail\_from                 | Custom      | String      |
+| to               | gmail\_to                   | Custom      | String list |
+| cc               | gmail\_cc                   | Custom      | String list |
+| bcc              | gmail\_bcc                  | Custom      | String list |

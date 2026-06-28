@@ -74,14 +74,14 @@ output. 3. Next, create the IAM role. To do so, perform the following steps:
      JSON included:
 
 4. Next, create the IAM policy for your web experience. To do so, perform
-   the following steps:
+the following steps:
 
-   1. In the `policies` directory, create and save a new file
-      named `permspolicyforfederation.json` with the following
-      JSON included:
+    1. In the `policies` directory, create and save a new file
+     named `permspolicyforfederation.json` with the following
+     JSON included:
 
 5. Finally, create and attach the roles in IAM using the following
-   command:
+command:
 
 ```
 aws iam \

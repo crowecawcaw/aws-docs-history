@@ -158,32 +158,31 @@ Secrets Manager secret:
      Web Crawler](webcrawler-retrieving-credentials.md "webcrawler-retrieving-credentials.md").
 
 9. **Web proxy – _optional_** –
-   Enter the host name and the port number of the proxy server that you want to use
-   to connect to internal websites. For example, the host name of
-   *https://a.example.com/page1.html* is
-   "a.example.com" and the port number is 443, the standard port
-   for HTTPS. If web proxy credentials are required to connect to a website host,
-   you can create an AWS Secrets Manager secret that stores the following
-   credentials: the username and password required for the web proxy to log into
-   the host URL.
-10. **Configure VPC and security group –
-    _optional_** – Choose
-    whether you want to use a VPC. If you do, enter the following
-    information:
+Enter the host name and the port number of the proxy server that you want to use
+to connect to internal websites. For example, the host name of
+*https://a.example.com/page1.html* is
+"a.example.com" and the port number is 443, the standard port
+for HTTPS. If web proxy credentials are required to connect to a website host,
+you can create an AWS Secrets Manager secret that stores the following
+credentials: the username and password required for the web proxy to log into
+the host URL. 10. **Configure VPC and security group –
+_optional_** – Choose
+whether you want to use a VPC. If you do, enter the following
+information:
 
     1. **Subnets** – Select up to 6
-       repository subnets that define the subnets and IP ranges
-       the repository instance uses in the selected VPC.
+     repository subnets that define the subnets and IP ranges
+     the repository instance uses in the selected VPC.
     2. **VPC security groups** –
-       Choose up to 10 security groups that allow access to
-       your data source. Ensure that the security group allows
-       incoming traffic from Amazon EC2 instances and
-       devices outside your VPC. For databases, security group
-       instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
+     Choose up to 10 security groups that allow access to
+     your data source. Ensure that the security group allows
+     incoming traffic from Amazon EC2 instances and
+     devices outside your VPC. For databases, security group
+     instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
 
 11. **IAM role** – Choose
-    an existing IAM role or create an IAM role to access your repository credentials and
-    index content.
+an existing IAM role or create an IAM role to access your repository credentials and
+index content.
 
 ###### Note
 
@@ -252,24 +251,22 @@ For more information, see [IAM role](webcrawler-connector.md#webcrawler-iam "web
      [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 13. In **Sync mode**, choose how you want to update your index
-    when your data source content changes. When you sync your data source with
-    Amazon Q for the first time, all content is synced by
-    default.
+when your data source content changes. When you sync your data source with
+Amazon Q for the first time, all content is synced by
+default.
 
-    - **Full sync** – Sync all content regardless of
-      the previous sync status.
-    - **New, modified, or deleted content sync** –
-      Sync only new, modified, and deleted documents.
+    * **Full sync** – Sync all content regardless of
+     the previous sync status.
+    * **New, modified, or deleted content sync** –
+     Sync only new, modified, and deleted documents.
 
 14. In **Sync run schedule**, for
-    **Frequency** – Choose how often
-    Amazon Q will sync with your data
-    source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
-    see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs").
-15. **Tags - _optional_** –
-    Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details.
-16. **Field mappings** – A list of data source document
-    attributes to map to your index fields.
+**Frequency** – Choose how often
+Amazon Q will sync with your data
+source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
+see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs"). 15. **Tags - _optional_** –
+Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details. 16. **Field mappings** – A list of data source document
+attributes to map to your index fields.
 
 ###### Note
 
@@ -293,9 +290,9 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 17. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

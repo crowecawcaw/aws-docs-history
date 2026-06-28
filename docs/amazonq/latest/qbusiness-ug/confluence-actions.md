@@ -33,26 +33,25 @@ the following:
   To learn how to retrieve your instance ID (Cloud Site ID), go to [How to retrieve Cloud Site Id](https://confluence.atlassian.com/cloudkb/retrieve-my-atlassian-site-s-cloud-id-1272283178.html "https://confluence.atlassian.com/cloudkb/retrieve-my-atlassian-site-s-cloud-id-1272283178.html").
 - Note your:
 
-      + **Access token URL** – For
-       Atlassian Confluence OAuth applications, this is
-       `https://auth.atlassian.com/oauth/token`.
-      + **Authorization URL** – For
-       Atlassian Confluence OAuth applications, this is
-       `https://auth.atlassian.com/authorize`.
-      + **Redirect URL** – The URL to
-       which user needs to be redirected after authentication. If your deployed
-       web url is `<q-endpoint>`, use
-       `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
-       URL needs to be allowlisted in your third-party application.
-      + **Client ID** – The client ID
-       generated when you create your OAuth 2.0 application in
-       Atlassian Confluence.
-      + **Client secret** – The client
-       secret generated when you create your OAuth 2.0 application in
-       Atlassian Confluence.
-
-  You will need this authentication information during the plugin configuration
-  process.
+  - **Access token URL** – For
+    Atlassian Confluence OAuth applications, this is
+    `https://auth.atlassian.com/oauth/token`.
+  - **Authorization URL** – For
+    Atlassian Confluence OAuth applications, this is
+    `https://auth.atlassian.com/authorize`.
+  - **Redirect URL** – The URL to
+    which user needs to be redirected after authentication. If your deployed
+    web url is `<q-endpoint>`, use
+    `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
+    URL needs to be allowlisted in your third-party application.
+  - **Client ID** – The client ID
+    generated when you create your OAuth 2.0 application in
+    Atlassian Confluence.
+  - **Client secret** – The client
+    secret generated when you create your OAuth 2.0 application in
+    Atlassian Confluence.
+    You will need this authentication information during the plugin configuration
+    process.
 
 ## Service access roles
 

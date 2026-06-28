@@ -33,12 +33,12 @@ the associated reserved and custom attributes.
 
 ###### Supported entities and field mappings
 
-| Amazon FSx (Windows) field name | Index field name   | Description | Data type   |
-| ------------------------------- | ------------------ | ----------- | ----------- |
-| creationTime                    | \_created_at       | Default     | Date        |
-| lastModified                    | \_last_updated_at  | Default     | Date        |
-| fileType                        | \_file_type        | Default     | String      |
-| path                            | \_source_uri       | Default     | String      |
-| author                          | \_authors          | Default     | String list |
-| size                            | fsx_size           | Custom      | String      |
-| lastAccessTime                  | \_last_accessed_at | Custom      | Date        |
+| Amazon FSx (Windows) field name | Index field name     | Description | Data type   |
+| ------------------------------- | -------------------- | ----------- | ----------- |
+| creationTime                    | \_created\_at        | Default     | Date        |
+| lastModified                    | \_last\_updated\_at  | Default     | Date        |
+| fileType                        | \_file\_type         | Default     | String      |
+| path                            | \_source\_uri        | Default     | String      |
+| author                          | \_authors            | Default     | String list |
+| size                            | fsx\_size            | Custom      | String      |
+| lastAccessTime                  | \_last\_accessed\_at | Custom      | Date        |

@@ -38,19 +38,19 @@ associated reserved and custom attributes.
 
 ## Web Pages
 
-| Web Crawler field name | Index field name | Description | Data type      |
-| ---------------------- | ---------------- | ----------- | -------------- |
-| category               | \_category       | Default     | String         |
-| sourceUrl              | \_source_uri     | Default     | String         |
-| title                  | \_document_title | Default     | String         |
-| htmlSize               | wc_html_size     | Custom      | Long (numeric) |
+| Web Crawler field name | Index field name  | Description | Data type      |
+| ---------------------- | ----------------- | ----------- | -------------- |
+| category               | \_category        | Default     | String         |
+| sourceUrl              | \_source\_uri     | Default     | String         |
+| title                  | \_document\_title | Default     | String         |
+| htmlSize               | wc\_html\_size    | Custom      | Long (numeric) |
 
 ## Attachments
 
 | Web Crawler field name | Index field name | Description | Data type      |
 | ---------------------- | ---------------- | ----------- | -------------- |
 | category               | \_category       | Default     | String         |
-| sourceUrl              | \_source_uri     | Default     | String         |
-| fileName               | wc_file_name     | Custom      | String         |
-| fileType               | wc_file_type     | Custom      | String         |
-| fileSize               | wc_file_size     | Custom      | Long (numeric) |
+| sourceUrl              | \_source\_uri    | Default     | String         |
+| fileName               | wc\_file\_name   | Custom      | String         |
+| fileType               | wc\_file\_type   | Custom      | String         |
+| fileSize               | wc\_file\_size   | Custom      | Long (numeric) |

@@ -34,29 +34,27 @@ account.
   needed to crawl all documents, and access control (ACL) information for all
   users in a Google Workspace domain:
 
-      + https://www.googleapis.com/auth/drive.readonly—View and
-       download all your Google Drive files
-      + https://www.googleapis.com/auth/drive.metadata.readonly—View
-       metadata for files in your Google Drive
-      + https://www.googleapis.com/auth/admin.directory.group.readonly—Scope
-       for only retrieving group, group alias, and member information. This is
-       needed for the Amazon Q Identity Crawler.
-      + https://www.googleapis.com/auth/admin.directory.user.readonly—Scope
-       for only retrieving users or user aliases. This is needed for listing
-       users in the Amazon Q Identity Crawler and for setting
-       ACLs.
-      + https://www.googleapis.com/auth/cloud-platform—Scope for
-       generating access token for fetching content of large Google Drive
-       files.
-      + https://www.googleapis.com/auth/forms.body.readonly—Scope for
-       fetching data from Google Forms.
+  - https://www.googleapis.com/auth/drive.readonly—View and
+    download all your Google Drive files
+  - https://www.googleapis.com/auth/drive.metadata.readonly—View
+    metadata for files in your Google Drive
+  - https://www.googleapis.com/auth/admin.directory.group.readonly—Scope
+    for only retrieving group, group alias, and member information. This is
+    needed for the Amazon Q Identity Crawler.
+  - https://www.googleapis.com/auth/admin.directory.user.readonly—Scope
+    for only retrieving users or user aliases. This is needed for listing
+    users in the Amazon Q Identity Crawler and for setting
+    ACLs.
+  - https://www.googleapis.com/auth/cloud-platform—Scope for
+    generating access token for fetching content of large Google Drive
+    files.
+  - https://www.googleapis.com/auth/forms.body.readonly—Scope for
+    fetching data from Google Forms.
+    **To support the Forms API, add the following additional
+    scope:**
 
-  **To support the Forms API, add the following additional
-  scope:**
-
-      + https://www.googleapis.com/auth/forms.body.readonly
-
-  **In your AWS account, make sure you have:**
+  - https://www.googleapis.com/auth/forms.body.readonly
+    **In your AWS account, make sure you have:**
 
 - Created a Amazon Q Business application.
 - Created a [Amazon Q Business retriever and added an index](select-retriever.md "select-retriever.md").

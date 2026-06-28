@@ -293,12 +293,11 @@ mitigation** before you can activate chat
 orchestration. 7. For **Feature settings**, choose whether
 your end users will be allowed to upload files directly in
 chat to ask questions based on file content and whether
-Amazon Q Apps will be enabled for your application environment. 8. _ For **Blocked words** –
+Amazon Q Apps will be enabled for your application environment. 8. * For **Blocked words** –
 Define blocked words for the application environment. The
 application environment will not respond to questions that
 contain these words or mention them in any
-responses.
-_ For **Messaging shown for blocked
+responses. * For **Messaging shown for blocked
 words** – Choose to create a
 custom response for your end users informing them of
 blocked word usage and any next steps to

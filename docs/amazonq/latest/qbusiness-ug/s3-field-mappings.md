@@ -39,4 +39,4 @@ and custom attributes.
 
 | Amazon S3 field name | Index field name | Description | Data type |
 | -------------------- | ---------------- | ----------- | --------- |
-| s3_document_id       | s3_document_id   | Default     | String    |
+| s3\_document\_id     | s3\_document\_id | Default     | String    |

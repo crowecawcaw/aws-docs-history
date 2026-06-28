@@ -109,15 +109,15 @@ Company-Managed projects are established:
   `Test1`, group assignments depend on permissions:
 - - If a user gains access through project-level permissions, the group
     `ProjectBasedBrowseKey:Test` is used.
-  - If access is granted through dynamic conditions such as the user being
-    the assignee, the group `IssueBasedBrowseKey:Test1` is
-    used.
-  - If both types of access mechanisms exist, users may belong to both
-    groups.
+    - If access is granted through dynamic conditions such as the user being
+      the assignee, the group `IssueBasedBrowseKey:Test1` is
+      used.
+    - If both types of access mechanisms exist, users may belong to both
+      groups.
 - **Issue with Issue-Level Security Enabled**:
   Access requires both project/issue-based browse permissions and issue-specific
   security clearance. The condition becomes: `(ProjectBasedBrowseKey:Test OR
-IssueBasedBrowseKey:Test1) AND IssueLevelKey:Test1`.
+ IssueBasedBrowseKey:Test1) AND IssueLevelKey:Test1`.
 - **Comments, Attachments, and Worklog**s: These
   documents inherit the same access control as the associated issue. Therefore,
   the same issue-level logic applies..

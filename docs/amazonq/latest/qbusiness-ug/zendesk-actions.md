@@ -37,26 +37,25 @@ the following:
   `https://`yourInstanceId`.zendesk.com`.
 - Note your:
 
-      + **Access token URL** – For
-       Zendesk Suite OAuth applications, this is
-       `https://`yourInstanceId`.zendesk.com/oauth/tokens`.
-      + **Authorization URL** – For
-       Zendesk Suite OAuth applications, this is
-       `https://`yourInstanceId`.zendesk.com/oauth/authorizations/new`.
-      + **Redirect URL** – The URL to
-       which user needs to be redirected after authentication. If your deployed
-       web url is `<q-endpoint>`, use
-       `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
-       URL needs to be allowlisted in your third-party application.
-      + **Client ID** – The unique
-       identifier generated when you create your OAuth 2.0 application in
-       Zendesk Suite.
-      + **Client secret** – The client
-       secret generated when you create your OAuth 2.0 application in
-       Zendesk Suite.
-
-  You will need this authentication information during the plugin configuration
-  process.
+  - **Access token URL** – For
+    Zendesk Suite OAuth applications, this is
+    `https://`yourInstanceId`.zendesk.com/oauth/tokens`.
+  - **Authorization URL** – For
+    Zendesk Suite OAuth applications, this is
+    `https://`yourInstanceId`.zendesk.com/oauth/authorizations/new`.
+  - **Redirect URL** – The URL to
+    which user needs to be redirected after authentication. If your deployed
+    web url is `<q-endpoint>`, use
+    `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
+    URL needs to be allowlisted in your third-party application.
+  - **Client ID** – The unique
+    identifier generated when you create your OAuth 2.0 application in
+    Zendesk Suite.
+  - **Client secret** – The client
+    secret generated when you create your OAuth 2.0 application in
+    Zendesk Suite.
+    You will need this authentication information during the plugin configuration
+    process.
 
 ## Service access roles
 

@@ -46,83 +46,83 @@ Amazon Q will generate responses from data in the document title and body.
 
 ## Space
 
-| Confluence field name | Index field name     | Description | Data type |
-| --------------------- | -------------------- | ----------- | --------- |
-| spaceName             | cf_sp_document_title | Custom      | String    |
-| itemType              | \_category           | Default     | String    |
-| url                   | \_source_uri         | Default     | String    |
-| spaceKey              | cf_space_key         | Custom      | String    |
-| description           | cf_description       | Custom      | String    |
-| spaceType             | cf_type              | Custom      | String    |
+| Confluence field name | Index field name        | Description | Data type |
+| --------------------- | ----------------------- | ----------- | --------- |
+| spaceName             | cf\_sp\_document\_title | Custom      | String    |
+| itemType              | \_category              | Default     | String    |
+| url                   | \_source\_uri           | Default     | String    |
+| spaceKey              | cf\_space\_key          | Custom      | String    |
+| description           | cf\_description         | Custom      | String    |
+| spaceType             | cf\_type                | Custom      | String    |
 
 ## Page
 
-| Confluence field name | Index field name         | Description | Data type      |
-| --------------------- | ------------------------ | ----------- | -------------- |
-| title                 | \_cf_page_document_title | Custom      | String         |
-| authors               | \_authors                | Default     | String list    |
-| createdDate           | \_created_at             | Default     | Date           |
-| modifiedDate          | \_last_updated_at        | Default     | Date           |
-| labels                | cf_labels                | Custom      | String list    |
-| version               | cf_version               | Custom      | Long (numeric) |
-| itemType              | \_category               | Default     | String         |
-| spaceKey              | cf_space_key             | Custom      | String         |
-| spaceName             | cf_space_name            | Custom      | String         |
-| url                   | \_source_uri             | Default     | String         |
-| status                | cf_status                | Custom      | String         |
-| parentId              | cf_parent_id             | Custom      | String         |
+| Confluence field name | Index field name            | Description | Data type      |
+| --------------------- | --------------------------- | ----------- | -------------- |
+| title                 | \_cf\_page\_document\_title | Custom      | String         |
+| authors               | \_authors                   | Default     | String list    |
+| createdDate           | \_created\_at               | Default     | Date           |
+| modifiedDate          | \_last\_updated\_at         | Default     | Date           |
+| labels                | cf\_labels                  | Custom      | String list    |
+| version               | cf\_version                 | Custom      | Long (numeric) |
+| itemType              | \_category                  | Default     | String         |
+| spaceKey              | cf\_space\_key              | Custom      | String         |
+| spaceName             | cf\_space\_name             | Custom      | String         |
+| url                   | \_source\_uri               | Default     | String         |
+| status                | cf\_status                  | Custom      | String         |
+| parentId              | cf\_parent\_id              | Custom      | String         |
 
 ## Blog
 
-| Confluence field name | Index field name     | Description | Data type      |
-| --------------------- | -------------------- | ----------- | -------------- |
-| title                 | cf_bg_document_title | Custom      | String         |
-| author                | \_authors            | Default     | String list    |
-| publishedDate         | \_created_at         | Default     | Date           |
-| labels                | \_source_uri         | Default     | String         |
-| version               | cf_version           | Custom      | Long (numeric) |
-| itemType              | \_category           | Custom      | String         |
-| spaceKey              | cf_space_key         | Custom      | String         |
-| modifiedDate          | \_last_updated_at    | Default     | Date           |
-| spaceName             | cf_space_name        | Custom      | String         |
-| status                | cf_status            | Custom      | String         |
-| url                   | \_source_uri         | Default     | String         |
-| parentId              | cf_parent_id         | Custom      | String         |
+| Confluence field name | Index field name        | Description | Data type      |
+| --------------------- | ----------------------- | ----------- | -------------- |
+| title                 | cf\_bg\_document\_title | Custom      | String         |
+| author                | \_authors               | Default     | String list    |
+| publishedDate         | \_created\_at           | Default     | Date           |
+| labels                | \_source\_uri           | Default     | String         |
+| version               | cf\_version             | Custom      | Long (numeric) |
+| itemType              | \_category              | Custom      | String         |
+| spaceKey              | cf\_space\_key          | Custom      | String         |
+| modifiedDate          | \_last\_updated\_at     | Default     | Date           |
+| spaceName             | cf\_space\_name         | Custom      | String         |
+| status                | cf\_status              | Custom      | String         |
+| url                   | \_source\_uri           | Default     | String         |
+| parentId              | cf\_parent\_id          | Custom      | String         |
 
 ## Comment
 
-| Confluence field name | Index field name      | Description | Data type      |
-| --------------------- | --------------------- | ----------- | -------------- |
-| title                 | cf_cmt_document_title | Custom      | String         |
-| author                | \_authors             | Default     | String list    |
-| createdDate           | \_created_at          | Default     | Date           |
-| version               | cf_version            | Custom      | Long (numeric) |
-| itemType              | \_category            | Default     | String         |
-| spaceKey              | cf_space_key          | Custom      | String         |
-| spaceName             | cf_space_name         | Custom      | String         |
-| contentType           | cf_content_type       | Custom      | String         |
-| url                   | \_source_uri          | Default     | String         |
-| parentId              | cf_parent_id          | Custom      | String         |
-| status                | cf_status             | Custom      | String         |
+| Confluence field name | Index field name         | Description | Data type      |
+| --------------------- | ------------------------ | ----------- | -------------- |
+| title                 | cf\_cmt\_document\_title | Custom      | String         |
+| author                | \_authors                | Default     | String list    |
+| createdDate           | \_created\_at            | Default     | Date           |
+| version               | cf\_version              | Custom      | Long (numeric) |
+| itemType              | \_category               | Default     | String         |
+| spaceKey              | cf\_space\_key           | Custom      | String         |
+| spaceName             | cf\_space\_name          | Custom      | String         |
+| contentType           | cf\_content\_type        | Custom      | String         |
+| url                   | \_source\_uri            | Default     | String         |
+| parentId              | cf\_parent\_id           | Custom      | String         |
+| status                | cf\_status               | Custom      | String         |
 
 ## Attachment
 
-| Confluence field name | Index field name             | Description | Data type      |
-| --------------------- | ---------------------------- | ----------- | -------------- |
-| fileName              | cf_attachment_document_title | Custom      | String         |
-| author                | \_authors                    | Default     | String list    |
-| createdDate           | \_created_at                 | Default     | Date           |
-| labels                | cf_labels                    | Custom      | String list    |
-| version               | cf_version                   | Custom      | Long (numeric) |
-| itemType              | \_category                   | Default     | String         |
-| spaceKey              | cf_space_key                 | Custom      | String         |
-| contentType           | cf_content_type              | Custom      | String         |
-| modifiedDate          | \_last_updated_at            | Default     | Date           |
-| fileSize              | cf_file_size                 | Custom      | Long (numeric) |
-| fileType              | cf_attachment_file_type      | Custom      | String         |
-| spaceName             | cf_space_name                | Custom      | String         |
-| documentId            | \_document_id                | Default     | String list    |
-| url                   | \_source_uri                 | Default     | String         |
-| parentId              | cf_parent_id                 | Custom      | String         |
-| attachmentComment     | cf_attachment_comment        | Custom      | String         |
-| status                | cf_status                    | Custom      | String         |
+| Confluence field name | Index field name                | Description | Data type      |
+| --------------------- | ------------------------------- | ----------- | -------------- |
+| fileName              | cf\_attachment\_document\_title | Custom      | String         |
+| author                | \_authors                       | Default     | String list    |
+| createdDate           | \_created\_at                   | Default     | Date           |
+| labels                | cf\_labels                      | Custom      | String list    |
+| version               | cf\_version                     | Custom      | Long (numeric) |
+| itemType              | \_category                      | Default     | String         |
+| spaceKey              | cf\_space\_key                  | Custom      | String         |
+| contentType           | cf\_content\_type               | Custom      | String         |
+| modifiedDate          | \_last\_updated\_at             | Default     | Date           |
+| fileSize              | cf\_file\_size                  | Custom      | Long (numeric) |
+| fileType              | cf\_attachment\_file\_type      | Custom      | String         |
+| spaceName             | cf\_space\_name                 | Custom      | String         |
+| documentId            | \_document\_id                  | Default     | String list    |
+| url                   | \_source\_uri                   | Default     | String         |
+| parentId              | cf\_parent\_id                  | Custom      | String         |
+| attachmentComment     | cf\_attachment\_comment         | Custom      | String         |
+| status                | cf\_status                      | Custom      | String         |

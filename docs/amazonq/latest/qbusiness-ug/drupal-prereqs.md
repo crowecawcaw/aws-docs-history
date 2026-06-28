@@ -31,9 +31,9 @@ prerequisites.
   administrator role:
 
   - administer blocks
-  - administer block_content display
-  - administer block_content fields
-  - administer block_content form display
+  - administer block\_content display
+  - administer block\_content fields
+  - administer block\_content form display
   - administer views
   - view user email addresses
   - view own unpublished content

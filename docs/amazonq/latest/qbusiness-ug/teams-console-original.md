@@ -68,13 +68,12 @@ See [Authorization](connector-concepts.md#connector-authorization "connector-con
     	 account.
 
 10. **Payment model** – Choose the payment model
-    associated with your Microsoft Teams account. Model A payment models are
-    restricted to licensing and payment models that require security compliance.
-    Model B payment models are suitable for licensing and payment models that don't
-    require security compliance.
-11. **IAM role** – Choose
-    an existing IAM role or create an IAM role to access your repository credentials and
-    index content.
+associated with your Microsoft Teams account. Model A payment models are
+restricted to licensing and payment models that require security compliance.
+Model B payment models are suitable for licensing and payment models that don't
+require security compliance. 11. **IAM role** – Choose
+an existing IAM role or create an IAM role to access your repository credentials and
+index content.
 
 ###### Note
 
@@ -144,27 +143,26 @@ sync.
      [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 13. For **Maximum file size** – Specify the file size
-    limit in MBs that Amazon Q will crawl. Amazon Q will crawl only the files
-    within the size limit you define. The default file size is 50MB. The maximum
-    file size should be greater than 0MB and less than or equal to 50MB.
-14. In **Additional configuration –
-    _optional_**, configure the following comprehensive options:
+limit in MBs that Amazon Q will crawl. Amazon Q will crawl only the files
+within the size limit you define. The default file size is 50MB. The maximum
+file size should be greater than 0MB and less than or equal to 50MB. 14. In **Additional configuration –
+_optional_**, configure the following comprehensive options:
 
-    - **Calendar crawling** – Enter the date range for
-      which the connector will crawl your calendar content.
-    - **User email** – Enter the emails of the users
-      you want to include in your application.
-    - **Team names** – Add patterns to include or
-      exclude teams found in Microsoft Teams from your application.
-    - **Channel names** – Add patterns to include or
-      exclude channels found in Microsoft Teams from your
-      application.
-    - **Attachment regex patterns** – Add regular
-      expression patterns to include or exclude certain attachment for all
-      supported entities. You can add up to 100 patterns.
+    * **Calendar crawling** – Enter the date range for
+     which the connector will crawl your calendar content.
+    * **User email** – Enter the emails of the users
+     you want to include in your application.
+    * **Team names** – Add patterns to include or
+     exclude teams found in Microsoft Teams from your application.
+    * **Channel names** – Add patterns to include or
+     exclude channels found in Microsoft Teams from your
+     application.
+    * **Attachment regex patterns** – Add regular
+     expression patterns to include or exclude certain attachment for all
+     supported entities. You can add up to 100 patterns.
 
 15. **Field mappings** – A list of data source document
-    attributes to map to your index fields.
+attributes to map to your index fields.
 
 ###### Note
 
@@ -188,31 +186,29 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 16. **Configure VPC and security group –
-    _optional_** – Choose
-    whether you want to use a VPC. If you do, enter the following
-    information:
+_optional_** – Choose
+whether you want to use a VPC. If you do, enter the following
+information:
 
-    1.  **Subnets** – Select up to 6
-        repository subnets that define the subnets and IP ranges
-        the repository instance uses in the selected VPC.
-    2.  **VPC security groups** –
-        Choose up to 10 security groups that allow access to
-        your data source. Ensure that the security group allows
-        incoming traffic from Amazon EC2 instances and
-        devices outside your VPC. For databases, security group
-        instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
+    1. **Subnets** – Select up to 6
+     repository subnets that define the subnets and IP ranges
+     the repository instance uses in the selected VPC.
+    2. **VPC security groups** –
+     Choose up to 10 security groups that allow access to
+     your data source. Ensure that the security group allows
+     incoming traffic from Amazon EC2 instances and
+     devices outside your VPC. For databases, security group
+     instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
 
 17. In **Sync run schedule**, for
-    **Frequency** – Choose how often
-    Amazon Q will sync with your data
-    source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
-    see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs").
-18. **Tags - _optional_** –
-    Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details.
-19. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+**Frequency** – Choose how often
+Amazon Q will sync with your data
+source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
+see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs"). 18. **Tags - _optional_** –
+Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details. 19. In **Data source details**, choose **Sync
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

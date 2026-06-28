@@ -23,15 +23,14 @@ have:**
   that if you are searching through public articles, you don't require any
   specific role. Apply the following roles depending on your use case:
 
-      + When searching Knowledge article documents in Amazon Q, the
-       user should have any of the following roles - Knowledge,
-       Knowledge\_Admin, and User\_Admin or Itil.
-      + When searching Service Catalog documents in Amazon Q, the
-       user should have a catalog role.
-      + When searching the Incident document in Amazon Q, the user
-       should have the incident\_manager role.
-
-  **In your AWS account, make sure you have:**
+  - When searching Knowledge article documents in Amazon Q, the
+    user should have any of the following roles - Knowledge,
+    Knowledge\_Admin, and User\_Admin or Itil.
+  - When searching Service Catalog documents in Amazon Q, the
+    user should have a catalog role.
+  - When searching the Incident document in Amazon Q, the user
+    should have the incident\_manager role.
+    **In your AWS account, make sure you have:**
 
 - Created a Amazon Q Business application.
 - Created a [Amazon Q Business retriever and added an index](select-retriever.md "select-retriever.md").

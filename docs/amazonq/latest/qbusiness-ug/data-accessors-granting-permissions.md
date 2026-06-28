@@ -165,7 +165,7 @@ page to see how to retrieve the `TenantId` for your application.
    (ISVs).
 6. Choose a **Name** for this data accessor's instance, for
    example `<your
-application-name>-<accessor-name>`.
+ application-name>-<accessor-name>`.
 
 If you chose TTI, follow these steps to configure the
 authentication:
@@ -177,16 +177,14 @@ authentication:
     2. Select, **Create trusted token issuer**.
 
 7. Choose **Data source access** between **Allow
-   all** or **Allow specific data sources**
-   depending on whether you want to provide the ISV access to all or certain
-   data sources from your Amazon Q index.
-8. Choose the end **User access**. These are the end users
-   that will connect with and use the Amazon Q index data from within the ISV's
-   application. You can choose between all users that have access to the
-   Amazon Q Business application environment or a subset of users and groups that you can
-   define.
-9. Choose **Add data accessor** to confirm your choices and
-   add the data accessor.
+all** or **Allow specific data sources**
+depending on whether you want to provide the ISV access to all or certain
+data sources from your Amazon Q index. 8. Choose the end **User access**. These are the end users
+that will connect with and use the Amazon Q index data from within the ISV's
+application. You can choose between all users that have access to the
+Amazon Q Business application environment or a subset of users and groups that you can
+define. 9. Choose **Add data accessor** to confirm your choices and
+add the data accessor.
 
 ###### Note
 

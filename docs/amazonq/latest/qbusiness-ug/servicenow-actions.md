@@ -61,26 +61,25 @@ Documentation.
   `https://`yourInstanceId`.service-now.com`.
 - Note your:
 
-      + **Access token URL** – For
-       ServiceNow OAuth applications, this is
-       `https://`yourInstanceId`.service-now.com/oauth_token.do`.
-      + **Authorization URL** – For
-       ServiceNow OAuth applications, this is
-       `https://`yourInstanceId`.service-now.com/oauth_auth.do`.
-      + **Redirect URL** – The URL to
-       which user needs to be redirected after authentication. If your deployed
-       web url is `<q-endpoint>`, use
-       `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
-       URL needs to be allowlisted in your third-party application.
-      + **Client ID** – The client ID
-       generated when you create your OAuth 2.0 application in
-       ServiceNow.
-      + **Client secret** – The client
-       secret generated when you create your OAuth 2.0 application in
-       ServiceNow.
-
-  You will need this authentication information during the plugin configuration
-  process.
+  - **Access token URL** – For
+    ServiceNow OAuth applications, this is
+    `https://`yourInstanceId`.service-now.com/oauth_token.do`.
+  - **Authorization URL** – For
+    ServiceNow OAuth applications, this is
+    `https://`yourInstanceId`.service-now.com/oauth_auth.do`.
+  - **Redirect URL** – The URL to
+    which user needs to be redirected after authentication. If your deployed
+    web url is `<q-endpoint>`, use
+    `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
+    URL needs to be allowlisted in your third-party application.
+  - **Client ID** – The client ID
+    generated when you create your OAuth 2.0 application in
+    ServiceNow.
+  - **Client secret** – The client
+    secret generated when you create your OAuth 2.0 application in
+    ServiceNow.
+    You will need this authentication information during the plugin configuration
+    process.
 
 ## Service access roles
 

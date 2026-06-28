@@ -34,26 +34,25 @@ the following:
   `https://www.googleapis.com/calendar/v3`.
 - Note your:
 
-      + **Access token URL** – For
-       Google Calendar OAuth applications, this is
-       `https://oauth2.googleapis.com/token`.
-      + **Authorization URL** – For
-       Google Calendar OAuth applications, this is
-       `https://accounts.google.com/o/oauth2/v2/auth`.
-      + **Redirect URL** – The URL to
-       which user needs to be redirected after authentication. If your deployed
-       web url is `<q-endpoint>`, use
-       `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
-       URL needs to be allowlisted in your third-party application.
-      + **Client ID** – The client ID
-       generated when you create your OAuth 2.0 application in
-       Google Calendar.
-      + **Client secret** – The client
-       secret generated when you create your OAuth 2.0 application in
-       Google Calendar.
-
-  You will need this authentication information during the plugin configuration
-  process.
+  - **Access token URL** – For
+    Google Calendar OAuth applications, this is
+    `https://oauth2.googleapis.com/token`.
+  - **Authorization URL** – For
+    Google Calendar OAuth applications, this is
+    `https://accounts.google.com/o/oauth2/v2/auth`.
+  - **Redirect URL** – The URL to
+    which user needs to be redirected after authentication. If your deployed
+    web url is `<q-endpoint>`, use
+    `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
+    URL needs to be allowlisted in your third-party application.
+  - **Client ID** – The client ID
+    generated when you create your OAuth 2.0 application in
+    Google Calendar.
+  - **Client secret** – The client
+    secret generated when you create your OAuth 2.0 application in
+    Google Calendar.
+    You will need this authentication information during the plugin configuration
+    process.
 
 ## Service access roles
 

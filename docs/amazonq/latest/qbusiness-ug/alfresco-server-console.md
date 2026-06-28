@@ -73,11 +73,10 @@ information:
      instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
 
 11. **Identity crawler** – Amazon Q crawls identity
-    information from your data source by default to ensure responses are generated only from documents end users have access to.
-    For more information, see [Identity crawler](connector-concepts.md#connector-identity-crawler "connector-concepts.md#connector-identity-crawler").
-12. **IAM role** – Choose
-    an existing IAM role or create an IAM role to access your repository credentials and
-    index content.
+information from your data source by default to ensure responses are generated only from documents end users have access to.
+For more information, see [Identity crawler](connector-concepts.md#connector-identity-crawler "connector-concepts.md#connector-identity-crawler"). 12. **IAM role** – Choose
+an existing IAM role or create an IAM role to access your repository credentials and
+index content.
 
 ###### Note
 
@@ -116,24 +115,22 @@ For more information, see [IAM role](alfresco-server-connector.md#alfresco-serve
      [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 14. In **Sync mode**, choose how you want to update your index
-    when your data source content changes. When you sync your data source with
-    Amazon Q for the first time, all content is synced by
-    default.
+when your data source content changes. When you sync your data source with
+Amazon Q for the first time, all content is synced by
+default.
 
-    - **Full sync** – Sync all content regardless of
-      the previous sync status.
-    - **New, modified, or deleted content sync** –
-      Sync only new, modified, and deleted documents.
+    * **Full sync** – Sync all content regardless of
+     the previous sync status.
+    * **New, modified, or deleted content sync** –
+     Sync only new, modified, and deleted documents.
 
 15. In **Sync run schedule**, for
-    **Frequency** – Choose how often
-    Amazon Q will sync with your data
-    source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
-    see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs").
-16. **Tags - _optional_** –
-    Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details.
-17. **Field mappings** – A list of data source document
-    attributes to map to your index fields.
+**Frequency** – Choose how often
+Amazon Q will sync with your data
+source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
+see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs"). 16. **Tags - _optional_** –
+Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details. 17. **Field mappings** – A list of data source document
+attributes to map to your index fields.
 
 ###### Note
 
@@ -157,9 +154,9 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 18. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

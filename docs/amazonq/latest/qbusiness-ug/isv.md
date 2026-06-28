@@ -101,15 +101,13 @@ IAM Identity Center](create-application.md "create-application.md").
      provided by the customer to the ISV.
 
 3. The end user logs in using the method configured by the
-   customer's Amazon Q administrator. For example, the user's company
-   SSO.
-4. The ISV application receives an _auth code_
-   in their _redirect URL_.
-5. The ISV application calls the `CreateTokenWithIAM`
-   API operation to get a token with an authorization code. The ISV
-   needs to use the AWS Identity and Access Management (IAM) role that they created
-   during the onboarding process with `tenantId`
-   information in the tags like the following:
+customer's Amazon Q administrator. For example, the user's company
+SSO. 4. The ISV application receives an _auth code_
+in their _redirect URL_. 5. The ISV application calls the `CreateTokenWithIAM`
+API operation to get a token with an authorization code. The ISV
+needs to use the AWS Identity and Access Management (IAM) role that they created
+during the onboarding process with `tenantId`
+information in the tags like the following:
 
 ```
 

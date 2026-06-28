@@ -38,26 +38,25 @@ the following:
   `https://api.smartsheet.com/2.0`.
 - Note your:
 
-      + **Access token URL** – For
-       Smartsheet OAuth applications, this is
-       `https://api.smartsheet.com/2.0/token`.
-      + **Authorization URL** – For
-       Smartsheet OAuth applications, this is
-       `https://app.smartsheet.com/b/authorize`.
-      + **Redirect URL** – The URL to
-       which user needs to be redirected after authentication. If your deployed
-       web url is `<q-endpoint>`, use
-       `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
-       URL needs to be allowlisted in your third-party application.
-      + **Client ID** – The client ID
-       generated when you create your OAuth 2.0 application in
-       Smartsheet.
-      + **Client secret** – The client
-       secret generated when you create your OAuth 2.0 application in
-       Smartsheet.
-
-  You will need this authentication information during the plugin configuration
-  process.
+  - **Access token URL** – For
+    Smartsheet OAuth applications, this is
+    `https://api.smartsheet.com/2.0/token`.
+  - **Authorization URL** – For
+    Smartsheet OAuth applications, this is
+    `https://app.smartsheet.com/b/authorize`.
+  - **Redirect URL** – The URL to
+    which user needs to be redirected after authentication. If your deployed
+    web url is `<q-endpoint>`, use
+    `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
+    URL needs to be allowlisted in your third-party application.
+  - **Client ID** – The client ID
+    generated when you create your OAuth 2.0 application in
+    Smartsheet.
+  - **Client secret** – The client
+    secret generated when you create your OAuth 2.0 application in
+    Smartsheet.
+    You will need this authentication information during the plugin configuration
+    process.
 
 ## Service access roles
 

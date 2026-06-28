@@ -25,11 +25,10 @@ Amazon Q Business console or the Amazon Q Business API.
      operation. For more information, see [Share an anonymous web experience](supported-exp-actions-anonymous.md#create-experience-anonymous-url "supported-exp-actions-anonymous.md#create-experience-anonymous-url").
 
 3. From the left navigation pane, choose **Amazon Q
-   embedded** under the **Enhancements**
-   section.
-4. On the main page, choose **Add allowed website** and
-   enter the _base URL_ of the website where you'll be
-   embedding the Amazon Q Business web experience.
+embedded** under the **Enhancements**
+section. 4. On the main page, choose **Add allowed website** and
+enter the _base URL_ of the website where you'll be
+embedding the Amazon Q Business web experience.
 
 ```
 

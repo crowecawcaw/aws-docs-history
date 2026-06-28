@@ -66,39 +66,39 @@ Console
 **To create an Amazon Q Business
 retriever**
 
-1.  Sign in to the AWS Management Console and open the Amazon Q Business
-    console.
-2.  Complete the steps to create your Amazon Q Business
-    application.
-3.  In **Applications**, select the name of your
-    application from the list of applications.
-4.  From the left navigation menu, choose **Data
-    sources**.
-5.  From the **Data sources** page, choose
-    **Add index**.
-6.  From the **Add index** page, choose
-    **Create a new index** and then do the
-    following:
+1. Sign in to the AWS Management Console and open the Amazon Q Business
+   console.
+2. Complete the steps to create your Amazon Q Business
+   application.
+3. In **Applications**, select the name of your
+   application from the list of applications.
+4. From the left navigation menu, choose **Data
+   sources**.
+5. From the **Data sources** page, choose
+   **Add index**.
+6. From the **Add index** page, choose
+   **Create a new index** and then do the
+   following:
 
-    1. In **Name your index with a unique
-       identifier**, for **Index
-       name**, input a name for your Amazon Q Business application.
+   1. In **Name your index with a unique
+      identifier**, for **Index
+      name**, input a name for your Amazon Q Business application.
 
-    You can include hyphens (-), but not spaces. Maximum
-    of 1000 alphanumeric characters.
+   You can include hyphens (-), but not spaces. Maximum
+   of 1000 alphanumeric characters.
 
-    ###### Important
+   ###### Important
 
-    You can't change the name of the index after it's
-    created.
+   You can't change the name of the index after it's
+   created.
 
-    ###### Note
+   ###### Note
 
-    Available data sources when you select this option
-    include all [Amazon Q Business
-    supported data connectors](supported-connectors.md "supported-connectors.md") and direct
-    document upload. 2. In **Index provisioning**, do the
-    following:
+   Available data sources when you select this option
+   include all [Amazon Q Business
+   supported data connectors](supported-connectors.md "supported-connectors.md") and direct
+   document upload. 2. In **Index provisioning**, do the
+   following:
 
         1. Choose between **Enterprise**
          and **Starter** index types based
@@ -115,8 +115,8 @@ retriever**
          For more information on index provisioning
          pricing, see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/ "https://aws.amazon.com/q/business/pricing/").
 
-7.  To create your index and retriever, choose **Add
-    index**.
+7. To create your index and retriever, choose **Add
+   index**.
 
 AWS CLI
 **To create an Amazon Q Business

@@ -40,132 +40,132 @@ Amazon Q reserved/default index fields.
 
 ## Chat messages
 
-| Microsoft Teams field name | Index field name    | Description | Data type   |
-| -------------------------- | ------------------- | ----------- | ----------- |
-| subject                    | tms_subject         | Custom      | String      |
-| summary                    | tms_summary         | Custom      | String      |
-| importance                 | tms_importance      | Custom      | String      |
-| messageType                | tms_message_type    | Custom      | String      |
-| sender                     | tms_sender          | Custom      | String      |
-| sourceUrl                  | \_source_uri        | Default     | String      |
-| attachments                | tms_attachments     | Custom      | String list |
-| reactions                  | tms_reactions       | Custom      | String list |
-| mentions                   | tms_mentions        | Custom      | String list |
-| deletedAt                  | tms_last_deleted_at | Custom      | Date        |
-| createdAt                  | \_created_at        | Default     | Date        |
-| lastModifiedAt             | \_last_updated_at   | Default     | Date        |
+| Microsoft Teams field name | Index field name       | Description | Data type   |
+| -------------------------- | ---------------------- | ----------- | ----------- |
+| subject                    | tms\_subject           | Custom      | String      |
+| summary                    | tms\_summary           | Custom      | String      |
+| importance                 | tms\_importance        | Custom      | String      |
+| messageType                | tms\_message\_type     | Custom      | String      |
+| sender                     | tms\_sender            | Custom      | String      |
+| sourceUrl                  | \_source\_uri          | Default     | String      |
+| attachments                | tms\_attachments       | Custom      | String list |
+| reactions                  | tms\_reactions         | Custom      | String list |
+| mentions                   | tms\_mentions          | Custom      | String list |
+| deletedAt                  | tms\_last\_deleted\_at | Custom      | Date        |
+| createdAt                  | \_created\_at          | Default     | Date        |
+| lastModifiedAt             | \_last\_updated\_at    | Default     | Date        |
 
 ## Chat attachments
 
-| Microsoft Teams field name | Index field name     | Description | Data type      |
-| -------------------------- | -------------------- | ----------- | -------------- |
-| fileName                   | tms_name             | Custom      | String         |
-| size                       | tms_file_size        | Custom      | Long (numeric) |
-| title                      | tms_title            | Custom      | String         |
-| sourceUrl                  | \_source_uri         | Default     | String         |
-| lastModifiedBy             | tms_last_modified_by | Custom      | String         |
-| createdBy                  | tms_created_by       | Custom      | String         |
-| createdAt                  | \_created_at         | Default     | Date           |
-| lastModifiedAt             | \_last_updated_at    | Default     | Date           |
+| Microsoft Teams field name | Index field name        | Description | Data type      |
+| -------------------------- | ----------------------- | ----------- | -------------- |
+| fileName                   | tms\_name               | Custom      | String         |
+| size                       | tms\_file\_size         | Custom      | Long (numeric) |
+| title                      | tms\_title              | Custom      | String         |
+| sourceUrl                  | \_source\_uri           | Default     | String         |
+| lastModifiedBy             | tms\_last\_modified\_by | Custom      | String         |
+| createdBy                  | tms\_created\_by        | Custom      | String         |
+| createdAt                  | \_created\_at           | Default     | Date           |
+| lastModifiedAt             | \_last\_updated\_at     | Default     | Date           |
 
 ## Channel posts
 
-| Microsoft Teams field name | Index field name    | Description | Data type   |
-| -------------------------- | ------------------- | ----------- | ----------- |
-| subject                    | tms_subject         | Custom      | String      |
-| summary                    | tms_summary         | Custom      | String      |
-| importance                 | tms_importance      | Custom      | String      |
-| messageType                | tms_message_type    | Custom      | String      |
-| createdBy                  | tms_created_by      | Custom      | String      |
-| deletedAt                  | tms_last_deleted_at | Custom      | Date        |
-| sourceUrl                  | \_source_uri        | Default     | String      |
-| mentions                   | tms_mentions        | Custom      | String list |
-| reactions                  | tms_reactions       | Custom      | String list |
-| attachments                | tms_attachments     | Custom      | String list |
-| createdAt                  | \_created_at        | Default     | Date        |
-| lastModifiedAt             | \_last_updated_at   | Default     | Date        |
+| Microsoft Teams field name | Index field name       | Description | Data type   |
+| -------------------------- | ---------------------- | ----------- | ----------- |
+| subject                    | tms\_subject           | Custom      | String      |
+| summary                    | tms\_summary           | Custom      | String      |
+| importance                 | tms\_importance        | Custom      | String      |
+| messageType                | tms\_message\_type     | Custom      | String      |
+| createdBy                  | tms\_created\_by       | Custom      | String      |
+| deletedAt                  | tms\_last\_deleted\_at | Custom      | Date        |
+| sourceUrl                  | \_source\_uri          | Default     | String      |
+| mentions                   | tms\_mentions          | Custom      | String list |
+| reactions                  | tms\_reactions         | Custom      | String list |
+| attachments                | tms\_attachments       | Custom      | String list |
+| createdAt                  | \_created\_at          | Default     | Date        |
+| lastModifiedAt             | \_last\_updated\_at    | Default     | Date        |
 
 ## Channel file attachments
 
-| Microsoft Teams field name | Index field name     | Description | Data type      |
-| -------------------------- | -------------------- | ----------- | -------------- |
-| fileName                   | tms_name             | Custom      | String         |
-| size                       | tms_file_size        | Custom      | Long (numeric) |
-| channelName                | tms_channel_name     | Custom      | String         |
-| Title                      | tms_title            | Custom      | String         |
-| sourceUrl                  | \_source_uri         | Default     | String         |
-| createdBy                  | tms_created_by       | Custom      | String         |
-| lastModifiedBy             | tms_last_modified_by | Custom      | String         |
-| createdAt                  | \_created_at         | Default     | Date           |
-| lastModifiedAt             | \_last_updated_at    | Default     | Date           |
-| oneNoteDocument            | tms_onenote_document | Custom      | String         |
-| oneNoteSection             | tms_onenote_section  | Custom      | String         |
-| oneNotePage                | tms_onenote_page     | Custom      | String         |
+| Microsoft Teams field name | Index field name        | Description | Data type      |
+| -------------------------- | ----------------------- | ----------- | -------------- |
+| fileName                   | tms\_name               | Custom      | String         |
+| size                       | tms\_file\_size         | Custom      | Long (numeric) |
+| channelName                | tms\_channel\_name      | Custom      | String         |
+| Title                      | tms\_title              | Custom      | String         |
+| sourceUrl                  | \_source\_uri           | Default     | String         |
+| createdBy                  | tms\_created\_by        | Custom      | String         |
+| lastModifiedBy             | tms\_last\_modified\_by | Custom      | String         |
+| createdAt                  | \_created\_at           | Default     | Date           |
+| lastModifiedAt             | \_last\_updated\_at     | Default     | Date           |
+| oneNoteDocument            | tms\_onenote\_document  | Custom      | String         |
+| oneNoteSection             | tms\_onenote\_section   | Custom      | String         |
+| oneNotePage                | tms\_onenote\_page      | Custom      | String         |
 
 ## Wiki
 
-| Microsoft Teams field name | Index field name     | Description | Data type      |
-| -------------------------- | -------------------- | ----------- | -------------- |
-| channelName                | tms_channel_name     | Custom      | String         |
-| fileName                   | tms_name             | Custom      | String         |
-| size                       | tms_file_size        | Custom      | Long (numeric) |
-| createdBy                  | tms_created_by       | Custom      | String         |
-| lastModifiedBy             | tms_last_modified_by | Custom      | String         |
-| title                      | tms_title            | Custom      | String         |
-| sourceUrl                  | \_source_uri         | Default     | String         |
-| createdAt                  | \_created_at         | Default     | Date           |
-| lastModifiedAt             | \_last_updated_at    | Default     | Date           |
+| Microsoft Teams field name | Index field name        | Description | Data type      |
+| -------------------------- | ----------------------- | ----------- | -------------- |
+| channelName                | tms\_channel\_name      | Custom      | String         |
+| fileName                   | tms\_name               | Custom      | String         |
+| size                       | tms\_file\_size         | Custom      | Long (numeric) |
+| createdBy                  | tms\_created\_by        | Custom      | String         |
+| lastModifiedBy             | tms\_last\_modified\_by | Custom      | String         |
+| title                      | tms\_title              | Custom      | String         |
+| sourceUrl                  | \_source\_uri           | Default     | String         |
+| createdAt                  | \_created\_at           | Default     | Date           |
+| lastModifiedAt             | \_last\_updated\_at     | Default     | Date           |
 
 ## Meeting chats
 
-| Microsoft Teams field name | Index field name    | Description | Data type   |
-| -------------------------- | ------------------- | ----------- | ----------- |
-| subject                    | tms_subject         | Custom      | String      |
-| summary                    | tms_summary         | Custom      | String      |
-| importance                 | tms_importance      | Custom      | String      |
-| messageType                | tms_message_type    | Custom      | String      |
-| Sender                     | tms_sender          | Custom      | String      |
-| attachments                | tms_attachments     | Custom      | String list |
-| mentions                   | tms_mentions        | Custom      | String list |
-| reactions                  | tms_reactions       | Custom      | String list |
-| sourceUrl                  | \_source_uri        | Default     | String      |
-| deletedAt                  | tms_last_deleted_at | Custom      | Date        |
-| createdAt                  | \_created_at        | Default     | Date        |
-| lastModifiedAt             | \_last_updated_at   | Default     | Date        |
+| Microsoft Teams field name | Index field name       | Description | Data type   |
+| -------------------------- | ---------------------- | ----------- | ----------- |
+| subject                    | tms\_subject           | Custom      | String      |
+| summary                    | tms\_summary           | Custom      | String      |
+| importance                 | tms\_importance        | Custom      | String      |
+| messageType                | tms\_message\_type     | Custom      | String      |
+| Sender                     | tms\_sender            | Custom      | String      |
+| attachments                | tms\_attachments       | Custom      | String list |
+| mentions                   | tms\_mentions          | Custom      | String list |
+| reactions                  | tms\_reactions         | Custom      | String list |
+| sourceUrl                  | \_source\_uri          | Default     | String      |
+| deletedAt                  | tms\_last\_deleted\_at | Custom      | Date        |
+| createdAt                  | \_created\_at          | Default     | Date        |
+| lastModifiedAt             | \_last\_updated\_at    | Default     | Date        |
 
 ## Meeting details
 
-| Microsoft Teams field name | Index field name     | Description | Data type |
-| -------------------------- | -------------------- | ----------- | --------- |
-| subject                    | tms_subject          | Custom      | String    |
-| summary                    | tms_summary          | Custom      | String    |
-| importance                 | tms_importance       | Custom      | String    |
-| username                   | tms_from_user        | Custom      | String    |
-| eventStartTime             | tms_event_start_time | Custom      | Date      |
-| eventEndTime               | tms_event_end_time   | Custom      | Date      |
-| sourceURL                  | \_source_uri         | Default     | String    |
+| Microsoft Teams field name | Index field name        | Description | Data type |
+| -------------------------- | ----------------------- | ----------- | --------- |
+| subject                    | tms\_subject            | Custom      | String    |
+| summary                    | tms\_summary            | Custom      | String    |
+| importance                 | tms\_importance         | Custom      | String    |
+| username                   | tms\_from\_user         | Custom      | String    |
+| eventStartTime             | tms\_event\_start\_time | Custom      | Date      |
+| eventEndTime               | tms\_event\_end\_time   | Custom      | Date      |
+| sourceURL                  | \_source\_uri           | Default     | String    |
 
 ## Meeting notes
 
-| Microsoft Teams field name | Index field name     | Description | Data type |
-| -------------------------- | -------------------- | ----------- | --------- |
-| fileName                   | tms_name             | Custom      | String    |
-| title                      | tms_title            | Custom      | String    |
-| createdBy                  | tms_created_by       | Custom      | String    |
-| lastModifiedBy             | tms_last_modified_by | Custom      | String    |
-| sourceUrl                  | \_source_uri         | Default     | String    |
-| createdAt                  | \_created_at         | Default     | Date      |
-| lastModifiedAt             | \_last_updated_at    | Default     | Date      |
+| Microsoft Teams field name | Index field name        | Description | Data type |
+| -------------------------- | ----------------------- | ----------- | --------- |
+| fileName                   | tms\_name               | Custom      | String    |
+| title                      | tms\_title              | Custom      | String    |
+| createdBy                  | tms\_created\_by        | Custom      | String    |
+| lastModifiedBy             | tms\_last\_modified\_by | Custom      | String    |
+| sourceUrl                  | \_source\_uri           | Default     | String    |
+| createdAt                  | \_created\_at           | Default     | Date      |
+| lastModifiedAt             | \_last\_updated\_at     | Default     | Date      |
 
 ## Meeting files
 
-| Microsoft Teams field name | Index field name     | Description | Data type      |
-| -------------------------- | -------------------- | ----------- | -------------- |
-| fileName                   | tms_name             | Custom      | String         |
-| title                      | tms_title            | Custom      | String         |
-| size                       | tms_file_size        | Custom      | Long (numeric) |
-| sourceUrl                  | \_source_uri         | Default     | String         |
-| createdBy                  | tms_created_by       | Custom      | String         |
-| lastModifiedBy             | tms_last_modified_by | Custom      | String         |
-| createdAt                  | \_created_at         | Default     | Date           |
-| lastModifiedAt             | \_last_updated_at    | Default     | Date           |
+| Microsoft Teams field name | Index field name        | Description | Data type      |
+| -------------------------- | ----------------------- | ----------- | -------------- |
+| fileName                   | tms\_name               | Custom      | String         |
+| title                      | tms\_title              | Custom      | String         |
+| size                       | tms\_file\_size         | Custom      | Long (numeric) |
+| sourceUrl                  | \_source\_uri           | Default     | String         |
+| createdBy                  | tms\_created\_by        | Custom      | String         |
+| lastModifiedBy             | tms\_last\_modified\_by | Custom      | String         |
+| createdAt                  | \_created\_at           | Default     | Date           |
+| lastModifiedAt             | \_last\_updated\_at     | Default     | Date           |

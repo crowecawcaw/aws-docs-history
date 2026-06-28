@@ -5,51 +5,51 @@ SharePoint Server 2019 using the AWS Management Console.
 
 ###### Connecting Amazon Q to SharePoint Server 2019
 
-1.  Sign in to the AWS Management Console and open the Amazon Q Business
-    console.
-2.  From the left navigation menu, choose **Data
-    sources**.
-3.  From the **Data sources** page, choose
-    **Add data source**.
-4.  Then, on the **Add data sources** page, from
-    **Data sources**, add the **SharePoint** data source to your Amazon Q application.
-5.  Then, on the **SharePoint Server 2019** data source page, enter
-    the following information:
-6.  **Name and description**, do the following:
+1. Sign in to the AWS Management Console and open the Amazon Q Business
+   console.
+2. From the left navigation menu, choose **Data
+   sources**.
+3. From the **Data sources** page, choose
+   **Add data source**.
+4. Then, on the **Add data sources** page, from
+   **Data sources**, add the **SharePoint** data source to your Amazon Q application.
+5. Then, on the **SharePoint Server 2019** data source page, enter
+   the following information:
+6. **Name and description**, do the following:
 
-    - For **Data source name** – Name your data
-      source for easy tracking.
+   - For **Data source name** – Name your data
+     source for easy tracking.
 
-    ###### Note
+   ###### Note
 
-    You can include hyphens (-) but
-    not spaces. Maximum of 1,000 alphanumeric characters.
-    - **Description –
-      _optional_** – Add an optional
-      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
+   You can include hyphens (-) but
+   not spaces. Maximum of 1,000 alphanumeric characters.
+   - **Description –
+     _optional_** – Add an optional
+     description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
-7.  In **Source**, enter the following information:
+7. In **Source**, enter the following information:
 
-    1. In **Source**, for **Hosting
-       Method** – Choose **SharePoint
-       Server**.
-    2. **Choose SharePoint Version** –
-       Choose **SharePoint 2019**.
-    3. **Site URLs specific to your SharePoint repository**
-       – Enter the SharePoint host URLs. The format for the host URLs
-       you enter is
-       `https://yourcompany/sites/mysite`. The URL
-       must start with `https` protocol. Separate URLs with a new
-       line. You can add up to 100 URLs.
-    4. **Domain** – Enter the
-       SharePoint domain.
-    5. **SSL certificate location** – Enter the
-       Amazon S3 path to your SSL certificate file.
+   1. In **Source**, for **Hosting
+      Method** – Choose **SharePoint
+      Server**.
+   2. **Choose SharePoint Version** –
+      Choose **SharePoint 2019**.
+   3. **Site URLs specific to your SharePoint repository**
+      – Enter the SharePoint host URLs. The format for the host URLs
+      you enter is
+      `https://yourcompany/sites/mysite`. The URL
+      must start with `https` protocol. Separate URLs with a new
+      line. You can add up to 100 URLs.
+   4. **Domain** – Enter the
+      SharePoint domain.
+   5. **SSL certificate location** – Enter the
+      Amazon S3 path to your SSL certificate file.
 
-8.  For **Web proxy – _optional_**
-    – Enter the host name (without the `http://` or
-    `https://` protocol), and the port number used by the host URL
-    transport protocol. The numeric value of the port number must be between 0 and
+8. For **Web proxy – _optional_**
+   – Enter the host name (without the `http://` or
+   `https://` protocol), and the port number used by the host URL
+   transport protocol. The numeric value of the port number must be between 0 and
 9.
 10. For **Authorization** – Amazon Q Business crawls
     ACL information by default to ensure responses are generated only from documents
@@ -105,8 +105,9 @@ SharePoint Server 2019 using the AWS Management Console.
          username.
         * **LDAP Password** – Your LDAP
          password.
+
     2. Enter the following information for **SharePoint App-Only
-       authentication**:
+    authentication**:
 
     For **AWS Secrets Manager secret** – Choose an existing
     secret or create a Secrets Manager secret to store your
@@ -218,32 +219,28 @@ For more information, see [IAM role](sharepoint-server-2019-connector.md#sharepo
      [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 15. In **Sync mode**, choose how you
-    want to update your index when your data source
-    content changes. When you sync your data source with
-    Amazon Q for the first time, all content
-    is synced by default.
+want to update your index when your data source
+content changes. When you sync your data source with
+Amazon Q for the first time, all content
+is synced by default.
 
-        * **Full sync** – Sync
-         all content regardless of the previous sync
-         status.
-        * **New or modified content
-         sync** – Sync only new and modified
-         documents.
-        * **New, modified, or deleted
-         content sync** – Sync only new,
-         modified, and deleted documents.
+    * **Full sync** – Sync
+     all content regardless of the previous sync
+     status.
+    * **New or modified content
+     sync** – Sync only new and modified
+     documents.
+    * **New, modified, or deleted
+     content sync** – Sync only new,
+     modified, and deleted documents.
 
-    For more details, see [Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode").
-
-16. In **Sync run schedule**, for
-    **Frequency** – Choose how often
-    Amazon Q will sync with your data
-    source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
-    see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs").
-17. **Tags - _optional_** –
-    Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details.
-18. **Field mappings** – A list of data source document
-    attributes to map to your index fields.
+For more details, see [Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode"). 16. In **Sync run schedule**, for
+**Frequency** – Choose how often
+Amazon Q will sync with your data
+source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
+see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs"). 17. **Tags - _optional_** –
+Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details. 18. **Field mappings** – A list of data source document
+attributes to map to your index fields.
 
 ###### Note
 
@@ -267,9 +264,9 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 19. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

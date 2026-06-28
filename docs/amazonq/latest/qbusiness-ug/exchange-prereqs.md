@@ -11,11 +11,10 @@ have:**
   secret.
 - Added the following permissions for the connector application:
 
-| **Microsoft<br>Graph**                                                                                                                                                                                                                                                                                             | **Office 365 Exchange<br>Online** |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
-| + Mail.Read (Application)<br>+ Mail.ReadBasic (Application)<br>+ Mail.ReadBasic.All (Application)<br>+ Calendars.Read (Application)<br>+ User.Read.All Application)<br>+ Contacts.Read (Application)<br>+ Notes.Read.All (Application)<br>+ Directory.Read.All (Application)<br>+ EWS.AccessAsUser.All (Delegated) | full_access_as_app (Application)  |
-
-**In your AWS account, make sure you have:**
+| **Microsoft<br>Graph**                                                                                                                                                                                                                                                                                             | **Office 365 Exchange<br>Online**   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| + Mail.Read (Application)<br>+ Mail.ReadBasic (Application)<br>+ Mail.ReadBasic.All (Application)<br>+ Calendars.Read (Application)<br>+ User.Read.All Application)<br>+ Contacts.Read (Application)<br>+ Notes.Read.All (Application)<br>+ Directory.Read.All (Application)<br>+ EWS.AccessAsUser.All (Delegated) | full\_access\_as\_app (Application) |
+| **In your AWS account, make sure you have:**                                                                                                                                                                                                                                                                       |
 
 - Created a Amazon Q Business application.
 - Created a [Amazon Q Business retriever and added an index](select-retriever.md "select-retriever.md").

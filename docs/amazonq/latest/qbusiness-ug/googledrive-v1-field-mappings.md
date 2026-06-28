@@ -8,20 +8,20 @@ associated reserved and custom attributes.
 
 ## Files
 
-| Google Drive field name | Index field name  | Description | Data type      |
-| ----------------------- | ----------------- | ----------- | -------------- |
-| authors                 | \_authors         | Default     | String list    |
-| mimeType                | gd_file_mime_type | Custom      | String         |
-| size                    | gd_size           | Custom      | Long (numeric) |
-| webViewLink             | \_source_uri      | Default     | String         |
-| createdAt               | \_created_at      | Default     | Date           |
-| modifiedAt              | \_last_updated_at | Default     | Date           |
+| Google Drive field name | Index field name     | Description | Data type      |
+| ----------------------- | -------------------- | ----------- | -------------- |
+| authors                 | \_authors            | Default     | String list    |
+| mimeType                | gd\_file\_mime\_type | Custom      | String         |
+| size                    | gd\_size             | Custom      | Long (numeric) |
+| webViewLink             | \_source\_uri        | Default     | String         |
+| createdAt               | \_created\_at        | Default     | Date           |
+| modifiedAt              | \_last\_updated\_at  | Default     | Date           |
 
 ## Comments
 
-| Google Drive field name | Index field name  | Description | Data type   |
-| ----------------------- | ----------------- | ----------- | ----------- |
-| authors                 | \_authors         | Default     | String list |
-| commentType             | gd_type           | Custom      | String      |
-| createdAt               | \_created_at      | Default     | Date        |
-| modifiedAt              | \_last_updated_at | Default     | Date        |
+| Google Drive field name | Index field name    | Description | Data type   |
+| ----------------------- | ------------------- | ----------- | ----------- |
+| authors                 | \_authors           | Default     | String list |
+| commentType             | gd\_type            | Custom      | String      |
+| createdAt               | \_created\_at       | Default     | Date        |
+| modifiedAt              | \_last\_updated\_at | Default     | Date        |

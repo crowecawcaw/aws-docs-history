@@ -4,45 +4,45 @@ The latest Microsoft Exchange connector provides a simplified configuration expe
 
 ###### Connecting Amazon Q to Microsoft Exchange using the latest connector
 
-1.  Sign in to the AWS Management Console and open the Amazon Q Business
-    console.
-2.  From the left navigation menu, choose **Data
-    sources**.
-3.  From the **Data sources** page, choose
-    **Add data source**.
-4.  Then, on the **Add data sources** page, from
-    **Data sources**, add the **Microsoft Exchange (latest)** data source to your Amazon Q application.
-5.  Then, on the **Microsoft Exchange** data source page, enter
-    the following information:
-6.  **Name and description**, do the following:
+1. Sign in to the AWS Management Console and open the Amazon Q Business
+   console.
+2. From the left navigation menu, choose **Data
+   sources**.
+3. From the **Data sources** page, choose
+   **Add data source**.
+4. Then, on the **Add data sources** page, from
+   **Data sources**, add the **Microsoft Exchange (latest)** data source to your Amazon Q application.
+5. Then, on the **Microsoft Exchange** data source page, enter
+   the following information:
+6. **Name and description**, do the following:
 
-    - For **Data source name** – Name your data
-      source for easy tracking.
+   - For **Data source name** – Name your data
+     source for easy tracking.
 
-    ###### Note
+   ###### Note
 
-    You can include hyphens (-) but
-    not spaces. Maximum of 1,000 alphanumeric characters.
-    - **Description –
-      _optional_** – Add an optional
-      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
+   You can include hyphens (-) but
+   not spaces. Maximum of 1,000 alphanumeric characters.
+   - **Description –
+     _optional_** – Add an optional
+     description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
-7.  In **Source**, enter the following information:
+7. In **Source**, enter the following information:
 
-    - **Tenant ID** – Enter your tenant ID. Your
-      Microsoft tenant ID is a globally unique identifier required to
-      configure each connector instance. You can find your tenant ID in the properties section
-      of your Microsoft account dashboard.
+   - **Tenant ID** – Enter your tenant ID. Your
+     Microsoft tenant ID is a globally unique identifier required to
+     configure each connector instance. You can find your tenant ID in the properties section
+     of your Microsoft account dashboard.
 
-8.  For **Authentication**, choose between
-    **New** and **Existing**.
+8. For **Authentication**, choose between
+   **New** and **Existing**.
 
-    1. If you choose **Existing**, choose an existing secret
-       for **Select secret**.
+   1. If you choose **Existing**, choose an existing secret
+      for **Select secret**.
 
-    If you choose **New**, enter the following
-    information in the **New AWS Secrets Manager secret**
-    section:
+   If you choose **New**, enter the following
+   information in the **New AWS Secrets Manager secret**
+   section:
 
         1. **Secret name** – Enter a name for your
          secret.
@@ -50,9 +50,9 @@ The latest Microsoft Exchange connector provides a simplified configuration expe
          secret**, enter the authentication
          credential values that you generated from your Exchange account.
 
-9.  **IAM role** – Choose
-    an existing IAM role or create an IAM role to access your repository credentials and
-    index content.
+9. **IAM role** – Choose
+   an existing IAM role or create an IAM role to access your repository credentials and
+   index content.
 
 ###### Note
 

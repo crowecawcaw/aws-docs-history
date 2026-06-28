@@ -44,66 +44,78 @@ choose **Create a new role** to avoid errors. 8. **Data source location** – Ch
 
     	1. **Account ID** – Specify the ID for the other account that owns the bucket.
 
-9.  **Sync scope**, enter the following information:
+9. **Sync scope**, enter the following information:
 
     1. **Enter the data source location** – The path
-       to the Amazon S3 bucket where your data is stored.
+     to the Amazon S3 bucket where your data is stored.
 
-       - If you selected **This account**, you can select
-         **Browse S3** to find and choose your bucket.
-       - If you selected **Other account**, you must manually enter the bucket name as the browse option is not available for cross-account buckets.
 
+
+
+    	* If you selected **This account**, you can select
+    	 **Browse S3** to find and choose your bucket.
+    	* If you selected **Other account**, you must manually enter the bucket name as the browse option is not available for cross-account buckets.
     ###### Note
 
-    Your bucket must be in the same AWS Region as your Amazon Q Business index. 2. **Maximum file size -
-    _optional_** – You can
-    specify the file size limit in MB for Amazon Q crawling. Amazon Q
-    crawls only files within the defined size limit. The default file
-    size is 50MB. The maximum file size limit is 10 GB. 3. **Access control list configuration file location -
-    _optional_** – The path to
-    the location of a file containing a JSON structure that specifies access
-    settings for the files stored in your S3 data source.
+    Your bucket must be in the same AWS Region as your Amazon Q Business index.
+    2. **Maximum file size -
+     *optional*** – You can
+     specify the file size limit in MB for Amazon Q crawling. Amazon Q
+     crawls only files within the defined size limit. The default file
+     size is 50MB. The maximum file size limit is 10 GB.
+    3. **Access control list configuration file location -
+     *optional*** – The path to
+     the location of a file containing a JSON structure that specifies access
+     settings for the files stored in your S3 data source.
 
-        * If you selected **This account**, you can select
-         **Browse S3** to locate your ACL file.
-        * If you selected **Other account**, you must manually enter the file path as the browse option is not available for cross-account buckets.
+
+
+
+    	* If you selected **This account**, you can select
+    	 **Browse S3** to locate your ACL file.
+    	* If you selected **Other account**, you must manually enter the file path as the browse option is not available for cross-account buckets.
     4. **Metadata files folder location -
-       _optional_** – The path to
-       the folder in which your metadata is stored.
+     *optional*** – The path to
+     the folder in which your metadata is stored.
 
-       - If you selected **This account**, you can select
-         **Browse S3** to locate your metadata folder.
-       - If you selected **Other account**, you must manually enter the folder path as the browse option is not available for cross-account buckets.
 
+
+
+    	* If you selected **This account**, you can select
+    	 **Browse S3** to locate your metadata folder.
+    	* If you selected **Other account**, you must manually enter the folder path as the browse option is not available for cross-account buckets.
     5. **Filter patterns** – Add regex patterns
-       to include or exclude documents from your index.
+     to include or exclude documents from your index.
+
 
     To include or exclude files and folders, you can use a prefix
-    filter (for example `Data/`, where
-    `Data` is a folder containing
-    documents in your S3 bucket). You can also filter using glob
-    patterns and file types. 6. **Multi-media content configuration – optional** –
-    To enable content extraction from embedded images and visuals in documents, choose **Visual content in documents**. For more information, see [Extracting semantic meaning from embedded images and visuals](extracting-meaning-from-images.md "extracting-meaning-from-images.md").
+     filter (for example `Data/`, where
+     `Data` is a folder containing
+     documents in your S3 bucket). You can also filter using glob
+     patterns and file types.
+    6. **Multi-media content configuration – optional** –
+     To enable content extraction from embedded images and visuals in documents, choose **Visual content in documents**. For more information, see [Extracting semantic meaning from embedded images and visuals](extracting-meaning-from-images.md "extracting-meaning-from-images.md").
 
-    To extract audio transcriptions and video content, enable **Audio Files**. To extract video content, enable **Video files**. For more information, see [Extracting semantic meaning from audio and video Content](Audio-video-extraction.md "Audio-video-extraction.md"). 7. **Advanced settings**
 
-    **Document deletion safeguard** - _optional_–To safeguard
-    your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
-    the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
-    delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-    [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
+    To extract audio transcriptions and video content, enable **Audio Files**. To extract video content, enable **Video files**. For more information, see [Extracting semantic meaning from audio and video Content](Audio-video-extraction.md "Audio-video-extraction.md").
+    7. **Advanced settings**
+
+
+    **Document deletion safeguard** - *optional*–To safeguard
+     your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
+     the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
+     delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
+     [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 10. In **Sync run schedule**, for
-    **Frequency** – Choose how often
-    Amazon Q will sync with your data
-    source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
-    see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs").
-11. **Tags - _optional_** –
-    Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details.
-12. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+**Frequency** – Choose how often
+Amazon Q will sync with your data
+source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,
+see [Starting data source connector sync jobs](supported-datasource-actions.md#start-datasource-sync-jobs "supported-datasource-actions.md#start-datasource-sync-jobs"). 11. **Tags - _optional_** –
+Add tags to search and filter your resources or track your AWS costs. See [Tags](tagging.md "tagging.md") for more details. 12. In **Data source details**, choose **Sync
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

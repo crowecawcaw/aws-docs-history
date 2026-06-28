@@ -444,22 +444,22 @@ text from images and store this text in a field called
 
 The following table shows data before advanced manipulation is applied.
 
-| **\_document_id** | **document_image** |
-| ----------------- | ------------------ |
-| 1                 | image_1.png        |
-| 2                 | image_2.png        |
-| 3                 | image_3.png        |
+| **\_document\_id** | **document\_image** |
+| ------------------ | ------------------- |
+| 1                  | image\_1.png        |
+| 2                  | image\_2.png        |
+| 3                  | image\_3.png        |
 
 The following table shows data after advanced manipulation is applied.
 
-| **\_document_id** | **document_image** | **document_image_text** |
-| ----------------- | ------------------ | ----------------------- |
-| 1                 | image_1.png        | Mailed survey response  |
-| 2                 | image_2.png        | Mailed survey response  |
-| 3                 | image_3.png        | Mailed survey response  |
+| **\_document\_id** | **document\_image** | **document\_image\_text** |
+| ------------------ | ------------------- | ------------------------- |
+| 1                  | image\_1.png        | Mailed survey response    |
+| 2                  | image\_2.png        | Mailed survey response    |
+| 3                  | image\_3.png        | Mailed survey response    |
 
 **Example 2: Replacing empty values in the
-Last_Updated field with the current
+Last\_Updated field with the current
 date-time**
 
 The following is an example of using a Lambda function to insert
@@ -469,19 +469,19 @@ with the current date-time.
 
 The following table shows data before advanced manipulation is applied.
 
-| **\_document_id** | **\_document_body** | **\_last_updated_at** |
-| ----------------- | ------------------- | --------------------- |
-| 1                 | Example text        | January 1, 2020       |
-| 2                 | Example text        |                       |
-| 3                 | Example text        | July 1, 2020          |
+| **\_document\_id** | **\_document\_body** | **\_last\_updated\_at** |
+| ------------------ | -------------------- | ----------------------- |
+| 1                  | Example text         | January 1, 2020         |
+| 2                  | Example text         |                         |
+| 3                  | Example text         | July 1, 2020            |
 
 The following table shows data after advanced manipulation is applied.
 
-| **\_document_id** | **\_document_body** | **\_last_updated_at** |
-| ----------------- | ------------------- | --------------------- |
-| 1                 | Example text        | January 1, 2020       |
-| 2                 | Example text        | December 1, 2021      |
-| 3                 | Example text        | July 1, 2020          |
+| **\_document\_id** | **\_document\_body** | **\_last\_updated\_at** |
+| ------------------ | -------------------- | ----------------------- |
+| 1                  | Example text         | January 1, 2020         |
+| 2                  | Example text         | December 1, 2021        |
+| 3                  | Example text         | July 1, 2020            |
 
 ## Code examples of Lambda functions
 

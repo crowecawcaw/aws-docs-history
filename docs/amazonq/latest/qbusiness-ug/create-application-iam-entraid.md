@@ -60,12 +60,11 @@ ID, make sure that you have:
 - Created IAM policies containing the permissions outlined in [IAM role for an Amazon Q Business web
   experience using IAM Federation](web-experience-iam-role-iam.md "web-experience-iam-role-iam.md") to:
 
-      + Allow an Amazon Q Business web experience to invoke the API
-       operations required to integrate your application
-      + **(If you're creating a Amazon Q Business default web experience)** Allow Amazon Q Business to access the resources it needs to create a web
-       experience
-
-  You will need these roles to complete creating your Amazon Q Business IAM federated application.
+  - Allow an Amazon Q Business web experience to invoke the API
+    operations required to integrate your application
+  - **(If you're creating a Amazon Q Business default web experience)** Allow Amazon Q Business to access the resources it needs to create a web
+    experience
+    You will need these roles to complete creating your Amazon Q Business IAM federated application.
 
 ###### Note
 
@@ -147,8 +146,8 @@ settings:
     * Select **Save**.
 
 9. In the **SAML Certificates** section, download the
-   **Federation Metadata XML** file. You will need this
-   file when you create an identity provider in IAM.
+**Federation Metadata XML** file. You will need this
+file when you create an identity provider in IAM.
 
 The **Federation Metadata XML** file contains all the
 necessary SAML metadata that IAM needs to establish trust with your
@@ -204,7 +203,7 @@ create an IAM identity provider.
      **Custom trust policy**.
    - In **Custom trust policy**, add the following
      trust policy, replacing the value for `AWS IAM
-Identity Provider ARN` with the identity provider
+  Identity Provider ARN` with the identity provider
      ARN you copied in the previous step:
 
    ```
@@ -402,70 +401,73 @@ For **SAML**, do the following:
      back to the web experience URL to begin chatting.
 
 5. For **Default subscription settings**, for
-   **Subscription tier**, choose between **Q
-   Business Pro** and **Q Business Lite**. Any
-   user logging in to your web experience will be assigned this subscription
-   type by default.
-6. For **Application details** – Amazon Q Business chooses the following configuration settings for your
-   application by default:
+**Subscription tier**, choose between **Q
+Business Pro** and **Q Business Lite**. Any
+user logging in to your web experience will be assigned this subscription
+type by default. 6. For **Application details** – Amazon Q Business chooses the following configuration settings for your
+application by default:
 
-   1. For **Application service access** –
-      Amazon Q Business will create a new service-linked role
-      for your application.
-   2. **Encryption** – Amazon Q Business
-      will create an AWS owned AWS KMS key to encrypt your data.
-   3. For **Web experience service access** – If
-      you've chosen to create a web experience, Amazon Q Business
-      requires you select an existing role to allow end users to log in to
-      a Amazon Q Business web experience.
+    1. For **Application service access** –
+     Amazon Q Business will create a new service-linked role
+     for your application.
+    2. **Encryption** – Amazon Q Business
+     will create an AWS owned AWS KMS key to encrypt your data.
+    3. For **Web experience service access** – If
+     you've chosen to create a web experience, Amazon Q Business
+     requires you select an existing role to allow end users to log in to
+     a Amazon Q Business web experience.
 
 7. (Optional) To customize **Application details**, expand
-   the **Application details section**, and then do the
-   following:
+the **Application details section**, and then do the
+following:
 
-   1. In **Application service access**, for
-      **Choose a method to authorize Amazon Q Business**, choose from the following options:
+    1. In **Application service access**, for
+     **Choose a method to authorize Amazon Q Business**, choose from the following options:
 
-      1. **Create and use a new service-linked role
-         (SLR)** – Create and use a new Amazon Q Business-managed IAM role to allow it to access
-         the AWS resources it needs to create your
-         application.
-      2. **Create and use a new service role
-         (SR)** – Create and use a new IAM role for Amazon Q Business to allow it
-         to access the AWS resources it needs to
-         create your application.
 
-      For **Service role name** – A name
-      for the service (IAM) role you created for
-      easy identification on the console. 3. **Use an existing service role (SR)/service-linked
-      role (SLR)** – Use an existing service
-      role or service-linked IAM role to allow
-      Amazon Q Business to access the AWS
-      resources it needs to create your application.
+    	1. **Create and use a new service-linked role
+    	 (SLR)** – Create and use a new Amazon Q Business-managed IAM role to allow it to access
+    	 the AWS resources it needs to create your
+    	 application.
+    	2. **Create and use a new service role
+    	 (SR)** – Create and use a new IAM role for Amazon Q Business to allow it
+    	 to access the AWS resources it needs to
+    	 create your application.
 
-      ###### Note
 
-      For more information about example service roles, see
-      [IAM role for an Amazon Q Business application](create-application-iam-role.md "create-application-iam-role.md"). For
-      information on service-linked roles, including to manage
-      them, see [Using service-linked
-      roles](../business-use-dg/using-service-linked-roles.md "../business-use-dg/using-service-linked-roles.md").
+    	For **Service role name** – A name
+    	 for the service (IAM) role you created for
+    	 easy identification on the console.
+    	3. **Use an existing service role (SR)/service-linked
+    	 role (SLR)** – Use an existing service
+    	 role or service-linked IAM role to allow
+    	 Amazon Q Business to access the AWS
+    	 resources it needs to create your application.
 
-   2. For **Encryption** – Amazon Q Business encrypts your data by default using AWS managed AWS KMS keys. To customize your encryption settings, select
-      **Customize encryption settings (advanced)**.
-      Then, you can choose to use an existing AWS KMS key or
-      create a new one.
-   3. In **Web experience service access**, enter the
-      following information:
 
-      1. For **Choose a method to authorize Amazon Q Business** – A service access
-         role assumed by end users when they sign in to your web
-         experience that grants them permission to start and manage
-         conversations Amazon Q Business. Choose the IAM role
-         you created in Step 2.
+    	###### Note
+
+    	For more information about example service roles, see
+    	 [IAM role for an Amazon Q Business application](create-application-iam-role.md "create-application-iam-role.md"). For
+    	 information on service-linked roles, including to manage
+    	 them, see [Using service-linked
+    	 roles](../business-use-dg/using-service-linked-roles.md "../business-use-dg/using-service-linked-roles.md").
+    2. For **Encryption** – Amazon Q Business encrypts your data by default using AWS managed AWS KMS keys. To customize your encryption settings, select
+     **Customize encryption settings (advanced)**.
+     Then, you can choose to use an existing AWS KMS key or
+     create a new one.
+    3. In **Web experience service access**, enter the
+     following information:
+
+
+    	1. For **Choose a method to authorize Amazon Q Business** – A service access
+    	 role assumed by end users when they sign in to your web
+    	 experience that grants them permission to start and manage
+    	 conversations Amazon Q Business. Choose the IAM role
+    	 you created in Step 2.
 
 8. To start creating your application, choose
-   **Create**.
+**Create**.
 
 ###### Note
 
@@ -581,7 +583,7 @@ To test your SAML configuration:
    to your application.
 2. Choose **Single sign-on**, then scroll down
    to **Test single sign-on with <application
-   name>**.
+    name>**.
 3. Choose **Test** to sign in as the current
    user, or choose **Test as another user** to
    sign in as a different user.

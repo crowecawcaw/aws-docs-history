@@ -4,46 +4,46 @@ The following procedure outlines how to connect Amazon Q Business to Google Driv
 
 ###### Connecting Amazon Q to Google Drive new
 
-1.  Sign in to the AWS Management Console and open the Amazon Q Business
-    console.
-2.  From the left navigation menu, choose **Data
-    sources**.
-3.  From the **Data sources** page, choose
-    **Add data source**.
-4.  Then, on the **Add data sources** page, from
-    **Data sources**, add the **Google Drive** data source to your Amazon Q application.
-5.  Then, on the **Google Drive** data source page, enter
-    the following information:
-6.  **Name and description**, do the following:
+1. Sign in to the AWS Management Console and open the Amazon Q Business
+   console.
+2. From the left navigation menu, choose **Data
+   sources**.
+3. From the **Data sources** page, choose
+   **Add data source**.
+4. Then, on the **Add data sources** page, from
+   **Data sources**, add the **Google Drive** data source to your Amazon Q application.
+5. Then, on the **Google Drive** data source page, enter
+   the following information:
+6. **Name and description**, do the following:
 
-    - For **Data source name** – Name your data
-      source for easy tracking.
+   - For **Data source name** – Name your data
+     source for easy tracking.
 
-    ###### Note
+   ###### Note
 
-    You can include hyphens (-) but
-    not spaces. Maximum of 1,000 alphanumeric characters.
-    - **Description –
-      _optional_** – Add an optional
-      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
+   You can include hyphens (-) but
+   not spaces. Maximum of 1,000 alphanumeric characters.
+   - **Description –
+     _optional_** – Add an optional
+     description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
-7.  In **Authorization**, configure access control settings:
-    Amazon Q Business crawls ACL information by default to ensure responses are
-    generated only from documents your end users have access to. If supported
-    for your connector, you can manage ACLs by selecting _Enable
-    ACLs_ to enable ACLs or _Disable ACLs_ to
-    disable them. To manage ACLs, you need specific IAM permissions. See [Grant permission to create data sources with ACLs disabled](setting-up.md#DisableAclOnDataSource "setting-up.md#DisableAclOnDataSource") for
-    more details. See [Authorization](connector-concepts.md#connector-authorization "connector-concepts.md#connector-authorization")for more details.
-8.  **AWS Secrets Manager secret** – Choose an existing secret
-    or create a secret to store your GoogleDrive authentication credentials. If
-    you choose to create a secret, an AWS Secrets Manager secret window opens.
+7. In **Authorization**, configure access control settings:
+   Amazon Q Business crawls ACL information by default to ensure responses are
+   generated only from documents your end users have access to. If supported
+   for your connector, you can manage ACLs by selecting _Enable
+   ACLs_ to enable ACLs or _Disable ACLs_ to
+   disable them. To manage ACLs, you need specific IAM permissions. See [Grant permission to create data sources with ACLs disabled](setting-up.md#DisableAclOnDataSource "setting-up.md#DisableAclOnDataSource") for
+   more details. See [Authorization](connector-concepts.md#connector-authorization "connector-concepts.md#connector-authorization")for more details.
+8. **AWS Secrets Manager secret** – Choose an existing secret
+   or create a secret to store your GoogleDrive authentication credentials. If
+   you choose to create a secret, an AWS Secrets Manager secret window opens.
 
-    1. If you choose **Existing**, select an existing
-       secret for **Select secret**.
+   1. If you choose **Existing**, select an existing
+      secret for **Select secret**.
 
-    If you choose **New**, enter the following
-    information in the **New AWS Secrets Manager secret**
-    section:
+   If you choose **New**, enter the following
+   information in the **New AWS Secrets Manager secret**
+   section:
 
         1. **Secret name** – A name for your
          secret.
@@ -66,13 +66,13 @@ The following procedure outlines how to connect Amazon Q Business to Google Driv
         Then, choose **Save and add
          secret**.
 
-9.  In **Identity crawler**, configure identity crawling settings:
+9. In **Identity crawler**, configure identity crawling settings:
 
-    1. **Identity crawling has been turned on for your connector as the ACLs are enabled** – This notification appears when ACLs are enabled.
-    2. **Manage identity crawling logs** – When enabled, CloudWatch logs will show identities associated with local groups, as crawled during each sync job. If you disable this option post sync job completion (or partial run), you'll need to manually delete any associated identity crawling logs already generated.
+   1. **Identity crawling has been turned on for your connector as the ACLs are enabled** – This notification appears when ACLs are enabled.
+   2. **Manage identity crawling logs** – When enabled, CloudWatch logs will show identities associated with local groups, as crawled during each sync job. If you disable this option post sync job completion (or partial run), you'll need to manually delete any associated identity crawling logs already generated.
 
-       - **Enable identity crawling logs** – Identities crawled during data source sync will be logged.
-       - **Disable identity crawling logs** – Identities crawled during data source sync will not be logged.
+      - **Enable identity crawling logs** – Identities crawled during data source sync will be logged.
+      - **Disable identity crawling logs** – Identities crawled during data source sync will not be logged.
 
 10. **IAM role** – Amazon Q Business requires an IAM role to access repository credentials and application content:
 

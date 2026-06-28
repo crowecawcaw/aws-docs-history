@@ -25,7 +25,7 @@ prerequisites.
   - `members.read`
   - `team_data.member`
 
-- Create an authorization URL containing client ID (app-key), redirect_uri, response type, access type and scopes. Obtain User Authorization by signing in to Dropbox and grant your application the requested permissions.
+- Create an authorization URL containing client ID (app-key), redirect\_uri, response type, access type and scopes. Obtain User Authorization by signing in to Dropbox and grant your application the requested permissions.
 
 `Sample Authorization URL:`
 
@@ -43,13 +43,13 @@ prerequisites.
 
 - Exchange authorization code for tokens by requesting tokens from the Dropbox token endpoint.
 
-  - curl https://api.dropboxapi.com/oauth2/token -d code=AUTH_CODE -d grant_type=authorization_code -d client_id=APP_KEY -d client_secret=APP_SECRET
-  - Replace AUTH_CODE with the obtained authorization code, APP_KEY and APP_SECRET with your application client ID (App key) and secret key.
+  - curl https://api.dropboxapi.com/oauth2/token -d code=AUTH\_CODE -d grant\_type=authorization\_code -d client\_id=APP\_KEY -d client\_secret=APP\_SECRET
+  - Replace AUTH\_CODE with the obtained authorization code, APP\_KEY and APP\_SECRET with your application client ID (App key) and secret key.
 
 - Noted your Dropbox app key, Dropbox app secret,
   and Dropbox access token and refresh token for OAuth 2.0 authentication
   credentials.
-- Generate an OAuth 2.0 access token with token_access_type=offline to obtain a short‑lived access token and a long‑lived refresh token. For more information, see [Dropbox
+- Generate an OAuth 2.0 access token with token\_access\_type=offline to obtain a short‑lived access token and a long‑lived refresh token. For more information, see [Dropbox
   documentation on OAuth authentication](https://developers.dropbox.com/oauth-guide "https://developers.dropbox.com/oauth-guide") on the
   Dropbox website.
   **In your AWS account, make sure you have:**

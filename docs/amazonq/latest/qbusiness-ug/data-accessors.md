@@ -19,15 +19,14 @@ browsers.
 
 - [Trusted token issuer/App level authentication](../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md#trusted-token-issuer-overview "../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md#trusted-token-issuer-overview")
 
-      + A trusted token issuer is an OAuth 2.0 authorization server that creates
-       signed tokens. These tokens authorize applications that initiate requests
-       (requesting applications) for access to AWS managed applications
-       (receiving applications).
-      + [Consideration for granting an ISV with trusted token issuer based
-       authorization](../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md#trusted-token-issuer-overview "../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md#trusted-token-issuer-overview")
-
-  This topic discusses how an Amazon Q Business administrator can connect to one of the supported
-  data accessors.
+  - A trusted token issuer is an OAuth 2.0 authorization server that creates
+    signed tokens. These tokens authorize applications that initiate requests
+    (requesting applications) for access to AWS managed applications
+    (receiving applications).
+  - [Consideration for granting an ISV with trusted token issuer based
+    authorization](../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md#trusted-token-issuer-overview "../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md#trusted-token-issuer-overview")
+    This topic discusses how an Amazon Q Business administrator can connect to one of the supported
+    data accessors.
 
 ###### Topics
 

@@ -38,47 +38,47 @@ the associated reserved and custom attributes.
 
 ## Contents
 
-| Drupal field name | Index field name | Entity       | Category | Field type |
-| ----------------- | ---------------- | ------------ | -------- | ---------- |
-| title             | dpl_title        | All Entities | Default  | String     |
-| sourceUrl         | dpl_source_url   | All Entities | Default  | String     |
-| createdAt         | dpl_created_date | All Entities | Default  | Date       |
-| updatedAt         | dpl_updated_date | All Entities | Default  | Date       |
-| published         | dpl_published    | All Entities | Default  | String     |
-| tag               | dpl_tag          | All Entities | Default  | String     |
-| author            | dpl_author       | All Entities | Default  | String     |
-| category          | dpl_category     | All Entities | Default  | String     |
-| visibility        | dpl_visibility   | All Entities | Default  | String     |
-| viewId            | dpl_view_id      | All Entities | Default  | String     |
+| Drupal field name | Index field name   | Entity       | Category | Field type |
+| ----------------- | ------------------ | ------------ | -------- | ---------- |
+| title             | dpl\_title         | All Entities | Default  | String     |
+| sourceUrl         | dpl\_source\_url   | All Entities | Default  | String     |
+| createdAt         | dpl\_created\_date | All Entities | Default  | Date       |
+| updatedAt         | dpl\_updated\_date | All Entities | Default  | Date       |
+| published         | dpl\_published     | All Entities | Default  | String     |
+| tag               | dpl\_tag           | All Entities | Default  | String     |
+| author            | dpl\_author        | All Entities | Default  | String     |
+| category          | dpl\_category      | All Entities | Default  | String     |
+| visibility        | dpl\_visibility    | All Entities | Default  | String     |
+| viewId            | dpl\_view\_id      | All Entities | Default  | String     |
 
 ## Comments
 
-| Drupal field name | Index field name     | Entity       | Category | Field type |
-| ----------------- | -------------------- | ------------ | -------- | ---------- |
-| title             | dpl_comment_title    | All Entities | Default  | String     |
-| sourceUrl         | dpl_source_url       | All Entities | Default  | String     |
-| createdAt         | dpl_created_date     | All Entities | Default  | Date       |
-| updatedAt         | dpl_updated_date     | All Entities | Default  | Date       |
-| approvedStatus    | dpl_status           | All Entities | Default  | String     |
-| author            | dpl_author           | All Entities | Default  | String     |
-| category          | dpl_category         | All Entities | Default  | String     |
-| parentEntityId    | dpl_parent_entity_id | All Entities | Default  | String     |
-| visibility        | dpl_visibility       | All Entities | Default  | String     |
-| viewId            | dpl_view_id          | All Entities | Default  | String     |
+| Drupal field name | Index field name        | Entity       | Category | Field type |
+| ----------------- | ----------------------- | ------------ | -------- | ---------- |
+| title             | dpl\_comment\_title     | All Entities | Default  | String     |
+| sourceUrl         | dpl\_source\_url        | All Entities | Default  | String     |
+| createdAt         | dpl\_created\_date      | All Entities | Default  | Date       |
+| updatedAt         | dpl\_updated\_date      | All Entities | Default  | Date       |
+| approvedStatus    | dpl\_status             | All Entities | Default  | String     |
+| author            | dpl\_author             | All Entities | Default  | String     |
+| category          | dpl\_category           | All Entities | Default  | String     |
+| parentEntityId    | dpl\_parent\_entity\_id | All Entities | Default  | String     |
+| visibility        | dpl\_visibility         | All Entities | Default  | String     |
+| viewId            | dpl\_view\_id           | All Entities | Default  | String     |
 
 ## Attachments
 
-| Drupal field name | Index field name     | Entity       | Category | Field type |
-| ----------------- | -------------------- | ------------ | -------- | ---------- |
-| fileName          | dpl_file_name        | All Entities | Default  | String     |
-| sourceUrl         | dpl_source_url       | All Entities | Default  | String     |
-| createdAt         | dpl_created_date     | All Entities | Default  | Date       |
-| updatedAt         | dpl_updated_date     | All Entities | Default  | Date       |
-| status            | dpl_status           | All Entities | Default  | String     |
-| fileType          | dpl_file_type        | All Entities | Default  | String     |
-| fileSize          | dpl_file_size        | All Entities | Default  | String     |
-| fileUploadedBy    | dpl_file_uploaded_by | All Entities | Default  | String     |
-| category          | dpl_category         | All Entities | Default  | String     |
-| parentEntityId    | dpl_parent_entity_id | All Entities | Default  | String     |
-| visibility        | dpl_visibility       | All Entities | Default  | String     |
-| viewId            | dpl_view_id          | All Entities | Default  | String     |
+| Drupal field name | Index field name        | Entity       | Category | Field type |
+| ----------------- | ----------------------- | ------------ | -------- | ---------- |
+| fileName          | dpl\_file\_name         | All Entities | Default  | String     |
+| sourceUrl         | dpl\_source\_url        | All Entities | Default  | String     |
+| createdAt         | dpl\_created\_date      | All Entities | Default  | Date       |
+| updatedAt         | dpl\_updated\_date      | All Entities | Default  | Date       |
+| status            | dpl\_status             | All Entities | Default  | String     |
+| fileType          | dpl\_file\_type         | All Entities | Default  | String     |
+| fileSize          | dpl\_file\_size         | All Entities | Default  | String     |
+| fileUploadedBy    | dpl\_file\_uploaded\_by | All Entities | Default  | String     |
+| category          | dpl\_category           | All Entities | Default  | String     |
+| parentEntityId    | dpl\_parent\_entity\_id | All Entities | Default  | String     |
+| visibility        | dpl\_visibility         | All Entities | Default  | String     |
+| viewId            | dpl\_view\_id           | All Entities | Default  | String     |

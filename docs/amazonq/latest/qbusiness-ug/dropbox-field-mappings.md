@@ -39,56 +39,56 @@ the associated reserved and custom attributes.
 
 ## Files
 
-| Dropbox field name | Index field name    | Description | Data type      |
-| ------------------ | ------------------- | ----------- | -------------- |
-| sourceUrl          | \_source_uri        | Default     | String         |
-| category           | \_category          | Default     | String         |
-| fileName           | dbx_file_name       | Custom      | String         |
-| fileId             | dbx_id1             | Custom      | String         |
-| clientModifiedDate | dbx_client_modified | Custom      | Date           |
-| serverModifiedDate | dbx_server_modified | Custom      | Date           |
-| fileSize           | dbx_file_size       | Custom      | Long (numeric) |
-| pathDisplay        | dbx_path_display    | Custom      | String         |
-| tags               | dbx_tags            | Custom      | String         |
+| Dropbox field name | Index field name      | Description | Data type      |
+| ------------------ | --------------------- | ----------- | -------------- |
+| sourceUrl          | \_source\_uri         | Default     | String         |
+| category           | \_category            | Default     | String         |
+| fileName           | dbx\_file\_name       | Custom      | String         |
+| fileId             | dbx\_id1              | Custom      | String         |
+| clientModifiedDate | dbx\_client\_modified | Custom      | Date           |
+| serverModifiedDate | dbx\_server\_modified | Custom      | Date           |
+| fileSize           | dbx\_file\_size       | Custom      | Long (numeric) |
+| pathDisplay        | dbx\_path\_display    | Custom      | String         |
+| tags               | dbx\_tags             | Custom      | String         |
 
 ## Dropbox Paper
 
-| Dropbox field name | Index field name    | Description | Data type      |
-| ------------------ | ------------------- | ----------- | -------------- |
-| sourceUrl          | \_source_uri        | Default     | String         |
-| category           | \_category          | Default     | String         |
-| fileName           | dbx_file_name       | Custom      | String         |
-| fileId             | dbx_id1             | Custom      | String         |
-| clientModifiedDate | dbx_client_modified | Custom      | Date           |
-| serverModifiedDate | dbx_server_modified | Custom      | Date           |
-| fileSize           | dbx_file_size       | Custom      | Long (numeric) |
-| pathDisplay        | dbx_path_display    | Custom      | String         |
-| tags               | dbx_tags            | Custom      | String         |
+| Dropbox field name | Index field name      | Description | Data type      |
+| ------------------ | --------------------- | ----------- | -------------- |
+| sourceUrl          | \_source\_uri         | Default     | String         |
+| category           | \_category            | Default     | String         |
+| fileName           | dbx\_file\_name       | Custom      | String         |
+| fileId             | dbx\_id1              | Custom      | String         |
+| clientModifiedDate | dbx\_client\_modified | Custom      | Date           |
+| serverModifiedDate | dbx\_server\_modified | Custom      | Date           |
+| fileSize           | dbx\_file\_size       | Custom      | Long (numeric) |
+| pathDisplay        | dbx\_path\_display    | Custom      | String         |
+| tags               | dbx\_tags             | Custom      | String         |
 
 ## Dropbox Paper Templates
 
-| Dropbox field name | Index field name    | Description | Data type      |
-| ------------------ | ------------------- | ----------- | -------------- |
-| sourceUrl          | \_source_uri        | Default     | String         |
-| category           | \_category          | Default     | String         |
-| fileName           | dbx_file_name       | Custom      | String         |
-| fileId             | dbx_id1             | Custom      | String         |
-| clientModifiedDate | dbx_client_modified | Custom      | Date           |
-| serverModifiedDate | dbx_server_modified | Custom      | Date           |
-| fileSize           | dbx_file_size       | Custom      | Long (numeric) |
-| pathDisplay        | dbx_path_display    | Custom      | String         |
-| tags               | dbx_tags            | Custom      | String         |
+| Dropbox field name | Index field name      | Description | Data type      |
+| ------------------ | --------------------- | ----------- | -------------- |
+| sourceUrl          | \_source\_uri         | Default     | String         |
+| category           | \_category            | Default     | String         |
+| fileName           | dbx\_file\_name       | Custom      | String         |
+| fileId             | dbx\_id1              | Custom      | String         |
+| clientModifiedDate | dbx\_client\_modified | Custom      | Date           |
+| serverModifiedDate | dbx\_server\_modified | Custom      | Date           |
+| fileSize           | dbx\_file\_size       | Custom      | Long (numeric) |
+| pathDisplay        | dbx\_path\_display    | Custom      | String         |
+| tags               | dbx\_tags             | Custom      | String         |
 
 ## Shortcuts
 
-| Dropbox field name | Index field name    | Description | Data type      |
-| ------------------ | ------------------- | ----------- | -------------- |
-| sourceUrl          | \_source_uri        | Default     | String         |
-| category           | \_category          | Default     | String         |
-| fileName           | dbx_file_name       | Custom      | String         |
-| fileId             | dbx_id1             | Custom      | String         |
-| clientModifiedDate | dbx_client_modified | Custom      | Date           |
-| serverModifiedDate | dbx_server_modified | Custom      | Date           |
-| fileSize           | dbx_file_size       | Custom      | Long (numeric) |
-| pathDisplay        | dbx_path_display    | Custom      | String         |
-| tags               | dbx_tags            | Custom      | String         |
+| Dropbox field name | Index field name      | Description | Data type      |
+| ------------------ | --------------------- | ----------- | -------------- |
+| sourceUrl          | \_source\_uri         | Default     | String         |
+| category           | \_category            | Default     | String         |
+| fileName           | dbx\_file\_name       | Custom      | String         |
+| fileId             | dbx\_id1              | Custom      | String         |
+| clientModifiedDate | dbx\_client\_modified | Custom      | Date           |
+| serverModifiedDate | dbx\_server\_modified | Custom      | Date           |
+| fileSize           | dbx\_file\_size       | Custom      | Long (numeric) |
+| pathDisplay        | dbx\_path\_display    | Custom      | String         |
+| tags               | dbx\_tags             | Custom      | String         |

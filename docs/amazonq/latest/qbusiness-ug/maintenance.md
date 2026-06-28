@@ -33,7 +33,7 @@ following:
   progress** for up to 1 day. If you use the API, using the
   `UpdateIndex` operation will return a 409 status code with the
   following message: `Index can't be updated at this time due to ongoing
-maintenance activity. Try again later.`
+ maintenance activity. Try again later.`
 - All in-progress documents will be synced when the planned maintenance is
   complete. No data loss will occur.
 - For Amazon Q Business applications encrypted with a customer managed KMS

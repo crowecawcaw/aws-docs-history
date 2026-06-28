@@ -67,7 +67,7 @@ For system generated messages that have hallucination, you'll see one of the fol
 descriptions:
 
 - Hallucination mitigation disabled – `hallucinated_message:
-DISABLED`
+ DISABLED`
 - Hallucination mitigation enabled but not triggered –
   `hallucinated_message: NOT TRIGGERED`
 - Hallucination mitigation enabled and triggered, but no hallucinations detected

@@ -64,26 +64,25 @@ the following:
   `https://`yourInstance`.my.salesforce.com/services/data/v60.0`.
 - Note your:
 
-      + **Access token URL** – For
-       Salesforce OAuth applications, this is
-       `https://login.salesforce.com/services/oauth2/token`.
-      + **Authorization URL** – For
-       Salesforce OAuth applications, this is
-       `https://login.salesforce.com/services/oauth2/authorize`.
-      + **Redirect URL** – The URL to
-       which user needs to be redirected after authentication. If your deployed
-       web url is `<q-endpoint>`, use
-       `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
-       URL needs to be allowlisted in your third-party application.
-      + **Client ID** – The client ID
-       generated when you create your OAuth 2.0 application in
-       Salesforce.
-      + **Client secret** – The client
-       secret generated when you create your OAuth 2.0 application in
-       Salesforce.
-
-  You will need this authentication information during the plugin configuration
-  process.
+  - **Access token URL** – For
+    Salesforce OAuth applications, this is
+    `https://login.salesforce.com/services/oauth2/token`.
+  - **Authorization URL** – For
+    Salesforce OAuth applications, this is
+    `https://login.salesforce.com/services/oauth2/authorize`.
+  - **Redirect URL** – The URL to
+    which user needs to be redirected after authentication. If your deployed
+    web url is `<q-endpoint>`, use
+    `<q-endpoint>/oauth/callback` . Amazon Q Business will handle OAuth tokens in this URL. This callback
+    URL needs to be allowlisted in your third-party application.
+  - **Client ID** – The client ID
+    generated when you create your OAuth 2.0 application in
+    Salesforce.
+  - **Client secret** – The client
+    secret generated when you create your OAuth 2.0 application in
+    Salesforce.
+    You will need this authentication information during the plugin configuration
+    process.
 
 ###### Note
 

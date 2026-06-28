@@ -367,7 +367,7 @@ You can choose from the following frequency options:
   look like: `(0 12 * * ? *)`. Similarly, an expression to
   activate a rule every day at 10:15am UTC on the last Friday of each
   month during the years 2023 to 2025 can look like: `(15 10 ? * 6L
-2023-2025)`.
+ 2023-2025)`.
 
 ###### Note
 

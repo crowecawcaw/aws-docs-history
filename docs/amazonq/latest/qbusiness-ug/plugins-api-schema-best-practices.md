@@ -166,13 +166,13 @@ plugin by following best practices for your OpenAPI schema parameters.
 
   - **Instead of**
     `{"start": {"type": "object", "properties": {"date": {...},
- "time": {...}}, "end": {...}}`
+   "time": {...}}, "end": {...}}`
     **input**
     `{"start_date": {...}, "start_time": {...}, ..., "end_time":
- {...}}`.
+   {...}}`.
   - Avoid schemas containing array types, which are not supported. For
     example, schemas such as `{"type": "array", "items":
-{"string"}}` are not supported..
+   {"string"}}` are not supported..
   - Avoid circular references (`$ref` inside of
     `$ref`). Circular references can occur in nested
     structures when the same reference (`$ref`) appears
@@ -373,7 +373,7 @@ make a few updates to the operation IDs, parameter names, and schema title:
 - Change `example.api.V1.RequestTimeOff` to
   `GetTimeOffRequests`
 - Change the schema title in the info section from `API for PTO Request
-Management` to `TimeOff`
+ Management` to `TimeOff`
 
 If you are able to change the API itself, we’d also like you to fix parameter
 names. Change parameters named `type` and `status` to
@@ -387,30 +387,30 @@ updates:
   URL) and describe what they do and how to use them. For example:
 
   - Change `Existing requests for the authenticated user. See the
-docs <a href=https://example.com>here</a> for more
-details.` to `Return existing time off requests
-(including information like the current approval status,
-dates/days used) for the authenticated user.`
+   docs <a href=https://example.com>here</a> for more
+   details.` to `Return existing time off requests
+   (including information like the current approval status,
+   dates/days used) for the authenticated user.`
   - Change `Make a request for the authenticated user. See <a
-href=https://example.com/>API docs</a> for more
-details.` to `Create a new time off request of a
-particular type (e.g. Personal or Vacation) for the
-authenticated user based on a start and end date
-(inclusive)`.
+   href=https://example.com/>API docs</a> for more
+   details.` to `Create a new time off request of a
+   particular type (e.g. Personal or Vacation) for the
+   authenticated user based on a start and end date
+   (inclusive)`.
 
 - Add descriptions for ambiguous parameters. For example:
 
   - For the end date of a request, add a description: `Last day
-for the request (inclusive) in ISO-8601 format (for example,
-YYYY-MM-DD)`.
+   for the request (inclusive) in ISO-8601 format (for example,
+   YYYY-MM-DD)`.
   - For the start date, add a description: `First day of the
-request in ISO-8601 format (e.g. YYYY-MM-DD)`.
+   request in ISO-8601 format (e.g. YYYY-MM-DD)`.
 
 - Based on guidance to limit paginated search results explicitly, we’ll add
   a description to the `limit` field in
   `GetTimeOffRequests`. For example, `Limit on the number
-of requests to return. Limit to 5 unless otherwise
-instructed`.
+ of requests to return. Limit to 5 unless otherwise
+ instructed`.
 
 Finally, we’ll apply changes based on the API input schema best practices:
 

@@ -89,13 +89,13 @@ Using quick creation you can directly instruct your web experience to perform a
 plugin action. For example:
 
 - `Create a Zendesk ticket for a broken
-mouse`
+ mouse`
 - `Log an incident in ServiceNow for network
-outage`
+ outage`
 - `Cut an issue in Jira for a broken link on a web
-page`
+ page`
 - `Create a Salesforce case for a missing
-invoice`
+ invoice`
 
 ### Contextual create
 
@@ -112,51 +112,51 @@ For example, consider the following example conversation flows:
 #### Example 1: Create a ServiceNow incident
 
 - **User prompt 1** – `How to
-resolve network issues`
+ resolve network issues`
 - **Amazon Q response** –
   `Sample response`
 - **User prompt 2** – `How to
-reset my router`
+ reset my router`
 - **Amazon Q response** –
   `Sample response`
 - **User action request** –
   `Summarize this conversation and create a
-ServiceNow incident`
+ ServiceNow incident`
 
 #### Example 2: Create a ZenDesk ticket
 
 - **User prompt 1** – `Compare
-Amazon Kendra with OpenSearch`
+ Amazon Kendra with OpenSearch`
 - **Amazon Q response** –
   `Sample response`
 - **User action request** –
   `Create a Zendesk ticket to migrate to
-Amazon Kendra`
+ Amazon Kendra`
 
 #### Example 3: Create a Salesforce case
 
 - **User prompt 1** – `Where is
-the IT office located`
+ the IT office located`
 - **Amazon Q response** –
   `Sample response`
 - **User prompt 2** – `What
-floor is the office located in`
+ floor is the office located in`
 - **Amazon Q response** –
   `Sample response`
 - **User action request** –
   `Create a case in Salesforce summarizing this
-conversation`
+ conversation`
 
 #### Example 4: Create a Jira issue
 
 - **User prompt 1** – `How do I
-enable auto-scaling in EC2`
+ enable auto-scaling in EC2`
 - **Amazon Q response** –
   `Sample response`
 - **User prompt 2** – `How do I
-create an auto-scaling group`
+ create an auto-scaling group`
 - **Amazon Q response** –
   `Sample response`
 - **User action request** –
   `Summarize this conversation and create an issue in
-Jira`
+ Jira`

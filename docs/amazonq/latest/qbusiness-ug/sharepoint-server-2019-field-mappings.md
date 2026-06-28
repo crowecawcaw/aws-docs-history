@@ -41,86 +41,86 @@ body Amazon Q reserved/default index fields.
 
 ## Files
 
-| Sharepoint field name | Index field name   | Description | Data type      |
-| --------------------- | ------------------ | ----------- | -------------- |
-| title                 | \_document_title   | Default     | String         |
-| lastModifiedDateTime  | \_last_updated_at  | Default     | Date           |
-| sourceUri             | \_source_uri       | Default     | String         |
-| checkInComment        | sp_checkInComment  | Custom      | String         |
-| createdAt             | \_created_at       | Default     | Date           |
-| size                  | sp_sizeLong        | Custom      | Long (numeric) |
-| majorVersion          | sp_majorVersion    | Custom      | String         |
-| uiVersionLabel        | sp_uiVersionLabel  | Custom      | String         |
-| uniqueId              | sp_uniqueId        | Custom      | String         |
-| irmEnabled            | sp_irmEnabled      | Custom      | String         |
-| checkOutType          | sp_checkOutType    | Custom      | String         |
-| author                | \_authors          | Default     | String list    |
-| category              | \_category         | Default     | String         |
-| modifiedBy            | sp_modifiedBy      | Custom      | String         |
-| level                 | sp_level           | Custom      | String         |
-| uiVersion             | sp_uiVersion       | Custom      | String         |
-| contentTag            | sp_contentTag      | Custom      | String         |
-| eTag                  | sp_eTag            | Custom      | String         |
-| oneNoteDocument       | sp_oneNoteDocument | Custom      | String         |
-| oneNoteSection        | sp_oneNoteSection  | Custom      | String         |
-| oneNotePage           | sp_oneNotePage     | Custom      | String         |
+| Sharepoint field name | Index field name    | Description | Data type      |
+| --------------------- | ------------------- | ----------- | -------------- |
+| title                 | \_document\_title   | Default     | String         |
+| lastModifiedDateTime  | \_last\_updated\_at | Default     | Date           |
+| sourceUri             | \_source\_uri       | Default     | String         |
+| checkInComment        | sp\_checkInComment  | Custom      | String         |
+| createdAt             | \_created\_at       | Default     | Date           |
+| size                  | sp\_sizeLong        | Custom      | Long (numeric) |
+| majorVersion          | sp\_majorVersion    | Custom      | String         |
+| uiVersionLabel        | sp\_uiVersionLabel  | Custom      | String         |
+| uniqueId              | sp\_uniqueId        | Custom      | String         |
+| irmEnabled            | sp\_irmEnabled      | Custom      | String         |
+| checkOutType          | sp\_checkOutType    | Custom      | String         |
+| author                | \_authors           | Default     | String list    |
+| category              | \_category          | Default     | String         |
+| modifiedBy            | sp\_modifiedBy      | Custom      | String         |
+| level                 | sp\_level           | Custom      | String         |
+| uiVersion             | sp\_uiVersion       | Custom      | String         |
+| contentTag            | sp\_contentTag      | Custom      | String         |
+| eTag                  | sp\_eTag            | Custom      | String         |
+| oneNoteDocument       | sp\_oneNoteDocument | Custom      | String         |
+| oneNoteSection        | sp\_oneNoteSection  | Custom      | String         |
+| oneNotePage           | sp\_oneNotePage     | Custom      | String         |
 
 ## Events
 
-| Sharepoint field name | Index field name  | Description | Data type |
-| --------------------- | ----------------- | ----------- | --------- |
-| title                 | \_document_title  | Default     | String    |
-| lastModifiedDateTime  | \_last_updated_at | Default     | Date      |
-| sourceUri             | \_source_uri      | Default     | String    |
-| attachments           | sp_hasAttachments | Custom      | String    |
-| createdDate           | \_created_at      | Default     | Date      |
-| authorId              | sp_authorId       | Custom      | String    |
-| editorId              | sp_editorId       | Custom      | String    |
-| location              | sp_location       | Custom      | String    |
-| eventDate             | sp_eventDate      | Custom      | Date      |
-| eventEndDate          | sp_eventEndDate   | Custom      | Date      |
-| ifRecurrence          | sp_ifRecurrence   | Custom      | String    |
-| ifAllDayEvent         | sp_ifAllDayEvent  | Custom      | String    |
-| category              | \_category        | Default     | String    |
-| eventCategory         | sp_eventcategory  | Custom      | String    |
+| Sharepoint field name | Index field name    | Description | Data type |
+| --------------------- | ------------------- | ----------- | --------- |
+| title                 | \_document\_title   | Default     | String    |
+| lastModifiedDateTime  | \_last\_updated\_at | Default     | Date      |
+| sourceUri             | \_source\_uri       | Default     | String    |
+| attachments           | sp\_hasAttachments  | Custom      | String    |
+| createdDate           | \_created\_at       | Default     | Date      |
+| authorId              | sp\_authorId        | Custom      | String    |
+| editorId              | sp\_editorId        | Custom      | String    |
+| location              | sp\_location        | Custom      | String    |
+| eventDate             | sp\_eventDate       | Custom      | Date      |
+| eventEndDate          | sp\_eventEndDate    | Custom      | Date      |
+| ifRecurrence          | sp\_ifRecurrence    | Custom      | String    |
+| ifAllDayEvent         | sp\_ifAllDayEvent   | Custom      | String    |
+| category              | \_category          | Default     | String    |
+| eventCategory         | sp\_eventcategory   | Custom      | String    |
 
 ## Pages
 
-| Sharepoint field name | Index field name      | Description | Data type |
-| --------------------- | --------------------- | ----------- | --------- |
-| createdDateTime       | \_created_at          | Default     | Date      |
-| lastModifiedDateTime  | \_last_updated_at     | Default     | Date      |
-| title                 | \_document_title      | Default     | String    |
-| sourceUri             | \_source_uri          | Default     | String    |
-| firstPublishedDate    | sp_firstPublishedDate | Custom      | Date      |
-| authorId              | sp_authorId           | Custom      | String    |
-| editorId              | sp_editorId           | Custom      | String    |
-| category              | \_category            | Default     | String    |
+| Sharepoint field name | Index field name       | Description | Data type |
+| --------------------- | ---------------------- | ----------- | --------- |
+| createdDateTime       | \_created\_at          | Default     | Date      |
+| lastModifiedDateTime  | \_last\_updated\_at    | Default     | Date      |
+| title                 | \_document\_title      | Default     | String    |
+| sourceUri             | \_source\_uri          | Default     | String    |
+| firstPublishedDate    | sp\_firstPublishedDate | Custom      | Date      |
+| authorId              | sp\_authorId           | Custom      | String    |
+| editorId              | sp\_editorId           | Custom      | String    |
+| category              | \_category             | Default     | String    |
 
 ## Links
 
-| Sharepoint field name | Index field name      | Description | Data type      |
-| --------------------- | --------------------- | ----------- | -------------- |
-| createdAt             | \_created_at          | Default     | Date           |
-| lastModifiedDateTime  | \_last_updated_at     | Default     | Date           |
-| title                 | \_document_title      | Default     | String         |
-| sourceUri             | \_source_uri          | Default     | String         |
-| fileType              | sp_fileType           | Custom      | String         |
-| fileDirPath           | sp_fileDirPath        | Custom      | String         |
-| firstPublishedDate    | sp_firstPublishedDate | Custom      | Date           |
-| authorId              | sp_authorId           | Custom      | String         |
-| editorId              | sp_editorId           | Custom      | String         |
-| category              | \_category            | Default     | String         |
-| size                  | sp_sizeLong           | Custom      | Long (numeric) |
+| Sharepoint field name | Index field name       | Description | Data type      |
+| --------------------- | ---------------------- | ----------- | -------------- |
+| createdAt             | \_created\_at          | Default     | Date           |
+| lastModifiedDateTime  | \_last\_updated\_at    | Default     | Date           |
+| title                 | \_document\_title      | Default     | String         |
+| sourceUri             | \_source\_uri          | Default     | String         |
+| fileType              | sp\_fileType           | Custom      | String         |
+| fileDirPath           | sp\_fileDirPath        | Custom      | String         |
+| firstPublishedDate    | sp\_firstPublishedDate | Custom      | Date           |
+| authorId              | sp\_authorId           | Custom      | String         |
+| editorId              | sp\_editorId           | Custom      | String         |
+| category              | \_category             | Default     | String         |
+| size                  | sp\_sizeLong           | Custom      | Long (numeric) |
 
 ## Attachments
 
-| Sharepoint field name | Index field name  | Description | Data type |
-| --------------------- | ----------------- | ----------- | --------- |
-| title                 | sp\_\_title       | Custom      | String    |
-| parentCreatedDate     | \_created_at      | Default     | Date      |
-| sourceUri             | \_source_uri      | Default     | String    |
-| parentModifiedDate    | \_last_updated_at | Custom      | Date      |
-| parentListId          | sp_parentListId   | Custom      | String    |
-| parentTitle           | sp_parentTitle    | Custom      | String    |
-| category              | \_category        | Default     | String    |
+| Sharepoint field name | Index field name    | Description | Data type |
+| --------------------- | ------------------- | ----------- | --------- |
+| title                 | sp\_\_title         | Custom      | String    |
+| parentCreatedDate     | \_created\_at       | Default     | Date      |
+| sourceUri             | \_source\_uri       | Default     | String    |
+| parentModifiedDate    | \_last\_updated\_at | Custom      | Date      |
+| parentListId          | sp\_parentListId    | Custom      | String    |
+| parentTitle           | sp\_parentTitle     | Custom      | String    |
+| category              | \_category          | Default     | String    |

@@ -52,7 +52,7 @@ Instructions for this are specific to your browser of choice. The following
 third-party information about pinning extensions might be helpful.
 
 - Google Chrome — [https://www.howtogeek.com/683099/how-to-pin-and-unpin-extensions-from-the-chrome-toolbar](https://www.howtogeek.com/683099/how-to-pin-and-unpin-extensions-from-the-chrome-toolbar/ "https://www.howtogeek.com/683099/how-to-pin-and-unpin-extensions-from-the-chrome-toolbar/")
-- Mozilla Firefox — [https://support.mozilla.org/en-US/kb/extensions-button#w_manage-pinned-extensions](https://support.mozilla.org/en-US/kb/extensions-button#w_manage-pinned-extensions "https://support.mozilla.org/en-US/kb/extensions-button#w_manage-pinned-extensions")
+- Mozilla Firefox — [https://support.mozilla.org/en-US/kb/extensions-button#w\_manage-pinned-extensions](https://support.mozilla.org/en-US/kb/extensions-button#w_manage-pinned-extensions "https://support.mozilla.org/en-US/kb/extensions-button#w_manage-pinned-extensions")
 - Microsoft Edge — [https://www.microsoft.com/en-us/edge/features/pin-to-taskbar](https://www.microsoft.com/en-us/edge/features/pin-to-taskbar "https://www.microsoft.com/en-us/edge/features/pin-to-taskbar")
 
 Safari browsers are not supported at the time.

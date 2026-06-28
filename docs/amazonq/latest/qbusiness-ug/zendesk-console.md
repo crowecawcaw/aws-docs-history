@@ -105,23 +105,23 @@ ID, client secret, username, and password. 10. Authentication for new customers 
     8. Use the access token in API calls.
 
 11. **Configure VPC and security group –
-    _optional_** – Choose
-    whether you want to use a VPC. If you do, enter the following
-    information:
+_optional_** – Choose
+whether you want to use a VPC. If you do, enter the following
+information:
 
-    1.  **Subnets** – Select up to 6
-        repository subnets that define the subnets and IP ranges
-        the repository instance uses in the selected VPC.
-    2.  **VPC security groups** –
-        Choose up to 10 security groups that allow access to
-        your data source. Ensure that the security group allows
-        incoming traffic from Amazon EC2 instances and
-        devices outside your VPC. For databases, security group
-        instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
+    1. **Subnets** – Select up to 6
+     repository subnets that define the subnets and IP ranges
+     the repository instance uses in the selected VPC.
+    2. **VPC security groups** –
+     Choose up to 10 security groups that allow access to
+     your data source. Ensure that the security group allows
+     incoming traffic from Amazon EC2 instances and
+     devices outside your VPC. For databases, security group
+     instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
 
 12. **IAM role** – Choose
-    an existing IAM role or create an IAM role to access your repository credentials and
-    index content.
+an existing IAM role or create an IAM role to access your repository credentials and
+index content.
 
 ###### Note
 
@@ -178,9 +178,9 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 20. In **Data source details**, choose **Sync
-    now** to allow Amazon Q to begin syncing (crawling and
-    ingesting) data from your data source. When the sync job finishes, your data
-    source is ready to use.
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

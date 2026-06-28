@@ -46,10 +46,9 @@ visitors seeking product information or support. This can be integrated through:
 - You must only ingest publicly available data sources without access control
   lists (ACLs). Examples of public data sources include:
 
-      + any data from the Amazon Q Business Web Crawler
-      + S3 data without Amazon Q Business ACLs
-
-  All other Amazon Q Business functionality and features remain unchanged.
+  - any data from the Amazon Q Business Web Crawler
+  - S3 data without Amazon Q Business ACLs
+    All other Amazon Q Business functionality and features remain unchanged.
 
 ###### Topics
 

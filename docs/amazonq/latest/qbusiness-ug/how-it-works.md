@@ -152,44 +152,43 @@ language model (LLM) knowledge is enabled by default.
 If you're an end user using your organization's Amazon Q Business web
 experience, you perform the following steps:
 
-1.  Navigate to your organization's Amazon Q Business web experience URL,
-    and sign in with your credentials.
-2.  Start chatting and ask questions of your organization's Amazon Q Business web experience. You can, for example choose from the following
-    options:
+1. Navigate to your organization's Amazon Q Business web experience URL,
+   and sign in with your credentials.
+2. Start chatting and ask questions of your organization's Amazon Q Business web experience. You can, for example choose from the following
+   options:
 
-        * **Ask questions** – Ask a
-         question. Amazon Q Business generates and returns answers based on
-         the enterprise data that the end user has access to. Continue the
-         conversation by asking follow-up questions.
-        * **Verify response sources** – Each
-         Amazon Q Business answer cites the source documents used to
-         generate it.
-        * **See conversation history** –
-         Amazon Q Business retains conversation history for 30 days so
-         that they can search through questions and answers. You can view
-         conversation history from the left navigation pane.
-        * **Summarize content** – Amazon Q Business can summarize email message threads.
-        * **Create outlines and drafts** –
-         Use Amazon Q Business to create outlines and templates for
-         documents.
-        * **Perform plugin actions** – If
-         you've configured [Plugins](plugins.md "plugins.md"), ask Amazon Q Business to
-         perform actions on your behalf, like creating a ticket in a supported
-         third party app.
-        * **Test guardrails and chat controls**
-         – If you've configured [Guardrails and chat controls](guardrails.md "guardrails.md"), check how
-         Amazon Q Business responds to queries and special
-         topics.
-        * Additionally, you can ask Amazon Q Business to complete [any supported follow-up tasks](plugins.md "plugins.md")—like [creating task-focused Amazon Q
-         Apps](purpose-built-qapps.md "purpose-built-qapps.md")—that your admin has enabled for your
-         application environment.
+   - **Ask questions** – Ask a
+     question. Amazon Q Business generates and returns answers based on
+     the enterprise data that the end user has access to. Continue the
+     conversation by asking follow-up questions.
+   - **Verify response sources** – Each
+     Amazon Q Business answer cites the source documents used to
+     generate it.
+   - **See conversation history** –
+     Amazon Q Business retains conversation history for 30 days so
+     that they can search through questions and answers. You can view
+     conversation history from the left navigation pane.
+   - **Summarize content** – Amazon Q Business can summarize email message threads.
+   - **Create outlines and drafts** –
+     Use Amazon Q Business to create outlines and templates for
+     documents.
+   - **Perform plugin actions** – If
+     you've configured [Plugins](plugins.md "plugins.md"), ask Amazon Q Business to
+     perform actions on your behalf, like creating a ticket in a supported
+     third party app.
+   - **Test guardrails and chat controls**
+     – If you've configured [Guardrails and chat controls](guardrails.md "guardrails.md"), check how
+     Amazon Q Business responds to queries and special
+     topics.
+   - Additionally, you can ask Amazon Q Business to complete [any supported follow-up tasks](plugins.md "plugins.md")—like [creating task-focused Amazon Q
+     Apps](purpose-built-qapps.md "purpose-built-qapps.md")—that your admin has enabled for your
+     application environment.
+     For a list of web experience capabilities, see [Using an Amazon Q web experience](using-web-experience.md "using-web-experience.md").
 
-    For a list of web experience capabilities, see [Using an Amazon Q web experience](using-web-experience.md "using-web-experience.md").
-
-3.  Sometimes your question requires information that's beyond the scope of your
-    enterprise data. Then, Amazon Q Business responds that it couldn't find an
-    answer in your documents, unless your admin has allowed Amazon Q Business
-    to [generate responses using model knowledge](guardrails.md "guardrails.md").
+3. Sometimes your question requires information that's beyond the scope of your
+   enterprise data. Then, Amazon Q Business responds that it couldn't find an
+   answer in your documents, unless your admin has allowed Amazon Q Business
+   to [generate responses using model knowledge](guardrails.md "guardrails.md").
 
 Amazon Q Business stores conversation history for 30 days and maintains
 conversation context after a conversation ends. Conversations can be resumed from where

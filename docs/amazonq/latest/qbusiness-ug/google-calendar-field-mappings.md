@@ -45,15 +45,15 @@ Calendar
 
 Events
 
-| Google Calendar field name | Index field name      | Description | Data type  |
-| -------------------------- | --------------------- | ----------- | ---------- |
-| Location                   | gcal_location         | Custom      | String     |
-| eventStartTime             | gcal_event_start_time | Custom      | Date       |
-| eventEndTime               | gcal_event_end_time   | Custom      | Date       |
-| category                   | \_category            | Default     | String     |
-| created                    | \_created_at          | Default     | DateString |
-| updated                    | \_last_updated_at     | Default     | Date       |
-| htmlLink                   | \_source_url          | Default     | String     |
-| attendees                  | gcal_attendees        | Custom      | String     |
-| organizer                  | gcal_organizer        | Custom      | String     |
-| recurrence                 | gcal_recurrence       | Custom      | String     |
+| Google Calendar field name | Index field name         | Description | Data type  |
+| -------------------------- | ------------------------ | ----------- | ---------- |
+| Location                   | gcal\_location           | Custom      | String     |
+| eventStartTime             | gcal\_event\_start\_time | Custom      | Date       |
+| eventEndTime               | gcal\_event\_end\_time   | Custom      | Date       |
+| category                   | \_category               | Default     | String     |
+| created                    | \_created\_at            | Default     | DateString |
+| updated                    | \_last\_updated\_at      | Default     | Date       |
+| htmlLink                   | \_source\_url            | Default     | String     |
+| attendees                  | gcal\_attendees          | Custom      | String     |
+| organizer                  | gcal\_organizer          | Custom      | String     |
+| recurrence                 | gcal\_recurrence         | Custom      | String     |

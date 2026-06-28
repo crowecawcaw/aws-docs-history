@@ -81,101 +81,101 @@ like to simplify your setup process, you can take the following steps to provide
 Q Business Sharepoint connector global access. Otherwise, skip to section 2
 below.
 
-1.  Create a Sharepoint client app to which we will assign the permissions
-    needed by your Q Business connector. To register the app:
+1. Create a Sharepoint client app to which we will assign the permissions
+   needed by your Q Business connector. To register the app:
 
-    1.  Log in to the Azure Portal with your Microsoft account.
-    2.  1. Provide the name for your application. In the example we
-           are using the name TargetApp. The Amazon Q Business
-           application uses TargetApp to connect to the SharePoint
-           Online site to crawl and index the data.
-        2. Choose "Accounts" in the organizational directory. (Tenant
-           name only - Single tenant).
-        3. Choose "Register".
-        4. Note down the application (client ID and the directory
-           (tenant) on the Overview page, as you'll need them when
-           prompted for "TargetApp-ClientId" and "TenantId".
-        5. Navigate to "Manage > API Permissions" in the navigation
-           pane
-        6. Navigate to "Add a permission > Sharepoint > Application
-           permissions" to allow the application to read data in your
-           organization's directory regarding the signed-in
-           user.
-        7. Search "AllSites.Read".
-        8. Choose "Add permissions".
-        9. Navigate to "Add a permission > Microsoft Graph >
-           Application permissions"
-        10. Search and add the following permissions:
+   1. Log in to the Azure Portal with your Microsoft account.
+   2. 1. Provide the name for your application. In the example we
+         are using the name TargetApp. The Amazon Q Business
+         application uses TargetApp to connect to the SharePoint
+         Online site to crawl and index the data.
+      2. Choose "Accounts" in the organizational directory. (Tenant
+         name only - Single tenant).
+      3. Choose "Register".
+      4. Note down the application (client ID and the directory
+         (tenant) on the Overview page, as you'll need them when
+         prompted for "TargetApp-ClientId" and "TenantId".
+      5. Navigate to "Manage > API Permissions" in the navigation
+         pane
+      6. Navigate to "Add a permission > Sharepoint > Application
+         permissions" to allow the application to read data in your
+         organization's directory regarding the signed-in
+         user.
+      7. Search "AllSites.Read".
+      8. Choose "Add permissions".
+      9. Navigate to "Add a permission > Microsoft Graph >
+         Application permissions"
+      10. Search and add the following permissions:
 
-            - "Notes.Read.All"
-            - "Sites.Read.All"
-            - "Sites.FullControl.All (Application)" (required only
-              if you intend to enable ACLs)
-            - "Sites.Read.All (Application)"(required only if
-              you intend to enable ACLs)
-            - "Sites.FullControl.All" (required only if you
-              intend to enable ACLs)
-            - "GroupMember.Read.All" (required only if you
-              intend to enable ACLs)
-            - "User.Read.All" (required only if you intend to
-              enable ACLs)
+          - "Notes.Read.All"
+          - "Sites.Read.All"
+          - "Sites.FullControl.All (Application)" (required only
+            if you intend to enable ACLs)
+          - "Sites.Read.All (Application)"(required only if
+            you intend to enable ACLs)
+          - "Sites.FullControl.All" (required only if you
+            intend to enable ACLs)
+          - "GroupMember.Read.All" (required only if you
+            intend to enable ACLs)
+          - "User.Read.All" (required only if you intend to
+            enable ACLs)
 
-        11. Navigate to "Remove permission"
-        12. Remove the original "User.Read - Delegated"
-            permission
-        13. Choose "Grant admin consent" for the default
-            directory
-        14. Save the client ID generated from this app for when you
-            configure the Sharepoint connector in the Q Business console
-            or API
+      11. Navigate to "Remove permission"
+      12. Remove the original "User.Read - Delegated"
+          permission
+      13. Choose "Grant admin consent" for the default
+          directory
+      14. Save the client ID generated from this app for when you
+          configure the Sharepoint connector in the Q Business console
+          or API
 
-        The following tables summarize all the permissions your
-        application should have.
+      The following tables summarize all the permissions your
+      application should have.
 
-            * If you're not using ACL, your application should
-             have the permission:
+           * If you're not using ACL, your application should
+            have the permission:
 
-        |                                                                         |                                                                      |
-        | ----------------------------------------------------------------------- | -------------------------------------------------------------------- |
-        | **Microsoft<br>Graph**                                                  | **Sharepoint**                                                       |
-        | Notes.Read.All (Application) – Read all<br>OneNote notebooks            | AllSites.Read (Delegated)<br>• Read items in<br>all site collections |
-        | Sites.Read.All (Application)<br>• Read items in<br>all site collections |                                                                      |
+      |                                                                         |                                                                      |
+      | ----------------------------------------------------------------------- | -------------------------------------------------------------------- |
+      | **Microsoft<br>Graph**                                                  | **Sharepoint**                                                       |
+      | Notes.Read.All (Application) – Read all<br>OneNote notebooks            | AllSites.Read (Delegated)<br>• Read items in<br>all site collections |
+      | Sites.Read.All (Application)<br>• Read items in<br>all site collections |                                                                      |
 
-        ###### Note
+      ###### Note
 
-        Read.All and Sites.Read.All are required only if you
-        want to crawl OneNote Documents.
+      Read.All and Sites.Read.All are required only if you
+      want to crawl OneNote Documents.
 
-            * If you're using ACL, your application should have
-             the following permissions:
+           * If you're using ACL, your application should have
+            the following permissions:
 
-        |                                                                                       |                                                                   |
-        | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-        | Microsoft Graph                                                                       | Sharepoint                                                        |
-        | GroupMember.Read.All (Application) –<br>Read all group memberships                    | AllSites.Read (Delegated) – Read<br>items in all site collections |
-        | Notes.Read.All (Application) – Read<br>all OneNote notebooks                          |                                                                   |
-        | Sites.FullControl.All (Application) –<br>Have full control of all site<br>collections |                                                                   |
-        | Sites.Read.All (Application) – Read<br>items in all site collections                  |                                                                   |
-        | User.Read.All (Application) – Read<br>all users' full profiles                        |                                                                   |
+      |                                                                                       |                                                                   |
+      | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+      | Microsoft Graph                                                                       | Sharepoint                                                        |
+      | GroupMember.Read.All (Application) –<br>Read all group memberships                    | AllSites.Read (Delegated) – Read<br>items in all site collections |
+      | Notes.Read.All (Application) – Read<br>all OneNote notebooks                          |                                                                   |
+      | Sites.FullControl.All (Application) –<br>Have full control of all site<br>collections |                                                                   |
+      | Sites.Read.All (Application) – Read<br>items in all site collections                  |                                                                   |
+      | User.Read.All (Application) – Read<br>all users' full profiles                        |                                                                   |
 
-2.  Create a client secret for your Sharepoint App:
+2. Create a client secret for your Sharepoint App:
 
-    1. Within your client App navigate to "Clients and secrets > Client
-       secrets"
-    2. Click on create a new secret.
+   1. Within your client App navigate to "Clients and secrets > Client
+      secrets"
+   2. Click on create a new secret.
 
-3.  Generate a new Certificate to be shared between Q Business SharePoint
-    Connector and Microsoft Entra ID (formerly Azure AD) App:
+3. Generate a new Certificate to be shared between Q Business SharePoint
+   Connector and Microsoft Entra ID (formerly Azure AD) App:
 
-    1. Use the example command below to generate your own x509
-       certificate.
-    2. Run the following command:`openssl req -x509 -newkey rsa:2048
--noenc -sha1 -keyout /tmp/private.key -out /tmp/sharepoint.crt
--nodes -set_serial 1 -days 365 -subj
-"/CN=amazon/emailAddress=example@aws.com/C=US/ST=Texas/L=Dallas/O=amazon/OU=amazon`
-    3. Save the generated private key located in /tmp/private.key for
-       later when you configure the Q Business Sharepoint connector via the
-       Q Business console or API.
+   1. Use the example command below to generate your own x509
+      certificate.
+   2. Run the following command:`openssl req -x509 -newkey rsa:2048
+  -noenc -sha1 -keyout /tmp/private.key -out /tmp/sharepoint.crt
+  -nodes -set_serial 1 -days 365 -subj
+  "/CN=amazon/emailAddress=example@aws.com/C=US/ST=Texas/L=Dallas/O=amazon/OU=amazon`
+   3. Save the generated private key located in /tmp/private.key for
+      later when you configure the Q Business Sharepoint connector via the
+      Q Business console or API.
 
 _Microsoft Entra ID (formerly Azure AD) App-Only Option 2: Read Access for only Selected
 Sites_
@@ -184,12 +184,12 @@ If you anticipate that you will be indexing a manageable number of Sharepoint
 sites and would prefer to limit the permissions of the Q Business connector to just
 the Sharepoint sites you intend to index, you can take the following steps:
 
-1.  Create a Sharepoint client app: Create a Sharepoint client app to which we
-    will assign the permissions needed by your Q Business connector. To register
-    the app:
+1.   Create a Sharepoint client app: Create a Sharepoint client app to which we
+     will assign the permissions needed by your Q Business connector. To register
+     the app:
 
-    1.  Log in to the Azure Portal with your Microsoft account.
-    2.  Choose "New Registration":
+     1. Log in to the Azure Portal with your Microsoft account.
+     2. Choose "New Registration":
 
         1. Provide the name for your application. In the example we
            are using the name TargetApp. The Amazon Q Business
@@ -232,154 +232,157 @@ the Sharepoint sites you intend to index, you can take the following steps:
         The following tables summarize all the permissions your
         application should have.
 
-            * If you're not using ACL, your application should
-             have the permissions:
+             * If you're not using ACL, your application should
+              have the permissions:
 
 
 
 
-            |  |  |
-            | --- | --- |
-            | **Microsoft<br>Graph** | **Sharepoint** |
-            | Notes.Read.All (Application) – Read all<br>OneNote notebooks | AllSites.Read (Delegated)<br>• Read items in<br>all site collections |
-            | Site.Read.All (Application)<br>• Read items in<br>all site collections |  |
+             |  |  |
+             | --- | --- |
+             | **Microsoft<br>Graph** | **Sharepoint** |
+             | Notes.Read.All (Application) – Read all<br>OneNote notebooks | AllSites.Read (Delegated)<br>• Read items in<br>all site collections |
+             | Site.Read.All (Application)<br>• Read items in<br>all site collections |  |
 
 
-            ###### Note
+             ###### Note
 
-            Read.All and Sites.Read.All are required only
-             if you want to crawl OneNote Documents.
-
-
+             Read.All and Sites.Read.All are required only
+              if you want to crawl OneNote Documents.
 
 
-            	+ If you're using ACL, your application should
-            	 have the following permissions:
 
 
-            |  |  |
-            | --- | --- |
-            | Microsoft Graph | Sharepoint |
-            | GroupMember.Read.All (Application) –<br>Read all group memberships | AllSites.Read (Delegated) – Read<br>items in all site collections |
-            | Notes.Read.All (Application) – Read<br>all OneNote notebooks |  |
-            | Sites.FullControl.All (Application) –<br>Have full control of all site<br>collections |  |
-            | Sites.Read.All (Application) – Read<br>items in all site collections |  |
-            | User.Read.All (Application) – Read<br>all users' full profiles |  |
-            | Sites.Selected<br>• Have control of selected<br>sites |  |
+             	+ If you're using ACL, your application should
+             	 have the following permissions:
 
-2.  Create a client secret for your Sharepoint App:
 
-    1. Within your client App navigate to "Clients and secrets > Client
-       secrets"
-    2. Click on create a new secret.
+             |  |  |
+             | --- | --- |
+             | Microsoft Graph | Sharepoint |
+             | GroupMember.Read.All (Application) –<br>Read all group memberships | AllSites.Read (Delegated) – Read<br>items in all site collections |
+             | Notes.Read.All (Application) – Read<br>all OneNote notebooks |  |
+             | Sites.FullControl.All (Application) –<br>Have full control of all site<br>collections |  |
+             | Sites.Read.All (Application) – Read<br>items in all site collections |  |
+             | User.Read.All (Application) – Read<br>all users' full profiles |  |
+             | Sites.Selected<br>• Have control of selected<br>sites |  |
 
-3.  Generate a new Certificate to be shared between Q Business SharePoint
-    Connector and Microsoft Entra ID (formerly Azure AD) App:
+2.   Create a client secret for your Sharepoint App:
 
-    1. Run the following command: `openssl req -x509 -newkey
-rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
-/tmp/sharepoint.crt -nodes -set_serial 1 -days 365 -subj
-"/CN=amazon/emailAddress=example@aws.com/C=US/ST=Texas/L=Dallas/O=amazon/OU=amazon"`
-    2. Save the generated private key located in /tmp/private.key for
-       later when you configure the Q Business Sharepoint connector via the
-       Q Business console or API.
-    3. Upload the generated certificate located in /tmp/sharepoint.crt to
-       an S3 bucket so you can use it later when you configure the Q
-       Business Sharepoint connector via the Q Business console or API. You
-       will also need this certificate for the next step.
+     1. Within your client App navigate to "Clients and secrets > Client
+        secrets"
+     2. Click on create a new secret.
 
-4.  Update your Sharepoint Client App’s Certificate:
+3.   Generate a new Certificate to be shared between Q Business SharePoint
+     Connector and Microsoft Entra ID (formerly Azure AD) App:
 
-    1. Navigate to the Sharepoint client app you created in step 1.
-    2. Navigate to “Certificates and secrets > Certificates > Upload
-       certificate” and upload the certificate (.crt file) you generated in
-       step 4.
+     1. Run the following command: `openssl req -x509 -newkey
+  rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
+  /tmp/sharepoint.crt -nodes -set_serial 1 -days 365 -subj
+  "/CN=amazon/emailAddress=example@aws.com/C=US/ST=Texas/L=Dallas/O=amazon/OU=amazon"`
+     2. Save the generated private key located in /tmp/private.key for
+        later when you configure the Q Business Sharepoint connector via the
+        Q Business console or API.
+     3. Upload the generated certificate located in /tmp/sharepoint.crt to
+        an S3 bucket so you can use it later when you configure the Q
+        Business Sharepoint connector via the Q Business console or API. You
+        will also need this certificate for the next step.
 
-5.  Create a Sharepoint admin app: This app will be used to provide the
-    necessary site read permissions for the client OAuth App you created in the
-    previous step. You can delete this admin app after you have completed all
-    the steps. To register the app:
+4.   Update your Sharepoint Client App’s Certificate:
 
-    1. Log in to the Azure Portal with your Microsoft account.
-    2. Choose “New Registration”:
+     1. Navigate to the Sharepoint client app you created in step 1.
+     2. Navigate to “Certificates and secrets > Certificates > Upload
+        certificate” and upload the certificate (.crt file) you generated in
+        step 4.
 
-       1. Provide the name for your application.
-       2. Choose "Accounts" in the organizational directory. (Tenant
-          name only - Single tenant).
-       3. Choose "Register".
-       4. Locate your app ID, app secret, and tenant ID for your
-          admin app and save them for the next step.
-       5. Navigate to "Manage > API Permissions" in the navigation
-          pane
-       6. Navigate to "Add a permission > Sharepoint > Application
-          permissions" to allow the application to read data in your
-          organization's directory regarding the signed-in
-          user.
-       7. Search "Sites.FullControl.All".
-       8. Choose "Add permissions".
-       9. Navigate to "Add a permission > Microsoft Graph >
-          Application permissions"
-       10. Search "Sites.Read.All".
-       11. Choose "Add permissions".
+5.   Create a Sharepoint admin app: This app will be used to provide the
+     necessary site read permissions for the client OAuth App you created in the
+     previous step. You can delete this admin app after you have completed all
+     the steps. To register the app:
 
-6.  Generate an access token for your Sharepoint admin app: Now use the
-    following code snippet to generate an access token for your app, but replace
-    adminAppID, adminAppSecret, and tenantID with the values you saved from step
-7.  1. ```
-       adminAppId=$1
-       adminAppSecret=$2
-       tenantId=$3
-       ```
+     1. Log in to the Azure Portal with your Microsoft account.
+     2. Choose “New Registration”:
+
+        1. Provide the name for your application.
+        2. Choose "Accounts" in the organizational directory. (Tenant
+           name only - Single tenant).
+        3. Choose "Register".
+        4. Locate your app ID, app secret, and tenant ID for your
+           admin app and save them for the next step.
+        5. Navigate to "Manage > API Permissions" in the navigation
+           pane
+        6. Navigate to "Add a permission > Sharepoint > Application
+           permissions" to allow the application to read data in your
+           organization's directory regarding the signed-in
+           user.
+        7. Search "Sites.FullControl.All".
+        8. Choose "Add permissions".
+        9. Navigate to "Add a permission > Microsoft Graph >
+           Application permissions"
+        10. Search "Sites.Read.All".
+        11. Choose "Add permissions".
+
+6.   Generate an access token for your Sharepoint admin app: Now use the
+     following code snippet to generate an access token for your app, but replace
+     adminAppID, adminAppSecret, and tenantID with the values you saved from step
+7.
+
+    1. ```
+
+    adminAppId=$1
+    adminAppSecret=$2
+    tenantId=$3
 
     tokenResponse=$(curl -s --location \
-	"https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token" \
+    "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token" \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode "grant_type=client_credentials" \
     --data-urlencode "client_id=$adminAppId" \
-	--data-urlencode "client_secret=$adminAppSecret" \
+    --data-urlencode "client_secret=$adminAppSecret" \
     --data-urlencode "scope=offline_access https://graph.microsoft.com/.default")
 
     adminAppToken=$(echo $tokenResponse | jq -r '.access_token')
     echo $adminAppToken
-
     ```
 
-    ```
-
-8.  Obtain a Site ID for each of your Sharepoint sites: Repeat the following
-    steps for each of the Sharepoint sites you want your Q Business connector to
-    crawl:
+7. Obtain a Site ID for each of your Sharepoint sites: Repeat the following
+steps for each of the Sharepoint sites you want your Q Business connector to
+crawl:
 
     1. Visit
-       `https://{yourcompany}.sharepoint.com/sites/{SiteName}`in
-       a browser. Enter the appropriate login credentials if needed.
-       Validate that you are able to see your SharePoint site
+     `https://{yourcompany}.sharepoint.com/sites/{SiteName}`in
+     a browser. Enter the appropriate login credentials if needed.
+     Validate that you are able to see your SharePoint site
     2. Now append /\_api/site/id at the end of {SiteName}. You should see
-       a response something similar to below containing your site id
-       (96a47524-4b21-446f-bf96-96d2f6fe4aa7)
+     a response something similar to below containing your site id
+     (96a47524-4b21-446f-bf96-96d2f6fe4aa7)
+
+
 
     ```
     <d:Id m:type="Edm.Guid" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">96a47524-4b21-446f-bf96-96d2f6fe4aa7</d:Id>
     ```
 
-9.  Grant your Sharepoint client app permissions to your selected sites: Now
-    that you have created your Sharepoint admin app, Sharepoint client app, and
-    have a list of site ids, you are ready to grant your client app the
-    necessary permissions to access these sites. Repeat the following steps for
-    each of the site ids you obtained from step 4.
+8. Grant your Sharepoint client app permissions to your selected sites: Now
+that you have created your Sharepoint admin app, Sharepoint client app, and
+have a list of site ids, you are ready to grant your client app the
+necessary permissions to access these sites. Repeat the following steps for
+each of the site ids you obtained from step 4.
 
     1. Modify the code snippet below to provide the following:
 
-       1. clientAppId: The Application (client) ID from step
-       1.
-       1. clientAppName: The display name of your Sharepoint client
-          app from step 1.
-       1. adminToken: The access token you generated in step
-       1.
-       1. siteId: One of the site ids you obtained from step
-       1.
 
+    	1. clientAppId: The Application (client) ID from step
+    	 1.
+    	2. clientAppName: The display name of your Sharepoint client
+    	 app from step 1.
+    	3. adminToken: The access token you generated in step
+    	 6.
+    	4. siteId: One of the site ids you obtained from step
+    	 7.
     2. Run the following command:
+
+
 
     ```
     clientAppId=$1
@@ -405,7 +408,9 @@ rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
     echo $grantPermissionResponse
     ```
     3. If the command was successful, you'll see a response as
-       follows:
+     follows:
+
+
 
     ```
     {
@@ -467,47 +472,47 @@ below.
 
 To register the app:
 
-1.  Log in to the Azure Portal with your Microsoft account.
-2.  Choose "New Registration":
+1. Log in to the Azure Portal with your Microsoft account.
+2. Choose "New Registration":
 
-    1. Provide the name for your application. In the example we are using
-       the name TargetApp. The Amazon Q Business application uses
-       TargetApp to connect to the SharePoint Online site to crawl and
-       index the data.
-    2. Choose "Accounts" in the organizational directory. (Tenant name
-       only - Single tenant).
-    3. Choose "Register".
-    4. Note down the application (client ID and the directory (tenant) on
-       the Overview page, as you'll need them when prompted for
-       "TargetApp-ClientId" and "TenantId".
-    5. Navigate to "Manage > API Permissions" in the navigation
-       pane
-    6. Navigate to "Add a permission > Sharepoint > Application
-       permissions" to allow the application to read data in your
-       organization's directory regarding the signed-in user.
-    7. Search "AllSites.Read".
-    8. Choose "Add permissions".
-    9. Navigate to "Add a permission > Microsoft Graph > Application
-       permissions"
-    10. Search and add the following permissions:
+   1. Provide the name for your application. In the example we are using
+      the name TargetApp. The Amazon Q Business application uses
+      TargetApp to connect to the SharePoint Online site to crawl and
+      index the data.
+   2. Choose "Accounts" in the organizational directory. (Tenant name
+      only - Single tenant).
+   3. Choose "Register".
+   4. Note down the application (client ID and the directory (tenant) on
+      the Overview page, as you'll need them when prompted for
+      "TargetApp-ClientId" and "TenantId".
+   5. Navigate to "Manage > API Permissions" in the navigation
+      pane
+   6. Navigate to "Add a permission > Sharepoint > Application
+      permissions" to allow the application to read data in your
+      organization's directory regarding the signed-in user.
+   7. Search "AllSites.Read".
+   8. Choose "Add permissions".
+   9. Navigate to "Add a permission > Microsoft Graph > Application
+      permissions"
+   10. Search and add the following permissions:
 
-        - "Notes.Read.All"
-        - "Sites.Read.All"
-        - "Sites.FullControl.All" (required only if you intend to
-          enable ACLs)
-        - "GroupMember.Read.All" (required only if you intend to
-          enable ACLs)
-        - "User.Read.All" (required only if you intend to enable
-          ACLs)
+       - "Notes.Read.All"
+       - "Sites.Read.All"
+       - "Sites.FullControl.All" (required only if you intend to
+         enable ACLs)
+       - "GroupMember.Read.All" (required only if you intend to
+         enable ACLs)
+       - "User.Read.All" (required only if you intend to enable
+         ACLs)
 
-    11. Navigate to "Remove permission".
-    12. Remove the original "User.Read - Delegated" permission.
-    13. Choose "Grant admin consent" for the default directory.
-    14. Save the client ID generated from this app for when you configure
-        the Sharepoint connector in the Q Business console or API.
+   11. Navigate to "Remove permission".
+   12. Remove the original "User.Read - Delegated" permission.
+   13. Choose "Grant admin consent" for the default directory.
+   14. Save the client ID generated from this app for when you configure
+       the Sharepoint connector in the Q Business console or API.
 
-    The following tables summarize all the permissions your
-    application should have.
+   The following tables summarize all the permissions your
+   application should have.
 
         * If you're not using ACL, your application should have the
          permissions:
@@ -547,238 +552,233 @@ To register the app:
         GroupMember.Read.All and User.Read.All are required
          only if Identity crawler is activated.
 
-3.  Create a client secret for your Sharepoint App:
+3. Create a client secret for your Sharepoint App:
 
-    1. Within your client App navigate to "Clients and secrets > Client
-       secrets"
-    2. Click on create a new secret.
+   1. Within your client App navigate to "Clients and secrets > Client
+      secrets"
+   2. Click on create a new secret.
 
 _OAuth2.0 Option 2: Read Access Only for Selected Sites_
 
 For organizations planning to index a manageable number of Sharepoint sites with
 limited permissions, the following steps provide the necessary setup:
 
-1. Create a Sharepoint client app for OAuth: Now create a Sharepoint client
-   OAuth app to which we will assign the permissions needed by your Q Business
-   connector. To register the app:
+1.   Create a Sharepoint client app for OAuth: Now create a Sharepoint client
+     OAuth app to which we will assign the permissions needed by your Q Business
+     connector. To register the app:
 
-   1. Log in to the Azure Portal with your Microsoft account.
-   2. Choose "New Registration":
+     1. Log in to the Azure Portal with your Microsoft account.
+     2. Choose "New Registration":
 
-      1. Provide the name for your application. In the example we
-         are using the name TargetApp. The Amazon Q Business
-         application uses TargetApp to connect to the SharePoint
-         Online site to crawl and index the data.
-      2. Choose "Accounts" in the organizational directory. (Tenant
-         name only - Single tenant).
-      3. Choose "Register".
-      4. Note down the application (client ID and the directory
-         (tenant) on the Overview page, as you'll need them when
-         prompted for "TargetApp-ClientId" and "TenantId".
-      5. Navigate to "Manage > API Permissions" in the navigation
-         pane
-      6. Navigate to "Add a permission > Sharepoint > Application
-         permissions" to allow the application to read data in your
-         organization's directory regarding the signed-in
-         user.
-      7. Search "Sites.Selected".
-      8. Choose "Add permissions".
-      9. Navigate to "Add a permission > Microsoft Graph >
-         Application permissions"
-      10. Search and add the following permissions:
+        1. Provide the name for your application. In the example we
+           are using the name TargetApp. The Amazon Q Business
+           application uses TargetApp to connect to the SharePoint
+           Online site to crawl and index the data.
+        2. Choose "Accounts" in the organizational directory. (Tenant
+           name only - Single tenant).
+        3. Choose "Register".
+        4. Note down the application (client ID and the directory
+           (tenant) on the Overview page, as you'll need them when
+           prompted for "TargetApp-ClientId" and "TenantId".
+        5. Navigate to "Manage > API Permissions" in the navigation
+           pane
+        6. Navigate to "Add a permission > Sharepoint > Application
+           permissions" to allow the application to read data in your
+           organization's directory regarding the signed-in
+           user.
+        7. Search "Sites.Selected".
+        8. Choose "Add permissions".
+        9. Navigate to "Add a permission > Microsoft Graph >
+           Application permissions"
+        10. Search and add the following permissions:
 
-          - "Notes.Read.All"
-          - "Sites.Selected"
-          - "GroupMember.Read.All" (required only if you
-            intend to enable ACLs)
-          - "User.Read.All" (required only if you intend to
-            enable ACLs)
+            - "Notes.Read.All"
+            - "Sites.Selected"
+            - "GroupMember.Read.All" (required only if you
+              intend to enable ACLs)
+            - "User.Read.All" (required only if you intend to
+              enable ACLs)
 
-      11. Navigate to "Remove permission"
-      12. Remove the original "User.Read - Delegated"
-          permission
-      13. Choose "Grant admin consent" for the default
-          directory
-      14. Save the client ID generated from this app for when you
-          configure the Sharepoint connector in the Q Business console
-          or APIThe following tables summarize all the permissions your
-          application should have.
-      - If you're not using ACL, your application should have the
-        permissions:
+        11. Navigate to "Remove permission"
+        12. Remove the original "User.Read - Delegated"
+            permission
+        13. Choose "Grant admin consent" for the default
+            directory
+        14. Save the client ID generated from this app for when you
+            configure the Sharepoint connector in the Q Business console
+            or APIThe following tables summarize all the permissions your
+            application should have.
+        - If you're not using ACL, your application should have the
+          permissions:
 
-      |                                                                              |                                                                              |
-      | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-      | **Microsoft<br>Graph**                                                       | **Sharepoint**                                                               |
-      | Notes.Read.All (Application) – Read<br>all OneNote notebooks                 | Sites.Selected (Application)<br>• Read<br>items in selected site collections |
-      | Sites.Selected (Application)<br>• Read<br>items in selected site collections |                                                                              |
+        |                                                                              |                                                                              |
+        | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+        | **Microsoft<br>Graph**                                                       | **Sharepoint**                                                               |
+        | Notes.Read.All (Application) – Read<br>all OneNote notebooks                 | Sites.Selected (Application)<br>• Read<br>items in selected site collections |
+        | Sites.Selected (Application)<br>• Read<br>items in selected site collections |                                                                              |
 
-      ###### Note
+        ###### Note
 
-      Note.Read.All and Sites.Read.All are required only if
-      you want to crawl OneNote Documents.
-      - If you're using ACL, your application should have the
-        following permissions:
+        Note.Read.All and Sites.Read.All are required only if
+        you want to crawl OneNote Documents.
+        - If you're using ACL, your application should have the
+          following permissions:
 
-      |                                                                                       |                                                                   |
-      | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-      | Microsoft Graph                                                                       | Sharepoint                                                        |
-      | GroupMember.Read.All (Application) –<br>Read all group memberships                    | AllSites.Read (Delegated) – Read<br>items in all site collections |
-      | Notes.Read.All (Application) – Read<br>all OneNote notebooks                          |                                                                   |
-      | Sites.FullControl.All (Application) –<br>Have full control of all site<br>collections |                                                                   |
-      | Sites.Read.All (Application) – Read<br>items in all site collections                  |                                                                   |
-      | User.Read.All (Application) – Read<br>all users' full profiles                        |                                                                   |
+        |                                                                                       |                                                                   |
+        | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+        | Microsoft Graph                                                                       | Sharepoint                                                        |
+        | GroupMember.Read.All (Application) –<br>Read all group memberships                    | AllSites.Read (Delegated) – Read<br>items in all site collections |
+        | Notes.Read.All (Application) – Read<br>all OneNote notebooks                          |                                                                   |
+        | Sites.FullControl.All (Application) –<br>Have full control of all site<br>collections |                                                                   |
+        | Sites.Read.All (Application) – Read<br>items in all site collections                  |                                                                   |
+        | User.Read.All (Application) – Read<br>all users' full profiles                        |                                                                   |
 
-      ###### Note
+        ###### Note
 
-      Note. GroupMember.Read.All and User.Read.All are
-      required only if Identity crawler is activated.
+        Note. GroupMember.Read.All and User.Read.All are
+        required only if Identity crawler is activated.
 
-2. Create a client secret for your Sharepoint App:
+2.   Create a client secret for your Sharepoint App:
 
-   1. Within your client App navigate to "Clients and secrets > Client
-      secrets"
-   2. Click on create a new secret.
+     1. Within your client App navigate to "Clients and secrets > Client
+        secrets"
+     2. Click on create a new secret.
 
-3. Create a Sharepoint admin app: This app will be used to provide the
-   necessary site read permissions for the client OAuth App you created in the
-   previous step. You can delete this admin app after you have completed all
-   the steps. To register the app:
+3.   Create a Sharepoint admin app: This app will be used to provide the
+     necessary site read permissions for the client OAuth App you created in the
+     previous step. You can delete this admin app after you have completed all
+     the steps. To register the app:
 
-   1. Log in to the Azure Portal with your Microsoft account.
-   2. Choose "New Registration":
+     1. Log in to the Azure Portal with your Microsoft account.
+     2. Choose "New Registration":
 
-      1. Provide the name for your application.
-      2. Choose "Accounts" in the organizational directory. (Tenant
-         name only - Single tenant).
-      3. Choose "Register".
-      4. Locate your app ID, app secret, and tenant ID for your
-         admin app and save them for the next step.
-      5. Navigate to "Manage > API Permissions" in the navigation
-         pane
-      6. Navigate to "Add a permission > Sharepoint > Application
-         permissions" to allow the application to read data in your
-         organization's directory regarding the signed-in
-         user.
-      7. Search "Sites.FullControl.All".
-      8. Choose "Add permissions".
-      9. Navigate to "Add a permission > Microsoft Graph >
-         Application permissions"
-      10. Search "Sites.Read.All".
-      11. Choose "Add permissions".
+        1. Provide the name for your application.
+        2. Choose "Accounts" in the organizational directory. (Tenant
+           name only - Single tenant).
+        3. Choose "Register".
+        4. Locate your app ID, app secret, and tenant ID for your
+           admin app and save them for the next step.
+        5. Navigate to "Manage > API Permissions" in the navigation
+           pane
+        6. Navigate to "Add a permission > Sharepoint > Application
+           permissions" to allow the application to read data in your
+           organization's directory regarding the signed-in
+           user.
+        7. Search "Sites.FullControl.All".
+        8. Choose "Add permissions".
+        9. Navigate to "Add a permission > Microsoft Graph >
+           Application permissions"
+        10. Search "Sites.Read.All".
+        11. Choose "Add permissions".
 
-4. Generate an access token for your Sharepoint admin app: Now use the
-   following code snippet to generate an access token for your app, but replace
-   adminAppID, adminAppSecret, and tenantID with the values you saved from step
-5. 1. ```
-      adminAppId=$1
-      adminAppSecret=$2
-      tenantId=$3
-      ```
+4.   Generate an access token for your Sharepoint admin app: Now use the
+     following code snippet to generate an access token for your app, but replace
+     adminAppID, adminAppSecret, and tenantID with the values you saved from step
+5.
 
-   tokenResponse=$(curl -s --location \
-	"https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token" \
-   --header 'Content-Type: application/x-www-form-urlencoded' \
-   --data-urlencode "grant_type=client_credentials" \
-   --data-urlencode "client_id=$adminAppId" \ 
-	--data-urlencode "client_secret=$adminAppSecret" \
-   --data-urlencode "scope=offline_access https://graph.microsoft.com/.default")
+    1. ```
 
-   adminAppToken=$(echo $tokenResponse | jq -r '.access_token')
-   echo $adminAppToken
+    adminAppId=$1
+    adminAppSecret=$2
+    tenantId=$3
 
-   ```
+    tokenResponse=$(curl -s --location \
+    "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token" \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode "grant_type=client_credentials" \
+    --data-urlencode "client_id=$adminAppId" \
+    --data-urlencode "client_secret=$adminAppSecret" \
+    --data-urlencode "scope=offline_access https://graph.microsoft.com/.default")
 
-   ```
+    adminAppToken=$(echo $tokenResponse | jq -r '.access_token')
+    echo $adminAppToken
+    ```
 
-6. Obtain a Site ID for each of your Sharepoint sites: Repeat the following
-   steps for each of the Sharepoint sites you want your Q Business connector to
-   crawl:
+5. Obtain a Site ID for each of your Sharepoint sites: Repeat the following
+steps for each of the Sharepoint sites you want your Q Business connector to
+crawl:
 
-   1. Visit https://{yourcompany}.sharepoint.com/sites/{SiteName} in a
-      browser. Enter the appropriate login credentials if needed. Validate
-      that you are able to see your SharePoint site
-   2. Now append /\_api/site/id at the end of {SiteName}. You should see
-      a response something similar to below containing your site id
-      ([IP\_ADDRESS]a7)
-
-   ```
-   <d:Id m:type="Edm.Guid" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">[IP_ADDRESS]a7</d:Id>
-   ```
-
-7. Grant your Sharepoint client app permissions to your selected sites: Now
-   that you have created your Sharepoint admin app, Sharepoint client app, and
-   have a list of site ids, you are ready to grant your client app the
-   necessary permissions to access these sites. Repeat the following steps for
-   each of the site ids you obtained from step 4.
-
-   1. Modify the code snippet below to provide the following:
-
-      1. clientAppId: The Application (client) ID from step
-         1
-      2. clientAppName: The display name of your Sharepoint client
-         app from step 1
-      3. adminToken: The adminAppToken you generated in step
-         3
-      4. siteId: One of the site ids you obtained from step
-      5.
-
-   2. ```
-      clientAppId=$1
-      clientAppName=$2
-      adminToken=$3
-      siteToGivePermissionTo=$4
-      ```
-
-   grantPermissionResponse=$(curl -s --location "https://graph.microsoft.com/v1.0/sites/$siteToGivePermissionTo/permissions" \
-   --header "Content-Type: application/json" \
-   --header "Authorization: Bearer $adminToken" \ 
-	--data '{ 
-	"roles": ["fullcontrol"], 
-	"grantedToIdentities": [{ 
-	"application": { 
-	"id": "'${clientAppId}'",
-   "displayName": "'${clientAppName}'"
-   }
-   }]
-   }')
-
-   echo $grantPermissionResponse
-
-   ```
-   3. If the command was successful, you'll see a response as
-    follows:
+    1. Visit https://{yourcompany}.sharepoint.com/sites/{SiteName} in a
+     browser. Enter the appropriate login credentials if needed. Validate
+     that you are able to see your SharePoint site
+    2. Now append /\_api/site/id at the end of {SiteName}. You should see
+     a response something similar to below containing your site id
+     ([IP\_ADDRESS]a7)
 
 
 
-   ```
+    ```
+    <d:Id m:type="Edm.Guid" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">[IP_ADDRESS]a7</d:Id>
+    ```
 
-   {
-   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('awsplatodemo.sharepoint.com%2C[IP_ADDRESS]a7')/permissions/$entity",
-   "id": "aTowaS50fG1zLnNwLmV4dHxjMDY5YjhlMi03NGFhLTQzZTQtODljYi1kNmZkMzU4ZmVjZThAZjIwNDQ2OTItZGMwOS00MjZlLWFlMGQtNGFlZDljMTI3ODA2",
-   "roles": [
-   "fullcontrol"
-   ],
-   "grantedToIdentitiesV2": [
-   {
-   "application": {
-   "displayName": "demo-client-app",
-   "id": "c069b8e2-74aa-43e4-89cb-d6fd358fece8"
-   }
-   }
-   ],
-   "grantedToIdentities": [
-   {
-   "application": {
-   "displayName": "demo-client-app",
-   "id": "c069b8e2-74aa-43e4-89cb-d6fd358fece8"
-   }
-   }
-   ]
-   }
+6. Grant your Sharepoint client app permissions to your selected sites: Now
+that you have created your Sharepoint admin app, Sharepoint client app, and
+have a list of site ids, you are ready to grant your client app the
+necessary permissions to access these sites. Repeat the following steps for
+each of the site ids you obtained from step 4.
 
-   ```
+    1. Modify the code snippet below to provide the following:
 
-   ```
+
+    	1. clientAppId: The Application (client) ID from step
+    	 1
+    	2. clientAppName: The display name of your Sharepoint client
+    	 app from step 1
+    	3. adminToken: The adminAppToken you generated in step
+    	 3
+    	4. siteId: One of the site ids you obtained from step
+    	 4.
+    2. ```
+    clientAppId=$1
+    clientAppName=$2
+    adminToken=$3
+    siteToGivePermissionTo=$4
+
+    grantPermissionResponse=$(curl -s --location "https://graph.microsoft.com/v1.0/sites/$siteToGivePermissionTo/permissions" \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer $adminToken" \
+    --data '{
+    "roles": ["fullcontrol"],
+    "grantedToIdentities": [{
+    "application": {
+    "id": "'${clientAppId}'",
+    "displayName": "'${clientAppName}'"
+    }
+    }]
+    }')
+
+    echo $grantPermissionResponse
+    ```
+    3. If the command was successful, you'll see a response as
+     follows:
+
+
+
+    ```
+    {
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('awsplatodemo.sharepoint.com%2C[IP_ADDRESS]a7')/permissions/$entity",
+    "id": "aTowaS50fG1zLnNwLmV4dHxjMDY5YjhlMi03NGFhLTQzZTQtODljYi1kNmZkMzU4ZmVjZThAZjIwNDQ2OTItZGMwOS00MjZlLWFlMGQtNGFlZDljMTI3ODA2",
+    "roles": [
+    "fullcontrol"
+    ],
+    "grantedToIdentitiesV2": [
+    {
+    "application": {
+    "displayName": "demo-client-app",
+    "id": "c069b8e2-74aa-43e4-89cb-d6fd358fece8"
+    }
+    }
+    ],
+    "grantedToIdentities": [
+    {
+    "application": {
+    "displayName": "demo-client-app",
+    "id": "c069b8e2-74aa-43e4-89cb-d6fd358fece8"
+    }
+    }
+    ]
+    }
+    ```
 
 ## Prerequisites for using SharePoint App-Only authentication
 
@@ -801,7 +801,7 @@ SharePoint (Online):**
   ID and Client secret generated after SharePoint (Online) Azure App
   registration.
 - **If you're crawling OneNote documents and using
-  **Identity crawler\*\*\*\*, added the
+  **Identity crawler****, added the
   following permissions:
 
 | **Microsoft<br>Graph**                                                                                                                                                                                                                                                               |

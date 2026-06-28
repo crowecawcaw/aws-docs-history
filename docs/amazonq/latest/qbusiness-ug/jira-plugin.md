@@ -101,40 +101,40 @@ console and code examples for the AWS CLI.
 Console
 **To create a Jira plugin**
 
-1.  Sign in to the AWS Management Console and open the Amazon Q console
-    at [https://console.aws.amazon.com/amazonq/business/](https://console.aws.amazon.com/amazonq/business/?region=us-east-1 "https://console.aws.amazon.com/amazonq/business/?region=us-east-1").
-2.  In **Applications**, select the name of your
-    application from the list of applications.
-3.  From the left navigation menu, choose
-    **Actions**, and then choose
-    **Plugins**.
-4.  For **Plugins**, choose **Add
-    plugin**.
-5.  For **Add plugins**, choose
-    **Jira**.
-6.  For **Jira**, enter the following
-    information:
+1. Sign in to the AWS Management Console and open the Amazon Q console
+   at [https://console.aws.amazon.com/amazonq/business/](https://console.aws.amazon.com/amazonq/business/?region=us-east-1 "https://console.aws.amazon.com/amazonq/business/?region=us-east-1").
+2. In **Applications**, select the name of your
+   application from the list of applications.
+3. From the left navigation menu, choose
+   **Actions**, and then choose
+   **Plugins**.
+4. For **Plugins**, choose **Add
+   plugin**.
+5. For **Add plugins**, choose
+   **Jira**.
+6. For **Jira**, enter the following
+   information:
 
-    1. **Name**, **Plugin
-       name** – A name for your Amazon Q plugin. The name can include hyphens (-),
-       but not spaces, and can have a maximum of 1,000 alphanumeric
-       characters.
-    2. **Service access** – Choose
-       **Create and add a new service role**
-       or **Use an existing service role**. Make
-       sure that your service role has the necessary
-       permissions.
-    3. **URL** – The base URL of your
-       Jira Cloud instance hosted by Atlassian. For
-       example:
-       `https://yourcompany.atlassian.net`.
-    4. **Authentication** – Choose to
-       **Create and add a new secret** or
-       **Use an existing one**.
+   1. **Name**, **Plugin
+      name** – A name for your Amazon Q plugin. The name can include hyphens (-),
+      but not spaces, and can have a maximum of 1,000 alphanumeric
+      characters.
+   2. **Service access** – Choose
+      **Create and add a new service role**
+      or **Use an existing service role**. Make
+      sure that your service role has the necessary
+      permissions.
+   3. **URL** – The base URL of your
+      Jira Cloud instance hosted by Atlassian. For
+      example:
+      `https://yourcompany.atlassian.net`.
+   4. **Authentication** – Choose to
+      **Create and add a new secret** or
+      **Use an existing one**.
 
-    If you choose to create a new secret, a Secrets Manager
-    secret window opens requesting the following
-    information:
+   If you choose to create a new secret, a Secrets Manager
+   secret window opens requesting the following
+   information:
 
         1. **Secret name** – A name
          for your Secrets Manager secret.
@@ -145,9 +145,9 @@ Console
          token** – The password/API token
          for your Jira user.
 
-7.  **Tags – _optional_**
-    – Add an optional tag to track your plugin.
-8.  Choose **Save**.
+7. **Tags – _optional_**
+   – Add an optional tag to track your plugin.
+8. Choose **Save**.
 
 AWS CLI
 **To create a Jira

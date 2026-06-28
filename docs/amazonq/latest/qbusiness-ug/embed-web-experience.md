@@ -33,4 +33,4 @@ the website.
 - If your browser has a limited cookie mode (ex. Incognito mode in Chrome),
   you may have to enable third-party cookies for Amazon Q embedded to work.
 - The button for copying may not work without `allow="clipboard-read;
-clipboard-write"` attribute added to iframe
+ clipboard-write"` attribute added to iframe

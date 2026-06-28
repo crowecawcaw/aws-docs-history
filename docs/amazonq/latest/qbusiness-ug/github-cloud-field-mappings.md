@@ -54,140 +54,140 @@ document body Amazon Q reserved/default index fields.
 
 ## Repository
 
-| GitHub (Cloud) field name | Index field name         | Description | Data type   |
-| ------------------------- | ------------------------ | ----------- | ----------- |
-| Description               | \_document_body          | Default     | String      |
-| repositoryName            | gh_repository_name       | Custom      | String      |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String      |
-| category                  | \_category               | Default     | String      |
-| owner                     | \_authors                | Default     | String list |
-| sourceUrl                 | \_source_uri             | Default     | String      |
-| createdAt                 | \_created_at             | Default     | Date        |
-| updatedAt                 | \_last_updated_at        | Default     | Date        |
+| GitHub (Cloud) field name | Index field name           | Description | Data type   |
+| ------------------------- | -------------------------- | ----------- | ----------- |
+| Description               | \_document\_body           | Default     | String      |
+| repositoryName            | gh\_repository\_name       | Custom      | String      |
+| repositoryVisibility      | gh\_repository\_visibility | Custom      | String      |
+| category                  | \_category                 | Default     | String      |
+| owner                     | \_authors                  | Default     | String list |
+| sourceUrl                 | \_source\_uri              | Default     | String      |
+| createdAt                 | \_created\_at              | Default     | Date        |
+| updatedAt                 | \_last\_updated\_at        | Default     | Date        |
 
 ## Repository Commit
 
-| GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ------------------------- | ------------------------ | ----------- | -------------- |
-| Description               | \_document_body          | Default     | String         |
-| repositoryName            | gh_repository_name       | Custom      | String         |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String         |
-| category                  | \_category               | Default     | String         |
-| fileType                  | \_file_type              | Default     | String         |
-| owner                     | \_authors                | Default     | String list    |
-| sourceUrl                 | \_source_uri             | Default     | String         |
-| createdAt                 | \_created_at             | Default     | Date           |
-| updatedAt                 | \_last_updated_at        | Default     | Date           |
-| fileName                  | gh_file_name             | Default     | String         |
-| fileSize                  | gh_size                  | Default     | Long (numeric) |
-| branchName                | gh_branch_name           | Default     | String         |
+| GitHub (Cloud) field name | Index field name           | Description | Data type      |
+| ------------------------- | -------------------------- | ----------- | -------------- |
+| Description               | \_document\_body           | Default     | String         |
+| repositoryName            | gh\_repository\_name       | Custom      | String         |
+| repositoryVisibility      | gh\_repository\_visibility | Custom      | String         |
+| category                  | \_category                 | Default     | String         |
+| fileType                  | \_file\_type               | Default     | String         |
+| owner                     | \_authors                  | Default     | String list    |
+| sourceUrl                 | \_source\_uri              | Default     | String         |
+| createdAt                 | \_created\_at              | Default     | Date           |
+| updatedAt                 | \_last\_updated\_at        | Default     | Date           |
+| fileName                  | gh\_file\_name             | Default     | String         |
+| fileSize                  | gh\_size                   | Default     | Long (numeric) |
+| branchName                | gh\_branch\_name           | Default     | String         |
 
 ## Issue Document
 
-| GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ------------------------- | ------------------------ | ----------- | -------------- |
-| repositoryName            | gh_repository_name       | Custom      | String         |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String         |
-| category                  | \_category               | Default     | String         |
-| issueNumber               | gh_issue_number          | Custom      | Long (numeric) |
-| issueTitle                | gh_issue_title           | Custom      | String         |
-| owner                     | \_authors                | Default     | String list    |
-| fileType                  | \_file_type              | Default     | String         |
-| issueSourceUrl            | \_source_uri             | Default     | String         |
-| createdAt                 | \_created_at             | Default     | Date           |
-| updatedAt                 | \_last_updated_at        | Default     | Date           |
-| issueFileName             | gh_file_name             | Custom      | String         |
-| issueState                | gh_issue_state           | Custom      | String         |
-| issueLabel                | gh_issue_labels          | Default     | String list    |
-| issueAssignee             | gh_issue_assignee        | Default     | String list    |
+| GitHub (Cloud) field name | Index field name           | Description | Data type      |
+| ------------------------- | -------------------------- | ----------- | -------------- |
+| repositoryName            | gh\_repository\_name       | Custom      | String         |
+| repositoryVisibility      | gh\_repository\_visibility | Custom      | String         |
+| category                  | \_category                 | Default     | String         |
+| issueNumber               | gh\_issue\_number          | Custom      | Long (numeric) |
+| issueTitle                | gh\_issue\_title           | Custom      | String         |
+| owner                     | \_authors                  | Default     | String list    |
+| fileType                  | \_file\_type               | Default     | String         |
+| issueSourceUrl            | \_source\_uri              | Default     | String         |
+| createdAt                 | \_created\_at              | Default     | Date           |
+| updatedAt                 | \_last\_updated\_at        | Default     | Date           |
+| issueFileName             | gh\_file\_name             | Custom      | String         |
+| issueState                | gh\_issue\_state           | Custom      | String         |
+| issueLabel                | gh\_issue\_labels          | Default     | String list    |
+| issueAssignee             | gh\_issue\_assignee        | Default     | String list    |
 
 ## Issue Comment
 
-| GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ------------------------- | ------------------------ | ----------- | -------------- |
-| repositoryName            | gh_repository_name       | Custom      | String         |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String         |
-| category                  | \_category               | Default     | String         |
-| issueNumber               | gh_issue_number          | Custom      | Long (numeric) |
-| issueTitle                | gh_issue_title           | Custom      | String         |
-| owner                     | \_authors                | Default     | String list    |
-| issueSourceUrl            | \_source_uri             | Default     | String         |
-| createdAt                 | \_created_at             | Default     | Date           |
-| updatedAt                 | \_last_updated_at        | Default     | Date           |
-| issueState                | gh_issue_state           | Custom      | String         |
-| issueLabel                | gh_issue_labels          | Default     | String list    |
-| issueAssignee             | gh_issue_assignee        | Default     | String list    |
+| GitHub (Cloud) field name | Index field name           | Description | Data type      |
+| ------------------------- | -------------------------- | ----------- | -------------- |
+| repositoryName            | gh\_repository\_name       | Custom      | String         |
+| repositoryVisibility      | gh\_repository\_visibility | Custom      | String         |
+| category                  | \_category                 | Default     | String         |
+| issueNumber               | gh\_issue\_number          | Custom      | Long (numeric) |
+| issueTitle                | gh\_issue\_title           | Custom      | String         |
+| owner                     | \_authors                  | Default     | String list    |
+| issueSourceUrl            | \_source\_uri              | Default     | String         |
+| createdAt                 | \_created\_at              | Default     | Date           |
+| updatedAt                 | \_last\_updated\_at        | Default     | Date           |
+| issueState                | gh\_issue\_state           | Custom      | String         |
+| issueLabel                | gh\_issue\_labels          | Default     | String list    |
+| issueAssignee             | gh\_issue\_assignee        | Default     | String list    |
 
 ## Issue Attachment
 
-| GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ------------------------- | ------------------------ | ----------- | -------------- |
-| repositoryName            | gh_repository_name       | Custom      | String         |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String         |
-| category                  | \_category               | Default     | String         |
-| issueNumber               | gh_issue_number          | Custom      | Long (numeric) |
-| issueTitle                | gh_issue_title           | Custom      | String         |
-| owner                     | \_authors                | Default     | String list    |
-| issueSourceUrl            | \_source_uri             | Default     | String         |
-| createdAt                 | \_created_at             | Default     | Date           |
-| updatedAt                 | \_last_updated_at        | Default     | Date           |
-| issueFileName             | gh_file_name             | Custom      | String         |
-| issueFileType             | \_file_type              | Custom      | String         |
-| issueState                | gh_issue_state           | Custom      | String         |
-| issueLabel                | gh_issue_labels          | Default     | String list    |
-| issueAssignee             | gh_issue_assignee        | Default     | String list    |
+| GitHub (Cloud) field name | Index field name           | Description | Data type      |
+| ------------------------- | -------------------------- | ----------- | -------------- |
+| repositoryName            | gh\_repository\_name       | Custom      | String         |
+| repositoryVisibility      | gh\_repository\_visibility | Custom      | String         |
+| category                  | \_category                 | Default     | String         |
+| issueNumber               | gh\_issue\_number          | Custom      | Long (numeric) |
+| issueTitle                | gh\_issue\_title           | Custom      | String         |
+| owner                     | \_authors                  | Default     | String list    |
+| issueSourceUrl            | \_source\_uri              | Default     | String         |
+| createdAt                 | \_created\_at              | Default     | Date           |
+| updatedAt                 | \_last\_updated\_at        | Default     | Date           |
+| issueFileName             | gh\_file\_name             | Custom      | String         |
+| issueFileType             | \_file\_type               | Custom      | String         |
+| issueState                | gh\_issue\_state           | Custom      | String         |
+| issueLabel                | gh\_issue\_labels          | Default     | String list    |
+| issueAssignee             | gh\_issue\_assignee        | Default     | String list    |
 
 ## Pull Request Comment
 
-| GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ------------------------- | ------------------------ | ----------- | -------------- |
-| repositoryName            | gh_repository_name       | Custom      | String         |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String         |
-| category                  | \_category               | Default     | String         |
-| PRNumber                  | gh_pr_number             | Custom      | Long (numeric) |
-| PRTitle                   | gh_pr_title              | Custom      | String         |
-| owner                     | \_authors                | Default     | String list    |
-| PRSourceUrl               | \_source_uri             | Default     | String         |
-| createdAt                 | \_created_at             | Default     | Date           |
-| updatedAt                 | \_last_updated_at        | Default     | Date           |
-| PRState                   | gh_pr_state              | Custom      | String         |
-| PRLabel                   | gh_pr_labels             | Default     | String list    |
-| PRAssignee                | gh_pr_assignee           | Default     | String list    |
+| GitHub (Cloud) field name | Index field name           | Description | Data type      |
+| ------------------------- | -------------------------- | ----------- | -------------- |
+| repositoryName            | gh\_repository\_name       | Custom      | String         |
+| repositoryVisibility      | gh\_repository\_visibility | Custom      | String         |
+| category                  | \_category                 | Default     | String         |
+| PRNumber                  | gh\_pr\_number             | Custom      | Long (numeric) |
+| PRTitle                   | gh\_pr\_title              | Custom      | String         |
+| owner                     | \_authors                  | Default     | String list    |
+| PRSourceUrl               | \_source\_uri              | Default     | String         |
+| createdAt                 | \_created\_at              | Default     | Date           |
+| updatedAt                 | \_last\_updated\_at        | Default     | Date           |
+| PRState                   | gh\_pr\_state              | Custom      | String         |
+| PRLabel                   | gh\_pr\_labels             | Default     | String list    |
+| PRAssignee                | gh\_pr\_assignee           | Default     | String list    |
 
 ## Pull Request Document
 
-| GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ------------------------- | ------------------------ | ----------- | -------------- |
-| repositoryName            | gh_repository_name       | Custom      | String         |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String         |
-| category                  | \_category               | Default     | String         |
-| PRNumber                  | gh_number                | Custom      | Long (numeric) |
-| PRTitle                   | gh_pr_title              | Custom      | String         |
-| owner                     | \_authors                | Default     | String list    |
-| PRSourceUrl               | \_source_uri             | Default     | String         |
-| createdAt                 | \_created_at             | Default     | Date           |
-| updatedAt                 | \_last_updated_at        | Default     | Date           |
-| PRFileName                | gh_file_name             | Custom      | String         |
-| PRFileType                | \_file_type              | Custom      | String         |
-| PRState                   | gh_pr_state              | Custom      | String         |
-| PRLabel                   | gh_pr_labels             | Default     | String list    |
-| PRAssignee                | gh_pr_assignee           | Default     | String list    |
+| GitHub (Cloud) field name | Index field name           | Description | Data type      |
+| ------------------------- | -------------------------- | ----------- | -------------- |
+| repositoryName            | gh\_repository\_name       | Custom      | String         |
+| repositoryVisibility      | gh\_repository\_visibility | Custom      | String         |
+| category                  | \_category                 | Default     | String         |
+| PRNumber                  | gh\_number                 | Custom      | Long (numeric) |
+| PRTitle                   | gh\_pr\_title              | Custom      | String         |
+| owner                     | \_authors                  | Default     | String list    |
+| PRSourceUrl               | \_source\_uri              | Default     | String         |
+| createdAt                 | \_created\_at              | Default     | Date           |
+| updatedAt                 | \_last\_updated\_at        | Default     | Date           |
+| PRFileName                | gh\_file\_name             | Custom      | String         |
+| PRFileType                | \_file\_type               | Custom      | String         |
+| PRState                   | gh\_pr\_state              | Custom      | String         |
+| PRLabel                   | gh\_pr\_labels             | Default     | String list    |
+| PRAssignee                | gh\_pr\_assignee           | Default     | String list    |
 
 ## Pull Request Attachment
 
-| GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ------------------------- | ------------------------ | ----------- | -------------- |
-| repositoryName            | gh_repository_name       | Custom      | String         |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String         |
-| category                  | \_category               | Default     | String         |
-| PRNumber                  | gh_number                | Custom      | Long (numeric) |
-| PRTitle                   | gh_pr_title              | Custom      | String         |
-| owner                     | \_authors                | Default     | String list    |
-| PRSourceUrl               | \_source_uri             | Default     | String         |
-| createdAt                 | \_created_at             | Default     | Date           |
-| updatedAt                 | \_last_updated_at        | Default     | Date           |
-| PRFileName                | gh_file_name             | Custom      | String         |
-| PRFileType                | \_file_type              | Custom      | String         |
-| PRState                   | gh_pr_state              | Custom      | String         |
-| PRLabel                   | gh_pr_labels             | Default     | String list    |
-| PRAssignee                | gh_pr_assignee           | Default     | String list    |
+| GitHub (Cloud) field name | Index field name           | Description | Data type      |
+| ------------------------- | -------------------------- | ----------- | -------------- |
+| repositoryName            | gh\_repository\_name       | Custom      | String         |
+| repositoryVisibility      | gh\_repository\_visibility | Custom      | String         |
+| category                  | \_category                 | Default     | String         |
+| PRNumber                  | gh\_number                 | Custom      | Long (numeric) |
+| PRTitle                   | gh\_pr\_title              | Custom      | String         |
+| owner                     | \_authors                  | Default     | String list    |
+| PRSourceUrl               | \_source\_uri              | Default     | String         |
+| createdAt                 | \_created\_at              | Default     | Date           |
+| updatedAt                 | \_last\_updated\_at        | Default     | Date           |
+| PRFileName                | gh\_file\_name             | Custom      | String         |
+| PRFileType                | \_file\_type               | Custom      | String         |
+| PRState                   | gh\_pr\_state              | Custom      | String         |
+| PRLabel                   | gh\_pr\_labels             | Default     | String list    |
+| PRAssignee                | gh\_pr\_assignee           | Default     | String list    |

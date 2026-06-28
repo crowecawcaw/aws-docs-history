@@ -57,8 +57,8 @@ See [Authorization](connector-concepts.md#connector-authorization "connector-con
     	 credential values that you generated from your Exchange account.
 
 10. **IAM role** – Choose
-    an existing IAM role or create an IAM role to access your repository credentials and
-    index content.
+an existing IAM role or create an IAM role to access your repository credentials and
+index content.
 
 ###### Note
 
@@ -74,31 +74,30 @@ For more information, see [IAM role](exchange-connector.md#exchange-iam "exchang
     * **Exclude patterns** – Specify patterns to exclude specific content.
 
 12. For **Maximum file size**, specify the file size
-    limit in MBs that Amazon Q will crawl. Amazon Q crawls only files
-    within the size limit you define. The default file size is 50MB. The maximum
-    file size must be greater than 0MB and less than or equal to 50MB.
-13. For **Additional configuration –
-    _optional_**, configure the following options:
+limit in MBs that Amazon Q will crawl. Amazon Q crawls only files
+within the size limit you define. The default file size is 50MB. The maximum
+file size must be greater than 0MB and less than or equal to 50MB. 13. For **Additional configuration –
+_optional_**, configure the following options:
 
-    - **Entity types** – Choose whether to
-      crawl the following entities: **Calendar**,
-      **OneNotes**, and
-      **Contacts**.
-    - **Calendar crawling** – Enter the date range for
-      which the connector will crawl your calendar content.
-    - **Include email** – Enter the email from
-      domains, email to domains, and subjects you wish to include or exclude
-      in your application.
-    - **Shared folders access** – Enable ACL crawling
-      for shared folders.
-    - **Regex for domains** – Add patterns to include
-      and exclude certain email domains from your application.
-    - **Regex patterns** – Add regular expression
-      patterns to include or exclude certain files. You can add up to 100
-      patterns.
+    * **Entity types** – Choose whether to
+     crawl the following entities: **Calendar**,
+     **OneNotes**, and
+     **Contacts**.
+    * **Calendar crawling** – Enter the date range for
+     which the connector will crawl your calendar content.
+    * **Include email** – Enter the email from
+     domains, email to domains, and subjects you wish to include or exclude
+     in your application.
+    * **Shared folders access** – Enable ACL crawling
+     for shared folders.
+    * **Regex for domains** – Add patterns to include
+     and exclude certain email domains from your application.
+    * **Regex patterns** – Add regular expression
+     patterns to include or exclude certain files. You can add up to 100
+     patterns.
 
 14. **Multi-media content configuration – optional** –
-    To enable content extraction from embedded images and visuals in documents, choose **Visual content in documents**.
+To enable content extraction from embedded images and visuals in documents, choose **Visual content in documents**.
 
 To extract audio transcriptions and video content, enable processing for the following file types: 15. **Advanced settings**
 
@@ -140,24 +139,24 @@ You can choose from two types of fields:
      connector doesn't support adding custom fields.For more information, see [Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings").
 
 4. **Configure VPC and security group –
-   _optional_** – Choose
-   whether you want to use a VPC. If you do, enter the following
-   information:
+_optional_** – Choose
+whether you want to use a VPC. If you do, enter the following
+information:
 
-   1. **Subnets** – Select up to 6
-      repository subnets that define the subnets and IP ranges
-      the repository instance uses in the selected VPC.
-   2. **VPC security groups** –
-      Choose up to 10 security groups that allow access to
-      your data source. Ensure that the security group allows
-      incoming traffic from Amazon EC2 instances and
-      devices outside your VPC. For databases, security group
-      instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
+    1. **Subnets** – Select up to 6
+     repository subnets that define the subnets and IP ranges
+     the repository instance uses in the selected VPC.
+    2. **VPC security groups** –
+     Choose up to 10 security groups that allow access to
+     your data source. Ensure that the security group allows
+     incoming traffic from Amazon EC2 instances and
+     devices outside your VPC. For databases, security group
+     instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
 
 5. In **Data source details**, choose **Sync
-   now** to allow Amazon Q to begin syncing (crawling and
-   ingesting) data from your data source. When the sync job finishes, your data
-   source is ready to use.
+now** to allow Amazon Q to begin syncing (crawling and
+ingesting) data from your data source. When the sync job finishes, your data
+source is ready to use.
 
 ###### Note
 

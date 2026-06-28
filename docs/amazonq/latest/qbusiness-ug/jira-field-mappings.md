@@ -43,73 +43,73 @@ and custom attributes.
 
 | Jira field name | Index field name | Description | Data type   |
 | --------------- | ---------------- | ----------- | ----------- |
-| title           | j_title          | Custom      | String      |
-| project_key     | j_project_key    | Custom      | String      |
-| lead            | j_lead           | Custom      | String list |
-| url             | \_source_uri     | Default     | String      |
+| title           | j\_title         | Custom      | String      |
+| project\_key    | j\_project\_key  | Custom      | String      |
+| lead            | j\_lead          | Custom      | String list |
+| url             | \_source\_uri    | Default     | String      |
 
 ## Issues
 
-| Jira field name | Index field name  | Description | Data type   |
-| --------------- | ----------------- | ----------- | ----------- |
-| title           | j_title           | Custom      | String      |
-| issue_key       | j_issue_key       | Custom      | String      |
-| status          | j_status          | Custom      | String      |
-| project_name    | j_project_name    | Custom      | String      |
-| projectKey      | j_project_key     | Custom      | String      |
-| authors         | \_authors         | Default     | String list |
-| assignee        | j_assignee        | Custom      | String      |
-| created_at      | \_created_at      | Default     | Date        |
-| updated_at      | \_last_updated_at | Default     | Date        |
-| url             | \_source_uri      | Default     | String      |
-| issue_type      | j_issue_type      | Custom      | String      |
-| priority        | j_priority        | Custom      | String      |
-| resolution      | j_resolution      | Custom      | String      |
-| affects_version | j_affects_version | Custom      | String      |
-| fix_version     | j_fix_version     | Custom      | String      |
-| labels          | j_labels          | Custom      | String      |
-| environment     | j_environment     | Custom      | String      |
-| reporter        | j_reporter        | Custom      | String      |
-| votes           | j_votes           | Custom      | String      |
-| watchers        | j_watchers        | Custom      | String      |
-| due             | j_due             | Custom      | String      |
-| resolved        | j_resolved        | Custom      | String      |
+| Jira field name  | Index field name    | Description | Data type   |
+| ---------------- | ------------------- | ----------- | ----------- |
+| title            | j\_title            | Custom      | String      |
+| issue\_key       | j\_issue\_key       | Custom      | String      |
+| status           | j\_status           | Custom      | String      |
+| project\_name    | j\_project\_name    | Custom      | String      |
+| projectKey       | j\_project\_key     | Custom      | String      |
+| authors          | \_authors           | Default     | String list |
+| assignee         | j\_assignee         | Custom      | String      |
+| created\_at      | \_created\_at       | Default     | Date        |
+| updated\_at      | \_last\_updated\_at | Default     | Date        |
+| url              | \_source\_uri       | Default     | String      |
+| issue\_type      | j\_issue\_type      | Custom      | String      |
+| priority         | j\_priority         | Custom      | String      |
+| resolution       | j\_resolution       | Custom      | String      |
+| affects\_version | j\_affects\_version | Custom      | String      |
+| fix\_version     | j\_fix\_version     | Custom      | String      |
+| labels           | j\_labels           | Custom      | String      |
+| environment      | j\_environment      | Custom      | String      |
+| reporter         | j\_reporter         | Custom      | String      |
+| votes            | j\_votes            | Custom      | String      |
+| watchers         | j\_watchers         | Custom      | String      |
+| due              | j\_due              | Custom      | String      |
+| resolved         | j\_resolved         | Custom      | String      |
 
 ## Comments
 
-| Jira field name | Index field name  | Description | Data type   |
-| --------------- | ----------------- | ----------- | ----------- |
-| authors         | \_authors         | Default     | String list |
-| title           | j_title           | Custom      | String      |
-| createdAt       | \_created_at      | Default     | Date        |
-| updatedAt       | \_last_updated_at | Default     | Date        |
-| project_name    | j_project_name    | Custom      | String      |
-| project_key     | j_project_key     | Custom      | String      |
-| issue_key       | j_issue_key       | Custom      | String      |
-| url             | \_source_uri      | Default     | String      |
+| Jira field name | Index field name    | Description | Data type   |
+| --------------- | ------------------- | ----------- | ----------- |
+| authors         | \_authors           | Default     | String list |
+| title           | j\_title            | Custom      | String      |
+| createdAt       | \_created\_at       | Default     | Date        |
+| updatedAt       | \_last\_updated\_at | Default     | Date        |
+| project\_name   | j\_project\_name    | Custom      | String      |
+| project\_key    | j\_project\_key     | Custom      | String      |
+| issue\_key      | j\_issue\_key       | Custom      | String      |
+| url             | \_source\_uri       | Default     | String      |
 
 ## Attachments
 
 | Jira field name | Index field name | Description | Data type   |
 | --------------- | ---------------- | ----------- | ----------- |
-| title           | j_title          | Custom      | String      |
+| title           | j\_title         | Custom      | String      |
 | authors         | \_authors        | Default     | String list |
-| size            | j_size           | Custom      | String      |
-| createdAt       | \_created_at     | Default     | Date        |
-| url             | \_source_uri     | Default     | String      |
-| project_name    | j_project_name   | Custom      | String      |
-| project_key     | j_project_key    | Custom      | String      |
-| issue_key       | j_issue_key      | Custom      | String      |
+| size            | j\_size          | Custom      | String      |
+| createdAt       | \_created\_at    | Default     | Date        |
+| url             | \_source\_uri    | Default     | String      |
+| project\_name   | j\_project\_name | Custom      | String      |
+| project\_key    | j\_project\_key  | Custom      | String      |
+| issue\_key      | j\_issue\_key    | Custom      | String      |
 
 ## Worklogs
 
-| Jira field name | Index field name  | Description | Data type   |
-| --------------- | ----------------- | ----------- | ----------- |
-| title           | j_title           | Custom      | String      |
-| authors         | \_authors         | Default     | String list |
-| createdAt       | \_created_at      | Default     | Date        |
-| updatedAt       | \_last_updated_at | Default     | Date        |
-| url             | \_source_uri      | Default     | String      |
-| project_name    | j_project_name    | Custom      | String      |
-| project_key     | j_project_key     | Custom      | String      |
-| issue_key       | j_issue_key       | Custom      | String      |
+| Jira field name | Index field name    | Description | Data type   |
+| --------------- | ------------------- | ----------- | ----------- |
+| title           | j\_title            | Custom      | String      |
+| authors         | \_authors           | Default     | String list |
+| createdAt       | \_created\_at       | Default     | Date        |
+| updatedAt       | \_last\_updated\_at | Default     | Date        |
+| url             | \_source\_uri       | Default     | String      |
+| project\_name   | j\_project\_name    | Custom      | String      |
+| project\_key    | j\_project\_key     | Custom      | String      |
+| issue\_key      | j\_issue\_key       | Custom      | String      |

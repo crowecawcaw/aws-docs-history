@@ -122,14 +122,13 @@ for more details.
   Then, scroll down to **Authentication details** section
   and copy and save the following in a text editor of your choice:
 
-      + Client ID – You will enter this as **App
-       key** in the Amazon Q console.
-      + Client Secret – You will enter this as **App
-       secret** in the Amazon Q console.
-
-  You will need these to generate your Jira OAuth 2.0
-  token and also to connect Amazon Q to
-  Jira.
+  - Client ID – You will enter this as **App
+    key** in the Amazon Q console.
+  - Client Secret – You will enter this as **App
+    secret** in the Amazon Q console.
+    You will need these to generate your Jira OAuth 2.0
+    token and also to connect Amazon Q to
+    Jira.
 
 For more information, see [Implementing OAuth 2.0 (3LO)](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/") and [Determining the scopes required for an operation](https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/ "https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/") in
 Atlassian Developer.
