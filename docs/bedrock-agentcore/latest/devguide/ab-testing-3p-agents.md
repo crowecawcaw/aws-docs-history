@@ -100,6 +100,25 @@ To register a Lambda function URL as a target, set `protocolType` to `CUSTOM` an
 - The `stickinessConfiguration` tells the gateway to use the `x-session-id` header to recognize which requests belong to the same session. Session stickiness keeps in-flight sessions unaffected when you start or stop an A/B test: the gateway continues to route ongoing sessions to the same target they were already assigned to, and routes only new sessions according to your A/B test treatment weights while the test is running.
 - For observability, your agent must also set this same session ID in its trace context (for example, as `session.id` baggage). This lets online evaluation score agent sessions and traces, and attribute them to the correct A/B test treatment.
 
+###### Example
+
+AgentCore CLI
+
+```
+agentcore add gateway-target \
+  --name customer-support-control \
+  --gateway cs-3p-abtest-gw \
+  --type passthrough \
+  --passthrough-endpoint https://<control-id>.lambda-url.us-west-2.on.aws/ \
+  --passthrough-protocol CUSTOM \
+  --stickiness-identifier '$context.header.x-session-id' \
+  --stickiness-timeout 28800 \
+  --signing-service lambda \
+  --signing-region us-west-2
+```
+
+AWS CLI
+
 ```
 aws bedrock-agentcore-control create-gateway-target \
   --gateway-identifier cs-3p-abtest-gw-abc123 \
@@ -147,6 +166,46 @@ Your agent is now a gateway target emitting telemetry. Two steps remain:
 2. **Create and run the A/B test.** Follow [Run an A/B test with target-based routing](ab-testing-target-based.md "ab-testing-target-based.md"), starting from the **Create the A/B test** step — create the test with `perVariantOnlineEvaluationConfig`, send traffic, poll results, stop, and deploy the winner.
 
 When you send traffic through the gateway, direct it to the control variant’s target. The gateway splits all traffic arriving at the control target across the control (`C`) and treatment (`T1`) targets according to your A/B test configuration.
+
+###### Example
+
+AgentCore CLI
+Add one online evaluation config per variant — using the `service.name` and event log group from [Step 1: Instrument your agent for AgentCore observability](#ab-testing-3p-step1-observability "#ab-testing-3p-step1-observability") as the data source — then start the test in `target-based` mode:
+
+```
+agentcore add online-eval \
+  --name cs-control-eval \
+  --evaluator Builtin.Correctness \
+  --service-name customer-support-control \
+  --log-group-name /aws/bedrock-agentcore/agents/cs-agent-control/runtime-logs \
+  --enable-on-create
+
+agentcore add online-eval \
+  --name cs-treatment-eval \
+  --evaluator Builtin.Correctness \
+  --service-name customer-support-treatment \
+  --log-group-name /aws/bedrock-agentcore/agents/cs-agent-treatment/runtime-logs \
+  --enable-on-create
+
+agentcore deploy
+
+agentcore run ab-test \
+  --name cs-3p-abtest \
+  --gateway cs-3p-abtest-gw \
+  --mode target-based \
+  --control-target customer-support-control \
+  --treatment-target customer-support-treatment \
+  --control-online-eval cs-control-eval \
+  --treatment-online-eval cs-treatment-eval \
+  --control-weight 50 \
+  --treatment-weight 50 \
+  --wait
+```
+
+Use `agentcore status` to view per-variant results while the test runs and `agentcore stop` to end it.
+
+AWS SDK (boto3)
+Create one online evaluation config per variant with `create_online_evaluation_config`. Set `serviceNames` to the endpoint’s `service.name` and `logGroupNames` to its event log group. Then create the test with `create_ab_test`, using `perVariantOnlineEvaluationConfig`. For the full boto3 example — including sending traffic, polling results, and stopping the test — see [Run an A/B test with target-based routing](ab-testing-target-based.md "ab-testing-target-based.md"), starting from the **Create the A/B test** step.
 
 ## Troubleshooting
 

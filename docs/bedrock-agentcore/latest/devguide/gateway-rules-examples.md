@@ -46,8 +46,10 @@ aws bedrock-agentcore-control create-gateway-rule \
 AWS Python SDK (Boto3)
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
 
@@ -106,10 +108,10 @@ The following example creates a rule with no conditions. This rule matches all t
 ```
 
 aws bedrock-agentcore-control create-gateway-rule \
- --gateway-identifier my-gateway-abc1234567 \
- --priority 1000000 \
- --description "Default configuration bundle for all traffic" \
- --actions '[
+--gateway-identifier my-gateway-abc1234567 \
+--priority 1000000 \
+--description "Default configuration bundle for all traffic" \
+--actions '[
 {
 "configurationBundle": {
 "staticOverride": {
@@ -198,8 +200,10 @@ aws bedrock-agentcore-control create-gateway-rule \
 AWS Python SDK (Boto3)
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
 
@@ -267,10 +271,10 @@ The following example creates a rule that routes requests matching a specific pa
 ```
 
 aws bedrock-agentcore-control create-gateway-rule \
- --gateway-identifier my-gateway-abc1234567 \
- --priority 150 \
- --description "Route /my-target-canary requests to canary target" \
- --conditions '[
+--gateway-identifier my-gateway-abc1234567 \
+--priority 150 \
+--description "Route /my-target-canary requests to canary target" \
+--conditions '[
 {
 "matchPaths": {
 "anyOf": [
@@ -279,7 +283,7 @@ aws bedrock-agentcore-control create-gateway-rule \
 }
 }
 ]' \
- --actions '[
+--actions '[
 {
 "routeToTarget": {
 "staticRoute": {
@@ -367,8 +371,10 @@ aws bedrock-agentcore-control create-gateway-rule \
 AWS Python SDK (Boto3)
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
 
@@ -425,10 +431,10 @@ The following example creates a rule with both condition types and both action t
 ```
 
 aws bedrock-agentcore-control create-gateway-rule \
- --gateway-identifier my-gateway-abc1234567 \
- --priority 50 \
- --description "QA role on /my-target-canary paths: pin bundle and route to canary" \
- --conditions '[
+--gateway-identifier my-gateway-abc1234567 \
+--priority 50 \
+--description "QA role on /my-target-canary paths: pin bundle and route to canary" \
+--conditions '[
 {
 "matchPrincipals": {
 "anyOf": [
@@ -449,7 +455,7 @@ aws bedrock-agentcore-control create-gateway-rule \
 }
 }
 ]' \
- --actions '[
+--actions '[
 {
 "configurationBundle": {
 "staticOverride": {
@@ -546,8 +552,10 @@ aws bedrock-agentcore-control get-gateway-rule \
 AWS Python SDK (Boto3)
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
 
@@ -583,10 +591,10 @@ The following example updates the priority and description of an existing gatewa
 ```
 
 aws bedrock-agentcore-control update-gateway-rule \
- --gateway-identifier my-gateway-abc1234567 \
- --rule-id 12345678-1234-1234-1234-123456789012 \
- --priority 200 \
- --description "Updated priority for QA rule"
+--gateway-identifier my-gateway-abc1234567 \
+--rule-id 12345678-1234-1234-1234-123456789012 \
+--priority 200 \
+--description "Updated priority for QA rule"
 
 ````
 
@@ -627,8 +635,10 @@ aws bedrock-agentcore-control list-gateway-rules \
 AWS Python SDK (Boto3)
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
 
@@ -662,8 +672,8 @@ The following example deletes a gateway rule.
 ```
 
 aws bedrock-agentcore-control delete-gateway-rule \
- --gateway-identifier my-gateway-abc1234567 \
- --rule-id 12345678-1234-1234-1234-123456789012
+--gateway-identifier my-gateway-abc1234567 \
+--rule-id 12345678-1234-1234-1234-123456789012
 
 ````
 

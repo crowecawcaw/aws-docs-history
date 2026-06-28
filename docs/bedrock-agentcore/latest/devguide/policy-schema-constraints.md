@@ -22,7 +22,7 @@ The principal type depends on the authentication method configured for your Agen
 
 `AgentCore::IamEntity`
 
-- Used for IAM-authenticated gateways (AWS_IAM authorizer)
+- Used for IAM-authenticated gateways (AWS\_IAM authorizer)
 - Has an `id` attribute containing the caller’s IAM ARN
 - Does not support tags; use pattern matching on `principal.id` for access control
 
@@ -43,7 +43,7 @@ The principal type depends on the authentication method configured for your Agen
 
 - Only available context is `context.input`
 - Contains the tool’s input parameters as defined in the MCP manifest
-- Each tool has a typed input structure (e.g., RefundTool\_\_\_process_refundInput)
+- Each tool has a typed input structure (e.g., RefundTool\_\_\_process\_refundInput)
 - Parameter types are automatically mapped from JSON Schema to Cedar types:
 
   - string → String

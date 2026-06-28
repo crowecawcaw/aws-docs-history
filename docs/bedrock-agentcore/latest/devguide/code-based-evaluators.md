@@ -131,12 +131,14 @@ The following code samples demonstrate how to create code-based evaluators using
 AgentCore CLI
 
 1. ```
-   agentcore eval evaluator create \
-     --name "MyCodeEvaluator" \
-     --level TRACE \
-     --lambda-arn "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function" \
-     --lambda-timeout 120
+
    ```
+
+agentcore eval evaluator create \
+--name "MyCodeEvaluator" \
+--level TRACE \
+--lambda-arn "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function" \
+--lambda-timeout 120
 
 ````
 
@@ -179,8 +181,10 @@ def json_response_evaluator(input: EvaluatorInput) -> EvaluatorOutput:
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore-control')
 
@@ -229,11 +233,13 @@ Once created, use the custom code-based evaluator with the `Evaluate` API the sa
 AgentCore CLI
 
 1. ```
-   agentcore run eval \
-     --runtime "your_runtime_name" \
-     --session-id "your_session_id" \
-     --evaluator "code-based-evaluator-id"
+
    ```
+
+agentcore run eval \
+--runtime "your_runtime_name" \
+--session-id "your_session_id" \
+--evaluator "code-based-evaluator-id"
 
 ````
 
@@ -259,8 +265,10 @@ results = client.run(
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore')
 
@@ -330,13 +338,15 @@ You can use a custom code-based evaluator in an online evaluation configuration 
 AgentCore CLI
 
 1. ```
-   agentcore add online-eval \
-     --name "your_config_name" \
-     --runtime "your_runtime_name" \
-     --evaluator "code-based-evaluator-id" \
-     --sampling-rate 1.0 \
-     --enable-on-create
+
    ```
+
+agentcore add online-eval \
+--name "your_config_name" \
+--runtime "your_runtime_name" \
+--evaluator "code-based-evaluator-id" \
+--sampling-rate 1.0 \
+--enable-on-create
 
 ````
 
@@ -369,8 +379,10 @@ print(f"Config ID: {config['onlineEvaluationConfigId']}")
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore-control')
 

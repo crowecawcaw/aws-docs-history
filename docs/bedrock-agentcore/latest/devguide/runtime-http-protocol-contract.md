@@ -266,20 +266,23 @@ If your agent needs to process background tasks, you can indicate it with the `/
 
 ```
 {
-  "status": "<status_value>",
-  "time_of_last_update": <unix_timestamp>
+  "status": "<status_value>"
 }
 ```
 
-**status**
+**status** (required)
 
 `Healthy` - System is ready to accept new work
 
-`HealthyBusy` - System is operational but currently busy with async tasks
+`HealthyBusy` - System is operational but currently busy with async tasks. While the status is `HealthyBusy`, the runtime session is considered active and is kept alive.
 
-**time_of_last_update**
+**time\_of\_last\_update** (optional)
 
-Used to determine how long the system has been in its current state
+Unix timestamp (in seconds) of when the `status` last changed. Set it only on an actual status change.
+
+###### Warning
+
+Do not set `time_of_last_update` to the current time on every ping. A timestamp that advances on every ping signals a continuous status change, which prevents the idle session timeout from ever firing — sessions then persist until `MaxLifetime` and can exhaust your session quota. If you omit the field, the platform tracks status changes on its own. If you use the Bedrock AgentCore SDK, the ping response is handled for you.
 
 ## OAuth Authentication Responses
 

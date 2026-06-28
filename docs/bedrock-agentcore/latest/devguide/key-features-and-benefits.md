@@ -35,7 +35,7 @@ AgentCore Identity supports impersonation flow where agents can access resources
 
 ## AgentCore SDK Integration
 
-Seamless integration with the AgentCore SDK through declarative annotations like @requires_access_token and @requires_api_key automatically handles credential retrieval and injection, reducing boilerplate code and potential security vulnerabilities. These annotations eliminate the need for developers to implement complex OAuth flows manually, instead providing a simple declarative interface that abstracts away the underlying complexity of token management and credential handling.
+Seamless integration with the AgentCore SDK through declarative annotations like @requires\_access\_token and @requires\_api\_key automatically handles credential retrieval and injection, reducing boilerplate code and potential security vulnerabilities. These annotations eliminate the need for developers to implement complex OAuth flows manually, instead providing a simple declarative interface that abstracts away the underlying complexity of token management and credential handling.
 
 The SDK integration also provides automatic error handling for common scenarios such as token expiration and user consent requirements. When tokens expire or user consent is needed, the SDK automatically generates appropriate authorization URLs and handles the OAuth flow orchestration, presenting developers with simple success or failure responses. This integration significantly reduces development time and the likelihood of security vulnerabilities while ensuring that all credential operations follow security best practices.
 

@@ -118,7 +118,7 @@ Creates an agent with specific tools and capabilities
 
 Wraps the Strands agent to provide A2A protocol compatibility
 
-**serve_a2a**
+**serve\_a2a**
 
 The Amazon Bedrock AgentCore SDK helper that starts a Bedrock-compatible A2A server. It handles the `/ping` health endpoint, Agent Card serving, `AGENTCORE_RUNTIME_URL` environment variable, Bedrock header propagation, and runs on port 9000 by default.
 

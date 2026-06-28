@@ -46,10 +46,12 @@ Interactive
 AWS SDK
 
 1. ```
-   import boto3
-   import time
-   from datetime import datetime
+
    ```
+
+import boto3
+import time
+from datetime import datetime
 
 # Initialize the Boto3 clients for control plane and data plane operations
 

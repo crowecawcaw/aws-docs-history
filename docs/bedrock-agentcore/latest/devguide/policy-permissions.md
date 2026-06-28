@@ -311,13 +311,13 @@ If you attach a Policy Engine to an existing Gateway using the Policy Engine con
 }
 ```
 
-### Silent Failures in LOG_ONLY Mode
+### Silent Failures in LOG\_ONLY Mode
 
-**Symptom:** Policy engine appears to work in LOG_ONLY mode but fails silently without proper error messages.
+**Symptom:** Policy engine appears to work in LOG\_ONLY mode but fails silently without proper error messages.
 
 **Root Cause:** Missing `bedrock-agentcore:GetPolicyEngine` permission causes silent failures that only surface when switching to ENFORCED mode.
 
-**Solution:** Always include `bedrock-agentcore:GetPolicyEngine` in the Gateway Execution Role, even when using LOG_ONLY mode for testing.
+**Solution:** Always include `bedrock-agentcore:GetPolicyEngine` in the Gateway Execution Role, even when using LOG\_ONLY mode for testing.
 
 ### Policy Engine Not Found Error
 
@@ -342,9 +342,9 @@ Both `AuthorizeAction` and `PartiallyAuthorizeActions` require access to BOTH th
 
 1. **Enable CloudWatch Logs** - Configure detailed logging for the Amazon Bedrock AgentCore Gateway to capture policy evaluation details
 2. **Review X-Ray Traces** - Check AWS X-Ray traces to identify where authorization checks are failing
-3. **Start with LOG_ONLY Mode** - Use LOG_ONLY mode initially to test Cedar policies without blocking requests
+3. **Start with LOG\_ONLY Mode** - Use LOG\_ONLY mode initially to test Cedar policies without blocking requests
 4. **Verify All Four Permissions** - Ensure `AuthorizeAction` , `PartiallyAuthorizeActions` , AND `GetPolicyEngine` are all present
-5. **Switch to ENFORCED Mode** - Only after verifying all permissions work in LOG_ONLY mode, switch to ENFORCED mode
+5. **Switch to ENFORCED Mode** - Only after verifying all permissions work in LOG\_ONLY mode, switch to ENFORCED mode
 
 ## Example: Creating Both IAM Roles
 
@@ -439,7 +439,7 @@ After configuring the execution role with the required Policy in AgentCore permi
 
 1. **Use Separate Roles** - Maintain distinct roles for Amazon Bedrock AgentCore Gateway execution and resource management
 2. **Apply Least Privilege** - Start with specific resource ARNs rather than wildcards in production
-3. **Test with LOG_ONLY Mode** - Always test policy engine integration in LOG_ONLY mode before enforcing policies
+3. **Test with LOG\_ONLY Mode** - Always test policy engine integration in LOG\_ONLY mode before enforcing policies
 4. **Enable Monitoring** - Configure CloudWatch Logs and X-Ray tracing for troubleshooting and observability
 5. **Version Control Policies** - Store Cedar policies in version control alongside infrastructure code
 6. **Use Resource Tags** - Apply tags to organize and manage Amazon Bedrock AgentCore Gateway and Policy in AgentCore resources

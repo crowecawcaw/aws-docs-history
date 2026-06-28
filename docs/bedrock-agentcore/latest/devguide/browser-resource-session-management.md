@@ -168,7 +168,7 @@ Live view
 
 Sessions can be viewed in real-time using the live view feature
 
-Live view is available at: /browser-streams/aws.browser.v1/sessions/ { session_id}/live-view
+Live view is available at: /browser-streams/aws.browser.v1/sessions/ { session\_id}/live-view
 
 Automatic termination
 

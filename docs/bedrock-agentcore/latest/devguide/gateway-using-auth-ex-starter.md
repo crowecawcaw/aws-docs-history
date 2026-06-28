@@ -11,10 +11,9 @@ For programmatic access, you’ll authorize with the following:
 - **Inbound authorization using JWT** – Obtain the access token from the Amazon Cognito authorization that was automatically set up for you and include it in the authorization header. See the example below to learn how to obtain the token.
 - **Outbound authorization using IAM** – The AgentCore CLI configures the following permissions for you, so you don’t need any additional setup:
 
-      + Your gateway service role has permissions to invoke all functions in Lambda (provided by the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") managed policy).
-      + The created Lambda function is configured with your gateway service role as a `Principal` that can invoke it.
-
-  You can obtain the access token created for your gateway by the AgentCore CLI with the help of Amazon Cognito by collecting the following information:
+  - Your gateway service role has permissions to invoke all functions in Lambda (provided by the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") managed policy).
+  - The created Lambda function is configured with your gateway service role as a `Principal` that can invoke it.
+    You can obtain the access token created for your gateway by the AgentCore CLI with the help of Amazon Cognito by collecting the following information:
 
 - **Token endpoint** – Find at the **Discovery URL** in the authorizer configuration for the gateway. If you use the API, you can find the discovery URL by sending a [ListGateways](../../../bedrock-agentcore-control/latest/APIReference/API_ListGateways.md "../../../bedrock-agentcore-control/latest/APIReference/API_ListGateways.md") request or a [GetGateway](../../../bedrock-agentcore-control/latest/APIReference/API_GetGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_GetGateway.md") request for your gateway.
 - **Client ID** – Find in the Amazon Cognito user pool information. If you use the API, you can send a [ListUserPools](../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPools.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPools.md") request or a [DescribeUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.md") request for the user pool associated with your gateway.

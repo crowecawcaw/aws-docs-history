@@ -42,17 +42,17 @@ The following dimensions are available for the above metrics. These dimensions a
 
 Amazon Bedrock AgentCore provides additional structured span data through AgentCore Gateway observability, offering deeper insights into API invocations. Policy in AgentCore span data is available after enabling traces for your AgentCore Gateway resource and can be found in CloudWatch `aws/spans` log group.
 
-| Operation                 | Span Attribute                              | Description                                                                                                   |
-| ------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| AuthorizeAction           | aws.agentcore.policy.authorization_decision | The authorization decision after evaluating policies, valid values are `ALLOW` and `DENY`                     |
-|                           | aws.agentcore.policy.authorization_reason   | Reason for the authorization decision                                                                         |
-|                           | aws.agentcore.policy.determining_policies   | List of Policy identifiers that determined the decision outcome                                               |
-|                           | aws.agentcore.policy.mismatched_policies    | List of Policy identifiers that failed due to missing attributes or type mismatches                           |
-|                           | aws.agentcore.policy.target_resource.id     | AgentCore Gateway resource identifier the request applies to                                                  |
-|                           | aws.agentcore.gateway.policy.arn            | Policy Engine Amazon Resource Name (ARN) configured on the AgentCore Gateway                                  |
-|                           | aws.agentcore.gateway.policy.mode           | Policy Engine enforcement mode configured on the AgentCore Gateway, valid values are `LOG_ONLY` and `ENFORCE` |
-| PartiallyAuthorizeActions | aws.agentcore.policy.allowed_tools          | List of tool names that evaluated to an `ALLOW` decision                                                      |
-|                           | aws.agentcore.policy.denied_tools           | List of tool names that evaluated to a `DENY` decision                                                        |
-|                           | aws.agentcore.policy.target_resource.id     | AgentCore Gateway resource identifier the request applies to                                                  |
-|                           | aws.agentcore.gateway.policy.arn            | Policy Engine Amazon Resource Name (ARN) configured on the AgentCore Gateway                                  |
-|                           | aws.agentcore.gateway.policy.mode           | Policy Engine enforcement mode configured on the AgentCore Gateway, valid values are `LOG_ONLY` and `ENFORCE` |
+| Operation                 | Span Attribute                               | Description                                                                                                   |
+| ------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| AuthorizeAction           | aws.agentcore.policy.authorization\_decision | The authorization decision after evaluating policies, valid values are `ALLOW` and `DENY`                     |
+|                           | aws.agentcore.policy.authorization\_reason   | Reason for the authorization decision                                                                         |
+|                           | aws.agentcore.policy.determining\_policies   | List of Policy identifiers that determined the decision outcome                                               |
+|                           | aws.agentcore.policy.mismatched\_policies    | List of Policy identifiers that failed due to missing attributes or type mismatches                           |
+|                           | aws.agentcore.policy.target\_resource.id     | AgentCore Gateway resource identifier the request applies to                                                  |
+|                           | aws.agentcore.gateway.policy.arn             | Policy Engine Amazon Resource Name (ARN) configured on the AgentCore Gateway                                  |
+|                           | aws.agentcore.gateway.policy.mode            | Policy Engine enforcement mode configured on the AgentCore Gateway, valid values are `LOG_ONLY` and `ENFORCE` |
+| PartiallyAuthorizeActions | aws.agentcore.policy.allowed\_tools          | List of tool names that evaluated to an `ALLOW` decision                                                      |
+|                           | aws.agentcore.policy.denied\_tools           | List of tool names that evaluated to a `DENY` decision                                                        |
+|                           | aws.agentcore.policy.target\_resource.id     | AgentCore Gateway resource identifier the request applies to                                                  |
+|                           | aws.agentcore.gateway.policy.arn             | Policy Engine Amazon Resource Name (ARN) configured on the AgentCore Gateway                                  |
+|                           | aws.agentcore.gateway.policy.mode            | Policy Engine enforcement mode configured on the AgentCore Gateway, valid values are `LOG_ONLY` and `ENFORCE` |

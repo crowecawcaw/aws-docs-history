@@ -156,19 +156,21 @@ agentcore deploy
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-oauth2-credential-provider \
-     --name oauth-credential-provider \
-     --credential-provider-vendor CustomOAuth2 \
-     --oauth2-provider-config-input '{
-       "customOAuth2ProviderConfig": {
-         "oauthDiscovery": {
-           "discoveryUrl": "<DiscoveryUrl>"
-         },
-         "clientId": "<ClientId>",
-         "clientSecret": "<ClientSecret>"
-       }
-     }'
+
    ```
+
+aws bedrock-agentcore-control create-oauth2-credential-provider \
+--name oauth-credential-provider \
+--credential-provider-vendor CustomOAuth2 \
+--oauth2-provider-config-input '{
+"customOAuth2ProviderConfig": {
+"oauthDiscovery": {
+"discoveryUrl": "<DiscoveryUrl>"
+},
+"clientId": "<ClientId>",
+"clientSecret": "<ClientSecret>"
+}
+}'
 
 ````
 
@@ -284,10 +286,12 @@ agentcore deploy
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-api-key-credential-provider \
-     --name api-key-credential-provider \
-     --api-key <API_KEY_VALUE>
+
    ```
+
+aws bedrock-agentcore-control create-api-key-credential-provider \
+--name api-key-credential-provider \
+--api-key <API_KEY_VALUE>
 
 ````
 

@@ -215,28 +215,30 @@ To configure an S3 Files access point, specify the access point ARN and mount pa
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-agent-runtime \
-     --agent-runtime-name "data-agent" \
-     --role-arn "arn:aws:iam::<account-id>:role/AgentExecutionRole" \
-     --network-configuration '{
-       "networkMode": "VPC",
-       "networkModeConfig": {
-         "subnets": ["<subnet-id-1>", "<subnet-id-2>"],
-         "securityGroups": ["<security-group-id>"]
-       }
-     }' \
-     --agent-runtime-artifact '{
-       "containerConfiguration": {
-         "containerUri": "<account-id>.dkr.ecr.<region>.amazonaws.com/my-agent:latest"
-       }
-     }' \
-     --filesystem-configurations '[{
-       "s3FilesAccessPoint": {
-         "accessPointArn": "arn:aws:s3files:<region>:<account-id>:file-system/<file-system-id>/access-point/<access-point-id>",
-         "mountPath": "/mnt/datasets"
-       }
-     }]'
+
    ```
+
+aws bedrock-agentcore-control create-agent-runtime \
+--agent-runtime-name "data-agent" \
+--role-arn "arn:aws:iam::<account-id>:role/AgentExecutionRole" \
+--network-configuration '{
+"networkMode": "VPC",
+"networkModeConfig": {
+"subnets": ["<subnet-id-1>", "<subnet-id-2>"],
+"securityGroups": ["<security-group-id>"]
+}
+}' \
+--agent-runtime-artifact '{
+"containerConfiguration": {
+"containerUri": "<account-id>.dkr.ecr.<region>.amazonaws.com/my-agent:latest"
+}
+}' \
+--filesystem-configurations '[{
+"s3FilesAccessPoint": {
+"accessPointArn": "arn:aws:s3files:<region>:<account-id>:file-system/<file-system-id>/access-point/<access-point-id>",
+"mountPath": "/mnt/datasets"
+}
+}]'
 
 ```
 
@@ -363,20 +365,22 @@ Add `filesystemConfigurations` with a `sessionStorage` entry when creating or up
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-agent-runtime \
-     --agent-runtime-name "coding-agent" \
-     --role-arn "arn:aws:iam::111122223333:role/AgentExecutionRole" \
-     --agent-runtime-artifact '{
-       "containerConfiguration": {
-         "containerUri": "123456789012.dkr.ecr.us-west-2.amazonaws.com/my-agent:latest"
-       }
-     }' \
-     --filesystem-configurations '[{
-       "sessionStorage": {
-         "mountPath": "/mnt/workspace"
-       }
-     }]'
+
    ```
+
+aws bedrock-agentcore-control create-agent-runtime \
+--agent-runtime-name "coding-agent" \
+--role-arn "arn:aws:iam::111122223333:role/AgentExecutionRole" \
+--agent-runtime-artifact '{
+"containerConfiguration": {
+"containerUri": "123456789012.dkr.ecr.us-west-2.amazonaws.com/my-agent:latest"
+}
+}' \
+--filesystem-configurations '[{
+"sessionStorage": {
+"mountPath": "/mnt/workspace"
+}
+}]'
 
 ```
 
@@ -486,22 +490,22 @@ All configured file systems are available at their mount paths when your agent i
 # First invocation — agent sets up the project
 
 aws bedrock-agentcore invoke-agent-runtime \
- --agent-runtime-arn "arn:aws:bedrock-agentcore:us-west-2:111122223333:agent-runtime/coding-agent" \
- --runtime-session-id "session-001" \
- --payload '{"prompt": "Set up the project and install dependencies in /mnt/workspace"}'
+--agent-runtime-arn "arn:aws:bedrock-agentcore:us-west-2:111122223333:agent-runtime/coding-agent" \
+--runtime-session-id "session-001" \
+--payload '{"prompt": "Set up the project and install dependencies in /mnt/workspace"}'
 
 # Stop the session
 
 aws bedrock-agentcore stop-runtime-session \
- --agent-runtime-arn "arn:aws:bedrock-agentcore:us-west-2:111122223333:agent-runtime/coding-agent" \
- --runtime-session-id "session-001"
+--agent-runtime-arn "arn:aws:bedrock-agentcore:us-west-2:111122223333:agent-runtime/coding-agent" \
+--runtime-session-id "session-001"
 
 # Resume later — the project is exactly where the agent left it
 
 aws bedrock-agentcore invoke-agent-runtime \
- --agent-runtime-arn "arn:aws:bedrock-agentcore:us-west-2:111122223333:agent-runtime/coding-agent" \
- --runtime-session-id "session-001" \
- --payload '{"prompt": "Run the tests and fix any failures"}'
+--agent-runtime-arn "arn:aws:bedrock-agentcore:us-west-2:111122223333:agent-runtime/coding-agent" \
+--runtime-session-id "session-001" \
+--payload '{"prompt": "Run the tests and fix any failures"}'
 
 ```
 
@@ -726,8 +730,8 @@ If your agent runtime uses VPC mode with session storage, the agent needs networ
 "s3:ListBucket"
 ],
 "Resource": [
-"arn:aws:s3:::acr-storage-*-region-an",
-"arn:aws:s3:::acr-storage-*-region-an/*"
+"arn:aws:s3:::acr-storage-_-region-an",
+"arn:aws:s3:::acr-storage-_-region-an/*"
 ],
 "Condition": {
 "StringEquals": {
@@ -837,8 +841,8 @@ To identify the Availability Zone ID of your subnets:
 ```
 
 aws ec2 describe-subnets \
- --subnet-ids subnet-0123456789abcdef0 \
- --query 'Subnets[0].AvailabilityZoneId'
+--subnet-ids subnet-0123456789abcdef0 \
+--query 'Subnets[0].AvailabilityZoneId'
 
 ```
 
@@ -849,9 +853,9 @@ To identify the Availability Zone of your EFS mount targets:
 ```
 
 aws efs describe-mount-targets \
- --file-system-id fs-0123456789abcdef0 \
- --query 'MountTargets[*].[AvailabilityZoneId, LifeCycleState]' \
- --output table
+--file-system-id fs-0123456789abcdef0 \
+--query 'MountTargets[*].[AvailabilityZoneId, LifeCycleState]' \
+--output table
 
 ```
 

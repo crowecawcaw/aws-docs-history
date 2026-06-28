@@ -25,7 +25,7 @@ Synchronization is only supported for MCP and Agent record types. Agent Skills a
 
 4. Choose **Create record**.
 
-The record is created in CREATING status. The registry connects to the endpoint, extracts metadata, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE_FAILED status with the error details available in the Status Reason field on the record detail page. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors"). To update the record when the source changes, use the **Sync** button on the record detail page or select **Re-sync from endpoint** during editing.
+The record is created in CREATING status. The registry connects to the endpoint, extracts metadata, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE\_FAILED status with the error details available in the Status Reason field on the record detail page. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors"). To update the record when the source changes, use the **Sync** button on the record detail page or select **Re-sync from endpoint** during editing.
 
 For AWS CLI and SDK examples of creating records with synchronization, see [Synchronize records from external sources](registry-sync-records.md "registry-sync-records.md").
 
@@ -182,7 +182,7 @@ print(f"Version: {response['recordVersion']}")
 
 3. (MCP and Agent records only) Under **Synchronize from endpoint**, optionally configure synchronization:
 
-You can update records via synchronization regardless of whether they were originally created with synchronization. When synchronization is triggered during an update, the record transitions to UPDATING status. If it succeeds, a new record version is created in DRAFT status. If it fails, the record transitions to UPDATE_FAILED status with error details in the Status Reason field. The synchronized data overwrites the record’s name, description, version, tool definitions, and server definitions with the values found at the source, but does not modify fields that the source does not provide. An admin or curator must review and approve the new draft for it to become visible in search. Until then, the previous approved revision (if any) remains searchable. For more information on dual-revision behavior, see [Record lifecycle](registry-record-lifecycle.md "registry-record-lifecycle.md").
+You can update records via synchronization regardless of whether they were originally created with synchronization. When synchronization is triggered during an update, the record transitions to UPDATING status. If it succeeds, a new record version is created in DRAFT status. If it fails, the record transitions to UPDATE\_FAILED status with error details in the Status Reason field. The synchronized data overwrites the record’s name, description, version, tool definitions, and server definitions with the values found at the source, but does not modify fields that the source does not provide. An admin or curator must review and approve the new draft for it to become visible in search. Until then, the previous approved revision (if any) remains searchable. For more information on dual-revision behavior, see [Record lifecycle](registry-record-lifecycle.md "registry-record-lifecycle.md").
 
     1. Enter an **Endpoint** URL to enable synchronization. Credential type fields appear when an endpoint is provided. If the record already has synchronization configured, the endpoint and credential provider fields are pre-populated with the existing configuration.
     2. Choose a **Credential type** (IAM, OAuth, or None) and fill in the required fields. If the record was previously configured with a credential provider, the existing values are pre-filled.
@@ -191,13 +191,12 @@ You can update records via synchronization regardless of whether they were origi
 
 4. Under **Record configuration**, update the record’s definitions in the JSON editor.
 
-   1. You can configure both the endpoint for synchronization and manually edit the record’s definitions. When synchronization is triggered, the registry fetches the latest metadata from the endpoint and updates the record’s name, description, version, tool definitions, and server definitions with the values found at the source, taking precedence over any manual edits to those fields. Fields that the source does not provide are not modified.
+    1. You can configure both the endpoint for synchronization and manually edit the record’s definitions. When synchronization is triggered, the registry fetches the latest metadata from the endpoint and updates the record’s name, description, version, tool definitions, and server definitions with the values found at the source, taking precedence over any manual edits to those fields. Fields that the source does not provide are not modified.
 
-5. The console validates your JSON against the official schema and shows inline errors with a **Diagnose with Amazon Q** button.
-6. Choose one of:
+5. The console validates your JSON against the official schema and shows inline errors with a **Diagnose with Amazon Q** button. 6. Choose one of:
 
-   1. **Save changes** — Saves the record as a draft.
-   2. **Save and submit for approval** — Saves and submits in one step.
+    1. **Save changes** — Saves the record as a draft.
+    2. **Save and submit for approval** — Saves and submits in one step.
 
 A success banner confirms: "[Name] is updated and submitted for approval successfully."
 

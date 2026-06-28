@@ -50,11 +50,11 @@ Common issues and solutions when getting started with Amazon Bedrock AgentCore d
 }
 ```
 
-## CREATE_FAILED: Code package compatibility
+## CREATE\_FAILED: Code package compatibility
 
 **When this occurs:** During agent creation or update with incompatible code packages (wrong architecture, language version, or package format).
 
-**Why this happens:** The uploaded ZIP file contains binaries compiled for wrong architecture (ARM64 vs x86_64), incompatible language version, or incorrect package structure that doesn’t match AgentCore Runtime requirements.
+**Why this happens:** The uploaded ZIP file contains binaries compiled for wrong architecture (ARM64 vs x86\_64), incompatible language version, or incorrect package structure that doesn’t match AgentCore Runtime requirements.
 
 **Solution:**
 
@@ -67,7 +67,7 @@ To resolve this issue:
 
 **Error indicators:**
 
-- Agent status: CREATE_FAILED or runtime errors
+- Agent status: CREATE\_FAILED or runtime errors
 - Import errors or "cannot execute binary file" messages in cloudwatch logs
 - Architecture mismatch errors when you do getAgentRuntimeEndpoint.
 
@@ -75,7 +75,7 @@ To resolve this issue:
 
 **When this occurs:** During agent creation when your ZIP contains native binaries compiled for a non-ARM64 architecture.
 
-**Why this happens:** AgentCore Runtime only supports the arm64 instruction set architecture. The service scans all native binary files in your deployment package — `.so` files for Python and both `.so` and `.node` files for Node.js — and validates their ELF headers for ARM64 compatibility. If any binary is compiled for x86_64, macOS (Mach-O), or another architecture, validation fails.
+**Why this happens:** AgentCore Runtime only supports the arm64 instruction set architecture. The service scans all native binary files in your deployment package — `.so` files for Python and both `.so` and `.node` files for Node.js — and validates their ELF headers for ARM64 compatibility. If any binary is compiled for x86\_64, macOS (Mach-O), or another architecture, validation fails.
 
 **Solution:**
 

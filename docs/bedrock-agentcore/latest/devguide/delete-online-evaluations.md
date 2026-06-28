@@ -59,8 +59,10 @@ eval_client.delete_online_config(
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore-control')
 

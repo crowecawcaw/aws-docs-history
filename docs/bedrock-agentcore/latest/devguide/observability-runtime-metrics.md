@@ -72,7 +72,7 @@ Resource usage data may be delayed by up to 60 minutes and precision might diffe
 
 **Vended metrics**
 
-Amazon Bedrock AgentCore runtime automatically provides resource usage metrics at account, agent runtime, and agent endpoint levels. These metrics are published at 1-minute resolution. Amazon CloudWatch aggregation and metric data retention will follow standard Amazon CloudWatch data retention polices. For more information, see [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Metric](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric").
+Amazon Bedrock AgentCore runtime automatically provides resource usage metrics at account, agent runtime, and agent endpoint levels. These metrics are published at 1-minute resolution. Amazon CloudWatch aggregation and metric data retention will follow standard Amazon CloudWatch data retention polices. For more information, see [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch\_concepts.html#Metric](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric").
 
 Here are the dimension sets and metrics available for monitoring your resources:
 
@@ -97,15 +97,15 @@ Telemetry data is provided for monitoring purposes. Actual billing is calculated
 
 **Vended logs**
 
-Bedrock AgentCore Runtime provides vended logs for session-level usage metrics at 1-second granularity. Each log record contains resource consumption data including CPU usage (agent.runtime.vcpu.hours.used) and memory consumption (agent.runtime.memory.gb_hours.used).
+Bedrock AgentCore Runtime provides vended logs for session-level usage metrics at 1-second granularity. Each log record contains resource consumption data including CPU usage (agent.runtime.vcpu.hours.used) and memory consumption (agent.runtime.memory.gb\_hours.used).
 
 Each log record will have following schema:
 
-| Log type   | Log fields                                                                                                                                                                                                                  | Description                                              |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| USAGE_LOGS | event_timestamp, resource_arn, service.name, cloud.provider, cloud.region, account.id, region, resource.id, session.id, agent.name, elapsed_time_seconds, agent.runtime.vcpu.hours.used, agent.runtime.memory.gb_hours.used | Resource Usage Logs for session-level resource tracking. |
+| Log type    | Log fields                                                                                                                                                                                                                       | Description                                              |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| USAGE\_LOGS | event\_timestamp, resource\_arn, service.name, cloud.provider, cloud.region, account.id, region, resource.id, session.id, agent.name, elapsed\_time\_seconds, agent.runtime.vcpu.hours.used, agent.runtime.memory.gb\_hours.used | Resource Usage Logs for session-level resource tracking. |
 
-To enable USAGE_LOG log type for your agents, see [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") . The logs are then displayed in the configured destination (AWS LogGroup, Amazon S3 or Amazon Kinesis Firehose) as configured.
+To enable USAGE\_LOG log type for your agents, see [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") . The logs are then displayed in the configured destination (AWS LogGroup, Amazon S3 or Amazon Kinesis Firehose) as configured.
 
 In the Agent Session page of the Amazon CloudWatch Bedrock AgentCore Observability Console, you can see resource usage metrics generated from these logs. To optimize your metric viewing experience, select your desired time range using the selector in the top right to focus on specific CPU and Memory Usage data.
 
@@ -117,19 +117,19 @@ Telemetry data is provided for monitoring purposes. Actual billing is calculated
 
 To enhance observability, AgentCore provides structured spans that provide visibility into agent runtime invocations. To enable this span data, you need to enable observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for steps and details. This span data is available in AWS CloudWatch Logs aws/spans log group. The following table defines the operation for which spans are created and the attributes for each captured span.
 
-| Operation name     | Span attributes                                                                                                                                                                           | Description                |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| InvokeAgentRuntime | aws.operation.name, aws.resource.arn, aws.request_id, aws.agent.id, aws.endpoint.name, aws.account.id, session.id, latency_ms, error_type, aws.resource.type, aws.xray.origin, aws.region | Invokes the agent runtime. |
+| Operation name     | Span attributes                                                                                                                                                                              | Description                |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| InvokeAgentRuntime | aws.operation.name, aws.resource.arn, aws.request\_id, aws.agent.id, aws.endpoint.name, aws.account.id, session.id, latency\_ms, error\_type, aws.resource.type, aws.xray.origin, aws.region | Invokes the agent runtime. |
 
 - aws.operation.name - the operation name (InvokeAgentRuntime)
 - aws.resource.arn - the Amazon resource name for the agent runtime
-- aws.request_id - request ID for the invocation
+- aws.request\_id - request ID for the invocation
 - aws.agent.id - the unique identifier for the agent runtime
 - aws.endpoint.name - the name of the endpoint used to invoke the agent runtime
 - aws.account.id - customer’s account id
 - session.id - the session ID for the invocation
-- latency_ms - the latency of the request in milliseconds
-- error_type - either throttle, system, or user (only present if error)
+- latency\_ms - the latency of the request in milliseconds
+- error\_type - either throttle, system, or user (only present if error)
 - aws.resource.type - the CFN resource type
 - aws.xray.origin - the CFN resource type used by x-ray to identify the service
 - aws.region - the region the customer resource exists in
@@ -138,12 +138,12 @@ To enhance observability, AgentCore provides structured spans that provide visib
 
 AgentCore provides structured Application logs that help you gain visibility into your agent runtime invocations and session-level resource consumption. This log data is provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for steps and details. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under your agent’s application logs or under your own custom log group.
 
-| Log type         | Log fields                                                                                                                                                  | Description                                                                                     |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| APPLICATION_LOGS | timestamp, resource_arn, event_timestamp, account_id, request_id, session_id, trace_id, span_id, service_name, operation, request_payload, response_payload | Application logs for InvokeRuntimeOperation with tracing fields, request, and response payloads |
+| Log type          | Log fields                                                                                                                                                            | Description                                                                                     |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| APPLICATION\_LOGS | timestamp, resource\_arn, event\_timestamp, account\_id, request\_id, session\_id, trace\_id, span\_id, service\_name, operation, request\_payload, response\_payload | Application logs for InvokeRuntimeOperation with tracing fields, request, and response payloads |
 
-- request_payload - the request payload of the agent invocation
-- response_payload - the response from the agent invocation
+- request\_payload - the request payload of the agent invocation
+- response\_payload - the response from the agent invocation
 
 ## Error types
 

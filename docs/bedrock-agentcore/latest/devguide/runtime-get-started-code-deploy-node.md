@@ -445,7 +445,7 @@ Both approaches work. Bundled deployments are typically under 10 MB and deploy f
 
 AgentCore Runtime only supports the **arm64** instruction set architecture. If your agent uses npm packages that include native modules (compiled `.node` or `.so` files), those binaries must be compiled for Linux arm64.
 
-AgentCore Runtime validates the architecture of all `.node` and `.so` files in your deployment package by reading their ELF headers. If any binary is compiled for a different architecture (such as x86_64 or macOS), your agent creation will fail with status `CREATE_FAILED` .
+AgentCore Runtime validates the architecture of all `.node` and `.so` files in your deployment package by reading their ELF headers. If any binary is compiled for a different architecture (such as x86\_64 or macOS), your agent creation will fail with status `CREATE_FAILED` .
 
 To install arm64-compatible native modules:
 

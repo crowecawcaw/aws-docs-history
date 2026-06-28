@@ -9,13 +9,15 @@ To learn how to create an agent, connect it to a gateway, and invoke it to answe
 Strands
 
 1. ```
-   from strands import Agent
-   from strands.models import BedrockModel
-   from strands.tools.mcp.mcp_client import MCPClient
-   from mcp.client.streamable_http import streamablehttp_client
+
    ```
 
-def \_invoke_agent(
+from strands import Agent
+from strands.models import BedrockModel
+from strands.tools.mcp.mcp_client import MCPClient
+from mcp.client.streamable_http import streamablehttp_client
+
+def _invoke_agent(
 bedrock_model,
 mcp_client,
 prompt
@@ -28,33 +30,33 @@ tools=tools
 )
 return agent(prompt)
 
-def \_create_streamable_http_transport(headers=None):
+def _create_streamable_http_transport(headers=None):
 url = {gatewayUrl}
 access_token = {AccessToken}
-headers = {\*\*headers} if headers else {}
+headers = {**headers} if headers else {}
 headers["Authorization"] = f"Bearer {access_token}"
 return streamablehttp_client(
 url,
 headers=headers
 )
 
-def \_get_bedrock_model(model_id):
+def _get_bedrock_model(model_id):
 return BedrockModel(
 inference_profile_id=model_id,
 temperature=0.0,
 streaming=True,
 )
 
-mcp_client = MCPClient(\_create_streamable_http_transport)
+mcp_client = MCPClient(_create_streamable_http_transport)
 
 if **name** == "**main**":
 user_prompt = "What orders do I have?"
-\_response = \_invoke_agent(
-bedrock_model=\_get_bedrock_model("us.anthropic.claude-sonnet-4-20250514-v1:0"),
+_response = _invoke_agent(
+bedrock_model=_get_bedrock_model("us.anthropic.claude-sonnet-4-20250514-v1:0"),
 mcp_client=mcp_client,
 prompt=user_prompt
 )
-print(\_response)
+print(_response)
 
 ````
 
@@ -87,8 +89,10 @@ async with streamablehttp_client(gateway_url, headers={"Authorization": f"Bearer
 Claude Code
 
 1. ```
-   #!/bin/bash
+
    ```
+
+#!/bin/bash
 
 # Script to add MCP server to Claude
 
@@ -106,8 +110,8 @@ echo ""
 # Add the MCP server
 
 claude mcp add "$SERVER_NAME" "$GATEWAY_MCP_SERVER_URL" \
- --transport http \
- --header "Authorization: Bearer $AUTH_TOKEN"
+--transport http \
+--header "Authorization: Bearer $AUTH_TOKEN"
 
 # Check if the command was successful
 

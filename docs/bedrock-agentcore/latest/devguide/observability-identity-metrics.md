@@ -25,7 +25,7 @@ The following dimensions reference applies to the metrics described in this sect
 - WorkloadIdentityDirectory: the directory containing the workload identity (typically `default` ).
 - TokenVault: the token vault being accessed (typically `default` ).
 - ProviderName: the name of the credential provider (for example, `MyGoogleProvider` , `MySlackProvider` ).
-- FlowType: the OAuth2 flow type (USER_FEDERATION, M2M).
+- FlowType: the OAuth2 flow type (USER\_FEDERATION, M2M).
 - ExceptionType: the specific error type (ValidationException, ThrottlingException, etc.)
 
 ### Usage metrics
@@ -70,32 +70,32 @@ The following attribute explanations apply to the information in the tables belo
 
 - aws.operation.name - the operation name being performed
 - aws.resource.arn - the Amazon Resource Name for the identity resource
-- aws.request_id - unique request ID for the operation
+- aws.request\_id - unique request ID for the operation
 - aws.account.id - user’s AWS account ID
 - workload.identity.id - the workload identity name
 - workload.identity.directory - the workload identity directory
 - credential.provider.name - name of the credential provider
 - credential.provider.type - type of credential provider (OAuth2, API Key)
 - token.vault.name - token vault name
-- oauth2.flow - OAuth2 flow type (USER_FEDERATION, M2M)
-- latency_ms - operation latency in milliseconds
-- error_type - error classification (throttle, system, user, null if successful)
+- oauth2.flow - OAuth2 flow type (USER\_FEDERATION, M2M)
+- latency\_ms - operation latency in milliseconds
+- error\_type - error classification (throttle, system, user, null if successful)
 - aws.region - AWS region where the operation occurred
 
 **Workload Identity Operations**
 
-| Operation                       | Span attributes                                                                                                                                                               | Description                                                         |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| GetWorkloadAccessToken          | aws.operation.name, aws.resource.arn, aws.request_id, aws.account.id, workload.identity.id, workload.identity.directory, aws.region, latency_ms, error_type                   | Fetches workload access token for machine-to-machine authentication |
-| GetWorkloadAccessTokenForJWT    | aws.operation.name, aws.resource.arn, aws.request_id, aws.account.id, workload.identity.id, workload.identity.directory, issuer, user_sub, aws.region, latency_ms, error_type | Fetches workload access token using JWT user token                  |
-| GetWorkloadAccessTokenForUserId | aws.operation.name, aws.resource.arn, aws.request_id, aws.account.id, workload.identity.id, workload.identity.directory, aws.region, latency_ms, error_type                   | Fetches workload access token for specific user ID                  |
+| Operation                       | Span attributes                                                                                                                                                                   | Description                                                         |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| GetWorkloadAccessToken          | aws.operation.name, aws.resource.arn, aws.request\_id, aws.account.id, workload.identity.id, workload.identity.directory, aws.region, latency\_ms, error\_type                    | Fetches workload access token for machine-to-machine authentication |
+| GetWorkloadAccessTokenForJWT    | aws.operation.name, aws.resource.arn, aws.request\_id, aws.account.id, workload.identity.id, workload.identity.directory, issuer, user\_sub, aws.region, latency\_ms, error\_type | Fetches workload access token using JWT user token                  |
+| GetWorkloadAccessTokenForUserId | aws.operation.name, aws.resource.arn, aws.request\_id, aws.account.id, workload.identity.id, workload.identity.directory, aws.region, latency\_ms, error\_type                    | Fetches workload access token for specific user ID                  |
 
 **Credential Provider Operations**
 
-| Operation              | Span attributes                                                                                                                                                                                                   | Description                                          |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| GetResourceOAuth2Token | aws.operation.name, aws.resource.arn, aws.request_id, aws.account.id, workload.identity.id, credential.provider.name, credential.provider.type, token.vault.name, oauth2.flow, aws.region, latency_ms, error_type | Fetches OAuth2 access token from credential provider |
-| GetResourceAPIKey      | aws.operation.name, aws.resource.arn, aws.request_id, aws.account.id, workload.identity.id, credential.provider.name, token.vault.name, aws.region, latency_ms, error_type                                        | Fetches API key from credential provider             |
+| Operation              | Span attributes                                                                                                                                                                                                      | Description                                          |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| GetResourceOAuth2Token | aws.operation.name, aws.resource.arn, aws.request\_id, aws.account.id, workload.identity.id, credential.provider.name, credential.provider.type, token.vault.name, oauth2.flow, aws.region, latency\_ms, error\_type | Fetches OAuth2 access token from credential provider |
+| GetResourceAPIKey      | aws.operation.name, aws.resource.arn, aws.request\_id, aws.account.id, workload.identity.id, credential.provider.name, token.vault.name, aws.region, latency\_ms, error\_type                                        | Fetches API key from credential provider             |
 
 ## Provided log data
 
@@ -103,20 +103,20 @@ AgentCore Identity provides structured application logs that help you gain visib
 
 AgentCore can output logs to Amazon CloudWatch Logs, Amazon S3, or Amazon Kinesis Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under your resource’s application logs or under your own custom log group.
 
-| Log type         | Log fields                                                                                                                                      | Description                                                                                          |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Application Logs | timestamp, resource_arn, event_timestamp, account_id, request_id, trace_id, span_id, service_name, operation, request_payload, response_payload | Application logs for Identity Service operations with tracing fields, request, and response payloads |
+| Log type         | Log fields                                                                                                                                               | Description                                                                                          |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Application Logs | timestamp, resource\_arn, event\_timestamp, account\_id, request\_id, trace\_id, span\_id, service\_name, operation, request\_payload, response\_payload | Application logs for Identity Service operations with tracing fields, request, and response payloads |
 
 Log field explanations:
 
 - timestamp - Unix timestamp of the log event
-- resource_arn - ARN of the identity resource
-- event_timestamp - ISO 8601 timestamp string
-- account_id - AWS account ID
-- request_id - unique request identifier
-- trace_id - distributed tracing ID
-- span_id - span identifier for the operation
-- service_name - service name (BedrockAgentCore.Identity)
+- resource\_arn - ARN of the identity resource
+- event\_timestamp - ISO 8601 timestamp string
+- account\_id - AWS account ID
+- request\_id - unique request identifier
+- trace\_id - distributed tracing ID
+- span\_id - span identifier for the operation
+- service\_name - service name (BedrockAgentCore.Identity)
 - operation - pperation name (GetWorkloadAccessToken, etc.)
-- request_payload - request payload
-- response_payload - response payload
+- request\_payload - request payload
+- response\_payload - response payload

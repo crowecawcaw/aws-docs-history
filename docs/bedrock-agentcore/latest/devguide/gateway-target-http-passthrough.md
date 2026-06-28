@@ -76,7 +76,58 @@ The schema requirement depends on the protocol type:
 
 ## Creating an HTTP passthrough target
 
-The following example creates a passthrough target that routes to an A2A agent:
+The following examples create a passthrough target that routes to an A2A agent, an external MCP server, and an IAM-authenticated internal service.
+
+###### Example
+
+AgentCore CLI
+
+1. Route to an A2A agent using an OAuth credential:
+
+```
+agentcore add gateway-target \
+  --name partner-agent \
+  --type passthrough \
+  --passthrough-endpoint https://partner-agent.example.com \
+  --passthrough-protocol A2A \
+  --outbound-auth oauth \
+  --credential-name partner-oauth \
+  --gateway MyGateway
+agentcore deploy
+```
+
+Route to an external MCP server using an OAuth credential:
+
+```
+agentcore add gateway-target \
+  --name slack-mcp \
+  --type passthrough \
+  --passthrough-endpoint https://mcp-slack.example.com \
+  --passthrough-protocol MCP \
+  --outbound-auth oauth \
+  --credential-name slack-oauth \
+  --gateway MyGateway
+agentcore deploy
+```
+
+Route to an internal service using IAM (SigV4) role-based authentication, with a `CUSTOM` protocol and an S3 schema:
+
+```
+agentcore add gateway-target \
+  --name internal-service \
+  --type passthrough \
+  --passthrough-endpoint https://internal-service.example.com \
+  --passthrough-protocol CUSTOM \
+  --schema s3://amzn-s3-demo-bucket/internal-service-schema.yaml \
+  --signing-service execute-api \
+  --signing-region us-west-2 \
+  --gateway MyGateway
+agentcore deploy
+```
+
+AWS CLI
+
+1. Route to an A2A agent using an OAuth credential:
 
 ```
 aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
@@ -103,7 +154,7 @@ aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
 }'
 ```
 
-The following example creates a passthrough target that routes to an external MCP server:
+Route to an external MCP server using an OAuth credential:
 
 ```
 aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
@@ -130,7 +181,7 @@ aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
 }'
 ```
 
-The following example creates a passthrough target that uses IAM role-based authentication to route to an internal service:
+Route to an internal service using IAM role-based authentication, with a `CUSTOM` protocol and an S3 schema:
 
 ```
 aws bedrock-agentcore-control create-gateway-target --cli-input-json '{

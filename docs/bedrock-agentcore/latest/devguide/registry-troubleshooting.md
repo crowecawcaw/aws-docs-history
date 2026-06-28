@@ -11,7 +11,7 @@ Common errors:
 
 ## Record synchronization errors
 
-When you create or update record using synchronization feature, the record may transition to CREATE_FAILED or UPDATE_FAILED status, with a `statusReason` explaining what happened.
+When you create or update record using synchronization feature, the record may transition to CREATE\_FAILED or UPDATE\_FAILED status, with a `statusReason` explaining what happened.
 
 At high level, errors can be categorized as: permission errors, connection errors, validation errors, and server side errors.
 

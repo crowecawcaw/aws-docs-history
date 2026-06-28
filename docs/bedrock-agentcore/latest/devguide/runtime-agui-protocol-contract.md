@@ -115,10 +115,17 @@ Returns a status code indicating your agent’s health:
 
 ```
 {
-  "status": "Healthy",
-  "time_of_last_update": 1640995200
+  "status": "Healthy"
 }
 ```
+
+`status` is required and is one of `Healthy` or `HealthyBusy`. While the status is `HealthyBusy`, the runtime session is kept alive.
+
+An optional `time_of_last_update` field (a Unix timestamp in seconds) may be included to report when the `status` last changed.
+
+###### Warning
+
+Do not set `time_of_last_update` to the current time on every ping. A timestamp that advances on every ping signals a continuous status change, which prevents the idle session timeout from ever firing — sessions then persist until `MaxLifetime` and can exhaust your session quota. If you omit the field, the platform tracks status changes on its own. If you use the Bedrock AgentCore SDK, the ping response is handled for you.
 
 ## Authentication requirements
 

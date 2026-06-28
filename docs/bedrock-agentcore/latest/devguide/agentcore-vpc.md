@@ -143,16 +143,18 @@ AWS Management Console
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-agent-runtime \
-     --agent-runtime-name "MyAgentRuntime" \
-     --network-configuration '{
-         "networkMode": "VPC",
-         "networkModeConfig": {
-           "subnets": ["subnet-0123456789abcdef0", "subnet-0123456789abcdef1"],
-           "securityGroups": ["sg-0123456789abcdef0"]
-         }
-       }'
+
    ```
+
+aws bedrock-agentcore-control create-agent-runtime \
+--agent-runtime-name "MyAgentRuntime" \
+--network-configuration '{
+"networkMode": "VPC",
+"networkModeConfig": {
+"subnets": ["subnet-0123456789abcdef0", "subnet-0123456789abcdef1"],
+"securityGroups": ["sg-0123456789abcdef0"]
+}
+}'
 
 ````
 
@@ -202,19 +204,21 @@ AWS Management Console
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-code-interpreter \
-     --region <Region> \
-     --name "my-code-interpreter" \
-     --description "My Code Interpreter with VPC mode for data analysis" \
-     --execution-role-arn "arn:aws:iam::123456789012:role/my-execution-role" \
-     --network-configuration '{
-       "networkMode": "VPC",
-       "networkModeConfig": {
-         "subnets": ["subnet-0123456789abcdef0", "subnet-0123456789abcdef1"],
-         "securityGroups": ["sg-0123456789abcdef0"]
-       }
-     }'
+
    ```
+
+aws bedrock-agentcore-control create-code-interpreter \
+--region <Region> \
+--name "my-code-interpreter" \
+--description "My Code Interpreter with VPC mode for data analysis" \
+--execution-role-arn "arn:aws:iam::123456789012:role/my-execution-role" \
+--network-configuration '{
+"networkMode": "VPC",
+"networkModeConfig": {
+"subnets": ["subnet-0123456789abcdef0", "subnet-0123456789abcdef1"],
+"securityGroups": ["sg-0123456789abcdef0"]
+}
+}'
 
 ````
 
@@ -271,26 +275,28 @@ AWS Management Console
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-browser \
-     --region <Region> \
-     --name "my-browser" \
-     --description "My browser for web interaction" \
-     --network-configuration '{
-       "networkMode": "VPC",
-       "networkModeConfig": {
-         "subnets": ["subnet-0123456789abcdef0", "subnet-0123456789abcdef1"],
-         "securityGroups": ["sg-0123456789abcdef0"]
-       }
-     }' \
-     --recording '{
-       "enabled": true,
-       "s3Location": {
-         "bucket": "my-bucket-name",
-         "prefix": "sessionreplay"
-       }
-     }' \
-     --execution-role-arn "arn:aws:iam::123456789012:role/my-execution-role"
+
    ```
+
+aws bedrock-agentcore-control create-browser \
+--region <Region> \
+--name "my-browser" \
+--description "My browser for web interaction" \
+--network-configuration '{
+"networkMode": "VPC",
+"networkModeConfig": {
+"subnets": ["subnet-0123456789abcdef0", "subnet-0123456789abcdef1"],
+"securityGroups": ["sg-0123456789abcdef0"]
+}
+}' \
+--recording '{
+"enabled": true,
+"s3Location": {
+"bucket": "my-bucket-name",
+"prefix": "sessionreplay"
+}
+}' \
+--execution-role-arn "arn:aws:iam::123456789012:role/my-execution-role"
 
 ````
 

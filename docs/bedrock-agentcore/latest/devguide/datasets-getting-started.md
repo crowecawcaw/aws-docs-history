@@ -6,8 +6,8 @@ This topic provides an end-to-end workflow for creating, populating, and publish
 
 Each dataset declares a `schemaType` at creation time. AgentCore validates every example against the declared schema before accepting it. Two schema types are supported:
 
-- **AGENTCORE_EVALUATION_PREDEFINED_V1** — For testing agents against pre-written conversation turns. Required fields: `scenario_id`, `turns` (non-empty list; each turn must contain `input`).
-- **AGENTCORE_EVALUATION_SIMULATED_V1** — For synthetic conversation generation. Required fields: `scenario_id`, `actor_profile` (object with required `context` and `goal`), `input`.
+- **AGENTCORE\_EVALUATION\_PREDEFINED\_V1** — For testing agents against pre-written conversation turns. Required fields: `scenario_id`, `turns` (non-empty list; each turn must contain `input`).
+- **AGENTCORE\_EVALUATION\_SIMULATED\_V1** — For synthetic conversation generation. Required fields: `scenario_id`, `actor_profile` (object with required `context` and `goal`), `input`.
 
 For full schema field definitions, examples, and ground truth mapping, see [Dataset schema](dataset-evaluations-schema.md "dataset-evaluations-schema.md").
 
@@ -26,7 +26,7 @@ AgentCore CLI
 # 1. Create dataset
 
 agentcore add dataset --name my_eval_dataset \
- --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1
+--schema-type AGENTCORE_EVALUATION_PREDEFINED_V1
 
 # 2. Add your scenarios to the JSONL file
 

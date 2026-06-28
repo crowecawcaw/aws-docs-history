@@ -491,12 +491,14 @@ To use sessions with WebSocket connections, generate a unique session ID for eac
 SigV4 Headers
 
 1. ```
-   from bedrock_agentcore.runtime import AgentCoreRuntimeClient
-   import websockets
-   import asyncio
-   import json
-   import os
+
    ```
+
+from bedrock_agentcore.runtime import AgentCoreRuntimeClient
+import websockets
+import asyncio
+import json
+import os
 
 async def websocket_with_session():
 client = AgentCoreRuntimeClient(region="us-west-2")
@@ -563,12 +565,14 @@ asyncio.run(websocket_with_session())
 OAuth
 
 1. ```
-   from bedrock_agentcore.runtime import AgentCoreRuntimeClient
-   import websockets
-   import asyncio
-   import json
-   import os
+
    ```
+
+from bedrock_agentcore.runtime import AgentCoreRuntimeClient
+import websockets
+import asyncio
+import json
+import os
 
 async def websocket_with_session():
 client = AgentCoreRuntimeClient(region="us-west-2")

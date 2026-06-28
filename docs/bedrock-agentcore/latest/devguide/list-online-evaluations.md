@@ -13,8 +13,10 @@ The following code samples demonstrate how to list online evaluation configurati
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore_starter_toolkit import Evaluation
+
    ```
+
+from bedrock_agentcore_starter_toolkit import Evaluation
 
 # Initialize the evaluation client
 
@@ -47,9 +49,11 @@ list_configs_response = client.list_online_evaluation_configs(maxResults=20)
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control list-online-evaluation-configs \
-       --max-results 20
+
    ```
+
+aws bedrock-agentcore-control list-online-evaluation-configs \
+--max-results 20
 
 ```
 

@@ -36,9 +36,11 @@ To see examples of listing available resource templates in the gateway, select o
 Python requests package
 
 1. ```
-   import requests
-   import json
+
    ```
+
+import requests
+import json
 
 def list_resource_templates(gateway_url, access_token):
 headers = {

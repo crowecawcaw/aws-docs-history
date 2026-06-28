@@ -1,18 +1,18 @@
-# Test a policy in LOG_ONLY mode
+# Test a policy in LOG\_ONLY mode
 
 Using the policy-level enforcement mode, you can toggle between `ACTIVE` and `LOG_ONLY` to answer the question: "What would this policy do to my traffic if it was applied?" Per policy `LOG_ONLY` mode lets you test a policy on real traffic without affecting authorization decisions. The policy evaluates every request as if it were enforced, but only writes results to logs. Nothing is blocked or permitted as a result of a policy whose enforcement mode is `LOG_ONLY`. Once you trust the results, promote it to `ACTIVE`.
 
 ###### Topics
 
-- [How LOG_ONLY mode works](#how-log-only-mode-works "#how-log-only-mode-works")
-- [LOG_ONLY policies and LOG_ONLY policy engines](#log-only-policies-and-log-only-policy-engines "#log-only-policies-and-log-only-policy-engines")
+- [How LOG\_ONLY mode works](#how-log-only-mode-works "#how-log-only-mode-works")
+- [LOG\_ONLY policies and LOG\_ONLY policy engines](#log-only-policies-and-log-only-policy-engines "#log-only-policies-and-log-only-policy-engines")
 - [Set the enforcement mode of a policy](#set-the-enforcement-mode-of-a-policy "#set-the-enforcement-mode-of-a-policy")
-- [Observe LOG_ONLY results](#observe-log-only-results "#observe-log-only-results")
+- [Observe LOG\_ONLY results](#observe-log-only-results "#observe-log-only-results")
 - [Promote a policy to enforcement](#promote-a-policy-to-enforcement "#promote-a-policy-to-enforcement")
-- [Choosing a threshold with LOG_ONLY mode](#choosing-a-threshold-with-log-only-mode "#choosing-a-threshold-with-log-only-mode")
+- [Choosing a threshold with LOG\_ONLY mode](#choosing-a-threshold-with-log-only-mode "#choosing-a-threshold-with-log-only-mode")
 - [Considerations and limitations](#policy-log-only-considerations-and-limitations "#policy-log-only-considerations-and-limitations")
 
-## How LOG_ONLY mode works
+## How LOG\_ONLY mode works
 
 Every policy in a policy engine has an enforcement mode of either `ACTIVE` or `LOG_ONLY`. The default is `ACTIVE`, so existing policies, and any new policy you create without specifying the field, continue to enforce as before. When the policy engine evaluates a request, it evaluates your `ACTIVE` policies and your `LOG_ONLY` policies side by side, but only enforces on your `ACTIVE` policies.
 
@@ -34,18 +34,18 @@ A request is evaluated in two stages:
 
 In addition to recording the `LOG_ONLY` policies that matched on a request, the policy engine reports which of those policies would have changed the decision if they were `ACTIVE`. This is a key signal to use when assessing a policy’s efficacy and safety (i.e., whether it can be promoted to `ACTIVE`). For example, a `LOG_ONLY` policy that matches frequently and appears in the decision-flipping set would have blocked your traffic during the observation window. Each `LOG_ONLY` policy is evaluated independent of all other `LOG_ONLY` policies to determine the set of decision-flipping policies. However, each `LOG_ONLY` policy evaluation does consider all current `ACTIVE` policies.
 
-## LOG_ONLY policies and LOG_ONLY policy engines
+## LOG\_ONLY policies and LOG\_ONLY policy engines
 
-Policy in AgentCore has two separate controls that both use the value LOG_ONLY. They operate at different layers and answer different questions, so it is important to understand which one you are setting.
+Policy in AgentCore has two separate controls that both use the value LOG\_ONLY. They operate at different layers and answer different questions, so it is important to understand which one you are setting.
 
 **Policy engine enforcement mode:** controls the overall behavior of the engine. When set to `LOG_ONLY`, no policy in the engine is enforced, regardless of its individual policy mode. All decisions are logged. This is set using the `mode` field of the `policyEngineConfiguration` when you associate a policy engine with a gateway using the `CreateGateway` or `UpdateGateway` operations. The two values that `mode` accepts are `ENFORCE` (default) and `LOG_ONLY`.
 
-Policy mode controls the behavior of a single policy within an enforcing engine. When set to LOG_ONLY, that policy is still evaluated, but its decision is logged rather than enforced. All other `ACTIVE` policies in the engine continue to enforce normally. The two values that `enforcementMode` accepts are `ACTIVE` (default) and `LOG_ONLY`.
+Policy mode controls the behavior of a single policy within an enforcing engine. When set to LOG\_ONLY, that policy is still evaluated, but its decision is logged rather than enforced. All other `ACTIVE` policies in the engine continue to enforce normally. The two values that `enforcementMode` accepts are `ACTIVE` (default) and `LOG_ONLY`.
 
-Use policy-level LOG_ONLY to shadow-test a new guardrail in production without affecting traffic. Use engine-level LOG_ONLY to observe the behavior of all policies before enabling enforcement.
+Use policy-level LOG\_ONLY to shadow-test a new guardrail in production without affecting traffic. Use engine-level LOG\_ONLY to observe the behavior of all policies before enabling enforcement.
 
 |                                    |                                                      |
-| ---------------------------------- | ---------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| ---------------------------------- | ---------------------------------------------------- |
 |                                    | **Policy Enforcement Mode**                          |
 | `ACTIVE`                           | `LOG_ONLY`                                           |
 | **Policy Engine Enforcement Mode** | `ENFORCE`                                            | Evaluated and enforced. May block or modify requests. | Evaluated but not enforced. Decision is logged only; other `ACTIVE` policies in the engine still enforce. |
@@ -53,7 +53,7 @@ Use policy-level LOG_ONLY to shadow-test a new guardrail in production without a
 
 ###### Note
 
-Policy engine enforcement mode takes precedence. When a policy engine is associated in LOG_ONLY mode, no policy can deny a Gateway action — not even a policy in `ACTIVE` enforcement mode — because the Gateway does not act on the policy engine’s decision at all. The engine still computes the decision and you still receive `LOG_ONLY` telemetry; the decision is simply not enforced.
+Policy engine enforcement mode takes precedence. When a policy engine is associated in LOG\_ONLY mode, no policy can deny a Gateway action — not even a policy in `ACTIVE` enforcement mode — because the Gateway does not act on the policy engine’s decision at all. The engine still computes the decision and you still receive `LOG_ONLY` telemetry; the decision is simply not enforced.
 
 ## Set the enforcement mode of a policy
 
@@ -71,7 +71,7 @@ aws bedrock-agentcore-control create-policy \
 --definition '{"policy":{"statement":"forbid (principal, action == AgentCore::Action::\"MyTarget\", resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway\") when guardrails { BedrockGuardrails::ContentFilter([\"VIOLENCE\"], [context.input.userMessage])[\"VIOLENCE\"].confidenceScore.greaterThan(decimal(\"0.7\")) };"}}'
 ```
 
-The response echoes the policy with "enforcementMode": "LOG_ONLY". The policy begins evaluating against traffic and from that point its matches appear in traces and CloudWatch metrics — without affecting any decision.
+The response echoes the policy with "enforcementMode": "LOG\_ONLY". The policy begins evaluating against traffic and from that point its matches appear in traces and CloudWatch metrics — without affecting any decision.
 
 **List policies and their enforcement modes**
 
@@ -92,7 +92,7 @@ aws bedrock-agentcore-control list-policies \
 ]
 ```
 
-## Observe LOG_ONLY results
+## Observe LOG\_ONLY results
 
 When a caller makes a tools/call request through the AgentCore Gateway, the gateway evaluates all policies — including `LOG_ONLY` policies — before returning the MCP response to the caller. The caller’s response is never affected by `LOG_ONLY` policies; those results are reported through observability only.
 
@@ -129,14 +129,14 @@ The reverse is also supported: you can move an `ACTIVE` policy back to `LOG_ONLY
 
 A typical lifecycle is therefore to create a policy in `LOG_ONLY`, observe traffic and metrics, and then promote it to `ACTIVE` — and, if needed, demote it back to `LOG_ONLY` without deleting and recreating the policy.
 
-## Choosing a threshold with LOG_ONLY mode
+## Choosing a threshold with LOG\_ONLY mode
 
 `LOG_ONLY` mode is particularly useful for guardrail policies, where you need to select a confidence-score threshold that balances security against disruption to legitimate traffic. A threshold that is too low blocks legitimate requests; one that is too high may let threats through.
 
 **The recommended workflow:**
 Deploy the guardrail in `LOG_ONLY` mode with a threshold you believe is reasonable (for example, 0.7). The policy evaluates every request and emits a confidence score to CloudWatch metrics, but never blocks traffic.
 
-Accumulate data over a representative window — days or weeks of real production traffic. The ConfidenceScore metric (with PolicyEnforcementMode=LOG_ONLY) gives you the distribution of scores your traffic produces.
+Accumulate data over a representative window — days or weeks of real production traffic. The ConfidenceScore metric (with PolicyEnforcementMode=LOG\_ONLY) gives you the distribution of scores your traffic produces.
 
 Analyze the scores against ground truth. If you have a labeled test set (prompts marked as benign or malicious), you can compute precision and recall at each threshold value and select the one that best meets your goals. If you do not have labeled data, sample prompts from the high-score range (for example, 0.8–1.0), the low-score range (0–0.2), and the ambiguous middle zone (0.4–0.7), then classify each sample to build confidence in your threshold choice.
 Update the policy with your chosen threshold and promote it to `ACTIVE`:

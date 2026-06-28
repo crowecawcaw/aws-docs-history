@@ -62,7 +62,7 @@ Servers should implement a fallback path (such as using a built-in model or skip
 
 ## Troubleshooting
 
-**Error: "Error calling tool 'sample_tool': Method not found: sampling/createMessage"**
+**Error: "Error calling tool 'sample\_tool': Method not found: sampling/createMessage"**
 
 This error occurs when an MCP server target sends a sampling request but the gateway’s client did not declare sampling capability during `initialize`. The gateway returns a `-32601` (Method not found) error to the target, and the target may return this as a tool execution error to the client.
 
@@ -108,10 +108,12 @@ The LangGraph MCP Client (`langchain-mcp-adapters`) and Strands MCP Client do no
 Python requests package
 
 1. ```
-   import requests
-   import json
-   import sseclient
+
    ```
+
+import requests
+import json
+import sseclient
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 headers = {

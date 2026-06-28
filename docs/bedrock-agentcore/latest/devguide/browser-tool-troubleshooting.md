@@ -105,7 +105,7 @@ def my_agent(payload):
 
 ###### Important
 
-In production environments, replace allow_origins=["\*"] with specific domain origins for better security.
+In production environments, replace allow\_origins=["\*"] with specific domain origins for better security.
 
 ## Session Replay and Web Bot Auth don’t work in new browser windows or contexts
 

@@ -4,11 +4,19 @@
 
 Amazon Bedrock AgentCore Browser Web Bot Auth (Preview) is based on the draft IETF Web Bot Auth protocol, which is subject to change as the specification evolves toward finalization.
 
-- **Current Implementation:**
+-
 
-- \* Implementation details, API parameters, and signing mechanisms may change as we align with the finalized protocol specification \* WAF provider support and policies vary. Not all websites will recognize or allow signed agent traffic \* Domain owners retain full control over their bot policies and may block, monitor, or rate-limit agent traffic regardless of cryptographic signatures
+**Current Implementation:**
 
-- For the latest protocol specification, see the [IETF draft](https://datatracker.ietf.org/doc/html/draft-meunier-web-bot-auth-architecture "https://datatracker.ietf.org/doc/html/draft-meunier-web-bot-auth-architecture").
+-
+
+\* Implementation details, API parameters, and signing mechanisms may change as we align with the finalized protocol specification
+\* WAF provider support and policies vary. Not all websites will recognize or allow signed agent traffic
+\* Domain owners retain full control over their bot policies and may block, monitor, or rate-limit agent traffic regardless of cryptographic signatures
+
+-
+
+For the latest protocol specification, see the [IETF draft](https://datatracker.ietf.org/doc/html/draft-meunier-web-bot-auth-architecture "https://datatracker.ietf.org/doc/html/draft-meunier-web-bot-auth-architecture").
 
 Amazon Bedrock AgentCore Browser reduces CAPTCHA challenges through Web Bot Auth, a draft IETF protocol that cryptographically identifies AI agents to websites and bot control vendors.
 

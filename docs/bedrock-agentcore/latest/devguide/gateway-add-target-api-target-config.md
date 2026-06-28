@@ -501,26 +501,28 @@ Select one of the following methods:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-gateway-target \
-       --gateway-identifier "your-gateway-id" \
-       --name "MyMCPTarget" \
-       --target-configuration '{
-           "mcp": {
-               "mcpServer": {
-                   "endpoint": "https://my-server.bedrock-agentcore.us-west-2.api.aws"
-               }
-           }
-       }' \
-       --credential-provider-configurations '[{
-           "credentialProviderType": "GATEWAY_IAM_ROLE",
-           "credentialProvider": {
-               "iamCredentialProvider": {
-                   "service": "bedrock-agentcore",
-                   "region": "us-west-2"
-               }
-           }
-       }]'
+
    ```
+
+aws bedrock-agentcore-control create-gateway-target \
+--gateway-identifier "your-gateway-id" \
+--name "MyMCPTarget" \
+--target-configuration '{
+"mcp": {
+"mcpServer": {
+"endpoint": "https://my-server.bedrock-agentcore.us-west-2.api.aws"
+}
+}
+}' \
+--credential-provider-configurations '[{
+"credentialProviderType": "GATEWAY_IAM_ROLE",
+"credentialProvider": {
+"iamCredentialProvider": {
+"service": "bedrock-agentcore",
+"region": "us-west-2"
+}
+}
+}]'
 
 ````
 
@@ -578,26 +580,28 @@ Select one of the following methods:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-gateway-target \
-       --gateway-identifier "your-gateway-id" \
-       --name "MyMCPTarget" \
-       --target-configuration '{
-           "mcp": {
-               "mcpServer": {
-                   "endpoint": "https://my-mcp-server.example.com"
-               }
-           }
-       }' \
-       --credential-provider-configurations '[{
-           "credentialProviderType": "OAUTH",
-           "credentialProvider": {
-               "oauthCredentialProvider": {
-                   "providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/oauth2credentialprovider/my-oauth-provider",
-                   "scopes": []
-               }
-           }
-       }]'
+
    ```
+
+aws bedrock-agentcore-control create-gateway-target \
+--gateway-identifier "your-gateway-id" \
+--name "MyMCPTarget" \
+--target-configuration '{
+"mcp": {
+"mcpServer": {
+"endpoint": "https://my-mcp-server.example.com"
+}
+}
+}' \
+--credential-provider-configurations '[{
+"credentialProviderType": "OAUTH",
+"credentialProvider": {
+"oauthCredentialProvider": {
+"providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/oauth2credentialprovider/my-oauth-provider",
+"scopes": []
+}
+}
+}]'
 
 ```
 
@@ -611,14 +615,14 @@ AgentCore CLI
 ```
 
 agentcore add gateway-target \
- --type mcp-server \
- --name MyMCPTarget \
- --endpoint https://my-mcp-server.example.com \
- --gateway MyGateway \
- --outbound-auth oauth \
- --oauth-client-id my-client \
- --oauth-client-secret my-secret \
- --oauth-discovery-url https://auth.example.com/.well-known/openid-configuration
+--type mcp-server \
+--name MyMCPTarget \
+--endpoint https://my-mcp-server.example.com \
+--gateway MyGateway \
+--outbound-auth oauth \
+--oauth-client-id my-client \
+--oauth-client-secret my-secret \
+--oauth-discovery-url https://auth.example.com/.well-known/openid-configuration
 agentcore deploy
 
 ````
@@ -666,28 +670,30 @@ Select one of the following methods:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-gateway-target \
-       --gateway-identifier "your-gateway-id" \
-       --name "MyMCPTarget" \
-       --target-configuration '{
-           "mcp": {
-               "mcpServer": {
-                   "endpoint": "https://my-mcp-server.example.com"
-               }
-           }
-       }' \
-       --credential-provider-configurations '[{
-           "credentialProviderType": "API_KEY",
-           "credentialProvider": {
-               "apiKeyCredentialProvider": {
-                   "providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-api-key",
-                   "credentialLocation": "HEADER",
-                   "credentialParameterName": "x-api-key",
-                   "credentialPrefix": ""
-               }
-           }
-       }]'
+
    ```
+
+aws bedrock-agentcore-control create-gateway-target \
+--gateway-identifier "your-gateway-id" \
+--name "MyMCPTarget" \
+--target-configuration '{
+"mcp": {
+"mcpServer": {
+"endpoint": "https://my-mcp-server.example.com"
+}
+}
+}' \
+--credential-provider-configurations '[{
+"credentialProviderType": "API_KEY",
+"credentialProvider": {
+"apiKeyCredentialProvider": {
+"providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-api-key",
+"credentialLocation": "HEADER",
+"credentialParameterName": "x-api-key",
+"credentialPrefix": ""
+}
+}
+}]'
 
 ````
 

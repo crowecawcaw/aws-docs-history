@@ -23,8 +23,10 @@ Select one of the following methods:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control list-policy-engines
+
    ```
+
+aws bedrock-agentcore-control list-policy-engines
 
 ````
 
@@ -54,8 +56,10 @@ Retrieve detailed information about a specific Policy Engine:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control get-policy-engine --policy-engine-id my-policy-engine-id
+
    ```
+
+aws bedrock-agentcore-control get-policy-engine --policy-engine-id my-policy-engine-id
 
 ````
 
@@ -89,8 +93,10 @@ View all policies within a specific Policy Engine:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control list-policies --policy-engine-id my-policy-engine-id
+
    ```
+
+aws bedrock-agentcore-control list-policies --policy-engine-id my-policy-engine-id
 
 ````
 
@@ -123,8 +129,10 @@ Retrieve detailed information about a specific policy:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control get-policy --policy-engine-id my-policy-engine-id --policy-id my-policy-id
+
    ```
+
+aws bedrock-agentcore-control get-policy --policy-engine-id my-policy-engine-id --policy-id my-policy-id
 
 ````
 
@@ -160,15 +168,17 @@ Update a policy’s definition.
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control update-policy \
-     --policy-id my-policy-id \
-     --policy-engine-id my-policy-engine-id \
-     --definition '{
-       "cedar": {
-         "statement": "permit(principal, action, resource);"
-       }
-     }'
+
    ```
+
+aws bedrock-agentcore-control update-policy \
+--policy-id my-policy-id \
+--policy-engine-id my-policy-engine-id \
+--definition '{
+"cedar": {
+"statement": "permit(principal, action, resource);"
+}
+}'
 
 ````
 
@@ -204,8 +214,10 @@ Delete a policy from the Policy Engine.
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control delete-policy --policy-engine-id my-policy-engine-id --policy-id my-policy-id
+
    ```
+
+aws bedrock-agentcore-control delete-policy --policy-engine-id my-policy-engine-id --policy-id my-policy-id
 
 ````
 
@@ -236,8 +248,10 @@ Delete an entire Policy Engine and all its policies.
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control delete-policy-engine --policy-engine-id my-policy-engine-id
+
    ```
+
+aws bedrock-agentcore-control delete-policy-engine --policy-engine-id my-policy-engine-id
 
 ````
 

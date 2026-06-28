@@ -50,11 +50,11 @@ AgentCore CLI
 # Create online evaluation configuration
 
 agentcore add online-eval \
- --name "your_config_name" \
- --runtime "your_runtime_name" \
- --evaluator "Builtin.GoalSuccessRate" "Builtin.Helpfulness" \
- --sampling-rate 1.0 \
- --enable-on-create
+--name "your_config_name" \
+--runtime "your_runtime_name" \
+--evaluator "Builtin.GoalSuccessRate" "Builtin.Helpfulness" \
+--sampling-rate 1.0 \
+--enable-on-create
 
 ````
 
@@ -130,8 +130,10 @@ print(f"\nSaved config_id: {config_id}")
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 # Your input log group that contains agent traces
 
@@ -199,7 +201,7 @@ You can create online evaluation configurations using the Amazon Bedrock AgentCo
 4. For **Data source** , choose one of the following:
 
    1. **Define with an agent endpoint** – Choose an agent that you previously created on AgentCore Runtime, or create a new agent by choosing **Agents** . Then, choose an endpoint from the agent.
-   2. **Select a CloudWatch log group** – Select up to 5 log groups. Enter the service name used by your agent for observability. For agents hosted on AgentCore Runtime, service name follows the format <agent-runtime-name>.<agent-runtime-endpoint-name>. For agents running outside AgentCore Runtime, service name is configured in OTEL_RESOURCE_ATTRIBUTES environment variable.
+   2. **Select a CloudWatch log group** – Select up to 5 log groups. Enter the service name used by your agent for observability. For agents hosted on AgentCore Runtime, service name follows the format <agent-runtime-name>.<agent-runtime-endpoint-name>. For agents running outside AgentCore Runtime, service name is configured in OTEL\_RESOURCE\_ATTRIBUTES environment variable.
 
 5. For **Evaluators** , select up to 10 evaluators per evaluation configuration, including built-in and custom evaluators.
 6. (Optional) For **Filters** , add up to 5 filters to identify which sessions to evaluate.

@@ -130,11 +130,26 @@ Specify the `kmsKeyArn` parameter when calling `CreateDataset`:
 
 ###### Example
 
+AgentCore CLI
+
+1. To create an encrypted dataset, pass `--kms-key-arn` when you add the dataset, then run `agentcore deploy`. Replace the KMS key ARN with your own key ARN.
+
+```
+agentcore add dataset --name encrypted_dataset \
+    --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1 \
+    --kms-key-arn "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+
+# Add your scenarios to agentcore/datasets/encrypted_dataset.jsonl, then run agentcore deploy.
+agentcore deploy
+```
+
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation import DatasetClient
+
    ```
+
+from bedrock_agentcore.evaluation import DatasetClient
 
 client = DatasetClient(region_name="us-east-1")
 
@@ -179,12 +194,14 @@ response = client.create_dataset(
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-dataset \
-       --dataset-name "encrypted_dataset" \
-       --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1 \
-       --kms-key-arn "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" \
-       --source '{"inlineExamples": {"examples": [{"scenario_id": "TC-01", "turns": [{"input": "Hello"}]}]}}'
+
    ```
+
+aws bedrock-agentcore-control create-dataset \
+--dataset-name "encrypted_dataset" \
+--schema-type AGENTCORE_EVALUATION_PREDEFINED_V1 \
+--kms-key-arn "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" \
+--source '{"inlineExamples": {"examples": [{"scenario_id": "TC-01", "turns": [{"input": "Hello"}]}]}}'
 
 ```
 

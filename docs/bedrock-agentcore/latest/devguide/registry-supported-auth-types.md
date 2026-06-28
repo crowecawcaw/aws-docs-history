@@ -52,7 +52,7 @@ You must also configure at least one of the following JWT authorization rules:
 - **Allowed audiences** — Permitted values for the `aud` claim. An audience claim specifies which resource server the token is intended for, preventing token reuse across different APIs.
 - **Allowed clients** — Permitted values for the `client_id` claim. A client ID is a unique identifier for the application requesting access tokens.
 - **Allowed scopes** — Required permission scopes. At least one scope in the incoming token must match one of the configured values.
-- **Custom claims** — Rules that match specific claims in the incoming token against predefined values. For each rule, specify the claim name, value type (STRING or STRING_ARRAY), and the required match value.
+- **Custom claims** — Rules that match specific claims in the incoming token against predefined values. For each rule, specify the claim name, value type (STRING or STRING\_ARRAY), and the required match value.
 
 If you configure more than one authorization rule, AWS Agent Registry verifies all of them.
 

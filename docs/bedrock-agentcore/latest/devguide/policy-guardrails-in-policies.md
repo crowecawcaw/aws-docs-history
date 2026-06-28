@@ -151,7 +151,7 @@ If the default thresholds do not meet your requirements, you can determine the o
 
 Use this approach when you have a curated set of test inputs with clear expected outcomes.
 
-1. Create your policies and set your policy engine mode to LOG_ONLY.
+1. Create your policies and set your policy engine mode to LOG\_ONLY.
 2. Run your test set through the gateway your policy engine is attached to.
 3. Review the logs for each evaluation. Each log entry includes the content evaluated and the confidence score returned by the guardrail.
 4. For each result, label whether the guardrail should have flagged the content or done nothing (true and false respectively).
@@ -161,7 +161,7 @@ Use this approach when you have a curated set of test inputs with clear expected
 
 Use this approach when you do not have a pre-built test set and want to calibrate using real traffic patterns.
 
-1. Create your policies and set your policy engine mode to LOG_ONLY.
+1. Create your policies and set your policy engine mode to LOG\_ONLY.
 2. Allow the policy engine to evaluate production traffic. Each log entry includes the content evaluated and the confidence score returned by the guardrail.
 3. Use an LLM-as-a-judge to label each logged result as true (the guardrail should have flagged the content) or false (the guardrail should not have flagged the content).
 4. Using these labels, build a confusion matrix at multiple threshold values. Compare precision and recall at each threshold to select the value that aligns with your tolerance for false positives versus missed detections.
@@ -172,7 +172,10 @@ AgentCore provides multiple mechanisms for testing guardrail policies before enf
 
 ## How guardrails works with policy
 
-Guardrail policies can be applied to any gateway target. Guardrails run on: \* **MCP targets** — `POST /mcp` (JSON-RPC `tools/call`) \* **HTTP runtime targets** — `POST /<target>/invocations` \* **HTTP Inference targets** — `POST /inference`
+Guardrail policies can be applied to any gateway target. Guardrails run on:
+\* **MCP targets** — `POST /mcp` (JSON-RPC `tools/call`)
+\* **HTTP runtime targets** — `POST /<target>/invocations`
+\* **HTTP Inference targets** — `POST /inference`
 
 When a call arrives at your gateway, the Policy Evaluator performs the following:
 

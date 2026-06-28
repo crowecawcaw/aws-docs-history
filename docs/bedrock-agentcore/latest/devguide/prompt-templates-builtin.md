@@ -23,10 +23,12 @@ Details on the placeholder values used by our current evaluators:
 **Topics**
 
 - [Goal success rate (Session-level evaluator)](#goal-success-rate "#goal-success-rate")
+- [Goal success rate with ground truth (Session-level evaluator)](#goal-success-rate-ground-truth "#goal-success-rate-ground-truth")
 - [Coherence (Trace-level evaluator)](#coherence "#coherence")
 - [Conciseness (Trace-level evaluator)](#conciseness "#conciseness")
 - [Context relevance (Trace-level evaluator)](#context-relevance "#context-relevance")
 - [Correctness (Trace-level evaluator)](#correctness "#correctness")
+- [Correctness with ground truth (Trace-level evaluator)](#correctness-ground-truth "#correctness-ground-truth")
 - [Faithfulness (Trace-level evaluator)](#faithfulness "#faithfulness")
 - [Harmfulness (Trace-level evaluator)](#harmfulness "#harmfulness")
 - [Helpfulness (Trace-level evaluator)](#helpfulness "#helpfulness")
@@ -76,6 +78,40 @@ Here is the output JSON schema:
 ````
 Do not return any preamble or explanations, return only a pure JSON string surrounded by triple backticks (```).
 ````
+
+The Goal success rate with ground truth evaluator assesses whether an AI assistant completed the task by checking the conversation against a provided set of success assertions. This session-level evaluator judges success based on whether the agent’s behavior satisfies each assertion, rather than inferring the user’s goals from the conversation alone.
+
+```
+You are an evaluator for an LLM-based agent.
+
+CONVERSATION RECORD:
+{context}
+
+SUCCESS ASSERTIONS:
+{assertions}
+
+ADDITIONAL CONTEXT:
+{additional_context}
+
+TASK:
+Decide whether the agent successfully completed the task.
+
+INSTRUCTIONS:
+- Judge only based on whether the agent behavior satisfies the success assertions.
+- Evaluate assertions by their intent, not by exact text matching. Minor differences in wording, parameter ordering, or formatting should not cause a failure.
+- If an assertion describes a specific action or tool call to achieve a particular outcome, and the agent achieved the same outcome through an alternative approach clearly evidenced in the conversation, consider the assertion satisfied.
+- Do not rationalize or make assumptions beyond what the conversation shows.
+- Ignore style and verbosity.
+- Keep your reasoning concise — under 200 words.
+
+OUTPUT FORMAT (STRICT JSON):
+Return a JSON object with exactly two fields:
+{{
+  "reasoning": "<brief explanation of your evaluation>",
+  "verdict": "<SUCCESS or FAILURE>"
+}}
+Do not return any preamble or explanations, return only a pure JSON string.
+```
 
 The Coherence evaluator assesses the logical consistency and cohesion of an AI assistant’s response. This trace-level evaluator examines whether the response maintains internal consistency without contradictions or logical gaps.
 
@@ -219,6 +255,54 @@ Here is the output JSON schema:
 
 Do not return any preamble or explanations, return only a pure JSON string surrounded by triple backticks (```).
 ````
+
+The Correctness with ground truth evaluator assesses whether an AI assistant’s response correctly addresses a user query by comparing it against an expected response. This trace-level evaluator focuses on whether the response conveys the same core factual content as the ground truth, regardless of wording, format, or level of detail.
+
+```
+You are an evaluator assessing whether an agent's response correctly addresses a user query.
+
+USER QUERY:
+{user_prompt}
+
+ADDITIONAL CONTEXT:
+{additional_context}
+
+AGENT RESPONSE:
+{agent_response}
+
+EXPECTED RESPONSE:
+{expected_response}
+
+TASK:
+Determine if the agent response is CORRECT by comparing it to the expected response.
+
+EVALUATION RULES:
+
+1. CORRECT means the agent response conveys the same core factual content as the expected response, even if it uses different wording, format, or level of detail.
+
+2. INCORRECT means the agent response contains critical factual errors, fundamentally contradicts the expected response, or is too vague/incomplete to meaningfully answer the query.
+
+SPECIFIC GUIDANCE:
+
+- Different wording, structure, additional context, extra detail, or alternative examples are acceptable as long as the core answer is accurate.
+- Omitting minor supplementary details is acceptable if the main answer is correct.
+- For open-ended queries (recommendations, plans, creative content), the agent may provide different but equally valid alternatives. Judge whether the response addresses the user's underlying need, not whether it lists the exact same items.
+- For factual queries with a single correct answer, the agent must provide the correct specific values (names, numbers, dates, locations).
+- A response that is vague or generic and lacks the key specific facts from the expected response is INCORRECT, even if nothing stated is technically wrong.
+- Do not fabricate reasons to reject a response. Only mark INCORRECT for clear, substantive errors or critical missing information — not for stylistic differences or minor variations.
+
+IMPORTANT: Keep your reasoning concise - use no more than 200 words to explain your evaluation.
+
+OUTPUT (JSON):
+Return a JSON object with exactly two fields:
+
+{{
+  "reasoning": "<explain your evaluation focusing on core information accuracy>",
+  "verdict": "<CORRECT or INCORRECT>"
+}}
+
+Do not return any preamble or explanations, return only a pure JSON string.
+```
 
 The Faithfulness evaluator assesses whether an AI assistant’s response remains consistent with the conversation history. This trace-level evaluator identifies conflicts between current responses and previous interactions within the same conversation.
 

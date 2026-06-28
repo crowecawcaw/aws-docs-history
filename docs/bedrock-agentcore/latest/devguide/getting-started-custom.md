@@ -256,7 +256,7 @@ aws ecr describe-images --repository-name my-strands-agent --region us-west-2
 
 Create a file named `deploy_agent.py` with the following content:
 
-**Example deploy_agent.py**
+**Example deploy\_agent.py**
 
 ```
 import boto3
@@ -295,7 +295,7 @@ This script uses the `create_agent_runtime` operation to deploy your agent to Am
 
 Create a file named `invoke_agent.py` with the following content:
 
-**Example invoke_agent.py**
+**Example invoke\_agent.py**
 
 ```
 import boto3
@@ -357,7 +357,7 @@ To stop the running session before the configurable `IdleRuntimeSessionTimeout` 
 
 Create a file named `stop_runtime_session.py` with the following content:
 
-**Example stop_runtime_session.py**
+**Example stop\_runtime\_session.py**
 
 ```
 import boto3

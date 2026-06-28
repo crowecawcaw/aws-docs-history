@@ -22,9 +22,11 @@ The following code samples demonstrate how to delete evaluators using different 
 AgentCore CLI
 
 1. ```
-   agentcore remove evaluator --name "your_custom_evaluator_name"
-   agentcore deploy
+
    ```
+
+agentcore remove evaluator --name "your_custom_evaluator_name"
+agentcore deploy
 
 ````
 
@@ -63,8 +65,10 @@ eval_client.delete_evaluator(evaluator_id="your_evaluator_id")
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore-control')
 

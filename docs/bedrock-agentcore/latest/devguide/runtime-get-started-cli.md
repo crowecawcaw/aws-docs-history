@@ -168,8 +168,10 @@ Start the local development server:
 AgentCore CLI
 
 1. ```
-   agentcore dev
+
    ```
+
+agentcore dev
 
 ```
 
@@ -297,8 +299,10 @@ After deployment completes, invoke your deployed agent:
 AgentCore CLI
 
 1. ```
-   agentcore invoke "Tell me a joke"
+
    ```
+
+agentcore invoke "Tell me a joke"
 
 ```
 
@@ -329,10 +333,10 @@ If your agent has payments configured, provide payment context:
 ```
 
 agentcore invoke \
- --prompt "Access https://example-x402-merchant.com/paid-api" \
- --payment-instrument-id <INSTRUMENT_ID> \
- --auto-session \
- --payment-user-id user@example.com
+--prompt "Access https://example-x402-merchant.com/paid-api" \
+--payment-instrument-id <INSTRUMENT_ID> \
+--auto-session \
+--payment-user-id user@example.com
 
 ```
 
@@ -489,8 +493,10 @@ Then deploy again to tear down the AWS resources:
 AgentCore CLI
 
 1. ```
-   agentcore deploy
+
    ```
+
+agentcore deploy
 
 ````
 

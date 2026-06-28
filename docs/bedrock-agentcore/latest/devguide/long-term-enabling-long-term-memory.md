@@ -11,9 +11,11 @@ The most direct method is to include strategies when you create a new AgentCore 
 AgentCore CLI
 
 1. ```
-   agentcore add memory --name PersonalizedShoppingAgentMemory --strategies USER_PREFERENCE
-   agentcore deploy
+
    ```
+
+agentcore add memory --name PersonalizedShoppingAgentMemory --strategies USER_PREFERENCE
+agentcore deploy
 
 ```
 

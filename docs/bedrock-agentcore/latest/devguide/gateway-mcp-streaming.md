@@ -109,10 +109,12 @@ data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","t
 Python requests package
 
 1. ```
-   import requests
-   import json
-   import sseclient
+
    ```
+
+import requests
+import json
+import sseclient
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 headers = {

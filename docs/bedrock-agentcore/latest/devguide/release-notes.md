@@ -4,6 +4,10 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 
 ## June 2026
 
+### Runtime: Increased Default Service Quotas
+
+AgentCore Runtime default service quotas have been increased to support higher-scale workloads. Active session workloads per account are now 5,000 in US East (N. Virginia) and US West (Oregon), and 2,500 in other AWS Regions (previously 1,000 and 500 respectively). The InvokeAgentRuntime API rate has increased from 25 TPS to 200 TPS per agent, per account. The new session creation rate for container deployments has increased from 100 TPM to 400 TPM per endpoint. The new session creation rate for direct code deployments remains at 25 TPS per endpoint. These updated defaults apply automatically to all accounts. See [Service quotas and limits](bedrock-agentcore-limits.md "bedrock-agentcore-limits.md").
+
 ### Web Search Tool is now Generally Available
 
 Web Search is a fully managed tool that enables agents to ground responses in current, accurate web knowledge while keeping data residency within your secured AWS environment with zero data egress. Built on Amazon’s search infrastructure, it combines a proprietary web index with structured knowledge graph data. The tool is exposed as a built-in connector target on AgentCore gateway using the Model Context Protocol (MCP), returning ranked results with relevant snippets, source URLs, titles, and publication dates optimized for agentic retrieval. See [Web Search documentation](web-search.md "web-search.md").

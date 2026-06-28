@@ -44,8 +44,10 @@ Create a new AgentCore project with an agent and a gateway:
 AgentCore CLI
 
 1. ```
-   agentcore create --name MyGatewayAgent --defaults
+
    ```
+
+agentcore create --name MyGatewayAgent --defaults
 
 ````
 
@@ -95,7 +97,7 @@ Interactive
 
 Next, select **add** again and choose **Gateway Target** to add a Lambda function target: 6. Enter the target name. 7. Select **Lambda function** as the target type:
 
-![Gateway target wizard: select Lambda function](images/tui/gateway-target-type-lambda.png) 8. Enter the Lambda ARN and tool schema file path, then confirm.
+![Gateway target wizard: select Lambda function](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png) 8. Enter the Lambda ARN and tool schema file path, then confirm.
 
 To use JWT-based authorization instead, specify `--authorizer-type CUSTOM_JWT` with your OAuth discovery URL:
 
@@ -104,12 +106,14 @@ To use JWT-based authorization instead, specify `--authorizer-type CUSTOM_JWT` w
 AgentCore CLI
 
 1. ```
-   agentcore add gateway --name TestGateway \
-     --authorizer-type CUSTOM_JWT \
-     --discovery-url https://cognito-idp.us-east-1.amazonaws.com/<POOL_ID>/.well-known/openid-configuration \
-     --allowed-audience <CLIENT_ID> \
-     --runtimes MyGatewayAgent
+
    ```
+
+agentcore add gateway --name TestGateway \
+--authorizer-type CUSTOM_JWT \
+--discovery-url https://cognito-idp.us-east-1.amazonaws.com/<POOL_ID>/.well-known/openid-configuration \
+--allowed-audience <CLIENT_ID> \
+--runtimes MyGatewayAgent
 
 ```
 
@@ -321,8 +325,8 @@ Run the following commands in a terminal to check that your gateway is working.
 # Check your Gateway is working
 
 curl -X POST YOUR_GATEWAY_URL \
- -H "Content-Type: application/json" \
- -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
+-H "Content-Type: application/json" \
+-d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
 
 # Watch live logs
 

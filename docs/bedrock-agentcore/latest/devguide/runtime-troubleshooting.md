@@ -11,6 +11,7 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 - [My Docker build fails with "exec /bin/sh: exec format error"](#troubleshoot-runtime-exec-format "#troubleshoot-runtime-exec-format")
 - [What are the requirements for Docker containers used with Amazon Bedrock AgentCore Runtime?](#troubleshoot-runtime-requirements "#troubleshoot-runtime-requirements")
 - [My long-running tool gets interrupted after 15 minutes](#troubleshoot-runtime-long-running "#troubleshoot-runtime-long-running")
+- [My idle sessions are not being released and I am exhausting my session quota](#troubleshoot-runtime-idle-not-releasing "#troubleshoot-runtime-idle-not-releasing")
 - [How do I access the runtimeSessionId in my agent code for tagging or grouping resources?](#troubleshoot-runtime-session-id "#troubleshoot-runtime-session-id")
 - [I have RuntimeClientError (403) issues](#runtime-client-error "#runtime-client-error")
 - [I have missing or empty CloudWatch Logs](#missing-cloudwatch-logs "#missing-cloudwatch-logs")
@@ -111,17 +112,29 @@ For information, see [Handle asynchronous and long running agents with Amazon Be
 
 **When this occurs:** During long-running agent operations or complex workflows
 
-**Why this happens:** Amazon Bedrock AgentCore automatically terminates sessions after 15 minutes of inactivity. The platform determines activity based on both the `status` field **and** the `time_of_last_update` field in the `/ping` response. If `time_of_last_update` is missing, the idle timeout fires regardless of the status value.
+**Why this happens:** Amazon Bedrock AgentCore automatically terminates sessions after 15 minutes of inactivity. The platform determines activity from the `/ping` response: a session reporting `HealthyBusy` is kept alive, while a session reporting `Healthy` is treated as idle-eligible and its idle time is measured from when the `status` last changed (see the `time_of_last_update` field below).
 
-**Solution:** Ensure your `/ping` endpoint returns both required fields:
+**Solution:** Ensure your `/ping` endpoint returns `HealthyBusy` while background work is in progress:
 
 ```
-{"status": "HealthyBusy", "time_of_last_update": 1715000000}
+{"status": "HealthyBusy"}
 ```
 
-Where `time_of_last_update` is a Unix timestamp (seconds) that updates whenever the status changes. If you are using the Bedrock AgentCore SDK, this is handled automatically. For custom implementations, ensure your ping handler includes both fields.
+If you are using the Bedrock AgentCore SDK, the ping response is handled automatically. For custom implementations, ensure your ping handler returns `HealthyBusy` while processing.
 
-**Example solution:** Implement ping handlers with HEALTHY_BUSY status for async tasks:
+## My idle sessions are not being released and I am exhausting my session quota
+
+**When this occurs:** Session count climbs continuously under load and sessions are not released after the idle timeout (for example, `ServiceQuotaExceededException` / `maxVms` errors during a burst of invocations), even though each session is idle.
+
+**Why this happens:** When a session reports `Healthy`, the platform measures how long it has been idle from the `time_of_last_update` field in your `/ping` response, which must reflect when the `status` last changed. If your ping handler sets `time_of_last_update` to the current time on **every** ping, the reported idle time keeps resetting, which prevents the idle timeout from firing. Sessions then live until `MaxLifetime` and can exhaust your session quota.
+
+**Solution:** Update `time_of_last_update` only when the `status` actually changes, or omit it entirely so the platform tracks status changes on its own:
+
+```
+{"status": "Healthy"}
+```
+
+If you are using the Bedrock AgentCore SDK, upgrade to the latest version, where the ping response is handled correctly. As a stopgap, calling `StopRuntimeSession` releases stuck sessions.
 
 ## How do I access the runtimeSessionId in my agent code for tagging or grouping resources?
 

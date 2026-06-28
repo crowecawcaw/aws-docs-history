@@ -133,14 +133,14 @@ The live view provides a real-time video stream with interactive controls to tak
 
 After using AgentCore Browser, view your resources in the AWS Console:
 
-| #   | Resource                      | Location                                                                      |
-| --- | ----------------------------- | ----------------------------------------------------------------------------- |
-| 1   | Live View                     | Browser Console > Tool Name > **View live session**                           |
-| 2   | Session Recordings and Replay | Browser Console > Tool Name > **View recording**                              |
-| 3   | Browser Logs                  | **CloudWatch\*<br>• > **Log groups\*<br>• > `/aws/bedrock-agentcore/browser/` |
-| 4   | Recording Files               | \*_S3_<br>• > Your bucket > `browser-recordings/` prefix                      |
-| 5   | Custom Browsers               | **AgentCore Console\*<br>• > **Built-in tools\*<br>• > Your custom browser    |
-| 6   | IAM Roles                     | **IAM\*<br>• > **Roles\*<br>• > Search for your execution role                |
+| #   | Resource                      | Location                                                                    |
+| --- | ----------------------------- | --------------------------------------------------------------------------- |
+| 1   | Live View                     | Browser Console > Tool Name > **View live session**                         |
+| 2   | Session Recordings and Replay | Browser Console > Tool Name > **View recording**                            |
+| 3   | Browser Logs                  | *_CloudWatch_<br>• > *_Log groups_<br>• > `/aws/bedrock-agentcore/browser/` |
+| 4   | Recording Files               | *_S3_<br>• > Your bucket > `browser-recordings/` prefix                     |
+| 5   | Custom Browsers               | *_AgentCore Console_<br>• > *_Built-in tools_<br>• > Your custom browser    |
+| 6   | IAM Roles                     | *_IAM_<br>• > *_Roles_<br>• > Search for your execution role                |
 
 ## Next steps
 

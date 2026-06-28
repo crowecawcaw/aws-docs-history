@@ -77,7 +77,7 @@ Servers should implement a fallback path (such as using default values or skippi
 
 ## Troubleshooting
 
-**Error: "Error calling tool 'sample_tool': Method not found: elicitation/create"**
+**Error: "Error calling tool 'sample\_tool': Method not found: elicitation/create"**
 
 This error occurs when an MCP server target sends an elicitation request but the gateway’s client did not declare elicitation capability during `initialize`. The gateway returns a `-32601` (Method not found) error to the target, and the target may return this as a tool execution error to the client.
 
@@ -121,10 +121,12 @@ In form mode, the server sends a structured schema for the client to fill out. T
 Python requests package
 
 1. ```
-   import requests
-   import json
-   import sseclient
+
    ```
+
+import requests
+import json
+import sseclient
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 headers = {
@@ -221,11 +223,13 @@ asyncio.run(use_elicitation(
 Strands MCP Client
 
 1. ```
-   from mcp.client.streamable_http import streamablehttp_client
-   from mcp.types import ElicitResult
-   from strands import Agent
-   from strands.tools.mcp import MCPClient
+
    ```
+
+from mcp.client.streamable_http import streamablehttp_client
+from mcp.types import ElicitResult
+from strands import Agent
+from strands.tools.mcp import MCPClient
 
 mcp_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 access_token = "YOUR_ACCESS_TOKEN"
@@ -301,11 +305,13 @@ In URL mode, the server sends a URL that the user must visit to complete an acti
 Python requests package
 
 1. ```
-   import requests
-   import json
-   import sseclient
-   import webbrowser
+
    ```
+
+import requests
+import json
+import sseclient
+import webbrowser
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 headers = {
@@ -399,12 +405,14 @@ asyncio.run(use_url_elicitation(
 Strands MCP Client
 
 1. ```
-   from mcp.client.streamable_http import streamablehttp_client
-   from mcp.types import ElicitResult
-   from strands import Agent
-   from strands.tools.mcp import MCPClient
-   import webbrowser
+
    ```
+
+from mcp.client.streamable_http import streamablehttp_client
+from mcp.types import ElicitResult
+from strands import Agent
+from strands.tools.mcp import MCPClient
+import webbrowser
 
 mcp_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 access_token = "YOUR_ACCESS_TOKEN"

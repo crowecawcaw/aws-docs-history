@@ -57,9 +57,9 @@ This tutorial requires an OAuth 2.0 authorization server. If you do not have one
 - An OAuth 2.0 client, and client secret for that user pool
 - A test user and password in that Cognito user pool
 
-Deleting the Cognito user pool AgentCoreIdentityQuickStartPool will delete the associated client_id and user as well.
+Deleting the Cognito user pool AgentCoreIdentityQuickStartPool will delete the associated client\_id and user as well.
 
-You may choose to save this script as create_cognito.sh and execute it from your command line, or paste the script into your command line.
+You may choose to save this script as create\_cognito.sh and execute it from your command line, or paste the script into your command line.
 
 ```
 #!/bin/bash
@@ -165,8 +165,10 @@ The credential provider will be created when you run `agentcore deploy` in Step 
 AWS CLI
 
 1. ```
-   #!/bin/bash
+
    ```
+
+#!/bin/bash
 
 # please note the expected ISSUER_URL format for Bedrock AgentCore is the full url, including .well-known/openid-configuration
 
@@ -182,7 +184,7 @@ OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth
       "clientSecret": "'$CLIENT_SECRET'"
 }
 }' \
- --output json)
+--output json)
 
 OAUTH2_CALLBACK_URL=$(echo $OAUTH2_CREDENTIAL_PROVIDER_RESPONSE | jq -r '.callbackUrl')
 
@@ -206,14 +208,14 @@ If you are using the previous script to create an authorization server with Cogn
 
 #!/bin/bash
 aws cognito-idp update-user-pool-client \
- --user-pool-id $USER_POOL_ID \
+--user-pool-id $USER_POOL_ID \
     --client-id $CLIENT_ID \
-    --client-name AgentCoreQuickStart \
-    --allowed-o-auth-flows "code" \
-    --allowed-o-auth-scopes "openid" "profile" "email" \
-    --allowed-o-auth-flows-user-pool-client \
-    --supported-identity-providers "COGNITO" \
-    --callback-urls "$OAUTH2_CALLBACK_URL"
+--client-name AgentCoreQuickStart \
+--allowed-o-auth-flows "code" \
+--allowed-o-auth-scopes "openid" "profile" "email" \
+--allowed-o-auth-flows-user-pool-client \
+--supported-identity-providers "COGNITO" \
+--callback-urls "$OAUTH2_CALLBACK_URL"
 
 ```
 
@@ -290,7 +292,7 @@ on_auth_url=handle_auth_url, # streams authorization URL to client
 force_authentication=True,
 callback_url='insert_oauth2_callback_url_for_session_binding',
 )
-async def introspect_with_decorator(\*, access_token: str):
+async def introspect_with_decorator(*, access_token: str):
 """Introspect token using decorator"""
 logger.info("Inside introspect_with_decorator - decorator succeeded")
 await queue.put({
@@ -400,9 +402,9 @@ REGION=$(aws configure get region)
 # Get execution role from CloudFormation stack outputs
 
 EXECUTION_ROLE=$(aws cloudformation describe-stack-resources \
- --stack-name AgentCore-IdentityQuickstart-prod \
- --query "StackResources[?ResourceType=='AWS::IAM::Role'].PhysicalResourceId" \
- --output text | head -1)
+--stack-name AgentCore-IdentityQuickstart-prod \
+--query "StackResources[?ResourceType=='AWS::IAM::Role'].PhysicalResourceId" \
+--output text | head -1)
 
 echo "Parsed values:"
 echo "Execution Role: $EXECUTION_ROLE"
@@ -422,11 +424,11 @@ cat > agentcore-identity-policy.json << EOF
 "bedrock-agentcore:GetResourceOauth2Token",
 "secretsmanager:GetSecretValue"
 ],
-"Resource": ["arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:workload-identity-directory/default/workload-identity/*",
+"Resource": ["arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:workload-identity-directory/default/workload-identity/_",
 "arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:token-vault/default/oauth2credentialprovider/AgentCoreIdentityQuickStartProvider",
 "arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:workload-identity-directory/default",
 "arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:token-vault/default",
-"arn:aws:secretsmanager:$REGION:$AWS_ACCOUNT:secret:bedrock-agentcore-identity!default/oauth2/AgentCoreIdentityQuickStartProvider*"
+"arn:aws:secretsmanager:$REGION:$AWS_ACCOUNT:secret:bedrock-agentcore-identity!default/oauth2/AgentCoreIdentityQuickStartProvider_"
 ]
 }
 ]
@@ -437,16 +439,16 @@ EOF
 
 POLICY_ARN=$(aws iam create-policy \
     --policy-name AgentCoreIdentityQuickStartPolicy$(LC_ALL=C tr -dc '0-9' < /dev/urandom | head -c 4) \
- --policy-document file://agentcore-identity-policy.json \
- --query 'Policy.Arn' \
- --output text)
+--policy-document file://agentcore-identity-policy.json \
+--query 'Policy.Arn' \
+--output text)
 
 # Extract role name from ARN and attach policy
 
 ROLE_NAME=$(echo $EXECUTION_ROLE | awk -F'/' '{print $NF}')
 aws iam attach-role-policy \
- --role-name $ROLE_NAME \
- --policy-arn $POLICY_ARN
+    --role-name $ROLE_NAME \
+--policy-arn $POLICY_ARN
 
 echo "Policy created and attached: $POLICY_ARN"
 

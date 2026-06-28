@@ -20,8 +20,10 @@ The following code samples demonstrate how to get evaluator details using differ
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore_starter_toolkit import Evaluation
+
    ```
+
+from bedrock_agentcore_starter_toolkit import Evaluation
 
 eval_client = Evaluation()
 
@@ -44,9 +46,11 @@ list_configs_response = client.get_evaluator(evaluatorId='your_evaluator_id')
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control get-evaluator \
-       --evaluator-id 'your_evaluator_id'
+
    ```
+
+aws bedrock-agentcore-control get-evaluator \
+--evaluator-id 'your_evaluator_id'
 
 ```
 

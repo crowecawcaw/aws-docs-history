@@ -8,7 +8,7 @@ Each registry exposes an MCP-compatible endpoint following [2025-11-25 specifica
 https://bedrock-agentcore.<region>.amazonaws.com/registry/<registryId>/mcp
 ```
 
-The MCP contains one tool named "search_registry_records".
+The MCP contains one tool named "search\_registry\_records".
 
 ```
 Tool name: search_registry_records

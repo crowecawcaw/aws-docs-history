@@ -54,9 +54,11 @@ curl -X POST \
 Python requests package
 
 1. ```
-   import requests
-   import json
+
    ```
+
+import requests
+import json
 
 def get_prompt(gateway_url, access_token, prompt_name, arguments):
 headers = {
@@ -84,7 +86,7 @@ access_token = "${AccessToken}" # Replace with your actual access token
 result = get_prompt(
 gateway_url,
 access_token,
-"myTarget***code_review", # Replace with {targetName}***{promptName}
+"myTarget___code_review", # Replace with {targetName}___{promptName}
 {"language": "python", "code": "print('hello')"}
 )
 print(json.dumps(result, indent=2))

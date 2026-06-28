@@ -83,7 +83,7 @@ Resource usage data may be delayed by up to 60 minutes and precision might diffe
 
 **Vended metrics**
 
-By default, Bedrock AgentCore Built-in Tools vends metrics for Account level and Tool level at 1-minute resolution. Amazon CloudWatch aggregation and metric data retention follow standard Amazon CloudWatch data retention polices. For more information, see [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Metric](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric").
+By default, Bedrock AgentCore Built-in Tools vends metrics for Account level and Tool level at 1-minute resolution. Amazon CloudWatch aggregation and metric data retention follow standard Amazon CloudWatch data retention polices. For more information, see [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch\_concepts.html#Metric](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric").
 
 | Name               | Dimensions                 | Description                                                                                                                                                              |
 | ------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -107,22 +107,22 @@ Telemetry data is provided for monitoring purposes. Actual billing is calculated
 
 Amazon Bedrock AgentCore Built-in Tools provides the ability to enabled vended logs for session level usage telemetry at 1-second granularity. Each log record contains 1 second Resource Usage datum. Currently supported metrics include:
 
-- Code Interprefer codeInterpreter.vcpu.hours.used and codeInterpreter.memory.gb_hours.used
-- Browser browser.vcpu.hours.used and browser.memory.gb_hours.used
+- Code Interprefer codeInterpreter.vcpu.hours.used and codeInterpreter.memory.gb\_hours.used
+- Browser browser.vcpu.hours.used and browser.memory.gb\_hours.used
 
 Each resource usage datum will use the following schema in the log record.
 
 **Code Interpreter**
 
-| Log type   | Log fields                                                                                                                                                                                                          | Description                                              |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| USAGE_LOGS | event_timestamp, resource_arn, service.name, cloud.provider, cloud.region, account.id, region, resource.id, session.id, elapsed_time_seconds, codeInterpreter.vcpu.hours.used, codeInterpreter.memory.gb_hours.used | Resource Usage Logs for session-level resource tracking. |
+| Log type    | Log fields                                                                                                                                                                                                               | Description                                              |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| USAGE\_LOGS | event\_timestamp, resource\_arn, service.name, cloud.provider, cloud.region, account.id, region, resource.id, session.id, elapsed\_time\_seconds, codeInterpreter.vcpu.hours.used, codeInterpreter.memory.gb\_hours.used | Resource Usage Logs for session-level resource tracking. |
 
 **Browser**
 
-| Log type   | Log fields                                                                                                                                                                                          | Description                                              |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| USAGE_LOGS | event_timestamp, resource_arn, service.name, cloud.provider, cloud.region, account.id, region, resource.id, session.id, elapsed_time_seconds, browser.vcpu.hours.used, browser.memory.gb_hours.used | Resource Usage Logs for session-level resource tracking. |
+| Log type    | Log fields                                                                                                                                                                                               | Description                                              |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| USAGE\_LOGS | event\_timestamp, resource\_arn, service.name, cloud.provider, cloud.region, account.id, region, resource.id, session.id, elapsed\_time\_seconds, browser.vcpu.hours.used, browser.memory.gb\_hours.used | Resource Usage Logs for session-level resource tracking. |
 
 For more information about enabling logs, see [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") . These logs are theyn displayed in the destination as configured (AWS LogGroup, Amazon S3, or Amazon Kinesis Firehose.
 
@@ -138,29 +138,29 @@ To enhance observability, AgentCore provides structured spans that provide visib
 
 **Code interpreter**
 
-| Operation name               | Span attributes                                                                                                                                                                  | Description                                                                                               |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| StartCodeInterpreterSession  | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency_ms, error_type                     | Starts a code interpreter session.                                                                        |
-| StopCodeInterpreterSession   | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency_ms, error_type, session_duration_s | Stops a code interpreter session.                                                                         |
-| InvokeCodeInterpreter        | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency_ms, error_type                     | Invokes a code interpreter with input code.                                                               |
-| CodeInterpreterSessionExpire | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency_ms, error_type, session_duration_s | Expires a code interpreter session if StopCodeInterpreterSession is not called and the session times out. |
+| Operation name               | Span attributes                                                                                                                                                                      | Description                                                                                               |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| StartCodeInterpreterSession  | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency\_ms, error\_type                       | Starts a code interpreter session.                                                                        |
+| StopCodeInterpreterSession   | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency\_ms, error\_type, session\_duration\_s | Stops a code interpreter session.                                                                         |
+| InvokeCodeInterpreter        | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency\_ms, error\_type                       | Invokes a code interpreter with input code.                                                               |
+| CodeInterpreterSessionExpire | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency\_ms, error\_type, session\_duration\_s | Expires a code interpreter session if StopCodeInterpreterSession is not called and the session times out. |
 
 - toolsession.id - the id of the tool session
-- session_duration_s - the duration of the session in seconds before it ended
+- session\_duration\_s - the duration of the session in seconds before it ended
 
 **Browser**
 
-| Operation name                 | Span attributes                                                                                                                                                                  | Description                                                                                       |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| StartBrowserSession            | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency_ms, error_type                     | Starts a browser session.                                                                         |
-| StopBrowserSession             | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency_ms, error_type, session_duration_s | Stops a browsersession.                                                                           |
-| ConnectBrowserAutomationStream | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency_ms, error_type                     | Connect to a browser automation stream.                                                           |
-| BrowserSessionExpire           | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency_ms, error_type, session_duration_s | Expires a code interpreter session if StopBrowserSession is not called and the session times out. |
+| Operation name                 | Span attributes                                                                                                                                                                      | Description                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| StartBrowserSession            | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency\_ms, error\_type                       | Starts a browser session.                                                                         |
+| StopBrowserSession             | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency\_ms, error\_type, session\_duration\_s | Stops a browsersession.                                                                           |
+| ConnectBrowserAutomationStream | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency\_ms, error\_type                       | Connect to a browser automation stream.                                                           |
+| BrowserSessionExpire           | aws.operation.name, aws.resource.arn, aws.request.id, aws.account.id, toolsession.id, aws.xray.origin, aws.resource.type, aws.region, latency\_ms, error\_type, session\_duration\_s | Expires a code interpreter session if StopBrowserSession is not called and the session times out. |
 
 ## Application log data
 
 AgentCore provides structured Application logs that help you gain visibility into your agent runtime invocations and session-level resource consumption. This log data is provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for steps and details. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under your agent’s application logs or under your own custom log group.
 
-| Log type         | Log fields                                                                                                                                                  | Description                                                                                    |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| APPLICATION_LOGS | timestamp, resource_arn, event_timestamp, account_id, request_id, session_id, trace_id, span_id, service_name, operation, request_payload, response_payload | Application logs for InvokeCodeInterpreter with tracing fields, request, and response payloads |
+| Log type          | Log fields                                                                                                                                                            | Description                                                                                    |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| APPLICATION\_LOGS | timestamp, resource\_arn, event\_timestamp, account\_id, request\_id, session\_id, trace\_id, span\_id, service\_name, operation, request\_payload, response\_payload | Application logs for InvokeCodeInterpreter with tracing fields, request, and response payloads |

@@ -86,7 +86,7 @@ print(response['registryArn'])
 
    1. **Name** — The registry name (linked to the detail page).
    2. **Description** — The registry description, if provided.
-   3. **Authorization type** — The inbound authorization method (AWS_IAM or CUSTOM_JWT).
+   3. **Authorization type** — The inbound authorization method (AWS\_IAM or CUSTOM\_JWT).
    4. **Status** — The current status (Creating, Ready, Updating, Deleting, or a failure state).
    5. **ARN** — The registry Amazon Resource Name.
    6. **Created** — The creation timestamp.

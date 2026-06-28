@@ -86,8 +86,10 @@ TRACE_ID_2   = "<trace-id-2>"   # Turn 2: "What's the weather?"
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation import EvaluationClient, ReferenceInputs
+
    ```
+
+from bedrock_agentcore.evaluation import EvaluationClient, ReferenceInputs
 
 client = EvaluationClient(region_name=REGION)
 
@@ -158,8 +160,10 @@ agentcore run eval \
 Starter Toolkit SDK
 
 1. ```
-   from bedrock_agentcore_starter_toolkit import Evaluation, ReferenceInputs
+
    ```
+
+from bedrock_agentcore_starter_toolkit import Evaluation, ReferenceInputs
 
 eval_client = Evaluation(region=REGION)
 
@@ -227,8 +231,10 @@ agentcore eval run \
 AWS SDK (boto3)
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client("bedrock-agentcore", region_name=REGION)
 
@@ -307,23 +313,25 @@ for r in results:
 AgentCore CLI
 
 1. ```
-   agentcore run eval \
-     --agent AGENT_NAME \
-     --session-id SESSION_ID \
-     --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
-     --assertion "Agent used the calculator tool to compute the result" \
-     --assertion "Agent returned the correct numerical answer of 42" \
-     --assertion "Agent used the weather tool when asked about weather"
+
    ```
+
+agentcore run eval \
+--agent AGENT_NAME \
+--session-id SESSION_ID \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
+--assertion "Agent used the calculator tool to compute the result" \
+--assertion "Agent returned the correct numerical answer of 42" \
+--assertion "Agent used the weather tool when asked about weather"
 
 # ARN mode — evaluate an agent outside the CLI project
 
 agentcore run eval \
- --runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
- --session-id SESSION_ID \
- --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
- --assertion "Agent used the calculator tool to compute the result" \
- --assertion "Agent returned the correct numerical answer of 42"
+--runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
+--session-id SESSION_ID \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
+--assertion "Agent used the calculator tool to compute the result" \
+--assertion "Agent returned the correct numerical answer of 42"
 
 ````
 
@@ -355,14 +363,16 @@ for r in results.get_successful_results():
 Starter Toolkit CLI
 
 1. ```
-   agentcore eval run \
-     --agent-id AGENT_ID \
-     --session-id SESSION_ID \
-     --evaluator "Builtin.GoalSuccessRate" \
-     --assertion "Agent used the calculator tool to compute the result" \
-     --assertion "Agent returned the correct numerical answer of 42" \
-     --assertion "Agent used the weather tool when asked about weather"
+
    ```
+
+agentcore eval run \
+--agent-id AGENT_ID \
+--session-id SESSION_ID \
+--evaluator "Builtin.GoalSuccessRate" \
+--assertion "Agent used the calculator tool to compute the result" \
+--assertion "Agent returned the correct numerical answer of 42" \
+--assertion "Agent used the weather tool when asked about weather"
 
 ````
 
@@ -413,8 +423,10 @@ The trajectory evaluators compare the agent’s actual tool call sequence agains
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation import EvaluationClient, ReferenceInputs
+
    ```
+
+from bedrock_agentcore.evaluation import EvaluationClient, ReferenceInputs
 
 client = EvaluationClient(region_name=REGION)
 
@@ -447,20 +459,20 @@ AgentCore CLI
 ```
 
 agentcore run eval \
- --agent AGENT_NAME \
- --session-id SESSION_ID \
- --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
- --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryInOrderMatch" \
- --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryAnyOrderMatch" \
- --expected-trajectory "calculator,weather"
+--agent AGENT_NAME \
+--session-id SESSION_ID \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryInOrderMatch" \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryAnyOrderMatch" \
+--expected-trajectory "calculator,weather"
 
 # ARN mode — evaluate an agent outside the CLI project
 
 agentcore run eval \
- --runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
- --session-id SESSION_ID \
- --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
- --expected-trajectory "calculator,weather"
+--runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
+--session-id SESSION_ID \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
+--expected-trajectory "calculator,weather"
 
 ````
 
@@ -506,8 +518,10 @@ agentcore eval run \
 AWS SDK (boto3)
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client("bedrock-agentcore", region_name=REGION)
 
@@ -586,18 +600,20 @@ for r in results:
 AgentCore CLI
 
 1. ```
-   agentcore run eval \
-     --agent AGENT_NAME \
-     --session-id SESSION_ID \
-     --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness" \
-     --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
-     --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
-     --assertion "Agent used the calculator tool for math" \
-     --assertion "Agent used the weather tool when asked about weather" \
-     --expected-trajectory "calculator,weather" \
-     --expected-response "The weather is sunny" \
-     --output results.json
+
    ```
+
+agentcore run eval \
+--agent AGENT_NAME \
+--session-id SESSION_ID \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness" \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
+--evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
+--assertion "Agent used the calculator tool for math" \
+--assertion "Agent used the weather tool when asked about weather" \
+--expected-trajectory "calculator,weather" \
+--expected-response "The weather is sunny" \
+--output results.json
 
 ````
 
@@ -636,8 +652,10 @@ for r in results.get_successful_results():
 AWS SDK (boto3)
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client("bedrock-agentcore", region_name=REGION)
 

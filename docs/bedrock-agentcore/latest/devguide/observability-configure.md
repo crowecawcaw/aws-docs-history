@@ -151,7 +151,7 @@ For containerized environment (such as docker) add the following command:
 CMD ["opentelemetry-instrument", "python", "main.py"]
 ```
 
-When using ADOT, in order to propagate session id correctly, define the `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` in the request header. ADOT then sets the session_id correctly in the downstream headers.
+When using ADOT, in order to propagate session id correctly, define the `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` in the request header. ADOT then sets the session\_id correctly in the downstream headers.
 
 To propagate a trace ID, invoke the AgentCore runtime with the parameter `traceId=<traceId>` set.
 
@@ -231,7 +231,7 @@ Memory
 3. In the **Memory** pane, select the memory you want to configure a log destination for.
 4. Scroll down to the **Log delivery** pane and choose **Add**.
 5. From the dropdown list, select the type of log destination you want to add (CloudWatch Logs group, Amazon S3 bucket, or Amazon Data Firehose).
-6. For **Log type** , select **APPLICATION_LOGS**.
+6. For **Log type** , select **APPLICATION\_LOGS**.
 7. For Amazon S3 and Firehose destinations, enter a **Delivery destination ARN** . For CloudWatch Logs, the **Destination log group** is already populated with a default value.
 8. (Optional) For CloudWatch Logs destinations, to change the default log group, enter a new log group name or select an existing log group under **Destination log group**.
 9. (Optional) To change the fields that are captured in each log record or the logs' output format, expand **Additional settings - optional** , and modify the **Field selection** , **Output format** , and **Field delimiter** to your desired configuration.
@@ -257,7 +257,7 @@ Runtime
 4. Scroll down to the **Log delivery** pane and from the **Add** drop-down, choose the **Logging destination** - either Amazon CloudWatch Logs, Amazon S3, or Amazon Data Firehose.
 5. Configure the following log delivery details and then choose **Add** :
 
-   - For **Log type** , choose **APPLICATION_LOGS**.
+   - For **Log type** , choose **APPLICATION\_LOGS**.
    - If using Amazon CloudWatch Logs as the logging destination, specify the destination log group.
    - If using Amazon S3 as the logging destination, specify the destination Amazon S3 bucket.
    - If using Amazon Data Firehose as the logging destination, specify a destination delivery stream.
@@ -272,7 +272,7 @@ Built-in tools
 4. Scroll down to the **Log delivery** pane and from the **Add** drop-down, choose the **Logging destination** - either Amazon CloudWatch Logs, Amazon S3, or Amazon Data Firehose.
 5. Configure the following log delivery details and then choose **Add** :
 
-   - For **Log type** , choose **APPLICATION_LOGS**.
+   - For **Log type** , choose **APPLICATION\_LOGS**.
    - If using Amazon CloudWatch Logs as the logging destination, specify the destination log group.
    - If using Amazon S3 as the logging destination, specify the destination Amazon S3 bucket.
    - If using Amazon Data Firehose as the logging destination, specify a destination delivery stream.

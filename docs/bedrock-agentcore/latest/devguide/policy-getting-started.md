@@ -37,9 +37,11 @@ Create a new AgentCore project:
 AgentCore CLI
 
 1. ```
-   agentcore create --name PolicyDemo --defaults
-   cd PolicyDemo
+
    ```
+
+agentcore create --name PolicyDemo --defaults
+cd PolicyDemo
 
 ````
 
@@ -97,11 +99,13 @@ Register your Lambda function as a gateway target with a tool schema that define
 AgentCore CLI
 
 1. ```
-   agentcore add gateway-target --name RefundTarget --type lambda-function-arn \
-     --lambda-arn ++<YOUR_LAMBDA_ARN>++ \
-     --tool-schema-file refund_tools.json \
-     --gateway PolicyGateway
+
    ```
+
+agentcore add gateway-target --name RefundTarget --type lambda-function-arn \
+--lambda-arn ++<YOUR_LAMBDA_ARN>++ \
+--tool-schema-file refund_tools.json \
+--gateway PolicyGateway
 
 ````
 
@@ -219,7 +223,7 @@ The policy uses:
 
 - `permit` – Allows the action (Cedar also supports `forbid` to deny actions)
 - `principal` – The entity making the request
-- `action` – The specific tool being called (RefundTarget\_\_\_process_refund)
+- `action` – The specific tool being called (RefundTarget\_\_\_process\_refund)
 - `resource` – The gateway instance where the policy applies
 - `when` condition – Additional requirements (amount must be < $1000)
 
@@ -295,9 +299,9 @@ If you encounter issues during setup or testing, refer to the following common p
 | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | "AccessDeniedException"                   | Check IAM permissions for bedrock-agentcore:\*                                                                                                                                                                                                                                                                                                                           |
 | Gateway not responding                    | Wait 30–60 seconds after deployment for DNS propagation                                                                                                                                                                                                                                                                                                                  |
-| Deploy fails                              | Run \*_agentcore status_<br>• to check resource states and review error messages                                                                                                                                                                                                                                                                                         |
+| Deploy fails                              | Run *_agentcore status_<br>• to check resource states and review error messages                                                                                                                                                                                                                                                                                          |
 | Policy not enforced                       | Verify the policy engine is attached in ENFORCE mode by running **agentcore status**                                                                                                                                                                                                                                                                                     |
-| Cedar validation error during deploy      | Cedar policies must use specific resource ARNs — wildcard resources (e.g., `permit(principal, action, resource);` ) are rejected. Use the gateway ARN from \*_agentcore status_<br>• in your Cedar policy’s `resource` field.                                                                                                                                            |
+| Cedar validation error during deploy      | Cedar policies must use specific resource ARNs — wildcard resources (e.g., `permit(principal, action, resource);` ) are rejected. Use the gateway ARN from *_agentcore status_<br>• in your Cedar policy’s `resource` field.                                                                                                                                             |
 | Tool call denied unexpectedly             | The policy engine is enforcing and the Cedar policy denied the request. Verify that the policy’s `action` and `resource` fields match the tool call being made.                                                                                                                                                                                                          |
 | Deploy fails with policy validation error | The default validation mode `FAIL_ON_ANY_FINDINGS` runs both schema checks and semantic validation, rejecting the policy if either produces findings. You can set the validation mode to `IGNORE_ALL_FINDINGS` to run only schema checks if you don’t need semantic validation. For production, fix the Cedar policy to pass both schema checks and semantic validation. |
 

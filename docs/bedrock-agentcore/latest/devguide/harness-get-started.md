@@ -54,10 +54,10 @@ for event in response["stream"]:
 ```
 
 AgentCore CLI
-Install AgentCore CLI installed with the preview channel:
+Install the AgentCore CLI:
 
 ```
-npm install -g @aws/agentcore@preview
+npm install -g @aws/agentcore
 ```
 
 Create a harness project non-interactively with flags:
@@ -87,6 +87,12 @@ Useful flags:
 - `--no-traces` - disable local OTEL trace collection
 
 Interactive
+Install the AgentCore CLI:
+
+```
+npm install -g @aws/agentcore
+```
+
 Run `agentcore create` without flags to launch the interactive wizard:
 
 ```

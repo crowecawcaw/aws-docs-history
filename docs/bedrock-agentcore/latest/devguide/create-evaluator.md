@@ -60,7 +60,7 @@ The API returns the evaluator ARN, ID, creation timestamp, and initial status. O
 
 The following code samples demonstrate how to create custom evaluators using different development approaches. Choose the method that best fits your development environment and preferences.
 
-### Custom evaluator config sample JSON - custom_evaluator_config.json
+### Custom evaluator config sample JSON - custom\_evaluator\_config.json
 
 ```
 {
@@ -115,11 +115,13 @@ Using the above JSON, you can create the custom evaluator through the API client
 AgentCore CLI
 
 1. ```
-   agentcore add evaluator \
-     --name "your_custom_evaluator_name" \
-     --config custom_evaluator_config.json \
-     --level "TRACE"
+
    ```
+
+agentcore add evaluator \
+--name "your_custom_evaluator_name" \
+--config custom_evaluator_config.json \
+--level "TRACE"
 
 ````
 
@@ -189,9 +191,11 @@ custom_evaluator = eval_client.create_evaluator(
 AWS SDK
 
 1. ```
-   import boto3
-   import json
+
    ```
+
+import boto3
+import json
 
 client = boto3.client('bedrock-agentcore-control')
 
@@ -373,13 +377,11 @@ If you load another template, any changes to your existing custom evaluator defi
 
     	1. (Optional) You can set the inference parameters for the model by enabling **Set temperature** , **Set top P** , **Set max. output tokens** , and **Set stop sequences**.
 
-7. For **Evaluator scale type** , choose either **Define scale as numeric values** or **Define scale as string values**.
-8. For **Evaluator scale definitions** , you can have a total of 20 definitions.
-9. For **Evaluator evaluation level** , choose one of the following:
+7. For **Evaluator scale type** , choose either **Define scale as numeric values** or **Define scale as string values**. 8. For **Evaluator scale definitions** , you can have a total of 20 definitions. 9. For **Evaluator evaluation level** , choose one of the following:
 
-   - **Session** – Evaluate the entire conversation sessions.
-   - **Trace** – Evaluate each individual trace.
-   - **Tool call** – Evaluate every tool call.
+    * **Session** – Evaluate the entire conversation sessions.
+    * **Trace** – Evaluate each individual trace.
+    * **Tool call** – Evaluate every tool call.
 
 10. Choose **Create custom evaluator** to create the custom evaluator.
 

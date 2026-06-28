@@ -239,27 +239,27 @@ The following list provides key information for this template
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
 
-| REST API type | Operation name                | REST API path                                              | Description                         |
-| ------------- | ----------------------------- | ---------------------------------------------------------- | ----------------------------------- |
-| GET           | getCompanyInformation         | /v1/company_information                                    | View company details                |
-| GET           | getCompanyEINs                | /v1/company_eins                                           | View company tax IDs                |
-| GET           | getEmployee                   | /v1/employees/ `{employeeId}`                              | Retrieve employee information       |
-| POST          | updateEmployee                | /v1/employees/ `{employeeId}`                              | Update employee information         |
-| POST          | addEmployee                   | /v1/employees                                              | Add new employee with basic info    |
-| GET           | getEmployeesDirectory         | /v1/employees/directory                                    | View employee directory             |
-| GET           | getTimeOffTypes               | /v1/meta/time_off/types                                    | View types of time off              |
-| GET           | getTimeOffPolicies            | /v1/meta/time_off/policies                                 | View time off policy list           |
-| GET           | getTimeOffRequests            | /v1/time_off/requests                                      | View time off requests              |
-| PUT           | addTimeOffRequest             | /v1/employees/ `{employeeId}` /time_off/request            | Submit time off request             |
-| PUT           | changeRequestStatus           | /v1/time_off/requests/ `{requestId}` /status               | Update time off request status      |
-| PUT           | adjustTimeOffBalance          | /v1/employees/ `{employeeId}` /time_off/balance_adjustment | Adjust employee time off balance    |
-| PUT           | assignTimeOffPolicies         | /v1_1/employees/ `{employeeId}` /time_off/policies         | Assign employee time off policies   |
-| GET           | listTimeOffPolicies           | /v1/employees/ `{employeeId}` /time_off/policies           | View time off policies              |
-| GET           | estimateFutureTimeOffBalances | /v1/employees/ `{employeeId}` /time_off/calculator         | Calculate future time off estimates |
-| GET           | getWhosOutList                | /v1/time_off/whos_out                                      | See who’s on leave                  |
-| GET           | listEmployeeFiles             | /v1/employees/ `{employeeId}` /files/view                  | View employee documents             |
-| POST          | uploadEmployeeFile            | /v1/employees/ `{employeeId}` /files                       | Upload Employee File                |
-| GET           | getEmployeeTableRow           | /v1/employees/ `{employeeId}` /tables/ `{table}`           | Get employee table data             |
+| REST API type | Operation name                | REST API path                                                | Description                         |
+| ------------- | ----------------------------- | ------------------------------------------------------------ | ----------------------------------- |
+| GET           | getCompanyInformation         | /v1/company\_information                                     | View company details                |
+| GET           | getCompanyEINs                | /v1/company\_eins                                            | View company tax IDs                |
+| GET           | getEmployee                   | /v1/employees/ `{employeeId}`                                | Retrieve employee information       |
+| POST          | updateEmployee                | /v1/employees/ `{employeeId}`                                | Update employee information         |
+| POST          | addEmployee                   | /v1/employees                                                | Add new employee with basic info    |
+| GET           | getEmployeesDirectory         | /v1/employees/directory                                      | View employee directory             |
+| GET           | getTimeOffTypes               | /v1/meta/time\_off/types                                     | View types of time off              |
+| GET           | getTimeOffPolicies            | /v1/meta/time\_off/policies                                  | View time off policy list           |
+| GET           | getTimeOffRequests            | /v1/time\_off/requests                                       | View time off requests              |
+| PUT           | addTimeOffRequest             | /v1/employees/ `{employeeId}` /time\_off/request             | Submit time off request             |
+| PUT           | changeRequestStatus           | /v1/time\_off/requests/ `{requestId}` /status                | Update time off request status      |
+| PUT           | adjustTimeOffBalance          | /v1/employees/ `{employeeId}` /time\_off/balance\_adjustment | Adjust employee time off balance    |
+| PUT           | assignTimeOffPolicies         | /v1\_1/employees/ `{employeeId}` /time\_off/policies         | Assign employee time off policies   |
+| GET           | listTimeOffPolicies           | /v1/employees/ `{employeeId}` /time\_off/policies            | View time off policies              |
+| GET           | estimateFutureTimeOffBalances | /v1/employees/ `{employeeId}` /time\_off/calculator          | Calculate future time off estimates |
+| GET           | getWhosOutList                | /v1/time\_off/whos\_out                                      | See who’s on leave                  |
+| GET           | listEmployeeFiles             | /v1/employees/ `{employeeId}` /files/view                    | View employee documents             |
+| POST          | uploadEmployeeFile            | /v1/employees/ `{employeeId}` /files                         | Upload Employee File                |
+| GET           | getEmployeeTableRow           | /v1/employees/ `{employeeId}` /tables/ `{table}`             | Get employee table data             |
 
 ### Brave Search
 
@@ -588,33 +588,33 @@ The following list provides key information for this template
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
 
-| REST API type | Operation name              | REST API path                           | Description                 |
-| ------------- | --------------------------- | --------------------------------------- | --------------------------- |
-| GET           | retrieveAttachmentsMetadata | /api/now/attachment                     | Get all attachments info    |
-| POST          | uploadBinaryAttachment      | /api/now/attachment/file                | Upload binary file          |
-| GET           | retrieveAttachmentMetadata  | /api/now/attachment/ `{sys_id}`         | Get attachment info         |
-| DELETE        | deleteAttachment            | /api/now/attachment/ `{sys_id}`         | Remove attachment           |
-| GET           | retrieveAttachmentContent   | /api/now/attachment/ `{sys_id}` /file   | Get attachment content      |
-| GET           | listIncidents               | /api/now/table/incident                 | View all incidents          |
-| POST          | createIncident              | /api/now/table/incident                 | Create new incident         |
-| GET           | getIncident                 | /api/now/table/incident/ `{sys_id}`     | View incident details       |
-| PATCH         | updateIncident              | /api/now/table/incident/ `{sys_id}`     | Edit incident               |
-| DELETE        | deleteIncident              | /api/now/table/incident/ `{sys_id}`     | Remove incident             |
-| GET           | listProblem                 | /api/now/table/problem                  | View all problems           |
-| POST          | createProblem               | /api/now/table/problem                  | Create new problem          |
-| GET           | getProblem                  | /api/now/table/problem/ `{sys_id}`      | View problem details        |
-| DELETE        | deleteProblem               | /api/now/table/problem/ `{sys_id}`      | Remove problem              |
-| PATCH         | updateProblem               | /api/now/table/problem/ `{sys_id}`      | Edit problem                |
-| POST          | createKnowledgeBaseArticle  | /api/now/table/kb_knowledge             | Create KB article           |
-| DELETE        | deleteKnowledgeBaseArticle  | /api/now/table/kb_knowledge/ `{sys_id}` | Remove KB article           |
-| PATCH         | updateKnowledgeBaseArticle  | /api/now/table/kb_knowledge/ `{sys_id}` | Edit KB article             |
-| GET           | listChoices                 | /api/now/table/sys_choice               | View all system choices     |
-| GET           | listUsers                   | /api/now/table/sys_user                 | View all users              |
-| GET           | listChangeRequest           | /api/sn_chg_rest/change                 | View all change requests    |
-| POST          | createChangeRequest         | /api/sn_chg_rest/change                 | Create new change request   |
-| GET           | getChangeRequest            | /api/sn_chg_rest/change/ `{sys_id}`     | View change request details |
-| DELETE        | deleteChangeRequest         | /api/sn_chg_rest/change/ `{sys_id}`     | Remove change request       |
-| PATCH         | updateChangeRequest         | /api/sn_chg_rest/change/ `{sys_id}`     | Edit change request         |
+| REST API type | Operation name              | REST API path                            | Description                 |
+| ------------- | --------------------------- | ---------------------------------------- | --------------------------- |
+| GET           | retrieveAttachmentsMetadata | /api/now/attachment                      | Get all attachments info    |
+| POST          | uploadBinaryAttachment      | /api/now/attachment/file                 | Upload binary file          |
+| GET           | retrieveAttachmentMetadata  | /api/now/attachment/ `{sys_id}`          | Get attachment info         |
+| DELETE        | deleteAttachment            | /api/now/attachment/ `{sys_id}`          | Remove attachment           |
+| GET           | retrieveAttachmentContent   | /api/now/attachment/ `{sys_id}` /file    | Get attachment content      |
+| GET           | listIncidents               | /api/now/table/incident                  | View all incidents          |
+| POST          | createIncident              | /api/now/table/incident                  | Create new incident         |
+| GET           | getIncident                 | /api/now/table/incident/ `{sys_id}`      | View incident details       |
+| PATCH         | updateIncident              | /api/now/table/incident/ `{sys_id}`      | Edit incident               |
+| DELETE        | deleteIncident              | /api/now/table/incident/ `{sys_id}`      | Remove incident             |
+| GET           | listProblem                 | /api/now/table/problem                   | View all problems           |
+| POST          | createProblem               | /api/now/table/problem                   | Create new problem          |
+| GET           | getProblem                  | /api/now/table/problem/ `{sys_id}`       | View problem details        |
+| DELETE        | deleteProblem               | /api/now/table/problem/ `{sys_id}`       | Remove problem              |
+| PATCH         | updateProblem               | /api/now/table/problem/ `{sys_id}`       | Edit problem                |
+| POST          | createKnowledgeBaseArticle  | /api/now/table/kb\_knowledge             | Create KB article           |
+| DELETE        | deleteKnowledgeBaseArticle  | /api/now/table/kb\_knowledge/ `{sys_id}` | Remove KB article           |
+| PATCH         | updateKnowledgeBaseArticle  | /api/now/table/kb\_knowledge/ `{sys_id}` | Edit KB article             |
+| GET           | listChoices                 | /api/now/table/sys\_choice               | View all system choices     |
+| GET           | listUsers                   | /api/now/table/sys\_user                 | View all users              |
+| GET           | listChangeRequest           | /api/sn\_chg\_rest/change                | View all change requests    |
+| POST          | createChangeRequest         | /api/sn\_chg\_rest/change                | Create new change request   |
+| GET           | getChangeRequest            | /api/sn\_chg\_rest/change/ `{sys_id}`    | View change request details |
+| DELETE        | deleteChangeRequest         | /api/sn\_chg\_rest/change/ `{sys_id}`    | Remove change request       |
+| PATCH         | updateChangeRequest         | /api/sn\_chg\_rest/change/ `{sys_id}`    | Edit change request         |
 
 ### Slack Web
 
@@ -699,17 +699,17 @@ The following list provides key information for this template
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
 
-| REST API type | Operation name           | REST API path                             | Description                 |
-| ------------- | ------------------------ | ----------------------------------------- | --------------------------- |
-| GET           | listSearchResults        | /api/v2/search                            | List Search Results         |
-| GET           | listTickets              | /api/v2/tickets                           | List Tickets                |
-| POST          | createTicket             | /api/v2/tickets                           | Create Ticket               |
-| GET           | showTicket               | /api/v2/tickets/ `{ticket_id}`            | Show Ticket                 |
-| PUT           | updateTicket             | /api/v2/tickets/ `{ticket_id}`            | Update Ticket               |
-| GET           | ListTicketEmailCCs       | /api/v2/tickets/ `{ticket_id}` /email_ccs | List Email CCs for a Ticket |
-| GET           | ListTicketFollowers      | /api/v2/tickets/ `{ticket_id}` /followers | List Followers for a Ticket |
-| GET           | ListTicketIncidents      | /api/v2/tickets/ `{ticket_id}` /incidents | List Ticket Incidents       |
-| GET           | TicketRelatedInformation | /api/v2/tickets/ `{ticket_id}` /related   | Ticket Related Information  |
+| REST API type | Operation name           | REST API path                              | Description                 |
+| ------------- | ------------------------ | ------------------------------------------ | --------------------------- |
+| GET           | listSearchResults        | /api/v2/search                             | List Search Results         |
+| GET           | listTickets              | /api/v2/tickets                            | List Tickets                |
+| POST          | createTicket             | /api/v2/tickets                            | Create Ticket               |
+| GET           | showTicket               | /api/v2/tickets/ `{ticket_id}`             | Show Ticket                 |
+| PUT           | updateTicket             | /api/v2/tickets/ `{ticket_id}`             | Update Ticket               |
+| GET           | ListTicketEmailCCs       | /api/v2/tickets/ `{ticket_id}` /email\_ccs | List Email CCs for a Ticket |
+| GET           | ListTicketFollowers      | /api/v2/tickets/ `{ticket_id}` /followers  | List Followers for a Ticket |
+| GET           | ListTicketIncidents      | /api/v2/tickets/ `{ticket_id}` /incidents  | List Ticket Incidents       |
+| GET           | TicketRelatedInformation | /api/v2/tickets/ `{ticket_id}` /related    | Ticket Related Information  |
 
 ### Zoom
 

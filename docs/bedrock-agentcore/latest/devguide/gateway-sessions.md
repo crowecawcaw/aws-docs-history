@@ -79,7 +79,7 @@ Sessions are scoped to the authenticated user identity to prevent session hijack
 | --------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | OAuth / OIDC          | `sub` claim from the JWT token | Fully scoped. Only the user who created the session can use it. The `sub` claim is required by the OIDC specification, is locally unique within the issuer, case-sensitive, and never reassigned.                     |
 | AWS IAM (SigV4)       | Principal ARN                  | Fully scoped. Only the IAM principal who created the session can use it. The Principal ARN is globally unique across AWS, immutable for the IAM entity’s lifetime. Example: `arn:aws:iam::123456789012:user/john-doe` |
-| No authentication     | None                           | \*_No user scoping._<br>• Sessions are available but not bound to any identity. Anyone with the session ID can interact with the session.                                                                             |
+| No authentication     | None                           | **No user scoping.*<br>• Sessions are available but not bound to any identity. Anyone with the session ID can interact with the session.                                                                              |
 
 ###### Important
 
@@ -182,9 +182,11 @@ curl -X POST \
 Python requests package
 
 1. ```
-   import requests
-   import json
+
    ```
+
+import requests
+import json
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 headers = {
@@ -263,10 +265,12 @@ asyncio.run(use_session(
 Strands MCP Client
 
 1. ```
-   from mcp.client.streamable_http import streamablehttp_client
-   from strands import Agent
-   from strands.tools.mcp import MCPClient
+
    ```
+
+from mcp.client.streamable_http import streamablehttp_client
+from strands import Agent
+from strands.tools.mcp import MCPClient
 
 mcp_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 access_token = "YOUR_ACCESS_TOKEN"

@@ -139,7 +139,7 @@ aws cognito-idp create-user-pool-domain \
 
 ###### Note
 
-Remove any underscore from the `UserPoolId` when creating the domain. For example, if your user pool ID is "us-west-2_gmSGKKGr9", use "us-west-2gmSGKKGr9" as the domain. 6. Construct the discovery URL for your Cognito user pool:
+Remove any underscore from the `UserPoolId` when creating the domain. For example, if your user pool ID is "us-west-2\_gmSGKKGr9", use "us-west-2gmSGKKGr9" as the domain. 6. Construct the discovery URL for your Cognito user pool:
 
 ```
 https://cognito-idp.us-west-2.amazonaws.com/<UserPoolId>/.well-known/openid-configuration

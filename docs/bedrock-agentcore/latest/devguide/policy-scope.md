@@ -45,7 +45,7 @@ Principals are OAuth-authenticated users. Each user has a unique ID from the JWT
 
 ### IAM Entity Principal
 
-When using AWS_IAM authorization, the principal is an `AgentCore::IamEntity` :
+When using AWS\_IAM authorization, the principal is an `AgentCore::IamEntity` :
 
 ```
 principal is AgentCore::IamEntity

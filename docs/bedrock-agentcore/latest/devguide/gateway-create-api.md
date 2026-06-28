@@ -67,17 +67,19 @@ The following examples show the structure of the CustomClaimValidationsType obje
 String matches string
 
 1. ```
-   {
-     "inboundTokenClaimName": "string",
-     "inboundTokenClaimValueType": "STRING",
-     "authorizingClaimMatchValue": {
-       "claimMatchValue": {
-         "matchValueString": "string"
-       },
-       "claimMatchOperator": "EQUALS"
-     }
-   }
+
    ```
+
+{
+"inboundTokenClaimName": "string",
+"inboundTokenClaimValueType": "STRING",
+"authorizingClaimMatchValue": {
+"claimMatchValue": {
+"matchValueString": "string"
+},
+"claimMatchOperator": "EQUALS"
+}
+}
 
 ````
 
@@ -100,17 +102,19 @@ Array contains string
 Array contains any value in array
 
 1. ```
-   {
-     "inboundTokenClaimName": "string",
-     "inboundTokenClaimValueType": "STRING_ARRAY",
-     "authorizingClaimMatchValue": {
-       "claimMatchValue": {
-         "matchValueStringList": ["string"]
-       },
-       "claimMatchOperator": "CONTAINS_ANY"
-     }
-   }
+
    ```
+
+{
+"inboundTokenClaimName": "string",
+"inboundTokenClaimValueType": "STRING_ARRAY",
+"authorizingClaimMatchValue": {
+"claimMatchValue": {
+"matchValueStringList": ["string"]
+},
+"claimMatchOperator": "CONTAINS_ANY"
+}
+}
 
 ```
 
@@ -174,10 +178,10 @@ The following command shows how to create a gateway with Custom JWT authorizatio
 ```
 
 agentcore add gateway \
- --name my-gateway \
- --authorizer-type CUSTOM_JWT \
- --discovery-url "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration" \
- --allowed-audience "api.example.com"
+--name my-gateway \
+--authorizer-type CUSTOM_JWT \
+--discovery-url "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration" \
+--allowed-audience "api.example.com"
 agentcore deploy
 
 ```
@@ -220,11 +224,11 @@ Interactive
 ```
 
 aws bedrock-agentcore-control create-gateway \
- --name my-gateway \
- --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
- --protocol-type MCP \
- --authorizer-type CUSTOM_JWT \
- --authorizer-configuration '{
+--name my-gateway \
+--role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
+--protocol-type MCP \
+--authorizer-type CUSTOM_JWT \
+--authorizer-configuration '{
 "customJWTAuthorizer": {
 "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
 "allowedClients": ["clientId"]
@@ -399,7 +403,7 @@ gateway = client.create_gateway(
 print(f"MCP Endpoint: {gateway['gatewayUrl']}")
 ```
 
-## Create a gateway: basic example (AUTHENTICATE_ONLY authorization)
+## Create a gateway: basic example (AUTHENTICATE\_ONLY authorization)
 
 This section provides examples of creating a gateway with `AUTHENTICATE_ONLY` authorization. With this authorizer type, the gateway validates the inbound token but does not perform full authorization. The authenticated identity or token is then passed through to the target for downstream authorization. This is useful when you want the gateway to verify that the caller is authenticated while delegating authorization decisions to the target service.
 

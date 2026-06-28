@@ -112,9 +112,9 @@ PENDING → IN_PROGRESS → COMPLETED
 ```
 
 - **PENDING** — The job has been accepted and is queued for processing.
-- **IN_PROGRESS** — The service is discovering sessions and running evaluators.
+- **IN\_PROGRESS** — The service is discovering sessions and running evaluators.
 - **COMPLETED** — All sessions have been evaluated. Results are available.
-- **COMPLETED_WITH_ERRORS** — The job finished but some sessions encountered errors. Partial results are available.
+- **COMPLETED\_WITH\_ERRORS** — The job finished but some sessions encountered errors. Partial results are available.
 - **FAILED** — The job encountered an error. Check `errorDetails` for details.
 - **STOPPING** — A stop request has been received. The job is winding down.
 - **STOPPED** — The job was stopped before completion. Partial results may be available.

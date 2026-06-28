@@ -124,7 +124,7 @@ Contains the tool arguments:
 Cedar evaluates:
 
 1. **Principal check:** Is the principal an OAuthUser? ✓ (matches)
-2. **Action check:** Is the action RefundTool\_\_\_process_refund? ✓ (matches)
+2. **Action check:** Is the action RefundTool\_\_\_process\_refund? ✓ (matches)
 3. **Resource check:** Is the resource the refund gateway? ✓ (matches)
 4. **Condition checks:**
 

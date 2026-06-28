@@ -63,7 +63,7 @@ This configuration includes:
 
 - Discovery URL - A string that must match the pattern `^.+/\.well-known/openid-configuration$` for OpenID Connect discovery URLs
 - Allowed audiences - A list of permitted audiences that will be validated against the aud claim in the JWT token
-- Allowed clients - A list of permitted client identifiers that will be validated against the client_id claim in the JWT token
+- Allowed clients - A list of permitted client identifiers that will be validated against the client\_id claim in the JWT token
 - Allowed scopes - A list of permitted scopes that will be validated against the scope claim in the JWT token. The `allowedScopes` authorization field will be configured as a list of strings.
 - Required custom claims - A list of required claims that will be validated against the claim name and value contained in the incoming JWT token. For details on configuring the authorizer, see [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md")
 
@@ -299,14 +299,14 @@ For detailed information about the service-linked role, see [Identity service-li
 
 Now you’ll deploy your agent with JWT authorization using the Cognito user pool you created. You will need to create an agent with authorizer configuration. The following table represents the various authorizer configuration parameters and how we use them to validate the incoming token.
 
-| authorizer_configuration     | claim in decoded token | Notes                                                                                                                                                                                             |
+| authorizer\_configuration    | claim in decoded token | Notes                                                                                                                                                                                             |
 | ---------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | discovery url → issuer       | iss                    | The discovery url should point to an issuer url. This should match the iss claim in the decoded token.                                                                                            |
-| allowedClients               | client_id              | client_id in the token should match one of the allowed clients specified in the authorizer                                                                                                        |
+| allowedClients               | client\_id             | client\_id in the token should match one of the allowed clients specified in the authorizer                                                                                                       |
 | allowedAudience              | aud                    | One of the values in aud claim from the token should match one of the allowed audience specified in the authorizer                                                                                |
 | allowedWorkloadConfiguration | `internal`             | Optional. At launch, used to allow only your AgentCore Gateway to invoke the runtime. See [Restrict invocation to your gateway](#deploy-agent-allowed-workload "#deploy-agent-allowed-workload"). |
 
-If both client_id and aud is provided, the agent runtime authorizer will verify both.
+If both client\_id and aud is provided, the agent runtime authorizer will verify both.
 
 ### allowedWorkloadConfiguration: restrict invocation to your gateway
 
@@ -387,8 +387,10 @@ You can also run the `agentcore create` command without flags for a fully intera
 Python
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 # Create the client
 
@@ -474,9 +476,9 @@ Fetch a bearer token for the user you created with Amazon Cognito.
 
 export TOKEN=$(aws cognito-idp initiate-auth \
     --client-id "$CLIENT_ID" \
- --auth-flow USER_PASSWORD_AUTH \
- --auth-parameters USERNAME='testuser',PASSWORD='PASSWORD' \
- --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+--auth-flow USER_PASSWORD_AUTH \
+--auth-parameters USERNAME='testuser',PASSWORD='PASSWORD' \
+--region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
 
 ````
 
@@ -672,7 +674,7 @@ asyncio.run(read_from_google_drive(access_token=""))
 
 ###### Note
 
-For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") , refer to [https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py")
+For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") , refer to [https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound\_Auth\_3lo/oauth2\_callback\_server.py](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py")
 
 **What happens behind the scenes**
 
@@ -791,7 +793,7 @@ When troubleshooting token issues, check the following:
 - `client_id` claim in the token must match one of the authorizer allowedClients entries if provided
 
   - Note the client id you provided when you created the agent
-  - Confirm this matches the client_id claim in the decoded token
+  - Confirm this matches the client\_id claim in the decoded token
 
 - `aud` claim in the token must match one of the authorizer `allowedAudience` entries, if provided
 

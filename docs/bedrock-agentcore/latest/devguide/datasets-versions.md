@@ -11,8 +11,10 @@ The following examples show how to publish a version:
 AgentCore CLI
 
 1. ```
-   agentcore dataset publish-version --name my_eval_dataset
+
    ```
+
+agentcore dataset publish-version --name my_eval_dataset
 
 ````
 
@@ -31,8 +33,10 @@ print(f"Published, draftStatus: {ds.get('draftStatus')}")
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore-control')
 
@@ -60,8 +64,10 @@ The following examples show how to list versions:
 AgentCore CLI
 
 1. ```
-   agentcore status --type dataset
+
    ```
+
+agentcore status --type dataset
 
 ````
 
@@ -81,8 +87,10 @@ for v in resp["versions"]:
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore-control')
 

@@ -415,16 +415,18 @@ You can update browser streams to enable or disable automation. This is useful w
 Boto3
 
 1. ```
-   response = dp_client.update_browser_stream(
-       browserIdentifier="aws.browser.v1",
-       sessionId="<your-session-id>",
-       streamUpdate={
-           "automationStreamUpdate": {
-               "streamStatus": "DISABLED"  # or "ENABLED"
-           }
-       }
-   )
+
    ```
+
+response = dp_client.update_browser_stream(
+browserIdentifier="aws.browser.v1",
+sessionId="<your-session-id>",
+streamUpdate={
+"automationStreamUpdate": {
+"streamStatus": "DISABLED" # or "ENABLED"
+}
+}
+)
 
 ````
 
@@ -450,12 +452,14 @@ awscurl -X PUT \
 CLI
 
 1. ```
-   aws bedrock-agentcore update-browser-stream \
-     --region <Region> \
-     --browser-id "<your-browser-id>" \
-     --session-id "<your-session-id>" \
-     --stream-update automationStreamUpdate={streamStatus=ENABLED}
+
    ```
+
+aws bedrock-agentcore update-browser-stream \
+--region <Region> \
+--browser-id "<your-browser-id>" \
+--session-id "<your-session-id>" \
+--stream-update automationStreamUpdate={streamStatus=ENABLED}
 
 ```
 

@@ -18,15 +18,19 @@ The Amazon Bedrock AgentCore SDK supports both synchronous and asynchronous proc
 Agent code communicates its processing status using the "/ping" endpoint health status. The `/ping` endpoint must return an HTTP 200 response with the following JSON payload:
 
 ```
-{"status": "Healthy", "time_of_last_update": 1715000000}
+{"status": "HealthyBusy"}
 ```
 
-The response contains two required fields:
+The response contains a required field and an optional field:
 
-- `status` — either `"Healthy"` (idle, waiting for requests) or `"HealthyBusy"` (processing background tasks)
-- `time_of_last_update` — Unix timestamp in seconds indicating when the status was last updated. The platform uses this field to determine whether the session is still active. Without it, the idle timeout fires even when the status is `HealthyBusy`.
+- `status` (required) — either `"Healthy"` (idle, waiting for requests) or `"HealthyBusy"` (processing background tasks). The platform uses this field to determine whether the session is still active.
+- `time_of_last_update` (optional) — Unix timestamp in seconds of when the `status` last changed. Set it only on an actual status change, not on every ping.
 
-A session in idle state (`"Healthy"`) for 15 minutes gets automatically terminated. A session returning `"HealthyBusy"` with a recent `time_of_last_update` value remains alive beyond the idle timeout.
+A session in idle state (`"Healthy"`) for 15 minutes gets automatically terminated. A session returning `"HealthyBusy"` remains alive beyond the idle timeout.
+
+###### Warning
+
+If you include `time_of_last_update`, do not set it to the current time on every ping. A timestamp that advances on every ping signals a continuous status change, which prevents the idle session timeout from ever firing — sessions then persist until `MaxLifetime` and can exhaust your session quota. Omit the field (the platform tracks status changes on its own) or update it only when the status actually changes. If you use the Bedrock AgentCore SDK, this is handled for you.
 
 ## Implementing asynchronous tasks
 

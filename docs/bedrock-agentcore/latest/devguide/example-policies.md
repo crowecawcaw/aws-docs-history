@@ -14,7 +14,7 @@ This section provides comprehensive examples of Cedar authorization policies for
 
 The Insurance API provides five tools for managing insurance policies and claims:
 
-InsuranceAPI\_\_\_get_policy
+InsuranceAPI\_\_\_get\_policy
 
 Retrieve insurance policy details.
 
@@ -22,7 +22,7 @@ Retrieve insurance policy details.
 
 - `policyId` (string, required) - The policy identifier
 
-InsuranceAPI\_\_\_file_claim
+InsuranceAPI\_\_\_file\_claim
 
 File an insurance claim.
 
@@ -33,7 +33,7 @@ File an insurance claim.
 - `amount` (number, required) - Claim amount
 - `description` (string, optional) - Claim description
 
-InsuranceAPI\_\_\_update_coverage
+InsuranceAPI\_\_\_update\_coverage
 
 Update policy coverage.
 
@@ -43,7 +43,7 @@ Update policy coverage.
 - `coverageType` (string, required) - Type of coverage (e.g., "liability", "collision")
 - `newLimit` (number, required) - New coverage limit
 
-InsuranceAPI\_\_\_get_claim_status
+InsuranceAPI\_\_\_get\_claim\_status
 
 Check claim status.
 
@@ -51,7 +51,7 @@ Check claim status.
 
 - `claimId` (string, required) - The claim identifier
 
-InsuranceAPI\_\_\_calculate_premium
+InsuranceAPI\_\_\_calculate\_premium
 
 Calculate insurance premium.
 
@@ -272,7 +272,7 @@ Scenario 1: Regular user viewing policy
 
 **User:** username="john", scope="insurance:view"
 
-**Action:** get_policy
+**Action:** get\_policy
 
 **Expected:** ALLOW (Policy 1)
 
@@ -280,7 +280,7 @@ Scenario 2: User filing health claim with description
 
 **User:** username="jane", scope="insurance:claim"
 
-**Action:** file_claim with claimType="health", description="Medical expenses"
+**Action:** file\_claim with claimType="health", description="Medical expenses"
 
 **Expected:** ALLOW (Policy 2, Policy 4, Policy 5 does not forbid)
 
@@ -288,7 +288,7 @@ Scenario 3: User filing claim without description
 
 **User:** username="jane", scope="insurance:claim"
 
-**Action:** file_claim with claimType="health", no description
+**Action:** file\_claim with claimType="health", no description
 
 **Expected:** DENY (Policy 5 forbid wins)
 
@@ -296,7 +296,7 @@ Scenario 4: Insurance agent updating coverage
 
 **User:** username="insurance-agent", role="senior-adjuster"
 
-**Action:** update_coverage with coverageType="liability"
+**Action:** update\_coverage with coverageType="liability"
 
 **Expected:** ALLOW (Policy 6, Policy 3 does not forbid, Policy 8)
 
@@ -304,7 +304,7 @@ Scenario 5: Insurance agent without senior role
 
 **User:** username="insurance-agent", role="agent"
 
-**Action:** update_coverage with coverageType="liability"
+**Action:** update\_coverage with coverageType="liability"
 
 **Expected:** DENY (Policy 3 forbid wins)
 
@@ -312,13 +312,13 @@ Scenario 6: Premium calculation for auto coverage
 
 **User:** username="anyone", scope="any"
 
-**Action:** calculate_premium with coverageType="auto-liability"
+**Action:** calculate\_premium with coverageType="auto-liability"
 
 **Expected:** ALLOW (Policy 7, pattern matches "auto")
 
 ## IAM-based authorization examples
 
-When your AgentCore Gateway uses AWS_IAM authentication instead of OAuth, the principal in Cedar policies is represented as `AgentCore::IamEntity`. For callers authenticating via assumed roles, the Cedar entity ID uses the format `arn:aws:sts::<account>:assumed-role/<role-name>`, enabling stable `principal ==` matching and `principal.id` pattern matching.
+When your AgentCore Gateway uses AWS\_IAM authentication instead of OAuth, the principal in Cedar policies is represented as `AgentCore::IamEntity`. For callers authenticating via assumed roles, the Cedar entity ID uses the format `arn:aws:sts::<account>:assumed-role/<role-name>`, enabling stable `principal ==` matching and `principal.id` pattern matching.
 
 ### Basic IAM entity permit
 
@@ -332,7 +332,7 @@ permit(
 );
 ```
 
-**Explanation:** This is the simplest form of IAM policy. It permits any caller authenticated via AWS_IAM to call the get_order tool. Use this when you only need to verify that callers are IAM-authenticated without additional restrictions.
+**Explanation:** This is the simplest form of IAM policy. It permits any caller authenticated via AWS\_IAM to call the get\_order tool. Use this when you only need to verify that callers are IAM-authenticated without additional restrictions.
 
 ### Role-based restriction with exact principal matching
 

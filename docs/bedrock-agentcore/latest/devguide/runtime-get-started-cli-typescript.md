@@ -100,8 +100,10 @@ Before deploying to AWS, test your agent locally using the development server:
 AgentCore CLI
 
 1. ```
-   agentcore dev
+
    ```
+
+agentcore dev
 
 ```
 
@@ -201,8 +203,10 @@ After deployment completes, invoke your deployed agent:
 AgentCore CLI
 
 1. ```
-   agentcore invoke "Tell me a joke"
+
    ```
+
+agentcore invoke "Tell me a joke"
 
 ```
 
@@ -371,8 +375,10 @@ Then deploy again to tear down the AWS resources:
 AgentCore CLI
 
 1. ```
-   agentcore deploy
+
    ```
+
+agentcore deploy
 
 ````
 

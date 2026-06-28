@@ -125,7 +125,7 @@ AWS CLI/boto3
 aws bedrock-agentcore-control create-harness \
   --harness-name "OAuthHarness" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
-  --authorizer-configuration '{"oidcAuthorizerConfiguration": {"discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/<POOL_ID>/.well-known/openid-configuration"}}'
+  --authorizer-configuration '{"customJWTAuthorizer": {"discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/<POOL_ID>/.well-known/openid-configuration", "allowedClients": ["<CLIENT_ID>"]}}'
 ```
 
 Invoke with a Bearer token instead of SigV4 credentials:
@@ -154,7 +154,7 @@ Invoke with a bearer token:
 agentcore invoke --harness MyNewHarness --bearer-token "{token}" "Hello"
 ```
 
-When your identity provider’s OIDC discovery endpoint is reachable only over PrivateLink, add private-endpoint flags to the CUSTOM_JWT authorizer. Use a service-managed VPC endpoint:
+When your identity provider’s OIDC discovery endpoint is reachable only over PrivateLink, add private-endpoint flags to the CUSTOM\_JWT authorizer. Use a service-managed VPC endpoint:
 
 ```
 agentcore add harness --name MyNewHarness \
@@ -245,7 +245,9 @@ Harness APIs require permissions on both the harness resource and the underlying
 | `ListHarnessEndpoints`      | `bedrock-agentcore:ListHarnessEndpoints`                                                                    |
 | `ListHarnessVersions`       | `bedrock-agentcore:ListHarnessVersions`                                                                     |
 
-All actions are scoped to the harness ARN (e.g., `arn:aws:bedrock-agentcore:{region}:{account}:harness/{id}`).
+Most actions use the harness ARN as the resource scope: `arn:aws:bedrock-agentcore:<region>:<accountId>:harness/<id>`. Endpoint actions also use the harness endpoint ARN: `arn:aws:bedrock-agentcore:<region>:<accountId>:harness/<id>/harness-endpoint/<endpointName>`.
+
+The `GetHarnessEndpoint`, `UpdateHarnessEndpoint`, and `DeleteHarnessEndpoint` actions require both the harness ARN and the endpoint ARN. `CreateHarnessEndpoint` requires only the harness ARN. The endpoint doesn’t exist yet, so no endpoint ARN is needed. When you invoke a custom endpoint, `InvokeHarness` and `InvokeAgentRuntimeCommand` require both the harness ARN and the endpoint ARN.
 
 ### Sample execution role policy
 

@@ -44,9 +44,11 @@ To see examples of listing available resources in the gateway, select one of the
 Python requests package
 
 1. ```
-   import requests
-   import json
+
    ```
+
+import requests
+import json
 
 def list_resources(gateway_url, access_token):
 headers = {

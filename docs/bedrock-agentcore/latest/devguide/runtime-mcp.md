@@ -85,7 +85,7 @@ if __name__ == "__main__":
 - **FastMCP** : Creates an MCP server that can host your tools
 - **@mcp.tool()** : Decorator that turns your Python functions into MCP tools
 - **Tools** : Three simple tools that demonstrate different types of operations
-- **stateless_http=True** : Configures the server in stateless mode, which is the default for basic MCP servers
+- **stateless\_http=True** : Configures the server in stateless mode, which is the default for basic MCP servers
 
 ###### Tip
 

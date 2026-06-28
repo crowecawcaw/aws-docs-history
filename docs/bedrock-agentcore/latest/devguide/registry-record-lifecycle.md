@@ -17,19 +17,19 @@ Create → DRAFT → Submit → PENDING_APPROVAL → Approve → APPROVED
 ## Transition details
 
 - **Create** → DRAFT. Edit freely before submitting.
-- **Submit** → PENDING_APPROVAL. Auto-approval skips to APPROVED. Amazon EventBridge notification sent.
+- **Submit** → PENDING\_APPROVAL. Auto-approval skips to APPROVED. Amazon EventBridge notification sent.
 - **Approve/Reject** → Curator uses UpdateRegistryRecordStatus. Can directly approve a REJECTED record.
 - **Deprecate** → Terminal from any status. Cannot be undone.
 
 ## How edits affect status
 
-| Current status   | Effect of edit                                                                                |
-| ---------------- | --------------------------------------------------------------------------------------------- |
-| DRAFT            | Updated in place. Stays DRAFT.                                                                |
-| PENDING_APPROVAL | New DRAFT revision. Pending revision discarded. Not visible in search (never approved).       |
-| APPROVED         | New DRAFT revision. Approved revision stays visible in search until new revision is approved. |
-| REJECTED         | New DRAFT revision. Must go through normal submit-and-approve flow again.                     |
-| DEPRECATED       | Deprecated Records cannot be edited; Deprecated is a Terminal state                           |
+| Current status    | Effect of edit                                                                                |
+| ----------------- | --------------------------------------------------------------------------------------------- |
+| DRAFT             | Updated in place. Stays DRAFT.                                                                |
+| PENDING\_APPROVAL | New DRAFT revision. Pending revision discarded. Not visible in search (never approved).       |
+| APPROVED          | New DRAFT revision. Approved revision stays visible in search until new revision is approved. |
+| REJECTED          | New DRAFT revision. Must go through normal submit-and-approve flow again.                     |
+| DEPRECATED        | Deprecated Records cannot be edited; Deprecated is a Terminal state                           |
 
 ## Dual-revision behavior
 

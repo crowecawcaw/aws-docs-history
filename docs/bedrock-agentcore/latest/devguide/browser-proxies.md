@@ -199,27 +199,29 @@ Use `domainPatterns` to route specific domains through designated proxies:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore start-browser-session \
-     --browser-identifier "aws.browser.v1" \
-     --name "domain-routing-session" \
-     --proxy-configuration '{
-       "proxies": [
-         {
-           "externalProxy": {
-             "server": "corp-proxy.example.com",
-             "port": 8080,
-             "domainPatterns": [".company.com", ".internal.corp"]
-           }
-         },
-         {
-           "externalProxy": {
-             "server": "general-proxy.example.com",
-             "port": 8080
-           }
-         }
-       ]
-     }'
+
    ```
+
+aws bedrock-agentcore start-browser-session \
+--browser-identifier "aws.browser.v1" \
+--name "domain-routing-session" \
+--proxy-configuration '{
+"proxies": [
+{
+"externalProxy": {
+"server": "corp-proxy.example.com",
+"port": 8080,
+"domainPatterns": [".company.com", ".internal.corp"]
+}
+},
+{
+"externalProxy": {
+"server": "general-proxy.example.com",
+"port": 8080
+}
+}
+]
+}'
 
 ````
 
@@ -249,26 +251,28 @@ proxyConfiguration={
 API
 
 1. ```
-   {
-     "proxyConfiguration": {
-       "proxies": [
-         {
-           "externalProxy": {
-             "server": "corp-proxy.example.com",
-             "port": 8080,
-             "domainPatterns": [".company.com", ".internal.corp"]
-           }
-         },
-         {
-           "externalProxy": {
-             "server": "general-proxy.example.com",
-             "port": 8080
-           }
-         }
-       ]
-     }
-   }
+
    ```
+
+{
+"proxyConfiguration": {
+"proxies": [
+{
+"externalProxy": {
+"server": "corp-proxy.example.com",
+"port": 8080,
+"domainPatterns": [".company.com", ".internal.corp"]
+}
+},
+{
+"externalProxy": {
+"server": "general-proxy.example.com",
+"port": 8080
+}
+}
+]
+}
+}
 
 ````
 
@@ -327,18 +331,20 @@ aws bedrock-agentcore start-browser-session \
 Boto3
 
 1. ```
-   proxyConfiguration={
-       "proxies": [{
-           "externalProxy": {
-               "server": "proxy.example.com",
-               "port": 8080
-           }
-       }],
-       "bypass": {
-           "domainPatterns": [".amazonaws.com"]
-       }
-   }
+
    ```
+
+proxyConfiguration={
+"proxies": [{
+"externalProxy": {
+"server": "proxy.example.com",
+"port": 8080
+}
+}],
+"bypass": {
+"domainPatterns": [".amazonaws.com"]
+}
+}
 
 ````
 
@@ -382,27 +388,29 @@ The following examples show a full proxy configuration with domain patterns, byp
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore start-browser-session \
-     --browser-identifier "aws.browser.v1" \
-     --name "proxy-session" \
-     --proxy-configuration '{
-       "proxies": [{
-         "externalProxy": {
-           "server": "proxy-hostname",
-           "port": 8080,
-           "domainPatterns": [".company.com"],
-           "credentials": {
-             "basicAuth": {
-               "secretArn": "arn:aws:secretsmanager:region:account-id:secret:secret-name"
-             }
-           }
-         }
-       }],
-       "bypass": {
-         "domainPatterns": [".amazonaws.com"]
-       }
-     }'
+
    ```
+
+aws bedrock-agentcore start-browser-session \
+--browser-identifier "aws.browser.v1" \
+--name "proxy-session" \
+--proxy-configuration '{
+"proxies": [{
+"externalProxy": {
+"server": "proxy-hostname",
+"port": 8080,
+"domainPatterns": [".company.com"],
+"credentials": {
+"basicAuth": {
+"secretArn": "arn:aws:secretsmanager:region:account-id:secret:secret-name"
+}
+}
+}
+}],
+"bypass": {
+"domainPatterns": [".amazonaws.com"]
+}
+}'
 
 ````
 
@@ -441,11 +449,13 @@ print(f"Session ID: {response['sessionId']}")
 API
 
 1. ```
-   PUT /browsers/aws.browser.v1/sessions/start HTTP/1.1
-   Host: bedrock-agentcore.region.amazonaws.com
-   Content-Type: application/json
-   Authorization: AWS4-HMAC-SHA256 ...
+
    ```
+
+PUT /browsers/aws.browser.v1/sessions/start HTTP/1.1
+Host: bedrock-agentcore.region.amazonaws.com
+Content-Type: application/json
+Authorization: AWS4-HMAC-SHA256 ...
 
 {
 "name": "proxy-session",
@@ -554,7 +564,7 @@ If the credentials secret is in a different AWS account, configure the following
 "Effect": "Allow",
 "Principal": {"AWS": "arn:aws:iam::caller-account-id:root"},
 "Action": "kms:Decrypt",
-"Resource": "\*"
+"Resource": "*"
 }
 
 ```

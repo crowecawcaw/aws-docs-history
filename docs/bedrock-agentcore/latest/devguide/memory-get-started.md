@@ -49,9 +49,11 @@ Create memory with semantic strategy:
 AgentCore CLI
 
 1. ```
-   agentcore add memory --name CustomerSupportSemantic --strategies SEMANTIC
-   agentcore deploy
+
    ```
+
+agentcore add memory --name CustomerSupportSemantic --strategies SEMANTIC
+agentcore deploy
 
 ```
 

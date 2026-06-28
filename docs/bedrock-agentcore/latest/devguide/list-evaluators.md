@@ -20,8 +20,10 @@ The following code samples demonstrate how to list evaluators using different de
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore_starter_toolkit import Evaluation
+
    ```
+
+from bedrock_agentcore_starter_toolkit import Evaluation
 
 eval_client = Evaluation()
 
@@ -44,9 +46,11 @@ list_configs_response = client.list_evaluators(maxResults=20)
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control list-evaluators \
-       --max-results 20
+
    ```
+
+aws bedrock-agentcore-control list-evaluators \
+--max-results 20
 
 ```
 

@@ -45,9 +45,9 @@ Invoke your agent using the following command and view the traces, sessions and 
 
 ###### Topics
 
-- [Example invoke_agent.py](#example-invoke-agent "#example-invoke-agent")
+- [Example invoke\_agent.py](#example-invoke-agent "#example-invoke-agent")
 
-### Example invoke_agent.py
+### Example invoke\_agent.py
 
 ```
 import boto3
@@ -116,18 +116,18 @@ AgentCore CLI
 RUNTIME_NAME="your_runtime_name"
 SESSION_ID="YOUR_SESSION_ID"
 agentcore run eval \
- --runtime $RUNTIME_NAME \
- --session-id $SESSION_ID \
- --evaluator "Builtin.Helpfulness" \
- --evaluator "Builtin.GoalSuccessRate"
+--runtime $RUNTIME_NAME \
+  --session-id $SESSION_ID \
+--evaluator "Builtin.Helpfulness" \
+--evaluator "Builtin.GoalSuccessRate"
 
 # Auto reads default runtime from current project config if available
 
 # Verify using `agentcore status`
 
 agentcore run eval \
- --evaluator "Builtin.Helpfulness" \
- --evaluator "Builtin.GoalSuccessRate"
+--evaluator "Builtin.Helpfulness" \
+--evaluator "Builtin.GoalSuccessRate"
 
 ````
 

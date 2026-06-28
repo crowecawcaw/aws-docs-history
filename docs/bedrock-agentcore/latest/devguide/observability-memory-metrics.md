@@ -80,7 +80,7 @@ See the following breakdown to learn how each workflow helps you monitor the for
 
 The following table provides a more detailed breakdown of how different memory resource workflows use log fields alongside the log body itself to provide request-specific information.
 
-| Workflow name | Log fields                                                                                                       | Description                                              |
-| ------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Extraction    | resource_arn, event_timestamp, memory_strategy_id, namespace, actor_id, session_id, event_id, requestId, isError | Analyzes incoming conversations to generate new memories |
-| Consolidation | resource_arn, event_timestamp, memory_strategy_id, namespace, session_id, requestId, isError                     | Combines extracted memories with existing memories       |
+| Workflow name | Log fields                                                                                                              | Description                                              |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Extraction    | resource\_arn, event\_timestamp, memory\_strategy\_id, namespace, actor\_id, session\_id, event\_id, requestId, isError | Analyzes incoming conversations to generate new memories |
+| Consolidation | resource\_arn, event\_timestamp, memory\_strategy\_id, namespace, session\_id, requestId, isError                       | Combines extracted memories with existing memories       |

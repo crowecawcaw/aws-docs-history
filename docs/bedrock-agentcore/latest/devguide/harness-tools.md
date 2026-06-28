@@ -1,10 +1,9 @@
 # Tools
 
-Tools are declarative. You list what the agent can call; AgentCore handles invocation, credentials, and results. The harness supports six tool types, plus the built-in filesystem and shell tools.
+Tools are declarative. You list what the agent can call; AgentCore handles invocation, credentials, and results. The harness supports five tool types, plus the built-in filesystem and shell tools.
 
 - **MCP servers:** Connect to any remote [Model Context Protocol](https://modelcontextprotocol.io "https://modelcontextprotocol.io") endpoint by URL. No Gateway required for simple cases.
 - **[AgentCore Gateway](gateway.md "gateway.md"):** Governed connectivity to APIs and MCP servers with inbound/outbound auth, access control, and [policy enforcement](policy.md "policy.md"). Reference a gateway ARN and every tool configured on that gateway becomes available. Use Gateway when you need a managed, policy-backed tool surface.
-- **[AgentCore Web Search](web-search-tool.md "web-search-tool.md"):** Managed web search backed by an AWS-owned web index. Add `agentcore_web_search` as a tool and the agent can search the web with no API key or Gateway setup required. Queries stay within AWS and are not sent to third-party search engines.
 - **[AgentCore Browser](browser-tool.md "browser-tool.md"):** Managed web browsing and automation.
 - **[AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md"):** Sandboxed Python/JavaScript/TypeScript code execution for data analysis and computation.
 - **Inline functions:** Tool schemas that execute on the client side, not on the harness VM. The harness pauses when the tool is called and returns the call to your code, which decides what to do and sends a result back. This is the pattern for human-in-the-loop approvals and custom integrations.
@@ -90,9 +89,6 @@ tools = [
     {"type": "agentcore_browser", "name": "browser"},
     # AgentCore Code Interpreter
     {"type": "agentcore_code_interpreter", "name": "code_interpreter"},
-    # AgentCore Web Search (managed web search via Gateway, no setup required)
-    {"type": "agentcore_web_search", "name": "web_search"},
-
     # Inline function - executes on the client side, not on the harness VM.
     # When the agent calls this tool, the call is returned to your code for handling.
     {
@@ -145,9 +141,6 @@ agentcore add tool --harness my-agent --type agentcore_browser --name browser
 
 # Add Code Interpreter
 agentcore add tool --harness my-agent --type agentcore_code_interpreter --name code-interpreter
-
-# Add Web Search (managed web search via Gateway, no setup required)
-agentcore add tool --harness my-agent --type agentcore_web_search --name web-search
 
 # Add Gateway by ARN
 agentcore add tool --harness my-agent --type agentcore_gateway \

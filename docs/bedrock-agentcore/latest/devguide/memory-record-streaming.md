@@ -243,8 +243,8 @@ Check your consumer for a validation event in the following format:
 
 The `contentConfigurations` field controls what data is included in each event. You can choose between two content levels:
 
-- **METADATA_ONLY** : Stream events only include metadata fields ( `memoryId` , `memoryRecordId` , `namespaces` , `strategyId` , timestamps, and so on). Requires an API call to retrieve the full memory record content.
-- **FULL_CONTENT** : Stream events include all metadata fields plus the `memoryRecordText` field containing the memory record content.
+- **METADATA\_ONLY** : Stream events only include metadata fields ( `memoryId` , `memoryRecordId` , `namespaces` , `strategyId` , timestamps, and so on). Requires an API call to retrieve the full memory record content.
+- **FULL\_CONTENT** : Stream events include all metadata fields plus the `memoryRecordText` field containing the memory record content.
 
 Use `METADATA_ONLY` for lightweight event notifications where you only need to know that a change occurred. Use `FULL_CONTENT` when your downstream processing needs the memory record text without making additional API calls.
 

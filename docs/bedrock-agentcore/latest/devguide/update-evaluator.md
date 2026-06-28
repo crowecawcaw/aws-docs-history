@@ -38,8 +38,10 @@ Run this from inside an AgentCore project directory (created with `agentcore cre
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore_starter_toolkit import Evaluation
+
    ```
+
+from bedrock_agentcore_starter_toolkit import Evaluation
 
 eval_client = Evaluation()
 
@@ -68,10 +70,12 @@ list_configs_response = client.update_evaluator(
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control update-evaluator \
-       --evaluator-id 'evaluator-abc123' \
-       --description "Updated custom evaluator description"
+
    ```
+
+aws bedrock-agentcore-control update-evaluator \
+--evaluator-id 'evaluator-abc123' \
+--description "Updated custom evaluator description"
 
 ```
 

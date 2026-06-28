@@ -32,9 +32,11 @@ To see examples of listing available prompts in the gateway, select one of the f
 Python requests package
 
 1. ```
-   import requests
-   import json
+
    ```
+
+import requests
+import json
 
 def list_prompts(gateway_url, access_token):
 headers = {

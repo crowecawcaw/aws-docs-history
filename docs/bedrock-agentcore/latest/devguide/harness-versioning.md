@@ -70,7 +70,7 @@ CREATING
 
 Initial state when an endpoint is being created
 
-CREATE_FAILED
+CREATE\_FAILED
 
 Indicates creation failure due to permissions, configuration, or other issues
 
@@ -82,7 +82,7 @@ UPDATING
 
 Endpoint is being updated to a new version
 
-UPDATE_FAILED
+UPDATE\_FAILED
 
 Indicates update operation failure
 

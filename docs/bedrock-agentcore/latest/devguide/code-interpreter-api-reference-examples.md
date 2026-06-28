@@ -11,14 +11,16 @@ These examples demonstrate how to execute code in a Code Interpreter session.
 Boto3
 
 1. ```
-   params = {
-         "language": "python",
-         "code": "print(\"Hello, world!\")"
-       }
+
    ```
 
+params = {
+"language": "python",
+"code": "print(\"Hello, world!\")"
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "executeCode",
@@ -59,13 +61,15 @@ These examples demonstrate how to execute terminal commands in a Code Interprete
 Boto3
 
 1. ```
-   params = {
-         "command": "ls -l"
-       }
+
    ```
 
+params = {
+"command": "ls -l"
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "executeCommand",
@@ -101,13 +105,15 @@ awscurl -X POST \
 Boto3
 
 1. ```
-   params = {
-         "command": "sleep 15 && echo Task completed successfully"
-       }
+
    ```
 
+params = {
+"command": "sleep 15 && echo Task completed successfully"
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "startCommandExecution",
@@ -143,13 +149,15 @@ awscurl -X POST \
 Boto3
 
 1. ```
-   params = {
-         "taskId": "<your-task-id>"
-       }
+
    ```
 
+params = {
+"taskId": "<your-task-id>"
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "getTask",
@@ -185,13 +193,15 @@ awscurl -X POST \
 Boto3
 
 1. ```
-   params = {
-         "taskId": "<your-task-id>"
-       }
+
    ```
 
+params = {
+"taskId": "<your-task-id>"
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "stopTask",
@@ -231,13 +241,15 @@ These examples demonstrate how to manage files in a Code Interpreter session.
 Boto3
 
 1. ```
-   params = {
-           "content": [{"path": "dir1/samename.txt", "text": "File in dir1"}]
-       }
+
    ```
 
+params = {
+"content": [{"path": "dir1/samename.txt", "text": "File in dir1"}]
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "writeFiles",
@@ -273,13 +285,15 @@ awscurl -X POST \
 Boto3
 
 1. ```
-   params = {
-         "paths": ["tmp.txt"]
-       }
+
    ```
 
+params = {
+"paths": ["tmp.txt"]
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "readFiles",
@@ -315,13 +329,15 @@ awscurl -X POST \
 Boto3
 
 1. ```
-   params = {
-         "paths": ["tmp.txt"]
-       }
+
    ```
 
+params = {
+"paths": ["tmp.txt"]
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "removeFiles",
@@ -357,13 +373,15 @@ awscurl -X POST \
 Boto3
 
 1. ```
-   params = {
-         "directoryPath": ""
-       }
+
    ```
 
+params = {
+"directoryPath": ""
+}
+
 client.invoke_code_interpreter(
-\*\*{
+**{
 "codeInterpreterIdentifier": "aws.codeinterpreter.v1",
 "sessionId": "<your-session-id>",
 "name": "listFiles",

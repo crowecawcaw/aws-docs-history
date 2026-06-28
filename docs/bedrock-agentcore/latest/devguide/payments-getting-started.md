@@ -515,7 +515,7 @@ print(f"Remaining balance: {balance['amount']} {balance['currency']}")
 
 | Issue                                | Solution                                                                                                                 |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| Payment Manager stuck in CREATING    | Wait up to 2 minutes. If it moves to CREATE_FAILED, check that your service role ARN and permissions are correct.        |
+| Payment Manager stuck in CREATING    | Wait up to 2 minutes. If it moves to CREATE\_FAILED, check that your service role ARN and permissions are correct.       |
 | "PaymentInstrument not active"       | The end user must fund the wallet and grant signing permissions through the redirect URL before the agent can transact.  |
 | "Session expired or budget exceeded" | Create a new payment session with a longer expiry or higher spending limit.                                              |
 | "CredentialProvider not found"       | Verify the credential provider ARN matches what you created in Step 2. Ensure the region is consistent across all calls. |

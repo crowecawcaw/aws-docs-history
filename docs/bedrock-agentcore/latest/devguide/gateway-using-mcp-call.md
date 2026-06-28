@@ -55,9 +55,11 @@ curl -X POST \
 Python requests package
 
 1. ```
-   import requests
-   import json
+
    ```
+
+import requests
+import json
 
 def call_tool(gateway_url, access_token, tool_name, arguments):
 headers = {
@@ -85,7 +87,7 @@ access_token = "${AccessToken}" # Replace with your actual access token
 result = call_tool(
 gateway_url,
 access_token,
-"openapi-target-1**\_get_orders_byId", # Replace with <{TargetId}**{ToolName}>
+"openapi-target-1___get_orders_byId", # Replace with <{TargetId}__{ToolName}>
 {"orderId": "ORD-12345-67890", "customerId": "CUST-98765"}
 )
 print(json.dumps(result, indent=2))

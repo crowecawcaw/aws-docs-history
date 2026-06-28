@@ -6,7 +6,7 @@ As a curator, you review records in Pending Approval status against your organiz
 
 ## View pending records
 
-Filter by PENDING_APPROVAL status via console, AWS CLI, or ListRegistryRecords API.
+Filter by PENDING\_APPROVAL status via console, AWS CLI, or ListRegistryRecords API.
 
 ## Approve a record
 

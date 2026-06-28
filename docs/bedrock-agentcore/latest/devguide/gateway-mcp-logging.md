@@ -85,10 +85,12 @@ data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","t
 Python requests package
 
 1. ```
-   import requests
-   import json
-   import sseclient
+
    ```
+
+import requests
+import json
+import sseclient
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 headers = {
@@ -164,10 +166,12 @@ asyncio.run(use_logging(
 Strands MCP Client
 
 1. ```
-   from mcp.client.streamable_http import streamablehttp_client
-   from strands import Agent
-   from strands.tools.mcp import MCPClient
+
    ```
+
+from mcp.client.streamable_http import streamablehttp_client
+from strands import Agent
+from strands.tools.mcp import MCPClient
 
 mcp_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 access_token = "YOUR_ACCESS_TOKEN"

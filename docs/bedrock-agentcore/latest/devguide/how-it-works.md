@@ -9,4 +9,5 @@ AgentCore Memory provides a set of APIs that let your AI agents seamlessly store
 - [Memory strategies](memory-strategies.md "memory-strategies.md")
 - [Memory organization in AgentCore Memory](memory-organization.md "memory-organization.md")
 - [Memory record streaming](memory-record-streaming.md "memory-record-streaming.md")
+- [Cross-account memory access](memory-cross-account-access.md "memory-cross-account-access.md")
 - [Compare long-term memory with Retrieval-Augmented Generation](memory-ltm-rag.md "memory-ltm-rag.md")

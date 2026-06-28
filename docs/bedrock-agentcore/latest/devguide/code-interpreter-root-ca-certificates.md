@@ -52,12 +52,14 @@ Before you can use a root CA certificate with Amazon Bedrock AgentCore Code Inte
 AWS CLI
 
 1. ```
-   aws secretsmanager create-secret \
-     --name "my-corporate-root-ca" \
-     --description "Corporate root CA certificate for AgentCore sessions" \
-     --secret-string file://my-root-ca.pem \
-     --region <region>
+
    ```
+
+aws secretsmanager create-secret \
+--name "my-corporate-root-ca" \
+--description "Corporate root CA certificate for AgentCore sessions" \
+--secret-string file://my-root-ca.pem \
+--region <region>
 
 ````
 
@@ -97,19 +99,21 @@ To start a code interpreter session that trusts your custom root CA certificates
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore start-code-interpreter-session \
-     --code-interpreter-identifier "aws.codeinterpreter.v1" \
-     --name "ci-session-with-custom-ca" \
-     --certificates '[
-       {
-         "location": {
-           "secretsManager": {
-             "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"
-           }
-         }
-       }
-     ]'
+
    ```
+
+aws bedrock-agentcore start-code-interpreter-session \
+--code-interpreter-identifier "aws.codeinterpreter.v1" \
+--name "ci-session-with-custom-ca" \
+--certificates '[
+{
+"location": {
+"secretsManager": {
+"secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"
+}
+}
+}
+]'
 
 ````
 
@@ -142,19 +146,21 @@ print(f"Status: {response['status']}")
 API
 
 1. ```
-   {
-     "name": "ci-session-with-custom-ca",
-     "certificates": [
-       {
-         "location": {
-           "secretsManager": {
-             "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"
-           }
-         }
-       }
-     ]
-   }
+
    ```
+
+{
+"name": "ci-session-with-custom-ca",
+"certificates": [
+{
+"location": {
+"secretsManager": {
+"secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"
+}
+}
+}
+]
+}
 
 ````
 
@@ -197,27 +203,29 @@ aws bedrock-agentcore start-code-interpreter-session \
 Boto3
 
 1. ```
-   response = client.start_code_interpreter_session(
-       codeInterpreterIdentifier="aws.codeinterpreter.v1",
-       name="ci-session-with-multiple-cas",
-       certificates=[
-           {
-               "location": {
-                   "secretsManager": {
-                       "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:corporate-root-ca"
-                   }
-               }
-           },
-           {
-               "location": {
-                   "secretsManager": {
-                       "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:proxy-ca"
-                   }
-               }
-           }
-       ]
-   )
+
    ```
+
+response = client.start_code_interpreter_session(
+codeInterpreterIdentifier="aws.codeinterpreter.v1",
+name="ci-session-with-multiple-cas",
+certificates=[
+{
+"location": {
+"secretsManager": {
+"secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:corporate-root-ca"
+}
+}
+},
+{
+"location": {
+"secretsManager": {
+"secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:proxy-ca"
+}
+}
+}
+]
+)
 
 ````
 

@@ -92,21 +92,23 @@ To enforce enterprise policies that cannot be overridden, create a custom browse
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control create-browser \
-     --region <Region> \
-     --name "my-managed-browser" \
-     --enterprise-policies '[
-       {
-         "type": "MANAGED",
-         "location": {
-           "s3": {
-             "bucket": "my-policy-bucket",
-             "prefix": "policies/managed-policies.json"
-           }
-         }
-       }
-     ]'
+
    ```
+
+aws bedrock-agentcore-control create-browser \
+--region <Region> \
+--name "my-managed-browser" \
+--enterprise-policies '[
+{
+"type": "MANAGED",
+"location": {
+"s3": {
+"bucket": "my-policy-bucket",
+"prefix": "policies/managed-policies.json"
+}
+}
+}
+]'
 
 ````
 
@@ -141,26 +143,28 @@ print(f"Created browser: {browser_id}")
 API
 
 1. ```
-   awscurl -X PUT \
-     "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers" \
-     -H "Content-Type: application/json" \
-     --service bedrock-agentcore-control \
-     --region <Region> \
-     -d '{
-       "name": "my-managed-browser",
-       "enterprisePolicies": [
-         {
-           "type": "MANAGED",
-           "location": {
-             "s3": {
-               "bucket": "my-policy-bucket",
-               "prefix": "policies/managed-policies.json"
-             }
-           }
-         }
-       ]
-     }'
+
    ```
+
+awscurl -X PUT \
+"https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers" \
+-H "Content-Type: application/json" \
+--service bedrock-agentcore-control \
+--region <Region> \
+-d '{
+"name": "my-managed-browser",
+"enterprisePolicies": [
+{
+"type": "MANAGED",
+"location": {
+"s3": {
+"bucket": "my-policy-bucket",
+"prefix": "policies/managed-policies.json"
+}
+}
+}
+]
+}'
 
 ````
 
@@ -205,8 +209,10 @@ aws bedrock-agentcore start-browser-session \
 Boto3
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 region = "us-west-2"
 client = boto3.client('bedrock-agentcore', region_name=region)

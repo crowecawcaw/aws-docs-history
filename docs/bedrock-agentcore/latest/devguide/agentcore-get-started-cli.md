@@ -4,8 +4,8 @@ This quickstart gets you from zero to a running agent in a few minutes using the
 
 Two ways to build an agent on AgentCore, same CLI:
 
-- **Code-based agent** (default, GA). You write the agent loop in Python using a framework you already know (Strands, LangGraph, Google ADK, or OpenAI Agents), and deploy it to AgentCore Runtime. Full control over orchestration logic.
-- **Managed harness** (preview). You declare the agent in a config file (model, prompt, tools, memory) and AgentCore runs the loop for you. No framework, no orchestration code. Good path when you want the fastest route from idea to a running agent. [Learn more](harness.md "harness.md").
+- **Managed harness**. You declare the agent in a config file (model, prompt, tools, memory) and AgentCore runs the loop for you. No framework, no orchestration code. Good path when you want the fastest route from idea to a running agent. [Learn more](harness.md "harness.md").
+- **Code-based agent**. You write the agent loop in Python using a framework you already know (Strands, LangGraph, Google ADK, or OpenAI Agents), and deploy it to AgentCore Runtime. Full control over orchestration logic.
   This page walks through the code-based flow. For harness, see [What is the AgentCore harness](harness.md "harness.md").
 
 ## Sign up for an AWS account
@@ -36,30 +36,26 @@ agentcore --version
 
 To update later, rerun the install command or `agentcore update`. Source and issues: [agentcore-cli on GitHub](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli").
 
-### Opt into the preview channel
-
-To access preview capabilities (harness, config-based agents, in-progress features), install the preview channel:
-
-```
-npm install -g @aws/agentcore@preview
-```
-
-The preview channel is the same CLI with preview features enabled. Stable commands behave identically. See [What is the AgentCore harness](harness.md "harness.md") for what the preview unlocks.
-
 ## Step 2: Create your project
 
 ```
 agentcore create
 ```
 
-The interactive wizard asks you for:
+The interactive wizard first asks what you want to build:
+
+- **Harness** - A managed config-based agent loop. No framework or orchestration code required. See [What is the AgentCore harness](harness.md "harness.md").
+- **Agent** - A code-based agent using a framework you choose, deployed to AgentCore Runtime.
+- **Skip** - Create the project structure without an agent. Add one later with `agentcore add`.
+
+If you choose **Agent**, the wizard continues with:
 
 - **Framework** - Strands Agents (recommended), LangChain/LangGraph, Google Agent Development Kit, or OpenAI Agents SDK
 - **Model provider** - Amazon Bedrock, Anthropic, OpenAI, or Gemini
 - **Memory** - None, short-term only, or long-term and short-term
 - **Build type** - CodeZip (default) or Container
 
-You can also pass flags directly:
+You can also pass flags directly to create a code-based agent:
 
 ```
 agentcore create \
@@ -69,10 +65,6 @@ agentcore create \
   --memory none \
   --build CodeZip
 ```
-
-###### Note
-
-**Preview alternative.** With the preview CLI installed, you can scaffold a config-based [harness](harness.md "harness.md") instead of a code-based agent. The CLI surfaces this as a choice in the wizard. Harness is the fastest path to a running agent because there is no framework or orchestration code to write.
 
 ### Project structure
 
@@ -213,5 +205,5 @@ agentcore deploy
 
 ## Next steps
 
-- [What is the AgentCore harness](harness.md "harness.md") - the config-based path to a running agent (preview). Use any model, connect to tools, persist state, deploy in your VPC, and graduate to code when you need it.
+- [What is the AgentCore harness](harness.md "harness.md") - the config-based path to a running agent. Use any model, connect to tools, persist state, deploy in your VPC, and graduate to code when you need it.
 - [AgentCore code samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples "https://github.com/awslabs/amazon-bedrock-agentcore-samples") - end-to-end examples across frameworks and capabilities.

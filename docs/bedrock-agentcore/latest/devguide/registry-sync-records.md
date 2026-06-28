@@ -18,7 +18,7 @@ For Public MCP servers that don’t require authentication or authorization:
 6. Under **Credential type**, choose **None**.
 7. Choose **Create record**.
 
-The record is created in CREATING status. The registry connects to the endpoint, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
+The record is created in CREATING status. The registry connects to the endpoint, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
 
 ### AWS CLI
 
@@ -81,7 +81,7 @@ When the MCP server is protected by OAuth, you will need to create an M2M client
 
 9. Choose **Create record**.
 
-The record is created in CREATING status. The registry connects to the endpoint using the OAuth credentials, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
+The record is created in CREATING status. The registry connects to the endpoint using the OAuth credentials, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
 
 ### AWS CLI
 
@@ -172,7 +172,7 @@ Besides the IAM role, you must specify `service` field for SigV4 signing. If you
 9. (Optional) Expand **Additional configuration** and choose a **Region** for SigV4 signing. If not specified, the registry’s own region is used.
 10. Choose **Create record**.
 
-The record is created in CREATING status. The registry connects to the endpoint using IAM credentials, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
+The record is created in CREATING status. The registry connects to the endpoint using IAM credentials, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
 
 ### AWS CLI
 
@@ -253,7 +253,7 @@ Provide the agent card URL or the agent’s base URL where `.well-known/agent-ca
 
 7. Choose **Create record**.
 
-The record is created in CREATING status. The registry connects to the endpoint, extracts the agent card metadata, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
+The record is created in CREATING status. The registry connects to the endpoint, extracts the agent card metadata, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
 
 ### AWS CLI
 
@@ -300,7 +300,7 @@ aws bedrock-agentcore-control create-registry-record \
 3. In the confirmation dialog, review the message that syncing will revert the record to draft state.
 4. Choose **Sync** to confirm.
 
-The record transitions to UPDATING status during synchronization. After completion, it returns to DRAFT with updated descriptors from the source. If synchronization fails, the record transitions to UPDATE_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
+The record transitions to UPDATING status during synchronization. After completion, it returns to DRAFT with updated descriptors from the source. If synchronization fails, the record transitions to UPDATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
 
 Alternatively, you can trigger synchronization during editing:
 

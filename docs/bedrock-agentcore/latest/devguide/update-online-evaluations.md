@@ -50,8 +50,10 @@ Run this from inside an AgentCore project directory (created with `agentcore cre
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore_starter_toolkit import Evaluation
+
    ```
+
+from bedrock_agentcore_starter_toolkit import Evaluation
 
 # Initialize the evaluation client
 
@@ -87,10 +89,12 @@ update_config_response = client.update_online_evaluation_config(
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control update-online-evaluation-config \
-       --online-evaluation-config-id your_config_id \
-       --description "Updated description for online evaluation"
+
    ```
+
+aws bedrock-agentcore-control update-online-evaluation-config \
+--online-evaluation-config-id your_config_id \
+--description "Updated description for online evaluation"
 
 ```
 

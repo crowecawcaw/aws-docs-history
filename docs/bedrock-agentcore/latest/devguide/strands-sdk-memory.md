@@ -209,4 +209,4 @@ finally:
     session_manager.close()  # Flush any remaining buffered messages
 ```
 
-More examples are available on GitHub: [https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands](https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands "https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands")
+More examples are available on GitHub: [https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock\_agentcore/memory/integrations/strands](https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands "https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands")

@@ -58,9 +58,11 @@ curl -X POST \
 Python requests package
 
 1. ```
-   import requests
-   import json
+
    ```
+
+import requests
+import json
 
 def read_resource(gateway_url, access_token, resource_uri):
 headers = {

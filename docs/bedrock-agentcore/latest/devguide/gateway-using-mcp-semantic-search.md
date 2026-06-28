@@ -40,9 +40,11 @@ To see examples of using natural language queries to find tools in the gateway, 
 Python requests package
 
 1. ```
-   import requests
-   import json
+
    ```
+
+import requests
+import json
 
 def search_tools(gateway_url, access_token, query):
 headers = {
@@ -139,9 +141,11 @@ if __name__ == "__main__":
 Strands MCP Client
 
 1. ```
-   from strands.tools.mcp.mcp_client import MCPClient
-   from mcp.client.streamable_http import streamablehttp_client
+
    ```
+
+from strands.tools.mcp.mcp_client import MCPClient
+from mcp.client.streamable_http import streamablehttp_client
 
 def create_streamable_http_transport(mcp_url: str, access_token: str):
 return streamablehttp_client(mcp_url, headers={"Authorization": f"Bearer {access_token}"})

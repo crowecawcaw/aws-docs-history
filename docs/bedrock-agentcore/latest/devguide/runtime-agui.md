@@ -80,10 +80,12 @@ Install packages for AWS Strands with AG-UI support:
 Python
 
 1. ```
-   pip install fastapi
-   pip install uvicorn
-   pip install ag-ui-strands
+
    ```
+
+pip install fastapi
+pip install uvicorn
+pip install ag-ui-strands
 
 ```
 
@@ -307,8 +309,10 @@ python my_agui_server.py
 TypeScript
 
 1. ```
-   npx tsx my-agui-server.ts
+
    ```
+
+npx tsx my-agui-server.ts
 
 ```
 
@@ -447,8 +451,10 @@ agentcore configure -e my_agui_server.py --protocol AGUI
 TypeScript
 
 1. ```
-   agentcore configure -e my-agui-server.ts --protocol AGUI
+
    ```
+
+agentcore configure -e my-agui-server.ts --protocol AGUI
 
 ```
 

@@ -224,10 +224,10 @@ To create your agent: 2. From the Agents home page, choose **Host Agent** 3. Cho
 
 4. Configure your agent settings:
 
-   - Agent name
-   - Runtime version (Python 3.13 recommended)
-   - Entry point (e.g., `main.py` )
-   - Execution role (create new or use existing)
+    * Agent name
+    * Runtime version (Python 3.13 recommended)
+    * Entry point (e.g., `main.py` )
+    * Execution role (create new or use existing)
 
 5. Choose **Create Agent** to deploy
 

@@ -109,7 +109,7 @@ Validation options by type:
 | `NUMBER`     | `numberValidation.minValue`          | Minimum allowed value                                                                                               |
 | `NUMBER`     | `numberValidation.maxValue`          | Maximum allowed value                                                                                               |
 
-### Deterministic metadata (STRICTLY_CONSISTENT extraction type)
+### Deterministic metadata (STRICTLY\_CONSISTENT extraction type)
 
 Deterministic metadata keys contain values that your application already knows when creating an event. These values are copied exactly to the resulting memory records without modification. Organizational classifiers like `department`, `compliance_level`, or `agent_id` should not be inferred by the LLM. LLM inference introduces variability. For example, the same conversation can produce `"eng"` on one record and `"Engineering"` on another.
 
@@ -675,7 +675,7 @@ Existing memory records do not retroactively receive new LLM-extracted fields. H
 | Resource                                         | Limit                |
 | ------------------------------------------------ | -------------------- |
 | Indexed keys per memory                          | 10                   |
-| STRICTLY_CONSISTENT keys per strategy            | 3                    |
+| STRICTLY\_CONSISTENT keys per strategy           | 3                    |
 | Metadata schema entries per strategy             | 20                   |
 | Memory record metadata entries (user-supplied)   | 20                   |
 | Filters per query                                | 5                    |

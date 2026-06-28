@@ -25,8 +25,10 @@ The following code samples demonstrate how to get online evaluation configuratio
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore_starter_toolkit import Evaluation
+
    ```
+
+from bedrock_agentcore_starter_toolkit import Evaluation
 
 # Initialize the evaluation client
 
@@ -62,9 +64,11 @@ response = client.get_online_evaluation_config(
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control get-online-evaluation-config \
-       --online-evaluation-config-id your_config_id
+
    ```
+
+aws bedrock-agentcore-control get-online-evaluation-config \
+--online-evaluation-config-id your_config_id
 
 ```
 

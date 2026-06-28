@@ -28,8 +28,10 @@ Run this from inside an AgentCore project directory (created with `agentcore cre
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation import DatasetClient
+
    ```
+
+from bedrock_agentcore.evaluation import DatasetClient
 
 client = DatasetClient(region_name="us-west-2")
 
@@ -79,10 +81,12 @@ while True:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control add-dataset-examples \
-       --dataset-id my-dataset-id \
-       --source '{"inlineExamples": {"examples": [{"scenario_id": "TC-02", "turns": [{"input": "Transfer $100", "expected_response": "Transfer complete."}]}]}}'
+
    ```
+
+aws bedrock-agentcore-control add-dataset-examples \
+--dataset-id my-dataset-id \
+--source '{"inlineExamples": {"examples": [{"scenario_id": "TC-02", "turns": [{"input": "Transfer $100", "expected_response": "Transfer complete."}]}]}}'
 
 ```
 
@@ -144,9 +148,11 @@ ds = client.update_examples_and_wait(
 AWS SDK
 
 1. ```
-   import boto3
-   import time
+
    ```
+
+import boto3
+import time
 
 client = boto3.client('bedrock-agentcore-control')
 
@@ -207,8 +213,10 @@ Run this from inside an AgentCore project directory (created with `agentcore cre
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation import DatasetClient
+
    ```
+
+from bedrock_agentcore.evaluation import DatasetClient
 
 client = DatasetClient(region_name="us-west-2")
 
@@ -245,10 +253,12 @@ while True:
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control delete-dataset-examples \
-       --dataset-id my-dataset-id \
-       --example-ids '["example-id-1", "example-id-2"]'
+
    ```
+
+aws bedrock-agentcore-control delete-dataset-examples \
+--dataset-id my-dataset-id \
+--example-ids '["example-id-1", "example-id-2"]'
 
 ````
 
@@ -279,8 +289,10 @@ agentcore dataset download --name my_eval_dataset --version 1
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation import DatasetClient
+
    ```
+
+from bedrock_agentcore.evaluation import DatasetClient
 
 client = DatasetClient(region_name="us-west-2")
 
@@ -322,13 +334,13 @@ AWS CLI
 # List examples from Draft
 
 aws bedrock-agentcore-control list-dataset-examples \
- --dataset-id my-dataset-id
+--dataset-id my-dataset-id
 
 # List examples from a published version
 
 aws bedrock-agentcore-control list-dataset-examples \
- --dataset-id my-dataset-id \
- --dataset-version 1
+--dataset-id my-dataset-id \
+--dataset-version 1
 
 ```
 

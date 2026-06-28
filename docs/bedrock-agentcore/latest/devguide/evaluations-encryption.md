@@ -204,8 +204,8 @@ For more information about monitoring KMS usage, see [Logging AWS KMS API calls 
 
 If you disable or delete your customer managed KMS key, or if the key policy no longer grants the required permissions:
 
-- **GetEvaluator with ALL_DATA** – Fails because the service cannot decrypt the instructions and rating scale.
-- **GetEvaluator with METADATA_ONLY** – Succeeds because no KMS operations are required.
+- **GetEvaluator with ALL\_DATA** – Fails because the service cannot decrypt the instructions and rating scale.
+- **GetEvaluator with METADATA\_ONLY** – Succeeds because no KMS operations are required.
 - **Evaluate (on-demand)** – Fails for CMK-encrypted evaluators because the service cannot decrypt the instructions.
 - **UpdateEvaluator (key rotation)** – Fails because the service cannot decrypt the existing data with the unavailable key before re-encrypting with the new key.
 - **CreateOnlineEvaluationConfig / UpdateOnlineEvaluationConfig** – Fails because the service cannot validate caller access via `kms:DescribeKey` and `kms:Decrypt` dry-run.

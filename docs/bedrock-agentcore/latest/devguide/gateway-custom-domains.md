@@ -216,7 +216,7 @@ By default, the `/.well-known/oauth-protected-resource` endpoint returns a resou
 
 To resolve this issue, you can implement a Lambda@Edge function that intercepts the OAuth discovery response and generates a new response with the correct custom domain URL. Here’s the approach:
 
-- **Use Lambda@Edge with ORIGIN_RESPONSE event type** : Create a function that triggers on origin responses to intercept the OAuth protected resource endpoint response.
+- **Use Lambda@Edge with ORIGIN\_RESPONSE event type** : Create a function that triggers on origin responses to intercept the OAuth protected resource endpoint response.
 - **Generate a new response** : Lambda@Edge cannot read origin response bodies, so instead of modifying the existing response, generate a completely new JSON response with the custom domain.
 - **Associate with CloudFront behavior** : Configure the Lambda@Edge function to trigger specifically for the `/.well-known/oauth-protected-resource` path pattern.
 

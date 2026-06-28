@@ -25,7 +25,7 @@ AgentCore CLI
 # Add a dataset to your project
 
 agentcore add dataset --name my_eval_dataset \
- --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1
+--schema-type AGENTCORE_EVALUATION_PREDEFINED_V1
 
 # Edit the generated JSONL file with your scenarios
 
@@ -85,9 +85,11 @@ For S3 ingestion, each line in the JSONL file must include an `exampleId` field.
 AWS SDK
 
 1. ```
-   import boto3
-   import time
+
    ```
+
+import boto3
+import time
 
 client = boto3.client('bedrock-agentcore-control')
 
@@ -200,8 +202,10 @@ ds_v1 = client.get_dataset(datasetId="my-dataset-id", datasetVersion="1")
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore-control')
 
@@ -247,8 +251,10 @@ The following examples show how to list datasets:
 AgentCore CLI
 
 1. ```
-   agentcore status --type dataset
+
    ```
+
+agentcore status --type dataset
 
 ````
 
@@ -268,8 +274,10 @@ for dataset in response["datasets"]:
 AWS SDK
 
 1. ```
-   import boto3
+
    ```
+
+import boto3
 
 client = boto3.client('bedrock-agentcore-control')
 
@@ -314,8 +322,10 @@ Run this from inside an AgentCore project directory (created with `agentcore cre
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation import DatasetClient
+
    ```
+
+from bedrock_agentcore.evaluation import DatasetClient
 
 client = DatasetClient(region_name="us-west-2")
 
@@ -338,10 +348,12 @@ client.update_dataset(datasetId='my-dataset-id', description='Updated descriptio
 AWS CLI
 
 1. ```
-   aws bedrock-agentcore-control update-dataset \
-       --dataset-id my-dataset-id \
-       --description "Updated description"
+
    ```
+
+aws bedrock-agentcore-control update-dataset \
+--dataset-id my-dataset-id \
+--description "Updated description"
 
 ````
 
@@ -385,8 +397,10 @@ agentcore deploy
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation import DatasetClient
+
    ```
+
+from bedrock_agentcore.evaluation import DatasetClient
 
 client = DatasetClient(region_name="us-west-2")
 
@@ -425,13 +439,13 @@ AWS CLI
 # Delete a specific published version
 
 aws bedrock-agentcore-control delete-dataset \
- --dataset-id my-dataset-id \
- --dataset-version 1
+--dataset-id my-dataset-id \
+--dataset-version 1
 
 # Delete entire dataset
 
 aws bedrock-agentcore-control delete-dataset \
- --dataset-id my-dataset-id
+--dataset-id my-dataset-id
 
 ```
 

@@ -23,16 +23,18 @@ Select one of the following methods:
 curl
 
 1. ```
-   curl -X POST \
-     https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-     -d '{
-       "jsonrpc": "2.0",
-       "id": "list-tools-request",
-       "method": "tools/list"
-     }'
+
    ```
+
+curl -X POST \
+https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+-d '{
+"jsonrpc": "2.0",
+"id": "list-tools-request",
+"method": "tools/list"
+}'
 
 ````
 
@@ -84,10 +86,10 @@ curl
 # Call a tool to test policy enforcement
 
 curl -X POST \
- https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
- -H "Content-Type: application/json" \
- -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
- -d '{
+https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+-d '{
 "jsonrpc": "2.0",
 "id": "test-policy",
 "method": "tools/call",

@@ -4,18 +4,17 @@ For agents running in the AgentCore runtime, AgentCore automatically generates a
 
 The following table summarizes the default data provided for each resource type, and where the data is available.
 
-| Resource type | Service-provided data    | Available in CloudWatch gen AI observability | Available in CloudWatch (Logs or metrics) |
-| ------------- | ------------------------ | -------------------------------------------- | ----------------------------------------- |
-| Agent         | Metrics                  | Yes                                          | Yes                                       |
-| Memory        | Metrics, Spans\*, Logs\* | No                                           | Yes                                       |
-| Payments      | Metrics, Spans, Logs     | No                                           | Yes                                       |
-| Gateway       | Metrics                  | No                                           | Yes                                       |
-| Tools         | Metrics                  | No                                           | Yes                                       |
-| Policy        | Metrics, Spans\*\*       | Yes                                          | Yes                                       |
+| Resource type | Service-provided data    | Available in Amazon CloudWatch gen AI observability | Available in CloudWatch (Logs or metrics) |
+| ------------- | ------------------------ | --------------------------------------------------- | ----------------------------------------- |
+| Agent         | Metrics, Spans\*, Logs\* | Yes                                                 | Yes                                       |
+| Memory        | Metrics, Spans\*, Logs\* | Yes                                                 | Yes                                       |
+| Payments      | Metrics, Spans, Logs     | Yes                                                 | Yes                                       |
+| Gateway       | Metrics, Spans, Logs\*   | Yes                                                 | Yes                                       |
+| Tools         | Metrics, Spans\*, Logs\* | Yes                                                 | Yes                                       |
+| Policy        | Metrics, Spans\*, Logs   | Yes                                                 | Yes                                       |
 
-- memory spans and logs require enablement. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more.
-
-  - Policy related observability is displayed under the AgentCore Gateway tab in CloudWatch gen AI observability.
+- Signals marked with an asterisk require explicit enablement. Metrics are provided by default for all resource types. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more.
+  Policy related observability is displayed under the AgentCore Gateway tab in CloudWatch gen AI observability.
 
 ###### Note
 
