@@ -86,21 +86,16 @@ following:
 
     Space names must be unique across CodeCatalyst. You cannot reuse names of deleted spaces.
 
-10. Choose **Next**.
-11. Under **Step 3: Connect groups**, in **Choose
-    groups**, choose the SSO users and groups you want to add to the space.
-    Choose the box next to each group you want to add. These must be already available in
-    IAM Identity Center for your identity provider.
-12. Choose **Next**.
-13. Under **Step 4: Assign users to the CodeCatalyst
-    **Space administrator** role**, choose which users you want to
-    assign the **Space administrator** role. These users will have
-    **Space administrator** permissions in CodeCatalyst for your space, to
-    include removing members and deleting the space. For more information about the role,
-    see [Working
-    with roles in Amazon CodeCatalyst](../userguide/ipa-roles.md "../userguide/ipa-roles.md").
-14. Choose **Next**.
-15. In the wizard Step 5 page, review the summary for the space.
+10. Choose **Next**. 11. Under **Step 3: Connect groups**, in **Choose
+groups**, choose the SSO users and groups you want to add to the space.
+Choose the box next to each group you want to add. These must be already available in
+IAM Identity Center for your identity provider. 12. Choose **Next**. 13. Under **Step 4: Assign users to the CodeCatalyst
+**Space administrator** role**, choose which users you want to
+assign the **Space administrator** role. These users will have
+**Space administrator** permissions in CodeCatalyst for your space, to
+include removing members and deleting the space. For more information about the role,
+see [Working
+with roles in Amazon CodeCatalyst](../userguide/ipa-roles.md "../userguide/ipa-roles.md"). 14. Choose **Next**. 15. In the wizard Step 5 page, review the summary for the space.
 
 ###### Note
 

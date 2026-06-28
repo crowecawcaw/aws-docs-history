@@ -86,29 +86,32 @@ the associated **AWS account connection**. 4. Choose **Add VPC connection**. 5. 
 
 6. In **VPC connection details**, do the following:
 
-   - For **VPC**, choose a VPC from the drop-down menu.
+    * For **VPC**, choose a VPC from the drop-down menu.
 
-   For more information, see
-   [Create a VPC](../../../vpc/latest/userguide/create-vpc.md "../../../vpc/latest/userguide/create-vpc.md")
-   in the _Amazon VPC User Guide_.
-   - In **Subnets**, choose _private_ subnets to connect to in each availability
+
+    For more information, see
+     [Create a VPC](../../../vpc/latest/userguide/create-vpc.md "../../../vpc/latest/userguide/create-vpc.md")
+     in the *Amazon VPC User Guide*.
+    * In **Subnets**, choose *private* subnets to connect to in each availability
      zone from the drop-down menus. Do not choose public subnets.
 
-   For more information, see
-   [Create a subnet](../../../vpc/latest/userguide/create-subnets.md "../../../vpc/latest/userguide/create-subnets.md")
-   in the _Amazon VPC User Guide_.
-   - In **Security groups**, select the groups from the drop-down menu. You can select up to five security groups.
 
-   For more information, see
-   [Security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md")
-   in the _Amazon VPC User Guide_.
-   - In **VPC connection name**, enter the reference name for your VPC connection
+    For more information, see
+     [Create a subnet](../../../vpc/latest/userguide/create-subnets.md "../../../vpc/latest/userguide/create-subnets.md")
+     in the *Amazon VPC User Guide*.
+    * In **Security groups**, select the groups from the drop-down menu. You can select up to five security groups.
+
+
+    For more information, see
+     [Security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md")
+     in the *Amazon VPC User Guide*.
+    * In **VPC connection name**, enter the reference name for your VPC connection
      then choose **Next**.
 
-   ###### Note
 
-   Each VPC connection name must be unique per space.
+    ###### Note
 
-7. After you've reviewed your selections, choose **Add VPC connection**.
-8. You can now associate this VPC connection with an environment to use with your workflow actions or create
-   a Dev Environment associated to your VPC connection. For instructions, see [Associating a VPC connection with an environment](../userguide/deploy-environments-managing-environment.md#deploy-environments-associate-vpc "../userguide/deploy-environments-managing-environment.md#deploy-environments-associate-vpc") or [Using Dev Environments with a VPC connection](../userguide/devenvironment-using-vpc.md "../userguide/devenvironment-using-vpc.md") in the _CodeCatalyst User Guide_.
+    Each VPC connection name must be unique per space.
+
+7. After you've reviewed your selections, choose **Add VPC connection**. 8. You can now associate this VPC connection with an environment to use with your workflow actions or create
+a Dev Environment associated to your VPC connection. For instructions, see [Associating a VPC connection with an environment](../userguide/deploy-environments-managing-environment.md#deploy-environments-associate-vpc "../userguide/deploy-environments-managing-environment.md#deploy-environments-associate-vpc") or [Using Dev Environments with a VPC connection](../userguide/devenvironment-using-vpc.md "../userguide/devenvironment-using-vpc.md") in the _CodeCatalyst User Guide_.
