@@ -104,7 +104,7 @@ deploy**.
 ![The review settings step in an AWS Amplify web app deployment tutorial. The image shows the final review of repository details, app settings, and advanced settings before clicking 'Save and deploy' to launch the app.](images/gasgdvrp-settings-edbfd-amplifylong.png) 6. Verify app deployment
 
 AWS Amplify will now **build** your source code and
-**deploy** your app at \***\*https://...amplifyapp.com\*\*** , and on every git
+**deploy** your app at ****https://...amplifyapp.com**** , and on every git
 push your deployment instance will update. It may take up to 5 minutes to deploy your
 app.
 

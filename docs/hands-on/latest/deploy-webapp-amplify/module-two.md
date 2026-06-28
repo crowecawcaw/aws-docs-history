@@ -131,7 +131,7 @@ complete.
 
 ![A Mac terminal showing AWS Amplify profiles app configuration, CloudFormation stack ARN output, and sandbox deployment status. The console displays environment variables and completion messages for deploying an Amplify app using Node.js and AWS services.](images/mac-terminal-amplifylong-profiles.png) 3. Verify output file
 
-Verify that the **amplify_outputs.json** file was
+Verify that the **amplify\_outputs.json** file was
 **generated and added** to your
 project.
 

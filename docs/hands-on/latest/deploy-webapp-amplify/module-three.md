@@ -92,7 +92,7 @@ CSS:
 In this step, you will update the
 **src/App.jsx** file to configure the
 Amplify library with the client configuration file
-(**amplify_outputs.json**). Then, it
+(**amplify\_outputs.json**). Then, it
 will generate a data client using
 the **generateClient()**function. 
 
