@@ -227,7 +227,7 @@ file**.
 
 On the **Upload a file** page, choose the
 **Choose file** button and select the downloaded
-aws-codepipeline-s3-aws-codedeploy_linux.zip file.
+aws-codepipeline-s3-aws-codedeploy\_linux.zip file.
 
 ![AWS CodeCommit interface showing the "Upload a file" section with a highlighted "Choose file" button.](images/acclong-interface-upload-file-section-1.png) 7. Commit changes to main
 
@@ -354,7 +354,7 @@ Amazon S3
 1. Add source
 
 Select **Amazon S3** for the **Source provider**, select the Amazon S3 bucket you created, and then
-enter the S3 object key for the file uploaded, for example: **aws-codepipeline-s3-aws-codedeploy_linux.zip**.
+enter the S3 object key for the file uploaded, for example: **aws-codepipeline-s3-aws-codedeploy\_linux.zip**.
 
 Choose **Next**.
 
@@ -531,7 +531,7 @@ Amazon S3
 
 1. Edit the code
 
-On your desktop, visit the zip file you downloaded called **aws-codepipeline-s3-aws-codedeploy_linux.zip**.
+On your desktop, visit the zip file you downloaded called **aws-codepipeline-s3-aws-codedeploy\_linux.zip**.
 
 Edit the sample web app code:
 
@@ -553,7 +553,7 @@ Return to the S3 bucket that you created earlier and select **Upload**.
 ![An Amazon S3 bucket interface showing one object, a zip file named "aws-codepipeline-s3-aws-codedeploy_linux.zip," with options to upload, create a folder, and perform actions.](images/bucket-interface-one-object-zip-file-named.png) 3. Upload the file to your bucket
 
 Select **Add files** to upload the updated
-**aws-codepipeline-s3-aws-codedeploy_linux.zip**
+**aws-codepipeline-s3-aws-codedeploy\_linux.zip**
 file or drag and drop the file. Then choose **Upload**.
 
 ###### Note
@@ -569,7 +569,7 @@ AWS CodeCommit
 
 1. Edit the code
 
-On your desktop, visit the zip file you downloaded called **aws-codepipeline-s3-aws-codedeploy_linux.zip**.
+On your desktop, visit the zip file you downloaded called **aws-codepipeline-s3-aws-codedeploy\_linux.zip**.
 
 Edit the sample web app code:
 
@@ -591,7 +591,7 @@ From the **CodeCommit PipelineRepo** page, choose
 
 On the **Upload a file** page, choose the
 **Choose file** button and select the updated
-**aws-codepipeline-s3-aws-codedeploy_linux.zip**
+**aws-codepipeline-s3-aws-codedeploy\_linux.zip**
 file.
 
 ![AWS CodeCommit interface showing the "Upload a file" section with a highlighted "Choose file" button.](images/acclong-interface-upload-file-section-1.png) 4. Commit changes
