@@ -183,7 +183,7 @@ list, `swf:tagList.member.1` to constrain the second tag in the list,
 and so on, up to a maximum of 5.
 
 You must be careful how you constrain tag lists. For instance, the following
-condition is **_not_**
+condition is _**not**_
 recommended.
 
 The following Condition is **not** recommended

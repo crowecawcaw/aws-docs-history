@@ -11,7 +11,7 @@ Amazon SWF requires the following information in the header of an HTTP request:
 - `host` The Amazon SWF endpoint.
 - `x-amz-date` You must provide the time stamp in either the HTTP
   `Date` header or the AWS `x-amz-date
-header` (some HTTP client libraries don't let you set the
+ header` (some HTTP client libraries don't let you set the
   `Date` header). When an
   `x-amz-date` header is present, the system
   ignores any `Date` header when authenticating the

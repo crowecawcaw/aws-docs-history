@@ -80,7 +80,7 @@ _options_ to be used when registering the activity with Amazon SWF.
 ```
 
 As with workflow type registration, if an activity type is already registered, we can retrieve it by looking
-at the domain's [activity_types](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_types-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_types-instance_method")
+at the domain's [activity\_types](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_types-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_types-instance_method")
 collection. If the activity can't be found, it will be registered.
 
 Also, as with workflow types, you can set _default options_ that are stored with your
@@ -211,7 +211,7 @@ method.
 ```
 
 Now that we have the code in place to get the activity set up and registered, we will add some code
-to create an Amazon SNS topic. To do so, we'll use the [AWS::SNS::Client](../../../AWSRubySDK/latest/AWS/SNS/Client.md "../../../AWSRubySDK/latest/AWS/SNS/Client.md") object's [create_topic](../../../AWSRubySDK/latest/AWS/SNS/Client.md#create_topic-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Client.md#create_topic-instance_method")
+to create an Amazon SNS topic. To do so, we'll use the [AWS::SNS::Client](../../../AWSRubySDK/latest/AWS/SNS/Client.md "../../../AWSRubySDK/latest/AWS/SNS/Client.md") object's [create\_topic](../../../AWSRubySDK/latest/AWS/SNS/Client.md#create_topic-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Client.md#create_topic-instance_method")
 method.
 
 Add the `create_topic` method to your class, which takes a passed-in Amazon SNS client object.
@@ -238,7 +238,7 @@ Add the `create_topic` method to your class, which takes a passed-in Amazon SNS 
      end
 ```
 
-Once we have the topic's Amazon Resource Name (ARN), we can use it with the Amazon SNS client's [set_topic_attributes](../../../AWSRubySDK/latest/AWS/SNS/Client.md#set_topic_attributes-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Client.md#set_topic_attributes-instance_method") method to
+Once we have the topic's Amazon Resource Name (ARN), we can use it with the Amazon SNS client's [set\_topic\_attributes](../../../AWSRubySDK/latest/AWS/SNS/Client.md#set_topic_attributes-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Client.md#set_topic_attributes-instance_method") method to
 set the topic's _DisplayName_, which is required for sending SMS messages with Amazon SNS.
 
 Lastly, we'll define the `do_activity` method. We'll start by collecting any data that was

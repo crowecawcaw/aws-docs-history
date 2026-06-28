@@ -30,8 +30,8 @@ We'll configure the AWS Session by setting our AWS credentials (which are needed
 accessing AWS services) and the AWS region to use.
 
 There are a number of ways to [set AWS credentials
-in the AWS SDK for Ruby](../../../AWSRubySDK/latest/index.md#Basic_Configuration "../../../AWSRubySDK/latest/index.md#Basic_Configuration"): by setting them in environment variables (AWS_ACCESS_KEY_ID
-and AWS_SECRET_ACCESS_KEY) or by setting them with [`AWS.config`](../../../AWSRubySDK/latest/AWS.md#config-class_method "../../../AWSRubySDK/latest/AWS.md#config-class_method").
+in the AWS SDK for Ruby](../../../AWSRubySDK/latest/index.md#Basic_Configuration "../../../AWSRubySDK/latest/index.md#Basic_Configuration"): by setting them in environment variables (AWS\_ACCESS\_KEY\_ID
+and AWS\_SECRET\_ACCESS\_KEY) or by setting them with [`AWS.config`](../../../AWSRubySDK/latest/AWS.md#config-class_method "../../../AWSRubySDK/latest/AWS.md#config-class_method").
 We'll use the latter method, loading them from a YAML configuration file, called
 `aws-config.txt`, that looks like this.
 
@@ -42,7 +42,7 @@ We'll use the latter method, loading them from a YAML configuration file, called
 ```
 
 Create this file now, replacing the strings beginning with
-_REPLACE_WITH\__ with your AWS access key ID and secret access key. For
+_REPLACE\_WITH\__ with your AWS access key ID and secret access key. For
 information about your AWS access keys, see [How Do I Get Security Credentials?](../../../general/latest/gr/getting-aws-sec-creds.md "../../../general/latest/gr/getting-aws-sec-creds.md") in
 the _Amazon Web Services General Reference_.
 

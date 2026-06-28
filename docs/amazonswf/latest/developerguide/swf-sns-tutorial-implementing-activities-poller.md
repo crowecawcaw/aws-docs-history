@@ -56,7 +56,7 @@ For each activity instantiated, we store it on a map using the activity name (su
 `get_contact_activity`) as the key, so we can easily look these up in the activity poller code,
 which we'll define next.
 
-Create a new method called `poll_for_activities` and call [poll](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTaskCollection.md#poll-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTaskCollection.md#poll-instance_method") on the [activity_tasks](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_tasks-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_tasks-instance_method") held by the
+Create a new method called `poll_for_activities` and call [poll](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTaskCollection.md#poll-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTaskCollection.md#poll-instance_method") on the [activity\_tasks](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_tasks-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_tasks-instance_method") held by the
 domain to get activity tasks.
 
 ```
@@ -65,7 +65,7 @@ domain to get activity tasks.
       activity_name = task.activity_type.name
 ```
 
-We can get the activity name from the task's [activity_type](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#activity_type-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#activity_type-instance_method") member.
+We can get the activity name from the task's [activity\_type](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#activity_type-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#activity_type-instance_method") member.
 Next, we'll use the activity name associated with this task to look up the class to run
 `do_activity` on, passing it the task (which includes any input data that should be transferred to
 the activity).

@@ -81,7 +81,7 @@ To view the available documentation, see the [AWS SDK for JavaScript Documentati
 page. You can also go directly to the Amazon SWF section in the SDK reference by following this link:
 
 - [`Class:
-AWS.SimpleWorkflow`](../../../AWSJavaScriptSDK/latest/AWS/SWF.md "../../../AWSJavaScriptSDK/latest/AWS/SWF.md")
+ AWS.SimpleWorkflow`](../../../AWSJavaScriptSDK/latest/AWS/SWF.md "../../../AWSJavaScriptSDK/latest/AWS/SWF.md")
 
 **.NET**
 
@@ -103,7 +103,7 @@ To view the available documentation, see the [AWS SDK for PHP Documentation](htt
 can also go directly to the Amazon SWF section in the SDK reference by following this link:
 
 - [`Class:
-SwfClient`](../../../sdk-for-php/latest/reference/class-Aws.Swf.SwfClient.md "../../../sdk-for-php/latest/reference/class-Aws.Swf.SwfClient.md")
+ SwfClient`](../../../sdk-for-php/latest/reference/class-Aws.Swf.SwfClient.md "../../../sdk-for-php/latest/reference/class-Aws.Swf.SwfClient.md")
 
 **Python**
 

@@ -11,7 +11,7 @@ policy_, that is, how Amazon SWF should handle the situation in which the parent
 terminates before the child workflow execution. There are three possible values:
 
 - TERMINATE: Amazon SWF will terminate the child executions.
-- REQUEST_CANCEL: Amazon SWF will attempt to cancel the child execution by placing a
+- REQUEST\_CANCEL: Amazon SWF will attempt to cancel the child execution by placing a
   `WorkflowExecutionCancelRequested` event in the child's workflow execution history.
 - ABANDON: Amazon SWF will take no action; the child executions will continue to run.
   After the child workflow execution starts, it runs like a regular execution. When it completes, Amazon SWF

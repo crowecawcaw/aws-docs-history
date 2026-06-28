@@ -28,10 +28,10 @@ coordinating data transfer between activities.
 For this workflow, we'll create a separate activity for each of these steps, naming them
 descriptively:
 
-1. get_contact_activity
-2. subscribe_topic_activity
-3. wait_for_confirmation_activity
-4. send_result_activity
+1. get\_contact\_activity
+2. subscribe\_topic\_activity
+3. wait\_for\_confirmation\_activity
+4. send\_result\_activity
 
 These activities will be executed in order, and data from each step will be used in the subsequent
 step.
@@ -143,7 +143,7 @@ type we registered on a previous run or to register the workflow if it has not y
 ```
 
 First, we check to see if the workflow name and version is already registered by iterating through the
-domain's [workflow_types](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#workflow_types-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#workflow_types-instance_method")
+domain's [workflow\_types](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#workflow_types-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#workflow_types-instance_method")
 collection. If we find a match, we'll use the workflow type that was already registered.
 
 If we don't find a match, then a new workflow type is registered (by calling [register](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowTypeCollection.md#register-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowTypeCollection.md#register-instance_method")
@@ -175,13 +175,13 @@ or by setting the state of the workflow execution as complete, cancelled, or fai
 
 The decider uses the workflow execution's _task list_ name to receive decision tasks to
 respond to. To poll for decision tasks, call [poll](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTaskCollection.md#poll-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTaskCollection.md#poll-instance_method")
-on the domain's [decision_tasks](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#decision_tasks-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#decision_tasks-instance_method")
+on the domain's [decision\_tasks](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#decision_tasks-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#decision_tasks-instance_method")
 collection to loop over available decision tasks. You can then check for new events in the decision task by
-iterating over its [new_events](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#new_events-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#new_events-instance_method")
+iterating over its [new\_events](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#new_events-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#new_events-instance_method")
 collection.
 
 The returned events are [AWS::SimpleWorkflow::HistoryEvent](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md")
-objects, and you can get the type of the event by using the returned event's [event_type](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md#event_type-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md#event_type-instance_method")
+objects, and you can get the type of the event by using the returned event's [event\_type](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md#event_type-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md#event_type-instance_method")
 member. For a list and description of history event types, see [HistoryEvent](../apireference/API_HistoryEvent.md "../apireference/API_HistoryEvent.md") in the
 _Amazon Simple Workflow Service API Reference_.
 
@@ -199,7 +199,7 @@ Here is the beginning of the decision task poller's logic. A new method in our w
 We'll now branch the execution of our decider based on the `event_type` that is received.
 The first one we are likely to receive is **WorkflowExecutionStarted**. When this
 event is received, it means that Amazon SWF is signaling to your decider that it should begin the workflow execution.
-We'll begin by scheduling the first activity by calling [schedule_activity_task](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#schedule_activity_task-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#schedule_activity_task-instance_method")
+We'll begin by scheduling the first activity by calling [schedule\_activity\_task](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#schedule_activity_task-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#schedule_activity_task-instance_method")
 on the task we received while polling.
 
 We'll pass it the first activity we declared in our activity list, which, because we reversed the list so
@@ -256,7 +256,7 @@ response from an activity task.
 Because we are executing our tasks in a linear fashion, and only one activity is executing at once, we'll
 take this opportunity to pop the completed task from the `activity_list` stack. If this results in an empty list,
 then we know that our workflow is complete. In this case, we signal to Amazon SWF that our workflow is complete by
-calling [complete_workflow_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#complete_workflow_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#complete_workflow_execution-instance_method")
+calling [complete\_workflow\_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#complete_workflow_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#complete_workflow_execution-instance_method")
 on the task.
 
 In the event that the list still has entries, we'll schedule the next activity on the list (again, in the
@@ -300,7 +300,7 @@ code for the **ActivityTaskTimedOut** and **ActivityTaskFailed** events, and for
 Before any decision tasks will be generated for the workflow to poll for, we need to start the workflow
 execution.
 
-To start the workflow execution, call [start_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method")
+To start the workflow execution, call [start\_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method")
 on your registered workflow type ([AWS::SimpleWorkflow::WorkflowType](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md")).
 We'll define a small wrapper around this to make use of the `workflow_type` instance member that
 we retrieved in the class constructor.
@@ -315,7 +315,7 @@ end
 ```
 
 Once the workflow is executing, decision events will begin to appear on the workflow's task list, which is
-passed as a workflow execution option in [start_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method").
+passed as a workflow execution option in [start\_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method").
 
 Unlike options that are provided when the workflow type is registered, options that are passed to
 `start_execution` are not considered to be part of the workflow type. You are free to change these per workflow

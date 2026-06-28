@@ -22,68 +22,61 @@ match the value of the `Algorithm` name in the HTTP header.
 
 ### To create the request signature
 
-1.  Create a canonical form of the HTTP request headers. The canonical form of the
-    HTTP header includes the following:
+1. Create a canonical form of the HTTP request headers. The canonical form of the
+   HTTP header includes the following:
 
-        * `host`
-        * Any header element starting with `x-amz-`
+   - `host`
+   - Any header element starting with `x-amz-`
+     For more information about the included headers, see [HTTP Header Contents](UsingJSON-swf.md#HTTPHeader "UsingJSON-swf.md#HTTPHeader").
+   1. For each header name-value pair, convert the header name (but not the
+      header value) to lowercase.
+   2. Build a map of the header name to comma-separated header values.
 
-    For more information about the included headers, see [HTTP Header Contents](UsingJSON-swf.md#HTTPHeader "UsingJSON-swf.md#HTTPHeader").
+   ```
+   x-amz-example: value1
+   x-amz-example: value2  =>  x-amz-example:value1,value2
+   ```
 
-        1. For each header name-value pair, convert the header name (but not the
-         header value) to lowercase.
-        2. Build a map of the header name to comma-separated header values.
+   For more information, see [Section 4.2 of RFC 2616](http://tools.ietf.org/html/rfc2616 "http://tools.ietf.org/html/rfc2616"). 3. For each header name-value pair, convert the name-value pair into a
+   string in the format `headerName:headerValue`. Trim any
+   whitespace from the beginning and end of both `headerName` and
+   `headerValue`, with no spaces on each side of the
+   colon.
 
+   ```
+   x-amz-example1:value1,value2
+   x-amz-example2:value3
+   ```
+   4. Insert a new line (`U+000A`) after each converted string,
+      including the last string.
+   5. Sort the collection of converted strings alphabetically, by header
+      name.
 
+2. Create a string-to-sign value that includes the following items:
 
-        ```
-        x-amz-example: value1
-        x-amz-example: value2  =>  x-amz-example:value1,value2
-        ```
+   - Line `1`: The HTTP method (`POST`),
+     followed by a newline.
+   - Line `2`: The request URI (`/`), followed
+     by a newline.
+   - Line `3`: An empty string followed by a newline.
 
-        For more information, see [Section 4.2 of RFC 2616](http://tools.ietf.org/html/rfc2616 "http://tools.ietf.org/html/rfc2616").
-        3. For each header name-value pair, convert the name-value pair into a
-         string in the format `headerName:headerValue`. Trim any
-         whitespace from the beginning and end of both `headerName` and
-         `headerValue`, with no spaces on each side of the
-         colon.
+   ###### Note
 
+   Typically, the query string appears here, but Amazon SWF doesn't use a
+   query string.
+   - Lines `4–n`: The string representing the canonicalized
+     request headers that you computed in Step 1, followed by a newline. This
+     newline creates a blank line between the headers and the body of the HTTP
+     request. For more information, see [RFC
+     2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html "http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html").
+   - The request body, _not_ followed by a newline.
 
-
-        ```
-        x-amz-example1:value1,value2
-        x-amz-example2:value3
-        ```
-        4. Insert a new line (`U+000A`) after each converted string,
-         including the last string.
-        5. Sort the collection of converted strings alphabetically, by header
-         name.
-
-2.  Create a string-to-sign value that includes the following items:
-
-    - Line `1`: The HTTP method (`POST`),
-      followed by a newline.
-    - Line `2`: The request URI (`/`), followed
-      by a newline.
-    - Line `3`: An empty string followed by a newline.
-
-    ###### Note
-
-    Typically, the query string appears here, but Amazon SWF doesn't use a
-    query string.
-    - Lines `4–n`: The string representing the canonicalized
-      request headers that you computed in Step 1, followed by a newline. This
-      newline creates a blank line between the headers and the body of the HTTP
-      request. For more information, see [RFC
-      2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html "http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html").
-    - The request body, _not_ followed by a newline.
-
-3.  Compute the SHA256 or SHA1 digest of the string-to-sign value. Use the same SHA
-    method throughout the process.
-4.  Compute and Base64-encode the HMAC-SHA using either a SHA256 or a SHA1 digest
-    (depending on the method you used) of the value resulting from the previous step
-    and the temporary secret access key from the AWS Security Token
-    Service using the `GetSessionToken` API action.
+3. Compute the SHA256 or SHA1 digest of the string-to-sign value. Use the same SHA
+   method throughout the process.
+4. Compute and Base64-encode the HMAC-SHA using either a SHA256 or a SHA1 digest
+   (depending on the method you used) of the value resulting from the previous step
+   and the temporary secret access key from the AWS Security Token
+   Service using the `GetSessionToken` API action.
 
 ###### Note
 
