@@ -10,9 +10,8 @@ ECO deploys or updates AWS resources only in the following situations through a 
 - During deployment, application patching, and updates for major and minor releases of EDI.
 - When conﬁguring the following ECO features:
 
-      + Alarm manager
-      + Resource tagger
-      + Resource scheduler
-      + Backup plans
-
-  ECO doesn't deploy or update resources outside the preceding situations.
+  - Alarm manager
+  - Resource tagger
+  - Resource scheduler
+  - Backup plans
+    ECO doesn't deploy or update resources outside the preceding situations.
