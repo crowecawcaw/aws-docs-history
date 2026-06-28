@@ -157,7 +157,7 @@ right-click the file area, and then select
 ![A JupyterLab interface showing a context menu with the "New Notebook" option highlighted in red.](images/jupyterlab-interface-context-menu-new.png) 3. Select kernel
 
 On the **Select Kernel** pop up
-window, choose **conda_python3**,
+window, choose **conda\_python3**,
 and choose **Select**.
 
 ![Dialog box titled "Select Kernel" with a dropdown showing "conda_python3" selected and two buttons: "No Kernel" and "Select.".](images/dialog-box-titled-select-kernel-dropdown.png) 4. Open the chat playground
@@ -309,7 +309,8 @@ In the left navigation pane, choose
 ![Identity and Access Management (IAM) menu with 'Roles' highlighted in red under Access management.](images/identity-access-management-iam-menu-roles.png) 11. Search for the IAM role
 
 In the **search box**, find the
-previously created \***\*AmazonSageMaker AI-ExecutionRole-<timestamp>\*\***
+previously created
+****AmazonSageMaker AI-ExecutionRole-<timestamp>****
 role, and **open** the role.
 
 ![The AWS IAM Roles page showing a search for "AmazonSageMaker AI-ExecutionRole" with one matching result listed.](images/iam-roles-page-search-executionrole-one.png) 12. Add permissions
@@ -338,7 +339,8 @@ Navigate back to your
 
 ![A Jupyter Notebook interface showing Python code for processing image files, including functions to list image files, check if a file should be processed, and extract text using Amazon Textract.](images/jupyter-notebook-interface-code-processing.png) 15. View the text file
 
-After your code runs you should now be able to see a \***\*.txt file\*\***
+After your code runs you should now be able to see a
+****.txt file****
 with the extracted text in the left navigation pane of your
 JupyterLab.
 
