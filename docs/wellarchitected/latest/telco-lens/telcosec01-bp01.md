@@ -61,7 +61,7 @@ AWS](https://aws.amazon.com/blogs/security/enhancing-telecom-security-with-aws/ 
 
 - [Enhancing telecom security with AWS](https://aws.amazon.com/blogs/security/enhancing-telecom-security-with-aws/ "https://aws.amazon.com/blogs/security/enhancing-telecom-security-with-aws/")
 
-  **Key AWS services:**
+**Key AWS services:**
 
 - [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/")
 - [Amazon VPC](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/")
