@@ -30,14 +30,13 @@ Do one of the following, depending on the DNS service for your domain:
      documentation provided by your DNS service provider.
 
 2. After you update your domain’s DNS records, wait until the changes have propagated and DNS
-   resolvers are routing traffic to the new resource. You can check to see when
-   this is complete by creating some test links that use your domain in the
-   URL.
-3. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home"), and update your CloudFront distribution
-   to remove the domain name by doing the following:
+resolvers are routing traffic to the new resource. You can check to see when
+this is complete by creating some test links that use your domain in the
+URL. 3. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home"), and update your CloudFront distribution
+to remove the domain name by doing the following:
 
-   1. Choose the ID for the distribution that you want to update.
-   2. On the **General** tab, choose **Edit**.
-   3. In **Alternate Domain Names (CNAMEs)**, remove the alternate
-      domain name (or domain names) that you no longer want to use for your distribution.
-   4. Choose **Yes, Edit**.
+    1. Choose the ID for the distribution that you want to update.
+    2. On the **General** tab, choose **Edit**.
+    3. In **Alternate Domain Names (CNAMEs)**, remove the alternate
+     domain name (or domain names) that you no longer want to use for your distribution.
+    4. Choose **Yes, Edit**.

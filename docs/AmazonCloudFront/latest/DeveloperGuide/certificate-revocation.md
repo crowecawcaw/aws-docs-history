@@ -18,13 +18,13 @@ revocation, and you can combine them for layered control.
   data, update timing, and custom logic like grace periods or IP-based
   exceptions.
 
-| Comparison: OCSP vs. CloudFront Functions with KeyValueStore |                                                                         | OCSP                                                                  | CloudFront Functions + KeyValueStore |
-| ------------------------------------------------------------ | ----------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------ |
-| Data source                                                  | Certificate Authority's OCSP responder                                  | You manage the revocation list                                        |
-| Update mechanism                                             | Real-time query to CA                                                   | You push updates to KeyValueStore                                     |
-| Custom logic                                                 | Available via Connection Functions                                      | Built into your function code                                         |
-| External dependency                                          | Requires CA OCSP responder availability                                 | No external dependency                                                |
-| Best for                                                     | CAs that maintain OCSP responders; real-time CA-authoritative<br>status | Self-managed revocation; custom policies; CAs without OCSP<br>support |
+Comparison: OCSP vs. CloudFront Functions with KeyValueStore| | OCSP | CloudFront Functions + KeyValueStore |
+| --- | --- | --- |
+| Data source | Certificate Authority's OCSP responder | You manage the revocation list |
+| Update mechanism | Real-time query to CA | You push updates to KeyValueStore |
+| Custom logic | Available via Connection Functions | Built into your function code |
+| External dependency | Requires CA OCSP responder availability | No external dependency |
+| Best for | CAs that maintain OCSP responders; real-time CA-authoritative<br>status | Self-managed revocation; custom policies; CAs without OCSP<br>support |
 
 You can use both approaches together. Enable OCSP for CA-authoritative revocation
 checking, then use a Connection Function to layer additional logic on top of the OCSP

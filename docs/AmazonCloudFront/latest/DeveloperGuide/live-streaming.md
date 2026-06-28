@@ -50,42 +50,41 @@ CloudFront distribution and configure it to work with MediaStore.
 
 ###### To serve content from an AWS Elemental MediaStore container
 
-1.  Follow the procedure at [Allowing Amazon CloudFront to access your AWS Elemental MediaStore
-    container](../../../mediastore/latest/ug/cdns-allowing-cloudfront-to-access-mediastore.md "../../../mediastore/latest/ug/cdns-allowing-cloudfront-to-access-mediastore.md"), and then return to these steps to create your
-    distribution.
-2.  Create a distribution with the following settings:
+1. Follow the procedure at [Allowing Amazon CloudFront to access your AWS Elemental MediaStore
+   container](../../../mediastore/latest/ug/cdns-allowing-cloudfront-to-access-mediastore.md "../../../mediastore/latest/ug/cdns-allowing-cloudfront-to-access-mediastore.md"), and then return to these steps to create your
+   distribution.
+2. Create a distribution with the following settings:
 
-    1.  **Origin domain** – The data endpoint that
-        is assigned to your MediaStore container. From the dropdown list, choose
-        the MediaStore container for your live video.
-    2.  **Origin path** – The folder structure in
-        the MediaStore container where your objects are stored. For more
-        information, see [Origin path](DownloadDistValuesOrigin.md#DownloadDistValuesOriginPath "DownloadDistValuesOrigin.md#DownloadDistValuesOriginPath").
-    3.  **Add custom header** – Add header names
-        and values if you want CloudFront to add custom headers when it forwards
-        requests to your origin.
-    4.  **Viewer protocol policy** – Choose
-        **Redirect HTTP to HTTPS**. For more
-        information, see [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
-    5.  **Cache policy** and **Origin request
-        policy**
+   1. **Origin domain** – The data endpoint that
+      is assigned to your MediaStore container. From the dropdown list, choose
+      the MediaStore container for your live video.
+   2. **Origin path** – The folder structure in
+      the MediaStore container where your objects are stored. For more
+      information, see [Origin path](DownloadDistValuesOrigin.md#DownloadDistValuesOriginPath "DownloadDistValuesOrigin.md#DownloadDistValuesOriginPath").
+   3. **Add custom header** – Add header names
+      and values if you want CloudFront to add custom headers when it forwards
+      requests to your origin.
+   4. **Viewer protocol policy** – Choose
+      **Redirect HTTP to HTTPS**. For more
+      information, see [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
+   5. **Cache policy** and **Origin request
+      policy**
 
-            * For **Cache policy**, choose
-             **Create policy**, and then create a
-             cache policy that’s appropriate for your caching needs and
-             segment durations. After you create the policy, refresh the
-             list of cache policies and choose the policy that you just
-             created.
-            * For **Origin request policy**, choose
-             **CORS-CustomOrigin** from the dropdown
-             list.For the other settings, you can set specific values based on other
-
+      - For **Cache policy**, choose
+        **Create policy**, and then create a
+        cache policy that’s appropriate for your caching needs and
+        segment durations. After you create the policy, refresh the
+        list of cache policies and choose the policy that you just
+        created.
+      - For **Origin request policy**, choose
+        **CORS-CustomOrigin** from the dropdown
+        list.For the other settings, you can set specific values based on other
         technical requirements or the needs of your business. For a list of all the
         options for distributions and information about setting them, see [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
 
-3.  For links in your application (for example, a media player), specify the
-    name of the media file in the same format that you use for other objects
-    that you’re distributing using CloudFront.
+3. For links in your application (for example, a media player), specify the
+   name of the media file in the same format that you use for other objects
+   that you’re distributing using CloudFront.
 
 ## Serve live video formatted with AWS Elemental MediaPackage
 
@@ -338,13 +337,10 @@ values by typing them and then choosing
      LL-HLS blocking playlist request feature to
      work.
 
-5. Choose **Create**.
-6. After you create the cache policy, go back to the cache behavior
-   creation workflow. Refresh the list of cache policies, and choose the
-   policy that you just created.
-7. Choose **Create behavior**.
-8. If your endpoint is not a Microsoft Smooth Streaming endpoint, repeat
-   these steps to create a second cache behavior.
+5. Choose **Create**. 6. After you create the cache policy, go back to the cache behavior
+creation workflow. Refresh the list of cache policies, and choose the
+policy that you just created. 7. Choose **Create behavior**. 8. If your endpoint is not a Microsoft Smooth Streaming endpoint, repeat
+these steps to create a second cache behavior.
 
 We recommend enabling header-based MediaPackage CDN Authorization between MediaPackage
 endpoints and the CloudFront distribution. For more information, see [Enable CDN authorization in MediaPackage](../../../mediapackage/latest/ug/cdn-auth-setup.md#cdn-aut-setup-endpoint "../../../mediapackage/latest/ug/cdn-auth-setup.md#cdn-aut-setup-endpoint") in the
@@ -570,13 +566,10 @@ values by typing them and then choosing
      manifest filtering feature to work. For more
      information, see [Manifest filtering](../../../mediapackage/latest/ug/manifest-filtering.md "../../../mediapackage/latest/ug/manifest-filtering.md") in the *AWS Elemental MediaPackage User Guide*.
 
-5. Choose **Create**.
-6. After you create the cache policy, go back to the cache behavior
-   creation workflow. Refresh the list of cache policies, and choose the
-   policy that you just created.
-7. Choose **Create behavior**.
-8. If your endpoint is not a Microsoft Smooth Streaming endpoint, repeat
-   these steps to create a second cache behavior.
+5. Choose **Create**. 6. After you create the cache policy, go back to the cache behavior
+creation workflow. Refresh the list of cache policies, and choose the
+policy that you just created. 7. Choose **Create behavior**. 8. If your endpoint is not a Microsoft Smooth Streaming endpoint, repeat
+these steps to create a second cache behavior.
 
 We recommend enabling header-based MediaPackage CDN Authorization between MediaPackage
 VOD content and the CloudFront distribution. For more information, see [Enable CDN authorization in MediaPackage](../../../mediapackage/latest/ug/cdn-auth-setup.md#cdn-aut-setup-endpoint "../../../mediapackage/latest/ug/cdn-auth-setup.md#cdn-aut-setup-endpoint") in the

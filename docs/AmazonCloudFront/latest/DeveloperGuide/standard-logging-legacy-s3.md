@@ -268,7 +268,7 @@ URL-encoded equivalents are used for the following characters:
 The URL encoding standard is defined in [RFC 1738](https://tools.ietf.org/html/rfc1738.html "https://tools.ietf.org/html/rfc1738.html").
 
 | URL-Encoded value | Character |
-| ----------------- | --------- | --- |
+| ----------------- | --------- |
 | %3C               | <         |
 | %3E               | >         |
 | %22               | "         |

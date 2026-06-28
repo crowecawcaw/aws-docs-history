@@ -144,7 +144,7 @@ modify an HTTP listener.
    - For **Response code**, enter
      `403`.
    - For **Response body**, enter `Access
-denied`.
+  denied`.
 
 After you complete these steps, your load balancer listener has two rules. One rule forwards requests that contain the HTTP header
 (requests that come from CloudFront). The other rule sends a fixed response to all other

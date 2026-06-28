@@ -245,16 +245,14 @@ Note the following:
      `IpAddress`, see [Values that you specify in the policy statement for a custom policy for signed cookies](#private-content-custom-policy-statement-cookies-values "#private-content-custom-policy-statement-cookies-values").
 
 2. Remove all empty spaces (including tabs and newline characters) from
-   the policy statement. You might have to include escape characters in the
-   string in application code.
-3. Base64-encode the policy statement using MIME base64 encoding. For
-   more information, see [Section 6.8,
-   Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8 "https://tools.ietf.org/html/rfc2045#section-6.8") in _RFC 2045, MIME
-   (Multipurpose Internet Mail Extensions) Part One: Format of Internet
-   Message Bodies_.
-4. Replace characters that are invalid in a URL query string with
-   characters that are valid. The following table lists invalid and valid
-   characters.
+the policy statement. You might have to include escape characters in the
+string in application code. 3. Base64-encode the policy statement using MIME base64 encoding. For
+more information, see [Section 6.8,
+Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8 "https://tools.ietf.org/html/rfc2045#section-6.8") in _RFC 2045, MIME
+(Multipurpose Internet Mail Extensions) Part One: Format of Internet
+Message Bodies_. 4. Replace characters that are invalid in a URL query string with
+characters that are valid. The following table lists invalid and valid
+characters.
 
 | Replace these invalid characters | With these valid characters |
 | -------------------------------- | --------------------------- |

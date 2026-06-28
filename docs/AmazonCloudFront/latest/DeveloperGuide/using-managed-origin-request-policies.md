@@ -98,7 +98,7 @@ This policy has the following settings:
 
 [View this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront/v4/home#/policies/origin/b689b0a8-53d0-40ab-baf2-68738e2966ac "https://console.aws.amazon.com/cloudfront/v4/home#/policies/origin/b689b0a8-53d0-40ab-baf2-68738e2966ac")
 
-This policy does **_not_** include the `Host` header from the viewer
+This policy does _**not**_ include the `Host` header from the viewer
 request, but does include all others values (headers, cookies, and query strings)
 from the viewer request.
 
@@ -124,7 +124,7 @@ When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this p
 This policy has the following settings:
 
 - **Headers included in origin requests:** All
-  headers in the viewer request **_except_** for the `Host`
+  headers in the viewer request _**except**_ for the `Host`
   header
 - **Cookies included in origin requests:**
   All

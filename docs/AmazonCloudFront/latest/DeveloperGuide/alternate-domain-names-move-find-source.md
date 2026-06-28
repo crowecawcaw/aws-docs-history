@@ -96,13 +96,12 @@ with the one that you specified.
      dev.tenant1.example.com, and so on).
 
 2. In the response, find the source standard distribution or distribution tenant for the alternate
-   domain name that you're moving, and note the AWS account ID.
-3. Compare the account ID of the _source_
-   standard distribution or distribution tenant with the account ID where you created the
-   _target_ standard distribution or distribution tenant in the [previous
-   step](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md"). You can then determine whether the source and
-   target are in the same AWS account. This helps you determine how
-   to move the alternate domain name.
+domain name that you're moving, and note the AWS account ID. 3. Compare the account ID of the _source_
+standard distribution or distribution tenant with the account ID where you created the
+_target_ standard distribution or distribution tenant in the [previous
+step](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md"). You can then determine whether the source and
+target are in the same AWS account. This helps you determine how
+to move the alternate domain name.
 
 For more information, see the [list-domain-conflicts](../../../cli/latest/reference/cloudfront/list-domain-conflicts.md "../../../cli/latest/reference/cloudfront/list-domain-conflicts.md") command in the
 _AWS Command Line Interface Reference_.
@@ -177,11 +176,11 @@ overlap with the one that you specified.
      on).
 
 2. Find the standard distribution for the alternate domain name that you're
-   moving, and note the AWS account ID. Compare this account ID with
-   the account ID where you created the target standard distribution in the [previous
-   step](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md"). You can then determine whether these two standard distributions
-   are in the same AWS account and how to move the alternate domain
-   name.
+moving, and note the AWS account ID. Compare this account ID with
+the account ID where you created the target standard distribution in the [previous
+step](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md"). You can then determine whether these two standard distributions
+are in the same AWS account and how to move the alternate domain
+name.
 
 For more information, see the [list-conflicting-aliases](../../../cli/latest/reference/cloudfront/list-conflicting-aliases.md "../../../cli/latest/reference/cloudfront/list-conflicting-aliases.md") command in
 the _AWS Command Line Interface Reference_.

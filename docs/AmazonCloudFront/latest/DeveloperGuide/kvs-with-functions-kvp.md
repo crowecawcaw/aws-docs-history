@@ -49,10 +49,10 @@ Both the CloudFront API and the CloudFront KeyValueStore API have a `DescribeKey
 operation. You call them for different reasons. To understand the differences, see
 the following table.
 
-|                                          | CloudFront DescribeKeyValueStore API                                                                | CloudFront KeyValueStore DescribeKeyValueStore API                                                                                     |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Data about the key value store           | Returns data, such as the status and the date that the<br>key value store itself was last modified. | Returns data about the \*contents<br>• of the storage resource – the<br>key-value pairs in the store, and the size of the<br>contents. |
-| Data that identifies the key value store | Returns an `ETag`, the UUID, and the ARN of the<br>key value store.                                 | Returns an `ETag` and the ARN of the<br>key value store.                                                                               |
+|                                          | CloudFront DescribeKeyValueStore API                                                                | CloudFront KeyValueStore DescribeKeyValueStore API                                                                                    |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Data about the key value store           | Returns data, such as the status and the date that the<br>key value store itself was last modified. | Returns data about the *contents<br>• of the storage resource – the<br>key-value pairs in the store, and the size of the<br>contents. |
+| Data that identifies the key value store | Returns an `ETag`, the UUID, and the ARN of the<br>key value store.                                 | Returns an `ETag` and the ARN of the<br>key value store.                                                                              |
 
 ###### Notes
 

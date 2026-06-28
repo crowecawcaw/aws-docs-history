@@ -193,6 +193,18 @@ Note the following:
   specify the alternate domain name when referencing
   the file in your webpage or application. Do not
   specify the Amazon S3 URL for the object.
+- **Special characters** – If the URL for your
+  resource contains an asterisk (`*`) or
+  question mark (`?`) character (for
+  instance, in the object key name), you must
+  URL-encode those characters (`%2A` for
+  `*` and `%3F` for
+  `?`). This is because CloudFront interprets
+  unencoded `*` and `?`
+  characters as wildcard characters in the resource
+  path. If these characters are not URL-encoded, the
+  signed URL may grant broader access than
+  intended.
 
 **DateLessThan**
 

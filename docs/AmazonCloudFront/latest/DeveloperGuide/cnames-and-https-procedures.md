@@ -186,11 +186,11 @@ the certificate from all distributions and all the distributions are deployed. 5
      CloudFront.
 
 7. Confirm the following before you use the updated configuration in a
-   production environment:
+production environment:
 
-   - The path pattern in each cache behavior applies only to the
+    * The path pattern in each cache behavior applies only to the
      requests that you want viewers to use HTTPS for.
-   - The cache behaviors are listed in the order that you want CloudFront
+    * The cache behaviors are listed in the order that you want CloudFront
      to evaluate them in. For more information, see [Path pattern](DownloadDistValuesCacheBehavior.md#DownloadDistValuesPathPattern "DownloadDistValuesCacheBehavior.md#DownloadDistValuesPathPattern").
-   - The cache behaviors are routing requests to the correct
+    * The cache behaviors are routing requests to the correct
      origins.

@@ -174,15 +174,13 @@ Note the following:
      [Values that you specify in the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-statement-values "#private-content-custom-policy-statement-values").
 
 2. Remove all empty spaces (including tabs and newline characters) from the policy
-   statement. You might have to include escape characters in the string in
-   application code.
-3. Base64-encode the policy statement using MIME base64 encoding. For more information, see
-   [Section
-   6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8 "https://tools.ietf.org/html/rfc2045#section-6.8") in _RFC 2045,
-   MIME (Multipurpose Internet Mail Extensions) Part One: Format of
-   Internet Message Bodies_.
-4. Replace characters that are invalid in a URL query string with characters that are valid. The
-   following table lists invalid and valid characters.
+statement. You might have to include escape characters in the string in
+application code. 3. Base64-encode the policy statement using MIME base64 encoding. For more information, see
+[Section
+6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8 "https://tools.ietf.org/html/rfc2045#section-6.8") in _RFC 2045,
+MIME (Multipurpose Internet Mail Extensions) Part One: Format of
+Internet Message Bodies_. 4. Replace characters that are invalid in a URL query string with characters that are valid. The
+following table lists invalid and valid characters.
 
 | Replace these invalid characters | With these valid characters |
 | -------------------------------- | --------------------------- |
@@ -234,14 +232,13 @@ Note the following:
   characters in the URL in the policy. The following
   wildcard characters are supported:
 
-      + asterisk (`*`), which matches zero
-       or more characters
-      + question mark (`?`), which matches
-       exactly one character
-
-  When CloudFront matches the URL in the policy to the URL in the HTTP request, the URL in
-  the policy is divided into four sections—protocol,
-  domain, path, and query string—as follows:
+  - asterisk (`*`), which matches zero
+    or more characters
+  - question mark (`?`), which matches
+    exactly one character
+    When CloudFront matches the URL in the policy to the URL in the HTTP request, the URL in
+    the policy is divided into four sections—protocol,
+    domain, path, and query string—as follows:
 
 `[protocol]://[domain]/[path]\?[query
  string]`

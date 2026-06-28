@@ -10,10 +10,12 @@ following:
 
 - The object hasn’t changed since the last time CloudFront requested it (status code
 
-304.  CloudFront caches 3xx responses according to the settings in your CloudFront distribution and the
-      headers in the response. CloudFront caches 307 and 308 responses only when you include the
-      `Cache-Control` header in responses from the origin. For more
-      information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
+304.
+
+CloudFront caches 3xx responses according to the settings in your CloudFront distribution and the
+headers in the response. CloudFront caches 307 and 308 responses only when you include the
+`Cache-Control` header in responses from the origin. For more
+information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 If your origin returns a redirect status code (for example, 301 or 307), CloudFront doesn’t
 follow the redirect. CloudFront passes along the 301 or 307 response to the viewer, who can

@@ -25,13 +25,12 @@ viewer requests:
   object to the viewer.
 - When any of the following occur:
 
-      + The primary origin returns an HTTP status code that you’ve configured
-       for failover
-      + CloudFront fails to connect to the primary origin (when 503 is set as a failover code)
-      + The response from the primary origin takes too long (times out) (when 504 is set as a failover code)
-
-  Then CloudFront routes the request to the secondary origin in the origin
-  group.
+  - The primary origin returns an HTTP status code that you’ve configured
+    for failover
+  - CloudFront fails to connect to the primary origin (when 503 is set as a failover code)
+  - The response from the primary origin takes too long (times out) (when 504 is set as a failover code)
+    Then CloudFront routes the request to the secondary origin in the origin
+    group.
 
 ###### Note
 

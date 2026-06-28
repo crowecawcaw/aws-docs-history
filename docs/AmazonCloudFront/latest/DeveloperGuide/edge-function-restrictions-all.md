@@ -33,7 +33,7 @@ All other combinations of edge functions are allowed. The following table explai
 the allowed combinations.
 
 |                     |                          |
-| ------------------- | ------------------------ | ----------- | ----------- |
+| ------------------- | ------------------------ |
 |                     | **CloudFront Functions** |
 | **Viewer request**  | **Viewer response**      |
 | **Lambda@Edge**     | **Viewer request**       | Not allowed | Not allowed |

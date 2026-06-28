@@ -37,32 +37,28 @@ update-domain-association (standard distributions and distribution tenants)
 
 ###### To use `update-domain-association` to move an alternate domain name
 
-1.  Use the `update-domain-association` command, as shown
-    in the following example.
+1. Use the `update-domain-association` command, as shown
+   in the following example.
 
-        1. Replace `example.com` with the
-         alternate domain name, and specify the ID of the target
-         standard distribution or distribution tenant.
-        2. Run this command using credentials that are in the same
-         AWS account as the target standard distribution or distribution tenant.###### Note the following restrictions
-
-
-
-        * In addition to the
-         `cloudfront:UpdateDomainAssociation`
-         permission, you must have the
-         `cloudfront:UpdateDistribution`
-         permission to update a standard distribution. To update a distribution tenant,
-         you must have the
-         `cloudfront:UpdateDistributionTenant`
-         permission.
-        * If the source and target distributions (standard or
-         tenant) are in different AWS accounts, the source must
-         be disabled before you can move the domain.
-        * The target distribution must be set up as described in
-         [Set up the target standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
-
-    **Request**
+   1. Replace `example.com` with the
+      alternate domain name, and specify the ID of the target
+      standard distribution or distribution tenant.
+   2. Run this command using credentials that are in the same
+      AWS account as the target standard distribution or distribution tenant.###### Note the following restrictions
+   - In addition to the
+     `cloudfront:UpdateDomainAssociation`
+     permission, you must have the
+     `cloudfront:UpdateDistribution`
+     permission to update a standard distribution. To update a distribution tenant,
+     you must have the
+     `cloudfront:UpdateDistributionTenant`
+     permission.
+   - If the source and target distributions (standard or
+     tenant) are in different AWS accounts, the source must
+     be disabled before you can move the domain.
+   - The target distribution must be set up as described in
+     [Set up the target standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
+     **Request**
 
 ```
 aws cloudfront update-domain-association \
@@ -94,17 +90,17 @@ associate-alias (standard distributions only)
 
 ###### To use `associate-alias` to move an alternate domain name
 
-1.  Use the `associate-alias` command, as shown in the
-    following example.
+1. Use the `associate-alias` command, as shown in the
+   following example.
 
-    1. Replace `www.example.com` with
-       the alternate domain name, and
-       `EDFDVBD6EXAMPLE` with the
-       target standard distribution ID.
-    2. Run this command using credentials that are in the same
-       AWS account as the target standard distribution.
+   1. Replace `www.example.com` with
+      the alternate domain name, and
+      `EDFDVBD6EXAMPLE` with the
+      target standard distribution ID.
+   2. Run this command using credentials that are in the same
+      AWS account as the target standard distribution.
 
-    ###### Note the following restrictions
+   ###### Note the following restrictions
 
         * You must have
          `cloudfront:AssociateAlias` and
@@ -120,24 +116,24 @@ associate-alias (standard distributions only)
         * The target standard distribution must be set up as
          described in [Set up the target standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
 
-    **Request**
+   **Request**
 
-    ```
-    aws cloudfront associate-alias \
-    --alias `www.example.com` \
-    --target-distribution-id `EDFDVBD6EXAMPLE`
-    ```
+   ```
+   aws cloudfront associate-alias \
+   --alias `www.example.com` \
+   --target-distribution-id `EDFDVBD6EXAMPLE`
+   ```
 
-    This command removes the alternate domain name from the
-    source standard distribution and moves it to the target
-    standard distribution.
+   This command removes the alternate domain name from the
+   source standard distribution and moves it to the target
+   standard distribution.
 
-2.  After the target standard distribution is fully deployed, update your DNS
-    configuration to point the alternate domain name’s DNS record to the
-    distribution domain name of the target standard distribution. For example, your
-    DNS record would point your alternate domain name
-    (`www.example.com`) to the CloudFront provided domain name
-    d111111abcdef8.cloudfront.net.
+2. After the target standard distribution is fully deployed, update your DNS
+   configuration to point the alternate domain name’s DNS record to the
+   distribution domain name of the target standard distribution. For example, your
+   DNS record would point your alternate domain name
+   (`www.example.com`) to the CloudFront provided domain name
+   d111111abcdef8.cloudfront.net.
 
 For more information, see the [associate-alias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/associate-alias.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/associate-alias.html") command in the
 _AWS CLI Command Reference_.

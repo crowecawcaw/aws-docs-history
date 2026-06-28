@@ -163,8 +163,8 @@ edge network.
 The runtime environment includes comprehensive JavaScript language support:
 
 - **ECMAScript 2020 (ES11) support** – Modern
-  JavaScript features including optional chaining (?.), nullish coalescing
-  (??), and BigInt for handling large certificate serial numbers
+  JavaScript features including optional chaining (?.) and nullish coalescing
+  (??)
 - **Built-in objects** – Standard JavaScript
   objects like Object, Array, JSON, Math, and Date
 - **Console logging** – Use console.log() for

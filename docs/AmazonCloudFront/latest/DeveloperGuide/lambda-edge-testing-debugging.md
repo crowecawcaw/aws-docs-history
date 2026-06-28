@@ -235,7 +235,7 @@ CloudFront pushes log files to the Region corresponding to where your function e
 in the log group that's associated with your distribution. Log groups have the
 following format:
 `/aws/cloudfront/LambdaEdge/`DistributionId``,
- where `DistributionId` is your distribution's ID. To
+where `DistributionId` is your distribution's ID. To
 determine the Region where you can find the CloudWatch log files, see
 _Determining the Lambda@Edge Region_ later in this
 topic.

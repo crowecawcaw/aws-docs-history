@@ -108,20 +108,19 @@ than specifying each individual parameter as command line input.
 aws cloudfront create-realtime-log-config --generate-cli-skeleton yaml-input > rtl-config.yaml
 ```
 
-2.  Open the file named `rtl-config.yaml` that you
-    just created. Edit the file to specify the real-time access log
-    configuration settings that you want, then save the file. Note the
-    following:
+2. Open the file named `rtl-config.yaml` that you
+   just created. Edit the file to specify the real-time access log
+   configuration settings that you want, then save the file. Note the
+   following:
 
-        * For `StreamType`, the only valid value is
-         `Kinesis`.
+   - For `StreamType`, the only valid value is
+     `Kinesis`.
+     For more information about the real-time long configuration
+     settings, see [Understand real-time access log configurations](#understand-real-time-log-config "#understand-real-time-log-config").
 
-    For more information about the real-time long configuration
-    settings, see [Understand real-time access log configurations](#understand-real-time-log-config "#understand-real-time-log-config").
-
-3.  Use the following command to create the real-time access log
-    configuration using input parameters from the
-    `rtl-config.yaml` file.
+3. Use the following command to create the real-time access log
+   configuration using input parameters from the
+   `rtl-config.yaml` file.
 
 ```
 
@@ -143,25 +142,24 @@ configuration that you just created.
 aws cloudfront get-distribution-config --id `distribution_ID` --output yaml > dist-config.yaml
 ```
 
-2.  Open the file named `dist-config.yaml` that you
-    just created. Edit the file, making the following changes to each
-    cache behavior that you are updating to use a real-time access log
-    configuration.
+2. Open the file named `dist-config.yaml` that you
+   just created. Edit the file, making the following changes to each
+   cache behavior that you are updating to use a real-time access log
+   configuration.
 
-        * In the cache behavior, add a field named
-         `RealtimeLogConfigArn`. For the field's
-         value, use the ARN of the real-time access log configuration that
-         you want to attach to this cache behavior.
-        * Rename the `ETag` field to
-         `IfMatch`, but don't change the field's
-         value.
+   - In the cache behavior, add a field named
+     `RealtimeLogConfigArn`. For the field's
+     value, use the ARN of the real-time access log configuration that
+     you want to attach to this cache behavior.
+   - Rename the `ETag` field to
+     `IfMatch`, but don't change the field's
+     value.
+     Save the file when finished.
 
-    Save the file when finished.
-
-3.  Use the following command to update the distribution to use the
-    real-time access log configuration. Replace
-    `distribution_ID` with the
-    distribution's ID.
+3. Use the following command to update the distribution to use the
+   real-time access log configuration. Replace
+   `distribution_ID` with the
+   distribution's ID.
 
 ```
 
@@ -691,8 +689,7 @@ This field is sent for origin requests and it
 indicates the domain of the origin server used to serve the object. In case
 of errors, you can use this field to find the last origin attempted, for
 example:
-``cd8jhdejh6a`.mediapackagev2.us-east-1.amazonaws.com`.
-67. **`sr-reason`\*\*
+``cd8jhdejh6a`.mediapackagev2.us-east-1.amazonaws.com`. 67. **`sr-reason`**
 
 This field provides a reason why the origin
 was selected. It's empty when a request to the primary origin succeeds.

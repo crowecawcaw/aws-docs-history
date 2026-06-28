@@ -127,7 +127,7 @@ headers in `CloudFront-Viewer-Header-Order`, you can deny the request.
 - `CloudFront-Viewer-Header-Order` – Contains the viewer's header
   names in the order requested, separated by a colon. For example:
   `CloudFront-Viewer-Header-Order:
-Host:User-Agent:Accept:Accept-Encoding`. Headers beyond the character
+ Host:User-Agent:Accept:Accept-Encoding`. Headers beyond the character
   limit of 7,680 are truncated.
 - `CloudFront-Viewer-Header-Count` – Contains the total number of the
   viewer's headers.
@@ -191,7 +191,7 @@ header value, see [Supported protocols and ciphers between viewers and CloudFron
 ###### Notes
 
 - The JA3 and JA4 fingerprints are derived from the SSL/TLS `Client
-Hello` packet. They are only present for HTTPS requests.
+ Hello` packet. They are only present for HTTPS requests.
 - For these TLS-related headers, you can add them to a [origin request policy](controlling-origin-requests.md "controlling-origin-requests.md"), but
   not in a [cache
   policy](controlling-the-cache-key.md "controlling-the-cache-key.md").

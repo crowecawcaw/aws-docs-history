@@ -66,12 +66,11 @@ to add specific alternate domain names in CloudFront.
   that level, including marketing.example.com. You can also, for
   example, add the following alternate domain names:
 
-      + product.example.com
-      + api.example.com
-
-  However, you can’t add alternate domain names that are at levels higher or lower than
-  the wildcard. For example, you can’t add the alternate domain
-  names example.com or marketing.product.example.com.
+  - product.example.com
+  - api.example.com
+    However, you can’t add alternate domain names that are at levels higher or lower than
+    the wildcard. For example, you can’t add the alternate domain
+    names example.com or marketing.product.example.com.
 
 - You want to add example.com as an alternate domain name. To do this, you must list the domain
   name example.com itself on the certificate that you attach to

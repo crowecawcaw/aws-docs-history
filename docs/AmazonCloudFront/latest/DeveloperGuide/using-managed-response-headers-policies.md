@@ -43,14 +43,14 @@ When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this p
 
 `e61eb60c-9c35-4d20-a928-2b84e02af89c`
 
-| Policy settings             |                               | Header name                       | Header value | Override origin? |
-| --------------------------- | ----------------------------- | --------------------------------- | ------------ | ---------------- |
-| **CORS headers:**           | `Access-Control-Allow-Origin` | `*`                               | No           |
-| **Security<br>headers:**    | `Referrer-Policy`             | `strict-origin-when-cross-origin` | No           |
-| `Strict-Transport-Security` | `max-age=31536000`            | No                                |
-| `X-Content-Type-Options`    | `nosniff`                     | Yes                               |
-| `X-Frame-Options`           | `SAMEORIGIN`                  | No                                |
-| `X-XSS-Protection`          | `1; mode=block`               | No                                |
+Policy settings| | Header name | Header value | Override origin? |
+| --- | --- | --- | --- |
+| **CORS headers:** | `Access-Control-Allow-Origin` | `*` | No |
+| **Security<br>headers:** | `Referrer-Policy` | `strict-origin-when-cross-origin` | No |
+| `Strict-Transport-Security` | `max-age=31536000` | No |
+| `X-Content-Type-Options` | `nosniff` | Yes |
+| `X-Frame-Options` | `SAMEORIGIN` | No |
+| `X-XSS-Protection` | `1; mode=block` | No |
 
 ## CORS-With-Preflight
 
@@ -70,11 +70,11 @@ When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this p
 
 `5cc3b908-e619-4b99-88e5-2cf7f45965bd`
 
-| Policy settings                 |                                | Header name                                                      | Header value | Override origin? |
-| ------------------------------- | ------------------------------ | ---------------------------------------------------------------- | ------------ | ---------------- |
-| **CORS<br>headers:**            | `Access-Control-Allow-Methods` | `DELETE`, `GET`, `HEAD`,<br>`OPTIONS`, `PATCH`, `POST`,<br>`PUT` | No           |
-| `Access-Control-Allow-Origin`   | `*`                            |
-| `Access-Control-Expose-Headers` | `*`                            |
+Policy settings| | Header name | Header value | Override origin? |
+| --- | --- | --- | --- |
+| **CORS<br>headers:** | `Access-Control-Allow-Methods` | `DELETE`, `GET`, `HEAD`,<br>`OPTIONS`, `PATCH`, `POST`,<br>`PUT` | No |
+| `Access-Control-Allow-Origin` | `*` |
+| `Access-Control-Expose-Headers` | `*` |
 
 ## CORS-with-preflight-and-SecurityHeadersPolicy
 
@@ -88,16 +88,16 @@ When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this p
 
 `eaab4381-ed33-4a86-88ca-d9558dc6cd63`
 
-| Policy settings                 |                                | Header name                                                      | Header value | Override origin? |
-| ------------------------------- | ------------------------------ | ---------------------------------------------------------------- | ------------ | ---------------- |
-| **CORS<br>headers:**            | `Access-Control-Allow-Methods` | `DELETE`, `GET`, `HEAD`,<br>`OPTIONS`, `PATCH`, `POST`,<br>`PUT` | No           |
-| `Access-Control-Allow-Origin`   | `*`                            |
-| `Access-Control-Expose-Headers` | `*`                            |
-| **Security<br>headers:**        | `Referrer-Policy`              | `strict-origin-when-cross-origin`                                | No           |
-| `Strict-Transport-Security`     | `max-age=31536000`             | No                                                               |
-| `X-Content-Type-Options`        | `nosniff`                      | Yes                                                              |
-| `X-Frame-Options`               | `SAMEORIGIN`                   | No                                                               |
-| `X-XSS-Protection`              | `1; mode=block`                | No                                                               |
+Policy settings| | Header name | Header value | Override origin? |
+| --- | --- | --- | --- |
+| **CORS<br>headers:** | `Access-Control-Allow-Methods` | `DELETE`, `GET`, `HEAD`,<br>`OPTIONS`, `PATCH`, `POST`,<br>`PUT` | No |
+| `Access-Control-Allow-Origin` | `*` |
+| `Access-Control-Expose-Headers` | `*` |
+| **Security<br>headers:** | `Referrer-Policy` | `strict-origin-when-cross-origin` | No |
+| `Strict-Transport-Security` | `max-age=31536000` | No |
+| `X-Content-Type-Options` | `nosniff` | Yes |
+| `X-Frame-Options` | `SAMEORIGIN` | No |
+| `X-XSS-Protection` | `1; mode=block` | No |
 
 ## SecurityHeadersPolicy
 
@@ -118,13 +118,13 @@ When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this p
 
 `67f7725c-6f97-4210-82d7-5512b31e9d03`
 
-| Policy settings             |                    | Header name                       | Header value | Override origin? |
-| --------------------------- | ------------------ | --------------------------------- | ------------ | ---------------- |
-| **Security<br>headers:**    | `Referrer-Policy`  | `strict-origin-when-cross-origin` | No           |
-| `Strict-Transport-Security` | `max-age=31536000` | No                                |
-| `X-Content-Type-Options`    | `nosniff`          | Yes                               |
-| `X-Frame-Options`           | `SAMEORIGIN`       | No                                |
-| `X-XSS-Protection`          | `1; mode=block`    | No                                |
+Policy settings| | Header name | Header value | Override origin? |
+| --- | --- | --- | --- |
+| **Security<br>headers:** | `Referrer-Policy` | `strict-origin-when-cross-origin` | No |
+| `Strict-Transport-Security` | `max-age=31536000` | No |
+| `X-Content-Type-Options` | `nosniff` | Yes |
+| `X-Frame-Options` | `SAMEORIGIN` | No |
+| `X-XSS-Protection` | `1; mode=block` | No |
 
 ## SimpleCORS
 
@@ -144,6 +144,6 @@ When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this p
 
 `60669652-455b-4ae9-85a4-c4c02393f86c`
 
-| Policy settings   |                               | Header name | Header value | Override origin? |
-| ----------------- | ----------------------------- | ----------- | ------------ | ---------------- |
-| **CORS headers:** | `Access-Control-Allow-Origin` | `*`         | No           |
+Policy settings| | Header name | Header value | Override origin? |
+| --- | --- | --- | --- |
+| **CORS headers:** | `Access-Control-Allow-Origin` | `*` | No |

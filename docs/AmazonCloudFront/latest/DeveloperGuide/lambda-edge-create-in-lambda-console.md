@@ -26,22 +26,22 @@ CloudFront blueprint.
      the blueprint.
 
 5. In the **Basic information** section, specify the
-   following values:
+following values:
 
-   1. **Name** – Enter a name for your
-      function.
-   2. **Role** – To get started quickly, choose
-      **Create new role from template(s)**. You can
-      also choose **Choose an existing role** or
-      **Create a custom role**, and then follow the
-      prompts to complete the information for this section.
-   3. **Role name** – Enter a name for the
-      role.
-   4. **Policy templates** – Choose
-      **Basic Edge Lambda permissions**.
+    1. **Name** – Enter a name for your
+     function.
+    2. **Role** – To get started quickly, choose
+     **Create new role from template(s)**. You can
+     also choose **Choose an existing role** or
+     **Create a custom role**, and then follow the
+     prompts to complete the information for this section.
+    3. **Role name** – Enter a name for the
+     role.
+    4. **Policy templates** – Choose
+     **Basic Edge Lambda permissions**.
 
 6. If you chose **Author from scratch** in step 4, skip to
-   step 7.
+step 7.
 
 If you chose a blueprint in step 4, the **cloudfront**
 section lets you create one trigger, which associates this function with a
@@ -58,17 +58,16 @@ around the world, and the corresponding distribution is deployed. 7. Choose **Cr
 
 Lambda creates two versions of your function: $LATEST and Version 1. You
  can edit only the $LATEST version, but the console initially displays
- Version 1.
-8. To edit the function, choose **Version 1** near the top
- of the page, under the ARN for the function. Then, on the
- **Versions** tab, choose **$LATEST**.
+Version 1. 8. To edit the function, choose **Version 1** near the top
+of the page, under the ARN for the function. Then, on the
+**Versions** tab, choose **$LATEST**.
 (If you left the function and then returned to it, the button label is
 **Qualifiers**.) 9. On the **Configuration** tab, choose the applicable
 **Code entry type**. Then follow the prompts to edit or
 upload your code. 10. For **Runtime**, choose the value based on your
 function's code. 11. In the **Tags** section, add any applicable tags. 12. Choose **Actions**, and then choose **Publish new
-version**. 13. Enter a description for the new version of the function. 14. Choose **Publish\**. 15. Test and debug the function. For more information about testing in the
+version**. 13. Enter a description for the new version of the function. 14. Choose **Publish**. 15. Test and debug the function. For more information about testing in the
 Lambda console, see [Invoke a Lambda function using the console](../../../lambda/latest/dg/getting-started.md#get-started-invoke-manually "../../../lambda/latest/dg/getting-started.md#get-started-invoke-manually") in the
-*AWS Lambda Developer Guide\*. 16. When you're ready to have the function execute for CloudFront events, publish
+_AWS Lambda Developer Guide_. 16. When you're ready to have the function execute for CloudFront events, publish
 another version and edit the function to add triggers. For more information,
 see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").

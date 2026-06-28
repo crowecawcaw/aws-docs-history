@@ -364,9 +364,9 @@ Note the following:
   of parameters should be used at the origin to decrypt it. Parameters CloudFront
   uses while initializing the MasterKey include the following:
 
-  - PROVIDER_NAME: You specified this value when you created a
+  - PROVIDER\_NAME: You specified this value when you created a
     field-level encryption profile. Use the same value here.
-  - KEY_NAME: You created a name for your public key when you uploaded
+  - KEY\_NAME: You created a name for your public key when you uploaded
     it to CloudFront, and then specified the key name in the profile. Use the
     same value here.
   - ALGORITHM: CloudFront uses `RSA/ECB/OAEPWithSHA-256AndMGF1Padding` as the

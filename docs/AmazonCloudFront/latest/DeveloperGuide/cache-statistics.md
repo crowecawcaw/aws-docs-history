@@ -36,48 +36,47 @@ You can view the CloudFront cache statistics report in the console.
 
 ###### To view the CloudFront cache statistics report
 
-1.  Sign in to the AWS Management Console and open the CloudFront console at
-    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
-2.  In the navigation pane, choose **Cache
-    Statistics**.
-3.  In the **CloudFront Cache Statistics Reports** pane, for
-    **Start Date** and **End Date**,
-    select the date range for which you want to display cache statistics charts.
-    Available ranges depend on the value that you select for
-    **Granularity**:
+1. Sign in to the AWS Management Console and open the CloudFront console at
+   [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
+2. In the navigation pane, choose **Cache
+   Statistics**.
+3. In the **CloudFront Cache Statistics Reports** pane, for
+   **Start Date** and **End Date**,
+   select the date range for which you want to display cache statistics charts.
+   Available ranges depend on the value that you select for
+   **Granularity**:
 
-        * **Daily** – To display charts
-         with one data point per day, select any date range in the previous
-         60 days.
-        * **Hourly** – To display charts
-         with one data point every hour, select any date range of up to 14
-         days within the previous 60 days.
+   - **Daily** – To display charts
+     with one data point per day, select any date range in the previous
+     60 days.
+   - **Hourly** – To display charts
+     with one data point every hour, select any date range of up to 14
+     days within the previous 60 days.
+     Dates and times are in Coordinated Universal Time (UTC).
 
-    Dates and times are in Coordinated Universal Time (UTC).
+4. For **Granularity**, specify whether to display one data
+   point per day or one data point per hour in the charts. If you specify a
+   date range greater than 14 days, the option to specify one data point per
+   hour is not available.
+5. For **Viewer Location**, choose the continent from which
+   viewer requests originated, or choose **All Locations**.
+   Cache statistics charts include data for requests that CloudFront received from
+   the specified location.
+6. In the **Distribution** list, select the distributions
+   for which you want to display data in the usage charts:
 
-4.  For **Granularity**, specify whether to display one data
-    point per day or one data point per hour in the charts. If you specify a
-    date range greater than 14 days, the option to specify one data point per
-    hour is not available.
-5.  For **Viewer Location**, choose the continent from which
-    viewer requests originated, or choose **All Locations**.
-    Cache statistics charts include data for requests that CloudFront received from
-    the specified location.
-6.  In the **Distribution** list, select the distributions
-    for which you want to display data in the usage charts:
+   - **An individual distribution**
+     – The charts display data for the selected CloudFront distribution.
+     The **Distribution** list displays the distribution
+     ID and alternate domain names (CNAMEs) for the distribution, if any.
+     If a distribution doesn't have alternate domain names, the list
+     includes origin domain names for the distribution.
+   - **All distributions** – The
+     charts display summed data for all distributions that are associated
+     with the current AWS account, excluding distributions that you
+     have deleted.
 
-    - **An individual distribution**
-      – The charts display data for the selected CloudFront distribution.
-      The **Distribution** list displays the distribution
-      ID and alternate domain names (CNAMEs) for the distribution, if any.
-      If a distribution doesn't have alternate domain names, the list
-      includes origin domain names for the distribution.
-    - **All distributions** – The
-      charts display summed data for all distributions that are associated
-      with the current AWS account, excluding distributions that you
-      have deleted.
-
-7.  Choose **Update**.
+7. Choose **Update**.
 
 ###### Tip
 

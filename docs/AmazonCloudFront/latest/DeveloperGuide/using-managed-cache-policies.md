@@ -44,14 +44,13 @@ This policy has the following settings:
 - **Default TTL:** 2 seconds
 - **Headers included in cache key:**
 
-      + `Authorization`
-      + `CloudFront-Viewer-Country`
-      + `Host`
-
-  The normalized `Accept-Encoding` header is also included
-  because the cache compressed objects setting is enabled. For more
-  information, see [Compression
-  support](cache-key-understand-cache-policy.md#cache-policy-compressed-objects "cache-key-understand-cache-policy.md#cache-policy-compressed-objects").
+  - `Authorization`
+  - `CloudFront-Viewer-Country`
+  - `Host`
+    The normalized `Accept-Encoding` header is also included
+    because the cache compressed objects setting is enabled. For more
+    information, see [Compression
+    support](cache-key-understand-cache-policy.md#cache-policy-compressed-objects "cache-key-understand-cache-policy.md#cache-policy-compressed-objects").
 
 - **Cookies included in cache key:** All
   cookies are included.
@@ -201,12 +200,11 @@ This policy has the following settings:
   hours)
 - **Headers included in the cache key:**
 
-      + `Origin`
-
-  The normalized `Accept-Encoding` header is also included
-  because the cache compressed objects setting is enabled for Gzip. For more
-  information, see [Compression
-  support](cache-key-understand-cache-policy.md#cache-policy-compressed-objects "cache-key-understand-cache-policy.md#cache-policy-compressed-objects").
+  - `Origin`
+    The normalized `Accept-Encoding` header is also included
+    because the cache compressed objects setting is enabled for Gzip. For more
+    information, see [Compression
+    support](cache-key-understand-cache-policy.md#cache-policy-compressed-objects "cache-key-understand-cache-policy.md#cache-policy-compressed-objects").
 
 - **Cookies included in the cache key:**
   None
@@ -240,16 +238,15 @@ This policy has the following settings:
 - **Default TTL:** 0 seconds
 - **Headers included in the cache key:**
 
-      + `Host`
-      + `Origin`
-      + `X-HTTP-Method-Override`
-      + `X-HTTP-Method`
-      + `X-Method-Override`
-
-  The normalized `Accept-Encoding` header is also included
-  because the cache compressed objects setting is enabled. For more
-  information, see [Compression
-  support](cache-key-understand-cache-policy.md#cache-policy-compressed-objects "cache-key-understand-cache-policy.md#cache-policy-compressed-objects").
+  - `Host`
+  - `Origin`
+  - `X-HTTP-Method-Override`
+  - `X-HTTP-Method`
+  - `X-Method-Override`
+    The normalized `Accept-Encoding` header is also included
+    because the cache compressed objects setting is enabled. For more
+    information, see [Compression
+    support](cache-key-understand-cache-policy.md#cache-policy-compressed-objects "cache-key-understand-cache-policy.md#cache-policy-compressed-objects").
 
 - **Cookies included in the cache key:**
   All cookies are included.
@@ -276,16 +273,15 @@ This policy has the following settings:
 - **Default TTL:** 0 seconds
 - **Headers included in the cache key:**
 
-      + `Host`
-      + `Origin`
-      + `X-HTTP-Method-Override`
-      + `X-HTTP-Method`
-      + `X-Method-Override`
-
-  The normalized `Accept-Encoding` header is also included
-  because the cache compressed objects setting is enabled. For more
-  information, see [Compression
-  support](cache-key-understand-cache-policy.md#cache-policy-compressed-objects "cache-key-understand-cache-policy.md#cache-policy-compressed-objects").
+  - `Host`
+  - `Origin`
+  - `X-HTTP-Method-Override`
+  - `X-HTTP-Method`
+  - `X-Method-Override`
+    The normalized `Accept-Encoding` header is also included
+    because the cache compressed objects setting is enabled. For more
+    information, see [Compression
+    support](cache-key-understand-cache-policy.md#cache-policy-compressed-objects "cache-key-understand-cache-policy.md#cache-policy-compressed-objects").
 
 - **Cookies included in the cache key:**
   All cookies are included.

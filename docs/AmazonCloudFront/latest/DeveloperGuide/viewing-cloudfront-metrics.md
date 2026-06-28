@@ -222,7 +222,7 @@ Lambda Regions, but to view metrics in the CloudWatch console or get the metric 
 the CloudWatch API, you must use the US East (N. Virginia) Region (`us-east-1`). The metric
 group name is formatted as:
 `AWS/CloudFront/`distribution-ID``,
- where `distribution-ID` is the ID of the CloudFront distribution
+where `distribution-ID` is the ID of the CloudFront distribution
 that the Lambda@Edge function is associated with. For more information about CloudWatch
 metrics, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 

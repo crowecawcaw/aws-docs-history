@@ -131,24 +131,23 @@ geolocation service.
 
 ###### To use a third-party geolocation service to restrict access to files in a CloudFront distribution
 
-1.  Get an account with a geolocation service.
-2.  Upload your content to an Amazon S3 bucket.
-3.  Configure Amazon CloudFront and Amazon S3 to serve private content. For more
-    information, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").
-4.  Write your web application to do the following:
+1. Get an account with a geolocation service.
+2. Upload your content to an Amazon S3 bucket.
+3. Configure Amazon CloudFront and Amazon S3 to serve private content. For more
+   information, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").
+4. Write your web application to do the following:
 
-        * Send the IP address for each user request to the geolocation
-         service.
-        * Evaluate the return value from the geolocation service to determine whether the user is
-         in a location where you want CloudFront to distribute your content.
-        * If you want to distribute your content to the user’s location, generate a signed URL
-         for your CloudFront content. If you don’t want to distribute content to
-         that location, return HTTP status code `403 (Forbidden)`
-         to the user. Alternatively, you can configure CloudFront to return a
-         custom error message. For more information, see [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").
-
-    For more information, refer to the documentation for the geolocation service that you’re
-    using.
+   - Send the IP address for each user request to the geolocation
+     service.
+   - Evaluate the return value from the geolocation service to determine whether the user is
+     in a location where you want CloudFront to distribute your content.
+   - If you want to distribute your content to the user’s location, generate a signed URL
+     for your CloudFront content. If you don’t want to distribute content to
+     that location, return HTTP status code `403 (Forbidden)`
+     to the user. Alternatively, you can configure CloudFront to return a
+     custom error message. For more information, see [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").
+     For more information, refer to the documentation for the geolocation service that you’re
+     using.
 
 You can use a web server variable to get the IP addresses of the users who are
 visiting your website. Note the following caveats:

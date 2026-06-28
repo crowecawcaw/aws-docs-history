@@ -129,43 +129,42 @@ aws cloudfront create-continuous-deployment-policy --generate-cli-skeleton yaml-
                                                    > continuous-deployment-policy.yaml
 ```
 
-2.  Open the file named
-    `continuous-deployment-policy.yaml` that you just
-    created. Edit the file to specify the continuous deployment policy
-    settings that you want, then save the file. When you edit the
-    file:
+2. Open the file named
+   `continuous-deployment-policy.yaml` that you just
+   created. Edit the file to specify the continuous deployment policy
+   settings that you want, then save the file. When you edit the
+   file:
 
-    - In the `StagingDistributionDnsNames`
-      section:
+   - In the `StagingDistributionDnsNames`
+     section:
 
-      - Change the value of `Quantity` to
-        `1`.
-      - For `Items`, paste the CloudFront domain name
-        of the staging distribution (that you saved from a
-        previous step).
+     - Change the value of `Quantity` to
+       `1`.
+     - For `Items`, paste the CloudFront domain name
+       of the staging distribution (that you saved from a
+       previous step).
 
-    - In the `TrafficConfig` section:
+   - In the `TrafficConfig` section:
 
-          + Choose a `Type`, either
-           `SingleWeight` or
-           `SingleHeader`.
-          + Remove the settings for the other type. For
-           example, if you want a weight-based traffic
-           configuration, set `Type` to
-           `SingleWeight` and then remove the
-           `SingleHeaderConfig` settings.
-          + To use a weight-based traffic configuration, set
-           the value of `Weight` to a decimal number
-           between `.01` (one percent) and
-           `.15` (fifteen percent).
+     - Choose a `Type`, either
+       `SingleWeight` or
+       `SingleHeader`.
+     - Remove the settings for the other type. For
+       example, if you want a weight-based traffic
+       configuration, set `Type` to
+       `SingleWeight` and then remove the
+       `SingleHeaderConfig` settings.
+     - To use a weight-based traffic configuration, set
+       the value of `Weight` to a decimal number
+       between `.01` (one percent) and
+       `.15` (fifteen percent).
+       For more information about the options in
+       `TrafficConfig`, see [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing") and
+       [Session stickiness for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions").
 
-      For more information about the options in
-      `TrafficConfig`, see [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing") and
-      [Session stickiness for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions").
-
-3.  Use the following command to create the continuous deployment
-    policy using input parameters from the
-    `continuous-deployment-policy.yaml` file.
+3. Use the following command to create the continuous deployment
+   policy using input parameters from the
+   `continuous-deployment-policy.yaml` file.
 
 ```
 
@@ -189,23 +188,22 @@ step.
 aws cloudfront get-distribution-config --id `primary_distribution_ID` --output yaml > primary-distribution.yaml
 ```
 
-2.  Open the file named `primary-distribution.yaml`
-    that you just created. Edit the file, making the following
-    changes:
+2. Open the file named `primary-distribution.yaml`
+   that you just created. Edit the file, making the following
+   changes:
 
-        * Paste the continuous deployment policy ID (that you copied
-         from a previous step) into the
-         `ContinuousDeploymentPolicyId` field.
-        * Rename the `ETag` field to
-         `IfMatch`, but don't change the field's
-         value.
+   - Paste the continuous deployment policy ID (that you copied
+     from a previous step) into the
+     `ContinuousDeploymentPolicyId` field.
+   - Rename the `ETag` field to
+     `IfMatch`, but don't change the field's
+     value.
+     Save the file when finished.
 
-    Save the file when finished.
-
-3.  Use the following command to update the primary distribution to
-    use the continuous deployment policy. Replace
-    `primary_distribution_ID` with the primary
-    distribution's ID.
+3. Use the following command to update the primary distribution to
+   use the continuous deployment policy. Replace
+   `primary_distribution_ID` with the primary
+   distribution's ID.
 
 ```
 
@@ -275,23 +273,22 @@ CLI
 aws cloudfront get-distribution-config --id `staging_distribution_ID` --output yaml > staging-distribution.yaml
 ```
 
-2.  Open the file named `staging-distribution.yaml`
-    that you just created. Edit the file, making the following
-    changes:
+2. Open the file named `staging-distribution.yaml`
+   that you just created. Edit the file, making the following
+   changes:
 
-        * Modify the configuration of the staging distribution. For
-         more information about the settings that you can update, see
-         [Update primary and staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
-        * Rename the `ETag` field to
-         `IfMatch`, but don't change the field's
-         value.
+   - Modify the configuration of the staging distribution. For
+     more information about the settings that you can update, see
+     [Update primary and staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
+   - Rename the `ETag` field to
+     `IfMatch`, but don't change the field's
+     value.
+     Save the file when finished.
 
-    Save the file when finished.
-
-3.  Use the following command to update the staging distribution's
-    configuration. Replace
-    `staging_distribution_ID` with the staging
-    distribution's ID.
+3. Use the following command to update the staging distribution's
+   configuration. Replace
+   `staging_distribution_ID` with the staging
+   distribution's ID.
 
 ```
 
@@ -350,28 +347,27 @@ aws cloudfront get-continuous-deployment-policy-config --id `continuous_deployme
                                                        --output yaml > continuous-deployment-policy.yaml
 ```
 
-2.  Open the file named
-    `continuous-deployment-policy.yaml` that you just
-    created. Edit the file, making the following changes:
+2. Open the file named
+   `continuous-deployment-policy.yaml` that you just
+   created. Edit the file, making the following changes:
 
-        * Modify the configuration of the continuous deployment
-         policy as desired. For example, you can change from using a
-         header-based to a weight-based traffic configuration, or you
-         can change the percentage of traffic (weight) for a
-         weight-based configuration. For more information, see [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing") and
-         [Session stickiness for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions").
-        * Rename the `ETag` field to
-         `IfMatch`, but don't change the field's
-         value.
+   - Modify the configuration of the continuous deployment
+     policy as desired. For example, you can change from using a
+     header-based to a weight-based traffic configuration, or you
+     can change the percentage of traffic (weight) for a
+     weight-based configuration. For more information, see [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing") and
+     [Session stickiness for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions").
+   - Rename the `ETag` field to
+     `IfMatch`, but don't change the field's
+     value.
+     Save the file when finished.
 
-    Save the file when finished.
-
-3.  Use the following command to update the continuous deployment
-    policy. Replace
-    `continuous_deployment_policy_ID` with the
-    continuous deployment policy's ID. The following command uses escape
-    characters (\) and line breaks for readability, but you should omit
-    these from the command.
+3. Use the following command to update the continuous deployment
+   policy. Replace
+   `continuous_deployment_policy_ID` with the
+   continuous deployment policy's ID. The following command uses escape
+   characters (\) and line breaks for readability, but you should omit
+   these from the command.
 
 ```
 

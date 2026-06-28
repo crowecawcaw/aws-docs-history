@@ -98,20 +98,19 @@ depend on whether your origin is an Amazon S3 bucket or a custom origin.
   CloudFront to cache based on the value of any request header except the
   following:
 
-      + `Connection`
-      + `Cookie` – If you want to forward and cache
-       based on cookies, you use a separate setting in your distribution.
-       For more information, see [Cache content based on cookies](Cookies.md "Cookies.md").
-      + `Host (for Amazon S3 origins)`
-      + `Proxy-Authorization`
-      + `TE`
-      + `Upgrade`
-
-  You can configure CloudFront to cache objects based on values in the
-  `Date` and `User-Agent` headers, but we don’t
-  recommend it. These headers have numerous possible values, and caching based
-  on their values could cause CloudFront to forward significantly more requests to
-  your origin.
+  - `Connection`
+  - `Cookie` – If you want to forward and cache
+    based on cookies, you use a separate setting in your distribution.
+    For more information, see [Cache content based on cookies](Cookies.md "Cookies.md").
+  - `Host (for Amazon S3 origins)`
+  - `Proxy-Authorization`
+  - `TE`
+  - `Upgrade`
+    You can configure CloudFront to cache objects based on values in the
+    `Date` and `User-Agent` headers, but we don’t
+    recommend it. These headers have numerous possible values, and caching based
+    on their values could cause CloudFront to forward significantly more requests to
+    your origin.
 
 For a full list of HTTP request headers and how CloudFront processes them, see [HTTP request headers and CloudFront behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior").
 

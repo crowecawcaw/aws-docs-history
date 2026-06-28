@@ -45,17 +45,16 @@ solutions:
 - **If you use Elastic Load Balancing as your origin
   server**:
 
-      + Make sure that your backend instances can respond to health
-       checks.
-      + Make sure that your load balancer and backend instances can
-       handle the load.
+  - Make sure that your backend instances can respond to health
+    checks.
+  - Make sure that your load balancer and backend instances can
+    handle the load.
+    For more information, see:
 
-  For more information, see:
-
-      + [How do I troubleshoot 503 errors returned while using
-       Classic Load Balancer?](https://repost.aws/knowledge-center/503-error-classic "https://repost.aws/knowledge-center/503-error-classic")
-      + [How do I troubleshoot 503 (service unavailable) errors from
-       my Application Load Balancer?](https://repost.aws/knowledge-center/alb-troubleshoot-503-errors "https://repost.aws/knowledge-center/alb-troubleshoot-503-errors")
+  - [How do I troubleshoot 503 errors returned while using
+    Classic Load Balancer?](https://repost.aws/knowledge-center/503-error-classic "https://repost.aws/knowledge-center/503-error-classic")
+  - [How do I troubleshoot 503 (service unavailable) errors from
+    my Application Load Balancer?](https://repost.aws/knowledge-center/alb-troubleshoot-503-errors "https://repost.aws/knowledge-center/alb-troubleshoot-503-errors")
 
 - **If you use a custom origin**:
 

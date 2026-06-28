@@ -195,35 +195,35 @@ the distribution.
     ```
 
 3. Use the [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md") API operation to
-   configure where to store your logs.
+configure where to store your logs.
 
-   1. For `destinationResourceArn`, specify the ARN of the
-      destination. This can be a CloudWatch Logs log group, a Firehose delivery stream,
-      or an Amazon S3 bucket.
-   2. For `outputFormat`, specify the output format for your
-      logs.
-   3. ###### Example AWS CLI put-delivery-destination command
+    1. For `destinationResourceArn`, specify the ARN of the
+     destination. This can be a CloudWatch Logs log group, a Firehose delivery stream,
+     or an Amazon S3 bucket.
+    2. For `outputFormat`, specify the output format for your
+     logs.
+    3. ###### Example AWS CLI put-delivery-destination command
 
-   The following is an example of configuring a delivery
-   destination to an Amazon S3 bucket.
+    The following is an example of configuring a delivery
+     destination to an Amazon S3 bucket.
 
-   ```
-   aws logs put-delivery-destination --name S3-destination --delivery-destination-configuration destinationResourceArn=arn:aws:s3:::amzn-s3-demo-bucket
-   ```
 
-   **Output**
+    ```
+    aws logs put-delivery-destination --name S3-destination --delivery-destination-configuration destinationResourceArn=arn:aws:s3:::amzn-s3-demo-bucket
+    ```
+    **Output**
 
-   ````
-   {
-       "name": "S3-destination",
-       "arn": "arn:aws:logs:us-east-1:123456789012:delivery-destination:S3-destination",
-       "deliveryDestinationType": "S3",
-       "deliveryDestinationConfiguration": {
-           "destinationResourceArn": "arn:aws:s3:::amzn-s3-demo-bucket"
-       }
-   }
-   ```###### Note
-   ````
+
+    ```
+    {
+        "name": "S3-destination",
+        "arn": "arn:aws:logs:us-east-1:123456789012:delivery-destination:S3-destination",
+        "deliveryDestinationType": "S3",
+        "deliveryDestinationConfiguration": {
+            "destinationResourceArn": "arn:aws:s3:::amzn-s3-demo-bucket"
+        }
+    }
+    ```###### Note
 
 If you're delivering logs cross-account, you must use the [PutDeliveryDestinationPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.md") API operation to assign an
 AWS Identity and Access Management (IAM) policy to the destination account. The IAM policy
@@ -369,9 +369,7 @@ source account to create a log delivery.
 
 In the following policy, replace
 `111111111111` with the source
-account ID and specify the delivery destination ARN from the output in step
-
-1.
+account ID and specify the delivery destination ARN from the output in step 1.
 
 JSON
 
@@ -872,19 +870,18 @@ path, you must update the Amazon S3 bucket policy to use the same path.
 
 ###### Example: Updating the suffix path
 
-1.  Your default suffix path is `AWSLogs/{account-id}/CloudFront` and
-    you replace it with `myFolderA`.
-2.  Because your new suffix path is different than the path specified in
-    the Amazon S3 bucket policy, your access logs won't be delivered.
-3.  You can do one of the following steps:
+1. Your default suffix path is `AWSLogs/{account-id}/CloudFront` and
+   you replace it with `myFolderA`.
+2. Because your new suffix path is different than the path specified in
+   the Amazon S3 bucket policy, your access logs won't be delivered.
+3. You can do one of the following steps:
 
-        * Update the Amazon S3 bucket permission from
-         `amzn-s3-demo-bucket/AWSLogs/`<your-account-ID>`/CloudFront/*`
-         to `amzn-s3-demo-bucket/myFolderA/*`.
-        * Update your logging configuration to use the default suffix
-         again: `AWSLogs/{account-id}/CloudFront`
-
-    For more information, see [Permissions](#permissions-standard-logging "#permissions-standard-logging").
+   - Update the Amazon S3 bucket permission from
+     `amzn-s3-demo-bucket/AWSLogs/`<your-account-ID>`/CloudFront/*`
+     to `amzn-s3-demo-bucket/myFolderA/*`.
+   - Update your logging configuration to use the default suffix
+     again: `AWSLogs/{account-id}/CloudFront`
+     For more information, see [Permissions](#permissions-standard-logging "#permissions-standard-logging").
 
 ## Delete log files
 

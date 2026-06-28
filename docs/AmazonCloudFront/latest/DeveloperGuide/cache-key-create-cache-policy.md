@@ -101,29 +101,28 @@ policy to a CloudFront distribution's cache behavior.
 aws cloudfront get-distribution-config --id `distribution_ID` --output yaml > dist-config.yaml
 ```
 
-2.  Open the file named `dist-config.yaml` that you
-    just created. Edit the file, making the following changes to each
-    cache behavior that you are updating to use a cache policy.
+2. Open the file named `dist-config.yaml` that you
+   just created. Edit the file, making the following changes to each
+   cache behavior that you are updating to use a cache policy.
 
-        * In the cache behavior, add a field named
-         `CachePolicyId`. For the field's value, use
-         the cache policy ID that you noted after creating the
-         policy.
-        * Remove the `MinTTL`, `MaxTTL`,
-         `DefaultTTL`, and
-         `ForwardedValues` fields from the cache
-         behavior. These settings are specified in the cache policy,
-         so you can't include these fields and a cache policy in the
-         same cache behavior.
-        * Rename the `ETag` field to
-         `IfMatch`, but don't change the field's
-         value.
+   - In the cache behavior, add a field named
+     `CachePolicyId`. For the field's value, use
+     the cache policy ID that you noted after creating the
+     policy.
+   - Remove the `MinTTL`, `MaxTTL`,
+     `DefaultTTL`, and
+     `ForwardedValues` fields from the cache
+     behavior. These settings are specified in the cache policy,
+     so you can't include these fields and a cache policy in the
+     same cache behavior.
+   - Rename the `ETag` field to
+     `IfMatch`, but don't change the field's
+     value.
+     Save the file when finished.
 
-    Save the file when finished.
-
-3.  Use the following command to update the distribution to use the
-    cache policy. Replace `distribution_ID`
-    with the distribution's ID.
+3. Use the following command to update the distribution to use the
+   cache policy. Replace `distribution_ID`
+   with the distribution's ID.
 
 ```
 

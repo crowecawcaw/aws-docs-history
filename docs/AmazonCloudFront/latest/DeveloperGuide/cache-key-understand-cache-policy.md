@@ -261,7 +261,7 @@ both in the `Accept-Encoding` header in the
 viewer request—CloudFront does the following:
 
 - Normalizes the header to `Accept-Encoding:
-br,gzip` and includes the normalized header
+ br,gzip` and includes the normalized header
   in the cache key. The cache key doesn't include
   other values that were in the
   `Accept-Encoding` header sent by the
@@ -274,7 +274,7 @@ br,gzip` and includes the normalized header
   compressed object in the cache that matches the
   request and is not expired, CloudFront includes the
   normalized header (`Accept-Encoding:
-br,gzip`) in the corresponding origin
+ br,gzip`) in the corresponding origin
   request. The origin request doesn't include other
   values that were in the `Accept-Encoding`
   header sent by the viewer.
@@ -286,7 +286,7 @@ request but `br` is not—CloudFront does the
 following:
 
 - Normalizes the header to `Accept-Encoding:
-gzip` and includes the normalized header in
+ gzip` and includes the normalized header in
   the cache key. The cache key doesn't include other
   values that were in the `Accept-Encoding`
   header sent by the viewer.
@@ -298,7 +298,7 @@ gzip` and includes the normalized header in
   compressed object in the cache that matches the
   request and is not expired, CloudFront includes the
   normalized header (`Accept-Encoding:
-gzip`) in the corresponding origin request.
+ gzip`) in the corresponding origin request.
   The origin request doesn't include other values that
   were in the `Accept-Encoding` header sent
   by the viewer.
@@ -331,7 +331,7 @@ enabled for Gzip and the viewer supports Gzip
 request)—CloudFront does the following:
 
 - Normalizes the header to `Accept-Encoding:
-gzip` and includes the normalized header in
+ gzip` and includes the normalized header in
   the cache key.
 - If the edge location has a Gzip compressed object
   in the cache that matches the request and is not
@@ -341,7 +341,7 @@ gzip` and includes the normalized header in
   compressed object in the cache that matches the
   request and is not expired, CloudFront includes the
   normalized header (`Accept-Encoding:
-gzip`) in the corresponding origin request.
+ gzip`) in the corresponding origin request.
   The origin request doesn't include other values that
   were in the `Accept-Encoding` header sent
   by the viewer.

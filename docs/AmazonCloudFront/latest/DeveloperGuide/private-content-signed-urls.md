@@ -58,12 +58,9 @@ topics:
     * [Create a signed URL using a canned policy](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md")
     * [Create a signed URL using a custom policy](private-content-creating-signed-url-custom-policy.md "private-content-creating-signed-url-custom-policy.md")
 
-3. A user requests a file for which you want to require signed URLs.
-4. Your application verifies that the user is entitled to access the file:
-   they've signed in, they've paid for access to the content, or they've met
-   some other requirement for access.
-5. Your application creates and returns a signed URL to the user.
-6. The signed URL allows the user to download or stream the content.
+3. A user requests a file for which you want to require signed URLs. 4. Your application verifies that the user is entitled to access the file:
+they've signed in, they've paid for access to the content, or they've met
+some other requirement for access. 5. Your application creates and returns a signed URL to the user. 6. The signed URL allows the user to download or stream the content.
 
 This step is automatic; the user usually doesn't have to do anything
 additional to access the content. For example, if a user is accessing your

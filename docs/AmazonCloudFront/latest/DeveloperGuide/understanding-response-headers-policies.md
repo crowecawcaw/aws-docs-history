@@ -61,11 +61,11 @@ are allowed.
 The `Authorization` header can't use a wildcard and must be
 listed explicitly.
 
-| Examples of valid use of the wildcard character | Example                            | Will match      | Will not match |
-| ----------------------------------------------- | ---------------------------------- | --------------- | -------------- |
-| `x-amz-*`                                       | `x-amz-test`<br>`x-amz-`           | `x-amz`         |
-| `x-*-amz`                                       | `x-test-amz`<br>`x--amz`           |                 |
-| `*`                                             | All headers except `Authorization` | `Authorization` |
+Examples of valid use of the wildcard character| Example | Will match | Will not match |
+| --- | --- | --- |
+| `x-amz-*` | `x-amz-test`<br>`x-amz-` | `x-amz` |
+| `x-*-amz` | `x-test-amz`<br>`x--amz` | |
+| `*` | All headers except `Authorization` | `Authorization` |
 
 **Access-Control-Allow-Methods**
 

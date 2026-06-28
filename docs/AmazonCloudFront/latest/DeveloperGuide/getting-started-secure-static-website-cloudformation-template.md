@@ -112,22 +112,17 @@ the following fields:
      Create an alias to the domain apex (example.com) in your CloudFront
      configuration.
 
-4. When finished, choose **Next**.
-5. (Optional) On the **Configure stack options** page,
-   [add tags and other stack options](../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md").
-6. When finished, choose **Next**.
-7. On the **Review** page, scroll to the bottom of the page,
-   then select the two boxes in the **Capabilities** section.
-   These capabilities allow CloudFormation to create an IAM role that allows
-   access to the stack’s resources, and to name the resources
-   dynamically.
-8. Choose **Create stack**.
-9. Wait for the stack to finish creating. The stack creates some nested
-   stacks, and can take several minutes to finish. When it’s finished, the
-   **Status** changes to
-   **CREATE_COMPLETE**.
+4. When finished, choose **Next**. 5. (Optional) On the **Configure stack options** page,
+[add tags and other stack options](../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md"). 6. When finished, choose **Next**. 7. On the **Review** page, scroll to the bottom of the page,
+then select the two boxes in the **Capabilities** section.
+These capabilities allow CloudFormation to create an IAM role that allows
+access to the stack’s resources, and to name the resources
+dynamically. 8. Choose **Create stack**. 9. Wait for the stack to finish creating. The stack creates some nested
+stacks, and can take several minutes to finish. When it’s finished, the
+**Status** changes to
+**CREATE\_COMPLETE**.
 
-When the status is **CREATE_COMPLETE**, go to
+When the status is **CREATE\_COMPLETE**, go to
 https://`www.example.com` to view your website
 (replace www.example.com with the subdomain and domain name that you
 specified in step 3). You should see the website’s default content:
@@ -239,11 +234,11 @@ aws cloudformation deploy \
     ```
 
 7. Wait for the CloudFormation stack to finish creating. The stack creates some
-   nested stacks, and can take several minutes to finish. When it’s finished,
-   the **Status** changes to
-   **CREATE_COMPLETE**.
+nested stacks, and can take several minutes to finish. When it’s finished,
+the **Status** changes to
+**CREATE\_COMPLETE**.
 
-When the status changes to **CREATE_COMPLETE**, go to
+When the status changes to **CREATE\_COMPLETE**, go to
 https://www.example.com to view your website (replace www.example.com with
 the subdomain and domain name that you specified in the previous step). You
 should see your website’s content.

@@ -83,8 +83,8 @@ the following are true:
    - The amount of time specified by the error caching minimum TTL
      (10 seconds by default)
    - The amount of time specified by a `Cache-Control
-max-age` header or a `Cache-Control
-s-maxage` header that is returned by the origin when
+  max-age` header or a `Cache-Control
+  s-maxage` header that is returned by the origin when
      the first request generated the error
 
 6. After the caching time (determined in Step 5) has elapsed, CloudFront tries
@@ -173,8 +173,8 @@ CloudFront does the following:
    - The amount of time specified by the error caching minimum TTL
      (10 seconds by default)
    - The amount of time specified by a `Cache-Control
-max-age` header or a `Cache-Control
-s-maxage` header that is returned by the origin when
+  max-age` header or a `Cache-Control
+  s-maxage` header that is returned by the origin when
      the first request generated the error
 
 2. For the duration of the caching time (determined in Step 1), CloudFront

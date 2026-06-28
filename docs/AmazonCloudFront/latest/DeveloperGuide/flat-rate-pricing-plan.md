@@ -167,10 +167,10 @@ represent the baseline usage your plan is designed to support. You can track you
 in the CloudFront console at any time and will receive automatic email notifications when you
 reach 50%, 80%, and 100% of your allowance.
 
-| Monthly usage allowances per plan tier |        | Free  | Pro   | Business                                                    | Premium |
-| -------------------------------------- | ------ | ----- | ----- | ----------------------------------------------------------- | ------- |
-| Requests                               | 1 M    | 10 M  | 125 M | 500 M (configurable up to 6 B for a new flat-rate price)    |
-| Data transfer                          | 100 GB | 50 TB | 50 TB | 50 TB (configurable up to 600 TB for a new flat-rate price) |
+Monthly usage allowances per plan tier| | Free | Pro | Business | Premium |
+| --- | --- | --- | --- | --- |
+| Requests | 1 M | 10 M | 125 M | 500 M (configurable up to 6 B for a new flat-rate price) |
+| Data transfer | 100 GB | 50 TB | 50 TB | 50 TB (configurable up to 600 TB for a new flat-rate price) |
 
 ### What counts toward your usage allowance
 
@@ -223,14 +223,14 @@ The Premium plan offers configurable monthly usage allowances per distribution.
 When you subscribe to or manage a Premium plan, you can select a higher monthly
 usage allowance from the following levels:
 
-| Premium usage levels | Premium usage level | Monthly data transfer | Monthly requests | Flat-rate price per month |
-| -------------------- | ------------------- | --------------------- | ---------------- | ------------------------- |
-| Premium (default)    | 50 TB               | 500 M                 | $1,000           |
-| Premium              | 75 TB               | 750 M                 | $1,450           |
-| Premium              | 125 TB              | 1.25 B                | $2,250           |
-| Premium              | 200 TB              | 2 B                   | $3,500           |
-| Premium              | 350 TB              | 3.5 B                 | $6,000           |
-| Premium              | 600 TB              | 6 B                   | $10,000          |
+Premium usage levels| Premium usage level | Monthly data transfer | Monthly requests | Flat-rate price per month |
+| --- | --- | --- | --- |
+| Premium (default) | 50 TB | 500 M | $1,000 |
+| Premium | 75 TB | 750 M | $1,450 |
+| Premium | 125 TB | 1.25 B | $2,250 |
+| Premium | 200 TB | 2 B | $3,500 |
+| Premium | 350 TB | 3.5 B | $6,000 |
+| Premium | 600 TB | 6 B | $10,000 |
 
 When you select a higher usage level, your monthly price increases and your
 monthly usage allowance increases accordingly. The features and services included in

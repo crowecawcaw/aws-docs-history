@@ -31,7 +31,7 @@ a new signed URL for each segment.
 This code example does the following:
 
 1. The function `rsa_sha1_sign` hashes and signs the policy
-   statement using SHA-1. To use SHA-256 instead, use the rsa_sha256_sign function shown below. The arguments required are a policy statement and the private
+   statement using SHA-1. To use SHA-256 instead, use the rsa\_sha256\_sign function shown below. The arguments required are a policy statement and the private
    key that corresponds with a public key that’s in a trusted key group for
    your distribution.
 2. Next, the `url_safe_base64_encode` function creates a

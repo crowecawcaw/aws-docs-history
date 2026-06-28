@@ -32,14 +32,12 @@ that CloudFront has permission to access the server and that the security settin
      *Amazon CloudFront API Reference*.
 
 4. (Optional) If you use the CloudFront console to create your distribution, create more cache
-   behaviors or origins for the distribution. For more information about behaviors and origins, see [To update a multi-tenant distribution](HowToUpdateDistribution.md#HowToUpdateDistributionProcedure "HowToUpdateDistribution.md#HowToUpdateDistributionProcedure").
-5. Test your distribution. For more information about testing, see [Test a distribution](distribution-web-testing.md "distribution-web-testing.md").
-6. Develop your website or application to access your content using the domain name that
-   CloudFront returned after you created your distribution in Step 3. For example, if
-   CloudFront returns d111111abcdef8.cloudfront.net as the domain name for your distribution,
-   the URL for the file `image.jpg` in an Amazon S3 bucket or in the root
-   directory on an HTTP server is
-   `https://d111111abcdef8.cloudfront.net/image.jpg`.
+behaviors or origins for the distribution. For more information about behaviors and origins, see [To update a multi-tenant distribution](HowToUpdateDistribution.md#HowToUpdateDistributionProcedure "HowToUpdateDistribution.md#HowToUpdateDistributionProcedure"). 5. Test your distribution. For more information about testing, see [Test a distribution](distribution-web-testing.md "distribution-web-testing.md"). 6. Develop your website or application to access your content using the domain name that
+CloudFront returned after you created your distribution in Step 3. For example, if
+CloudFront returns d111111abcdef8.cloudfront.net as the domain name for your distribution,
+the URL for the file `image.jpg` in an Amazon S3 bucket or in the root
+directory on an HTTP server is
+`https://d111111abcdef8.cloudfront.net/image.jpg`.
 
 If you specified one or more alternate domain names (CNAMEs) when you created your
 distribution, you can use your own domain name. In that case, the URL for

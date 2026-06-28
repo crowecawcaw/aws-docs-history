@@ -207,23 +207,22 @@ cache behavior of a CloudFront distribution.
 aws cloudfront get-distribution-config --id `distribution_ID` --output yaml > dist-config.yaml
 ```
 
-2.  Open the file that's named `dist-config.yaml` that
-    you just created. Edit the file, making the following changes to the
-    cache behavior to make it use the response headers policy.
+2. Open the file that's named `dist-config.yaml` that
+   you just created. Edit the file, making the following changes to the
+   cache behavior to make it use the response headers policy.
 
-        * In the cache behavior, add a field that's named
-         `ResponseHeadersPolicyId`. For the field's value, use
-         the response headers policy ID that you noted after creating the
-         policy.
-        * Rename the `ETag` field to `IfMatch`,
-         but don't change the field's value.
+   - In the cache behavior, add a field that's named
+     `ResponseHeadersPolicyId`. For the field's value, use
+     the response headers policy ID that you noted after creating the
+     policy.
+   - Rename the `ETag` field to `IfMatch`,
+     but don't change the field's value.
+     Save the file when finished.
 
-    Save the file when finished.
-
-3.  Use the following command to update the distribution to use the
-    response headers policy. Replace
-    `distribution_ID` with the distribution
-    ID.
+3. Use the following command to update the distribution to use the
+   response headers policy. Replace
+   `distribution_ID` with the distribution
+   ID.
 
 ```
 

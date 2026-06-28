@@ -69,9 +69,9 @@ the following fields:
      records must point to CloudFront to route traffic correctly.
 
 9. If your domain ownership isn't verified, on the tenant details page, under
-   **Domains**, choose **Complete domain
-   setup** and then complete the following procedure to point the DNS
-   record to your CloudFront domain name.
+**Domains**, choose **Complete domain
+setup** and then complete the following procedure to point the DNS
+record to your CloudFront domain name.
 
 ## Complete domain setup
 
@@ -104,7 +104,7 @@ following:
    `customer-123.example-saas-provider.com`
 2. In your DNS, add the
    `_cf-challenge.customer-123.example-saas-provider.com TXT
-d111111abcdef8.cloudfront.net` TXT record to your DNS
+ d111111abcdef8.cloudfront.net` TXT record to your DNS
    configuration.
 3. Next, your customers (the tenants) can then update their own DNS record to
    map their domain name to the subdomain that you provided.

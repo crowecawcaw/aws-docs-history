@@ -50,30 +50,30 @@ value store.
      key value stores ID`
 
 6. Look at the **Key value pairs** section. If
-   you imported a file, this section shows some key-value pairs.
-   You can do the following:
+you imported a file, this section shows some key-value pairs.
+You can do the following:
 
-   - If you imported a file, you can also add more values
+    * If you imported a file, you can also add more values
      manually.
-   - If you didn't import a file from an Amazon S3 bucket, and
+    * If you didn't import a file from an Amazon S3 bucket, and
      if you want to add key-value pairs now, you can complete
      the next step.
-   - You can skip this step and add the key-value pairs
+    * You can skip this step and add the key-value pairs
      later.
 
 7. To add the pairs now:
 
-   1. Choose **Add key-value pairs**.
-   2. Choose **Add pair** and enter a name
-      and value. Repeat this step to add more pairs.
-   3. When you're finished, choose **Save
-      changes** to save all the key-value pairs
-      in the key value store. On the dialog box that appears,
-      choose **Done**.
+    1. Choose **Add key-value pairs**.
+    2. Choose **Add pair** and enter a name
+     and value. Repeat this step to add more pairs.
+    3. When you're finished, choose **Save
+     changes** to save all the key-value pairs
+     in the key value store. On the dialog box that appears,
+     choose **Done**.
 
 8. To associate the key value store with a function now, complete
-   the **Associated functions** section. For more
-   information, see [Create functions](create-function.md "create-function.md") or [Update functions](update-function.md "update-function.md").
+the **Associated functions** section. For more
+information, see [Create functions](create-function.md "create-function.md") or [Update functions](update-function.md "update-function.md").
 
 You can also associate the function later, either from this
 key value store details page, or from the function's details

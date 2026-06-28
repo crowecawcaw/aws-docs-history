@@ -10,13 +10,12 @@ The CloudFront usage reports include the following information:
   region during each time interval for the specified CloudFront distribution. They
   separate the data differently, as follows:
 
-      + **By protocol** – Separates the data by
-       protocol: HTTP or HTTPS.
-      + **By destination** – Separates the data
-       by destination: to your viewers or to your origin.
-
-  The CloudFront usage report is based on the AWS usage report for CloudFront. This report doesn't
-  require any additional configuration. For more information, see [View the AWS usage report for CloudFront](reports-billing.md#usage-report "reports-billing.md#usage-report").
+  - **By protocol** – Separates the data by
+    protocol: HTTP or HTTPS.
+  - **By destination** – Separates the data
+    by destination: to your viewers or to your origin.
+    The CloudFront usage report is based on the AWS usage report for CloudFront. This report doesn't
+    require any additional configuration. For more information, see [View the AWS usage report for CloudFront](reports-billing.md#usage-report "reports-billing.md#usage-report").
 
 You can view reports for a specified date range in the last 60 days, with data points
 every hour or every day. You can usually view data about requests that CloudFront received as
@@ -37,32 +36,31 @@ You can view the CloudFront usage report in the console.
 
 ###### To view CloudFront usage reports
 
-1.  Sign in to the AWS Management Console and open the CloudFront console at
-    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
-2.  In the navigation pane, choose **Usage Reports**.
-3.  In the **CloudFront Usage Reports** pane, for **Start
-    Date** and **End Date**, select the date range
-    for which you want to display usage charts. Available ranges depend on the
-    value that you select for **Granularity**:
+1. Sign in to the AWS Management Console and open the CloudFront console at
+   [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
+2. In the navigation pane, choose **Usage Reports**.
+3. In the **CloudFront Usage Reports** pane, for **Start
+   Date** and **End Date**, select the date range
+   for which you want to display usage charts. Available ranges depend on the
+   value that you select for **Granularity**:
 
-        * **Daily** — To display charts with one
-         data point per day, select any date range in the previous 60 days.
-        * **Hourly** — To display charts with one
-         data point every hour, select any date range of up to 14 days within
-         the previous 60 days.
+   - **Daily** — To display charts with one
+     data point per day, select any date range in the previous 60 days.
+   - **Hourly** — To display charts with one
+     data point every hour, select any date range of up to 14 days within
+     the previous 60 days.
+     Dates and times are in Coordinated Universal Time (UTC).
 
-    Dates and times are in Coordinated Universal Time (UTC).
-
-4.  For **Granularity**, specify whether to display one data
-    point per day or one data point per hour in the charts. If you specify a
-    date range greater than 14 days, the option to specify one data point per
-    hour is not available.
-5.  For **Billing Region**, choose the CloudFront billing region
-    that has the data you want to view, or choose **All
-    Regions**. Usage charts include data for requests that CloudFront
-    processes in edge locations in the specified region. The region where CloudFront
-    processes requests might or might not correspond with the location of your
-    viewers.
+4. For **Granularity**, specify whether to display one data
+   point per day or one data point per hour in the charts. If you specify a
+   date range greater than 14 days, the option to specify one data point per
+   hour is not available.
+5. For **Billing Region**, choose the CloudFront billing region
+   that has the data you want to view, or choose **All
+   Regions**. Usage charts include data for requests that CloudFront
+   processes in edge locations in the specified region. The region where CloudFront
+   processes requests might or might not correspond with the location of your
+   viewers.
 
 Select only Regions that are included in the price class for your
 distribution. Otherwise, the usage charts probably won't contain any data.

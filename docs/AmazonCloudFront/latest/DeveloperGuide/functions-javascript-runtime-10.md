@@ -162,8 +162,8 @@ The following ES 9 methods on strings are supported:
 The following nonstandard methods on strings are supported:
 
 - `prototype.bytesFrom(*array*
-| *string,
-encoding*)`
+ | *string,
+ encoding*)`
 
 Creates a byte string from an array of octets or an encoded
 string. The string encoding options are `hex`,
@@ -370,7 +370,7 @@ that behave exactly as their Node.js counterparts:
 - `hash.update(*data*)`
 - `hash.digest([*encoding*])`
 - `createHmac(*algorithm*,
-*secret key*)`
+ *secret key*)`
 - `hmac.update(*data*)`
 - `hmac.digest([*encoding*])`
 

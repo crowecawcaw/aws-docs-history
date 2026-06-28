@@ -52,7 +52,7 @@ For the event type, choose when you want this function to run:
      every time CloudFront returns a response.
 
 6. To save the configuration, choose **Add
-   association**.
+association**.
 
 CloudFront associates the distribution with the function. Wait a few minutes for the
 associated distribution to finish deploying. You can choose **View
@@ -115,11 +115,11 @@ created. Edit the file to make the following changes.
     3. After making these changes, save the file.
 
 4. Use the following command to update the distribution, adding the
-   function association. To use this command, do the following:
+function association. To use this command, do the following:
 
-   - Replace `DistributionID`
+    * Replace ``DistributionID``
      with the distribution's ID.
-   - Run the command on one line. In the example, line breaks are
+    * Run the command on one line. In the example, line breaks are
      provided to make the example more readable.
 
 ```

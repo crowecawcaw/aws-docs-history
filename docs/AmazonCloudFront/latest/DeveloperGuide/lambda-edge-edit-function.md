@@ -30,8 +30,8 @@ it.
 3. In the list of functions, choose the name of the function.
 
 By default, the console displays the $LATEST version. You can view earlier
-versions (choose **Qualifiers**), but you can only edit
-$LATEST. 4. On the **Code** tab, for **Code entry
+ versions (choose **Qualifiers**), but you can only edit
+ $LATEST. 4. On the **Code** tab, for **Code entry
 type**, choose to edit the code in the browser, upload a .zip
 file, or upload a file from Amazon S3. 5. Choose either **Save** or **Save and
 test**. 6. Choose **Actions**, and choose **Publish new
@@ -65,12 +65,11 @@ to execute.
      this check box so Lambda replicates the function to AWS Regions
      globally.
 
-13. Choose **Submit**.
-14. To add more triggers for this function, repeat steps 10 through 13.
-    For more information about testing and debugging the function in the Lambda
-    console, see [Invoke
-    a Lambda function using the console](../../../lambda/latest/dg/getting-started.md#get-started-invoke-manually "../../../lambda/latest/dg/getting-started.md#get-started-invoke-manually") in the
-    _AWS Lambda Developer Guide_.
+13. Choose **Submit**. 14. To add more triggers for this function, repeat steps 10 through 13.
+For more information about testing and debugging the function in the Lambda
+console, see [Invoke
+a Lambda function using the console](../../../lambda/latest/dg/getting-started.md#get-started-invoke-manually "../../../lambda/latest/dg/getting-started.md#get-started-invoke-manually") in the
+_AWS Lambda Developer Guide_.
 
 When you're ready to have the function execute for CloudFront events, publish another
 version and edit the function to add triggers. For more information, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").

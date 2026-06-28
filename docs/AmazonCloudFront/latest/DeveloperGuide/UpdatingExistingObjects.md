@@ -16,14 +16,14 @@ a sequential number, or some other method of distinguishing two versions of the 
 object.
 
 For example, instead of naming a graphic file image.jpg, you might call it
-image_1.jpg.
+image\_1.jpg.
 When you want to start serving a new version of the file, you'd name the new file
-image_2.jpg, and you'd update the links in your web application or website to point
+image\_2.jpg, and you'd update the links in your web application or website to point
 to
-image_2.jpg. Alternatively, you might put all graphics in an images_v1 directory
+image\_2.jpg. Alternatively, you might put all graphics in an images\_v1 directory
 and, when
 you want to start serving new versions of one or more graphics, you'd create a new
-images_v2
+images\_v2
 directory, and you'd update your links to point to that directory. With versioning,
 you
 don't have to wait for an object to expire before CloudFront begins to serve a new version

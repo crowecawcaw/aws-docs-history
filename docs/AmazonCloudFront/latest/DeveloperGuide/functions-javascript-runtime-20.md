@@ -739,7 +739,7 @@ Check if `encoding` is supported. Returns `true` or
 The module provides the following buffer prototype methods:
 
 - `Buffer.prototype.compare(target[, targetStart[, targetEnd[,
-sourceStart[, sourceEnd]]]])`
+ sourceStart[, sourceEnd]]]])`
 
 Compare `Buffer` with target. Returns `0` if they're
 the same, `1` if `buffer` comes first, or
@@ -756,7 +756,7 @@ the same, `1` if `buffer` comes first, or
      `Buffer` length.
 
 - `Buffer.prototype.copy(target[, targetStart[, sourceStart[,
-sourceEnd]]])`
+ sourceEnd]]])`
 
 Copy buffer to `target`.
 
@@ -777,7 +777,7 @@ Compare `Buffer` to `otherBuffer`. Returns
     + `otherBuffer`: Enter a string.
 
 - `Buffer.prototype.fill(value[, offset[, end][,
-encoding])`
+ encoding])`
 
 Fill `Buffer` with `value`.
 
@@ -790,7 +790,7 @@ Fill `Buffer` with `value`.
      `base64url`. Default is `utf8`.
 
 - `Buffer.prototype.includes(value[, byteOffset][,
-encoding])`
+ encoding])`
 
 Search for `value` in `Buffer`. Returns
 `true` or `false`.
@@ -803,7 +803,7 @@ Search for `value` in `Buffer`. Returns
      `base64url`. Default is `utf8`.
 
 - `Buffer.prototype.indexOf(value[, byteOffset][,
-encoding])`
+ encoding])`
 
 Search for first `value` in `Buffer`. Returns
 `index` if found; returns `-1` if not
@@ -818,7 +818,7 @@ found.
      Default is `utf8`.
 
 - `Buffer.prototype.lastIndexOf(value[, byteOffset][,
-encoding])`
+ encoding])`
 
 Search for last `value` in `Buffer`. Returns
 `index` if found; returns `-1` if not
@@ -1011,7 +1011,7 @@ to encoded string.
      length.
 
 - `Buffer.prototype.write(string[, offset[, length]][,
-encoding])`
+ encoding])`
 
 Write encoded `string` to `Buffer` if there is
 space, or a truncated `string` if there is not enough
@@ -1048,7 +1048,7 @@ Write `value` at `offset` to
      `6`.
 
 - `Buffer.prototype.writeInt16BE(value, offset,
-byteLength)`
+ byteLength)`
 
 Write `value` at `offset` to
 `Buffer`, using big-endian.
@@ -1059,7 +1059,7 @@ Write `value` at `offset` to
      `6`.
 
 - `Buffer.prototype.writeInt32BE(value, offset,
-byteLength)`
+ byteLength)`
 
 Write `value` at `offset` to
 `Buffer`, using big-endian.
@@ -1108,7 +1108,7 @@ Write `UInt8`
      `6`.
 
 - `Buffer.prototype.writeUIntBE(value, offset,
-byteLength)`
+ byteLength)`
 
 Write `value` at `offset` to `Buffer`, using big-endian.
 
@@ -1118,7 +1118,7 @@ Write `value` at `offset` to `Buffer`, using big-endian.
      `6`.
 
 - `Buffer.prototype.writeUInt16BE(value, offset,
-byteLength)`
+ byteLength)`
 
 Write `value` at `offset` to `Buffer`, using big-endian.
 
@@ -1128,7 +1128,7 @@ Write `value` at `offset` to `Buffer`, using big-endian.
      `6`.
 
 - `Buffer.prototype.writeUInt32BE(value, offset,
-byteLength)`
+ byteLength)`
 
 Write `value` at `offset` to `Buffer`, using big-endian.
 
@@ -1138,7 +1138,7 @@ Write `value` at `offset` to `Buffer`, using big-endian.
      `6`.
 
 - `Buffer.prototype.writeUIntLE(value, offset,
-byteLength)`
+ byteLength)`
 
 Write `value` at `offset` to `Buffer`, using little-endian.
 
@@ -1148,7 +1148,7 @@ Write `value` at `offset` to `Buffer`, using little-endian.
      `6`.
 
 - `Buffer.prototype.writeUInt16LE(value, offset,
-byteLength)`
+ byteLength)`
 
 Write `value` at `offset` to `Buffer`, using little-endian.
 
@@ -1158,7 +1158,7 @@ Write `value` at `offset` to `Buffer`, using little-endian.
      `6`.
 
 - `Buffer.prototype.writeUInt32LE(value, offset,
-byteLength)`
+ byteLength)`
 
 Write `value` at `offset` to `Buffer`, using little-endian.
 

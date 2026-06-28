@@ -250,21 +250,20 @@ settings in a cache behavior to affect caching.
   `no-store`, and/or `private` directives are
   present in the origin headers.
 
-      + If the origin is reachable, CloudFront gets the object from the
-       origin and returns it to the viewer.
-      + If the origin is unreachable and the minimum *or* maximum TTL value is greater
-       than 0, CloudFront will serve the object that it got from the origin
-       previously.
-
-  To avoid this behavior, include the `Cache-Control:
+  - If the origin is reachable, CloudFront gets the object from the
+    origin and returns it to the viewer.
+  - If the origin is unreachable and the minimum _or_ maximum TTL value is greater
+    than 0, CloudFront will serve the object that it got from the origin
+    previously.
+    To avoid this behavior, include the `Cache-Control:
  stale-if-error=0` directive with the object returned from the
-  origin. This causes CloudFront to return an error in response to future
-  requests if the origin is unreachable, rather than returning the object
-  that it got from the origin previously.
+    origin. This causes CloudFront to return an error in response to future
+    requests if the origin is unreachable, rather than returning the object
+    that it got from the origin previously.
 
 - CloudFront doesn't cache the HTTP 501 status code (Not Implemented) from an
   S3 origin when the origin headers include the `Cache-Control:
-no-cache`, `no-store`, and/or `private`
+ no-cache`, `no-store`, and/or `private`
   directives. This is the default behavior for an S3 origin, even if your
   [minimum TTL](DownloadDistValuesCacheBehavior.md#DownloadDistValuesMinTTL "DownloadDistValuesCacheBehavior.md#DownloadDistValuesMinTTL") setting
   is greater than 0.
@@ -291,5 +290,5 @@ Amazon S3 objects. To do so, you modify the metadata fields for the object.
    `Cache-Control` header, you could enter
    `max-age=86400`. For `Expires`, you could enter an
    expiration date and time such as `Wed, 30 Jun 2021 09:28:00
-GMT`.
+ GMT`.
 4. Follow the rest of the procedure to save your metadata changes.

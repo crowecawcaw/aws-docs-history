@@ -27,14 +27,14 @@ As you monitor the staging distribution, you can:
      send more or less traffic to the staging distribution.
 
 6. When you're satisfied with the performance of the staging distribution,
-   _promote_ the staging distribution's
-   configuration to the primary distribution, which copies the staging
-   distribution's configuration to the primary distribution. This also disables the
-   continuous deployment policy which means that CloudFront routes all traffic to the
-   primary distribution.
-   You can build automation that monitors the performance of the staging distribution
-   (step 5) and promotes the configuration automatically (step 6) when certain criteria are
-   met.
+_promote_ the staging distribution's
+configuration to the primary distribution, which copies the staging
+distribution's configuration to the primary distribution. This also disables the
+continuous deployment policy which means that CloudFront routes all traffic to the
+primary distribution.
+You can build automation that monitors the performance of the staging distribution
+(step 5) and promotes the configuration automatically (step 6) when certain criteria are
+met.
 
 After you promote a configuration, you can reuse the same staging distribution the
 next time you want to test a configuration change.

@@ -95,15 +95,12 @@ as the template for your function. 5. Enter the following information about your
      more information, see [Set up IAM permissions and roles for Lambda@Edge](lambda-edge-permissions.md "lambda-edge-permissions.md").
 
 6. Choose **Create function** at the bottom of the
-   page.
-7. In the **Deploy to Lambda@Edge** pane that appears,
-   choose **Cancel**. (For this tutorial, you must modify
-   the function code before deploying the function to Lambda@Edge.)
-8. Scroll down to the **Code source** section of the
-   page.
-9. Replace the template code with a function that modifies the security
-   headers that your origin returns. For example, you could use code
-   similar to the following:
+page. 7. In the **Deploy to Lambda@Edge** pane that appears,
+choose **Cancel**. (For this tutorial, you must modify
+the function code before deploying the function to Lambda@Edge.) 8. Scroll down to the **Code source** section of the
+page. 9. Replace the template code with a function that modifies the security
+headers that your origin returns. For example, you could use code
+similar to the following:
 
 ```
 'use strict';

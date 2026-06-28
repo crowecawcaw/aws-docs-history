@@ -72,9 +72,9 @@ Allowed source headers:
 For `Cloudfront-Viewer-Cert-PEM`:
 
 - `certHeader` replaces `-----BEGIN
-CERTIFICATE-----`.
+ CERTIFICATE-----`.
 - `certFooter` replaces `-----END
-CERTIFICATE-----`.
+ CERTIFICATE-----`.
 - `certEndMarker` sets a custom string after the
   certFooter.
 - `keepNewlinesInCertData` (default: `true`)

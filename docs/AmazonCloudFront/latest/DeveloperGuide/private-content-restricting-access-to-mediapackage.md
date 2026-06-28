@@ -182,20 +182,19 @@ add the OAC to a MediaPackage v2 origin in a CloudFront distribution.
 aws cloudfront get-distribution-config --id `<CloudFront distribution ID>` --output yaml > dist-config.yaml
 ```
 
-2.  Open the file that's named `dist-config.yaml` that you just
-    created. Edit the file, making the following changes:
+2. Open the file that's named `dist-config.yaml` that you just
+   created. Edit the file, making the following changes:
 
-        * In the `Origins` object, add the OAC's ID to the field that's
-         named `OriginAccessControlId`.
-        * Remove the value from the field that's named
-         `OriginAccessIdentity`, if one exists.
-        * Rename the `ETag` field to `IfMatch`, but don't
-         change the field's value.
+   - In the `Origins` object, add the OAC's ID to the field that's
+     named `OriginAccessControlId`.
+   - Remove the value from the field that's named
+     `OriginAccessIdentity`, if one exists.
+   - Rename the `ETag` field to `IfMatch`, but don't
+     change the field's value.
+     Save the file when finished.
 
-    Save the file when finished.
-
-3.  Use the following command to update the distribution to use the origin access
-    control.
+3. Use the following command to update the distribution to use the origin access
+   control.
 
 ```
 

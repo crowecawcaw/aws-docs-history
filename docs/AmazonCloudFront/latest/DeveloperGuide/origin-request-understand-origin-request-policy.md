@@ -56,7 +56,7 @@ Do not specify a header that is already included in your
 more information, see [Configure CloudFront to add custom headers to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-configure "add-origin-custom-headers.md#add-origin-custom-headers-configure").
 
 - **All viewer headers except** – You
-  specify which HTTP headers are **_not_** included in origin
+  specify which HTTP headers are _**not**_ included in origin
   requests. All other HTTP headers in viewer requests, except for
   the ones specified, are included.
 
@@ -87,7 +87,7 @@ For cookies, you can choose one of the following settings:
   You specify which cookies in viewer requests are included in
   origin requests.
 - **All cookies except** – You specify
-  which cookies in viewer requests are **_not_** included in
+  which cookies in viewer requests are _**not**_ included in
   origin requests. All other cookies in viewer requests are
   included.
 
@@ -111,7 +111,7 @@ settings:
   – You specify which query strings in viewer requests are
   included in origin requests.
 - **All query strings except** – You
-  specify which query strings in viewer requests are **_not_**
+  specify which query strings in viewer requests are _**not**_
   included in origin requests. All other query strings are
   included.
 

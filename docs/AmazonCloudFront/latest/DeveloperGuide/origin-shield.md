@@ -258,29 +258,28 @@ Shield is ready. This takes a few minutes.
 
 ###### To enable Origin Shield for a new origin (console)
 
-1.  Sign in to the AWS Management Console and open the CloudFront console at
-    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
-2.  To create the new origin in an existing distribution, do the
-    following:
+1. Sign in to the AWS Management Console and open the CloudFront console at
+   [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
+2. To create the new origin in an existing distribution, do the
+   following:
 
-        1. Choose the distribution where you want to create the
-         origin.
-        2. Choose **Create Origin**, and then
-         proceed to step 3.
+   1. Choose the distribution where you want to create the
+      origin.
+   2. Choose **Create Origin**, and then
+      proceed to step 3.
+      To create the new origin in a new standard distribution, do the
+      following:
 
-    To create the new origin in a new standard distribution, do the
-    following:
+   3. Follow the steps to create a standard distribution in the console. For more information, see [Create a CloudFront distribution in the console](distribution-web-creating-console.md#create-console-distribution "distribution-web-creating-console.md#create-console-distribution").
+   4. In the **Settings** section, choose
+      **Customize origin settings**. Proceed to step 3.
 
-        1. Follow the steps to create a standard distribution in the console. For more information, see [Create a CloudFront distribution in the console](distribution-web-creating-console.md#create-console-distribution "distribution-web-creating-console.md#create-console-distribution").
-        2. In the **Settings** section, choose
-         **Customize origin settings**. Proceed to step 3.
-
-3.  For **Enable Origin Shield**, choose
-    **Yes**.
-4.  For **Origin Shield Region**, choose the AWS
-    Region where you want to enable Origin Shield. For help choosing a
-    Region, see [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region").
-5.  Follow the steps in the console to finish creating your origin or distribution.
+3. For **Enable Origin Shield**, choose
+   **Yes**.
+4. For **Origin Shield Region**, choose the AWS
+   Region where you want to enable Origin Shield. For help choosing a
+   Region, see [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region").
+5. Follow the steps in the console to finish creating your origin or distribution.
 
 When your distribution status is **Deployed**, Origin
 Shield is ready. This takes a few minutes.

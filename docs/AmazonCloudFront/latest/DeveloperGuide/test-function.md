@@ -73,10 +73,9 @@ options:
      sections appear.
 
 4. Complete the fields to include in the event. You can choose **Edit
-   JSON** to view the raw JSON.
-5. (Optional) To save the event, choose **Save** and in the
-   **Save test event**, enter a name and then choose
-   **Save**.
+JSON** to view the raw JSON. 5. (Optional) To save the event, choose **Save** and in the
+**Save test event**, enter a name and then choose
+**Save**.
 
 You can also choose **Edit JSON** and copy the raw JSON, and
 save it in your own file, outside of CloudFront.

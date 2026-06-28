@@ -174,23 +174,22 @@ timeouts:
 - **If you use Elastic Load Balancing as your origin**,
   the following are possible causes for a 504 error:
 
-      + The load balancer fails to establish a connection to the
-       target before the connection timeout expires (10
-       seconds).
-      + The load balancer establishes a connection to the target
-       but the target doesn't respond before the idle timeout
-       period elapses.
-      + The network access control list (ACL) for the subnet
-       doesn't allow traffic from the targets to the load balancer
-       nodes on the ephemeral ports (1024-65535).
-      + The target returns a content-length header that is larger
-       than the entity body. The load balancer times out waiting
-       for the missing bytes.
-      + The target is a Lambda function and Lambda doesn't respond
-       before the connection timeout expires.
-
-  For more information about reducing latency, see [How do I troubleshoot high latency on my ELB Classic Load
-  Balancer?](https://repost.aws/knowledge-center/elb-latency-troubleshooting "https://repost.aws/knowledge-center/elb-latency-troubleshooting")
+  - The load balancer fails to establish a connection to the
+    target before the connection timeout expires (10
+    seconds).
+  - The load balancer establishes a connection to the target
+    but the target doesn't respond before the idle timeout
+    period elapses.
+  - The network access control list (ACL) for the subnet
+    doesn't allow traffic from the targets to the load balancer
+    nodes on the ephemeral ports (1024-65535).
+  - The target returns a content-length header that is larger
+    than the entity body. The load balancer times out waiting
+    for the missing bytes.
+  - The target is a Lambda function and Lambda doesn't respond
+    before the connection timeout expires.
+    For more information about reducing latency, see [How do I troubleshoot high latency on my ELB Classic Load
+    Balancer?](https://repost.aws/knowledge-center/elb-latency-troubleshooting "https://repost.aws/knowledge-center/elb-latency-troubleshooting")
 
 - **If you use MediaTailor as your origin**,
   the following are possible causes for a 504 error:

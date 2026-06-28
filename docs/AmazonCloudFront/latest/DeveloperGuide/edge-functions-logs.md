@@ -25,11 +25,11 @@ AWS Regions where the functions are invoked. When you create or modify a functio
 AWS Lambda, you can either use the default CloudWatch log group name or customize it.
 
 - The default log group name is
-  `/aws/lambda/`<FunctionName>`where`<FunctionName>`` is the name that
-you specified when you created the function. When sending logs to CloudWatch,
-Lambda@Edge will automatically add the `us-east-1` prefix to the
-function name, so that the log group name is
-`/aws/lambda/us-east-1.`<FunctionName>``.
+  `/aws/lambda/`<FunctionName>` where`<FunctionName>`` is the name that
+ you specified when you created the function. When sending logs to CloudWatch,
+ Lambda@Edge will automatically add the `us-east-1` prefix to the
+ function name, so that the log group name is
+ `/aws/lambda/us-east-1.`<FunctionName>``.
   This prefix corresponds to the AWS Region where the function was created. This
   prefix remains part of the log group name, even in other Regions where the
   function is invoked.
@@ -42,7 +42,7 @@ function name, so that the log group name is
 
 If you create a custom log group and specify the same name as the default
 `/aws/lambda/`<FunctionName>``,
- Lambda@Edge adds the `us-east-1` prefix to the function name.
+Lambda@Edge adds the `us-east-1` prefix to the function name.
 
 In addition to customizing the log group name, Lambda@Edge functions support JSON and
 plain text log formats, and log-level filtering. For more information , see [Configuring advance logging controls for Lambda function](../../../lambda/latest/dg/monitoring-cloudwatchlogs-advanced.md "../../../lambda/latest/dg/monitoring-cloudwatchlogs-advanced.md") in the
