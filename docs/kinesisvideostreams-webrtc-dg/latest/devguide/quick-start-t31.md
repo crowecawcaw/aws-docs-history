@@ -173,7 +173,7 @@ screen /dev/tty.usbserial-`XXXXXXX` 115200
    - If the shell session asks you to log in, type your password.
    - If the screen is blank, press Enter.
    - If the screen shows the error `Cannot exec '/dev/tty.usbserial-XXXXXXX': No such
-file or directory`, double-check all of the physical connections between the board and
+  file or directory`, double-check all of the physical connections between the board and
      your host machine.
 
 ## Mount the micro SD card on the board

@@ -46,7 +46,7 @@ Complete the following steps:
 
    - On macOS, run `brew install cmake pkg-config srtp`
    - on Ubuntu, run `sudo apt-get install pkg-config cmake libcap2
-libcap-dev`
+  libcap-dev`
 
 2. Obtain the access key and the secret key of the AWS account that you want to use for
    this demo.

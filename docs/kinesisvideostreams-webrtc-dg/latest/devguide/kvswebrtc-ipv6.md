@@ -298,7 +298,7 @@ Consider implementing a phased approach to IPv6 adoption:
 
 ### Verification steps
 
-- Check that AWS_USE_DUALSTACK_ENDPOINT=true is set or use_dualstack_endpoint = true is in your configuration file
+- Check that AWS\_USE\_DUALSTACK\_ENDPOINT=true is set or use\_dualstack\_endpoint = true is in your configuration file
 - Verify that Kinesis Video WebRTC SDK IPv6 configuration flags are properly set
 - Test network connectivity to Amazon Web Services IPv6 endpoints
 - Review application logs for IPv6-specific error messages
@@ -308,8 +308,8 @@ Consider implementing a phased approach to IPv6 adoption:
 
 You can verify your dual-stack endpoint configuration by checking:
 
-- **Environment variables:** echo $AWS_USE_DUALSTACK_ENDPOINT
-- **Amazon Web Services configuration file:** cat ~/.aws/config | grep use_dualstack_endpoint
+- **Environment variables:** echo $AWS\_USE\_DUALSTACK\_ENDPOINT
+- **Amazon Web Services configuration file:** cat ~/.aws/config | grep use\_dualstack\_endpoint
 - **JVM properties (Java):** Check system properties in your application logs
 
 For additional support and troubleshooting, see the AWS documentation or contact AWS.

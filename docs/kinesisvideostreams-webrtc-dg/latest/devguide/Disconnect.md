@@ -9,9 +9,9 @@ timeout.
 The service also sends disconnect indications to the client, for example, during deployments or
 server maintenance. The following are the defined indication messages:
 
-- **GO_AWAY**: This message is used to initiate the connection
+- **GO\_AWAY**: This message is used to initiate the connection
   shutdown. It enables a client to gracefully process previous messages, disconnect, and reconnect
   to the signaling channel if needed.
-- **RECONNECT_ICE_SERVER**: This message is used to initiate the
+- **RECONNECT\_ICE\_SERVER**: This message is used to initiate the
   relay connection shutdown and enables a client to gracefully disconnect, obtain a new ICE server
   configuration, and reconnect to the relay servers if needed.

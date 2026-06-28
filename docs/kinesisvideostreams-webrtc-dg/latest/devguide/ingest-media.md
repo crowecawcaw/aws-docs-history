@@ -19,16 +19,16 @@ The following limits are in place:
 
 Chrome is currently the only supported browser.
 
-1.  Open the Amazon Kinesis Video Streams with WebRTC SDK in the JavaScript [sample page](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html").
-2.  Complete the following information:
+1. Open the Amazon Kinesis Video Streams with WebRTC SDK in the JavaScript [sample page](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html").
+2. Complete the following information:
 
-    - **KVS Endpoint** - In the
-      **Region** field, select your region.
+   - **KVS Endpoint** - In the
+     **Region** field, select your region.
 
-    For example, `us-west-2`.
-    - **AWS Credentials**
+   For example, `us-west-2`.
+   - **AWS Credentials**
 
-    Complete the following fields:
+   Complete the following fields:
 
         + **Access Key ID**
         + **Secret Access Key**
@@ -37,17 +37,17 @@ Chrome is currently the only supported browser.
          credentials. Leave this field blank if you're using
          long-term IAM credentials. See [Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") for
          more information.
-    - **Signaling Channel** - In the **Channel Name** field, type
-      the name of the signaling channel you configured earlier. For more
-      information, see [Configure destination](configure-ingestion.md "configure-ingestion.md").
-    - **Tracks** - Select **Send
-      Video** and **Send Audio**.
-    - **WebRTC Ingestion and Storage** - Expand the node and select
-      **Automatically determine ingestion mode**.
-      This option makes the sample application call the [DescribeMediaStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md") API to determine in
-      which mode to run.
+   - **Signaling Channel** - In the **Channel Name** field, type
+     the name of the signaling channel you configured earlier. For more
+     information, see [Configure destination](configure-ingestion.md "configure-ingestion.md").
+   - **Tracks** - Select **Send
+     Video** and **Send Audio**.
+   - **WebRTC Ingestion and Storage** - Expand the node and select
+     **Automatically determine ingestion mode**.
+     This option makes the sample application call the [DescribeMediaStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md") API to determine in
+     which mode to run.
 
-3.  Select **Start Master**.
+3. Select **Start Master**.
 
 If the signaling channel is configured for ingestion using the [DescribeMediaStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md") API, the sample application
 will automatically invoke the [JoinStorageSession](../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSession.md "../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSession.md") API immediately after connecting to the
@@ -130,16 +130,16 @@ other viewers to join.
 
 Chrome is the only supported browser.
 
-1.  Open another tab in the Amazon Kinesis Video Streams with WebRTC SDK in the JavaScript [sample page](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html"). All the information from the previous page will be
-    automatically populated. If not, complete the following information:
+1. Open another tab in the Amazon Kinesis Video Streams with WebRTC SDK in the JavaScript [sample page](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html"). All the information from the previous page will be
+   automatically populated. If not, complete the following information:
 
-    - **KVS Endpoint** - In the
-      **Region** field, select your region.
+   - **KVS Endpoint** - In the
+     **Region** field, select your region.
 
-    For example, `us-west-2`.
-    - **AWS Credentials**
+   For example, `us-west-2`.
+   - **AWS Credentials**
 
-    Complete the following fields:
+   Complete the following fields:
 
         + **Access Key ID**
         + **Secret Access Key**
@@ -148,20 +148,20 @@ Chrome is the only supported browser.
          credentials. Leave this field blank if you're using
          long-term IAM credentials. See [Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") for
          more information.
-    - **Signaling Channel** - In the **Channel
-      Name** field, type the name of the signaling channel
-      you configured earlier. For more information, see [Configure destination](configure-ingestion.md "configure-ingestion.md").
-    - **Tracks** - Select **Send
-      Audio**. Note that if **Send
-      Video** is checked, it will automatically be unchecked
-      when choosing **Start Viewer**.
-    - **WebRTC Ingestion and Storage** - Expand the
-      node and select **Automatically determine ingestion
-      mode**. This option makes the sample application call
-      the [DescribeMediaStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md") API to determine in
-      which mode to run.
+   - **Signaling Channel** - In the **Channel
+     Name** field, type the name of the signaling channel
+     you configured earlier. For more information, see [Configure destination](configure-ingestion.md "configure-ingestion.md").
+   - **Tracks** - Select **Send
+     Audio**. Note that if **Send
+     Video** is checked, it will automatically be unchecked
+     when choosing **Start Viewer**.
+   - **WebRTC Ingestion and Storage** - Expand the
+     node and select **Automatically determine ingestion
+     mode**. This option makes the sample application call
+     the [DescribeMediaStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md") API to determine in
+     which mode to run.
 
-2.  Select **Start Viewer**.
+2. Select **Start Viewer**.
 
 The application automatically calls the [JoinStorageSessionAsViewer](../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSessionAsViewer.md "../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSessionAsViewer.md") API immediately after connecting to
 the signaling channel to trigger an SDP offer send to the viewer from the

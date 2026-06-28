@@ -43,10 +43,10 @@ The following section describes service quotas for the control plane APIs.
 The following section describes service quotas for the signaling component in Kinesis Video Streams with
 WebRTC. For more information, see [How it works](kvswebrtc-how-it-works.md "kvswebrtc-how-it-works.md").
 
-| API             | Maximum GO_AWAY message grace period prior to terminating connection | Maximum API request rate per channel | Maximum number of concurrent connections per channel | Maximum connection duration | Maximum idle connection timeout period |
-| --------------- | -------------------------------------------------------------------- | ------------------------------------ | ---------------------------------------------------- | --------------------------- | -------------------------------------- |
-| ConnectAsMaster | 1 minute (h)                                                         | 3 TPS (h)                            | 1 (h)                                                | 1 hour (h)                  | 10 minutes (h)                         |
-| ConnectAsViewer | 1 minute (h)                                                         | 3 TPS (h)                            | 10 (s)                                               | 1 hour (h)                  | 10 minutes (h)                         |
+| API             | Maximum GO\_AWAY message grace period prior to terminating connection | Maximum API request rate per channel | Maximum number of concurrent connections per channel | Maximum connection duration | Maximum idle connection timeout period |
+| --------------- | --------------------------------------------------------------------- | ------------------------------------ | ---------------------------------------------------- | --------------------------- | -------------------------------------- |
+| ConnectAsMaster | 1 minute (h)                                                          | 3 TPS (h)                            | 1 (h)                                                | 1 hour (h)                  | 10 minutes (h)                         |
+| ConnectAsViewer | 1 minute (h)                                                          | 3 TPS (h)                            | 10 (s)                                               | 1 hour (h)                  | 10 minutes (h)                         |
 
 | API                    | Maximum API request rate                                                          | Maximum message payload size |
 | ---------------------- | --------------------------------------------------------------------------------- | ---------------------------- |
