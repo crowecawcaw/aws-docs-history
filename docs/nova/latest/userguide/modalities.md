@@ -47,4 +47,4 @@ passed media content can quickly add up. When using video, specifying an
 
 Large videos and documents take time to process, regardless of input method. If
 boto3 SDK times-out while waiting for a response from Amazon Bedrock, ensure
-that you have an appropriate [read_timeout](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html "https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html") value set and have upgraded boto3 to at least version 1.38.
+that you have an appropriate [read\_timeout](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html "https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html") value set and have upgraded boto3 to at least version 1.38.

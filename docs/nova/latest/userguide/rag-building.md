@@ -68,7 +68,7 @@ converse API.
 You will receive a response from the model as a JSON under the assistant "role" with
 the content type being "toolUse" or as a context type being "text" if the model chooses
 not to use the retriever tool. If the model chooses to use the retriever tool, the
-response will identify the tool (tool_name). Information about how the requested tool
+response will identify the tool (tool\_name). Information about how the requested tool
 should be used is in the message that the model returns in the `output`
 ([ConverseOutput](../../../bedrock/latest/APIReference/API_runtime_ConverseOutput.md "../../../bedrock/latest/APIReference/API_runtime_ConverseOutput.md")) field. Specifically, the `toolUse` ([ToolUseBlock](../../../bedrock/latest/APIReference/API_runtime_ToolUseBlock.md "../../../bedrock/latest/APIReference/API_runtime_ToolUseBlock.md")) field. You use the `toolUseId` field to identify
 the tool request in later calls.

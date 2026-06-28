@@ -381,9 +381,9 @@ Summary of Categories and Info Labels:
 
 #### Parameter Guide
 
-- **dataset_catalog:** The only value is cpt_text_lite for now, until we enable the multimodal training.
-- **nova_data:** Percentage of the individual categories of Nova data when mixed in. They should add up to 1.0.
-- **customer_data**: the percentage of customer's data mixed into the Nova data.
+- **dataset\_catalog:** The only value is cpt\_text\_lite for now, until we enable the multimodal training.
+- **nova\_data:** Percentage of the individual categories of Nova data when mixed in. They should add up to 1.0.
+- **customer\_data**: the percentage of customer's data mixed into the Nova data.
 
 The total number of tokens used in training can be calculated from `max_length` \* `global_batch_size` \* `max_steps`
 

@@ -81,7 +81,7 @@ The following `textToImageParams` fields are used in this request:
   layout and composition of the generated image. The image must be formatted as a Base64
   string. See [Input images for image generation](image-gen-access.md#image-gen-input-images "image-gen-access.md#image-gen-input-images") for additional requirements.
 - `controlMode` (Optional) – Specifies what conditioning mode is be used.
-  The default value is "CANNY_EDGE".
+  The default value is "CANNY\_EDGE".
 
   - `CANNY_EDGE` – Elements of the generated image will follow the
     prominent contours, or "edges", of the condition image closely.

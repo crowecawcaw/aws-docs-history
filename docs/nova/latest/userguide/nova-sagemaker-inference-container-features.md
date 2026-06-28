@@ -25,18 +25,18 @@ The `SM-Inference-latest` tag currently points to `v1.4`.
 The following table provides a quick reference of all features supported in the
 Amazon Nova SageMaker inference container.
 
-| Inference container feature summary                                                                                                                                         | Feature              | How to enable              | Default                | Supported models | Introduced in |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------------- | ---------------------- | ---------------- | ------------- |
-| **[Default temperature](#nova-sagemaker-inference-container-feature-default-temperature "#nova-sagemaker-inference-container-feature-default-temperature")**                | Environment variable | `1.0`                      | All Amazon Nova models | v1.0             |
-| **[Default top-p](#nova-sagemaker-inference-container-feature-default-top-p "#nova-sagemaker-inference-container-feature-default-top-p")**                                  | Environment variable | `1.0`                      | All Amazon Nova models | v1.0             |
-| **[Default top-k](#nova-sagemaker-inference-container-feature-default-top-k "#nova-sagemaker-inference-container-feature-default-top-k")**                                  | Environment variable | `-1` (disabled)            | All Amazon Nova models | v1.0             |
-| **[Default max new tokens](#nova-sagemaker-inference-container-feature-default-max-new-tokens "#nova-sagemaker-inference-container-feature-default-max-new-tokens")**       | Environment variable | Model's max context length | All Amazon Nova models | v1.0             |
-| **[Default logprobs](#nova-sagemaker-inference-container-feature-default-logprobs "#nova-sagemaker-inference-container-feature-default-logprobs")**                         | Environment variable | Disabled                   | All Amazon Nova models | v1.0             |
-| **[Eagle3 speculative decoding](#nova-sagemaker-inference-container-feature-speculative-decoding "#nova-sagemaker-inference-container-feature-speculative-decoding")**      | Enabled by default   | Enabled                    | All Amazon Nova models | v1.0             |
-| **[KV cache data type](#nova-sagemaker-inference-container-feature-kv-cache-dtype "#nova-sagemaker-inference-container-feature-kv-cache-dtype")**                           | Environment variable | Same as model data type    | All Amazon Nova models | v1.3             |
-| **[Quantization](#nova-sagemaker-inference-container-feature-quantization "#nova-sagemaker-inference-container-feature-quantization")**                                     | Environment variable | Disabled\*                 | All Amazon Nova models | v1.3             |
-| **[Number of speculative tokens](#nova-sagemaker-inference-container-feature-num-speculative-tokens "#nova-sagemaker-inference-container-feature-num-speculative-tokens")** | Environment variable | `3`                        | All Amazon Nova models | v1.4             |
-| **[Suffix decoding](#nova-sagemaker-inference-container-feature-suffix-decoding "#nova-sagemaker-inference-container-feature-suffix-decoding")**                            | Environment variable | Disabled                   | All Amazon Nova models | v1.4             |
+Inference container feature summary| Feature | How to enable | Default | Supported models | Introduced in |
+| --- | --- | --- | --- | --- |
+| **[Default temperature](#nova-sagemaker-inference-container-feature-default-temperature "#nova-sagemaker-inference-container-feature-default-temperature")** | Environment variable | `1.0` | All Amazon Nova models | v1.0 |
+| **[Default top-p](#nova-sagemaker-inference-container-feature-default-top-p "#nova-sagemaker-inference-container-feature-default-top-p")** | Environment variable | `1.0` | All Amazon Nova models | v1.0 |
+| **[Default top-k](#nova-sagemaker-inference-container-feature-default-top-k "#nova-sagemaker-inference-container-feature-default-top-k")** | Environment variable | `-1` (disabled) | All Amazon Nova models | v1.0 |
+| **[Default max new tokens](#nova-sagemaker-inference-container-feature-default-max-new-tokens "#nova-sagemaker-inference-container-feature-default-max-new-tokens")** | Environment variable | Model's max context length | All Amazon Nova models | v1.0 |
+| **[Default logprobs](#nova-sagemaker-inference-container-feature-default-logprobs "#nova-sagemaker-inference-container-feature-default-logprobs")** | Environment variable | Disabled | All Amazon Nova models | v1.0 |
+| **[Eagle3 speculative decoding](#nova-sagemaker-inference-container-feature-speculative-decoding "#nova-sagemaker-inference-container-feature-speculative-decoding")** | Enabled by default | Enabled | All Amazon Nova models | v1.0 |
+| **[KV cache data type](#nova-sagemaker-inference-container-feature-kv-cache-dtype "#nova-sagemaker-inference-container-feature-kv-cache-dtype")** | Environment variable | Same as model data type | All Amazon Nova models | v1.3 |
+| **[Quantization](#nova-sagemaker-inference-container-feature-quantization "#nova-sagemaker-inference-container-feature-quantization")** | Environment variable | Disabled\* | All Amazon Nova models | v1.3 |
+| **[Number of speculative tokens](#nova-sagemaker-inference-container-feature-num-speculative-tokens "#nova-sagemaker-inference-container-feature-num-speculative-tokens")** | Environment variable | `3` | All Amazon Nova models | v1.4 |
+| **[Suffix decoding](#nova-sagemaker-inference-container-feature-suffix-decoding "#nova-sagemaker-inference-container-feature-suffix-decoding")** | Environment variable | Disabled | All Amazon Nova models | v1.4 |
 
 ###### Important
 

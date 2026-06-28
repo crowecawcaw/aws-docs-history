@@ -22,7 +22,7 @@ is passed as base64 (as long as it fits within the size constraints) or via an A
 location.
 
 Note that for 3GP file format, the "format" field passed in the API request should be of
-the format "three_gp".
+the format "three\_gp".
 
 When using Amazon S3, ensure that you are set the "Content-Type" metadata to the correct MIME
 type for the video.
@@ -55,26 +55,26 @@ by the per-token price of the specific model being utilized.
 The following table provides some approximations of frame sampling and token utilization per video
 length for Amazon Nova Pro, Lite, and Micro:
 
-| video_duration        | 10 sec | 30 sec | 16 min  | 20 min  | 30 min  | 45 min  | 1 hr    | 1.5 hr  |
+| video\_duration       | 10 sec | 30 sec | 16 min  | 20 min  | 30 min  | 45 min  | 1 hr    | 1.5 hr  |
 | --------------------- | ------ | ------ | ------- | ------- | ------- | ------- | ------- | ------- |
-| frames_to_sample      | 10     | 30     | 960     | 960     | 960     | 960     | 960     | 960     |
-| sample_rate_fps       | 1      | 1      | 1       | 0.755   | 0.5     | 0.35556 | 0.14    | 0.096   |
+| frames\_to\_sample    | 10     | 30     | 960     | 960     | 960     | 960     | 960     | 960     |
+| sample\_rate\_fps     | 1      | 1      | 1       | 0.755   | 0.5     | 0.35556 | 0.14    | 0.096   |
 | Estimated token count | 2,880  | 8,640  | 276,480 | 276,480 | 276,480 | 276,480 | 276,480 | 276,480 |
 
 The following table provides some approximations of frame sampling and token utilization per video
 length for Amazon Nova Premier:
 
-| video_duration        | 10 sec | 30 sec | 16 min  | 20 min  | 30 min  | 45 min  | 1 hr | 1.5 hr |
+| video\_duration       | 10 sec | 30 sec | 16 min  | 20 min  | 30 min  | 45 min  | 1 hr | 1.5 hr |
 | --------------------- | ------ | ------ | ------- | ------- | ------- | ------- | ---- | ------ |
-| frames_to_sample      | 10     | 30     | 960     | 1200    | 1800    | 2700    |      |        |
-| sample_rate_fps       | 1      | 1      | 1       | 1       | 1       | 1       |      |        |
+| frames\_to\_sample    | 10     | 30     | 960     | 1200    | 1800    | 2700    |      |        |
+| sample\_rate\_fps     | 1      | 1      | 1       | 1       | 1       | 1       |      |        |
 | Estimated token count | 2,880  | 8,640  | 276,480 | 345,600 | 518,400 | 777,600 |      |        |
 
 The following table provides some approximations of frame sampling and token utilization per video length for
 Amazon Nova Lite 1.5
 
-| video_duration        | 10 sec | 30 sec | 16 min  | 20 min  | 30 min  | 45 min  | 1 hr | 1.5 hr |
+| video\_duration       | 10 sec | 30 sec | 16 min  | 20 min  | 30 min  | 45 min  | 1 hr | 1.5 hr |
 | --------------------- | ------ | ------ | ------- | ------- | ------- | ------- | ---- | ------ |
-| frames_to_sample      | 10     | 30     | 960     | 1200    | 1800    | 2700    |      |        |
-| sample_rate_fps       | 1      | 1      | 1       | 1       | 1       | 1       |      |        |
+| frames\_to\_sample    | 10     | 30     | 960     | 1200    | 1800    | 2700    |      |        |
+| sample\_rate\_fps     | 1      | 1      | 1       | 1       | 1       | 1       |      |        |
 | Estimated token count | 2,880  | 8,640  | 276,480 | 345,600 | 518,400 | 777,600 |      |        |

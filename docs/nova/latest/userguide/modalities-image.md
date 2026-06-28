@@ -31,9 +31,9 @@ As previously discussed, images are resized to maximize information extraction, 
 still maintaining the aspect ratio. What follows are some examples of sample image
 dimensions and approximate token calculations.
 
-| image_resolution (HxW or WxH) | 900 x 450 | 900 x 900 | 1400 x 900 | 1.8K x 900 | 1.3Kx1.3K |
-| ----------------------------- | --------- | --------- | ---------- | ---------- | --------- |
-| Estimated token count         | ~800      | ~1300     | ~1800      | ~2400      | ~2600     |
+| image\_resolution (HxW or WxH) | 900 x 450 | 900 x 900 | 1400 x 900 | 1.8K x 900 | 1.3Kx1.3K |
+| ------------------------------ | --------- | --------- | ---------- | ---------- | --------- |
+| Estimated token count          | ~800      | ~1300     | ~1800      | ~2400      | ~2600     |
 
 So for example, consider an example image that is 800x400 in size, and you want to
 estimate the token count for this image. Based on the dimensions, to maintain an aspect

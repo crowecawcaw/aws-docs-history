@@ -48,23 +48,23 @@ specify the following benchmarks in the `eval_task` parameter.
 
 **Available benchmarks for model evaluation**
 
-| Benchmark           | Modality            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Metrics     | Strategy | Subtask available |
-| ------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | -------- | ----------------- |
-| mmlu                | Text                | Multi-task Language Understanding – Tests knowledge across 57<br>subjects.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | accuracy    | zs_cot   | Yes               |
-| mmlu_pro            | Text                | MMLU – Professional Subset – Focuses on professional domains<br>such as law, medicine, accounting, and engineering.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | accuracy    | zs_cot   | No                |
-| bbh                 | Text                | Advanced Reasoning Tasks – A collection of challenging<br>problems that test higher-level cognitive and problem-solving<br>skills.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | accuracy    | fs_cot   | Yes               |
-| gpqa                | Text                | General Physics Question Answering – Assesses comprehension of<br>physics concepts and related problem-solving abilities.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | accuracy    | zs_cot   | No                |
-| math                | Text                | Mathematical Problem Solving – Measures mathematical reasoning<br>across topics including algebra, calculus, and word<br>problems.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | exact_match | zs_cot   | Yes               |
-| strong_reject       | Text                | Quality-Control Task – Tests the model’s ability to detect and<br>reject inappropriate, harmful, or incorrect content.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | deflection  | zs       | Yes               |
-| ifeval              | Text                | Instruction-Following Evaluation – Gauges how accurately a<br>model follows given instructions and completes tasks to<br>specification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | accuracy    | zs       | No                |
-| gen_qa              | Multi-Modal (image) | Custom Dataset Evaluation – Lets you supply your own dataset<br>for benchmarking, comparing model outputs to reference answers<br>with metrics such as ROUGE and BLEU. `gen_qa`<br>supports image inference for Amazon Nova Lite or Amazon Nova Pro<br>based models. Also supports Bring-Your-Own Metrics lambda. (For<br>RFT evaluation, please use RFT eval recipe)                                                                                                                                                                                                                                  | all         | gen_qa   | No                |
-| mmmu                | Multi-Modal         | Massive Multidiscipline Multimodal Understanding (MMMU) – College-level benchmark comprising multiple-choice and open-ended questions from 30 disciplines.)                                                                                                                                                                                                                                                                                                                                                                                                                                            | accuracy    | zs_cot   | Yes               |
-| llm_judge           | Text                | LLM-as-a-Judge Preference Comparison – Uses a Nova Judge model<br>to determine preference between paired responses (B compared<br>with A) for your prompts, calculating the probability of B being<br>preferred over A.                                                                                                                                                                                                                                                                                                                                                                                | all         | judge    | No                |
-| mm_llm_judge        | Multi-Modal (image) | This new benchmark behaves the same as the text-based<br>`llm_judge`above. The only difference is that it<br>supports image inference.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | all         | judge    | No                |
-| rubric_llm_judge    | Text                | Rubric Judge is an enhanced LLM-as-a-judge evaluation model<br>built on Nova 2.0 Lite. Unlike the [original judge model](https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/ "https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/") that only provides preference<br>verdicts, Rubric Judge dynamically generates custom evaluation<br>criteria tailored to each prompt and assigns granular scores<br>across multiple dimensions. | all         | judge    | No                |
-| aime_2024           | Text                | AIME 2024<br>• American Invitational Mathematics Examination<br>problems testing advanced mathematical reasoning and<br>problem-solving                                                                                                                                                                                                                                                                                                                                                                                                                                                                | exact_match | zs_cot   | No                |
-| calendar_scheduling | Text                | Natural Plan<br>• Calendar Scheduling task testing planning<br>abilities for scheduling meetings across multiple days and<br>people                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | exact_match | fs       | No                |
-| humaneval           | Text                | HumanEval<br>• A benchmark dataset designed to evaluate the code<br>generation capabilities of large language models                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | pass@1      | zs       | No                |
+| Benchmark            | Modality            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Metrics      | Strategy | Subtask available |
+| -------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | -------- | ----------------- |
+| mmlu                 | Text                | Multi-task Language Understanding – Tests knowledge across 57<br>subjects.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | accuracy     | zs\_cot  | Yes               |
+| mmlu\_pro            | Text                | MMLU – Professional Subset – Focuses on professional domains<br>such as law, medicine, accounting, and engineering.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | accuracy     | zs\_cot  | No                |
+| bbh                  | Text                | Advanced Reasoning Tasks – A collection of challenging<br>problems that test higher-level cognitive and problem-solving<br>skills.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | accuracy     | fs\_cot  | Yes               |
+| gpqa                 | Text                | General Physics Question Answering – Assesses comprehension of<br>physics concepts and related problem-solving abilities.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | accuracy     | zs\_cot  | No                |
+| math                 | Text                | Mathematical Problem Solving – Measures mathematical reasoning<br>across topics including algebra, calculus, and word<br>problems.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | exact\_match | zs\_cot  | Yes               |
+| strong\_reject       | Text                | Quality-Control Task – Tests the model’s ability to detect and<br>reject inappropriate, harmful, or incorrect content.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | deflection   | zs       | Yes               |
+| ifeval               | Text                | Instruction-Following Evaluation – Gauges how accurately a<br>model follows given instructions and completes tasks to<br>specification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | accuracy     | zs       | No                |
+| gen\_qa              | Multi-Modal (image) | Custom Dataset Evaluation – Lets you supply your own dataset<br>for benchmarking, comparing model outputs to reference answers<br>with metrics such as ROUGE and BLEU. `gen_qa`<br>supports image inference for Amazon Nova Lite or Amazon Nova Pro<br>based models. Also supports Bring-Your-Own Metrics lambda. (For<br>RFT evaluation, please use RFT eval recipe)                                                                                                                                                                                                                                  | all          | gen\_qa  | No                |
+| mmmu                 | Multi-Modal         | Massive Multidiscipline Multimodal Understanding (MMMU) – College-level benchmark comprising multiple-choice and open-ended questions from 30 disciplines.)                                                                                                                                                                                                                                                                                                                                                                                                                                            | accuracy     | zs\_cot  | Yes               |
+| llm\_judge           | Text                | LLM-as-a-Judge Preference Comparison – Uses a Nova Judge model<br>to determine preference between paired responses (B compared<br>with A) for your prompts, calculating the probability of B being<br>preferred over A.                                                                                                                                                                                                                                                                                                                                                                                | all          | judge    | No                |
+| mm\_llm\_judge       | Multi-Modal (image) | This new benchmark behaves the same as the text-based<br>`llm_judge`above. The only difference is that it<br>supports image inference.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | all          | judge    | No                |
+| rubric\_llm\_judge   | Text                | Rubric Judge is an enhanced LLM-as-a-judge evaluation model<br>built on Nova 2.0 Lite. Unlike the [original judge model](https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/ "https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/") that only provides preference<br>verdicts, Rubric Judge dynamically generates custom evaluation<br>criteria tailored to each prompt and assigns granular scores<br>across multiple dimensions. | all          | judge    | No                |
+| aime\_2024           | Text                | AIME 2024<br>• American Invitational Mathematics Examination<br>problems testing advanced mathematical reasoning and<br>problem-solving                                                                                                                                                                                                                                                                                                                                                                                                                                                                | exact\_match | zs\_cot  | No                |
+| calendar\_scheduling | Text                | Natural Plan<br>• Calendar Scheduling task testing planning<br>abilities for scheduling meetings across multiple days and<br>people                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | exact\_match | fs       | No                |
+| humaneval            | Text                | HumanEval<br>• A benchmark dataset designed to evaluate the code<br>generation capabilities of large language models                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | pass@1       | zs       | No                |
 
 ## Evaluation specific configurations
 
@@ -201,72 +201,72 @@ evaluation:
   For `gen_qa`, bring your own dataset benchmark,
   return following metrics:
 
-      - `rouge1`: Measures overlap of unigrams
-       (single words) between generated and reference
-       text.
-      - `rouge2`: Measures overlap of bigrams (two
-       consecutive words) between generated and reference
-       text.
-      - `rougeL`: Measures longest common
-       subsequence between texts, allowing for gaps in the
-       matching.
-      - `exact_match`: Binary score (0 or 1)
-       indicating if the generated text matches the reference
-       text exactly, character by character.
-      - `quasi_exact_match`: Similar to exact match
-       but more lenient, typically ignoring case, punctuation,
-       and white space differences.
-      - `f1_score`: Harmonic mean of precision and
-       recall, measuring word overlap between predicted and
-       reference answers.
-      - `f1_score_quasi`: Similar to f1\_score but
-       with more lenient matching, using normalized text
-       comparison that ignores minor differences.
-      - `bleu`: Measures precision of n-gram
-       matches between generated and reference text, commonly
-       used in translation evaluation.
+        - `rouge1`: Measures overlap of unigrams
+         (single words) between generated and reference
+         text.
+        - `rouge2`: Measures overlap of bigrams (two
+         consecutive words) between generated and reference
+         text.
+        - `rougeL`: Measures longest common
+         subsequence between texts, allowing for gaps in the
+         matching.
+        - `exact_match`: Binary score (0 or 1)
+         indicating if the generated text matches the reference
+         text exactly, character by character.
+        - `quasi_exact_match`: Similar to exact match
+         but more lenient, typically ignoring case, punctuation,
+         and white space differences.
+        - `f1_score`: Harmonic mean of precision and
+         recall, measuring word overlap between predicted and
+         reference answers.
+        - `f1_score_quasi`: Similar to f1\_score but
+         with more lenient matching, using normalized text
+         comparison that ignores minor differences.
+        - `bleu`: Measures precision of n-gram
+         matches between generated and reference text, commonly
+         used in translation evaluation.
 
   For `llm_judge` and `mm_llm_judge`,
   bring your own dataset benchmark, return following
   metrics:
 
-      - `a_scores`: Number of wins for
-       `response_A` across forward and backward
-       evaluation passes.
-      - `a_scores_stderr`: Standard error of
-       `response_A_scores` across pairwise
-       judgements.
-      - `b_scores`: Measures Number of wins for
-       `response_B` across forward and backward
-       evaluation passes.
-      - `a_scores_stderr`: Standard error of
-       `response_B_scores` across pairwise
-       judgements.
-      - `ties`: Number of judgements where
-       `response_A` and `response_B`
-       are evaluated as equal.
-      - `ties_stderr`: Standard error of
-       `ties` across pairwise judgements.
-      - `inference_error`: Count of judgements that
-       could not be properly evaluated.
-      - `score`: Aggregate score based on wins from
-       both forward and backward passes for
-       `response_B`.
-      - `score_stderr`: Aggregate score based on
-       wins from both forward and backward passes for
-       `response_B`.
-      - `inference_error_stderr`: Standard error of
-       the aggregate score across pairwise judgements.
-      - `winrate`: The probability that
-       `response_B` will be preferred over
-       `response_A` calculated using
-       Bradley-Terry probability.
-      - `lower_rate`: Lower bound (2.5th
-       percentile) of the estimated win rate from bootstrap
-       sampling.
-      - `upper_rate`: Upper bound (97.5th
-       percentile) of the estimated win rate from bootstrap
-       sampling.
+        - `a_scores`: Number of wins for
+         `response_A` across forward and backward
+         evaluation passes.
+        - `a_scores_stderr`: Standard error of
+         `response_A_scores` across pairwise
+         judgements.
+        - `b_scores`: Measures Number of wins for
+         `response_B` across forward and backward
+         evaluation passes.
+        - `a_scores_stderr`: Standard error of
+         `response_B_scores` across pairwise
+         judgements.
+        - `ties`: Number of judgements where
+         `response_A` and `response_B`
+         are evaluated as equal.
+        - `ties_stderr`: Standard error of
+         `ties` across pairwise judgements.
+        - `inference_error`: Count of judgements that
+         could not be properly evaluated.
+        - `score`: Aggregate score based on wins from
+         both forward and backward passes for
+         `response_B`.
+        - `score_stderr`: Aggregate score based on
+         wins from both forward and backward passes for
+         `response_B`.
+        - `inference_error_stderr`: Standard error of
+         the aggregate score across pairwise judgements.
+        - `winrate`: The probability that
+         `response_B` will be preferred over
+         `response_A` calculated using
+         Bradley-Terry probability.
+        - `lower_rate`: Lower bound (2.5th
+         percentile) of the estimated win rate from bootstrap
+         sampling.
+        - `upper_rate`: Upper bound (97.5th
+         percentile) of the estimated win rate from bootstrap
+         sampling.
 
 **Inference configuration (optional)**
 
@@ -658,7 +658,7 @@ evaluation:
 
 ##### Nova LLM as a Judge for multi-modal (image) benchmark recipes
 
-Nova LLM Judge for multi-modal (image), short for Nova MM_LLM
+Nova LLM Judge for multi-modal (image), short for Nova MM\_LLM
 Judge, is a model evaluation feature that enables you to compare the
 quality of responses from one model against a baseline model's
 responses using a custom dataset. It accepts a dataset containing
@@ -880,7 +880,7 @@ run_name/
     * `inference_output.jsonl` - Cleaned inference output
      file (only for `gen_qa` tasks)
 
-3.  View results in TensorBoard. To visualize your evaluation metrics:
+3. View results in TensorBoard. To visualize your evaluation metrics:
 
     1. Upload the extracted folder to an S3 bucket
     2. Navigate to SageMaker AI TensorBoard
@@ -888,26 +888,26 @@ run_name/
     4. Add the S3 folder path
     5. Wait for synchronization to complete
 
-4.  Analyze inference outputs. All evaluation tasks, except
-    `llm_judge` and `strong_reject`, will have the
-    following fields for analysis in the inference output.
+4. Analyze inference outputs. All evaluation tasks, except
+`llm_judge` and `strong_reject`, will have the
+following fields for analysis in the inference output.
 
-        * `full_prompt` - The full user prompt sent to the model
-         used for the evaluation task.
-        * `gold` - The field that contains the correct answer(s)
-         as specified by the dataset.
-        * `metrics` - The field that contains the metrics
-         evaluated on the individual inference. Values that require
-         aggregation would not have a value on the individual inference
-         outputs.
-        * `predictions` - The field that contains a list of the
-         model’s output for the given prompt.
-        * `pred_logits` - The field that contains the considered
-         output tokens and log probabilities of each output token returned in
-         the message content.
+    * `full_prompt` - The full user prompt sent to the model
+     used for the evaluation task.
+    * `gold` - The field that contains the correct answer(s)
+     as specified by the dataset.
+    * `metrics` - The field that contains the metrics
+     evaluated on the individual inference. Values that require
+     aggregation would not have a value on the individual inference
+     outputs.
+    * `predictions` - The field that contains a list of the
+     model’s output for the given prompt.
+    * `pred_logits` - The field that contains the considered
+     output tokens and log probabilities of each output token returned in
+     the message content.
 
-    By looking at these fields, you can determine the cause for metric
-    differences and understand the behavior of the customized models.
+By looking at these fields, you can determine the cause for metric
+differences and understand the behavior of the customized models.
 
 For `llm_judge`, the inference output file contains the
 following fields under the metrics field per pair of evaluations.

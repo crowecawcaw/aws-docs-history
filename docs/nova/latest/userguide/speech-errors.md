@@ -9,19 +9,18 @@ When errors occur, we recommend trying the following steps:
 
 When handling long conversations or recovering from errors, you can implement conversation resumption using the following approach:
 
-1.  Set up chat history storage to preserve conversation context from previous interactions. You can find chat history example in our [Amazon Nova samples Github repo](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/chat-history-logger "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/chat-history-logger").
-2.  Handle conversation timeouts proactively:
+1. Set up chat history storage to preserve conversation context from previous interactions. You can find chat history example in our [Amazon Nova samples Github repo](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/chat-history-logger "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/chat-history-logger").
+2. Handle conversation timeouts proactively:
 
-    - When approaching the maximum connection duration, end the current request and start a new one.
-    - Include the saved chat history in the new request to maintain conversation continuity.
+   - When approaching the maximum connection duration, end the current request and start a new one.
+   - Include the saved chat history in the new request to maintain conversation continuity.
 
-3.  Format resumed conversations properly:
+3. Format resumed conversations properly:
 
-        * Place the chat history after the system prompt but before any new user input.
-        * Include previous messages with the proper user and assistant roles.
-        * Ensure that the first message in the chat history is from the user.
-
-    You can find chat resumption example in our [Amazon Nova samples Github repo](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/resume-conversation "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/resume-conversation").
+   - Place the chat history after the system prompt but before any new user input.
+   - Include previous messages with the proper user and assistant roles.
+   - Ensure that the first message in the chat history is from the user.
+     You can find chat resumption example in our [Amazon Nova samples Github repo](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/resume-conversation "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/resume-conversation").
 
 ###### When to use conversation resumption
 

@@ -25,17 +25,16 @@ The following are the bring your own dataset requirements:
 - Schema format requirements - Each line in the JSONL file must be a JSON object
   with the following fields:
 
-      + `query`: (Required) String containing the question or instruction
-       that needs an answer
-      + `response`: (Required) String containing the expected model
-       output
-      + `system`: (Optional) String containing the system prompt that
-       sets the behavior, role, or personality of the AI model before it processes the
-       query
-      + `metadata`: (Optional) String containing metadata associated with
-       the entry for tagging purposes.
-
-  Here is a bring your own data set example entry
+  - `query`: (Required) String containing the question or instruction
+    that needs an answer
+  - `response`: (Required) String containing the expected model
+    output
+  - `system`: (Optional) String containing the system prompt that
+    sets the behavior, role, or personality of the AI model before it processes the
+    query
+  - `metadata`: (Optional) String containing metadata associated with
+    the entry for tagging purposes.
+    Here is a bring your own data set example entry
 
 ```
 `{
@@ -95,13 +94,12 @@ The following are the LLM as a Judge requirements:
 - Schema format requirements - Each line in the JSONL file must be a JSON object
   with the following fields:
 
-      + `prompt`: (Required) A string containing the prompt for the
-       generated response.
-      + `response_A`: A string containing the baseline response.
-      + `response_B`: A string containing the alternative response be
-       compared with baseline response.
-
-  Here is an LLM as a judge example entry
+  - `prompt`: (Required) A string containing the prompt for the
+    generated response.
+  - `response_A`: A string containing the baseline response.
+  - `response_B`: A string containing the alternative response be
+    compared with baseline response.
+    Here is an LLM as a judge example entry
 
 ```
 `{
@@ -140,7 +138,7 @@ The following limitations apply:
 - Custom judge models are not supported at this time.
 - Context length limit: For each sample in the dataset, the context length
   (including system + query prompts) should be less than 7k.
-  Nova LLM Judge for multi-modal (image), short for Nova MM_LLM Judge, is a model
+  Nova LLM Judge for multi-modal (image), short for Nova MM\_LLM Judge, is a model
   evaluation feature that enables you to compare the quality of responses from one model
   against a baseline model's responses using a custom dataset. It accepts a dataset
   containing prompts, baseline responses, and challenger responses, and images in the form
@@ -394,14 +392,14 @@ model:
 The following six metrics are unique to Rubric Judge and provide granular quality
 assessment:
 
-| Metric                  | Description                                                                                                                                                                                                     |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| weighted_score_A        | Average normalized quality score for response_A across all model-generated<br>evaluation criteria. Scores are weighted by criterion importance and normalized to<br>0-1 scale (higher = better quality)         |
-| weighted_score_A_stderr | Standard error of the mean for weighted_score_A, indicating statistical<br>uncertainty                                                                                                                          |
-| weighted_score_B        | Average normalized quality score for response_B across all model-generated<br>evaluation criteria. Scores are weighted by criterion importance and normalized to<br>0-1 scale (higher = better quality)         |
-| weighted_score_B_stderr | Standard error of the mean for weighted_score_B, indicating statistical<br>uncertainty                                                                                                                          |
-| score_margin            | Difference between weighted scores (calculated as weighted_score_A -<br>weighted_score_B). Range: -1.0 to 1.0. Positive = response_A is better; negative =<br>response_B is better; near zero = similar quality |
-| score_margin_stderr     | Standard error of the mean for score_margin, indicating uncertainty in the<br>quality difference measurement                                                                                                    |
+| Metric                     | Description                                                                                                                                                                                                           |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| weighted\_score\_A         | Average normalized quality score for response\_A across all model-generated<br>evaluation criteria. Scores are weighted by criterion importance and normalized to<br>0-1 scale (higher = better quality)              |
+| weighted\_score\_A\_stderr | Standard error of the mean for weighted\_score\_A, indicating statistical<br>uncertainty                                                                                                                              |
+| weighted\_score\_B         | Average normalized quality score for response\_B across all model-generated<br>evaluation criteria. Scores are weighted by criterion importance and normalized to<br>0-1 scale (higher = better quality)              |
+| weighted\_score\_B\_stderr | Standard error of the mean for weighted\_score\_B, indicating statistical<br>uncertainty                                                                                                                              |
+| score\_margin              | Difference between weighted scores (calculated as weighted\_score\_A -<br>weighted\_score\_B). Range: -1.0 to 1.0. Positive = response\_A is better; negative =<br>response\_B is better; near zero = similar quality |
+| score\_margin\_stderr      | Standard error of the mean for score\_margin, indicating uncertainty in the<br>quality difference measurement                                                                                                         |
 
 ###### Understanding weighted score metrics
 
@@ -416,10 +414,10 @@ model performance.
 - **Rubric Judge**: Outputs both preferences AND
   continuous quality scores (0-1 scale) based on custom criteria
 
-**Interpreting score_margin**:
+**Interpreting score\_margin**:
 
-- `score_margin = -0.128`: Response_B scored 12.8 percentage points
-  higher than response_A
+- `score_margin = -0.128`: Response\_B scored 12.8 percentage points
+  higher than response\_A
 - `|score_margin| < 0.1`: Narrow quality difference (close
   decision)
 - `|score_margin| > 0.2`: Clear quality difference (confident
@@ -450,7 +448,7 @@ Weighted scores are computed through the following process:
 - **Normalize scores**:
 
   - Scale-type criteria (1-5): Normalize to 0-1 by calculating `(score - 1) /
-4`
+   4`
   - Binary criteria (true/false): Convert to 1.0/0.0
 
 - **Apply weights**: Multiply each normalized score by
@@ -458,10 +456,10 @@ Weighted scores are computed through the following process:
 - **Aggregate**: Sum all weighted scores for each
   response
 - **Calculate margin**: Compute `score_margin =
-weighted_score_A - weighted_score_B`
+ weighted_score_A - weighted_score_B`
 
-**Example**: If response_A has a weighted sum of 0.65 and
-response_B has 0.78, the `score_margin` would be -0.13, indicating response_B
+**Example**: If response\_A has a weighted sum of 0.65 and
+response\_B has 0.78, the `score_margin` would be -0.13, indicating response\_B
 is 13 percentage points higher in quality across all weighted criteria.
 
 ### Reasoning model support
@@ -503,7 +501,7 @@ inference:
   temperature: 0                                         # [MODIFIABLE] Sampling temperature (0 = deterministic)
 ```
 
-###### Using the reasoning_effort parameter
+###### Using the reasoning\_effort parameter
 
 The `reasoning_effort` parameter controls the reasoning behavior for
 reasoning-capable models.
@@ -516,8 +514,8 @@ reasoning-capable models.
 - **Error handling**: Using
   `reasoning_effort` with unsupported models will fail with
   `ConfigValidationError: "Reasoning mode is enabled but model '{model_type}'
-does not support reasoning. Please use a reasoning-capable model or disable
-reasoning mode."`
+ does not support reasoning. Please use a reasoning-capable model or disable
+ reasoning mode."`
 
 **Available options**:
 

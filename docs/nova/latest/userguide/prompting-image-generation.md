@@ -25,17 +25,16 @@ practices:
   perfect, try the following techniques one at a time in turn to refine your
   result:
 
-      + Using a consistent `seed` value, make small changes to your
-       prompt or negative prompt and re-run the prompt. This allows you to better
-       understand how your prompt wording affects the output, allowing you to
-       iteratively improve your results in a controlled way.
-      + Once the prompt has been refined to your liking, generate more variations
-       using the same prompt but a different `seed` value. It is often
-       useful to generate multiple variations of an image by running the sample
-       prompt with different seeds in order to find that perfect output
-       image.
-
-  An effective prompt often includes short descriptions of...
+  - Using a consistent `seed` value, make small changes to your
+    prompt or negative prompt and re-run the prompt. This allows you to better
+    understand how your prompt wording affects the output, allowing you to
+    iteratively improve your results in a controlled way.
+  - Once the prompt has been refined to your liking, generate more variations
+    using the same prompt but a different `seed` value. It is often
+    useful to generate multiple variations of an image by running the sample
+    prompt with different seeds in order to find that perfect output
+    image.
+    An effective prompt often includes short descriptions of...
 
 1. the subject
 2. the environment

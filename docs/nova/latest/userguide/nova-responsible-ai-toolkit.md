@@ -66,7 +66,7 @@ training or been steered toward specific RAI behaviors, allowing you to customiz
 
 ###### Tip
 
-When using CCMS with data mixing, consider adjusting the "rai" category percentage in your nova_data configuration to align with your specific content moderation requirements.
+When using CCMS with data mixing, consider adjusting the "rai" category percentage in your nova\_data configuration to align with your specific content moderation requirements.
 
 ### Availability
 

@@ -46,7 +46,7 @@ Regardless of your CCMS configuration, Amazon Amazon Nova enforces essential, no
 
 When using CCMS, we recommend using Continuous Pre Training (CPT) and starting from a pre-RAI alignment checkpoint (PRE-TRAINING-Early, PRE-TRAINING-Mid, or PRE-TRAINING-Final) rather than the GA/FINAL checkpoint. These checkpoints have not undergone safety training or been steered toward specific RAI behaviors, allowing you to customize them more efficiently to your content moderation requirements.
 
-**Tip**: When using CCMS with data mixing, consider adjusting the "rai" category percentage in your nova_data configuration to align with your specific content moderation requirements.
+**Tip**: When using CCMS with data mixing, consider adjusting the "rai" category percentage in your nova\_data configuration to align with your specific content moderation requirements.
 
 ### Availability
 

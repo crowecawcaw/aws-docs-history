@@ -23,7 +23,7 @@ Amazon Nova.
 
 We recommend that you place media files (such as images or videos) before adding any documents, followed by your instructional text or prompts to guide the model. While images placed after text or
 interspersed with text will still perform adequately, if the use case permits, the
-_{media_file}-then-{text}_ structure is the preferred
+_{media\_file}-then-{text}_ structure is the preferred
 approach.
 
 The following template can be used to place media files before text when performing
@@ -92,7 +92,7 @@ The following template can be used to place multiple media files:
 Due to the long context tokens of the media file types, the system prompt indicated in
 the beginning of the prompt might not be respected in certain occasions. On this
 occasion, we recommend that you move any system instructions to user turns and follow
-the general guidance of _{media_file}-then-{text}_. This does not
+the general guidance of _{media\_file}-then-{text}_. This does not
 impact system prompting with RAG, agents, or tool usage.
 
 ## Use user instructions for improved instruction following for vision understanding tasks

@@ -27,44 +27,44 @@ pricing](https://aws.amazon.com/sagemaker-ai/pricing/ "https://aws.amazon.com/sa
 The following tables summarize the computational requirements for and SageMaker AI
 training jobs training for Nova 1.0 models.
 
-| Pre-training      | Model | Sequence length | Nodes          | Instance | Accelerator |
-| ----------------- | ----- | --------------- | -------------- | -------- | ----------- |
-| Amazon Nova Micro | 8,192 | 8               | ml.p5.48xlarge | GPU H100 |
-| Amazon Nova Lite  | 8,192 | 16              | ml.p5.48xlarge | GPU H100 |
-| Amazon Nova Pro   | 8,192 | 12              | ml.p5.48xlarge | GPU H100 |
+Pre-training| Model | Sequence length | Nodes | Instance | Accelerator |
+| --- | --- | --- | --- | --- |
+| Amazon Nova Micro | 8,192 | 8 | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova Lite | 8,192 | 16 | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova Pro | 8,192 | 12 | ml.p5.48xlarge | GPU H100 |
 
-| Direct preference optimization (DPO)  | Model  | Sequence length | Number of nodes | Instance | Accelerator |
-| ------------------------------------- | ------ | --------------- | --------------- | -------- | ----------- |
-| Direct Preference Optimization (Full) | 32,768 | 2, 4, or 6      | ml.p5.48xlarge  | GPU H100 |
-| Direct Preference Optimization (LoRA) | 32,768 | 2, 4, or 6      | ml.p5.48xlarge  | GPU H100 |
+Direct preference optimization (DPO)| Model | Sequence length | Number of nodes | Instance | Accelerator |
+| --- | --- | --- | --- | --- |
+| Direct Preference Optimization (Full) | 32,768 | 2, 4, or 6 | ml.p5.48xlarge | GPU H100 |
+| Direct Preference Optimization (LoRA) | 32,768 | 2, 4, or 6 | ml.p5.48xlarge | GPU H100 |
 
-| Fine-tuning         | Model                         | Technique | Sequence length | Number of nodes | Instance | Accelerator |
-| ------------------- | ----------------------------- | --------- | --------------- | --------------- | -------- | ----------- |
-| Amazon Nova 1 Micro | Supervised Fine-Tuning (LoRA) | 65,536    | 2               | ml.p5.48xlarge  | GPU H100 |
-| Amazon Nova 1 Micro | Supervised Fine-Tuning (Full) | 65,536    | 2               | ml.p5.48xlarge  | GPU H100 |
-| Amazon Nova 1 Lite  | Supervised Fine-Tuning (LoRA) | 32,768    | 4               | ml.p5.48xlarge  | GPU H100 |
-| Amazon Nova 1 Lite  | Supervised Fine-Tuning (Full) | 65,536    | 4               | ml.p5.48xlarge  | GPU H100 |
-| Amazon Nova 1 Pro   | Supervised Fine-Tuning (LoRA) | 65,536    | 6               | ml.p5.48xlarge  | GPU H100 |
-| Amazon Nova 1 Pro   | Supervised Fine-Tuning (Full) | 65,536    | 6               | ml.p5.48xlarge  | GPU H100 |
+Fine-tuning| Model | Technique | Sequence length | Number of nodes | Instance | Accelerator |
+| --- | --- | --- | --- | --- | --- |
+| Amazon Nova 1 Micro | Supervised Fine-Tuning (LoRA) | 65,536 | 2 | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova 1 Micro | Supervised Fine-Tuning (Full) | 65,536 | 2 | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova 1 Lite | Supervised Fine-Tuning (LoRA) | 32,768 | 4 | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova 1 Lite | Supervised Fine-Tuning (Full) | 65,536 | 4 | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova 1 Pro | Supervised Fine-Tuning (LoRA) | 65,536 | 6 | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova 1 Pro | Supervised Fine-Tuning (Full) | 65,536 | 6 | ml.p5.48xlarge | GPU H100 |
 
-| Distillation                         | Model | Nodes          | Instance |
-| ------------------------------------ | ----- | -------------- | -------- |
-| Model Distillation for Post-Training | 1     | ml.r5.24xlarge |
+Distillation| Model | Nodes | Instance |
+| --- | --- | --- |
+| Model Distillation for Post-Training | 1 | ml.r5.24xlarge |
 
-| Evaluation                                       | Model | Sequence length | Nodes          | Instance | Accelerator |
-| ------------------------------------------------ | ----- | --------------- | -------------- | -------- | ----------- |
-| General Text Benchmark Recipe                    | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
-| Bring your own dataset (gen_qa) benchmark Recipe | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
-| Amazon Nova LLM as a Judge Recipe                | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
-| Standard Text Benchmarks                         | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
-| Custom Dataset Evaluation                        | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
-| Multi-Modal Benchmarks                           | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
+Evaluation| Model | Sequence length | Nodes | Instance | Accelerator |
+| --- | --- | --- | --- | --- |
+| General Text Benchmark Recipe | 8,192 | 1 | ml.p5.48xlarge | GPU H100 |
+| Bring your own dataset (gen\_qa) benchmark Recipe | 8,192 | 1 | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova LLM as a Judge Recipe | 8,192 | 1 | ml.p5.48xlarge | GPU H100 |
+| Standard Text Benchmarks | 8,192 | 1 | ml.p5.48xlarge | GPU H100 |
+| Custom Dataset Evaluation | 8,192 | 1 | ml.p5.48xlarge | GPU H100 |
+| Multi-Modal Benchmarks | 8,192 | 1 | ml.p5.48xlarge | GPU H100 |
 
-| Proximal policy optimization | Model | Critic Model Instance Count | Reward Model Instance Count | Anchor Model Instance Count | Actor Train | Actor Generation | Number of Instances | Total Hours Per Run | P5 Hours       | Instance Type |
-| ---------------------------- | ----- | --------------------------- | --------------------------- | --------------------------- | ----------- | ---------------- | ------------------- | ------------------- | -------------- | ------------- |
-| Amazon Nova Micro            | 1     | 1                           | 1                           | 2                           | 2           | 7                | 8                   | 56                  | ml.p5.48xlarge |
-| Amazon Nova Lite             | 1     | 1                           | 1                           | 2                           | 2           | 7                | 16                  | 112                 | ml.p5.48xlarge |
-| Amazon Nova Pro              | 1     | 1                           | 1                           | 6                           | 2           | 11               | 26                  | 260                 | ml.p5.48xlarge |
+Proximal policy optimization| Model | Critic Model Instance Count | Reward Model Instance Count | Anchor Model Instance Count | Actor Train | Actor Generation | Number of Instances | Total Hours Per Run | P5 Hours | Instance Type |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Amazon Nova Micro | 1 | 1 | 1 | 2 | 2 | 7 | 8 | 56 | ml.p5.48xlarge |
+| Amazon Nova Lite | 1 | 1 | 1 | 2 | 2 | 7 | 16 | 112 | ml.p5.48xlarge |
+| Amazon Nova Pro | 1 | 1 | 1 | 6 | 2 | 11 | 26 | 260 | ml.p5.48xlarge |
 
 ###### Topics
 

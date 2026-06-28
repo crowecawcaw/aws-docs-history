@@ -7,7 +7,7 @@ This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic gui
 When implementing tools with Amazon Nova Sonic, we recommend following these best practices to ensure optimal performance:
 
 - **Keep schema structure simple**: Limit top-level keys to 3 or fewer when possible.
-- **Create distinct parameter names**: Use clear, semantically different names between similar parameters to avoid confusion (that is, don't use both "product_id" and "cart_item_id" if they serve different purposes).
+- **Create distinct parameter names**: Use clear, semantically different names between similar parameters to avoid confusion (that is, don't use both "product\_id" and "cart\_item\_id" if they serve different purposes).
 - **Provide detailed tool descriptions**: Clearly describe each tool's purpose and when it should be used to help the model select the appropriate tool.
 - **Define input schemas precisely**: Specify parameter types and include descriptions for each parameter. Clearly indicate which parameters are required versus optional.
 - **Monitor context length**: Tool performance may degrade as context approaches larger tokens (that is, approximately 50K tokens). Consider breaking complex tasks into smaller steps when working with long contexts.

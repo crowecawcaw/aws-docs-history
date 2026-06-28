@@ -11,7 +11,7 @@ cutoff, which results in more accurate and reliable responses.
 
 When Web Grounding is enabled for a prompt, the following steps are performed:
 
-1. **Request Configuration** — Your application sends a user prompt to the Amazon Bedrock API with nova_grounding
+1. **Request Configuration** — Your application sends a user prompt to the Amazon Bedrock API with nova\_grounding
    enabled as a systemTool.
 2. **Search Assessment** — The model analyzes the prompt and determines if search is needed to improve
    the response.

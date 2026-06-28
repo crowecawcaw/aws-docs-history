@@ -1,6 +1,6 @@
 # Invoking a tool
 
-If Amazon Nova decides to call a tool, a tool use block will be returned as a part of the assistant message and the stop reason will be "tool_use". The tool block will contain the name of the tool and it's inputs.
+If Amazon Nova decides to call a tool, a tool use block will be returned as a part of the assistant message and the stop reason will be "tool\_use". The tool block will contain the name of the tool and it's inputs.
 
 ###### Note
 

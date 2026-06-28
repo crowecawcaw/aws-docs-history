@@ -46,7 +46,7 @@ The following list includes all of the parameters for the request:
 - `taskType` (Required) - Specifies the type of embedding operation to perform on the input content. `single_embedding` refers to generating one embedding per model input. `segmented_embedding` refers to first segmenting the model input per user specification and then generating a single embedding per segment.
 
   - Type: string
-  - Allowed values: Must be "SINGLE_EMBEDDING" for synchronous calls.
+  - Allowed values: Must be "SINGLE\_EMBEDDING" for synchronous calls.
 
 - `singleEmbeddingParams` (Required)
 
@@ -56,16 +56,16 @@ The following list includes all of the parameters for the request:
 
       - Indexing:
 
-        - "GENERIC_INDEX" - Creates embeddings optimized for use as indexes in a vector data store. This value should be used irrespective of the modality you are indexing.
+        - "GENERIC\_INDEX" - Creates embeddings optimized for use as indexes in a vector data store. This value should be used irrespective of the modality you are indexing.
 
       - Search/retrieval: Optimize your embeddings depending on the type of content you are retrieving:
 
-        - "TEXT_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only text embeddings.
-        - "IMAGE_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only image embeddings created with the "STANDARD_IMAGE" detailLevel.
-        - "VIDEO_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only video embeddings or embeddings created with the "AUDIO_VIDEO_COMBINED" embedding mode.
-        - "DOCUMENT_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only document image embeddings created with the "DOCUMENT_IMAGE" detailLevel.
-        - "AUDIO_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only audio embeddings.
-        - "GENERIC_RETRIEVAL" - Creates embeddings optimized for searching a repository containing mixed modality embeddings.
+        - "TEXT\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only text embeddings.
+        - "IMAGE\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only image embeddings created with the "STANDARD\_IMAGE" detailLevel.
+        - "VIDEO\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only video embeddings or embeddings created with the "AUDIO\_VIDEO\_COMBINED" embedding mode.
+        - "DOCUMENT\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only document image embeddings created with the "DOCUMENT\_IMAGE" detailLevel.
+        - "AUDIO\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only audio embeddings.
+        - "GENERIC\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing mixed modality embeddings.
 
       - Example: In an image search app where users retrieve images using text queries, use `embeddingPurpose = generic_index` when creating an embedding index based on the images and use `embeddingPurpose = image_retrieval` when creating an embedding of the query used to retrieve the images.
 
@@ -100,11 +100,11 @@ The following list includes all of the parameters for the request:
 
   - `image` (Optional) - Represents image content. Exactly one of text, image, video, audio must be present.
 
-    - `detailLevel` (Optional) - Dictates the resolution at which the image will be processed with "STANDARD_IMAGE" using a lower image resolution and "DOCUMENT_IMAGE" using a higher resolution image to better interpret text.
+    - `detailLevel` (Optional) - Dictates the resolution at which the image will be processed with "STANDARD\_IMAGE" using a lower image resolution and "DOCUMENT\_IMAGE" using a higher resolution image to better interpret text.
 
       - Type: string
-      - Allowed values: "STANDARD_IMAGE" | "DOCUMENT_IMAGE"
-      - Default: "STANDARD_IMAGE"
+      - Allowed values: "STANDARD\_IMAGE" | "DOCUMENT\_IMAGE"
+      - Default: "STANDARD\_IMAGE"
 
     - `format` (Required)
 
@@ -142,10 +142,10 @@ The following list includes all of the parameters for the request:
     - `embeddingMode` (Required)
 
       - Type: string
-      - Values: "AUDIO_VIDEO_COMBINED" | "AUDIO_VIDEO_SEPARATE"
+      - Values: "AUDIO\_VIDEO\_COMBINED" | "AUDIO\_VIDEO\_SEPARATE"
 
-        - "AUDIO_VIDEO_COMBINED" - Will produce a single embedding combining both audible and visual content.
-        - "AUDIO_VIDEO_SEPARATE" - Will produce two embeddings, one for the audible content and one for the visual content.
+        - "AUDIO\_VIDEO\_COMBINED" - Will produce a single embedding combining both audible and visual content.
+        - "AUDIO\_VIDEO\_SEPARATE" - Will produce two embeddings, one for the audible content and one for the visual content.
 
 ###### InvokeModel Response Body
 
@@ -169,7 +169,7 @@ following structure:
 The following list includes all of the parameters for the response:
 
 - `embeddings` (Required) - For most requests, this array will contain a single embedding. For video requests where the
-  "AUDIO_VIDEO_SEPARATE" embeddingMode mode was selected, this array will contain two embeddings - one embedding for the video content
+  "AUDIO\_VIDEO\_SEPARATE" embeddingMode mode was selected, this array will contain two embeddings - one embedding for the video content
   and one for the the audio content.
 
   - Type: array of embeddings with the following properties
@@ -177,7 +177,7 @@ The following list includes all of the parameters for the response:
     - `embeddingType` (Required) - Reports the type of embedding that was created.
 
       - Type: string
-      - Allowed values: "TEXT" | "IMAGE" | "VIDEO" | "AUDIO" | "AUDIO_VIDEO_COMBINED"
+      - Allowed values: "TEXT" | "IMAGE" | "VIDEO" | "AUDIO" | "AUDIO\_VIDEO\_COMBINED"
 
     - `embedding` (Required) - The embedding vector.
 
@@ -285,7 +285,7 @@ The following list includes all of the parameters for the request:
 - `taskType` (Required) - Specifies the type of embedding operation to perform on the input content. `single_embedding` refers to generating one embedding per model input. `segmented_embedding` refers to first segmenting the model input per user specification and then generating a single embedding per segment.
 
   - Type: string
-  - Allowed values: Must be "SEGMENTED_EMBEDDING" for asynchronous calls.
+  - Allowed values: Must be "SEGMENTED\_EMBEDDING" for asynchronous calls.
 
 - `segmentedEmbeddingParams` (Required)
 
@@ -295,16 +295,16 @@ The following list includes all of the parameters for the request:
 
       - Indexing:
 
-        - "GENERIC_INDEX" - Creates embeddings optimized for use as indexes in a vector data store. This value should be used irrespective of the modality you are indexing.
+        - "GENERIC\_INDEX" - Creates embeddings optimized for use as indexes in a vector data store. This value should be used irrespective of the modality you are indexing.
 
       - Search/retrieval: Optimize your embeddings depending on the type of content you are retrieving:
 
-        - "TEXT_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only text embeddings.
-        - "IMAGE_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only image embeddings created with the "STANDARD_IMAGE" detailLevel.
-        - "VIDEO_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only video embeddings or embeddings created with the "AUDIO_VIDEO_COMBINED" embedding mode.
-        - "DOCUMENT_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only document image embeddings created with the "DOCUMENT_IMAGE" detailLevel.
-        - "AUDIO_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only audio embeddings.
-        - "GENERIC_RETRIEVAL" - Creates embeddings optimized for searching a repository containing mixed modality embeddings.
+        - "TEXT\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only text embeddings.
+        - "IMAGE\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only image embeddings created with the "STANDARD\_IMAGE" detailLevel.
+        - "VIDEO\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only video embeddings or embeddings created with the "AUDIO\_VIDEO\_COMBINED" embedding mode.
+        - "DOCUMENT\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only document image embeddings created with the "DOCUMENT\_IMAGE" detailLevel.
+        - "AUDIO\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only audio embeddings.
+        - "GENERIC\_RETRIEVAL" - Creates embeddings optimized for searching a repository containing mixed modality embeddings.
 
       - Example: In an image search app where users retrieve images using text queries, use `embeddingPurpose = generic_index` when creating an embedding index based on the images and use `embeddingPurpose = image_retrieval` when creating an embedding of the query used to retrieve the images.
 
@@ -353,11 +353,11 @@ The following list includes all of the parameters for the request:
 
       - Type: SourceObject (see "Common Objects" section)
 
-    - `detailLevel` (Optional) - Dictates the resolution at which the image will be processed with "STANDARD_IMAGE" using a lower image resolution and "DOCUMENT_IMAGE" using a higher resolution image to better interpret text.
+    - `detailLevel` (Optional) - Dictates the resolution at which the image will be processed with "STANDARD\_IMAGE" using a lower image resolution and "DOCUMENT\_IMAGE" using a higher resolution image to better interpret text.
 
       - Type: string
-      - Allowed values: "STANDARD_IMAGE" | "DOCUMENT_IMAGE"
-      - Default: "STANDARD_IMAGE"
+      - Allowed values: "STANDARD\_IMAGE" | "DOCUMENT\_IMAGE"
+      - Default: "STANDARD\_IMAGE"
 
   - `audio` (Optional) - Represents audio content. Exactly one of text, image, video, audio must be present.
 
@@ -392,10 +392,10 @@ The following list includes all of the parameters for the request:
     - `embeddingMode` (Required)
 
       - Type: string
-      - Values: "AUDIO_VIDEO_COMBINED" | "AUDIO_VIDEO_SEPARATE"
+      - Values: "AUDIO\_VIDEO\_COMBINED" | "AUDIO\_VIDEO\_SEPARATE"
 
-        - "AUDIO_VIDEO_COMBINED" - Will produce a single embedding for each segment combining both audible and visual content.
-        - "AUDIO_VIDEO_SEPARATE" - Will produce two embeddings for each segment, one for the audio content and one for the video content.
+        - "AUDIO\_VIDEO\_COMBINED" - Will produce a single embedding for each segment combining both audible and visual content.
+        - "AUDIO\_VIDEO\_SEPARATE" - Will produce two embeddings for each segment, one for the audio content and one for the video content.
 
     - `segmentationConfig` (Required) - Controls how video content should be segmented into multiple embeddings.
 
@@ -530,28 +530,28 @@ When generating embeddings asynchronously, you'll need to ensure that your file 
 appropriate number of segments. For text embeddings you cannot have more than 1900 segments. For
 audio and video embeddings you cannot have more than 1434 segments.
 
-| Synchronous Input size limits | File Type               | Size Limit |
-| ----------------------------- | ----------------------- | ---------- |
-| (Inline) All file types       | 25 MB                   |
-| (S3) Text                     | 1 MB; 50,000 characters |
-| (S3) Image                    | 50 MB                   |
-| (S3) Video                    | 30 seconds; 100 MB      |
-| (S3) Audio                    | 30 seconds; 100 MB      |
+Synchronous Input size limits| File Type | Size Limit |
+| --- | --- |
+| (Inline) All file types | 25 MB |
+| (S3) Text | 1 MB; 50,000 characters |
+| (S3) Image | 50 MB |
+| (S3) Video | 30 seconds; 100 MB |
+| (S3) Audio | 30 seconds; 100 MB |
 
 ###### Note
 
 The 25 MB inline file restriction is **after** Base64 embedding. This causes
 a file size inflation of about 33%
 
-| Asynchronous Input size limits | File Type     | Size Limit |
-| ------------------------------ | ------------- | ---------- |
-| (S3) Text                      | 634 MB        |
-| (S3) Image                     | 50 MB         |
-| (S3) Video                     | 2 GB; 2 hours |
-| (S3) Audio                     | 1 GB; 2 hours |
+Asynchronous Input size limits| File Type | Size Limit |
+| --- | --- |
+| (S3) Text | 634 MB |
+| (S3) Image | 50 MB |
+| (S3) Video | 2 GB; 2 hours |
+| (S3) Audio | 1 GB; 2 hours |
 
-| Input file types | Modality                                      | File types |
-| ---------------- | --------------------------------------------- | ---------- |
-| Image Formats    | PNG, JPEG, WEBP, GIF                          |
-| Audio Formats    | MP3, WAV, OGG                                 |
-| Video Formats    | MP4, MOV, MKV, WEBM, FLV, MPEG, MPG, WMV, 3GP |
+Input file types| Modality | File types |
+| --- | --- |
+| Image Formats | PNG, JPEG, WEBP, GIF |
+| Audio Formats | MP3, WAV, OGG |
+| Video Formats | MP4, MOV, MKV, WEBM, FLV, MPEG, MPG, WMV, 3GP |

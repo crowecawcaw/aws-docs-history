@@ -30,7 +30,7 @@ Data mixing allows you to combine your custom training datasets with Nova's prop
 
 The data mixing feature allows you to blend your own fine-tuning training samples with samples from the Nova datasets used to fine-tune the Nova. This can prevent overfitting on your custom training and "catastrophic forgetting" of Nova capabilities, or help you build capabilities when training from a new pretrained checkpoint.
 
-To mix in Nova data, you simply need to add a data_mixing block to your recipe YAML file, under the training_config section. Text and multi-modal data mixing blocks have different content, and data mixing blocks are somewhat different for Nova 1.0 and Nova 2.0. Please refer to corresponding recipes.
+To mix in Nova data, you simply need to add a data\_mixing block to your recipe YAML file, under the training\_config section. Text and multi-modal data mixing blocks have different content, and data mixing blocks are somewhat different for Nova 1.0 and Nova 2.0. Please refer to corresponding recipes.
 
 ### Supported Models
 
@@ -259,12 +259,12 @@ data_mixing:
 
 ## Training Approaches
 
-| Training Approach Selection Guide                                                                            | Data Type    | Data Volume                  | Perform                             | With Checkpoint |
-| ------------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------- | ----------------------------------- | --------------- |
-| Large-scale unstructured raw domain data (documents, logs, articles, code, etc.)                             | 1T+ Tokens   | Continued Pre-Training       | End of Constant Learning Rate (CLR) |
-| Large-scale unstructured raw domain data                                                                     | 100B+ Tokens | Mid-Training                 | End of CLR                          |
-| Smaller volumes of unstructured raw data; Structured reasoning traces / CoT data                             | 1B+ Tokens   | Mid-Training                 | Nova base model                     |
-| Structured demonstrations (high-quality input-output pairs, curated task instructions, multi-turn dialogues) | 1K+ Examples | Supervised Fine-Tuning (SFT) | Nova base model                     |
+Training Approach Selection Guide| Data Type | Data Volume | Perform | With Checkpoint |
+| --- | --- | --- | --- |
+| Large-scale unstructured raw domain data (documents, logs, articles, code, etc.) | 1T+ Tokens | Continued Pre-Training | End of Constant Learning Rate (CLR) |
+| Large-scale unstructured raw domain data | 100B+ Tokens | Mid-Training | End of CLR |
+| Smaller volumes of unstructured raw data; Structured reasoning traces / CoT data | 1B+ Tokens | Mid-Training | Nova base model |
+| Structured demonstrations (high-quality input-output pairs, curated task instructions, multi-turn dialogues) | 1K+ Examples | Supervised Fine-Tuning (SFT) | Nova base model |
 
 ## Pre-Requisites before you begin
 
@@ -320,7 +320,7 @@ hyperpod connect-cluster --cluster-name cluster-name
 
 **Nova 1.0**: Data prep is described at [https://docs.aws.amazon.com/sagemaker/latest/dg/nova-fine-tune.html](../../../sagemaker/latest/dg/nova-fine-tune.md "../../../sagemaker/latest/dg/nova-fine-tune.md")
 
-**Nova 2.0**: Use Converse API format as for Nova 1.0 [https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html](../../../bedrock/latest/userguide/conversation-inference-call.md "../../../bedrock/latest/userguide/conversation-inference-call.md"). Nova 2.0 data format can contain additional reasoning fields: [https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.html](../../../bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.md")
+**Nova 2.0**: Use Converse API format as for Nova 1.0 [https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html](../../../bedrock/latest/userguide/conversation-inference-call.md "../../../bedrock/latest/userguide/conversation-inference-call.md"). Nova 2.0 data format can contain additional reasoning fields: [https://docs.aws.amazon.com/bedrock/latest/APIReference/API\_runtime\_ReasoningContentBlock.html](../../../bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.md")
 
 Reasoning content captures the model's intermediate thinking steps before generating a final answer. In the `assistant` turn, use the `reasoningContent` field to include reasoning traces. Use plain text for reasoning content, avoid markup tags like `<thinking>` and `</thinking>` unless specifically required by your task, and ensure reasoning content is clear and relevant to the problem-solving process.
 
@@ -372,7 +372,7 @@ Regardless of your CCMS configuration, Amazon Nova enforces essential, non-confi
 
 When using CCMS, we recommend using Continuous Pre Training (CPT) and starting from a pre-RAI alignment checkpoint (PRE-TRAINING-Early, PRE-TRAINING-Mid, or PRE-TRAINING-Final) rather than the GA/FINAL checkpoint. These checkpoints have not undergone safety training or been steered toward specific RAI behaviors, allowing you to customize them more efficiently to your content moderation requirements.
 
-**Tip**: When using CCMS with data mixing, consider adjusting the "rai" category percentage in your nova_data configuration to align with your specific content moderation requirements.
+**Tip**: When using CCMS with data mixing, consider adjusting the "rai" category percentage in your nova\_data configuration to align with your specific content moderation requirements.
 
 #### Availability
 
@@ -511,7 +511,7 @@ The most relevant parameters for LoRA are learning rate, alpha (scaling paramete
 
 ## Set Up Data Mixing Block
 
-Add the data_mixing section to your recipe with the appropriate percentage distribution across dataset categories.
+Add the data\_mixing section to your recipe with the appropriate percentage distribution across dataset categories.
 
 Below we describe each available Nova data category.
 
@@ -540,18 +540,18 @@ data_mixing:
 
 What do these categories mean?
 
-| Nova 1.0 Text Data Categories | Category Name                                                                                                                       | Info detail |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| agents                        | Training data focused on autonomous decision-making, task completion, and goal-oriented behavior in AI systems                      |
-| chat                          | Conversational exchanges demonstrating natural dialogue flow, context maintenance, and appropriate social interactions              |
-| code                          | Programming examples and solutions spanning multiple languages, debugging scenarios, and software development best practices        |
-| rai                           | Cases and scenarios emphasizing ethical AI principles, safety considerations, and responsible technology deployment                 |
-| instruction-following         | Examples of precise task execution based on varying levels of user prompts and directives                                           |
-| stem                          | Technical content covering science, technology, engineering, and mathematics, including problem-solving and theoretical concepts    |
-| planning                      | Sequences demonstrating strategic thinking, step-by-step task breakdown, and efficient resource allocation                          |
-| reasoning                     | Logical deduction, critical thinking, and analytical problem-solving scenarios with clear reasoning chains                          |
-| rag                           | Examples of effectively combining retrieved external knowledge with generated responses to provide accurate, contextual information |
-| translation                   | Multi-language content pairs showing accurate translation while preserving context, tone, and cultural nuances                      |
+Nova 1.0 Text Data Categories| Category Name | Info detail |
+| --- | --- |
+| agents | Training data focused on autonomous decision-making, task completion, and goal-oriented behavior in AI systems |
+| chat | Conversational exchanges demonstrating natural dialogue flow, context maintenance, and appropriate social interactions |
+| code | Programming examples and solutions spanning multiple languages, debugging scenarios, and software development best practices |
+| rai | Cases and scenarios emphasizing ethical AI principles, safety considerations, and responsible technology deployment |
+| instruction-following | Examples of precise task execution based on varying levels of user prompts and directives |
+| stem | Technical content covering science, technology, engineering, and mathematics, including problem-solving and theoretical concepts |
+| planning | Sequences demonstrating strategic thinking, step-by-step task breakdown, and efficient resource allocation |
+| reasoning | Logical deduction, critical thinking, and analytical problem-solving scenarios with clear reasoning chains |
+| rag | Examples of effectively combining retrieved external knowledge with generated responses to provide accurate, contextual information |
+| translation | Multi-language content pairs showing accurate translation while preserving context, tone, and cultural nuances |
 
 ### Multimodal Data Mixing (Nova 1.0)
 
@@ -577,16 +577,16 @@ data_mixing:
 
 What do these categories mean?
 
-| Nova 1.0 Multimodal Data Categories | Category Name                                                                                                                                                                                                  | Info detail |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| agents                              | Training pairs combining visual and textual inputs that demonstrate how AI systems should interpret, act upon, and interact with multi-sensory environmental information                                       |
-| docs                                | Document-centric data combining text, images, layouts, and formatting to train models in understanding and processing various document types and structures to help with concepts like PDF content recognition |
-| perception                          | Visual-linguistic pairs teaching models to accurately describe, interpret, and reason about images, videos, and other visual inputs in natural language                                                        |
-| rag                                 | Multimodal retrieval examples showing how to effectively combine and reference visual and textual external knowledge to generate accurate, contextual responses                                                |
-| reasoning                           | Cases combining visual and textual elements that demonstrate logical analysis, problem-solving, and drawing conclusions across multiple modalities                                                             |
-| stem                                | Technical content pairing visual elements (diagrams, charts, equations) with text to teach scientific, mathematical, and technical concepts and problem-solving                                                |
-| text                                | A balanced pool of contextual text data create from the text-only SFT Nova dataset categories in order to provide generalist abilities                                                                         |
-| video                               | Motion-based visual content focused on temporal understanding and sequential visual-narrative comprehension                                                                                                    |
+Nova 1.0 Multimodal Data Categories| Category Name | Info detail |
+| --- | --- |
+| agents | Training pairs combining visual and textual inputs that demonstrate how AI systems should interpret, act upon, and interact with multi-sensory environmental information |
+| docs | Document-centric data combining text, images, layouts, and formatting to train models in understanding and processing various document types and structures to help with concepts like PDF content recognition |
+| perception | Visual-linguistic pairs teaching models to accurately describe, interpret, and reason about images, videos, and other visual inputs in natural language |
+| rag | Multimodal retrieval examples showing how to effectively combine and reference visual and textual external knowledge to generate accurate, contextual responses |
+| reasoning | Cases combining visual and textual elements that demonstrate logical analysis, problem-solving, and drawing conclusions across multiple modalities |
+| stem | Technical content pairing visual elements (diagrams, charts, equations) with text to teach scientific, mathematical, and technical concepts and problem-solving |
+| text | A balanced pool of contextual text data create from the text-only SFT Nova dataset categories in order to provide generalist abilities |
+| video | Motion-based visual content focused on temporal understanding and sequential visual-narrative comprehension |
 
 ### Nova 2.0 Configuration with data mixing
 
@@ -626,31 +626,31 @@ data_mixing:
 
 What do these categories mean?
 
-| Nova 2.0 Text Data Categories   | Category Name                                                                                                                       | Info detail |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| agents                          | Training data focused on autonomous decision-making, task completion, and goal-oriented behavior in AI systems                      |
-| baseline                        | Fundamental language data focused on general comprehension, basic communication, and core linguistic capabilities                   |
-| chat                            | Conversational exchanges demonstrating natural dialogue flow, context maintenance, and appropriate social interactions              |
-| code                            | Programming source code, documentation, and technical discussions from various programming languages and platforms.                 |
-| factuality                      | Reference materials and verified information focused on accuracy, source validation, and truth assessment                           |
-| identity                        | Personality frameworks and behavioral patterns focused on consistent character traits, values, and interaction styles               |
-| long-context                    | Extended texts and complex narratives focused on maintaining coherence and relevance across lengthy exchanges                       |
-| math                            | Mathematical content including textbooks, problems, solutions, and mathematical discussions.                                        |
-| rai                             | Cases and scenarios emphasizing ethical AI principles, safety considerations, and responsible technology deployment                 |
-| instruction-following           | Examples of precise task execution based on varying levels of user prompts and directives                                           |
-| stem                            | Technical content covering science, technology, engineering, and mathematics, including problem-solving and theoretical concepts    |
-| planning                        | Sequences demonstrating strategic thinking, step-by-step task breakdown, and efficient resource allocation                          |
-| reasoning-chat                  | Analytical dialogue scenarios focused on logical discussion and structured conversation flows                                       |
-| reasoning-code                  | Programming challenges and algorithmic problems focused on systematic solution development                                          |
-| reasoning-factuality            | Information evaluation scenarios focused on critical assessment and verification processes                                          |
-| reasoning-instruction-following | Complex task analysis focused on systematic interpretation and methodical execution                                                 |
-| reasoning-math                  | Mathematical problem-solving scenarios focused on logical progression and solution strategies                                       |
-| reasoning-planning              | Strategic decision-making scenarios focused on systematic approach to goal achievement                                              |
-| reasoning-rag                   | Information retrieval and synthesis scenarios focused on contextual understanding and relevant application                          |
-| reasoning-rai                   | Ethical decision-making scenarios focused on systematic evaluation of AI safety and fairness                                        |
-| reasoning-stem                  | Scientific problem-solving scenarios focused on methodical analysis and solution development                                        |
-| rag                             | Examples of effectively combining retrieved external knowledge with generated responses to provide accurate, contextual information |
-| translation                     | Multi-language content pairs showing accurate translation while preserving context, tone, and cultural nuances                      |
+Nova 2.0 Text Data Categories| Category Name | Info detail |
+| --- | --- |
+| agents | Training data focused on autonomous decision-making, task completion, and goal-oriented behavior in AI systems |
+| baseline | Fundamental language data focused on general comprehension, basic communication, and core linguistic capabilities |
+| chat | Conversational exchanges demonstrating natural dialogue flow, context maintenance, and appropriate social interactions |
+| code | Programming source code, documentation, and technical discussions from various programming languages and platforms. |
+| factuality | Reference materials and verified information focused on accuracy, source validation, and truth assessment |
+| identity | Personality frameworks and behavioral patterns focused on consistent character traits, values, and interaction styles |
+| long-context | Extended texts and complex narratives focused on maintaining coherence and relevance across lengthy exchanges |
+| math | Mathematical content including textbooks, problems, solutions, and mathematical discussions. |
+| rai | Cases and scenarios emphasizing ethical AI principles, safety considerations, and responsible technology deployment |
+| instruction-following | Examples of precise task execution based on varying levels of user prompts and directives |
+| stem | Technical content covering science, technology, engineering, and mathematics, including problem-solving and theoretical concepts |
+| planning | Sequences demonstrating strategic thinking, step-by-step task breakdown, and efficient resource allocation |
+| reasoning-chat | Analytical dialogue scenarios focused on logical discussion and structured conversation flows |
+| reasoning-code | Programming challenges and algorithmic problems focused on systematic solution development |
+| reasoning-factuality | Information evaluation scenarios focused on critical assessment and verification processes |
+| reasoning-instruction-following | Complex task analysis focused on systematic interpretation and methodical execution |
+| reasoning-math | Mathematical problem-solving scenarios focused on logical progression and solution strategies |
+| reasoning-planning | Strategic decision-making scenarios focused on systematic approach to goal achievement |
+| reasoning-rag | Information retrieval and synthesis scenarios focused on contextual understanding and relevant application |
+| reasoning-rai | Ethical decision-making scenarios focused on systematic evaluation of AI safety and fairness |
+| reasoning-stem | Scientific problem-solving scenarios focused on methodical analysis and solution development |
+| rag | Examples of effectively combining retrieved external knowledge with generated responses to provide accurate, contextual information |
+| translation | Multi-language content pairs showing accurate translation while preserving context, tone, and cultural nuances |
 
 ### Multimodal Data Mixing (Nova 2.0)
 
@@ -680,19 +680,19 @@ Note: Nova 2.0 includes video data category support that is not available in Nov
 
 What do these categories mean?
 
-| Nova 2.0 Multimodal Data Categories | Category Name                                                                                                                                                                                                  | Info detail |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| charts                              | Visual representations and descriptions of graphs, pie charts, bar charts, line plots, and other statistical visualizations to help the model understand and communicate quantitative information effectively  |
-| chat                                | Conversational data paired with visual elements focused on contextual dialogue understanding and image-based interactions                                                                                      |
-| code                                | Programming interfaces and development environments focused on visual code interpretation, IDE screenshots, and technical diagrams                                                                             |
-| docs                                | Document-centric data combining text, images, layouts, and formatting to train models in understanding and processing various document types and structures to help with concepts like PDF content recognition |
-| general                             | Diverse visual-textual content focused on broad comprehension of images, graphics, and accompanying descriptive text                                                                                           |
-| grounding                           | Visual reference materials and labeled imagery focused on connecting language concepts to real-world visual representations                                                                                    |
-| rag                                 | Multimodal retrieval examples showing how to effectively combine and reference visual and textual external knowledge to generate accurate, contextual responses                                                |
-| screenshot                          | Application interface captures and digital display images focused on understanding software interfaces and digital interactions                                                                                |
-| text                                | A balanced pool of contextual text data create from the text-only SFT Nova dataset categories in order to provide generalist abilities                                                                         |
-| translation                         | Cross-language visual content focused on multilingual interpretation of text in images and cultural visual elements                                                                                            |
-| video                               | Motion-based visual content focused on temporal understanding and sequential visual-narrative comprehension                                                                                                    |
+Nova 2.0 Multimodal Data Categories| Category Name | Info detail |
+| --- | --- |
+| charts | Visual representations and descriptions of graphs, pie charts, bar charts, line plots, and other statistical visualizations to help the model understand and communicate quantitative information effectively |
+| chat | Conversational data paired with visual elements focused on contextual dialogue understanding and image-based interactions |
+| code | Programming interfaces and development environments focused on visual code interpretation, IDE screenshots, and technical diagrams |
+| docs | Document-centric data combining text, images, layouts, and formatting to train models in understanding and processing various document types and structures to help with concepts like PDF content recognition |
+| general | Diverse visual-textual content focused on broad comprehension of images, graphics, and accompanying descriptive text |
+| grounding | Visual reference materials and labeled imagery focused on connecting language concepts to real-world visual representations |
+| rag | Multimodal retrieval examples showing how to effectively combine and reference visual and textual external knowledge to generate accurate, contextual responses |
+| screenshot | Application interface captures and digital display images focused on understanding software interfaces and digital interactions |
+| text | A balanced pool of contextual text data create from the text-only SFT Nova dataset categories in order to provide generalist abilities |
+| translation | Cross-language visual content focused on multilingual interpretation of text in images and cultural visual elements |
+| video | Motion-based visual content focused on temporal understanding and sequential visual-narrative comprehension |
 
 ## How to Launch a job
 
@@ -700,41 +700,41 @@ You can also refer to the README, if you only need to get the essential details 
 
 Container Information:
 
-| Container Information and Launch Commands | Model       | Technique                              | Subcategory                                                                          | Image URI                                                                                                                                                                                                                                                                                                 | Hyperpod Launcher Command |
-| ----------------------------------------- | ----------- | -------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| Nova 1.0                                  | Fine-tuning | SFT / PEFT                             | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest    | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/nova_1_0/nova_micro/SFT/nova_micro_1_0_p5_gpu_sft \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest" }'                          |
-| Nova 1.0                                  | Fine-tuning | SFT with Data Mixing                   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX      | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_1_0/nova_micro/SFT/nova_micro_1_0_p5_gpu_sft_text_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX" }'    |
-| Nova 2.0                                  | Fine-tuning | SFT Text (with or without data mixing) | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_text_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }' |
-| Nova 2.0                                  | Fine-tuning | SFT MM (with or without data mixing)   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_mm_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }'   |
+Container Information and Launch Commands| Model | Technique | Subcategory | Image URI | Hyperpod Launcher Command |
+| --- | --- | --- | --- | --- |
+| Nova 1.0 | Fine-tuning | SFT / PEFT | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/nova\_1\_0/nova\_micro/SFT/nova\_micro\_1\_0\_p5\_gpu\_sft \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest" }' |
+| Nova 1.0 | Fine-tuning | SFT with Data Mixing | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova\_1\_0/nova\_micro/SFT/nova\_micro\_1\_0\_p5\_gpu\_sft\_text\_with\_datamix \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX" }' |
+| Nova 2.0 | Fine-tuning | SFT Text (with or without data mixing) | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova\_2\_0/nova\_lite/SFT/nova\_lite\_2\_0\_p5\_gpu\_sft\_text\_with\_datamix \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }' |
+| Nova 2.0 | Fine-tuning | SFT MM (with or without data mixing) | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova\_2\_0/nova\_lite/SFT/nova\_lite\_2\_0\_p5\_gpu\_sft\_mm\_with\_datamix \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }' |
 
 Once you're all setup, starting from the root of the sagemaker-hyperpod-cli repository, navigate to the default nova sft recipe folder
 
-- cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova/forge/
+- cd /src/hyperpod\_cli/sagemaker\_hyperpod\_recipes/recipes\_collection/recipes/fine-tuning/nova/forge/
 - Here you can choose whether you want to run nova 1 or nova 2 recipies based on the choice of base model.
 
 For Nova 1.0 sft:
 
 - If you would like to use a regular sft job , You should be able to see one recipe under this folder
 
-  - cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova_1_0/nova_lite/SFT and then you should be able to see one recipe under this folder called nova_lite_1_0_p5x8_gpu_sft.yaml
+  - cd /src/hyperpod\_cli/sagemaker\_hyperpod\_recipes/recipes\_collection/recipes/fine-tuning/nova\_1\_0/nova\_lite/SFT and then you should be able to see one recipe under this folder called nova\_lite\_1\_0\_p5x8\_gpu\_sft.yaml
 
 - If you would like to use datamixing sft Job, you can navigate to the sft Forge recipes folder
 
-  - cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova/forge/nova_1_0/nova_lite/SFT and you should be able to see one recipe under this folder called: nova_lite_1_0_p5x8_gpu_sft_with_datamix.yaml
+  - cd /src/hyperpod\_cli/sagemaker\_hyperpod\_recipes/recipes\_collection/recipes/fine-tuning/nova/forge/nova\_1\_0/nova\_lite/SFT and you should be able to see one recipe under this folder called: nova\_lite\_1\_0\_p5x8\_gpu\_sft\_with\_datamix.yaml
 
-- Edit the sections in the recipe required by the job such as name, data_s3_path, validation_s3_path, output_s3_path, and max_steps.Since we're performing sft, the notion of epochs doesn't apply here.
+- Edit the sections in the recipe required by the job such as name, data\_s3\_path, validation\_s3\_path, output\_s3\_path, and max\_steps.Since we're performing sft, the notion of epochs doesn't apply here.
 
 For Nova 2.0 sft:
 
 - If you would like to use a regular sft job , You should be able to see one recipe under this folder
 
-  - cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova_2_0/nova_lite/SFT and then you should be able to see one recipe under this folder called nova_lite_2_0_p5x8_gpu_sft.yaml
+  - cd /src/hyperpod\_cli/sagemaker\_hyperpod\_recipes/recipes\_collection/recipes/fine-tuning/nova\_2\_0/nova\_lite/SFT and then you should be able to see one recipe under this folder called nova\_lite\_2\_0\_p5x8\_gpu\_sft.yaml
 
 - If you would like to use datamixing sft Job, you can navigate to the sft Forge recipes folder
 
-  - cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova/forge/nova_2_0/nova_lite/SFT and you should be able to see one recipe under this folder called: nova_lite_2_0_p5x8_gpu_sft_with_datamix.yaml
+  - cd /src/hyperpod\_cli/sagemaker\_hyperpod\_recipes/recipes\_collection/recipes/fine-tuning/nova/forge/nova\_2\_0/nova\_lite/SFT and you should be able to see one recipe under this folder called: nova\_lite\_2\_0\_p5x8\_gpu\_sft\_with\_datamix.yaml
 
-- Edit the sections in the recipe required by the job such as name, data_s3_path, validation_s3_path, output_s3_path, and max_steps. Since we're performing sft, the notion of epochs doesn't apply here.
+- Edit the sections in the recipe required by the job such as name, data\_s3\_path, validation\_s3\_path, output\_s3\_path, and max\_steps. Since we're performing sft, the notion of epochs doesn't apply here.
 
 The data mixing config will look the same, but with an extra data mixing section at the bottom similar to this
 
@@ -767,11 +767,11 @@ data_mixing:
 
 There are two top-level categories of data here:
 
-- nova_data : This is the actual data mixing and is sub-divided into even more categories. It is imperative that they sum up to 100%
+- nova\_data : This is the actual data mixing and is sub-divided into even more categories. It is imperative that they sum up to 100%
 
   - A complete breakdown of these categories including token count can be found in below
 
-- customer_data : This is your training data referred in the data_s3_path key at the top of your yaml. The percentage provided here determines what the resulting percentage will be for nova_data. For example, in the above percent selections, during training we'll use 25% of customer_data and 75% of nova_data of which 15% will be agents, 15% will be business-and-finance, 15% will be scientific, 15% will be code, and 15% will be factual-and-news
+- customer\_data : This is your training data referred in the data\_s3\_path key at the top of your yaml. The percentage provided here determines what the resulting percentage will be for nova\_data. For example, in the above percent selections, during training we'll use 25% of customer\_data and 75% of nova\_data of which 15% will be agents, 15% will be business-and-finance, 15% will be scientific, 15% will be code, and 15% will be factual-and-news
 
 Tip: Run pip install -e . once again and you're ready to submit your job!
 
@@ -1048,10 +1048,10 @@ hyperpod start-job -n kubeflow \
 
 Job launching commands for different recipes with corresponding images.
 
-| Evaluation Job Launch Commands | Model      | Technique | Subcategory                                                                         | Image URI                                                                                                                                                                                                                                                                            | Command |
-| ------------------------------ | ---------- | --------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| Nova 1.0                       | Evaluation | Eval      | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest | hyperpod start-job \ -n kubeflow \ --recipe evaluation/nova/nova_1_0/nova_lite/nova_lite_2_0_p5_48xl_gpu_ft_eval \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest" }' |
-| Nova 2.0                       | Evaluation | Eval      | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest | hyperpod start-job -n kubeflow \ --recipe evaluation/nova/nova_2_0/nova_lite/nova_lite_2_0_p5_48xl_gpu_ft_eval \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest" }'   |
+Evaluation Job Launch Commands| Model | Technique | Subcategory | Image URI | Command |
+| --- | --- | --- | --- | --- |
+| Nova 1.0 | Evaluation | Eval | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest | hyperpod start-job \ -n kubeflow \ --recipe evaluation/nova/nova\_1\_0/nova\_lite/nova\_lite\_2\_0\_p5\_48xl\_gpu\_ft\_eval \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest" }' |
+| Nova 2.0 | Evaluation | Eval | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest | hyperpod start-job -n kubeflow \ --recipe evaluation/nova/nova\_2\_0/nova\_lite/nova\_lite\_2\_0\_p5\_48xl\_gpu\_ft\_eval \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest" }' |
 
 ## Lessons Learned and Tips
 

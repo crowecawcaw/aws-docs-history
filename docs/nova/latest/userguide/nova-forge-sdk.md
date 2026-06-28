@@ -62,8 +62,31 @@ family:
 | Direct Preference Optimization Full-Rank       | Nova 1.0 models (SMHP and SMTJ only)                                                                                                                                                                      |
 | Reinforcement Fine-tuning LoRA                 | Nova Lite 2.0                                                                                                                                                                                             |
 | Reinforcement Fine-tuning Full-Rank            | Nova Lite 2.0 (SMHP and SMTJ only)                                                                                                                                                                        |
-| Multi-turn Reinforcement Fine-tuning LoRA      | Nova Lite 2.0 (SMHP Only)                                                                                                                                                                                 |
-| Multi-turn Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0 (SMHP Only)                                                                                                                                                                                 |
+| Multi-turn Reinforcement Fine-tuning LoRA      | Nova Lite 2.0                                                                                                                                                                                             |
+| Multi-turn Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0                                                                                                                                                                                             |
+
+### Multi-turn Reinforcement Learning Output
+
+A Restricted Model Package (RMP) is a SageMaker AI Model Package that wraps
+proprietary model artifacts in platform-managed escrow storage. RMPs allow you
+to authorize and control usage of these models through IAM policies without
+granting direct access to the underlying artifacts. Model data cannot be
+downloaded, exported, or viewed directly. It can only be used within authorized
+AWS services. RMPs exist within Model Package Groups marked with
+`StorageType: "Restricted"`.
+
+When you train a model using multi-turn reinforcement learning (MTRL) on
+SageMaker Training Jobs Serverless, the output is delivered as an RMP ARN within a
+Model Package Group, rather than an S3 path. This differs from other training
+methods (such as SFT, DPO, or RFT) where the output is an S3 path to the
+model checkpoint.
+
+To use MTRL, specify a `model_package_group_name` in the
+runtime configuration to receive the training output. Once the job
+completes, you can reference the output RMP ARN to evaluate the trained
+model. Using an RMP as input to a subsequent training job — for example,
+to chain MTRL runs into an iterative training workflow — is planned for
+Q3 2026. For more information and code examples, see [Restricted Model Packages](nova-rmp.md "nova-rmp.md").
 
 ## Getting Started
 
@@ -202,6 +225,7 @@ Bedrock or SageMaker.
 
 ```
 from amzn_nova_forge.deployer import ForgeDeployer
+from amzn_nova_forge.model.model_enums import DeployPlatform, Model
 
 deployer = ForgeDeployer(
     region="us-east-1",

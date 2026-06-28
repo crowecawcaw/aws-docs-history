@@ -23,16 +23,15 @@ practices:
   perfect, try the following techniques one at a time in turn to refine your
   result:
 
-      + Using a consistent `seed` value, make small changes to your
-       prompt and re-run the prompt. This allows you to better understand how your
-       prompt wording affects the output, allowing you to iteratively improve your
-       results in a controlled way.
-      + Once the prompt has been refined to your liking, generate more variations
-       using the same prompt but a different `seed` value. It is often
-       useful to generate multiple variations of an video by running the sample
-       prompt with different seeds in order to find that perfect video clip.
-
-  When using the storyboard, you can include a prompt for each six second interval. Each prompt on the storyboard must follow the preceding requirements and guidelines
+  - Using a consistent `seed` value, make small changes to your
+    prompt and re-run the prompt. This allows you to better understand how your
+    prompt wording affects the output, allowing you to iteratively improve your
+    results in a controlled way.
+  - Once the prompt has been refined to your liking, generate more variations
+    using the same prompt but a different `seed` value. It is often
+    useful to generate multiple variations of an video by running the sample
+    prompt with different seeds in order to find that perfect video clip.
+    When using the storyboard, you can include a prompt for each six second interval. Each prompt on the storyboard must follow the preceding requirements and guidelines
 
 ###### Topics
 

@@ -11,7 +11,7 @@ request. This signals to the model to remove that element.
 
 **Input Image**
 
-![Three pots](/images/nova/latest/userguide/images/three_pots.jpg)
+![Three pots](images/three_pots.jpg)
 **Mask Prompt**
 
 "flowers in pots"

@@ -218,7 +218,7 @@ We recommend using DPO in the following scenarios:
     to use from `nova-micro/prod`, `nova-lite/prod`,
     `nova-pro/prod`, or the S3 path for the post-training checkpoint
     (`s3://<escrow bucket>/<job
-id>/outputs/checkpoints`).
+   id>/outputs/checkpoints`).
   - `replicas`: The number of compute instances to use for distributed
     training. Available values vary based on the model chosen. Amazon Nova Micro supports 2,
     4, or 8 replicas. Amazon Nova Lite supports 4, 8, 16, or 32 replicas. Amazon Nova Pro supports
@@ -350,7 +350,7 @@ follows:
     to use from `nova-micro/prod`, `nova-lite/prod`,
     `nova-pro/prod`, or the S3 path for the post-training checkpoint
     (`s3://<escrow bucket>/<job
-id>/outputs/checkpoints`).
+   id>/outputs/checkpoints`).
   - `replicas`: The number of compute instances to use for distributed
     training. Available values vary based on the model chosen. Amazon Nova Micro supports 2,
     4, or 8 replicas. Amazon Nova Lite supports 4, 8, 16, or 32 replicas. Amazon Nova Pro supports

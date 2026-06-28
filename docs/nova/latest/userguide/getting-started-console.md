@@ -50,7 +50,7 @@ The following example demonstrates how to use the text playground:
    **Apply**
 4. Select a default prompt from below the text panel, or enter a prompt into the text
    panel, such as `Describe the purpose of a "hello world" program in one
-line`.
+ line`.
 5. To explore the image understanding capabilities of Amazon Nova, you can upload an
    image in JPEG, PNG, GIF, or WEBP format that is less than or equal to 25 MB from your computer. After the
    image is uploaded, you can ask Amazon Nova about the image.

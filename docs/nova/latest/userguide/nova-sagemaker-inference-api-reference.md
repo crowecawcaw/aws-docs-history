@@ -86,7 +86,7 @@ Use this format for image and text inputs:
 - `messages` (array): For chat completion format. Array of message objects with `role` and `content` fields. Content can be a string for text-only or an array for multimodal inputs.
 - `prompt` (string): For text completion format. The input text to generate from.
 - `max_tokens` (integer): Maximum number of tokens to generate in the response. Range: 1 or greater.
-- `max_completion_tokens` (integer): Alternative to max_tokens for chat completions. Maximum number of completion tokens to generate.
+- `max_completion_tokens` (integer): Alternative to max\_tokens for chat completions. Maximum number of completion tokens to generate.
 - `temperature` (float): Controls randomness in generation. Range: 0.0 to 2.0 (0.0 = deterministic, 2.0 = maximum randomness).
 - `top_p` (float): Nucleus sampling threshold. Range: 1e-10 to 1.0.
 - `top_k` (integer): Limits token selection to top K most likely tokens. Range: -1 or greater (-1 = no limit).
@@ -368,15 +368,15 @@ data: [DONE]
 **Response fields explanation**
 
 - `id`: Unique identifier for the completion
-- `object`: Type of object returned ("chat.completion", "text_completion", "chat.completion.chunk")
+- `object`: Type of object returned ("chat.completion", "text\_completion", "chat.completion.chunk")
 - `created`: Unix timestamp of when the completion was created
 - `model`: Model used for the completion
 - `choices`: Array of completion choices
 - `usage`: Token usage information including prompt, completion, and total tokens
 - `logprobs`: Log probability information for tokens (when requested)
-- `finish_reason`: Reason why the model stopped generating ("stop", "length", "content_filter")
+- `finish_reason`: Reason why the model stopped generating ("stop", "length", "content\_filter")
 - `delta`: Incremental content in streaming responses
-- `reasoning`: Reasoning content when reasoning_effort is used
+- `reasoning`: Reasoning content when reasoning\_effort is used
 - `token_ids`: Array of token IDs for the generated text
 
 For complete API documentation, see [InvokeEndpoint API reference](../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.md "../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.md") and [InvokeEndpointWithResponseStream API reference](../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.md").

@@ -31,8 +31,8 @@ The following are guidelines and requirements for preparing data for fine-tuning
    customer-provided custom system prompt.
 7. Supported roles are `user` and `assistant`.
 8. The first turn in `messages` should always start with `"role":
-"user"`. The last turn is the bot's response, denoted by `"role":
-"assistant"`.
+ "user"`. The last turn is the bot's response, denoted by `"role":
+ "assistant"`.
 9. The `image.source.s3Location.uri` and
    `video.source.s3Location.uri` must be accessible to Amazon Bedrock.
 10. Your Amazon Bedrock service role must be able to access the image files in Amazon S3. For more information about granting access, see

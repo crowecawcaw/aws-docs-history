@@ -235,7 +235,7 @@ The video generation process will result in the following files being written to
 - **manifest.json** - A file written at the start of the job, containing the request ID.
 - **video-generation-status.json** - This file is written whether the job succeeds of fails. When a job fails, it will contain detailed information explaining exactly which part of the job failed and what action to take to fix the error.
 - **output.mp4** - The complete multi-shot video. Written only if the job succeeds.
-- **shot_N.mp4** - Each individual shot is also provided as its own video. The file name follows the format "shot_0001.mp4", "shot_0002.mp4", and so on. These files are written only if the whole job succeeds.
+- **shot\_N.mp4** - Each individual shot is also provided as its own video. The file name follows the format "shot\_0001.mp4", "shot\_0002.mp4", and so on. These files are written only if the whole job succeeds.
 
 ## Checking progress of video generation jobs
 
@@ -319,7 +319,7 @@ The schema of this JSON file is provided below.
 
 Possible failure reasons and messages are
 
-- INTERNAL_SERVER_EXCEPTION - "Something went wrong on the server side."
-- RAI_VIOLATION_OUTPUT_VIDEO_DEFLECTION - "The generated content has been blocked by our content filters."
-- RATE_LIMIT_EXCEEDED - "Service capacity limit has been reached. Please try again later."
+- INTERNAL\_SERVER\_EXCEPTION - "Something went wrong on the server side."
+- RAI\_VIOLATION\_OUTPUT\_VIDEO\_DEFLECTION - "The generated content has been blocked by our content filters."
+- RATE\_LIMIT\_EXCEEDED - "Service capacity limit has been reached. Please try again later."
 - ABORTED - "Request has been aborted."

@@ -90,12 +90,12 @@ The `model_importance_score.fine_tuned_model` parameter controls the
 balance between your fine-tuned model and the base model. Start with these
 guidelines:
 
-| Scenario                                                    | Recommended starting weight        | Rationale                                                                                                                                            |
-| ----------------------------------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Single-round SFT with comprehensive training data           | \*_1.0_<br>• (default, no merging) | Your training data covers the target task well; merging would dilute<br>learned behavior without benefit.                                            |
-| Single-round SFT where general capabilities degrade         | **0.7–0.9**                        | Blends in enough base model knowledge to recover general skills<br>(math, reasoning, coding) while preserving most of the fine-tuned<br>performance. |
-| Iterative/continual SFT (building on a previous checkpoint) | **0.3–0.7**                        | Lower weights retain more knowledge from prior training rounds.<br>Without merging, later rounds can overwrite skills learned in earlier<br>rounds.  |
-| Exploratory / unsure                                        | **0.7**                            | A reasonable middle ground; adjust based on evaluation<br>results.                                                                                   |
+| Scenario                                                    | Recommended starting weight       | Rationale                                                                                                                                            |
+| ----------------------------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Single-round SFT with comprehensive training data           | *_1.0_<br>• (default, no merging) | Your training data covers the target task well; merging would dilute<br>learned behavior without benefit.                                            |
+| Single-round SFT where general capabilities degrade         | **0.7–0.9**                       | Blends in enough base model knowledge to recover general skills<br>(math, reasoning, coding) while preserving most of the fine-tuned<br>performance. |
+| Iterative/continual SFT (building on a previous checkpoint) | **0.3–0.7**                       | Lower weights retain more knowledge from prior training rounds.<br>Without merging, later rounds can overwrite skills learned in earlier<br>rounds.  |
+| Exploratory / unsure                                        | **0.7**                           | A reasonable middle ground; adjust based on evaluation<br>results.                                                                                   |
 
 **General principle:** Higher weights (closer to 1.0)
 maximize target task performance but risk losing general capabilities. Lower weights

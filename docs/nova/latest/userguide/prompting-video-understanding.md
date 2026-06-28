@@ -28,28 +28,28 @@ Amazon Nova models allow you to include multiple images in the payload. The tota
 size can't exceed 25 MB. Amazon Nova models can analyze the passed images and answer questions,
 classify an image, and summarize images based on provided instructions.
 
-| Image information | Media File Type           | File Formats supported   | Input Method |
-| ----------------- | ------------------------- | ------------------------ | ------------ |
-| Image             | PNG, JPG, JPEG, GIF, WebP | Base64 and Amazon S3 URI |
+Image information| Media File Type | File Formats supported | Input Method |
+| --- | --- | --- |
+| Image | PNG, JPG, JPEG, GIF, WebP | Base64 and Amazon S3 URI |
 
-| Video information | Format           | MIME Type                                                                       | Video Encoding |
-| ----------------- | ---------------- | ------------------------------------------------------------------------------- | -------------- |
-| MKV               | video/x-matroska | H.264                                                                           |
-| MOV               | video/quicktime  | H.264<br>H.265<br>ProRES                                                        |
-| MP4               | video/mp4        | DIVX/XVID<br>H.264<br>H.265<br>J2K (JPEG2000)<br>MPEG-2<br>MPEG-4 Part 2<br>VP9 |
-| WEBM              | video/webm       | VP8<br>VP9                                                                      |
-| FLV               | video/x-flv      | FLV1                                                                            |
-| MPEG              | video/mpeg       | MPEG-1                                                                          |
-| MPG               | video/mpg        | MPEG-1                                                                          |
-| WMV               | video/wmv        | MSMPEG4v3 (MP43)                                                                |
-| 3GPP              | video/3gpp       | H.264                                                                           |
+Video information| Format | MIME Type | Video Encoding |
+| --- | --- | --- |
+| MKV | video/x-matroska | H.264 |
+| MOV | video/quicktime | H.264<br>H.265<br>ProRES |
+| MP4 | video/mp4 | DIVX/XVID<br>H.264<br>H.265<br>J2K (JPEG2000)<br>MPEG-2<br>MPEG-4 Part 2<br>VP9 |
+| WEBM | video/webm | VP8<br>VP9 |
+| FLV | video/x-flv | FLV1 |
+| MPEG | video/mpeg | MPEG-1 |
+| MPG | video/mpg | MPEG-1 |
+| WMV | video/wmv | MSMPEG4v3 (MP43) |
+| 3GPP | video/3gpp | H.264 |
 
 There are no differences in the video input token count, regardless of whether the video
 is passed as base64 (as long as it fits within the size constraints) or via an Amazon S3
 location.
 
 Note that for 3gp file format, the "format" field passed in the API request should be of
-the format "three_gp".
+the format "three\_gp".
 
 When using Amazon S3, ensure that your "Content-Type" metadata is set to the correct MIME type
 for the video

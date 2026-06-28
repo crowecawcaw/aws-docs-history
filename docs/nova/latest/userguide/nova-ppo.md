@@ -37,7 +37,7 @@ to train and score a model. The following models are part of the PPO process:
   sequence. This line contains system prompts, user messages, and bot responses. User
   messages typically end with "Bot: " to indicate where the model output begins. For
   example, `[["System prompt"], ["User: Question Bot:"], ["Bot
-response"]]`.
+ response"]]`.
 - `turns_to_mask` is an array of 0-based indices that identify which turns
   should not receive gradient updates. The masked turns are typically system prompts and
   user turns. For example, `[0, 1, 3]` masks the system prompt and user messages
@@ -349,7 +349,7 @@ The Amazon Nova parameters that are available for tuning with PPO include:
     the reward model. If `ppo_actor_train.model.global_batch_size` is greater
     than `ppo_reward.model.global_batch_size`, they are processed in multiple
     batches. Note that `ppo_actor_train.model.global_batch_size %
-ppo_reward.model.global_batch_size` must equal 0.
+   ppo_reward.model.global_batch_size` must equal 0.
   - `max_length`: The maximum context length of the reward model. This
     should be same as `ppo_actor_train.model.max_length`.
 
@@ -360,10 +360,10 @@ ppo_reward.model.global_batch_size` must equal 0.
     the actor model. The batch size is used for both inference and training.
 
   Note that `ppo_actor_train.model.global_batch_size %
- ppo_critic.model.global_batch_size` must equal 0 and
+   ppo_critic.model.global_batch_size` must equal 0 and
   `ppo_actor_train.model.global_batch_size *
- ppo_actor_train.model.trajectory_buffer_size % ppo_critic.model.global_batch_size ==
- 0`.
+   ppo_actor_train.model.trajectory_buffer_size % ppo_critic.model.global_batch_size ==
+   0`.
   - `max_length`: The maximum context length of the critic model. This
     should be same as `ppo_actor_train.model.max_length`.
   - `model.optim.lr`: The learning rate used for surrogate model loss
@@ -373,7 +373,7 @@ ppo_reward.model.global_batch_size` must equal 0.
 
   - `global_batch_size`: The batch size for generating the logp of the
     frozen SFT or anchor model. Note that `ppo_actor_train.model.global_batch_size %
-ppo_anchor.model.global_batch_size` must equal 0.
+   ppo_anchor.model.global_batch_size` must equal 0.
   - `max_length`: The maximum context length of the reward model. This
     should be same as `ppo_actor_train.model.max_length`.
 
