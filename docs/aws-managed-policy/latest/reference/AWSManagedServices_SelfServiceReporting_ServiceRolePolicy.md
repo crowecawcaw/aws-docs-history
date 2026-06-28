@@ -1,4 +1,4 @@
-# AWSManagedServices_SelfServiceReporting_ServiceRolePolicy
+# AWSManagedServices\_SelfServiceReporting\_ServiceRolePolicy
 
 **Description**: Allows Amazon's AWS Managed Service's Self Service Reporting feature to read AWS Organization data on your behalf to enable organization level aggregated reporting
 

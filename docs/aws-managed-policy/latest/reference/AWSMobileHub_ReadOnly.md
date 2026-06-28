@@ -1,4 +1,4 @@
-# AWSMobileHub_ReadOnly
+# AWSMobileHub\_ReadOnly
 
 **Description**: This policy may be attached to any User, Role, or Group, in order to grant users permission to list and view projects in AWS Mobile Hub. This also includes permissions to generate and download sample mobile app source code for each Mobile Hub project. It does not allow the user to modify any configuration for any Mobile Hub project.
 

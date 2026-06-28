@@ -1,4 +1,4 @@
-# AmazonInspector2FullAccess_v2
+# AmazonInspector2FullAccess\_v2
 
 **Description**: Provides full access to Amazon Inspector and access to other related services such as organizations with restrictive organizational access.
 

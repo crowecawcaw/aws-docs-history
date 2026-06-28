@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: June 10, 2025, 17:37 UTC
-- **Edited time:** May 05, 2026, 20:57 UTC
+- **Edited time:** June 27, 2026, 00:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSSecurityHubV2ServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -37,12 +37,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "config:DeleteServiceLinkedConfigurationRecorder",
         "config:DescribeConfigurationRecorders",
         "config:DescribeConfigurationRecorderStatus",
-        "config:PutServiceLinkedConfigurationRecorder"
+        "config:PutServiceLinkedConfigurationRecorder",
+        "config:PutThirdPartyServiceLinkedConfigurationRecorder"
       ],
-      "Resource" : [
-        "arn:aws:config:*:*:configuration-recorder/AWSConfigurationRecorderForSecurityHubAssets/*",
-        "arn:aws:config:*:*:configuration-recorder/AWSConfigurationRecorderForSecurityHubAssetsGlobal/*"
-      ]
+      "Resource" : "arn:aws:config:*:*:configuration-recorder/*ConfigurationRecorderForSecurityHubAssets*"
+    },
+    {
+      "Sid" : "SecurityHubV2ServiceRoleAssetsConfigListAndGet",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:ListConfigurationRecorders",
+        "config:GetConnector"
+      ],
+      "Resource" : "*"
     },
     {
       "Sid" : "SecurityHubV2ServiceRoleAssetsIamPermissions",
@@ -63,7 +70,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "securityhub:DisableSecurityHubV2",
         "securityhub:EnableSecurityHubV2",
-        "securityhub:DescribeSecurityHubV2"
+        "securityhub:DescribeSecurityHubV2",
+        "securityhub:EnableSecurityHubFeatureV2",
+        "securityhub:DisableSecurityHubFeatureV2"
       ],
       "Resource" : "arn:aws:securityhub:*:*:hubv2/*",
       "Condition" : {
@@ -125,7 +134,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "SecurityHubV2ServiceRoleLambdaMetricPermissions",
+      "Sid" : "SecurityHubV2ServiceRoleLambdaAndConfigMetricPermissions",
       "Effect" : "Allow",
       "Action" : [
         "cloudwatch:GetMetricData"
@@ -206,6 +215,65 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/*",
         "arn:aws:iam::*:user/*"
       ]
+    },
+    {
+      "Sid" : "SecurityHubConnectorPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "securityhub:CreateConnector",
+        "securityhub:UpdateConnector",
+        "securityhub:DeleteConnector"
+      ],
+      "Resource" : "arn:aws:securityhub:*:*:connector/*",
+      "Condition" : {
+        "StringLikeIfExists" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "SecurityHubV2ServiceRoleInspectorConnectorPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "inspector2:CreateConnector",
+        "inspector2:DeleteConnector",
+        "inspector2:ListConnectors",
+        "inspector2:ListConnectorScanConfigurations",
+        "inspector2:UpdateConnector",
+        "inspector2:UpdateConnectorScanConfiguration"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLikeIfExists" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "SecurityHubV2ServiceRoleInspectorIamPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/thirdparty.inspector2.amazonaws.com/*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "thirdparty.inspector2.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "SecurityHubV2ServiceRoleOutboundIdentityFederationPermission",
+      "Effect" : "Allow",
+      "Action" : "sts:GetWebIdentityToken",
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringLike" : {
+          "sts:IdentityTokenAudience" : [
+            "api://AzureADTokenExchange"
+          ]
+        }
+      }
     }
   ]
 }

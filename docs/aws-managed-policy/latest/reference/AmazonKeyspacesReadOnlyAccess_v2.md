@@ -1,4 +1,4 @@
-# AmazonKeyspacesReadOnlyAccess_v2
+# AmazonKeyspacesReadOnlyAccess\_v2
 
 **Description**: Provide read only access to Amazon Keyspaces and related AWS services.
 

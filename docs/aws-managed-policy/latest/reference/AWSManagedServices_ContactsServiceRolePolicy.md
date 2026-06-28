@@ -1,4 +1,4 @@
-# AWSManagedServices_ContactsServiceRolePolicy
+# AWSManagedServices\_ContactsServiceRolePolicy
 
 **Description**: Allows AWS Managed Services to read the values of the tags on AWS resources
 

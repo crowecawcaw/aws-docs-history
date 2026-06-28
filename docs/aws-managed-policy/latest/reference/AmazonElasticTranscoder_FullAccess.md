@@ -1,4 +1,4 @@
-# AmazonElasticTranscoder_FullAccess
+# AmazonElasticTranscoder\_FullAccess
 
 **Description**: Grants users full access to Elastic Transcoder and the access to associated services that is required for full Elastic Transcoder functionality.
 

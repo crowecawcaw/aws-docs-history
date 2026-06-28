@@ -1,4 +1,4 @@
-# AmazonEMRReadOnlyAccessPolicy_v2
+# AmazonEMRReadOnlyAccessPolicy\_v2
 
 **Description**: Provides read only access to Amazon EMR and the associated CloudWatch Metrics.
 

@@ -12,13 +12,13 @@ You can attach `AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary` to yo
 
 - **Type**: AWS managed policy
 - **Creation time**: April 23, 2024, 23:01 UTC
-- **Edited time:** March 11, 2026, 21:12 UTC
+- **Edited time:** June 27, 2026, 00:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -340,6 +340,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
     },
     {
       "Sid" : "AllowCodeBuildActions",
+      "Effect" : "Allow",
       "Action" : [
         "codebuild:BatchGetBuilds",
         "codebuild:StartBuild"
@@ -347,11 +348,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:codebuild:*:*:project/sagemaker*",
         "arn:aws:codebuild:*:*:build/*"
-      ],
-      "Effect" : "Allow"
+      ]
     },
     {
       "Sid" : "AllowStepFunctionsActions",
+      "Effect" : "Allow",
       "Action" : [
         "states:DescribeExecution",
         "states:GetExecutionHistory",
@@ -362,8 +363,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:states:*:*:statemachine:*sagemaker*",
         "arn:aws:states:*:*:execution:*sagemaker*:*"
-      ],
-      "Effect" : "Allow"
+      ]
     },
     {
       "Sid" : "AllowSecretManagerActions",
@@ -507,8 +507,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
     },
     {
       "Sid" : "AllowCreateServiceLinkedRoleForSageMakerApplicationAutoscaling",
-      "Action" : "iam:CreateServiceLinkedRole",
       "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
       "Resource" : "arn:aws:iam::*:role/aws-service-role/sagemaker.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_SageMakerEndpoint",
       "Condition" : {
         "StringLike" : {
@@ -823,22 +823,22 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:secretsmanager:*:*:secret:AmazonDataZone-*",
       "Condition" : {
-        "StringLike" : {
-          "aws:ResourceTag/AmazonDataZoneDomain" : "dzd*",
-          "aws:RequestTag/AmazonDataZoneDomain" : "dzd*"
-        },
-        "Null" : {
-          "aws:TagKeys" : "false",
-          "aws:ResourceTag/AmazonDataZoneProject" : "false",
-          "aws:ResourceTag/AmazonDataZoneDomain" : "false",
-          "aws:RequestTag/AmazonDataZoneDomain" : "false",
-          "aws:RequestTag/AmazonDataZoneProject" : "false"
-        },
         "ForAllValues:StringEquals" : {
           "aws:TagKeys" : [
             "AmazonDataZoneDomain",
             "AmazonDataZoneProject"
           ]
+        },
+        "Null" : {
+          "aws:RequestTag/AmazonDataZoneDomain" : "false",
+          "aws:RequestTag/AmazonDataZoneProject" : "false",
+          "aws:ResourceTag/AmazonDataZoneDomain" : "false",
+          "aws:ResourceTag/AmazonDataZoneProject" : "false",
+          "aws:TagKeys" : "false"
+        },
+        "StringLike" : {
+          "aws:RequestTag/AmazonDataZoneDomain" : "dzd*",
+          "aws:ResourceTag/AmazonDataZoneDomain" : "dzd*"
         }
       }
     },
@@ -1216,6 +1216,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "DenyUpdateNotebookInstanceLifecycleConfig",
       "Effect" : "Deny",
       "Action" : [
+        "sagemaker:CreateNotebookInstanceLifecycleConfig",
         "sagemaker:UpdateNotebookInstanceLifecycleConfig"
       ],
       "Resource" : "*"

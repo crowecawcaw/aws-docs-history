@@ -1,20 +1,20 @@
-# AWSIoTDeviceDefenderAddThingsToThingGroupMitigationAction
+# AIDevOpsAgentActionsPolicy
 
-**Description**: Provides write access to IoT thing groups and read access to IoT Certificates for execution of ADD\_THINGS\_TO\_THING\_GROUP mitigation action
+**Description**: Provides elevated permissions required by the AWS DevOps Agent to perform operator-approved mutations or elevated actions on customer AWS resources during operational events.
 
-`AWSIoTDeviceDefenderAddThingsToThingGroupMitigationAction` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AIDevOpsAgentActionsPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSIoTDeviceDefenderAddThingsToThingGroupMitigationAction` to your users, groups, and roles.
+You can attach `AIDevOpsAgentActionsPolicy` to your users, groups, and roles.
 
 ## Policy details
 
-- **Type**: Service role policy
-- **Creation time**: August 07, 2019, 17:55 UTC
-- **Edited time:** August 07, 2019, 17:55 UTC
+- **Type**: AWS managed policy
+- **Creation time**: June 23, 2026, 22:27 UTC
+- **Edited time:** June 23, 2026, 22:27 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/service-role/AWSIoTDeviceDefenderAddThingsToThingGroupMitigationAction`
+  `arn:aws:iam::aws:policy/AIDevOpsAgentActionsPolicy`
 
 ## Policy version
 
@@ -30,14 +30,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "AIDevOpsMutativeAccess",
       "Effect" : "Allow",
       "Action" : [
-        "iot:ListPrincipalThings",
-        "iot:AddThingToThingGroup"
+        "autoscaling:UpdateAutoScalingGroup",
+        "cloudformation:UpdateStack",
+        "cloudwatch:PutMetricAlarm",
+        "ec2:CreateTags",
+        "ec2:ModifyInstanceAttribute",
+        "ecs:UpdateService",
+        "elasticloadbalancing:ModifyTargetGroup",
+        "lambda:UpdateFunctionConfiguration",
+        "logs:PutMetricFilter",
+        "rds:ModifyDBInstance"
       ],
-      "Resource" : [
-        "*"
-      ]
+      "Resource" : "*"
     }
   ]
 }

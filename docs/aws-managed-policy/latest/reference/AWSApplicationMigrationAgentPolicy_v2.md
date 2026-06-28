@@ -1,4 +1,4 @@
-# AWSApplicationMigrationAgentPolicy_v2
+# AWSApplicationMigrationAgentPolicy\_v2
 
 **Description**: This policy allows using the AWS Replication Agent, which is used with AWS Application Migration Service (MGN) to migrate external servers to AWS. We do not recommend that you attach this policy to your IAM users or roles.
 

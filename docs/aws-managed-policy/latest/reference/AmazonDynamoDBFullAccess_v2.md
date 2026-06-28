@@ -1,4 +1,4 @@
-# AmazonDynamoDBFullAccess_v2
+# AmazonDynamoDBFullAccess\_v2
 
 **Description**: Provides full access to Amazon DynamoDB
 

@@ -1,4 +1,4 @@
-# AWS_ConfigRole
+# AWS\_ConfigRole
 
 **Description**: Default policy for AWS Config service role. Provides permissions required for AWS Config to track changes to your AWS resources.
 

@@ -1,4 +1,4 @@
-# AmazonLaunchWizard_Fullaccess
+# AmazonLaunchWizard\_Fullaccess
 
 **Description**: Full access to AWS Launch wizard and other required services.
 

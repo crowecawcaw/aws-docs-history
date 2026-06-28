@@ -1,4 +1,4 @@
-# AmazonEMRServicePolicy_v2
+# AmazonEMRServicePolicy\_v2
 
 **Description**: This policy is used for the Amazon EMR Service Role and should NOT be used for any other IAM users or roles in your account. The policy grants permissions to create and manage resources associated with EMR and related services necessary for the operation of your EMR cluster.
 

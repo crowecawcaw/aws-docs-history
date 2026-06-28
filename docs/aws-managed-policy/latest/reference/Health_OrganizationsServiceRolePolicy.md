@@ -1,4 +1,4 @@
-# Health_OrganizationsServiceRolePolicy
+# Health\_OrganizationsServiceRolePolicy
 
 **Description**: AWS Health policy to enable Organizational View feature
 

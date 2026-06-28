@@ -1,4 +1,4 @@
-# AmazonEMRFullAccessPolicy_v2
+# AmazonEMRFullAccessPolicy\_v2
 
 **Description**: Provides full access to Amazon EMR
 

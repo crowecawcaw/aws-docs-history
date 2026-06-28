@@ -1,4 +1,4 @@
-# AmazonECS_FullAccess
+# AmazonECS\_FullAccess
 
 **Description**: Provides administrative access to Amazon ECS resources and enables ECS features through access to other AWS service resources, including VPCs, Auto Scaling groups, and CloudFormation stacks.
 

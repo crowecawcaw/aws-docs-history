@@ -1,6 +1,6 @@
 # AWSIoTDeviceDefenderReplaceDefaultPolicyMitigationAction
 
-**Description**: Provides write access to IoT policies for execution of REPLACE_DEFAULT_POLICY_VERSION mitigation action
+**Description**: Provides write access to IoT policies for execution of REPLACE\_DEFAULT\_POLICY\_VERSION mitigation action
 
 `AWSIoTDeviceDefenderReplaceDefaultPolicyMitigationAction` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 

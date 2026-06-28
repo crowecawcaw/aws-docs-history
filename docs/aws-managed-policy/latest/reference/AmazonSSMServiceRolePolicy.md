@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 13, 2017, 19:20 UTC
-- **Edited time:** July 15, 2025, 17:22 UTC
+- **Edited time:** June 26, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonSSMServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -43,7 +43,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ssm:StartAutomationExecution",
         "ssm:StopAutomationExecution",
         "ssm:ListTagsForResource",
-        "ssm:GetCalendarState"
+        "ssm:GetCalendarState",
+        "ssm:ListCloudConnectors"
       ],
       "Resource" : [
         "*"

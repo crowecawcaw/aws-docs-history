@@ -1,4 +1,4 @@
-# AWSLambda_ReadOnlyAccess
+# AWSLambda\_ReadOnlyAccess
 
 **Description**: Grants read-only access to AWS Lambda service, AWS Lambda console features, and other related AWS services.
 

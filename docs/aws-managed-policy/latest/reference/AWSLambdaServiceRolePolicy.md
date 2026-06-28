@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 30, 2025, 08:04 UTC
-- **Edited time:** November 30, 2025, 08:04 UTC
+- **Edited time:** June 22, 2026, 15:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSLambdaServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -53,6 +53,25 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "*"
       ]
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "ec2:DeleteNetworkInterface",
+      "Resource" : "arn:aws:ec2:*:*:network-interface/*",
+      "Condition" : {
+        "StringEquals" : {
+          "ec2:ManagedResourceOperator" : "network-connectors.lambda.amazonaws.com"
+        }
+      }
     }
   ]
 }

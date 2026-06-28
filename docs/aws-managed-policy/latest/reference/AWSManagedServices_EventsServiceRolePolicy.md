@@ -1,4 +1,4 @@
-# AWSManagedServices_EventsServiceRolePolicy
+# AWSManagedServices\_EventsServiceRolePolicy
 
 **Description**: AWS Managed Services policy to enable AMS event processor feature.
 

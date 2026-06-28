@@ -1,4 +1,4 @@
-# AWSECRPullThroughCache_ServiceRolePolicy
+# AWSECRPullThroughCache\_ServiceRolePolicy
 
 **Description**: Enables access to AWS services and resources used or managed by AWS ECR pull through cache
 

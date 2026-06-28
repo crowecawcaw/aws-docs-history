@@ -1,4 +1,4 @@
-# AmazonConnect_FullAccess
+# AmazonConnect\_FullAccess
 
 **Description**: The purpose of this policy is to grant permissions to AWS Connect users required to use Connect resources. This policy provides full access to AWS Connect resources via the Connect Console and public APIs
 

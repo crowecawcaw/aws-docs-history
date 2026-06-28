@@ -1,4 +1,4 @@
-# AWSDataPipeline_PowerUser
+# AWSDataPipeline\_PowerUser
 
 **Description**: Provides full access to Data Pipeline, list access for S3, DynamoDB, Redshift, RDS, SNS, and IAM roles, and passRole access for default Roles.
 

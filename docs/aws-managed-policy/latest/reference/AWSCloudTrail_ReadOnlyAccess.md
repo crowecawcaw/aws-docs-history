@@ -1,4 +1,4 @@
-# AWSCloudTrail_ReadOnlyAccess
+# AWSCloudTrail\_ReadOnlyAccess
 
 **Description**: Provides read only access to AWS CloudTrail.
 

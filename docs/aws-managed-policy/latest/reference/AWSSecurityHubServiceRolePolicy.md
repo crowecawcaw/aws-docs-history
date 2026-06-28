@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 27, 2018, 23:47 UTC
-- **Edited time:** April 29, 2026, 14:27 UTC
+- **Edited time:** June 27, 2026, 00:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSSecurityHubServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -112,6 +112,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "config:PutServiceLinkedConfigurationRecorder",
+        "config:PutThirdPartyServiceLinkedConfigurationRecorder",
         "config:DeleteServiceLinkedConfigurationRecorder",
         "config:DescribeConfigurationRecorders",
         "config:DescribeConfigurationRecorderStatus"
@@ -119,6 +120,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:config:*:*:configuration-recorder/*ConfigurationRecorderForSecurityHubCSPM*"
       ]
+    },
+    {
+      "Sid" : "SecurityHubCSPMServiceRoleConfigListAndGet",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:ListConfigurationRecorders",
+        "config:GetConnector"
+      ],
+      "Resource" : "*"
     },
     {
       "Sid" : "SecurityHubCSPMServiceRoleIamPermissions",
@@ -132,6 +142,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "iam:AWSServiceName" : "config.amazonaws.com"
         }
       }
+    },
+    {
+      "Sid" : "SecurityHubCSPMServiceRoleConfigMetricsPermissions",
+      "Effect" : "Allow",
+      "Action" : "cloudwatch:GetMetricData",
+      "Resource" : "*"
     }
   ]
 }

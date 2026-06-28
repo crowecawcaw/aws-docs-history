@@ -1,4 +1,4 @@
-# AWSServiceRoleForCloudWatchMetrics_DbPerfInsightsServiceRolePolicy
+# AWSServiceRoleForCloudWatchMetrics\_DbPerfInsightsServiceRolePolicy
 
 **Description**: Allows CloudWatch to access RDS Performance Insights metrics on your behalf
 

@@ -1,6 +1,6 @@
 # AWSIoTDeviceDefenderUpdateCACertMitigationAction
 
-**Description**: Provides write access to IoT CA certificates for execution of UPDATE_CA_CERTIFICATE mitigation action
+**Description**: Provides write access to IoT CA certificates for execution of UPDATE\_CA\_CERTIFICATE mitigation action
 
 `AWSIoTDeviceDefenderUpdateCACertMitigationAction` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 

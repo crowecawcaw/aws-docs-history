@@ -1,4 +1,4 @@
-# AWSCodePipeline_FullAccess
+# AWSCodePipeline\_FullAccess
 
 **Description**: Provides full access to AWS CodePipeline via the AWS Management Console.
 

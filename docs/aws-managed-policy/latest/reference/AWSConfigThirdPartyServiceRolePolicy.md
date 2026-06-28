@@ -1,8 +1,8 @@
-# AWSSSMOpsInsightsServiceRolePolicy
+# AWSConfigThirdPartyServiceRolePolicy
 
-**Description**: Policy for Service Linked Role AWSServiceRoleForAmazonSSM\_OpsInsights
+**Description**: Provides permissions for AWS Config to inventory and evaluate compliance of third-party cloud resources.
 
-`AWSSSMOpsInsightsServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSConfigThirdPartyServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
@@ -12,10 +12,10 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 ## Policy details
 
 - **Type**: Service-linked role policy
-- **Creation time**: June 16, 2021, 20:12 UTC
-- **Edited time:** June 16, 2021, 20:12 UTC
+- **Creation time**: June 22, 2026, 17:57 UTC
+- **Edited time:** June 22, 2026, 17:57 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/AWSSSMOpsInsightsServiceRolePolicy`
+  `arn:aws:iam::aws:policy/aws-service-role/AWSConfigThirdPartyServiceRolePolicy`
 
 ## Policy version
 
@@ -31,25 +31,37 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "AllowCreateOpsItem",
+      "Sid" : "AllowGetWebIdentityTokenByConfig",
+      "Effect" : "Allow",
+      "Action" : "sts:GetWebIdentityToken",
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringLike" : {
+          "sts:IdentityTokenAudience" : [
+            "api://AzureADTokenExchange"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AllowConfigActionsForRules",
       "Effect" : "Allow",
       "Action" : [
-        "ssm:CreateOpsItem",
-        "ssm:AddTagsToResource"
+        "config:PutEvaluations",
+        "config:GetComplianceDetailsByConfigRule"
       ],
       "Resource" : "*"
     },
     {
-      "Sid" : "AllowAccessOpsItem",
+      "Sid" : "AllowCloudwatchActionsForMetrics",
       "Effect" : "Allow",
       "Action" : [
-        "ssm:UpdateOpsItem",
-        "ssm:GetOpsItem"
+        "cloudwatch:PutMetricData"
       ],
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/SsmOperationalInsight" : "true"
+          "cloudwatch:namespace" : "AWS/Config"
         }
       }
     }

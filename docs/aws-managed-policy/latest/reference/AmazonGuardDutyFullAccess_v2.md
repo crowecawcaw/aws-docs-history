@@ -1,4 +1,4 @@
-# AmazonGuardDutyFullAccess_v2
+# AmazonGuardDutyFullAccess\_v2
 
 **Description**: Provides full access to use Amazon GuardDuty
 

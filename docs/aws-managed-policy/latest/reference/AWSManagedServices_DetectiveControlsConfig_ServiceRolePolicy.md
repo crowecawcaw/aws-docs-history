@@ -1,4 +1,4 @@
-# AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy
+# AWSManagedServices\_DetectiveControlsConfig\_ServiceRolePolicy
 
 **Description**: AWS Managed Services - policy to manage detective controls infrastructure
 

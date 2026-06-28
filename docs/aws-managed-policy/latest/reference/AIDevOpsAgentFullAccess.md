@@ -12,13 +12,13 @@ You can attach `AIDevOpsAgentFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** June 12, 2026, 23:27 UTC
+- **Edited time:** June 26, 2026, 23:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsAgentFullAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -103,6 +103,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aidevops:TagResource",
         "aidevops:UntagResource",
         "aidevops:UpdateAgentSpace",
+        "aidevops:UpdateApprovalAction",
         "aidevops:UpdateAsset",
         "aidevops:UpdateAssetFile",
         "aidevops:UpdateAssociation",

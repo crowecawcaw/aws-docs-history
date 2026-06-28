@@ -1,4 +1,4 @@
-# AWSElasticDisasterRecoveryConsoleFullAccess_v2
+# AWSElasticDisasterRecoveryConsoleFullAccess\_v2
 
 **Description**: This policy provides full access to all public APIs of AWS Elastic Disaster Recovery (AWS DRS), as well as all public APIs in other AWS services used by AWS DRS Console. Attach this policy to your users or roles.
 

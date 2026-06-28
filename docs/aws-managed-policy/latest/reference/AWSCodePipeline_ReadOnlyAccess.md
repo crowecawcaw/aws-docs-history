@@ -1,4 +1,4 @@
-# AWSCodePipeline_ReadOnlyAccess
+# AWSCodePipeline\_ReadOnlyAccess
 
 **Description**: Provides read only access to AWS CodePipeline via the AWS Management Console.
 

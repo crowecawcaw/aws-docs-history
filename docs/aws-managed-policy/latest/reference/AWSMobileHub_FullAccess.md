@@ -1,4 +1,4 @@
-# AWSMobileHub_FullAccess
+# AWSMobileHub\_FullAccess
 
 **Description**: This policy may be attached to any User, Role, or Group, in order to grant users permission to create, delete, and modify projects (and their associated AWS resources) in AWS Mobile Hub. This also includes permissions to generate and download sample mobile app source code for each Mobile Hub project.
 

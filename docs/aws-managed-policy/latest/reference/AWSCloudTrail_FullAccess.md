@@ -1,4 +1,4 @@
-# AWSCloudTrail_FullAccess
+# AWSCloudTrail\_FullAccess
 
 **Description**: Provides full access to AWS CloudTrail.
 

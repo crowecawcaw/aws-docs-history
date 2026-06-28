@@ -1,6 +1,6 @@
 # AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction
 
-**Description**: Provides messages publish access to SNS topic for execution of PUBLISH_FINDING_TO_SNS mitigation action
+**Description**: Provides messages publish access to SNS topic for execution of PUBLISH\_FINDING\_TO\_SNS mitigation action
 
 `AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 

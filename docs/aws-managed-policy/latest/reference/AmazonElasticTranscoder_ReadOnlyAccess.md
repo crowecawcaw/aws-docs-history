@@ -1,4 +1,4 @@
-# AmazonElasticTranscoder_ReadOnlyAccess
+# AmazonElasticTranscoder\_ReadOnlyAccess
 
 **Description**: Grants users read-only access to Elastic Transcoder and list access to related services.
 

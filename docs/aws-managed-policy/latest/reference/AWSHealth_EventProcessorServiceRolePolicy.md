@@ -1,4 +1,4 @@
-# AWSHealth_EventProcessorServiceRolePolicy
+# AWSHealth\_EventProcessorServiceRolePolicy
 
 **Description**: Allows AWS Health to enable the Health event processor feature.
 

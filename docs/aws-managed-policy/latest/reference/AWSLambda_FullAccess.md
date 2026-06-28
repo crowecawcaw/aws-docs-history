@@ -1,4 +1,4 @@
-# AWSLambda_FullAccess
+# AWSLambda\_FullAccess
 
 **Description**: Grants full access to AWS Lambda service, AWS Lambda console features, and other related AWS services.
 

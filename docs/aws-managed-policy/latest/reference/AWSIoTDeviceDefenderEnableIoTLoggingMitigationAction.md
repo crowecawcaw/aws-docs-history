@@ -1,6 +1,6 @@
 # AWSIoTDeviceDefenderEnableIoTLoggingMitigationAction
 
-**Description**: Provides access for enabling IoT logging for execution of ENABLE_IOT_LOGGING mitigation action
+**Description**: Provides access for enabling IoT logging for execution of ENABLE\_IOT\_LOGGING mitigation action
 
 `AWSIoTDeviceDefenderEnableIoTLoggingMitigationAction` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
