@@ -5,7 +5,7 @@ When integrated with Organizations, AWS Marketplace procurement insights dashboa
 such as an account joining the organization, and aggregates data for their corresponding agreements to build their dashboards.
 
 For more information, see [Procurement insights](../../../marketplace/latest/buyerguide/procurement-insights.md "../../../marketplace/latest/buyerguide/procurement-insights.md")  
- in the _AWS Marketplace Buyer Guide_.
+in the _AWS Marketplace Buyer Guide_.
 
 Use the following information to help you integrate
 AWS Marketplace procurement insights dashboard with AWS Organizations.

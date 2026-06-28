@@ -6,8 +6,8 @@ IAM users in the management account who can assume the role. By default, that ro
 named `OrganizationAccountAccessRole`. For more information, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md "orgs_manage_accounts_access-cross-account-role.md").
 
 However, member accounts that you _invite_ to join
-your organization **_do
-not_** automatically get an administrator role created. You have
+your organization _**do
+not**_ automatically get an administrator role created. You have
 to do this manually, as shown in the following procedure. This essentially duplicates
 the role automatically set up for created accounts. We recommend that you use the same
 name, `OrganizationAccountAccessRole`, for your manually created roles for

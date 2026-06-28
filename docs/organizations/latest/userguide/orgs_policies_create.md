@@ -204,38 +204,42 @@ To add a statement that _denies_ access:
 
 6. To add a statement that _allows_ access:
 
-   1. In the JSON editor on the left, change the line
-      `"Effect": "Deny"` to `"Effect":
-"Allow"`.
+    1. In the JSON editor on the left, change the line
+     `"Effect": "Deny"` to `"Effect":
+     "Allow"`.
 
-   As you choose options on the right, the JSON editor
-   updates to show the corresponding JSON policy on the
-   left. 2. After you select a service, a list opens that contains the
-   available actions for that service. You can choose
-   **All actions**, or choose one or more
-   individual actions that you want to allow.
 
-   The JSON on the left updates to include the actions you
-   selected.
+    As you choose options on the right, the JSON editor
+     updates to show the corresponding JSON policy on the
+     left.
+    2. After you select a service, a list opens that contains the
+     available actions for that service. You can choose
+     **All actions**, or choose one or more
+     individual actions that you want to allow.
 
-   ###### Note
 
-   If you select an individual action and then also go
-   back and also select **All actions**,
-   the expected entry for
-   ``servicename`:\*`
-   is added to the JSON, but the individual actions that
-   you previously selected are left in the JSON and not
-   removed. 3. If you want to add actions from additional services, you
-   can choose **All services** at the top of
-   the **Statement** box, and then repeat the
-   previous two steps as needed.
+    The JSON on the left updates to include the actions you
+     selected.
+
+
+    ###### Note
+
+    If you select an individual action and then also go
+     back and also select **All actions**,
+     the expected entry for
+     ``servicename`:*`
+     is added to the JSON, but the individual actions that
+     you previously selected are left in the JSON and not
+     removed.
+    3. If you want to add actions from additional services, you
+     can choose **All services** at the top of
+     the **Statement** box, and then repeat the
+     previous two steps as needed.
 
 7. (Optional) To add another statement to the policy, choose
-   **Add statement** and use the visual editor to
-   build the next statement.
-8. When you're finished adding statements, choose **Create
-   policy** to save the completed SCP.
+**Add statement** and use the visual editor to
+build the next statement. 8. When you're finished adding statements, choose **Create
+policy** to save the completed SCP.
 
 Your new SCP appears in the list of the organization's policies. You can
 now [attach your SCP to the root, OUs,
@@ -463,10 +467,9 @@ window. You can directly type, or use copy and paste. 5. To add a statement:
      *IAM User Guide*.
 
 6. (Optional) To add another statement to the policy, choose
-   **Add statement** and use the visual editor to
-   build the next statement.
-7. When you're finished adding statements, choose **Create
-   policy** to save the completed RCP.
+**Add statement** and use the visual editor to
+build the next statement. 7. When you're finished adding statements, choose **Create
+policy** to save the completed RCP.
 
 Your new RCP appears in the list of the organization's policies. You can
 now [attach your RCP to the root, OUs,
@@ -642,7 +645,8 @@ policy text.
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[Backup policies](https://console.aws.amazon.com/organizations/v2/home/policies/backup-policy "https://console.aws.amazon.com/organizations/v2/home/policies/backup-policy")** page, choose **Create
    policy**.
-3. On the **Create policy** page, enter a \***\*Policy name\*\*** and an
+3. On the **Create policy** page, enter a
+   ****Policy name**** and an
    optional **Policy description**.
 4. (Optional) You can add one or more tags to the policy by choosing
    **Add tag** and then entering a key and an
@@ -749,8 +753,8 @@ backup plan elements, see [Creating a backup plan](../../../aws-backup/latest/de
      Plan](../../../aws-backup/latest/devguide/create-a-scheduled-backup.md#assign-resources-to-plan "../../../aws-backup/latest/devguide/create-a-scheduled-backup.md#assign-resources-to-plan") in the *AWS Backup Developer Guide*.
 
 6. When you're finished creating your policy, choose **Create
-   policy**. The policy appears in your list of available
-   backup policies.
+policy**. The policy appears in your list of available
+backup policies.
 
 AWS CLI & AWS SDKs
 
@@ -879,7 +883,8 @@ policy text.
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[Tag policies](https://console.aws.amazon.com/organizations/v2/home/policies/tag-policy "https://console.aws.amazon.com/organizations/v2/home/policies/tag-policy")** page, choose **Create
    policy**.
-3. On the **Create policy** page, enter a \***\*Policy name\*\*** and an
+3. On the **Create policy** page, enter a
+   ****Policy name**** and an
    optional **Policy description**.
 4. (Optional) You can add one or more tags to the policy object
    itself. These tags are not part of the policy. To do this, choose
@@ -946,9 +951,9 @@ following options:
      changes**.
 
 8. For
-   **Resource types to enforce**, you can select
-   **Prevent noncompliant operations for this
-   tag**.
+**Resource types to enforce**, you can select
+**Prevent noncompliant operations for this
+tag**.
 
 We recommend that you leave this option cleared (the default)
 unless you are experienced with using tag policies. Make sure that
@@ -1142,8 +1147,8 @@ controls for chat clients.
     	 roles.
 
 6. When you're finished creating your policy, choose **Create
-   policy**. The policy appears in your list of chatbot
-   backup policies.
+policy**. The policy appears in your list of chatbot
+backup policies.
 
 AWS CLI & AWS SDKs
 
@@ -1371,7 +1376,7 @@ the following:
      previous steps to define the tag key.
 
 8. When you're finished editing your policy, choose **Create
-   policy** at the lower-right corner of the page.
+policy** at the lower-right corner of the page.
 
 Your new policy appears in the list of upgrade rollout policies. You can
 now [attach your policy to the root,

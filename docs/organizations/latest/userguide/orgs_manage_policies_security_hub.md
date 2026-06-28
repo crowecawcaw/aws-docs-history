@@ -72,12 +72,12 @@ maintaining baseline controls.
 
 This topic uses the following terms when discussing Security Hub policies.
 
-| Security Hub policy terminology | Term                                                                                    | Definition |
-| ------------------------------- | --------------------------------------------------------------------------------------- | ---------- |
-| Effective policy                | The final policy that applies to an account after combining all<br>inherited policies.  |
-| Policy inheritance              | The process by which accounts inherit policies from parent<br>organizational units.     |
-| Delegated administrator         | An account designated to manage Security Hub policies on behalf of the<br>organization. |
-| Service-linked role             | An IAM role that allows Security Hub to interact with other AWS<br>services.            |
+Security Hub policy terminology| Term | Definition |
+| --- | --- |
+| Effective policy | The final policy that applies to an account after combining all<br>inherited policies. |
+| Policy inheritance | The process by which accounts inherit policies from parent<br>organizational units. |
+| Delegated administrator | An account designated to manage Security Hub policies on behalf of the<br>organization. |
+| Service-linked role | An IAM role that allows Security Hub to interact with other AWS<br>services. |
 
 ## Use cases for Security Hub policies
 

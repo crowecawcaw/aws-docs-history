@@ -56,7 +56,7 @@ are allowed.
   – Child OUs and accounts can use any operator in policies. By
   default, all operators are allowed in child policies.
 - `"@@operators_allowed_for_child_policies"`:`["@@assign",
-"@@append", "@@remove"]` – Child OUs and accounts can use
+ "@@append", "@@remove"]` – Child OUs and accounts can use
   only the specified operators in child policies. You can specify one or more
   value-setting operators in this child control operator.
 - `"@@operators_allowed_for_child_policies"`:`["@@none"]`

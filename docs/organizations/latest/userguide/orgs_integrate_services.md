@@ -15,8 +15,8 @@ not necessarily in all accounts of the organization.
 
 ###### Important
 
-We **_strongly recommend_** that, when the option is available, you
-enable and disable trusted access by using **_only_** the trusted service's console, or its AWS CLI or API
+We _**strongly recommend**_ that, when the option is available, you
+enable and disable trusted access by using _**only**_ the trusted service's console, or its AWS CLI or API
 operation equivalents. This lets the trusted service perform any required initialization
 when enabling trusted access, such as creating any required resources and any required
 clean up of resources when disabling trusted access.
@@ -84,9 +84,9 @@ The minimum permissions for these credentials are the following:
 
   The minimum AWS Organizations permissions are the following:
 
-      + `organizations:EnableAWSServiceAccess`
-      + `organizations:ListAWSServiceAccessForOrganization`
-       – Required only if you use the AWS Organizations console
+        + `organizations:EnableAWSServiceAccess`
+        + `organizations:ListAWSServiceAccessForOrganization`
+         – Required only if you use the AWS Organizations console
 
   For the steps to enable trusted access in AWS Organizations, see [How to enable or disable trusted access](#orgs_how-to-enable-disable-trusted-access "#orgs_how-to-enable-disable-trusted-access"). 2. The person who has credentials with permissions in the trusted service
   enables that service to work with AWS Organizations. This instructs the service
@@ -102,7 +102,7 @@ or its accounts, choose one of the following scenarios.
 
 ###### Important
 
-Disabling trusted service access does **_not_** prevent users and roles with
+Disabling trusted service access does _**not**_ prevent users and roles with
 appropriate permissions from using that service. To completely block users and roles
 from accessing an AWS service, you can remove the IAM permissions that grant
 that access, or you can use [service
@@ -146,9 +146,9 @@ The minimum permissions for these credentials are the following:
 
   The minimum AWS Organizations permissions are the following:
 
-      + `organizations:DisableAWSServiceAccess`
-      + `organizations:ListAWSServiceAccessForOrganization`
-       – Required only if you use the AWS Organizations console
+        + `organizations:DisableAWSServiceAccess`
+        + `organizations:ListAWSServiceAccessForOrganization`
+         – Required only if you use the AWS Organizations console
 
   For the steps to disable trusted access in AWS Organizations, see [How to enable or disable trusted access](#orgs_how-to-enable-disable-trusted-access "#orgs_how-to-enable-disable-trusted-access").
 
@@ -160,8 +160,8 @@ use the following procedure.
 
 ###### Important
 
-We **_strongly recommend_** that, when the option is available,
-you enable and disable trusted access by using **_only_** the trusted service's console, or
+We _**strongly recommend**_ that, when the option is available,
+you enable and disable trusted access by using _**only**_ the trusted service's console, or
 its AWS CLI or API operation equivalents. This lets the trusted service perform any
 required initialization when enabling trusted access, such as creating any required
 resources and any required clean up of resources when disabling trusted

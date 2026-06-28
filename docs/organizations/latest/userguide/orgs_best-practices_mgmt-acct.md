@@ -29,7 +29,7 @@ the correct people have access. Ensure that the process to recover or reset acce
 the root user credentials is not reliant on any specific individual to complete. All
 processes should address the prospect of people being unavailable.
 
-## Use the management account only for tasks that **_require_** the management account
+## Use the management account only for tasks that _**require**_ the management account
 
 We recommend that you use the management account and its users and roles for tasks
 that must be performed only by that account. Store all of your AWS resources in other

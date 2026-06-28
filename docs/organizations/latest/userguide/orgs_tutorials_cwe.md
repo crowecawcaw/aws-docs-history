@@ -87,7 +87,7 @@ trigger on.
 
    ###### Note
 
-   S3 bucket names must be **_globally_** unique.
+   S3 bucket names must be _**globally**_ unique.
    - If you already have a bucket, choose
      **Use existing S3 bucket** and then choose the
      bucket name from the **S3 bucket** list.

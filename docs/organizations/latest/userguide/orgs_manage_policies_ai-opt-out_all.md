@@ -53,6 +53,7 @@ The following is a list of AWS services supported by the AI services opt-out pol
 - [Amazon DataZone](../../../datazone.md "../../../datazone.md") (and [Amazon SageMaker Data Agent](../../../sagemaker-unified-studio/latest/userguide/sagemaker-data-agent.md "../../../sagemaker-unified-studio/latest/userguide/sagemaker-data-agent.md"))
 - [AWS DevOps Agent](../../../devopsagent/latest/userguide/about-aws-devops-agent.md "../../../devopsagent/latest/userguide/about-aws-devops-agent.md")
 - [AWS Entity Resolution](../../../entityresolution.md "../../../entityresolution.md")
+- [AWS FinOps Agent](../../../finops-agent/latest/userguide/what-is.md "../../../finops-agent/latest/userguide/what-is.md")
 - [Amazon Fraud Detector](../../../frauddetector.md "../../../frauddetector.md")
 - [AWS Glue](../../../glue.md "../../../glue.md")
 - [Amazon GuardDuty](../../../guardduty.md "../../../guardduty.md")

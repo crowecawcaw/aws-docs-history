@@ -34,7 +34,7 @@ Additionally, verify that:
   configured in your management account. To verify this role exists, run `aws iam get-role --role-name AWSServiceRoleForInspectorV2`.
   If you need to create this role, you can either run `aws inspector2 enable` in any Region from your management account, or create it
   directly by running `aws iam create-service-linked-role --aws-service-name 
-inspector2.amazonaws.com`.
+ inspector2.amazonaws.com`.
 
 ## Implementation steps
 

@@ -159,12 +159,11 @@ To agree to the request, you must accept the handshake with
 
 - AWS CLI:
 
-      + [accept-handshake](../../../cli/latest/reference/organizations/accept-handshake.md "../../../cli/latest/reference/organizations/accept-handshake.md")
-      + [list-handshakes-for-account](../../../cli/latest/reference/organizations/list-handshakes-for-account.md "../../../cli/latest/reference/organizations/list-handshakes-for-account.md")
-
-  The following example shows how to list the handshakes available
-  for your account. The value of `"Id"` in the fourth line
-  of the output is the value you need for the next command.
+  - [accept-handshake](../../../cli/latest/reference/organizations/accept-handshake.md "../../../cli/latest/reference/organizations/accept-handshake.md")
+  - [list-handshakes-for-account](../../../cli/latest/reference/organizations/list-handshakes-for-account.md "../../../cli/latest/reference/organizations/list-handshakes-for-account.md")
+    The following example shows how to list the handshakes available
+    for your account. The value of `"Id"` in the fourth line
+    of the output is the value you need for the next command.
 
 ```
 `$` **aws organizations list-handshakes-for-account**`{

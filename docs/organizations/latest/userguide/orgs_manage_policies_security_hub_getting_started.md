@@ -24,9 +24,9 @@ Additionally, verify that:
 - You have the `AWSServiceRoleForSecurityHubV2` service-linked role
   configured in your management account. To verify this role exists, run `aws iam get-role --role-name AWSServiceRoleForSecurityHubV2`.
   If you need to create this role, you can either run `aws securityhub 
-enable-security-hub-v2` in any Region from your management account, or create it
+ enable-security-hub-v2` in any Region from your management account, or create it
   directly by running `aws iam create-service-linked-role --aws-service-name 
-securityhubv2.amazonaws.com`.
+ securityhubv2.amazonaws.com`.
 
 ## Implementation steps
 

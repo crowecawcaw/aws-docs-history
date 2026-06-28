@@ -196,7 +196,7 @@ The AWS account owns the resources that are created in the account, regardless o
 who created the resources. Specifically, the resource owner is the AWS account of the
 [principal entity](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md")
 (that is, the root user, an IAM user, or an IAM role) that authenticates the
-resource creation request. For an organization, that is **_always_** the management account. You can't call
+resource creation request. For an organization, that is _**always**_ the management account. You can't call
 most operations that create or access organization resources from the member accounts.
 The following examples illustrate how this works:
 
@@ -250,21 +250,20 @@ operations on AWS resources. For example, you can do the following:
   account can create a role to grant cross-account permissions to a user in a
   member account as follows:
 
-      1. The management account administrator creates an IAM role and
-       attaches a permissions policy to the role that grants permissions to
-       the organization's resources.
-      2. The management account administrator attaches a trust policy to
-       the role that identifies the member account ID as the
-       `Principal` who can assume the role.
-      3. The member account administrator can then delegate permissions to
-       assume the role to any users in the member account. Doing this
-       allows users in the member account to create or access resources in
-       the management account and the organization. The principal in the
-       trust policy can also be an AWS service principal if you want to
-       grant permissions to an AWS service to assume the role.
-
-  For more information about using IAM to delegate permissions, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
-  _IAM User Guide_.
+  1.  The management account administrator creates an IAM role and
+      attaches a permissions policy to the role that grants permissions to
+      the organization's resources.
+  2.  The management account administrator attaches a trust policy to
+      the role that identifies the member account ID as the
+      `Principal` who can assume the role.
+  3.  The member account administrator can then delegate permissions to
+      assume the role to any users in the member account. Doing this
+      allows users in the member account to create or access resources in
+      the management account and the organization. The principal in the
+      trust policy can also be an AWS service principal if you want to
+      grant permissions to an AWS service to assume the role.
+      For more information about using IAM to delegate permissions, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
+      _IAM User Guide_.
 
 The following are examples of policies that allows a user to perform the
 `CreateAccount` action in your organization.

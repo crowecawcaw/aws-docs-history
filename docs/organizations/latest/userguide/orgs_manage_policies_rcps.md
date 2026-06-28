@@ -111,13 +111,13 @@ resources in your organization. For more information, see [Policy
 evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 
 - RCPs apply to resources for a subset of AWS services. For more information, see [List of AWS services that support RCPs](#rcp-supported-services "#rcp-supported-services").
-- RCPs **_affect only
-  resources_** that are managed by accounts that are
+- RCPs _**affect only
+  resources**_ that are managed by accounts that are
   part of the organization which has attached the RCPs. They don't affect
   resources from accounts outside the organization. For example, consider an Amazon S3 bucket that's owned by Account A in an organization.
   The bucket policy (a resource-based policy) grants access to users from Account B outside the organization. Account A has an RCP attached. That RCP applies to the S3 bucket in Account A even when accessed by users from Account B. However, that RCP does not apply to resources in Account B when accessed by users in Account A.
 - An RCP restricts permissions for resources in member accounts. Any resource in
-  an account has only those permissions permitted by **_every_** parent above it. If
+  an account has only those permissions permitted by _**every**_ parent above it. If
   a permission is blocked at any level above the account, a resource in the
   affected account does not have that permission, even if the resource owner
   attaches a resource-based policy that allows full access to any user.
@@ -127,7 +127,7 @@ evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-lo
   For example, `s3:GetObject` authorizes the object resource. Whenever a `GetObject` request is made, an applicable RCP will apply to determine whether the requesting principal can invoke the `GetObject` operation. An _applicable RCP_ is an
   RCP that has been attached to an account, to an organizational unit (OU), or to the root of the organization
   that owns the resource being accessed.
-- RCPs affect only resources in **_member_** accounts in the organization. They have no
+- RCPs affect only resources in _**member**_ accounts in the organization. They have no
   effect on resources in the management account. This also means that RCPs apply to member accounts that are designated as delegated administrators. For more information, see [Best practices for the management account](orgs_best-practices_mgmt-acct.md "orgs_best-practices_mgmt-acct.md").
 - When a principal makes a request to access a resource within an account that
   has an attached RCP (a resource with an applicable RCP), the RCP is included in
@@ -141,7 +141,7 @@ evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-lo
 
 ## Resources and entities not restricted by RCPs
 
-You **_can't_** use
+You _**can't**_ use
 RCPs to restrict the following:
 
 - Any action on resources in the management account.

@@ -219,7 +219,7 @@ tags**. 5. You can perform any of these actions on this page:
      empty string; it isn't `null`.
 
 6. Choose **Save changes** after you've made all the
-   additions, removals, and edits you want to make.
+additions, removals, and edits you want to make.
 
 AWS CLI & AWS SDKs
 
@@ -255,7 +255,7 @@ AWS Management Console
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2. On the \***\*[Tag policies](https://console.aws.amazon.com/organizations/v2/home/policies/tag-policy "https://console.aws.amazon.com/organizations/v2/home/policies/tag-policy")** page\*\* page, choose the
+2. On the ****[Tag policies](https://console.aws.amazon.com/organizations/v2/home/policies/tag-policy "https://console.aws.amazon.com/organizations/v2/home/policies/tag-policy")** page** page, choose the
    name of the policy with the tags that you want to edit.
 3. On the chosen policy's detail page, choose the
    **Tags** tab, and then choose **Manage
@@ -312,7 +312,7 @@ AWS Management Console
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2. On the \***\*[Chatbot policies](https://console.aws.amazon.com/organizations/v2/home/policies/chatbot-policy "https://console.aws.amazon.com/organizations/v2/home/policies/chatbot-policy")** page\*\* page, choose
+2. On the ****[Chatbot policies](https://console.aws.amazon.com/organizations/v2/home/policies/chatbot-policy "https://console.aws.amazon.com/organizations/v2/home/policies/chatbot-policy")** page** page, choose
    the name of the policy with the tags that you want to edit.
 3. On the chosen policy's detail page, choose the
    **Tags** tab, and then choose **Manage

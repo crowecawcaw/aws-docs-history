@@ -23,19 +23,19 @@ while offering significant advantages for organizations managing resources acros
 multiple accounts and environments. The following table outlines the key features and
 their associated benefits:
 
-| Features and benefits of upgrade rollout policies | Feature                                                             | Description                                    | Key Benefits |
-| ------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------- | ------------ |
-| Upgrade ordering system                           | Three-tier system (First, Second, Last) with<br>configurable timing | • Test upgrades in pre-production environments |
-| • Minimize risk to production workloads           |
-| Policy-based management                           | Centralized control through AWS Organizations                       | • Manage multiple accounts from a single point |
-| • Reduce administrative overhead                  |
-| Resource targeting                                | Tag-based and OU-based targeting options                            | • Target specific resource groups              |
-| • Apply policies at scale                         |
-| Automated scheduling                              | Works with existing maintenance windows                             | • Eliminate manual coordination                |
-| • Maintain consistent upgrade patterns            |
-| Service integration                               | Works with AWS service upgrade mechanisms                           | • Monitor events with Amazon EventBridge       |
-| Compliance controls                               | Policy inheritance and enforcement                                  | • Enforce organizational standards             |
-| • Meet compliance requirements                    |
+Features and benefits of upgrade rollout policies| Feature | Description | Key Benefits |
+| --- | --- | --- |
+| Upgrade ordering system | Three-tier system (First, Second, Last) with<br>configurable timing | • Test upgrades in pre-production environments |
+| • Minimize risk to production workloads |
+| Policy-based management | Centralized control through AWS Organizations | • Manage multiple accounts from a single point |
+| • Reduce administrative overhead |
+| Resource targeting | Tag-based and OU-based targeting options | • Target specific resource groups |
+| • Apply policies at scale |
+| Automated scheduling | Works with existing maintenance windows | • Eliminate manual coordination |
+| • Maintain consistent upgrade patterns |
+| Service integration | Works with AWS service upgrade mechanisms | • Monitor events with Amazon EventBridge |
+| Compliance controls | Policy inheritance and enforcement | • Enforce organizational standards |
+| • Meet compliance requirements |
 
 For more information about policy inheritance, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
@@ -85,20 +85,20 @@ maintain the stability and security of your AWS resources.
 Here are the key terms you should understand when working with upgrade rollout
 policies:
 
-| Upgrade rollout policy terms      | Term                                                                                                                                                                   | Definition |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| Active Date                       | The date when the AmVU becomes visible in the Describe Pending<br>Maintenance Actions API and available for application.                                               |
-| AmVU (Auto minor version upgrade) | The automatic upgrade process for minor versions of database<br>engines.                                                                                               |
-| Effective policy                  | The final set of rules that apply to an account or resource after<br>considering all inherited and directly attached policies.                                         |
-| Maintenance window                | A recurring time period during which automatic upgrades can be<br>applied to a resource. Upgrade rollout policies work within these<br>configured maintenance windows. |
-| Organizational unit (OU)          | A container for AWS accounts in your organization. Upgrade rollout<br>policies can be attached at the OU level to affect all accounts within<br>it.                    |
-| Patch order                       | The sequence in which resources receive upgrades (First, Second,<br>Last).                                                                                             |
-| Policy target                     | The scope to which an upgrade rollout policy applies, which can be an<br>entire organization, specific OUs, or individual accounts.                                    |
-| Resource tags                     | Key-value pairs that can be used to identify which resources should<br>follow specific upgrade orders within a policy.                                                 |
-| Scheduling window                 | The time frame during which resources of a specific patch order<br>receive upgrades.                                                                                   |
-| Service-specific waiting period   | The designated time interval between upgrading resources of different<br>upgrade orders. This period varies by AWS service and upgrade<br>type.                        |
-| Upgrade order                     | A designation that determines when a resource receives upgrades<br>relative to other resources. Can be set to First, Second, or<br>Last.                               |
-| Upgrade rollout policy            | The AWS Organizations policy type used to manage upgrade schedules<br>across resources.                                                                                |
+Upgrade rollout policy terms| Term | Definition |
+| --- | --- |
+| Active Date | The date when the AmVU becomes visible in the Describe Pending<br>Maintenance Actions API and available for application. |
+| AmVU (Auto minor version upgrade) | The automatic upgrade process for minor versions of database<br>engines. |
+| Effective policy | The final set of rules that apply to an account or resource after<br>considering all inherited and directly attached policies. |
+| Maintenance window | A recurring time period during which automatic upgrades can be<br>applied to a resource. Upgrade rollout policies work within these<br>configured maintenance windows. |
+| Organizational unit (OU) | A container for AWS accounts in your organization. Upgrade rollout<br>policies can be attached at the OU level to affect all accounts within<br>it. |
+| Patch order | The sequence in which resources receive upgrades (First, Second,<br>Last). |
+| Policy target | The scope to which an upgrade rollout policy applies, which can be an<br>entire organization, specific OUs, or individual accounts. |
+| Resource tags | Key-value pairs that can be used to identify which resources should<br>follow specific upgrade orders within a policy. |
+| Scheduling window | The time frame during which resources of a specific patch order<br>receive upgrades. |
+| Service-specific waiting period | The designated time interval between upgrading resources of different<br>upgrade orders. This period varies by AWS service and upgrade<br>type. |
+| Upgrade order | A designation that determines when a resource receives upgrades<br>relative to other resources. Can be set to First, Second, or<br>Last. |
+| Upgrade rollout policy | The AWS Organizations policy type used to manage upgrade schedules<br>across resources. |
 
 ## Use cases for upgrade rollout policies
 
@@ -150,16 +150,16 @@ their production services. Using upgrade rollout policies, they:
 Upgrade rollout policies integrate with the following AWS services while supporting
 automatic minor version upgrades:
 
-| Supported services for upgrade rollout policies   | Service name                                                                                                                                                                                                                                                              | Purpose |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Amazon Aurora PostgreSQL-Compatible Edition       | [Automatic minor version upgrades](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU")                     |
-| Amazon Aurora MySQL-Compatible Edition            | [Automatic minor version upgrades](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU")                     |
-| Amazon Relational Database Service for PostgreSQL | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.Minor.md")                                                                       |
-| Amazon Relational Database Service for SQL Server | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.SQLServer.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.SQLServer.md")                                                                                     |
-| Amazon Relational Database Service for Oracle     | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md#oracle-minor-version-upgrade-tuning-on "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md#oracle-minor-version-upgrade-tuning-on") |
-| Amazon Relational Database Service for MariaDB    | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MariaDB.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MariaDB.Minor.md")                                                                             |
-| Amazon Relational Database Service for MySQL      | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.Minor.md")                                                                                 |
-| Amazon Relational Database Service for Db2        | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/Db2.Concepts.VersionMgmt.md "../../../AmazonRDS/latest/UserGuide/Db2.Concepts.VersionMgmt.md")                                                                                                     |
+Supported services for upgrade rollout policies| Service name | Purpose |
+| --- | --- |
+| Amazon Aurora PostgreSQL-Compatible Edition | [Automatic minor version upgrades](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU") |
+| Amazon Aurora MySQL-Compatible Edition | [Automatic minor version upgrades](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU") |
+| Amazon Relational Database Service for PostgreSQL | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.Minor.md") |
+| Amazon Relational Database Service for SQL Server | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.SQLServer.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.SQLServer.md") |
+| Amazon Relational Database Service for Oracle | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md#oracle-minor-version-upgrade-tuning-on "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md#oracle-minor-version-upgrade-tuning-on") |
+| Amazon Relational Database Service for MariaDB | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MariaDB.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MariaDB.Minor.md") |
+| Amazon Relational Database Service for MySQL | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.Minor.md") |
+| Amazon Relational Database Service for Db2 | [Automatic minor version upgrades](../../../AmazonRDS/latest/UserGuide/Db2.Concepts.VersionMgmt.md "../../../AmazonRDS/latest/UserGuide/Db2.Concepts.VersionMgmt.md") |
 
 ## Prerequisites
 

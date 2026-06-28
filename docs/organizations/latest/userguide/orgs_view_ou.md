@@ -37,15 +37,14 @@ You can use the following commands to view details of an OU:
 
 - AWS CLI, AWS SDKs:
 
-      + [list-roots](../../../cli/latest/reference/organizations/list-roots.md "../../../cli/latest/reference/organizations/list-roots.md")
-      + [list-children](../../../cli/latest/reference/organizations/list-children.md "../../../cli/latest/reference/organizations/list-children.md")
-      + [describe-organizational-unit](../../../cli/latest/reference/organizations/describe-organizational-unit.md "../../../cli/latest/reference/organizations/describe-organizational-unit.md")
-
-  The following example shows how to find the ID of on OU using the
-  AWS CLI. You find the OU ID by traversing the hierarchy starting with
-  the `list-roots` command and then performing
-  `list-children` on the root and iteratively on each
-  of its children until you find the one you want.
+  - [list-roots](../../../cli/latest/reference/organizations/list-roots.md "../../../cli/latest/reference/organizations/list-roots.md")
+  - [list-children](../../../cli/latest/reference/organizations/list-children.md "../../../cli/latest/reference/organizations/list-children.md")
+  - [describe-organizational-unit](../../../cli/latest/reference/organizations/describe-organizational-unit.md "../../../cli/latest/reference/organizations/describe-organizational-unit.md")
+    The following example shows how to find the ID of on OU using the
+    AWS CLI. You find the OU ID by traversing the hierarchy starting with
+    the `list-roots` command and then performing
+    `list-children` on the root and iteratively on each
+    of its children until you find the one you want.
 
 ```
 `$` **aws organizations list-roots**`{

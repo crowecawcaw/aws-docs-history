@@ -16,11 +16,10 @@ in your organization:
   from a management account (either an Organizations management account or a Systems Manager delegated administrator account) and one other account during a single session.
   Once configured, users can perform the following types of actions:
 
-      + Create, view, and update OpsItems in another account.
-      + View detailed information about AWS resources that are specified in OpsItems in another account.
-      + Start Systems Manager Automation runbooks to remediate issues with AWS resources in another account.
-
-  For more information, see [AWS Systems Manager OpsCenter](../../../systems-manager/latest/userguide/OpsCenter-getting-started-multiple-accounts.md "../../../systems-manager/latest/userguide/OpsCenter-getting-started-multiple-accounts.md") in the _AWS Systems Manager User Guide_.
+  - Create, view, and update OpsItems in another account.
+  - View detailed information about AWS resources that are specified in OpsItems in another account.
+  - Start Systems Manager Automation runbooks to remediate issues with AWS resources in another account.
+    For more information, see [AWS Systems Manager OpsCenter](../../../systems-manager/latest/userguide/OpsCenter-getting-started-multiple-accounts.md "../../../systems-manager/latest/userguide/OpsCenter-getting-started-multiple-accounts.md") in the _AWS Systems Manager User Guide_.
 
 - Use Quick Setup to quickly configure frequently used AWS services and features with recommended best practices. For more information, see [AWS Systems Manager Quick Setup](../../../systems-manager/latest/userguide/systems-manager-quick-setup.md "../../../systems-manager/latest/userguide/systems-manager-quick-setup.md") in the _AWS Systems Manager User Guide_.
 

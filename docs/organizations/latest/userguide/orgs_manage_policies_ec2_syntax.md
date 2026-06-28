@@ -225,10 +225,70 @@ The following are the available fields for this attribute:
       },
       "image_criteria": {
         "criteria_1": {
+          "marketplace_product_codes": {
+            "@@append": [
+              "abcdefg1234567890"
+            ]
+          }
+        },
+        "criteria_2": {
           "allowed_image_providers": {
             "@@append": [
+              "123456789012",
+              "123456789013"
+            ]
+          },
+          "creation_date_condition": {
+            "maximum_days_since_created": {
+              "@@assign": 300
+            }
+          }
+        },
+        "criteria_3": {
+          "allowed_image_providers": {
+            "@@assign": [
+              "123456789014"
+            ]
+          },
+          "image_names": {
+            "@@assign": [
+              "golden-ami-*"
+            ]
+          }
+        },
+        "criteria_4": {
+          "allowed_image_providers": {
+            "@@assign": [
               "amazon"
             ]
+          },
+          "deprecation_time_condition": {
+            "maximum_days_since_deprecated": {
+              "@@assign": 0
+            }
+          }
+        },
+        "criteria_5": {
+          "image_watermarks": {
+            "image_watermark_1": {
+              "watermark_key": {
+                "@@assign": "123456789015:approved-production-*"
+              },
+              "source_image_region": {
+                "@@assign": "us-east-1"
+              },
+              "maximum_days_since_source_image_created": {
+                "@@assign": 365
+              },
+              "maximum_days_since_watermark_created": {
+                "@@assign": 90
+              }
+            },
+            "image_watermark_2": {
+              "watermark_key": {
+                "@@assign": "123456789016:security-scanned"
+              }
+            }
           }
         }
       }
@@ -237,7 +297,7 @@ The following are the available fields for this attribute:
 }
 ```
 
-- `"state"`:
+- `"state"` (required):
 
   - `"enabled"`: The attribute is active and
     enforced.
@@ -247,19 +307,69 @@ The following are the available fields for this attribute:
     This means it will identify noncompliant images but not
     block their use.
 
-- `"image_criteria"`: A list of criteria. Support up to 10 criteria with the name from criteria_1 to criteria_10
+- `"image_criteria"` (optional): A list of criteria. Supports up to 10 criteria with the name from criteria\_1 to criteria\_10. Each criterion can contain one or more of the following filters:
 
-  - `"allowed_image_providers"`: A comma-separated
-    list of 12 digit account IDs or owner alias of amazon, aws_marketplace, aws_backup_vault.
-  - `"image_names"`: The names of the allowed images. Names can include wildcards (? and \*). Length: 1–128 characters. With ?, the minimum is 3 characters.
-  - `"marketplace_product_codes"`: The AWS Marketplace product codes for allowed images. Length: 1-25 characters Valid characters: Letters (A–Z, a–z) and numbers (0–9)
-  - `"creation_date_condition"`: The maximum age for allowed images.
+  - `"allowed_image_providers"`: A list of up to
+    200 entries. Each entry is a 12-digit account ID or an owner
+    alias of `amazon`,
+    `aws_marketplace`, or
+    `aws_backup_vault`.
+  - `"image_names"`: A list of up to 50 allowed
+    image names. Names can include wildcards (`?` and
+    `*`). Length: 1–128 characters. With
+    `?`, the minimum is 3 characters.
+  - `"marketplace_product_codes"`: A list of up to
+    50 AWS Marketplace product codes for allowed images.
+    Length: 1–25 characters. Valid characters: Letters (A–Z,
+    a–z) and numbers (0–9).
+  - `"creation_date_condition"`: The maximum age
+    for allowed images.
 
-    - `"maximum_days_since_created"`: The maximum number of days that have elapsed since the image was created. Valid Range: Minimum value of 0. Maximum value of 2147483647.
+    - `"maximum_days_since_created"`: The
+      maximum number of days that have elapsed since the
+      image was created. Valid range:
+      0–2147483647.
 
-  - `"deprecation_time_condition"`: The maximum period since deprecation for allowed images.
+  - `"deprecation_time_condition"`: The maximum
+    period since deprecation for allowed images.
 
-    - `"maximum_days_since_deprecated"`: The maximum number of days that have elapsed since the image was deprecated. Valid Range: Minimum value of 0. Maximum value of 2147483647.
+    - `"maximum_days_since_deprecated"`: The
+      maximum number of days that have elapsed since the
+      image was deprecated. Valid range:
+      0–2147483647.
+
+  - `"image_watermarks"`: A collection of
+    watermark filters that an image must match. Each filter is
+    named `image_watermark_1` through
+    `image_watermark_50`. The image passes if any
+    filter matches any watermark on the image. Within a filter,
+    all specified fields must match the same watermark. Maximum
+    50 filters per criterion.
+
+  Fields within each filter:
+
+        - `"watermark_key"` (required): The
+         watermark key in the format
+         `<account-id>:<watermark-name>`.
+         The account-id portion can be an exact 12-digit
+         AWS account ID or a pattern using wildcards
+         (`*` and `?`). The watermark
+         name must be 3–128 characters. Supports wildcards
+         (`*` and `?`). Valid
+         characters: Letters (A–Z, a–z), numbers (0–9),
+         spaces, and `() []. / - ' @ _`.
+        - `"source_image_region"` (optional):
+         The AWS Region where the watermark was originally
+         created. Supports wildcards (`*` and
+         `?`).
+        - `"maximum_days_since_source_image_created"`
+         (optional): The maximum number of days that have
+         elapsed since the source image was created. Valid
+         range: 0–2147483647.
+        - `"maximum_days_since_watermark_created"`
+         (optional): The maximum number of days that have
+         elapsed since the watermark was attached. Valid
+         range: 0–2147483647.
 
 **Considerations**
 

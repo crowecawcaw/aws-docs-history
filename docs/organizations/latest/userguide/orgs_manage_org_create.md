@@ -22,30 +22,29 @@ You can restrict this permission to only the service principal
 
 ###### To create an organization
 
-1.  Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
-    sign in as the root user ([not
-    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2.  By default, the organization is created with all features enabled.
-    However, you can choose either of the following steps:
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
+   sign in as the root user ([not
+   recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
+2. By default, the organization is created with all features enabled.
+   However, you can choose either of the following steps:
 
-        * To create an organization with all features enabled, on
-         the introduction page, choose **Create an
-         organization**.
-        * To create an organization with Consolidated Billing
-         features only, on the introduction page and under
-         **Create an organization**, choose
-         **consolidated billing features**, and
-         then in the confirmation dialog box, choose **Create
-         an organization**.
+   - To create an organization with all features enabled, on
+     the introduction page, choose **Create an
+     organization**.
+   - To create an organization with Consolidated Billing
+     features only, on the introduction page and under
+     **Create an organization**, choose
+     **consolidated billing features**, and
+     then in the confirmation dialog box, choose **Create
+     an organization**.
+     If you accidentally choose the wrong option, you can immediately
+     go to the **[Settings](https://console.aws.amazon.com/organizations/v2/home/settings "https://console.aws.amazon.com/organizations/v2/home/settings")** page, and then choose **Delete
+     organization** and start over.
 
-    If you accidentally choose the wrong option, you can immediately
-    go to the **[Settings](https://console.aws.amazon.com/organizations/v2/home/settings "https://console.aws.amazon.com/organizations/v2/home/settings")** page, and then choose **Delete
-    organization** and start over.
-
-3.  The organization is created and the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page appears. The
-    only account present is your management account, and it's currently
-    stored in the [root organizational unit
-    (OU)](orgs_getting-started_concepts.md#root "orgs_getting-started_concepts.md#root").
+3. The organization is created and the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page appears. The
+   only account present is your management account, and it's currently
+   stored in the [root organizational unit
+   (OU)](orgs_getting-started_concepts.md#root "orgs_getting-started_concepts.md#root").
 
 If required, Organizations automatically sends a verification email to the
 address that is associated with your management account. There might

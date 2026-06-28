@@ -192,8 +192,8 @@ A _handshake_ is the secure exchange of information between two AWS accounts: a 
 The following handshakes are supported:
 
 - **INVITE**: Handshake sent to a standalone account for it to join the sender's organization.
-- **ENABLE_ALL_FEATURES**: Handshake sent to invited member accounts to enable all features for the organization.
-- **APPROVE_ALL_FEATURES**: Handshake sent to the management account when all invited member accounts have approved to enable all features.
+- **ENABLE\_ALL\_FEATURES**: Handshake sent to invited member accounts to enable all features for the organization.
+- **APPROVE\_ALL\_FEATURES**: Handshake sent to the management account when all invited member accounts have approved to enable all features.
 
 You generally need to directly interact with handshakes only if you work
 with the AWS Organizations API or command line tools such as the AWS CLI.

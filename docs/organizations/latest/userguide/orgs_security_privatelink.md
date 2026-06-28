@@ -29,5 +29,9 @@ VPC limitations apply to AWS PrivateLink for AWS Organizations. For more informa
 see [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#vpce-interface-limitations "../../../vpc/latest/privatelink/create-interface-endpoint.md#vpce-interface-limitations") and [AWS PrivateLink quotas](../../../vpc/latest/privatelink/vpc-limits-endpoints.md "../../../vpc/latest/privatelink/vpc-limits-endpoints.md") in the _Amazon VPC User Guide_. In
 addition, the following restrictions apply:
 
-- Only available in the `us-east-1` region
-- Doesn’t support Transport Layer Security (TLS) 1.1
+###### Note
+
+AWS PrivateLink for AWS Organizations is available in all commercial AWS Regions,
+the AWS China (Ningxia) Region, and the AWS GovCloud (US-West) Region.
+
+- AWS PrivateLink for AWS Organizations does not support Transport Layer Security (TLS) 1.1.

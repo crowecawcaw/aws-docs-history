@@ -25,7 +25,7 @@ Additionally, verify that:
 - You have the AWS Shield Network Security Director service-linked role
   configured in your management account. If you need to create this role, you can create it
   directly by running `aws iam create-service-linked-role --aws-service-name
-network-director.amazonaws.com`.
+ network-director.amazonaws.com`.
 
 ## Implementation steps
 

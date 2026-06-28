@@ -247,7 +247,7 @@ This example policy specifies that no values are acceptable for the `Color`
 tag key. It also specifies that no [operators](policy-operators.md "policy-operators.md") are allowed in child tag policies.
 Therefore, any `Color` tags on resources in affected accounts are considered
 non-compliant. However, the `enforced_for` option actually prevents affected
-accounts from tagging **_only_** Amazon DynamoDB tables with the `Color` tag.
+accounts from tagging _**only**_ Amazon DynamoDB tables with the `Color` tag.
 
 ```
 {

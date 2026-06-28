@@ -10,7 +10,7 @@ the organization's management account or a member account designated as a delega
 
 When you disable a policy type, all policies of the specified type are
 automatically detached from all entities in the organization root. The
-policies are **_not_** deleted.
+policies are _**not**_ deleted.
 
 **(Service control policy type only) All entities in the root are initially attached to only
 the default `FullAWSAccess` SCP**

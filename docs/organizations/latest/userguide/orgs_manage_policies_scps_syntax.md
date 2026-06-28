@@ -86,7 +86,7 @@ Elements: NotAction](../../../IAM/latest/UserGuide/reference_policies_elements_n
 The following example shows an SCP with a statement that permits account
 administrators to delegate describe, start, stop, and terminate permissions for EC2
 instances in the account. This is an example of an [allow list](orgs_manage_policies_scps_evaluation.md#how_scps_allow "orgs_manage_policies_scps_evaluation.md#how_scps_allow"), and is useful when the default `Allow *` policies
-are **_not_** attached
+are _**not**_ attached
 so that, by default, permissions are implicitly denied. If the default `Allow
  *` policy is still attached to the root, OU, or account to which the
 following policy is attached, the policy has no effect.
@@ -271,7 +271,7 @@ anything. Instead, SCPs act as _filters_ that specify the
 maximum permissions for the accounts in an organization, organizational unit (OU),
 or account. In the preceding example, even if a user in the account had the
 `AdministratorAccess` managed policy attached, this SCP limits
-**_all_** users in
+_**all**_ users in
 affected accounts to only Amazon S3 actions.
 
 ### `"Effect": "Deny"`
@@ -309,6 +309,9 @@ set to `t2.micro`. Even if an IAM policy that allows this action is
 attached to the account, the guardrail created by the SCP prevents it.
 
 ## `Resource`and `NotResource` element
+
+Each statement in an SCP must include a
+`Resource` or `NotResource` element.
 
 In statements where the `Effect` element has a value of `Allow`,
 you can specify only "\*" in the `Resource` element of an SCP. You can't

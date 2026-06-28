@@ -39,14 +39,13 @@ account:
 
 - AWS CLI:
 
-      + [list-accounts](../../../cli/latest/reference/organizations/list-accounts.md "../../../cli/latest/reference/organizations/list-accounts.md") – lists
-       the details of *all*
-       accounts in the organization
-      + [describe-account](../../../cli/latest/reference/organizations/describe-account.md "../../../cli/latest/reference/organizations/describe-account.md") –
-       lists the details of only the specified account
-
-  Both commands return the same details for each account included in
-  the response.
+  - [list-accounts](../../../cli/latest/reference/organizations/list-accounts.md "../../../cli/latest/reference/organizations/list-accounts.md") – lists
+    the details of _all_
+    accounts in the organization
+  - [describe-account](../../../cli/latest/reference/organizations/describe-account.md "../../../cli/latest/reference/organizations/describe-account.md") –
+    lists the details of only the specified account
+    Both commands return the same details for each account included in
+    the response.
 
 The following example shows how to retrieve the details about a
 specified account.

@@ -15,13 +15,13 @@ Continuous tracking of account state provides the following benefits:
   The table below describes the five possible account states and their implications for your
   AWS accounts:
 
-| Account states     | State                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Description |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| PENDING ACTIVATION | In this state, the account is unusable because the account sign-up<br>process was initiated but never completed. The account holder must<br>complete the remaining sign-up steps, such as providing phone<br>verification or payment information. After completing these steps, the<br>account transitions to the ACTIVE state.                                                                                                                                                                                                |
-| ACTIVE             | This state indicates that the account is fully operational and<br>available. Users can access AWS services and resources normally<br>according to the account's permissions and organization policies.<br>Regular AWS activities such as launching resources, managing services,<br>and incurring charges can occur in this state.                                                                                                                                                                                             |
-| SUSPENDED          | In this state, the account is unusable because AWS has restricted<br>access. The account holder can still view billing information and<br>contact Support, who can explain why the account is suspended.                                                                                                                                                                                                                                                                                                                       |
-| PENDING CLOSURE    | This temporary state indicates an active request to close the account, but the<br>closure process is not yet complete. The account remains functional and<br>can still be used to access AWS services while the closure request is<br>processed. After AWS processes the closure request, the account<br>transitions to the CLOSED state.                                                                                                                                                                                      |
-| CLOSED             | This state indicates that the account was closed at the request of the<br>account holder or by AWS and is displayed next to the account name in<br>the AWS Organizations console for 90 days after closure is initiated. During this<br>period, you cannot access AWS services, but you can contact Support to<br>reinstate the account or recover important data. After the 90-day<br>post-closure period has elapsed, the account is permanently closed and<br>will no longer be displayed in the AWS Organizations console. |
+Account states| State | Description |
+| --- | --- |
+| PENDING ACTIVATION | In this state, the account is unusable because the account sign-up<br>process was initiated but never completed. The account holder must<br>complete the remaining sign-up steps, such as providing phone<br>verification or payment information. After completing these steps, the<br>account transitions to the ACTIVE state. |
+| ACTIVE | This state indicates that the account is fully operational and<br>available. Users can access AWS services and resources normally<br>according to the account's permissions and organization policies.<br>Regular AWS activities such as launching resources, managing services,<br>and incurring charges can occur in this state. |
+| SUSPENDED | In this state, the account is unusable because AWS has restricted<br>access. The account holder can still view billing information and<br>contact Support, who can explain why the account is suspended. |
+| PENDING CLOSURE | This temporary state indicates an active request to close the account, but the<br>closure process is not yet complete. The account remains functional and<br>can still be used to access AWS services while the closure request is<br>processed. After AWS processes the closure request, the account<br>transitions to the CLOSED state. |
+| CLOSED | This state indicates that the account was closed at the request of the<br>account holder or by AWS and is displayed next to the account name in<br>the AWS Organizations console for 90 days after closure is initiated. During this<br>period, you cannot access AWS services, but you can contact Support to<br>reinstate the account or recover important data. After the 90-day<br>post-closure period has elapsed, the account is permanently closed and<br>will no longer be displayed in the AWS Organizations console. |
 
 ## View the state of an AWS account
 
@@ -72,18 +72,17 @@ To view account state values in API responses, use AWS CLI version 2.29.0 or lat
 
 - AWS CLI:
 
-      + [list-accounts](../../../cli/latest/reference/organizations/list-accounts.md "../../../cli/latest/reference/organizations/list-accounts.md") – lists the details of
-       *all* accounts in the
-       organization
-      + [list-accounts-for-parent](../../../cli/latest/reference/organizations/list-accounts-for-parent.md "../../../cli/latest/reference/organizations/list-accounts-for-parent.md") – lists the
-       details of *all* accounts
-       in the organization that are contained by the specified
-       target root or organizational unit (OU)
-      + [describe-account](../../../cli/latest/reference/organizations/describe-account.md "../../../cli/latest/reference/organizations/describe-account.md") – lists the details of
-       only the specified account
-
-  These commands return the same details for each account included
-  in the response.
+  - [list-accounts](../../../cli/latest/reference/organizations/list-accounts.md "../../../cli/latest/reference/organizations/list-accounts.md") – lists the details of
+    _all_ accounts in the
+    organization
+  - [list-accounts-for-parent](../../../cli/latest/reference/organizations/list-accounts-for-parent.md "../../../cli/latest/reference/organizations/list-accounts-for-parent.md") – lists the
+    details of _all_ accounts
+    in the organization that are contained by the specified
+    target root or organizational unit (OU)
+  - [describe-account](../../../cli/latest/reference/organizations/describe-account.md "../../../cli/latest/reference/organizations/describe-account.md") – lists the details of
+    only the specified account
+    These commands return the same details for each account included
+    in the response.
 
 The following example shows how to retrieve the details about a
 specified account including its `State` value.

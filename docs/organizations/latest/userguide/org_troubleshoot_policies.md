@@ -22,7 +22,7 @@ AWS Organizations uses a subset of the IAM syntax and grammar. For details, see 
 An SCP must consist of one and only one JSON object. You denote an object by
 placing { } braces around it. Although you can nest other objects within a JSON
 object by embedding additional { } braces within the outer pair, a policy can
-contain only one outermost pair of { } braces. The following example is **_incorrect_** because it
+contain only one outermost pair of { } braces. The following example is _**incorrect**_ because it
 contains two objects at the top level:
 
 ```
@@ -90,7 +90,7 @@ name (`Statement`) appearing to the left of a colon, followed by its
 value on the right. The value of a `Statement` element must be an object,
 denoted by { } braces, containing one `Effect` element, one
 `Action` element, and one `Resource` element. The
-following example is **_incorrect_** because it contains two
+following example is _**incorrect**_ because it contains two
 `Statement` elements in the policy object:
 
 ```

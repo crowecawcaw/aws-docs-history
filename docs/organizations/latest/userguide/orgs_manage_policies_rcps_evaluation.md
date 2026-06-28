@@ -2,7 +2,7 @@
 
 ###### Note
 
-The information in this section does **_not_** apply to declarative policy types, including backup policies, tag policies, chat applications policies, or AI
+The information in this section does _**not**_ apply to declarative policy types, including backup policies, tag policies, chat applications policies, or AI
 services opt-out policies. For more information, see
 [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 

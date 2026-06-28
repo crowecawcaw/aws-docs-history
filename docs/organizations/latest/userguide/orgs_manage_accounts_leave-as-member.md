@@ -95,7 +95,7 @@ information:
     * Support plan options
 
 6. When you see the dialog box stating that the sign-up process is
-   complete, choose **Leave organization**.
+complete, choose **Leave organization**.
 
 A confirmation dialog box appears. Confirm your choice to remove
 the account. You are redirected to the **Getting

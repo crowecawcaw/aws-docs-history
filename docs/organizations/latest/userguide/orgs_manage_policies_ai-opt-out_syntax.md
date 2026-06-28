@@ -220,16 +220,16 @@ paste.
 ```
 
 - [1] – The `"@@operators_allowed_for_child_policies":
-["@@none"]` that is under `services` prevents any child
+ ["@@none"]` that is under `services` prevents any child
   policy from adding any new sections for individual services other than the
   `default` section that is already there. `Default`
   is the placeholder that represents "all AI services".
 - [2] – The `"@@operators_allowed_for_child_policies":
-["@@none"]` that is under `default` prevents any child
+ ["@@none"]` that is under `default` prevents any child
   policy from adding any new sections other than the
   `opt_out_policy` section that is already there.
 - [3] – The `"@@operators_allowed_for_child_policies":
-["@@none"]` that is under `opt_out_policy` prevents
+ ["@@none"]` that is under `opt_out_policy` prevents
   child policies from changing the value of the `optOut` setting or
   adding any additional settings.
 
@@ -243,7 +243,7 @@ root or to an OU, child policies can still change the opt-out setting for indivi
 services, as shown in the second policy.
 
 - Because there is no `"@@operators_allowed_for_child_policies":
-["@@none"]` under the `services` key, child policies
+ ["@@none"]` under the `services` key, child policies
   can add new sections for individual services.
 - The `"@@operators_allowed_for_child_policies": ["@@none"]` that
   is under `default` prevents any child policy from adding any new

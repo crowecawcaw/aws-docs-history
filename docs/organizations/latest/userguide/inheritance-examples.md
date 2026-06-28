@@ -387,7 +387,7 @@ accounts:
   operator for the tag key.
 - However, policy F can append tag values for the key. That's because policy
   E includes `"@@operators_allowed_for_child_policies":
-["@@append"]` for the tag value.
+ ["@@append"]` for the tag value.
 
 **Effective policy for accounts in the OU**
 

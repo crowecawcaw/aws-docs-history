@@ -145,7 +145,7 @@ own invitation. Do one of the following to get to the
      **[Invitations](https://console.aws.amazon.com/organizations/v2/home/accounts/invitations "https://console.aws.amazon.com/organizations/v2/home/accounts/invitations")** page.
 
 7. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page, choose **Accept** and
-   then choose **Confirm**.
+then choose **Confirm**.
 
 ###### Tip
 
@@ -167,7 +167,7 @@ AWS Management Console
    AWS account**.
 3. For **AWS account name**, enter a name for
    the account, such as `MainApp
-Account`.
+ Account`.
 4. For **Email address of the account's root
    user**, enter the email address of the individual
    who is to receive communications on behalf of the account. This
@@ -313,7 +313,7 @@ AWS Management Console
 2. On the **[Service control policies](https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy "https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy")** page, choose **Create
    policy**.
 3. For **Policy name**, enter `Block
-CloudTrail Configuration Actions`.
+ CloudTrail Configuration Actions`.
 4. In the **Policy** section, in the list of
    services on the right, select CloudTrail for the service. Then choose
    the following actions: **AddTags**,
@@ -362,7 +362,7 @@ JSONJSON
 
 The second policy defines an [allow list](orgs_manage_policies_scps_evaluation.md#how_scps_allow "orgs_manage_policies_scps_evaluation.md#how_scps_allow") of all
 the services and actions that you want to enable for users and roles in the
-Production OU. When you're done, users in the Production OU can access **_only_** the listed
+Production OU. When you're done, users in the Production OU can access _**only**_ the listed
 services and actions.
 
 AWS Management Console
@@ -372,7 +372,7 @@ AWS Management Console
 1. From the **[Service control policies](https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy "https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy")** page, choose **Create
    policy**.
 2. For **Policy name**, enter `Allow
-List for All Approved Services`.
+ List for All Approved Services`.
 3. Position your cursor in the right pane of the
    **Policy** section and paste in a policy
    like the following.
@@ -413,7 +413,7 @@ AWS Management Console
 1. From the **[Service control policies](https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy "https://console.aws.amazon.com/organizations/v2/home/policies/service-control-policy")** page, choose **Create
    policy**.
 2. For **Policy name**, enter `Deny
-List for MainApp Prohibited Services`.
+ List for MainApp Prohibited Services`.
 3. In the **Policy** section on the left, select
    **Amazon DynamoDB** for the service. For the
    action, choose **All actions**.
@@ -463,7 +463,7 @@ AWS Management Console
    **Attach**.
 4. On the **Attach a service control policy**
    page, choose the radio button next to the SCP named `Block
-CloudTrail Configuration Actions`, and then choose
+ CloudTrail Configuration Actions`, and then choose
    **Attach**. In this tutorial, you attach it
    to the root so that it affects all member accounts to prevent
    anyone from altering the way that you configured CloudTrail.

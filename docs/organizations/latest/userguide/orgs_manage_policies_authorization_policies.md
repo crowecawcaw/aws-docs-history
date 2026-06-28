@@ -59,7 +59,7 @@ only impact the effective permissions for principals within your AWS organizatio
 The following table details general use cases for using an SCP and RCPs
 
 |                                                                  | **Impacts**     |
-| ---------------------------------------------------------------- | --------------- | ------------------- | ----------------------- | ------------------ | ---------------------------------------------- |
+| ---------------------------------------------------------------- | --------------- |
 | **Use case**                                                     | **Policy type** | **Your identities** | **External identities** | **Your Resources** | **External resources (target of the request)** |
 | Restrict which services or actions your identities can use       | SCP             | X                   |                         | X                  | X                                              |
 | Restrict which resources your identities can access              | SCP             | X                   |                         | X                  | X                                              |

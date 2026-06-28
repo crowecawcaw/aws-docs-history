@@ -41,7 +41,7 @@ To check a tag that is attached to the resource, you reference the tag in a
 string: `aws:ResourceTag/`
 
 For example, the following sample policy allows the user or role to perform any
-AWS Organizations operation **_unless_** that resource has a tag with the key
+AWS Organizations operation _**unless**_ that resource has a tag with the key
 `department` and the value `security`. If that key and value
 is present, then the policy explicitly denies the `UntagResource` operation.
 
@@ -154,7 +154,7 @@ JSON
 
 Alternatively, you can use [`ForAnyValue:`](../../../IAM/latest/UserGuide/reference_policies_multi-value-conditions.md#reference_policies_multi-key-or-value-conditions "../../../IAM/latest/UserGuide/reference_policies_multi-value-conditions.md#reference_policies_multi-key-or-value-conditions") to preface a comparison operator to ensure
 that at least one of the keys in the request must match one of the keys specified in the
-policy. For example, the following policy allows an Organizations operation only if **_at least one_** of the
+policy. For example, the following policy allows an Organizations operation only if _**at least one**_ of the
 specified tag keys is present in the request.
 
 JSON

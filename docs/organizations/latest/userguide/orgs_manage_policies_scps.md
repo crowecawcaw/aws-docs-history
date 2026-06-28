@@ -76,8 +76,8 @@ SCPs are similar to AWS Identity and Access Management permission policies and u
 specify the maximum available permissions for the IAM users and IAM roles in your organization. For more information, see [Policy Evaluation
 Logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 
-- SCPs **_affect only IAM users and
-  roles_** that are managed by accounts that are part
+- SCPs _**affect only IAM users and
+  roles**_ that are managed by accounts that are part
   of the organization. SCPs don't affect resource-based policies directly. They
   also don't affect users or roles from accounts outside the organization. For
   example, consider an Amazon S3 bucket that's owned by account A in an organization.
@@ -87,14 +87,14 @@ Logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../
   are managed by account A in the organization.
 - An SCP restricts permissions for IAM users and roles in member accounts,
   including the member account's root user. Any account has only those permissions
-  permitted by **_every_** parent above it. If a permission is blocked at
+  permitted by _**every**_ parent above it. If a permission is blocked at
   any level above the account, either implicitly (by not being included in an
   `Allow` policy statement) or explicitly (by being included in a
   `Deny` policy statement), a user or role in the affected account
   can't use that permission, even if the account administrator attaches the
   `AdministratorAccess` IAM policy with \*/\* permissions to the
   user.
-- SCPs affect only **_member_** accounts in the organization. They have no
+- SCPs affect only _**member**_ accounts in the organization. They have no
   effect on users or roles in the management account. This also means that SCPs apply to member accounts that are designated as delegated administrators. For more information, see [Best practices for the management account](orgs_best-practices_mgmt-acct.md "orgs_best-practices_mgmt-acct.md").
 - Users and roles must still be granted permissions with appropriate IAM
   permission policies. A user without any IAM permission policies has no access,
@@ -105,9 +105,9 @@ Logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../
 - If a user or role has an IAM permission policy that grants access to an
   action that is either not allowed or explicitly denied by the applicable SCPs,
   the user or role can't perform that action.
-- SCPs affect all users and roles in attached accounts, **_including the root user_**.
+- SCPs affect all users and roles in attached accounts, _**including the root user**_.
   The only exceptions are those described in [Tasks and entities not restricted by SCPs](#not-restricted-by-scp "#not-restricted-by-scp").
-- SCPs **_do not_** affect any service-linked role. Service-linked roles
+- SCPs _**do not**_ affect any service-linked role. Service-linked roles
   enable other AWS services to integrate with AWS Organizations and can't be restricted
   by SCPs.
 - When you disable the SCP policy type in a root, all SCPs are automatically
@@ -147,7 +147,7 @@ _IAM User Guide_:
 
 ## Tasks and entities not restricted by SCPs
 
-You **_can't_** use
+You _**can't**_ use
 SCPs to restrict the following tasks:
 
 - Any action performed by the management account
