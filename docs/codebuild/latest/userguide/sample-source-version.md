@@ -44,7 +44,9 @@ entire repository to find the commit.
   `12345678901234567890123467890123456789`. If you do this, CodeBuild must
   download the entire repository to find the version.
 - You can specify a source version with a reference and a commit ID in this format:
-  ``refs`/`heads`/`branchname`^{`full-commit-SHA`}`(for example,`refs/heads/main^{12345678901234567890123467890123456789}`). If you do
+  ``refs`/`heads`/`branchname`^{`full-commit-SHA`}`
+  (for example,
+  `refs/heads/main^{12345678901234567890123467890123456789}`). If you do
   this, CodeBuild downloads only the specified branch to find the version. .
 
 ###### Note

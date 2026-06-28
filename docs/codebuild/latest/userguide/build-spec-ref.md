@@ -507,14 +507,14 @@ phase. This can be one of the following values:
 - `ABORT` - Abort the build.
 - `CONTINUE` - Continue to the next phase.
 - `RETRY` - Retry the build up to 3 times with an error message that matches the regular expression `.*`.
-- `RETRY-`count``- Retry the build for a specified number of times, as 
-represented by`count`with an error message that matches the regular expression`.\*`. 
-Note that `count`must be between 0 and 100. For example, valid values include`RETRY-4`and`RETRY-8`.
-- `RETRY-`regex``- Retry the build up to 3 times, and use`regex`
-to include a regular expression to match a specifed error message. For example, valid values include`Retry-._Error: Unable to connect to database._`and`RETRY-invalid+`.
-- `RETRY-`count`-`regex``- Retry the build for a specified number of times, as 
-represented by`count`. Note that `count`must be between 0 and 100. You can also use`regex`
-to include a regular expression to match the error message. For example, valid values include`Retry-3-._connection timed out._`and`RETRY-8-invalid+`.
+- `RETRY-`count`` - Retry the build for a specified number of times, as
+  represented by `count` with an error message that matches the regular expression `.*`.
+  Note that `count` must be between 0 and 100. For example, valid values include `RETRY-4` and `RETRY-8`.
+- `RETRY-`regex`` - Retry the build up to 3 times, and use `regex`
+  to include a regular expression to match a specifed error message. For example, valid values include `Retry-.*Error: Unable to connect to database.*` and `RETRY-invalid+`.
+- `RETRY-`count`-`regex`` - Retry the build for a specified number of times, as
+  represented by `count`. Note that `count` must be between 0 and 100. You can also use `regex`
+  to include a regular expression to match the error message. For example, valid values include `Retry-3-.*connection timed out.*` and `RETRY-8-invalid+`.
 
 If this property is not specified, the failure process follows the transition
 phases as shown in [Build phase transitions](view-build-details-phases.md "view-build-details-phases.md").
@@ -607,13 +607,13 @@ a single command that CodeBuild runs during installation. CodeBuild runs
 each command, one at a time, in the order listed, from beginning to
 end.
 
-phases/**pre_build**
+phases/**pre\_build**
 
 Optional sequence. Represents the commands, if any, that CodeBuild runs
 before the build. For example, you might use this phase to sign in to
 Amazon ECR, or you might install npm dependencies.
 
-phases/pre_build/**commands**
+phases/pre\_build/**commands**
 
 Required sequence if `pre_build` is specified.
 Contains a sequence of scalars, where each scalar represents
@@ -634,14 +634,14 @@ where each scalar represents a single command that CodeBuild runs during
 the build. CodeBuild runs each command, one at a time, in the order
 listed, from beginning to end.
 
-phases/**post_build**
+phases/**post\_build**
 
 Optional sequence. Represents the commands, if any, that CodeBuild runs
 after the build. For example, you might use Maven to package the build
 artifacts into a JAR or WAR file, or you might push a Docker image into
 Amazon ECR. Then you might send a build notification through Amazon SNS.
 
-phases/post_build/**commands**
+phases/post\_build/**commands**
 
 Required if `post_build` is specified. Contains a sequence of
 scalars, where each scalar represents a single command that CodeBuild
@@ -673,13 +673,16 @@ following:
   `my-test-report-file.json`).
 - A single file in a subdirectory (for example,
   ``my-subdirectory`/my-test-report-file.json`
-or
-``my-parent-subdirectory`/`my-subdirectory`/my-test-report-file.json`).
+ or
+ ``my-parent-subdirectory`/`my-subdirectory`/my-test-report-file.json`).
 - `'**/*'` represents all files
   recursively.
-- ``my-subdirectory`/\*`represents all files in a subdirectory named`my-subdirectory`.
-- ``my-subdirectory`/\*_/_`represents all files recursively starting from a subdirectory
-named`my-subdirectory`.
+- ``my-subdirectory`/*`
+  represents all files in a subdirectory named
+  `my-subdirectory`.
+- ``my-subdirectory`/**/*`
+  represents all files recursively starting from a subdirectory
+  named `my-subdirectory`.
 
 reports/<report-group>/**file-format**
 
@@ -779,13 +782,16 @@ following:
   `my-file.jar`).
 - A single file in a subdirectory (for example,
   ``my-subdirectory`/my-file.jar`
-or
-``my-parent-subdirectory`/`my-subdirectory`/my-file.jar`).
+ or
+ ``my-parent-subdirectory`/`my-subdirectory`/my-file.jar`).
 - `'**/*'` represents all files
   recursively.
-- ``my-subdirectory`/\*`represents all files in a subdirectory named`my-subdirectory`.
-- ``my-subdirectory`/\*_/_`represents all files recursively starting from a subdirectory
-named`my-subdirectory`.
+- ``my-subdirectory`/*`
+  represents all files in a subdirectory named
+  `my-subdirectory`.
+- ``my-subdirectory`/**/*`
+  represents all files recursively starting from a subdirectory
+  named `my-subdirectory`.
 
 When you specify build output artifact locations, CodeBuild can locate the
 original build location in the build environment. You do not have to
@@ -1101,13 +1107,16 @@ following:
   `my-file.jar`).
 - A single file in a subdirectory (for example,
   ``my-subdirectory`/my-file.jar`
-or
-``my-parent-subdirectory`/`my-subdirectory`/my-file.jar`).
+ or
+ ``my-parent-subdirectory`/`my-subdirectory`/my-file.jar`).
 - `'**/*'` represents all files
   recursively.
-- ``my-subdirectory`/\*`represents all files in a subdirectory named`my-subdirectory`.
-- ``my-subdirectory`/\*_/_`represents all files recursively starting from a subdirectory
-named`my-subdirectory`.
+- ``my-subdirectory`/*`
+  represents all files in a subdirectory named
+  `my-subdirectory`.
+- ``my-subdirectory`/**/*`
+  represents all files recursively starting from a subdirectory
+  named `my-subdirectory`.
 
 ###### Important
 
@@ -1227,10 +1236,10 @@ In these examples:
   using the key `LOGIN_PASSWORD`.
 - You cannot change these build phase names. The commands that are run in this
   example are `apt-get update -y` and `apt-get install -y
-maven` (to install Apache Maven), `mvn install` (to
+ maven` (to install Apache Maven), `mvn install` (to
   compile, test, and package the source code into a build output artifact and to
   install the build output artifact in its internal repository), `docker
-login` (to sign in to Docker with the password that corresponds to the
+ login` (to sign in to Docker with the password that corresponds to the
   value of the custom environment variable `dockerLoginPassword` you
   set in Amazon EC2 Systems Manager Parameter Store), and several `echo` commands. The
   `echo` commands are included here to show how CodeBuild runs commands

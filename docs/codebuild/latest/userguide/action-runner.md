@@ -49,15 +49,24 @@ In **Runner**:
 By default, your project will only receive
 `WORKFLOW_JOB_QUEUED` events for a single repository. If you
 would like to receive events for all repositories within an organization or
-enterprise, see [GitHub global and organization webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md"). 4. _ In **Environment**: + Choose a supported **Environment image** and
-**Compute**. Note that you have the option
-to override the image and instance settings by using a label in
-your GitHub Actions workflow YAML. For more information, see
-[Step 2: Update your GitHub Actions workflow YAML](#sample-github-action-runners-update-yaml "#sample-github-action-runners-update-yaml")
-_ In **Buildspec**: + Note that your buildspec will be ignored unless
-`buildspec-override:true` is added as a label.
-Instead, CodeBuild will override it to use commands that will setup
-the self-hosted runner. 5. Continue with the default values and then choose **Create build
+enterprise, see [GitHub global and organization webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md"). 4. * In **Environment**:
+
+    	+ Choose a supported **Environment image** and
+    	 **Compute**. Note that you have the option
+    	 to override the image and instance settings by using a label in
+    	 your GitHub Actions workflow YAML. For more information, see
+    	 [Step 2: Update your GitHub Actions workflow YAML](#sample-github-action-runners-update-yaml "#sample-github-action-runners-update-yaml")
+    * In **Buildspec**:
+
+
+
+
+    	+ Note that your buildspec will be ignored unless
+    	 `buildspec-override:true` is added as a label.
+    	 Instead, CodeBuild will override it to use commands that will setup
+    	 the self-hosted runner.
+
+5. Continue with the default values and then choose **Create build
 project**. 6. Open the GitHub console at
 `https://github.com/`user-name`/`repository-name`/settings/hooks`
 to verify that a webhook has been created and is enabled to deliver
@@ -188,7 +197,7 @@ environment, you can install the dependency using GitHub Actions in your
 workflow run. For example, you can use the [`setup-python`](https://github.com/actions/setup-python "https://github.com/actions/setup-python") action to install Python for your build
 environment.
 
-### Run buildspec commands the INSTALL, PRE_BUILD, and POST_BUILD phases
+### Run buildspec commands the INSTALL, PRE\_BUILD, and POST\_BUILD phases
 
 By default, CodeBuild ignores any buildspec commands when running a self-hosted GitHub Actions build. To run buildspec
 commands during the build, `buildspec-override:true` can be added as a suffix to the label:

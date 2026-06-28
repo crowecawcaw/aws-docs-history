@@ -66,12 +66,9 @@ following:
     For more information, see [Overview of IAM
      Policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the *user Guide*.
 
-2. In the navigation pane, choose **Policies**.
-3. Choose **Create Policy**.
-4. On the **Create Policy** page, choose
-   **JSON**.
-5. For the JSON policy, enter the following, and then choose **Review
-   Policy**:
+2. In the navigation pane, choose **Policies**. 3. Choose **Create Policy**. 4. On the **Create Policy** page, choose
+**JSON**. 5. For the JSON policy, enter the following, and then choose **Review
+Policy**:
 
 JSON
 

@@ -129,14 +129,11 @@ and then upload it to the input bucket. Do not add `my-source` to the ZIP file, 
     	+ For **Image**, choose
     	 **aws/codebuild/amazonlinux-x86\_64-standard:4.0**.
 
-12. Choose **Create build project**.
-13. Choose **Start build**.
-14. On **Build configuration**, accept the defaults, and then
-    choose **Start build**.
-15. After the build is complete, view the build output on the **Build
-    logs** tab. You should see output similar to the following. It
-    shows output from the Go and Node.js runtimes. It also shows output from the Go
-    and Node.js applications.
+12. Choose **Create build project**. 13. Choose **Start build**. 14. On **Build configuration**, accept the defaults, and then
+choose **Start build**. 15. After the build is complete, view the build output on the **Build
+logs** tab. You should see output similar to the following. It
+shows output from the Go and Node.js runtimes. It also shows output from the Go
+and Node.js applications.
 
 ```
 [Container] Date Time Processing environment variables

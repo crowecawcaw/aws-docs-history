@@ -131,7 +131,7 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
 
    1. Secret key - `MATCH_PASSWORD`
    2. Secret value - `<match passphrase to decrypt
-certificates>`. The passphrase is set while generating
+  certificates>`. The passphrase is set while generating
       the certificates in Step 3.
 
 ###### Note
@@ -171,11 +171,11 @@ Create your project in CodeBuild.
      - Name: `MATCH_PASSWORD`, Value:
        `<secrets arn>`, Type: Secrets
        Manager (Secrets ARN created in step 5 for
-       MATCH_PASSWORD)
+       MATCH\_PASSWORD)
      - Name: `FASTLANE_SESSION`, Value:
        `<secrets arn>`, Type: Secrets
        Manager (Secrets ARN created in Step 5 for
-       FASTLANE_SESSION)
+       FASTLANE\_SESSION)
 
 5. In **Buildspec**, add the following:
 
@@ -246,7 +246,7 @@ Once the job is completed, you will be able to view the log of the job.
 - If you encounter issues with certificate fetching, ensure your IAM
   permissions are set up correctly for S3 access.
 - If you encounter issues with certificate decrypting, ensure you set correct
-  passphrase in MATCH_PASSWORD environment variable.
+  passphrase in MATCH\_PASSWORD environment variable.
 - For code signing issues, verify that your Apple Developer account has the
   necessary certificates and profiles, and that the bundle identifier in your
   Xcode project matches the one in your provisioning profile.
@@ -259,7 +259,7 @@ The following are security considerations for this tutorial.
   at rest. In particular, make sure the bucket has no public access and restrict
   access to only CodeBuild and the system that needs to have an access.
 - Consider using AWS Secrets Manager for storing sensitive information like the
-  MATCH_PASSWORD and FASTLANE_SESSION.
+  MATCH\_PASSWORD and FASTLANE\_SESSION.
 
 This sample provides a setup for iOS code signing with Fastlane in CodeBuild using Amazon
 S3 for certificate storage. You may need to adjust some steps based on your specific

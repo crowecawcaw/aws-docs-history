@@ -89,11 +89,10 @@ project**.
     *
 
 3. Continue with the default values and then choose **Create build
-   project**.
-4. Open the GitLab console at
-   `https://gitlab.com/`user-name`/`repository-name`/-/hooks`
-   to verify that a webhook has been created and is enabled to deliver
-   **Workflow jobs** events.
+project**. 4. Open the GitLab console at
+`https://gitlab.com/`user-name`/`repository-name`/-/hooks`
+to verify that a webhook has been created and is enabled to deliver
+**Workflow jobs** events.
 
 ## Step 2: Create a .gitlab-ci.yml file in your repository
 
@@ -104,7 +103,7 @@ see [Use self-managed runners](https://docs.gitlab.com/runner/#use-self-managed-
 ### Update your GitLab CI/CD pipeline YAML
 
 Navigate to `https://gitlab.com/`user-name`/`project-name`/-/tree/`branch-name``
- and create a`.gitlab-ci.yml` file in your repository. You can configure your build environment by doing one of the
+and create a `.gitlab-ci.yml` file in your repository. You can configure your build environment by doing one of the
 following:
 
 - You can specify the CodeBuild project name, in which case the build will
@@ -219,7 +218,7 @@ After you commit your changes to `.gitlab-ci.yml`, a GitLab
 pipeline will be triggered and the `build-job` will send a webhook
 notification that will start your build in CodeBuild.
 
-### Run buildspec commands the INSTALL, PRE_BUILD, and POST_BUILD phases
+### Run buildspec commands the INSTALL, PRE\_BUILD, and POST\_BUILD phases
 
 By default, CodeBuild ignores any buildspec commands when running a self-managed GitLab build. To run buildspec
 commands during the build, `buildspec-override:true` can be added as a suffix to `tags`:

@@ -30,7 +30,7 @@ download the entire repository to find the version.
      - For **Runtime(s)**, choose
        **Standard**.
      - For **Image**, choose
-       **aws/codebuild/amazonlinux-x86_64-standard:4.0**.
+       **aws/codebuild/amazonlinux-x86\_64-standard:4.0**.
 
 3. For **Build specifications**, choose **Insert build
    commands**, and then choose **Switch to editor**.

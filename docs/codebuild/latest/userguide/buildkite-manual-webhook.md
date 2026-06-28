@@ -28,22 +28,23 @@ In **Runner**:
      configured for your account. Additionally, verify that your Buildkite
      pipeline uses **Checkout using HTTPS**.
 
-4. - In **Environment**:
+4. * In **Environment**:
 
-     - Choose a supported **Environment image** and
-       **Compute**. Note that you have the option to
-       override the image and instance settings by using a label in your
-       GitHub Actions workflow YAML. For more information, see [Step 2: Update your GitHub Actions workflow YAML](action-runner.md#sample-github-action-runners-update-yaml "action-runner.md#sample-github-action-runners-update-yaml")
+    	+ Choose a supported **Environment image** and
+    	 **Compute**. Note that you have the option to
+    	 override the image and instance settings by using a label in your
+    	 GitHub Actions workflow YAML. For more information, see [Step 2: Update your GitHub Actions workflow YAML](action-runner.md#sample-github-action-runners-update-yaml "action-runner.md#sample-github-action-runners-update-yaml")
+    * In **Buildspec**:
 
-   - In **Buildspec**:
 
-     - Note that your buildspec will be ignored unless
-       `buildspec-override:true` is added as a label.
-       Instead, CodeBuild will override it to use commands that will setup the
-       self-hosted runner.
+
+
+    	+ Note that your buildspec will be ignored unless
+    	 `buildspec-override:true` is added as a label.
+    	 Instead, CodeBuild will override it to use commands that will setup the
+    	 self-hosted runner.
 
 5. Continue with the default values and then choose **Create build
-   project**.
-6. Save the **Payload URL** and **Secret** values
-   from the **Create Webhook** popup. Follow the
-   instructions in the popup to create a new Buildkite organization webhook.
+project**. 6. Save the **Payload URL** and **Secret** values
+from the **Create Webhook** popup. Follow the
+instructions in the popup to create a new Buildkite organization webhook.

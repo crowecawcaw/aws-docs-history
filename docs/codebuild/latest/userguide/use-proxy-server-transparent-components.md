@@ -21,7 +21,7 @@ proxy server.
    Guide_.
 2. Create two subnets in your VPC. One is a public subnet named `Public Subnet`
    in which your proxy server runs. The other is a private subnet named `Private
-Subnet` in which CodeBuild runs.
+ Subnet` in which CodeBuild runs.
 
 For information, see [Creating a subnet
 in your VPC](../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet "../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet"). 3. Create and attach an internet gateway to your VPC. For more information,

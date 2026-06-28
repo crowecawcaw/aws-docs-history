@@ -13,15 +13,14 @@ build.
   and [AWS Key Management Service concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS Key Management Service
   User Guide_.
 
-      + You can store the identifier of the AWS KMS key that CodeBuild uses to
-       encrypt the build output artifact in the
-       `CODEBUILD_KMS_KEY_ID` environment variable. For more
-       information, see [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md")
-      + You can specify a customer managed key when you create a build
-       project. For more information, see [Set the Encryption Key Using the Console](create-project.md#encryptionkey-console "create-project.md#encryptionkey-console") and [Set the encryption key using the
-       CLI](create-project.md#cli.encryptionkey "create-project.md#cli.encryptionkey").
-
-  The Amazon Elastic Block Store volumes of your build fleet are encrypted by default using AWS managed keys.
+  - You can store the identifier of the AWS KMS key that CodeBuild uses to
+    encrypt the build output artifact in the
+    `CODEBUILD_KMS_KEY_ID` environment variable. For more
+    information, see [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md")
+  - You can specify a customer managed key when you create a build
+    project. For more information, see [Set the Encryption Key Using the Console](create-project.md#encryptionkey-console "create-project.md#encryptionkey-console") and [Set the encryption key using the
+    CLI](create-project.md#cli.encryptionkey "create-project.md#cli.encryptionkey").
+    The Amazon Elastic Block Store volumes of your build fleet are encrypted by default using AWS managed keys.
 
 - **Encryption of data in-transit** - All
   communication between customers and CodeBuild and between CodeBuild and its downstream

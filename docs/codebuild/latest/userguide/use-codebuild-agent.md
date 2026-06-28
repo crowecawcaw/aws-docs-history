@@ -1,7 +1,7 @@
 # Run builds locally with the AWS CodeBuild agent
 
 You can use the AWS CodeBuild agent to run CodeBuild builds on a local machine. There are agents
-available for x86_64 and ARM platforms.
+available for x86\_64 and ARM platforms.
 
 You can also subscribe to receive notifications when new versions of the agent are
 published.
@@ -22,7 +22,7 @@ image has changed.
 ###### To set up the build image
 
 1. If you want to use a curated Amazon Linux 2 image, you can pull it from the CodeBuild
-   public Amazon ECR repository at [https://gallery.ecr.aws/codebuild/amazonlinux-x86_64-standard](https://gallery.ecr.aws/codebuild/amazonlinux-x86_64-standard "https://gallery.ecr.aws/codebuild/amazonlinux-x86_64-standard") with
+   public Amazon ECR repository at [https://gallery.ecr.aws/codebuild/amazonlinux-x86\_64-standard](https://gallery.ecr.aws/codebuild/amazonlinux-x86_64-standard "https://gallery.ecr.aws/codebuild/amazonlinux-x86_64-standard") with
    the following command:
 
 ```
@@ -57,7 +57,7 @@ steps:
 
 2. Download the CodeBuild agent.
 
-To download the x86_64 version of the agent, run the following command:
+To download the x86\_64 version of the agent, run the following command:
 
 ```
 `$` docker pull public.ecr.aws/codebuild/local-builds:latest
@@ -71,7 +71,7 @@ To download the ARM version of the agent, run the following command:
 
 3. The CodeBuild agent is available from [https://gallery.ecr.aws/codebuild/local-builds](https://gallery.ecr.aws/codebuild/local-builds "https://gallery.ecr.aws/codebuild/local-builds").
 
-The Secure Hash Algorithm (SHA) signature for the x86_64 version of the agent
+The Secure Hash Algorithm (SHA) signature for the x86\_64 version of the agent
 is:
 
 ```
@@ -96,7 +96,7 @@ SHA signature, run the following command and look for the SHA under `RepoDigests
 ###### To run the CodeBuild agent
 
 1. Change to the directory that contains your build project source.
-2. Download the [codebuild_build.sh](https://github.com/aws/aws-codebuild-docker-images/blob/master/local_builds/codebuild_build.sh "https://github.com/aws/aws-codebuild-docker-images/blob/master/local_builds/codebuild_build.sh") script:
+2. Download the [codebuild\_build.sh](https://github.com/aws/aws-codebuild-docker-images/blob/master/local_builds/codebuild_build.sh "https://github.com/aws/aws-codebuild-docker-images/blob/master/local_builds/codebuild_build.sh") script:
 
 ```
 `$` curl -O  https://raw.githubusercontent.com/aws/aws-codebuild-docker-images/master/local_builds/codebuild_build.sh
@@ -106,7 +106,7 @@ SHA signature, run the following command and look for the SHA under `RepoDigests
 3. Run the `codebuild_build.sh` script and specify your container
    image and the output directory.
 
-To run an x86_64 build, run the following command:
+To run an x86\_64 build, run the following command:
 
 ```
 `$` ./codebuild_build.sh -i `<container-image>` -a `<output directory>`

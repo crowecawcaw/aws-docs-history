@@ -58,7 +58,7 @@ Console
      report group's ARN.
 
 2. Run the following command. Use the ARN you made a note of for the
-   `--report-group-arns` parameter.
+`--report-group-arns` parameter.
 
 ```
 aws codebuild batch-get-report-groups --report-group-arns arn:aws:codebuild:`region`:`123456789012`:report-group/`report-group-name`

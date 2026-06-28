@@ -51,12 +51,11 @@ Notification Rules on Build Projects](../../../codestar-notifications/latest/use
      information, see [Configure Amazon SNS Topics
      for Notifications](../../../codestar-notifications/latest/userguide/set-up-sns.md "../../../codestar-notifications/latest/userguide/set-up-sns.md")  and [Understanding Notification Contents and Security](../../../codestar-notifications/latest/userguide/security.md#security-notifications "../../../codestar-notifications/latest/userguide/security.md#security-notifications").
 
-8. To finish creating the rule, choose **Submit**.
-9. You must subscribe users to the Amazon SNS topic for the rule before they can receive
-   notifications. For more information, see [Subscribe Users to Amazon SNS Topics That Are Targets](../../../codestar-notifications/latest/userguide/subscribe-users-sns.md "../../../codestar-notifications/latest/userguide/subscribe-users-sns.md"). You can also set up integration
-   between notifications and Amazon Q Developer in chat applications to send notifications to Amazon Chime chatrooms. For more information,
-   see [Configure Integration Between
-   Notifications and Amazon Q Developer in chat applications](../../../codestar-notifications/latest/userguide/notifications-chatbot.md "../../../codestar-notifications/latest/userguide/notifications-chatbot.md").
+8. To finish creating the rule, choose **Submit**. 9. You must subscribe users to the Amazon SNS topic for the rule before they can receive
+notifications. For more information, see [Subscribe Users to Amazon SNS Topics That Are Targets](../../../codestar-notifications/latest/userguide/subscribe-users-sns.md "../../../codestar-notifications/latest/userguide/subscribe-users-sns.md"). You can also set up integration
+between notifications and Amazon Q Developer in chat applications to send notifications to Amazon Chime chatrooms. For more information,
+see [Configure Integration Between
+Notifications and Amazon Q Developer in chat applications](../../../codestar-notifications/latest/userguide/notifications-chatbot.md "../../../codestar-notifications/latest/userguide/notifications-chatbot.md").
 
 # To create a notification rule (AWS CLI)
 

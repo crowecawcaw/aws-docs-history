@@ -13,8 +13,8 @@ CodeBuild sandbox SSH connection issues.
 ## `StartSandboxConnection` `InvalidInputException` error when SSH into CodeBuild sandbox environment
 
 **Issue:** When attempting to connect to a CodeBuild sandbox
-environment using the command `ssh codebuild-sandbox-ssh=`<sandbox-arn>``, 
- you may encounter an `InvalidInputException` error such as:
+environment using the command `ssh codebuild-sandbox-ssh=`<sandbox-arn>``,
+you may encounter an `InvalidInputException` error such as:
 
 ```
 An error occurred (InvalidInputException) when calling the StartSandboxConnection

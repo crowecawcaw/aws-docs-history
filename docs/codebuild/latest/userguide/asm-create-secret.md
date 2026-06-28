@@ -65,16 +65,16 @@ The Secrets Manager secrets that CodeBuild accept must be in the same account an
         }
 ```
 
-| Field      | Valid values                             | Description                                                                                                                                                   |
-| ---------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ServerType | GITHUB<br>GITHUB_ENTERPRISE<br>BITBUCKET | The third party source provider for your Secrets Manager secret.                                                                                              |
-| AuthType   | PERSONAL_ACCESS_TOKEN<br>BASIC_AUTH      | The type of access token used by the credentials.<br>For GitHub, only PERSONAL_ACCESS_TOKEN is valid.<br>BASIC_AUTH is only valid for Bitbucket app password. |
-| Token      | `string`                                 | For GitHub or GitHub Enterprise, this is the personal access token.<br>For Bitbucket, this is either the access token or the Bitbucket app password.          |
-| Username   | `string`                                 | The Bitbucket username when the AuthType is BASIC_AUTH.<br>This parameter is not valid for other types of source providers.                                   |
+| Field      | Valid values                              | Description                                                                                                                                                      |
+| ---------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ServerType | GITHUB<br>GITHUB\_ENTERPRISE<br>BITBUCKET | The third party source provider for your Secrets Manager secret.                                                                                                 |
+| AuthType   | PERSONAL\_ACCESS\_TOKEN<br>BASIC\_AUTH    | The type of access token used by the credentials.<br>For GitHub, only PERSONAL\_ACCESS\_TOKEN is valid.<br>BASIC\_AUTH is only valid for Bitbucket app password. |
+| Token      | `string`                                  | For GitHub or GitHub Enterprise, this is the personal access token.<br>For Bitbucket, this is either the access token or the Bitbucket app password.             |
+| Username   | `string`                                  | The Bitbucket username when the AuthType is BASIC\_AUTH.<br>This parameter is not valid for other types of source providers.                                     |
 
 Additionally, CodeBuild uses the following resource tags on the secret to ensure the secrets are easily selectable when creating or editing projects.
 
-| Tag key                   | Tag value                                | Description                                                 |
-| ------------------------- | ---------------------------------------- | ----------------------------------------------------------- |
-| codebuild:source:provider | github<br>github_enterprise<br>bitbucket | Tells CodeBuild which provider this secret is intended for. |
-| codebuild:source:type     | personal_access_token<br>basic_auth      | Tells CodeBuild the type of access token in this secret.    |
+| Tag key                   | Tag value                                 | Description                                                 |
+| ------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
+| codebuild:source:provider | github<br>github\_enterprise<br>bitbucket | Tells CodeBuild which provider this secret is intended for. |
+| codebuild:source:type     | personal\_access\_token<br>basic\_auth    | Tells CodeBuild the type of access token in this secret.    |

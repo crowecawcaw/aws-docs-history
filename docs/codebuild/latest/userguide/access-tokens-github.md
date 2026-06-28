@@ -11,10 +11,10 @@ For GitHub, your personal access token must have the following scopes.
   repositories.
 - **repo:status**: Grants read/write access to
   public and private repository commit statuses.
-- **admin:repo_hook**: Grants full control of
+- **admin:repo\_hook**: Grants full control of
   repository hooks. This scope is not required if your token has the
   `repo` scope.
-- **admin:org_hook**: Grants full control of organization hooks.
+- **admin:org\_hook**: Grants full control of organization hooks.
   This scope is only required if you are using the organization webhook feature.
 
 For more information, see [Understanding scopes for OAuth apps](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/ "https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/") on the GitHub website.
@@ -116,9 +116,9 @@ Replace the following:
      providers.
 
 2. To connect your account with an access token, switch to the directory that
-   contains the `import-source-credentials.json` file you
-   saved in step 1 and run the
-   **import-source-credentials** command again.
+contains the `import-source-credentials.json` file you
+saved in step 1 and run the
+**import-source-credentials** command again.
 
 ```
 aws codebuild import-source-credentials --cli-input-json file://import-source-credentials.json
@@ -177,7 +177,7 @@ source credentials information:
     * The `arn` is the ARN of the token.
 
 4. To disconnect from a source provider and remove its access tokens, run the
-   **delete-source-credentials** command with its ARN.
+**delete-source-credentials** command with its ARN.
 
 ```
 aws codebuild delete-source-credentials --arn `arn-of-your-credentials`

@@ -609,9 +609,9 @@ automatically. You must set the following environment
 variables if you haven't added them to your
 buildspec.yml:
 
-- AWS_ACCOUNT_ID
-- IMAGE_REPO_NAME
-- IMAGE_TAG
+- AWS\_ACCOUNT\_ID
+- IMAGE\_REPO\_NAME
+- IMAGE\_TAG
 
 Console and AWS CLI users can see environment variables. If you
 have no concerns about the visibility of your environment
@@ -883,7 +883,7 @@ Do one of the following:
     the build that you want to put into the build output ZIP
     file or folder. For multiple locations, separate each
     location with a comma (for example, `appspec.yml,
-target/my-app.jar`). For more information, see the
+   target/my-app.jar`). For more information, see the
     description of `files` in [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax").
   - If you do not want your build artifacts encrypted, select
     **Remove artifacts encryption**.
@@ -1768,7 +1768,7 @@ CODEBUILD
 credentials. You must edit your Amazon ECR repository policy to
 trust the CodeBuild service principal.
 
-SERVICE_ROLE
+SERVICE\_ROLE
 
 Specifies that CodeBuild uses your build project's service
 role.

@@ -85,9 +85,9 @@ For **Environment image**, do one of the following:
 
 6. In **Service role**, do one of the following:
 
-   - If you do not have a CodeBuild service role, choose **New service role**. In **Role
+    * If you do not have a CodeBuild service role, choose **New service role**. In **Role
      name**, enter a name for the new role.
-   - If you have a CodeBuild service role, choose **Existing service role**. In **Role
+    * If you have a CodeBuild service role, choose **Existing service role**. In **Role
      ARN**, choose the service role.
 
 ###### Note
@@ -132,6 +132,5 @@ following:
     	 description of `files` in [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax").
 
 9. Expand **Additional configuration** and choose options as
-   appropriate.
-10. Choose **Create build project**. On the **Review** page,
-    choose **Start build** to run the build.
+appropriate. 10. Choose **Create build project**. On the **Review** page,
+choose **Start build** to run the build.

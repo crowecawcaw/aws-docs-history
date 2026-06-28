@@ -44,16 +44,14 @@ If your workflow job is hanging on GitHub, see
 - Overrides the image and environment type used when starting the self-hosted runner build with a curated image. To learn about supported values, see
   [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.images.md "sample-github-action-runners-update-yaml.images.md").
 
-      + To override the image and environment type used with a custom image, use
-       `image:custom-`<environment-type>`-`<custom-image-identifier>``
-      + Example: `image:custom-arm-public.ecr.aws/codebuild/amazonlinux-aarch64-standard:3.0`
+  - To override the image and environment type used with a custom image, use
+    `image:custom-`<environment-type>`-`<custom-image-identifier>``
+  - Example: `image:custom-arm-public.ecr.aws/codebuild/amazonlinux-aarch64-standard:3.0`
 
+  ###### Note
 
-      ###### Note
-
-      If the custom image resides in a private registry, see
-       [Configure a private registry credential for self-hosted runners](private-registry-sample-configure-runners.md "private-registry-sample-configure-runners.md").
-
+  If the custom image resides in a private registry, see
+  [Configure a private registry credential for self-hosted runners](private-registry-sample-configure-runners.md "private-registry-sample-configure-runners.md").
   `instance-size:`<instance-size>``
 
 - Example: `instance-size:medium`

@@ -61,18 +61,20 @@ http_access allow localnet download_src
       required for uploading artifacts and Amazon S3 caching.
 
       - ```
-        https_port 3130 cert=/etc/squid/ssl/squid.pem ssl-bump intercept
-        acl SSL_port port 443
-        http_access allow SSL_port
-        acl allowed_https_sites ssl::server_name .amazonaws.com
-        acl step1 at_step SslBump1
-        acl step2 at_step SslBump2
-        acl step3 at_step SslBump3
-        ssl_bump peek step1 all
-        ssl_bump peek step2 allowed_https_sites
-        ssl_bump splice step3 allowed_https_sites
-        ssl_bump terminate step2 all
+
         ```
+
+      https_port 3130 cert=/etc/squid/ssl/squid.pem ssl-bump intercept
+      acl SSL_port port 443
+      http_access allow SSL_port
+      acl allowed_https_sites ssl::server_name .amazonaws.com
+      acl step1 at_step SslBump1
+      acl step2 at_step SslBump2
+      acl step3 at_step SslBump3
+      ssl_bump peek step1 all
+      ssl_bump peek step2 allowed_https_sites
+      ssl_bump splice step3 allowed_https_sites
+      ssl_bump terminate step2 all
 
       ```
       + After you save `squid.conf`, run the

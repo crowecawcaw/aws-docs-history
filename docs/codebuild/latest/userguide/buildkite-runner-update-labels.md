@@ -36,7 +36,7 @@ steps:
   `queue: "`<queue-name>`"`
 
 - Example: `queue:
-"`<queue-name>`"`
+ "`<queue-name>`"`
 - Used to route Buildkite jobs to a specific queue. See the [Buildkite
   Agent Queue Tag](https://buildkite.com/docs/agent/v3/cli-start#the-queue-tag "https://buildkite.com/docs/agent/v3/cli-start#the-queue-tag") for more information.
 
@@ -49,7 +49,7 @@ steps:
 
   1.  To override the image and environment type used with a custom image,
       use `image:
-"custom-`<environment-type>`-`<custom-image-identifier>`"`
+   "custom-`<environment-type>`-`<custom-image-identifier>`"`
   2.  Example:
 
   ```

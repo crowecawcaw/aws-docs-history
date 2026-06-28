@@ -145,14 +145,14 @@ the repository or the repository doesn't exist. Some possible error messages inc
 - `Unable to create webhook at this time. Please try again later.`
 - `Failed to create webhook. GitHub API limit reached. Please try again later.`
 
-**\*Possible cause:** You might have been using the GitHub app and haven't granted the webhook permission scope.\*
+_**Possible cause:** You might have been using the GitHub app and haven't granted the webhook permission scope._
 
 **Recommended solution:** To grant the required permission scope, follow the instructions
 in [Navigating to the GitHub App you want to review or modify](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#navigating-to-the-github-app-you-want-to-review-or-modify "https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#navigating-to-the-github-app-you-want-to-review-or-modify") to configure the installed app. Under the permissions section,
 you'll see the app doesn't have webhooks permission, and there is an option for you to review the newly requested permissions.
 Review and accept the new permissions. For more infomation, see [Approving updated permissions for a GitHub App](https://docs.github.com/en/apps/using-github-apps/approving-updated-permissions-for-a-github-app "https://docs.github.com/en/apps/using-github-apps/approving-updated-permissions-for-a-github-app").
 
-**\*Possible cause:** The connection was working as expected, but suddenly doesn’t have access to the repositories.\*
+_**Possible cause:** The connection was working as expected, but suddenly doesn’t have access to the repositories._
 
 **Possible solution:** Start by reviewing your [authorizations](https://docs.github.com/en/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps "https://docs.github.com/en/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps") and your [installations](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps "https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps"), then verify the GitHub App is authorized and installed. If the GitHub App installation is suspended, then you need to unsuspended it.
 If the GitHub App is not authorized for a [UAT
@@ -165,7 +165,7 @@ create multiple connections and use each connection independently.
 
 **Possible solution:** If the UAT connection hasn't been used in the past 6 months, the connection will be invalidated by GitHub. To fix this, create a new connection.
 
-**\*Possible cause:** You might have been using a UAT connection without installing the app.\*
+_**Possible cause:** You might have been using a UAT connection without installing the app._
 
 **Recommended solution:** Though creating a UAT connection doesn't require associating the connection with a GitHub App installation,
 an installation is required for the repository to be accessible. Follow the instructions to [review installations](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps "https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps") to make sure the GitHub App is installed. If it is not installed,

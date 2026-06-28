@@ -8,10 +8,9 @@ to an S3 bucket, you can specify the following for your report group:
 - Whether the raw test result files are encrypted. You can specify
   encryption with one of the following:
 
-      + An AWS managed key for Amazon S3.
-      + A customer managed key that you create and configure.
-
-  For more information, see [Data encryption](security-encryption.md "security-encryption.md").
+  - An AWS managed key for Amazon S3.
+  - A customer managed key that you create and configure.
+    For more information, see [Data encryption](security-encryption.md "security-encryption.md").
 
 If you use the AWS CLI to update a report group, you can also update or add tags.
 For more information, see [Tag a report group in AWS CodeBuild](how-to-tag-report-group.md "how-to-tag-report-group.md").
@@ -55,7 +54,7 @@ Use the following procedure to update a report group using the AWS Management Co
       - **Choose a custom key** to use a customer managed key that you create and
         configure. For **AWS KMS encryption key**, enter the ARN of your
         encryption key. Its format is `arn:aws:kms:`<region-id>`:
-`<aws-account-id>`:key/`<key-id>``. For more information, see [Creating KMS keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the
+  `<aws-account-id>`:key/`<key-id>``. For more information, see [Creating KMS keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the
         _AWS Key Management Service User Guide_.
       - **Disable artifact encryption** to disable encryption. You might choose
         this if you want to share your test results, or publish them to a static website. (A

@@ -90,8 +90,7 @@ JSON
    identifiers to share it with. The following example grants read-only access to
    the report group with the ARN
    `arn:aws:codebuild:us-west-2:123456789012:report-group/my-report-group`
-   to Alice and the root user for the AWS account identified by
-3.
+   to Alice and the root user for the AWS account identified by 123456789012.
 
 JSON
 

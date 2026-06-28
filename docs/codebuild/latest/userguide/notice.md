@@ -102,142 +102,141 @@ The terms also apply to any Microsoft services or updates for the software, exce
 
 IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
 
-1.  **INSTALLATION AND USE RIGHTS**. You may install and use any number of copies of
-    the software.
-2.  **TERMS FOR SPECIFIC COMPONENTS**.
+1. **INSTALLATION AND USE RIGHTS**. You may install and use any number of copies of
+   the software.
+2. **TERMS FOR SPECIFIC COMPONENTS**.
 
-    1.  **Utilities**. The software may contain
-        some items on the Utilities List at [https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs](https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs "https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs").
-        You may copy and install those items, if included with the software, on
-        to yours or other third party machines, to debug and deploy your
-        applications and databases you developed with the software. Please note
-        that Utilities are designed for temporary use, that Microsoft may not be
-        able to patch or update Utilities separately from the rest of the
-        software, and that some Utilities by their nature may make it possible
-        for others to access machines on which they are installed. As a result,
-        you should delete all Utilities you have installed after you finish
-        debugging or deploying your applications and databases. Microsoft is not
-        responsible for any third party use or access of Utilities you install
-        on any machine.
-    2.  **Microsoft Platforms**. The software may
-        include components from Microsoft Windows; Microsoft Windows Server;
-        Microsoft SQL Server; Microsoft Exchange; Microsoft Office; and
-        Microsoft SharePoint. These components are governed by separate
-        agreements and their own product support policies, as described in the
-        license terms found in the installation directory for that component or
-        in the "Licenses" folder accompanying the software.
-    3.  **Third Party Components**. The software
-        may include third party components with separate legal notices or
-        governed by other agreements, as described in the ThirdPartyNotices file
-        accompanying the software. Even if such components are governed by other
-        agreements, the disclaimers and the limitations on and exclusions of
-        damages below also apply. The software may also include components
-        licensed under open source licenses with source code availability
-        obligations. Copies of those licenses, if applicable, are included in
-        the ThirdPartyNotices file. You may obtain this source code from us, if
-        and as required under the relevant open source licenses, by sending a
-        money order or check for $5.00 to: Source Code Compliance Team,
-        Microsoft Corporation, 1 Microsoft Way, Redmond, WA 98052. Please write
-        source code for one or more of the components listed below in the memo
-        line of your payment:
+   1. **Utilities**. The software may contain
+      some items on the Utilities List at [https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs](https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs "https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs").
+      You may copy and install those items, if included with the software, on
+      to yours or other third party machines, to debug and deploy your
+      applications and databases you developed with the software. Please note
+      that Utilities are designed for temporary use, that Microsoft may not be
+      able to patch or update Utilities separately from the rest of the
+      software, and that some Utilities by their nature may make it possible
+      for others to access machines on which they are installed. As a result,
+      you should delete all Utilities you have installed after you finish
+      debugging or deploying your applications and databases. Microsoft is not
+      responsible for any third party use or access of Utilities you install
+      on any machine.
+   2. **Microsoft Platforms**. The software may
+      include components from Microsoft Windows; Microsoft Windows Server;
+      Microsoft SQL Server; Microsoft Exchange; Microsoft Office; and
+      Microsoft SharePoint. These components are governed by separate
+      agreements and their own product support policies, as described in the
+      license terms found in the installation directory for that component or
+      in the "Licenses" folder accompanying the software.
+   3. **Third Party Components**. The software
+      may include third party components with separate legal notices or
+      governed by other agreements, as described in the ThirdPartyNotices file
+      accompanying the software. Even if such components are governed by other
+      agreements, the disclaimers and the limitations on and exclusions of
+      damages below also apply. The software may also include components
+      licensed under open source licenses with source code availability
+      obligations. Copies of those licenses, if applicable, are included in
+      the ThirdPartyNotices file. You may obtain this source code from us, if
+      and as required under the relevant open source licenses, by sending a
+      money order or check for $5.00 to: Source Code Compliance Team,
+      Microsoft Corporation, 1 Microsoft Way, Redmond, WA 98052. Please write
+      source code for one or more of the components listed below in the memo
+      line of your payment:
 
-            * Remote Tools for Visual Studio 2015;
-            * Standalone Profiler for Visual Studio 2015;
-            * IntelliTraceCollector for Visual Studio 2015;
-            * Microsoft VC++ Redistributable 2015;
-            * Multibyte MFC Library for Visual Studio 2015;
-            * Microsoft Build Tools 2015;
-            * Feedback Client;
-            * Visual Studio 2015 Integrated Shell; or
-            * Visual Studio 2015 Isolated Shell.
-
+      - Remote Tools for Visual Studio 2015;
+      - Standalone Profiler for Visual Studio 2015;
+      - IntelliTraceCollector for Visual Studio 2015;
+      - Microsoft VC++ Redistributable 2015;
+      - Multibyte MFC Library for Visual Studio 2015;
+      - Microsoft Build Tools 2015;
+      - Feedback Client;
+      - Visual Studio 2015 Integrated Shell; or
+      - Visual Studio 2015 Isolated Shell.
         We may also make a copy of the source code available at
         [http://thirdpartysource.microsoft.com](http://thirdpartysource.microsoft.com "http://thirdpartysource.microsoft.com").
 
-3.  **DATA**. The software may collect information
-    about you and your use of the software, and send that to Microsoft. Microsoft
-    may use this information to provide services and improve our products and
-    services. You may opt-out of many of these scenarios, but not all, as described
-    in the product documentation. There are also some features in the software that
-    may enable you to collect data from users of your applications. If you use these
-    features to enable data collection in your applications, you must comply with
-    applicable law, including providing appropriate notices to users of your
-    applications. You can learn more about data collection and use in the help
-    documentation and the privacy statement at [https://privacy.microsoft.com/en-us/privacystatement](https://privacy.microsoft.com/en-us/privacystatement "https://privacy.microsoft.com/en-us/privacystatement"). Your
-    use of the software operates as your consent to these practices.
-4.  **SCOPE OF LICENSE**. The software is licensed,
-    not sold. This agreement only gives you some rights to use the software.
-    Microsoft reserves all other rights. Unless applicable law gives you more rights
-    despite this limitation, you may use the software only as expressly permitted in
-    this agreement. In doing so, you must comply with any technical limitations in
-    the software that only allow you to use it in certain ways. You may not
+3. **DATA**. The software may collect information
+   about you and your use of the software, and send that to Microsoft. Microsoft
+   may use this information to provide services and improve our products and
+   services. You may opt-out of many of these scenarios, but not all, as described
+   in the product documentation. There are also some features in the software that
+   may enable you to collect data from users of your applications. If you use these
+   features to enable data collection in your applications, you must comply with
+   applicable law, including providing appropriate notices to users of your
+   applications. You can learn more about data collection and use in the help
+   documentation and the privacy statement at [https://privacy.microsoft.com/en-us/privacystatement](https://privacy.microsoft.com/en-us/privacystatement "https://privacy.microsoft.com/en-us/privacystatement"). Your
+   use of the software operates as your consent to these practices.
+4. **SCOPE OF LICENSE**. The software is licensed,
+   not sold. This agreement only gives you some rights to use the software.
+   Microsoft reserves all other rights. Unless applicable law gives you more rights
+   despite this limitation, you may use the software only as expressly permitted in
+   this agreement. In doing so, you must comply with any technical limitations in
+   the software that only allow you to use it in certain ways. You may not
 
-    - work around any technical limitations in the software;
-    - reverse engineer, decompile or disassemble the software, or attempt to
-      do so, except and only to the extent required by third party licensing
-      terms governing the use of certain open-source components that may be
-      included with the software;
-    - remove, minimize, block or modify any notices of Microsoft or its
-      suppliers in the software;
-    - use the software in any way that is against the law; or
-    - share, publish, rent or lease the software, or provide the software as
-      a stand-alone hosted as solution for others to use.
+   - work around any technical limitations in the software;
+   - reverse engineer, decompile or disassemble the software, or attempt to
+     do so, except and only to the extent required by third party licensing
+     terms governing the use of certain open-source components that may be
+     included with the software;
+   - remove, minimize, block or modify any notices of Microsoft or its
+     suppliers in the software;
+   - use the software in any way that is against the law; or
+   - share, publish, rent or lease the software, or provide the software as
+     a stand-alone hosted as solution for others to use.
 
-5.  **EXPORT RESTRICTIONS**. You must comply with all
-    domestic and international export laws and regulations that apply to the
-    software, which include restrictions on destinations, end users, and end use.
-    For further information on export restrictions, visit (aka.ms/exporting).
-6.  **SUPPORT SERVICES**. Because this software is
-    "as is," we may not provide support services for it.
-7.  **ENTIRE AGREEMENT**. This agreement, and the
-    terms for supplements, updates, Internet-based services and support services
-    that you use, are the entire agreement for the software and support
-    services.
-8.  **APPLICABLE LAW**. If you acquired the software
-    in the United States, Washington law applies to interpretation of and claims for
-    breach of this agreement, and the laws of the state where you live apply to all
-    other claims. If you acquired the software in any other country, its laws
-    apply.
-9.  **CONSUMER RIGHTS; REGIONAL VARIATIONS**. This
-    agreement describes certain legal rights. You may have other rights, including
-    consumer rights, under the laws of your state or country. Separate and apart
-    from your relationship with Microsoft, you may also have rights with respect to
-    the party from which you acquired the software. This agreement does not change
-    those other rights if the laws of your state or country do not permit it to do
-    so. For example, if you acquired the software in one of the below regions, or
-    mandatory country law applies, then the following provisions apply to
-    you:
+5. **EXPORT RESTRICTIONS**. You must comply with all
+   domestic and international export laws and regulations that apply to the
+   software, which include restrictions on destinations, end users, and end use.
+   For further information on export restrictions, visit (aka.ms/exporting).
+6. **SUPPORT SERVICES**. Because this software is
+   "as is," we may not provide support services for it.
+7. **ENTIRE AGREEMENT**. This agreement, and the
+   terms for supplements, updates, Internet-based services and support services
+   that you use, are the entire agreement for the software and support
+   services.
+8. **APPLICABLE LAW**. If you acquired the software
+   in the United States, Washington law applies to interpretation of and claims for
+   breach of this agreement, and the laws of the state where you live apply to all
+   other claims. If you acquired the software in any other country, its laws
+   apply.
+9. **CONSUMER RIGHTS; REGIONAL VARIATIONS**. This
+   agreement describes certain legal rights. You may have other rights, including
+   consumer rights, under the laws of your state or country. Separate and apart
+   from your relationship with Microsoft, you may also have rights with respect to
+   the party from which you acquired the software. This agreement does not change
+   those other rights if the laws of your state or country do not permit it to do
+   so. For example, if you acquired the software in one of the below regions, or
+   mandatory country law applies, then the following provisions apply to
+   you:
 
-    1. **Australia**. You have
-       statutory guarantees under the Australian Consumer Law and nothing in
-       this agreement is intended to affect those rights.
-    2. **Canada**. If you acquired this software
-       in Canada, you may stop receiving updates by turning off the automatic
-       update feature, disconnecting your device from the Internet (if and when
-       you re-connect to the Internet, however, the software will resume
-       checking for and installing updates), or uninstalling the software. The
-       product documentation, if any, may also specify how to turn off updates
-       for your specific device or software.
-    3. **Germany and Austria**.
+   1. **Australia**. You have
+      statutory guarantees under the Australian Consumer Law and nothing in
+      this agreement is intended to affect those rights.
+   2. **Canada**. If you acquired this software
+      in Canada, you may stop receiving updates by turning off the automatic
+      update feature, disconnecting your device from the Internet (if and when
+      you re-connect to the Internet, however, the software will resume
+      checking for and installing updates), or uninstalling the software. The
+      product documentation, if any, may also specify how to turn off updates
+      for your specific device or software.
+   3. **Germany and Austria**.
 
-       1. **Warranty**. The properly
-          licensed software will perform substantially as described in any
-          Microsoft materials that accompany the software. However,
-          Microsoft gives no contractual guarantee in relation to the
-          licensed software.
-       2. **Limitation of Liability**. In
-          case of intentional conduct, gross negligence, claims based on
-          the Product Liability Act, as well as, in case of death or
-          personal or physical injury, Microsoft is liable according to
-          the statutory law.Subject to the foregoing clause (ii),
-          Microsoft will only be liable for slight negligence if Microsoft
-          is in breach of such material contractual obligations, the
-          fulfillment of which facilitate the due performance of this
-          agreement, the breach of which would endanger the purpose of
-          this agreement and the compliance with which a party may
-          constantly trust in (so-called "cardinal obligations"). In other
-          cases of slight negligence, Microsoft will not be liable for
-          slight negligence.
+      1. **Warranty**. The properly
+         licensed software will perform substantially as described in any
+         Microsoft materials that accompany the software. However,
+         Microsoft gives no contractual guarantee in relation to the
+         licensed software.
+      2. **Limitation of Liability**. In
+         case of intentional conduct, gross negligence, claims based on
+         the Product Liability Act, as well as, in case of death or
+         personal or physical injury, Microsoft is liable according to
+         the statutory law.Subject to the foregoing clause (ii),
+         Microsoft will only be liable for slight negligence if Microsoft
+         is in breach of such material contractual obligations, the
+         fulfillment of which facilitate the due performance of this
+         agreement, the breach of which would endanger the purpose of
+         this agreement and the compliance with which a party may
+         constantly trust in (so-called "cardinal obligations"). In other
+         cases of slight negligence, Microsoft will not be liable for
+         slight negligence.
 
 10. **DISCLAIMER OF WARRANTY. THE SOFTWARE IS LICENSED
     “AS-IS.” YOU BEAR THE RISK OF USING IT. MICROSOFT GIVES NO EXPRESS
@@ -256,7 +255,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
 
 It also applies even if Microsoft knew or should have known about the possibility of the damages. The above limitation or exclusion may not apply to you because your country may not allow the exclusion or limitation of incidental, consequential or other damages.
 
-EULA ID: VS2015_Update3_ShellsRedist\_<ENU>
+EULA ID: VS2015\_Update3\_ShellsRedist\_<ENU>
 
 ## 5) windows-base Docker image—nuget.commandline --version 4.5.1
 

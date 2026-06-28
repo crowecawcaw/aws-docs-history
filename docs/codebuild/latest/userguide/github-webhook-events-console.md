@@ -65,7 +65,7 @@ job events only.
 ###### Note
 
 CodeBuild will only process GitHub Actions workflow jobs if a webhook has filter
-groups containing the **WORKFLOW_JOB_QUEUED** event filter.
+groups containing the **WORKFLOW\_JOB\_QUEUED** event filter.
 
 ![A webhook filter group triggers a build for GitHub Actions workflow job events only.](images/github-actions-workflow-job-queued-no-highlight.png)
 In this example, a webhook filter group triggers a build for a workflow name that

@@ -120,9 +120,9 @@ Replace the following:
      providers.
 
 2. To connect your account with an app password or an access token, switch to the directory that
-   contains the `import-source-credentials.json` file you
-   saved in step 1 and run the
-   **import-source-credentials** command again.
+contains the `import-source-credentials.json` file you
+saved in step 1 and run the
+**import-source-credentials** command again.
 
 ```
 aws codebuild import-source-credentials --cli-input-json file://import-source-credentials.json
@@ -181,7 +181,7 @@ source credentials information:
     * The `arn` is the ARN of the token.
 
 4. To disconnect from a source provider and remove its app password or access tokens, run the
-   **delete-source-credentials** command with its ARN.
+**delete-source-credentials** command with its ARN.
 
 ```
 aws codebuild delete-source-credentials --arn `arn-of-your-credentials`

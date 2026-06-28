@@ -147,8 +147,8 @@ get to this page, skip the rest of the steps in this procedure, and see [View bu
 [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 16. In the list of buckets, open the bucket used by the pipeline. The name of the
 bucket should follow the format
 `codepipeline-`region-ID`-`random-number``.
- You can use the AWS CLI to run the CodePipeline **get-pipeline** command to
- get the name of the bucket, where `my-pipeline-name` is the
+You can use the AWS CLI to run the CodePipeline **get-pipeline** command to
+get the name of the bucket, where `my-pipeline-name` is the
 display name of your pipeline:
 
 ```

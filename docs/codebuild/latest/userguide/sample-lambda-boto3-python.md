@@ -68,7 +68,7 @@ Create a CodeBuild Lambda Python project.
 
    - For **Compute**, select **Lambda**.
    - For **Runtime(s)**, select **Python**.
-   - For **Image**, select **aws/codebuild/amazonlinux-x86_64-lambda-standard:python3.12**.
+   - For **Image**, select **aws/codebuild/amazonlinux-x86\_64-lambda-standard:python3.12**.
    - For **Service role**, leave **New service role** selected. Make a note of the
      **Role name**. This will be required when you update the project’s IAM permissions later in this sample.
 

@@ -30,7 +30,7 @@ Create an AWS CodeBuild Lambda Node.js project.
 
    - For **Compute**, select **Lambda**.
    - For **Runtime(s)**, select **Node.js**.
-   - For **Image**, select **aws/codebuild/amazonlinux-x86_64-lambda-standard:nodejs20**.
+   - For **Image**, select **aws/codebuild/amazonlinux-x86\_64-lambda-standard:nodejs20**.
 
 6. In **Artifacts**:
 

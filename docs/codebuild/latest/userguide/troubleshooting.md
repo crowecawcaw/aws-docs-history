@@ -16,7 +16,7 @@ learn how to log and monitor CodeBuild builds to troubleshoot issues, see
 - [Cannot find and select the base image of the Windows Server Core 2019 platform](#windows-image-not-available "#windows-image-not-available")
 - [Earlier commands in buildspec files are not recognized by later commands](#troubleshooting-build-spec-commands "#troubleshooting-build-spec-commands")
 - [Error: "Access denied" when attempting to download cache](#troubleshooting-dependency-caching "#troubleshooting-dependency-caching")
-- [Error: "BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE" when using a custom build image](#troubleshooting-unable-to-pull-image "#troubleshooting-unable-to-pull-image")
+- [Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image](#troubleshooting-unable-to-pull-image "#troubleshooting-unable-to-pull-image")
 - [Error: "Build container found dead before completing the build. build container died because it was out of memory, or the Docker image is not supported. ErrorCode: 500"](#windows-server-core-version "#windows-server-core-version")
 - [Error: "Cannot connect to the Docker daemon" when running a build](#troubleshooting-cannot-connect-to-docker-daemon "#troubleshooting-cannot-connect-to-docker-daemon")
 - [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role "#troubleshooting-assume-role")
@@ -25,7 +25,7 @@ learn how to log and monitor CodeBuild builds to troubleshoot issues, see
 - [Error: "Git clone failed: Unable to access 'your-repository-URL': SSL certificate problem: Self signed certificate"](#troubleshooting-self-signed-certificate "#troubleshooting-self-signed-certificate")
 - [Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build](#troubleshooting-input-bucket-different-region "#troubleshooting-input-bucket-different-region")
 - [Error: "This build image requires selecting at least one runtime version."](#troubleshooting-build-must-specify-runtime "#troubleshooting-build-must-specify-runtime")
-- [Error: "QUEUED: INSUFFICIENT_SUBNET" when a build in a build queue fails](#queued-insufficient-subnet-error "#queued-insufficient-subnet-error")
+- [Error: "QUEUED: INSUFFICIENT\_SUBNET" when a build in a build queue fails](#queued-insufficient-subnet-error "#queued-insufficient-subnet-error")
 - [Error: "Unable to download cache: RequestError: Send request failed caused by: x509: Failed to load system roots and no roots provided"](#troubleshooting-cache-image "#troubleshooting-cache-image")
 - [Error: "Unable to download certificate from S3. AccessDenied"](#troubleshooting-certificate-in-S3 "#troubleshooting-certificate-in-S3")
 - [Error: "Unable to locate credentials"](#troubleshooting-versions "#troubleshooting-versions")
@@ -316,47 +316,47 @@ For more information, see [Specifying
 S3 permissions](../../../AmazonS3/latest/userguide/using-with-s3-actions.md "../../../AmazonS3/latest/userguide/using-with-s3-actions.md") in the _Amazon S3 Developer
 Guide_.
 
-## Error: "BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE" when using a custom build image
+## Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image
 
 **Issue:** When you try to run a build that uses a custom
 build image, the build fails with the error
 `BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE`.
 
-**\*Possible cause:** The build image's overall
+_**Possible cause:** The build image's overall
 uncompressed size is larger than the build environment compute type's available
 disk space. To check your build image's size, use Docker to run the `docker
  images
  `REPOSITORY`:`TAG``
-command. For a list of available disk space by compute type, see [Build environment compute modes and types](build-env-ref-compute-types.md "build-env-ref-compute-types.md").\*
+command. For a list of available disk space by compute type, see [Build environment compute modes and types](build-env-ref-compute-types.md "build-env-ref-compute-types.md")._
 
 **Recommended solution:** Use a larger
 compute type with more available disk space, or reduce the size of your
 custom build image.
 
-**\*Possible cause:** AWS CodeBuild does not have
-permission to pull the build image from your Amazon Elastic Container Registry (Amazon ECR).\*
+_**Possible cause:** AWS CodeBuild does not have
+permission to pull the build image from your Amazon Elastic Container Registry (Amazon ECR)._
 
 **Recommended solution:** Update the
 permissions in your repository in Amazon ECR so that CodeBuild can pull your custom
 build image into the build environment. For more information, see the [Amazon ECR sample](sample-ecr.md "sample-ecr.md").
 
-**\*Possible cause:** The Amazon ECR image you requested
-is not available in the AWS Region that your AWS account is using.\*
+_**Possible cause:** The Amazon ECR image you requested
+is not available in the AWS Region that your AWS account is using._
 
 **Recommended solution:** Use an Amazon ECR image
 that is in the same AWS Region as the one your AWS account is using.
 
-**\*Possible cause:** You are using a private
+_**Possible cause:** You are using a private
 registry in a VPC that does not have public internet access. CodeBuild cannot pull
-an image from a private IP address in a VPC. For more information, see [Private registry with AWS Secrets Manager sample for CodeBuild](sample-private-registry.md "sample-private-registry.md").\*
+an image from a private IP address in a VPC. For more information, see [Private registry with AWS Secrets Manager sample for CodeBuild](sample-private-registry.md "sample-private-registry.md")._
 
 **Recommended solution:** If you use a
 private registry in a VPC, make sure the VPC has public internet access.
 
-**\*Possible cause:** If the error message contains
+_**Possible cause:** If the error message contains
 "**toomanyrequests**", and the
 image is obtained from Docker Hub, this error means the Docker Hub pull limit
-has been reached.\*
+has been reached._
 
 **Recommended solution:** Use a Docker Hub
 private registry, or obtain your image from Amazon ECR. For more information
@@ -569,7 +569,7 @@ or the Amazon Linux 2 (AL2) standard image 1.0 or later, the build issues the wa
 
 For more information, see [Specify runtime versions in the buildspec file](build-spec-ref.md#runtime-versions-buildspec-file "build-spec-ref.md#runtime-versions-buildspec-file").
 
-## Error: "QUEUED: INSUFFICIENT_SUBNET" when a build in a build queue fails
+## Error: "QUEUED: INSUFFICIENT\_SUBNET" when a build in a build queue fails
 
 **Issue:** A build in a build queue fails with an error
 similar to `QUEUED: INSUFFICIENT_SUBNET`.
@@ -697,11 +697,11 @@ docker run -e AWS_DEFAULT_REGION -e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI `your
 of the following:
 
 - `RequestError: send request failed caused by: Post
-https://logs.<your-region>.amazonaws.com/: dial tcp 52.46.158.105:443: i/o
-timeout` from CloudWatch Logs.
+ https://logs.<your-region>.amazonaws.com/: dial tcp 52.46.158.105:443: i/o
+ timeout` from CloudWatch Logs.
 - `Error uploading artifacts: RequestError: send request failed caused by: 
-Put https://`your-bucket`.s3.`your-aws-region`.amazonaws.com/*: dial tcp 52.219.96.208:443: 
-connect: connection refused` from Amazon S3.
+ Put https://`your-bucket`.s3.`your-aws-region`.amazonaws.com/*: dial tcp 52.219.96.208:443: 
+ connect: connection refused` from Amazon S3.
 
 **Possible causes:**
 

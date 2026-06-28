@@ -13,23 +13,22 @@ workflow job is hanging on GitHub.
   workflow run has fewer labels than another job. For example, if you have two
   jobs with the following labels in the same workflow run:
 
-      + **Job 1**: `codebuild-myProject-${{
-       github.run_id }}-${{ github.run_attempt }}`
-      + **Job 2**: `codebuild-myProject-${{
-       github.run_id }}-${{ github.run_attempt }}`,
-       `instance-size:medium`
-
-  When routing a self-hosted GitHub Actions job, GitHub will route the job to
-  any runner with all the job's specified labels. This behavior means that
-  **Job 1** can be picked up by either the runner created for
-  **Job 1** or **Job 2**, but **Job
-  2** can only be picked up by the runner created for **Job
-  2** since it has an additional label. If **Job 1**
-  is picked up by the runner created for **Job 2**, then
-  **Job 2** will become stuck since the **Job
-  1** runner doesn't have the `instance-size:medium`
-  label.
-  **Recommended solutions:**
+  - **Job 1**: `codebuild-myProject-${{
+   github.run_id }}-${{ github.run_attempt }}`
+  - **Job 2**: `codebuild-myProject-${{
+   github.run_id }}-${{ github.run_attempt }}`,
+    `instance-size:medium`
+    When routing a self-hosted GitHub Actions job, GitHub will route the job to
+    any runner with all the job's specified labels. This behavior means that
+    **Job 1** can be picked up by either the runner created for
+    **Job 1** or **Job 2**, but **Job
+    2** can only be picked up by the runner created for **Job
+    2** since it has an additional label. If **Job 1**
+    is picked up by the runner created for **Job 2**, then
+    **Job 2** will become stuck since the **Job
+    1** runner doesn't have the `instance-size:medium`
+    label.
+    **Recommended solutions:**
 
 When creating multiple jobs within the same workflow run, use the same number of label
 overrides for each job or assign each job a custom label, such as `job1` or

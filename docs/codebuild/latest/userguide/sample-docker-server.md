@@ -84,7 +84,7 @@ information:
     Security groups configured for Docker servers should allow ingress network traffic from the VPC configured in the project. They should allow ingress on port 9876.
 
 3. To see the build results, look in the build's log for the string `Hello,
-World!`. For more information, see [View build details](view-build-details.md "view-build-details.md").
+ World!`. For more information, see [View build details](view-build-details.md "view-build-details.md").
 
 ### Directory structure
 

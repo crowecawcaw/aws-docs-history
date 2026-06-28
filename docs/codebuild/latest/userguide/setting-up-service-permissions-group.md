@@ -51,9 +51,8 @@ following:
     For more information, see [Overview of IAM
      Policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the *user Guide*.
 
-2. In the navigation pane, choose **Policies**.
-3. To add a custom set of AWS CodeBuild access permissions to an IAM group or IAM
-   user, skip ahead to step 4 in this procedure.
+2. In the navigation pane, choose **Policies**. 3. To add a custom set of AWS CodeBuild access permissions to an IAM group or IAM
+user, skip ahead to step 4 in this procedure.
 
 To add a default set of CodeBuild access permissions to an IAM group or IAM
 user, choose **Policy Type**, **AWS

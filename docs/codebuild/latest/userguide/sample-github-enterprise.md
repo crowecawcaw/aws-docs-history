@@ -113,9 +113,9 @@ For **Environment image**, do one of the following:
 
 6. In **Service role**, do one of the following:
 
-   - If you do not have a CodeBuild service role, choose **New service role**. In **Role
+    * If you do not have a CodeBuild service role, choose **New service role**. In **Role
      name**, enter a name for the new role.
-   - If you have a CodeBuild service role, choose **Existing service role**. In **Role
+    * If you have a CodeBuild service role, choose **Existing service role**. In **Role
      ARN**, choose the service role.
 
 ###### Note
@@ -170,39 +170,37 @@ following:
 
 10. For **Cache type**, choose one of the following:
 
-        * If you do not want to use a cache, choose **No
-         cache**.
-        * If you want to use an Amazon S3 cache, choose **Amazon
-         S3**, and then do the following:
+    * If you do not want to use a cache, choose **No
+     cache**.
+    * If you want to use an Amazon S3 cache, choose **Amazon
+     S3**, and then do the following:
 
 
 
 
-        	+ For **Bucket**, choose the name of the S3
-        	 bucket where the cache is stored.
-        	+ (Optional) For **Cache path prefix**, enter
-        	 an Amazon S3 path prefix. The **Cache path prefix**
-        	 value is similar to a directory name. It makes it possible for
-        	 you to store the cache under the same directory in a bucket.
+    	+ For **Bucket**, choose the name of the S3
+    	 bucket where the cache is stored.
+    	+ (Optional) For **Cache path prefix**, enter
+    	 an Amazon S3 path prefix. The **Cache path prefix**
+    	 value is similar to a directory name. It makes it possible for
+    	 you to store the cache under the same directory in a bucket.
 
 
-        	###### Important
+    	###### Important
 
-        	Do not append a trailing slash (/) to the end of the path
-        	 prefix.
-        * If you want to use a local cache, choose **Local**,
-         and then choose one or more local cache modes.
+    	Do not append a trailing slash (/) to the end of the path
+    	 prefix.
+    * If you want to use a local cache, choose **Local**,
+     and then choose one or more local cache modes.
 
 
-        ###### Note
+    ###### Note
 
-        Docker layer cache mode is available for
-         Linux only. If you choose it, your project must run in privileged
-         mode.
+    Docker layer cache mode is available for
+     Linux only. If you choose it, your project must run in privileged
+     mode.
 
-    Using a cache saves considerable build time because reusable pieces of the
-    build environment are stored in the cache and used across builds. For
-    information about specifying a cache in the buildspec file, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax"). For
-    more information about caching, see [Cache builds to improve performance](build-caching.md "build-caching.md").
-
-11. Choose **Create build project**. On the build project page, choose **Start build**.
+Using a cache saves considerable build time because reusable pieces of the
+build environment are stored in the cache and used across builds. For
+information about specifying a cache in the buildspec file, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax"). For
+more information about caching, see [Cache builds to improve performance](build-caching.md "build-caching.md"). 11. Choose **Create build project**. On the build project page, choose **Start build**.

@@ -72,7 +72,7 @@ the `create-project` command might look similar to this.
 ```
 
 4. To see the build results, look in the build's log for the string `Hello,
-World!`. For more information, see [View build details](view-build-details.md "view-build-details.md").
+ World!`. For more information, see [View build details](view-build-details.md "view-build-details.md").
 
 ### Directory structure
 

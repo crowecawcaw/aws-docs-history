@@ -222,7 +222,7 @@ steps:
 ```
 
 3. You can choose to run inline buildspec commands during the self-hosted
-   Buildkite runner build (see [Run buildspec commands for the INSTALL, PRE_BUILD, and POST_BUILD phases](sample-runner-buildkite-buildspec.md "sample-runner-buildkite-buildspec.md") for more details). To
+   Buildkite runner build (see [Run buildspec commands for the INSTALL, PRE\_BUILD, and POST\_BUILD phases](sample-runner-buildkite-buildspec.md "sample-runner-buildkite-buildspec.md") for more details). To
    specify that the CodeBuild build should run buildspec commands during your Buildkite
    self-hosted runner build, use the following syntax:
 
@@ -246,7 +246,7 @@ steps:
 4. Optionally, you can provide labels outside of those that CodeBuild supports. These
    labels will be ignored for the purpose of overriding attributes of the build,
    but will not fail the webhook request. For example, adding `myLabel:
-“testLabel"` as a label will not prevent the build from
+ “testLabel"` as a label will not prevent the build from
    running.
 
 ## Step 5: Review your results

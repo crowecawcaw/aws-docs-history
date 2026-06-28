@@ -166,7 +166,7 @@ EndGlobal
 ```
 
 `App.config` (in ``(root directory
- name)`\FSharpHelloWorld`):
+name)`\FSharpHelloWorld`):
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -178,7 +178,7 @@ EndGlobal
 ```
 
 `AssemblyInfo.fs` (in ``(root directory
- name)`\FSharpHelloWorld`):
+name)`\FSharpHelloWorld`):
 
 ```
 namespace FSharpHelloWorld.AssemblyInfo
@@ -225,7 +225,7 @@ do
 ```
 
 `FSharpHelloWorld.fsproj` (in ``(root directory
- name)`\FSharpHelloWorld`):
+name)`\FSharpHelloWorld`):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -308,7 +308,7 @@ do
 ```
 
 `Program.fs` (in ``(root directory
- name)`\FSharpHelloWorld`):
+name)`\FSharpHelloWorld`):
 
 ```
 // Learn more about F# at http://fsharp.org
@@ -372,7 +372,7 @@ EndGlobal
 ```
 
 `App.config` (in ``(root directory
- name)`\VBHelloWorld`):
+name)`\VBHelloWorld`):
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -384,7 +384,7 @@ EndGlobal
 ```
 
 `HelloWorld.vb` (in ``(root directory
- name)`\VBHelloWorld`):
+name)`\VBHelloWorld`):
 
 ```
 Module HelloWorld
@@ -397,7 +397,7 @@ End Module
 ```
 
 `VBHelloWorld.vbproj` (in ``(root directory
- name)`\VBHelloWorld`):
+name)`\VBHelloWorld`):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -519,7 +519,7 @@ End Module
 ```
 
 `Application.Designer.vb` (in ``(root directory
- name)`\VBHelloWorld\My Project`):
+name)`\VBHelloWorld\My Project`):
 
 ```
 '------------------------------------------------------------------------------
@@ -537,7 +537,7 @@ Option Explicit On
 ```
 
 `Application.myapp` (in ``(root directory
- name)`\VBHelloWorld\My Project`):
+name)`\VBHelloWorld\My Project`):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -553,7 +553,7 @@ Option Explicit On
 ```
 
 `AssemblyInfo.vb` (in ``(root directory
- name)`\VBHelloWorld\My Project`):
+name)`\VBHelloWorld\My Project`):
 
 ```
 Imports System
@@ -594,7 +594,7 @@ Imports System.Runtime.InteropServices
 ```
 
 `Resources.Designer.vb` (in ``(root directory
- name)`\VBHelloWorld\My Project`):
+name)`\VBHelloWorld\My Project`):
 
 ```
 '------------------------------------------------------------------------------
@@ -661,7 +661,7 @@ End Namespace
 ```
 
 `Resources.resx` (in ``(root directory
- name)`\VBHelloWorld\My Project`):
+name)`\VBHelloWorld\My Project`):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -784,7 +784,7 @@ End Namespace
 ```
 
 `Settings.Designer.vb` (in ``(root directory
- name)`\VBHelloWorld\My Project`):
+name)`\VBHelloWorld\My Project`):
 
 ```
 '------------------------------------------------------------------------------
@@ -862,7 +862,7 @@ End Namespace
 ```
 
 `Settings.settings` (in ``(root directory
- name)`\VBHelloWorld\My Project`):
+name)`\VBHelloWorld\My Project`):
 
 ```
 <?xml version='1.0' encoding='utf-8'?>

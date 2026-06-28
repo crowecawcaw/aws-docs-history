@@ -121,7 +121,7 @@ point directory.
 8. From **Runtime(s)**, choose
    **Standard**.
 9. From **Image**, choose
-   **aws/codebuild/amazonlinux-x86_64-standard:4.0**.
+   **aws/codebuild/amazonlinux-x86\_64-standard:4.0**.
 10. From **Environment type**, choose
     **Linux**.
 11. Under **Service role**, choose **New service
@@ -173,12 +173,11 @@ information:
      Options](../../../efs/latest/ug/mounting-fs-nfs-mount-settings.md "../../../efs/latest/ug/mounting-fs-nfs-mount-settings.md") in the *Amazon Elastic File System User Guide*.
 
 18. For **Build specification**, choose **Insert
-    build commands**, and then choose **Switch to
-    editor**.
-19. Enter the following build spec commands into the editor. Replace
-    `<file_system_identifier>`
-    with the identifier you entered in step 17. Use capital letters (for
-    example, `CODEBUILD_MY_EFS`).
+build commands**, and then choose **Switch to
+editor**. 19. Enter the following build spec commands into the editor. Replace
+`<file_system_identifier>`
+with the identifier you entered in step 17. Use capital letters (for
+example, `CODEBUILD_MY_EFS`).
 
 ```
 version: 0.2

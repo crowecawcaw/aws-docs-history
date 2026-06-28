@@ -149,11 +149,9 @@ directory name)`/my-web-app`. 5. Open the AWS CodeBuild console at [https://cons
     	+ For **Image**, choose
     	 **aws/codebuild/amazonlinux-x86\_64-standard:4.0**.
 
-7. Choose **Start build**.
-8. On **Build configuration**, accept the defaults, and then
-   choose **Start build**.
-9. After the build is complete, view the build output on the **Build
-   logs** tab. You should see output similar to the following:
+7. Choose **Start build**. 8. On **Build configuration**, accept the defaults, and then
+choose **Start build**. 9. After the build is complete, view the build output on the **Build
+logs** tab. You should see output similar to the following:
 
 ```
 [Container] Date Time Phase is DOWNLOAD_SOURCE

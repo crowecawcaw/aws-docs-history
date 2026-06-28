@@ -172,7 +172,7 @@ console. To get to this page, skip the rest of the steps in this procedure, and
 see [View build details (console)](view-build-details.md#view-build-details-console "view-build-details.md#view-build-details-console"). 7. In the list of buckets, open the bucket used by the pipeline. The name of the
 bucket should follow the format
 `codepipeline-`<region-ID>`-`<random-number>``.
- You can get the bucket name from the `create-pipeline.json` file
+You can get the bucket name from the `create-pipeline.json` file
 or you can run the CodePipeline **get-pipeline** command to get the bucket's
 name.
 

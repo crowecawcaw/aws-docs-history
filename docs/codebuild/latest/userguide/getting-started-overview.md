@@ -419,7 +419,7 @@ choose **Amazon S3**. 6. For **Bucket**, choose
 `MessageUtil.zip`. 8. In **Environment**, for **Environment
 image**, leave **Managed image** selected. 9. For **Operating system**, choose **Amazon Linux**. 10. For **Runtime(s)**, choose
 **Standard**. 11. For **Image**, choose
-**aws/codebuild/amazonlinux-x86_64-standard:corretto11**. 12. In **Service role**, leave **New service
+**aws/codebuild/amazonlinux-x86\_64-standard:corretto11**. 12. In **Service role**, leave **New service
 role** selected, and leave **Role name**
 unchanged. 13. For **Buildspec**, leave **Use a buildspec
 file** selected. 14. In **Artifacts**, for **Type**, choose
@@ -448,33 +448,32 @@ In this step, you view summarized information about the status of your build.
 
 #### To view summarized build information
 
-1.  If the
-    **codebuild-demo-project:`<build-ID>`**
-    page is not displayed, in the navigation bar, choose **Build
-    history**. Next, in the list of build projects, for
-    **Project**, choose the **Build run**
-    link for **codebuild-demo-project**. There should be only
-    one matching link. (If you have completed this tutorial before, choose the
-    link with the most recent value in the **Completed**
-    column.)
-2.  On the **Build status** page, in **Phase
-    details**, the following build phases should be displayed, with
-    **Succeeded** in the **Status**
-    column:
+1. If the
+   **codebuild-demo-project:`<build-ID>`**
+   page is not displayed, in the navigation bar, choose **Build
+   history**. Next, in the list of build projects, for
+   **Project**, choose the **Build run**
+   link for **codebuild-demo-project**. There should be only
+   one matching link. (If you have completed this tutorial before, choose the
+   link with the most recent value in the **Completed**
+   column.)
+2. On the **Build status** page, in **Phase
+   details**, the following build phases should be displayed, with
+   **Succeeded** in the **Status**
+   column:
 
-        * **SUBMITTED**
-        * **QUEUED**
-        * **PROVISIONING**
-        * **DOWNLOAD\_SOURCE**
-        * **INSTALL**
-        * **PRE\_BUILD**
-        * **BUILD**
-        * **POST\_BUILD**
-        * **UPLOAD\_ARTIFACTS**
-        * **FINALIZING**
-        * **COMPLETED**
-
-    In **Build Status**, **Succeeded** should be displayed.
+   - **SUBMITTED**
+   - **QUEUED**
+   - **PROVISIONING**
+   - **DOWNLOAD\_SOURCE**
+   - **INSTALL**
+   - **PRE\_BUILD**
+   - **BUILD**
+   - **POST\_BUILD**
+   - **UPLOAD\_ARTIFACTS**
+   - **FINALIZING**
+   - **COMPLETED**
+     In **Build Status**, **Succeeded** should be displayed.
 
 If you see **In Progress** instead, choose the refresh
 button. 3. Next to each build phase, the **Duration** value

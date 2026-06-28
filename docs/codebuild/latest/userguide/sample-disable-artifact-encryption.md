@@ -44,9 +44,9 @@ For **Environment image**, do one of the following:
 
 7. In **Service role**, do one of the following:
 
-   - If you do not have a CodeBuild service role, choose **New service role**. In **Role
+    * If you do not have a CodeBuild service role, choose **New service role**. In **Role
      name**, enter a name for the new role.
-   - If you have a CodeBuild service role, choose **Existing service role**. In **Role
+    * If you have a CodeBuild service role, choose **Existing service role**. In **Role
      ARN**, choose the service role.
 
 ###### Note

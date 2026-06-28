@@ -29,8 +29,8 @@ Use the following procedure to run the build notifications sample.
    use for this sample, skip ahead to step 4. Otherwise, if you are using an IAM
    user instead of an AWS root account or an administrator user to work with
    Amazon SNS, add the following statement (between `### BEGIN ADDING
-STATEMENT HERE ###` and `### END ADDING STATEMENT
-HERE ###`) to the user (or IAM group the user is associated
+ STATEMENT HERE ###` and `### END ADDING STATEMENT
+ HERE ###`) to the user (or IAM group the user is associated
    with). Using an AWS root account is not recommended. This statement enables
    viewing, creating, subscribing, and testing the sending of notifications to
    topics in Amazon SNS. Ellipses (`...`) are used for brevity and to help

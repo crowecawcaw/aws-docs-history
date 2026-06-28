@@ -126,29 +126,29 @@ AWS Management Console
 
 ###### To configure a connection as an account level credential in the AWS Management Console
 
-1.  For **Source provider**, choose **Bitbucket**,
-    **GitHub**, or **GitHub Enterprise**.
-2.  For **Credential**, do one of the following:
+1. For **Source provider**, choose **Bitbucket**,
+   **GitHub**, or **GitHub Enterprise**.
+2. For **Credential**, do one of the following:
 
-    - Choose **Default source credential** to use
-      your account's default source credential to apply to all projects.
+   - Choose **Default source credential** to use
+     your account's default source credential to apply to all projects.
 
-      1. If you aren't connected to your source provider, choose **Manage default source credential**.
-      2. For **Credential type**, choose a credential type.
-      3. If you chose **CodeConnections**, choose to use an existing connection or create a new connection.
+     1. If you aren't connected to your source provider, choose **Manage default source credential**.
+     2. For **Credential type**, choose a credential type.
+     3. If you chose **CodeConnections**, choose to use an existing connection or create a new connection.
 
-      If you chose a different credential type, for **Service** choose which service you'd like to use to store your token and do the following:
+     If you chose a different credential type, for **Service** choose which service you'd like to use to store your token and do the following:
 
-          + If you chose to use **Secrets Manager**, you can choose to use an existing
-           secret connection or create a new secret and choose **Save**. For more information how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
-          + If you chose to use **CodeBuild**, enter your
-           token or your username and app password, and choose **Save**.
+           + If you chose to use **Secrets Manager**, you can choose to use an existing
+            secret connection or create a new secret and choose **Save**. For more information how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
+           + If you chose to use **CodeBuild**, enter your
+            token or your username and app password, and choose **Save**.
 
-    - Choose **Custom source credential** to use
-      a custom source credential to override your account's default settings.
+   - Choose **Custom source credential** to use
+     a custom source credential to override your account's default settings.
 
-      1. For **Credential type**, choose a credential type.
-      2. In **Connection**, choose to use an existing connection or create a new connection.
+     1. For **Credential type**, choose a credential type.
+     2. In **Connection**, choose to use an existing connection or create a new connection.
 
 AWS CLI
 

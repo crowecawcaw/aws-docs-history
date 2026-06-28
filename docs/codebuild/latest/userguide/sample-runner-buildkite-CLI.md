@@ -5,21 +5,20 @@ configure the following resources:
 
 ###### To create a Buildkite runner programmatically
 
-1.  Create a Buildkite agent token and save the token in plaintext within
-    AWS Secrets Manager.
-2.  Set up a CodeBuild project with your preferred configuration. You will need to
-    configure the following additional attributes:
+1. Create a Buildkite agent token and save the token in plaintext within
+   AWS Secrets Manager.
+2. Set up a CodeBuild project with your preferred configuration. You will need to
+   configure the following additional attributes:
 
-        1. An environment value with name
-         `CODEBUILD_CONFIG_BUILDKITE_AGENT_TOKEN`, type
-         `SECRETS_MANAGER`, and a value equal to the Buildkite
-         agent token associated with your Buildkite cluster.
-        2. Source type equal to `NO_SOURCE`
-        3. Permissions to access the secret created in step 1 in your project’s
-         service role
-
-    For example, you can use the following command to create a valid Buildkite
-    runner project through the CLI:
+   1. An environment value with name
+      `CODEBUILD_CONFIG_BUILDKITE_AGENT_TOKEN`, type
+      `SECRETS_MANAGER`, and a value equal to the Buildkite
+      agent token associated with your Buildkite cluster.
+   2. Source type equal to `NO_SOURCE`
+   3. Permissions to access the secret created in step 1 in your project’s
+      service role
+      For example, you can use the following command to create a valid Buildkite
+      runner project through the CLI:
 
 ```
 aws codebuild create-project \
@@ -30,17 +29,16 @@ aws codebuild create-project \
 --service-role `<service-role>`
 ```
 
-3.  Create a Buildkite runner webhook on the project created in step 2. You will
-    need to use the following configuration options when creating the
-    webhook:
+3. Create a Buildkite runner webhook on the project created in step 2. You will
+   need to use the following configuration options when creating the
+   webhook:
 
-        1. **build-type** should be equal to
-         `RUNNER_BUILDKITE_BUILD`
-        2. A filter with type `EVENT` and a pattern equal to
-         `WORKFLOW_JOB_QUEUED`
-
-    For example, you can use the following command to create a valid Buildkite
-    runner webhook through the CLI:
+   1. **build-type** should be equal to
+      `RUNNER_BUILDKITE_BUILD`
+   2. A filter with type `EVENT` and a pattern equal to
+      `WORKFLOW_JOB_QUEUED`
+      For example, you can use the following command to create a valid Buildkite
+      runner webhook through the CLI:
 
 ```
 aws codebuild create-webhook \
