@@ -52,7 +52,7 @@ CMD [ "Hello, World!" ]
 ```
 
 5. The Dockerfile is now ready to be built. Build the container by running `docker
-build`. Tag the container with an easy-to-type name for use in future
+ build`. Tag the container with an easy-to-type name for use in future
    commands.
 
 ```
@@ -91,7 +91,7 @@ aws ecr get-login-password | docker login --username AWS --password-stdin ${ECR_
 
 ###### Note
 
-If the **AWS_REGION** environment variable is not set in
+If the **AWS\_REGION** environment variable is not set in
 your CloudShell or you want to interact with resources in other
 AWS Regions, run the following command:
 
@@ -117,9 +117,11 @@ the files you created in this tutorial from your AWS CloudShell environment, run
 command.
 
 - ```
-  cd ~
-  rm -rf ~/docker-cli-tutorial
+
   ```
+
+cd ~
+rm -rf ~/docker-cli-tutorial
 
 ```
 * Delete the Amazon ECR repository.

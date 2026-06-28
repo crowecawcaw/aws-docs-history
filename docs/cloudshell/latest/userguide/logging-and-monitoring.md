@@ -33,23 +33,23 @@ AWS CloudShell event that includes:
 - The word `Layout` restores all the browser tabs in the CloudShell
   terminal.
 
-| CloudShell Events in CloudTrail   | Event name                                                                                                                                                                                        | Description |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `createEnvironment`               | Occurs when a CloudShell environment is created.                                                                                                                                                  |
-| `createSession`                   | Occurs when a CloudShell environment is connected from the AWS Management Console.                                                                                                                |
-| `deleteEnvironment`               | Occurs when a CloudShell environment is deleted.                                                                                                                                                  |
-| `deleteSession`                   | Occurs when the session in the CloudShell tab that is running in the current<br>browser tab is deleted.                                                                                           |
-| `getEnvironmentStatus*`           | Occurs when the status of a CloudShell environment is retrieved.                                                                                                                                  |
-| `getFileDownloadUrls*`            | Occurs when pre-signed Amazon S3 URLs that are used to download files through<br>CloudShell using the CloudShell web interface are generated.                                                     |
-| `getFileUploadUrls*`              | Occurs when pre-signed Amazon S3 URLs that are used to upload files through<br>CloudShell using the CloudShell web interface are generated.                                                       |
-| `cloudshell:DescribeEnvironments` | Describes the environments.                                                                                                                                                                       |
-| `getLayout*`                      | Occurs when the CloudShell layout at the start of the session is<br>retrieved.                                                                                                                    |
-| `putCredentials`                  | Occurs when the credentials used to log in to the AWS Management Console to CloudShell are<br>forwarded.                                                                                          |
-| `redeemCode*`                     | Occurs when the workflow to retrieve refresh token in the CloudShell<br>environment begins. You can later use this token in the `putCredentials`<br>command to access the CloudShell environment. |
-| `sendHeartBeat`                   | Occurs to confirm that the CloudShell session is active.                                                                                                                                          |
-| `startEnvironment`                | Occurs when a CloudShell environment is started.                                                                                                                                                  |
-| `stopEnvironment`                 | Occurs when a running CloudShell environment is stopped.                                                                                                                                          |
-| `updateLayout`                    | Occurs when the current layout from the web application in the backend is<br>saved.                                                                                                               |
+CloudShell Events in CloudTrail| Event name | Description |
+| --- | --- |
+| `createEnvironment` | Occurs when a CloudShell environment is created. |
+| `createSession` | Occurs when a CloudShell environment is connected from the AWS Management Console. |
+| `deleteEnvironment` | Occurs when a CloudShell environment is deleted. |
+| `deleteSession` | Occurs when the session in the CloudShell tab that is running in the current<br>browser tab is deleted. |
+| `getEnvironmentStatus*` | Occurs when the status of a CloudShell environment is retrieved. |
+| `getFileDownloadUrls*` | Occurs when pre-signed Amazon S3 URLs that are used to download files through<br>CloudShell using the CloudShell web interface are generated. |
+| `getFileUploadUrls*` | Occurs when pre-signed Amazon S3 URLs that are used to upload files through<br>CloudShell using the CloudShell web interface are generated. |
+| `cloudshell:DescribeEnvironments` | Describes the environments. |
+| `getLayout*` | Occurs when the CloudShell layout at the start of the session is<br>retrieved. |
+| `putCredentials` | Occurs when the credentials used to log in to the AWS Management Console to CloudShell are<br>forwarded. |
+| `redeemCode*` | Occurs when the workflow to retrieve refresh token in the CloudShell<br>environment begins. You can later use this token in the `putCredentials`<br>command to access the CloudShell environment. |
+| `sendHeartBeat` | Occurs to confirm that the CloudShell session is active. |
+| `startEnvironment` | Occurs when a CloudShell environment is started. |
+| `stopEnvironment` | Occurs when a running CloudShell environment is stopped. |
+| `updateLayout` | Occurs when the current layout from the web application in the backend is<br>saved. |
 
 Events that include the word "Layout" restore all the browser tabs in the CloudShell
 terminal.

@@ -28,7 +28,7 @@ resource.
      CloudShell terminal.
 
 2. You can view the CloudShell environment name if you have already created a
-   CloudShell VPC environment.
+CloudShell VPC environment.
 
 ###### Note
 

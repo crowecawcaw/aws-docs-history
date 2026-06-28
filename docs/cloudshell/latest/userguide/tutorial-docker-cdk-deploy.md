@@ -140,8 +140,10 @@ the AWS CDK. Inside the AWS CDK project, run the following command to delete the
 resources. You will be prompted to confirm the deletion.
 
 - ```
-  npx cdk destroy DockerTutorialStack
+
   ```
+
+npx cdk destroy DockerTutorialStack
 
 ```
 * To remove the files and resources you created in this tutorial from your AWS CloudShell environment, run the following command.

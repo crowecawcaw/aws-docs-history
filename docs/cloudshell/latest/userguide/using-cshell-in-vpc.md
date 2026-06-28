@@ -40,27 +40,23 @@ access to public internet.
 - To provide a managed CloudShell environment for your account, AWS might provision
   network access to the following services for the underlying compute host:
 
-      + Amazon S3
-      + VPC endpoints
+  - Amazon S3
+  - VPC endpoints
 
-
-
-
-      	- com.amazonaws.<region>.ssmmessages
-      	- com.amazonaws.<region>.logs
-      	- com.amazonaws.<region>.kms
-      	- com.amazonaws.<region>.execute-api
-      	- com.amazonaws.<region>.ecs-telemetry
-      	- com.amazonaws.<region>.ecs-agent
-      	- com.amazonaws.<region>.ecs
-      	- com.amazonaws.<region>.ecr.dkr
-      	- com.amazonaws.<region>.ecr.api
-      	- com.amazonaws.<region>.codecatalyst.packages
-      	- com.amazonaws.<region>.codecatalyst.git
-      	- aws.api.global.codecatalyst
-
-  You cannot restrict access to these endpoints by modifying your VPC
-  configuration.
+    - com.amazonaws.<region>.ssmmessages
+    - com.amazonaws.<region>.logs
+    - com.amazonaws.<region>.kms
+    - com.amazonaws.<region>.execute-api
+    - com.amazonaws.<region>.ecs-telemetry
+    - com.amazonaws.<region>.ecs-agent
+    - com.amazonaws.<region>.ecs
+    - com.amazonaws.<region>.ecr.dkr
+    - com.amazonaws.<region>.ecr.api
+    - com.amazonaws.<region>.codecatalyst.packages
+    - com.amazonaws.<region>.codecatalyst.git
+    - aws.api.global.codecatalyst
+      You cannot restrict access to these endpoints by modifying your VPC
+      configuration.
 
 CloudShell VPC is available in all AWS
 Regions and

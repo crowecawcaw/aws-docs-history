@@ -30,16 +30,15 @@ anywhere in the pane of your choosing. You can close a tab by choosing the
 - Choose **Actions** and one of the following options from
   **Tabs layout**:
 
-      + **New tab**: Add a new tab that's next to the
-       currently active one.
-      + **Split into rows**: Add a new tab in a row that's
-       below the currently active one.
-      + **Split into columns**: Add a new tab in a column
-       that's next to the currently active one.
-
-  If there's not enough space to completely display each tab, scroll to see the
-  entire tab. You can also select the split bars that separate panes and drag them by
-  using the pointer to increase or reduce the pane size.
+  - **New tab**: Add a new tab that's next to the
+    currently active one.
+  - **Split into rows**: Add a new tab in a row that's
+    below the currently active one.
+  - **Split into columns**: Add a new tab in a column
+    that's next to the currently active one.
+    If there's not enough space to completely display each tab, scroll to see the
+    entire tab. You can also select the split bars that separate panes and drag them by
+    using the pointer to increase or reduce the pane size.
 
 ## Changing font size
 
