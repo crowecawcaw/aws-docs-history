@@ -59,7 +59,7 @@ When you launch the CloudFormation stack using the template, it creates nested s
 
 The **Stack Detail** page for the root stack that CloudFormation launches appears. 4. To monitor the progress of the root stack and nested stacks, choose **Stacks**.
 
-![CloudFormation interface showing Stacks option highlighted in the navigation menu.](images/choose-stacks.png) 5. When all stacks show **CREATE_COMPLETE** for **Status**, you can connect to Ethereum user interfaces to verify that the network is running and accessible. When you use the ECS container platform, URLs for connecting to EthStats, EthExplorer, and EthJsonRPC through the Application Load Balancer are available on the **Outputs** tab of the root stack.
+![CloudFormation interface showing Stacks option highlighted in the navigation menu.](images/choose-stacks.png) 5. When all stacks show **CREATE\_COMPLETE** for **Status**, you can connect to Ethereum user interfaces to verify that the network is running and accessible. When you use the ECS container platform, URLs for connecting to EthStats, EthExplorer, and EthJsonRPC through the Application Load Balancer are available on the **Outputs** tab of the root stack.
 
 ###### Important
 

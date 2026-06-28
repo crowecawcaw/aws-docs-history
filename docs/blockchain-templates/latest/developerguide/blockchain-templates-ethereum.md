@@ -184,7 +184,7 @@ For the permissions attached to the ECS role, we recommend that you start with t
 5. Under **Select your use case**, choose **Elastic Container
    Service**, **Next:Permissions**.
 
-![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](/images/blockchain-templates/latest/developerguide/images/ecs-role.png) 6. For **Permissions policy**, leave the default policy
+![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](images/ecs-role.png) 6. For **Permissions policy**, leave the default policy
 (**AmazonEC2ContainerServiceRole**) selected, and choose
 **Next:Review**. 7. For **Role name**, enter a value that helps you identify the role,
 such as _ECSRoleForEthereum_. For **Role Description**,
@@ -198,16 +198,15 @@ You need this ARN when you create the Ethereum network.
 
 ## Connecting to Ethereum Resources
 
-After the root stack that you create with the template shows **CREATE_COMPLETE**, you can connect to Ethereum resources using the CloudFormation console. How you connect depends on the container platform that you choose, ECS or docker-local:
+After the root stack that you create with the template shows **CREATE\_COMPLETE**, you can connect to Ethereum resources using the CloudFormation console. How you connect depends on the container platform that you choose, ECS or docker-local:
 
 - **ECS**—The **Output** tab of the root stack provides links to services running on the Application Load Balancer. These URLs are not directly accessible for security reasons. To connect, you can set up and use a _bastion host_ to proxy connections to them. For more information, see [Proxy Connections Using a Bastion Host](#ethereum-create-bastion-host "#ethereum-create-bastion-host") below.
 - **docker-local**—You connect using the IP address of the EC2 instance hosting Ethereum services as listed below. Use the EC2 console to find the `ec2-IP-address` of the instance that the template created.
 
-      + **EthStats**—Use http://`ec2-IP-address`
-      + **EthExplorer**—Use http://`ec2-IP-address`:8080
-      + **EthJsonRpc**—Use http://`ec2-IP-address`:8545
-
-  If you specified a public subnet for **Ethereum Network Subnet ID** (**List of VPC Subnets to use** within the template), you can connect directly. Your client must be a trusted source of inbound traffic for SSH (port 22), as well as the ports listed. This is determined by the **EC2 Security Group** that you specified using the AWS Blockchain Template for Ethereum.
+  - **EthStats**—Use http://`ec2-IP-address`
+  - **EthExplorer**—Use http://`ec2-IP-address`:8080
+  - **EthJsonRpc**—Use http://`ec2-IP-address`:8545
+    If you specified a public subnet for **Ethereum Network Subnet ID** (**List of VPC Subnets to use** within the template), you can connect directly. Your client must be a trusted source of inbound traffic for SSH (port 22), as well as the ports listed. This is determined by the **EC2 Security Group** that you specified using the AWS Blockchain Template for Ethereum.
 
 If you specified a private subnet, you can set up and use a _bastion host_ to proxy connections to these addresses. For more information, see [Proxy Connections Using a Bastion Host](#ethereum-create-bastion-host "#ethereum-create-bastion-host") below.
 

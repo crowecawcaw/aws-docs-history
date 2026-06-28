@@ -13,7 +13,7 @@ CloudFormation makes it easy to clean up resources that the stack created. When 
 
 - Open the CloudFormation console, select the root stack that you created earlier, choose **Actions**, **Delete**.
 
-The **Status** of the root stack you created earlier and the associated nested stacks update to **DELETE_IN_PROGRESS**.
+The **Status** of the root stack you created earlier and the associated nested stacks update to **DELETE\_IN\_PROGRESS**.
 You may choose to delete the prerequisites you created for the Ethereum network.
 
 ###### Delete the VPC

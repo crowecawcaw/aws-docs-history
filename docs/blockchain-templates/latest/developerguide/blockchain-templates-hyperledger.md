@@ -69,7 +69,7 @@ JSON
 
 ## Connecting to Hyperledger Fabric Resources
 
-After the root stack that you create with the template shows **CREATE_COMPLETE**, you can connect to Hyperledger Fabric resources on the EC2 instance. If you specified a public subnet, you can connect to the EC2 instance as would any other EC2 instance. For more information, see [Connecting to Your Linux Instance Using SSH](../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md "../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md") in the _Amazon EC2 User Guide_.
+After the root stack that you create with the template shows **CREATE\_COMPLETE**, you can connect to Hyperledger Fabric resources on the EC2 instance. If you specified a public subnet, you can connect to the EC2 instance as would any other EC2 instance. For more information, see [Connecting to Your Linux Instance Using SSH](../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md "../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md") in the _Amazon EC2 User Guide_.
 
 If you specified a private subnet, you can set up and use a _bastion host_ to proxy connections to Hyperledger Fabric resources. For more information, see [Proxy Connections Using a Bastion Host](blockchain-templates-ethereum.md#ethereum-create-bastion-host "blockchain-templates-ethereum.md#ethereum-create-bastion-host") below.
 
