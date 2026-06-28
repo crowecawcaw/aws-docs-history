@@ -145,9 +145,9 @@ objects by using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md 
     For more information, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
 
 8. Finish creating your task, and then [start the
-   task](run-task.md "run-task.md") to begin transferring your data.
-   When your transfer is complete, you can [view your
-   task report](task-report-viewing.md "task-report-viewing.md").
+task](run-task.md "run-task.md") to begin transferring your data.
+When your transfer is complete, you can [view your
+task report](task-report-viewing.md "task-report-viewing.md").
 
 1. Copy the following `create-task` AWS Command Line Interface (AWS CLI)
    command:
@@ -282,11 +282,10 @@ following:
      report.
 
 6. If you're transferring to an S3 bucket that uses object versioning,
-   keep **Include Amazon S3 object versions** selected if
-   you want your report to include the new version for each transferred
-   object.
-7. For **S3 bucket for reports**, choose an S3 bucket
-   where you want DataSync to upload your task report.
+keep **Include Amazon S3 object versions** selected if
+you want your report to include the new version for each transferred
+object. 7. For **S3 bucket for reports**, choose an S3 bucket
+where you want DataSync to upload your task report.
 
 ###### Tip
 
@@ -321,9 +320,9 @@ objects by using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md 
     For more information, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
 
 10. Finish creating your task and [start the
-    task](run-task.md "run-task.md") to begin transferring your data.
-    When your transfer is complete, you can [view your
-    task report](task-report-viewing.md "task-report-viewing.md").
+task](run-task.md "run-task.md") to begin transferring your data.
+When your transfer is complete, you can [view your
+task report](task-report-viewing.md "task-report-viewing.md").
 
 1. Copy the following `create-task` command:
 

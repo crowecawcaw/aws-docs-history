@@ -166,7 +166,7 @@ as possible.
 
 ###### Enhanced mode agents
 
-`aws ssm get-parameter --name /aws/service/datasync/ami/v3 --region `your-region``2. Run the command. In the output, take note of the
+`aws ssm get-parameter --name /aws/service/datasync/ami/v3 --region `your-region`` 2. Run the command. In the output, take note of the
 `"Value"` property with the DataSync AMI ID.
 
 ###### Example command and output
@@ -249,16 +249,13 @@ or create a new one. 5. For **Network settings**, choose
      uses.
 
 6. (Recommended) To increase performance when transferring from a
-   cloud-based file system, expand **Advanced
-   details** and choose a **Placement
-   group** value where your storage is located.
-7. Choose **Launch instance** to launch your Amazon EC2
-   instance.
-8. Once your instance status is **Running**, choose
-   the instance.
-9. If you configured your instance to be accessible from the public
-   internet, make note of the instance's public IP address. If you
-   didn't, make note of the private IP address.
+cloud-based file system, expand **Advanced
+details** and choose a **Placement
+group** value where your storage is located. 7. Choose **Launch instance** to launch your Amazon EC2
+instance. 8. Once your instance status is **Running**, choose
+the instance. 9. If you configured your instance to be accessible from the public
+internet, make note of the instance's public IP address. If you
+didn't, make note of the private IP address.
 
 You need this IP address when [activating your agent](activate-agent.md "activate-agent.md").
 The following guidance can help with common scenarios if you deploy an

@@ -98,11 +98,11 @@ following:
     ```
 
 9. If the object storage server requires credentials for access,
-   select **Requires credentials** and enter the
-   **Access key** you use to access the bucket.
-   Then either enter the **Secret key** directly, or
-   specify an AWS Secrets Manager secret that contains the key. For more
-   information, see [Providing credentials for storage locations](location-credentials.md "location-credentials.md").
+select **Requires credentials** and enter the
+**Access key** you use to access the bucket.
+Then either enter the **Secret key** directly, or
+specify an AWS Secrets Manager secret that contains the key. For more
+information, see [Providing credentials for storage locations](location-credentials.md "location-credentials.md").
 
 The access key and secret key can be a user name and password,
 respectively. 10. (Optional) Choose **Add tag** to tag your object
@@ -122,75 +122,75 @@ aws datasync create-location-object-storage \
     --agent-arns arn:aws:datasync:`us-east-1`:`123456789012`:agent/agent-`01234567890deadfb`
 ```
 
-2.  Specify the following required parameters in the command:
+2. Specify the following required parameters in the command:
 
-    - `--server-hostname` – Specify the domain
-      name or IP address of your object storage server.
-    - `--bucket-name` – Specify the name of
-      the bucket on your object storage server that you're
-      transferring to or from.
+   - `--server-hostname` – Specify the domain
+     name or IP address of your object storage server.
+   - `--bucket-name` – Specify the name of
+     the bucket on your object storage server that you're
+     transferring to or from.
 
-3.  (Optional) Add any of the following parameters to the
-    command:
+3. (Optional) Add any of the following parameters to the
+   command:
 
-    - `--agent-arns` – Specify the DataSync
-      agents that you want to connect to your object storage
-      server.
-    - `--server-port` – Specifies the port
-      that your object storage server accepts inbound network
-      traffic on (for example, port `443`).
-    - `--server-protocol` – Specifies the
-      protocol (`HTTP` or `HTTPS`) which
-      your object storage server uses to communicate.
-    - `--access-key` – Specifies the access
-      key (for example, a user name) if credentials are required
-      to authenticate with the object storage server.
-    - `--secret-key` – Specifies the secret
-      key (for example, a password) if credentials are required to
-      authenticate with the object storage server.
+   - `--agent-arns` – Specify the DataSync
+     agents that you want to connect to your object storage
+     server.
+   - `--server-port` – Specifies the port
+     that your object storage server accepts inbound network
+     traffic on (for example, port `443`).
+   - `--server-protocol` – Specifies the
+     protocol (`HTTP` or `HTTPS`) which
+     your object storage server uses to communicate.
+   - `--access-key` – Specifies the access
+     key (for example, a user name) if credentials are required
+     to authenticate with the object storage server.
+   - `--secret-key` – Specifies the secret
+     key (for example, a password) if credentials are required to
+     authenticate with the object storage server.
 
-    You can also provide additional parameters for securing
-    your keys using AWS Secrets Manager. For more information, see [Providing credentials for storage
-    locations](location-credentials.md "location-credentials.md").
-    - `--server-certificate` – Specifies a
-      certificate chain for DataSync to authenticate with your object
-      storage system if the system uses a private or self-signed
-      certificate authority (CA). You must specify a single
-      `.pem` file with a full certificate chain
-      (for example,
-      `file:///home/user/.ssh/object_storage_certificates.pem`).
+   You can also provide additional parameters for securing
+   your keys using AWS Secrets Manager. For more information, see [Providing credentials for storage
+   locations](location-credentials.md "location-credentials.md").
+   - `--server-certificate` – Specifies a
+     certificate chain for DataSync to authenticate with your object
+     storage system if the system uses a private or self-signed
+     certificate authority (CA). You must specify a single
+     `.pem` file with a full certificate chain
+     (for example,
+     `file:///home/user/.ssh/object_storage_certificates.pem`).
 
-    The certificate chain might include:
+   The certificate chain might include:
 
         + The object storage system's certificate
         + All intermediate certificates (if there are
          any)
         + The root certificate of the signing CA
 
-    You can concatenate your certificates into a
-    `.pem` file (which can be up to 32768
-    bytes before base64 encoding). The following example
-    `cat` command creates an
-    ``object_storage_certificates`.pem`
-    file that includes three certificates:
+   You can concatenate your certificates into a
+   `.pem` file (which can be up to 32768
+   bytes before base64 encoding). The following example
+   `cat` command creates an
+   ``object_storage_certificates`.pem`
+   file that includes three certificates:
 
-    ```
-    cat `object_server_certificate`.pem `intermediate_certificate`.pem `ca_root_certificate`.pem > `object_storage_certificates`.pem
-    ```
-    - `--subdirectory` – Specifies the object
-      prefix for your object storage server.
+   ```
+   cat `object_server_certificate`.pem `intermediate_certificate`.pem `ca_root_certificate`.pem > `object_storage_certificates`.pem
+   ```
+   - `--subdirectory` – Specifies the object
+     prefix for your object storage server.
 
-    DataSync only copies objects with this prefix.
-    - `--tags` – Specifies the key-value pair
-      that represents a tag that you want to add to the location
-      resource.
+   DataSync only copies objects with this prefix.
+   - `--tags` – Specifies the key-value pair
+     that represents a tag that you want to add to the location
+     resource.
 
-    Tags can help you manage, filter, and search for your
-    resources. We recommend creating a name tag for your
-    location.
+   Tags can help you manage, filter, and search for your
+   resources. We recommend creating a name tag for your
+   location.
 
-4.  Run the `create-location-object-storage`
-    command.
+4. Run the `create-location-object-storage`
+   command.
 
 You get a response that shows you the location ARN that you just
 created.

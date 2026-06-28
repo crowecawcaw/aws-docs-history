@@ -31,10 +31,10 @@ following options:
      **Start**.
 
 5. Choose **See execution details** to view details
-   about the running task execution.
-   To start your DataSync task, you just need to specify the Amazon Resource Name (ARN) of
-   the task you want to run. Here's an example `start-task-execution`
-   command:
+about the running task execution.
+To start your DataSync task, you just need to specify the Amazon Resource Name (ARN) of
+the task you want to run. Here's an example `start-task-execution`
+command:
 
 ```
 aws datasync start-task-execution \

@@ -121,7 +121,7 @@ recommendations:
      move to the next step.
 
 5. Copy the following `describe-storage-system-resources`
-   command:
+command:
 
 ```
 aws datasync describe-storage-system-resources \

@@ -144,7 +144,7 @@ aws datasync update-task \
      expression for your schedule.
 
    In the example, the expression ``cron(0 12 ?
-   - SUN,WED \*)`` sets a task schedule
+   - SUN,WED *)`` sets a task schedule
      that runs at 12:00 PM UTC every Sunday and Wednesday.
    - For `Status`, specify `DISABLED` to
      pause the task schedule.

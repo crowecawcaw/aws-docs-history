@@ -93,7 +93,7 @@ Storage documentation](https://cloud.google.com/storage/docs/authentication/hmac
 
 1. Create an HMAC key for your Google service account.
 2. Make sure that your Google service account has at least `Storage Object
-Viewer` permissions.
+ Viewer` permissions.
 3. Save your HMAC key's access ID and secret in a secure location.
 
 You'll need these items later to configure your DataSync source location.
@@ -211,7 +211,7 @@ Compute Engine documentation](https://cloud.google.com/compute/docs/instances "h
      activated, DataSync closes the port.
 
 8. After the VM instance is running, take note of its public IP
-   address.
+address.
 
 You'll need this IP address to activate the agent. 9. Go back to the DataSync console. On the **Create agent**
 screen where you downloaded the agent image, do the following to
@@ -228,8 +228,8 @@ activate your agent:
     * Choose **Get key**.
 
 10. Give your agent a name, and then choose **Create
-    agent**.
-    Your agent is online and ready to transfer data.
+agent**.
+Your agent is online and ready to transfer data.
 
 In this scenario, the agent runs as an Amazon EC2 instance in a VPC that's
 associated with your AWS account.

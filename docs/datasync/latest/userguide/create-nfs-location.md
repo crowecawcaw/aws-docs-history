@@ -77,23 +77,22 @@ By default, DataSync uses NFS version 4.1. DataSync also supports NFS 4.0 and
 
 For your DataSync transfer, you must configure traffic for a few network connections:
 
-1.  Allow traffic on the following ports from your DataSync agent to your NFS
-    file server:
+1. Allow traffic on the following ports from your DataSync agent to your NFS
+   file server:
 
-        * For NFS version 4.1 and 4.0
-         – TCP port 2049
-        * For NFS version 3.x – TCP
-         ports 111 and 2049
+   - For NFS version 4.1 and 4.0
+     – TCP port 2049
+   - For NFS version 3.x – TCP
+     ports 111 and 2049
+     Other NFS clients in your network should be able to mount the NFS export
+     that you're using to transfer data. The export must also be accessible
+     without Kerberos authentication.
 
-    Other NFS clients in your network should be able to mount the NFS export
-    that you're using to transfer data. The export must also be accessible
-    without Kerberos authentication.
-
-2.  Configure traffic for your [service
-    endpoint connection](datasync-network.md "datasync-network.md") (such as a VPC, public, or FIPS
-    endpoint).
-3.  Allow traffic from the DataSync service to the [AWS storage
-    service](datasync-network.md#storage-service-network-requirements "datasync-network.md#storage-service-network-requirements") you're transferring to or from.
+2. Configure traffic for your [service
+   endpoint connection](datasync-network.md "datasync-network.md") (such as a VPC, public, or FIPS
+   endpoint).
+3. Allow traffic from the DataSync service to the [AWS storage
+   service](datasync-network.md#storage-service-network-requirements "datasync-network.md#storage-service-network-requirements") you're transferring to or from.
 
 ## Creating your NFS transfer location
 

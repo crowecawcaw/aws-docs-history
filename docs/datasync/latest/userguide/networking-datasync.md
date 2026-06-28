@@ -33,15 +33,14 @@ network to AWS:
   your storage network and AWS. From a DataSync perspective, this lets
   you:
 
-      + Transfer data over a private path to your virtual private cloud
-       (VPC), which avoids routing over the public internet.
-      + Get a more predictable connection than using a virtual private
-       network (VPN) to connect your storage network to AWS (particularly
-       if your agent is an Amazon EC2 instance).
-      + Use any type of DataSync service endpoint, including [public](choose-service-endpoint.md#choose-service-endpoint-public "choose-service-endpoint.md#choose-service-endpoint-public"), [Federal Information
-       Processing Standard (FIPS)](choose-service-endpoint.md#choose-service-endpoint-fips "choose-service-endpoint.md#choose-service-endpoint-fips"), or [VPC](choose-service-endpoint.md#datasync-in-vpc "choose-service-endpoint.md#datasync-in-vpc") endpoints.
-
-  For more information, see [DataSync architecture and routing examples with Direct Connect](direct-connect-architecture.md "direct-connect-architecture.md").
+  - Transfer data over a private path to your virtual private cloud
+    (VPC), which avoids routing over the public internet.
+  - Get a more predictable connection than using a virtual private
+    network (VPN) to connect your storage network to AWS (particularly
+    if your agent is an Amazon EC2 instance).
+  - Use any type of DataSync service endpoint, including [public](choose-service-endpoint.md#choose-service-endpoint-public "choose-service-endpoint.md#choose-service-endpoint-public"), [Federal Information
+    Processing Standard (FIPS)](choose-service-endpoint.md#choose-service-endpoint-fips "choose-service-endpoint.md#choose-service-endpoint-fips"), or [VPC](choose-service-endpoint.md#datasync-in-vpc "choose-service-endpoint.md#datasync-in-vpc") endpoints.
+    For more information, see [DataSync architecture and routing examples with Direct Connect](direct-connect-architecture.md "direct-connect-architecture.md").
 
 - **VPN** - You can connect your storage
   network to AWS by using a VPN (such as [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")).

@@ -131,10 +131,10 @@ Active Directory group with one or both of the following user rights (depending
 the [metadata that you want DataSync to
 copy](configure-metadata.md "configure-metadata.md")):
 
-| User right                                                   | Description                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Restore files and directories**<br>(`SE_RESTORE_NAME`)     | Allows DataSync to copy object ownership, permissions, file<br>metadata, and NTFS discretionary access lists<br>(DACLs).<br>This user right is usually granted to members of the<br>**Domain Admins\*<br>• and **Backup<br>Operators\*<br>• groups (both of which are default<br>Active Directory groups). |
-| **Manage auditing and security log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access control lists<br>(SACLs).<br>This user right is usually granted to members of the<br>\*_Domain Admins_<br>• group.                                                                                                                                              |
+| User right                                                   | Description                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Restore files and directories**<br>(`SE_RESTORE_NAME`)     | Allows DataSync to copy object ownership, permissions, file<br>metadata, and NTFS discretionary access lists<br>(DACLs).<br>This user right is usually granted to members of the<br>*_Domain Admins_<br>• and *_Backup<br>Operators_<br>• groups (both of which are default<br>Active Directory groups). |
+| **Manage auditing and security log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access control lists<br>(SACLs).<br>This user right is usually granted to members of the<br>*_Domain Admins_<br>• group.                                                                                                                                             |
 
 If you want to copy Windows ACLs and are transferring between an SMB file
 server and another storage system that uses SMB (such as Amazon FSx for Windows File Server or
@@ -174,8 +174,8 @@ Remember the following with this setting:
      a domain name.
 
 6. For **Share name**, enter the name of the share
-   exported by your SMB file server where DataSync will read or write
-   data.
+exported by your SMB file server where DataSync will read or write
+data.
 
 You can include a subdirectory in the share path (for example,
 `/path/to/subdirectory`). Make sure that other SMB
@@ -253,7 +253,7 @@ Kerberos
      server.
 
 10. (Optional) Choose **Add tag** to tag your SMB
-    location.
+location.
 
 _Tags_ are key-value pairs that help you
 manage, filter, and search for your locations. We recommend creating
@@ -390,10 +390,9 @@ data. For more information, see [Required permissions](#configuring-smb-permissi
      server.
 
 6. (Optional) Add the `--version` option if
-   you want DataSync to use a specific SMB version. For more
-   information, see [Supported SMB versions](#configuring-smb-version "#configuring-smb-version").
-7. Run the `create-location-smb`
-   command.
+you want DataSync to use a specific SMB version. For more
+information, see [Supported SMB versions](#configuring-smb-version "#configuring-smb-version"). 7. Run the `create-location-smb`
+command.
 
 If the command is successful, you get a response that
 shows you the ARN of the location that you created. For

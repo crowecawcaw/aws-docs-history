@@ -214,7 +214,7 @@ location requires access credentials:
     ```
 
 5. Run the `update-location-object-storage` command to
-   update the location.
+update the location.
 
 Azure Blob Storage
 

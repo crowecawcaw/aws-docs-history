@@ -97,10 +97,10 @@ following:
   administrator group with the following user rights
   that DataSync needs to copy metadata.
 
-  | User right                                                      | Description                                                                                                                                                                                                                                                                                              |
-  | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | **Act as part of the operating<br>system**<br>(`SE_TCB_NAME`)   | Allows DataSync to copy object ownership,<br>permissions, file metadata, and NTFS discretionary<br>access lists (DACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>and \*_Backup Operators_<br>• groups<br>(both of which are default Active Directory<br>groups). |
-  | **Manage auditing and security<br>log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access<br>control lists (SACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>group.                                                                                                                                              |
+  | User right                                                      | Description                                                                                                                                                                                                                                                                                             |
+  | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Act as part of the operating<br>system**<br>(`SE_TCB_NAME`)   | Allows DataSync to copy object ownership,<br>permissions, file metadata, and NTFS discretionary<br>access lists (DACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>and *_Backup Operators_<br>• groups<br>(both of which are default Active Directory<br>groups). |
+  | **Manage auditing and security<br>log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access<br>control lists (SACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>group.                                                                                                                                             |
 
 - If you want to copy Windows ACLs and are transferring
   between FSx for ONTAP file systems using SMB (or other types of
@@ -252,8 +252,8 @@ SVM.
      that DataSync connects to the right SVM.
 
 9. (Optional) Enter values for the **Key** and
-   **Value** fields to tag the FSx for ONTAP file
-   system.
+**Value** fields to tag the FSx for ONTAP file
+system.
 
 Tags help you manage, filter, and search for your AWS resources.
 We recommend creating at least a name tag for your location. 10. Choose **Create location**.
@@ -302,7 +302,7 @@ aws datasync create-location-fsx-ontap \
        that can access the SVM:
 
      `--protocol
- SMB={User=`smb-user`,Password=`smb-password`}`
+   SMB={User=`smb-user`,Password=`smb-password`}`
 
 3. Run the command.
 

@@ -63,30 +63,24 @@ picture1.png,111111
 
 - Use quotes in the following situations:
 
-      + When a path contains special characters (commas,
-       quotes, and line endings):
+  - When a path contains special characters (commas,
+    quotes, and line endings):
 
+  `"filename,with,commas.txt"`
+  - When a path spans multiple lines:
 
-      `"filename,with,commas.txt"`
-      + When a path spans multiple lines:
+  ```
+  "this
+  is
+  a
+  filename.txt"
+  ```
+  - When a path includes quotes:
 
+  `filename""with""quotes.txt`
 
-
-      ```
-      "this
-      is
-      a
-      filename.txt"
-      ```
-      + When a path includes quotes:
-
-
-      `filename""with""quotes.txt`
-
-
-      This represents a path named
-       `filename"with"quotes.txt`.
-
+  This represents a path named
+  `filename"with"quotes.txt`.
   These quote rules also apply to version ID fields. In general,
   if a manifest field has a quote, you must escape it with another
   quote.
@@ -255,65 +249,61 @@ AWS account where you use DataSync and your manifest's S3 bucket is located.
 }
 ```
 
-9.  In the sample policy that you just pasted, replace the following
-    values with your own:
+9. In the sample policy that you just pasted, replace the following
+   values with your own:
 
-    1. Replace
-       `amzn-s3-demo-bucket`
-       with the name of the S3 bucket that's hosting your
-       manifest.
-    2. Replace
-       `my-manifest.csv` with
-       the file name of your manifest.
+   1. Replace
+      `amzn-s3-demo-bucket`
+      with the name of the S3 bucket that's hosting your
+      manifest.
+   2. Replace
+      `my-manifest.csv` with
+      the file name of your manifest.
 
 10. Choose **Next**. Give your policy a name and choose
     **Create policy**.
 11. (Recommended) To prevent the [cross-service
     confused deputy problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"), do the following:
 
-        1. On the role's details page, choose the **Trust
-         relationships** tab. Choose **Edit trust
-         policy**.
-        2. Update the trust policy by using the following example, which
-         includes the `aws:SourceArn` and
-         `aws:SourceAccount` global condition context
-         keys:
+    1. On the role's details page, choose the **Trust
+       relationships** tab. Choose **Edit trust
+       policy**.
+    2. Update the trust policy by using the following example, which
+       includes the `aws:SourceArn` and
+       `aws:SourceAccount` global condition context
+       keys:
 
-
-
-        ```
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-              {
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "datasync.amazonaws.com"
+    ```
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "datasync.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                "aws:SourceAccount": "`555555555555`"
                 },
-                "Action": "sts:AssumeRole",
-                "Condition": {
-                    "StringEquals": {
-                    "aws:SourceAccount": "`555555555555`"
-                    },
-                    "ArnLike": {
-                    "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`555555555555`:*"
-                    }
+                "ArnLike": {
+                "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`555555555555`:*"
                 }
-              }
-          ]
-        }
-        ```
+            }
+          }
+      ]
+    }
+    ```
 
+        * Replace each instance
+         ``account-id``
+         with the AWS account ID where you're using
+         DataSync.
+        * Replace ``region``
+         with the AWS Region where you're using DataSync.
 
-
-        	* Replace each instance
-        	 ``account-id``
-        	 with the AWS account ID where you're using
-        	 DataSync.
-        	* Replace ``region``
-        	 with the AWS Region where you're using DataSync.
-        3. Choose **Update policy**.
-
+    3. Choose **Update policy**.
     You've created an IAM role that allows DataSync to access your manifest.
     Specify this role when [creating](#manifest-creating-task "#manifest-creating-task") or
     [starting](#manifest-starting-task "#manifest-starting-task") your task.
@@ -363,16 +353,16 @@ the role in the S3 bucket policy.
 }
 ```
 
-9.  In the sample policy that you just pasted, replace the following
-    values with your own:
+9. In the sample policy that you just pasted, replace the following
+   values with your own:
 
-    1. Replace
-       `amzn-s3-demo-bucket`
-       with the name of the S3 bucket that's hosting your
-       manifest.
-    2. Replace
-       `my-manifest.csv` with
-       the file name of your manifest.
+   1. Replace
+      `amzn-s3-demo-bucket`
+      with the name of the S3 bucket that's hosting your
+      manifest.
+   2. Replace
+      `my-manifest.csv` with
+      the file name of your manifest.
 
 10. Choose **Next**. Give your policy a name and choose
     **Create policy**.
@@ -418,6 +408,7 @@ the role in the S3 bucket policy.
          ``region``
          with the AWS Region where you're using
          DataSync.
+
     3. Choose **Update policy**.
 
 You created the IAM role that you can include in your S3 bucket

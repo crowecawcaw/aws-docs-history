@@ -49,10 +49,10 @@ Active Directory setup:
   custom delegated administrator group with the following user
   rights that DataSync needs to copy metadata.
 
-  | User right                                                      | Description                                                                                                                                                                                                                                                                                              |
-  | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | **Restore files and<br>directories**<br>(`SE_RESTORE_NAME`)     | Allows DataSync to copy object ownership,<br>permissions, file metadata, and NTFS discretionary<br>access lists (DACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>and \*_Backup Operators_<br>• groups<br>(both of which are default Active Directory<br>groups). |
-  | **Manage auditing and security<br>log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access<br>control lists (SACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>group.                                                                                                                                              |
+  | User right                                                      | Description                                                                                                                                                                                                                                                                                             |
+  | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Restore files and<br>directories**<br>(`SE_RESTORE_NAME`)     | Allows DataSync to copy object ownership,<br>permissions, file metadata, and NTFS discretionary<br>access lists (DACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>and *_Backup Operators_<br>• groups<br>(both of which are default Active Directory<br>groups). |
+  | **Manage auditing and security<br>log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access<br>control lists (SACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>group.                                                                                                                                             |
 
 - If you want to copy Windows ACLs and are transferring between an SMB
   file server and FSx for Windows File Server file system or between FSx for Windows File Server file
@@ -124,7 +124,7 @@ from within itself, do one of the following:
      with the mount target's security group.
 
 7. For **User**, enter the name of a user that can
-   access your FSx for Windows File Server.
+access your FSx for Windows File Server.
 
 For more information, see [Required permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions"). 8. For **Password**, enter password of the user
 name. 9. (Optional) For **Domain**, enter the name of the

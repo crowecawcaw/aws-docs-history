@@ -363,8 +363,8 @@ subdirectories using forward slashes (for example,
      file system mount target.
 
 5. For `--in-transit-encryption`, specify whether you want
-   DataSync to use Transport Layer Security (TLS) encryption when it
-   transfers data to or from your file system.
+DataSync to use Transport Layer Security (TLS) encryption when it
+transfers data to or from your file system.
 
 ###### Note
 

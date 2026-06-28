@@ -473,16 +473,16 @@ following:
      then choose **Next**.
 
 4. On the **Configure destination location** page, do
-   the following:
+the following:
 
-   1. Select **Choose an existing
-      location**.
-   2. For **Existing locations**, choose the
-      destination location for the S3 bucket that you're transferring
-      data to, then choose **Next**.
+    1. Select **Choose an existing
+     location**.
+    2. For **Existing locations**, choose the
+     destination location for the S3 bucket that you're transferring
+     data to, then choose **Next**.
 
 5. On the **Configure settings** page, choose a
-   **Task mode**.
+**Task mode**.
 
 ###### Tip
 

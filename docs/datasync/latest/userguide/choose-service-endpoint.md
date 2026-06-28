@@ -123,8 +123,8 @@ this by using routing rules over [Direct Connect](direct-connect-architecture.md
      ID (you need this when activating your agent).
 
 3. In your VPC, configure a [security group](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md")
-   that allows the traffic required for using DataSync [VPC service endpoints](datasync-network.md#using-vpc-endpoint "datasync-network.md#using-vpc-endpoint"). Take note of the
-   security group ARN (you need this when activating your agent).
+that allows the traffic required for using DataSync [VPC service endpoints](datasync-network.md#using-vpc-endpoint "datasync-network.md#using-vpc-endpoint"). Take note of the
+security group ARN (you need this when activating your agent).
 
 The security group must allow your agent to connect with the private IP
 addresses of the VPC service endpoint and your [network interfaces](required-network-interfaces.md "required-network-interfaces.md") (which get

@@ -182,8 +182,8 @@ following configuration files:
      `dfs.datanode.address` property.
 
 2. In your `hdfs-site.xml` file, verify that your
-   `dfs.data.transfer.protection` property has only one value. For
-   example:
+`dfs.data.transfer.protection` property has only one value. For
+example:
 
 ```
 <property>

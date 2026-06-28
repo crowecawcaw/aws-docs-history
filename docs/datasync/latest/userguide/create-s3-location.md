@@ -110,41 +110,40 @@ In some situations, you might need to create this role manually (for example,
 accessing buckets with extra layers of security or transferring to or from a
 bucket in a different AWS accounts).
 
-1.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the left navigation pane, under **Access
-    management**, choose **Roles**,
-    and then choose **Create role**.
-3.  On the **Select trusted entity** page, for
-    **Trusted entity type**, choose
-    **AWS service**.
-4.  For **Use case**, choose
-    **DataSync** in the dropdown list and select
-    **DataSync**. Choose
-    **Next**.
-5.  On the **Add permissions** page, choose
-    **Next**. Give your role a name and choose
-    **Create role**.
-6.  On the **Roles** page, search for the role
-    that you just created and choose its name.
-7.  On the role's details page, choose the
-    **Permissions** tab. Choose **Add
-    permissions** then **Create inline
-    policy**.
-8.  Choose the **JSON** tab and [add the
-    permissions required](#create-s3-location-required-permissions "#create-s3-location-required-permissions") to access your bucket into the
-    policy editor.
-9.  Choose **Next**. Give your policy a name and
-    choose **Create policy**.
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the left navigation pane, under **Access
+   management**, choose **Roles**,
+   and then choose **Create role**.
+3. On the **Select trusted entity** page, for
+   **Trusted entity type**, choose
+   **AWS service**.
+4. For **Use case**, choose
+   **DataSync** in the dropdown list and select
+   **DataSync**. Choose
+   **Next**.
+5. On the **Add permissions** page, choose
+   **Next**. Give your role a name and choose
+   **Create role**.
+6. On the **Roles** page, search for the role
+   that you just created and choose its name.
+7. On the role's details page, choose the
+   **Permissions** tab. Choose **Add
+   permissions** then **Create inline
+   policy**.
+8. Choose the **JSON** tab and [add the
+   permissions required](#create-s3-location-required-permissions "#create-s3-location-required-permissions") to access your bucket into the
+   policy editor.
+9. Choose **Next**. Give your policy a name and
+   choose **Create policy**.
 10. (Recommended) To prevent the [cross-service confused deputy problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"), do the
     following:
 
-        1. On the role's details page, choose the **Trust
-         relationships** tab. Choose **Edit
-         trust policy**.
-        2. Choose **Update policy**.
-
-    You can specify this role when creating your Amazon S3 location.
+    1. On the role's details page, choose the **Trust
+       relationships** tab. Choose **Edit
+       trust policy**.
+    2. Choose **Update policy**.
+       You can specify this role when creating your Amazon S3 location.
 
 ### Accessing S3 buckets using server-side encryption
 
@@ -308,7 +307,7 @@ for your transfer.
    ID:
 
    `aws iam get-role --role-name
- `datasync-iam-role-name``
+  `datasync-iam-role-name``
 
    In the output, look for the `RoleId`
    value:
@@ -322,7 +321,7 @@ for your transfer.
    ID:
 
    `aws iam get-role --role-name
- `your-iam-role-name``
+  `your-iam-role-name``
 
    In the output, look for the `RoleId`
    value:
@@ -443,16 +442,16 @@ destination location unless you configure your task to [transfer all data](confi
 situations, the storage class that you specify when creating your location is
 used for all objects.
 
-| Amazon S3 storage class       | Considerations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| S3 Standard                   | Choose S3 Standard to store your frequently accessed files<br>redundantly in multiple Availability Zones that are geographically<br>separated. This is the default if you don't specify a storage class.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| S3 Intelligent-Tiering        | Choose S3 Intelligent-Tiering to optimize storage costs by<br>automatically moving data to the most cost-effective storage<br>access tier.<br>You pay a monthly charge per object stored in the S3<br>Intelligent-Tiering storage class. This Amazon S3 charge includes<br>monitoring data access patterns and moving objects between<br>tiers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| S3 Standard-IA                | Choose S3 Standard-IA to store your infrequently accessed<br>objects redundantly in multiple Availability Zones that are<br>geographically separated.<br>Objects stored in the S3 Standard-IA storage class can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the S3 Standard-IA<br>storage class.<br>Objects less than 128 KB are smaller than the minimum capacity<br>charge per object in the S3 Standard-IA storage class. These<br>objects are stored in the S3 Standard storage class.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| S3 One Zone-IA                | Choose S3 One Zone-IA to store your infrequently accessed<br>objects in a single Availability Zone.<br>Objects stored in the S3 One Zone-IA storage class can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the S3 One Zone-IA<br>storage class.<br>Objects less than 128 KB are smaller than the minimum capacity<br>charge per object in the S3 One Zone-IA storage class. These<br>objects are stored in the S3 Standard storage class.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| S3 Glacier Instant Retrieval  | Choose S3 Glacier Instant Retrieval to archive objects that<br>are rarely accessed but require retrieval in<br>milliseconds.<br>Data stored in the S3 Glacier Instant Retrieval storage class<br>offers cost savings compared to the S3 Standard-IA storage class<br>with the same latency and throughput performance.<br>S3 Glacier Instant Retrieval has higher data access costs than<br>S3 Standard-IA, though.<br>Objects stored in S3 Glacier Instant Retrieval can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the<br>S3 Glacier Instant Retrieval storage class.<br>Objects less than 128 KB are smaller than the minimum capacity<br>charge per object in the S3 Glacier Instant Retrieval storage<br>class. These objects are stored in the S3 Standard storage<br>class.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| S3 Glacier Flexible Retrieval | Choose S3 Glacier Flexible Retrieval for more active<br>archives.Objects stored in<br>S3 Glacier Flexible Retrieval can incur additional charges for<br>overwriting, deleting, or retrieving. Consider how often these<br>objects change, how long you plan to keep these objects, and how<br>often you need to access them. Changes to object data or<br>metadata are equivalent to deleting an object and creating a new<br>one to replace it. This results in additional charges for<br>objects stored in the S3 Glacier Flexible Retrieval storage<br>class.The S3 Glacier Flexible Retrieval storage class<br>requires 40 KB of additional metadata for each archived object.<br>DataSync puts objects that are less than 40 KB in the S3 Standard<br>storage class. You must restore objects archived in this<br>storage class before DataSync can read them. For information, see<br>[Working with archived objects](../../../AmazonS3/latest/userguide/archived-objects.md "../../../AmazonS3/latest/userguide/archived-objects.md") in<br>the _Amazon S3 User Guide_.When using<br>S3 Glacier Flexible Retrieval, choose the **Verify only the<br>data transferred\*<br>• task option to compare data and<br>metadata checksums at the end of the transfer. You can't use the<br>**Verify all data in the destination\*\*<br>option for this storage class because it requires retrieving all<br>existing objects from the destination.                                                                                   |
-| S3 Glacier Deep Archive       | Choose S3 Glacier Deep Archive to archive your objects<br>for long-term data retention and digital preservation where data<br>is accessed once or twice a year.<br>Objects stored in S3 Glacier Deep Archive can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the<br>S3 Glacier Deep Archive storage class.<br>The S3 Glacier Deep Archive storage class requires 40<br>KB of additional metadata for each archived object. DataSync puts<br>objects that are less than 40 KB in the S3 Standard storage<br>class.<br>You must restore objects archived in this storage class before<br>DataSync can read them. For information, see [Working with archived objects](../../../AmazonS3/latest/userguide/archived-objects.md "../../../AmazonS3/latest/userguide/archived-objects.md")<br>in the _Amazon S3 User Guide_.<br>When using S3 Glacier Deep Archive, choose the<br>**Verify only the data transferred\*<br>• task<br>option to compare data and metadata checksums at the end of the<br>transfer. You can't use the **Verify all data in the<br>destination\*<br>• option for this storage class because<br>it requires retrieving all existing objects from the<br>destination. |
-| S3 Outposts                   | The storage class for Amazon S3 on Outposts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Amazon S3 storage class       | Considerations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| S3 Standard                   | Choose S3 Standard to store your frequently accessed files<br>redundantly in multiple Availability Zones that are geographically<br>separated. This is the default if you don't specify a storage class.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| S3 Intelligent-Tiering        | Choose S3 Intelligent-Tiering to optimize storage costs by<br>automatically moving data to the most cost-effective storage<br>access tier.<br>You pay a monthly charge per object stored in the S3<br>Intelligent-Tiering storage class. This Amazon S3 charge includes<br>monitoring data access patterns and moving objects between<br>tiers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| S3 Standard-IA                | Choose S3 Standard-IA to store your infrequently accessed<br>objects redundantly in multiple Availability Zones that are<br>geographically separated.<br>Objects stored in the S3 Standard-IA storage class can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the S3 Standard-IA<br>storage class.<br>Objects less than 128 KB are smaller than the minimum capacity<br>charge per object in the S3 Standard-IA storage class. These<br>objects are stored in the S3 Standard storage class.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| S3 One Zone-IA                | Choose S3 One Zone-IA to store your infrequently accessed<br>objects in a single Availability Zone.<br>Objects stored in the S3 One Zone-IA storage class can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the S3 One Zone-IA<br>storage class.<br>Objects less than 128 KB are smaller than the minimum capacity<br>charge per object in the S3 One Zone-IA storage class. These<br>objects are stored in the S3 Standard storage class.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| S3 Glacier Instant Retrieval  | Choose S3 Glacier Instant Retrieval to archive objects that<br>are rarely accessed but require retrieval in<br>milliseconds.<br>Data stored in the S3 Glacier Instant Retrieval storage class<br>offers cost savings compared to the S3 Standard-IA storage class<br>with the same latency and throughput performance.<br>S3 Glacier Instant Retrieval has higher data access costs than<br>S3 Standard-IA, though.<br>Objects stored in S3 Glacier Instant Retrieval can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the<br>S3 Glacier Instant Retrieval storage class.<br>Objects less than 128 KB are smaller than the minimum capacity<br>charge per object in the S3 Glacier Instant Retrieval storage<br>class. These objects are stored in the S3 Standard storage<br>class.                                                                                                                                                                                                                                                                                                                                                                                                     |
+| S3 Glacier Flexible Retrieval | Choose S3 Glacier Flexible Retrieval for more active<br>archives.Objects stored in<br>S3 Glacier Flexible Retrieval can incur additional charges for<br>overwriting, deleting, or retrieving. Consider how often these<br>objects change, how long you plan to keep these objects, and how<br>often you need to access them. Changes to object data or<br>metadata are equivalent to deleting an object and creating a new<br>one to replace it. This results in additional charges for<br>objects stored in the S3 Glacier Flexible Retrieval storage<br>class.The S3 Glacier Flexible Retrieval storage class<br>requires 40 KB of additional metadata for each archived object.<br>DataSync puts objects that are less than 40 KB in the S3 Standard<br>storage class. You must restore objects archived in this<br>storage class before DataSync can read them. For information, see<br>[Working with archived objects](../../../AmazonS3/latest/userguide/archived-objects.md "../../../AmazonS3/latest/userguide/archived-objects.md") in<br>the _Amazon S3 User Guide_.When using<br>S3 Glacier Flexible Retrieval, choose the *_Verify only the<br>data transferred_<br>• task option to compare data and<br>metadata checksums at the end of the transfer. You can't use the<br>**Verify all data in the destination**<br>option for this storage class because it requires retrieving all<br>existing objects from the destination.                                                                                    |
+| S3 Glacier Deep Archive       | Choose S3 Glacier Deep Archive to archive your objects<br>for long-term data retention and digital preservation where data<br>is accessed once or twice a year.<br>Objects stored in S3 Glacier Deep Archive can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the<br>S3 Glacier Deep Archive storage class.<br>The S3 Glacier Deep Archive storage class requires 40<br>KB of additional metadata for each archived object. DataSync puts<br>objects that are less than 40 KB in the S3 Standard storage<br>class.<br>You must restore objects archived in this storage class before<br>DataSync can read them. For information, see [Working with archived objects](../../../AmazonS3/latest/userguide/archived-objects.md "../../../AmazonS3/latest/userguide/archived-objects.md")<br>in the _Amazon S3 User Guide_.<br>When using S3 Glacier Deep Archive, choose the<br>*_Verify only the data transferred_<br>• task<br>option to compare data and metadata checksums at the end of the<br>transfer. You can't use the *_Verify all data in the<br>destination_<br>• option for this storage class because<br>it requires retrieving all existing objects from the<br>destination. |
+| S3 Outposts                   | The storage class for Amazon S3 on Outposts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 ## Evaluating S3 request costs when using DataSync
 
@@ -601,8 +600,8 @@ DataSync can't transfer objects with a prefix that begins with a slash
     * `photos`/../`2006/March`
 
 5. For **S3 storage class when used as a
-   destination**, choose a storage class that you want
-   your objects to use when Amazon S3 is a transfer destination.
+destination**, choose a storage class that you want
+your objects to use when Amazon S3 is a transfer destination.
 
 For more information, see [Storage class considerations with Amazon S3 transfers](#using-storage-classes "#using-storage-classes"). 6. For **IAM role**, do one of the
 following:
@@ -618,7 +617,7 @@ following:
      information, see [Creating an IAM role for DataSync to access your Amazon S3 location](#create-role-manually "#create-role-manually").
 
 7. (Optional) Choose **Add new tag** to tag your
-   Amazon S3 location.
+Amazon S3 location.
 
 Tags can help you manage, filter, and search for your resources.
 We recommend creating a name tag for your location. 8. Choose **Create location**.
@@ -715,19 +714,20 @@ DataSync can't transfer objects with a prefix that begins with a slash
     * `photos`/../`2006/March`
 
 8. For **IAM role**, do one of the
-   following:
+following:
 
-   - Choose **Autogenerate** for DataSync to
+    * Choose **Autogenerate** for DataSync to
      automatically create an IAM role with the permissions
      required to access the S3 bucket.
 
-   If DataSync previously created an IAM role for this S3
-   bucket, that role is chosen by default.
-   - Choose a custom IAM role that you created. For more
+
+    If DataSync previously created an IAM role for this S3
+     bucket, that role is chosen by default.
+    * Choose a custom IAM role that you created. For more
      information, see [Creating an IAM role for DataSync to access your Amazon S3 location](#create-role-manually "#create-role-manually").
 
 9. (Optional) Choose **Add new tag** to tag your
-   Amazon S3 location.
+Amazon S3 location.
 
 Tags can help you manage, filter, and search for your resources.
 We recommend creating a name tag for your location. 10. Choose **Create location**.
@@ -771,8 +771,7 @@ DataSync can't transfer objects with a prefix that begins with a slash
     * `photos`/../`2006/March`
 
 6. For `--agent-arns`, specify the ARN of the DataSync agent
-   on your Outpost.
-7. Run the `create-location-s3` command.
+on your Outpost. 7. Run the `create-location-s3` command.
 
 If the command is successful, you get a response that shows you
 the ARN of the location that you created. For example:
@@ -893,33 +892,32 @@ from the AWS GovCloud (US) Region to the commercial Region.
 You need an object storage location for the S3 bucket that's in the Region
 where you aren't running your DataSync task.
 
-1.  Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
-2.  Make sure that you're in the same Region where you plan to run
-    your task.
-3.  In the left navigation pane, expand **Data transfer**,
-    then choose **Locations** and **Create
-    location**.
-4.  For **Location type**, choose
-    **Object storage**.
-5.  For **Agents**, choose the DataSync agent that
-    you created for this transfer.
-6.  For **Server**, enter an Amazon S3 endpoint for
-    your bucket by using one of the following formats:
+1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
+2. Make sure that you're in the same Region where you plan to run
+   your task.
+3. In the left navigation pane, expand **Data transfer**,
+   then choose **Locations** and **Create
+   location**.
+4. For **Location type**, choose
+   **Object storage**.
+5. For **Agents**, choose the DataSync agent that
+   you created for this transfer.
+6. For **Server**, enter an Amazon S3 endpoint for
+   your bucket by using one of the following formats:
 
-        * **Commercial Region
-         bucket:**
-        `s3.`your-region`.amazonaws.com`
-        * **AWS GovCloud (US) Region
-         bucket**:
-         `s3.`your-gov-region`.amazonaws.com`
+   - **Commercial Region
+     bucket:**
+     `s3.`your-region`.amazonaws.com`
+   - **AWS GovCloud (US) Region
+     bucket**:
+     `s3.`your-gov-region`.amazonaws.com`
+     For a list of Amazon S3 endpoints, see the _[AWS General Reference](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md")_.
 
-    For a list of Amazon S3 endpoints, see the _[AWS General Reference](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md")_.
-
-7.  For **Bucket** name, enter the name of the S3
-    bucket.
-8.  For **Folder**, enter a prefix in the S3
-    bucket that DataSync reads from or writes to (depending on whether
-    the bucket is a source or destination location).
+7. For **Bucket** name, enter the name of the S3
+   bucket.
+8. For **Folder**, enter a prefix in the S3
+   bucket that DataSync reads from or writes to (depending on whether
+   the bucket is a source or destination location).
 
 ###### Warning
 
@@ -933,16 +931,16 @@ DataSync can't transfer objects with a prefix that begins with a slash
     * `photos`/../`2006/March`
 
 9. Select **Requires credentials** and do the
-   following:
+following:
 
-   - For **Access key**, enter the access
+    * For **Access key**, enter the access
      key for an [IAM
      user](#create-s3-location-govcloud-iam "#create-s3-location-govcloud-iam") that can access the bucket.
-   - For **Secret key**, enter the same
+    * For **Secret key**, enter the same
      IAM user’s secret key.
 
 10. (Optional) Choose **Add tag** to tag your
-    location.
+location.
 
 Tags can help you manage, filter, and search for your
 resources. We recommend creating a name tag for your
@@ -958,19 +956,18 @@ aws datasync create-location-object-storage \
     --agent-arns arn:aws:datasync:`your-region`:`123456789012`:agent/agent-`01234567890deadfb`
 ```
 
-2.  For the `--server-hostname` parameter, specify an
-    Amazon S3 endpoint for your bucket by using one of the following
-    formats:
+2. For the `--server-hostname` parameter, specify an
+   Amazon S3 endpoint for your bucket by using one of the following
+   formats:
 
-        * **Commercial Region
-         bucket:**
-        `s3.`your-region`.amazonaws.com`
-        * **AWS GovCloud (US) Region
-         bucket**:
-         `s3.`your-gov-region`.amazonaws.com`
-
-    For the Region in the endpoint, make sure that you specify the
-    same Region where you plan to run your task.
+   - **Commercial Region
+     bucket:**
+     `s3.`your-region`.amazonaws.com`
+   - **AWS GovCloud (US) Region
+     bucket**:
+     `s3.`your-gov-region`.amazonaws.com`
+     For the Region in the endpoint, make sure that you specify the
+     same Region where you plan to run your task.
 
 For a list of Amazon S3 endpoints, see the _[AWS General Reference](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md")_. 3. For the `--bucket-name` parameter, specify the name
 of the S3 bucket. 4. For the `--agent-arns` parameter, specify the DataSync
@@ -994,8 +991,8 @@ DataSync can't transfer objects with a prefix that begins with a slash
     * `photos`/../`2006/March`
 
 8. (Optional) For the `--tags` parameter, specify
-   key-value pairs that represent tags for the location
-   resource.
+key-value pairs that represent tags for the location
+resource.
 
 Tags can help you manage, filter, and search for your
 resources. We recommend creating a name tag for your

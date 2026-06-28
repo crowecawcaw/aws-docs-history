@@ -53,18 +53,18 @@ subset. 6. [Start your DataSync task](run-task.md "run-task.md"). 7. Collect tra
 
 8. Verify the transferred data at your destination location:
 
-   - Review your CloudWatch logs for task execution errors.
-   - Verify that permissions and metadata are preserved at the
+    * Review your CloudWatch logs for task execution errors.
+    * Verify that permissions and metadata are preserved at the
      destination location.
-   - Confirm that applications and users can access destination data as
+    * Confirm that applications and users can access destination data as
      expected.
-   - Address any issues that you encounter. For more information, see
+    * Address any issues that you encounter. For more information, see
      [Troubleshooting AWS DataSync issues](troubleshooting-datasync.md "troubleshooting-datasync.md").
 
 9. Run your task a few more times to get an idea how long it takes DataSync to
-   prepare,
-   transfer, and verify your data. (For more information,
-   see [Task execution statuses](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses").)
+prepare,
+transfer, and verify your data. (For more information,
+see [Task execution statuses](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses").)
 
 If you run a task more than once, DataSync by default performs an incremental
 transfer and copies only the data that's changed from the previous task

@@ -80,9 +80,9 @@ When deploying a DataSync agent on an Amazon EC2 instance, the instance size mus
 at least 2xlarge. We recommend using one of the following instance sizes, depending
 upon whether you use a Basic mode agent or an Enhanced mode agent:
 
-| Basic mode agent                                                                                                                                                                                                         | Enhanced mode agent                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| For task executions working with up to 20 million files, objects, or directories, use<br>**m5.2xlarge.**<br>For task executions working with more than 20 million files, objects, or directories, use<br>**m5.4xlarge.** | Use \*_m6a.2xlarge_<br>• regardless of the number of files,<br>objects, or directories in your dataset. |
+| Basic mode agent                                                                                                                                                                                                         | Enhanced mode agent                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| For task executions working with up to 20 million files, objects, or directories, use<br>**m5.2xlarge.**<br>For task executions working with more than 20 million files, objects, or directories, use<br>**m5.4xlarge.** | Use *_m6a.2xlarge_<br>• regardless of the number of files,<br>objects, or directories in your dataset. |
 
 ## Agent requirements for AWS Region partitions
 

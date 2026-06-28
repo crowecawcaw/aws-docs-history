@@ -145,7 +145,7 @@ cluster.
      protection** dropdown lists.
 
 9. (Optional) Choose **Add tag** to tag your HDFS
-   location.
+location.
 
 _Tags_ are key-value pairs that help you
 manage, filter, and search for your locations. We recommend creating

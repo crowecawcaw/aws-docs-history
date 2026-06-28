@@ -148,10 +148,10 @@ DataSync console
 
    - For a public service endpoint, choose **Public
      service endpoints in `your current
-AWS Region`**.
+  AWS Region`**.
    - For a FIPS service endpoint, choose **FIPS
      service endpoints in `your current
-AWS Region`**.
+  AWS Region`**.
    - For a VPC service endpoint, do the following:
 
      - Choose **VPC endpoints using

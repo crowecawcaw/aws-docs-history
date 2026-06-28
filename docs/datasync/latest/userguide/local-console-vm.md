@@ -65,7 +65,7 @@ ssh -i `/path/key-pair-name`.pem `instance-user-name`@`instance-public-ip-addres
      address of your instance.
 
 2. Run the `ssh` command to connect to the instance.
-   Once connected, the main menu of the agent's local console displays.
+Once connected, the main menu of the agent's local console displays.
 
 ## Configuring your agent's DHCP, DNS, and IP settings
 

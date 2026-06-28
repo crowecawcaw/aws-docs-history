@@ -127,18 +127,18 @@ You might be interested in some of the following options:
      integrity](configure-data-verification-options.md "configure-data-verification-options.md").
 
 5. For **Log level**, choose one of the following
-   options:
+options:
 
-   - **Log basic information such as transfer
+    * **Log basic information such as transfer
      errors** – Publish logs with only basic
      information (such as transfer errors).
-   - **Log all transferred objects and files**
+    * **Log all transferred objects and files**
      – Publish logs for all files or objects that DataSync
      transfers and performs data-integrity checks on.
-   - **Don't generate logs**
+    * **Don't generate logs**
 
 6. Do one of the following depending on the task mode you're using to
-   create or specify a CloudWatch log group:
+create or specify a CloudWatch log group:
 
 Enhanced mode
 When you choose **Create task**, DataSync
@@ -163,7 +163,7 @@ one of the following:
      group.
 
 7. Choose **Create task**.
-   You're ready to [start your task](run-task.md "run-task.md").
+You're ready to [start your task](run-task.md "run-task.md").
 
 1. Copy the following `create-task` command:
 
@@ -196,7 +196,7 @@ options:
     * `NONE` – Don't generate logs.
 
 7. For -`-cloudwatch-log-group-arn`, specify the ARN of a CloudWatch
-   log group.
+log group.
 
 ###### Important
 

@@ -88,19 +88,16 @@ AWS account administrator do the following with DataSync:
   AWS service** – Create an IAM policy that grants permissions to
   an IAM role in a different AWS account or an AWS service. For example:
 
-      1. The Account A administrator creates an IAM role and attaches a permissions
-       policy to the role that grants permissions on resources in Account A.
-      2. The Account A administrator attaches a trust policy to the role that
-       identifies Account B as the principal who can assume the role.
+  1.  The Account A administrator creates an IAM role and attaches a permissions
+      policy to the role that grants permissions on resources in Account A.
+  2.  The Account A administrator attaches a trust policy to the role that
+      identifies Account B as the principal who can assume the role.
 
-
-      To grant an AWS service permissions to assume the role, the Account A
-       administrator can specify an AWS service as the principal in the trust
-       policy.
-      3. The Account B administrator can then delegate permissions to assume the role
-       to any users in Account B. This allows anyone using the role in Account B to
-       create or access resources in Account A.
-
+  To grant an AWS service permissions to assume the role, the Account A
+  administrator can specify an AWS service as the principal in the trust
+  policy. 3. The Account B administrator can then delegate permissions to assume the role
+  to any users in Account B. This allows anyone using the role in Account B to
+  create or access resources in Account A.
   For more information about using IAM to delegate permissions, see [Access management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
   _IAM User Guide_.
 

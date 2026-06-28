@@ -44,9 +44,9 @@ ssh -i `/path/key-pair-name`.pem `instance-user-name`@`instance-public-ip-addres
      specify the public IP address of your instance.
 
 2. Run the `ssh` command to connect to the
-   instance.
-   Once connected, the main menu of the agent's local console
-   displays.
+instance.
+Once connected, the main menu of the agent's local console
+displays.
 
 ## Verifying your agent's connection to your storage system
 
@@ -80,7 +80,7 @@ Remember the following when entering the IP address or domain name:
      DataNode in the Hadoop cluster.
 
 5. If requested, enter the TCP port for connecting to the storage server (for
-   example, `443`).
+example, `443`).
 
 See if the connectivity test **PASSED** or
 **FAILED**.

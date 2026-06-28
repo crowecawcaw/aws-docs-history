@@ -52,13 +52,13 @@ communicate with DataSync. (For more information, see [Choosing a service endpoi
 For public and virtual private cloud (VPC) service endpoints, DataSync uses one
 of the following TLS ciphers:
 
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (ecdh_x25519)
-- TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (ecdh_x25519)
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (ecdh_x25519)
+- TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (ecdh\_x25519)
+- TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256 (ecdh\_x25519)
+- TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (ecdh\_x25519)
 
 ### FIPS endpoints
 
 For Federal Information Processing Standard (FIPS) service endpoints, DataSync
 uses the following TLS cipher:
 
-- TLS_AES_128_GCM_SHA256 (secp256r1)
+- TLS\_AES\_128\_GCM\_SHA256 (secp256r1)

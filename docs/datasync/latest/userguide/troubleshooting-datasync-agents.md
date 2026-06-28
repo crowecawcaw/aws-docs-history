@@ -106,7 +106,7 @@ If you are using the agent with VPC endpoints, you must provide a VPC
 endpoint IP address for your support channel, as follows:
 
 ``open-support-channel
- `vpc-ip-address```
+`vpc-ip-address```
 
 Your firewall must allow the inbound TCP port 22 to initiate a support
 channel to AWS. When you connect to Support, DataSync assigns you a

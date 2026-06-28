@@ -449,8 +449,8 @@ do the following:
     4. Run the command.
 
 6. When the agent upload finishes, revoke access to your managed
-   disk. To do this, copy the following Azure CLI
-   command:
+disk. To do this, copy the following Azure CLI
+command:
 
 ```
 az disk revoke-access -n `your-managed-disk` -g `your-resource-group`
@@ -466,31 +466,33 @@ az disk revoke-access -n `your-managed-disk` -g `your-resource-group`
     3. Run the command.
 
 7. Do the following to attach your managed disk to a new
-   Linux VM:
+Linux VM:
 
-   1. Copy the following Azure CLI
-      command:
+    1. Copy the following Azure CLI
+     command:
 
-   ```
-   az vm create --resource-group `your-resource-group` `
-   --location eastus `
-   --name `your-agent-vm` `
-   --size Standard_E4as_v4 `
-   --os-type linux `
-   --attach-os-disk `your-managed-disk`
-   ```
-   2. Replace
-      `your-resource-group`
-      with the name of the Azure resource group
-      that your storage account belongs to.
-   3. Replace
-      `your-agent-vm`
-      with a name for the VM that you can remember.
-   4. Replace
-      `your-managed-disk`
-      with the name of the managed disk that you're attaching to
-      the VM.
-   5. Run the command.
+
+
+    ```
+    az vm create --resource-group `your-resource-group` `
+    --location eastus `
+    --name `your-agent-vm` `
+    --size Standard_E4as_v4 `
+    --os-type linux `
+    --attach-os-disk `your-managed-disk`
+    ```
+    2. Replace
+     ``your-resource-group``
+     with the name of the Azure resource group
+     that your storage account belongs to.
+    3. Replace
+     ``your-agent-vm``
+     with a name for the VM that you can remember.
+    4. Replace
+     ``your-managed-disk``
+     with the name of the managed disk that you're attaching to
+     the VM.
+    5. Run the command.
 
 You've deployed your agent. Before you can start configuring your data
 transfer, you must activate the agent.
@@ -547,7 +549,7 @@ agent.
    service endpoint that you specified when you got your agent's
    activation key (for example, choose **Public service
    endpoints in `Region
-name`**).
+ name`**).
 5. Configure your network to work with the service endpoint type that
    your agent is using. For service endpoint network requirements, see
    the following topics:
