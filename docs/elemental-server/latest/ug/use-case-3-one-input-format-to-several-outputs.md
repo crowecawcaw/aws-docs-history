@@ -36,11 +36,11 @@ follows:
     * **Use ID3 as Caption Content**: Leave unchecked.
 
 4. Create a second captions-only stream (for example, Stream 3), specifying the captions
-   settings as follows:
+settings as follows:
 
-   - **Caption Source**: Caption Selector 2.
-   - **Language**: Portuguese.
-   - Other fields: Same as the first caption stream.
+    * **Caption Source**: Caption Selector 2.
+    * **Language**: Portuguese.
+    * Other fields: Same as the first caption stream.
 
 ![Stream configuration interface showing three caption streams with language and destination settings.](images/example-one-to-several-3.png) 5. In the DASH output group, create three outputs:
 

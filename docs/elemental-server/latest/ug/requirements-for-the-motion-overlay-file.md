@@ -23,27 +23,22 @@ Set up the files for your motion graphic as follows:
 - **Location**: Save your overlay files in one
   of the following places:
 
-      + Local to the AWS Elemental Server system.
+  - Local to the AWS Elemental Server system.
 
+  For example:
+  `/data/assets/overlay_001.png`
+  - A remote server via a mount point.
 
-      For example:
-       `/data/assets/overlay_001.png`
-      + A remote server via a mount point.
+  For example:
+  `/data/mnt/assets/overlay_001.png`
+  - **AWS Elemental Server version 2.10 and later** An Amazon S3 bucket, using SSL.
 
+  For example:
+  `s3ssl://company.test/sample_bucket/overlay_001.png`
+  - **AWS Elemental Server version 2.10 and later** An Amazon S3 bucket, without SSL.
 
-      For example:
-       `/data/mnt/assets/overlay_001.png`
-      + **AWS Elemental Server version 2.10 and later** An Amazon S3 bucket, using SSL.
-
-
-       For example:
-       `s3ssl://company.test/sample_bucket/overlay_001.png`
-      + **AWS Elemental Server version 2.10 and later** An Amazon S3 bucket, without SSL.
-
-
-       For example:
-       `s3://company.test/sample_bucket/overlay_001.png`
-
+  For example:
+  `s3://company.test/sample_bucket/overlay_001.png`
   For Amazon S3, use sse=true to enable S3 Server Side Encryption (SSE) and rrs=true to enable Reduced Redundancy Storage (RRS). Default values for RRS and SSE are false.
 
 ###### Additional requirements for sets of sequential .png files

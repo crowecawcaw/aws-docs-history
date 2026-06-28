@@ -31,21 +31,19 @@ the settings as follows:
      are included.
 
 4. Create a second stream (for example, Stream 2) and set up the video and audio for
-   medium-resolution video.
-5. Set up the second stream in the same way, specifying the captions settings as follows:
+medium-resolution video. 5. Set up the second stream in the same way, specifying the captions settings as follows:
 
-   - **Caption Source**: Caption Selector 1.
-   - **Destination Type**: Embedded.
-   - **Language**: Leave blank; with embedded captions, all the languages
+    * **Caption Source**: Caption Selector 1.
+    * **Destination Type**: Embedded.
+    * **Language**: Leave blank; with embedded captions, all the languages
      are included.
 
 6. Create a third stream (for example, Stream 3) and set up the video and audio for
-   high-resolution video.
-7. Set up the third stream in the same way, specifying the captions settings as follows:
+high-resolution video. 7. Set up the third stream in the same way, specifying the captions settings as follows:
 
-   - **Caption Source**: Caption Selector 1.
-   - **Destination Type**: Embedded.
-   - **Language**: Leave blank; with embedded captions, all the languages
+    * **Caption Source**: Caption Selector 1.
+    * **Destination Type**: Embedded.
+    * **Language**: Leave blank; with embedded captions, all the languages
      are included.
 
 ![Three stream configurations showing caption source, destination type, and advanced settings.](images/procedure-a-3.png) 8. In the MSS output group, create three outputs.
@@ -94,12 +92,12 @@ follows:
     * **Framerate**rate: As appropriate.
 
 6. Set up another captions-only stream (for example, Stream 5)
-   in the same way, specifying the captions settings as follows:
+in the same way, specifying the captions settings as follows:
 
-   - **Caption Source**: Caption Selector 2.
-   - **Destination Type**: SCC.
-   - **Language**: Spanish
-   - **Framerate**: As appropriate.
+    * **Caption Source**: Caption Selector 2.
+    * **Destination Type**: SCC.
+    * **Language**: Spanish
+    * **Framerate**: As appropriate.
 
 ![Caption configuration panels for Stream 4 and Stream 5 showing source selectors and language settings.](images/procedure-b-2.png) 7. In the MSS output group, create five outputs.
 

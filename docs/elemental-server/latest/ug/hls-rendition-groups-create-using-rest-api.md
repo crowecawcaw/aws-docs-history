@@ -19,20 +19,20 @@ XML body as described in the following sections.
 
 ## Creating Streams for HLS Rendition Groups in the REST API
 
-- Create as many stream_assembly elements as you require, one for each unique video
+- Create as many stream\_assembly elements as you require, one for each unique video
   stream, one for each unique audio stream, and one for each caption stream.
-- Each stream_assembly element must contain only of these:
+- Each stream\_assembly element must contain only of these:
 
-  - One video_description element (plus an optional preset_id tag and name tag), or
-  - One audio_description element (plus an optional preset_id tag and name tag),
+  - One video\_description element (plus an optional preset\_id tag and name tag), or
+  - One audio\_description element (plus an optional preset\_id tag and name tag),
     or
-  - One caption_descriptoin element (plus an optional preset_id tag and name tag).
+  - One caption\_descriptoin element (plus an optional preset\_id tag and name tag).
 
 ## Creating Output Groups for HLS Rendition Groups in the REST API
 
 - Create as many HLS output groups as desired by creating one output group that has the
-  value “apple_live_group_settings” in its type tag and that contains one
-  apple_live_group_settings element. Set other tags as desired.
+  value “apple\_live\_group\_settings” in its type tag and that contains one
+  apple\_live\_group\_settings element. Set other tags as desired.
 
 ## Creating Outputs for HLS Output Groups in the REST API
 
@@ -43,46 +43,46 @@ XML body as described in the following sections.
 
   - container: m3u8
   - extension: m3u8
-  - stream_assembly_name: The name of the one stream_assembly to associate with this
+  - stream\_assembly\_name: The name of the one stream\_assembly to associate with this
     output.This value matches the value of the name tag in the corresponding
-    stream_assembly_name element.
-  - apple_live_settings element that contains:
+    stream\_assembly\_name element.
+  - apple\_live\_settings element that contains:
 
-    - audio_rendition_sets tag: A comma-separated list of the names of the audio rendition
+    - audio\_rendition\_sets tag: A comma-separated list of the names of the audio rendition
       groups to associate with this video output to create a set. This value matches the value
-      of the audio_group_id tag in each of the associated audio outputs. For example, “audio_1”
-      in the audio_rendition_sets of this video output matches the “audio_1” in the
-      audio_group_id tag of the associated audio output.
+      of the audio\_group\_id tag in each of the associated audio outputs. For example, “audio\_1”
+      in the audio\_rendition\_sets of this video output matches the “audio\_1” in the
+      audio\_group\_id tag of the associated audio output.
     - Other tags as you require.
 
 - Each **audio** output element must contain:
 
   - container: m3u8
   - extension: m3u8
-  - stream_assembly_name: The name of the one stream_assembly to associate with this
+  - stream\_assembly\_name: The name of the one stream\_assembly to associate with this
     output.This value matches the value of the name tag in the corresponding
-    stream_assembly_name element.
-  - apple_live_settings element that contains:
+    stream\_assembly\_name element.
+  - apple\_live\_settings element that contains:
 
-    - audio_group_id: The name of the audio rendition group this audio output belongs to.
+    - audio\_group\_id: The name of the audio rendition group this audio output belongs to.
       Specifying a value here creates the rendition group and puts this audio output into that
       rendition group.
-    - Up to version 2.9.x: alternate_audio_track_selection: Either “default_audio” or
-      “alternate_audio_auto_select” or “alternate_audio_not_auto_select”. See [Step 2. Determine Defaults and Auto-Selection Behavior](hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults "hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults") for
+    - Up to version 2.9.x: alternate\_audio\_track\_selection: Either “default\_audio” or
+      “alternate\_audio\_auto\_select” or “alternate\_audio\_not\_auto\_select”. See [Step 2. Determine Defaults and Auto-Selection Behavior](hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults "hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults") for
       information.
-    - Version 2.10.0 and later: audio_track_type: Either
-      “alternate_audio_auto_select_default” or “alternate_audio_auto_select” or
-      “alternate_audio_not_auto_select” or “audio_only_variant_stream”. See [Step 2. Determine Defaults and Auto-Selection Behavior](hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults "hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults")for information.
+    - Version 2.10.0 and later: audio\_track\_type: Either
+      “alternate\_audio\_auto\_select\_default” or “alternate\_audio\_auto\_select” or
+      “alternate\_audio\_not\_auto\_select” or “audio\_only\_variant\_stream”. See [Step 2. Determine Defaults and Auto-Selection Behavior](hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults "hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults")for information.
     - Other tags as you require.
 
 - Each **captions** output element must contain:
 
   - container: m3u8
   - extension: m3u8
-  - stream_assembly_name: The name of the one stream_assembly to associate with this
+  - stream\_assembly\_name: The name of the one stream\_assembly to associate with this
     output.This value matches the value of the name tag in the corresponding
-    stream_assembly_name element.
-  - apple_live_settings element that contains the usual tags as required.
+    stream\_assembly\_name element.
+  - apple\_live\_settings element that contains the usual tags as required.
 
 ## Sample XML Body For an HLS Output Group with Audio Rendition Group Event
 
@@ -106,7 +106,7 @@ requirements that affect this element.
 ```
 
 Following is the `<stream_assembly>` element for one video. This
-stream_assembly has the name tag set to “stream_assembly_0” (assigned by default).
+stream\_assembly has the name tag set to “stream\_assembly\_0” (assigned by default).
 
 ```
 <stream_assembly>
@@ -139,7 +139,7 @@ stream_assembly has the name tag set to “stream_assembly_0” (assigned by def
 ```
 
 Following is the `<stream_assembly>` for the first audio. This
-stream_assembly has the name tag set to “stream_assembly_1” (assigned by default).
+stream\_assembly has the name tag set to “stream\_assembly\_1” (assigned by default).
 
 ```
 <stream_assembly>
@@ -168,7 +168,7 @@ stream_assembly has the name tag set to “stream_assembly_1” (assigned by def
 ```
 
 Following are the `<stream_assembly>` elements for three more audios:
-stream_assembly_2, stream_assembly_3, and stream_assembly_4.
+stream\_assembly\_2, stream\_assembly\_3, and stream\_assembly\_4.
 
 ```
 <stream_assembly>
@@ -213,7 +213,7 @@ stream_assembly_2, stream_assembly_3, and stream_assembly_4.
 ```
 
 Following is the `<stream_assembly>` for the first caption. This
-stream_assembly has the name tag set to “stream_assembly_5” (assigned by default).
+stream\_assembly has the name tag set to “stream\_assembly\_5” (assigned by default).
 
 ```
 <stream_assembly>
@@ -229,7 +229,7 @@ stream_assembly has the name tag set to “stream_assembly_5” (assigned by def
 ```
 
 Following are the `<stream_assembly>` elements for three more captions:
-stream_assembly_6, stream_assembly_7, and stream_assembly_8.
+stream\_assembly\_6, stream\_assembly\_7, and stream\_assembly\_8.
 
 ```
 <stream_assembly>
@@ -256,7 +256,7 @@ stream_assembly_6, stream_assembly_7, and stream_assembly_8.
 </stream_assembly>
 ```
 
-Following is the `<output_group>` of type apple_live_group_settings.
+Following is the `<output_group>` of type apple\_live\_group\_settings.
 
 ```
 <output_group>
@@ -269,9 +269,9 @@ Following is the `<output_group>` of type apple_live_group_settings.
 
 ```
 
-Following is the `<output>` (nested in the HLS output_group element) that is
-associated with stream_assembly_0 and is therefore a video output. This video is associated
-with the rendition groups “Audio_aac_hi” and “Audio_aac_lo.”
+Following is the `<output>` (nested in the HLS output\_group element) that is
+associated with stream\_assembly\_0 and is therefore a video output. This video is associated
+with the rendition groups “Audio\_aac\_hi” and “Audio\_aac\_lo.”
 
 ```
     <output>
@@ -295,9 +295,9 @@ with the rendition groups “Audio_aac_hi” and “Audio_aac_lo.”
     </output>
 ```
 
-Following is the `<output>` (nested in the HLS output_group element) that is
-associated with stream_assembly_1 and is therefore an audio output. This audio is part of the
-rendition group “Audio_aac_hi.”
+Following is the `<output>` (nested in the HLS output\_group element) that is
+associated with stream\_assembly\_1 and is therefore an audio output. This audio is part of the
+rendition group “Audio\_aac\_hi.”
 
 ```
     <output>
@@ -343,8 +343,8 @@ group.
     </output>
 ```
 
-Following is the `<output>` (nested in the HLS output_group element) that is
-associated with stream_assembly_5 and is therefore a caption output.
+Following is the `<output>` (nested in the HLS output\_group element) that is
+associated with stream\_assembly\_5 and is therefore a caption output.
 
 ```
     <output>

@@ -34,12 +34,12 @@ follows:
     * **Use ID3 as Caption Content**: Leave unchecked.
 
 4. Create another caption stream (for example, Stream 3) following the procedure for sidecar
-   captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
-   follows:
+captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
+follows:
 
-   - **Caption Source**: Caption Selector 2.
-   - **Language**: French.
-   - Other fields: same as the first caption stream.
+    * **Caption Source**: Caption Selector 2.
+    * **Language**: French.
+    * Other fields: same as the first caption stream.
 
 ![Stream configuration interface showing video, audio, and caption settings for three streams.](images/example-easy-workflow-3.png) 5. In the DASH output group, create three outputs:
 

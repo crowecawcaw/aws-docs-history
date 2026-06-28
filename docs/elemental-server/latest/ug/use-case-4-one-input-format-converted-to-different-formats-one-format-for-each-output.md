@@ -49,27 +49,27 @@ follows:
     * **Use ID3 as Caption Content**: Leave unchecked.
 
 5. Create a second caption stream (for example, Stream 4) in the same way, specifying the
-   captions settings as follows:
+captions settings as follows:
 
-   - **Caption Source**: Caption Selector 2.
-   - **Language**: Polish.
-   - Other fields: same as the first caption stream.
+    * **Caption Source**: Caption Selector 2.
+    * **Language**: Polish.
+    * Other fields: same as the first caption stream.
 
 6. Create a third caption stream (for example, Stream 5) in the same way, specifying the
-   captions settings as follows:
+captions settings as follows:
 
-   - **Caption Source**: Caption Selector 1.
-   - **Destination Type**: WebVTT.
-   - **Language**: Czech.
-   - **Pass Style Information**: Set it as desired, but you must set both
+    * **Caption Source**: Caption Selector 1.
+    * **Destination Type**: WebVTT.
+    * **Language**: Czech.
+    * **Pass Style Information**: Set it as desired, but you must set both
      languages identically for all captions (TTML and Teletext).
 
 7. Create a fourth caption stream (for example, Stream 6) in the same way, specifying the
-   captions settings as follows:
+captions settings as follows:
 
-   - **Caption Source**: Caption Selector 2.
-   - **Language**: Polish.
-   - Other fields: Same as the third caption stream.
+    * **Caption Source**: Caption Selector 2.
+    * **Language**: Polish.
+    * Other fields: Same as the third caption stream.
 
 ![Streams configuration interface showing six streams with video, audio, and caption settings.](images/example-one-to-different-one-each-3.png) 8. In the DASH output group, create three outputs:
 

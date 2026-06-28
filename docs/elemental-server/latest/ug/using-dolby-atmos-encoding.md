@@ -92,31 +92,31 @@ For more detailed instructions, see one of the following procedures:
 
 ###### To set up a Dolby Atmos job, with audio inputs as 16 individual .wav files
 
-1.  Set up your input audio selectors as follows:
+1. Set up your input audio selectors as follows:
 
-    1. On the **Create New Job** page, in the **Input** section, under
-       **Advanced**, find **Audio Selector
-       1**.
-    2. Choose the **External file** check box.
-    3. For **External File**, provide the path and file name to the .wav file
-       for your first channel. For **Audio Selector 1**,
-       this channel must be L.
+   1. On the **Create New Job** page, in the **Input** section, under
+      **Advanced**, find **Audio Selector
+      1**.
+   2. Choose the **External file** check box.
+   3. For **External File**, provide the path and file name to the .wav file
+      for your first channel. For **Audio Selector 1**,
+      this channel must be L.
 
-    ###### Important
+   ###### Important
 
-    You must set up the channels in the following order: L, R, C,
-    LFE, Ls, Rs, Lrs, Rrs, Lw, Rw, Ltf, Rtf, Ltm, Rtm, Ltr, Rtr.
+   You must set up the channels in the following order: L, R, C,
+   LFE, Ls, Rs, Lrs, Rrs, Lw, Rw, Ltf, Rtf, Ltm, Rtm, Ltr, Rtr.
 
-    That is, if your input audio is in separate .wav files, **Audio Selector
-    1** must point to the L channel, **Audio
-    Selector 2** must point to the R channel, and so
-    on. 4. At the top of the **Audio Selector** sections, choose **Add
-    Audio Selector** to create **Audio Selector
-    2**. 5. Under **Audio Selector 2**, choose **External
-    file**. 6. Specify the path and file name to the .wav file for your second channel. For
-    **Audio Selector 2**, this channel must be
-    R. 7. Repeat the steps to create an audio selector for the rest of your
-    16 channels. Choose the following channels for each selector:
+   That is, if your input audio is in separate .wav files, **Audio Selector
+   1** must point to the L channel, **Audio
+   Selector 2** must point to the R channel, and so
+   on. 4. At the top of the **Audio Selector** sections, choose **Add
+   Audio Selector** to create **Audio Selector
+   2**. 5. Under **Audio Selector 2**, choose **External
+   file**. 6. Specify the path and file name to the .wav file for your second channel. For
+   **Audio Selector 2**, this channel must be
+   R. 7. Repeat the steps to create an audio selector for the rest of your
+   16 channels. Choose the following channels for each selector:
 
         * **Audio Selector 3**: C
         * **Audio Selector 4**: LFE
@@ -133,20 +133,20 @@ For more detailed instructions, see one of the following procedures:
         * **Audio Selector 15**: Ltr
         * **Audio Selector 16**: Rtr
 
-2.  Create an input **Audio Selector Group** as follows:
+2. Create an input **Audio Selector Group** as follows:
 
-    1. At the top of the **Audio Selector** sections, choose **Add
-       Audio Selector Group**.
-    2. For **Selector Group Name**, enter a descriptive name, such as
-       `Dolby Atmos Audio Group`.
-    3. All the audio selectors appear below **Selector Group Name**. Choose
-       each audio selector that you created earlier in this
-       procedure.
+   1. At the top of the **Audio Selector** sections, choose **Add
+      Audio Selector Group**.
+   2. For **Selector Group Name**, enter a descriptive name, such as
+      `Dolby Atmos Audio Group`.
+   3. All the audio selectors appear below **Selector Group Name**. Choose
+      each audio selector that you created earlier in this
+      procedure.
 
-3.  In the bottom section of the **Create New Job** page, set up your output groups and outputs. Choose supported containers as
-    listed in [Feature Restrictions for Dolby Atmos Encoding](#feature-restrictions-for-dolby-atmos-encoding "#feature-restrictions-for-dolby-atmos-encoding").
-4.  Set up the **Audio 1** tab of **Stream
-    1**.
+3. In the bottom section of the **Create New Job** page, set up your output groups and outputs. Choose supported containers as
+   listed in [Feature Restrictions for Dolby Atmos Encoding](#feature-restrictions-for-dolby-atmos-encoding "#feature-restrictions-for-dolby-atmos-encoding").
+4. Set up the **Audio 1** tab of **Stream
+   1**.
 
 ###### Note
 
@@ -188,11 +188,10 @@ entire Atmos audio content.
 
       - If the tracks of your input audio file are already in that
         order, then list them that way: `1, 2, 3, …
-16`.
+  16`.
       - If the tracks of your input audio file are in a different order, list them according
         to the specified order. For example, if your L channel is in
         track 3, then list `3` first.
-
 3. In the bottom section of the **Create New Job** page, set up your output groups and outputs.
 4. Set up the **Audio 1** tab of **Stream
    1**.

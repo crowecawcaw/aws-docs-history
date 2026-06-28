@@ -23,7 +23,7 @@ outputs or high bitrate outputs. Set Slices to 1 for Resolutions below 1080p .
 
 ## Location of Fields
 
-| Location of Field on Web Interface   | Location of Tag in XML                                 |
-| ------------------------------------ | ------------------------------------------------------ |
-| Streams – Video > Advanced > Profile | stream_assembly/video_description/h265_settings>/cabac |
-| Streams – Video > Advanced > Slices  | stream_assembly/video_description/h265_settings/slices |
+| Location of Field on Web Interface   | Location of Tag in XML                                    |
+| ------------------------------------ | --------------------------------------------------------- |
+| Streams – Video > Advanced > Profile | stream\_assembly/video\_description/h265\_settings>/cabac |
+| Streams – Video > Advanced > Slices  | stream\_assembly/video\_description/h265\_settings/slices |

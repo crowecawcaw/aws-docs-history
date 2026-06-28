@@ -170,10 +170,10 @@ Never set both fields to Ignore!
 
 To summarize, the Ignore flags make a difference only to these scenarios:
 
-|     | Content of Corresponding SCTE-35 MessageWeb delivery<br>allowed? | Content of Corresponding SCTE-35 MessageRegional delivery<br>allowed? | Restriction Field in AWS Elemental     | Result                         |
-| --- | ---------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------- | ------------------------------ |
-| S3  | True                                                             | False                                                                 | Ignore “regional delivery” restriction | Blanking will \*not<br>• occur |
-| S4  | False                                                            | True                                                                  | Ignore “web delivery” restriction      | Blanking will \*not<br>• occur |
+|     | Content of Corresponding SCTE-35 MessageWeb delivery<br>allowed? | Content of Corresponding SCTE-35 MessageRegional delivery<br>allowed? | Restriction Field in AWS Elemental     | Result                        |
+| --- | ---------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------- | ----------------------------- |
+| S3  | True                                                             | False                                                                 | Ignore “regional delivery” restriction | Blanking will *not<br>• occur |
+| S4  | False                                                            | True                                                                  | Ignore “web delivery” restriction      | Blanking will *not<br>• occur |
 
 ###### Ad Avail Blanking and Restriction Flags: Restriction Flags with “Splice Insert”
 

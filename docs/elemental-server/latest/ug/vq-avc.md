@@ -41,10 +41,10 @@ quality:
 
 ## Location of Fields
 
-| Location of Field on Web Interface             | Location of Tag in XML                                            |
-| ---------------------------------------------- | ----------------------------------------------------------------- |
-| Streams – Video > Advanced > Profile           | stream_assembly/video_description/h264_settings>/cabac            |
-| Streams – Video > Advanced > Level             | stream_assembly/video_description/h264_settings>/level            |
-| Streams – Video > Advanced > CABAC             | stream_assembly/video_description/h264_settings>/cabac            |
-| Streams – Video > Advanced > Slices            | stream_assembly/video_description/h264_settings/slices            |
-| Streams – Video > Advanced > Flicker Reduction | stream_assembly/video_description/h264_settings/flicker_reduction |
+| Location of Field on Web Interface             | Location of Tag in XML                                                |
+| ---------------------------------------------- | --------------------------------------------------------------------- |
+| Streams – Video > Advanced > Profile           | stream\_assembly/video\_description/h264\_settings>/cabac             |
+| Streams – Video > Advanced > Level             | stream\_assembly/video\_description/h264\_settings>/level             |
+| Streams – Video > Advanced > CABAC             | stream\_assembly/video\_description/h264\_settings>/cabac             |
+| Streams – Video > Advanced > Slices            | stream\_assembly/video\_description/h264\_settings/slices             |
+| Streams – Video > Advanced > Flicker Reduction | stream\_assembly/video\_description/h264\_settings/flicker\_reduction |

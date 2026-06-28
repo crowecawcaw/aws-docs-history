@@ -25,7 +25,7 @@ need:
 4.
 5. In that stream, delete the **Default Audio** tab. This
    stream now contains only a video stream.
-6. Go back to the Output section associated with this stream and click **Advanced**. The **Audio Rendition Sets** field now appears, with a default value of “audio_program.” This field shows in an
+6. Go back to the Output section associated with this stream and click **Advanced**. The **Audio Rendition Sets** field now appears, with a default value of “audio\_program.” This field shows in an
    output only when the associated stream contains only one video stream.
 7. Change the **Audio Rendition Sets** field to specify the
    rendition group or groups to associate with this video:
@@ -63,7 +63,7 @@ Follow these steps for each audio-only output you need:
 The **Audio Group ID** field and Alternate **Audio Track Type** field (named **Audio Track
 Selection** in earlier versions) now show. These fields show in an output only when
 the associated stream contains only one audio stream. The **Audio Group
-ID** field shows the default value “audio_program.”
+ID** field shows the default value “audio\_program.”
 
 (Note that the **Audio Only Image** field also appears in
 an audio-only stream. This field has nothing to do with audio rendition groups; it is used to

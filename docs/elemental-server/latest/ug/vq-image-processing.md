@@ -39,10 +39,10 @@ and video quality is not.
 
 ### Location of Fields
 
-| Stream – Video > Resolution        | stream_assembly/video_description/resolution        |
-| ---------------------------------- | --------------------------------------------------- |
-| Stream – Video > Stretch to output | stream_assembly/video_description/stretch_to_output |
-| Stream – Video > Anti-alias        | stream_assembly/video_description/anti_alias        |
+| Stream – Video > Resolution        | stream\_assembly/video\_description/resolution          |
+| ---------------------------------- | ------------------------------------------------------- |
+| Stream – Video > Stretch to output | stream\_assembly/video\_description/stretch\_to\_output |
+| Stream – Video > Anti-alias        | stream\_assembly/video\_description/anti\_alias         |
 
 ## Image Processing – Color Correction
 
@@ -79,12 +79,12 @@ Color adjustment does not affect output quality so there are no specific recomme
 The following table lists each field by its location on the web interface and shows the
 location of the corresponding tag in the XML.
 
-| Location of Field on Web Interface                                                      | Location of Tag in XML                                                                          |
-| --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Input > Video Selector > Color Space                                                    | input/video_selector/color_space                                                                |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Brightness                | stream_assembly/video_description/video_preprocessor/<br>color_corrector/brightness             |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Contrast                  | stream_assembly/video_description/video_preprocessor/<br>color_corrector/contrast               |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Hue                       | stream_assembly/video_description/video_preprocessor/<br>color_corrector/hue                    |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Saturation                | stream_assembly/video_description/video_preprocessor/<br>color_corrector/saturation             |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Video Range               | stream_assembly/video_description/video_preprocessor/<br>color_corrector/full_swing             |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Color Space<br>Conversion | stream_assembly/video_description/video_preprocessor/<br>color_corrector/color_space_conversion |
+| Location of Field on Web Interface                                                      | Location of Tag in XML                                                                                |
+| --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Input > Video Selector > Color Space                                                    | input/video\_selector/color\_space                                                                    |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Brightness                | stream\_assembly/video\_description/video\_preprocessor/<br>color\_corrector/brightness               |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Contrast                  | stream\_assembly/video\_description/video\_preprocessor/<br>color\_corrector/contrast                 |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Hue                       | stream\_assembly/video\_description/video\_preprocessor/<br>color\_corrector/hue                      |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Saturation                | stream\_assembly/video\_description/video\_preprocessor/<br>color\_corrector/saturation               |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Video Range               | stream\_assembly/video\_description/video\_preprocessor/<br>color\_corrector/full\_swing              |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Color Space<br>Conversion | stream\_assembly/video\_description/video\_preprocessor/<br>color\_corrector/color\_space\_conversion |

@@ -52,7 +52,7 @@ or **Adaptive**. Set it to the desired value:
 
 ## Location of Fields
 
-| Location of Field on Web Interface                                       | Location of Tag in XML                                                       |
-| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace Algorithm | stream_assembly/video_description/video_preprocessors/deinterlacer/algorithm |
-| Streams > Advanced >Preprocessors > Deinterlacer > Force Mode            | stream_assembly/video_description/video_preprocessors/deinterlacer/force     |
+| Location of Field on Web Interface                                       | Location of Tag in XML                                                          |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace Algorithm | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/algorithm |
+| Streams > Advanced >Preprocessors > Deinterlacer > Force Mode            | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/force     |

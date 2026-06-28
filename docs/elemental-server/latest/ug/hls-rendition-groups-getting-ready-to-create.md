@@ -62,12 +62,12 @@ options for this field for each audio stream are:
 
 Set the Audio Track Type field. The options for this field for each audio stream follow.
 
-| Value                                     | Client Player Behavior                                                                                                                                                               | Representation in HLS Manifest               |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
-| Alternate Audio, Auto Select, Default     | The client player should \*select<br>• this stream. Only<br>one stream in the rendition group should be set as the default; otherwise, the client<br>player may behave unexpectedly. | EXT-X-MEDIA with DEFAULT=YES, AUTOSELECT=YES |
-| Alternate Audio, Auto Select, Not Default | The client player \*may<br>• select this stream. Any number of streams in the rendition group can be set this<br>way.                                                                | EXT-X-MEDIA with DEFAULT=NO, AUTOSELECT=YES  |
-| Alternate Audio, not Auto Select          | The client player \*should<br>never<br>• select this stream. Any number of streams in the rendition group can be<br>set this way.                                                    | EXT-X-MEDIA with DEFAULT=NO, AUTOSELECT=NO   |
-| Audio-Only Variant Stream                 | The client can play back this audio-only stream<br>instead of video in low-bandwidth scenarios.                                                                                      | EXT-X-STREAM-INF                             |
+| Value                                     | Client Player Behavior                                                                                                                                                              | Representation in HLS Manifest               |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| Alternate Audio, Auto Select, Default     | The client player should *select<br>• this stream. Only<br>one stream in the rendition group should be set as the default; otherwise, the client<br>player may behave unexpectedly. | EXT-X-MEDIA with DEFAULT=YES, AUTOSELECT=YES |
+| Alternate Audio, Auto Select, Not Default | The client player *may<br>• select this stream. Any number of streams in the rendition group can be set this<br>way.                                                                | EXT-X-MEDIA with DEFAULT=NO, AUTOSELECT=YES  |
+| Alternate Audio, not Auto Select          | The client player *should<br>never<br>• select this stream. Any number of streams in the rendition group can be<br>set this way.                                                    | EXT-X-MEDIA with DEFAULT=NO, AUTOSELECT=NO   |
+| Audio-Only Variant Stream                 | The client can play back this audio-only stream<br>instead of video in low-bandwidth scenarios.                                                                                     | EXT-X-STREAM-INF                             |
 
 1. Set the **Alternate Audio Track Selection** as
    follows:
